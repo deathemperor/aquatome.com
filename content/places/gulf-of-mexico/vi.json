@@ -1,10 +1,13 @@
 {
   "slug": "gulf-of-mexico",
-  "name": "Gulf of Mexico",
-  "altNames": [],
+  "name": "vịnh Mexico",
+  "altNames": [
+    "Gulf of Mexico"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "congo-river",
-  "name": "Congo River",
-  "altNames": [],
+  "name": "sông Congo",
+  "altNames": [
+    "Congo River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

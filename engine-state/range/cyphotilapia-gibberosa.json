@@ -1,0 +1,73 @@
+{
+  "id": "cyphotilapia-gibberosa",
+  "native": {
+    "input": "90422953d87961af",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It occurs throughout this area, but localities popular in the aquarium hobby include: Kapampa, Kitumba, Mikula, and Moba in Democratic Republic of the Congo (formerly known as Zaire, which is still used in reference to some populations; see 'Notes'); Bismark, Chaitika, Nangu, and Samazi in Zambia; Mpimbwe, Ikola, Kantalamba, and Mabilili in Tanzania.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is '8°43'S, 31°08'E, Kasenga, Zambia, Lake Tanganyika, depth 34 meters'.",
+        "words": "Zambia",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It occurs throughout this area, but localities popular in the aquarium hobby include: Kapampa, Kitumba, Mikula, and Moba in Democratic Republic of the Congo (formerly known as Zaire, which is still used in reference to some populations; see 'Notes'); Bismark, Chaitika, Nangu, and Samazi in Zambia; Mpimbwe, Ikola, Kantalamba, and Mabilili in Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Cyphotilapia gibberosa is a large cichlid endemic to southern Lake Tanganyika, with a hump on the forehead and broad vertical body bands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyphotilapia gibberosa",
+    "status": "ACCEPTED",
+    "taxonKey": 2373237,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CD",
+      "ZM",
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

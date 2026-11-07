@@ -140,7 +140,7 @@ func listsAreTheContracts() {
   #expect(Set(values("Action", "name")) == Set(Action.allCases.map(\.rawValue)))
   #expect(values("Scroll", "depth") as? [Int] == Event.depths)
   #expect(values("Time", "seconds") as? [Int] == Event.times)
-  #expect(values("Batch", "lang") == ["vi", "id", "th"])
+  #expect(values("Batch", "lang") == ["vi", "id", "th", "ms"])
   #expect(Set(values("Report", "kind")) == ["metric", "diagnostic"])
   let events = (schema("Batch")["properties"] as! [String: Any])["events"] as! [String: Any]
   #expect(events["maxItems"] as? Int == Wire.batchSize)
@@ -153,11 +153,11 @@ func listsAreTheContracts() {
   #expect(((schema("AppConfig")["properties"] as! [String: Any])["telemetry"] as! [String: Any])["type"] as? String == "boolean")
 }
 
-@Test("A page's path as the contract takes it: Vietnamese pages at the root or under /vi/, Indonesian and Thai under theirs, nothing else at the root; a root-form view is sent")
+@Test("A page's path as the contract takes it: Vietnamese pages at the root or under /vi/, Indonesian, Thai and Malay under theirs, nothing else at the root; a root-form view is sent")
 func pathsAreTheContracts() async {
   let cases: [(String, Bool)] = [
     ("/", true), ("/vi/", true), ("/ca/x/", true), ("/vi/ca/x/", true), ("/ca/ca-neon/", true), ("/huong-dan/nuoi-ca-neon/", true),
-    ("/id/", true), ("/th/ikan/x/", true),
+    ("/id/", true), ("/th/ikan/x/", true), ("/ms/ikan/x/", true),
     ("/app/", false), ("/go/x/", false), ("/robots.txt", false), ("/en/x/", false), ("/api/v1/app/events/", false), ("/data/", false),
     ("/pagefind/", false), ("/_e", false), ("/_ab/x/", false), ("/x/", false), ("/ca/x", false), ("/vi/x/", false), ("/ca/x/?q=a", false),
   ]

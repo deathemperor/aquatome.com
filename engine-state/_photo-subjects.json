@@ -10,7 +10,9 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": true,
-      "note": "single butterfly koi with long flowing fins in a pond"
+      "note": "orange and black butterfly koi with long trailing fins in a pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1516022109437-ad7a1f89b0d1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fHBpZ2VvbiUyMGJsb29kJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQzNzg0Nnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -24,7 +26,9 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "calico bubble eye with large eye sacs, front view"
+      "note": "calico bubble eye with very large sacs, front view on dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1548425923-a7d6c37d7f18?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8U3ltcGh5c29kb24lMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDQ1MzMyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -84,14 +88,18 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": true,
-      "note": "orange butterfly koi from above on dark background, small in frame"
+      "note": "golden butterfly koi seen from above, long flowing fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1603546609526-2fc9c4cf48c1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
     "butterfly-koi": {
       "ok": "unsure",
       "typical": false,
-      "note": "white koi with red head, front view in tank; fin length unclear"
+      "note": "white fish with red head, head-on in dark tank; fins only moderately long, could be koi or goldfish",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1603587423687-0242c61104a8?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8N3x8cGxhdGludW0lMjBhbmdlbGZpc2h8ZW58MXx8fHwxNzkzMzc5NDc3fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -110,16 +118,20 @@
   },
   "https://images.unsplash.com/photo-1625369730563-3e7d485ed341?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjR8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
     "butterfly-koi": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "red-and-white long-finned fish in tank; could be butterfly koi or sarasa comet goldfish"
+      "note": "likely sarasa comet goldfish: red and white, no visible barbels, long forked tail, short pectoral fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1642136331165-08690beed14b?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
     "black-moor-goldfish": {
       "ok": "unsure",
       "typical": false,
-      "note": "black-and-white photo of a telescope-eye goldfish; color can't be confirmed"
+      "note": "Telescope-eyed goldfish head-on in black and white; colour cannot be confirmed",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1642378675428-60a11d6a74ca?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -154,14 +166,18 @@
     "blue-velvet-shrimp": {
       "ok": "unsure",
       "typical": false,
-      "note": "dark blue shrimp with near-black head and banded blue body; body shape suggests a Caridina blue (e.g. Taiwan bee type) r"
+      "note": "deep blue shrimp on leaf; blackish head and underside, could be a Caridina blue form",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
     "blue-velvet-shrimp": {
       "ok": "unsure",
       "typical": false,
-      "note": "dark blue-purple shrimp with reddish patches on moss; could be Blue Dream or a Caridina/other Neocaridina dark line"
+      "note": "dark navy shrimp with reddish-brown patches; mottling unlike even Blue Dream colour, look-alike not ruled out",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1695145752654-1830d43f43a8?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTl8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -219,7 +235,9 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": true,
-      "note": "group of long-finned butterfly koi in a pond, seen from above"
+      "note": "group of colourful butterfly koi with long fins in a shallow pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1737915971912-0ee1c7acff6f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTJ8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -241,7 +259,9 @@
     "blue-velvet-shrimp": {
       "ok": "yes",
       "typical": true,
-      "note": "blue Neocaridina with even blue colour over the whole body, on a leaf"
+      "note": "blue shrimp with colour over whole body on a leaf, side view, partly hidden by the leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1754722779079-e9ad2e963e0d?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjh8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -255,8 +275,10 @@
   "https://images.unsplash.com/photo-1771627278592-dd4ab6c11c6c?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
     "black-moor-goldfish": {
       "ok": "yes",
-      "typical": false,
-      "note": "black moor with other goldfish, small and partly blurred"
+      "typical": true,
+      "note": "Black moor in side view with telescope eyes among other fancy goldfish",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1773979400905-77b27dab9cf0?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8bGlvbmhlYWQlMjBnb2xkZmlzaHxlbnwxfHx8fDE3OTM0MjA1Mjd8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -2911,14 +2933,18 @@
     "balloon-molly": {
       "ok": "yes",
       "typical": true,
-      "note": "Silver-grey balloon molly, short rounded body with swollen belly and arched back"
+      "note": "silver-grey balloon molly, round belly and arched back, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/025ba6de7bd7d6ca.webp": {
     "balloon-molly": {
       "ok": "yes",
       "typical": true,
-      "note": "white balloon molly with round belly and arched back, plus a pleco in the foreground"
+      "note": "pale white balloon molly, short rounded body, in planted tank with driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/028e21e999201c76.webp": {
@@ -3548,7 +3574,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male flowerhorn, angled view: large kok, pearling, black lateral markings"
+      "note": "flowerhorn male with large kok and black flowerline in bare tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0e7f3bebce7fea33.webp": {
@@ -3698,7 +3726,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": false,
-      "note": "flowerhorn with large kok, front-on view under pink tank lighting, colours distorted"
+      "note": "pink flowerhorn with kok, front view under pink light, no markings visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/117f7e3709f3c801.webp": {
@@ -3797,7 +3827,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": true,
-      "note": "crystal red shrimp, solid red head and white body, clear view"
+      "note": "crystal red shrimp, high white with solid red saddle, on dark substrate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/12d6cbcf23d40d29.webp": {
@@ -3965,9 +3997,11 @@
   },
   "https://media.aquatome.com/commons/15934252a12ce521.webp": {
     "butterfly-koi": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "cream/yellow koi with somewhat longer, wavy-edged fins; may be a butterfly koi, but the fins aren't clearly long enough "
+      "ok": "yes",
+      "typical": true,
+      "note": "pale gold butterfly koi at the surface, enlarged fins, other koi below",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/15b6afa47ca2cf2e.webp": {
@@ -4195,7 +4229,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "red pearl-scaled flowerhorn with big kok and black lateral blotches"
+      "note": "adult flowerhorn with huge red kok and black lateral markings",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/19be6650cf96497b.webp": {
@@ -4334,7 +4370,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": true,
-      "note": "high-grade crystal red shrimp, side view, solid red and white bands"
+      "note": "crystal red shrimp with solid red and white bands, sharp borders, on substrate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1b7ffadba0846b98.webp": {
@@ -4503,8 +4541,10 @@
   "https://media.aquatome.com/commons/1dddb522f9c5b4d2.webp": {
     "albino-oscar": {
       "ok": "yes",
-      "typical": false,
-      "note": "very pale, almost unpatterned albino oscar with red eye, cluttered tank"
+      "typical": true,
+      "note": "live albino oscar in a tank: whitish body, orange-red marks, clear red eye; toy diver ornament top left",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1e0d91721aa1358f.webp": {
@@ -4532,7 +4572,9 @@
     "balloon-molly": {
       "ok": "yes",
       "typical": true,
-      "note": "White sailfin balloon molly, short round body with big dorsal fin"
+      "note": "white balloon molly with sail dorsal, short round body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1e8471e5e1bce54f.webp": {
@@ -4624,7 +4666,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "adult flowerhorn side view: big kok, pearly scales, black flowerline along flank"
+      "note": "adult flowerhorn with pearled kok and black markings in bare tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/20fd1c41e621b0ef.webp": {
@@ -4674,7 +4718,9 @@
     "electric-blue-ram": {
       "ok": "yes",
       "typical": true,
-      "note": "Electric blue rams: bright metallic blue body, orange head, red eyes; a second fish blurred behind"
+      "note": "Electric blue ram: metallic blue body, red eye, orange forehead, in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/21ffa492f22f806c.webp": {
@@ -4781,8 +4827,10 @@
   "https://media.aquatome.com/commons/23d47afadfb2dfb9.webp": {
     "flowerhorn-cichlid": {
       "ok": "yes",
-      "typical": false,
-      "note": "pink flowerhorn with small hump, strong colour cast"
+      "typical": true,
+      "note": "pink-toned flowerhorn, small kok, long dorsal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/23daffd25a159d18.webp": {
@@ -4954,8 +5002,10 @@
   "https://media.aquatome.com/commons/26cf4bfde335986c.webp": {
     "crowntail-betta": {
       "ok": "yes",
-      "typical": false,
-      "note": "Crowntail male, white/turquoise body with red fins; rays clearly extend past the webbing in comb-like points, but fins a"
+      "typical": true,
+      "note": "Live white, turquoise and red short-finned crowntail with spiky rays extending past reduced webbing",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/26f594f208ee0ac6.webp": {
@@ -5101,7 +5151,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "pearled flowerhorn with smaller kok in bare tank"
+      "note": "red pearly flowerhorn with small kok; fingers or hand at bottom right edge",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/2aae632923e532b9.webp": {
@@ -5216,9 +5268,11 @@
   },
   "https://media.aquatome.com/commons/2cf1ed06e3421dee.webp": {
     "balloon-molly": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "Dalmatian-spotted molly; body fairly deep but not clearly balloon-shaped, may be a normal-bodied molly"
+      "note": "dalmatian molly: longer, normal body without balloon shape",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2d281283e079d46f.webp": {
@@ -5421,7 +5475,9 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "orange bubble eye from the front, large sacs, upturned eyes"
+      "note": "orange bubble eye from the front, large sacs, upturned eyes, in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3091724bf61ae9ba.webp": {
@@ -5513,8 +5569,10 @@
   "https://media.aquatome.com/commons/324e7c7445d6aa6b.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
-      "typical": true,
-      "note": "Crystal red shrimp with blotchy red and white bands on a filter intake; low grade"
+      "typical": false,
+      "note": "low-grade crystal red shrimp with mottled, speckled white bands, on a filter intake",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/326b6896dd339b9b.webp": {
@@ -5766,14 +5824,18 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "red bubble eye, side view, large eye sacs, no dorsal fin"
+      "note": "red-orange bubble eye with large sacs, side view, no dorsal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/37737462c76fca21.webp": {
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": false,
-      "note": "long-finned blood parrot variant in tank, beak mouth, bright red"
+      "note": "red long-finned blood parrots, head-down view under pink light with tubing",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/377a30b57202268e.webp": {
@@ -6132,9 +6194,11 @@
   },
   "https://media.aquatome.com/commons/3cecec96aa8f48ba.webp": {
     "blood-parrot-cichlid": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "dark brown cichlid with yellow fins, possibly a blood parrot changing colour; stingrays behind"
+      "note": "dark red body with yellow fins, unusual colouring, small mouth; stingrays behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3cf550160ab08a3c.webp": {
@@ -6234,7 +6298,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": false,
-      "note": "yellow colour form of blood parrot, beak-like mouth, group in tank"
+      "note": "yellow blood parrots in a tank, beak mouth and round body; unusual yellow colour",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3f86e3957a3e18db.webp": {
@@ -6667,9 +6733,11 @@
   },
   "https://media.aquatome.com/commons/479c1b9bb3a309cc.webp": {
     "balloon-molly": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "yellow balloon molly with short rounded body, blurry, shown with corydoras catfish"
+      "note": "blurred yellow molly-like fish head-down among corydoras, body shape unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/47c309a2b0cd2994.webp": {
@@ -6902,7 +6970,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "front view of blood parrot showing small gaping beak mouth"
+      "note": "red-orange blood parrot from the front showing small malformed open mouth, others around",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4c307f923428e83d.webp": {
@@ -7109,9 +7179,11 @@
   },
   "https://media.aquatome.com/commons/5019ddb756604251.webp": {
     "albino-oscar": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult albino oscar: white body, red-orange markings, red eye"
+      "ok": "unsure",
+      "typical": false,
+      "note": "near-white oscar with red-orange marks; orange iris but pupil looks dark, true albino not confirmed",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/503d7c93b8f75f8c.webp": {
@@ -7204,7 +7276,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "orange-red blood parrot, clear side view"
+      "note": "orange blood parrot, clear side view, beak-like small mouth",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/524e6524c48665c3.webp": {
@@ -7559,8 +7633,10 @@
   "https://media.aquatome.com/commons/593a9756edc14516.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
-      "typical": false,
-      "note": "low-grade crystal red, thin translucent white bands, mostly red"
+      "typical": true,
+      "note": "crystal red shrimp with red and white bands on dark substrate, somewhat translucent",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/59838f064cc6671f.webp": {
@@ -7602,7 +7678,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": false,
-      "note": "Crystal red shrimp on soil, almost solid red with only small white patches; unusual low-white pattern"
+      "note": "mostly red crystal red shrimp with only small white marks, atypical pattern",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5af8f8a2a7be7155.webp": {
@@ -7621,9 +7699,11 @@
   },
   "https://media.aquatome.com/commons/5ba6d16a878e66e5.webp": {
     "albino-oscar": {
-      "ok": "yes",
-      "typical": true,
-      "note": "albino red oscars, one in clear side view"
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale oscars with orange-red marks in blue tank; yellow iris and dark pupil, not clear red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5bb644bd7a866474.webp": {
@@ -7686,7 +7766,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": false,
-      "note": "low-grade crystal red on plant, blotchy, washed-out banding"
+      "note": "lower-grade crystal red shrimp with patchy, translucent bands, head down on a plant",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5ce52af41d91272a.webp": {
@@ -7790,8 +7872,10 @@
   "https://media.aquatome.com/commons/5ee55ab7f26d5964.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
-      "typical": false,
-      "note": "two low-grade crystal red shrimp, small distant view"
+      "typical": true,
+      "note": "two crystal red shrimp with red and white bands on a sponge, small in frame",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5ef1dad11c34c04d.webp": {
@@ -7864,8 +7948,10 @@
   "https://media.aquatome.com/commons/60dced638fdbe365.webp": {
     "bubble-eye-goldfish": {
       "ok": "yes",
-      "typical": false,
-      "note": "calico bubble eye with long tail, seen from above"
+      "typical": true,
+      "note": "red and white bubble eye seen from above over gravel, large sacs, no dorsal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/612593bd78747901.webp": {
@@ -7923,6 +8009,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "rummynose type, but red is limited to the head; could be H. rhodostomus or Petitella georgiae"
+    },
+    "hemigrammus-rhodostomus": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "rummy-nose type; red extends behind gill, could be H. bleheri",
+      "logo": false
     }
   },
   "https://media.aquatome.com/commons/61f3d900435b48fa.webp": {
@@ -7985,7 +8077,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "red flowerhorn with kok, pearl scales and black blotch line, clear side view"
+      "note": "red flowerhorn side view, large kok, black blotch line",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/63ca7233f4cd3ac6.webp": {
@@ -8014,7 +8108,9 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": true,
-      "note": "two long-finned butterfly koi, white-red and metallic, top view in pond"
+      "note": "two butterfly koi in a pond seen from above, long flowing fins, one white with red, one silver-orange",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/643ea23ed0095368.webp": {
@@ -8172,7 +8268,9 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "orange-white bubble eye, eyes turned up with sacs"
+      "note": "orange and white bubble eye swimming, sacs and twin tail visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/67e6ecee304f3b17.webp": {
@@ -8328,7 +8426,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "group of red blood parrots"
+      "note": "large group of red blood parrots feeding",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6a9b12e919601405.webp": {
@@ -8414,7 +8514,9 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": false,
-      "note": "group of butterfly koi in pond, cluttered view"
+      "note": "several butterfly koi in a pond, frayed long fins, partly obscured by reflections",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6c8f7735e066b384.webp": {
@@ -8541,7 +8643,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": true,
-      "note": "high-grade crystal red on leaf, mostly white"
+      "note": "high-grade crystal red shrimp, mostly white with dark red saddle, on a leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6ed9e3f8ddc90890.webp": {
@@ -9000,7 +9104,9 @@
     "black-moor-goldfish": {
       "ok": "unsure",
       "typical": false,
-      "note": "black fancy goldfish; can't see whether the eyes are telescope eyes from this angle"
+      "note": "velvety black double-tailed goldfish, small and dim; telescope eyes not clearly visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/784d0b9a794b2773.webp": {
@@ -9193,9 +9299,11 @@
   },
   "https://media.aquatome.com/commons/7be6e0d108401431.webp": {
     "albino-oscar": {
-      "ok": "yes",
-      "typical": true,
-      "note": "pale albino oscar with orange spots and tail ocellus, side view"
+      "ok": "unsure",
+      "typical": false,
+      "note": "peach-toned oscar with orange spots; yellow iris, dark pupil, grey tail spot centre, lutino look-alike possible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7bf0ebde1bf98cae.webp": {
@@ -9577,8 +9685,10 @@
   "https://media.aquatome.com/commons/835bc651dcee732e.webp": {
     "bubble-eye-goldfish": {
       "ok": "yes",
-      "typical": false,
-      "note": "calico bubble eye with smaller sacs, seen from above"
+      "typical": true,
+      "note": "calico bubble eye from above among water lily leaves, fluid sacs under upturned eyes",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/838415318b635e8e.webp": {
@@ -9737,7 +9847,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "red flowerhorn male with large pearled kok, side view"
+      "note": "adult flowerhorn with large red pearled kok, side view in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8670dab53cbe3bf0.webp": {
@@ -9772,7 +9884,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "group of orange blood parrots in a decorated tank"
+      "note": "group of orange blood parrots in a tank with gravel and ornaments",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/87925fc5b9a4ac1f.webp": {
@@ -9878,7 +9992,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "Flowerhorn male with large red kok, side view"
+      "note": "flowerhorn with large round kok in dark tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8aa63710890e49bc.webp": {
@@ -10026,7 +10142,9 @@
     "albino-oscar": {
       "ok": "unsure",
       "typical": false,
-      "note": "White oscar with orange-red markings, but the pupil looks dark rather than clear red. It could be a lutino or a mixed-ge"
+      "note": "pale oscar with orange-red marks, but yellow iris and dark pupil, not clear red eye; possibly not true albino",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8e8ec8a041a9b6b9.webp": {
@@ -10371,7 +10489,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "group of pale orange blood parrots over sand"
+      "note": "group of pale orange blood parrots over sand, round body in front",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/951ada310c3c71ba.webp": {
@@ -10921,7 +11041,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of orange-red blood parrot, rounded body, small beak mouth"
+      "note": "orange-red blood parrot, side view, rounded body, small mouth, slightly blurred",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a10ae39242338925.webp": {
@@ -10983,9 +11105,11 @@
   },
   "https://media.aquatome.com/commons/a2b410fe31df8255.webp": {
     "black-moor-goldfish": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "black fancy goldfish, ryukin-like body; eyes don't clearly look like telescope eyes"
+      "ok": "yes",
+      "typical": true,
+      "note": "black telescope-eye fancy goldfish, side view, long double fins, bronze belly",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a2c38b71059b7fc3.webp": {
@@ -11020,7 +11144,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "red blood parrot, front view showing the small mouth that does not fully close and the round eyes"
+      "note": "red blood parrot facing camera, small beak mouth, others behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a385271920d46b05.webp": {
@@ -11620,7 +11746,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": true,
-      "note": "crystal red shrimp, clear red/white bands, berried female"
+      "note": "berried adult crystal red shrimp with red and white bands, side view on moss",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b0f832d8dcd1777e.webp": {
@@ -11656,8 +11784,10 @@
   "https://media.aquatome.com/commons/b17c4ab77d35a587.webp": {
     "crowntail-betta": {
       "ok": "yes",
-      "typical": false,
-      "note": "Turquoise crowntail male, rays clearly extend past the reduced webbing, but fins are short (plakat-type crowntail)"
+      "typical": true,
+      "note": "Live turquoise short-finned crowntail with comb-like rays on dorsal, caudal and anal fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b18f6d47ec824403.webp": {
@@ -11718,9 +11848,11 @@
   },
   "https://media.aquatome.com/commons/b262d48ce5db4cdb.webp": {
     "black-moor-goldfish": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "mirror image of photo 1; black fancy goldfish, telescope eyes unclear"
+      "ok": "yes",
+      "typical": true,
+      "note": "same fish as photo 1, mirrored; black moor with bronze belly",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b26e57148d139383.webp": {
@@ -11813,7 +11945,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": false,
-      "note": "white/albino-type flowerhorn with large kok, unusual colour form"
+      "note": "pale white flowerhorn with large kok, red eye, lacks usual colour and markings",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b45de7d4ff14ef35.webp": {
@@ -12293,7 +12427,9 @@
     "black-moor-goldfish": {
       "ok": "yes",
       "typical": false,
-      "note": "black moor seen head-on, telescope eyes; red marks around mouth and gills"
+      "note": "Black moor seen from below/front, protruding eyes, pale underside with red marks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bc9a34397cfe8885.webp": {
@@ -12580,9 +12716,11 @@
   },
   "https://media.aquatome.com/commons/c1076224289ea009.webp": {
     "albino-oscar": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "albino oscar with yellow-orange pattern, small view in a mall tank beside wild-type/tiger oscars"
+      "note": "pale yellow-orange oscar above a tiger oscar in a shop tank; distant view, eye not red, lutino-like",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c116b39ef3658eb2.webp": {
@@ -12782,7 +12920,9 @@
     "electric-blue-acara": {
       "ok": "yes",
       "typical": false,
-      "note": "electric blue acara, three-quarter front view under dark, blue-tinted light; body shape not fully shown"
+      "note": "Vivid electric blue cichlid, front-angled view on black background under blue lighting that intensifies the colour",
+      "logo": false,
+      "person": false
     },
     "andinoacara-pulcher": {
       "ok": "unsure",
@@ -13009,9 +13149,11 @@
   },
   "https://media.aquatome.com/commons/c836d47f858a56f6.webp": {
     "albino-oscar": {
-      "ok": "yes",
-      "typical": true,
-      "note": "group of albino red oscars in a blue tank"
+      "ok": "unsure",
+      "typical": false,
+      "note": "group of pale oscars with orange-red marks; yellow iris and dark pupil, not clear red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c8379e1afca4db8b.webp": {
@@ -13039,7 +13181,9 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": true,
-      "note": "high-grade crystal red, mostly white with red head band"
+      "note": "high-grade crystal red shrimp, mostly solid white with clean red patches",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c8bfaf17ac77346e.webp": {
@@ -13328,7 +13472,9 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": true,
-      "note": "gold-white butterfly koi in bowl, very long fins clearly shown"
+      "note": "white and gold butterfly koi in a shallow tub, very long fins and tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cf66cf7dc797c3bc.webp": {
@@ -13456,8 +13602,10 @@
   "https://media.aquatome.com/commons/d18c766e960a2f8f.webp": {
     "blue-diamond-discus": {
       "ok": "yes",
-      "typical": false,
-      "note": "Solid blue discus with no stripes or peppering, so it fits Blue Diamond; body colour is pale and washed out, and the fis"
+      "typical": true,
+      "note": "Live solid blue discus in planted tank: no bars or peppering, pale silvery-blue body, blue fins, slight orange around ey",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d19df063cf5eeaa1.webp": {
@@ -13506,7 +13654,9 @@
     "black-moor-goldfish": {
       "ok": "yes",
       "typical": false,
-      "note": "telescope-eyed black goldfish, colour fading to bronze-gray"
+      "note": "telescope-eye goldfish with bronze-mottled body, not solid black; dark fish on gravel below",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d24065c06836f63d.webp": {
@@ -13623,7 +13773,9 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": false,
-      "note": "Calico bubble eye goldfish seen head-on; big fluid sacs under upturned eyes. Front-only view, so the body and fins are h"
+      "note": "dark mottled bubble eye from the front, unusual colour, dim view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d434340106371395.webp": {
@@ -13776,7 +13928,9 @@
     "butterfly-koi": {
       "ok": "yes",
       "typical": true,
-      "note": "white-yellow butterfly koi with long flowing fins"
+      "note": "white and yellow butterfly koi from above, elongated fins and tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d6a9acc77fb0ff78.webp": {
@@ -13834,7 +13988,9 @@
     "black-moor-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "dark telescope-eye goldfish, front view, protruding eyes"
+      "note": "dark grey moor, front view, strongly protruding telescope eyes",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d75ef4bfd775e0a6.webp": {
@@ -13906,7 +14062,9 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "calico bubble eye, upturned eyes with fluid sacs, seen from above among lily pads"
+      "note": "close view of calico bubble eye head with sacs among lily leaves, body partly hidden",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d87b68156d89fe35.webp": {
@@ -14076,7 +14234,9 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "two orange blood parrots among decor"
+      "note": "two orange-gold blood parrots in a decorated tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/dd95b54aeaa69232.webp": {
@@ -14131,9 +14291,11 @@
   },
   "https://media.aquatome.com/commons/deee119c227bb1bf.webp": {
     "butterfly-koi": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "yellow butterfly koi among red goldfish, blurry murky water"
+      "note": "blurry yellow-orange long-finned koi in murky water among small red goldfish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/def555a8e4915d37.webp": {
@@ -14312,7 +14474,9 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": false,
-      "note": "flowerhorn under purple display lighting with lantern decorations, colours distorted"
+      "note": "flowerhorn with kok under purple light, lantern-themed backdrop alters colours",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e3d68bcd1d6f6b31.webp": {
@@ -14361,9 +14525,11 @@
   },
   "https://media.aquatome.com/commons/e4eb3a3787b65603.webp": {
     "crystal-red-shrimp": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Crystal red shrimp with red and white bands on white gravel; low grade, colours washed out"
+      "ok": "unsure",
+      "typical": false,
+      "note": "faded brownish-red banded shrimp with blotchy colour, poor colour; may be a low-grade or different bee shrimp",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e5401ccadf4d0dde.webp": {
@@ -14391,8 +14557,10 @@
   "https://media.aquatome.com/commons/e5aeb03157330801.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
-      "typical": true,
-      "note": "crystal red shrimp, banded, on aquasoil; colours a bit washed"
+      "typical": false,
+      "note": "crystal red shrimp with bands, colours shifted orange by lighting",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e5eea4785f2ebea2.webp": {
@@ -14870,8 +15038,10 @@
   "https://media.aquatome.com/commons/f069491f6a699837.webp": {
     "black-moor-goldfish": {
       "ok": "yes",
-      "typical": false,
-      "note": "greyish faded black moor, front view, telescope eyes"
+      "typical": true,
+      "note": "dark grey moor facing camera, protruding eyes, planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f0abbe8601a44710.webp": {
@@ -14884,8 +15054,10 @@
   "https://media.aquatome.com/commons/f0f0721cad1c57de.webp": {
     "flowerhorn-cichlid": {
       "ok": "yes",
-      "typical": false,
-      "note": "flowerhorn with large kok, angled front view"
+      "typical": true,
+      "note": "flowerhorn with big kok, three-quarter view among plastic plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f13a47373a975627.webp": {
@@ -15560,14 +15732,18 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "orange bubble eye from the front over gravel"
+      "note": "orange-white bubble eye over gravel, front view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/feb062f1ee4e466f.webp": {
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
-      "note": "orange-pink blood parrot, side view, rounded body"
+      "note": "orange blood parrot side view, round body and small mouth",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fee37f5cf598f7ca.webp": {
@@ -15859,8 +16035,9 @@
     "bubble-eye-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "orange bubble eye goldfish seen from above, large eye sacs, no dorsal fin",
-      "logo": false
+      "note": "orange bubble eye close-up, sacs, no dorsal fin, twin tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/18815134980.webp": {
@@ -15958,8 +16135,9 @@
     "crowntail-betta": {
       "ok": "yes",
       "typical": true,
-      "note": "crowntail betta male, multicolor, clear view on black",
-      "logo": false
+      "note": "Live long-finned crowntail male in blue and orange with long rays and reduced webbing, on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/3645950993.webp": {
@@ -16001,8 +16179,9 @@
     "black-moor-goldfish": {
       "ok": "yes",
       "typical": true,
-      "note": "black telescope-eye goldfish (Black Moor) in a tank, close side view",
-      "logo": false
+      "note": "Black moor side-front view, telescope eyes, dark body, long fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/50023428322.webp": {
@@ -26767,6 +26946,12 @@
       "typical": false,
       "note": "Inle Lake, Myanmar: open water, floating gardens, stilt hut, person in boat",
       "logo": false
+    },
+    "sawbwa-resplendens": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "Inle Lake with stilt hut and boat",
+      "logo": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/6579d2c32d6ebf2e.webp": {
@@ -30456,6 +30641,1270 @@
       "ok": "none",
       "typical": false,
       "note": "photo of a framed painting (Matisse-style) of a goldfish bowl on a table, not a photo of real fish; the signature is pai",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/0f517e654a6245da.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male peacock gudgeon, side view on black background",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/21e5444aef21a6a1.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "fry eating baby brine shrimp, as the caption says",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/298676e0a48e5252.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "striped female on driftwood, as captioned",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/7b6167b49211ebcc.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "same image: gudgeon fry eating brine shrimp",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/8621b3727f86de35.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "fry eating baby brine shrimp, as the caption says; same image as 4",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/8e133594408af32e.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "gudgeon fry eating baby brine shrimp, as the caption says",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/b24aaf398189ddb5.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "fry eating baby brine shrimp, as the caption says",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/b382cc5ac98db9de.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of a live Mbu puffer's head with the maze pattern, matches the caption",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/bcf017781edcc97f.webp": {
+    "stigmatogobius-sadanundio": {
+      "ok": "yes",
+      "typical": true,
+      "note": "knight goby matching caption, black-spotted dorsal, in planted tank",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/bwaquatics/90b99c99ef09416d.webp": {
+    "sundadanio-axelrodi": {
+      "ok": "yes",
+      "typical": false,
+      "note": "distant school of small bluish rasboras in murky tank",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/0127b5d5ebc728bd.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale, washed-out fahaka with pinkish stripes on sand, second fish behind",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/03726a431470b8ed.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult uaru with dark body blotch in aquarium",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/0ae1a3b0779c0630.webp": {
+    "trichogaster-fasciata": {
+      "ok": "dead",
+      "typical": false,
+      "note": "banded gourami catch held in palm, may not be alive",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "none",
+      "typical": false,
+      "note": "watercolour drawing with handwritten notes",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/153dc626e9a8ea38.webp": {
+    "satanoperca-acuticeps": {
+      "ok": "dead",
+      "typical": false,
+      "note": "caught fish held up in a hand by a river",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/16f72b06740945c7.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "group of rummy-nose type tetras in planted tank, too small to separate from H. bleheri/Petitella",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/1ac659a7619769ec.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "none",
+      "typical": false,
+      "note": "watercolour drawing with handwritten notes",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/1fd659b9f6bf78df.webp": {
+    "pseudohomaloptera-leonardi": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "yellowish lizard loach with dark bars on dark gravel; could be another Homaloptera-type species",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/28c02716657cb202.webp": {
+    "synodontis-ocellifer": {
+      "ok": "none",
+      "typical": false,
+      "note": "line drawing of an ocellated Synodontis, side and head views",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/28eb6826a57a902e.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two striped females in tank, small and distant",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/29080a0a3402d699.webp": {
+    "serrasalmus-rhombeus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "speckled specimen with red eye over gravel",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/2ac3b3a72a0ec779.webp": {
+    "satanoperca-acuticeps": {
+      "ok": "none",
+      "typical": false,
+      "note": "watercolour drawing of two Satanoperca",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/2c88ac55356184ce.webp": {
+    "trichogaster-fasciata": {
+      "ok": "none",
+      "typical": false,
+      "note": "engraved plate 'Colisa vulgaris'",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/2d26af1651cb0ea1.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male peacock gudgeon, clear side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/3249dcb2b033121c.webp": {
+    "satanoperca-jurupari": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult eartheater, long snout, spangled scale rows, side view on sand",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/4d256149a1e87c02.webp": {
+    "serrasalmus-rhombeus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "speckled specimen with red eye in planted tank",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/4e6a31967276fa12.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dim view of a striped gourami among branches",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/5380ddb9c08116d0.webp": {
+    "serrasalmus-rhombeus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dark adult with red eye in planted tank",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/54866512906fd13f.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "striped Fahaka puffer over blue gravel",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/580a0475f6e60819.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": true,
+      "note": "striped female among plants",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/5974f9381b212d40.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": false,
+      "note": "single striped fish among moss, small in frame",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/5c5aa9250bdff345.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "single rummy-nose type tetra over driftwood, distant view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/5cd4b312801c6791.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult fahaka puffer resting on gravel, side/front view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/672c55aa34292393.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult fahaka puffer on gravel, near duplicate of photo 1",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/6a713c7355815279.webp": {
+    "tetraodon-lineatus": {
+      "ok": "none",
+      "typical": false,
+      "note": "old engraved colour plate of Tetrodon lineatus, inflated",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/6e545e71fc00d306.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": false,
+      "note": "juveniles with zebra striping in a tank, blurry",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/6e79963b83d51702.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "elongated mottled goby guarding eggs on a leaf; slim build and dark head don't clearly match the peacock gudgeon",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/7735ed5c35d1fdb0.webp": {
+    "serrasalmus-geryi": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "spotted silvery Serrasalmus piranha in an aquarium; lacks the clear black-edged fins of S. geryi, possibly another Serra",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/7ce128dc0ed937e2.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "rummy-nose tetra side view, red limited to head, striped tail",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/815e5845915aa9f5.webp": {
+    "synodontis-ocellifer": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark, blurry catfish in a tank; ocellated spots can't be seen to confirm the species",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/893f16efff06e634.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "rummy-nose tetra, red head, black-white tail bands, thin peduncle line",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/8fc2e77a90ff53a9.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": false,
+      "note": "juvenile or stressed fish, dark with light lengthwise stripes",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/9489e03a17b174ff.webp": {
+    "stigmatogobius-sadanundio": {
+      "ok": "yes",
+      "typical": true,
+      "note": "knight goby in planted tank, spotted pinkish body with black-marked dorsal",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/97136e5e9b861931.webp": {
+    "synodontis-angelicus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with white spots on dark body and banded fins, over gravel",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/a7abe071915949f2.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Fahaka puffer, blurry close view, body partly cut off",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/ac65977605ff4e68.webp": {
+    "satanoperca-jurupari": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "orange-tinted eartheater, shorter snout; may be a Geophagus look-alike or a young fish",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/ad7063ce3b7cfe35.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "chocolate gourami among plants, darker colouration with pale bars",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/ae2a0e15faf3055a.webp": {
+    "satanoperca-acuticeps": {
+      "ok": "none",
+      "typical": false,
+      "note": "watercolour drawing of eartheater",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/ba268c24c65b0b84.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "none",
+      "typical": false,
+      "note": "engraved plate of Pomotis fasciatus",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c1a0a78c3a6b7718.webp": {
+    "trichogaster-fasciata": {
+      "ok": "none",
+      "typical": false,
+      "note": "old colour drawing of a gourami",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c298eaec3843694a.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "fahaka puffer head and front body, striped pattern",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c4260f1298482af8.webp": {
+    "serrasalmus-rhombeus": {
+      "ok": "none",
+      "typical": false,
+      "note": "old engraved plate of Salmo rhombeus (Bloch)",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c53692168159d92e.webp": {
+    "serrasalmus-geryi": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "extreme frontal close-up of a fish's face; species can't be identified",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c66f53de877c9973.webp": {
+    "satanoperca-acuticeps": {
+      "ok": "none",
+      "typical": false,
+      "note": "watercolour drawing of a small cichlid",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c83717396c0c1a69.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male with blue-green head, white spots and orange-patterned fins on rock",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c88efd51ccb46067.webp": {
+    "stigmatogobius-sadanundio": {
+      "ok": "none",
+      "typical": false,
+      "note": "engraved drawing of the goby",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/cb67b5078fa9ba7b.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of fahaka head and eye, body cropped",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/d429dd4e995cdcf3.webp": {
+    "serrasalmus-rhombeus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "large silvery-grey adult with red eye in aquarium",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/df07a11dc6715057.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "peacock gudgeon in front of plant leaves",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/e82a2f1c4b6bea4c.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": true,
+      "note": "several striped females near glass with suction cups",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/f461a705641f7f65.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "peacock gudgeon on a black background",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/fbb7bba202977dba.webp": {
+    "trigonopoma-pauciperforatum": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult glowlight rasbora side view with red-orange lateral stripe",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/fd369850ce809f0d.webp": {
+    "serrasalmus-rhombeus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "silvery adult with red eye over gravel",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/flickr/15363690314.webp": {
+    "caridina-multidentata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Amano shrimp on a lava rock",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/flickr/16043054356.webp": {
+    "caridina-multidentata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Amano shrimp on a red leaf, side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/flickr/24694220282.webp": {
+    "caridina-multidentata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Amano shrimp on green plants",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/flickr/53632573324.webp": {
+    "caridina-multidentata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Amano shrimp on gravel, with bloodworms",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/flickr/53863403183.webp": {
+    "caridina-multidentata": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Female Amano shrimp carrying eggs",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/flickr/53863566280.webp": {
+    "caridina-multidentata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Amano shrimp on gravel, slightly blurred",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/151525248.webp": {
+    "trichogaster-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded gourami with orange body and blue oblique bars in a tank",
+      "logo": true
+    }
+  },
+  "https://media.aquatome.com/inaturalist/186507798.webp": {
+    "trichogaster-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded gourami among plants, typical oblique blue bars",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/188281877.webp": {
+    "trichogaster-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded gourami among plants",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/188704167.webp": {
+    "trichogaster-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded gourami in planted tank with black molly",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/198782077.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "stream rocks with a striped female goby",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/250978037.webp": {
+    "stigmatogobius-sadanundio": {
+      "ok": "yes",
+      "typical": false,
+      "note": "spotted knight goby in a clear plastic container, pale and washed out",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/304514165.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "uaru in green-lit tank, motion blur",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/307218301.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "peacock gudgeon on sand, hazy view through the glass",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/309626844.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "reddish-spotted fish on sand in a tank, seen from a distance; maybe a peacock gudgeon but hard to confirm",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/31270682.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "chocolate gourami close-up, dark body with cream bands",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/318292905.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale, washed-out peacock gudgeon next to a pleco, blurry",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/377653440.webp": {
+    "trigonopoma-pauciperforatum": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "blurry greenish view of a slim striped fish among plants, stripe colour hard to judge",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/387228644.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "underwater stream view with a small striped goby swimming",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/425156099.webp": {
+    "stigmatogobius-sadanundio": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "brownish goby on shells and sand, not clearly knight goby",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/443340993.webp": {
+    "trichogaster-fasciata": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "blue reticulated gourami under blue light; may be a blue dwarf gourami colour form",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/451947693.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male Stiphodon on a rock in a stream, dark blue iridescent body, patterned tail",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/470430345.webp": {
+    "trichogaster-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded gourami male in planted tank",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/52357015.webp": {
+    "marisa-cornuarietis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Marisa shell with dark spiral bands, flat ramshorn shape, in a wild algae-covered shallow; no soft body visible, so it m",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/625755496.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "yes",
+      "typical": false,
+      "note": "male seen from above on rock, blue-edged tail",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/63176567.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "rocky stream bed with a small blue male goby on a rock",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/717541579.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "yes",
+      "typical": false,
+      "note": "group of Stiphodon, mostly striped females, in a wild stream; distant view with a nerite snail",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/717541580.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male with blue head and dark bands on sandy rock",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/747617065.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "blurry public aquarium view of uarus with stingray",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/panitvong/Trsom_u0.webp": {
+    "trigonostigma-somphongsi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male, clear side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/618c259a0611c784.webp": {
+    "tenellus-leporhinus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "side view on gravel showing white lateral stripe, black dorsal tip and black caudal lobe bands",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/c673ced3d046b3c4.webp": {
+    "tenellus-leporhinus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult on gravel with tall dorsal fin that has a black tip",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/c97f809acd7fc7a2.webp": {
+    "tenellus-leporhinus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "silvery doradid with black dorsal tip and caudal spots in a bare tank, murky view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/0082a7f85fd85659.webp": {
+    "trigonostigma-somphongsi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male, orange body with thin dark lateral stripe, side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/0163d581381f756e.webp": {
+    "sawbwa-resplendens": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male among plants, red head and tail tips",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/090d43a1e50206c1.webp": {
+    "synodontis-angelicus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult polka-dot synodontis on sand, spots look orange under warm light",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/0b8ddfe53e1c35e7.webp": {
+    "sphaerichthys-selatanensis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "many tiny fry in a plastic tub, too small to confirm species",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/11adbf1eb35f65dc.webp": {
+    "sewellia-speciosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted loach under rock, shrimp in foreground",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/1255cba194e2b7bf.webp": {
+    "satanoperca-acuticeps": {
+      "ok": "yes",
+      "typical": true,
+      "note": "live adult in aquarium, side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/2395a075ae4601b6.webp": {
+    "sundadanio-axelrodi": {
+      "ok": "yes",
+      "typical": false,
+      "note": "red colour form of Sundadanio, side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/23a67aa62219f959.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male on rock, dark saddles, blue-edged fins",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/2472e8d9c6cdcfb8.webp": {
+    "corydoras-hastatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single C. hastatus with black tail spot, among leaf litter and wood",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/24e9d8b0f4aaeab7.webp": {
+    "sphaerichthys-selatanensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "side view of reddish-brown chocolate gourami with pale crossbands, dark tank",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/2f7d8b123e511605.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "collage of Stiphodon males with blue heads in aquarium",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/305f51f41ad7ad7b.webp": {
+    "sinibotia-robusta": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult Kansu loach side view on sand, many narrow bars",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/309ac1ff66f48d1a.webp": {
+    "stiphodon-ornatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "collage of striped females/juvenile gobies; can't confirm species",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/335eb1e480241b72.webp": {
+    "tanichthys-micagemmae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "plumper fish with red snout and tail base, likely a female",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/36479ef40b353ce9.webp": {
+    "trichopsis-schalleri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult croaking gourami, blue-spotted with red-edged fins, side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/3c3bb134337c44e5.webp": {
+    "stiphodon-ornatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male with yellow-gold cheek and spotted body on rock",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/3e5b742f31a87938.webp": {
+    "sundadanio-axelrodi": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "blackwater peat swamp forest",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/4995e7560c629be1.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male with female behind",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/4b649a8a40b86e14.webp": {
+    "sinibotia-robusta": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded Chinese loach on gravel, second fish behind",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/4f0fb2ccff14c56a.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "blue male neon goby on a stone in the aquarium",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/5d5cb3629c2fe56f.webp": {
+    "pseudohomaloptera-leonardi": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "underside view of a hillstream loach clinging to glass; can't confirm species",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/5eca2ed3673880e8.webp": {
+    "satanoperca-acuticeps": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of live adult, black lateral blotches, blue spangles",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/63111369d097b776.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "striped female Stiphodon goby on rock; females of the genus look alike",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/6c721776bb00f6ac.webp": {
+    "stiphodon-ornatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "strip of small, distant shots of a dark blue-headed goby; too small to confirm the species",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/6ea59ef2e3e7ec2e.webp": {
+    "trigonostigma-somphongsi": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pair swimming at an angle among plants",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/6fff7559aa000117.webp": {
+    "pseudohomaloptera-leonardi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "slender brown lizard loach with dark mottled saddles on gravel, side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/77fc742a452622af.webp": {
+    "trichopsis-schalleri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pale fish in a photo tank, with a scale and a number tag in the scene",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/8076caeb217eda05.webp": {
+    "sawbwa-resplendens": {
+      "ok": "yes",
+      "typical": true,
+      "note": "female, plain olive-silver, on black",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/81bf5a3ecf0a4ccb.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "striped female Stiphodon in aquarium; females of the genus look alike",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/94858723d473628c.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": true,
+      "note": "female with red bars on green-gold body",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/a35e0a75156ada02.webp": {
+    "sundadanio-axelrodi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult blue-green iridescent Sundadanio axelrodi, clear side view",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/a980e23f293549d8.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "forest blackwater swamp pool with pandanus",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/af03dadb6907983c.webp": {
+    "tanichthys-micagemmae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two adult males: blue-black stripe, red tail base, black-and-white edged fins",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b2eb902f68f9f3af.webp": {
+    "trigonostigma-somphongsi": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two paler fish, likely females or subdued colour, dark lateral stripe",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b593b96934136b9f.webp": {
+    "sewellia-speciosa": {
+      "ok": "yes",
+      "typical": false,
+      "note": "underside view of loach clinging to glass",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/bb1d9319e1872dab.webp": {
+    "tucanoichthys-tucano": {
+      "ok": "yes",
+      "typical": true,
+      "note": "tucano tetra side view, red throat and black lateral band",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c00927469d95a226.webp": {
+    "sewellia-speciosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "top view of spotted loach on rock, snail nearby",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c0465c67f9822abd.webp": {
+    "trichopsis-schalleri": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "green iridescent Trichopsis with a red eye; could be T. vittata",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c5456f1dcf144df3.webp": {
+    "sewellia-speciosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted orange-brown hillstream loach side view on rock",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c664226ae73ea6d7.webp": {
+    "trigonostigma-somphongsi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male matching caption, clear side view",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c9f1dfdd2d562f63.webp": {
+    "tateurndina-ocellicauda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "peacock gudgeon in a planted tank, dark spot at the tail base",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/cea4d4ccb1a7ddd6.webp": {
+    "datnioides-undecimradiatus": {
+      "ok": "dead",
+      "typical": false,
+      "note": "dead specimen laid on dark board with a specimen tag",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/d42c9626ec80c054.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "rocky forest stream with rapids",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/df0a1dbee6b7fe2a.webp": {
+    "sinibotia-robusta": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Sinibotia loach with fewer, broader bars; could be another Sinibotia such as S. pulchra",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/e97cdd4a27ace3cb.webp": {
+    "tanichthys-micagemmae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single adult male, side view in a planted tank",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/ed285555471db99f.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "chocolate gourami side view over driftwood, pale vertical bars",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f13d63f1dff880b6.webp": {
+    "sawbwa-resplendens": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male, blue body, red snout and tail tips",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f14cedd8719f327e.webp": {
+    "stiphodon-atropurpureus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "blue-chequered male Stiphodon with long dorsal filaments; pattern differs from typical atropurpureus",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f44ebfdef7f0dec4.webp": {
+    "tucanoichthys-tucano": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult tucano tetra side view, black band, red throat, gold upper stripe",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f53f812606cbf003.webp": {
+    "trichopsis-schalleri": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "golden Trichopsis with bold dark stripes; could be T. vittata",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f5d7c8477e31f8ac.webp": {
+    "sphaerichthys-vaillanti": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male, brownish with dark anal fin band",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f8220899d9aa0009.webp": {
+    "sphaerichthys-selatanensis": {
+      "ok": "yes",
+      "typical": false,
+      "note": "head-on view showing pelvic filaments",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/fd218fdc09252be4.webp": {
+    "sphaerichthys-osphromenoides": {
+      "ok": "habitat",
+      "typical": false,
+      "note": "shallow peat swamp water with grasses and plants",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/ff75b6380e6691d3.webp": {
+    "stiphodon-pelewensis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "distant striped gobies on stream rock, likely females",
+      "logo": false
+    }
+  },
+  "https://media.aquatome.com/sprucepets/e055197927ee6e12.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Fahaka puffer over gravel, another fish blurred behind",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/0KkgA9W52kQ/p5-YWlreW9rYW4uanBn.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale pinkish Fahaka on sand, another fish behind",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/KQPY_PVu6UM/p0-aWxlOlVhcnUuanBn.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult uaru in aquarium, yellowish body with dark flank blotch",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/KQPY_PVu6UM/p5-fbGV0dHVjZS5qcGc.webp": {
+    "uaru-amphiacanthoides": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "romaine lettuce head, caption is about food not the fish",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/eKREW6KPMh4/p0-xpbmVhdHVzLkpQRw.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Fahaka puffer front view on pebbles",
+      "logo": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/eKREW6KPMh4/p1-xpbmVhdHVzLkpQRw.webp": {
+    "tetraodon-lineatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same image as 5, Fahaka on pebbles with driftwood",
       "logo": false,
       "guide": true
     }

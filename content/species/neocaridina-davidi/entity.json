@@ -5,7 +5,11 @@
   "family": "Atyidae",
   "genus": "Neocaridina",
   "group": "shrimp",
-  "places": [],
+  "places": [
+    "asia",
+    "china",
+    "taiwan"
+  ],
   "range": {
     "records": {
       "taxonKey": 11689892,
@@ -205,8 +209,8 @@
       {
         "source": "aquariumcoop",
         "value": {
-          "min": 14,
-          "max": 30
+          "min": 16,
+          "max": 28
         }
       }
     ],
@@ -215,7 +219,7 @@
         "source": "aquariumcoop",
         "value": {
           "min": 6.5,
-          "max": 8
+          "max": 8.5
         }
       }
     ],
@@ -223,12 +227,6 @@
       {
         "source": "aquariumcoop",
         "value": 4
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "aquariumcoop",
-        "value": 25
       }
     ],
     "difficulty": [
@@ -242,60 +240,153 @@
     {
       "key": "quickFacts",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>Red Cherry Shrimp reach about 4 cm (1.6 inches). They prefer clean water with a pH of 6.5-8.0 and a temperature of roughly 14-30 °C (57-86 °F), and are most comfortable at a moderate room temperature of about 72 °F. They are omnivores and typically live 1-2 years under ideal conditions. Avoid copper-based medications with cherry shrimp.</p><p>There are various grades of Red Cherry Shrimp, from deep dark red to paler colors. The females are the most colorful and are particularly sensitive to the color of the substrate and background. In a tank with light-colored substrate they become pale or even transparent; in a tank with darker substrate they take on a fuller, redder coloration. Color intensity also depends on the type of food, water pH, temperature and water quality.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<ul><li>Excellent clean-up crew: eats algae and leftover fish food.</li><li>Beginner-friendly and tolerant of a wide range of water parameters.</li><li>Very easy to breed.</li><li>Small enough for a nano tank of about 8 litres.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Many colour morphs are now available, such as red, orange, yellow, green jade, blue dream, blue velvet, chocolate, black rose and rili (striped). Red is the most popular colour, which is why the species is commonly known as \"cherry shrimp\" or \"red cherry shrimp\" (RCS). Colour grades such as sakura red, fire red, painted fire red and Bloody Mary are very subjective. The best way to judge colour is to see the shrimp in person and pick those that look best to you.</p><p>Do not pick only the biggest, most colourful shrimp, because they might all be females or might be too old to breed for much longer.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Neocaridina davidi is native to China and Taiwan. The wild form normally has a translucent body covered in mottled brown speckling that blends in well with its surroundings.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>Red Cherry Shrimp adapt to a wide variety of conditions in the hobby aquarium. They can be kept in a desktop aquarium with as little as 2 gallons, but 8-12 gallons will allow for a more active colony, more breeding, and a livelier population.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Neocaridina shrimp can fit in tiny tanks, but a tank of about 40 litres or larger is preferred for a healthy breeding colony. Ideally use a mature tank that has been running for many months, full of microfauna and mulm to graze on.</p>"
     },
     {
       "key": "maintenance",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>Shrimp love plants and hiding spaces, so include leafy plants that allow them to sit on, groom, and feel safe. This is especially critical after molting, one of the most vulnerable times for the shrimp. They are also ravenous about eating the film of algae and micro-organisms that form on plant leaves, spending hours grooming their favorites. Shrimp also love to groom and hide in mosses, whether in a clump or tied onto a rock or wood.</p><p>Dwarf shrimp love planted tanks: they love the hiding space, the food plants engender, and what plants do for water chemistry.</p><p>Periodically, the shrimp will shed its exoskeleton, leaving a husk drifting around the plant. Do not remove this, because the shrimp will consume it and replenish needed minerals.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>After molting, the new exoskeleton is soft, so the shrimp hide until the new shell hardens. Provide lots of live plants, shrimp caves and other shelter. Dense plants such as mosses also grow algae and biofilm, which cherry shrimp love to forage on.</p><p>A shrimp molt is clear and translucent with a split in the middle of the back, whereas a dead shrimp is fully opaque. Many hobbyists leave the old exoskeleton in the tank because the shrimp eat it to gain extra calcium for their next molt.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Shrimp have a hard outer exoskeleton and must molt regularly when they outgrow their old \"skin\". To build the new exoskeleton they prefer pH 6.5–8.5, GH of at least 6 dGH and KH of at least 2 dKH. In soft water, add mineral supplements to prevent failed molts (sometimes called the \"white ring of death\", when a dead shrimp has a white band or gap behind its head). Crushed coral helps raise KH, while Wonder Shell and Seachem Equilibrium raise GH.</p><p>Neocaridina davidi can easily live at 16–28°C, so in most cases an unheated aquarium is fine. They are most comfortable at 22–24°C. Temperature greatly affects metabolism: at higher temperatures they grow faster but live shorter lives, and at lower temperatures they live longer but breed less.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Use a sponge filter, or cover the filter intake with a pre-filter sponge so that no baby shrimp are accidentally sucked up. A heater is only needed if the room temperature is below 22–24°C and you want to maximise reproduction.</p>"
     },
     {
       "key": "diet",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>Feeding Red Cherry Shrimp is easy. Like many omnivores, they love variety. They will eat most any aquarium food but love shrimp pellets, algae wafers, blanched vegetables (zucchini, carrots, etc.), or more exotic foods on the market. Easy Shrimp and Snail Shells in the tank help keep the shrimp active and supply spirulina and other essential minerals, particularly calcium. Catappa leaves can also be a great source of food, as shrimp graze on the bacteria that break them down. Some enthusiasts report that adding a bit of natural bee pollen weekly improves breeding. Repashy foods contain 45% protein and are a great meal for shrimp, crab, crayfish and snails.</p><p>The key is moderation. It is easy to put too much food into the tank, which then becomes polluted quite easily. Shrimp are tiny and don't need much per day. Many keepers suggest feeding only every other day, or at least no food one day per week. Some also recommend removing uneaten food after 2-3 hours, depending on the number of shrimp, snails and conditions.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>As detritivores, they constantly scavenge for algae, decaying animal and plant matter, biofilm and other edible organics. They readily eat any community fish food dropped in the tank, but also feed shrimp-specific foods such as Hikari Shrimp Cuisine and Xtreme Shrimpee Sinking Sticks, which are enriched with calcium and other minerals to aid molting. Repashy gel food and vegetables such as blanched zucchini are good for long-term grazing because they stay stable in water for longer.</p><p>Include enough protein in the diet, because juveniles need it for growth and females use it to make eggs. Baby shrimp, especially newborns, do not move much and can easily be outcompeted for food, so give them a variety of powdered foods, such as Hikari First Bites, Easy Fry and Small Fish Food, and Bacter AE, that drift toward them. Botanicals such as catappa leaves and cholla wood break down quickly and grow a layer of biofilm that is an excellent food source for both young and adult shrimp.</p>"
     },
     {
       "key": "behaviour",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>There are many nano fish that will coexist with adult shrimp but will also eat newly hatched babies. Even smaller danios, rasboras or tetras might eat babies. It is vital to have mosses and other hiding places, or even bamboo shrimp hotels that can easily be covered with moss. Smaller snails, nerites particularly, are a good addition since they help clean detritus and won't harm the shrimp. The best rule for fish is to keep only fish that get no larger than about ¾ inch as adults (chili rasboras, etc.) or none at all.</p><p>Red Cherry Shrimp are non-aggressive and active during both day and night. They can often be seen grazing on algae, hunting for detritus in the gravel, mating, and swimming from plant to plant during the day.</p><p>There are many varieties of dwarf shrimp. Not all can be placed in the same tank due to interbreeding.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>If you plan to start a breeding colony, get at least 10 shrimp, which should ensure both males and females.</p><p>Almost all fish will eat baby shrimp, so for optimal breeding keep them in a species-only tank. If you mainly want to keep adult shrimp and do not mind how many young are produced, certain peaceful, small species can work as tank mates, such as other dwarf shrimp, snails, otocinclus catfish, chili rasboras and other nano fish. Cherry shrimp have also been kept in a community tank with guppies and neon tetras.</p>"
     },
     {
       "key": "dimorphism",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>Gender can be told by size and color: males are smaller and less colorful. Females often have a yellowish saddle on their back, which is actually eggs developing in the ovaries. Juveniles are almost impossible to sex until they are larger and show color.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Females are larger, grow up to 4 cm and display very bright, vivid colours. In adulthood the female either has a yellow, saddle-like shape on her back (unfertilised eggs in the ovaries) or is \"berried\" and carries fertilised eggs on the swimmerets under her tail. Males are smaller at 2.5–3 cm, have a slimmer tail and are more translucent. Juveniles are hard to sex since they all look slender and less colourful than adults.</p>"
     },
     {
       "key": "reproduction",
       "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
-      "html": "<p>Breeding Red Cherry Shrimp in the home aquarium is fairly simple if you pay attention to three steps: 1) inducing breeding, 2) ensuring health and comfort while carrying the eggs, and 3) raising the young.</p><p>Breeding is induced by keeping water conditions stable. Shrimp need a regular food source, with higher-protein foods (Repashy, Shrimp Cuisine, etc.) fed regularly in small amounts. It takes the shrimp about 3-5 months to begin breeding, with the female most receptive to the male just after molting. She then hides and releases pheromones into the water that call males to her.</p><p>Females tend to hide in the dark close to spawning and, if startled, may abandon their eggs. The more hiding places and the safer they feel, the more likely they will lay a full clutch. Once bred, the female carries the eggs underneath her, fanning and moving them so they stay clean and oxygenated, for about 30 days.</p><p>Baby shrimp are exact duplicates of the adults, but very tiny. Make sure there are no predators in the tank because most will easily consume a newborn shrimp. Live moss and shrimp caves help the babies hide and find food, especially microfauna that helps them grow.</p>"
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "html": "<p>Dwarf shrimp reproduce very easily: females carry about 20–30 eggs at a time and the adults do not prey on their own young. Keep both sexes, feed plenty of good food and remove any predators that may eat the babies.</p><p>When a female has molted and is ready to spawn, she releases pheromones, and the adult males swim around in a frenzy looking for her. After mating she becomes berried and carries the eggs under her tail for about a month, depending on temperature. She fans fresh water over the eggs with her swimming legs to clean them and prevent fungal or bacterial growth. The babies hatch as exact replicas of the adults, but less colourful and only 2 mm long. Feed them powdered foods and catappa leaves, and they soon grow big enough to eat regular shrimp foods.</p><p>If breeding stops, the colony may have reached its maximum capacity for the amount of food provided. Either feed more (and perhaps upgrade the tank) or move some shrimp out.</p><p>To get redder shrimp, once the population is a healthy size, cull the less colourful ones so only the brightest red (or other colour) shrimp pass on their traits. Without culling, populations often degrade in appearance over time.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/d29406f15faeec5e.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/d29406f15faeec5e-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "caption": "Xtreme Shrimpee Sinking Sticks - Aquarium Co - Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/9aa09f390ce54b81.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9aa09f390ce54b81-480.webp",
+      "width": 1000,
+      "height": 709,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "caption": "Orange sakura Neocaridina shrimp",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/966485ec23c313f3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/966485ec23c313f3-480.webp",
+      "width": 1000,
+      "height": 709,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "caption": "Fresh molt of cherry shrimp",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/4f7c3344040c33ac.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/4f7c3344040c33ac-480.webp",
+      "width": 1000,
+      "height": 779,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cherry-shrimp-care",
+      "caption": "Neon Tetra and Guppies with dwarf shrimp in aquarium tank",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/aquariumcoop/bfcb2c5a349c774a.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/bfcb2c5a349c774a-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "Aquarium Co-op",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/breeding-red-cherry-shrimp",
       "caption": "Red Cherry Shrimp \"Neocardinia davidi\" - Breeding - Detailed Version - Aquarium Co-Op",
-      "source": "aquariumcoop",
-      "thumb": "https://media.aquatome.com/aquariumcoop/bfcb2c5a349c774a-480.webp"
+      "source": "aquariumcoop"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ZquV2c-5SJo",
+      "title": "Neocaridina Shrimp - Everything You Need to Know",
+      "durationSec": 645,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2OmdirtIrWA",
+      "title": "Neocaridina Shrimp: Everything You Need to Know",
+      "durationSec": 834,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rkL7xobj9DI",
+      "title": "Building a Nano Cherry Shrimp Aquarium!🦐",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "F-yywhyv3ho",
+      "title": "How To Make Your First Shrimp Tank (EASY STEP BY STEP NEOCARIDINA TUTORIAL)",
+      "durationSec": 1272,
+      "lang": "en-GB"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -327,5 +418,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-07"
 }

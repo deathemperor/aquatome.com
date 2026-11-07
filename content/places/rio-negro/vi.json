@@ -1,10 +1,13 @@
 {
-  "name": "Rio Negro",
-  "altNames": [],
+  "slug": "rio-negro",
+  "name": "sông Negro",
+  "altNames": [
+    "Rio Negro"
+  ],
   "sections": {},
   "quality": {
     "score": 0.92,
     "indexable": true
   },
-  "slug": "rio-negro"
+  "nameFixed": true
 }

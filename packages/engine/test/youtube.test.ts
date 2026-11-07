@@ -336,6 +336,15 @@ test('redo rewrites only guides already written: a video not done yet waits for 
   expect(await read(root, 'content/guides/youtube-a1/entity.json')).toMatchObject({ video: { series: { id: 'PL1', position: 0 } } })
 })
 
+test('redo keeps a body fixed by hand; the rest of the guide is the new version', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  const file = join(root, 'content/guides/youtube-a1/vi.json')
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true }))
+  await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true, write: { style: true, model: 'opus' } })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true })
+})
+
 test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const first = deps(root)

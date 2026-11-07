@@ -1,10 +1,13 @@
 {
   "slug": "kwagira-river",
-  "name": "Kwagira River",
-  "altNames": [],
+  "name": "sông Kwagira",
+  "altNames": [
+    "Kwagira River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -22,7 +22,7 @@ export const LANG = {
   vi: { served: true, prefix: '', html: 'vi', locale: 'vi-VN', og: 'vi_VN', name: 'Tiếng Việt', accept: ['vi'], countries: ['VN'] },
   id: { served: true, prefix: '/id', html: 'id', locale: 'id-ID', og: 'id_ID', name: 'Bahasa Indonesia', accept: ['id', 'in'], countries: ['ID'] },
   th: { served: true, prefix: '/th', html: 'th', locale: 'th-TH', og: 'th_TH', name: 'ภาษาไทย', accept: ['th'], countries: ['TH'] },
-  ms: { served: false, prefix: '/ms', html: 'ms', locale: 'ms-MY', og: 'ms_MY', name: 'Bahasa Melayu', accept: ['ms'], countries: ['MY', 'BN'] },
+  ms: { served: true, prefix: '/ms', html: 'ms', locale: 'ms-MY', og: 'ms_MY', name: 'Bahasa Melayu', accept: ['ms'], countries: ['MY', 'BN'] },
 } as const satisfies Record<string, { served: boolean; prefix: string; html: string; locale: string; og: string; name: string; accept: readonly string[]; countries: readonly string[] }>
 
 /** Every language the engine writes, served or not, Vietnamese first. */

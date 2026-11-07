@@ -47,9 +47,9 @@ test('species page on a small phone in °F: each key fact stays in its own colum
 test('species page: the jump row takes the reader to a part and marks where they are', async ({ page }, info) => {
   await page.goto('/ca/ca-neon-vua/')
   const row = page.locator('nav.jump')
-  const chips = row.locator('a')
+  const chips = row.locator('ul a') // the parts; the photos' chip, at the row's end, opens another page (gallery.spec.ts)
   expect(await chips.count(), 'parts to jump to').toBeGreaterThanOrEqual(2)
-  for (const h of await chips.evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
+  for (const h of await row.locator('a').evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
   const below = async (target: string) => (await page.locator(target).boundingBox())!.y - ((await row.boundingBox())!.y + (await row.boundingBox())!.height)
 
   const chip = chips.nth(1)
@@ -225,8 +225,8 @@ test('species page on a phone: a long thumbnails heading and link wrap instead o
 
 // Beside facts longer than the photo column, the column follows them down (sticky): scrolled until the thumbnails would
 // have left the screen, they are still on it. On a screen too short for the whole column (700 px), the thumbnails alone
-// follow. The jump row's "Ảnh", tapped from further down, brings them back into view. The thumbnails are the strip's
-// heading and its own (#a1–#a8): on a tall screen more follow them, down to the column's end.
+// follow. The thumbnails are the strip's heading and its own (#a1–#a8): on a tall screen more follow them, down to the
+// column's end.
 test('species page on a computer: the photo column stays in view while the facts scroll by', async ({ page }, info) => {
   test.skip(info.project.name === 'phone', 'the computer layout')
   test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
@@ -243,12 +243,6 @@ test('species page on a computer: the photo column stays in view while the facts
     await page.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), bottom)
     for (const [what, el] of [['heading', head], ['last own thumbnail', last]] as const) await expect(el, `${height} px high: the ${what}`).toBeInViewport({ ratio: 1 })
   }
-
-  const chip = page.locator('nav.jump a[href="#gal-h"]')
-  test.skip(!(await chip.count()), 'no jump row')
-  await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
-  await chip.click()
-  await expect(page.locator('#gal-h')).toBeInViewport()
 })
 
 /** A fish page whose gallery has photos enough to fill its photo column on the screens tried here ("Xem tất cả N ảnh",

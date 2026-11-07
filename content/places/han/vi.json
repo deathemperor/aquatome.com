@@ -1,10 +1,13 @@
 {
   "slug": "han",
-  "name": "Han",
-  "altNames": [],
+  "name": "sông Hán",
+  "altNames": [
+    "Han"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,0 +1,68 @@
+{
+  "id": "cyprinodon-julimes",
+  "native": {
+    "input": "32c2cb413a5a9817",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Julimes pupfish, Cyprinodon julimes, is known only from a geothermal spring in the middle Río Conchos basin, Chihuahua state, northern Mexico.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a geothermal spring known as 'El Pandeño de los Pando' in the middle Río Conchos Basin, Julimes municipality, Chihuahua state, northern Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Conchos",
+        "source": "seriouslyfish",
+        "quote": "The Julimes pupfish, Cyprinodon julimes, is known only from a geothermal spring in the middle Río Conchos basin, Chihuahua state, northern Mexico.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyprinodon julimes",
+    "status": "ACCEPTED",
+    "taxonKey": 5962355,
+    "datasets": [
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        3
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

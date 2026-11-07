@@ -1,10 +1,13 @@
 {
   "slug": "isla-de-la-juventud",
-  "name": "Isla de la Juventud",
-  "altNames": [],
+  "name": "đảo Thanh Niên",
+  "altNames": [
+    "Isla de la Juventud"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "prince-regent-river",
-  "name": "Prince Regent River",
-  "altNames": [],
+  "name": "sông Prince Regent",
+  "altNames": [
+    "Prince Regent River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "mun-river",
-  "name": "Mun River",
-  "altNames": [],
+  "name": "sông Mun",
+  "altNames": [
+    "Mun River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

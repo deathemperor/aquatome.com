@@ -1,0 +1,160 @@
+{
+  "id": "dermogenys-pusilla",
+  "native": {
+    "input": "3f3810776a606d5c",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in nature, it is known from India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Philippines, Malaysia and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dermogenys pusilla",
+    "status": "ACCEPTED",
+    "taxonKey": 2368988,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        25
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "MM",
+      "TH",
+      "LA",
+      "KH",
+      "VN",
+      "PH",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

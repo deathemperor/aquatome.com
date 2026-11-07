@@ -1,0 +1,136 @@
+{
+  "id": "denticetopsis-seducta",
+  "native": {
+    "input": "c11b59e09114fb59",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Caño \"Sabalito,\" a small creek on terra firma about 40 kilometers south of Iquitos, Loreto, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Also recorded at Reserva Florestal Adolfo Ducke, Amazonas State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Peru.",
+        "words": "Peru",
+        "ok": false,
+        "why": "no sentence"
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The type series that originated in the Río Ucayali basin and in the region of Iquitos in northeastern Peru, and the non-type population samples of the species from the Rio Aripuanã in the rio Madeira basin, Brazil agree in all examined features.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "A single specimen from the upper Río Napo in eastern Ecuador (ANSP 139105), tentatively identified as Denticetopsis seducta, has a slightly higher number of total vertebrae (43) than the 39 to 42 total vertebrae in the other examined specimens assigned to the species.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Western Amazon River basin, and possibly southwestern Orinoco River basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Ucayali",
+        "source": "scotcat",
+        "quote": "The type series that originated in the Río Ucayali basin and in the region of Iquitos in northeastern Peru, and the non-type population samples of the species from the Rio Aripuanã in the rio Madeira basin, Brazil agree in all examined features.",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "scotcat",
+        "quote": "The type series that originated in the Río Ucayali basin and in the region of Iquitos in northeastern Peru, and the non-type population samples of the species from the Rio Aripuanã in the rio Madeira basin, Brazil agree in all examined features.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Solimoes",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Amazon and Middle Amazon (Solimoes).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Denticetopsis seducta",
+    "status": "ACCEPTED",
+    "taxonKey": 2337972,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        34
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

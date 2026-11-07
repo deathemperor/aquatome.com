@@ -1,0 +1,88 @@
+{
+  "id": "xiphophorus-milleri",
+  "scientificName": "Xiphophorus milleri",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Xiphophorus",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "laguna-catemaco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_milleri_en/",
+      "html": "<p>A wild livebearer species. Females reach almost 4 cm in length, about twice the length and more than four times the mass of the males, which look almost dwarfish beside them.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_milleri_en/",
+      "html": "<p>This platy originates from Laguna Catemaco, a freshwater lake in Mexico. X. milleri lives exclusively in this lake; it is an endemic species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_milleri_en/",
+      "html": "<p>The lake has a volcanic origin. The water temperature in the lake hardly ever falls below 20°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_milleri_en/",
+      "html": "<p>Although the water temperature in the lake hardly ever falls below 20°C, it has proven a good idea to keep X. milleri at room temperature, without an additional heater. Otherwise the species becomes ailing over generations.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_milleri_en/",
+      "html": "<p>Females are almost 4 cm long, about twice the length and more than four times the mass of the males, which look almost dwarfish beside them.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đẻ con",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

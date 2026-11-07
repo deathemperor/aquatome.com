@@ -184,7 +184,7 @@ function figureOf(key: string, t: Today, w: WeekByDay | undefined): { text: stri
     case 'nhan-dien-ca': {
       if (isFailed(t.keys)) return failed
       const off = t.keys?.rows.filter(r => r.state !== 'ok').length ?? 0
-      if (off) return { text: `${n(off, 'key')} resting`, tone: 'bad' }
+      if (off && off === t.keys?.rows.length) return { text: `${n(off, 'key')} resting`, tone: 'bad' }
       const week = fishWeek(t)
       return week ? plain(n(week.calls, 'call')) : failed
     }
@@ -222,7 +222,7 @@ export function todayJson(t: Today): TodayJson {
     if (isFailed(t.keys)) return { ...k, text: 'Couldn\'t read their state', tone: 'bad' }
     if (!t.keys) return { ...k, text: 'None set: fish ID is off', tone: 'bad' }
     const off = t.keys.rows.filter(r => r.state !== 'ok').length
-    return { ...k, text: off ? `${fmtEn(off)} of ${fmtEn(t.keys.rows.length)} resting` : `${fmtEn(t.keys.rows.length)} working`, tone: off ? 'bad' : 'plain' }
+    return { ...k, text: off ? `${fmtEn(off)} of ${fmtEn(t.keys.rows.length)} resting` : `${fmtEn(t.keys.rows.length)} working`, tone: off && off === t.keys.rows.length ? 'bad' : 'plain' }
   })()
   const byArea = (['site', 'app', 'engine'] as const).map(x => [x, lines.filter(l => l.area === x).length] as const).filter(([, k]) => k)
   return {

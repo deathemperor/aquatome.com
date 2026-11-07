@@ -50,6 +50,7 @@ const SECTION: Record<Lang, Record<'ca' | 'cay' | 'huong-dan' | 'thuat-ngu' | 's
   vi: { ca: 'ca', cay: 'cay', 'huong-dan': 'huong-dan', 'thuat-ngu': 'thuat-ngu', 'san-pham': 'san-pham', 'thiet-bi': 'thiet-bi' },
   id: { ca: 'ikan', cay: 'tanaman', 'huong-dan': 'panduan', 'thuat-ngu': 'istilah', 'san-pham': 'produk', 'thiet-bi': 'peralatan' },
   th: { ca: 'fish', cay: 'plants', 'huong-dan': 'guides', 'thuat-ngu': 'glossary', 'san-pham': 'products', 'thiet-bi': 'equipment' },
+  ms: { ca: 'ikan', cay: 'tumbuhan', 'huong-dan': 'panduan', 'thuat-ngu': 'istilah', 'san-pham': 'produk', 'thiet-bi': 'peralatan' },
 }
 const SECTION_OF: Record<PageKind, keyof (typeof SECTION)['vi']> = {
   species: 'ca', breeds: 'ca', plants: 'cay', guides: 'huong-dan', glossary: 'thuat-ngu', products: 'san-pham', equipment: 'thiet-bi',

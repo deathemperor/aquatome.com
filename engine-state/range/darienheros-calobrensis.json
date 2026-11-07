@@ -1,0 +1,87 @@
+{
+  "id": "darienheros-calobrensis",
+  "native": {
+    "input": "ea835a4f3d5fe525",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to coastal rivers draining Panama's Pacific slope.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bayano",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Bayano, Changuinola and Cricamola.",
+        "ok": true
+      },
+      {
+        "name": "Changuinola",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Bayano, Changuinola and Cricamola.",
+        "ok": true
+      },
+      {
+        "name": "Cricamola",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Bayano, Changuinola and Cricamola.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Darienheros calobrensis",
+    "status": "ACCEPTED",
+    "taxonKey": 9475979,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        31
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        21
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "PA"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

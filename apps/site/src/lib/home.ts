@@ -50,7 +50,7 @@ export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<Specie
 }
 
 /** The reader's own country for each language: its native fish get a place on the home page. */
-const HOME_PLACE: Record<Lang, string> = { vi: 'vietnam', id: 'indonesia', th: 'thailand' }
+const HOME_PLACE: Record<Lang, string> = { vi: 'vietnam', id: 'indonesia', th: 'thailand', ms: 'malaysia' }
 
 /**
  * A fish recorded in the wild in the language's country at least this often (GBIF): plainly one of its own. A source can

@@ -10,6 +10,66 @@
     "myanmar",
     "sittaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Bago Yoma",
+        "Sittang River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They originate from Myanmar, the former Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from a handful of streams draining the south and eastern slopes of the Bago Yoma mountain range, southern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Bago Yoma"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sittang River basin, Pegu Division, Myanmar, Dayama Chaung 1.6 km north of Daik-u'.",
+          "countries": [],
+          "regions": [
+            "Sittang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359134,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          16.875,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

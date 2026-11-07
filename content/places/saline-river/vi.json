@@ -1,10 +1,13 @@
 {
   "slug": "saline-river",
-  "name": "Saline River",
-  "altNames": [],
+  "name": "sông Saline",
+  "altNames": [
+    "Saline River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

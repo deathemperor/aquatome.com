@@ -1,10 +1,13 @@
 {
   "slug": "baek-river",
-  "name": "Baek River",
-  "altNames": [],
+  "name": "sông Baek",
+  "altNames": [
+    "Baek River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

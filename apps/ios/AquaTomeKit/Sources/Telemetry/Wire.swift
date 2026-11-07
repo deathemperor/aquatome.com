@@ -46,7 +46,7 @@ public struct About: Sendable {
   public let os: String
   /// The phone's model, as "iPhone17,3": the model, the same on every phone of it.
   public let device: String
-  /// The app's language: vi, id or th.
+  /// The app's language: one the telemetry contract lists (vi, id, th, ms).
   public let lang: String
 
   /// Each as the contract takes it, or a stand-in it takes: a batch with one it doesn't would be refused whole.
@@ -65,7 +65,7 @@ public struct About: Sendable {
     let d = device.first.map { $0.isASCII && $0.isLetter } == true && (2...32).contains(device.count)
       && device.allSatisfy { $0.isASCII && ($0.isLetter || $0.isNumber || $0 == "," || $0 == "_") }
     self.device = d ? device : "unknown"
-    self.lang = ["vi", "id", "th"].contains(lang) ? lang : "vi"
+    self.lang = ["vi", "id", "th", "ms"].contains(lang) ? lang : "vi"
   }
 }
 

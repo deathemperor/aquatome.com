@@ -1,10 +1,13 @@
 {
   "slug": "rio-verde",
-  "name": "Río Verde",
-  "altNames": [],
+  "name": "sông Verde",
+  "altNames": [
+    "Río Verde"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

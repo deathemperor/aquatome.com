@@ -31,11 +31,32 @@ test.each([
   ['Sewellia lineolata', 'Cá tỳ bà bướm hổ', 'ca-ty-ba-buom-ho', 'ca-bam-da-ho', 'Cá bám đá hổ'],
   ['Sinogastromyzon wui', 'Cá tỳ bà bướm wui', 'ca-ty-ba-buom-wui', 'ca-chach-suoi-sinogastromyzon-wui', 'Cá chạch suối Sinogastromyzon wui'],
   ['Jordanella floridae', 'Cá flagfish Florida', 'ca-flagfish-florida', 'ca-co-florida', 'Cá cờ Florida'],
+  ['Macropodus opercularis', 'Cá cờ', 'ca-co', 'ca-thien-duong', 'Cá thiên đường'],
+  ['Macropodus spechti', 'Cá cờ đen', 'ca-co-den', 'ca-thien-duong-den', 'Cá thiên đường đen'],
 ])('%s is %s, and its old address and name still lead to it', (sci, name, slug, oldSlug, oldName) => {
   const t = c.species.find(s => s.scientificName === sci)!.t
   expect(t).toMatchObject({ name, slug, nameFixed: true })
   expect(t.altNames).toContain(oldName)
   expect(renamedPages(c)[`/ca/${oldSlug}/`]).toBe(`/ca/${slug}/?tu=${oldSlug}`)
+})
+
+// The owner, 2026-11-08: "Cá cờ is right." The paradise fish took the name and the address from the flag cichlids.
+test.each([
+  ['Mesonauta festivus', 'Cá Mesonauta', 'ca-mesonauta', 'ca-co'],
+  ['Mesonauta insignis', 'Cá Mesonauta insignis', 'ca-mesonauta-insignis', 'ca-co-mesonauta-insignis'],
+  ['Mesonauta mirificus', 'Cá Mesonauta mirificus', 'ca-mesonauta-mirificus', 'ca-co-mesonauta-mirificus'],
+  ['Laetacara curviceps', 'Cá Laetacara', 'ca-laetacara', 'ca-co-lun'],
+])('%s gave up "cá cờ": now %s', (sci, name, slug, oldSlug) => {
+  const t = c.species.find(s => s.scientificName === sci)!.t
+  expect(t).toMatchObject({ name, slug, nameFixed: true })
+  expect(t.altNames.filter(a => /^Cá cờ/.test(a))).toEqual([])
+  // /ca/ca-co/ is the paradise fish's page now, so it leads there and nowhere else.
+  expect(renamedPages(c)[`/ca/${oldSlug}/`]).toBe(oldSlug === 'ca-co' ? undefined : `/ca/${slug}/?tu=${oldSlug}`)
+})
+
+test('the paradise fish keeps its other names, and only it is called "Cá cờ"', () => {
+  expect(c.species.find(s => s.scientificName === 'Macropodus opercularis')!.t.altNames).toEqual(expect.arrayContaining(['Cá thiên đường', 'Cá săn sắt']))
+  expect(c.species.filter(s => s.t.name === 'Cá cờ' || s.t.altNames.includes('Cá cờ')).map(s => s.scientificName)).toEqual(['Macropodus opercularis'])
 })
 
 test('the pencilfish guide took "cá chì" and its old address 301s to it', () => {

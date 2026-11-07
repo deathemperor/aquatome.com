@@ -4,7 +4,7 @@ import { expect, test } from './fixtures'
 // screen (logo, a two-line tagline, Tìm, units, theme, language on a row of its own, 7 links on two more), and the units
 // and language buttons were 26 px tall. Now one row; the sections and settings it leaves out are in a menu sheet.
 
-for (const path of ['/', '/id/', '/th/', '/ca/ca-neon-vua/']) {
+for (const path of ['/', '/id/', '/th/', '/ms/', '/ca/ca-neon-vua/']) {
   test(`header ${path}: one short row, every control at least 44 px`, async ({ page }, info) => {
     await page.goto(path)
     const header = page.locator('header.nav')
