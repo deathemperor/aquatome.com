@@ -3,7 +3,8 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
-import { chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import { assetSource, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import type { Source } from '../chat/handbook'
 import { handle } from '../index'
 import { contract } from './contract'
 import { testD1 } from './d1'
@@ -238,6 +239,26 @@ test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn
   expect(retry.body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
   expect(c.bodies).toHaveLength(2)
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('a reader who leaves while the handbook is still being read: that read is part of the run handed to wait, so the run still ends', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const assets = assetSource(e, 'https://x.test')
+  const slow: Source = { index: async lang => { await held; return assets.index(lang) }, shard: assets.shard }
+  const waits: Promise<unknown>[] = []
+  const req = ask(bearer(me.token))
+  void chat(req, new URL(req.url), e, new Date(), deps(claude(NEON).fetch, { source: slow }), p => { waits.push(p) })
+  while (!store.read<Conversation>(`chat-conv/${CONV}.json`)?.running) await tick()
+  for (let i = 0; i < 5; i++) await tick()
+  expect(waits).toHaveLength(1)
+  release()
+  await Promise.all(waits)
+  expect(store.read<Conversation>(`chat-conv/${CONV}.json`)).toMatchObject({ turns: [{ n: 1 }] })
+  expect(store.read<Conversation>(`chat-conv/${CONV}.json`)!.running).toBeUndefined()
+  expect(ledger.day()!.runs).toEqual({})
 })
 
 test('two first questions at once in a new conversation: one runs; the other is 409, or with the same key waits for its answer; counted once', async () => {

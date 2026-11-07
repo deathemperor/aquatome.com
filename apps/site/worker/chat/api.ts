@@ -242,7 +242,6 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     return json({ error: 'answering' }, 409)
   }
 
-  const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang)
   const fetchImpl = deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined)
   const spends: Promise<unknown>[] = []
   const tally: Record<string, number> = {}
@@ -250,6 +249,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
   const work = async (onStep?: (s: Step) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
+    // Read inside the run, which outlives a dropped connection: read before it, a drop would leave the mark and the ledger open.
+    const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
     let key: KeyEntry | undefined
     let client: Anthropic | undefined
