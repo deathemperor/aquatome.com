@@ -17,15 +17,22 @@ struct V2Root: View {
   @State private var todayPath = NavigationPath()
   @State private var searchPath = NavigationPath()
   @Environment(HandbookModel.self) private var handbook
-  /// Where the first of v2's own screens (FullPage) sits on `handbookPath`, which v1 shares: v1 has no screen for it, so
-  /// switching back cuts the path there.
+  /// Where the first of v2's own screens (FullPage) sits on `handbookPath`, which v1 shares, and on Hôm nay's: v1 has no
+  /// screen for it, so switching back cuts the path there.
   @State private var ownFrom: Int?
+  @State private var todayOwnFrom: Int?
 
   enum Pick: Hashable { case today, browse, tanks, lights, search }
 
   var body: some View {
     TabView(selection: $selection) {
-      Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) { TodayView(path: $todayPath) }
+      Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) {
+        TodayView(path: $todayPath)
+          .environment(\.v2OpenFull) { item in
+            if todayOwnFrom == nil { todayOwnFrom = todayPath.count }
+            todayPath.append(FullPage(item: item))
+          }
+      }
       Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
         BrowseHome(path: $handbookPath)
           .environment(\.v2OpenFull) { item in
@@ -44,6 +51,7 @@ struct V2Root: View {
       if new > old { selection = .browse }
       if let f = ownFrom, new <= f { ownFrom = nil }
     }
+    .onChange(of: todayPath.count) { if let f = todayOwnFrom, todayPath.count <= f { todayOwnFrom = nil } }
     .onChange(of: tanksPath) { if !tanksPath.isEmpty { selection = .tanks } }
     .onChange(of: selection) {
       switch selection {
@@ -52,16 +60,13 @@ struct V2Root: View {
       case .lights: tab = .lights
       }
     }
-    // Switched on with a page open on v1's Tìm: Khám phá, which shows it, not Hôm nay.
-    .onAppear {
-      if tab == .handbook && !handbookPath.isEmpty { selection = .browse }
-      follow(tab)
-    }
+    .onAppear { follow(tab) }
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
-    // Khám phá, what the search tab had open (v1's own screens, its Tìm's).
+    // Khám phá, what Hôm nay had open, or else the search tab (which pushes only v1's own screens).
     .onDisappear {
       if let f = ownFrom, handbookPath.count > f { handbookPath.removeLast(handbookPath.count - f) }
-      if handbookPath.isEmpty && !searchPath.isEmpty { handbookPath = searchPath }
+      if let f = todayOwnFrom, todayPath.count > f { todayPath.removeLast(todayPath.count - f) }
+      if handbookPath.isEmpty { handbookPath = todayPath.isEmpty ? searchPath : todayPath }
     }
     // The app's home from outside (`aquatome://`, the site's home): AquaTomeApp empties Khám phá's stack, which v2 can't
     // tell from no change; v2's home is Hôm nay, at its top.
@@ -105,8 +110,8 @@ extension View {
 }
 
 extension EnvironmentValues {
-  /// A fish's whole page (v1's, FullPage) pushed on the stack in front ("Xem trang đầy đủ"): Khám phá's counts it, for
-  /// switching back to v1 (V2Root).
+  /// A fish's whole page (v1's, FullPage) pushed on the stack in front ("Xem trang đầy đủ"), counted for switching back
+  /// to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
 }
 
@@ -139,7 +144,6 @@ private struct StackLinks: ViewModifier {
 
   func body(content: Content) -> some View {
     content
-      .environment(\.v2OpenFull) { path.append(FullPage(item: $0)) }
       .environment(\.openScreen) { screen in
         switch screen {
         case .page(let p): if let item = handbook.item(at: p) { path.append(item) }

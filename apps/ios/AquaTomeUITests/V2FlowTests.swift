@@ -1,8 +1,8 @@
 import XCTest
 
 /// The app's v2 (V2Root) behind the Tài khoản sheet's switch: off by default, v1's three tabs; turned on, v2's tabs, and
-/// turned off again, v1's, with the same tanks, and Tìm with the page Khám phá had open (v2's whole-page screen, which
-/// v1 has none for, cut); a link to a tank opens it in v2, and the app's home from outside is Hôm nay's top. The
+/// turned off again, v1's, with the same tanks, and Tìm with the page Khám phá or Hôm nay had open (v2's whole-page
+/// screen, which v1 has none for, cut); a link to a tank opens it in v2, and the app's home from outside is Hôm nay's top. The
 /// switch's own flow runs with UIKit's animations on (a plain `launch()`): the switch swaps the whole tab bar under the
 /// open sheet.
 final class V2FlowTests: XCTestCase {
@@ -68,6 +68,25 @@ final class V2FlowTests: XCTestCase {
     flip(app)
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
     // The fish's page, one step from Tìm's top.
+    let back = app.navigationBars.buttons.element(boundBy: 0)
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
+    back.tap()
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
+  }
+
+  func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
+    let app = launch()
+    app.launchForFlow()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+    flip(app)
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    // The sheet's button is on a tab's first screen, not on a page.
+    app.openTab("Khám phá")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
     back.tap()

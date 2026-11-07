@@ -192,8 +192,8 @@ struct FactsStrip: View {
   let facts: HandbookIndex.Facts
   var onDark = false
   @Environment(HandbookModel.self) private var handbook
-  /// A column's width, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
-  @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 118
+  /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
+  @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
 
   struct Column: Identifiable {
     let id: Int
@@ -229,7 +229,8 @@ struct FactsStrip: View {
               Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.7) : .secondary)
             }
           }
-          .frame(width: column)
+          // Four whole on a phone, the fifth just showing past them: no word is cut, and there's more to see.
+          .containerRelativeFrame(.horizontal) { w, _ in max((w - 44) / 4, column) }
           .padding(.vertical, 4)
           .overlay(alignment: .leading) {
             if c.id > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }

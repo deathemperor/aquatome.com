@@ -9,7 +9,8 @@ struct FullPage: Hashable {
 
 /// A fish's page, as an app's page in the App Store: its photo across the top and the photo's colour washing down
 /// behind the name, "Thêm vào bể", the facts strip and the rest of its photos (each full screen, tapped); then the
-/// summary, the tank-mates shelves with the tank-mates tool, and the whole page (v1's) one tap away.
+/// summary with its common mistakes, the tank-mates shelves with the tank-mates tool, and the whole page (v1's) one tap
+/// away.
 @available(iOS 18, *)
 struct SpeciesPage: View {
   let item: HandbookIndex.Item
@@ -25,7 +26,7 @@ struct SpeciesPage: View {
   @State private var viewing: Int?
   /// The name scrolled up under the bar: the bar takes its background and the name.
   @State private var scrolled = false
-  /// The bar's foot on the screen (the status bar's height and the bar's).
+  /// The bar's foot on the screen, whether the bar is showing or not.
   @State private var barFoot: CGFloat = 106
   @ScaledMetric(relativeTo: .body) private var shot: CGFloat = 180
 
@@ -89,7 +90,8 @@ struct SpeciesPage: View {
       .padding(.bottom, 40)
     }
     .ignoresSafeArea(edges: .top)
-    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top + 44 } action: { barFoot = $0 }
+    // The top inset counts the bar once it shows: the status bar's alone without it.
+    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = scrolled ? $0 : $0 + 44 }
     .accessibilityIdentifier("v2-species")
     .navigationTitle(scrolled ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
@@ -218,8 +220,8 @@ struct SpeciesPage: View {
 
   /// The page's answer: its paragraph, or its points where it has no paragraph.
   @ViewBuilder private var summary: some View {
-    if let doc, let s = doc.blocks.lazy.compactMap({ b -> (title: String, text: String?, items: [String])? in
-      if case let .summary(title, items, text, _, _) = b { return (title, text, items) }
+    if let doc, let s = doc.blocks.lazy.compactMap({ b -> (title: String, text: String?, items: [String], mistakes: (title: String, items: [String])?)? in
+      if case let .summary(title, items, text, mistakes, _) = b { return (title, text, items, mistakes) }
       return nil
     }).first, s.text != nil || !s.items.isEmpty {
       VStack(alignment: .leading, spacing: 8) {
@@ -228,6 +230,10 @@ struct SpeciesPage: View {
           Text(verbatim: text).font(.body).lineSpacing(3)
         } else {
           ForEach(s.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
+        }
+        if let mistakes = s.mistakes, !mistakes.items.isEmpty {
+          Text(verbatim: mistakes.title).font(.headline).accessibilityAddTraits(.isHeader).padding(.top, 8)
+          ForEach(mistakes.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
         }
       }
       .padding(.horizontal, 20)
