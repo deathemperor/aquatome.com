@@ -9,7 +9,7 @@ import { handbookOf, type Handbook, type Item, type Source } from '../chat/handb
 import { fold, search, searchTopics } from '../chat/search'
 import { topicsOf, type Topics } from '../chat/topics'
 import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
-import { chatTools, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
+import { chatTools, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
 import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
 import { factsOf } from '../chat/handbook'
 import { contract } from './contract'
@@ -72,6 +72,20 @@ test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), the
   await expect(run('read_page', { path: '/vi/ca/khong-co/', heading: null })).rejects.toThrow(/No page at/)
   await expect(run('read_page', { path: guide, heading: 'khong-co' })).rejects.toThrow(/No heading khong-co/)
   expect(SECTION_CHARS).toBeLessThanOrEqual(4000)
+})
+
+test('a guide written from one video is marked so in the search and its outline, and no other page is', async () => {
+  const h = await hb()
+  const tools = chatTools({ handbook: h, tanks: async () => [] })
+  const run = (name: string, input: Record<string, unknown>) => tools.find(t => t.name === name)!.run(input, { photosLeft: 0 }) as Promise<string>
+  const found = JSON.parse(await run('search_handbook', { query: 'bón phân', kind: 'guide' })) as { path: string; oneVideo?: boolean }[]
+  expect(found.find(f => f.path === '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')?.oneVideo).toBe(true)
+  const setup = JSON.parse(await run('search_handbook', { query: 'setup bể thủy sinh đầu tiên', kind: 'guide' })) as { path: string; oneVideo?: boolean }[]
+  expect(setup.find(f => f.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')).not.toHaveProperty('oneVideo')
+  expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', heading: null }))).toMatchObject({ oneVideo: true })
+  expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', heading: null }))).not.toHaveProperty('oneVideo')
+  expect(JSON.parse(await run('read_page', { path: '/vi/ca/ca-neon-xanh/', heading: null }))).not.toHaveProperty('oneVideo')
+  expect(SYSTEM).toContain('oneVideo')
 })
 
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {

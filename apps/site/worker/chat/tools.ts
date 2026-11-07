@@ -110,7 +110,9 @@ export function textOf(blocks: Block[]): string {
 }
 
 const cut = (s: string, max: number) => (s.length <= max ? s : `${s.slice(0, max - 1)}…`)
-const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...(i.id ? { id: i.id } : {}), ...(i.sub ? { sub: i.sub } : {}), ...(i.of ? { of: i.of } : {}) })
+/** A guide written from one video is one keeper's method (the Writing Lead's ruling, 2026-11-07): Claude is told so. */
+const oneVideo = (i: Item) => (i.kind === 'guide' && i.video ? { oneVideo: true } : {})
+const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...(i.id ? { id: i.id } : {}), ...(i.sub ? { sub: i.sub } : {}), ...(i.of ? { of: i.of } : {}), ...oneVideo(i) })
 const strict = (properties: Record<string, unknown>) => ({ type: 'object' as const, properties, required: Object.keys(properties), additionalProperties: false })
 
 export function chatTools(d: ToolDeps): Tool<Step>[] {
@@ -125,7 +127,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
   return [
     {
       name: 'search_handbook',
-      description: 'Search the handbook\'s pages by name: fish, shrimp and snails (kind fish), plants, guides, glossary terms, videos, equipment kinds and tools. A fish or plant is found by its Vietnamese, other or scientific name; a guide by words of its title, or of one of its section headings or FAQ questions, when `section` says which (open the guide at that heading id with read_page; null: read its outline). Give kind to search one kind, or null for all. Returns up to 12 pages as JSON: path (open it with read_page), kind, name, id (a fish\'s or plant\'s, for a card), sub (scientific name), of (a breed: the species it is a form of), section.',
+      description: 'Search the handbook\'s pages by name: fish, shrimp and snails (kind fish), plants, guides, glossary terms, videos, equipment kinds and tools. A fish or plant is found by its Vietnamese, other or scientific name; a guide by words of its title, or of one of its section headings or FAQ questions, when `section` says which (open the guide at that heading id with read_page; null: read its outline). Give kind to search one kind, or null for all. Returns up to 12 pages as JSON: path (open it with read_page), kind, name, id (a fish\'s or plant\'s, for a card), sub (scientific name), of (a breed: the species it is a form of), section, oneVideo (a guide written from one keeper\'s video).',
       input_schema: strict({
         query: { type: 'string', description: 'A name, or a few words of a title, in the reader\'s language or the scientific name.' },
         kind: { anyOf: [{ type: 'string', enum: [...KINDS] }, { type: 'null' }], description: 'One kind of page, or null for all.' },
@@ -168,7 +170,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         const figures = item.kind === 'fish' || item.kind === 'plant' ? figuresOf(item, d.handbook.byId) : undefined
         const shown = figures && Object.keys('facts' in figures ? figures.facts : figures.plant).length ? figures : {}
         return JSON.stringify({
-          path, kind: item.kind, title: doc.title,
+          path, kind: item.kind, title: doc.title, ...oneVideo(item),
           ...(item.id ? { id: item.id } : {}), ...(item.sub ? { sub: item.sub } : {}), ...(item.aka?.length ? { aka: item.aka } : {}),
           ...shown,
           sections: sections.map(s => ({ heading: s.heading?.text ?? null, id: s.heading?.id ?? null, text: cut(textOf(s.blocks), PREVIEW_CHARS) })),
