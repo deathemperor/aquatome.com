@@ -92,7 +92,7 @@ const CONV = '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
 const convKey = async (u: { id: string }) => conversationKey(await chatAccount('k', u.id), CONV)
 const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, headers: Record<string, string> = {}) => new Request('https://x.test/api/chat', {
   method: 'POST', headers: { 'content-type': 'application/json', ...auth, ...headers },
-  body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'species', about: 'paracheirodon-innesi', ...body }),
+  body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'fish-id', about: 'paracheirodon-innesi', ...body }),
 })
 const bearer = (token: string) => ({ authorization: `Bearer ${token}` })
 const { answer, streamMisfits, api } = contract('chat.openapi.json')
@@ -597,7 +597,7 @@ test('read_tanks reads the whole saved tank: plants, substrate, notes, days sinc
   }, now)
   const c = claude([() => msg([{ type: 'tool_use', id: 't1', name: 'read_tanks', input: {} }], 'tool_use'), () => answers({})])
   await run(ask(bearer(me.token), { question: 'Bể của tôi bị rêu, sao vậy?' }), e, deps(c.fetch))
-  const told = (JSON.parse(String((c.bodies[1]!.messages.at(-1)!.content as { content: string }[])[0]!.content)) as Record<string, unknown>[])[0]!
+  const told = (JSON.parse(String(((c.bodies[1]!.messages as { content: unknown }[]).at(-1)!.content as { content: string }[])[0]!.content)) as Record<string, unknown>[])[0]!
   expect(told).toMatchObject({
     substrate: 'soil', savedDaysAgo: 10, readerNotes: 'Thay 30% nước mỗi tuần.',
     lights: ['chihiros WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/70/60/50%'],

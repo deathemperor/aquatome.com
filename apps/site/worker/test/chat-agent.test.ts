@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -507,6 +507,21 @@ test('a card or section shown earlier in the conversation, or twice in one answe
   expect(out.blocks.map(b => b.t)).toEqual(['compare'])
 })
 
+test("the card of the fish whose page the chat was opened from counts as shown; from fish ID it doesn't, and another fish's card goes out", async () => {
+  const h = await hb()
+  const turn = (start: Start) => answerQuestion({
+    send: async () => message([{ type: 'text', text: JSON.stringify(answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] }), pick({ t: 'species', ids: ['paracheirodon-axelrodi'] })], { text: 'Cá neon xanh dễ nuôi.' })) }]),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Có dễ nuôi không?', earlier: [], start, handbook: h, tanks: async () => [],
+  })
+  const onPage = await turn({ from: 'species', about: 'paracheirodon-innesi' })
+  expect(onPage.blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-axelrodi'])
+  expect(onPage.dropped).toEqual(['species: paracheirodon-innesi shown before'])
+  expect((await turn({ from: 'fish-id', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  const told = (start: Start) => (firstMessage('vi', 'Có dễ nuôi không?', [], start, h).content as Anthropic.TextBlockParam[])[0]!.text
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('They opened it from that page, so they have seen its card')
+  expect(told({ from: 'fish-id', about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
+})
+
 test('the chat\'s forced last call is told to answer from what it read', async () => {
   const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
   const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
@@ -562,7 +577,7 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
         ? message([{ type: 'tool_use', id: 't1', name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }], 'tool_use')
         : message([{ type: 'text', text: JSON.stringify(final) }])
     },
-    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá này thế nào?', earlier: [], start: { from: 'species', about: 'paracheirodon-innesi' },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá này thế nào?', earlier: [], start: { from: 'fish-id', about: 'paracheirodon-innesi' },
     handbook: h, tanks: async () => [], onStep: s => steps.push(s),
   })
   expect(steps).toEqual([{ kind: 'read', page: { kind: 'fish', title: 'Cá neon xanh', url: '/vi/ca/ca-neon-xanh/' } }])

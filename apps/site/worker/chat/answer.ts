@@ -194,8 +194,10 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * `shownBefore`: the blocks of the conversation's earlier turns. A species card or a page's section shown already (or
  * twice in this answer) isn't shown again: the reader has it above, and a chat from a fish's page would carry its card
  * under nearly every answer.
+ * `startedOn`: the fish or plant whose page the chat was opened from. The reader has just left its card, so it counts
+ * as shown (from fish ID they haven't seen the page, and there is none).
  */
-export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
@@ -264,7 +266,7 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
     }
   }
   const blocks: ChatBlock[] = []
-  const seen = new Set(shownBefore.flatMap(repeatKey))
+  const seen = new Set([...shownBefore.flatMap(repeatKey), ...(startedOn ? [`species: ${startedOn}`] : [])])
   for (const p of answer.blocks.slice(0, MAX_BLOCKS)) {
     const b = await one(p)
     const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
