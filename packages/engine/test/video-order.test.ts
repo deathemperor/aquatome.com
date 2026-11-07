@@ -29,12 +29,13 @@ test('guideRank: the guide named first, then risk, then its most popular species
     await writeFile(join(root, 'content/guides', id, 'vi.json'), JSON.stringify({ name, body: '<p>Bài.</p>', summary: [], faq: [] }))
   }
   await guide('youtube-5uUPuLt0j2s', 'Rêu tóc: vì sao mọc')
+  await guide('youtube-8EelCQTnsQ0', 'Lịch chiếu sáng cho bể thủy sinh')
   await guide('youtube-meds', 'Trị nấm cho cá bằng thuốc', ['danio-rerio'])
   await guide('youtube-guppy', 'Nuôi cá bảy màu', ['poecilia-reticulata'])
   await guide('youtube-neon', 'Giữ nhiệt độ cho cá neon', ['paracheirodon-innesi'])
   await guide('youtube-rare', 'Nuôi cá hiếm', ['some-fish'])
   await guide('youtube-none', 'Dựng bố cục bằng đá')
   const rank = await guideRank(root, ['poecilia-reticulata', 'paracheirodon-innesi', 'danio-rerio'])
-  const ids = ['youtube-none', 'youtube-rare', 'youtube-guppy', 'youtube-neon', 'youtube-meds', 'youtube-5uUPuLt0j2s']
-  expect(ids.sort((a, b) => byRank(rank(a), rank(b)) || a.localeCompare(b))).toEqual(['youtube-5uUPuLt0j2s', 'youtube-meds', 'youtube-neon', 'youtube-guppy', 'youtube-none', 'youtube-rare'])
+  const ids = ['youtube-none', 'youtube-rare', 'youtube-guppy', 'youtube-neon', 'youtube-meds', 'youtube-8EelCQTnsQ0', 'youtube-5uUPuLt0j2s']
+  expect(ids.sort((a, b) => byRank(rank(a), rank(b)) || a.localeCompare(b))).toEqual(['youtube-5uUPuLt0j2s', 'youtube-8EelCQTnsQ0', 'youtube-meds', 'youtube-neon', 'youtube-guppy', 'youtube-none', 'youtube-rare'])
 })

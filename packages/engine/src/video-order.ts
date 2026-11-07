@@ -20,8 +20,13 @@ export function guideRisk(title: string, text: string): 1 | 2 | 3 {
   return 3
 }
 
-/** Before any other (2026-11-07): the chat repeats this guide's unhedged "90% of hair algae is from too little CO2". */
-export const RECHECK_FIRST = ['youtube-5uUPuLt0j2s']
+/**
+ * Before any other (2026-11-07): claims the chat repeats that their videos don't make, found by the AI Lead's judge and
+ * checked against the transcripts by the Writing Lead: "90% of hair algae is from too little CO2" (the video: "in my
+ * opinion"), a filter of "twice the tank's volume" (the old writer's closing; the video only describes its own canister),
+ * and the creator's own 12 hours of light written as a schedule to follow.
+ */
+export const RECHECK_FIRST = ['youtube-5uUPuLt0j2s', 'youtube-eskNUAK22GY', 'youtube-8EelCQTnsQ0']
 
 const json = async <T>(f: string): Promise<T | undefined> => { try { return JSON.parse(await readFile(f, 'utf8')) as T } catch { return undefined } }
 
