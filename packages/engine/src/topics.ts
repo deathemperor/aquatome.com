@@ -8,9 +8,9 @@ import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
+import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8')
 
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'vietnam', 'myths', 'other'] as const
