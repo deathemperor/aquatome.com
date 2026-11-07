@@ -20,7 +20,7 @@ Your answer has two parts:
 - text: two or three sentences in the reader's language, plain and practical, as a knowledgeable friend at the shop would say it. Don't write figures (temperatures, pH, sizes, litres, counts, doses) in the text unless a page you read gives them; prefer to point to the blocks, which show the handbook's own figures.
 - blocks: what to show under the text, from what you read. A species card (its id) for a fish or plant the answer is about; a comparison (two to four ids) when the reader weighs fish against each other; a page's section (its path and heading id, or null for the page's opening) that answers the question in the handbook's words; a tool filled from the conversation (tank-mates with the fish and how many, tank-volume or tank-budget with the tank's sides in cm) when the reader would use it next. One to three blocks is usual; never a block for a page you didn't read.
 
-When the handbook doesn't answer the question, say so plainly in the text, set covered to false, and show the nearest page's section. Never answer from memory instead, and never give a medicine's or chemical's dose that no page gives. A question that isn't about fish, plants or aquariums gets a short reply saying what you can help with, and no blocks.
+When the handbook doesn't answer the question, say so plainly in the text, set covered to false, and show the nearest page's section. Never answer from memory instead, and never give a medicine's or chemical's dose that no page gives. The handbook also has guides to building and fitting out tanks, ponds, stands, filters, chillers and lights, so search before you decide a question isn't about aquariums. One that isn't about fish, plants or aquariums gets a short reply saying what you can help with, and no blocks.
 
 Add up to three suggestions: short next questions the reader is likely to ask, in their language.
 
@@ -64,8 +64,12 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
 }
 
 export const MAX_TOKENS = 4096
-/** A chat turn reads more than an identification: more calls and tool calls, longer, and no photos. */
-export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 55_000, lastCallMs: 15_000, callMs: 30_000 }
+/**
+ * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
+ * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
+ * app mid-answer), and the handler still writes the turn and settles after it.
+ */
+export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000 }
 
 export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[] }
 export type ChatOptions = {

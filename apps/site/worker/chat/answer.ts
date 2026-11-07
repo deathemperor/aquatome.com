@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
-import { factsOf, sectionsOf, type Facts, type Handbook, type Item, type Lang } from './handbook'
+import { figuresOf, isBreed, sectionsOf, type Facts, type Handbook, type Item, type Lang, type PlantFacts } from './handbook'
 
 /**
  * Claude's answer and the blocks the Worker fills from it (protocols/chat.openapi.json). Claude writes the text and
@@ -14,7 +14,6 @@ export type ToolName = (typeof TOOLS)[number]
 export const BLOCKS = ['species', 'compare', 'section', 'tool'] as const
 /** The most blocks a turn shows, page blocks a section shows, fish a tank-mates link holds, and suggestions. */
 export const MAX_BLOCKS = 5
-export const SECTION_BLOCKS = 8
 export const MAX_FISH = 6
 export const MAX_SUGGESTIONS = 3
 
@@ -62,13 +61,16 @@ export const ANSWER_SCHEMA = {
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null }
 export type Answer = { text: string; covered: boolean; blocks: Choice[]; suggestions: string[] }
 
-/** The answer in Claude's message: its JSON (the schema's), or undefined for a refusal or one cut short. */
+/** Shorter than this, an answer's text is none: the eval saw "" and "x" from a last call a limit forced. */
+export const MIN_TEXT = 10
+
+/** The answer in Claude's message: its JSON (the schema's), or undefined for a refusal, one cut short, or one with no text. */
 export function readAnswer(m: Anthropic.Message): Answer | undefined {
   if (m.stop_reason === 'refusal' || m.stop_reason === 'max_tokens') return undefined
   const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
   try {
     const a = JSON.parse(text) as Answer
-    return typeof a.text === 'string' && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? a : undefined
+    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? a : undefined
   } catch {
     return undefined
   }
@@ -76,7 +78,7 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
 
 /** The contract's blocks (protocols/chat.openapi.json `Block`). */
 export type Linked = { id: string; kind: 'species' | 'breed' | 'plant'; name: string; sci?: string; url?: string; img?: string }
-export type Card = { page: Linked; facts: Facts }
+export type Card = { page: Linked } & ({ facts: Facts } | { plant: PlantFacts })
 export type ChatBlock =
   | ({ t: 'species' } & Card)
   | { t: 'compare'; items: Card[] }
@@ -99,12 +101,9 @@ export async function fill(answer: Answer, hb: Handbook): Promise<{ blocks: Chat
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
     if (!i || (i.kind !== 'fish' && i.kind !== 'plant')) return undefined
-    const species = i.of ? hb.byId(i.of) : undefined
-    const own = factsOf(i)
     return {
-      page: { id, kind: i.kind === 'plant' ? 'plant' : i.card !== undefined ? 'breed' : 'species', name: i.name, ...(i.sub ? { sci: i.sub } : {}), url: i.path, ...(i.img ? { img: i.img } : {}) },
-      // A breed with no figures of its own is kept as its species is (the app index's `of`).
-      facts: Object.keys(own).length || !species ? own : factsOf(species),
+      page: { id, kind: i.kind === 'plant' ? 'plant' : isBreed(i) ? 'breed' : 'species', name: i.name, ...(i.sub ? { sci: i.sub } : {}), url: i.path, ...(i.img ? { img: i.img } : {}) },
+      ...figuresOf(i, hb.byId),
     }
   }
   const one = async (p: Choice): Promise<ChatBlock | string> => {
@@ -121,7 +120,7 @@ export async function fill(answer: Answer, hb: Handbook): Promise<{ blocks: Chat
         const doc = p.path ? await hb.page(p.path) : undefined
         if (!doc || !p.path) return `section: no page ${JSON.stringify(p.path)}`
         const s = sectionsOf(doc).find(x => (p.heading ? x.heading?.id === p.heading : !x.heading))
-        const blocks = s?.blocks.slice(0, SECTION_BLOCKS) ?? []
+        const blocks = s?.blocks ?? []
         if (!blocks.length) return `section: nothing under ${JSON.stringify(p.heading)} on ${p.path}`
         return { t: 'section', page: { kind: doc.kind, title: doc.title, url: p.path }, ...(s!.heading?.id ? { heading: { text: s!.heading.text, id: s!.heading.id } } : {}), blocks }
       }

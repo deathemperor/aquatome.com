@@ -2,9 +2,9 @@ import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import { expect, test } from 'vitest'
-import { answerQuestion, firstMessage, SYSTEM } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, readAnswer, SECTION_BLOCKS, type Answer, type Choice } from '../chat/answer'
-import { handbookOf, type Handbook, type Source } from '../chat/handbook'
+import { answerQuestion, CHAT_LIMITS, firstMessage, SYSTEM } from '../chat/agent'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, type Choice } from '../chat/answer'
+import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search } from '../chat/search'
 import { chatTools, SECTION_CHARS, type Step } from '../chat/tools'
 import { contract } from './contract'
@@ -38,7 +38,8 @@ test('the search finds a page by its name as readers type it, a page named exact
   expect(JSON.parse(out as string)[0]).toEqual({ path: '/vi/ca/ca-dia/', kind: 'fish', name: 'Cá đĩa', id: 'symphysodon-aequifasciatus', sub: 'Symphysodon aequifasciatus' })
 })
 
-test('read_page gives a page\'s outline (a fish\'s figures too), then one section\'s text by its heading id; an unknown page or heading is an error Claude reads', async () => {
+test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), then one section\'s text by its heading id; an unknown page or heading is an error Claude reads', async () => {
+  const h0 = await hb()
   const guide = '/vi/huong-dan/phan-loai-ca-dia/'
   const outline = await run('read_page', { path: guide, heading: null })
   expect(outline.step).toEqual({ kind: 'read', page: { kind: 'guide', title: 'Phân loại cá dĩa', url: guide } })
@@ -49,6 +50,9 @@ test('read_page gives a page\'s outline (a fish\'s figures too), then one sectio
   expect(section.out).toBe('Can, chỉ và hoa văn\nCan là các sọc đứng trên thân, hiện rõ khi cá sợ.\n[photo: Các bộ phận của cá dĩa]\nChỉ là những đường ánh kim nằm ngang trên màu nền.')
   const fish = JSON.parse((await run('read_page', { path: '/vi/ca/ca-neon-xanh/', heading: null })).out as string)
   expect(fish).toMatchObject({ id: 'paracheirodon-innesi', facts: { tempC: { min: 20, max: 26 }, schoolMin: 6 } })
+  const plant = JSON.parse((await run('read_page', { path: h0.byId('anubias-barteri-nana')!.path, heading: null })).out as string)
+  expect(plant).toMatchObject({ id: 'anubias-barteri-nana', plant: { difficulty: 1, light: 'low' } })
+  expect(plant).not.toHaveProperty('facts')
   await expect(run('read_page', { path: '/vi/ca/khong-co/', heading: null })).rejects.toThrow(/No page at/)
   await expect(run('read_page', { path: guide, heading: 'khong-co' })).rejects.toThrow(/No heading khong-co/)
   expect(SECTION_CHARS).toBeLessThanOrEqual(4000)
@@ -84,10 +88,14 @@ test('the blocks are filled from the handbook, each of the contract\'s shape: a 
   expect(blocks[3]).not.toHaveProperty('heading')
   // A breed is checked as the species it is a form of (the tool's own link names species), its count rounded.
   expect(blocks[4]).toEqual({ t: 'tool', tool: 'tank-mates', name: h.byPath('/vi/cong-cu/nuoi-chung/')!.short ?? h.byPath('/vi/cong-cu/nuoi-chung/')!.name, url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:2&l=60&w=30&h=36' })
-  // A breed's card: its own page, and, with no figures of its own, its species' figures; a hybrid keeps its own.
-  const breed = await fill(answer([pick({ ids: ['pigeon-blood-discus'] }), pick({ ids: ['oranda-goldfish'] })]), h)
-  expect(breed.blocks[0]).toMatchObject({ page: { id: 'pigeon-blood-discus', kind: 'breed' }, facts: { tempC: { min: 28, max: 31 } } })
-  expect(breed.blocks[1]).toMatchObject({ page: { id: 'oranda-goldfish', kind: 'breed' }, facts: { tempC: { min: 18, max: 24 } } })
+  // A breed's card: its own figures (its page's data card), not its species'; a plant's on the plants' scale.
+  const breed = await fill(answer([pick({ ids: ['pigeon-blood-discus'] }), pick({ ids: ['oranda-goldfish'] }), pick({ ids: ['anubias-barteri-nana'] })]), h)
+  expect(h.byId('symphysodon-aequifasciatus')!.tempC).toEqual({ min: 28, max: 31 })
+  expect(breed.blocks[0]).toEqual(expect.objectContaining({ page: expect.objectContaining({ id: 'pigeon-blood-discus', kind: 'breed' }), facts: { tempC: { min: 28, max: 30 }, sizeCm: 15 } }))
+  expect(breed.blocks[1]).toMatchObject({ page: { id: 'oranda-goldfish', kind: 'breed' }, facts: { tempC: { min: 18, max: 24 }, lifeYears: { min: 10, max: 15 } } })
+  expect(breed.blocks[2]).toEqual(expect.objectContaining({ page: expect.objectContaining({ id: 'anubias-barteri-nana', kind: 'plant' }), plant: { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground', 'epiphyte'] } }))
+  expect(breed.blocks[2]).not.toHaveProperty('facts')
+  for (const b of breed.blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
   const volume = await fill(answer([pick({ t: 'tool', tool: 'tank-volume', tank: { l: 60, w: 30.04, h: 36 } }), pick({ t: 'tool', tool: 'tank-volume' })]), h)
   expect(volume.blocks.map(b => (b as { url: string }).url)).toEqual(['/vi/cong-cu/the-tich-be/?hinh=chu-nhat&l=60&w=30&h=36', '/vi/cong-cu/the-tich-be/'])
 })
@@ -114,8 +122,41 @@ test('a pick the handbook doesn\'t have is dropped with its reason, and the rest
   expect(tools.dropped).toEqual(['tool: tank-mates with none of ["no-such-fish"]', 'tool: no null in vi', '2 blocks past 5'])
   expect(tools.blocks.map(b => b.t)).toEqual(['species', 'species', 'species'])
   expect(tools.blocks).toHaveLength(MAX_BLOCKS - 2)
-  // A guide's section shows at most its first blocks; the page has the rest.
-  expect(SECTION_BLOCKS).toBe(8)
+})
+
+test('a section is every block under its heading, to the next heading, however many: the part of the page the site draws', async () => {
+  const path = '/vi/huong-dan/dai/'
+  const paras = Array.from({ length: 12 }, (_, i) => ({ t: 'p', c: [`Đoạn ${i + 1}.`] }))
+  const doc = { kind: 'guide', title: 'Dài', blocks: [{ t: 'p', c: ['Mở đầu.'] }, { t: 'h', text: 'Một', id: 'mot' }, ...paras, { t: 'h', text: 'Hai', id: 'hai' }, { t: 'p', c: ['Sau.'] }] }
+  const long: Source = { index: async () => ({ lang: 'vi', items: [{ kind: 'guide', name: 'Dài', path }], shards: { guide: { n: 1 } } }), shard: async () => ({ v: 1, pages: { [path]: doc } }) as never }
+  const h = (await handbookOf(long, 'vi'))!
+  const { blocks } = await fill(answer([pick({ t: 'section', path, heading: 'mot' }), pick({ t: 'section', path, heading: null })]), h)
+  expect(blocks[0]).toMatchObject({ t: 'section', heading: { id: 'mot' }, blocks: paras })
+  expect(blocks[1]).toMatchObject({ t: 'section', blocks: [{ t: 'p', c: ['Mở đầu.'] }] })
+  for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+})
+
+test('Thai, written without spaces, is searched by its words: a word inside a title, a fish without "ปลา"', () => {
+  const items = [
+    { kind: 'guide', name: 'ไฟดับ ทำอย่างไรให้ปลารอด', path: '/th/guides/power-cut/' },
+    { kind: 'fish', name: 'ปลาหมอสี', id: 'cichlid', path: '/th/fish/cichlid/' },
+    { kind: 'guide', name: 'โรคครีบเปื่อยในปลา', path: '/th/guides/fin-rot/' },
+  ] as Item[]
+  expect(search(items, 'ไฟดับ', null).map(i => i.path)).toEqual(['/th/guides/power-cut/'])
+  expect(search(items, 'หมอสี', null).map(i => i.id)).toEqual(['cichlid'])
+  expect(search(items, 'ครีบเปื่อย', 'guide').map(i => i.path)).toEqual(['/th/guides/fin-rot/'])
+  expect(search(items, 'ปลาทอง', null)).toEqual([])
+  // Vietnamese as before: accents folded.
+  expect(fold('Cá Đĩa')).toBe('ca dia')
+})
+
+test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
+  expect(CHAT_LIMITS.ms).toBeLessThanOrEqual(27_000)
+  const said = (text: string) => readAnswer(message([{ type: 'text', text: JSON.stringify({ text, covered: true, blocks: [], suggestions: [] }) }]))
+  expect(said('x')).toBeUndefined()
+  expect(said('   ')).toBeUndefined()
+  expect(said('Nuôi theo đàn.')?.text).toBe('Nuôi theo đàn.')
+  expect(MIN_TEXT).toBeLessThanOrEqual(10)
 })
 
 test('the answer\'s schema and every tool\'s input are what structured outputs take: objects closed, every field required, no length or number limits', () => {
