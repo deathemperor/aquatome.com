@@ -11,6 +11,65 @@
     "kalimantan",
     "kalimantan-tengah"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Arut",
+        "Kumai",
+        "Sampit"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Betta uberis is a small labyrinth fish native to the peat-swamp forests and blackwater streams of Borneo (Kalimantan, Indonesia), described in 2006.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta uberis is a small bubble-nesting labyrinth fish from peat swamp forests in Central and West Kalimantan, Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to an area sandwiched between the lower Arut and Kumai rivers, south of the towns of Pangkalan Bun and Kumai in Kalimantan Tengah (Central Kalimantan) province, Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Arut",
+            "Kumai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional collections have taken place in the Sampit river basin to the east, and several hundred kilometres further north in Sukadana district, Kalimantan Barat (West Kalimantan) province.",
+          "countries": [],
+          "regions": [
+            "Sampit"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394044,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

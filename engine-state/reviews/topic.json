@@ -63,5 +63,73 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/guides/aquatome-ca-bi-lech-bong-bong-boi-nghieng-chui-dau-noi-bung-nguyen-nhan-va-cach-xu-ly": [
+    {
+      "at": "2026-11-06T23:08:26Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Untuk ikan omnivor seperti ikan emas\" in the intro is a small generalisation; the facts say peas suit omnivores but do not call goldfish omnivores.",
+        "\"serangga air kecil\" for the betta live food: the facts say \"water bugs\", which is close, but \"daphnia (bo bo)\" and the rest match. This is a minor loose translation.",
+        "\"Kekalkan suhu air ikan emas di atas lebih kurang 70°F\" is supported, but the earlier advice \"Naikkan suhu secara perlahan\" in the summary is only loosely backed.",
+        "\"Ikan selalunya mengambil masa beberapa jam untuk pulih\" is worded as general fish recovery. The facts tie this only to a shock-like presentation.",
+        "\"jeli petroleum\" for Vaseline is fine, but the guide gives no context for the advice beyond \"bahagian badan yang terkeluar dari air\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T23:08:26Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"Antibiotik berasaskan kanamycin atau minocycline\" – facts only name KanaPlex or Maracyn 2; the active ingredients are not in the facts.",
+        "\"sisik menegak\" – facts say \"raised scales\"; the wording is close, but \"ikan emas/serangga air\" detail is fine. Minor.",
+        "\"Ikan selalunya pulih dalam beberapa jam\" – facts say recovery from shock often takes a few hours; stated as a general outcome.",
+        "\"(kira-kira 19 liter)\" for 5 gallons and \"kira-kira 26–27°C\", \"kira-kira 21°C\", \"5°C\" – conversions not in facts (approximately correct, but added). The 5-gallon conversion is slightly off (about 19 L is right for US gallons).",
+        "\"Biarkan air hanya beberapa sentimeter\" – facts say a few inches; unit changed to centimetres, which understates the depth.",
+        "\"kutu air\" for daphnia (bo bo) and \"serangga air\" for water bugs – loose translations.",
+        "\"Tempoh puasa... Sumber lain\" and \"Pastikan kitaran nitrogen tangki sudah lengkap\" – paraphrase of \"cycle the tank\"; acceptable.",
+        "FAQ \"kalau ramai ikan bertindak pelik, uji air dulu\" – an inference not stated in the facts.",
+        "\"Keracunan ammonia, nitrit atau nitrat... boleh membuatkan ikan berenang tidak terkawal\" – facts only list ammonia as a nervous-system look-alike, and nitrate for goldfish. Nitrite is not stated to cause this."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-06T23:10:40Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"kira-kira 19 liter\" for 5 gallons is a conversion not in the facts (arithmetically fine, but added).",
+        "\"Langkah pertama... supaya ammonia dan nitrit kembali ke sifar\" and \"Selepas itu barulah pilih rawatan\" is an ordering the facts do not state.",
+        "The intro says popeye is \"akibat penyakit lain, kecederaan atau jangkitan\"; this is a loose paraphrase of the facts.",
+        "\"Rendaman garam untuk punca parasit ... Dalam tangki berasingan\" merges the 1–3% bath with the separate-tank note. The facts list the separate tank for the formalin/salt/malachite green treatments, not for the bath specifically.",
+        "\"Permukaan luar mata... Mata juga mungkin menunjukkan bintik putih atau merah\" is fine, but the source for the bintik is a general fish description, not popeye-specific.",
+        "\"Ikan emas dan cichlid besar ... menghasilkan banyak kotoran\" is fine, but the guide says \"popeye biasanya akibat penyakit... bukannya penyakit yang berdiri sendiri\", which adds emphasis."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T23:10:40Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"Popeye pada kedua-dua mata lebih cenderung ke arah masalah kualiti air atau penyakit dalaman\" - the facts do not say bilateral popeye points to water quality or internal disease. This is an invented diagnostic rule, repeated in the FAQ.",
+        "\"Popeye pada sebelah mata sahaja mungkin berpunca daripada kecederaan\" - the facts say injury may cause one-eye popeye. The guide extends this into a diagnostic rule and adds \"digigit ikan lain\" in the FAQ, which is slightly beyond the facts.",
+        "\"Jika kedua-dua mata terkena, atau ikan juga berperut buncit... punca yang lebih mungkin ialah kualiti air atau penyakit dalaman seperti dropsy\" - an unsupported inference.",
+        "\"tuberkulosis ikan\" and \"penyakit buah pinggang\" are slight embellishments. The facts say only \"tuberculosis\" and \"kidney disease\".",
+        "\"Ichthyophthirius multifiliis (penyakit bintik putih)\" - the white spot disease label is not in the facts.",
+        "\"kerana itu tandanya masalah dalaman yang lebih serius\" (dropsy) - not stated in the facts.",
+        "\"Sebab itu ikan yang sakit perlu diasingkan\" - an extra rationale that the facts do not state for this point.",
+        "\"supaya ikan tidak panik dan melanggar dinding tangki\" - the facts say only that the fish should not panic and crash. Reading it as hitting the tank walls is a minor addition."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

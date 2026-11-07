@@ -1,0 +1,79 @@
+{
+  "id": "brevibora-cheeya",
+  "native": {
+    "input": "90cfd51740217f39",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Terengganu, Pahang and Johor in Peninsular Malaysia, Jambi and Riau provinces in Sumatra (Indonesia) and the island of Banka which lies off Sumatra's southeastern coast.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Terengganu, Pahang and Johor in Peninsular Malaysia, Jambi and Riau provinces in Sumatra (Indonesia) and the island of Banka which lies off Sumatra's southeastern coast.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Terengganu, Pahang and Johor in Peninsular Malaysia, Jambi and Riau provinces in Sumatra (Indonesia) and the island of Banka which lies off Sumatra's southeastern coast.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Banka",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Terengganu, Pahang and Johor in Peninsular Malaysia, Jambi and Riau provinces in Sumatra (Indonesia) and the island of Banka which lies off Sumatra's southeastern coast.",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Terengganu, Pahang and Johor in Peninsular Malaysia, Jambi and Riau provinces in Sumatra (Indonesia) and the island of Banka which lies off Sumatra's southeastern coast.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brevibora cheeya",
+    "status": "ACCEPTED",
+    "taxonKey": 5962643,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

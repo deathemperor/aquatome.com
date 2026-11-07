@@ -1,0 +1,74 @@
+{
+  "id": "betta-simorum",
+  "native": {
+    "input": "d1d66f524419a802",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Wild-caught, from Riau, Indonesia",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from 'Swamp in Rantau Panjang, Jambi Province, Sumatra, Indonesia', not to be confused with the town of the same name on the Thai-Malay border, whilst in Riau the species appears restricted to the Indragiri river basin.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from 'Swamp in Rantau Panjang, Jambi Province, Sumatra, Indonesia', not to be confused with the town of the same name on the Thai-Malay border, whilst in Riau the species appears restricted to the Indragiri river basin.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta simorum",
+    "status": "ACCEPTED",
+    "taxonKey": 2394021,
+    "datasets": [
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

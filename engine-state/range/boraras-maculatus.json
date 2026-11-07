@@ -1,0 +1,142 @@
+{
+  "id": "boraras-maculatus",
+  "native": {
+    "input": "1bf98c5b3abff9f3",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Bandar Maharani, now more often referred to as Muar, district in Johor state, southern Peninsular Malaysia and distributed throughout the country with range extending into southern (peninsular) Thailand, eastern Sumatra, Singapore and the island of Bintan in Riau Islands province, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bintan",
+        "source": "seriouslyfish",
+        "quote": "Described from Bandar Maharani, now more often referred to as Muar, district in Johor state, southern Peninsular Malaysia and distributed throughout the country with range extending into southern (peninsular) Thailand, eastern Sumatra, Singapore and the island of Bintan in Riau Islands province, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Boraras maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2366590,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH",
+      "SG",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

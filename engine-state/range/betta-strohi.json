@@ -1,0 +1,37 @@
+{
+  "id": "betta-strohi",
+  "native": {
+    "input": "6b1196768b3fe1ce",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta strohi",
+    "status": "ACCEPTED",
+    "taxonKey": 2394048,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        3
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

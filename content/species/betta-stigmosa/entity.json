@@ -10,6 +10,52 @@
     "malaysia",
     "terengganu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta stigmosa is a mouthbrooding labyrinth fish from forest hill streams in Terengganu state, Peninsular Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394040,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -11,6 +11,7 @@ import { relayFetch } from '../fishid/relay'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
+import { chatAccount, conversationKey, retryKey } from './store'
 import type { Step, Tank } from './tools'
 
 /**
@@ -20,16 +21,17 @@ import type { Step, Tank } from './tools'
  * - Who: the app's bearer, or the site's session cookie from the site's own pages (same-origin), as accounts checks
  *   them. No session is 401; a bearer that isn't a live app session never falls back to the cookie.
  * - Counts: per account a day and chat's own day, under the dollar cap fish ID's ledger keeps (ledger.ts, `kind`).
- * - The conversation: kept in R2 (UPLOADS, `chat-conv/<id>.json`) 24 hours under the account that began it, as its
- *   HMAC: R2 reads its own writes, where KV can show a stale one for a minute at another location. A lifecycle rule
- *   on the prefix deletes it after a day; 24 hours is checked here, the rule only cleans up. The question being
- *   answered is marked in it, written only over the version read (an etag match), or only where none is yet, so two
- *   questions at once can't both run: the second is 409 answering, or with the first's key waits for its answer.
- * - Retries (`Idempotency-Key`): the turn, or its error, kept 15 minutes under the account and key
+ * - The conversation: kept in R2 (UPLOADS, `chat-conv/<account>/<id>.json`, the account as its HMAC; store.ts) with no
+ *   time limit, and deleted with the account. R2 reads its own writes, where KV can show a stale one for a minute at
+ *   another location. Questions go in it for 24 hours from its first. An id another account used is another
+ *   conversation. The question being answered is marked in it, written only over the version read (an etag match), or
+ *   only where none is yet, so two questions at once can't both run: the second is 409 answering, or with the first's
+ *   key waits for its answer.
+ * - Retries (`Idempotency-Key`): the turn, or its error, read for 15 minutes under the account and key
  *   (`chat-turn/<account>/<key>.json`). A retry while the first run still answers waits for it and gets its answer,
  *   counted once.
  *
- * The transcripts (365 days, as fish ID's runs) come with fish ID's own (its transcripts' pull request).
+ * The transcripts (kept as the conversation is, and deleted with it) come in their own pull request.
  */
 export type ChatEnv = {
   /** "1": chat is on. */
@@ -88,7 +90,7 @@ export function chatWorstCost(model: string): number {
 /** The contract's `Turn`. */
 export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[] }
 /** A conversation as kept: whose it is (an HMAC of the account), when it began, its turns, and the question being answered. */
-export type Conversation = { account: string; created: number; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
+export type Conversation = { created: number; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on. */
 type Kept = { at: number } & ({ turn: Turn } | { status: number; error: string })
 
@@ -185,9 +187,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const stream = /(^|[\s,])text\/event-stream\b/i.test(req.headers.get('accept') ?? '')
 
   // The account as the stores name it: an HMAC, never its id.
-  const account = (await accountDayKey(env.COMMENT_HMAC_KEY, session.userId, new Date(0))).slice(3)
-  const convKey = `chat-conv/${q.conversation}.json`
-  const keptKey = idem ? `chat-turn/${account}/${idem}.json` : ''
+  const account = await chatAccount(env.COMMENT_HMAC_KEY, session.userId)
+  const convKey = conversationKey(account, q.conversation)
+  const keptKey = idem ? retryKey(account, idem) : ''
   const readKept = async (): Promise<Kept | undefined> => {
     if (!keptKey) return undefined
     const k = await (await env.UPLOADS.get(keptKey))?.json<Kept>()
@@ -204,7 +206,6 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   if (kept) return keptResponse(kept)
   const obj = await env.UPLOADS.get(convKey)
   const conv = obj ? await obj.json<Conversation>() : undefined
-  if (conv && conv.account !== account) return json({ error: 'conversation' }, 404)
   if (conv && (clock() - conv.created > CONVERSATION_MS || conv.turns.length >= maxTurns)) return json({ error: 'ended' }, 410)
   const running = conv?.running && clock() - conv.running.at < RUNNING_MS ? conv.running : undefined
   if (running && idem && running.key === idem) return waitFor(readKept, keptResponse, stream, clock, deps)
@@ -229,7 +230,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // `etagDoesNotMatch: '*'` is If-None-Match: * (workerd's r2-bucket.c++, buildSingleEtagArray), which R2 applies as a
   // create-once write only one of several at once wins (developers.cloudflare.com/r2/api/s3/extensions/, "Conditional
   // operations in PutObject"); a failed condition is null, not an error (developers.cloudflare.com/r2/api/workers/workers-api-reference/).
-  const mark: Conversation = { account, created: conv?.created ?? clock(), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
+  const mark: Conversation = { created: conv?.created ?? clock(), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
   const marked = await env.UPLOADS.put(convKey, JSON.stringify(mark), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: '*' } })
     .then(o => (o ? 'ok' : 'taken'), e => { console.error('chat mark:', e); return 'failed' })
   if (marked !== 'ok') {
@@ -317,7 +318,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
    */
   const finish = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
-    const next: Conversation = { account, created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
+    const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
