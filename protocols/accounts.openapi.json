@@ -1303,6 +1303,13 @@
                         "$ref": "#/components/schemas/KeptPhoto"
                       },
                       "description": "The fish-ID photos it let AquaTome keep (not the images)."
+                    },
+                    "chatConversations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "chat.openapi.json#/components/schemas/Conversation"
+                      },
+                      "description": "Its chat conversations, each question with its answer, those the reader hid too (marked `hidden`)."
                     }
                   }
                 }
