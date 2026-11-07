@@ -507,6 +507,17 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         if (fixed) { d = fixed; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
       }
       const score = kept.score
+      // A redo never leaves a guide worse (Writing Lead, 2026-11-07): a new version that scores under the review of the one
+      // on the site leaves that one in place. Its reviews are kept, none on the page, and the video is marked tried, so a
+      // recheck's redo list doesn't send it back.
+      if (before && score < before.score) {
+        await logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, tries, undefined, { now: deps.now() })
+        await set(vid, { status: 'processed', entityIds: [`youtube-${vid}`] })
+        report.skipped.push(`${vid}: the new version scored ${score.toFixed(2)}, under the guide's ${before.score.toFixed(2)}: kept the guide`)
+        redone.add(vid)
+        failedInARow = 0
+        return false
+      }
       // The guide sits under the video: a slip like "trong video" or "Theo <channel>" gets an editor pass, which states it directly.
       if (namesSource(d, m.channel)) d = await editDraft(llm, d, opts.write?.model)
 

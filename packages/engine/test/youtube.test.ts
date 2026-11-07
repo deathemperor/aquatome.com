@@ -259,6 +259,20 @@ test('a redo after a recheck: the guides it left under the bar with notes, the o
   expect([fetched, third.calls.transcripts, third.calls.prompts.length]).toEqual([0, 0, 0])
 })
 
+test('a redo that scores under the recheck of the guide on the site keeps the guide, and isn\'t tried again', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const videos = { a1: {} }
+  await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
+  const was = await readFile(join(root, 'content/guides/youtube-a1/vi.json'), 'utf8')
+  await recheck(root, 'a1', 0.7, ['Says many people do it; the speaker says only he does'])
+  const worse = later(root, { videos, scores: [0.6, 0.65], drafts: [draft('Bản mới'), draft('Bản sửa')] })
+  expect(await videoGuides(worse.d, { redo: true, rechecked: SINCE, limit: 1 })).toMatchObject({ written: [], skipped: ['a1: the new version scored 0.65, under the guide\'s 0.70: kept the guide'] })
+  expect(await readFile(join(root, 'content/guides/youtube-a1/vi.json'), 'utf8')).toBe(was)
+  const traces = (await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']!
+  expect(traces.slice(0, 3).map(t => [t.attempt, t.kept])).toEqual([['rewrite', false], ['first', false], ['recheck', true]])
+  expect(await recheckedGuides(root, SINCE)).toEqual([])
+})
+
 test('a redo after a recheck that is skipped leaves the guide alone; a model failure leaves it for the next run', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })
