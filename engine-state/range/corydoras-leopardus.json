@@ -1,0 +1,126 @@
+{
+  "id": "corydoras-leopardus",
+  "native": {
+    "input": "74fc0d58870213c2",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The leopard cory, Brochis leopardus, long known as Corydoras leopardus, is a spotted armoured catfish from the western Amazon basin in Peru, Ecuador, Bolivia and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The leopard cory, Brochis leopardus, long known as Corydoras leopardus, is a spotted armoured catfish from the western Amazon basin in Peru, Ecuador, Bolivia and Brazil.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The leopard cory, Brochis leopardus, long known as Corydoras leopardus, is a spotted armoured catfish from the western Amazon basin in Peru, Ecuador, Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The leopard cory, Brochis leopardus, long known as Corydoras leopardus, is a spotted armoured catfish from the western Amazon basin in Peru, Ecuador, Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Museum collections also hold fish identified as this species from coastal rivers near Belém in Pará, and from the Putumayo and Caquetá drainages in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Found in the western Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "Yavarí",
+        "source": "seriouslyfish",
+        "quote": "It's listed from Loreto in Peru, from Ecuador and from Bolivia, and museum specimens come from the Yavarí and Juruá drainages in Brazil, the Napo drainage in Ecuador and the Río Manuripi in Pando, Bolivia.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Juruá",
+        "source": "seriouslyfish",
+        "quote": "It's listed from Loreto in Peru, from Ecuador and from Bolivia, and museum specimens come from the Yavarí and Juruá drainages in Brazil, the Napo drainage in Ecuador and the Río Manuripi in Pando, Bolivia.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Napo",
+        "source": "seriouslyfish",
+        "quote": "It's listed from Loreto in Peru, from Ecuador and from Bolivia, and museum specimens come from the Yavarí and Juruá drainages in Brazil, the Napo drainage in Ecuador and the Río Manuripi in Pando, Bolivia.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Río Manuripi",
+        "source": "seriouslyfish",
+        "quote": "It's listed from Loreto in Peru, from Ecuador and from Bolivia, and museum specimens come from the Yavarí and Juruá drainages in Brazil, the Napo drainage in Ecuador and the Río Manuripi in Pando, Bolivia.",
+        "country": "BO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras leopardus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342639,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        18
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "EC",
+      "BO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

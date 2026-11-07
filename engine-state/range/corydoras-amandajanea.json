@@ -1,0 +1,58 @@
+{
+  "id": "corydoras-amandajanea",
+  "native": {
+    "input": "d9c4dd81879d8953",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brochis amandajanea, long known as Corydoras amandajanea, is an armoured catfish from the Rio Miuã system of streams off the upper Rio Negro in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Miuã system of streams, possibly the Uarinabe stream, 10-12 km from its confluence of the Upper Negro R., Brazil'.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Brochis amandajanea, long known as Corydoras amandajanea, is an armoured catfish from the Rio Miuã system of streams off the upper Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Miuã",
+        "source": "seriouslyfish",
+        "quote": "Brochis amandajanea, long known as Corydoras amandajanea, is an armoured catfish from the Rio Miuã system of streams off the upper Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras amandajanea",
+    "status": "ACCEPTED",
+    "taxonKey": 2342655,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

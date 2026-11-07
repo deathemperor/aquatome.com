@@ -1,0 +1,55 @@
+{
+  "id": "corydoras-lamberti",
+  "native": {
+    "input": "dc000b4a16474714",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Río Pastaza, a major tributary of the Río Marañón in the upper Amazon basin, Loreto Region, northern Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Pastaza",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Río Pastaza, a major tributary of the Río Marañón in the upper Amazon basin, Loreto Region, northern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Marañón",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Río Pastaza, a major tributary of the Río Marañón in the upper Amazon basin, Loreto Region, northern Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras lamberti",
+    "status": "ACCEPTED",
+    "taxonKey": 2342684,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

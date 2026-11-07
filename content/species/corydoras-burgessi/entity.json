@@ -10,6 +10,62 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently endemic to the upper rio Negro basin in Brazil, although detailed records do not currently exist.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342737,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

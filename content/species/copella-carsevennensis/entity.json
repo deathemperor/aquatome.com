@@ -14,6 +14,136 @@
     "brazil",
     "amapa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "GF",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Copella carsevennensis is a small lebiasinid from coastal river systems in Guyana, Suriname, French Guiana and Amapá state, Brazil.",
+          "countries": [
+            "GY",
+            "SR",
+            "GF",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355698,
+      "total": 348,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          318
+        ],
+        [
+          "BR",
+          21
+        ],
+        [
+          "SR",
+          7
+        ],
+        [
+          "GY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          112,
+          112
+        ],
+        [
+          -53.4375,
+          4.21875,
+          186,
+          186
+        ],
+        [
+          -52.03125,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          -52.03125,
+          4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

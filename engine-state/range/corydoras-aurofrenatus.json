@@ -1,0 +1,96 @@
+{
+  "id": "corydoras-aurofrenatus",
+  "native": {
+    "input": "2df2711d16a553a8",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "C. aurofrenatus is currently understood to occur throughout much of the Río Paraguay-Paraná system in Paraguay, and has also been recorded in Argentina and Bolivia.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "C. aurofrenatus is currently understood to occur throughout much of the Río Paraguay-Paraná system in Paraguay, and has also been recorded in Argentina and Bolivia.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "C. aurofrenatus is currently understood to occur throughout much of the Río Paraguay-Paraná system in Paraguay, and has also been recorded in Argentina and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Paraguay-Paraná",
+        "source": "seriouslyfish",
+        "quote": "C. aurofrenatus is currently understood to occur throughout much of the Río Paraguay-Paraná system in Paraguay, and has also been recorded in Argentina and Bolivia.",
+        "country": "PY",
+        "ok": true
+      },
+      {
+        "name": "Río Aquidabán",
+        "source": "seriouslyfish",
+        "quote": "This refers to the Río Aquidabán (Axenrot and Kullander, 2003) which flows through the departments of Amambay and Concepción before entering the Río Paraguay north of Concepción city.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras aurofrenatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342666,
+    "datasets": [
+      [
+        "ad107b32-e6de-4a0d-b96b-2954dc794cbe",
+        25
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "PY",
+      "AR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

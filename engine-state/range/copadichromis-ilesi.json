@@ -1,0 +1,38 @@
+{
+  "id": "copadichromis-ilesi",
+  "native": {
+    "input": "6cd0fac2d261c9d8",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Copadichromis ilesi",
+    "status": "ACCEPTED",
+    "taxonKey": 2373850,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

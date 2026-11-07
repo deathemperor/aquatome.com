@@ -1,0 +1,29 @@
+{
+  "slug": "bagrus-bajad",
+  "name": "ปลาบายัด",
+  "altNames": [
+    "Bayad",
+    "Black Nile Catfish",
+    "แบกรัส บาจาด",
+    "ปลาแคทฟิชไนล์ดำ"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>ชื่อวิทยาศาสตร์:</strong> Bagrus bajad (Fabricius, 1775)</li><li><strong>ชื่อสามัญ:</strong> Black Nile Catfish</li><li><strong>แหล่งที่พบตัวอย่างต้นแบบ:</strong> แม่น้ำไนล์ ประเทศอียิปต์</li><li><strong>ขนาด:</strong> 112 ซม. SL (วัดจากปลายปากถึงโคนหาง)</li><li><strong>ลักษณะเด่นในการจำแนก:</strong> ก้านครีบหลังยื่นยาวออกเป็นเส้นสั้น ๆ ระยะจากปลายปากถึงครีบหลังเท่ากับ 2.4–2.6 ส่วนในความยาวมาตรฐาน และความกว้างของหัวเท่ากับ 1.7–2.2 ส่วนในความยาวหัว</li><li><strong>สถานภาพใน IUCN Red List:</strong> กังวลน้อยที่สุด (Least Concern) (ประเมินล่าสุดปี 2020)</li></ul>",
+    "distribution:planetcatfish": "<p>แอฟริกา: แม่น้ำไนล์ ทะเลสาบชาด แม่น้ำไนเจอร์และแม่น้ำเซเนกัล ทะเลสาบโมบูตู (ทะเลสาบอัลเบิร์ต) และทะเลสาบเทอร์คานา มีรายงานพบในลุ่มแม่น้ำซานากาด้วย</p>",
+    "habitat:planetcatfish": "<p>อาศัยอยู่ในน้ำที่ลึกไม่เกิน 12 เมตร</p>",
+    "waterConditions:planetcatfish": "<ul><li>ค่า pH: 6.4–8.0</li><li>อุณหภูมิ: 21–27 °C</li></ul>",
+    "equipment:planetcatfish": "<p>ควรใส่ขอนไม้ให้มากพอเพื่อเป็นที่หลบซ่อน</p>",
+    "diet:planetcatfish": "<p>ในธรรมชาติล่าปลาเล็กเป็นอาหาร โดยเฉพาะปลาในสกุล Alestes นอกจากนี้ยังกินแมลง สัตว์จำพวกกุ้งปู หอย และพืช ในตู้ปลากินอาหารสดหรืออาหารแช่แข็ง รวมถึงอาหารสำเร็จรูปอื่น ๆ เช่น อาหารเม็ด ได้ง่าย และจะกินปลาที่ตัวเล็กกว่า</p>",
+    "behaviour:planetcatfish": "<p>ปลาวัยอ่อนสามารถเลี้ยงรวมกับปลาอื่นที่มีขนาดเท่ากันหรือใหญ่กว่าได้ แต่ปลาโตเต็มวัยจะก้าวร้าวและควรเลี้ยงเดี่ยว</p>",
+    "dimorphism:planetcatfish": "<p>ปลาเพศผู้มีติ่งเพศ (genital papilla) ยาวอยู่ด้านหน้าครีบก้น</p>",
+    "reproduction:planetcatfish": "<p>ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์</p>",
+    "references:planetcatfish": "<p>Descriptiones animalium (Forsskål), pp 66, xiii.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.95
+    }
+  }
+}

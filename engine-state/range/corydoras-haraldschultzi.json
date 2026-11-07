@@ -1,0 +1,66 @@
+{
+  "id": "corydoras-haraldschultzi",
+  "native": {
+    "input": "9b5e39ea967c498a",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The mosaic cory, Brochis haraldschultzi, long known as Corydoras haraldschultzi, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The mosaic cory, Brochis haraldschultzi, long known as Corydoras haraldschultzi, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "The mosaic cory, Brochis haraldschultzi, long known as Corydoras haraldschultzi, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras haraldschultzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342718,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}
