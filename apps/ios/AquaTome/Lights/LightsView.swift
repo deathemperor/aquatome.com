@@ -261,11 +261,14 @@ private struct ReadyCard: View {
         ScheduleFact()
       }
 
-      HStack(spacing: 8) {
-        quick("Tắt đèn", id: "quick-off") { await lights.quick(off: true) }
-        quick("Sáng hết", id: "quick-full") { await lights.quick(off: false) }
-        quick("Theo lịch", id: "quick-auto") { await lights.backToSchedule() }
-          .disabled(!lights.canGoBackToSchedule)
+      VStack(spacing: 8) {
+        HStack(spacing: 8) {
+          quick("Tắt đèn", id: "quick-off") { await lights.quick(off: true) }
+          quick("Sáng hết", id: "quick-full") { await lights.quick(off: false) }
+          quick("Theo lịch", id: "quick-auto") { await lights.backToSchedule() }
+            .disabled(!lights.canGoBackToSchedule)
+        }
+        ScheduleColoursButton()
       }
       .disabled(lights.isBusy)
       .accessibilityElement(children: .contain)
@@ -288,6 +291,57 @@ private struct ReadyCard: View {
       .tint(.primary)
       .accessibilityIdentifier(id)
   }
+}
+
+/// "Bật với màu của lịch": the light on now with its schedule's colours, today only, then on its schedule again by itself.
+/// Before the schedule's on, until its off, asked once with how long that is; after its off, an hour or two. Looked at
+/// again every minute: not there while the schedule has the light on.
+private struct ScheduleColoursButton: View {
+  @Environment(LightsModel.self) private var lights
+  /// The ends to choose from, planned when tapped.
+  @State private var plans: [TodayPlan] = []
+  @State private var confirming = false
+  @State private var choosing = false
+
+  var body: some View {
+    SwiftUI.TimelineView(.everyMinute) { ctx in
+      if !lights.todayEnds(at: shownNow(ctx.date)).isEmpty {
+        Button { ask() } label: { Text("Bật với màu của lịch").frame(maxWidth: .infinity) }
+          .buttonStyle(.bordered)
+          .controlSize(.large)
+          .tint(.primary)
+          .accessibilityIdentifier("quick-as-scheduled")
+      }
+    }
+    .alert(question, isPresented: $confirming) {
+      Button("Bật với màu của lịch") { perform(.nextPoint) }
+      Button("Hủy", role: .cancel) {}
+    }
+    .confirmationDialog("Bật với màu của lịch", isPresented: $choosing, titleVisibility: .visible) {
+      ForEach(plans, id: \.end) { p in
+        Button { perform(p.end) } label: {
+          p.end == .oneHour ? Text("1 giờ, tới \(p.ends.description)") : Text("2 giờ, tới \(p.ends.description)")
+        }
+      }
+      Button("Hủy", role: .cancel) {}
+    }
+  }
+
+  /// "Đèn sáng từ bây giờ tới 20:00 (giờ tắt của lịch), 12 giờ."
+  private var question: Text {
+    guard let p = plans.first else { return Text(verbatim: "") }
+    let hours = (Double(p.minutesOn) / 60).formatted(.number.precision(.fractionLength(0...1)))
+    return Text("Đèn sáng từ bây giờ tới \(p.ends.description) (giờ tắt của lịch), \(hours) giờ.")
+  }
+
+  private func ask() {
+    plans = TodayEnd.allCases.compactMap { try? lights.plan($0).get() }
+    // Two hours that end when one does (23:59) are the same choice.
+    if plans.count == 2, plans[0].ends == plans[1].ends { plans.removeLast() }
+    if plans.first?.end == .nextPoint { confirming = true } else if !plans.isEmpty { choosing = true }
+  }
+
+  private func perform(_ end: TodayEnd) { Task { await lights.perform(.onWithScheduleColours(until: end)) } }
 }
 
 /// A new light (nothing written to it from AquaTome yet): the four steps to set it up.

@@ -53,6 +53,9 @@ final class LightsModel {
   /// The schedule written before the last write, to put back ("Hoàn tác").
   private var undo: (schedule: Schedule, name: String?)?
   var notice: Notice?
+  /// "Bật với màu của lịch" left a period for today alone on the light connected, until this ends ("Theo lịch" or the
+  /// first connection after it puts the schedule for every day back).
+  private(set) var today: TodayMark?
   /// "Thử màu trên đèn": the light shows the colour being edited (manual mode) until the test ends.
   private(set) var trying = false
   /// "Xem thử cả ngày": the minute of the day shown, while the day plays.
@@ -161,7 +164,11 @@ final class LightsModel {
   var savedSchedules: [SavedSchedule] { card == .ready ? Array(device?.schedules.prefix(6) ?? []) : [] }
   /// The first write from AquaTome replaces whatever the light holds, maybe a schedule from the My Chihiros app: ask.
   var writeNeedsConfirming: Bool { active == nil }
-  var canGoBackToSchedule: Bool { isConnected && !isBusy && (isManual || trying || device?.manual != nil) }
+  var canGoBackToSchedule: Bool { isConnected && !isBusy && (isManual || trying || device?.manual != nil || today != nil) }
+  /// The schedule last written from AquaTome (`active`), as the light takes it; nil if none.
+  private var known: Schedule? {
+    active.flatMap { a in TimeOfDay(a.on).flatMap { on in TimeOfDay(a.off).map { Schedule(on: on, off: $0, ramp: a.ramp, levels: a.levels) } } }
+  }
 
   var clock: ClockState {
     if synced { return .right }
@@ -293,10 +300,26 @@ final class LightsModel {
         let fitted = fit(Array(levels.prefix(before)), to: m.channels.count)
         for (i, l) in fitted.enumerated() where i < levels.count { levels[i] = l }
       }
+      // A period for today alone ("Bật với màu của lịch") whose day is over: the schedule for every day again, before the
+      // same weekday comes round and runs it again. One that can't be written now stays marked, for the next connection or
+      // "Theo lịch".
+      var unended: Error?
+      if let mark = loadToday(l.name), mark.isOver(at: now), let everyday = self.known, new.canWriteSchedule {
+        do {
+          if let written = try await new.backToSchedule(everyday, now: now) { show(written) }
+          synced = true // the clock went first, acknowledged
+          endToday(l.name)
+        } catch {
+          unended = error
+        }
+        guard session === new else { return false } // disconnected meanwhile
+      }
+      today = loadToday(l.name)
       let name = device?.nickname ?? m.name
       notice = Notice(text: !new.canWriteSchedule
         ? String(localized: "Đã kết nối \(m.name), firmware \(snap.firmware): bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.")
         : known ? String(localized: "Đã kết nối \(name).") : String(localized: "Đã kết nối \(m.name). Đèn mới: làm theo các bước trong khung này."))
+      if let unended { notice = Notice(text: Self.describe(unended), isError: true) }
       telemetry?.record(.action(.lightConnect, ok: true))
       return false
     } catch {
@@ -373,6 +396,7 @@ final class LightsModel {
     trying = false
     held = false
     shown = []
+    today = nil
     stopPreview()
   }
 
@@ -448,7 +472,7 @@ final class LightsModel {
     guard let session, s.problem == nil else { return }
     stopPreview()
     trying = false
-    let before = active
+    let before = active, lightName = light?.name
     isWriting = true
     restoring = true
     defer { isWriting = false; restoring = false }
@@ -461,6 +485,8 @@ final class LightsModel {
         if self.session === session { self.telemetry?.record(.action(.lightWrite, ok: false, kind: Event.Kind(error))) }
         throw error
       }
+      // Written for every day, whether or not the light reads it back yet: a period for today alone is gone.
+      if let lightName { self.endToday(lightName) }
       guard self.session === session else { return }
       self.show(snap)
       self.isManual = false
@@ -528,13 +554,15 @@ final class LightsModel {
     guard let session else { return }
     stopPreview()
     trying = false
-    let known = active.flatMap { a in TimeOfDay(a.on).flatMap { on in TimeOfDay(a.off).map { Schedule(on: on, off: $0, ramp: a.ramp, levels: a.levels) } } }
+    let known = self.known, name = light?.name
     restoring = true
     defer { restoring = false }
     await run(session) {
       self.pending = [:]
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
       let snap = try await session.backToSchedule(known)
+      // Written again for every day: a period for today alone is gone.
+      if snap != nil, let name { self.endToday(name) }
       guard self.session === session else { return }
       if let snap { self.show(snap) }
       self.isManual = false
@@ -554,6 +582,106 @@ final class LightsModel {
     trying = true
     send(form.levels)
     notice = Notice(text: String(localized: "Đèn đang hiện màu thử."))
+  }
+
+  // MARK: "Bật với màu của lịch"
+
+  /// Now, as the light's screen gives it (`shownNow`: a debug build's `-now HH:MM`).
+  private var now: Date { shownNow(Date()) }
+
+  /// The ends "Bật với màu của lịch" offers at `date`. None (no button) without a light connected that keeps a period per
+  /// weekday and takes schedules from the app, and a schedule AquaTome wrote to it: never one the My Chihiros app set,
+  /// which the app doesn't know. None either while that schedule has the light on.
+  func todayEnds(at date: Date) -> [TodayEnd] {
+    guard isConnected, (firmware ?? 0) >= 20, let light, Model.hasWeekdayPeriods(name: light.name), let known else { return [] }
+    return known.todayEnds(at: date)
+  }
+
+  struct Refusal: Error { let reason: String }
+
+  /// "Bật với màu của lịch" until `end`, planned at `time` (now); or why it can't be done then, in the reader's words.
+  /// Always from the schedule written to the light (`active`), never the form, which may hold edits not written.
+  func plan(_ end: TodayEnd, at time: Date? = nil) -> Result<TodayPlan, Refusal> {
+    guard isConnected, let light else { return .failure(Refusal(reason: String(localized: "Chưa kết nối đèn."))) }
+    guard let known else { return .failure(Refusal(reason: String(localized: "Chưa ghi lịch nào từ AquaTome."))) }
+    do { return .success(try known.today(end, at: time ?? now, light: light.name)) } catch {
+      return .failure(Refusal(reason: Self.describe(error)))
+    }
+  }
+
+  /// What `a` changes, in the reader's words, or why it can't be done now.
+  func describe(_ a: LightAction) -> String {
+    switch a {
+    case .onWithScheduleColours(let end):
+      switch plan(end) {
+      case .success(let p): String(localized: "Bật ngay với màu của lịch tới \(p.ends.description), rồi chạy lại theo lịch.")
+      case .failure(let r): r.reason
+      }
+    }
+  }
+
+  func perform(_ a: LightAction) async -> LightAction.Outcome {
+    switch a {
+    case .onWithScheduleColours(let end): await onWithScheduleColours(until: end)
+    }
+  }
+
+  /// The schedule written as two periods (`LightSession.writeToday`): the six other days as they are, today's stretched to
+  /// light the light from now until `end`. Marked on this phone until the schedule for every day is written again.
+  private func onWithScheduleColours(until end: TodayEnd) async -> LightAction.Outcome {
+    let time = now
+    let p: TodayPlan
+    switch plan(end, at: time) {
+    case .success(let planned): p = planned
+    case .failure(let r):
+      notice = Notice(text: r.reason, isError: true)
+      return .failed(r.reason)
+    }
+    guard let session, let name = light?.name else { return .cancelled }
+    stopPreview()
+    trying = false
+    restoring = true
+    defer { restoring = false }
+    let failure = await run(session) {
+      self.pending = [:]
+      while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
+      let snap = try await session.writeToday(p, now: time)
+      // On the light now, whatever becomes of this connection: kept for a later one to end.
+      self.keepToday(p.mark, name)
+      guard self.session === session else { return }
+      self.show(snap)
+      self.synced = true // the clock went first, acknowledged
+      self.isManual = false
+      self.held = false
+      self.changeLight {
+        $0.manual = nil
+        $0.clockSyncedAt = Timestamp.string(Date())
+      }
+      self.notice = Notice(text: String(localized: "Đèn sáng với màu của lịch tới \(p.ends.description), rồi tự chạy lại theo lịch."))
+    }
+    guard self.session === session else { return .cancelled }
+    return failure.map { .failed($0) } ?? .done
+  }
+
+  /// The mark, kept by the light's Bluetooth name on this phone only: the light's record is shared with the site, and
+  /// this isn't part of it.
+  private static func todayKey(_ name: String) -> String { "light.today.\(name)" }
+
+  private func loadToday(_ name: String) -> TodayMark? {
+    guard let d = store.dictionary(forKey: Self.todayKey(name)), let day = d["day"] as? String, let weekday = d["weekday"] as? Int,
+          let end = (d["end"] as? String).flatMap(TimeOfDay.init) else { return nil }
+    return TodayMark(day: day, weekday: weekday, end: end)
+  }
+
+  private func keepToday(_ m: TodayMark, _ name: String) {
+    store.set(["day": m.day, "weekday": m.weekday, "end": m.end.description] as [String: Any], forKey: Self.todayKey(name))
+    if light?.name == name { today = m }
+  }
+
+  /// The schedule for every day was written to the light named so.
+  private func endToday(_ name: String) {
+    store.removeObject(forKey: Self.todayKey(name))
+    if light?.name == name { today = nil }
   }
 
   // MARK: Colour, as the site's page sets it
@@ -722,11 +850,17 @@ final class LightsModel {
   }
 
   /// A command on `s`. Once `s` is no longer the light shown (disconnected, dropped), its outcome is not reported: the
-  /// screen already says what happened.
-  private func run(_ s: LightSession, _ body: @escaping @MainActor () async throws -> Void) async {
+  /// screen already says what happened. Returns what went wrong, as reported.
+  @discardableResult
+  private func run(_ s: LightSession, _ body: @escaping @MainActor () async throws -> Void) async -> String? {
     isBusy = true
     defer { if session === s { isBusy = false } }
-    do { try await body() } catch { if session === s { notice = Notice(text: Self.describe(error), isError: true) } }
+    do { try await body() } catch {
+      guard session === s else { return nil }
+      notice = Notice(text: Self.describe(error), isError: true)
+      return notice?.text
+    }
+    return nil
   }
 
   /// After a write: the clock was set and levels set by hand no longer hold, as the site keeps them.
@@ -798,9 +932,35 @@ final class LightsModel {
       String(localized: "Đèn không trả lời. Ngắt kết nối rồi kết nối lại.")
     case SessionError.firmwareTooOld:
       String(localized: "Firmware của đèn chưa hẹn giờ được từ ứng dụng. Cập nhật firmware bằng ứng dụng My Chihiros.")
+    case TodayProblem.noWeekdayPeriods:
+      String(localized: "Đèn này chỉ giữ một lịch cho mọi ngày, nên không bật riêng hôm nay được.")
+    case TodayProblem.lit:
+      String(localized: "Đèn đang sáng theo lịch rồi.")
+    case TodayProblem.onlyUntilItsOff:
+      String(localized: "Trước giờ bật của lịch, đèn chỉ bật được tới giờ tắt của lịch.")
+    case TodayProblem.onlyAnHourOrTwo:
+      String(localized: "Sau giờ tắt của lịch, đèn chỉ bật thêm 1 hoặc 2 giờ: để đèn sáng qua đêm dễ sinh rêu.")
+    case TodayProblem.tooLate:
+      String(localized: "Đã 23:59: hôm nay không còn giờ để bật thêm.")
     default:
       String(localized: "Không gửi được lệnh tới đèn. Lại gần đèn rồi thử lại.")
     }
+  }
+}
+
+/// What the light can be asked to do, by its own button and later the master button and the chat, as plain values:
+/// `LightsModel.describe(_:)` says what it changes, `LightsModel.perform(_:)` does it.
+enum LightAction: Equatable, Sendable {
+  /// "Bật với màu của lịch": the light on now with its schedule's colours, today only, until `until`; then it runs its
+  /// schedule again by itself. An end not offered now fails with the reason; another is never picked instead.
+  case onWithScheduleColours(until: TodayEnd)
+
+  enum Outcome: Equatable, Sendable {
+    case done
+    /// Why, in the reader's words (also shown on the screen).
+    case failed(String)
+    /// The light was let go or dropped before it was done.
+    case cancelled
   }
 }
 
