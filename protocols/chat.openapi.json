@@ -608,8 +608,7 @@
             "required": [
               "t",
               "tool",
-              "name",
-              "url"
+              "name"
             ],
             "properties": {
               "t": {
@@ -626,7 +625,8 @@
               },
               "url": {
                 "type": "string",
-                "pattern": "^/(vi|id|th)/[^?#]+/\\?ca=[a-z0-9-]+:[0-9]+(,[a-z0-9-]+:[0-9]+)*(&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$"
+                "pattern": "^/(vi|id|th)/[^?#]+/\\?ca=[a-z0-9-]+:[0-9]+(,[a-z0-9-]+:[0-9]+)*(&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$",
+                "description": "The tool's page with these fish (\"?ca=slug:n,…\", a breed as its species) and the tank's sides. Missing when the check is of more than six kinds, the most the tool's page reads from it: a link would open a check of other fish. A client then opens the reader's tank by `tank.id` (the app: its page's tank-mates section, which checks any number), or nothing (the web)."
               },
               "check": {
                 "description": "What the tank-mates check (the tool's own code, apps/site/src/scripts/tank-check.ts, which the app runs too) said of these fish, two or more, in this tank, in the reader's language: the check Claude read before it wrote, so the text and the block agree. A client draws it as its own tank check draws one (the app: TankCheckView; the verdict's mark by `level`), instead of checking the link again; opening the tool checks afresh. Missing (one fish, or an older Worker): the client checks the link itself.",
@@ -716,6 +716,97 @@
                   }
                 },
                 "additionalProperties": false
+              },
+              "tank": {
+                "description": "The reader's saved tank the check was of (read_tanks): the check's fish are the tank's own and the ones added, in the tank's size. A client names it over the check (\"Bể phòng khách, 60 cm: Cá neon xanh × 6, thêm Cá betta × 1\") and opens it by `id`, the added fish shown as added and not saved. Missing: a check of the fish alone (the link's).",
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "fish",
+                  "added"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The tank's id, as the reader's synced tanks have it."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The tank's name, as the reader gave it."
+                  },
+                  "dims": {
+                    "type": "object",
+                    "required": [
+                      "l",
+                      "w",
+                      "h"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Its inside length, width and height in cm, when saved.",
+                    "properties": {
+                      "l": {
+                        "type": "number"
+                      },
+                      "w": {
+                        "type": "number"
+                      },
+                      "h": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "litres": {
+                    "type": "number",
+                    "description": "Its own litres, when saved (a round or corner tank)."
+                  },
+                  "fish": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false,
+                      "description": "A fish on the tank, as saved: its count when the reader gave one.",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "As the handbook names it, or as the reader did (one without a page)."
+                        },
+                        "count": {
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      }
+                    },
+                    "description": "The tank's fish as saved, those without a page too (the check lists them under `unchecked`)."
+                  },
+                  "added": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "count"
+                      ],
+                      "additionalProperties": false,
+                      "description": "A fish added for the check.",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "As the handbook names it, or as the reader did (one without a page)."
+                        },
+                        "count": {
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      }
+                    },
+                    "description": "The fish the reader would add, not saved; none when the tank was checked as it is."
+                  }
+                }
               }
             },
             "additionalProperties": false

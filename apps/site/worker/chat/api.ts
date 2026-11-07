@@ -142,19 +142,18 @@ export function assetSource(env: Pick<ChatEnv, 'ASSETS'>, origin: string): Sourc
   return { index: lang => read(`/app/${lang}.json`) as never, shard: (lang, kind, n) => read(`/app/pages/${lang}/${kind}-${n}.json`) as never, topics: lang => read(`/app/chat/${lang}.json`) as never }
 }
 
-/** The account's saved tanks as the chat tells Claude about them (tools.ts `Tank`), fish named as the handbook names them. */
-export async function tanksOf(db: D1Database, account: string, hb: Handbook): Promise<Tank[]> {
+/** The account's saved tanks as the chat reads them (tools.ts `Tank`): what read_tanks tells Claude and a check is of. */
+export async function tanksOf(db: D1Database, account: string): Promise<Tank[]> {
   const store = await loadStore(db, account)
   return store.tanks.filter(t => !isTombstone(t)).map(t => {
-    const r = t as { name: string; dims?: { l: number; w: number; h: number }; litres?: number; species?: { id: string; count?: number }[]; unlisted?: { name: string; count?: number }[] }
+    const r = t as { id: string; name: string; dims?: { l: number; w: number; h: number }; litres?: number; species?: { id: string; count?: number }[]; unlisted?: { name: string; kind: string; sci?: string; count?: number }[] }
     return {
+      id: r.id,
       name: r.name,
       ...(r.dims ? { dims: { l: r.dims.l, w: r.dims.w, h: r.dims.h } } : {}),
       ...(r.litres ? { litres: r.litres } : {}),
-      fish: [
-        ...(r.species ?? []).map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? 1 })),
-        ...(r.unlisted ?? []).map(u => ({ name: u.name, count: u.count ?? 1 })),
-      ],
+      species: (r.species ?? []).map(s => ({ id: s.id, ...(s.count ? { count: s.count } : {}) })),
+      unlisted: (r.unlisted ?? []).map(u => ({ name: u.name, kind: u.kind, ...(u.sci ? { sci: u.sci } : {}), ...(u.count ? { count: u.count } : {}) })),
     }
   })
 }
@@ -294,7 +293,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           }
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
-        tanks: () => tanksOf(env.DB, session.userId, hb).catch(e => { console.error('chat tanks:', e); return null }),
+        tanks: () => tanksOf(env.DB, session.userId).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
       })
       trail = out
