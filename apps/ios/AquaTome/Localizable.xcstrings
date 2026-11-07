@@ -241,6 +241,22 @@
         }
       }
     },
+    "%lld loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ชนิด"
+          }
+        }
+      }
+    },
     "%lld loài %@ có trong cẩm nang": {
       "localizations": {
         "id": {
@@ -3297,6 +3313,54 @@
         }
       }
     },
+    "Danh sách loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รายชื่อสายพันธุ์"
+          }
+        }
+      }
+    },
+    "Duyệt loài theo bộ, họ và chi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jelajahi spesies berdasarkan ordo, famili, dan genus."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เรียกดูชนิดปลาตามอันดับ วงศ์ และสกุล"
+          }
+        }
+      }
+    },
+    "Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jelajahi spesies berdasarkan benua, negara, dan sungai asal mereka."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เรียกดูชนิดปลาตามทวีป ประเทศ และแม่น้ำที่เป็นถิ่นกำเนิด"
+          }
+        }
+      }
+    },
     "Dài": {
       "localizations": {
         "id": {
@@ -5793,6 +5857,22 @@
         }
       }
     },
+    "Nguồn gốc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถิ่นกำเนิด"
+          }
+        }
+      }
+    },
     "Mực nước (không bắt buộc)": {
       "localizations": {
         "id": {
@@ -6205,6 +6285,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เล่นวิดีโอ: %@"
+          }
+        }
+      }
+    },
+    "Phân loại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klasifikasi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อนุกรมวิธาน"
           }
         }
       }

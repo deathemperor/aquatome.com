@@ -1,7 +1,7 @@
 import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
-import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { GUIDE_KIND_LABELS } from './format'
 import { leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
@@ -24,7 +24,8 @@ import { taxonKeys } from './taxa-places'
 /** The photo a card shows: its small picture, and its credit (author, licence as shown, its page on the source; an Unsplash photographer's page). */
 export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
-export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto }
+/** `water`: kept in brackish or sea water (the card says so under its name). */
+export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto; water?: 'brackish' | 'marine' }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
@@ -34,7 +35,7 @@ export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.widt
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
   const { gh, sizeCm, ...i } = toIndexItem(s)
   const p = photos[n]
-  return p ? { ...i, photo: cardPhoto(p) } : i
+  return { ...i, ...(s.water ? { water: s.water.kind } : {}), ...(p ? { photo: cardPhoto(p) } : {}) }
 })
 
 /**
@@ -95,8 +96,10 @@ export function speciesLists(lang: Lang, c: Content): Map<string, Localized<Spec
 }
 
 /** A plant card's line: "Ánh sáng yếu, CO₂ không cần" (PlantCard). */
-export const plantMeta = (t: T, p: Localized<PlantEntity>) =>
-  t('Ánh sáng {light}, CO₂ {co2}', { light: t(PLANT_LABELS.light[p.light]!).toLowerCase(), co2: t(PLANT_LABELS.co2[p.co2]!).toLowerCase() })
+const LIGHT_WORDS: Record<string, string> = { low: 'Đèn yếu', medium: 'Đèn vừa', high: 'Đèn mạnh' }
+const CO2_WORDS: Record<string, string> = { none: 'không cần CO2', optional: 'có CO2 thì tốt hơn', required: 'cần CO2' }
+/** A plant card's line, as a keeper says it: "Đèn yếu, không cần CO2". */
+export const plantMeta = (t: T, p: Localized<PlantEntity>) => `${t(LIGHT_WORDS[p.light]!)}, ${t(CO2_WORDS[p.co2]!)}`
 
 /** The plant list's card pictures, in its order (lib/pictures.ts listPictures): two plants can share a photo. */
 export const plantPhotos = (c: Content) => listPictures(c, 'cay', c.plants, p => photosOf(p.photos))
@@ -121,15 +124,15 @@ export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
     : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
 })
 
-/** A guide card's address, subject (to filter on), words and picture; a video's length and label. */
-export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string; cover?: string } }
+/** A guide card's address, subject (to filter on), words and picture; a video's length. */
+export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string } }
 
 /** Guides as a list's data file has them, with the picture each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const guideItems = (t: T, c: Content, guides: Localized<GuideEntity>[], photos: (Photo | null)[]): GuideListItem[] => guides.map((g, n) => {
   const p = photos[n]
   return {
     slug: g.t.slug, kind: g.kind, name: g.t.name, ...guideWords(t, c, g), ...(p ? { photo: cardPhoto(p) } : {}),
-    ...(g.video ? { video: { dur: clock(g.video.durationSec), ...(g.t.cover ? { cover: g.t.cover } : {}) } } : {}),
+    ...(g.video ? { video: { dur: clock(g.video.durationSec) } } : {}),
   }
 })
 

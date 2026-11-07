@@ -257,6 +257,8 @@ extension HandbookIndex.Kind {
     case .tool: String(localized: "Công cụ")
     case .video: String(localized: "Video")
     case .equipment: String(localized: "Thiết bị")
+    case .taxon: String(localized: "Phân loại")
+    case .origin: String(localized: "Nguồn gốc")
     }
   }
   var symbol: String {
@@ -268,6 +270,8 @@ extension HandbookIndex.Kind {
     case .tool: "wrench.and.screwdriver"
     case .video: "play.rectangle"
     case .equipment: "gearshape"
+    case .taxon: "list.bullet.indent"
+    case .origin: "globe.asia.australia"
     }
   }
 }

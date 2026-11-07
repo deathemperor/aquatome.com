@@ -111,6 +111,21 @@ test('a card figure whose reason went shows again', async () => {
   expect(JSON.parse(await readFile(file, 'utf8')).dataCard.tankCm).toEqual([{ source: 'seriouslyfish', value: 60 }, { source: 'glaser', value: 10 }])
 })
 
+test('a rejected video leaves every species page it is on, and stays off', async () => {
+  // The owner (2026-11-07): the speckled peacock bass page's video whose thumbnail shows the fish dead beside a tape measure.
+  const root = await store()
+  const video = (youtubeId: string) => ({ youtubeId, title: youtubeId, durationSec: 300, lang: 'en' })
+  for (const id of ['corydoras-adolfoi', 'corydoras-sterbai']) {
+    const file = join(root, 'content/species', id, 'entity.json')
+    await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), videos: [video('deadfish000'), video('alive000000')] }, null, 2))
+  }
+  await writeFile(join(root, 'engine-state/_video-rejected.json'), JSON.stringify({ deadfish000: 'dead: a fish on a tape measure' }))
+  const r = await sweep(root)
+  expect(r.videos).toEqual(['species/corydoras-adolfoi: deadfish000 (dead: a fish on a tape measure)', 'species/corydoras-sterbai: deadfish000 (dead: a fish on a tape measure)'])
+  for (const id of ['corydoras-adolfoi', 'corydoras-sterbai']) expect((await json(root, `content/species/${id}/entity.json`)).videos.map((v: { youtubeId: string }) => v.youtubeId)).toEqual(['alive000000'])
+  expect((await sweep(root)).videos).toEqual([])
+})
+
 test('a species\' tank search is the card\'s minimum tank as shops sell it, never a smaller or mini tank', async () => {
   // The betta's and the neon's shop rows offered a 20 cm mini tank and a 40-litre one under a 45 and a 60 cm minimum
   // (design critique 2026-11-06). Corydoras adolfoi's card: 60 cm (Glaser's 10 cm is hidden).

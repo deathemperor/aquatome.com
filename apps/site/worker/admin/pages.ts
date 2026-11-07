@@ -1,4 +1,5 @@
 import { LANGS, OTHER_LANGS, prefixedLang } from '@aq/schema/langs'
+import { RUNS_PATH, runPath } from './runs'
 import type { FishIdStatus } from '../fishid/api'
 import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
@@ -6,7 +7,7 @@ import { isViPage, withoutVi } from '../paths'
 import type { Readers } from '../readers'
 import type { LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
-import { chipHtml, chipOf, dayChart, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
+import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
@@ -235,7 +236,9 @@ export function overviewPage(o: Overview): string {
   const todoHtml = t.length
     ? `<ul class="todo">${t.map(x => `<li>${ICON.alert}<div><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div><a class="act" href="${esc(x.href)}">${esc(x.action)}</a></li>`).join('')}</ul>`
     : `<p class="clear panel">${ICON.check}Không có việc gì cần bạn lúc này.</p>`
-  const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark) : ''}${chipHtml(a.chip)}</span>${ICON.chevron}</a></li>`).join('')
+  // Every row's columns are its whole days, the last one yesterday.
+  const wholeDays = lastDays(o.now, 31, o.tz ?? HOME_TZ).slice(0, -1).map(dayLabel)
+  const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark, 7, { labels: wholeDays.slice(-a.spark.length) }) : ''}${chipHtml(a.chip)}</span>${ICON.chevron}</a></li>`).join('')
   const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ` <span class="muted">· ${PARTIAL}</span>` : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : `<p class="muted">${QUIET}</p>`}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
@@ -352,7 +355,7 @@ const NO_KEYS = 'Chưa có key nào (ANTHROPIC_KEYS): công cụ đang tắt.'
 
 export function fishIdPage(f: FishPage): string {
   const tz = f.tz ?? HOME_TZ
-  let body = `<h1>Nhận diện cá</h1><p class="lede">${fishLede(tz, f.now)}</p>`
+  let body = `<h1>Nhận diện cá</h1><p class="lede">${fishLede(tz, f.now)}</p><p><a href="${RUNS_PATH}">Từng lượt, Claude nghĩ và tra gì (giữ 365 ngày) →</a></p>`
   if (isFailed(f.stats)) body += failedBox('nhật ký nhận diện cá', f.stats)
   else {
     const s = f.stats
@@ -682,7 +685,7 @@ export function keptPage(xs: Soft<KeptRow[] | undefined>, now = new Date(), tz =
       const who = keptWho(p)
       const top = p.guesses[0]
       const src = keptSrc(esc(who), esc(p.id))
-      return `<tr><th><a href="${src}"><img class="thumb" src="${src}" alt="" width="96" loading="lazy"></a></th><td class="l">${esc(p.verdict)}${top ? ` · <i>${esc(top.scientificName)}</i> ${Math.round(top.confidence * 100)}%` : ''}</td><td>${p.account ? 'đăng nhập' : 'chưa đăng nhập'}</td><td>${esc(p.lang)}</td><td>${timeTag(p.created, tz, now)}</td><td><form method="post" action="/_ab/anh-nhan-dien/xoa"><input type="hidden" name="who" value="${esc(who)}"><input type="hidden" name="id" value="${esc(p.id)}"><button>Xóa</button></form></td></tr>`
+      return `<tr><th><a href="${src}"><img class="thumb" src="${src}" alt="" width="96" loading="lazy"></a></th><td class="l">${esc(p.verdict)}${top ? ` · <i>${esc(top.scientificName)}</i> ${Math.round(top.confidence * 100)}%` : ''}</td><td>${p.account ? 'đăng nhập' : 'chưa đăng nhập'}</td><td>${esc(p.lang)}</td><td>${p.run ? `<a href="${runPath(p.run.day, p.run.id)}">${timeTag(p.created, tz, now)}</a>` : timeTag(p.created, tz, now)}</td><td><form method="post" action="/_ab/anh-nhan-dien/xoa"><input type="hidden" name="who" value="${esc(who)}"><input type="hidden" name="id" value="${esc(p.id)}"><button>Xóa</button></form></td></tr>`
     }).join('')
     body += `<div class="scroll"><table><thead><tr><th></th><th>Kết quả</th><th>Gửi khi</th><th>Ngôn ngữ</th><th>Lúc</th><th></th></tr></thead><tbody>${rows || `<tr><td colspan="6" class="none">${NO_PHOTOS}</td></tr>`}</tbody></table></div>`
   }

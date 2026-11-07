@@ -14,7 +14,7 @@ export const glossaryTitle = (lang: Lang, name: string) => translator(lang)('{na
 export function speciesDescription(lang: Lang, name: string, sci: string, card: SpeciesEntity['dataCard']): string {
   const t = translator(lang)
   const { num, range } = fmt(lang)
-  const v = (f: keyof SpeciesEntity['dataCard']) => resolveDataCard(card[f] ?? [])?.value
+  const v = (f: keyof SpeciesEntity['dataCard']) => resolveDataCard(card[f] ?? [], f)?.value
   const tank = v('tankCm')
   const diff = v('difficulty')
   const facts = [

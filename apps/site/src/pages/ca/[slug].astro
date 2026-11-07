@@ -69,6 +69,7 @@ const alternates = await alternatesOf('species', s.id)
       <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(s.t, s.scientificName)}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
+      {s.water && <p class="water">{t(s.water.kind === 'marine' ? 'Cần nước mặn, nuôi trong bể nước biển.' : 'Cần nước lợ: nước ngọt có pha muối biển.')}</p>}
       {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
       <KeyFacts card={s.dataCard} />
     </div>
@@ -134,6 +135,8 @@ const alternates = await alternatesOf('species', s.id)
   h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
   .binomial { font-size: var(--step-1); color: var(--c-ink-soft); margin: var(--space-1) 0 var(--space-2); }
   .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-2) 0 0; }
+  /* Kept in brackish or sea water (the engine's `water`): said under the name, before a reader buys it for a fresh-water tank. */
+  .water { font-weight: 600; margin: 0 0 var(--space-2); }
   .facts { margin-top: var(--space-4); }
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
   /* The full card: a computer has it open, with no toggle; a phone has it closed under the key facts, a row to open. */
