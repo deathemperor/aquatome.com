@@ -10,6 +10,58 @@
     "peru",
     "madre-de-dios"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The scientific description in 1971 gave \"Cuzco in Peru\" as the type locality, and several expeditions searched the region without success.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342702,
+      "total": 13,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -81,6 +81,12 @@ test('plants and guides', () => {
   expect(piped?.vi).toMatchObject({ name: 'Cách nuôi Daphnia', slug: 'cach-nuoi-daphnia' })
 })
 
+test('a renamed guide keeps its name, address and old addresses when its source is read again', () => {
+  const vi = { slug: 'nuoi-ca-chi', name: 'Nuôi cá chì', altNames: [], sections: {}, body: '<p>x</p>', quality: { score: 1, indexable: true }, nameFixed: true, redirectFrom: [{ slug: 'nuoi-ca-but-chi', name: 'Nuôi cá bút chì' }] }
+  const g = writeGuide(page({ kind: 'guide', sections: [], guide: { kind: 'setup', viTitle: 'Nuôi cá bút chì', viBody: '<p>y</p>' } }), { source: 'aquariumcoop', url: 'https://www.aquariumcoop.com/blogs/aquarium/pencilfish', now: '2026-11-07', takenSlugs: new Set(), existing: { vi } })
+  expect(g?.vi).toMatchObject({ name: 'Nuôi cá chì', slug: 'nuoi-ca-chi', nameFixed: true, redirectFrom: vi.redirectFrom, body: '<p>y</p>' })
+})
+
 test('vague or phrase-like regions are dropped', () => {
   const r = mergeSpecies({}, page({ places: [
     { continent: 'Europe', country: 'Germany', region: 'mainly western' },

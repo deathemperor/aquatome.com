@@ -279,6 +279,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "marine",
+    "source": "planetcatfish",
+    "quote": "Needs saltwater."
+  },
   "dataCard": {
     "tempC": [
       {

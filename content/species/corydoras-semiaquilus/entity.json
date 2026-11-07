@@ -13,6 +13,88 @@
     "rio-solimoes",
     "rio-ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Solimoes",
+        "Rio Ucayali"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras semiaquilus is a very pointed-headed, comparatively large Corydoras (around 6 cm, sometimes up to 8 cm) from Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the western Amazon basin in Peru and Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Brazil: In Igarapé Preto, a tributary of the Rio Solimoes (Rio Amazonas River system). Peru: tributaries of the Rio Ucayali, near Genero Herrera.",
+          "countries": [],
+          "regions": [
+            "Rio Solimoes",
+            "Rio Ucayali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342719,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          8
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

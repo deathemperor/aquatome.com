@@ -1,7 +1,9 @@
 {
-  "slug": "ca-bam-da-pseudogastromyzon-laticeps",
-  "name": "Cá bám đá Pseudogastromyzon laticeps",
-  "altNames": [],
+  "slug": "ca-ty-ba-buom-laticeps",
+  "name": "Cá tỳ bà bướm laticeps",
+  "altNames": [
+    "Cá bám đá Pseudogastromyzon laticeps"
+  ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cá cần nuôi theo đàn trong bể đã chạy ổn định lâu, có dòng chảy mạnh, lọc đẩy được 8–12 lần thể tích bể mỗi giờ</li></ul>",
     "beforeYouBuy:seriouslyfish": "<p>Bể cần nắp đậy thật kín vì loài này có tiếng hay nhảy. Tuyệt đối không thả chúng vào bể mới set, chưa ổn định. Nắp kín còn cần thiết vì chúng có thể leo kính ở một mức nào đó.</p><p>Pseudogastromyzon laticeps là một loài cá chạch họ Balitoridae ở đông nam Trung Quốc. Có vẻ đây là loài đặc hữu của lưu vực sông Longjin, tỉnh Quảng Đông. Giống các loài cùng chi, nó có đầu và thân dẹt, các vây cặp xòe ngang. Đây là kiểu thân thích nghi với suối nông, nước chảy xiết và giàu oxy. Qua những hình ảnh hiện có, loài này có vẻ có vây lưng và vây đuôi màu đỏ nhạt. Cá đực mọc các nốt sần trên đầu khi trưởng thành sinh dục.</p>",
@@ -23,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-bam-da-pseudogastromyzon-laticeps",
+      "name": "Cá bám đá Pseudogastromyzon laticeps"
+    }
+  ]
 }

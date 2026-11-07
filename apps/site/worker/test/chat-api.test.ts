@@ -517,6 +517,18 @@ test('an R2 error marking the question is unavailable (503), not answering, and 
   expect(Object.values(ledger.day()!.readers)).toEqual([0])
 })
 
+test('a key that runs out of credit during a question is ours: unavailable, and the count goes back; a request the API refuses is failed, and counts', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const refused = (message: string) => () => Response.json({ type: 'error', error: { type: 'invalid_request_error', message } }, { status: 400 })
+  const out = await run(ask(bearer(me.token)), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('Your credit balance is too low to access the Anthropic API.')]).fetch))
+  expect([out.res.status, out.body]).toEqual([503, { error: 'unavailable' }])
+  expect(Object.values(ledger.day()!.readers)).toEqual([0])
+  const bad = await run(ask(bearer(me.token), { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('messages: bad request')]).fetch))
+  expect([bad.res.status, bad.body]).toEqual([502, { error: 'failed' }])
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
 test('limits: the account\'s day (rate, with its limit), the site\'s spend (busy); neither calls Claude', async () => {
   const one = env({ CHAT_PER_ACCOUNT: '1' })
   const me = await signIn(one.db)

@@ -132,9 +132,13 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
     id: guideId(ctx.source, ctx.url), kind: page.guide.kind, source: ctx.source, sourceUrl: `${u.origin}${u.pathname}`, html: '',
     photos: prev?.entity?.photos ?? [], mentions: prev?.entity?.mentions ?? [], updatedAt: ctx.now,
   }
-  const name = page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
+  // A person's title and a renamed guide's old addresses stay when the source is read again.
+  const name = prev?.vi?.nameFixed ? prev.vi.name : page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
   // A guide that fixes a problem leads with the fix (guide-sections.ts).
-  return { entity, vi: { slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: fixFirst(name, page.guide.kind, page.guide.viBody), quality: ctx.quality ?? DEFAULT_QUALITY } }
+  return { entity, vi: {
+    slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: fixFirst(name, page.guide.kind, page.guide.viBody), quality: ctx.quality ?? DEFAULT_QUALITY,
+    ...(prev?.vi?.nameFixed ? { nameFixed: true } : {}), ...(prev?.vi?.redirectFrom ? { redirectFrom: prev.vi.redirectFrom } : {}),
+  } }
 }
 
 /** Places the page mentions that don't exist yet, parents first. Names stay English until a translator pass names them. */

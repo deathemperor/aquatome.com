@@ -11,6 +11,74 @@
     "kalimantan",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kapuas River",
+        "Danau Sentarum"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cyclocheilichthys janthochir is a cyprinid endemic to Borneo, known from West and Central Kalimantan in Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Indonesia: Borneo: Kalimantan Barat: Kapuas River in Pontianak'.",
+          "countries": [],
+          "regions": [
+            "Kapuas River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the exceptionally diverse Danau Sentarum lake system of the upper Kapuas River basin, West Kalimantan, sympatric species include Scleropages formosus, Barbonymus gonionotus, B. schwanenfeldii, Crossocheilus nigriloba, Cyclocheilichthys apogon, C. repasson, Epalzeorhynchos kalopterus, Labiobarbus ocellatus, Leptobarbus hoevenii, Luciosoma spilopleura plus various representatives of Barbodes, Rasbora and Osteochilus.",
+          "countries": [],
+          "regions": [
+            "Danau Sentarum"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364422,
+      "total": 3,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

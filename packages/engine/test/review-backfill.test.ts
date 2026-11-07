@@ -89,7 +89,10 @@ test('--parallel: a few reviewed at once, never past the limit, in the rank give
   for (const vid of ['a', 'b', 'c', 'd', 'e', 'f']) await guide(root, vid, 0.9)
   let busy = 0
   let peak = 0
-  const llm: Llm = async <T,>() => { peak = Math.max(peak, ++busy); await new Promise(r => setTimeout(r, 5)); busy--; return { score: 0.6, notes: ['Adds a dose the video never gives.'] } as T }
+  // The first call waits for the second, so a loaded machine can't finish one before the next starts and read as one at a time.
+  let bothBusy = () => {}
+  const both = new Promise<void>(r => { bothBusy = r })
+  const llm: Llm = async <T,>() => { peak = Math.max(peak, ++busy); if (busy === 2) bothBusy(); await both; busy--; return { score: 0.6, notes: ['Adds a dose the video never gives.'] } as T }
   const rank = (p: { id: string }) => [p.id.endsWith('-f') ? 0 : p.id.endsWith('-e') ? 1 : 2]
   const d = { root, llm, yt, now: () => new Date('2026-11-07T14:00:00Z'), sleep: async () => {} }
   const o = { kinds: ['video-guide'] as const, limit: 5, reviewedBefore: '2026-11-07T12:00:00Z', rank, parallel: 2 }

@@ -134,6 +134,18 @@
       "Item 4: \"pengeram mulut\" is understandable, but \"pengeram telur dalam mulut\" or \"ikan pengeram mulut\" is the more common hobby term."
     ]
   },
+  "chitala-ornata": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Clown Knife",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"hutan yang dinaiki air\" (items 3 and 10) is awkward. Use \"hutan banjir\" or \"hutan paya banjir\" for \"flooded forest\".",
+      "\"mudah disesuaikan olehnya\" (item 3) is stiff. Rephrase as \"yang nampaknya dapat disesuaikan dengan baik oleh ikan ini\".",
+      "\"dikondisikan\" (item 7) is a calque. Use \"diberi makanan khas terlebih dahulu\" or keep \"dikondisikan\" with a short explanation."
+    ]
+  },
   "corydoras-aeneus": {
     "at": "2026-11-06",
     "from": "2026-11-02",
@@ -241,6 +253,33 @@
       "Item 31: 'ikan keli' for 'catfishes' normally means Clarias to a Malaysian reader. Use 'ikan berkumis (catfish)' or just 'catfish'.",
       "Item 33: the 'cross-reared' sentence is clumsy ('ikan yang dibesarkan bersama ikan bercorak lain (cross-reared) lebih menyukai corak ikan yang membesar bersamanya'). Rephrase so it says fish prefer the pattern of the fish they were raised with.",
       "Item 24: 'larva' sits beside 'anak ikan' for the same life stage. Use one term consistently."
+    ]
+  },
+  "datnioides-microlepis": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Indo Datnoid",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 5: 'tumbuhan yang menjulur ke atas air' for 'overhanging vegetation or branches' is awkward; 'tumbuhan atau dahan yang menjuntai di atas permukaan air' is more natural.",
+      "Item 5: 'Ikan ini tidak tahan perjalanan jauh' adds 'jauh' (long), which is not in the English 'do not travel well'. Use 'tidak tahan pengangkutan'.",
+      "Item 7: 'ikan beranak (livebearer)' and 'ikan mas kecil' are fine, but 'tidak mempunyai nilai nutrisi yang tinggi' would read better as 'nilai pemakanan yang tinggi'. 'dipelihara dan diberi makan dengan baik' is a slight addition to 'properly conditioned'.",
+      "Item 11: 'Ahli genus ini' for 'Members' is fine, but 'Anabas' / 'Anabantidae' are correctly kept. The sentence 'Coius kini dianggap sinonim bagi genus Anabas' follows the source, so no change is needed there. 'rekod ... sebenarnya merujuk' in item 2 adds 'sebenarnya' (actually), which is not in the source. Remove it.",
+      "Item 11: 'hirisan isi ikan' and 'terancam secara kritikal' are slightly unnatural. Use 'terancam kritikal' or 'sangat terancam'.",
+      "Item 6: 'Kekerasan air (GH): 2–15 dGH' changes the label by adding '(GH)'. This is minor but unnecessary. Use 'Kekerasan: 2–15 dGH'."
+    ]
+  },
+  "datnioides-pulcher": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Siamese Tiger",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Kekerasan air (GH)\" (items 1 and 6): the English only says \"Hardness\" and the value is in dGH. Use \"Kekerasan air: 2–15 dGH\" so the bracketed \"(GH)\" isn't added.",
+      "Item 11: \"duri/jejari sirip dubur kedua\" blurs the English \"second spinous anal-fin ray\". \"Duri kedua sirip dubur\" would be more precise and read better.",
+      "Item 5: \"agak tidak cerewet\" is slightly stilted. \"tidak terlalu cerewet\" would be more natural."
     ]
   },
   "epalzeorhynchos-bicolor": {
@@ -405,6 +444,19 @@
       "Item 8: \"kekacang\" for \"fallen nuts\" is imprecise. It means legumes. Use \"kacang\" or \"buah keras\", e.g. \"kacang dan buah-buahan yang gugur\"."
     ]
   },
+  "pangasianodon-hypophthalmus": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Ikan patin",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 5: \"cukup berat supaya tidak teralih atau diikat kemas pada tangki dengan apa cara sekalipun\" garbles the advice. The English says the decor must be too heavy to move OR be secured to the tank. Suggested: \"Pastikan semua hiasan cukup berat sehingga tidak boleh digerakkan, atau dipasang kukuh pada tangki\".",
+      "Item 5: \"melompat keluar dari permukaan air\" changes \"breaches the surface\". It implies jumping out of the tank, but the source says the fish breaks the surface. Suggested: \"menerjah/melompat ke permukaan air\", which also explains why a heavy cover is needed.",
+      "Item 6: \"(GH)\" is added after \"kekerasan air\", which is not in the source. The unit \"°H\" is also inconsistent with the GH/dGH wording; use \"dGH\" or \"°dH\" consistently.",
+      "Item 4: \"liter\" could be \"liter\" or \"litre\"; keep it consistent with the other items. \"mana-mana tangki kecuali yang sangat besar\" is slightly awkward; \"hanya sesuai untuk tangki yang sangat besar\" is more natural."
+    ]
+  },
   "paracheirodon-axelrodi": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -454,6 +506,18 @@
     "notes": [
       "Item 16: \"well-researched community aquarium\" is rendered as \"dirancang dengan teliti\" (carefully planned). Use \"yang dikaji dengan baik\" or \"yang dirancang berdasarkan kajian\". This is minor.",
       "Item 4/5: \"feral\" is left as \"populasi feral\". Item 3 gives a gloss, but \"populasi liar yang terlepas\" would read more naturally."
+    ]
+  },
+  "phractocephalus-hemioliopterus": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Redtail catfish",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Sebenarnya, hiasan tidak diperlukan\": \"Strictly speaking\" is better as \"Secara tegasnya\" or \"Secara teknikalnya\". \"Sebenarnya\" on its own is slightly off.",
+      "\"lancefish\" is left in English. Use a Malay name or add a short gloss.",
+      "\"hutan yang dinaiki air\" is a bit stiff. \"hutan banjir\" or \"hutan yang dibanjiri air\" is more natural."
     ]
   },
   "poecilia-latipinna": {

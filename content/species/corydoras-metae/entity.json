@@ -10,6 +10,58 @@
     "colombia",
     "rio-meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Meta",
+        "Río Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Río Meta, a major tributary of the Río Orinoco in eastern Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río Meta",
+            "Río Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342763,
+      "total": 30,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          30
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          28,
+          28
+        ],
+        [
+          -73.125,
+          2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -11,6 +11,79 @@
     "lake-malawi",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Chizumulu",
+        "Likoma"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Along the eastern coast it can be found between Makanjila Point and Chuanga, Lumbaulo and Ikombe, and around the islands of Chizumulu and Likoma.",
+          "countries": [],
+          "regions": [
+            "Chizumulu",
+            "Likoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372858,
+      "total": 70,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MW",
+          35
+        ],
+        [
+          "TZ",
+          20
+        ],
+        [
+          "MZ",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          20
+        ],
+        [
+          33.75,
+          -12.65625,
+          31
+        ],
+        [
+          33.75,
+          -11.25,
+          14
+        ],
+        [
+          33.75,
+          -9.84375,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

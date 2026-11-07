@@ -1,0 +1,86 @@
+{
+  "id": "corydoras-rabauti",
+  "native": {
+    "input": "428c32ab873c80fa",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus seems likely that Osteogaster rabauti occurs in both Brazil and Peru, and possibly Colombia, but the full extent of its distribution is somewhat unclear.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It thus seems likely that Osteogaster rabauti occurs in both Brazil and Peru, and possibly Colombia, but the full extent of its distribution is somewhat unclear.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It thus seems likely that Osteogaster rabauti occurs in both Brazil and Peru, and possibly Colombia, but the full extent of its distribution is somewhat unclear.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Javarí",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to the rio Javarí, an Amazonian tributary which forms the border between Brazil and Peru for much of its length and empties into the Amazon main channel in the Três Fronteiras area, where the borders of Brazil, Peru and Colombia meet.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras rabauti",
+    "status": "ACCEPTED",
+    "taxonKey": 2342617,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}
