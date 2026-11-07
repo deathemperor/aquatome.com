@@ -166,8 +166,8 @@ that would have caught it).
   - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
     `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
     last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
-    token reading its JSON and no page, and the page outside the section list the iOS app reads (web only, as that list is
-    the app's contract).
+    token reading its JSON and no page, and the page first in the section list the iOS app reads (the app's contract,
+    `protocols/owner-dashboard.openapi.json`), its blocks saying what the page shows.
   - The owner's dashboard on its own host, dashboard.aquatome.com (`apps/site/worker/dashboard-host.ts`, `access.ts`,
     `worker/test/dashboard-host.test.ts`):
     - Cloudflare Access's token on every request (RS256 by the team's certs, audience, issuer, expiry); missing or wrong
@@ -186,8 +186,11 @@ that would have caught it).
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
     session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows
     from the same data, in each of the page's states (headings, figures, tables, charts, photos and hidden pages, word
-    for word), and the overview's to-dos, areas and last days what the overview shows; each button makes the request
-    its page's form makes; a part that throws is 503; the times follow the zone the app sends; and
+    for word), and the overview's to-dos, areas and last days what the overview shows; the overview's version 2 adds up
+    (its tiles to their parts, found an answer to the scoreboard's star and never above the day's readers, every page
+    once in its group, every place it opens a section); each chart bar carries its words; a folded table comes without
+    its rows and a long one 50 rows a page (`/tables/{id}`); a section's periods; each button makes the request its
+    page's form makes; a part that throws is 503; the times follow the zone the app sends; and
     `protocols/owner-dashboard-vectors.json`, the replies the app's fake server serves, are the Worker's own
     (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`). The daily report's section: every
     block it sends, in each of its states, one the contract describes; its buttons set the delivery as the page's form

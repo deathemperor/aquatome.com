@@ -4,7 +4,13 @@ import { parse, type HTMLElement } from 'node-html-parser'
 import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
-import type { Action, Block, FormField, Section } from '../admin/blocks'
+import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
+import { scoreboardPage, scoreboardSection, summariseScoreboard } from '../admin/scoreboard'
+import { todayJson, PAGE_GROUPS } from '../admin/today'
+import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
+import { dashboardJson } from '../owner-api'
+import { commentsPage, commentsSection, cursorOf, EXPIRED, GONE, type CommentItem, type CommentsBlock, type CommentsData, type CommentState } from '../admin/comments'
+import { moderationQueue } from '../comments/api'
 import { contentPage, contentSection, type ContentPage } from '../admin/content-page'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewJson,
@@ -59,8 +65,21 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['test builds, none', () => appPage(S.NOW, true, summariseApp({ views: [], actions: [], errors: [], shops: [], health: [], perf: [] }, true), S.TZ), () => appSection(true, summariseApp({ views: [], actions: [], errors: [], shops: [], health: [], perf: [] }, true))],
     ['failed', () => appPage(S.NOW, false, F, S.TZ), () => appSection(false, F)],
   ],
+  'thanh-cong': [
+    ['sample', () => scoreboardPage(S.SCOREBOARD, S.TZ), () => scoreboardSection(S.SCOREBOARD)],
+    ...(() => {
+      const s = summariseScoreboard({ ...S.SCOREBOARD_INPUT, beacon: F, community: F, clicks: F, app: F, content: F, checks: F })
+      return [['parts failed', () => scoreboardPage(s, S.TZ), () => scoreboardSection(s)] as [string, () => string, () => Section]]
+    })(),
+  ],
+  'thay-doi': [
+    ['sample', () => changelogPage({ now: S.NOW, tz: S.TZ, xs: S.CHANGES }), () => changelogSection({ now: S.NOW, tz: S.TZ, xs: S.CHANGES })],
+    ['none, elsewhere', () => changelogPage({ now: S.NOW, tz: 'America/New_York', xs: [] }), () => changelogSection({ now: S.NOW, tz: 'America/New_York', xs: [] })],
+    ['failed', () => changelogPage({ now: S.NOW, tz: S.TZ, xs: F }), () => changelogSection({ now: S.NOW, tz: S.TZ, xs: F })],
+  ],
   'nhan-dien-ca': [
     ['sample', () => fishIdPage(S.FISH), () => fishIdSection(S.FISH)],
+    ['30 days', () => fishIdPage({ ...S.FISH, period: 'd30' }), () => fishIdSection({ ...S.FISH, period: 'd30' })],
     ['failed', () => fishIdPage({ ...S.FISH, stats: F, keys: F }), () => fishIdSection({ ...S.FISH, stats: F, keys: F })],
     ['no keys', () => fishIdPage({ ...S.FISH, keys: undefined }), () => fishIdSection({ ...S.FISH, keys: undefined })],
     ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } })],
@@ -95,6 +114,22 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['none', () => hiddenPage({}, S.NOW, S.TZ), () => hiddenSection({}, S.NOW, S.TZ)],
     ['failed', () => hiddenPage(F, S.NOW, S.TZ), () => hiddenSection(F, S.NOW, S.TZ)],
   ],
+  'binh-luan': (() => {
+    const status = { held: 'held', shown: 'approved', hidden: 'removed' } as const
+    const d = (state: CommentState, over: Partial<CommentsData> = {}): CommentsData =>
+      ({ now: S.NOW, tz: S.TZ, state, list: { counts: S.COMMENT_COUNTS, rows: S.COMMENT_ROWS.filter(r => r.status === status[state]) }, pages: S.COMMENT_PAGES, week: S.COMMENT_WEEK, talk: S.TALK, ...over })
+    const many = Array.from({ length: 50 }, (_, i) => ({ ...S.COMMENT_ROWS[0]!, id: `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`, created_at: new Date(S.NOW.getTime() - i * 60_000).toISOString() }))
+    const v = (name: string, c: CommentsData): [string, () => string, () => Section] => [name, () => commentsPage(c), () => commentsSection(c)]
+    return [
+      v('sample', d('held', { list: { counts: S.COMMENT_COUNTS, rows: S.COMMENT_ROWS.filter(r => r.status === 'held'), next: S.COMMENT_MORE } })),
+      v('shown', d('shown')),
+      v('hidden, one past its 30 days', d('hidden')),
+      v('none', d('held', { list: { counts: { held: 0, shown: 0, hidden: 0 }, rows: [] }, week: { posted: 0, heldPosted: 0, reported: 0, hidden: 0 }, talk: { ...S.TALK, top: [] } })),
+      v('more than 50', d('held', { list: { counts: { held: 80, shown: 20, hidden: 2 }, rows: many, next: cursorOf(many.at(-1)!) } })),
+      v('no pages from the build, elsewhere', d('held', { pages: undefined, tz: 'America/New_York' })),
+      v('failed', d('held', { list: F, week: F, talk: F })),
+    ]
+  })(),
   'tai-khoan': [
     ['sample', () => accountsPage(S.ACCOUNTS, S.NOW, S.TZ), () => accountsSection(S.ACCOUNTS, S.NOW, S.TZ)],
     ['failed', () => accountsPage(F, S.NOW, S.TZ), () => accountsSection(F, S.NOW, S.TZ)],
@@ -149,9 +184,35 @@ type Tab = { columns?: string[]; rows: { text: string; href?: string }[][]; empt
 type Req = { label: string; method: string; path: string; body?: Record<string, unknown> }
 type ActRow = { src?: string; text: string; buttons: Req[] }
 type Form = { method: string; path: string; fields: FormField[]; body?: Record<string, unknown>; submit: string }
+/** The comments as the owner reads them: the filter (the app's addresses), each comment and its buttons, and what comes after. */
+type Cm = { state: string; filters: { label: string; count: number; href: string }[]; items: { id: string; at: string; name: string; page: { path?: string; title: string }; text: string; state: string; reason: string; reports: string; buttons: Req[] }[]; empty?: string; next?: string }
+const STATE_LABEL: Record<string, string> = { held: 'Held', shown: 'Shown', hidden: 'Hidden' }
+/** The page's comments: in their own section, so its filter and paging links aren't a switch. A page this build doesn't have is plain text. */
+function commentsOf(n: HTMLElement): Cm {
+  const filters = n.querySelectorAll('nav.filters a').map(a => {
+    const [label, count] = txt(a).split(' ')
+    return { label: label!, count: Number(count), href: `/api/owner/sections/binh-luan${a.getAttribute('href')!.slice('/_ab/binh-luan/'.length)}`, on: a.getAttribute('aria-current') === 'page' }
+  })
+  const items = n.querySelectorAll('ol.cm > li').map(li => {
+    const page = li.querySelector('.pg')!
+    const a = page.querySelector('a')
+    return {
+      id: li.id.slice('c-'.length), at: li.querySelector('time')!.getAttribute('datetime')!, name: txt(li.querySelector('.by b')),
+      page: { ...(a ? { path: a.getAttribute('href')! } : {}), title: txt(page) }, text: txt(li.querySelector('.text')),
+      state: Object.keys(STATE_LABEL).find(k => STATE_LABEL[k] === txt(li.querySelector('.chip')))!, reason: txt(li.querySelector('.why')), reports: txt(li.querySelector('.reports')),
+      buttons: li.querySelectorAll('button').map(requestOf),
+    }
+  })
+  const more = n.querySelector('.more a')?.getAttribute('href')
+  return {
+    state: Object.keys(STATE_LABEL).find(k => filters.find(f => f.on)?.label === STATE_LABEL[k])!, filters: filters.map(({ on: _, ...f }) => f), items,
+    ...(n.querySelector('.cm.none') ? { empty: txt(n.querySelector('.cm.none')) } : {}), ...(more ? { next: new URL(more, 'https://x.test').searchParams.get('cursor')! } : {}),
+  }
+}
 /** What owner-api.ts does for each of the pages' forms: the request, from the form's fields and the button pressed. */
 const REQUEST: Record<string, (v: Record<string, string>) => Omit<Req, 'label'>> = {
   '/_ab/photos': v => ({ method: 'POST', path: `/api/owner/photos/${v.id}`, body: { action: v.action } }),
+  '/_ab/comments': v => ({ method: 'POST', path: `/api/owner/comments/${v.id}`, body: { action: v.action } }),
   '/_ab/hidden': v => ({ method: 'POST', path: '/api/owner/hidden', body: { ...(v.url ? { path: v.url } : {}), hide: v.action !== 'unhide' } }),
   '/_ab/anh-nhan-dien/xoa': v => ({ method: 'DELETE', path: `/api/owner/fishid-shots/${v.who}/${v.id}` }),
   '/_ab/bao-cao/cai-dat': v => ({ method: 'POST', path: '/api/owner/report-settings', body: Object.fromEntries(Object.entries(v).map(([k, x]) => [k, x === '1'])) }),
@@ -179,7 +240,7 @@ function formOf(f: HTMLElement): Form {
 /** What the page draws, in its order: headings (an h2's id with it), tiles (and the gaps' counts), charts, tables (and folded page lists, and lists of rows that each open a page), rows with buttons, forms, and buttons on their own (a form with nothing to fill). */
 function fromHtml(html: string) {
   const main = dom(html)
-  const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], links: main.querySelectorAll('a').map(a => a.getAttribute('href') ?? ''), text: txt(main) }
+  const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], comments: undefined as Cm | undefined, links: main.querySelectorAll('a').filter(a => !a.closest('section.comments')).map(a => a.getAttribute('href') ?? ''), text: txt(main) }
   const cell = (c: HTMLElement) => {
     const a = c.querySelectorAll('a')
     return { text: txt(c), ...(a.length === 1 && txt(a[0]) === txt(c) ? { href: a[0]!.getAttribute('href')! } : {}) }
@@ -189,7 +250,10 @@ function fromHtml(html: string) {
       if (n.nodeType !== 1) continue
       const tag = n.tagName
       if ((tag === 'H2' || tag === 'H3') && !n.id.endsWith('-t')) out.headings.push(`${tag[1]} ${txt(n)}${tag === 'H2' && n.id ? ` #${n.id}` : ''}`)
-      else if (tag === 'FORM') {
+      else if (tag === 'SECTION' && n.classList.contains('comments')) {
+        out.comments = commentsOf(n)
+        continue
+      } else if (tag === 'FORM') {
         if (n.querySelectorAll('input, textarea').some(i => i.getAttribute('type') !== 'hidden')) out.forms.push(formOf(n))
         else out.actions.push(...n.querySelectorAll('button').map(requestOf))
         continue
@@ -204,12 +268,16 @@ function fromHtml(html: string) {
       } else if (tag === 'DIV' && n.classList.contains('kpi')) {
         out.figures.push({ label: txt(n.querySelector('dt')), value: txt(n.querySelector('dd.v')), ...(n.querySelector('dd.sub') ? { sub: txt(n.querySelector('dd.sub')) } : {}), ...(n.querySelector('.delta') ? { delta: txt(n.querySelector('.delta')) } : {}) })
         continue
-      } else if (tag === 'LI' && (n.parentNode as HTMLElement).classList.contains('gaps')) {
+      } else if (tag === 'LI' && (n.parentNode as HTMLElement).classList.contains('gaps') && n.querySelector('p span.muted')) {
         const p = n.querySelector('p')!
         const value = txt(p.querySelector('b'))
         const sub = txt(p.querySelectorAll('span.muted').at(-1))
         const all = txt(p)
         out.figures.push({ label: norm(all.slice(value.length, all.length - sub.length)), value, sub })
+      } else if (tag === 'OL' && (n.parentNode?.parentNode as HTMLElement | null)?.classList.contains('log')) {
+        // A day of the change log: each line and its area under it.
+        out.tables.push({ rows: n.querySelectorAll('li').map(li => [{ text: norm(`${txt(li.querySelector('p'))} ${txt(li.querySelector('small'))}`) }]) })
+        continue
       } else if (tag === 'OL' && n.classList.contains('pages')) {
         out.tables.push({ rows: n.querySelectorAll('li').map(li => [cell(li)]), folded: folded(n) })
         continue
@@ -239,7 +307,7 @@ function fromHtml(html: string) {
 /** The same, from the blocks. */
 const reqOf = (a: Action): Req => ({ label: a.label, method: a.method, path: a.path, ...(a.body ? { body: a.body } : {}) })
 function fromJson(s: Section, withColumns: (t: Tab) => boolean) {
-  const out = { title: norm(s.title), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], switches: [] as { on: boolean; href: string }[], notes: [] as string[] }
+  const out = { title: norm(s.title), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], comments: undefined as Cm | undefined, switches: [] as { on: boolean; href: string }[], notes: [] as string[] }
   for (const b of s.blocks as Block[]) {
     if (b.kind === 'heading') out.headings.push(`${b.level} ${norm(b.text)}${b.anchor ? ` #${b.anchor}` : ''}`)
     else if (b.kind === 'figures') out.figures.push(...b.items.map(f => ({ label: norm(f.label), value: f.value, ...(f.sub ? { sub: norm(f.sub) } : {}), ...(f.delta ? { delta: norm(f.delta.text) } : {}) })))
@@ -257,6 +325,16 @@ function fromJson(s: Section, withColumns: (t: Tab) => boolean) {
     else if (b.kind === 'switch') out.switches.push({ on: b.on, href: b.href })
     else if (b.kind === 'actions') out.actions.push(...b.actions.map(reqOf))
     else if (b.kind === 'note') out.notes.push(b.text)
+    else if (b.kind === 'comments') {
+      out.comments = {
+        state: b.state, filters: b.filters.map(f => ({ label: f.label, count: f.count, href: f.href })),
+        items: b.items.map(c => ({
+          id: c.id, at: c.at, name: norm(c.name), page: { ...(c.page.path ? { path: c.page.path } : {}), title: norm(c.page.title) }, text: norm(c.text), state: c.state, reason: norm(c.reason),
+          reports: c.reports ? `Reports: ${c.reports.map(r => (r ? `“${r}”` : 'no reason given')).join(', ')}` : '', buttons: c.actions.map(reqOf),
+        })),
+        ...(b.items.length ? {} : { empty: b.empty }), ...(b.next ? { next: b.next } : {}),
+      }
+    }
   }
   return out
 }
@@ -265,8 +343,8 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
   test(`${key}: the blocks say what the page shows, from the same data`, () => {
     for (const [name, html, json] of variants) {
       const h = fromHtml(html())
-      // A page's list of pages, and the report log's list of reports, have no column heads; their tables do.
-      const j = fromJson(json(), t => (t.folded ? t.columns?.[0] !== 'Trang' : t.columns?.[0] !== 'Báo cáo'))
+      // A page's list of pages, the report log's list of reports and the change log's days have no column heads; their tables do.
+      const j = fromJson(json(), t => (t.folded ? t.columns?.[0] !== 'Trang' : !['Báo cáo', CHANGE_COLUMN].includes(t.columns?.[0] ?? '')))
       const at = `${key}, ${name}`
       expect(j.title, at).toBe(h.title)
       expect(j.headings, at).toEqual(h.headings)
@@ -279,6 +357,8 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
       expect(j.forms, at).toEqual(h.forms)
       // A button on its own makes the request its page's form's button makes.
       expect(j.actions, at).toEqual(h.actions)
+      // Each comment as the page shows it, its buttons the page's form's requests; the filter and the next page.
+      expect(j.comments, at).toEqual(h.comments)
       // The page's link to its other form (the app's test builds) is a switch: on when that link goes back to the plain page.
       const own = h.links.filter(l => l === `/_ab/${key}/` || l.startsWith(`/_ab/${key}/?`))
       expect(j.switches, at).toEqual(own.map(l => ({ on: !l.includes('?'), href: `/api/owner/sections/${key}${l.slice(`/_ab/${key}/`.length)}` })))
@@ -326,6 +406,45 @@ test('the overview: its to-dos, areas, their note and the last days are the page
   expect(j.todos.map(t => t.action)).toEqual([{ label: 'Xem key', section: 'nhan-dien-ca', anchor: 'key' }, { label: 'Xem engine', section: 'noi-dung', anchor: 'engine' }])
   expect(j.areas.find(a => a.name === 'Engine')).toMatchObject({ section: 'noi-dung', anchor: 'engine' })
   expect(j.log.entries.filter(e => e.section).length).toBeGreaterThan(2)
+})
+
+test('the overview\'s version 2: the tiles add up to their parts, found an answer is the scoreboard\'s, and each place it opens is a section', () => {
+  const anchors = (key: string) => VARIANTS[key]![0]![2]().blocks.flatMap(b => (b.kind === 'heading' && b.anchor ? [b.anchor] : []))
+  const t = todayJson(S.TODAY)
+  // Found an answer: the scoreboard's star this week, never more than the day's readers; the tile's bars are the chart's.
+  const star = S.SCOREBOARD.metrics.find(m => m.key === S.SCOREBOARD.northStar)!
+  const ch = t.answers.chart as Extract<Block, { kind: 'chart' }>
+  expect(t.tiles.map(x => x.key)).toEqual(['needs', 'answers', 'shipped', 'cost'])
+  expect(t.tiles[1]).toMatchObject({ value: String(star.now), bars: { days: ch.days, values: ch.series[0]!.values, readouts: ch.readouts, today: ch.today } })
+  expect(ch.series[0]!.values.reduce<number>((a, v) => a + (v ?? 0), 0)).toBe(star.now)
+  ch.series[0]!.values.forEach((v, i) => expect(v ?? 0).toBeLessThanOrEqual(ch.whole!.values[i] ?? 0))
+  expect(ch.today).toBe(2) // Wednesday: Thursday to Sunday still to come
+  expect(ch.series[0]!.values.slice(3)).toEqual([null, null, null, null])
+  // Needs: faults first, then what waits on the owner; the tile counts the items.
+  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
+  expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
+  expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
+  // Shipped: the change log's last 24 hours; the costs, fish ID's.
+  expect(t.tiles[2]).toMatchObject({ value: '3', sub: '1 site · 1 app · 1 engine' })
+  expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })
+  expect(t.costs.keys).toMatchObject({ text: '1 of 2 resting', tone: 'bad', section: 'nhan-dien-ca', anchor: 'key' })
+  // Every section once, in NAV's order; every place a section, an anchor one of its headings.
+  expect(t.pages.flatMap(g => g.pages.map(p => p.key))).toEqual(KEYS)
+  expect(PAGE_GROUPS.flatMap(([, ps]) => ps.map(([k]) => k))).toEqual(KEYS)
+  for (const x of [...t.needs, t.shipped, t.costs.keys, ...t.days]) {
+    if (!x.section) continue
+    expect(KEYS).toContain(x.section)
+    if ('anchor' in x && x.anchor) expect(anchors(x.section), `${x.section}#${x.anchor}`).toContain(x.anchor)
+  }
+  expect(t.days.map(d => d.title)).toEqual(['Today so far', 'Yesterday', 'Monday 2 Nov'])
+  // Nothing needs the owner.
+  const calm = todayJson(S.CALM)
+  expect(calm.needs).toEqual([])
+  expect(calm.tiles[0]).toMatchObject({ value: 'All clear', sub: 'Nothing to review or fix', tone: 'plain' })
+  // The beacon down: the answers say so, the rest comes.
+  const down = todayJson({ ...S.TODAY, beacon: F })
+  expect(down.answers).toEqual({ title: 'Readers who found an answer', note: { kind: 'note', text: `Couldn't load the readers' beacon: ${F.failed}`, tone: 'bad' } })
+  expect(down.needs.map(x => x.kind)).toContain('failed')
 })
 
 // ——— The Worker: who opens it, and the replies ———
@@ -464,8 +583,8 @@ test('a part that throws (D1, KV, R2) is 503 unavailable, as JSON, never stored 
 
 test('every section through the Worker: the contract\'s shape, as its page says it, from the Worker\'s own loaders', async () => {
   const w = await worker({ AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' })
-  // Analytics Engine answers every query with no rows.
-  vi.spyOn(globalThis, 'fetch').mockImplementation(async () => Response.json({ data: [] }))
+  // Analytics Engine answers every query with no rows; GitHub has no issues.
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (u: string | URL | Request) => Response.json(String(u instanceof Request ? u.url : u).startsWith('https://api.github.com/') ? [] : { data: [] }))
   for (const key of KEYS) {
     for (const q of key === 'ung-dung' ? ['', '?test=1'] : ['']) {
       const r = await call(w.e, 'GET', `/api/owner/sections/${key}${q}`, bearer(w.ownerApp))
@@ -582,7 +701,7 @@ test('hiding a page and bringing it back, as the page\'s form does; a home page 
   for (const path of ['/', '/id/', 'https://other.site/', '/_ab/']) {
     const r = await post({ path, hide: true })
     expect(r.status, path).toBe(400)
-    expect(await contracted(r, 'post', '/api/owner/hidden'), path).toEqual({ error: 'not_a_page', message: 'Chỉ ẩn được một trang của trang web (không phải trang chủ).' })
+    expect(await contracted(r, 'post', '/api/owner/hidden'), path).toEqual({ error: 'not_a_page', message: 'Only one page of the site can be hidden, and not the home page.' })
   }
   for (const bad of [{ path: '/ca/y/' }, { path: '/ca/y/', hide: 'yes' }, { path: 1, hide: true }, { path: '/ca/y/', hide: true, note: 3 }, 'x']) {
     const r = await post(bad)
@@ -634,6 +753,166 @@ test('bao-cao: every block its section sends, in each of its states, is one the 
     // Its buttons are the actions block's alone, each a POST of one switch.
     for (const b of blocks) if (b.kind === 'actions') for (const a of b.actions) expect([a.method, a.path, Object.keys(a.body!).length, a.tone], name).toEqual(['POST', '/api/owner/report-settings', 1, undefined])
   }
+})
+
+// ——— Readers' comments: the binh-luan section, GET /api/owner/comments and POST /api/owner/comments/{id} ———
+
+test('binh-luan: every block its section sends, in each of its states, is one the contract describes', () => {
+  for (const [name, , json] of VARIANTS['binh-luan']!) for (const b of json().blocks) expect(misfits(b, { $ref: '#/components/schemas/Block' }), `${name}: ${JSON.stringify(b).slice(0, 300)}`).toEqual([])
+})
+
+const DIA = 'species:symphysodon-aequifasciatus'
+const FILLER = S.COMMENT_FILLER
+const NO_COMMENT = '99999999-9999-4999-8999-999999999999'
+/** The second page of held comments as seeded: the fillers, posted at one moment, go by id. */
+const HELD_CURSOR = S.COMMENT_MORE
+/**
+ * Comments in D1: held by a rule and after a signed-in reader's report (two reports) on a page the fixture build has,
+ * 50 more held on a page it doesn't (at one moment, so the paging goes by id); one shown; hidden a day ago and past its 30 days.
+ */
+async function seedComments(db: D1Database) {
+  const add = (id: string, ref: string, status: string, reason: string | null, created: string, decided: string | null = null) =>
+    db.prepare('INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at, decided_at) VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)').bind(id, ref, `Reader ${id.slice(-2)}`, `Comment ${id.slice(-4)}`, status, reason, created, decided).run()
+  await add(S.COMMENT_HELD, DIA, 'held', 'blocked term: zalo:', '2026-11-04T07:00:00.000Z')
+  await add(S.COMMENT_REPORTED, DIA, 'held', 'reported by a reader', '2026-11-04T06:00:00.000Z')
+  for (let i = 0; i < 50; i++) await add(FILLER(i), 'guide:gone-guide', 'held', 'more than one link', '2026-11-01T00:00:00.000Z')
+  await add(S.COMMENT_SHOWN, DIA, 'approved', null, '2026-11-03T02:00:00.000Z')
+  await add(S.COMMENT_HIDDEN, DIA, 'removed', 'Hidden by the owner', '2026-11-03T05:00:00.000Z', new Date(Date.now() - 86_400_000).toISOString())
+  await add(S.COMMENT_EXPIRED, DIA, 'removed', 'Spam: a betting site.', '2026-09-20T05:00:00.000Z', '2026-01-01T00:00:00.000Z')
+  for (const [who, why, at] of [['r1', 'off topic', '2026-11-04T06:30:00.000Z'], ['r2', null, '2026-11-04T06:40:00.000Z']]) {
+    await db.prepare("INSERT INTO reports (kind, item_id, reporter, reason, created_at) VALUES ('comment', ?, ?, ?, ?)").bind(S.COMMENT_REPORTED, who, why, at).run()
+  }
+}
+const commentsIn = (s: Section) => s.blocks.find((b): b is CommentsBlock => b.kind === 'comments')!
+
+test('binh-luan through the Worker: one state at a time from D1, newest first, each on its page from the build; 50, then the rest from GET /api/owner/comments', async () => {
+  const w = await worker()
+  await seedComments(w.db)
+  const section = async (q = '') => {
+    const r = await call(w.e, 'GET', `/api/owner/sections/binh-luan${q}`, bearer(w.ownerApp))
+    expect(r.status, q).toBe(200)
+    const s = (await contracted(r, 'get', '/api/owner/sections/binh-luan')) as unknown as Section
+    expect(s.blocks.filter(b => b.kind === 'note' && b.tone === 'bad'), q).toEqual([])
+    return s
+  }
+  const held = commentsIn(await section())
+  expect(held.state).toBe('held')
+  expect(held.filters).toEqual([
+    { state: 'held', label: 'Held', count: 52, href: '/api/owner/sections/binh-luan?state=held' },
+    { state: 'shown', label: 'Shown', count: 1, href: '/api/owner/sections/binh-luan?state=shown' },
+    { state: 'hidden', label: 'Hidden', count: 2, href: '/api/owner/sections/binh-luan?state=hidden' },
+  ])
+  expect(held.items.map(c => c.id)).toEqual([S.COMMENT_HELD, S.COMMENT_REPORTED, ...Array.from({ length: 48 }, (_, i) => FILLER(49 - i))])
+  const button = (id: string, label: string, action: string, tone?: string) => ({ label, method: 'POST', path: `/api/owner/comments/${id}`, body: { action }, ...(tone ? { tone } : {}) })
+  expect(held.items[0]).toEqual({
+    id: S.COMMENT_HELD, at: '2026-11-04T07:00:00.000Z', name: 'Reader 4f', page: { path: '/ca/ca-dia/', title: 'Cá đĩa' }, text: 'Comment 3e4f', state: 'held',
+    reason: 'Held when posted: it has “zalo:”, a blocked term', actions: [button(S.COMMENT_HELD, 'Show', 'show'), button(S.COMMENT_HELD, 'Hide', 'hide', 'bad')],
+  })
+  expect(held.items[1]).toMatchObject({ reason: 'Held after a report', reports: ['off topic', ''] })
+  // A page this build doesn't have: said so, never its key, and no address.
+  expect(held.items[2]).toMatchObject({ page: { title: 'a page no longer on the site' }, reason: 'Held when posted: it has more than one link' })
+  expect(held.items[2]!.page).not.toHaveProperty('path')
+  expect(held.next).toBe(HELD_CURSOR)
+  // The rest, from the block's `next`: none twice, none missed, the last page without `next`.
+  const more = await call(w.e, 'GET', `/api/owner/comments?state=held&cursor=${held.next}`, { ...bearer(w.ownerApp), 'time-zone': 'Europe/Paris' })
+  const rest = (await contracted(more, 'get', '/api/owner/comments')) as { tz: string; items: CommentItem[]; next?: string }
+  expect([rest.tz, rest.items.map(c => c.id), rest.next]).toEqual(['Europe/Paris', [FILLER(1), FILLER(0)], undefined])
+  // Each filter's address reads its state.
+  for (const f of held.filters) expect(commentsIn(await section(f.href.slice('/api/owner/sections/binh-luan'.length))).state).toBe(f.state)
+  expect(commentsIn(await section('?state=shown')).items).toEqual([expect.objectContaining({ id: S.COMMENT_SHOWN, reason: '', actions: [button(S.COMMENT_SHOWN, 'Hide', 'hide', 'bad')] })])
+  // Hidden: shown again within its 30 days; past them, no button (it waits to be deleted).
+  expect(commentsIn(await section('?state=hidden')).items.map(c => [c.id, c.reason, c.actions])).toEqual([
+    [S.COMMENT_HIDDEN, 'Hidden by the owner', [button(S.COMMENT_HIDDEN, 'Show again', 'show')]], [S.COMMENT_EXPIRED, 'Spam: a betting site.', []],
+  ])
+  // What the section and the path don't take: 400, with what they do.
+  for (const q of ['?state=removed', '?state=', '?state=held&state=shown', '?x=1', `?cursor=${held.next}`, '?test=1']) {
+    const r = await call(w.e, 'GET', `/api/owner/sections/binh-luan${q}`, bearer(w.ownerApp))
+    expect([r.status, await contracted(r, 'get', '/api/owner/sections/binh-luan')], q).toEqual([400, { error: 'bad_request', message: expect.stringContaining('"held"') }])
+  }
+  for (const q of ['', '?state=held', `?cursor=${held.next}`, `?state=removed&cursor=${held.next}`, '?state=held&cursor=nope', `?state=held&cursor=${held.next}&x=1`, `?state=held&cursor=${held.next}&cursor=${held.next}`]) {
+    const r = await call(w.e, 'GET', `/api/owner/comments${q}`, bearer(w.ownerApp))
+    expect([r.status, await contracted(r, 'get', '/api/owner/comments')], q).toEqual([400, { error: 'bad_request', message: expect.stringContaining('cursor') }])
+  }
+  const post = await call(w.e, 'POST', '/api/owner/comments', bearer(w.ownerApp), {})
+  expect([post.status, post.headers.get('allow'), await contracted(post, 'get', '/api/owner/comments')]).toEqual([405, 'GET', { error: 'method' }])
+  // The web page from the same load: the next page by the same cursor.
+  const page = async (q: string) => {
+    const r = await call(w.e, 'GET', `/_ab/binh-luan/${q}`, { cookie: `__Host-aq_session=${w.ownerWeb}` })
+    expect(r.status, q).toBe(200)
+    return commentsOf(dom(await r.text()).querySelector('section.comments')!)
+  }
+  const first = await page('')
+  expect([first.state, first.items.length, first.next]).toEqual(['held', 50, held.next])
+  expect((await page(`?state=held&cursor=${held.next}`)).items.map(c => c.id)).toEqual([FILLER(1), FILLER(0)])
+  // A bad state or cursor on the web: the newest held.
+  expect((await page('?state=x&cursor=nope')).items[0]!.id).toBe(S.COMMENT_HELD)
+})
+
+test('a comment shown, hidden and shown again from the app or the page\'s form; past its 30 days, expired; the moderation leaves the owner\'s decision alone', async () => {
+  const w = await worker()
+  await seedComments(w.db)
+  const row = async (id: string) => w.db.prepare('SELECT status, reason, decided_at FROM comments WHERE id = ?').bind(id).first<{ status: string; reason: string; decided_at: string }>()
+  const path = (id: string) => `/api/owner/comments/${id}`
+  const act = (id: string, body: unknown, h = bearer(w.ownerApp)) => call(w.e, 'POST', path(id), h, body)
+  // Nobody else: 401 signed_out without a live app session, 404 for another account's, before anything else; nothing changes.
+  for (const [h, status, error] of [[{}, 401, 'signed_out'], [bearer(w.ownerWeb), 401, 'signed_out'], [{ cookie: `__Host-aq_session=${w.ownerWeb}` }, 401, 'signed_out'], [bearer(DASH_TOKEN), 401, 'signed_out'], [bearer(w.readerApp), 404, 'not_found']] as [Record<string, string>, number, string][]) {
+    for (const [method, p, body] of [['POST', path(S.COMMENT_HELD), { action: 'show' }], ['POST', path(NO_COMMENT), 'x'], ['GET', `/api/owner/comments?state=held&cursor=${HELD_CURSOR}`, undefined], ['GET', '/api/owner/sections/binh-luan?x=1', undefined]] as [string, string, unknown][]) {
+      const r = await call(w.e, method, p, h, body)
+      expect([r.status, await contracted(r, method.toLowerCase() as 'get', p)], `${JSON.stringify(h)} ${method} ${p}`).toEqual([status, { error }])
+    }
+  }
+  expect(await row(S.COMMENT_HELD)).toMatchObject({ status: 'held', decided_at: null })
+
+  // Held → shown, with the owner's reason and the time; again, nothing written.
+  expect(await contracted(await act(S.COMMENT_HELD, { action: 'show' }), 'post', path(S.COMMENT_HELD))).toEqual({ ok: true, changed: true })
+  const shown = await row(S.COMMENT_HELD)
+  expect(shown).toEqual({ status: 'approved', reason: 'Shown by the owner', decided_at: expect.stringMatching(/^\d{4}-\d\d-\d\dT/) })
+  await new Promise(r => setTimeout(r, 5))
+  expect(await (await act(S.COMMENT_HELD, { action: 'show' })).json()).toEqual({ ok: true, changed: false })
+  expect(await row(S.COMMENT_HELD)).toEqual(shown)
+  // Shown → hidden; hidden → shown again, within its 30 days.
+  expect(await (await act(S.COMMENT_SHOWN, { action: 'hide' })).json()).toEqual({ ok: true, changed: true })
+  expect(await row(S.COMMENT_SHOWN)).toMatchObject({ status: 'removed', reason: 'Hidden by the owner' })
+  expect(await (await act(S.COMMENT_HIDDEN, { action: 'show' })).json()).toEqual({ ok: true, changed: true })
+  expect(await row(S.COMMENT_HIDDEN)).toMatchObject({ status: 'approved', reason: 'Shown by the owner' })
+  // Past its 30 days: refused, said why; hiding it again changes nothing.
+  const expired = await act(S.COMMENT_EXPIRED, { action: 'show' })
+  expect([expired.status, await contracted(expired, 'post', path(S.COMMENT_EXPIRED))]).toEqual([409, { error: 'expired', message: EXPIRED }])
+  expect(await (await act(S.COMMENT_EXPIRED, { action: 'hide' })).json()).toEqual({ ok: true, changed: false })
+  expect(await row(S.COMMENT_EXPIRED)).toEqual({ status: 'removed', reason: 'Spam: a betting site.', decided_at: '2026-01-01T00:00:00.000Z' })
+  // No such comment (or one deleted); neither action; not JSON; the wrong method.
+  const gone = await act(NO_COMMENT, { action: 'hide' })
+  expect([gone.status, await contracted(gone, 'post', path(NO_COMMENT))]).toEqual([404, { error: 'not_found', message: GONE }])
+  for (const bad of [{}, { action: 'approve' }, { action: 'remove' }, 'not json', [], null]) {
+    const r = await act(S.COMMENT_REPORTED, bad)
+    expect([r.status, await contracted(r, 'post', path(S.COMMENT_REPORTED))], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'action: "show" or "hide".' }])
+  }
+  const get = await call(w.e, 'GET', path(S.COMMENT_HELD), bearer(w.ownerApp))
+  expect([get.status, get.headers.get('allow')]).toEqual([405, 'POST'])
+  // The nightly moderation doesn't take up what the owner decided; the rest of the held still wait for it.
+  const queued = (await moderationQueue(w.db, new Date())).map(q => q.id)
+  for (const id of [S.COMMENT_HELD, S.COMMENT_SHOWN, S.COMMENT_HIDDEN, S.COMMENT_EXPIRED]) expect(queued, id).not.toContain(id)
+  expect(queued).toContain(S.COMMENT_REPORTED)
+
+  // The page's form: the cookie's, the same decision, back to the state it was on.
+  const form = (fields: Record<string, string>, h: Record<string, string> = { cookie: `__Host-aq_session=${w.ownerWeb}` }) =>
+    handle(new Request('https://x.test/_ab/comments', { method: 'POST', headers: h, body: new URLSearchParams(fields) }), w.e)
+  for (const h of [bearer(w.ownerApp), { cookie: `__Host-aq_session=${w.readerWeb}` }, {}] as Record<string, string>[]) expect((await form({ id: S.COMMENT_REPORTED, action: 'hide', state: 'held' }, h)).status).toBe(404)
+  expect(await row(S.COMMENT_REPORTED)).toMatchObject({ status: 'held' })
+  const hid = await form({ id: S.COMMENT_REPORTED, action: 'hide', state: 'held' })
+  expect([hid.status, hid.headers.get('location')]).toEqual([303, '/_ab/binh-luan/?state=held'])
+  expect(await row(S.COMMENT_REPORTED)).toMatchObject({ status: 'removed', reason: 'Hidden by the owner' })
+  expect((await form({ id: S.COMMENT_REPORTED, action: 'show', state: 'hidden' })).headers.get('location')).toBe('/_ab/binh-luan/?state=hidden')
+  const late = await form({ id: S.COMMENT_EXPIRED, action: 'show', state: 'hidden' })
+  expect([late.status, await late.text()]).toEqual([409, EXPIRED])
+  expect((await form({ id: S.COMMENT_HELD, action: 'publish' })).status).toBe(400)
+
+  // D1 down after the owner check: 503, nothing changed.
+  vi.spyOn(console, 'error').mockImplementation(() => {})
+  const down = { ...w.e, DB: { prepare: (sql: string) => (/\bcomments\b/.test(sql) ? (() => { throw new Error('D1 down') })() : w.db.prepare(sql)) } } as unknown as Env
+  const r = await call(down, 'POST', path(S.COMMENT_SHOWN), bearer(w.ownerApp), { action: 'show' })
+  expect([r.status, (await contracted(r, 'post', path(S.COMMENT_SHOWN))).error]).toEqual([503, 'unavailable'])
+  expect(await row(S.COMMENT_SHOWN)).toMatchObject({ status: 'removed' })
 })
 
 /** An error as the accounts API says them: `{error, message?}`, the contract's Error. */
@@ -699,10 +978,13 @@ test('the report\'s delivery from the app: the section\'s buttons set it as the 
   expect(await (await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), { email: false, push: true })).json()).toEqual({ ok: true, changed: false, email: false, push: true })
   for (const bad of [{}, { email: 'no' }, { push: 1 }, { email: true, quiet: true }, 'x', [], null]) {
     const r = await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), bad)
-    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'email và/hoặc push (true/false).' }])
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'email and/or push (true or false).' }])
   }
+  // Read as they are now (the app's bell): the same two switches the POST answers with.
   const get = await call(w.e, 'GET', '/api/owner/report-settings', bearer(w.ownerApp))
-  expect([get.status, get.headers.get('allow'), await errorOf(get)]).toEqual([405, 'POST', { error: 'method' }])
+  expect([get.status, get.headers.get('cache-control'), await get.json()]).toEqual([200, 'no-store', { email: false, push: true }])
+  const del = await call(w.e, 'DELETE', '/api/owner/report-settings', bearer(w.ownerApp))
+  expect([del.status, del.headers.get('allow'), await errorOf(del)]).toEqual([405, 'GET, POST', { error: 'method' }])
   // KV down: unavailable, and nothing changes.
   vi.spyOn(console, 'error').mockImplementation(() => {})
   const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { put: async () => { throw new Error('KV down') } }) } as unknown as Env
@@ -734,7 +1016,7 @@ test('a phone registers for the report\'s notification: kept once with its envir
   expect(await (await send('DELETE', { token: TOKEN_A })).json()).toEqual({ ok: true, changed: true })
   expect(await (await send('DELETE', { token: TOKEN_A })).json()).toEqual({ ok: true, changed: false })
   expect(Object.keys(tokens())).toEqual([TOKEN_B])
-  const POST_SAYS = 'token (hex chữ thường), environment ("sandbox" hoặc "production").'
+  const POST_SAYS = 'token (lowercase hex), environment ("sandbox" or "production").'
   for (const bad of [
     { token: TOKEN_A.toUpperCase(), environment: 'production' }, { token: 'a1b2', environment: 'production' }, { token: `${TOKEN_A}a`, environment: 'production' }, { token: 'zz'.repeat(32), environment: 'production' },
     { token: 'a1'.repeat(101), environment: 'production' }, { token: TOKEN_A }, { token: TOKEN_A, environment: 'development' }, { token: TOKEN_A, environment: 'production', name: 'x' }, 'x', [], null,
@@ -744,7 +1026,7 @@ test('a phone registers for the report\'s notification: kept once with its envir
   }
   for (const bad of [{ token: 'nope' }, { token: TOKEN_B, environment: 'sandbox' }, {}]) {
     const r = await send('DELETE', bad)
-    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'token (hex chữ thường).' }])
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'token (lowercase hex).' }])
   }
   expect(Object.keys(tokens())).toEqual([TOKEN_B])
   const get = await call(w.e, 'GET', '/api/owner/push-token', bearer(w.ownerApp))
@@ -759,10 +1041,27 @@ async function replies(): Promise<Reply[]> {
   const tz = { 'Time-Zone': S.TZ }
   const json = (x: unknown) => JSON.parse(JSON.stringify(x)) as unknown
   const out: Reply[] = [
-    { name: 'dashboard', request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...overviewJson(S.OVERVIEW), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) },
-    ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...VARIANTS[key]![0]![2]() }) })),
+    ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }]] as const).map(([name, t]) => (
+      { name, request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...dashboardJson(t), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) })),
+    ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(VARIANTS[key]![0]![2]()) }) })),
+    // The other two comment lists, from the section's filter: the comments the action replies show and hide are in them.
+    ...(['shown', 'hidden'] as const).map(state => ({
+      name: `comments: ${state}`, request: { method: 'GET', path: `/api/owner/sections/binh-luan?state=${state}`, headers: tz }, status: 200,
+      body: json({ tz: S.TZ, ...paged(VARIANTS['binh-luan']!.find(([name]) => name.startsWith(state))![2]()) }),
+    })),
   ]
+  // A period, a folded table opened, and a long table's last page, as the Worker reads them (owner-api.ts).
+  const fish30 = fishIdSection({ ...S.FISH, period: 'd30' })
+  out.push({ name: 'period: fish ID, 30 days', request: { method: 'GET', path: '/api/owner/sections/nhan-dien-ca?period=d30', headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(fish30) }) })
+  const fish = fishIdSection(S.FISH)
+  for (const b of paged(fish).blocks) {
+    if (b.kind !== 'table' || !b.id) continue
+    const name = b.folded ? `table: fish ID's folded "${b.folded}"` : 'table: fish ID\'s recent calls, the last page'
+    const path = `/api/owner/sections/nhan-dien-ca/tables/${b.id}${b.next ? `?cursor=${b.next}` : ''}`
+    out.push({ name, request: { method: 'GET', path, headers: tz }, status: 200, body: json({ tz: S.TZ, ...(tablePage(fish, b.id, b.next ?? null) as object) }) })
+  }
   const w = await worker()
+  await seedComments(w.db)
   const actions: [string, string, string, unknown][] = [
     ['approve a waiting photo', 'POST', `/api/owner/photos/${S.PHOTO_WAITING}`, { action: 'approve' }],
     ['remove a photo', 'POST', `/api/owner/photos/${S.PHOTO_LIVE}`, { action: 'remove' }],
@@ -772,6 +1071,14 @@ async function replies(): Promise<Reply[]> {
     ['bring a page back', 'POST', '/api/owner/hidden', { path: '/ca/ca-y/', hide: false }],
     ['hide the home page', 'POST', '/api/owner/hidden', { path: '/', hide: true }],
     ['delete a kept fish-ID photo', 'DELETE', `/api/owner/fishid-shots/anon/${S.KEPT_ANON}`, undefined],
+    // Readers' comments.
+    ['show a held comment', 'POST', `/api/owner/comments/${S.COMMENT_HELD}`, { action: 'show' }],
+    ['hide a shown comment', 'POST', `/api/owner/comments/${S.COMMENT_SHOWN}`, { action: 'hide' }],
+    ['show again a hidden comment', 'POST', `/api/owner/comments/${S.COMMENT_HIDDEN}`, { action: 'show' }],
+    ['show a comment hidden more than 30 days ago', 'POST', `/api/owner/comments/${S.COMMENT_EXPIRED}`, { action: 'show' }],
+    ['a comment that doesn\'t exist', 'POST', `/api/owner/comments/${NO_COMMENT}`, { action: 'hide' }],
+    ['a comment action that is neither', 'POST', `/api/owner/comments/${S.COMMENT_REPORTED}`, { action: 'approve' }],
+    ['more comments', 'GET', `/api/owner/comments?state=held&cursor=${HELD_CURSOR}`, undefined],
     ['signed out', 'GET', '/api/owner/dashboard', undefined],
     ['not the owner', 'GET', '/api/owner/dashboard', undefined],
     ['storage down', 'GET', '/api/owner/dashboard', undefined],
@@ -785,9 +1092,16 @@ async function replies(): Promise<Reply[]> {
     ['not the owner: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['unregister a phone', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN }],
     ['unregister a phone: a token that isn\'t lowercase hex', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN.toUpperCase() }],
+    ['the report\'s delivery', 'GET', '/api/owner/report-settings', undefined],
     ['turn the report\'s notification on', 'POST', '/api/owner/report-settings', { push: true }],
+    ['the report\'s delivery, its notification on', 'GET', '/api/owner/report-settings', undefined],
     ['a report setting that isn\'t true or false', 'POST', '/api/owner/report-settings', { push: 'yes' }],
     ['report settings that change neither', 'POST', '/api/owner/report-settings', {}],
+    // Periods and tables the section doesn't have.
+    ['a period the section doesn\'t offer', 'GET', '/api/owner/sections/nhan-dien-ca?period=week', undefined],
+    ['a period on a section with none', 'GET', '/api/owner/sections/an-trang?period=d7', undefined],
+    ['a table that isn\'t one', 'GET', '/api/owner/sections/an-trang/tables/t9', undefined],
+    ['a table\'s cursor that isn\'t one', 'GET', '/api/owner/sections/affiliate/tables/t1?cursor=x', undefined],
   ]
   const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   for (const [name, method, path, body] of actions) {

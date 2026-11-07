@@ -1,9 +1,13 @@
 import { lastDays } from '../admin/chart'
 import { summariseApp, type AppRows } from '../admin/app'
-import type { ContentReads, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
+import { cursorOf, type CommentRow, type CommentState, type CommentWeek } from '../admin/comments'
+import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
 import type { ReportsData } from '../daily/page'
+import type { Change } from '../daily/github'
+import { summariseScoreboard, type BeaconRow } from '../admin/scoreboard'
+import type { Today } from '../admin/today'
 import type { Wanted } from '../wanted'
 
 /**
@@ -49,6 +53,8 @@ export const FISH = {
     call('2026-11-04 08:40:00', { sci: 'Betta macrostoma' }),
     call('2026-11-04 08:30:00', { sci: 'Trigonostigma heteromorpha', page: 'gone-page' }),
     call('2026-11-04 08:00:00', { outcome: 'rate', verdict: '', kh: '', tin: 0, tout: 0, usd: 0, guesses: 0, conf: 0, src: 'tank' }),
+    // Enough for more than one page of the app's table (50 rows a page).
+    ...Array.from({ length: 56 }, (_, i) => call(`2026-11-04 07:${String(59 - i).padStart(2, '0')}:00`, { sci: 'Paracheirodon innesi', page: 'paracheirodon-innesi' })),
   ], NOW, TZ),
   keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2 },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
@@ -195,4 +201,83 @@ export const REPORTS: ReportsData = {
     { id: '1002', when: '2026-11-03T00:00:00.000Z', subject: 'AquaTome daily · 3 Nov · nothing needs care', sent: false, why: 'E_RATE_LIMIT_EXCEEDED', push: { sent: 0, why: 'no_device' }, care: 0 },
     { id: '1001', when: '2026-11-02T00:00:00.000Z', subject: 'AquaTome daily · 2 Nov · 1 needs care', sent: true, care: 1 },
   ],
+}
+
+/**
+ * The readers' beacon from last week's Monday (26 Oct) to now (Wednesday 4 Nov, 16:00 in Vietnam): each day, readers from
+ * search who stayed on the page they landed on (answers), readers who came straight in, and visits from search that left
+ * at once; a shop click every other day. The scoreboard and the overview read the same rows.
+ */
+export const BEACON: BeaconRow[] = lastDays(NOW, 10, TZ).flatMap((day, i) => {
+  const at = (k: number) => `${day} ${day === '2026-11-04' ? '05' : '02'}:${String(k).padStart(2, '0')}:00`
+  const row = (sid: string, t: string, k: number, v = 1, o: Partial<BeaconRow> = {}): BeaconRow => ({ sid, t, p: '/ca/ca-neon-vua/', ref: '', cc: i % 5 ? 'VN' : 'ID', first: at(k), v, n: 1, ...o })
+  const google = { ref: 'www.google.com' }
+  return [
+    ...Array.from({ length: 3 + (i % 4) }, (_, k) => [row(`a${i}-${k}`, 'view', k, 1, google), row(`a${i}-${k}`, 'time', k, 45), ...(k === 0 && i % 2 ? [row(`a${i}-${k}`, 'aff', k)] : [])]).flat(),
+    ...Array.from({ length: 2 + (i % 3) }, (_, k) => [row(`d${i}-${k}`, 'view', 10 + k), row(`d${i}-${k}`, 'time', 10 + k, 60)]).flat(),
+    ...Array.from({ length: 4 }, (_, k) => row(`b${i}-${k}`, 'view', 20 + k, 1, google)),
+  ]
+})
+/** Before the readers were counted (READERS_FROM): the sample counts them from October. */
+export const COUNTING_FROM = '2026-10-01T00:00:00Z'
+/** The product changes kept: three in the last 24 hours, one site, one app, one engine, and an older one. */
+export const CHANGES: Change[] = [
+  { area: 'Site', text: 'Comments held for review now show on the owner\'s dashboard.', at: '2026-11-04T01:00:00Z' },
+  { area: 'App', text: 'The tank list loads faster on older phones.', at: '2026-11-03T20:00:00Z' },
+  { area: 'Engine', text: 'Species pages no longer show photos of dead fish.', at: '2026-11-03T12:00:00Z' },
+  { area: 'Site', text: 'The tank volume calculator fits a phone.', at: '2026-11-01T08:00:00Z' },
+]
+export const SCOREBOARD_INPUT = {
+  now: NOW, owners: ['owner-1'], beacon: BEACON, community: { tanks: [], comments: [{ at: '2026-11-03T02:00:00Z' }], photos: [] }, clicks: { days: days31, clicks: wave(31, i => (i * 7) % 5) },
+  app: { sessions: [{ at: '2026-11-03T02:00:00Z' }], actions: [], crashes: [] }, content: STATS, snapshots: SNAPSHOTS, checks: [],
+}
+export const SCOREBOARD = summariseScoreboard(SCOREBOARD_INPUT)
+
+/**
+ * Readers' comments in each state (admin/comments.ts): held by a posting rule, after a signed-in reader's report (two
+ * reports, one without a reason) and by a rule on a page this build doesn't have; shown when posted, by the moderator and
+ * by the owner; hidden by the owner (shown again within its 30 days) and by the moderator past its 30 days, waiting to be
+ * deleted. Newest first in each state, as the page lists them.
+ */
+export const COMMENT_HELD = '0c1d2e3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f'
+export const COMMENT_REPORTED = '1d2e3f4a-5b6c-4d7e-9f8a-0b1c2d3e4f5a'
+export const COMMENT_SHOWN = '2e3f4a5b-6c7d-4e8f-8a9b-1c2d3e4f5a6b'
+export const COMMENT_HIDDEN = '3f4a5b6c-7d8e-4f9a-9b0c-2d3e4f5a6b7c'
+export const COMMENT_EXPIRED = '4a5b6c7d-8e9f-4a0b-8c1d-3e4f5a6b7c8d'
+const comment = (id: string, o: Partial<CommentRow>): CommentRow => ({ id, entity_ref: 'species:paracheirodon-axelrodi', name: 'Minh', body: 'Bể 60 lít nuôi được mấy con neon vua?', status: 'approved', reason: null, created_at: '2026-11-03T02:00:00.000Z', decided_at: null, reports: [], ...o })
+export const COMMENT_ROWS: CommentRow[] = [
+  comment(COMMENT_HELD, { name: 'banhmi_fish', body: 'Mình mua neon vua ở shop gần nhà giá rẻ lắm, ai cần thì nhắn zalo: 09xx nhé', status: 'held', reason: 'blocked term: zalo:', created_at: '2026-11-04T07:00:00.000Z' }),
+  comment(COMMENT_REPORTED, { entity_ref: 'species:betta-splendens', name: 'tep.do', body: 'Betta nuôi chung với tép được không?\nBể 60 lít của mình có 10 con tép đỏ, sợ bị ăn.', status: 'held', reason: 'reported by a reader', created_at: '2026-11-03T08:00:00.000Z', reports: ['off topic', ''] }),
+  comment('5b6c7d8e-9f0a-4b1c-9d2e-4f5a6b7c8d9e', { entity_ref: 'guide:gone-guide', name: 'Hùng <3', body: 'Xem <b>ở đây</b> và www.a.vn, www.b.vn', status: 'held', reason: 'contains <', created_at: '2026-11-02T01:00:00.000Z' }),
+  comment(COMMENT_SHOWN, { created_at: '2026-11-04T08:30:00.000Z' }),
+  comment('6c7d8e9f-0a1b-4c2d-8e3f-5a6b7c8d9e0f', { name: 'Lan', body: 'Neon vua ăn cám nhỏ, cho ăn ít một.', reason: 'Helpful: a first-hand feeding tip.', created_at: '2026-11-02T10:00:00.000Z', decided_at: '2026-11-03T01:00:00.000Z' }),
+  comment('7d8e9f0a-1b2c-4d3e-9f4a-6b7c8d9e0f1a', { name: 'Thảo', body: 'Cảm ơn bài viết!', reason: 'Shown by the owner', created_at: '2026-10-30T10:00:00.000Z', decided_at: '2026-10-31T01:00:00.000Z' }),
+  comment(COMMENT_HIDDEN, { name: 'An', body: 'Bán cá giá sỉ, inbox.', status: 'removed', reason: 'Hidden by the owner', created_at: '2026-11-03T05:00:00.000Z', decided_at: '2026-11-03T06:00:00.000Z' }),
+  comment(COMMENT_EXPIRED, { name: 'Bình', body: 'Ghé web cá cược ở đây.', status: 'removed', reason: 'Spam: a betting site.', created_at: '2026-09-20T05:00:00.000Z', decided_at: '2026-09-21T06:00:00.000Z' }),
+]
+/**
+ * Five held: the three above, then, past `next` (COMMENT_MORE), the two oldest of the held comments the Worker's test
+ * seeds in D1 (owner-api.test.ts), which "more comments" answers. A short first page, so paging shows in the samples.
+ */
+export const COMMENT_COUNTS: Record<CommentState, number> = { held: 5, shown: 20, hidden: 2 }
+/** The held comments the Worker's test seeds past the first two, posted at one moment: they go by id. */
+export const COMMENT_FILLER = (i: number) => `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`
+/** The held list's `next`: its second page, FILLER(1) and FILLER(0). */
+export const COMMENT_MORE = cursorOf({ created_at: '2026-11-01T00:00:00.000Z', id: COMMENT_FILLER(2) })
+export const COMMENT_WEEK: CommentWeek = { posted: 23, heldPosted: 1, reported: 1, hidden: 1 }
+/** The sample's pages by D1's key, as content.json gives them; guide:gone-guide isn't one. */
+export const COMMENT_PAGES = new Map<string, PageInfo>([
+  ['species:paracheirodon-axelrodi', { path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' }],
+  ['species:betta-splendens', { path: '/ca/ca-betta/', title: 'Cá betta (cá xiêm)', kind: 'fish', id: 'betta-splendens' }],
+])
+
+/** The overview's version 2: a key resting and a source waiting on the owner (faults), the held comments (COMMENT_COUNTS) and two photos waiting. */
+export const TODAY: Today = {
+  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
+  lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
+}
+/** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
+export const CALM: Today = {
+  ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
+  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
 }

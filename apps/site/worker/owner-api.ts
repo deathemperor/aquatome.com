@@ -1,10 +1,13 @@
 import { HOME_TZ, validZone } from './admin/time'
+import { decideComment, EXPIRED, GONE, moreQuery, sectionQuery } from './admin/comments'
 import { overviewJson } from './admin/pages'
-import { appSession, loadOverview, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
+import { paged, tablePage } from './admin/blocks'
+import { todayJson, type Today } from './admin/today'
+import { appSession, loadToday, moreComments, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
 import { addDevice, removeDevices, tokenBody } from './daily/push'
-import { setSettings, settingsChange } from './daily/settings'
+import { getSettings, setSettings, settingsChange } from './daily/settings'
 import { deleteKept } from './fishid/kept'
-import { NOT_ONE_PAGE, setHidden } from './hidden'
+import { setHidden } from './hidden'
 import { approveByOwner, photosLive, removePhoto } from './photos'
 
 /**
@@ -29,16 +32,29 @@ const json = async (req: Request): Promise<Record<string, unknown> | undefined> 
 }
 
 const SECTION = /^\/api\/owner\/sections\/([a-z0-9-]+)$/
+/** A section's folded or long table, by its id (paged). */
+const TABLE = /^\/api\/owner\/sections\/([a-z0-9-]+)\/tables\/([a-z0-9-]+)$/
 const PHOTO = /^\/api\/owner\/photos\/([0-9a-f-]{36})$/
+const COMMENT = /^\/api\/owner\/comments\/([0-9a-f-]{36})$/
+/** The Comments section (admin/comments.ts) and its paths: their words are English. */
+const COMMENTS_KEY = 'binh-luan'
+const STATE_SAYS = 'state: "held", "shown" or "hidden".'
 /** A kept fish-ID photo: its account (or anon, sent signed out) and its id, as the dashboard's image address has them. */
 const SHOT = /^\/api\/owner\/fishid-shots\/([0-9a-z-]+)\/([0-9a-f-]{36})$/
+
+/** The overview as the app reads it: version 2's parts, and the ones before them (deprecated) for the app before it; the last days a row a day too. */
+export function dashboardJson(t: Today) {
+  const old = overviewJson(t)
+  const { days, ...today } = todayJson(t)
+  return { ...old, ...today, log: { ...old.log, days } }
+}
 
 export async function ownerApi(req: Request, url: URL, env: AdminEnv, now = new Date()): Promise<Response> {
   try {
     return await route(req, url, env, now)
   } catch (e) {
     console.error('owner api:', e)
-    return fail(503, 'unavailable', 'Không làm được lúc này: máy chủ không đọc hay ghi được. Thử lại sau.')
+    return fail(503, 'unavailable', "Couldn't do that just now: the server couldn't read or write its storage. Try again later.")
   }
 }
 
@@ -51,36 +67,66 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
 
   if (path === '/api/owner/dashboard') {
     if (req.method !== 'GET') return method('GET')
-    const o = overviewJson(await loadOverview(env, url, now, tz))
-    return reply({ tz, ...o, sections: SECTIONS.map(({ key, name }) => ({ key, name })) })
+    return reply({ tz, ...dashboardJson(await loadToday(env, url, now, tz)), sections: SECTIONS.map(({ key, name }) => ({ key, name })) })
   }
   const section = SECTION.exec(path)
   if (section) {
     if (req.method !== 'GET') return method('GET')
+    if (section[1] === COMMENTS_KEY && !sectionQuery(url.searchParams)) return fail(400, 'bad_request', `This section takes only ${STATE_SAYS}`)
     const s = await sectionJson(section[1]!, env, url, now, tz)
-    return s ? reply({ tz, ...s }) : notFound()
+    if (!s) return notFound()
+    const period = url.searchParams.get('period')
+    if (period !== null && !s.periods?.some(p => p.key === period)) return fail(400, 'bad_request', s.periods ? `period: one of ${s.periods.map(p => p.key).join(', ')}.` : 'This section has no periods.')
+    return reply({ tz, ...paged(s) })
+  }
+  const table = TABLE.exec(path)
+  if (table) {
+    if (req.method !== 'GET') return method('GET')
+    const s = await sectionJson(table[1]!, env, url, now, tz)
+    const rows = s ? tablePage(s, table[2]!, url.searchParams.get('cursor')) : 'no_table'
+    if (rows === 'no_table') return notFound()
+    if (rows === 'bad_cursor') return fail(400, 'bad_request', "cursor: a `next` this table gave.")
+    return reply({ tz, ...rows })
   }
   const photo = PHOTO.exec(path)
   if (photo) {
     if (req.method !== 'POST') return method('POST')
     const body = await json(req)
-    if (body?.action !== 'approve' && body?.action !== 'remove') return fail(400, 'bad_request', 'action: "approve" hoặc "remove".')
-    if (!photosLive(env)) return fail(503, 'unavailable', 'Ảnh bạn đọc chưa bật (thiếu D1, R2 hoặc Turnstile).')
+    if (body?.action !== 'approve' && body?.action !== 'remove') return fail(400, 'bad_request', 'action: "approve" or "remove".')
+    if (!photosLive(env)) return fail(503, 'unavailable', "Readers' photos aren't set up (D1, R2 or Turnstile is missing).")
     // Duyệt: the next moderation pass publishes it; Gỡ: removed now. `changed`: false when the photo no longer waits (or is gone).
     const changed = body.action === 'approve' ? await approveByOwner(env, photo[1]!, now) : await removePhoto(env, photo[1]!, 'removed by owner', now)
     return reply({ ok: true, changed })
   }
+  // Readers' comments past the section's first 50, and the owner's show or hide, as the page's form does it.
+  if (path === '/api/owner/comments') {
+    if (req.method !== 'GET') return method('GET')
+    const q = moreQuery(url.searchParams)
+    if (!q) return fail(400, 'bad_request', `${STATE_SAYS} cursor: the "next" of the page before.`)
+    return reply({ tz, ...(await moreComments(env, env.DB!, url, now, q.state, q.cursor)) })
+  }
+  const comment = COMMENT.exec(path)
+  if (comment) {
+    if (req.method !== 'POST') return method('POST')
+    const body = await json(req)
+    if (body?.action !== 'show' && body?.action !== 'hide') return fail(400, 'bad_request', 'action: "show" or "hide".')
+    const done = await decideComment(env.DB!, comment[1]!, body.action, now)
+    if (done === 'not_found') return fail(404, 'not_found', GONE)
+    if (done === 'expired') return fail(409, 'expired', EXPIRED)
+    return reply({ ok: true, changed: done.changed })
+  }
   if (path === '/api/owner/hidden') {
     if (req.method !== 'POST') return method('POST')
     const body = await json(req)
-    if (typeof body?.path !== 'string' || typeof body.hide !== 'boolean' || (body.note !== undefined && typeof body.note !== 'string')) return fail(400, 'bad_request', 'path (chuỗi), hide (true/false), note (tuỳ chọn).')
+    if (typeof body?.path !== 'string' || typeof body.hide !== 'boolean' || (body.note !== undefined && typeof body.note !== 'string')) return fail(400, 'bad_request', 'path (a string), hide (true or false), note (optional).')
     const page = await setHidden(env.AB, body.path, body.hide, (body.note as string | undefined) ?? '', now)
-    return page ? reply({ ok: true, path: page, hidden: body.hide }) : fail(400, 'not_a_page', NOT_ONE_PAGE)
+    return page ? reply({ ok: true, path: page, hidden: body.hide }) : fail(400, 'not_a_page', "Only one page of the site can be hidden, and not the home page.")
   }
   if (path === '/api/owner/report-settings') {
-    if (req.method !== 'POST') return method('POST')
+    if (req.method === 'GET') return reply(await getSettings(env.AB))
+    if (req.method !== 'POST') return method('GET, POST')
     const change = settingsChange(await json(req))
-    if (!change) return fail(400, 'bad_request', 'email và/hoặc push (true/false).')
+    if (!change) return fail(400, 'bad_request', 'email and/or push (true or false).')
     const { settings, changed } = await setSettings(env.AB, change)
     return reply({ ok: true, changed, ...settings })
   }
@@ -90,14 +136,14 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
     if (req.method !== 'POST' && req.method !== 'DELETE') return method('POST, DELETE')
     const adding = req.method === 'POST'
     const t = tokenBody(await json(req), adding)
-    if (!t) return fail(400, 'bad_request', adding ? 'token (hex chữ thường), environment ("sandbox" hoặc "production").' : 'token (hex chữ thường).')
+    if (!t) return fail(400, 'bad_request', adding ? 'token (lowercase hex), environment ("sandbox" or "production").' : 'token (lowercase hex).')
     const changed = adding ? await addDevice(env.AB, t.token, t.environment!, session!.id, now) : await removeDevices(env.AB, [t.token])
     return reply({ ok: true, changed })
   }
   const shot = SHOT.exec(path)
   if (shot) {
     if (req.method !== 'DELETE') return method('DELETE')
-    if (!env.UPLOADS) return fail(503, 'unavailable', 'Chưa bật (thiếu R2 UPLOADS).')
+    if (!env.UPLOADS) return fail(503, 'unavailable', 'Not set up (R2 UPLOADS is missing).')
     const changed = await deleteKept(env.UPLOADS, shot[1] === 'anon' ? undefined : shot[1], shot[2]!)
     return reply({ ok: true, changed })
   }
