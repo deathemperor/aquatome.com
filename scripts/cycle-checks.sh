@@ -34,18 +34,12 @@ verify() {
     checks "$step" >>"$TEST_LOG" 2>&1 || return 1
   done
 }
-# verify, with the steps this cycle's commit needs. The site's build reads content/ and the UI text
-# (apps/site/src/i18n); sources/ (the source pages as the engine read them), engine-state/ and docs/review/ feed only the
-# engine and the tests. So a commit of only those skips the build of the real site, about 14 of the checks' 16 minutes
-# on a GitHub runner, and hours on a busy Mac. What it skips, deploy.yml still runs before anything goes live: the tests,
-# the real build and its browser checks. The tests build the site from their own fixture content: none read the real
-# build. I18N_LENIENT: a UI string a new Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is
-# logged) instead of holding back the content. The commit is what this clone has on top of where it left main
-# (origin/main...HEAD), before or after catch_up and push() put it on top of main as it is now.
-verify_cycle() {
-  if git diff --quiet origin/main...HEAD -- content apps/site/src/i18n; then verify 'pnpm test'
-  else verify 'I18N_LENIENT=1 pnpm build' 'pnpm test'; fi
-}
+# verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site
+# (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
+# hours on this Mac at a load of 300 to 600 (2026-11-07), holding the lock while other jobs waited; no test reads it;
+# and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
+# anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
+verify_cycle() { verify 'pnpm test'; }
 
 # Before the checks: the cycle's commit on top of main as it is now. A cycle runs for hours from the main it started on,
 # and a test that main failed then and has fixed since would hold back all of the cycle's pages: the pages part of

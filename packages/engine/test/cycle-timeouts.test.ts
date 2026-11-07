@@ -58,7 +58,7 @@ test('only the step that ran out of time runs again: the build before it passed,
 test('the engine cycle checks through verify before every publish, with the steps its commit needs', () => {
   const cycle = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8')
   expect(cycle).toContain('source "$REPO/scripts/cycle-checks.sh"')
-  // Its content, and again after a merge in push(): the same steps (verify_cycle), the build with I18N_LENIENT.
+  // Its content, and again after a merge in push(): the same steps (verify_cycle), and no build of the real site.
   expect(cycle.match(/^\s*(if ! )?verify_cycle\b/gm)).toHaveLength(2)
   expect(cycle).not.toMatch(/\bverify '|\bchecks '|pnpm build/)
 })
