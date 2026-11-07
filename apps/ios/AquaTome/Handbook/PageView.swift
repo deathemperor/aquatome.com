@@ -104,7 +104,8 @@ struct PageView: View {
         }
         .background(.bar)
       }
-      .onAppear { handbook.read(item) }
+      .onAppear { handbook.read(item); handbook.showingPage = item.path }
+      .onDisappear { if handbook.showingPage == item.path { handbook.showingPage = nil } }
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
   }
 

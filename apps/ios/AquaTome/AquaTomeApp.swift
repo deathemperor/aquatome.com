@@ -100,17 +100,18 @@ struct AquaTomeApp: App {
       // Whatever tab or page is showing, for the video tests: the pages' players still alive.
       .background { PlayerCount() }
       #endif
+      // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone. Inside the
+      // environment below, which it reads the account from.
+      .ownerReports {
+        OwnerReportHere.place(screen: showingAccount ? "account" : tab.screen.rawValue,
+                              path: showingAccount ? nil : handbook.showingPage, lang: handbook.lang)
+      }
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
       .environment(account)
       .environment(plugs)
       .environment(telemetry)
-      // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone.
-      .ownerReports {
-        OwnerReportHere.place(screen: showingAccount ? "account" : tab.screen.rawValue,
-                              path: tab == .handbook && !handbookPath.isEmpty ? handbook.recent(nil, limit: 1).first?.path : nil, lang: handbook.lang)
-      }
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
       // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.

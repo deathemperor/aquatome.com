@@ -1,4 +1,5 @@
 import AccountSync
+import Handbook
 import PhotosUI
 import SwiftUI
 import UIKit
@@ -21,14 +22,20 @@ extension View {
 private struct OwnerReports: ViewModifier {
   private let place: @MainActor () -> OwnerReportPlace
   @Environment(AccountModel.self) private var account
+  @Environment(\.scenePhase) private var phase
   @State private var overlay = OwnerReportOverlay()
 
   init(place: @escaping @MainActor () -> OwnerReportPlace) { self.place = place }
 
   func body(content: Content) -> some View {
-    content.onChange(of: account.owner.isOwner == true && account.user != nil, initial: true) { _, isOwner in
-      overlay.show(isOwner ? account.owner : nil, place: place)
-    }
+    content
+      .onChange(of: account.owner.isOwner == true && account.user != nil, initial: true) { _, isOwner in
+        overlay.show(isOwner ? account.owner : nil, place: place)
+      }
+      // The screen turned, or the app's share of it changed.
+      .onGeometryChange(for: CGSize.self) { $0.size } action: { _ in overlay.fit() }
+      // iOS's own preview of a screenshot can cover the app: the offer's seconds wait for it.
+      .onChange(of: phase) { overlay.offerTime(running: phase == .active) }
   }
 }
 
@@ -36,10 +43,11 @@ private struct OwnerReports: ViewModifier {
 /// is in the window it was opened from.
 @MainActor
 private enum OwnerShot {
+  /// With iOS's own preview of a screenshot over the app, its scene is still there, only not active.
   static var appWindow: UIWindow? {
-    UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
-      .first { $0.activationState == .foregroundActive }?
-      .windows.first { !($0 is OwnerReportWindow) && !$0.isHidden && $0.windowLevel == .normal }
+    let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+    let scene = scenes.first { $0.activationState == .foregroundActive } ?? scenes.first { $0.activationState == .foregroundInactive }
+    return scene?.windows.first { !($0 is OwnerReportWindow) && !$0.isHidden && $0.windowLevel == .normal }
   }
 
   static func jpeg() -> Data? {
@@ -70,17 +78,17 @@ private final class OwnerReportOverlay {
 
   private static let size = CGSize(width: 48, height: 48)
   private static let offerSize = CGSize(width: 190, height: 48)
-  /// Above the tab bar, against the screen's edge.
-  private static let aboveBottom: CGFloat = 120
+  /// Above the tab bar and a pinned bar over it (the Lights' write bar), against the screen's edge.
+  private static let aboveBottom: CGFloat = 180
 
   func show(_ owner: OwnerAccess?, place: @escaping @MainActor () -> OwnerReportPlace) {
     self.owner = owner
     here = place
-    guard owner != nil else {
+    guard let owner else {
       buttonWindow?.isHidden = true
       buttonWindow = nil
-      sheetWindow?.isHidden = true
-      sheetWindow = nil
+      // A sheet stays: a session ending under a send is what it's there to say, with their words still in it, and nothing
+      // else in the app can be reached under it. The site refuses what it sends now.
       if let watching { NotificationCenter.default.removeObserver(watching) }
       watching = nil
       return
@@ -122,8 +130,12 @@ private final class OwnerReportOverlay {
     }
   }
 
+  fileprivate func fit() {
+    if let buttonWindow { position(buttonWindow, offering: offering) }
+  }
+
   private func position(_ window: UIWindow, offering: Bool) {
-    guard let screen = window.windowScene?.screen.bounds else { return }
+    guard let screen = window.windowScene?.coordinateSpace.bounds else { return }
     let size = offering ? Self.offerSize : Self.size
     window.frame = CGRect(x: screen.width - size.width - 8, y: screen.height - Self.aboveBottom - size.height, width: size.width, height: size.height)
   }
@@ -133,7 +145,14 @@ private final class OwnerReportOverlay {
     offered = (OwnerShot.jpeg(), here?() ?? OwnerReportPlace())
     position(buttonWindow, offering: true)
     offering = true
+    offerTime(running: UIApplication.shared.applicationState == .active)
+  }
+
+  /// The offer's seconds run only while the app can be seen, and start again when it can.
+  fileprivate func offerTime(running: Bool) {
+    guard offering else { return }
     offerEnds?.cancel()
+    guard running else { return }
     offerEnds = Task { [weak self] in
       try? await Task.sleep(for: .seconds(8))
       guard !Task.isCancelled else { return }
@@ -152,17 +171,21 @@ private final class OwnerReportOverlay {
   fileprivate func tapped() {
     guard let owner, let scene = buttonWindow?.windowScene, sheetWindow == nil else { return }
     let shot = offered ?? (OwnerShot.jpeg(), here?() ?? OwnerReportPlace())
+    // Couldn't draw it then: the screen is what it was, or close to it.
+    let jpeg = shot.jpeg ?? OwnerShot.jpeg()
     endOffer()
     buttonWindow?.isHidden = true
     let window = OwnerReportWindow(windowScene: scene)
     window.windowLevel = .normal + 2
     window.backgroundColor = .clear
+    // Light or dark as the app is set, which a new window doesn't take by itself.
+    window.overrideUserInterfaceStyle = OwnerShot.appWindow?.overrideUserInterfaceStyle ?? .unspecified
     let root = UIViewController()
     root.view.backgroundColor = .clear
     window.rootViewController = root
     window.makeKeyAndVisible()
     sheetWindow = window
-    let sheet = UIHostingController(rootView: OwnerReportSheet(owner: owner, place: shot.place, jpeg: shot.jpeg) { [weak self] in self?.closeSheet() })
+    let sheet = UIHostingController(rootView: OwnerReportSheet(owner: owner, place: shot.place, jpeg: jpeg) { [weak self] in self?.closeSheet() })
     sheet.isModalInPresentation = true
     root.present(sheet, animated: true)
   }
@@ -206,6 +229,8 @@ private struct OwnerReportSheet: View {
   @State private var jpeg: Data?
   @State private var words = ""
   @State private var picked: PhotosPickerItem?
+  /// The picture is one they picked, not this screen drawn.
+  @State private var theirs = false
   @State private var sending = false
   @State private var problem: String?
   @State private var sent: String?
@@ -237,7 +262,7 @@ private struct OwnerReportSheet: View {
                 .accessibilityLabel(Text(verbatim: "Ảnh sẽ gửi kèm"))
                 .accessibilityIdentifier("owner-report-image")
             }
-            PhotosPicker(selection: $picked, matching: .images) { Text(verbatim: jpeg == nil ? "Chọn ảnh" : "Chọn ảnh khác") }
+            PhotosPicker(selection: $picked, matching: .images) { Text(verbatim: "Chọn ảnh vừa chụp") }
           }
         }
         Section {
@@ -254,7 +279,9 @@ private struct OwnerReportSheet: View {
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
-          Button { close() } label: { Text(verbatim: "Đóng") }.accessibilityIdentifier("owner-report-close")
+          Button { close() } label: { Text(verbatim: "Đóng") }
+            .disabled(sending) // a report on its way can't be taken back
+            .accessibilityIdentifier("owner-report-close")
         }
         ToolbarItem(placement: .confirmationAction) {
           Button { Task { await send() } } label: {
@@ -265,13 +292,15 @@ private struct OwnerReportSheet: View {
         }
       }
     }
-    .task { typing = true }
+    .onAppear { typing = true }
     .onChange(of: picked) {
       guard let picked else { return }
       Task {
-        // As a JPEG, however the phone keeps it: no metadata, and any format the site takes.
-        if let data = try? await picked.loadTransferable(type: Data.self), let image = UIImage(data: data), let again = image.jpegData(compressionQuality: 0.8) {
-          jpeg = again
+        // As the app sends any photo: no metadata, any format the site takes, and a size it does.
+        let data = try? await picked.loadTransferable(type: Data.self)
+        if let data, let small = await Task.detached(operation: { Readers.shrink(data) }).value {
+          jpeg = small
+          theirs = true
           problem = nil
         } else {
           problem = "Không đọc được ảnh này. Chọn ảnh khác nhé."
@@ -287,9 +316,12 @@ private struct OwnerReportSheet: View {
   private func send() async {
     sending = true
     problem = nil
+    typing = false // what comes back shows under the words, where the keyboard would cover it
     defer { sending = false }
+    var place = place
+    place.picture = jpeg == nil ? nil : theirs ? "picked" : "screen"
     do {
-      let waiting = try await owner.ask { try await $0.report(words: words, place: place, jpeg: jpeg) }
+      let waiting = try await owner.ask { [place] in try await $0.report(words: words, place: place, jpeg: jpeg) }
       sent = waiting > 1 ? "Đã gửi. \(waiting) báo lỗi đang chờ máy Mac nhận." : "Đã gửi."
       try? await Task.sleep(for: .seconds(waiting > 1 ? 2.5 : 0.9))
       close()
@@ -302,6 +334,9 @@ private struct OwnerReportSheet: View {
     switch e as? OwnerError {
     case .refused("rate_limited", _)?: return "Đã gửi quá nhiều trong một giờ. Lời và ảnh vẫn còn đây, lát nữa thử lại nhé."
     case .refused("too_large", _)?: return "Ảnh quá lớn. Chọn ảnh khác nhé."
+    case .signedOut?:
+      await owner.failed(e, overview: false)
+      return "Phiên đăng nhập đã hết nên chưa gửi được. Đăng nhập lại rồi gửi nhé."
     default: return await owner.say(e, overview: false)
     }
   }

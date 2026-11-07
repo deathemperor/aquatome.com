@@ -44,6 +44,14 @@ func reportRequest() async throws {
   ])
 }
 
+@Test("How the picture came goes with the report, and nothing's said of it when no one has")
+func reportSaysHowThePictureCame() throws {
+  let site = try #require(URL(string: "https://aquatome.com"))
+  #expect(OwnerReportPlace(picture: "picked").fields(site: site)["picture"] == "picked")
+  #expect(OwnerReportPlace(picture: "screen").fields(site: site)["picture"] == "screen")
+  #expect(OwnerReportPlace().fields(site: site)["picture"] == nil)
+}
+
 @Test("Words alone: the form has no image")
 func reportWithoutImage() async throws {
   let box = Box()

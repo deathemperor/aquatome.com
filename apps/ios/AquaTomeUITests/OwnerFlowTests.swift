@@ -323,10 +323,9 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(app.images["owner-report-image"].exists, "what was on the screen isn't attached")
     words.typeText("Ảnh bị lệch")
     app.buttons["owner-report-send"].tap()
-    XCTAssertTrue(app.staticTexts["owner-report-sent"].waitForExistence(timeout: 10), "not sent")
-    // The sheet goes by itself, and the button comes back.
+    // The sheet goes by itself only once it's sent, and the button comes back.
+    XCTAssertTrue(app.buttons["owner-report-send"].waitForNonExistence(timeout: 20), "not sent: the sheet stayed")
     XCTAssertTrue(button.waitForExistence(timeout: 10), "the button didn't come back")
-    XCTAssertFalse(app.buttons["owner-report-send"].exists, "the sheet stayed")
   }
 
   /// A normal iPhone screenshot offers a report, without getting in the way: nothing opens until it's tapped.
@@ -350,6 +349,14 @@ final class OwnerFlowTests: XCTestCase {
     let app = launch(owner: "someone-else")
     signIn(app)
     XCTAssertFalse(app.buttons["owner-report"].waitForExistence(timeout: 5), "a report button for another account")
+  }
+
+  func testSigningOutTakesTheReportButtonAway() {
+    let app = launch()
+    signIn(app)
+    XCTAssertTrue(app.buttons["owner-report"].waitForExistence(timeout: 10), "no report button")
+    open(app, "sign-out")
+    XCTAssertTrue(app.buttons["owner-report"].waitForNonExistence(timeout: 10), "the report button stayed after signing out")
   }
 
   private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
