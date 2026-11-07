@@ -220,6 +220,7 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
       case 'section': {
         const doc = p.path ? await hb.page(p.path) : undefined
         if (!doc || !p.path) return `section: no page ${JSON.stringify(p.path)}`
+        if (doc.kind === 'guide' && (await hb.held(p.path))) return `section: ${p.path} held`
         const s = sectionsOf(doc).find(x => (p.heading ? x.heading?.id === p.heading : !x.heading))
         const blocks = s?.blocks ?? []
         if (!blocks.length) return `section: nothing under ${JSON.stringify(p.heading)} on ${p.path}`

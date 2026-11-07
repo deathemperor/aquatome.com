@@ -87,12 +87,18 @@ export type Handbook = {
   page: (path: string) => Promise<PageDoc | undefined>
   /** The guides' section headings and FAQ questions, read once, when the search first needs them; null when they can't be. */
   topics: () => Promise<Topics | null>
+  /**
+   * Whether a guide is held out of the chat while it is checked again (topics.ts `held`): never found, read or shown.
+   * With no topics file to say, every video guide is.
+   */
+  held: (path: string) => Promise<boolean>
 }
 
 /** A topics file the search can read (topics.ts, v 1), else null: the search then finds pages by their names only. */
 const topicsIn = (t: Topics | null): Topics | null =>
   t?.v === 1 && t.pages && typeof t.pages === 'object' &&
   Object.values(t.pages).every(list => Array.isArray(list) && list.every(e => Array.isArray(e) && (e[0] === null || typeof e[0] === 'string') && typeof e[1] === 'string'))
+    && (t.held === undefined || (Array.isArray(t.held) && t.held.every(p => typeof p === 'string')))
     ? t : null
 
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
@@ -104,6 +110,8 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
   const paths = new Map(index.items.map(i => [i.path, i]))
   const ids = new Map(index.items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
   let topics: Promise<Topics | null> | undefined
+  const topicsOnce = () => (topics ??= source.topics ? source.topics(lang).then(topicsIn, () => null) : Promise.resolve(null))
+  let held: Promise<Set<string> | null> | undefined
   return {
     lang,
     items: index.items,
@@ -116,7 +124,11 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
       const shard = await source.shard(lang, item.kind as PageDoc['kind'], pageShard(path, n))
       return shard?.pages[path]
     },
-    topics: () => (topics ??= source.topics ? source.topics(lang).then(topicsIn, () => null) : Promise.resolve(null)),
+    topics: topicsOnce,
+    held: async path => {
+      const set = await (held ??= topicsOnce().then(t => (t ? new Set(t.held ?? []) : null)))
+      return set ? set.has(path) : paths.get(path)?.video !== undefined
+    },
   }
 }
 

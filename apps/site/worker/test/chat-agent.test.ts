@@ -7,7 +7,7 @@ import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Star
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
-import { topicsOf, type Topics } from '../chat/topics'
+import { heldOf, topicsOf, type Topics } from '../chat/topics'
 import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
 import { chatTools, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
 import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
@@ -365,6 +365,36 @@ test('a section is every block under its heading, to the next heading, however m
   expect(blocks[0]).toMatchObject({ t: 'section', heading: { id: 'mot' }, blocks: paras })
   expect(blocks[1]).toMatchObject({ t: 'section', blocks: [{ t: 'p', c: ['Mở đầu.'] }] })
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+})
+
+test('a guide held out of the chat (a video guide being checked again) is never found, read or shown; the others are', async () => {
+  const algae = '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'
+  // The build lists a guide marked quality.chat: false, by its path in the language, and leaves out its topics.
+  const guides = [{ t: { slug: 'cach-han-che-reu-hai-trong-be-thuy-sinh', quality: { chat: false as const } } }, { t: { slug: 'thay-nuoc', quality: {} } }]
+  expect(heldOf(guides, p => p)).toEqual([algae])
+  expect(heldOf(guides, p => p.replace('/vi/huong-dan/', '/id/panduan/'))).toEqual(['/id/panduan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
+  const docs = (readdirSync(`${DIST}app/pages/vi`).filter(f => f.startsWith('guide-')).flatMap(f => Object.values(json(`app/pages/vi/${f}`).pages))) as PageDoc[]
+  const topics = topicsOf(docs, [algae])
+  expect(topics.held).toEqual([algae])
+  expect(topics.pages[algae]).toBeUndefined()
+  expect(topicsOf(docs)).not.toHaveProperty('held')
+  const h = (await handbookOf({ ...source, topics: async () => topics }, 'vi'))!
+  expect(await h.held(algae)).toBe(true)
+  expect(await h.held('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBe(false)
+  // Not by its name, nor by a heading only it has (CO2), nor read, nor shown as a section.
+  const found = async (query: string) => JSON.parse((await run('search_handbook', { query, kind: null }, h)).out as string).map((x: { path: string }) => x.path)
+  expect(await found('hạn chế rêu hại')).not.toContain(algae)
+  expect((await run('search_handbook', { query: 'CO2', kind: null }, h)).out).toMatch(/^No page/)
+  await expect(run('read_page', { path: algae, heading: null }, h)).rejects.toThrow(/held out of the chat/)
+  const { blocks, dropped } = await fill(answer([pick({ t: 'section', path: algae, heading: 'anh-sang-va-co2' })]), h)
+  expect(blocks).toEqual([])
+  expect(dropped).toEqual([`section: ${algae} held`])
+  // Without the hold, the same search finds it.
+  expect(JSON.parse((await run('search_handbook', { query: 'hạn chế rêu hại', kind: null })).out as string).map((x: { path: string }) => x.path)).toContain(algae)
+  // With no topics file to say which, every video guide is held, and no other page.
+  const blind = (await handbookOf({ ...source, topics: async () => null }, 'vi'))!
+  expect(await blind.held(algae)).toBe(true)
+  expect(await blind.held('/vi/huong-dan/thay-nuoc-dung-cach/')).toBe(false)
 })
 
 test('a guide is found by a section heading or a FAQ question past its title, with the section to open it at; its title still first', async () => {
