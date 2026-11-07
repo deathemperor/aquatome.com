@@ -1266,7 +1266,7 @@
     },
     "/api/v1/account/export": {
       "get": {
-        "summary": "Everything the account holds, as a JSON file",
+        "summary": "The account's details and sign-in methods, its saved tanks, the fish-ID photos it let AquaTome keep (their details, not the images) and its chat conversations, as a JSON file. Not the chat's transcripts, nor the comments and photos it sent.",
         "security": [
           {
             "bearer": []
