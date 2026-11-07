@@ -144,8 +144,9 @@ test('needs care: the AI spend of the day that just ended, past 80% of the cap, 
 test('needs care: fish ID keys, in English', () => {
   const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } } })
   const resting = { ...KEY, state: 'credit' as const, until: '2026-11-06T08:00:00.000Z' }
-  expect(needsCare(keys([resting, { ...KEY, n: 2 }]))).toEqual([{ title: '1 Anthropic key resting', text: '#1 out of credit until 06/11 15:00', href: '/_ab/nhan-dien-ca/#key' }])
-  expect(titles(keys([resting]))).toEqual(['Fish ID is down: every Anthropic key is resting'])
+  // The owner's rule: one key out is the rotation's to skip, and only every key out is theirs.
+  expect(needsCare(keys([resting, { ...KEY, n: 2 }]))).toEqual([])
+  expect(needsCare(keys([resting]))).toEqual([{ title: 'Fish ID and chat are down: every Anthropic key is resting', text: '#1 out of credit until 06/11 15:00', href: '/_ab/nhan-dien-ca/#key' }])
   expect(titles(keys([KEY], 2))).toEqual(['2 lines of ANTHROPIC_KEYS can\'t be read'])
   expect(titles(input({ overview: { ...quiet(), keys: undefined } }))).toEqual(['Fish ID is off'])
   // The error text stays on the dashboard: a report prints no error it didn't write.
@@ -162,7 +163,7 @@ test('needs care: the overview\'s to-dos, each of them, in English with the page
     const r = compose({ now: S.NOW, overview, app: noApp, gh: gh(), scoreboard })
     expect(`${r.subject}\n${r.text}\n${r.html}`).not.toMatch(VIETNAMESE)
   }
-  expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual(['1 Anthropic key resting', '2Hr Aquarist needs you to pass a browser check'])
+  expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual(['Fish ID and chat are down: every Anthropic key is resting', '2Hr Aquarist needs you to pass a browser check'])
   expect(titles({ now: S.NOW, overview: failed, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual([
     'Could not read the Anthropic keys\' state', 'Could not load readers', 'Could not load affiliate clicks', 'Could not load the fish ID log', 'Could not load comments and accounts',
     'Could not load the moderation queues', 'Could not load reader photos', 'Could not load the wanted names', 'Could not load the hidden pages', 'Could not load the content totals', 'Could not load the daily content totals',
