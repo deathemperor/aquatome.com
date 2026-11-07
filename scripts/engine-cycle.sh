@@ -110,7 +110,8 @@ if part pages; then
   [ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine video-items --limit 20 || log "video-items: failed"
   # YouTube (skipped on targeted ENGINE_ARGS runs): new teaching playlists (searches + known channels, vetted by the model; skipped while ≥ 150 videos are queued).
   [ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
-  # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
+  # Temperament / fin-nipping / school size for new or changed species (tank-mates checker), then a field read with an
+  # older rule in the prompt (traits.ts dueFields): the school rule of 2026-11-07 re-reads ~470 school sizes, 200 a cycle.
   pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
   # "Tóm tắt nhanh" for new or changed species, most-read first: each checked against its page (numbers against the
   # data card, claims against the text) and shown if it passes, else listed in docs/review/summaries.md. 150 a cycle (was
