@@ -534,6 +534,62 @@
       }
     },
     "/api/owner/report-settings": {
+      "get": {
+        "summary": "The daily report's delivery as it is now, for the app's bell: email and the phones' notifications, each on or off, as the POST answers them. Unset, email is on and notifications off.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The two switches.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSettingsNow"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method (not GET or POST; `allow: GET, POST`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "summary": "The daily report's delivery: email, the phones' notifications, or both, on or off (the `bao-cao` section's buttons send it). Unset, email is on and notifications off. The notifications switch is the server's: off, no phone is notified, registered or not.",
         "parameters": [],
@@ -559,7 +615,7 @@
             }
           },
           "400": {
-            "description": "Error: bad_request (not JSON, no switch, a switch that isn't true or false, or another field; `message`: \"email và/hoặc push (true/false).\")",
+            "description": "Error: bad_request (not JSON, no switch, a switch that isn't true or false, or another field; `message`: \"email and/or push (true or false).\")",
             "content": {
               "application/json": {
                 "schema": {
@@ -589,7 +645,7 @@
             }
           },
           "405": {
-            "description": "Error: method (not POST; `allow: POST`)",
+            "description": "Error: method (not GET or POST; `allow: GET, POST`)",
             "content": {
               "application/json": {
                 "schema": {
@@ -2461,7 +2517,7 @@
           "path": {
             "type": "string",
             "pattern": "^/",
-            "description": "The site page it was posted on (open it as the app opens the site's pages). Absent when the site has no such page any more: `title` is then the comment's own key for it."
+            "description": "The site page it was posted on (open it as the app opens the site's pages). Absent when the site no longer has the page: `title` then reads \"a page no longer on the site\"."
           },
           "title": {
             "type": "string"
@@ -2954,6 +3010,23 @@
                 }
               }
             }
+          }
+        }
+      },
+      "ReportSettingsNow": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "push"
+        ],
+        "properties": {
+          "email": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean",
+            "description": "The phones' notifications (the server's switch)."
           }
         }
       }

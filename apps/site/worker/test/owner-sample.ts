@@ -1,6 +1,6 @@
 import { lastDays } from '../admin/chart'
 import { summariseApp, type AppRows } from '../admin/app'
-import type { CommentRow, CommentState, CommentWeek } from '../admin/comments'
+import { cursorOf, type CommentRow, type CommentState, type CommentWeek } from '../admin/comments'
 import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
@@ -233,17 +233,6 @@ export const SCOREBOARD_INPUT = {
 }
 export const SCOREBOARD = summariseScoreboard(SCOREBOARD_INPUT)
 
-/** The overview's version 2: a key resting and a source waiting on the owner (faults), two comments held and two photos waiting. */
-export const TODAY: Today = {
-  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: 2, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
-  lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
-}
-/** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
-export const CALM: Today = {
-  ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
-  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
-}
-
 /**
  * Readers' comments in each state (admin/comments.ts): held by a posting rule, after a signed-in reader's report (two
  * reports, one without a reason) and by a rule on a page this build doesn't have; shown when posted, by the moderator and
@@ -266,10 +255,29 @@ export const COMMENT_ROWS: CommentRow[] = [
   comment(COMMENT_HIDDEN, { name: 'An', body: 'Bán cá giá sỉ, inbox.', status: 'removed', reason: 'Hidden by the owner', created_at: '2026-11-03T05:00:00.000Z', decided_at: '2026-11-03T06:00:00.000Z' }),
   comment(COMMENT_EXPIRED, { name: 'Bình', body: 'Ghé web cá cược ở đây.', status: 'removed', reason: 'Spam: a betting site.', created_at: '2026-09-20T05:00:00.000Z', decided_at: '2026-09-21T06:00:00.000Z' }),
 ]
-export const COMMENT_COUNTS: Record<CommentState, number> = { held: 3, shown: 20, hidden: 2 }
+/**
+ * Five held: the three above, then, past `next` (COMMENT_MORE), the two oldest of the held comments the Worker's test
+ * seeds in D1 (owner-api.test.ts), which "more comments" answers. A short first page, so paging shows in the samples.
+ */
+export const COMMENT_COUNTS: Record<CommentState, number> = { held: 5, shown: 20, hidden: 2 }
+/** The held comments the Worker's test seeds past the first two, posted at one moment: they go by id. */
+export const COMMENT_FILLER = (i: number) => `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`
+/** The held list's `next`: its second page, FILLER(1) and FILLER(0). */
+export const COMMENT_MORE = cursorOf({ created_at: '2026-11-01T00:00:00.000Z', id: COMMENT_FILLER(2) })
 export const COMMENT_WEEK: CommentWeek = { posted: 23, heldPosted: 1, reported: 1, hidden: 1 }
 /** The sample's pages by D1's key, as content.json gives them; guide:gone-guide isn't one. */
 export const COMMENT_PAGES = new Map<string, PageInfo>([
   ['species:paracheirodon-axelrodi', { path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' }],
   ['species:betta-splendens', { path: '/ca/ca-betta/', title: 'Cá betta (cá xiêm)', kind: 'fish', id: 'betta-splendens' }],
 ])
+
+/** The overview's version 2: a key resting and a source waiting on the owner (faults), the held comments (COMMENT_COUNTS) and two photos waiting. */
+export const TODAY: Today = {
+  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
+  lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
+}
+/** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
+export const CALM: Today = {
+  ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
+  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
+}

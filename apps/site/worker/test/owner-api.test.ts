@@ -121,7 +121,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     const many = Array.from({ length: 50 }, (_, i) => ({ ...S.COMMENT_ROWS[0]!, id: `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`, created_at: new Date(S.NOW.getTime() - i * 60_000).toISOString() }))
     const v = (name: string, c: CommentsData): [string, () => string, () => Section] => [name, () => commentsPage(c), () => commentsSection(c)]
     return [
-      v('sample', d('held')),
+      v('sample', d('held', { list: { counts: S.COMMENT_COUNTS, rows: S.COMMENT_ROWS.filter(r => r.status === 'held'), next: S.COMMENT_MORE } })),
       v('shown', d('shown')),
       v('hidden, one past its 30 days', d('hidden')),
       v('none', d('held', { list: { counts: { held: 0, shown: 0, hidden: 0 }, rows: [] }, week: { posted: 0, heldPosted: 0, reported: 0, hidden: 0 }, talk: { ...S.TALK, top: [] } })),
@@ -423,7 +423,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   // Needs: faults first, then what waits on the owner; the tile counts the items.
   expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
   expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
-  expect(t.tiles[0]).toMatchObject({ value: '6', sub: '4 to review · 2 to fix', tone: 'bad' })
+  expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
   // Shipped: the change log's last 24 hours; the costs, fish ID's.
   expect(t.tiles[2]).toMatchObject({ value: '3', sub: '1 site · 1 app · 1 engine' })
   expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })
@@ -762,10 +762,10 @@ test('binh-luan: every block its section sends, in each of its states, is one th
 })
 
 const DIA = 'species:symphysodon-aequifasciatus'
-const FILLER = (i: number) => `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`
+const FILLER = S.COMMENT_FILLER
 const NO_COMMENT = '99999999-9999-4999-8999-999999999999'
 /** The second page of held comments as seeded: the fillers, posted at one moment, go by id. */
-const HELD_CURSOR = cursorOf({ created_at: '2026-11-01T00:00:00.000Z', id: FILLER(2) })
+const HELD_CURSOR = S.COMMENT_MORE
 /**
  * Comments in D1: held by a rule and after a signed-in reader's report (two reports) on a page the fixture build has,
  * 50 more held on a page it doesn't (at one moment, so the paging goes by id); one shown; hidden a day ago and past its 30 days.
@@ -809,8 +809,8 @@ test('binh-luan through the Worker: one state at a time from D1, newest first, e
     reason: 'Held when posted: it has “zalo:”, a blocked term', actions: [button(S.COMMENT_HELD, 'Show', 'show'), button(S.COMMENT_HELD, 'Hide', 'hide', 'bad')],
   })
   expect(held.items[1]).toMatchObject({ reason: 'Held after a report', reports: ['off topic', ''] })
-  // A page this build doesn't have: its key, and no address.
-  expect(held.items[2]).toMatchObject({ page: { title: 'guide:gone-guide' }, reason: 'Held when posted: it has more than one link' })
+  // A page this build doesn't have: said so, never its key, and no address.
+  expect(held.items[2]).toMatchObject({ page: { title: 'a page no longer on the site' }, reason: 'Held when posted: it has more than one link' })
   expect(held.items[2]!.page).not.toHaveProperty('path')
   expect(held.next).toBe(HELD_CURSOR)
   // The rest, from the block's `next`: none twice, none missed, the last page without `next`.
@@ -980,8 +980,11 @@ test('the report\'s delivery from the app: the section\'s buttons set it as the 
     const r = await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), bad)
     expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'email and/or push (true or false).' }])
   }
+  // Read as they are now (the app's bell): the same two switches the POST answers with.
   const get = await call(w.e, 'GET', '/api/owner/report-settings', bearer(w.ownerApp))
-  expect([get.status, get.headers.get('allow'), await errorOf(get)]).toEqual([405, 'POST', { error: 'method' }])
+  expect([get.status, get.headers.get('cache-control'), await get.json()]).toEqual([200, 'no-store', { email: false, push: true }])
+  const del = await call(w.e, 'DELETE', '/api/owner/report-settings', bearer(w.ownerApp))
+  expect([del.status, del.headers.get('allow'), await errorOf(del)]).toEqual([405, 'GET, POST', { error: 'method' }])
   // KV down: unavailable, and nothing changes.
   vi.spyOn(console, 'error').mockImplementation(() => {})
   const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { put: async () => { throw new Error('KV down') } }) } as unknown as Env
@@ -1041,6 +1044,11 @@ async function replies(): Promise<Reply[]> {
     ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }]] as const).map(([name, t]) => (
       { name, request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...dashboardJson(t), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) })),
     ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(VARIANTS[key]![0]![2]()) }) })),
+    // The other two comment lists, from the section's filter: the comments the action replies show and hide are in them.
+    ...(['shown', 'hidden'] as const).map(state => ({
+      name: `comments: ${state}`, request: { method: 'GET', path: `/api/owner/sections/binh-luan?state=${state}`, headers: tz }, status: 200,
+      body: json({ tz: S.TZ, ...paged(VARIANTS['binh-luan']!.find(([name]) => name.startsWith(state))![2]()) }),
+    })),
   ]
   // A period, a folded table opened, and a long table's last page, as the Worker reads them (owner-api.ts).
   const fish30 = fishIdSection({ ...S.FISH, period: 'd30' })
@@ -1084,7 +1092,9 @@ async function replies(): Promise<Reply[]> {
     ['not the owner: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['unregister a phone', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN }],
     ['unregister a phone: a token that isn\'t lowercase hex', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN.toUpperCase() }],
+    ['the report\'s delivery', 'GET', '/api/owner/report-settings', undefined],
     ['turn the report\'s notification on', 'POST', '/api/owner/report-settings', { push: true }],
+    ['the report\'s delivery, its notification on', 'GET', '/api/owner/report-settings', undefined],
     ['a report setting that isn\'t true or false', 'POST', '/api/owner/report-settings', { push: 'yes' }],
     ['report settings that change neither', 'POST', '/api/owner/report-settings', {}],
     // Periods and tables the section doesn't have.

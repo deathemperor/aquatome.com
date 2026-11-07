@@ -5,7 +5,7 @@ import { paged, tablePage } from './admin/blocks'
 import { todayJson, type Today } from './admin/today'
 import { appSession, loadToday, moreComments, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
 import { addDevice, removeDevices, tokenBody } from './daily/push'
-import { setSettings, settingsChange } from './daily/settings'
+import { getSettings, setSettings, settingsChange } from './daily/settings'
 import { deleteKept } from './fishid/kept'
 import { setHidden } from './hidden'
 import { approveByOwner, photosLive, removePhoto } from './photos'
@@ -123,7 +123,8 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
     return page ? reply({ ok: true, path: page, hidden: body.hide }) : fail(400, 'not_a_page', "Only one page of the site can be hidden, and not the home page.")
   }
   if (path === '/api/owner/report-settings') {
-    if (req.method !== 'POST') return method('POST')
+    if (req.method === 'GET') return reply(await getSettings(env.AB))
+    if (req.method !== 'POST') return method('GET, POST')
     const change = settingsChange(await json(req))
     if (!change) return fail(400, 'bad_request', 'email and/or push (true or false).')
     const { settings, changed } = await setSettings(env.AB, change)

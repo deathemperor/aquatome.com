@@ -517,8 +517,8 @@
           {
             "key": "needs",
             "label": "Needs you",
-            "value": "6",
-            "sub": "4 to review · 2 to fix",
+            "value": "9",
+            "sub": "7 to review · 2 to fix",
             "tone": "bad"
           },
           {
@@ -616,7 +616,7 @@
           },
           {
             "kind": "comments",
-            "text": "2 comments held",
+            "text": "5 comments held",
             "label": "Review",
             "tone": "wait",
             "section": "binh-luan"
@@ -871,7 +871,7 @@
                 "key": "binh-luan",
                 "name": "Comments",
                 "figure": {
-                  "text": "2 held",
+                  "text": "5 held",
                   "tone": "wait"
                 }
               },
@@ -2477,8 +2477,8 @@
           {
             "key": "needs",
             "label": "Needs you",
-            "value": "7",
-            "sub": "4 to review · 3 to fix",
+            "value": "10",
+            "sub": "7 to review · 3 to fix",
             "tone": "bad"
           },
           {
@@ -2530,7 +2530,7 @@
           },
           {
             "kind": "comments",
-            "text": "2 comments held",
+            "text": "5 comments held",
             "label": "Review",
             "tone": "wait",
             "section": "binh-luan"
@@ -2674,7 +2674,7 @@
                 "key": "binh-luan",
                 "name": "Comments",
                 "figure": {
-                  "text": "2 held",
+                  "text": "5 held",
                   "tone": "wait"
                 }
               },
@@ -6660,7 +6660,7 @@
         "blocks": [
           {
             "kind": "note",
-            "text": "Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Times are in your time zone (GMT+7).",
+            "text": "Held comments wait for you: Show puts one on its page, Hide takes it off.",
             "tone": "plain"
           },
           {
@@ -6670,7 +6670,7 @@
               {
                 "state": "held",
                 "label": "Held",
-                "count": 3,
+                "count": 5,
                 "href": "/api/owner/sections/binh-luan?state=held"
               },
               {
@@ -6758,7 +6758,7 @@
                 "at": "2026-11-02T01:00:00.000Z",
                 "name": "Hùng <3",
                 "page": {
-                  "title": "guide:gone-guide"
+                  "title": "a page no longer on the site"
                 },
                 "text": "Xem <b>ở đây</b> và www.a.vn, www.b.vn",
                 "state": "held",
@@ -6784,11 +6784,12 @@
                 ]
               }
             ],
+            "next": "MjAyNi0xMS0wMVQwMDowMDowMC4wMDBaIDAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwMg",
             "empty": "No held comments."
           },
           {
             "kind": "note",
-            "text": "Show puts a comment on its page at once. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first.",
+            "text": "Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first. Times are in your time zone (GMT+7).",
             "tone": "muted"
           },
           {
@@ -11413,6 +11414,336 @@
       }
     },
     {
+      "name": "comments: shown",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/sections/binh-luan?state=shown",
+        "headers": {
+          "Time-Zone": "Asia/Ho_Chi_Minh"
+        }
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "title": "Comments",
+        "blocks": [
+          {
+            "kind": "note",
+            "text": "Held comments wait for you: Show puts one on its page, Hide takes it off.",
+            "tone": "plain"
+          },
+          {
+            "kind": "comments",
+            "state": "shown",
+            "filters": [
+              {
+                "state": "held",
+                "label": "Held",
+                "count": 5,
+                "href": "/api/owner/sections/binh-luan?state=held"
+              },
+              {
+                "state": "shown",
+                "label": "Shown",
+                "count": 20,
+                "href": "/api/owner/sections/binh-luan?state=shown"
+              },
+              {
+                "state": "hidden",
+                "label": "Hidden",
+                "count": 2,
+                "href": "/api/owner/sections/binh-luan?state=hidden"
+              }
+            ],
+            "items": [
+              {
+                "id": "2e3f4a5b-6c7d-4e8f-8a9b-1c2d3e4f5a6b",
+                "at": "2026-11-04T08:30:00.000Z",
+                "name": "Minh",
+                "page": {
+                  "path": "/ca/ca-neon-vua/",
+                  "title": "Cá neon vua"
+                },
+                "text": "Bể 60 lít nuôi được mấy con neon vua?",
+                "state": "shown",
+                "reason": "",
+                "actions": [
+                  {
+                    "label": "Hide",
+                    "method": "POST",
+                    "path": "/api/owner/comments/2e3f4a5b-6c7d-4e8f-8a9b-1c2d3e4f5a6b",
+                    "body": {
+                      "action": "hide"
+                    },
+                    "tone": "bad"
+                  }
+                ]
+              },
+              {
+                "id": "6c7d8e9f-0a1b-4c2d-8e3f-5a6b7c8d9e0f",
+                "at": "2026-11-02T10:00:00.000Z",
+                "name": "Lan",
+                "page": {
+                  "path": "/ca/ca-neon-vua/",
+                  "title": "Cá neon vua"
+                },
+                "text": "Neon vua ăn cám nhỏ, cho ăn ít một.",
+                "state": "shown",
+                "reason": "Helpful: a first-hand feeding tip.",
+                "actions": [
+                  {
+                    "label": "Hide",
+                    "method": "POST",
+                    "path": "/api/owner/comments/6c7d8e9f-0a1b-4c2d-8e3f-5a6b7c8d9e0f",
+                    "body": {
+                      "action": "hide"
+                    },
+                    "tone": "bad"
+                  }
+                ]
+              },
+              {
+                "id": "7d8e9f0a-1b2c-4d3e-9f4a-6b7c8d9e0f1a",
+                "at": "2026-10-30T10:00:00.000Z",
+                "name": "Thảo",
+                "page": {
+                  "path": "/ca/ca-neon-vua/",
+                  "title": "Cá neon vua"
+                },
+                "text": "Cảm ơn bài viết!",
+                "state": "shown",
+                "reason": "Shown by the owner",
+                "actions": [
+                  {
+                    "label": "Hide",
+                    "method": "POST",
+                    "path": "/api/owner/comments/7d8e9f0a-1b2c-4d3e-9f4a-6b7c8d9e0f1a",
+                    "body": {
+                      "action": "hide"
+                    },
+                    "tone": "bad"
+                  }
+                ]
+              }
+            ],
+            "empty": "No shown comments."
+          },
+          {
+            "kind": "note",
+            "text": "Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first. Times are in your time zone (GMT+7).",
+            "tone": "muted"
+          },
+          {
+            "kind": "heading",
+            "text": "This week",
+            "level": 2
+          },
+          {
+            "kind": "figures",
+            "items": [
+              {
+                "label": "New",
+                "value": "23"
+              },
+              {
+                "label": "Held when posted",
+                "value": "1"
+              },
+              {
+                "label": "Reported",
+                "value": "1"
+              },
+              {
+                "label": "Hidden",
+                "value": "1"
+              }
+            ]
+          },
+          {
+            "kind": "note",
+            "text": "Since Monday 00:00, Vietnam's time. Held when posted counts what the posting rules held, whatever was decided after. Reported counts any reader's report; only a signed-in reader's holds the comment.",
+            "tone": "muted"
+          },
+          {
+            "kind": "heading",
+            "text": "Most discussed",
+            "level": 2
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Shown comments",
+              "Photos"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá neon vua",
+                  "href": "/ca/ca-neon-vua/"
+                },
+                {
+                  "text": "7"
+                },
+                {
+                  "text": "2"
+                }
+              ]
+            ],
+            "empty": "No comments or photos shown yet."
+          }
+        ]
+      }
+    },
+    {
+      "name": "comments: hidden",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/sections/binh-luan?state=hidden",
+        "headers": {
+          "Time-Zone": "Asia/Ho_Chi_Minh"
+        }
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "title": "Comments",
+        "blocks": [
+          {
+            "kind": "note",
+            "text": "Held comments wait for you: Show puts one on its page, Hide takes it off.",
+            "tone": "plain"
+          },
+          {
+            "kind": "comments",
+            "state": "hidden",
+            "filters": [
+              {
+                "state": "held",
+                "label": "Held",
+                "count": 5,
+                "href": "/api/owner/sections/binh-luan?state=held"
+              },
+              {
+                "state": "shown",
+                "label": "Shown",
+                "count": 20,
+                "href": "/api/owner/sections/binh-luan?state=shown"
+              },
+              {
+                "state": "hidden",
+                "label": "Hidden",
+                "count": 2,
+                "href": "/api/owner/sections/binh-luan?state=hidden"
+              }
+            ],
+            "items": [
+              {
+                "id": "3f4a5b6c-7d8e-4f9a-9b0c-2d3e4f5a6b7c",
+                "at": "2026-11-03T05:00:00.000Z",
+                "name": "An",
+                "page": {
+                  "path": "/ca/ca-neon-vua/",
+                  "title": "Cá neon vua"
+                },
+                "text": "Bán cá giá sỉ, inbox.",
+                "state": "hidden",
+                "reason": "Hidden by the owner",
+                "actions": [
+                  {
+                    "label": "Show again",
+                    "method": "POST",
+                    "path": "/api/owner/comments/3f4a5b6c-7d8e-4f9a-9b0c-2d3e4f5a6b7c",
+                    "body": {
+                      "action": "show"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "4a5b6c7d-8e9f-4a0b-8c1d-3e4f5a6b7c8d",
+                "at": "2026-09-20T05:00:00.000Z",
+                "name": "Bình",
+                "page": {
+                  "path": "/ca/ca-neon-vua/",
+                  "title": "Cá neon vua"
+                },
+                "text": "Ghé web cá cược ở đây.",
+                "state": "hidden",
+                "reason": "Spam: a betting site.",
+                "actions": []
+              }
+            ],
+            "empty": "No hidden comments."
+          },
+          {
+            "kind": "note",
+            "text": "Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first. Times are in your time zone (GMT+7).",
+            "tone": "muted"
+          },
+          {
+            "kind": "heading",
+            "text": "This week",
+            "level": 2
+          },
+          {
+            "kind": "figures",
+            "items": [
+              {
+                "label": "New",
+                "value": "23"
+              },
+              {
+                "label": "Held when posted",
+                "value": "1"
+              },
+              {
+                "label": "Reported",
+                "value": "1"
+              },
+              {
+                "label": "Hidden",
+                "value": "1"
+              }
+            ]
+          },
+          {
+            "kind": "note",
+            "text": "Since Monday 00:00, Vietnam's time. Held when posted counts what the posting rules held, whatever was decided after. Reported counts any reader's report; only a signed-in reader's holds the comment.",
+            "tone": "muted"
+          },
+          {
+            "kind": "heading",
+            "text": "Most discussed",
+            "level": 2
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Shown comments",
+              "Photos"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá neon vua",
+                  "href": "/ca/ca-neon-vua/"
+                },
+                {
+                  "text": "7"
+                },
+                {
+                  "text": "2"
+                }
+              ]
+            ],
+            "empty": "No comments or photos shown yet."
+          }
+        ]
+      }
+    },
+    {
       "name": "period: fish ID, 30 days",
       "request": {
         "method": "GET",
@@ -15858,7 +16189,7 @@
             "at": "2026-11-01T00:00:00.000Z",
             "name": "Reader 01",
             "page": {
-              "title": "guide:gone-guide"
+              "title": "a page no longer on the site"
             },
             "text": "Comment 0001",
             "state": "held",
@@ -15888,7 +16219,7 @@
             "at": "2026-11-01T00:00:00.000Z",
             "name": "Reader 00",
             "page": {
-              "title": "guide:gone-guide"
+              "title": "a page no longer on the site"
             },
             "text": "Comment 0000",
             "state": "held",
@@ -16092,6 +16423,18 @@
       }
     },
     {
+      "name": "the report's delivery",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/report-settings"
+      },
+      "status": 200,
+      "body": {
+        "email": true,
+        "push": false
+      }
+    },
+    {
       "name": "turn the report's notification on",
       "request": {
         "method": "POST",
@@ -16104,6 +16447,18 @@
       "body": {
         "ok": true,
         "changed": true,
+        "email": true,
+        "push": true
+      }
+    },
+    {
+      "name": "the report's delivery, its notification on",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/report-settings"
+      },
+      "status": 200,
+      "body": {
         "email": true,
         "push": true
       }

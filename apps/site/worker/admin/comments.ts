@@ -172,14 +172,16 @@ function actionsOf(r: CommentRow, now: Date): Action[] {
 export function commentItem(r: CommentRow, pages: Map<string, PageInfo> | undefined, now: Date): CommentItem {
   const p = pages?.get(r.entity_ref)
   return {
-    id: r.id, at: new Date(msOf(r.created_at)).toISOString(), name: r.name, page: p ? { path: p.path, title: p.title } : { title: r.entity_ref },
+    id: r.id, at: new Date(msOf(r.created_at)).toISOString(), name: r.name, page: p ? { path: p.path, title: p.title } : { title: GONE_PAGE },
     text: r.body, state: STATE[r.status], reason: reasonText(r.reason), ...(r.reports.length ? { reports: r.reports } : {}), actions: actionsOf(r, now),
   }
 }
 
 const count = (n: number) => n.toLocaleString('en-GB')
-const LEDE = (tz: string, now: Date) => `Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Times are in your time zone (${zoneName(tz, now)}).`
-const AFTER = 'Show puts a comment on its page at once. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first.'
+const LEDE = 'Held comments wait for you: Show puts one on its page, Hide takes it off.'
+const AFTER = (tz: string, now: Date) => `Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first. Times are in your time zone (${zoneName(tz, now)}).`
+/** A comment's page when the site no longer has it: said, never its key. */
+export const GONE_PAGE = 'a page no longer on the site'
 const WEEK_NOTE = 'Since Monday 00:00, Vietnam\'s time. Held when posted counts what the posting rules held, whatever was decided after. Reported counts any reader\'s report; only a signed-in reader\'s holds the comment.'
 const TALK_HEAD = ['Page', 'Shown comments', 'Photos']
 const NO_TALK = 'No comments or photos shown yet.'
@@ -212,7 +214,7 @@ function itemHtml(r: CommentRow, d: CommentsData): string {
 }
 
 export function commentsPage(d: CommentsData): string {
-  let body = `<h1>Comments</h1><p class="lede">${esc(LEDE(d.tz, d.now))}</p>`
+  let body = `<h1>Comments</h1><p class="lede">${esc(LEDE)}</p>`
   if (isFailed(d.list)) body += failedHtml('the comments', d.list)
   else {
     const l = d.list
@@ -222,7 +224,7 @@ export function commentsPage(d: CommentsData): string {
       + `${items ? `<ol class="cm">${items}</ol>` : `<p class="cm none">${esc(emptyOf(d.state))}</p>`}`
       + `${l.next ? `<p class="more"><a href="${esc(`${webHref(d.state)}&cursor=${l.next}`)}">Older comments</a></p>` : ''}</section>`
   }
-  body += `<p class="note">${esc(AFTER)}</p><div class="split"><section><h2>This week</h2>`
+  body += `<p class="note">${esc(AFTER(d.tz, d.now))}</p><div class="split"><section><h2>This week</h2>`
   body += isFailed(d.week) ? failedHtml('this week\'s counts', d.week) : `${tiles(weekTiles(d.week))}<p class="note">${esc(WEEK_NOTE)}</p>`
   body += '</section><section><h2>Most discussed</h2>'
   if (isFailed(d.talk)) body += failedHtml('the most discussed pages', d.talk)
@@ -234,7 +236,7 @@ export function commentsPage(d: CommentsData): string {
 }
 
 export function commentsSection(d: CommentsData): Section {
-  const blocks: Block[] = [note(LEDE(d.tz, d.now))]
+  const blocks: Block[] = [note(LEDE)]
   if (isFailed(d.list)) blocks.push(failedBlock('the comments', d.list))
   else {
     const l = d.list
@@ -244,7 +246,7 @@ export function commentsSection(d: CommentsData): Section {
       items: l.rows.map(r => commentItem(r, d.pages, d.now)), ...(l.next ? { next: l.next } : {}), empty: emptyOf(d.state),
     })
   }
-  blocks.push(note(AFTER, 'muted'), heading('This week'))
+  blocks.push(note(AFTER(d.tz, d.now), 'muted'), heading('This week'))
   blocks.push(...(isFailed(d.week) ? [failedBlock('this week\'s counts', d.week)] : [figures(weekTiles(d.week)), note(WEEK_NOTE, 'muted')]))
   blocks.push(heading('Most discussed'), isFailed(d.talk) ? failedBlock('the most discussed pages', d.talk) : table(TALK_HEAD, talkRows(d.talk), { empty: NO_TALK }))
   return { title: 'Comments', blocks }
