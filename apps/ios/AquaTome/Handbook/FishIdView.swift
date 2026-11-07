@@ -36,6 +36,7 @@ struct FishIdView: View {
   @State private var said: String?
   @State private var found: FishId.Identification?
   @State private var onSite: URL?
+  @Environment(ChatStore.self) private var chat
 
   /// What GET says of the tool, or that the site couldn't be reached.
   enum Tool: Equatable { case checking, offline, off, resting, on(perAccount: Int?) }
@@ -223,6 +224,33 @@ struct FishIdView: View {
     } header: {
       if f.hasGuesses { Text("Có thể là") }
     }
+    // While the chat is on: asking about it, with the guesses (never the photo).
+    if chat.on, f.hasGuesses, let route = Self.chat(f) {
+      Section {
+        NavigationLink(value: route) {
+          Label(route.subject.plant ? "Hỏi về cây này" : "Hỏi về con cá này", systemImage: "bubble.left.and.text.bubble.right.fill")
+            .font(.body.weight(.semibold))
+            .foregroundStyle(.tint)
+        }
+        .accessibilityIdentifier("chat-entry")
+      } footer: {
+        Text("Trả lời từ cẩm nang AquaTome")
+      }
+    }
+  }
+
+  /// The chat about this identification: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể
+  /// Cá betta imbellis"), the first's page and photo.
+  static func chat(_ f: FishId.Identification) -> ChatRoute? {
+    guard let identified = Chat.Identified(f), let first = f.results.first else { return nil }
+    let guesses = f.results.prefix(3).enumerated().map { i, g in
+      let s = sure(g.confidence)
+      return "\(i == 0 ? s : ChatNames.inSentence(s)) \(g.page?.name ?? name(g))"
+    }
+    return ChatRoute(start: Chat.Start(from: .fishId, identified: identified),
+                     subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), img: nil,
+                                          guesses: guesses.joined(separator: ", "),
+                                          second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) }))
   }
 
   private func text(_ line: FishId.Line) -> String {
@@ -366,6 +394,18 @@ struct FishIdView: View {
 /// A guess's name: Claude's common name, else its scientific one.
 private func name(_ g: FishId.Guess) -> String { g.commonName.isEmpty ? g.scientificName : g.commonName }
 
+extension FishIdView {
+  /// How sure a guess is, in words.
+  static func sure(_ confidence: Double) -> String {
+    switch FishId.Sure(confidence) {
+    case .almostCertain: String(localized: "Gần như chắc chắn")
+    case .quiteLike: String(localized: "Khá giống")
+    case .maybe: String(localized: "Có thể")
+    case .unlikely: String(localized: "Ít khả năng")
+    }
+  }
+}
+
 /// The photo picked, and while boxing, a box dragged on it (a finger's drag; a tap or a box too small to hold a fish
 /// keeps the one before), the rest dimmed, as the site's page draws it.
 private struct BoxedPhoto: View {
@@ -476,14 +516,7 @@ private struct GuessRow: View {
     .padding(.vertical, 4)
   }
 
-  private var sure: String {
-    switch FishId.Sure(guess.confidence) {
-    case .almostCertain: String(localized: "Gần như chắc chắn")
-    case .quiteLike: String(localized: "Khá giống")
-    case .maybe: String(localized: "Có thể")
-    case .unlikely: String(localized: "Ít khả năng")
-    }
-  }
+  private var sure: String { FishIdView.sure(guess.confidence) }
 
   /// "Không phải? N loài <Genus> khác…" under a page, "N loài <Genus> có…" under a guess with none.
   private var genus: some View {

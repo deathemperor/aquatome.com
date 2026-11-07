@@ -16,7 +16,7 @@ import Tanks
 /// that account (`ui-apple`, or another, so `ui-apple` isn't the owner): the replies of
 /// protocols/owner-dashboard-vectors.json, read from this checkout (the simulator runs on the Mac that built it).
 /// `-owner-session-ends` ends the owner's session at the first section read, as one expiring while the dashboard is open;
-/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer.
+/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer. The chat is FakeChat's.
 @MainActor
 final class FakeServer {
   private let fake: FakeAccounts
@@ -25,6 +25,7 @@ final class FakeServer {
   private let file = FileManager.default.temporaryDirectory.appendingPathComponent("fake-accounts.json")
   private let slowFishId: Bool
   private let fishIdRefusesSession: Bool
+  private var chat: FakeChat!
 
   init(_ args: [String]) {
     if args.contains("-reset-fake-server") { try? FileManager.default.removeItem(at: file) }
@@ -49,6 +50,14 @@ final class FakeServer {
     fishIdRefusesSession = args.contains("-fish-id-session-refused")
     // The fixed pages' readers' comments and photos (HandbookIndex.fixtureReaders), as reports find them.
     fake.reportable.formUnion(["comment:c1", "comment:c2", "photo:p1", "photo:p2"])
+    chat = FakeChat(args) { [fake] in fake.account(bearer: $0) }
+  }
+
+  /// A request for a stream (the chat's question): its answer and bytes, as they come.
+  func stream(_ r: URLRequest) async throws -> FakeChat.Answer {
+    if Task.isCancelled { throw URLError(.cancelled) }
+    if fake.offline { throw URLError(.notConnectedToInternet) }
+    return try chat.ask(r)
   }
 
   func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
@@ -66,6 +75,10 @@ final class FakeServer {
     if slowPost, r.httpMethod == "POST", ["/_c", "/_p"].contains(r.url?.path) { try? await Task.sleep(for: .seconds(6)) }
     // A request whose task is cancelled meanwhile fails as cancelled, as URLSession's does.
     if slowSession, r.url?.path == "/api/v1/session" { try await Task.sleep(for: .seconds(15)) }
+    if let status = chat.status(r) {
+      if fake.offline { throw URLError(.notConnectedToInternet) }
+      return status
+    }
     let out = try await fake.send(r)
     try? fake.snapshot.data().write(to: file, options: .atomic)
     return out

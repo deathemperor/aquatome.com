@@ -1,0 +1,403 @@
+import AccountSync
+import Foundation
+import Handbook
+import Network
+import Observation
+
+/// What a chat is about: its header, its empty screen and its starters. A species', breed's or plant's page, or fish
+/// ID's result (the reader's photo, which never goes to the chat: only its guesses).
+struct ChatSubject: Hashable, Codable {
+  /// A fish (species or breed) or a plant: the empty screen's words and starters.
+  let plant: Bool
+  /// The page's name ("Cá neon xanh"); from fish ID, the first guess's.
+  let name: String
+  /// Its photo; from fish ID, none (the reader's own isn't kept).
+  let img: URL?
+  /// From fish ID: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể Cá betta imbellis").
+  let guesses: String?
+  /// From fish ID: the second guess's name, which a starter asks how to tell apart.
+  let second: String?
+
+  var fromPhoto: Bool { guesses != nil }
+}
+
+/// The chat screen's route: where it starts, and what it's about.
+struct ChatRoute: Hashable {
+  let start: Chat.Start
+  let subject: ChatSubject
+}
+
+/// The chat as GET /api/chat last said, for the entries (a species page's "Hỏi về …", fish ID's row): asked when the app
+/// comes to the front, not by each page. And the one conversation the app keeps: the latest, reopened from the same page
+/// or fish ID result within its 24 hours, by the same account.
+@Observable
+@MainActor
+final class ChatStore {
+  /// Whether chat is on: no entry shows until GET says so.
+  private(set) var on = false
+  private(set) var maxChars = 500
+  /// Questions a day for an account, for the day-used card.
+  private(set) var perAccount: Int?
+  @ObservationIgnored private var current: ChatModel?
+
+  func refresh(account: AccountModel, site: URL) async {
+    guard let (data, status) = await account.fetch(Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy)) else { return }
+    let s = Chat.status(data, status: status)
+    on = s.map { $0.on } ?? false
+    maxChars = s?.maxChars ?? 500
+    perAccount = s?.perAccount
+  }
+
+  /// The chat for `route`: the open one when it's the same start, by the same account, within its 24 hours; else the one
+  /// kept on the phone, on the same terms (the app was closed meanwhile); else a new one.
+  func model(for route: ChatRoute, account: AccountModel, site: URL, lang: String) -> ChatModel {
+    if let current, current.route == route, current.continues(account: account.user?.id) { return current }
+    let m = ChatModel(route: route, account: account, site: site, lang: lang, store: self)
+    current = m
+    return m
+  }
+}
+
+/// One chat: its questions, each with its answer as it streams (Chat.Reply), asked as the reader's account in one
+/// conversation (Chat.Conversation), and what stops a question before it goes (signed out, the day used, offline).
+@Observable
+@MainActor
+final class ChatModel {
+  /// One question and its answer.
+  struct Asked: Identifiable {
+    enum Outcome: Equatable {
+      case asking
+      case answered
+      /// Its stream ended in an error (`failed`, `unavailable`, `resting`), or was cut short (`cut`).
+      case failed(String)
+      /// Asked again with its key past its conversation's 24 hours (410): its answer can't be had.
+      case lost
+    }
+    let id: UUID
+    let question: String
+    /// Its Idempotency-Key: the same again only for a retry that should get the same turn.
+    var key: UUID
+    var reply = Chat.Reply()
+    var outcome = Outcome.asking
+    /// A new conversation starts with it: the divider above it.
+    var anew = false
+    /// Its answer came back after the app had left it (resent with its key): drawn whole.
+    var resumed = false
+    /// The stream's last event's data (`done` or `error`), kept with the conversation.
+    var last: String?
+  }
+
+  /// What stops a question before it goes, shown over the box; the question stays in the box.
+  enum Stop: Equatable {
+    case signedOut
+    /// The reader's day used, with its limit.
+    case rate(Int?)
+    /// The site's day used.
+    case busy
+    case off
+  }
+
+  let route: ChatRoute
+  private(set) var thread: [Asked] = []
+  /// The box's text.
+  var draft = ""
+  private(set) var stop: Stop?
+  /// No network: the path says so, or a question just couldn't go.
+  var offline: Bool { pathOffline || couldntSend }
+  /// The network is down as far as the phone knows: send is off.
+  private(set) var pathOffline = false
+  private(set) var couldntSend = false
+
+  @ObservationIgnored private let account: AccountModel
+  @ObservationIgnored private let site: URL
+  @ObservationIgnored private let lang: String
+  @ObservationIgnored private weak var store: ChatStore?
+  @ObservationIgnored private var conversation: Chat.Conversation?
+  @ObservationIgnored private var running: Task<Void, Never>?
+  @ObservationIgnored private let path = NWPathMonitor()
+
+  init(route: ChatRoute, account: AccountModel, site: URL, lang: String, store: ChatStore) {
+    self.route = route
+    self.account = account
+    self.site = site
+    self.lang = lang
+    self.store = store
+    if let k = Self.kept(), k.start == route.start, let user = account.user?.id, !k.conversation.ended(account: user, now: .now) {
+      conversation = k.conversation
+      thread = k.thread.map(\.asked)
+    }
+    path.pathUpdateHandler = { [weak self] p in
+      let down = p.status != .satisfied
+      Task { @MainActor in
+        guard let self else { return }
+        // Back online: a question that couldn't go can now.
+        if self.pathOffline && !down { self.couldntSend = false }
+        self.pathOffline = down
+      }
+    }
+    path.start(queue: .global(qos: .utility))
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-chat-path-offline") { pathOffline = true }
+    #endif
+  }
+
+  deinit { path.cancel() }
+
+  /// The latest question is still being answered: send stays off (a second would be 409).
+  var answering: Bool { thread.last?.outcome == .asking }
+  var maxChars: Int { store?.maxChars ?? 500 }
+  var perAccount: Int? { store?.perAccount }
+
+  /// Whether this chat goes on for the reader now signed in (`user`): the same account, within its conversation's 24 hours.
+  func continues(account user: String?) -> Bool {
+    guard let conversation else { return true }
+    return user.map { !conversation.ended(account: $0, now: .now) } ?? false
+  }
+
+  // MARK: Asking
+
+  /// Sends the box's text, or `suggestion` (a chip tapped). Offline, a suggestion goes into the box, unsent.
+  func send(_ suggestion: String? = nil) {
+    let q = (suggestion ?? draft).trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !q.isEmpty, !answering else { return }
+    if offline, let suggestion {
+      draft = suggestion
+      return
+    }
+    // The Worker counts a question's length in UTF-16 units, as JavaScript does.
+    guard !pathOffline, q.utf16.count <= maxChars else { return }
+    guard let user = account.user?.id else {
+      if let suggestion { draft = suggestion }
+      stop = .signedOut
+      return
+    }
+    stop = nil
+    couldntSend = false
+    let anew = startIfNeeded(user)
+    draft = ""
+    thread.append(Asked(id: UUID(), question: q, key: UUID(), anew: anew))
+    ask(thread.count - 1)
+  }
+
+  /// A new conversation when there's none, or the one there is has ended for `user` (another account, or 24 hours on):
+  /// true when one starts after earlier questions (the divider).
+  private func startIfNeeded(_ user: String) -> Bool {
+    if let c = conversation, !c.ended(account: user, now: .now) { return false }
+    conversation = Chat.Conversation(account: user)
+    return thread.contains { $0.outcome == .answered }
+  }
+
+  /// "Thử lại" / "Hỏi lại" under a failed question's bubble: asked again there, with a new key (the same would get the
+  /// kept error), or the same one for an answer cut short (it gets the turn, counted once). After its answer was lost,
+  /// in a new conversation.
+  func retry(_ id: UUID) {
+    guard let i = thread.firstIndex(where: { $0.id == id }), i == thread.count - 1, !answering, let user = account.user?.id else { return }
+    switch thread[i].outcome {
+    case .failed("cut"):
+      break
+    case .lost:
+      conversation = Chat.Conversation(account: user)
+      thread[i].anew = thread[..<i].contains { $0.outcome == .answered }
+      thread[i].key = UUID()
+    default:
+      conversation?.failed()
+      thread[i].key = UUID()
+    }
+    thread[i].reply = Chat.Reply()
+    thread[i].outcome = .asking
+    thread[i].resumed = false
+    ask(i)
+  }
+
+  /// Back in front (or the chat opened again after the app was closed) with a question still being answered: asked
+  /// again with its key, which gets the answer that landed meanwhile, counted once.
+  func resume() {
+    guard running == nil, let i = thread.indices.last, thread[i].outcome == .asking else { return }
+    thread[i].reply = Chat.Reply()
+    thread[i].resumed = true
+    ask(i)
+  }
+
+  /// Leaving for the background: the stream stops; the question's key is kept, to ask again on return.
+  func leave() {
+    running?.cancel()
+    running = nil
+  }
+
+  /// "Bắt đầu cuộc mới": the thread gone, the next question in a new conversation.
+  func startOver() {
+    leave()
+    thread = []
+    conversation = nil
+    stop = nil
+    keep()
+  }
+
+  private func ask(_ i: Int) {
+    let id = thread[i].id
+    running = Task { [weak self] in
+      await self?.run(id)
+      self?.running = nil
+    }
+  }
+
+  private func run(_ id: UUID) async {
+    guard let i = thread.firstIndex(where: { $0.id == id }), var c = conversation else { return }
+    let item = thread[i]
+    c.asked(at: .now)
+    conversation = c
+    keep()
+    let first = c.turns == 0
+    // Claude may read the reader's tanks: the account has them first.
+    if first && !item.resumed { await account.sync() }
+    let ask = { (token: String) in
+      Chat.ask(item.question, conversation: c.id, lang: self.lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
+               token: token, version: Self.version, ownCopy: Self.ownCopy)
+    }
+    do {
+      guard let (response, bytes) = try await account.stream(ask) else {
+        unsend(id, .signedOut)
+        return
+      }
+      guard response.statusCode == 200, response.value(forHTTPHeaderField: "Content-Type")?.hasPrefix("text/event-stream") == true else {
+        let body = try await ServerEvents.collect(bytes)
+        refused(id, Chat.refusal(body, status: response.statusCode))
+        return
+      }
+      try await ServerEvents.read(bytes) { [weak self] e in
+        guard let self, let event = Chat.event(e) else { return true }
+        return self.take(event, data: e.data, id)
+      }
+      // The stream ended with no `done` or `error`: cut short.
+      if let i = index(id), thread[i].outcome == .asking, !Task.isCancelled { thread[i].outcome = .failed("cut"); keep() }
+    } catch {
+      // Left for the background (the stream stopped): the question waits, to be asked again on return.
+      if Task.isCancelled || (error as? URLError)?.code == .cancelled { return }
+      guard let i = index(id) else { return }
+      if !thread[i].reply.writing && thread[i].reply.steps.isEmpty && Self.noNetwork(error) && !thread[i].resumed {
+        couldntSend = true
+        unsend(id, nil)
+      } else {
+        thread[i].outcome = .failed("cut")
+        keep()
+      }
+    }
+  }
+
+  /// One event of `id`'s stream: false once it ends the answer.
+  private func take(_ e: Chat.Event, data: String, _ id: UUID) -> Bool {
+    guard let i = index(id) else { return false }
+    thread[i].reply.take(e)
+    switch e {
+    case .done(let t):
+      thread[i].outcome = .answered
+      thread[i].last = data
+      // A turn numbered 1 over earlier turns: the Worker no longer held them.
+      if conversation?.answered(n: t.n) == true, i > 0 { thread[i].anew = true }
+      keep()
+      return false
+    case .error(let code):
+      thread[i].outcome = .failed(code)
+      thread[i].last = data
+      conversation?.failed()
+      keep()
+      return false
+    default:
+      return true
+    }
+  }
+
+  private func refused(_ id: UUID, _ r: Chat.Refusal) {
+    guard let i = index(id) else { return }
+    switch r {
+    case .signedOut:
+      unsend(id, .signedOut)
+      Task { await account.refresh() }
+    case .refused("rate", let limit):
+      unsend(id, .rate(limit ?? perAccount))
+    case .refused("busy", _):
+      unsend(id, .busy)
+    case .refused("chat_off", _):
+      unsend(id, .off)
+    case .refused("ended", _) where thread[i].resumed:
+      thread[i].outcome = .lost
+      conversation?.failed()
+      keep()
+    case .refused("ended", _):
+      // Past the conversation's 24 hours or its questions: the same question in a new one, with where the chat started.
+      guard let user = conversation?.account else { return }
+      conversation = Chat.Conversation(account: user)
+      thread[i].anew = thread[..<i].contains { $0.outcome == .answered }
+      thread[i].key = UUID()
+      ask(i)
+    case .refused(let code, _):
+      thread[i].outcome = .failed(["unavailable", "resting"].contains(code) ? "unavailable" : "failed")
+      conversation?.failed()
+      keep()
+    }
+  }
+
+  /// A question that didn't go: its bubble gone, its words back in the box.
+  private func unsend(_ id: UUID, _ why: Stop?) {
+    guard let i = index(id) else { return }
+    let q = thread.remove(at: i).question
+    if draft.isEmpty { draft = q }
+    conversation?.failed()
+    stop = why
+    keep()
+  }
+
+  private func index(_ id: UUID) -> Int? { thread.firstIndex { $0.id == id } }
+
+  private static func noNetwork(_ e: Error) -> Bool {
+    guard let u = e as? URLError else { return false }
+    return [.notConnectedToInternet, .networkConnectionLost, .cannotConnectToHost, .cannotFindHost, .dnsLookupFailed, .dataNotAllowed,
+            .internationalRoamingOff].contains(u.code)
+  }
+
+  static var version: String { Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0" }
+  /// Our own copies say so (OwnCopy).
+  static var ownCopy: String? { OwnCopy.isOurs ? AccountsClient.ourCopy : nil }
+
+  // MARK: Kept on the phone
+
+  /// The latest chat, kept so a question being answered when the app closed is asked again (with its key) when it
+  /// opens again, and its conversation goes on: the conversation, and each question with its answer's last event.
+  private struct Kept: Codable {
+    struct Item: Codable {
+      let question: String
+      let key: UUID
+      /// "asking", "answered", "lost", or the failure's code.
+      let outcome: String
+      let anew: Bool
+      let last: String?
+
+      var asked: Asked {
+        var a = Asked(id: UUID(), question: question, key: key, anew: anew, last: last)
+        a.outcome = switch outcome { case "asking": .asking; case "answered": .answered; case "lost": .lost; default: .failed(outcome) }
+        if let last, let e = Chat.event(ServerEvent(name: outcome == "answered" ? "done" : "error", data: last)) { a.reply.take(e) }
+        return a
+      }
+    }
+    let start: Chat.Start
+    let conversation: Chat.Conversation
+    let thread: [Item]
+  }
+
+  static let file = URL.applicationSupportDirectory.appending(path: "chat.json")
+
+  private static func kept() -> Kept? { (try? Data(contentsOf: file)).flatMap { try? JSONDecoder().decode(Kept.self, from: $0) } }
+
+  private func keep() {
+    guard let conversation, !thread.isEmpty else {
+      try? FileManager.default.removeItem(at: Self.file)
+      return
+    }
+    let items = thread.map { a in
+      let o = switch a.outcome { case .asking: "asking"; case .answered: "answered"; case .lost: "lost"; case .failed(let c): c }
+      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last)
+    }
+    try? FileManager.default.createDirectory(at: Self.file.deletingLastPathComponent(), withIntermediateDirectories: true)
+    try? JSONEncoder().encode(Kept(start: route.start, conversation: conversation, thread: items)).write(to: Self.file, options: .atomic)
+  }
+}

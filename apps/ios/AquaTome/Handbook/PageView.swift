@@ -14,6 +14,7 @@ struct PageView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  @Environment(ChatStore.self) private var chat
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
@@ -42,8 +43,8 @@ struct PageView: View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 }, path: item.path)
+        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ask : nil,
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
@@ -109,6 +110,13 @@ struct PageView: View {
   }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
+  /// The chat about this fish (a species or breed) or plant.
+  private var ask: ChatRoute? {
+    guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
+    return ChatRoute(start: Chat.Start(from: .species, about: id),
+                     subject: ChatSubject(plant: item.kind == .plant, name: item.name, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+  }
+
   private var inPagePut: Bool {
     Life(item) != nil && pieces?.contains { if case .facts = $0 { true } else { false } } == true
   }

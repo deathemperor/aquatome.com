@@ -20,11 +20,11 @@ public enum Chat {
 
   // MARK: Where a chat starts
 
-  public enum From: String, Sendable, Hashable { case fishId = "fish-id", species, search }
+  public enum From: String, Sendable, Hashable, Codable { case fishId = "fish-id", species, search }
 
   /// Fish ID's answer, handed to the chat's first question: its verdict and guesses, most likely first. Never the photo.
-  public struct Identified: Sendable, Hashable {
-    public struct Guess: Sendable, Hashable {
+  public struct Identified: Sendable, Hashable, Codable {
+    public struct Guess: Sendable, Hashable, Codable {
       public let scientificName: String
       /// The guess's page, when it has one.
       public let id: String?
@@ -66,7 +66,7 @@ public enum Chat {
   }
 
   /// Where a chat starts: what its first question carries.
-  public struct Start: Sendable, Hashable {
+  public struct Start: Sendable, Hashable, Codable {
     public let from: From
     /// The page it starts from, by its id as fish ID links one (a species, breed or plant).
     public let about: String?
@@ -136,6 +136,8 @@ public enum Chat {
     case read(PageRef)
     /// It read the reader's synced tanks.
     case tanks
+    /// It checked fish together, as the tank-mates tool does.
+    case mates
   }
 
   /// A whole answer.
@@ -263,6 +265,7 @@ public enum Chat {
     case "search": (o["query"] as? String).map(Step.search)
     case "read": page(o["page"]).map(Step.read)
     case "tanks": .tanks
+    case "mates": .mates
     default: nil
     }
   }
@@ -320,7 +323,7 @@ public enum Chat {
   /// A conversation as the app keeps it: its id, made when the chat opens, under the account that asks. A question goes in
   /// a new one when another account asks, or 24 hours after its first question (the Worker's own limit: past it, 410). An
   /// answer numbered 1 over earlier turns says the Worker no longer holds them: it is a new conversation from there.
-  public struct Conversation: Sendable, Equatable {
+  public struct Conversation: Sendable, Equatable, Codable {
     public static let lasts: TimeInterval = 24 * 60 * 60
     public private(set) var id: UUID
     public private(set) var account: String
@@ -340,6 +343,10 @@ public enum Chat {
 
     /// A question asked. A retry of it (the same key) isn't another.
     public mutating func asked(at now: Date) { if asking == nil { asking = now } }
+
+    /// The question asked got no answer (refused, or its stream ended in an error): asked again, it goes with a new key,
+    /// and is another question.
+    public mutating func failed() { asking = nil }
 
     /// The question asked, answered as turn `n`: true when it starts the conversation again on the Worker (1, over
     /// earlier turns). The first answered starts the 24 hours, from when it was asked: a refused question starts none. The

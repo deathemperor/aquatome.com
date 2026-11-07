@@ -23,6 +23,9 @@ public enum AppScreen: Equatable, Sendable {
   /// The app's Tài khoản sheet (the profile button's), which no page of the site is: the empty "Bể của tôi" opens it to
   /// sign in.
   case account
+  /// Tìm, searching for these words (the chat's day used: its question, looked up in the handbook instead), which no
+  /// page of the site is.
+  case search(String)
 
   /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages (Vietnamese under "/vi/"
   /// or at the root, PathForm); with `listed` (whether the app index has a path, as the link gives it), also any other
