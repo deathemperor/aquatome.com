@@ -14,6 +14,10 @@ struct PageView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  @Environment(AccountModel.self) private var account
+  /// The owner's trial of a way round the page, and which state of it: for anyone else, today's page.
+  @AppStorage(PageNavigator.Trial.key) private var trialName = PageNavigator.Trial.today.rawValue
+  @State private var navigator = PageNavigator()
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
@@ -43,7 +47,7 @@ struct PageView: View {
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 }, path: item.path)
+                   nameInView: { nameInView = $0 }, path: item.path, navigator: trial == .today ? nil : navigator)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
@@ -67,10 +71,14 @@ struct PageView: View {
         // The page the app draws shows its name under its photo: the bar's, once that has scrolled away.
         if native && pieces != nil {
           ToolbarItem(placement: .principal) {
-            Text(item.name).font(.headline).lineLimit(1)
-              .opacity(nameInView ? 0 : 1)
-              .animation(.easeOut(duration: 0.2), value: nameInView)
-              .accessibilityHidden(nameInView)
+            if trial != .today, navigator.long {
+              PageNavigatorTitle(name: item.name, nameInView: nameInView, navigator: navigator)
+            } else {
+              Text(item.name).font(.headline).lineLimit(1)
+                .opacity(nameInView ? 0 : 1)
+                .animation(.easeOut(duration: 0.2), value: nameInView)
+                .accessibilityHidden(nameInView)
+            }
           }
         }
         ToolbarItemGroup(placement: .primaryAction) {
@@ -87,7 +95,7 @@ struct PageView: View {
             Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
           }
           .accessibilityIdentifier("save-for-later")
-          PageMore(url: url)
+          PageMore(url: url, trial: account.owner.isOwner == true && native && pieces != nil ? $trialName : nil)
         }
       }
       .safeAreaInset(edge: .top) {
@@ -105,7 +113,12 @@ struct PageView: View {
         .background(.bar)
       }
       .onAppear { handbook.read(item) }
+      .onChange(of: trial, initial: true) { navigator.railOn = trial == .rail }
       .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+  }
+
+  private var trial: PageNavigator.Trial {
+    account.owner.isOwner == true ? PageNavigator.Trial(rawValue: trialName) ?? .today : .today
   }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
@@ -323,10 +336,13 @@ private final class WeakHandler: NSObject, WKScriptMessageHandler {
 /// A page's less used ways out, in one place in the bar: shared, or opened in the browser.
 private struct PageMore: View {
   let url: URL
+  /// The owner's trial, on a page the app draws (PageNavigator).
+  var trial: Binding<String>?
   var body: some View {
     Menu {
       ShareLink(item: url)
       Link(destination: url) { Label("Mở trong trình duyệt", systemImage: "safari") }
+      if let trial { PageNavigatorChoice(trial: trial) }
     } label: {
       Label("Khác", systemImage: "ellipsis")
     }
