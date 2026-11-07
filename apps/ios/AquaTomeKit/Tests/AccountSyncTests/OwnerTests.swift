@@ -152,7 +152,9 @@ func nothingDropped() throws {
       var here: [String: Set<String>] = [:]
       for to in d.todos.map(\.to) + d.areas.map(\.to) { if case .section(let k, let a?)? = to { here[k, default: []].insert(a) } }
       let raw = (o["todos"]!.array! + o["areas"]!.array!).map { $0.object!["action"]?.object ?? $0.object! }
-      #expect(Set(here.flatMap { k, a in a.map { k + "#" + $0 } }) == Set(raw.compactMap { r in r["anchor"].map { r["section"]!.string! + "#" + $0.string! } }), name)
+      let read: Set<String> = Set(here.flatMap { k, a in a.map { k + "#" + $0 } })
+      let named: Set<String> = Set(raw.compactMap { r in r["anchor"].map { r["section"]!.string! + "#" + $0.string! } })
+      #expect(read == named, name)
       anchors.merge(here) { $0.union($1) }
       keys = d.sections.compactMap { if case .section(let k, _)? = $0.to { k } else { nil } }
       #expect(d.name(of: "an-trang") == "Ẩn trang")
