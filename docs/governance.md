@@ -121,7 +121,10 @@ that would have caught it).
     refused (`apps/site/worker/test/chat-stream.test.ts`); the helper holding the page and tank schemas' own rules
     (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
     the built web page with the same id, its section there not running into the next one, where the site's chat draws a
-    section from (`apps/site/test/chat-sections.test.ts`).
+    section from (`apps/site/test/chat-sections.test.ts`). The app reads the same recorded answers: every event of
+    them, `done` holding what streamed; an event, block or figure it doesn't know left out, not the turn; its question
+    of the contract's names, fish ID's guesses within its limits; the event stream's own rules (line ends, comments, an
+    event cut off at the end), through the app's session too (`AquaTomeKit/Tests/HandbookTests/ChatTests.swift`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
