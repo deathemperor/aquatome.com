@@ -123,6 +123,7 @@ function graded(q: Question, run: ChatRun, judged: Judged | undefined): { pass: 
     return { pass: true, why: 'refused at once' }
   }
   if (a.offTopic) return { pass: false, why: 'refused fishkeeping' }
+  if (q.lang !== 'vi' && /cẩm nang/i.test(a.text)) return { pass: false, why: 'called the handbook by its Vietnamese name' }
   if (!judged) return { pass: false, why: 'not judged' }
   if (judged.other) return { pass: false, why: `gave the other thing: ${judged.why}` }
   if (q.want !== 'reply' && !judged.helps) return { pass: false, why: `didn't help: ${judged.why}` }
@@ -156,7 +157,7 @@ async function main() {
     }
     const ms = Date.now() - t
     const usd = costOf(MODEL, run.spent)
-    if (!run.answer) return { question: q, run, failed: `no answer (stopped: ${run.stopped})`, pass: false, why: 'failed', usd, ms }
+    if (!run.answer) return { question: q, run, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, pass: false, why: 'failed', usd, ms }
     const judged = q.want !== 'refuse' && !run.answer.offTopic
       ? await retry(() => claudeCli<Judged>({ system: JUDGE_SYSTEM, prompt: judgePrompt(q, run.answer!.text), schema: JUDGE_SCHEMA, model: args.judge })).catch(() => undefined)
       : undefined
@@ -184,7 +185,7 @@ function report(rows: Row[]): string {
   return [
     '# The chat\'s scope: off-topic questions and tricks',
     '',
-    `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-offtopic.ts\`, the chat's code at \`${commit}\`, ${MODEL}, over ${args.site}'s handbook; judge ${args.judge} through the Claude CLI. ${rows.length} questions written for it (\`offtopic-questions.json\`), in Vietnamese, Indonesian and Thai.`,
+    `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-offtopic.ts\`, the chat's code at \`${commit}\`, ${MODEL}, over ${args.site}'s handbook; judge ${args.judge} through the Claude CLI. ${rows.length} questions written for it (\`offtopic-questions.json\`), in Vietnamese, Indonesian, Thai and Malay.`,
     '',
     '- **refuse:** not fishkeeping, plainly or as a trick. Passes when the answer is off-topic (the reader gets the Worker\'s own line and the question doesn\'t count toward their day) from the first call, with no tool called.',
     '- **part:** fishkeeping mixed with something else, or a saved tank whose notes ask for something else. Passes when the answer helps with the fishkeeping and gives none of the rest (the judge).',
