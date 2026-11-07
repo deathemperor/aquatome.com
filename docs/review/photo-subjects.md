@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules: docs/governance.md, "Photos".
-4321 verdicts. Shows it: 3049; its habitat: 69; something else: 122; not a photo of it: 116; dead or as food: 184; a logo on it: 14; can't tell: 744.
+4177 verdicts. Shows it: 2927; its habitat (asked again): 61; something else: 147; not a photo of it: 104; dead or as food: 181; a person in it: 1; a logo on it: 13; can't tell: 718.
 
 ## Left with no photo (29)
 
@@ -40,22 +40,24 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (744)
+## Can't tell: still shown (718)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
-| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/8ddc20899d042531.webp) | White oscar with orange-red markings, but the pupil looks dark rather than clear red. It could be a lutino or a mixed-ge |
-| breeds/balloon-molly | [photo](https://media.aquatome.com/commons/2cf1ed06e3421dee.webp) | Dalmatian-spotted molly; body fairly deep but not clearly balloon-shaped, may be a normal-bodied molly |
-| breeds/black-moor-goldfish | [photo](https://images.unsplash.com/photo-1642136331165-08690beed14b?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | black-and-white photo of a telescope-eye goldfish; color can't be confirmed |
-| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/7836d3540215c861.webp) | black fancy goldfish; can't see whether the eyes are telescope eyes from this angle |
-| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/a2b410fe31df8255.webp) | black fancy goldfish, ryukin-like body; eyes don't clearly look like telescope eyes |
-| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/b262d48ce5db4cdb.webp) | mirror image of photo 1; black fancy goldfish, telescope eyes unclear |
-| breeds/blood-parrot-cichlid | [photo](https://media.aquatome.com/commons/3cecec96aa8f48ba.webp) | dark brown cichlid with yellow fins, possibly a blood parrot changing colour; stingrays behind |
-| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | dark blue shrimp with near-black head and banded blue body; body shape suggests a Caridina blue (e.g. Taiwan bee type) r |
-| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | dark blue-purple shrimp with reddish patches on moss; could be Blue Dream or a Caridina/other Neocaridina dark line |
-| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1603546609526-2fc9c4cf48c1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | white koi with red head, front view in tank; fin length unclear |
-| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1625369730563-3e7d485ed341?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjR8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | red-and-white long-finned fish in tank; could be butterfly koi or sarasa comet goldfish |
-| breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/15934252a12ce521.webp) | cream/yellow koi with somewhat longer, wavy-edged fins; may be a butterfly koi, but the fins aren't clearly long enough  |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/5019ddb756604251.webp) | near-white oscar with red-orange marks; orange iris but pupil looks dark, true albino not confirmed |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/5ba6d16a878e66e5.webp) | pale oscars with orange-red marks in blue tank; yellow iris and dark pupil, not clear red eye |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/7be6e0d108401431.webp) | peach-toned oscar with orange spots; yellow iris, dark pupil, grey tail spot centre, lutino look-alike possible |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/8ddc20899d042531.webp) | pale oscar with orange-red marks, but yellow iris and dark pupil, not clear red eye; possibly not true albino |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/c1076224289ea009.webp) | pale yellow-orange oscar above a tiger oscar in a shop tank; distant view, eye not red, lutino-like |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/c836d47f858a56f6.webp) | group of pale oscars with orange-red marks; yellow iris and dark pupil, not clear red eye |
+| breeds/balloon-molly | [photo](https://media.aquatome.com/commons/479c1b9bb3a309cc.webp) | blurred yellow molly-like fish head-down among corydoras, body shape unclear |
+| breeds/black-moor-goldfish | [photo](https://images.unsplash.com/photo-1642136331165-08690beed14b?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | Telescope-eyed goldfish head-on in black and white; colour cannot be confirmed |
+| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/7836d3540215c861.webp) | velvety black double-tailed goldfish, small and dim; telescope eyes not clearly visible |
+| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | deep blue shrimp on leaf; blackish head and underside, could be a Caridina blue form |
+| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | dark navy shrimp with reddish-brown patches; mottling unlike even Blue Dream colour, look-alike not ruled out |
+| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1603546609526-2fc9c4cf48c1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | white fish with red head, head-on in dark tank; fins only moderately long, could be koi or goldfish |
+| breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/deee119c227bb1bf.webp) | blurry yellow-orange long-finned koi in murky water among small red goldfish |
+| breeds/crystal-red-shrimp | [photo](https://media.aquatome.com/commons/e4eb3a3787b65603.webp) | faded brownish-red banded shrimp with blotchy colour, poor colour; may be a low-grade or different bee shrimp |
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1465420824608-b6cb6dd080d2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTV8fGZ1bGwlMjByZWQlMjBndXBweXxlbnwxfHx8fDE3OTM0MTAyOTR8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | red-bodied guppy-like fish, possibly Full Red females/juveniles, dark and blurry shot |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/02e704d0e523ae30.webp) | blue betta flaring at its reflection; fins look shortish, so it could be a halfmoon plakat or a female, not a clear long |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | blue long-finned male at surface, angled view, spread unclear |
@@ -787,19 +789,22 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 | species/apricaphanius-baeticus | [photo](https://media.aquatome.com/seriouslyfish/b874dd7f15a4ac8d.webp) | several small brownish fish in a pink net, seen from above; too small to tell from Gambusia |
 
-## Removed (436)
+## Removed (446)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | What it shows |
 | --- | --- | --- |
+| breeds/balloon-molly | [photo](https://media.aquatome.com/commons/2cf1ed06e3421dee.webp) | dalmatian molly: longer, normal body without balloon shape |
 | breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/b2e0ff2ba234e7e2.webp) | telescope-eye goldfish with orange/bronze patches (tricolor/calico type), not solid black |
 | breeds/bubble-eye-goldfish | [photo](https://images.unsplash.com/photo-1642378675428-60a11d6a74ca?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | pompom goldfish: orange nasal pompoms, has dorsal fin, normal eyes |
 | breeds/bubble-eye-goldfish | [photo](https://images.unsplash.com/photo-1642378675430-6802842c3cde?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | pompom goldfish: nasal pompoms, dorsal fin, no eye bubbles |
 | breeds/bubble-eye-goldfish | [photo](https://images.unsplash.com/photo-1775807423650-5c31a2323869?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjd8fGJ1YmJsZSUyMGV5ZSUyMGdvbGRmaXNofGVufDF8fHx8MTc5MzQwMDQ5M3ww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | orange/albino bristlenose pleco (Ancistrus), not a goldfish |
+| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1625369730563-3e7d485ed341?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjR8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | likely sarasa comet goldfish: red and white, no visible barbels, long forked tail, short pectoral fins |
 | breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1695145752654-1830d43f43a8?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTl8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | standard short-finned koi (Showa/Kujaku-type), not butterfly koi |
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/5d63636767678801.webp) | standard koi (kohaku and others) with short, normal fins, not butterfly |
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/661ca6d53217c897.webp) | yellow standard koi (yamabuki-type); fins are normal length, not long and flowing |
+| breeds/flowerhorn-cichlid | [photo](https://media.aquatome.com/commons/2a7afa5526087613.webp) | people: red pearly flowerhorn with small kok; fingers or hand at bottom right edge |
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1781694348959-10cfe53f6ea7?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OHx8ZnVsbCUyMHJlZCUyMGd1cHB5fGVufDF8fHx8MTc5MzQxMDI5NHww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | red wag platy (Xiphophorus maculatus): red body with black fins, in planted tank |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/1db0354aa802f715.webp) | koi plakat / halfmoon plakat: short fins, not long-finned halfmoon |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/65b40156aa52d78e.webp) | turquoise halfmoon plakat: short-finned plakat form |
