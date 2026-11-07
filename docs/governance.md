@@ -247,7 +247,9 @@ that would have caught it).
     - no figure of another fish under a heading about one fish (it names the fish, or its scientific name in brackets)
     - no "Name (Scientific name)" linked to a page with another scientific name; a plant's former names are its own
       ("Rêu java (Vesicularia dubyana)"): `synonyms` on its page, from its sources, GBIF and a few hobby names
-      (`pnpm engine plant-synonyms`, each cycle)
+      (`pnpm engine plant-synonyms`, each cycle). A trade or cultivar name a page has in quotes is that page's however
+      the text quotes it, or with none (`@aq/schema` linkTerms): "Pogostemon stellatus Octopus" is the easy
+      *P. quadrifolius*, not *P. stellatus*, which wants strong light and CO₂ (a design lab, 2026-11-07)
     - in a list of fish, no fish's section without a photo while the fish has one the page doesn't show yet
     - the contents match the headings, in order, each numbered heading under its own number; numbered headings count up
     - no heading with nothing under it: nothing before the next heading of its level or higher, or the end. A heading
