@@ -135,9 +135,9 @@ anyway. On the grounded count we lead on both: 15–5 and 22–5.
 - Some errors are our guides' own, such as "90% of hair algae is low CO₂". Those went to the writing lead, and the guides
   written from one video stay out of the chat until they are re-checked.
 
-**The owner's rules, checked.** The off-topic set is 66 questions in Vietnamese, Indonesian and Thai: football and other
+**The owner's rules, checked.** The off-topic set is 73 questions in Vietnamese, Indonesian, Thai and Malay: football and other
 plain off-topic, cooking and catching fish, jailbreaks (including instructions planted in a saved tank's notes), mixed
-questions, and fishkeeping at the edge such as stands, electrics and ponds. It passes 66 of 66 and has to stay there
+questions, and fishkeeping at the edge such as stands, electrics and ponds. It passes 73 of 73 and has to stay there
 (`docs/review/chat-offtopic.md`). In the 96 answers, every medicine or chemical dose my search found was on a page the
 chat had read. The search looks for common units, so it could miss an odd wording.
 
