@@ -12,7 +12,8 @@
  * - A run that never settles (cut off past the platform's grace period) keeps the spend its calls recorded, and its
  *   reservation until the next admission past `STALE_MS` gives the unspent part back. A spend that lands after its run
  *   settled still counts.
- * - A reader's count goes back only when the settle says so (api.ts: our side failed). The site's count never does.
+ * - A reader's count goes back only when the settle says so (api.ts: our side failed, or the question wasn't about
+ *   fishkeeping). The site's count never does.
  *
  * Atomic in two ways: a Durable Object delivers no other request while one waits on its own storage, and here a day's
  * state is one object in memory that every request shares (loaded once), checked and changed with no wait in between.

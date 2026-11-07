@@ -22,15 +22,16 @@ export const MAX_SUGGESTIONS = 3
 const nullable = (s: Record<string, unknown>) => ({ anyOf: [s, { type: 'null' }] })
 /**
  * The answer's schema (output_config.format): what structured outputs take, every object closed and every field required.
- * `text` stays first: structured outputs write the keys in the schema's order, and the reader sees the text as it is
- * written (`textReader`).
+ * `offTopic`, then `text`, stay first: structured outputs write the keys in the schema's order, the reader sees the text
+ * as it is written (`textReader`), and an off-topic answer's text never streams (the Worker sends its own line).
  */
 export const ANSWER_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['text', 'covered', 'blocks', 'suggestions'],
+  required: ['offTopic', 'text', 'covered', 'blocks', 'suggestions'],
   properties: {
-    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line ("1. "), then what to watch. A quick question: two or three sentences. Never refer to the blocks; figures only from a page read or the reader\'s words.' },
+    offTopic: { type: 'boolean', description: 'true when the question isn\'t about keeping fish, shrimp, snails or plants, their tanks, ponds, water or gear: then the text is one short line and nothing else.' },
+    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line ("1. "), then what to watch. A quick question: two or three sentences. Never refer to the blocks. Figures from a page read first, common hobby figures from your own knowledge, never a dose no page gives.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
@@ -66,7 +67,17 @@ export const ANSWER_SCHEMA = {
 } as const
 
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
-export type Answer = { text: string; covered: boolean; blocks: Choice[]; suggestions: string[] }
+export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[] }
+
+/**
+ * What an off-topic question gets, in the reader's language, whatever Claude wrote: one friendly line back to what the
+ * chat helps with, so no reply to a question about football (or a trick to get one) ever reaches the reader.
+ */
+export const OFF_TOPIC: Record<Lang, string> = {
+  vi: 'Mình chỉ giúp được chuyện nuôi cá: cá, tép, ốc, cây thủy sinh, bể, hồ, nước và thiết bị. Bạn hỏi mình về bể của bạn nhé!',
+  id: 'Aku hanya bisa membantu soal memelihara ikan: ikan, udang, siput, tanaman air, akuarium, kolam, air, dan peralatannya. Tanyakan soal akuariummu, ya!',
+  th: 'เราช่วยได้เฉพาะเรื่องการเลี้ยงปลา ทั้งปลา กุ้ง หอย ไม้น้ำ ตู้ บ่อ น้ำ และอุปกรณ์ ลองถามเรื่องตู้ของคุณได้เลยนะ',
+}
 
 /** Shorter than this, an answer's text is none: the eval saw "" and "x" from a last call a limit forced. */
 export const MIN_TEXT = 10
@@ -77,30 +88,31 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
   const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
   try {
     const a = JSON.parse(text) as Answer
-    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? a : undefined
+    if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [] }
+    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? { ...a, offTopic: false } : undefined
   } catch {
     return undefined
   }
 }
 
 const SPACE = new Set([' ', '\t', '\n', '\r'])
-/** What comes before the text's first character: each of these in turn, with JSON's whitespace before each. */
-const HEAD = ['{', '"text"', ':', '"']
+/** What comes before the text's first character, JSON's whitespace aside: an off-topic answer (offTopic true) never streams. */
+const HEADS = ['{"text":"', '{"offTopic":false,"text":"']
 const ESCAPES: Record<string, string> = { n: '\n', t: '\t', r: '\r', b: '\b', f: '\f', '"': '"', '\\': '\\', '/': '/' }
 
 /**
  * The answer's text as Claude writes it, for one call: fed the call's raw text as it comes, it gives back what each part
  * adds to the top-level `text` string, decoded ('' for nothing yet). An escape or a surrogate pair cut between parts
  * waits for the rest, so no piece holds half of one; joined, the pieces are the string JSON.parse reads. A call whose
- * JSON doesn't open with `text` (or isn't JSON: words before a tool call) gives nothing, and nothing after the string's
- * closing quote is read.
+ * JSON doesn't open with `text`, or with `offTopic` false then `text` (an off-topic answer, or not JSON: words before a
+ * tool call), gives nothing, and nothing after the string's closing quote is read.
  */
 export function textReader(): (part: string) => string {
   let raw = ''
   let at = 0
-  /** How far into HEAD: its item, and the characters of it matched. */
-  let item = 0
-  let got = 0
+  /** What came before the text so far, whitespace aside; the text has begun once it is one of HEADS. */
+  let head = ''
+  let begun = false
   let off = false
   let closed = false
   let text = ''
@@ -108,13 +120,14 @@ export function textReader(): (part: string) => string {
   return part => {
     if (off || closed) return ''
     raw += part
-    while (item < HEAD.length) {
+    while (!begun) {
       const c = raw[at]
       if (c === undefined) return ''
       at++
-      if (got === 0 && SPACE.has(c)) continue
-      if (c !== HEAD[item]![got]) { off = true; return '' }
-      if (++got === HEAD[item]!.length) { item++; got = 0 }
+      if (SPACE.has(c)) continue
+      head += c
+      if (HEADS.includes(head)) begun = true
+      else if (!HEADS.some(h => h.startsWith(head))) { off = true; return '' }
     }
     while (at < raw.length) {
       const c = raw[at]!
