@@ -54,6 +54,28 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(life(app, "Rotala đỏ").exists)
   }
 
+  /// The owner's new tank opened blank, only its name showing (7 Nov): from a fish's page with the phone's animations on,
+  /// as a reader has them, the sheet closing as the tab changed and the tank was pushed.
+  func testAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"]
+    app.launch()
+    openPage(app, "Cá neon")
+    app.buttons["put-on-tank"].tap()
+    let name = app.textFields["put-name"]
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no new tank offered")
+    name.tap()
+    name.typeText("Blackwater")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "no way to the tank")
+    app.buttons["put-open"].tap()
+    XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+  }
+
   func testAddsAFishFromTheTankChangesItsNumberAndTakesItOffKeptAfterARelaunch() {
     var app = launch("-seed-tanks", "life")
     app.openTab("Bể của tôi")
