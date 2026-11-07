@@ -35,9 +35,12 @@ const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_P
 /** Every page of the web dashboard, the one the app doesn't list included. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
-/** Their keys. A key's page, the pages under it (one report) and its JSON form (thanh-cong.json) are the dashboard's. */
+/**
+ * Their keys. A key's page, the pages under it (one report, one fish-ID run) and their JSON forms (thanh-cong.json, a
+ * day of fish-ID runs) are the dashboard's.
+ */
 const KEYS = new Set(WEB_PAGES.map(p => p.slice('/_ab/'.length, -1)).filter(Boolean))
-const UNDER_KEY = /^\/([a-z0-9-]+)((?:\/[a-z0-9-]+)*\/|\.json)$/
+const UNDER_KEY = /^\/([a-z0-9-]+)((?:\/[a-z0-9-]+)*(?:\/|\.json))$/
 /**
  * The /_ab/ path behind an address on the dashboard's own host (dashboard-host.ts): "/" → "/_ab/", "/bao-cao/1003/" →
  * "/_ab/bao-cao/1003/", "/thanh-cong.json" → "/_ab/thanh-cong.json"; undefined for an address that isn't the dashboard's.
@@ -140,6 +143,10 @@ section>h2:first-child{margin-top:28px}
 .spark .now{fill:var(--s1)}
 .spark .was{fill:color-mix(in srgb,var(--s1) 42%,var(--plate))}
 .spark .old{fill:color-mix(in srgb,var(--muted) 30%,var(--plate))}
+.spk{position:relative;display:block;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.spark .on{fill:var(--ink)}
+.spk .so{position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);padding:3px 8px;border-radius:6px;background:var(--ink);color:var(--plate);font:600 12.5px/1.3 var(--sans);font-variant-numeric:tabular-nums;white-space:nowrap;pointer-events:none;visibility:hidden;z-index:1}
+.spk.sel .so{visibility:visible}
 .chip{display:inline-block;font-size:12px;font-weight:600;line-height:1.3;padding:3px 8px;border-radius:999px;white-space:nowrap;background:var(--grid);color:var(--ink-2)}
 .chip.good{background:var(--moss-wash);color:var(--moss)}
 .chip.bad{background:var(--rust-wash);color:var(--rust)}
@@ -309,6 +316,7 @@ section>.split{margin-top:12px}
 @media (max-width:359px){
 .score tr{grid-template-columns:repeat(3,minmax(0,1fr))}
 .score .trend{grid-column:1/-1}
+.score .spk .so{right:auto;left:calc(100% + 6px)}
 }
 /* A share of a whole: a thin bar on a pale track of its own hue */
 .meter{display:block;height:6px;max-width:14rem;margin:6px 0 4px;border-radius:3px;overflow:hidden;background:color-mix(in srgb,var(--s1) 16%,var(--plate))}
@@ -374,6 +382,8 @@ try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){session
  * Reading a chart's days (chart.ts dayChart), the page's only script: a tap on a column, a finger sliding across, the
  * pointer over it or the arrow keys put that day's values in the chart's readout; tapping the same column again, Escape
  * or the pointer leaving put the period's totals back, and a touch that turns into a scroll leaves the readout as it was. Without it the readout keeps the totals and the table has every day.
+ * A row's small columns (chart.ts spark, `data-spark`) the same way, their day and value shown beside them, one at a
+ * time on the page; a tap on them stays on the page instead of following the row's link.
  */
 const CHART_JS = `(()=>{document.documentElement.classList.add('js');let first=true
 for(const p of document.querySelectorAll('[data-plot]')){const out=p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=[when.textContent,...bs.map(b=>b.textContent)]
@@ -388,12 +398,23 @@ area.addEventListener('pointercancel',()=>pick(was))
 area.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
 area.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
 p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight'?(on<0?0:Math.min(l,on+1)):k==='ArrowLeft'?(on<0?l:Math.max(0,on-1)):k==='Home'?0:k==='End'?l:k==='Escape'?-1:null
-if(i===null)return;e.preventDefault();pick(i)})}})()`
+if(i===null)return;e.preventDefault();pick(i)})}
+let cur=null
+for(const s of document.querySelectorAll('[data-spark]')){const svg=s.querySelector('svg'),out=s.querySelector('.so'),d=s.dataset.d.split('|'),v=s.dataset.v.split('|')
+let on=-1,down=-1,touch=false
+const pick=i=>{svg.querySelector('.on')?.classList.remove('on');on=i;s.classList.toggle('sel',i>=0);if(i<0)return
+if(cur&&cur!==s)cur.dispatchEvent(new Event('unpick'));cur=s;out.textContent=d[i]+': '+v[i];svg.querySelector('[data-i="'+i+'"]')?.classList.add('on')}
+s.addEventListener('unpick',()=>pick(-1))
+const at=e=>{const r=svg.getBoundingClientRect();return Math.max(0,Math.min(d.length-1,Math.floor((e.clientX-r.left)/r.width*d.length)))}
+s.addEventListener('pointerdown',e=>{touch=e.pointerType!=='mouse';if(!touch)return;const i=at(e);down=i;pick(i===on?-1:i)})
+s.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')return pick(at(e));if(e.buttons&&at(e)!==down){down=-2;pick(at(e))}})
+s.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')pick(-1)})
+s.addEventListener('click',e=>{if(touch)e.preventDefault()})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
   const nav = PAGE_NAV.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
-  const script = body.includes('data-plot') ? `<script>${CHART_JS}</script>` : ''
+  const script = /data-(?:plot|spark)\b/.test(body) ? `<script>${CHART_JS}</script>` : ''
   return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }
 

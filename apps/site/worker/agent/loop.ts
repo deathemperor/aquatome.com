@@ -48,6 +48,8 @@ export type AgentRun<Step> = {
   steps: Step[]
   /** The answer was sent back with more to read (`recheck`). */
   rechecked?: boolean
+  /** Every message sent, the first one included (the last answer isn't in it: it is `message`). */
+  history: Anthropic.MessageParam[]
 }
 export type AgentInput<Step> = {
   send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
@@ -57,6 +59,8 @@ export type AgentInput<Step> = {
   first: Anthropic.MessageParam
   schema: Record<string, unknown>
   effort: 'low' | 'medium' | 'high'
+  /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */
+  thinking?: Anthropic.ThinkingConfigParam
   maxTokens: number
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
@@ -86,7 +90,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   const byName = new Map(a.tools.map(t => [t.name, t]))
   const tools = a.tools.map(definition)
   const history: Anthropic.MessageParam[] = [a.first]
-  const run: AgentRun<Step> = { stopped: 'answer', calls: 0, tools: 0, photos: 0, spent: { input: 0, cacheRead: 0, cacheWrite: 0, output: 0 }, steps: [] }
+  const run: AgentRun<Step> = { stopped: 'answer', calls: 0, tools: 0, photos: 0, spent: { input: 0, cacheRead: 0, cacheWrite: 0, output: 0 }, steps: [], history }
   /** The next call's input, as guessed after the last one (0 before the first). */
   let next = 0
   let marks = marksIn(a.first)
@@ -106,6 +110,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         system: a.system,
         tools,
         tool_choice: forced ? { type: 'none' } : { type: 'auto' },
+        ...(a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort: a.effort, format: { type: 'json_schema', schema: a.schema } },
         messages: [...history],
       }, { timeoutMs: Math.min(left, lim.callMs), call: run.calls })

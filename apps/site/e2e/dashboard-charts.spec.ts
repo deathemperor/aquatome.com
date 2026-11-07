@@ -1,10 +1,10 @@
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
 import { contentPage } from '../worker/admin/content-page'
-import { accountsPage, photosPage } from '../worker/admin/pages'
+import { accountsPage, overviewPage, photosPage } from '../worker/admin/pages'
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
-import { LOW_CONTENT } from '../worker/test/owner-sample'
+import { LOW_CONTENT, OVERVIEW } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -53,6 +53,40 @@ test('the scoreboard reads a week off its chart, and fits a 320 px screen', asyn
     await page.setViewportSize({ width, height: 800 })
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `${width} px`).toBeLessThanOrEqual(0)
   }
+  expect(errors).toEqual([])
+})
+
+test('a tap on any small column, on the overview and the scoreboard, shows its day and value and stays on the page', async ({ page, errors, isMobile }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  // The owner (2026-11-07): a tap on a bar gave no number. The overview's columns sat inside their row's link, and
+  // neither page's small columns said their values.
+  await serve(page, '/_ab/', () => overviewPage(OVERVIEW))
+  await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
+  for (const [path, least] of [['/_ab/', 5], ['/_ab/thanh-cong/', 4]] as const) {
+    await page.goto(path)
+    const sparks = await page.locator('[data-spark]').all()
+    expect(sparks.length, path).toBeGreaterThanOrEqual(least)
+    for (const s of sparks) {
+      const days = (await s.getAttribute('data-d'))!.split('|')
+      const values = (await s.getAttribute('data-v'))!.split('|')
+      const i = days.length - 2
+      await s.scrollIntoViewIfNeeded()
+      const box = (await s.locator('svg').boundingBox())!
+      const [x, y] = [box.x + (box.width * (i + 0.5)) / days.length, box.y + box.height / 2]
+      if (isMobile) await page.touchscreen.tap(x, y)
+      else await page.mouse.move(x, y)
+      await expect(s.locator('.so')).toBeVisible()
+      await expect(s.locator('.so')).toHaveText(`${days[i]}: ${values[i]}`)
+      expect(new URL(page.url()).pathname).toBe(path)
+    }
+  }
+  // The readers' row, against the sample: 02/11, the day before yesterday, had 21 readers.
+  await page.goto('/_ab/')
+  const readers = page.locator('.areas li').filter({ hasText: 'Người đọc' }).locator('[data-spark]')
+  const box = (await readers.locator('svg').boundingBox())!
+  if (isMobile) await page.touchscreen.tap(box.x + box.width * (28.5 / 30), box.y + box.height / 2)
+  else await page.mouse.move(box.x + box.width * (28.5 / 30), box.y + box.height / 2)
+  await expect(readers.locator('.so')).toHaveText('02/11: 21')
   expect(errors).toEqual([])
 })
 

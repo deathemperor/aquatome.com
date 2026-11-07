@@ -5,7 +5,7 @@ import { creditPhoto } from './photo-credits'
 /**
  * A guide card made in the browser, as GuideCard.astro renders it: a copy of the list's template card (GuideCard
  * `template`), filled in from the guide's item in the list's data file (lib/list-data.ts), its photo credited in the
- * footer; a video's length and label too. e2e/guide-list.spec.ts and guide-pages.spec.ts check the two come out the same.
+ * footer; a video's length too. e2e/guide-list.spec.ts and guide-pages.spec.ts check the two come out the same.
  */
 export function buildGuideCard(template: HTMLTemplateElement, i: GuideListItem): HTMLElement {
   const card = template.content.firstElementChild!.cloneNode(true) as HTMLElement
@@ -18,8 +18,6 @@ export function buildGuideCard(template: HTMLTemplateElement, i: GuideListItem):
   } else $('img').remove()
   if (i.video) {
     $('.dur').textContent = `▶ ${i.video.dur}`
-    if (i.video.cover) $('.cover').textContent = i.video.cover
-    else card.querySelector('.cover')?.remove()
   }
   $('.kind').textContent = i.label
   $('h3').textContent = i.name
