@@ -16,6 +16,17 @@ test('the recorded answers in protocols/ a fake server replays follow the chat c
   for (const f of recorded) expect(api.info.description, f).toContain(`protocols/${f}`)
 })
 
+test('the recorded list holds what the app\'s flows need: a chain, a species page\'s row still open and one that has ended, newest first', () => {
+  type Row = { conversations: { id: string; from?: string; last: string; open: boolean; continues?: string }[] }
+  const { rows } = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../../protocols/chat-conversations.json', import.meta.url).href), 'utf8')) as { body: { rows: Row[] } }).body
+  const lastOf = (r: Row) => r.conversations.at(-1)!
+  expect(rows.filter(r => r.conversations[0]!.from === 'species').map(r => lastOf(r).open).sort()).toEqual([false, true])
+  const chain = rows.find(r => r.conversations.length > 1)!.conversations
+  expect(chain[1]!.continues).toBe(chain[0]!.id)
+  const lasts = rows.map(r => lastOf(r).last)
+  expect(lasts).toEqual([...lasts].sort().reverse())
+})
+
 test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then the text, then the blocks; done holds the same text, blocks and steps', () => {
   for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse', 'chat-stream-cancelled.sse']) {
     expect(streamMisfits(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8'), sse), f).toEqual([])
