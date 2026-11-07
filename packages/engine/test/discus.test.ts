@@ -7,6 +7,7 @@ import type { SpeciesEntity, Translation } from '@aq/schema'
 import { dropFacePhotos } from '../src/faces'
 import { localizeSpecies } from '../src/localize'
 import { mergeSpecies } from '../src/merge'
+import { subjectPrompt, type PhotoVerdict } from '../src/photo-check'
 import type { ProcessedPage } from '../src/process'
 
 // The owner's naming of the two discus species (2026-11-07), in the real content/ and engine-state/: Symphysodon
@@ -76,4 +77,18 @@ test("the red discus photo stays off Heckel's discus page: brought back by a sou
   const r = await dropFacePhotos(content, join(content, 'faces.json'), { get: async () => new Uint8Array(), detect: async files => files.map(() => 0) }, join(ROOT, 'engine-state/_photo-rejected.json'))
   expect(r.removed).toEqual([`species/${HECKEL}/entity.json: ${RED}`])
   expect((await read<SpeciesEntity>(file)).photos.map(p => p.url)).not.toContain(RED)
+})
+
+test("Heckel's discus never takes a bred discus: the photo check tells the model so, and the bred forms its gallery held stay off it", async () => {
+  // The model was told a species' colour forms count as it, and Commons files many bred discus as S. discus.
+  expect(subjectPrompt({ id: HECKEL, kind: 'species', sci: 'Symphysodon discus', names: [] })).toContain('is Symphysodon aequifasciatus, so "other"')
+  expect(subjectPrompt({ id: AEQ, kind: 'species', sci: 'Symphysodon aequifasciatus', names: [] })).toContain('its colour forms, sexes and young count as it')
+  const cache = await read<Record<string, Record<string, PhotoVerdict>>>(ROOT, 'engine-state/_photo-subjects.json')
+  const gallery = await read<{ photos: { url: string }[] }>(ROOT, 'content/gallery', `${HECKEL}.json`)
+  for (const p of gallery.photos) expect(cache[p.url]?.[HECKEL]?.ok, p.url).toBe('yes')
+  // The 22 it showed, looked at by eye: "other" here, with the check's current fields so no run judges them again (the
+  // photo check takes an "other" photo off its page each cycle); the shop discus's own verdicts are untouched.
+  const bred = Object.values(cache).filter(v => v[HECKEL]?.note.startsWith('captive-bred colour form'))
+  expect(bred).toHaveLength(22)
+  for (const v of bred) expect(v[HECKEL]).toMatchObject({ ok: 'other', logo: false })
 })
