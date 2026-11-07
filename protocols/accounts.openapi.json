@@ -651,7 +651,8 @@
                     "enum": [
                       "vi",
                       "id",
-                      "th"
+                      "th",
+                      "ms"
                     ],
                     "default": "vi"
                   },
@@ -872,7 +873,8 @@
               "enum": [
                 "vi",
                 "id",
-                "th"
+                "th",
+                "ms"
               ],
               "default": "vi"
             },
