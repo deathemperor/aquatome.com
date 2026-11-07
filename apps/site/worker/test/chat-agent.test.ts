@@ -382,7 +382,10 @@ test('a guide held out of the chat (a video guide being checked again) is never 
   expect(await h.held(algae)).toBe(true)
   expect(await h.held('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBe(false)
   // Not by its name, nor by a heading only it has (CO2), nor read, nor shown as a section.
-  const found = async (query: string) => JSON.parse((await run('search_handbook', { query, kind: null }, h)).out as string).map((x: { path: string }) => x.path)
+  const found = async (query: string) => {
+    const out = (await run('search_handbook', { query, kind: null }, h)).out as string
+    return out.startsWith('No page') ? [] : JSON.parse(out).map((x: { path: string }) => x.path)
+  }
   expect(await found('hạn chế rêu hại')).not.toContain(algae)
   expect((await run('search_handbook', { query: 'CO2', kind: null }, h)).out).toMatch(/^No page/)
   await expect(run('read_page', { path: algae, heading: null }, h)).rejects.toThrow(/held out of the chat/)
