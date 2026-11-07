@@ -311,9 +311,6 @@ struct OwnerChart: View {
   /// The day a tap, or a finger dragged across, picked: its column marked and its values read out under the chart, as
   /// the site's charts do (#510). nil: the last day.
   @State private var picked: Int?
-  /// The drag under way, by where it began: whether it went across (decided once, at its first 6 pt, before the page
-  /// starts scrolling and carries the chart with the finger).
-  @State private var across: (from: CGPoint, yes: Bool)?
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
@@ -329,18 +326,9 @@ struct OwnerChart: View {
             Text(verbatim: Owner.number(low, unit: chart.unit))
           }
           .font(.caption2).foregroundStyle(.secondary).monospacedDigit()
-          GeometryReader { g in
-            Canvas { ctx, size in draw(ctx, size, low, high) }
-              .contentShape(Rectangle())
-              .gesture(SpatialTapGesture().onEnded { picked = column(at: $0.location.x, of: g.size.width) })
-              // Alongside the page's scroll: a finger moving across reads each column it passes.
-              .simultaneousGesture(DragGesture(minimumDistance: 6).onChanged { d in
-                if across?.from != d.startLocation { across = (d.startLocation, abs(d.translation.width) > abs(d.translation.height)) }
-                guard across?.yes == true else { return }
-                picked = column(at: d.location.x, of: g.size.width)
-              })
-          }
-          .accessibilityElement()
+          Canvas { ctx, size in draw(ctx, size, low, high) }
+            .overlay(ChartTouch { picked = column(at: $0) })
+            .accessibilityElement()
           .accessibilityLabel(Text(verbatim: chart.title))
           .accessibilityValue(Text(verbatim: day(shown) + ". " + readout))
           // VoiceOver: swiping up or down reads the next or the previous day.
@@ -377,10 +365,10 @@ struct OwnerChart: View {
   /// The day read out: the one picked, else the last.
   private var shown: Int { min(picked ?? chart.days.count - 1, max(chart.days.count - 1, 0)) }
 
-  /// The column under a finger at `x` across a chart `width` wide.
-  private func column(at x: CGFloat, of width: CGFloat) -> Int {
+  /// The column under a finger `across` the chart (0…1).
+  private func column(at across: CGFloat) -> Int {
     let n = chart.days.count
-    return min(max(Int(x / max(width, 1) * CGFloat(n)), 0), max(n - 1, 0))
+    return min(max(Int(across * CGFloat(n)), 0), max(n - 1, 0))
   }
 
   /// A day's values, as the site's readout gives them: the day, then each series' value ("—": not recorded), the
@@ -457,6 +445,41 @@ struct OwnerChart: View {
   static let rust = Color(light: 0xa6552d, dark: 0xcb7a5b)
   static let mute = Color(light: 0xa19c8e, dark: 0x5d7a75)
   static let whole = Color(light: 0xd9e2d5, dark: 0x244a45)
+}
+
+/// A chart's taps and sideways drags, as UIKit's recognizers take them, reported as how far across (0…1) the finger is.
+/// A drag that starts up or down fails at once and the page scrolls, as anywhere else: a SwiftUI drag on a scroll
+/// view's content keeps it from scrolling, even one alongside it (the flow checks both).
+private struct ChartTouch: UIViewRepresentable {
+  let touched: (CGFloat) -> Void
+
+  func makeUIView(context: Context) -> UIView {
+    let v = UIView()
+    v.backgroundColor = .clear
+    v.isAccessibilityElement = false
+    v.addGestureRecognizer(UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.touch(_:))))
+    let pan = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.touch(_:)))
+    pan.delegate = context.coordinator
+    v.addGestureRecognizer(pan)
+    return v
+  }
+  func updateUIView(_ v: UIView, context: Context) { context.coordinator.touched = touched }
+  func makeCoordinator() -> Coordinator { Coordinator(touched) }
+
+  @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
+    var touched: (CGFloat) -> Void
+    init(_ touched: @escaping (CGFloat) -> Void) { self.touched = touched }
+    @objc func touch(_ g: UIGestureRecognizer) {
+      guard let v = g.view, v.bounds.width > 0 else { return }
+      touched(min(max(g.location(in: v).x / v.bounds.width, 0), 1))
+    }
+    // Only a sideways drag is the chart's.
+    func gestureRecognizerShouldBegin(_ g: UIGestureRecognizer) -> Bool {
+      guard let pan = g as? UIPanGestureRecognizer else { return true }
+      let v = pan.velocity(in: pan.view)
+      return abs(v.x) > abs(v.y)
+    }
+  }
 }
 
 private extension Color {
