@@ -37,7 +37,7 @@ test('the owner sends a report in a few taps: words, a screenshot of what\'s on 
   await expect(sheet).toBeVisible()
   await expect(sheet.locator('textarea')).toBeFocused() // the keyboard, with its dictation key, comes up with the tap
   await sheet.locator('textarea').fill('Ảnh bị lệch')
-  await expect(sheet.locator('[data-owner-report-shot]')).toHaveText('Đã chụp màn hình', { timeout: 30_000 })
+  await expect(sheet.locator('[data-owner-report-shot]')).toContainText('vẽ lại', { timeout: 30_000 })
   await expect(sheet.locator('img')).toBeVisible()
   await sheet.getByRole('button', { name: 'Gửi' }).click()
   await expect(sheet).toHaveCount(0)
@@ -53,6 +53,7 @@ test('the owner sends a report in a few taps: words, a screenshot of what\'s on 
   expect(['light', 'dark']).toContain(where.theme)
   expect(where.textSize).toMatch(/^\d+%$/)
   expect(where.viewport).toMatch(/^\d+x\d+@/)
+  expect(where.picture).toBe('drawn')
   expect(where.device!.length).toBeGreaterThan(0)
   expect(errors).toEqual([])
 })
@@ -84,13 +85,19 @@ test('a picture they pick replaces the one taken, and neither the bar nor the sh
   await page.goto(pageOf())
   await page.locator('[data-owner-report-open]').click()
   const sheet = page.locator('[data-owner-report]')
-  await expect(sheet.locator('[data-owner-report-shot]')).toHaveText('Đã chụp màn hình', { timeout: 30_000 })
+  await expect(sheet.locator('[data-owner-report-shot]')).toContainText('vẽ lại', { timeout: 30_000 })
   const taken = await sheet.locator('img').getAttribute('src')
   // A 1×1 PNG, as the photo picker hands one over.
   const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64')
   await sheet.locator('input[type=file]').setInputFiles({ name: 'mine.png', mimeType: 'image/png', buffer: png })
   await expect(sheet.locator('[data-owner-report-shot]')).toHaveText('Ảnh bạn chọn')
   expect(await sheet.locator('img').getAttribute('src')).not.toBe(taken)
+  // What's sent says it's theirs, not a drawing.
+  const sent: string[] = []
+  await page.route(url => url.pathname === '/api/feedback', route => { sent.push(route.request().postDataBuffer()?.toString('latin1') ?? ''); return route.fulfill({ status: 503, json: { error: 'x' } }) })
+  await sheet.getByRole('button', { name: 'Gửi' }).click()
+  await expect(sheet.getByRole('status')).toContainText('vẫn còn đây')
+  expect(sent[0]).toContain('"picture":"picked"')
   await sheet.getByRole('button', { name: 'Đóng' }).click()
   await expect(sheet).toHaveCount(0)
   // A second report opens fresh.

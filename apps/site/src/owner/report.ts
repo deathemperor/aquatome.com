@@ -58,6 +58,8 @@ export function openReport() {
   let image: Blob | null = null
   let capturing: Promise<void> | null = null
   let picked = false
+  /** How the picture came, for the report: a drawing can differ from the screen, a screenshot they picked can't. */
+  let picture: { picture: 'drawn' | 'picked'; notDrawn?: string } | null = null
 
   const sheet = el('dialog', 'margin:12px auto auto;width:calc(100vw - 24px);max-width:480px;box-sizing:border-box;padding:14px;border:0;border-radius:14px;background:#fff;color:#1e2a25;font:15px/1.4 system-ui,sans-serif;box-shadow:0 8px 40px rgba(0,0,0,.4)')
   sheet.setAttribute('data-owner-report', '')
@@ -73,7 +75,7 @@ export function openReport() {
   const side = el('div', 'flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start')
   const shotNote = el('div', 'font-size:13px;color:#59645e', 'Đang chụp màn hình…')
   shotNote.setAttribute('data-owner-report-shot', '')
-  const pick = el('label', `${BUTTON};display:inline-flex;align-items:center;font-weight:500;font-size:14px`, 'Chọn ảnh khác')
+  const pick = el('label', `${BUTTON};display:inline-flex;align-items:center;font-weight:500;font-size:14px`, 'Chọn ảnh vừa chụp')
   const file = el('input', 'position:absolute;opacity:0;width:1px;height:1px')
   file.type = 'file'
   file.accept = 'image/*'
@@ -114,6 +116,8 @@ export function openReport() {
     picked = true
     try {
       show(await asJpeg(blob), 'Ảnh bạn chọn')
+      picture = { picture: 'picked' }
+      shotNote.style.color = ''
       note.textContent = ''
     } catch {
       note.textContent = 'Không đọc được ảnh này. Chọn ảnh khác nhé.'
@@ -129,10 +133,14 @@ export function openReport() {
   capturing = Promise.race([
     import('./capture').then(m => m.captureViewport()),
     new Promise<null>(ok => setTimeout(() => ok(null), CAPTURE_LIMIT_MS)),
-  ]).then(blob => {
+  ]).then(drawn => {
     if (picked) return
-    if (blob) show(blob, 'Đã chụp màn hình')
-    else shotNote.textContent = failedShot
+    if (!drawn) { shotNote.textContent = failedShot; return }
+    picture = { picture: 'drawn', ...(drawn.notDrawn ? { notDrawn: String(drawn.notDrawn) } : {}) }
+    show(drawn.blob, drawn.notDrawn
+      ? `Trang vẽ lại thiếu ${drawn.notDrawn} chỗ, đã đánh dấu NOT DRAWN. Nên chọn ảnh vừa chụp.`
+      : 'Trang tự vẽ lại, có thể khác màn hình đôi chút.')
+    if (drawn.notDrawn) shotNote.style.color = '#a3221b'
   }).catch(() => { if (!picked) shotNote.textContent = failedShot })
 
   cancel.onclick = close
@@ -153,7 +161,7 @@ export function openReport() {
     }
     send.textContent = 'Đang gửi…'
     const form = new FormData()
-    form.set('report', JSON.stringify({ words: words.value, where: at }))
+    form.set('report', JSON.stringify({ words: words.value, where: { ...at, ...(image ? picture : null) } }))
     if (image) form.set('image', image, 'screenshot.jpg')
     let status = 0
     let waiting = 1

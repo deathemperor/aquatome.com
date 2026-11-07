@@ -43,11 +43,13 @@ const FIELDS: Record<string, RegExp> = {
   textSize: /^[A-Za-z0-9 _.%-]{1,30}$/,
   device: /^[A-Za-z0-9 _.,:;()/+@-]{1,160}$/,
   viewport: /^[0-9]{2,5}x[0-9]{2,5}(@[0-9.]{1,4}x)?$/,
+  notDrawn: /^[0-9]{1,3}$/,
 }
 const CHOICES: Record<string, readonly string[]> = {
   source: ['web', 'app'],
   lang: LANGS,
   theme: ['light', 'dark'],
+  picture: ['drawn', 'picked', 'screen'],
 }
 
 /** A query's part that can't hold a sentence: a short word for a short word, as a filter or a one-word search has. */
