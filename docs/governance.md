@@ -904,7 +904,9 @@ The layers above still check the result.
   - The gate (`pnpm engine gate`, last in a cycle) reads the pages the cycle changed: a new page that fails is held
     (`held` in its language file, which the build leaves out), a live page whose new text fails a check its old text
     passed gets its committed text back, a page built on a shop abroad's kit is held, and a held page that changes and
-    passes is let out. With the accounts out, a new page waits held (`gate.test.ts`).
+    passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
+    its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
+    (`gate.test.ts`).
   - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
     product works like that nobody is able to check."
 
