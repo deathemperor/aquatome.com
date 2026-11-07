@@ -34,7 +34,10 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
-        if (!vi.bodyFixed && (match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body }] })
+        // A translated guide's English article is kept (sources/<source>/<slug>.md): the rewrite is checked against it, as a
+        // species page's is against its sections, so a recast can't drift from what the article says.
+        const en = e.source && e.source !== 'youtube' ? await readFile(join(dirname(contentRoot), 'sources', e.source, `${slug.slice(e.source.length + 1)}.md`), 'utf8').then(t => t.replace(/^---\n[\s\S]*?\n---\n/, '').trim()).catch(() => '') : ''
+        if (!vi.bodyFixed && (match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body, ...(en ? { en } : {}) }] })
         const lines = !match ? [] : [
           ...(vi.summary ?? []).map((s, i) => ({ id: `summary:${i}`, vi: s })),
           ...(vi.faq ?? []).flatMap((f, i) => [{ id: `faq:${i}:q`, vi: f.q }, { id: `faq:${i}:a`, vi: f.a }]),
