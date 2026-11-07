@@ -591,13 +591,14 @@ describe('video pages', () => {
     expect(idx.querySelector('a[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
     expect(idx.querySelector('.vid a[href="/video/"]')).not.toBeNull()
   })
-  test('single videos: grouped by channel on /video/, a channel page, a breadcrumb to it; no caption promise when transcribed', () => {
+  test('single videos: grouped by channel on /video/, a channel page; the guide\'s path names no channel; no caption promise when transcribed', () => {
     const idx = page('/video/').dom
     expect(idx.querySelector('.rows a[href="/video/kenh/green-aqua/"] h3')?.text).toBe('Video lẻ của Green Aqua')
     const ch = page('/video/kenh/green-aqua/').dom
     expect(ch.querySelector('.grid a[href="/huong-dan/bon-phan-cho-cay-thuy-sinh/"]')).not.toBeNull()
     const g = page('/huong-dan/bon-phan-cho-cay-thuy-sinh/').dom
-    expect(g.querySelector('.crumb a[href="/video/kenh/green-aqua/"]')).not.toBeNull()
+    // The owner's decision (2026-11-07): a page never names a channel in its path; the source list credits it.
+    expect(g.querySelector('.crumb')?.text.trim()).toBe('Video')
     expect(g.querySelector('.facade .cc')).toBeNull()
     expect(page('/video/kenh/mj-aquascaping/').dom.querySelector('.series a[href="/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
   })

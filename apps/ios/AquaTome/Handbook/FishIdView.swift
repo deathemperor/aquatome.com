@@ -48,7 +48,8 @@ struct FishIdView: View {
         Section {
           Text("Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.")
             .font(.footnote).foregroundStyle(.secondary)
-          Button("Chính sách bảo mật") { onSite = URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca")) }
+          // In the browser, as the site's pages about itself open (PageRoute): a screen in the app would be left blank.
+          Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca"))!)
             .font(.footnote)
         }
         Section("Chụp sao cho dễ nhận") {
