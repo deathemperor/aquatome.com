@@ -82,11 +82,16 @@ million words, the forum 129 and the videos 155, while the videos say "rêu" 1,7
 algae, spirulina and algae in the wild, so no list entry can tell the two apart.
 
 Names and units the translator's prompt (process.md) now gives, from the editors' third and fourth rounds, each
-checked here: the Siamese algae eater is "cá bút chì" (15 in the forum, 41 in the videos; the site had "cá bống đá
-Xiêm", "cá rạn Xiêm"); hillstream loaches "cá tỳ bà bướm" (12.5 in the forum, against 0.7 for "cá bám đá"); plecos
-"cá lau kiếng" or "cá tỳ bà"; betta "cá xiêm" or "cá chọi" (99 and 119 in the forum); crayfish "tôm hùm đất", since
-"tôm càng" is Macrobrachium. A tank of 5 gallons or more rounds to the nearest 5 litres: the site wrote "38 lít" 218
-times and "19 lít" 85, which no reference writes, where hobbyists say 40 and 20.
+checked here: the white cloud is "cá kim tơ", the name the owner locked; hillstream loaches "cá tỳ bà bướm" (12.5 in the
+forum, against 0.7 for "cá bám đá", the site's page names) or "cá bám đá"; plecos "cá lau kiếng" or "cá tỳ bà"; betta
+"cá xiêm" or "cá chọi" (99 and 119 in the forum); crayfish "tôm hùm đất", since "tôm càng" is Macrobrachium. A tank of 5
+gallons or more rounds to the nearest 5 litres in the prose: the site wrote "38 lít" 218 times and "19 lít" 85, which no
+reference writes, where hobbyists say 40 and 20. Data cards and the tank-volume tool keep their exact figures.
+
+Hobbyists call the Siamese algae eater "cá bút chì" (15 in the forum, 41 in the videos, all of them the algae eater),
+while the site names its Nannostomus pencilfish "Cá bút chì …". The style guide writes it "cá bút chì" with "SAE" the
+first time; the translator's name table leaves it out, so no page is renamed by it. Which fish keeps the name is for
+the names step.
 
 Left out on purpose:
 - Topic words the references don't cover (lưu vực, mẫu chuẩn, quần thể, thông số nước): a species profile needs them.
