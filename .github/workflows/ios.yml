@@ -67,6 +67,10 @@ jobs:
         env:
           DRAFT: ${{ github.event.pull_request.draft }}
           FULL: ${{ contains(github.event.pull_request.labels.*.name, 'ios-full') }}
+          # The own Mac takes this run (step `where`'s rule): its full run puts nothing beside the light flows.
+          LOCAL: >-
+            ${{ vars.IOS_LOCAL_RUNNER == 'on' && github.ref == 'refs/heads/main' &&
+            contains(fromJSON('["push", "schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           python3 apps/ios/scripts/flows-to-run.py --test
           if [ "$GITHUB_EVENT_NAME" = pull_request ] && [ "$DRAFT" = true ]; then
@@ -74,7 +78,8 @@ jobs:
             echo "::notice title=Draft::the iOS jobs run once this pull request is marked ready"
           elif [ "$GITHUB_EVENT_NAME" != pull_request ] || [ "$FULL" = true ]; then
             echo ready=true | tee -a "$GITHUB_OUTPUT"
-            python3 apps/ios/scripts/flows-to-run.py --full | tee -a "$GITHUB_OUTPUT"
+            if [ "$LOCAL" = true ]; then own=--own-mac; else own=; fi
+            python3 apps/ios/scripts/flows-to-run.py --full $own | tee -a "$GITHUB_OUTPUT"
           else
             echo ready=true | tee -a "$GITHUB_OUTPUT"
             git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
@@ -98,7 +103,8 @@ jobs:
       # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
       # There, jobs `app` and `handbook` run their classes on three copies of the runner's simulator at once (`parallel`):
       # Xcode hands each copy a class at a time. Three, not more: the Mac is also someone's working machine. GitHub's
-      # Macs (three cores) keep one. Job `lights` is one class, so it keeps one too.
+      # Macs (three cores) keep one. Job `lights` keeps one too: there it runs the light flows alone (flows-to-run.py
+      # `--own-mac`); on GitHub's Macs a full run puts other classes beside them (WITH_LIGHTS).
       - id: where
         env:
           LOCAL: >-
@@ -320,7 +326,10 @@ jobs:
   # The light flows on the simulator's fake light, which answers like the real one (with its pauses, so each flow takes
   # a minute or more): in two halves, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
   # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315). On
-  # a pull request, both halves run only when it edits the light flows' file.
+  # a pull request, both halves run only when it edits the light flows' file. In a full run on GitHub's Macs, other
+  # classes run beside each half (WITH_LIGHTS in flows-to-run.py): on 2026-11-07 the lights' halves took 21 and 25
+  # minutes there while `handbook (2)` stopped at its hour, so the six jobs now hold about the same, under 45 minutes
+  # each. On the own Mac, which runs `app` and `handbook` on three simulators, the light flows run alone.
   lights:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: light flows"
