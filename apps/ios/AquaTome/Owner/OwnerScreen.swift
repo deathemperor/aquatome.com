@@ -26,7 +26,7 @@ struct OwnerScreen: View {
     let owner = account.owner
     let shown = owner.isOwner == true && account.user != nil
     let draw = OwnerDraw(working: working, run: run, send: send, open: { at = $0 }, item: { handbook.item(at: $0) ?? handbook.item(at: "/vi" + $0) },
-                         site: owner.page)
+                         site: owner.page, tz: (key.isEmpty ? owner.dashboard?.tz : section?.tz) ?? "Asia/Ho_Chi_Minh")
     let blocks = !shown ? nil : key.isEmpty ? overview(owner.dashboard) : section.map { $0.blocks.map { ($0, "") } }
     ScrollViewReader { proxy in
       ScrollView {

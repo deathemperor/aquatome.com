@@ -62,6 +62,13 @@
     // Fish ID as an agent (worker/fishid/agent.ts): on since it passed the design's rule on the leak-checked 200 photos
     // (docs/review/fish-id-accuracy.md): top-1 53.5% → 62.5%, median 9.1 s, $30.87 per 1,000. "0" or removed: today's call.
     "FISH_ID_AGENT": "1",
+    // The chat (worker/chat/api.ts, protocols/chat.openapi.json): off until the privacy page says how its conversations
+    // are kept. "1": on. Its conversations go to UPLOADS under chat-conv/<account>/ and its retries' answers under
+    // chat-turn/<account>/, deleted with the account (accounts/users.ts): conversations kept with no time limit (no
+    // lifecycle rule), retries' answers swept within a day by the daily cron (chat/store.ts).
+    "CHAT": "0",
+    // The chat's model (the owner's choice, from docs/review/chat-eval.md); removed, the Worker's default, Opus 5.5.
+    "CHAT_MODEL": "claude-haiku-5-5",
     // Cloudflare Access on dashboard.aquatome.com (worker/access.ts): the team domain (<team>.cloudflareaccess.com) and the
     // Access app's audience tag. While either is empty, that host refuses everything and /_ab/ here is still the dashboard.
     // Set them here, not on Cloudflare's dashboard: each deploy writes this file's vars over what's there.
