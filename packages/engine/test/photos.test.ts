@@ -25,7 +25,7 @@ test('commons photos: open licences, ≥800px, plain-text author, 960px thumbs, 
 
 test('videos are skipped without an API key', async () => {
   let called = false
-  expect(await findVideos(['Paracheirodon axelrodi'], async () => { called = true; return {} as never }, async () => { called = true; return {} }, undefined)).toEqual([])
+  expect(await findVideos(['Paracheirodon axelrodi'], async () => { called = true; return {} as never }, async () => { called = true; return {} })).toEqual([])
   expect(called).toBe(false)
 })
 
@@ -37,5 +37,7 @@ test('videos: youtube search vetted by the llm', async () => {
       { id: 'bbbbbbbbbbb', snippet: { title: 'Funny cats', description: 'y' }, contentDetails: { duration: 'PT1H' } },
     ] }
   const llm = async <T,>() => ({ keep: ['aaaaaaaaaaa'] }) as T
-  expect(await findVideos(['Paracheirodon axelrodi', 'Cardinal tetra'], llm, http, 'KEY')).toEqual([{ youtubeId: 'aaaaaaaaaaa', title: 'Cardinal tetra care', durationSec: 303, lang: 'en' }])
+  expect(await findVideos(['Paracheirodon axelrodi', 'Cardinal tetra'], llm, http, { apiKey: 'KEY' })).toEqual([{ youtubeId: 'aaaaaaaaaaa', title: 'Cardinal tetra care', durationSec: 303, lang: 'en' }])
+  // A rejected video (engine-state/_video-rejected.json) is never picked, even when the model would keep it.
+  expect(await findVideos(['Paracheirodon axelrodi'], llm, http, { apiKey: 'KEY', skip: { aaaaaaaaaaa: 'dead: a fish on a ruler' } })).toEqual([])
 })

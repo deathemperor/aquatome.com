@@ -61,7 +61,7 @@ import { englishName, unsplashCredits, unsplashPhotos, type UnsplashApi } from '
 import { breedCare, breedPhotos, localizeBreed, makeBreed } from './breeds'
 import { makeSpecies, type VideoSource } from './species-research'
 import { speciesVideos } from './species-videos'
-import { findVideos } from './videos'
+import { findVideos, readVideoRejected } from './videos'
 import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
@@ -373,8 +373,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // breeds linked to the species pages their research names, breeds' other names kept to their own.
   const titles = Number(values.titles ?? 3)
   const r = await sweep(ROOT, titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {})
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`)]) console.log(x)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`)]) console.log(x)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
@@ -619,13 +619,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
     const transcript = (await yt.transcript(id, meta.lang)) ?? (await yt.transcribe?.(id, meta.lang)) ?? ''
     videos.push({ meta, transcript })
   }
-  const r = await makeSpecies(ROOT, { research: claudeResearch, llm: claudeCli, http, now: () => new Date(), findVideos: names => findVideos(names, claudeCli, http) }, { name, videos }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
+  const r = await makeSpecies(ROOT, { research: claudeResearch, llm: claudeCli, http, now: () => new Date(), findVideos: async names => findVideos(names, claudeCli, http, { skip: await readVideoRejected(ROOT) }) }, { name, videos }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus', reuse: values.redo })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'species-videos') {
   // The species-profile channels' videos (species-videos.ts PROFILE_CHANNELS) into species and plant pages: new uploads
   // vetted by title once, then --limit profiles a run (default 3), each tried once (engine-state/_species-videos.json): a
   // new page for its species, or what it adds to its page. --only id,id: these videos now, the owner's picks.
-  const r = await speciesVideos(ROOT, { research: claudeResearch, llm: claudeCli, http, now: () => new Date(), findVideos: names => findVideos(names, claudeCli, http), yt: youtube(), find: ytFinder }, { ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}), ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.channels ? { channels: values.channels.split(',') } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  const r = await speciesVideos(ROOT, { research: claudeResearch, llm: claudeCli, http, now: () => new Date(), findVideos: async names => findVideos(names, claudeCli, http, { skip: await readVideoRejected(ROOT) }), yt: youtube(), find: ytFinder }, { ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}), ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.channels ? { channels: values.channels.split(',') } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(`species-videos: ${r.vetted} uploads vetted, ${r.done.length} done, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const l of [...r.done, ...r.skipped, ...r.failed]) console.log(l)
 } else if (cmd === 'forum') {
