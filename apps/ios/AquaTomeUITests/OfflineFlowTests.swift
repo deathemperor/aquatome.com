@@ -98,8 +98,7 @@ final class OfflineFlowTests: XCTestCase {
     app.terminate()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-pages-count", "2"]
     app.launchForFlow()
-    let fish = app.descendants(matching: .any)["all-fish"]
-    XCTAssertTrue(fish.waitForExistence(timeout: 5), "no handbook")
+    XCTAssertTrue(app.handbookShown(), "no handbook")
     XCTAssertFalse(keptRow(app).exists, "listed as kept")
     app.buttons["account-done"].tap()
     openShelf(app)
@@ -144,7 +143,7 @@ final class OfflineFlowTests: XCTestCase {
   /// the home's pick too, so the home has no "Tất cả hướng dẫn".)
   private func openGuides(_ more: String..., reset: Bool = true) -> XCUIApplication {
     let app = launch(more, reset: reset)
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "no handbook")
+    XCTAssertTrue(app.handbookShown(), "no handbook")
     openShelf(app)
     return app
   }

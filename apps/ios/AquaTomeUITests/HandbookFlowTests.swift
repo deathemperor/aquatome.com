@@ -39,8 +39,8 @@ final class HandbookFlowTests: XCTestCase {
 
   func testBrowsesEveryFishAndThePlantsByWhereTheyGo() {
     let app = launch()
-    let all = app.descendants(matching: .any)["all-fish"]
-    XCTAssertTrue(all.waitForExistence(timeout: 5))
+    let all = app.homeRow("all-fish")
+    XCTAssertTrue(all.exists)
     XCTAssertTrue(all.label.hasPrefix("Tất cả loài"), all.label)
     all.tap()
     for name in ["Cá đĩa", "Cá neon", "Cá ngựa vằn"] { XCTAssertTrue(item(app, name).waitForExistence(timeout: 5), name) }
@@ -62,8 +62,8 @@ final class HandbookFlowTests: XCTestCase {
   func testFiltersTheFishToMyTank() {
     // Bể 60 (60 cm long): the neon fits, the discus needs 120 cm, the zebra danio has no figures yet.
     let app = launch("-seed-tanks", "clash")
-    let all = app.descendants(matching: .any)["all-fish"]
-    XCTAssertTrue(all.waitForExistence(timeout: 5))
+    let all = app.homeRow("all-fish")
+    XCTAssertTrue(all.exists)
     all.tap()
     XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
     app.buttons["filter"].tap()
@@ -172,7 +172,6 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(ways.exists, "no row for the fish groups")
     XCTAssertTrue(ways.label.hasPrefix("Nhóm cá") && ways.label.contains("3"), ways.label)
     XCTAssertFalse(app.descendants(matching: .any).matching(identifier: "shelf").firstMatch.exists, "chips at the largest text")
-    XCTAssertTrue(item(app, "Cá neon").exists, "the well-known fish not as rows")
     ways.tap()
     XCTAssertTrue(app.navigationBars["Nhóm cá"].waitForExistence(timeout: 5))
     let cichlid = shelf(app, "Cichlid")
@@ -181,6 +180,8 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
     app.navigationBars.buttons.element(boundBy: 0).tap()
     app.navigationBars.buttons.element(boundBy: 0).tap()
+    // The well-known fish under the row, as rows.
+    XCTAssertTrue(app.scrolledDown(to: item(app, "Cá neon")).exists, "the well-known fish not as rows")
     let kit = item(app, "Lọc")
     repeatUntil(kit.exists && kit.isHittable, times: 30) { app.swipeUp() }
     XCTAssertTrue(kit.exists, "the kit not as rows")
@@ -569,8 +570,8 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
     app.navigationBars.buttons.element(boundBy: 0).tap()
     // The discus has no copy among them: its web page, stood in for, naming its path (no test reaches aquatome.com). A web
-    // view's first start can take a while on a slow runner.
-    item(app, "Cá đĩa").tap()
+    // view's first start can take a while on a slow runner. (The neon read is now first on the home, over the fish.)
+    app.scrolledDown(to: item(app, "Cá đĩa")).tap()
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page")
     XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-dia/"].waitForExistence(timeout: 15), "not the stand-in page")
   }

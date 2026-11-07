@@ -39,7 +39,7 @@ final class ReadingFlowTests: XCTestCase {
 
   func testListsThePagesReadLastNewestFirst() {
     let app = launch()
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "no handbook")
+    XCTAssertTrue(app.handbookShown(), "no handbook")
     XCTAssertFalse(app.staticTexts["Đọc tiếp"].exists, "something read already")
     openGuide(app)
     back(app)
@@ -62,7 +62,7 @@ final class ReadingFlowTests: XCTestCase {
     openGuide(app)
     app.terminate()
     app = launch()
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "no handbook")
+    XCTAssertTrue(app.handbookShown(), "no handbook")
     XCTAssertFalse(app.staticTexts["Đọc tiếp"].exists, "a page read before the reset")
   }
 

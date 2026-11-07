@@ -191,7 +191,12 @@ final class PageShotsFlowTests: XCTestCase {
       let close = app.buttons.matching(NSPredicate(format: "label IN {'Đóng', 'Hủy'}")).firstMatch
       XCTAssertTrue(close.waitForExistence(timeout: 5), "no way out of the search")
       close.tap()
-      XCTAssertTrue(app.descendants(matching: .any)["all-saved"].waitForExistence(timeout: 5), "nothing read and saved")
+      // Under the tools (at the largest text, screens down), then back to the top for the shots.
+      let saved = app.descendants(matching: .any)["all-saved"].firstMatch
+      XCTAssertTrue(saved.waitForExistence(timeout: 2) || app.scrolledDown(to: saved).exists, "nothing read and saved")
+      let top = app.buttons["tool-fish-id"]
+      repeatUntil(top.exists && top.isHittable, times: 8) { app.swipeDown() }
+      app.swipeDown()
     }
     capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 16)
   }
