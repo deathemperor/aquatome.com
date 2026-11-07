@@ -1,8 +1,15 @@
 import { spawn } from 'node:child_process'
-import { appendFileSync } from 'node:fs'
-import { dirname } from 'node:path'
+import { appendFileSync, mkdtempSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
 import { envFor, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
+
+// Where a call that reads no files runs: a folder of its own, empty. At its start the CLI lists the files under where it
+// runs, tools or none. From /tmp that was every checkout there, 114 listings in 7 minutes, the slowest over 2 minutes
+// (2026-11-08).
+let emptyDir: string | undefined
+const noFiles = () => (emptyDir ??= mkdtempSync(join(tmpdir(), 'aq-claude-')))
 
 /** The model call itself failed (CLI error, usage limit, bad output) — distinct from a page problem. */
 export class LlmError extends Error {}
@@ -53,7 +60,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
 }
 
 /** Headless Claude Code on the owner's subscription, lean context (no tools, settings, MCP or default system prompt). */
-export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: '/tmp', model })
+export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) => run<T>(system, prompt, schema, { tools: '', cwd: noFiles(), model })
 
 /** Same, but able to look at one image: only the Read tool, run from the image's folder. */
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
@@ -61,4 +68,4 @@ export const claudeVision = <T>({ system, prompt, schema, file, model }: { syste
 
 /** Same, able to search and read the web (WebSearch, WebFetch; never marketplace pages): product research. Slower, so a longer timeout. */
 export const claudeResearch: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
-  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: MARKETPLACE_DOMAINS.map(d => `WebFetch(domain:${d})`), cwd: '/tmp', model, timeoutMs: 25 * 60_000 })
+  run<T>(system, prompt, schema, { tools: 'WebSearch,WebFetch', deny: MARKETPLACE_DOMAINS.map(d => `WebFetch(domain:${d})`), cwd: noFiles(), model, timeoutMs: 25 * 60_000 })
