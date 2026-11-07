@@ -15,7 +15,14 @@ import { search, searchTopics } from './search'
 export type Page = { kind: PageDoc['kind']; title: string; url: string }
 export type Step = { kind: 'search'; query: string } | { kind: 'read'; page: Page } | { kind: 'tanks' } | { kind: 'mates' }
 
-/** A saved tank as the chat reads it (api.ts `tanksOf`): its size, its species by id and its entries without a page. */
+/** A light on a tank as the chat reads it: the saved schedule last written to it (times of day, ramp in minutes, levels
+ * in % in the light's channel order), or the levels last set by hand. */
+export type TankLight = { name: string; schedule?: { on: string; off: string; ramp: number; levels: number[] }; manual?: number[] }
+/**
+ * A saved tank as the chat reads it (api.ts `tanksOf`): its size, its species by id and its entries without a page, and
+ * the rest the reader saved: plants, substrate, notes, how many days since it was saved, its lights and what its plugs
+ * power (each outlet's role or label).
+ */
 export type Tank = {
   id: string
   name: string
@@ -23,19 +30,48 @@ export type Tank = {
   dims?: { l: number; w: number; h: number }
   species: { id: string; count?: number }[]
   unlisted: { name: string; kind: string; sci?: string; count?: number }[]
+  plants?: string[]
+  substrate?: string
+  notes?: string
+  days?: number
+  lights?: TankLight[]
+  power?: string[]
 }
 
-/** A tank as Claude reads it: its id, size and fish named as the handbook names them (one without a page by the reader's). */
-const told = (t: Tank, hb: Handbook) => ({
-  id: t.id,
-  name: t.name,
-  ...(t.dims ? { dims: t.dims } : {}),
-  ...(t.litres ? { litres: t.litres } : {}),
-  fish: [
-    ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? 1 })),
-    ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? 1 })),
-  ],
-})
+/** Notes are the reader's free text: a tank's are cut to this many characters (the run's input tokens are limited). */
+export const NOTES_CHARS = 1500
+const hm = (t: string) => { const [h, m] = t.split(':').map(Number); return h! * 60 + m! }
+/** A light in a line: "WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/80/80/80%". */
+const lit = (l: TankLight) => {
+  if (l.schedule) {
+    const mins = hm(l.schedule.off) - hm(l.schedule.on)
+    return `${l.name}: ${l.schedule.on}–${l.schedule.off}, ${Math.round(mins / 6) / 10} h lit, ramp ${l.schedule.ramp} min, levels ${l.schedule.levels.join('/')}%`
+  }
+  return `${l.name}: no saved schedule${l.manual ? `, last set by hand to ${l.manual.join('/')}%` : ''}`
+}
+/**
+ * A tank as Claude reads it: its id, size and fish named as the handbook names them (one without a page by the reader's),
+ * then what else the reader saved. The notes are marked as the reader's own words.
+ */
+const told = (t: Tank, hb: Handbook) => {
+  const plants = [...(t.plants ?? []).map(id => hb.byId(id)?.name ?? id), ...t.unlisted.filter(u => u.kind === 'plant').map(u => u.name)]
+  return {
+    id: t.id,
+    name: t.name,
+    ...(t.dims ? { dims: t.dims } : {}),
+    ...(t.litres ? { litres: t.litres } : {}),
+    fish: [
+      ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? 1 })),
+      ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? 1 })),
+    ],
+    ...(plants.length ? { plants } : {}),
+    ...(t.substrate ? { substrate: t.substrate } : {}),
+    ...(t.days !== undefined ? { savedDaysAgo: t.days } : {}),
+    ...(t.lights?.length ? { lights: t.lights.map(lit) } : {}),
+    ...(t.power?.length ? { plugsPower: t.power } : {}),
+    ...(t.notes ? { readerNotes: cut(t.notes, NOTES_CHARS) } : {}),
+  }
+}
 export type ToolDeps = {
   handbook: Handbook
   /** The reader's synced tanks; null when they can't be read now. */
@@ -175,7 +211,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
     },
     {
       name: 'read_tanks',
-      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size and fish with how many. Use it when the reader talks about their tank or fish they keep.',
+      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many, plants, substrate, how many days since it was saved, its lights\' schedules (hours lit, ramp, levels), what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
       input_schema: strict({}),
       step: () => ({ kind: 'tanks' }),
       run: async () => {

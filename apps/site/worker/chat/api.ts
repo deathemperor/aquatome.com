@@ -13,7 +13,7 @@ import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, ty
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey } from './store'
-import type { Step, Tank } from './tools'
+import type { Step, Tank, TankLight } from './tools'
 import { transcriptKey, type ChatRunRecord } from './transcript'
 
 /**
@@ -146,10 +146,31 @@ export function assetSource(env: Pick<ChatEnv, 'ASSETS'>, origin: string): Sourc
 }
 
 /** The account's saved tanks as the chat reads them (tools.ts `Tank`): what read_tanks tells Claude and a check is of. */
-export async function tanksOf(db: D1Database, account: string): Promise<Tank[]> {
+export async function tanksOf(db: D1Database, account: string, now = new Date()): Promise<Tank[]> {
   const store = await loadStore(db, account)
+  type Rec = {
+    id: string; name: string; dims?: { l: number; w: number; h: number }; litres?: number; substrate?: string; notes?: string; createdAt?: string
+    species?: { id: string; count?: number }[]; plants?: { id: string }[]; unlisted?: { name: string; kind: string; sci?: string; count?: number }[]
+  }
+  type Dev = {
+    tankId: string; kind: string; brand?: string; model?: string; nickname?: string
+    schedules?: { id: string; on: string; off: string; ramp: number; levels: number[] }[]; activeScheduleId?: string; manual?: { levels: number[] }
+    outlets?: { role?: string; label?: string }[]
+  }
+  const devices = store.devices.filter(d => !isTombstone(d)) as unknown as Dev[]
   return store.tanks.filter(t => !isTombstone(t)).map(t => {
-    const r = t as { id: string; name: string; dims?: { l: number; w: number; h: number }; litres?: number; species?: { id: string; count?: number }[]; unlisted?: { name: string; kind: string; sci?: string; count?: number }[] }
+    const r = t as Rec
+    const mine = devices.filter(d => d.tankId === r.id)
+    const lights: TankLight[] = mine.filter(d => d.kind === 'light').map(d => {
+      const s = d.schedules?.find(x => x.id === d.activeScheduleId) ?? (d.schedules?.length === 1 ? d.schedules[0] : undefined)
+      return {
+        name: d.nickname ?? ([d.brand, d.model].filter(Boolean).join(' ') || 'light'),
+        ...(s ? { schedule: { on: s.on, off: s.off, ramp: s.ramp, levels: s.levels } } : {}),
+        ...(d.manual ? { manual: d.manual.levels } : {}),
+      }
+    })
+    const power = mine.filter(d => d.kind === 'plug').flatMap(d => (d.outlets ?? []).flatMap(o => (o.role && o.role !== 'other' ? [o.role] : o.label ? [o.label] : [])))
+    const days = r.createdAt ? Math.floor((now.getTime() - Date.parse(r.createdAt)) / 86_400_000) : undefined
     return {
       id: r.id,
       name: r.name,
@@ -157,6 +178,12 @@ export async function tanksOf(db: D1Database, account: string): Promise<Tank[]> 
       ...(r.litres ? { litres: r.litres } : {}),
       species: (r.species ?? []).map(s => ({ id: s.id, ...(s.count ? { count: s.count } : {}) })),
       unlisted: (r.unlisted ?? []).map(u => ({ name: u.name, kind: u.kind, ...(u.sci ? { sci: u.sci } : {}), ...(u.count ? { count: u.count } : {}) })),
+      ...(r.plants?.length ? { plants: r.plants.map(p => p.id) } : {}),
+      ...(r.substrate ? { substrate: r.substrate } : {}),
+      ...(r.notes?.trim() ? { notes: r.notes.trim() } : {}),
+      ...(days !== undefined && days >= 0 ? { days } : {}),
+      ...(lights.length ? { lights } : {}),
+      ...(power.length ? { power: [...new Set(power)] } : {}),
     }
   })
 }
@@ -297,7 +324,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           }
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
-        tanks: () => tanksOf(env.DB, session.userId).catch(e => { console.error('chat tanks:', e); return null }),
+        tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
       })
       trail = out

@@ -82,6 +82,21 @@ test('read_tanks reads the reader\'s tanks with their ids, says when there are n
   expect(JSON.parse(await tool(async () => [tank]).run({}, { photosLeft: 0 }) as string)).toEqual([
     { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }] },
   ])
+  // What else the reader saved: plants (a page's by its name, one without a page by theirs), substrate, how long ago it
+  // was saved, each light's schedule in a line, what its plugs power, and the notes as their own words, cut.
+  const full: Tank = {
+    ...tank, plants: ['taxiphyllum-barbieri'], substrate: 'soil', days: 12, notes: `Thay 30% nước mỗi tuần. ${'x'.repeat(NOTES_CHARS)}`,
+    lights: [{ name: 'WRGB II', schedule: { on: '13:00', off: '21:30', ramp: 30, levels: [80, 70, 60, 50] } }, { name: 'Đèn phụ', manual: [40] }],
+    power: ['co2', 'heater'],
+  }
+  const read = JSON.parse(await tool(async () => [full]).run({}, { photosLeft: 0 }) as string)[0]
+  expect(read).toMatchObject({
+    plants: [h.byId('taxiphyllum-barbieri')?.name ?? 'taxiphyllum-barbieri', 'Rong lạ'], substrate: 'soil', savedDaysAgo: 12,
+    lights: ['WRGB II: 13:00–21:30, 8.5 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no saved schedule, last set by hand to 40%'],
+    plugsPower: ['co2', 'heater'],
+  })
+  expect(read.readerNotes.startsWith('Thay 30% nước mỗi tuần.')).toBe(true)
+  expect(read.readerNotes.length).toBe(NOTES_CHARS)
   expect(await tool(async () => []).run({}, { photosLeft: 0 })).toBe('The reader has no saved tanks.')
   await expect(tool(async () => null).run({}, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
   expect(tool(async () => []).step?.({})).toEqual({ kind: 'tanks' })
