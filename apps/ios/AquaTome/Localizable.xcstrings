@@ -385,6 +385,22 @@
         }
       }
     },
+    "%lld video": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld video"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld วิดีโอ"
+          }
+        }
+      }
+    },
     "%lld việc cần làm": {
       "localizations": {
         "id": {
@@ -1361,6 +1377,22 @@
         }
       }
     },
+    "Bể của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ของคุณ"
+          }
+        }
+      }
+    },
     "Bể của tôi": {
       "localizations": {
         "id": {
@@ -1485,6 +1517,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ที่มีตะไคร่"
+          }
+        }
+      }
+    },
+    "Bể đang nuôi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium yang dipelihara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ที่เลี้ยงอยู่"
           }
         }
       }
@@ -1629,6 +1677,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "สูง"
+          }
+        }
+      }
+    },
+    "Chia sẻ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bagikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แชร์"
           }
         }
       }
@@ -4049,6 +4113,22 @@
         }
       }
     },
+    "Giao diện mới (thử nghiệm)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tampilan baru (uji coba)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าตาใหม่ (ทดลอง)"
+          }
+        }
+      }
+    },
     "Giáng sinh": {
       "localizations": {
         "id": {
@@ -4257,6 +4337,22 @@
         }
       }
     },
+    "Gợi ý hôm nay": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rekomendasi hari ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แนะนำวันนี้"
+          }
+        }
+      }
+    },
     "Gửi bình luận": {
       "localizations": {
         "id": {
@@ -4433,6 +4529,22 @@
         }
       }
     },
+    "Hôm nay": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้"
+          }
+        }
+      }
+    },
     "Hôm nay bạn đã báo cáo nhiều lần. Hãy thử lại vào ngày mai.": {
       "localizations": {
         "id": {
@@ -4573,6 +4685,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อื่น ๆ"
+          }
+        }
+      }
+    },
+    "Khám phá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jelajahi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สำรวจ"
           }
         }
       }
@@ -5825,6 +5953,22 @@
         }
       }
     },
+    "Miền Bắc vào đông": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Musim dingin di utara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฤดูหนาวทางภาคเหนือ"
+          }
+        }
+      }
+    },
     "Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):": {
       "localizations": {
         "id": {
@@ -6145,6 +6289,22 @@
         }
       }
     },
+    "Mới trên AquaTome": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baru di AquaTome"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ใหม่บน AquaTome"
+          }
+        }
+      }
+    },
     "Mở Cài đặt": {
       "localizations": {
         "id": {
@@ -6433,6 +6593,22 @@
         }
       }
     },
+    "Nước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำ"
+          }
+        }
+      }
+    },
     "Nước thực tế (lít)": {
       "localizations": {
         "id": {
@@ -6685,6 +6861,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดินปลูกไม้น้ำ (aqua soil)"
+          }
+        }
+      }
+    },
+    "Quay lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembali"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลับ"
           }
         }
       }
@@ -7217,6 +7409,38 @@
         }
       }
     },
+    "Thêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม"
+          }
+        }
+      }
+    },
+    "Thêm %@ vào bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan %@ ke akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@ ลงตู้"
+          }
+        }
+      }
+    },
     "Thêm 2 loài trở lên để xem có nuôi chung được không.": {
       "localizations": {
         "id": {
@@ -7293,6 +7517,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มปลาหรือไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Thêm cá hoặc cây đầu tiên": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan ikan atau tanaman pertama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลาหรือพืชตัวแรก"
           }
         }
       }
@@ -7709,6 +7949,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขาว"
+          }
+        }
+      }
+    },
+    "Trời trở lạnh: vài loài quen thuộc cần sưởi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuaca mendingin: beberapa ikan populer yang perlu pemanas"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อากาศเย็นลง: ปลายอดนิยมบางชนิดที่ต้องใช้ฮีตเตอร์"
           }
         }
       }
@@ -8529,6 +8785,22 @@
         }
       }
     },
+    "Video hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอสอน"
+          }
+        }
+      }
+    },
     "Video này chỉ xem được trên YouTube.": {
       "localizations": {
         "id": {
@@ -8557,6 +8829,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วิดีโอ: %@"
+          }
+        }
+      }
+    },
+    "Việc tiếp theo": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berikutnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขั้นต่อไป"
           }
         }
       }
@@ -8721,6 +9009,22 @@
         }
       }
     },
+    "Xem": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดู"
+          }
+        }
+      }
+    },
     "Xem hồ sơ": {
       "localizations": {
         "id": {
@@ -8845,6 +9149,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูตัวอย่างทั้งวันบนโคมไฟ"
+          }
+        }
+      }
+    },
+    "Xem trang đầy đủ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat halaman lengkap"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูหน้าเต็ม"
           }
         }
       }
@@ -11325,6 +11645,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อีเมลไม่ถูกต้อง"
+          }
+        }
+      }
+    },
+    "Đọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่าน"
           }
         }
       }

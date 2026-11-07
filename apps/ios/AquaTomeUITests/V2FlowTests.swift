@@ -1,0 +1,228 @@
+import XCTest
+
+/// The app's v2 (V2Root) behind the Tài khoản sheet's switch: off by default, v1's three tabs; turned on, v2's tabs, and
+/// turned off again, v1's, with the same tanks, and Tìm with the page Khám phá or Hôm nay had open (v2's whole-page
+/// screen, which v1 has none for, cut); a link to a tank opens it in v2, and the app's home from outside is Hôm nay's top. The
+/// switch's own flow runs with UIKit's animations on (a plain `launch()`): the switch swaps the whole tab bar under the
+/// open sheet.
+final class V2FlowTests: XCTestCase {
+  private func launch(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"] + args
+    return app
+  }
+
+  func testOffByDefaultShowsV1sTabs() {
+    let app = launch()
+    app.launchForFlow()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "no Tìm tab")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].exists)
+    XCTAssertTrue(app.tabBars.buttons["Đèn"].exists)
+    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2 on by default")
+  }
+
+  func testTheSwitchTurnsV2OnAndBackKeepingTheTanks() {
+    let app = launch("-seed-tanks", "clash")
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't open")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v2 lost the tank")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.label.contains("Bể 60"), app.buttons["tank"].firstMatch.label)
+
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2's tabs still there")
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v1 lost the tank")
+  }
+
+  func testATankCardOpensTheTankInV2() {
+    let app = launch("-seed-tanks", "clash", "-v2", "YES")
+    app.launchForFlow()
+    let card = app.buttons["v2-tank-card"]
+    repeatUntil(card.exists && card.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(card.exists, "no tank card on Hôm nay")
+    card.tap()
+    XCTAssertTrue(app.navigationBars["Bể 60"].waitForExistence(timeout: 5), "the tank didn't open")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
+  }
+
+  func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
+    let app = launch()
+    app.launchForFlow()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+    flip(app)
+    app.openTab("Khám phá")
+    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    fish.tap()
+    let full = app.buttons["v2-full-page"]
+    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
+    full.tap()
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    // The fish's page, one step from Tìm's top.
+    let back = app.navigationBars.buttons.element(boundBy: 0)
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
+    back.tap()
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
+  }
+
+  func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
+    let app = launch()
+    app.launchForFlow()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+    flip(app)
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    // The sheet's button is on a tab's first screen, not on a page.
+    app.openTab("Khám phá")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    let back = app.navigationBars.buttons.element(boundBy: 0)
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
+    back.tap()
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
+  }
+
+  func testTheHomeFromOutsideIsHomNaysTop() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    follow(app, URL(string: "aquatome://")!)
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "the home link left the fish's page open")
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
+  }
+
+  func testALinkFromOutsideOpensItsPageOnKhamPha() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    XCTAssertTrue(app.staticTexts["Cá neon"].waitForExistence(timeout: 5), "not the fish the link names")
+  }
+
+  func testAFishsPageCreditsItsPhotosAndItsTankMatesOpen() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    for credit in ["Ảnh: Tác giả 1 · CC BY 2.0", "Jane Doe"] {
+      repeatUntil(app.links[credit].exists, times: 6) { app.swipeUp() }
+      XCTAssertTrue(app.links[credit].exists, "a photo without its credit: \(credit)")
+    }
+    let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
+    XCTAssertTrue(mate.exists, "no tank-mate")
+    mate.tap()
+    XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
+  }
+
+  func testAFishsPageReportsHowFarItIsRead() {
+    let app = launch("-site-telemetry", "-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    for _ in 0..<4 { app.swipeUp() }
+    // Sent when the app goes to the background.
+    XCUIDevice.shared.press(.home)
+    let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
+    let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background")
+    app.activate()
+    let received = app.descendants(matching: .any)["telemetry-received"].firstMatch
+    let sent = expectation(for: NSPredicate(format: "label CONTAINS %@", #""depth":90,"path":"/vi/ca/ca-neon/","t":"scroll""#), evaluatedWith: received)
+    XCTAssertEqual(XCTWaiter.wait(for: [sent], timeout: 10), .completed, "not sent: \(received.label)")
+  }
+
+  func testTheTabBarStaysWholeWhileScrolling() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    func whole(_ screen: String) {
+      for tab in ["Hôm nay", "Khám phá", "Bể của tôi", "Đèn"] {
+        XCTAssertTrue(app.tabBars.buttons[tab].isHittable, "\(tab) went from the tab bar on \(screen)")
+      }
+    }
+    app.swipeUp()
+    app.swipeUp()
+    whole("Hôm nay")
+    repeatUntil(fish.isHittable, times: 4) { app.swipeDown() }
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.swipeUp()
+    whole("a fish's page")
+  }
+
+  /// Under the bar, left of the home indicator, the page's own colour as at the screen's edge: no card, photo or words
+  /// showing there, or through the glass above it.
+  func testNothingShowsUnderTheTabBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    let foot = app.tabBars.buttons["Hôm nay"].frame.maxY + 10
+    let shot = XCUIScreen.main.screenshot().image
+    let scale = shot.scale
+    let cg = shot.cgImage!
+    let bitmap = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                           bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+    bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self)
+    func pixel(_ x: CGFloat) -> [Int] {
+      let at = Int(foot * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
+      return (0..<3).map { Int(bytes[at + $0]) }
+    }
+    let page = pixel(4)
+    for x in stride(from: CGFloat(24), to: 120, by: 8) {
+      let off = zip(pixel(x), page).map { abs($0 - $1) }.max()!
+      XCTAssertLessThan(off, 40, "something under the tab bar at x \(x): \(pixel(x)) on a page of \(page)")
+    }
+  }
+
+  func testAPageReadIsOnOneShelfOfKhamPha() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon"))
+    XCTAssertTrue(neon.firstMatch.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.firstMatch.tap()
+    XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.buttons["v2-back"].tap()
+    XCTAssertTrue(neon.firstMatch.waitForExistence(timeout: 5), "not back on Khám phá")
+    XCTAssertEqual(neon.count, 1, "Cá neon is on two shelves")
+  }
+
+  /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
+  private func follow(_ app: XCUIApplication, _ url: URL) {
+    XCUIDevice.shared.system.open(url)
+    let ask = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
+    if ask.waitForExistence(timeout: 2) { ask.buttons.element(boundBy: ask.buttons.count - 1).tap() }
+    XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "the app isn't in front")
+  }
+
+  /// The sheet's switch, tapped, and the sheet closed.
+  private func flip(_ app: XCUIApplication) {
+    app.openAccount()
+    let toggle = app.switches["v2-switch"]
+    repeatUntil(toggle.exists && toggle.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(toggle.exists, "no v2 switch in the Tài khoản sheet")
+    // A switch's own control, at its trailing end: a tap on the row's middle doesn't flip it.
+    toggle.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.5)).tap()
+    app.closeAccount()
+  }
+}
