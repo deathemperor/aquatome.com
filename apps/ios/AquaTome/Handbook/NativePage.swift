@@ -30,6 +30,10 @@ struct NativePage: View {
   /// A page of the site the app can't show itself (one the index leaves out, a tool set by the link): the web page, in
   /// the app.
   @State private var onSite: URL?
+  /// The page's photo grid, open where its way in opens it.
+  @State private var gridAt: PhotoGrid.Place?
+  /// Its readers' photos, as the site answered: nil until it has. Shared by the page's part and the grid.
+  @State private var readerPhotos: [Readers.Photo]?
   /// Its videos' player, one at a time (PagePlayer).
   @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
@@ -117,12 +121,30 @@ struct NativePage: View {
     .onDisappear { reading?.shown(false) }
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
+    .navigationDestination(item: $gridAt) { place in
+      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos) }
+    }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
       Button("Đóng", role: .cancel) {}
     } message: { t in
       Text(t.text)
     }
+  }
+
+  /// The page's gallery, for its grid: a page has one at most, after its name.
+  private var gallery: PhotoGrid.Gallery? {
+    var name = ""
+    for p in pieces {
+      if case let .text(s, _, .title) = p { name = String(s.characters) }
+      if case let .gallery(title, note, photos, _) = p { return PhotoGrid.Gallery(name: name, title: title, note: note, photos: photos) }
+    }
+    return nil
+  }
+
+  private var talk: PageDoc.Talk? {
+    for p in pieces { if case let .readers(t, _) = p { return t } }
+    return nil
   }
 
   /// The space above a piece. A part that heads itself (a gallery) takes a heading's; one that may show nothing (the
@@ -164,6 +186,22 @@ struct NativePage: View {
           Button { _ = open(href, nil) } label: { image }
             .buttonStyle(.plain)
             .accessibilityLabel(Text(verbatim: alt ?? String((caption + (credit ?? AttributedString())).characters)))
+        } else if hero, let gallery {
+          // The page's own photo, carrying how many it has: the whole of it opens them all.
+          Button { gridAt = .photos } label: {
+            image.overlay(alignment: .bottomTrailing) {
+              Text("\(gallery.photos.count) ảnh")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(.black.opacity(0.55), in: .capsule)
+                .padding(10)
+            }
+          }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text(verbatim: (alt ?? gallery.title) + ", ") + Text("Xem tất cả \(gallery.photos.count) ảnh"))
+          .accessibilityIdentifier("lead-photo-grid")
         } else {
           image
         }
@@ -177,7 +215,7 @@ struct NativePage: View {
     case let .cards(title, cards, good):
       CardsPart(title: title, cards: cards, good: good) { _ = open($0, nil) }
     case let .gallery(title, note, photos, strip):
-      GalleryRow(title: title, note: note, photos: photos, strip: strip)
+      GalleryRow(title: title, note: note, photos: photos, strip: strip, grid: { gridAt = .photos })
     case let .more(title, text):
       DisclosureGroup {
         Text(text).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)
@@ -226,7 +264,7 @@ struct NativePage: View {
         .buttonStyle(.bordered)
         .accessibilityIdentifier("page-web")
     case let .readers(talk, name):
-      ReadersPart(talk: talk, name: name)
+      ReadersPart(talk: talk, name: name, photos: $readerPhotos, grid: gallery != nil ? { gridAt = .readers } : nil)
     case let .table(head, rows):
       TablePart(head: head, rows: rows)
     }
@@ -463,7 +501,7 @@ struct NativePage: View {
       out.append(.web)
     case let .gallery(title, note, photos, strip, _):
       // No row on the page (too few photos for one): none here either.
-      if !strip.isEmpty { out.append(GalleryViewer.row(title: title, note: note, photos: photos, strip: strip)) }
+      if !strip.isEmpty, let row = GalleryViewer.row(title: title, note: note, photos: photos, strip: strip) { out.append(row) }
     case let .trust(title, legend, rows):
       // The mark on a figure the sources disagree on, in the warning colour, as its legend says.
       var dot = AttributedString("●")
@@ -606,7 +644,7 @@ private extension Array {
   subscript(safe i: Int) -> Element? { indices.contains(i) ? self[i] : nil }
 }
 
-private extension Font {
+extension Font {
   /// A page's name and its headings: the serif of a printed field guide, at the reader's text size.
   static let pageTitle = Font.system(.largeTitle, design: .serif, weight: .bold)
   static let pageHeading = Font.system(.title2, design: .serif, weight: .bold)
@@ -777,6 +815,9 @@ private struct GalleryRow: View {
   var all = "gallery-all"
   /// Readers' photos, each as the reader can report it or block who sent it (in the viewer); a page's own, none.
   var readers: [ReaderItem]?
+  /// Opens the page's grid, for its "all photos" button: without one (readers' photos on a page with no gallery), the
+  /// viewer.
+  var grid: (() -> Void)?
   @State private var shown: Int?
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -800,7 +841,9 @@ private struct GalleryRow: View {
           }
         }
       }
-      Button("Xem tất cả \(photos.count) ảnh") { show(strip.first ?? 0) }
+      Button("Xem tất cả \(photos.count) ảnh") {
+        if let grid { grid() } else { show(strip.first ?? 0) }
+      }
         .buttonStyle(.bordered)
         .buttonBorderShape(.capsule)
         .controlSize(.small)
@@ -828,11 +871,13 @@ private struct GalleryRow: View {
 private struct ReadersPart: View {
   let talk: PageDoc.Talk
   let name: String
+  /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
+  @Binding var photos: [Readers.Photo]?
+  /// Opens the page's grid at this part: on a page with a gallery.
+  var grid: (() -> Void)?
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
-  /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
   @State private var comments: [Readers.Comment]?
-  @State private var photos: [Readers.Photo]?
   @State private var posting: ReaderPost.Kind?
   @State private var reporting: ReaderItem?
   @State private var blocking: ReaderItem?
@@ -860,9 +905,8 @@ private struct ReadersPart: View {
           // None at all: hidden ones the note below says.
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
-          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
-            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: PageDoc.Image.Credit(text: $0.name, licence: "", url: nil))
-          }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init))
+          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map(PageDoc.Image.init(reader:)),
+                     strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init), grid: grid)
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
       }

@@ -12,6 +12,8 @@ struct PageImage: View {
   let ratio: CGFloat
   var alt: String?
   var corner: CGFloat = 10
+  /// One that doesn't come stays a plain fill, with no photo symbol: a cell among hundreds in the grid.
+  var plain = false
   @State private var picture: (src: String, image: UIImage)?
   /// The address of the one that didn't come (offline before it was kept, or gone from the site).
   @State private var missing: String?
@@ -20,11 +22,12 @@ struct PageImage: View {
   @Environment(\.displayScale) private var scale
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-  init(src: String, ratio: CGFloat, alt: String? = nil, corner: CGFloat = 10) {
+  init(src: String, ratio: CGFloat, alt: String? = nil, corner: CGFloat = 10, plain: Bool = false) {
     self.src = src
     self.ratio = ratio
     self.alt = alt
     self.corner = corner
+    self.plain = plain
   }
 
   /// This address's picture: the one decoded for it here, else one in memory at any size.
@@ -36,7 +39,7 @@ struct PageImage: View {
       .overlay {
         if let image {
           Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
-        } else if missing == src {
+        } else if missing == src, !plain {
           // A photo's place, not an empty box.
           Image(systemName: "photo").font(.title2).foregroundStyle(.tertiary)
         }
@@ -140,7 +143,8 @@ enum PageImages {
     await PictureLog.shared.asked(src, role)
     let args = ProcessInfo.processInfo.arguments
     // `-slow-pictures`: a full photo takes 20 s to come, so a test sees what the viewer shows while it's on its way.
-    if role == .full, args.contains("-slow-pictures") {
+    // `-slow-thumbs`: so too a page's picture (a cell's in the grid), so a test sees its fetch stopped.
+    if (role == .full && args.contains("-slow-pictures")) || (role == .page && args.contains("-slow-thumbs")) {
       try? await Task.sleep(for: .seconds(20))
       if Task.isCancelled {
         await PictureLog.shared.stopped(src)
@@ -234,10 +238,12 @@ private final class Decoded: Sendable {
 @MainActor @Observable final class PictureLog {
   static let shared = PictureLog()
   private(set) var full: [String] = []
+  private(set) var page: [String] = []
   private(set) var stopped: [String] = []
 
   func asked(_ src: String, _ role: PageImages.Role) {
     if role == .full { full.append(src) }
+    if role == .page { page.append(src) }
   }
 
   func stopped(_ src: String) { stopped.append(src) }

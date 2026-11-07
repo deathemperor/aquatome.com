@@ -9,7 +9,7 @@ import XCTest
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
-/// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
+/// section on the home then a long list's whole list, light and dark; a gallery's photo grid, light, dark and at the largest text; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
 /// overview, a section with charts and tables, and the daily report's settings. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
@@ -390,6 +390,47 @@ final class PageShotsFlowTests: XCTestCase {
   private func settle() {
     let until = Date().addingTimeInterval(0.8)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+  }
+
+  // The photo grid, top, further down and the readers' part (`-hundreds-gallery`: 300 of a gallery's shapes).
+  func testThePhotoGrid() { shootGrid("grid-light") }
+  func testThePhotoGridInTheDark() { shootGrid("grid-dark", dark: true) }
+  func testThePhotoGridInTheLargestText() { shootGrid("grid-largest-light", size: largest) }
+
+  private func shootGrid(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-hundreds-gallery"])
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no Cá neon")
+    item.tap()
+    let lead = app.buttons["lead-photo-grid"]
+    XCTAssertTrue(lead.waitForExistence(timeout: 5), "no way into the grid")
+    settle()
+    snap("\(name)-lead")
+    lead.tap()
+    XCTAssertTrue(app.buttons["grid-photo-1"].waitForExistence(timeout: 5), "no grid")
+    settle()
+    snap("\(name)-01")
+    app.swipeUp()
+    settle()
+    snap("\(name)-02")
+    app.swipeDown(velocity: .fast)
+    app.swipeDown(velocity: .fast)
+    let link = app.links["Xem 2 ảnh bạn đọc gửi ↓"]
+    XCTAssertTrue(link.waitForExistence(timeout: 5), "no link to the readers' photos")
+    link.tap()
+    settle()
+    snap("\(name)-03")
+  }
+
+  private func snap(_ name: String) {
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-" + name
+    a.lifetime = .keepAlways
+    add(a)
   }
 
   // The photo viewer over the fish's gallery, black whatever the phone's appearance: so its light, dark and large-text
