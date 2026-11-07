@@ -12,8 +12,8 @@
  * - A run that never settles (cut off past the platform's grace period) keeps the spend its calls recorded, and its
  *   reservation until the next admission past `STALE_MS` gives the unspent part back. A spend that lands after its run
  *   settled still counts.
- * - A reader's count goes back only when the settle says so (api.ts: our side failed, or the question wasn't about
- *   fishkeeping). The site's count never does.
+ * - A reader's count goes back only when the settle says so (api.ts: our side failed; a chat question that wasn't about
+ *   fishkeeping, up to `offTopic` of those a reader's day). The site's count never does.
  *
  * Atomic in two ways: a Durable Object delivers no other request while one waits on its own storage, and here a day's
  * state is one object in memory that every request shares (loaded once), checked and changed with no wait in between.
@@ -28,8 +28,10 @@ export type Counts = {
   later400: number
   /** Facts shards the agent couldn't read (it went on with the page's name only). */
   facts: number
-  /** Readers' counts given back. */
+  /** Readers' counts given back: our side failed. */
   refunds: number
+  /** Chat questions that weren't about fishkeeping. */
+  offTopic: number
 }
 /** An open run: its reader key, what it reserved and spent (USD), when it was admitted (ms). */
 export type Run = { reader: string; reserved: number; spent: number; at: number }
@@ -47,6 +49,8 @@ export type LedgerDay = {
   readers: Record<string, number>
   /** Counts given back per reader key. */
   refunds: Record<string, number>
+  /** Questions that weren't about fishkeeping per reader key. Missing before any. */
+  offTopic?: Record<string, number>
   runs: Record<string, Run>
   counts: Counts
 }
@@ -54,7 +58,8 @@ export type LedgerDay = {
 /** `kind`: a chat question, counted against chat's day (`perDay`), not the identifications'; the dollar cap is the same. */
 export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat' }
 export type Admitted = { ok: true; run: string } | { ok: false; error: 'rate'; limit: number } | { ok: false; error: 'busy' | 'resting' }
-export type SettleInput = { day: string; run: string; refund: boolean; keys: Record<string, number>; ok?: string; counts?: Partial<Counts> }
+/** `offTopic`: a chat question that wasn't about fishkeeping, and how many of those a reader's day gives the count back for. */
+export type SettleInput = { day: string; run: string; refund: boolean; offTopic?: number; keys: Record<string, number>; ok?: string; counts?: Partial<Counts> }
 
 /** The storage the ledger needs: a Durable Object's, or a map in tests. */
 export type LedgerStore = {
@@ -68,7 +73,7 @@ export type LedgerStore = {
 const KEEP_DAYS = 3
 /** A run open this long was cut off (a run ends within 30 s): the next admission gives back what it reserved and didn't spend. */
 export const STALE_MS = 10 * 60_000
-const ZERO: Counts = { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }
+const ZERO: Counts = { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }
 export const emptyDay = (): LedgerDay => ({ calls: 0, keys: {}, ok: {}, usd: 0, readers: {}, refunds: {}, runs: {}, counts: { ...ZERO } })
 
 export class Ledger {
@@ -143,6 +148,12 @@ export class Ledger {
       day.readers[r.reader] = Math.max(0, (day.readers[r.reader] ?? 0) - 1)
       day.refunds[r.reader] = (day.refunds[r.reader] ?? 0) + 1
       day.counts.refunds++
+    }
+    if (s.offTopic !== undefined) {
+      const seen = day.offTopic?.[r.reader] ?? 0
+      day.offTopic = { ...day.offTopic, [r.reader]: seen + 1 }
+      day.counts.offTopic++
+      if (seen < s.offTopic) day.readers[r.reader] = Math.max(0, (day.readers[r.reader] ?? 0) - 1)
     }
     await this.save(s.day, day)
   }
