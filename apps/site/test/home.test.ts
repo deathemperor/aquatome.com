@@ -105,3 +105,15 @@ test("the home page's native fish: one whose photos are all strips waits", () =>
   } as unknown as Content
   expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['akysis-hendricksoni'])
 })
+
+test("the home page's native fish: one kept in brackish or sea water waits, and the row still fills", () => {
+  const c = {
+    places: [{ id: 'thailand', parent: 'asia', t: { name: 'ไทย' } }],
+    species: [
+      { ...fish('dichotomyctere-nigroviridis'), dataCard: {}, water: { kind: 'brackish', source: 'seriouslyfish', quote: 'x y' }, range: { records: { countries: [['TH', 90]] } } },
+      { ...fish('akysis-hendricksoni'), dataCard: {}, range: { records: { countries: [['TH', 20]] } } },
+      { ...fish('rasbora-x'), dataCard: {} },
+    ],
+  } as unknown as Content
+  expect(nativeCards('th', c, [], 2).map(s => s.id)).toEqual(['akysis-hendricksoni', 'rasbora-x'])
+})

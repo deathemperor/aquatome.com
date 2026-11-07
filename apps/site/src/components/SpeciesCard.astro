@@ -2,7 +2,7 @@
 import { resolveDataCard, type Localized, type Photo, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
-import { fmt, isRange } from '../lib/format'
+import { fmt, isRange, WATER_WORDS } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
 import { i18n } from '../lib/i18n'
@@ -14,6 +14,7 @@ import { asNum, asRange } from '../lib/species-index'
  * credits list that one). Its figures are its care card's, as its page shows them, and `data-fig` holds them for the
  * fish list's water filter (scripts/filter.ts keepBreed). The name keeps the class `n` the fish list's search reads.
  * `photo`: the picture its page chose (a page never shows one twice, lib/pictures.ts); null: none.
+ * A species kept in brackish or sea water says so under its name (the engine's `water`): a fresh-water tank can't hold it.
  */
 type Props = { eager?: boolean; template?: boolean; photo?: Photo | null } & ({ s: Localized<SpeciesEntity>; breed?: never } | { breed: Breed; s?: never })
 const { s, breed, eager = false, template = false, photo } = Astro.props
@@ -27,12 +28,13 @@ const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ??
 const diff = template ? { value: 1 } : resolveDataCard(card.difficulty ?? [], 'difficulty')
 const t = temp && isRange(temp.value) ? temp.value : undefined
 const h = ph && isRange(ph.value) ? ph.value : undefined
+const water = template ? '' : s?.water && tr(WATER_WORDS[s.water.kind])
 const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankCm: asNum(resolveDataCard(card.tankCm ?? [], 'tankCm')?.value), difficulty: asNum(diff?.value) } : undefined
 ---
 <article class="sc" data-fig={fig && JSON.stringify(fig)}>
   <a href={`/vi/ca/${(breed ?? s).t.slug}/`}>
     <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p ? <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} /> : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
-    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p></>}
+    {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p>{(template || water) && <p class="water">{water}</p>}</>}
   </a>
   {t || h || diff ? (
     <dl class="label">
@@ -51,6 +53,7 @@ const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankC
   .sc a:hover h3 { color: var(--c-moss); }
   h3 { font-size: 1.3rem; margin-top: var(--space-3); }
   .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); font-style: italic; font-family: var(--f-display); }
+  .water { margin: var(--space-1) 0 0; font-size: 0.8rem; font-weight: 600; color: var(--c-ink); }
   .kind { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); }
   .ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); aspect-ratio: 4 / 3; width: 100%; color: var(--c-ink-faint); font-size: 0.8rem; }
   .ph svg { width: 40%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; opacity: 0.6; }

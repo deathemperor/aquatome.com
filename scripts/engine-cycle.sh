@@ -182,6 +182,9 @@ if part rewrite; then
   # 60 a cycle (a Sonnet call each, about 12 GBIF requests each): the 1,458 species' maps in about 3 days, not 9
   # (owner, 2026-11-06: the maps weren't showing on the web yet; 60 had them).
   pnpm engine range --limit "${RANGE_LIMIT:-60}" --records "${RANGE_RECORDS:-60}" || log "range: failed"
+  # Whether each species is kept in brackish or sea water (water.ts), from a quoted sentence of its sources: WATER_LIMIT
+  # model calls a cycle, only for species whose sources' text is new or changed and mentions salt or the sea.
+  pnpm engine water --limit "${WATER_LIMIT:-60}" || log "water: failed"
   # A bred fish's difficulty and lifespan from its own sources (breeds.ts breedCare): a breed whose card lacks either
   # (one written by older code, or whose research found neither) gets one research call, once. No call once all are tried.
   pnpm engine breed-care --limit "${BREED_CARE_LIMIT:-2}" || log "breed-care: failed"

@@ -47,3 +47,6 @@ export const PLANT_LABELS = {
 export const GUIDE_KIND_LABELS: Record<string, string> = {
   setup: 'Set bể', care: 'Chăm sóc', breeding: 'Sinh sản', disease: 'Bệnh', aquascaping: 'Bố cục', plantCare: 'Chăm cây', discovery: 'Khám phá',
 }
+
+/** A species' water when it isn't fresh (the engine's `water`), as its card and page say it. */
+export const WATER_WORDS = { brackish: 'Nước lợ', marine: 'Nước mặn' } as const
