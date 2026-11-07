@@ -49,9 +49,11 @@ pnpm engine discover-videos || log "discover-videos: failed"
 # About 80 s a guide (2026-11-06: 6 to 17 stills, 8–9 s each): 12 a run is about 15 minutes, and 8 runs a day finish
 # the 472 guides in about 5 days. Then it finds none and calls nothing.
 pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-stills: failed"
-# Photos that show their page's fish, plant or breed (the GitHub engine's account runs out of model calls mid-week):
-# 20 calls a run, most-read pages first, verdicts cached.
+# Photos that show their page's fish, plant or breed, with no person or logo (the GitHub engine's account runs out of
+# model calls mid-week): 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"
+# New guides' photos and their video sections' photos: no people, no logos (guide-photos.ts), 20 calls a run, leads first.
+pnpm engine guide-photos --limit 20 || log "guide-photos: failed"
 # No dead fish on a page (dead-screen.ts): video thumbnails and main photos the photo check never asked about, 48 a run
 # (4 model calls); a dead one leaves every page for good.
 pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: failed"
