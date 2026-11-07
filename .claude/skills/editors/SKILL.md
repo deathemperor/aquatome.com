@@ -8,7 +8,9 @@ description: Use when the owner says "editors", or asks for writing, wording or 
 Models read the same text, in one language, with what it was written from, and each scores it out of 10 as a native
 reader of that language. Every finding quotes the exact words and gives the words that language's hobbyists would
 write instead. Asked to "go until the editors agree", fix at the source, rewrite and read again, round after round,
-until every seated member scores each piece at or above the bar (the owner's bar is 9.5).
+until every seated member scores each piece at or above the bar: 9 (owner, 2026-11-07: "there are many contents to
+improve"). Once a kind of text reaches it, move on: breadth first, through the engine's prompts, rules and phrase lists,
+so whole batches rise together rather than one page.
 
 It reads words, not layout: how things look goes to the design council (`.claude/skills/council/SKILL.md`).
 
