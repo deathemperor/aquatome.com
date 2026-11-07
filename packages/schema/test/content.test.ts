@@ -32,7 +32,7 @@ test('slugs derive from names and are unique per kind', async () => {
 test('fixtures cover the review-focus edge cases', async () => {
   const c = await load()
   expect(c.species.some(s => !s.dataCard.gh && !s.sections.some(x => x.key === 'dimorphism'))).toBe(true)
-  expect(c.species.some(s => resolveDataCard(s.dataCard.tempC ?? [])?.conflict)).toBe(true)
+  expect(c.species.some(s => resolveDataCard(s.dataCard.tempC ?? [], 'tempC')?.conflict)).toBe(true)
   expect(c.species.some(s => !s.t.quality.indexable)).toBe(true)
 })
 test('every species place id exists', async () => {

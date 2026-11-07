@@ -81,6 +81,13 @@ export const RangeSchema = z.object({
   if (native.size && cells.reduce((s, c) => s + (c[3] ?? 0), 0) !== countries.reduce((s, [c, n]) => s + (native.has(c) ? n : 0), 0)) fail('the cells\' records inside don\'t add up to the native countries\' records')
 })
 
+/**
+ * The water a fish is kept in when it isn't fresh (engine water.ts): `brackish` or `marine` (sea water), from a sentence
+ * of one of its sources that says so (`quote`, as the source writes it, in English). None: kept in fresh water, or not
+ * read yet (engine-state/water/<id>.json says which).
+ */
+export const WaterSchema = z.object({ kind: z.enum(['brackish', 'marine']), source: SourceId, quote: z.string().min(1) })
+
 /** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
 const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
 /**
@@ -89,7 +96,7 @@ const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
  */
 export const SpeciesSchema = z.object({
   id: z.string(), scientificName: z.string(), order: z.string(), family: z.string(), genus: z.string(), group: z.string(),
-  lNumber: z.string().optional(), places: z.array(z.string()), range: RangeSchema.optional(),
+  lNumber: z.string().optional(), places: z.array(z.string()), range: RangeSchema.optional(), water: WaterSchema.optional(),
   dataCard: z.partialRecord(DataCardField, z.array(SourcedValue)),
   sections: z.array(Section), photos: z.array(Photo), videos: z.array(Video), productSlots: z.array(ProductSlot), updatedAt: z.string(),
   refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(),

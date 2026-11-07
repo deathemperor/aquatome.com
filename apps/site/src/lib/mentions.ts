@@ -1,5 +1,4 @@
 import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
-import { videoPhoto } from './video'
 import { categories } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -119,13 +118,16 @@ export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity
   c.guides.filter(g => mentionIndex(c).guides.get(g.id)?.keys.includes(key)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
 
 /**
- * A guide's possible pictures, best first: its own photos, its video's thumbnail, then the first photo of each fish and
- * plant it talks about. A card takes the first one its page doesn't show yet (lib/pictures.ts).
+ * A guide's possible pictures, best first: its own photos, the open-licence photos its video's sections show, then the
+ * first photo of each fish and plant it talks about. Never the video's thumbnail: it shows the people in the video, and
+ * a page's photos show none (PRODUCT.md). A card takes the first one its page doesn't show yet (lib/pictures.ts).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   const m = mentionIndex(c).guides.get(g.id)
-  return [...g.photos, ...(g.video ? [videoPhoto(g.video)] : []), ...(m?.species ?? []).flatMap(s => s.photos[0] ?? []), ...(m?.plants ?? []).flatMap(p => p.photos[0] ?? [])]
+  // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
+  const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(p => p.width <= p.height * 2.2)
+  return [...g.photos, ...sections, ...(m?.species ?? []).flatMap(s => s.photos[0] ?? []), ...(m?.plants ?? []).flatMap(p => p.photos[0] ?? [])]
 }
 
-/** A guide's picture: its own photo, else its video's thumbnail, else the first species or plant it talks about (so every guide card has one). */
+/** A guide's picture: its own photo, else one from its video's sections, else the first species or plant it talks about. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]

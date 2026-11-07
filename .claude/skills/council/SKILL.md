@@ -21,7 +21,7 @@ available there sits out, and the report says so. Never fill an empty or unavail
 | Seat | Provider (Infinitus `providerInstanceId`) | Model | Options |
 |---|---|---|---|
 | Anthropic | `claudeAgent` | `claude-opus-5-5` | `effort: xhigh` |
-| OpenAI | (to fill: `codex`) | (to fill) | |
+| OpenAI | empty: no seat until the owner has an OpenAI subscription (owner, 2026-11-07) | | |
 | Muse | (to fill: `muse`) | (to fill) | |
 | Jester (below) | (to fill: `antigravity`) | (to fill: Gemini) | |
 

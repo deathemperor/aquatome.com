@@ -23,12 +23,13 @@ export async function visionFaces(files: string[]): Promise<number[]> {
 /**
  * Photos must show the animal or plant, not people: every photo not yet screened is checked once (result cached by URL)
  * and any photo with a human face is dropped from its page, as is any photo the owner rejected by hand (`rejectedFile`:
- * URL → reason; hands, product packshots, English-text banners). Runs each cycle, so a re-picked photo never publishes.
+ * URL → reason; hands, product packshots, English-text banners), and so is a video section's photo the owner rejected.
+ * Runs each cycle, so a re-picked photo never publishes.
  */
 export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string): Promise<{ checked: number; removed: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
-  const pages: { file: string; e: { photos?: Photo[] } }[] = []
+  const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
   for (const kind of ['species', 'plants', 'guides']) {
     for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
       const file = join(contentRoot, kind, id, 'entity.json')
@@ -58,9 +59,13 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const removed: string[] = []
   for (const { file, e } of pages) {
     const keep = (e.photos ?? []).filter(p => !(cache[p.url]! > 0) && !(p.url in rejected))
-    if (keep.length === (e.photos ?? []).length) continue
-    removed.push(...e.photos!.filter(p => !keep.includes(p)).map(p => `${file.slice(contentRoot.length + 1)}: ${p.url}`))
-    e.photos = keep
+    // A video section's photo the owner rejected (the images pass screened it for faces when it picked it).
+    const figures = (e.video?.figures ?? []).filter(f => f.photo && f.photo.url in rejected)
+    if (keep.length === (e.photos ?? []).length && !figures.length) continue
+    const at = file.slice(contentRoot.length + 1)
+    removed.push(...(e.photos ?? []).filter(p => !keep.includes(p)).map(p => `${at}: ${p.url}`), ...figures.map(f => `${at}: ${f.photo!.url}`))
+    if (e.photos) e.photos = keep
+    for (const f of figures) delete f.photo
     await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)

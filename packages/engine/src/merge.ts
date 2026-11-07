@@ -101,6 +101,8 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
     // The range step's (range.ts): read again there when this source's text changes it.
     ...(prev?.range ? { range: prev.range } : {}),
+    // The water step's (water.ts), the same way.
+    ...(prev?.water ? { water: prev.water } : {}),
     dataCard, sections, photos: prev?.photos ?? [], videos: prev?.videos ?? [],
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }

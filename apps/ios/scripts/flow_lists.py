@@ -98,6 +98,8 @@ REACH = {
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests', 'PageShotsFlowTests'],
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
+    # The photo picker both screens open (the flows hand them a photo, as picked).
+    APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     # Its flows, and a fish page's link that opens it.
     APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
@@ -232,6 +234,7 @@ def check(runs, left, reached):
     for p in (APP + 'Handbook/FishIdView.swift', KIT + 'Sources/Handbook/FishId.swift', APP + 'Account/AccountModel.swift',
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
+    assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
     # The catalog: the two flows that read its Indonesian.
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',
