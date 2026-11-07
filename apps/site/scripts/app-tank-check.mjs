@@ -9,6 +9,8 @@ import { fileURLToPath } from 'node:url'
 
 const site = fileURLToPath(new URL('../', import.meta.url))
 const out = fileURLToPath(new URL('../../ios/AquaTomeKit/Sources/TankCheck/tank-check.js', import.meta.url))
+/** The same strings for the chat's Worker, which runs the check itself (worker/chat/mates.ts) in the reader's language. */
+const worker = fileURLToPath(new URL('../worker/chat/tank-check-strings.json', import.meta.url))
 
 // aqTankCheck(input JSON: { lang, fish, size, unlisted? }) → the check as JSON (`unlisted`: names of fish without a page). ct and fmt as a page in that language has them
 // (scripts/ct.ts, the tool's fmt).
@@ -48,8 +50,12 @@ if (missing.length) { console.error(`no translation in src/i18n/:\n${missing.joi
 const next = `// Built by apps/site/scripts/app-tank-check.mjs from the site's tank-mates code: don't edit, run it again.
 var aqTankCheckStrings = ${JSON.stringify(dict, null, 1)};
 ${code}`
+const forWorker = `${JSON.stringify(dict, null, 1)}\n`
 if (process.argv.includes('--check')) {
-  let kept = ''
-  try { kept = readFileSync(out, 'utf8') } catch {}
-  if (kept !== next) { console.error('The iOS app\'s tank check is out of date with the site\'s code: run node apps/site/scripts/app-tank-check.mjs'); process.exit(1) }
-} else writeFileSync(out, next)
+  const kept = file => { try { return readFileSync(file, 'utf8') } catch { return '' } }
+  if (kept(out) !== next) { console.error('The iOS app\'s tank check is out of date with the site\'s code: run node apps/site/scripts/app-tank-check.mjs'); process.exit(1) }
+  if (kept(worker) !== forWorker) { console.error('The chat\'s tank-check strings are out of date with the site\'s code: run node apps/site/scripts/app-tank-check.mjs'); process.exit(1) }
+} else {
+  writeFileSync(out, next)
+  writeFileSync(worker, forWorker)
+}

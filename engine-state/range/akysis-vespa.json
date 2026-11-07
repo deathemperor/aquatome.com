@@ -1,8 +1,8 @@
 {
   "id": "akysis-vespa",
   "native": {
-    "input": "902d588c88032e9f",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "697e7a1b3c8b1b98",
+    "at": "2026-11-07T02:19:57.912Z",
     "claims": [
       {
         "code": "MM",
@@ -35,6 +35,14 @@
         "quote": "Asia: Ataran River drainage in Myanmar (Salween/Thanlwin, Ataran).",
         "words": "Myanmar",
         "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Akysis vespa originates from Burma.",
+        "words": "Burma",
+        "ok": true
       }
     ],
     "regions": [
@@ -55,6 +63,13 @@
         "name": "Ataran",
         "source": "planetcatfish",
         "quote": "Asia: Ataran River drainage in Myanmar (Salween/Thanlwin, Ataran).",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "glaser",
+        "quote": "It is known so far only from the upper reaches of the Ataran river in the northern part of Burma.",
         "country": "MM",
         "ok": true
       }

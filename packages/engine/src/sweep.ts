@@ -1,13 +1,16 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type WrittenLang } from '@aq/schema'
-import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, type BreedName, type NameOff } from './alt-names'
+import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
+import { sfDifficulty } from './process'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
+import { viWording } from './sanitize'
+import { snapshotName } from './snapshot'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
@@ -28,6 +31,9 @@ import { readVideoRejected } from './videos'
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
+ * - a species' Seriously Fish difficulty: the word its stored page rates it (process.ts sfDifficulty), or none when the
+ *   page rates nothing, for cards read before the engine read that word; a page in the old layout keeps its figure. Its
+ *   approved summary goes back to pending, as above
  * - a species' or plant's text from a shop (species-sources.ts): a block that speaks as the shop or sells goes, in English
  *   and every language (the whole section when a translation's blocks don't match the English's). A page about one
  *   variety (engine-state/_variety-pages.json) leaves a species page, with its source's card figures and photos, unless
@@ -37,6 +43,11 @@ import { readVideoRejected } from './videos'
  *   or a card with no minimum tank, is left as it is
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
+ * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
+ *   viWording), as the page's own text has them (fixTranslation)
+ * - a species', plant's or breed's Vietnamese name as hobbyists write it (alt-names.ts tidyName): a place keeps its capital
+ *   ("Rêu Java"), a plant's name has no "Cây thủy sinh" before it. A name a person fixed (`nameFixed`) stays; the address
+ *   stays.
  * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
  *   found by it), a colour form's or bred line's goes, a name written twice is kept once. Each name taken off is kept in
  *   engine-state/_names-off.json with why, for a person to check.
@@ -51,7 +62,7 @@ import { readVideoRejected } from './videos'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -78,7 +89,7 @@ export type SweepReport = {
   stopped: string
 }
 
-type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A file's own indentation, so a change is the lines it changes. */
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
@@ -134,6 +145,20 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
   return JSON.stringify(card) === before ? [] : slips.map(({ v, why }) => `${v.field} ${JSON.stringify(v.value)}: ${why}`)
 }
 
+/** A species card's Seriously Fish difficulty set to the word its stored page gives, or taken off; what changed. */
+async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>>, sections: SpeciesEntity['sections']): Promise<string[]> {
+  const sf = card.difficulty?.find(v => v.source === 'seriouslyfish')
+  const urls = [...new Set(sections.filter(s => s.source === 'seriouslyfish').map(s => s.sourceUrl))]
+  if (!sf || urls.length !== 1) return []
+  const d = sfDifficulty(await readFile(join(root, 'sources/seriouslyfish', `${snapshotName(urls[0]!)}.md`), 'utf8').catch(() => ''))
+  if (d === undefined || d === sf.value) return []
+  const was = sf.value
+  if (d) sf.value = d
+  else if (card.difficulty!.length > 1) card.difficulty = card.difficulty!.filter(v => v !== sf)
+  else delete card.difficulty
+  return [`difficulty ${was} → ${d ?? 'none'} (Seriously Fish's word)`]
+}
+
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
   const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
@@ -149,7 +174,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
         const before = JSON.parse(raw) as Stored
-        const { t, fixed } = sweepTranslation(before)
+        const swept = sweepTranslation(before)
+        // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
+        const t = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
+        const fixed = t === swept.t ? swept.fixed : [...swept.fixed, 'name']
         if (fixed.length) {
           await write(file, raw, t)
           changed(`${kind}/${id}/${lang}.json`)
@@ -159,6 +187,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
       }
     }
+  }
+
+  // A fish's summary, written from its page: the words Vietnamese readers write another way, written their way, as on the page.
+  for (const f of (await readdir(join(content, 'summaries')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const file = join(content, 'summaries', f)
+    const raw = await readFile(file, 'utf8')
+    const s = JSON.parse(raw) as { summary: string; mistakes: string[] }
+    const next = { ...s, summary: viWording(s.summary), mistakes: s.mistakes.map(viWording) }
+    if (JSON.stringify(next) === JSON.stringify(s)) continue
+    await write(file, raw, next)
+    changed(`summaries/${f}`)
+    ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
   }
 
   // A species' other names: its own, each once.
@@ -396,13 +436,14 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       const e = JSON.parse(raw) as { dataCard?: SpeciesEntity['dataCard']; care?: Partial<Record<DataCardField, Value[]>>; sections?: SpeciesEntity['sections'] }
       const card = (kind === 'species' ? e.dataCard : e.care) as Partial<Record<DataCardField, Value[]>> | undefined
       if (!card) continue
+      const fixed = kind === 'species' ? await sfWord(root, card, e.sections ?? []) : []
       const hidden = hideSlips(card, kind === 'species'
         ? c => shownCard(c as SpeciesEntity['dataCard'], e.sections ?? [], s => mayPublish(sources[s], 'text')) as Partial<Record<DataCardField, Value[]>>
         : c => c)
       if (JSON.stringify(e) === JSON.stringify(JSON.parse(raw))) continue
       await write(file, raw, e)
       changed(`${kind}/${id}/entity.json`)
-      report.card.push(`${kind}/${id}${hidden.length ? `: ${hidden.join('; ')}` : ': shown again'}`)
+      report.card.push(`${kind}/${id}: ${[...fixed, ...hidden].join('; ') || 'shown again'}`)
       // Its summary may state the figure the card no longer shows ("bể tối thiểu dài 200 cm" for a 130 cm fish).
       const sfile = join(content, 'summaries', `${id}.json`)
       const sraw = kind === 'species' ? await readFile(sfile, 'utf8').catch(() => null) : null

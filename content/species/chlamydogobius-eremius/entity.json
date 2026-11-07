@@ -53,7 +53,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -200,5 +200,136 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "Lake Eyre",
+        "Neales River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Lake Eyre is a vast endorheic basin within which lies the lowest point in Australia at some 15 m BMSL.",
+          "countries": [
+            "AU"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Coward Spring, in a small pool of water around an artesian well, central Australia', and this species is endemic to the Lake Eyre drainage basin, South Australia.",
+          "countries": [],
+          "regions": [
+            "Lake Eyre"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's quite widely-distributed in southern and western parts of the basin, with a range extending southwards from the Neales River to Clayton Bore, west of the small town of Marree.",
+          "countries": [],
+          "regions": [
+            "Neales River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2379254,
+      "total": 994,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "AU",
+          994
+        ]
+      ],
+      "cells": [
+        [
+          132.1875,
+          -25.3125,
+          7,
+          7
+        ],
+        [
+          133.59375,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          135,
+          -30.9375,
+          7,
+          7
+        ],
+        [
+          135,
+          -29.53125,
+          91,
+          91
+        ],
+        [
+          135,
+          -28.125,
+          436,
+          436
+        ],
+        [
+          135,
+          -26.71875,
+          7,
+          7
+        ],
+        [
+          135,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -30.9375,
+          31,
+          31
+        ],
+        [
+          136.40625,
+          -29.53125,
+          185,
+          185
+        ],
+        [
+          136.40625,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          137.8125,
+          -30.9375,
+          14,
+          14
+        ],
+        [
+          137.8125,
+          -29.53125,
+          16,
+          16
+        ],
+        [
+          137.8125,
+          -28.125,
+          196,
+          196
+        ]
+      ]
+    }
+  }
 }

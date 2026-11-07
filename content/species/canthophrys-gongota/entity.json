@@ -14,6 +14,142 @@
     "bangladesh",
     "ganges"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Extensively distributed in the Ganges and Brahmaputra river systems in Nepal, northern India (states of Uttar Pradesh, West Bengal, Meghalaya, Assam, Manipur, and Arunachal Pradesh), and Bangladesh.",
+          "countries": [
+            "NP",
+            "IN",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5787874,
+      "total": 55,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          34
+        ],
+        [
+          "BD",
+          17
+        ],
+        [
+          "NP",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          23.90625,
+          5,
+          5
+        ],
+        [
+          88.59375,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          90,
+          22.5,
+          11,
+          11
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          8,
+          8
+        ],
+        [
+          91.40625,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -135,18 +271,7 @@
       "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/12b34cda56c27ee9.webp",
-      "width": 960,
-      "height": 339,
-      "licence": "Public domain",
-      "author": "Francis Day",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Somileptes_gongota_Day_155.jpg",
-      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Somileptes gongota",
-      "thumb": "https://media.aquatome.com/commons/12b34cda56c27ee9-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "AquaTome owner's dashboard",
-    "version": "1",
-    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`. An actions block is buttons on their own.\n\nErrors are `{error, message?}`: `message`, when there is one, is Vietnamese to show the owner. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server."
+    "version": "2",
+    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`. An actions block is buttons on their own.\n\nErrors are `{error, message?}`: `message`, when there is one, is English, to show the owner as it comes. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server.\n\nVersion 2 (2026-11-07, docs/design/dashboard.md): the overview's new parts (`asOf`, `tiles`, `needs`, `answers`, `shipped`, `costs`, `pages`), with `todos`, `areas` and `areasNote` kept for the app before it but deprecated; the `wait` tone, apart from `bad`; a chart's `labels` and `readouts`; folded tables sent without their rows, and long ones 50 rows at a time (GET /api/owner/sections/{key}/tables/{id}); a section's `periods`; the Comments section (`binh-luan`) and its actions; Scoreboard (`thanh-cong`) and Changelog (`thay-doi`) as sections. A series is never `bad` (a chart's series are never orange or red). Error messages are English. The new parts are written in English; the sections before them stay Vietnamese until they move to English."
   },
   "servers": [
     {
@@ -99,17 +99,20 @@
             "schema": {
               "type": "string",
               "enum": [
-                "noi-dung",
+                "thanh-cong",
                 "doc-gia",
-                "ung-dung",
+                "affiliate",
+                "noi-dung",
+                "muon-co",
+                "an-trang",
+                "binh-luan",
+                "anh-ban-doc",
+                "tai-khoan",
                 "nhan-dien-ca",
                 "anh-nhan-dien",
-                "affiliate",
-                "muon-co",
-                "anh-ban-doc",
-                "an-trang",
-                "tai-khoan",
-                "bao-cao"
+                "ung-dung",
+                "bao-cao",
+                "thay-doi"
               ]
             }
           },
@@ -136,6 +139,25 @@
                 "Asia/Ho_Chi_Minh"
               ]
             }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "description": "One of the section's `periods` keys. Absent: its first. A section with no periods, or a key it doesn't offer: 400 bad_request.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "description": "binh-luan only: the comments filter, as each filter's `href` gives it. Absent: held.",
+            "schema": {
+              "$ref": "#/components/schemas/CommentState"
+            }
           }
         ],
         "responses": {
@@ -145,6 +167,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Section"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (a period the section doesn't offer; binh-luan: a state that isn't one)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -502,6 +534,62 @@
       }
     },
     "/api/owner/report-settings": {
+      "get": {
+        "summary": "The daily report's delivery as it is now, for the app's bell: email and the phones' notifications, each on or off, as the POST answers them. Unset, email is on and notifications off.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The two switches.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSettingsNow"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method (not GET or POST; `allow: GET, POST`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "summary": "The daily report's delivery: email, the phones' notifications, or both, on or off (the `bao-cao` section's buttons send it). Unset, email is on and notifications off. The notifications switch is the server's: off, no phone is notified, registered or not.",
         "parameters": [],
@@ -527,7 +615,7 @@
             }
           },
           "400": {
-            "description": "Error: bad_request (not JSON, no switch, a switch that isn't true or false, or another field; `message`: \"email và/hoặc push (true/false).\")",
+            "description": "Error: bad_request (not JSON, no switch, a switch that isn't true or false, or another field; `message`: \"email and/or push (true or false).\")",
             "content": {
               "application/json": {
                 "schema": {
@@ -557,7 +645,7 @@
             }
           },
           "405": {
-            "description": "Error: method (not POST; `allow: POST`)",
+            "description": "Error: method (not GET or POST; `allow: GET, POST`)",
             "content": {
               "application/json": {
                 "schema": {
@@ -732,6 +820,322 @@
           }
         }
       }
+    },
+    "/api/owner/sections/{key}/tables/{id}": {
+      "get": {
+        "summary": "A folded or long table's rows, 50 at a time",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "description": "The section's key.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The table's `id`.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "A `next` from the table or the page before. Absent: the first 50 rows.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "description": "The section's period, as it was read.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            }
+          },
+          {
+            "name": "Time-Zone",
+            "in": "header",
+            "required": false,
+            "description": "The viewer's IANA time zone, as the phone has it (TimeZone.current.identifier): the reply's days and times are in it. Absent, or one the server doesn't know: Asia/Ho_Chi_Minh. The reply says which it used (`tz`).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Asia/Ho_Chi_Minh"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The rows.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TablePage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (a cursor or a period that isn't one)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session; no such section or table)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then; try again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/owner/comments": {
+      "get": {
+        "summary": "More comments in one state, 50 at a time",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CommentState"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": true,
+            "description": "The comments block's `next`, or the page before's.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Time-Zone",
+            "in": "header",
+            "required": false,
+            "description": "The viewer's IANA time zone, as the phone has it (TimeZone.current.identifier): the reply's days and times are in it. Absent, or one the server doesn't know: Asia/Ho_Chi_Minh. The reply says which it used (`tz`).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Asia/Ho_Chi_Minh"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The comments.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentsPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (no state of the three, or a cursor that isn't one)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then; try again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/owner/comments/{id}": {
+      "post": {
+        "summary": "A reader's comment: show it (held, or hidden within 30 days) or hide it. The owner's decision sets its reason (\"Shown by the owner\", \"Hidden by the owner\"), so the nightly moderation doesn't take it up again unless a reader reports it later.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f-]{36}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentAction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Done. `changed`: false when it was already in that state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Done"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (not JSON, or no `action` of the two)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session: no Authorization or a malformed one, a session that ended or was signed out, a web session's token, the dashboard token, a cookie)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session; no such comment, or one deleted 30 days after it was hidden)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: expired (show: hidden more than 30 days ago, waiting to be deleted)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then; try again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -756,7 +1160,15 @@
           "areas",
           "areasNote",
           "log",
-          "sections"
+          "sections",
+          "asOf",
+          "tiles",
+          "needs",
+          "needsEmpty",
+          "answers",
+          "shipped",
+          "costs",
+          "pages"
         ],
         "properties": {
           "tz": {
@@ -767,21 +1179,25 @@
             "items": {
               "$ref": "#/components/schemas/Todo"
             },
-            "description": "What needs the owner now, most pressing first; empty when nothing does (the web page says \"Không có việc gì cần bạn lúc này.\")."
+            "description": "What needs the owner now, most pressing first; empty when nothing does (the web page says \"Không có việc gì cần bạn lúc này.\"). Deprecated: the overview before version 2; read `needs` and `pages`.",
+            "deprecated": true
           },
           "areas": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Area"
             },
-            "description": "One row an area, in the page's order."
+            "description": "One row an area, in the page's order. Deprecated: the overview before version 2; read `needs` and `pages`.",
+            "deprecated": true
           },
           "areasNote": {
             "type": "string",
-            "description": "The note under the areas: what the figures and chips compare."
+            "description": "The note under the areas: what the figures and chips compare. Deprecated: the overview before version 2; read `needs` and `pages`.",
+            "deprecated": true
           },
           "log": {
-            "$ref": "#/components/schemas/Log"
+            "$ref": "#/components/schemas/Log",
+            "description": "The last three days: what happened each day."
           },
           "sections": {
             "type": "array",
@@ -789,6 +1205,47 @@
               "$ref": "#/components/schemas/SectionRef"
             },
             "description": "Every section, in the web dashboard's order and with its names: the app's list of what it can open."
+          },
+          "asOf": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the figures were read: \"figures as of 9:41\"."
+          },
+          "tiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tile"
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "Needs you, Found an answer, Shipped in 24 hours, the cost: in that order."
+          },
+          "needs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Need"
+            },
+            "description": "What needs the owner now, most pressing first."
+          },
+          "needsEmpty": {
+            "type": "string",
+            "description": "The line when `needs` is empty: \"Nothing needs you right now\"."
+          },
+          "answers": {
+            "$ref": "#/components/schemas/Answers"
+          },
+          "shipped": {
+            "$ref": "#/components/schemas/Shipped"
+          },
+          "costs": {
+            "$ref": "#/components/schemas/Costs"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PageGroup"
+            },
+            "description": "Every page but the overview, grouped, each with its figure: the web's rail, and the overview's \"Every page\"."
           }
         }
       },
@@ -938,9 +1395,10 @@
         "additionalProperties": false,
         "required": [
           "title",
-          "entries"
+          "entries",
+          "days"
         ],
-        "description": "What happened over the last days, newest day first: the web page's \"Mấy ngày qua\".",
+        "description": "The last three days, newest first.",
         "properties": {
           "title": {
             "type": "string"
@@ -950,7 +1408,40 @@
             "items": {
               "$ref": "#/components/schemas/LogEntry"
             },
-            "description": "Each day's entries, newest day first. A day with nothing new is one entry, tone muted. Group them by `at`."
+            "description": "Each day's entries, newest day first. A day with nothing new is one entry, tone muted. Group them by `at`. Deprecated: the overview before version 2; read `days`.",
+            "deprecated": true
+          },
+          "days": {
+            "type": "array",
+            "description": "One row a day, newest first.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "figure",
+                "text"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "\"Today so far\", \"Yesterday\", \"Thursday 5 Nov\"."
+                },
+                "figure": {
+                  "type": "string",
+                  "description": "On the right: \"17 readers\"."
+                },
+                "text": {
+                  "type": "string",
+                  "description": "The day's other lines in one: \"11 fish ID calls ($0.11) · 1 new comment · 1 page hidden\"; \"Nothing else\" on a quiet day."
+                },
+                "section": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "The section the row opens, when there is one."
+                }
+              }
+            }
           }
         }
       },
@@ -974,14 +1465,7 @@
             "description": "A second line, smaller."
           },
           "tone": {
-            "type": "string",
-            "enum": [
-              "plain",
-              "muted",
-              "good",
-              "bad"
-            ],
-            "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, better; bad: needs the owner, failed, worse, or (a button) deletes."
+            "$ref": "#/components/schemas/Tone"
           },
           "section": {
             "type": "string",
@@ -1032,6 +1516,18 @@
             "items": {
               "$ref": "#/components/schemas/Block"
             }
+          },
+          "periods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Period"
+            },
+            "description": "What the period menu offers, in its order. Absent: the section has one period, as its text says."
+          },
+          "period": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "The period every figure of the section is for: one of `periods`. Present with `periods`."
           }
         }
       },
@@ -1067,6 +1563,9 @@
           },
           {
             "$ref": "#/components/schemas/Actions"
+          },
+          {
+            "$ref": "#/components/schemas/Comments"
           }
         ]
       },
@@ -1161,16 +1660,10 @@
             "description": "\"+12% so với 7 ngày trước đó\""
           },
           "tone": {
-            "type": "string",
-            "enum": [
-              "plain",
-              "muted",
-              "good",
-              "bad"
-            ],
-            "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, better; bad: needs the owner, failed, worse, or (a button) deletes."
+            "$ref": "#/components/schemas/Tone"
           }
-        }
+        },
+        "description": "A change against an earlier period. The server colours it: good or bad only past 5% and only where more is plainly better (or worse), muted otherwise; show the tone as it comes."
       },
       "Chart": {
         "type": "object",
@@ -1180,9 +1673,11 @@
           "id",
           "title",
           "days",
-          "series"
+          "series",
+          "labels",
+          "readouts"
         ],
-        "description": "Columns over days, as the web page's charts (apps/site/worker/admin/chart.ts DayChart): stacked from the baseline in the series' order, a negative value below it; `whole` a pale column behind them. Values are raw numbers; write them as the section's text writes numbers (vi-VN grouping), money with `unit`.",
+        "description": "Columns over days, as the web page's charts (apps/site/worker/admin/chart.ts DayChart): stacked from the baseline in the series' order, a negative value below it; `whole` a pale column behind them. Values are raw numbers, for drawing and the axis; every word a reader sees about a bar is in `labels` and `readouts`. Write axis numbers as the section's text writes its numbers, money with `unit`.",
         "properties": {
           "kind": {
             "const": "chart",
@@ -1219,7 +1714,7 @@
             "enum": [
               "usd"
             ],
-            "description": "usd: dollars, \"$0,11\", and \"$0,0042\" below a cent. Absent: counts."
+            "description": "usd: dollars (\"$0.11\", \"$0.0042\" below a cent). Absent: counts."
           },
           "partialLast": {
             "type": "boolean",
@@ -1232,6 +1727,32 @@
           "missing": {
             "type": "string",
             "description": "Why a null day has no value."
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "One per day, its axis label as the web page writes it (\"Thu\", \"Today\"; a week, its Monday: \"2 Nov\")."
+          },
+          "readouts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Readout"
+            },
+            "description": "One per day, oldest first: what a tap on its bar shows."
+          },
+          "today": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Today's bar, drawn lighter (the day isn't over), when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). A chart whose last day is today says so with `partialLast` and this too."
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "week"
+            ],
+            "description": "week: each of `days` is a week's Monday (the scoreboard's weeks), and each bar a week."
           }
         }
       },
@@ -1262,10 +1783,9 @@
               "s1",
               "s2",
               "s3",
-              "bad",
               "mute"
             ],
-            "description": "Absent: s1, s2, s3 by position. bad: the status colour; mute: context only."
+            "description": "Absent: s1, s2, s3 by position (the chart's own colours, never orange or red). mute: context only."
           }
         }
       },
@@ -1304,9 +1824,28 @@
           },
           "folded": {
             "type": "string",
-            "description": "Drawn closed, opened by this label (the web page's disclosure)."
+            "description": "Drawn closed, opened by this label (the web page's disclosure). Its rows aren't sent (`rows` is empty, `count` says how many): opening it reads GET /api/owner/sections/{key}/tables/{id}."
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Unique in the section; present when the table is folded or has more rows than it sends."
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "How many rows it has in all, when that is more than `rows` holds (folded, or more to come)."
+          },
+          "next": {
+            "type": "string",
+            "description": "More rows to come: GET /api/owner/sections/{key}/tables/{id}?cursor={next} gives the next 50."
+          },
+          "figure": {
+            "type": "string",
+            "description": "A folded table's figure, on the right of its row: \"$0.77\", \"95\"."
           }
-        }
+        },
+        "description": "A table. One with more than 50 rows comes with its first 50 and `next`."
       },
       "Cell": {
         "type": "object",
@@ -1327,14 +1866,7 @@
             "description": "A page of the site, from \"/\" (open it as the app opens the site's pages)."
           },
           "tone": {
-            "type": "string",
-            "enum": [
-              "plain",
-              "muted",
-              "good",
-              "bad"
-            ],
-            "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, better; bad: needs the owner, failed, worse, or (a button) deletes."
+            "$ref": "#/components/schemas/Tone"
           }
         }
       },
@@ -1355,14 +1887,7 @@
             "type": "string"
           },
           "tone": {
-            "type": "string",
-            "enum": [
-              "plain",
-              "muted",
-              "good",
-              "bad"
-            ],
-            "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, better; bad: needs the owner, failed, worse, or (a button) deletes."
+            "$ref": "#/components/schemas/Tone"
           }
         }
       },
@@ -1633,14 +2158,7 @@
             "description": "Sent as JSON, as it is."
           },
           "tone": {
-            "type": "string",
-            "enum": [
-              "plain",
-              "muted",
-              "good",
-              "bad"
-            ],
-            "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, better; bad: needs the owner, failed, worse, or (a button) deletes."
+            "$ref": "#/components/schemas/Tone"
           }
         }
       },
@@ -1810,7 +2328,7 @@
           },
           "message": {
             "type": "string",
-            "description": "Vietnamese, to show the owner."
+            "description": "English, to show the owner as it comes."
           }
         }
       },
@@ -1861,6 +2379,654 @@
             "type": "string",
             "pattern": "^https://aquatome\\.com/_ab/bao-cao/[^/?#]+/$",
             "description": "The report's page on the dashboard. The app opens it on a tap, and ignores a url that isn't https on aquatome.com; signed out on the web, the page asks the owner to sign in and comes back."
+          }
+        }
+      },
+      "Tone": {
+        "type": "string",
+        "enum": [
+          "plain",
+          "muted",
+          "good",
+          "wait",
+          "bad"
+        ],
+        "description": "plain: ordinary text; muted: secondary, or an empty state; good: done, or better by more than 5%; wait: waits on the owner (orange in the app, rust on the web); bad: a fault, worse by more than 5%, or (a button) deletes (red)."
+      },
+      "Readout": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "detail"
+        ],
+        "description": "What a tap on a bar (or a drag across) shows over it, written: the web page shows the same words.",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The bar's main figure and what it counts: \"21 found an answer\"."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Its day and the other figures that day: \"Thu 5 Nov · 29 readers · 1 shop click\"."
+          }
+        }
+      },
+      "Bars": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "days",
+          "values",
+          "readouts"
+        ],
+        "description": "A tile's small bars, one per day, each with what a tap on it shows.",
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "description": "Oldest first, in the viewer's zone."
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "description": "One per day; null: nothing to draw (a day still to come, or not recorded)."
+          },
+          "readouts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Readout"
+            }
+          },
+          "today": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Today's bar, drawn lighter; the days after it are still to come (null). Absent: today isn't among them."
+          }
+        }
+      },
+      "TablePage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tz",
+          "rows"
+        ],
+        "properties": {
+          "tz": {
+            "$ref": "#/components/schemas/Tz"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Cell"
+              }
+            },
+            "description": "Up to 50 rows, each a cell per column of the table's `columns`."
+          },
+          "next": {
+            "type": "string",
+            "description": "More to come: ask again with `cursor` set to it. Absent: the last page."
+          }
+        }
+      },
+      "Period": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "label"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "label": {
+            "type": "string",
+            "description": "\"This week\", \"Today\", \"7 days\", \"30 days\", \"November\"."
+          }
+        }
+      },
+      "CommentState": {
+        "type": "string",
+        "enum": [
+          "held",
+          "shown",
+          "hidden"
+        ],
+        "description": "held: waits, unseen by readers; shown: on its page; hidden: removed from its page, deleted 30 days after."
+      },
+      "CommentPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^/",
+            "description": "The site page it was posted on (open it as the app opens the site's pages). Absent when the site no longer has the page: `title` then reads \"a page no longer on the site\"."
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "at",
+          "name",
+          "page",
+          "text",
+          "state",
+          "reason",
+          "actions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f-]{36}$"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When it was posted (UTC; write it in the viewer's zone)."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name the reader gave."
+          },
+          "page": {
+            "$ref": "#/components/schemas/CommentPage"
+          },
+          "text": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/CommentState"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why it is in this state, in plain English: \"Held when posted: it has “zalo:”, a blocked term\", \"Held after a report\", \"Hidden by the owner\". Empty when there is nothing to say (shown when posted)."
+          },
+          "reports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Every report signed-in readers made on it, oldest first, each reason as they wrote it (\"\" for none given). It keeps the reports from before a decision too. Absent when it has none."
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            },
+            "description": "Held: Show and Hide. Shown: Hide. Hidden: Show again, until 30 days after it was hidden."
+          }
+        }
+      },
+      "CommentFilter": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state",
+          "label",
+          "count",
+          "href"
+        ],
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/CommentState"
+          },
+          "label": {
+            "type": "string",
+            "description": "\"Held\", \"Shown\", \"Hidden\"."
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "href": {
+            "type": "string",
+            "pattern": "^/api/owner/sections/",
+            "description": "The section with this filter: read it and show it in place."
+          }
+        }
+      },
+      "Comments": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "state",
+          "filters",
+          "items",
+          "empty"
+        ],
+        "description": "Readers' comments in one state, newest first, 50 at a time, under a filter by state.",
+        "properties": {
+          "kind": {
+            "const": "comments",
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/CommentState"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CommentFilter"
+            },
+            "description": "Held, Shown, Hidden, each with its count; the one equal to `state` is chosen."
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "next": {
+            "type": "string",
+            "description": "More to come: GET /api/owner/comments?state={state}&cursor={next}."
+          },
+          "empty": {
+            "type": "string",
+            "description": "What to show when there are none in this state."
+          }
+        }
+      },
+      "CommentsPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tz",
+          "items"
+        ],
+        "properties": {
+          "tz": {
+            "$ref": "#/components/schemas/Tz"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "next": {
+            "type": "string",
+            "description": "More to come: ask again with `cursor` set to it. Absent: the last page."
+          }
+        }
+      },
+      "CommentAction": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action"
+        ],
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "show",
+              "hide"
+            ],
+            "description": "show: on its page (a held one, or a hidden one within its 30 days); hide: off its page, deleted 30 days later."
+          }
+        }
+      },
+      "Tile": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "label",
+          "value",
+          "sub"
+        ],
+        "description": "One of the overview's four tiles, each leading to its part below.",
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": [
+              "needs",
+              "answers",
+              "shipped",
+              "cost"
+            ],
+            "description": "Which part it leads to: needs, answers, shipped, costs."
+          },
+          "label": {
+            "type": "string",
+            "description": "\"Needs you\", \"Found an answer\", \"Shipped in 24 hours\", \"Fish ID cost, this week\"."
+          },
+          "value": {
+            "type": "string",
+            "description": "\"6\", \"All clear\", \"121\", \"$1.24\"."
+          },
+          "sub": {
+            "type": "string",
+            "description": "\"4 to review · 2 to fix\", \"95 Claude calls\"."
+          },
+          "tone": {
+            "$ref": "#/components/schemas/Tone"
+          },
+          "delta": {
+            "$ref": "#/components/schemas/Delta"
+          },
+          "bars": {
+            "$ref": "#/components/schemas/Bars"
+          }
+        }
+      },
+      "Need": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "text",
+          "label",
+          "tone"
+        ],
+        "description": "One thing that needs the owner: the line, and where to deal with it (a section, or an address elsewhere).",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "comments",
+              "photos",
+              "key",
+              "engine",
+              "moderation",
+              "failed"
+            ],
+            "description": "For its icon. comments: held comments; photos: readers' photos waiting; key: the fish ID keys; engine: the content engine; moderation: the nightly moderation missed a night; failed: a part of the dashboard that couldn't load."
+          },
+          "text": {
+            "type": "string",
+            "description": "\"2 comments held\", \"Key #2 resting until 14:00\"."
+          },
+          "sub": {
+            "type": "string",
+            "description": "A second line, smaller."
+          },
+          "label": {
+            "type": "string",
+            "description": "The web page's button: \"Review\", \"See key\", \"See engine\"."
+          },
+          "tone": {
+            "type": "string",
+            "enum": [
+              "wait",
+              "bad"
+            ],
+            "description": "wait: to review; bad: to fix."
+          },
+          "section": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "The section it opens (and `anchor`, where in it)."
+          },
+          "anchor": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Or an address elsewhere, to open in the browser."
+          },
+          "photos": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f-]{36}$"
+            },
+            "description": "Readers' photos waiting, by id, for thumbnails: GET /_ab/anh/{id} with the bearer."
+          }
+        }
+      },
+      "Answers": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title"
+        ],
+        "description": "Readers who found an answer (the scoreboard's star): from search, then stayed 30 s or read half the page, so never more than readers. A week runs Monday to Sunday in Vietnam's time; days still to come are null.",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "figure": {
+            "$ref": "#/components/schemas/Figure",
+            "description": "This week so far, against the same point last week."
+          },
+          "chart": {
+            "$ref": "#/components/schemas/Chart",
+            "description": "This week by day, Monday to Sunday."
+          },
+          "figures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Figure"
+            },
+            "description": "Readers, sessions and shop clicks this week so far, each against the same point last week."
+          },
+          "note": {
+            "$ref": "#/components/schemas/Note"
+          }
+        }
+      },
+      "Shipped": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "lines"
+        ],
+        "description": "The changelog's lines of the last 24 hours, newest first (the daily report adds them each morning).",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "area",
+                "label",
+                "text",
+                "at"
+              ],
+              "properties": {
+                "area": {
+                  "type": "string",
+                  "enum": [
+                    "site",
+                    "app",
+                    "engine"
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "description": "\"Site\", \"App\", \"Engine\"."
+                },
+                "text": {
+                  "type": "string"
+                },
+                "at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          },
+          "empty": {
+            "type": "string",
+            "description": "What to show when nothing shipped."
+          },
+          "note": {
+            "$ref": "#/components/schemas/Note"
+          },
+          "section": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "The whole changelog: its row reads \"Changelog · 3 in 24 h\"."
+          },
+          "link": {
+            "type": "string",
+            "description": "That row's words: \"Changelog · 3 in 24 h\"."
+          }
+        }
+      },
+      "Costs": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "lines",
+          "fixed"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Figure"
+            },
+            "description": "What the server counts: fish ID this week and over 30 days."
+          },
+          "keys": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "text",
+              "tone",
+              "section"
+            ],
+            "description": "The fish ID keys' state, a row that opens their page.",
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "\"Anthropic keys\"."
+              },
+              "text": {
+                "type": "string",
+                "description": "\"1 of 2 resting\", \"2 working\"."
+              },
+              "tone": {
+                "$ref": "#/components/schemas/Tone"
+              },
+              "section": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "anchor": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              }
+            }
+          },
+          "fixed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Costs not counted, as lines: \"Engine: Claude subscription, flat\", \"Cloudflare: fixed plan\"."
+          },
+          "note": {
+            "type": "string",
+            "description": "\"Only fish ID is counted so far\", until more is."
+          }
+        }
+      },
+      "PageGroup": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "pages"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "\"Growth\", \"Content\", \"Community\", \"Fish ID\", \"App\", \"Records\"."
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "key",
+                "name",
+                "figure"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "The section it opens."
+                },
+                "name": {
+                  "type": "string"
+                },
+                "figure": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "text",
+                    "tone"
+                  ],
+                  "description": "What waits on the owner there if anything (\"2 held\", tone wait), a fault (tone bad), else its main figure (\"169 · +2%\", tone plain).",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "tone": {
+                      "$ref": "#/components/schemas/Tone"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ReportSettingsNow": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "push"
+        ],
+        "properties": {
+          "email": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean",
+            "description": "The phones' notifications (the server's switch)."
           }
         }
       }

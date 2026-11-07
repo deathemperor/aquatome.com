@@ -1,0 +1,63 @@
+{
+  "id": "cherax-boesemani",
+  "native": {
+    "input": "5d6f57c31ee37b2a",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Cherax boesemani is a crayfish endemic to West Papua, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ajamaru Lakes",
+        "source": "aquariumbreeder",
+        "quote": "It is found only in the Ajamaru Lakes and the Ajamaru River, which belongs to the Kais River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Kais River",
+        "source": "aquariumbreeder",
+        "quote": "It is found only in the Ajamaru Lakes and the Ajamaru River, which belongs to the Kais River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Ajamaru River",
+        "source": "aquariumbreeder",
+        "quote": "It is found only in the Ajamaru Lakes and the Ajamaru River, which belongs to the Kais River drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax boesemani",
+    "status": "ACCEPTED",
+    "taxonKey": 5789935,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

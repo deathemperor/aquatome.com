@@ -23,6 +23,8 @@ export type Page = {
   lines: { field: string; text: string }[]
   /** Captions of the page's photos and, for species and plants, of its gallery. */
   captions: { url: string; caption: string }[]
+  /** Species, plants and breeds: a person chose the name (`nameFixed`), and the engine leaves it as it is. */
+  nameFixed?: boolean
   /** Species and plants: the Latin name, and the other Latin names the page goes by. */
   sci?: string
   latinNames: string[]
@@ -91,18 +93,18 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
     Object.entries(dc).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: v.source, value: v.value })))
   return [
     ...c.species.map(s => ({
-      ...base('species', s.id, s.t.slug, s.t.name), ...textOf(s.t, s.t.sections),
+      ...base('species', s.id, s.t.slug, s.t.name), ...textOf(s.t, s.t.sections), ...(s.t.nameFixed ? { nameFixed: true } : {}),
       captions: captionsOf([...s.photos, ...(c.galleries[s.id] ?? [])]), sci: s.scientificName, latinNames: latin(s.t.altNames), card: card(s.dataCard),
       en: Object.fromEntries(s.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
     ...c.plants.map(p => ({
-      ...base('plants', p.id, p.t.slug, p.t.name), ...textOf(p.t, p.t.sections),
+      ...base('plants', p.id, p.t.slug, p.t.name), ...textOf(p.t, p.t.sections), ...(p.t.nameFixed ? { nameFixed: true } : {}),
       captions: captionsOf([...p.photos, ...(c.galleries[p.id] ?? [])]), sci: p.scientificName, latinNames: latin(p.t.altNames), card: [],
       en: Object.fromEntries(p.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
     ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.video ? { credited: [g.video.channel] } : {}) })),
     ...c.breeds.map(b => ({
-      ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), captions: captionsOf(b.photos), latinNames: [],
+      ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), ...(b.t.nameFixed ? { nameFixed: true } : {}), captions: captionsOf(b.photos), latinNames: [],
       card: Object.entries(b.care).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: `source ${v.source + 1}`, value: v.value }))),
     })),
     ...c.glossary.map(g => ({ ...base('glossary', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: [], latinNames: [], card: [] })),

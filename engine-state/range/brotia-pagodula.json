@@ -1,0 +1,89 @@
+{
+  "id": "brotia-pagodula",
+  "native": {
+    "input": "958a89a4ded9a478",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Brotia pagodula is restricted to the Thoungyin River in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is 327 kilometres long and forms a portion of the border between Thailand and Myanmar (Burma).",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brotia pagodula is endemic to the Moei, a border river between Myanmar and Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brotia pagodula is endemic to the Moei, a border river between Myanmar and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Thoungyin River",
+        "source": "aquariumbreeder",
+        "quote": "Brotia pagodula is restricted to the Thoungyin River in Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Moei",
+        "source": "glaser",
+        "quote": "Brotia pagodula is endemic to the Moei, a border river between Myanmar and Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Salween River",
+        "source": "aquariumbreeder",
+        "quote": "This river is a tributary of the Salween River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brotia pagodula",
+    "status": "ACCEPTED",
+    "taxonKey": 7365087,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        2
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "buccochromis-nototaenia",
+  "native": {
+    "input": "23c9c676b7ef90ce",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW",
+        "MZ",
+        "TZ"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Buccochromis nototaenia",
+    "status": "ACCEPTED",
+    "taxonKey": 2371602,
+    "datasets": [
+      [
+        "9c2cc134-5b4c-497a-8445-c45610722317",
+        1021
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        8
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

@@ -11,6 +11,73 @@
     "colombia",
     "meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Meta",
+        "Guaviare",
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from western piedmont streams within the upper río Meta and río Guaviare drainage systems, Meta and Casanare departments, eastern Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Meta",
+            "Guaviare"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Both the Meta and Guaviare are major tributaries of the río Orinoco.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167950,
+      "total": 38,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          38
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          29,
+          29
+        ],
+        [
+          -74.53125,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +121,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },

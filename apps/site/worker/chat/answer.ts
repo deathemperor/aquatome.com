@@ -1,6 +1,8 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { figuresOf, isBreed, sectionsOf, type Facts, type Handbook, type Item, type Lang, type PlantFacts } from './handbook'
+import type { TankCheck } from '../../src/scripts/tank-check'
+import { addedOf, drawnOf, summed, type MatesCheck, type Mine } from './mates'
 
 /**
  * Claude's answer and the blocks the Worker fills from it (protocols/chat.openapi.json). Claude writes the text and
@@ -32,7 +34,7 @@ export const ANSWER_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['t', 'ids', 'path', 'heading', 'tool', 'fish', 'tank'],
+        required: ['t', 'ids', 'path', 'heading', 'tool', 'fish', 'tank', 'tankId'],
         properties: {
           t: { type: 'string', enum: [...BLOCKS], description: 'species: one fish\'s or plant\'s card (ids: its id). compare: two to four side by side (ids). section: one section of a page (path, heading). tool: a tool filled from the conversation (tool, fish, tank).' },
           ids: { type: 'array', items: { type: 'string' }, description: 'species, compare: fish or plant ids, as search_handbook and read_page give them.' },
@@ -51,6 +53,7 @@ export const ANSWER_SCHEMA = {
             description: 'tool: the tank\'s length, width and height in cm, when the reader gave them or their saved tank has them.',
             properties: { l: { type: 'number' }, w: { type: 'number' }, h: { type: 'number' } },
           }),
+          tankId: nullable({ type: 'string', description: 'tool tank-mates: the reader\'s saved tank checked (its id from read_tanks); fish are then only the ones added.' }),
         },
       },
     },
@@ -58,7 +61,7 @@ export const ANSWER_SCHEMA = {
   },
 } as const
 
-export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null }
+export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
 export type Answer = { text: string; covered: boolean; blocks: Choice[]; suggestions: string[] }
 
 /** Shorter than this, an answer's text is none: the eval saw "" and "x" from a last call a limit forced. */
@@ -83,7 +86,7 @@ export type ChatBlock =
   | ({ t: 'species' } & Card)
   | { t: 'compare'; items: Card[] }
   | { t: 'section'; page: { kind: PageDoc['kind']; title: string; url: string }; heading?: { text: string; id: string }; blocks: PageDoc['blocks'] }
-  | { t: 'tool'; tool: ToolName; name: string; url: string }
+  | { t: 'tool'; tool: ToolName; name: string; url?: string; check?: TankCheck; tank?: Mine }
 
 /** Each tool's page in each language, as the app opens it (AppScreen) and the index lists it. */
 export const TOOL_PATHS: Record<ToolName, Record<Lang, string>> = {
@@ -93,10 +96,41 @@ export const TOOL_PATHS: Record<ToolName, Record<Lang, string>> = {
 }
 
 const slugOf = (path: string) => path.split('/').filter(Boolean).at(-1) ?? ''
+
+/**
+ * The fish of a tank-mates tool, as its link names them and its check (mates.ts) reads them: each fish as the species
+ * it is a form of, once, at most six, how many of it from 1 to 200.
+ */
+export function matesOf(fish: readonly { id: string; count: number }[], hb: Handbook): { item: Item; count: number }[] {
+  const out = new Map<string, { item: Item; count: number }>()
+  for (const f of fish) {
+    const s = speciesOf(f.id, hb)
+    if (s && out.size < MAX_FISH && !out.has(slugOf(s.path))) out.set(slugOf(s.path), { item: s, count: Math.min(200, Math.max(1, Math.round(f.count))) })
+  }
+  return [...out.values()]
+}
+
+/** The fish an id is (a breed: its species), or undefined for an id that isn't a fish. */
+function speciesOf(id: string, hb: Handbook): Item | undefined {
+  const i = hb.byId(id)
+  const s = i?.of ? hb.byId(i.of) : i
+  return s?.kind === 'fish' ? s : undefined
+}
+
+/** The ids among these that aren't fish (a plant, a typo): a tank-mates check or block that names one checks the rest only. */
+export const notFish = (fish: readonly { id: string }[], hb: Handbook) => fish.map(f => f.id).filter(id => !speciesOf(id, hb))
+
+/** Fish as a tank-mates link names them, in one key: "ca-betta:1,ca-neon-xanh:10", sorted (a check's, a block's). */
+export const matesKey = (fish: readonly { path: string; count: number }[]) => fish.map(f => `${slugOf(f.path)}:${f.count}`).sort().join(',')
 const sized = (t: Choice['tank']) => (t && t.l > 0 && t.w > 0 && t.h > 0 ? t : undefined)
 const r1 = (n: number) => String(Math.round(n * 10) / 10)
 
-export async function fill(answer: Answer, hb: Handbook): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+/**
+ * `checks`: the run's check_tank_mates answers (mates.ts). A tank-mates block of two fish or more goes out only with the
+ * check Claude read for the same fish, counts and tank, and carries it as the app's tank check draws it: what the
+ * answer said is what the block shows.
+ */
+export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
@@ -131,16 +165,30 @@ export async function fill(answer: Answer, hb: Handbook): Promise<{ blocks: Chat
         const q = new URLSearchParams()
         if (p.tool === 'tank-mates') {
           // The tool's own link (its page's ?ca=slug:n), each fish as the species it is a form of, once, at most six.
-          const fish = new Map<string, number>()
-          for (const f of p.fish) {
-            const i = hb.byId(f.id)
-            const s = i?.of ? hb.byId(i.of) : i
-            if (s?.kind === 'fish' && fish.size < MAX_FISH && !fish.has(slugOf(s.path))) fish.set(slugOf(s.path), Math.min(200, Math.max(1, Math.round(f.count))))
+          const fish = matesOf(p.fish, hb)
+          if (!fish.length && !p.tankId) return `tool: tank-mates with none of ${JSON.stringify(p.fish.map(f => f.id))}`
+          // An id that isn't a fish would leave the rest, perhaps one fish, which goes out unchecked: not shown.
+          const odd = notFish(p.fish, hb)
+          if (odd.length) return `tool: tank-mates with ${JSON.stringify(odd)}, not fish`
+          const key = matesKey(fish.map(f => ({ path: f.item.path, count: f.count })))
+          if (p.tankId) {
+            // The reader's tank, as Claude checked it with these fish added: the link names every kind (the tool's
+            // page reads six; past that, none: a link would open a check of other fish), and the tank's id opens its page.
+            const added = matesKey(summed(addedOf(p.fish), hb))
+            const mine = checks.find(c => c.tankId === p.tankId && matesKey(c.fish) === added)
+            if (!mine?.mine) return `tool: tank-mates in tank ${p.tankId} adding ${added || 'nothing'} not checked`
+            const sides = mine.mine.dims ? `&${new URLSearchParams((['l', 'w', 'h'] as const).map(k => [k, r1(mine.mine!.dims![k])]))}` : ''
+            const link = mine.kinds?.length && mine.kinds.length <= MAX_FISH ? `${page.path}?ca=${mine.kinds.map(k => `${slugOf(k.path)}:${k.count}`).join(',')}${sides}` : undefined
+            return { t: 'tool', tool: p.tool, name: page.short ?? page.name, ...(link ? { url: link } : {}), check: drawnOf(mine), tank: mine.mine }
           }
-          if (!fish.size) return `tool: tank-mates with none of ${JSON.stringify(p.fish.map(f => f.id))}`
-          const ca = [...fish].map(([slug, n]) => `${slug}:${n}`).join(',')
+          const size = (t: { l: number; w: number; h: number } | null | undefined) => (t ? [t.l, t.w, t.h].map(r1).join('×') : '')
+          const check = fish.length >= 2 ? checks.find(c => !c.tankId && matesKey(c.fish) === key && size(c.tank) === size(tank)) : undefined
+          if (fish.length >= 2 && !check?.verdict) return `tool: tank-mates ${key}${tank ? ` in ${size(tank)}` : ''} not checked`
+          const ca = fish.map(f => `${slugOf(f.item.path)}:${f.count}`).join(',')
           if (tank) for (const k of ['l', 'w', 'h'] as const) q.set(k, r1(tank[k]))
-          return { t: 'tool', tool: p.tool, name: page.short ?? page.name, url: `${page.path}?ca=${ca}${q.size ? `&${q}` : ''}` }
+          // A fish the tool's page doesn't list (a breed with no species) it would leave out: no link to a check of fewer.
+          const listed = fish.every(f => !isBreed(f.item))
+          return { t: 'tool', tool: p.tool, name: page.short ?? page.name, ...(listed ? { url: `${page.path}?ca=${ca}${q.size ? `&${q}` : ''}` } : {}), ...(check ? { check: drawnOf(check) } : {}) }
         }
         if (tank) {
           q.set(p.tool === 'tank-volume' ? 'hinh' : 'co', p.tool === 'tank-volume' ? 'chu-nhat' : 'khac')

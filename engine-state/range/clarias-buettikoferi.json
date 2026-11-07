@@ -1,0 +1,89 @@
+{
+  "id": "clarias-buettikoferi",
+  "native": {
+    "input": "ee5b6a6e13d617e8",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Clarias buettikoferi Steindachner, 1894. Type locality: Buluma, Liberia. Size: 192 mm (7.6\") SL. IUCN Red List: Least Concern (last assessed 2019).",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: from the Upper Gambia to the Agnebi River in Côte d'Ivoire.",
+        "words": "Côte d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Reported from Ghana.",
+        "words": "Ghana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Agnebi River",
+        "source": "planetcatfish",
+        "quote": "Africa: from the Upper Gambia to the Agnebi River in Côte d'Ivoire.",
+        "country": "CI",
+        "ok": true
+      },
+      {
+        "name": "Upper Gambia",
+        "source": "planetcatfish",
+        "quote": "Africa: from the Upper Gambia to the Agnebi River in Côte d'Ivoire.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GM"
+      ],
+      "sourcesOnly": [
+        "LR"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Clarias buettikoferi",
+    "status": "ACCEPTED",
+    "taxonKey": 5202756,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        23
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        15
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        11
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ]
+    ],
+    "native": [
+      "LR",
+      "CI",
+      "GH"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

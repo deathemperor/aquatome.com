@@ -10,6 +10,102 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Magdalena",
+        "Río Magdalena"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Magdalena, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río Magdalena"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is endemic to Colombia and is known from the Lower and Middle Magdalena basin.",
+          "countries": [],
+          "regions": [
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343930,
+      "total": 1472,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          1472
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          7.03125,
+          937,
+          937
+        ],
+        [
+          -75.9375,
+          8.4375,
+          158,
+          158
+        ],
+        [
+          -75.9375,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          7.03125,
+          106,
+          106
+        ],
+        [
+          -74.53125,
+          8.4375,
+          253,
+          253
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -97,16 +193,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/c7d0eae7765e2ebf.webp",
-      "thumb": "https://media.aquatome.com/commons/c7d0eae7765e2ebf-480.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "Public domain",
-      "author": "Actinopterygii-Humboldt-T048.png: A. Humboldt (1769-1859) derivative work: Haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Centrochir_crocodili.jpg",
-      "caption": "Centrochir crocodili. (Syn. Doras crocodili)"
-    },
     {
       "url": "https://media.aquatome.com/commons/1c4ad9e04a255652.webp",
       "thumb": "https://media.aquatome.com/commons/1c4ad9e04a255652-480.webp",

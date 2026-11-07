@@ -10,6 +10,63 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Sarawak",
+        "Sadong",
+        "Rajang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Carinotetraodon borneensis is a small red-eyed puffer known only from southern Sarawak, Malaysia (Borneo), in the Sarawak, Sadong and Rajang rivers.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
+          "countries": [],
+          "regions": [
+            "Sarawak",
+            "Sadong",
+            "Rajang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407804,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +110,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },

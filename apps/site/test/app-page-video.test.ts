@@ -6,6 +6,8 @@ import { PageDoc, type Block, type Inline } from '@aq/schema/app-page'
 import { appSeries } from '../src/lib/app-index'
 import { videoDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
+import { guideImages } from '../src/lib/mentions'
+import { seriesParts } from '../src/lib/series-page'
 import { appHref, appPage } from './dist'
 
 // The app draws a video series' page from this copy (once the index counts the kind): what it holds must be the page.
@@ -61,6 +63,18 @@ test('a series\' guides go in its order, with their counts; a guide of one part 
     ['/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/', 'Cách hạn chế rêu hại trong bể thủy sinh', 'Chăm cây · 3 đoạn · 29:15'],
     ['/vi/huong-dan/phan-hai/', 'Phần hai', 'Chăm cây · 29:15'],
   ])
+})
+
+test('a series\' guides never show one picture twice: a guide whose picture an earlier one shows takes its next', async () => {
+  // Two guides of a series both opened on the same Commons photo, and its page showed it twice (2026-11-07).
+  const c0 = await getContent('vi')
+  const { s, guides: [first] } = appSeries('vi', c0)[0]!
+  const second = { ...first!, id: 'youtube-phan-hai', t: { ...first!.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...first!.video, youtubeId: 'bbbbbbbbbbb', series: { id: s.id, position: 1 } } }
+  const c = { ...c0, guides: [second, ...c0.guides] } as Content
+  const shown = seriesParts('vi', c, s).guides.map(x => x.photo?.url)
+  expect(shown[0]).toBe(guideImages(c, first!)[0]!.url)
+  expect(shown[1]).not.toBe(shown[0])
+  expect(shown[1]).toBe(guideImages(c, first!).find(p => p.url !== shown[0])?.url)
 })
 
 test('a series\' copy in Indonesian has the Indonesian pages\' paths only', async () => {

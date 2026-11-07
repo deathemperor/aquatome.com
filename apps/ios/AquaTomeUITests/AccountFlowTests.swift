@@ -580,7 +580,13 @@ final class AccountFlowTests: XCTestCase {
     guard let c = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
                             bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
     c.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
-    let sum = stride(from: 0, to: px.count, by: 4).reduce(0) { $0 + Int(px[$1]) + Int(px[$1 + 1]) + Int(px[$1 + 2]) }
+    // A loop of single sums: as one closure of chained sums, CI's compiler gave up type-checking it.
+    var sum = 0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      sum += Int(px[i])
+      sum += Int(px[i + 1])
+      sum += Int(px[i + 2])
+    }
     return Double(sum) / Double(w * h * 3 * 255)
   }
 

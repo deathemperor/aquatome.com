@@ -14,6 +14,88 @@
     "cambodia",
     "tonle-sap"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the lower Mekong basin in Thailand, Vietnam, and Cambodia, the Chao Phraya watershed in central Thailand, and may occur in smaller river systems between.",
+          "countries": [
+            "TH",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407809,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "KH",
+          4
+        ],
+        [
+          "VN",
+          4
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          112.5,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +139,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },

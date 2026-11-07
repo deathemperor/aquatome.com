@@ -10,6 +10,145 @@
     "united-states",
     "mississippi-river"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Mississippi River"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Cambarellus puer occurs from southern Illinois and Missouri southward along the Mississippi River to Louisiana, and westward to southeastern Oklahoma and eastern Texas.",
+          "countries": [],
+          "regions": [
+            "Mississippi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2227434,
+      "total": 124,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "US",
+          124
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          29.53125,
+          5
+        ],
+        [
+          -97.03125,
+          28.125,
+          1
+        ],
+        [
+          -97.03125,
+          29.53125,
+          10
+        ],
+        [
+          -95.625,
+          28.125,
+          15
+        ],
+        [
+          -95.625,
+          29.53125,
+          16
+        ],
+        [
+          -95.625,
+          30.9375,
+          3
+        ],
+        [
+          -95.625,
+          32.34375,
+          1
+        ],
+        [
+          -95.625,
+          33.75,
+          1
+        ],
+        [
+          -94.21875,
+          29.53125,
+          6
+        ],
+        [
+          -94.21875,
+          30.9375,
+          2
+        ],
+        [
+          -94.21875,
+          32.34375,
+          7
+        ],
+        [
+          -94.21875,
+          33.75,
+          3
+        ],
+        [
+          -92.8125,
+          29.53125,
+          1
+        ],
+        [
+          -92.8125,
+          30.9375,
+          8
+        ],
+        [
+          -92.8125,
+          32.34375,
+          13
+        ],
+        [
+          -92.8125,
+          33.75,
+          1
+        ],
+        [
+          -91.40625,
+          29.53125,
+          4
+        ],
+        [
+          -91.40625,
+          32.34375,
+          2
+        ],
+        [
+          -91.40625,
+          35.15625,
+          7
+        ],
+        [
+          -91.40625,
+          36.5625,
+          7
+        ],
+        [
+          -90,
+          36.5625,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

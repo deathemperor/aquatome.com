@@ -49,6 +49,11 @@
    "pick": "Tối thiểu cần amoniac, nitrit và pH. Nuôi tép hoặc cá nước mềm thì thêm GH, KH."
   }
  ],
+ "order": [
+  "test",
+  "tds",
+  "man"
+ ],
  "choose": [
   "Bể mới: test amoniac và nitrit 2–3 lần mỗi tuần cho đến khi cả hai về 0 trong ít nhất một tuần.",
   "Bể ổn định: test mỗi tháng và mỗi khi cá có biểu hiện lạ.",

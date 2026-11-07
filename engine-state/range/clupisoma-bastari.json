@@ -1,0 +1,55 @@
+{
+  "id": "clupisoma-bastari",
+  "native": {
+    "input": "c4a058b609809dc6",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Godavari River basin, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Godavari River",
+        "source": "scotcat",
+        "quote": "Asia: Godavari River basin, India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Indravati River",
+        "source": "scotcat",
+        "quote": "Type locality: Indravati River (a tributary of the Godavari River) at Lohandigura, 33 km west of Jagdalpur, Bastar District, Madhya Pradesh, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clupisoma bastari",
+    "status": "ACCEPTED",
+    "taxonKey": 2341686,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        52
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

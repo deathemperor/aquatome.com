@@ -48,6 +48,19 @@ function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard'], en: str
   return out
 }
 
+/** The breeds' scale for a source's words (breeds.ts DIFFICULTY). */
+const DIFFICULTY_WORDS: Record<string, number> = { 'very easy': 1, beginner: 2, easy: 2, 'easy to moderate': 3, moderate: 4, intermediate: 4, 'moderate to difficult': 5, difficult: 6, advanced: 6, 'very difficult': 7, expert: 8, 'expert only': 8 }
+/**
+ * Seriously Fish's difficulty, from its page: in "## Difficulty6 of 8 measures" the 6 counts the measures it could rate
+ * (space, water, diet…), and the rating is the word under it ("Moderate"). The model read the count as the rating (the
+ * climbing perch, "Moderate", showed as hard). undefined: no such block (the old layout), so the figure read from the page
+ * stands; null: the block rates nothing ("Not enough data to rate").
+ */
+export function sfDifficulty(page: string): number | null | undefined {
+  const word = page.match(/^##\s*Difficulty\s*\d+\s+of\s+\d+\s+measures\s*\n\s*(.+)/m)?.[1]
+  return word === undefined ? undefined : DIFFICULTY_WORDS[word.trim().toLowerCase()] ?? null
+}
+
 const SYSTEM = 'You are a meticulous aquarium-science editor and English→Vietnamese translator. Reply only with the requested JSON.'
 const TEMPLATE = readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8')
 const KEYS = new Set<string>(SECTION_ORDER)
@@ -64,9 +77,13 @@ export async function processPage(llm: Llm, input: { source: SourceId; url: stri
   }
   if (!parsed) throw new Error(`invalid processed page for ${input.url}: ${String(lastError).slice(0, 300)}`)
   if (parsed.kind === 'species' && !parsed.scientificName) return { ...parsed, kind: 'skip', sections: [] }
+  const dataCard = saneCard(parsed.dataCard, parsed.sections.map(s => s.en).join('\n'))
+  const sf = input.source === 'seriouslyfish' ? sfDifficulty(input.outline) : undefined
+  if (sf === null) delete dataCard.difficulty
+  else if (sf) dataCard.difficulty = sf
   return {
     ...parsed,
-    dataCard: saneCard(parsed.dataCard, parsed.sections.map(s => s.en).join('\n')),
+    dataCard,
     sections: parsed.sections.filter((s): s is ProcessedPage['sections'][number] => KEYS.has(s.key)).map(s => ({ ...s, en: sanitizeHtml(s.en), vi: sanitizeHtml(s.vi) })),
     guide: parsed.guide && { ...parsed.guide, viBody: sanitizeHtml(parsed.guide.viBody) },
   }
