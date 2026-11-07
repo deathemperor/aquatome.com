@@ -135,12 +135,12 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
   // A person's title and a renamed guide's old addresses stay when the source is read again.
   const name = prev?.vi?.nameFixed ? prev.vi.name : page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
   // A guide that fixes a problem leads with the fix (guide-sections.ts).
-  // A body fixed by hand and a note for local readers stay too.
+  // A body fixed by hand, the pages it cites and a note for local readers stay too.
   const fixed = prev?.vi?.bodyFixed ? prev.vi.body : undefined
   return { entity, vi: {
     slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: fixed ?? fixFirst(name, page.guide.kind, page.guide.viBody), quality: ctx.quality ?? DEFAULT_QUALITY,
     ...(prev?.vi?.nameFixed ? { nameFixed: true } : {}), ...(prev?.vi?.redirectFrom ? { redirectFrom: prev.vi.redirectFrom } : {}),
-    ...(prev?.vi?.bodyFixed ? { bodyFixed: true } : {}), ...(prev?.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
+    ...(prev?.vi?.bodyFixed ? { bodyFixed: true, ...(prev.vi.refs ? { refs: prev.vi.refs } : {}) } : {}), ...(prev?.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
   } }
 }
 
