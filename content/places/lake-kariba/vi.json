@@ -1,10 +1,13 @@
 {
   "slug": "lake-kariba",
-  "name": "Lake Kariba",
-  "altNames": [],
+  "name": "hồ Kariba",
+  "altNames": [
+    "Lake Kariba"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -246,18 +246,6 @@ Kiểm tra:
 - "dễ mang ký sinh trùng, mầm bệnh": the page says feeder fish "có thể mang" parasites or pathogens. "Dễ" makes that hedge stronger.
 - "ưu tiên mồi tươi": the page doesn't say to prefer fresh or live prey. It says most fish take dead food easily.
 
-## Cá lóc Sri Lanka (Channa orientalis)
-id: `channa-orientalis`
-
-Cá lóc lùn Sri Lanka (Channa orientalis) hợp với người muốn nuôi cá lóc cỡ nhỏ, trưởng thành khoảng 10 cm, độ khó 5/8 (mức vừa). Cần bể dài tối thiểu 60 cm có nắp kín, nước nhiệt đới 24–25 °C, pH 5–7. Điểm khó nhất là kiểu nuôi ngược thói quen: cá không ưa thay nước từng phần thường xuyên hay nước quá sạch, và cặp kết đôi có thể hung dữ.
-
-- Để bể hở hoặc nắp còn khe: Channa nhảy ra qua bất kỳ khe nào, nên dùng nắp đậy kín.
-- Thay nước từng phần thường xuyên và giữ nước quá sạch: nhiều loài Channa không thích, nên cân nhắc bể trồng dày cây, lọc rất ít hoặc không lọc nếu bể chỉ nuôi loài này và đủ rộng.
-- Chủ quan khi cá bắt đầu kết đôi: cặp này có thể hung dữ, từng có con khỏe hôm trước hôm sau chết thân rách tả tơi, nên tách riêng nếu thấy hai con quấn nhau thành hình chữ S.
-
-Kiểm tra:
-- Third mistake's fix "nên tách riêng nếu thấy hai con quấn nhau thành hình chữ S": the page gives no advice to separate the fish when they pair up or turn aggressive. It only says the S-shaped embrace is a sign a pair is forming. The fix is invented.
-
 ## Cá minnow bụng đỏ phương Nam (Chrosomus erythrogaster)
 id: `chrosomus-erythrogaster`
 
@@ -710,6 +698,17 @@ Cá trê lũa (Sorubimichthys planiceps) hợp với người nuôi có kinh ngh
 
 Kiểm tra:
 - "chỉ nuôi cùng cá da trơn cỡ lớn như họ Pimelodidae hoặc Doradidae": the page says the fish can live with any species that has similar water needs and is big enough not to be swallowed. It only offers these catfish families as suggestions ("gợi ý"). "Chỉ" turns a suggestion into an exclusive rule.
+
+## Cá Sundasalanx (Sundasalanx microps)
+id: `sundasalanx-microps`
+
+Sundasalanx microps là cá tí hon, lớn tới 2 cm, độ khó 4/8 (vừa). Cần bể đáy 45 × 30 cm hoặc tương đương (khoảng 41 lít), nhiệt độ 22–26 °C. pH và độ cứng hồ sơ chưa có ghi nhận, và hiện biết rất ít về sinh thái của loài này. Khó nhất là thức ăn cỡ rất nhỏ và việc cá nhiều khả năng yếu thế khi tranh ăn. Hồ sơ cũng ghi loài này dường như chưa từng xuất hiện trên thị trường cá cảnh và nhiều khả năng rất khó vận chuyển.
+
+- Cho ăn thức ăn quá to: nên cho thức ăn nhỏ kiểu sinh vật phù du, chẳng hạn ấu trùng Artemia.
+- Nuôi lẻ một hai con: nhiều khả năng đây là loài sống thành nhóm và bơi theo đàn, nên nuôi một nhóm.
+
+Kiểm tra:
+- "yếu thế khi tranh ăn": the page only says the fish is likely at a disadvantage when competing with other fish ("cạnh tranh với cá khác"). It does not say the competition is over food, so the summary adds a claim the page doesn't make.
 
 ## Cá trê lông Synodontis clarias (Synodontis clarias)
 id: `synodontis-clarias`

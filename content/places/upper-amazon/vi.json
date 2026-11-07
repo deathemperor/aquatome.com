@@ -1,10 +1,13 @@
 {
   "slug": "upper-amazon",
-  "name": "Upper Amazon",
-  "altNames": [],
+  "name": "thượng lưu sông Amazon",
+  "altNames": [
+    "Upper Amazon"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

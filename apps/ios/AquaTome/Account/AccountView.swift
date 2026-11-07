@@ -75,6 +75,8 @@ struct Tile: View {
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  /// The app's v2 in place of v1 (V2Root): debug and TestFlight builds only (V2Switch).
+  @AppStorage("v2") private var v2 = false
 
   /// "Ngôn ngữ" as kept, which the section's footer reads too.
   @State private var language = AppLanguage.stored
@@ -87,6 +89,12 @@ private struct AppSection: View {
       .accessibilityIdentifier("app-icon-row")
       AppearanceRow()
       LanguageRow(choice: $language)
+      if #available(iOS 18, *), V2Switch.offered {
+        Toggle(isOn: $v2) {
+          Label { Text("Giao diện mới (thử nghiệm)") } icon: { Tile(symbol: "sparkles", color: Tile.green) }
+        }
+        .accessibilityIdentifier("v2-switch")
+      }
       let kept = handbook.keptItems.count
       if kept > 0 {
         Button { openScreen(.kept) } label: {

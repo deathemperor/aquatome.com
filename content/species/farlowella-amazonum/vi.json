@@ -3,7 +3,9 @@
   "name": "Cá twig",
   "altNames": [
     "Cá da trơn cành cây",
-    "Twig Catfish"
+    "Twig Catfish",
+    "Cá cành cây Amazon",
+    "Amazon twig catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Farlowella amazonum (Günther, 1864)</li><li>Tên thường gọi: Twig Catfish</li><li>Sinh sản: chưa có ghi nhận</li></ul>",
@@ -11,14 +13,22 @@
     "behaviour:planetcatfish": "<p>Các loài tetra hay rasbora cỡ nhỏ có tính nết hợp để nuôi chung. Hợp nhất có lẽ là cá hatchetfish. Bạn nên tránh những loài bơi nhanh hoặc hay rỉa vây như danio hay barb. Cá sống chung tốt với cá chuột Corydoras, nhưng không nên thả chung với các loài cá da trơn lớn hơn hay cichlid.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Tên loài này đôi khi bị viết sai thành Farlowella amazona. Tên giống đặt theo W. G. Farlow của Đại học Harvard. Còn tên loài lấy từ sông Amazon, nơi người ta tìm thấy loài cá này.</p>",
-    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 261.</p>"
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 261.</p>",
+    "beforeYouBuy:scotcat": "<p>Giống Farlowella có rất nhiều loài, và cũng như phần lớn các loài trong giống, loài này có thể khó định danh cho đúng.</p><p>Đây không phải loài cá da trơn dễ nuôi. Đã có nhiều ca cá chết không rõ lý do ở loài này (và ở các loài Farlowella khác). Người nuôi cần chăm chút cho cá và nên có kinh nghiệm với cá da trơn. Tốt nhất là bạn đã từng nuôi chính loài này, hoặc các họ hàng gần của nó trong giống Sturisoma, vốn dễ nuôi hơn.</p>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, trong các lưu vực sông Amazon, Tocantins và La Plata. Địa điểm thu mẫu chuẩn (type locality) là Santarém, trên sông Amazon, Brazil.</p>",
+    "maintenance:scotcat": "<p>Cá cần nước giàu oxy. Bạn phải thay nước đều đặn để giữ nước luôn thật sạch. Cá thích nền màu tối, cây trồng dày, có cây thả nổi và những cây lá dài để nó bám lên.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ 26–30°C, pH 6,0–7,0.</p>",
+    "diet:scotcat": "<p>Cá chủ yếu ăn thực vật. Cả cá trưởng thành lẫn cá bột đều lấy tảo làm thức ăn chính, vì vậy cho ăn viên chìm nhiều thành phần rau là đủ.</p>",
+    "behaviour:scotcat": "<p>Đây là loài rất nhát. Nếu nuôi chung, bạn nên tránh những loài cá hiếu động, hay quậy, như một số loài barb (ví dụ cá tứ vân). Cá họ cichlid thì nhất định không thả chung. Bạn cùng bể hợp hơn là các loài cá chuột Corydoras hiền lành, cá tetra nhỏ hoặc cá rasbora.</p>",
+    "notes:scotcat": "<p>Về nguồn gốc tên gọi, tên loài amazonum (hậu tố -anum trong tiếng Latin nghĩa là \"thuộc về\") chỉ sông Amazon tại Santarém, bang Pará, Brazil. Đây là nơi thu mẫu chuẩn của loài.</p><p>Trong Catalog of Fishes của Eschmeyer, Farlowella platorynchus hiện được xem là tên đồng nghĩa của F. amazonum.</p><p>Trong Danh lục đỏ IUCN, loài này được xếp vào nhóm Ít quan tâm (IUCN 2023). Thông tin về loài còn ít, nhưng cá phân bố rộng và chưa thấy mối đe dọa rõ ràng nào.</p>",
+    "references:scotcat": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J. H. A. Mol, J. I. Montoya-Burgos and S. Dray 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Molecular Phylogenetics and Evolution v. 94 (Pt. B): 492-517.</p><p>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp. 944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Farlowella amazonum. The IUCN Red List of Threatened Species 2023.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
+    }
   }
 }

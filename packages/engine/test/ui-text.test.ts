@@ -10,13 +10,12 @@ const dicts = async (files: Record<string, object>) => {
   return dir
 }
 
-test("no build asks for a language the site doesn't serve: it gets what a served language has and it lacks, a share at a time", async () => {
-  const dir = await dicts({ id: { Bể: 'Akuarium', Cá: 'Ikan', Cây: 'Tanaman' }, th: { Bể: 'ตู้', Cá: 'ปลา', Cây: 'ไม้' } })
-  expect(await unservedMissing(dir)).toEqual({ ms: ['Bể', 'Cá', 'Cây'] })
-  expect(await unservedMissing(dir, 2)).toEqual({ ms: ['Bể', 'Cá'] })
-  await writeFile(join(dir, 'ms.json'), JSON.stringify({ Bể: 'Akuarium', Cá: 'Ikan' }))
-  expect(await unservedMissing(dir, 2)).toEqual({ ms: ['Cây'] })
-  await writeFile(join(dir, 'ms.json'), JSON.stringify({ Bể: 'Akuarium', Cá: 'Ikan', Cây: 'Tumbuhan' }))
+// A language the site doesn't serve has no build to say what it lacks: it gets what a served language has, a share at a
+// time (the cycle's --unserved step). None is unserved since Malay went live: its build says what it misses, as the
+// others' do, and the next language's row is held here.
+test('a language the site serves leaves the list: Malay, missing strings, gets none from it', async () => {
+  const dir = await dicts({ id: { Bể: 'Akuarium', Cá: 'Ikan', Cây: 'Tanaman' }, th: { Bể: 'ตู้', Cá: 'ปลา', Cây: 'ไม้' }, ms: { Bể: 'Tangki' } })
+  expect(await unservedMissing(dir)).toEqual({})
   expect(await unservedMissing(dir, 2)).toEqual({})
 })
 

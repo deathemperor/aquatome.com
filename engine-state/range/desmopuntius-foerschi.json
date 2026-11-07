@@ -1,0 +1,64 @@
+{
+  "id": "desmopuntius-foerschi",
+  "native": {
+    "input": "e2f9a631313f179f",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be native to the Indonesian provinces of Kalimantan Timur (East Kalimantan) and Kalimantan Tengah (Central Kalimantan) on the island of Borneo although information is quite scarce.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Appears to be native to the Indonesian provinces of Kalimantan Timur (East Kalimantan) and Kalimantan Tengah (Central Kalimantan) on the island of Borneo although information is quite scarce.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sampit",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'About 50 to 100 kilometers north of Sampit, Kalimantan, Indonesia', which presumably refers to the Sampit (aka Mentaya) River basin while the only other details available suggest that it's also been collected from the Mahakam drainage.",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'About 50 to 100 kilometers north of Sampit, Kalimantan, Indonesia', which presumably refers to the Sampit (aka Mentaya) River basin while the only other details available suggest that it's also been collected from the Mahakam drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Desmopuntius foerschi",
+    "status": "ACCEPTED",
+    "taxonKey": 7466061,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

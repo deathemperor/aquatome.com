@@ -1,10 +1,13 @@
 {
   "slug": "congo-basin",
-  "name": "Congo basin",
-  "altNames": [],
+  "name": "lưu vực sông Congo",
+  "altNames": [
+    "Congo basin"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

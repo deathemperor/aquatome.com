@@ -1,10 +1,13 @@
 {
   "slug": "negros-island",
-  "name": "Negros Island",
-  "altNames": [],
+  "name": "đảo Negros",
+  "altNames": [
+    "Negros Island"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

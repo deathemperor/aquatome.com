@@ -1,4 +1,40 @@
 {
+  "vi/species/axelrodia-riesei#G7YKeIn7c1w": [
+    {
+      "at": "2026-11-07T20:43:36Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "[reproduction] 'khuyên giữ nước ở khoảng 20–26 °C và pH 4,5–6,5' already on the page (waterConditions: 'Nhiệt độ có thể dao động từ 20 đến 26 °C', pH 4,5 đến 6,5) and the card; redundant.",
+        "[reproduction] The video gives this range as a recommendation 'if you want to breed them', but 'nước lệch đôi chút vẫn được' is stated loosely; it's okay in itself but the figure repeats the page.",
+        "[notes] 'Cá trong cùng một nhóm không đồng màu. Có con đỏ hơn, có con ngả cam hoặc hơi hồng' is already on the page (notes: 'Sắc đỏ ... khác nhau', card 'từ đỏ tươi đến hồng nhạt'); mostly duplicate.",
+        "[diet] 'Khi cho ăn nhiều đồ sống ... lên màu đỏ rất đẹp' partly duplicates the page (Cyclops makes the red deeper; 'lên màu đẹp hơn').",
+        "[diet] 'microworm' is a mix of Vietnamese and English; the page uses 'giun mùn'/'giun giấm', so wording is not natural.",
+        "[behaviour] 'chưa bao giờ thấy cá ăn tép con' correctly attributed to one keeper, but the page already says baby shrimp are easily eaten; the video differs (not sure), and NEW doesn't say plainly that it contradicts the page.",
+        "[distribution] 'không phải cá vùng Amazon ... khu hệ cá nước ngọt nhiệt đới Nam Mỹ' is stated in the video and is new, fine; but 'Nói đúng về mặt địa lý' reads like a translation.",
+        "[notes] Chihiros lamp statement fits the video as one keeper's experience, but 'người này thấy cá trông rực hơn hẳn' is stronger than the video (it said 'even brighter')."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-07T20:43:36Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "[notes] \"Chính thứ nước màu trà do tanin nhuộm mang lại màu đỏ cho loài này\" overstates the video; the speaker says the fish have this colour thanks to tea water, but it is presented as fact and the page already says tannin water/black water.",
+        "[notes] \"phần khác biệt này do cả ánh sáng lẫn thức ăn\" is given as a rule; the video says 'it depends on lighting, but also on food' as the speaker's remark, not firm cause.",
+        "[notes] \"Cá đỏ sống đúng ở vùng nước nhuộm tanin cũng là chuyện gặp ở nhiều loài khác\" is a general remark, not about this species, and the page already covers tannin water.",
+        "[habitat] \"Nơi cá sống có lẽ có nhiều thực vật mọc dày\" - the speaker is guessing from a description, never having visited; the page already says dense forest, leaf litter and tannin water, so this overlaps.",
+        "[waterConditions] \"nhiệt độ và pH lệch đi đôi chút vẫn được\" - the video says 'some fluctuations are possible' if not breeding, but the page already gives wide ranges; 'độ dẫn điện thấp' and 'nhiệt độ ổn định' are in the video but 'Dù vậy' framing is awkward.",
+        "[maintenance] \"Đèn kiểu Chihiros\" - names a brand from the video; not wrong, but placed under maintenance as a rule about lighting with no keeper attribution, and the page says the fish prefer dim light.",
+        "[behaviour] \"Một người từng nuôi loài này chưa bao giờ thấy cá ăn tép con\" - the page already says baby shrimp are easily eaten; the video's uncertainty differs from the page and this is not stated plainly as a difference.",
+        "[diet] The keeper-attributed statement repeats the page's claim on Cyclops and colour, and the video's list of live foods is not used; the page already covers diet in detail."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/nanosphronemus-gemma": [
     {
       "at": "2026-11-06T16:36:33Z",

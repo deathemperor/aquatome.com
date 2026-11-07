@@ -158,9 +158,10 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   // Metric only: the writer keeps the facts' own units (doses are never changed by a model); the conversion is ours.
   const prevVi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8').catch(() => 'null')) as Translation | null
   const vi = TranslationSchema.parse(metricPage({
-    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
+    slug, name, altNames: [], sections: {}, body: prevVi?.bodyFixed ? prevVi.body : sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prevVi?.localNote ? { localNote: prevVi.localNote } : {}),
+    ...(prevVi?.bodyFixed ? { bodyFixed: true } : {}),
   }, 'vi'))
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)

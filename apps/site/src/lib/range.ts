@@ -37,6 +37,9 @@ export function appRange(range: SpeciesRange | undefined, regionName: (name: str
   }
 }
 
+/** A place's name where it starts a chip, a heading or a list item: stored as written in a sentence ("sông Hồng"). */
+export const capitalized = (name: string) => name.charAt(0).toLocaleUpperCase('vi') + name.slice(1)
+
 /** A region's name in this language: the site's place of that name (a river or region page's own name), else as written. */
 export function regionNames(places: Content['places']): (name: string) => string {
   const byId = new Map(places.map(p => [p.id, p.t.name]))
@@ -55,7 +58,7 @@ export function countryNames(lang: Lang, places: Content['places'], paged: Set<s
   }
   return code => {
     const p = own.get(code)
-    return { name: p?.t.name ?? countryName(code, lang), ...(p && paged.has(p.id) ? { place: p.id } : {}) }
+    return { name: capitalized(p?.t.name ?? countryName(code, lang)), ...(p && paged.has(p.id) ? { place: p.id } : {}) }
   }
 }
 
@@ -142,7 +145,7 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   ].join('')
   const said = quotes?.length ? {
     title: t('Nguồn ghi gì'),
-    html: `<ul>${quotes.map(q => `<li><strong>${[...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', ')}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${esc(q.quote)}”</span></li>`).join('')}</ul>`,
+    html: `<ul>${quotes.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${esc(q.quote)}”</span></li>`).join('')}</ul>`,
   } : undefined
 
   const inside = shown && native?.countries.length ? recordsInside(s.range!) : undefined

@@ -178,8 +178,8 @@ final class AccountFlowTests: XCTestCase {
     var app = launch()
     let phone = app.staticTexts["appearance-sheet"]
     XCTAssertTrue(phone.waitForExistence(timeout: 5), "no sheet")
-    let (other, target) = phone.label == "dark" ? ("Sáng", "light") : ("Tối", "dark")
-    let was = phone.label
+    let was = phone.label == "drawn dark" ? "dark" : "light"
+    let (other, target) = was == "dark" ? ("Sáng", "light") : ("Tối", "dark")
     // Apple's button is white in the dark, black in the light (its colour is set when it's made).
     let apple = element(app, "apple-sign-in")
     XCTAssertTrue(apple.waitForExistence(timeout: 5), "no Apple button")
@@ -630,7 +630,7 @@ final class AccountFlowTests: XCTestCase {
     let probe = app.staticTexts[id]
     let until = Date().addingTimeInterval(5)
     while Date() < until {
-      if probe.exists && probe.label == scheme { return true }
+      if probe.exists && probe.label == "drawn \(scheme)" { return true }
       RunLoop.current.run(until: Date().addingTimeInterval(0.25))
     }
     return false

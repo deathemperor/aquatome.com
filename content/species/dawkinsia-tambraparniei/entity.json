@@ -10,6 +10,71 @@
     "india",
     "tambraparni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Tambraparni",
+        "Western Ghats"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Tambraparni arises in the Western Ghats mountains and flows through the state of Tamil Nadu in southern India, eventually emptying into the Gulf of Mannar.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Stream 7 miles from Kalladaikurichi, Tambraparni watershed, Tinnevelly District, Madras State, India', and this species is possibly restricted to middle parts of the Tambraparni River basin.",
+          "countries": [],
+          "regions": [
+            "Tambraparni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8350583,
+      "total": 22,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          8.4375,
+          19,
+          19
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

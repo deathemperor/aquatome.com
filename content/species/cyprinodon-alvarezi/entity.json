@@ -10,6 +10,46 @@
     "mexico",
     "nuevo-leon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Originally endemic to a single isolated spring near the settlement of El Potosí in Nuevo León state, northern Mexico but has been extinct in nature since the late 1990s.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347879,
+      "total": 42,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          42
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          23.90625,
+          42,
+          42
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

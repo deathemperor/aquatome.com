@@ -1,10 +1,13 @@
 {
   "slug": "thai-nguyen",
-  "name": "Thai Nguyen",
-  "altNames": [],
+  "name": "Thái Nguyên",
+  "altNames": [
+    "Thai Nguyen"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

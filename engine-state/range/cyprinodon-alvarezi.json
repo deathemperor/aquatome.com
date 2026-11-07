@@ -1,0 +1,68 @@
+{
+  "id": "cyprinodon-alvarezi",
+  "native": {
+    "input": "b2b8c5b91e5c028c",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally endemic to a single isolated spring near the settlement of El Potosí in Nuevo León state, northern Mexico but has been extinct in nature since the late 1990s.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyprinodon alvarezi",
+    "status": "ACCEPTED",
+    "taxonKey": 2347879,
+    "datasets": [
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        12
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        6
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

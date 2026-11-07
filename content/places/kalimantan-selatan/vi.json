@@ -1,10 +1,13 @@
 {
   "slug": "kalimantan-selatan",
-  "name": "Kalimantan Selatan",
-  "altNames": [],
+  "name": "Nam Kalimantan",
+  "altNames": [
+    "Kalimantan Selatan"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

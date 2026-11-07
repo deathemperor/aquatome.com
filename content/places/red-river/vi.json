@@ -1,10 +1,13 @@
 {
   "slug": "red-river",
-  "name": "Red River",
-  "altNames": [],
+  "name": "sông Hồng",
+  "altNames": [
+    "Red River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

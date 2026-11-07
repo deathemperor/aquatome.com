@@ -6,8 +6,12 @@ import { isVietnamese, type Lang } from './i18n'
 import { guidesMentioning, linkTargets } from './mentions'
 import { distinctPhotos, pagePictures, takeEach } from './pictures'
 
-/** A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. */
-export type BreedParent = { name: string; sci?: string; path?: string; certain: boolean }
+/**
+ * A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. `vi`: that
+ * name is Vietnamese on another language's page (its translation left the parents out), marked as the site marks
+ * Vietnamese names in translated text.
+ */
+export type BreedParent = { name: string; sci?: string; path?: string; certain: boolean; vi?: boolean }
 
 /**
  * What a breed's page shows, put together once for the page (pages/ca/[breed].astro) and for the app's copy of it
@@ -22,9 +26,9 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
     // A parent the breed's sources name only by its scientific name in brackets is still that species.
     const sci = /\(([A-Z][a-z]+ [a-z]+)\)\s*$/.exec(p.name)?.[1]
     const s = species.get(p.species ?? (sci ? slugify(sci) : ''))
-    return s
-      ? { name: s.t.name, sci: s.scientificName, path: `/vi/ca/${s.t.slug}/`, certain: p.certain }
-      : { name: b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name), certain: p.certain }
+    if (s) return { name: s.t.name, sci: s.scientificName, path: `/vi/ca/${s.t.slug}/`, certain: p.certain }
+    const name = b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name)
+    return { name, certain: p.certain, ...(lang !== 'vi' && isVietnamese(name) ? { vi: true } : {}) }
   })
   const pics = pagePictures(c)
   pics.add(b.photos[0]?.url)

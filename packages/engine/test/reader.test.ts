@@ -193,12 +193,13 @@ test('the backfill: the most-read pages first, Vietnamese first, then the reader
   expect(duePages(pages, {}).map(pageKey)).toEqual(['vi/guides/g1', 'vi/species/betta', 'vi/species/rare', 'id/species/betta'])
 })
 
-test("the reader's pages are the served languages': a language the site doesn't serve yet costs it no reading", async () => {
+test("the reader's pages are the served languages': Malay's among them since it went live", async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-reader-ms-'))
   await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), root, { recursive: true })
   expect(await readFile(join(root, 'species/apistogramma-cacatuoides/ms.json'), 'utf8')).toContain('Ikan Uji Melayu') // the fixture has one
   const pages = await loadPages(root)
   expect(pages.length).toBeGreaterThan(0)
-  expect(new Set(pages.map(p => p.lang))).toEqual(new Set(['vi']))
-  expect(pages.filter(p => p.title.includes('Melayu'))).toEqual([])
+  expect(new Set(pages.map(p => p.lang))).toEqual(new Set(['vi', 'ms']))
+  // At Malay's addresses, as the site has them (src/lib/i18n.ts SECTIONS).
+  expect(pages.filter(p => p.lang === 'ms').map(p => p.path)).toEqual(expect.arrayContaining(['/ms/ikan/baka-uji-melayu/', '/ms/istilah/istilah-uji-melayu/', '/ms/peralatan/loc/']))
 })

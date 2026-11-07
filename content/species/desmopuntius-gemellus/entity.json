@@ -10,6 +10,75 @@
     "indonesia",
     "batang-hari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Bangka",
+        "Indragiri",
+        "Batang Hari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Desmopuntius gemellus is a rarely-traded cyprinid from eastern Sumatra and the island of Bangka, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Bangka"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it may be restricted to the Indragiri and Batang Hari river systems.",
+          "countries": [],
+          "regions": [
+            "Indragiri",
+            "Batang Hari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8192102,
+      "total": 17,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          104.0625,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          105.46875,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

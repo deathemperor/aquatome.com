@@ -51,6 +51,13 @@ test('a drifting guide is trimmed once; unchanged guides are not asked again', a
   expect(calls).toBe(2)
 })
 
+test('a body fixed by hand is not trimmed, or even asked about', async () => {
+  const root = await site({ 'youtube-light': { ...guide, bodyFixed: true } })
+  let calls = 0
+  const r = await topicCheck(root, async <T,>() => { calls++; return offTopic as T }, { limit: 10 })
+  expect([calls, r.trimmed, (await read(root, 'youtube-light')).body]).toEqual([0, [], guide.body])
+})
+
 test('never the closing section, and never more than half a guide: that one is held for a person', async () => {
   const root = await site({ 'youtube-light': guide })
   const all = { offTopic: [1, 2, 3, 4, 5, 6, 7].map(section => ({ section, reason: 'x' })) }

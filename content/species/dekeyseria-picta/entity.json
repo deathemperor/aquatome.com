@@ -11,6 +11,75 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The butterfly plec, Dekeyseria picta (L168), is a flattened loricariid catfish from the Rio Negro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Rio Orinoco fish traded as L052 is now included in the same species.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340175,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          2
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -127,6 +196,39 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ef3ac7c1bfd10852.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ef3ac7c1bfd10852-480.webp",
+      "width": 500,
+      "height": 273,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_picta.htm",
+      "caption": "Dekeyseria picta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1e6373fc9ba01b60.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1e6373fc9ba01b60-480.webp",
+      "width": 500,
+      "height": 206,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_picta.htm",
+      "caption": "Dekeyseria picta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7452291e0efc0351.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7452291e0efc0351-480.webp",
+      "width": 500,
+      "height": 352,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_picta.htm",
+      "caption": "Dekeyseria picta",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/commons/987eb141b70ff0e1.webp",
       "width": 847,

@@ -1,10 +1,13 @@
 {
   "slug": "bangka-island",
-  "name": "Bangka Island",
-  "altNames": [],
+  "name": "đảo Bangka",
+  "altNames": [
+    "Bangka Island"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

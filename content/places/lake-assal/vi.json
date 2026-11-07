@@ -1,10 +1,13 @@
 {
   "slug": "lake-assal",
-  "name": "Lake Assal",
-  "altNames": [],
+  "name": "hồ Assal",
+  "altNames": [
+    "Lake Assal"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

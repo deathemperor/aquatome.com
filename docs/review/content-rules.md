@@ -5,7 +5,7 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 4542 (Vietnamese 2777, Indonesian 886, Thai 879). Imperial units
+Pages checked: 4638 (Vietnamese 2831, Indonesian 907, Thai 900). Imperial units
 beside a metric figure: feet 2, gallon 8.
 
 ## Numbered headings broken or miscounted (1)
@@ -108,7 +108,7 @@ A species or plant photo whose caption names another species the site has a page
 
 - none
 
-## A photo caption that may name another fish (20)
+## A photo caption that may name another fish (19)
 
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
@@ -126,10 +126,9 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá hoplias aimara](https://aquatome.com/ca/ca-hoplias-aimara/) — Hoplias macropthalmus: "Hoplias macropthalmus in a pet shop"
 - [vi · Cá killifish Bouala lyretail](https://aquatome.com/ca/ca-killifish-bouala-lyretail/) — Aphyosemion elberti: "Male Aphyosemion elberti "Red T", a West African Killifish from Cameroon. This…"
 - [vi · Cá nheo Synodontis frontosus](https://aquatome.com/ca/ca-nheo-synodontis-frontosus/) — Synodontis caudovittatus: "Synodontis caudovittatus"
-- [vi · Cá ăn đất đầu nhọn](https://aquatome.com/ca/ca-satanopera-acuticeps/) — Satanoperca daemon: "Threespot Eartheater (Satanoperca daemon)"
 - [vi · Cá trê nói chuyện cẩm thạch](https://aquatome.com/ca/ca-tre-noi-chuyen-cam-thach/) — Platydoras hancockii: "This species is often traded as A. hancockii, a name currently regarded synonym…"
 - [vi · Cá trê nói chuyện nâu sô-cô-la](https://aquatome.com/ca/ca-tre-noi-chuyen-nau-so-co-la/) — Platydoras armatulus: "This species is most often seen among shipments of Platydoras armatulus or Agam…"
-- [vi · Cá trê suối Thành Đô](https://aquatome.com/ca/ca-tre-suoi-thanh-do/) — Liobagrus chengduensis: "Liobagrus chengduensis: paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Dorsal view-paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Ventral view-paratype"
+- [vi · Cá trê suối Thành Đô](https://aquatome.com/ca/ca-tre-suoi-thanh-do/) — Liobagrus chengduensis: "Liobagrus chengduensis: Dorsal view-paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Ventral view-paratype"
 - [vi · Cá vòi voi Campylomormyrus compressirostris](https://aquatome.com/ca/ca-voi-voi-campylomormyrus-compressirostris/) — Campylomormyrus rhynchophorus: "Campylomormyrus rhynchophorus at the Tokyo Tower Aquarium"
 - [vi · Bucephalandra diabolica 'Kedagang'](https://aquatome.com/cay/bucephalandra-diabolica-kedagang/) — Bucephalandra spatha: "Bucephalandra spatha, submerged, one day before fully opening, with filaments a…"
 
