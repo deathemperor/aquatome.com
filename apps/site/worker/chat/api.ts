@@ -5,7 +5,7 @@ import { loadStore } from '../accounts/tanks'
 import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
 import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
-import { failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
+import { classify, failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
 import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
@@ -322,11 +322,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
       // No key answered the first call: resting or unavailable (ours), or our request refused (failed). A later call
-      // that failed or ran out of time: unavailable, unless the API refused our request (400). An answer we can't read
-      // (a refusal, one cut short): failed.
+      // that failed or ran out of time: unavailable, unless the API refused our request (a 400 that isn't the key's: out
+      // of credit also comes as a 400, and the key's fault gives the reader's count back). An answer we can't read (a
+      // refusal, one cut short): failed.
       if (out.error instanceof FirstCall) return out.error.reason === 'request' ? { status: 502, body: { error: 'failed' } } : { status: 503, body: { error: out.error.reason } }
       if (out.error && !out.message) {
-        if (isApiError(out.error) && out.error.status === 400) return { status: 502, body: { error: 'failed' } }
+        if (isApiError(out.error) && out.error.status === 400 && !classify(out.error).mark) return { status: 502, body: { error: 'failed' } }
         if (isApiError(out.error) || (out.error as Error)?.message === 'out of time') return { status: 503, body: { error: 'unavailable' } }
         throw out.error
       }
