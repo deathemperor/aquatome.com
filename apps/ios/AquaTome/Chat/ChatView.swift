@@ -344,11 +344,11 @@ private struct AnswerText: View {
           VStack(alignment: .leading, spacing: 6) {
             ForEach(Array(items.enumerated()), id: \.offset) { i, item in
               HStack(alignment: .firstTextBaseline, spacing: 6) {
-                Text("\(item.n).").monospacedDigit().frame(minWidth: number, alignment: .trailing)
+                Text(verbatim: "\(item.n).").monospacedDigit().frame(minWidth: number, alignment: .trailing)
                 Text(item.text).frame(maxWidth: .infinity, alignment: .leading)
               }
               .accessibilityElement(children: .ignore)
-              .accessibilityLabel(Text("\(item.text)"))
+              .accessibilityLabel(Text(item.text))
               .accessibilityValue(Text("\(i + 1) trên \(items.count)"))
             }
           }

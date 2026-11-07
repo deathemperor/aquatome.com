@@ -87,7 +87,7 @@ struct ChatComposer: View {
       }
       Spacer(minLength: 0)
       if length >= model.maxChars - 50 {
-        Text("\(length)/\(model.maxChars)").monospacedDigit().foregroundStyle(over ? Color.red : Color.secondary).accessibilityIdentifier("chat-length")
+        Text(verbatim: "\(length)/\(model.maxChars)").monospacedDigit().foregroundStyle(over ? Color.red : Color.secondary).accessibilityIdentifier("chat-length")
       }
     }
     .font(.footnote)

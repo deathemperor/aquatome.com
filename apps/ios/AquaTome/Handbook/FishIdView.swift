@@ -228,9 +228,13 @@ struct FishIdView: View {
     if chat.on, f.hasGuesses, let route = Self.chat(f) {
       Section {
         NavigationLink(value: route) {
-          Label(route.subject.plant ? "Hỏi về cây này" : "Hỏi về con cá này", systemImage: "bubble.left.and.text.bubble.right.fill")
-            .font(.body.weight(.semibold))
-            .foregroundStyle(.tint)
+          Label {
+            if route.subject.plant { Text("Hỏi về cây này") } else { Text("Hỏi về con cá này") }
+          } icon: {
+            Image(systemName: "bubble.left.and.text.bubble.right.fill")
+          }
+          .font(.body.weight(.semibold))
+          .foregroundStyle(.tint)
         }
         .accessibilityIdentifier("chat-entry")
       } footer: {
