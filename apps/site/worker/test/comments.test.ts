@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { applyDecisions, ipDayKey, ipUnit, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from '../comments/api'
-import { checkRules, parseComment } from '../comments/rules'
+import { commentWeek, reasonText } from '../admin/comments'
+import { checkRules, parseComment, staticRules } from '../comments/rules'
 import { handle, type Env } from '../index'
 import { testD1 } from './d1'
 
@@ -161,4 +162,33 @@ test('admin routes need the bearer token; 503 without D1', async () => {
   expect((await q('Bearer wrong', { DB: testD1() })).status).toBe(404)
   expect((await q('Bearer tok')).status).toBe(503)
   expect(await (await q('Bearer tok', { DB: testD1() })).json()).toEqual([])
+})
+
+test('the owner reads each posting rule\'s reason as a sentence, a report\'s as held after it, the moderator\'s and the owner\'s as written', () => {
+  const held = [staticRules(c('a < b')), staticRules(c('https://a.vn và https://b.vn')), staticRules(c('nhắn zalo: 09xx')), staticRules(c('slot gacor')), staticRules(c('xxx')),
+    checkRules(c('Cá đẹp'), { duplicate: true, postsToday: 1 }), checkRules(c('Cá đẹp'), { duplicate: false, postsToday: 6 })]
+  const said = held.map(v => ('held' in v ? reasonText(v.held) : 'not held'))
+  for (const [i, t] of said.entries()) expect(t, JSON.stringify(held[i])).toMatch(/^Held when posted: [a-z]/)
+  expect(new Set(said).size).toBe(said.length)
+  expect(said.slice(0, 3)).toEqual(['Held when posted: it has a “<”', 'Held when posted: it has more than one link', 'Held when posted: it has “zalo:”, a blocked term'])
+  expect([reasonText('reported by a reader'), reasonText(null), reasonText(''), reasonText('Helpful: a first-hand tip.'), reasonText('Shown by the owner')])
+    .toEqual(['Held after a report', '', '', 'Helpful: a first-hand tip.', 'Shown by the owner'])
+})
+
+test('the week\'s comments, from Monday in Vietnam: a rule\'s hold counted after a decision wrote over its reason; reported once however often; hidden by its decision', async () => {
+  const db = testD1()
+  const add = (id: string, body: string, status: string, reason: string | null, created: string, decided: string | null = null) =>
+    db.prepare('INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at, decided_at) VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)').bind(id, 'species:betta-splendens', 'Lộc', body, status, reason, created, decided).run()
+  // Thursday 29 Oct, 10:00 in Vietnam: the week began Monday 26 Oct, 00:00 there (25 Oct, 17:00 UTC).
+  await add('a', 'Cá đẹp quá', 'approved', null, '2026-10-27T05:00:00.000Z')
+  await add('b', 'nhắn zalo: 09xx', 'approved', 'Not an ad after all.', '2026-10-27T06:00:00.000Z', '2026-10-27T20:00:00.000Z')
+  await add('c', 'Cá đẹp quá', 'held', 'Repeated.', '2026-10-28T01:00:00.000Z', '2026-10-28T20:00:00.000Z')
+  await add('d', 'Bể của mình', 'held', 'more than 5 posts today', '2026-10-28T02:00:00.000Z')
+  await add('e', 'nhắn zalo: 09xx', 'held', 'blocked term: zalo:', '2026-10-25T16:59:00.000Z')
+  await add('f', 'Mua cá ở đây', 'removed', 'Spam.', '2026-10-20T00:00:00.000Z', '2026-10-28T00:00:00.000Z')
+  await add('g', 'Mua cá ở kia', 'removed', 'Spam.', '2026-10-20T00:00:00.000Z', '2026-10-25T00:00:00.000Z')
+  for (const [item, who, at] of [['a', 'r1', '2026-10-27T07:00:00.000Z'], ['a', 'r2', '2026-10-27T08:00:00.000Z'], ['b', 'r1', '2026-10-24T08:00:00.000Z']]) {
+    await db.prepare("INSERT INTO reports (kind, item_id, reporter, reason, created_at) VALUES ('comment', ?, ?, NULL, ?)").bind(item, who, at).run()
+  }
+  expect(await commentWeek(db, now)).toEqual({ posted: 4, heldPosted: 3, reported: 1, hidden: 1 })
 })

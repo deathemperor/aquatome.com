@@ -121,14 +121,21 @@ that would have caught it).
     refused (`apps/site/worker/test/chat-stream.test.ts`); the helper holding the page and tank schemas' own rules
     (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
     the built web page with the same id, its section there not running into the next one, where the site's chat draws a
-    section from (`apps/site/test/chat-sections.test.ts`).
+    section from (`apps/site/test/chat-sections.test.ts`). The app reads the same recorded answers: every event of
+    them, `done` holding what streamed; an event, block or figure it doesn't know left out, not the turn; its question
+    of the contract's names, fish ID's guesses within its limits; the event stream's own rules (line ends, comments, an
+    event cut off at the end), through the app's session too (`AquaTomeKit/Tests/HandbookTests/ChatTests.swift`).
     The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words), a
     guide found past its title by a section heading or FAQ question with the section to open it at (the build's
     `/app/chat/<lang>.json`, each guide's own; a query's words weighed by how rare they are, so its subject counts),
     a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
-    breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
+    breed in a tank-mates link as its species), a tank-mates block of two fish or more only with the check Claude ran on
+    the same fish, counts and tank (`check_tank_mates`: the tool's own code, in the reader's language; an id that isn't a
+    fish refused by name; in the reader's saved tank by its id, its fish and size added as the app's tank page adds them)
+    and carrying it whole, a tank's block naming it and linking every kind up to the six the tool's page reads, a pick
+    the handbook doesn't have dropped with its reason while the rest go
     out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
     loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
     Claude (`apps/site/worker/test/chat-agent.test.ts`).
@@ -142,7 +149,9 @@ that would have caught it).
     two first questions at once in a new conversation, one run (a create-only write); a reader who leaves mid-answer or
     while the handbook loads, the run going on to its end; an R2 error marking the question 503; the account's day and
     the spend; Claude unreachable giving the count back and an unreadable answer keeping it; the account's synced tanks
-    read (`chat-api.test.ts`, `fishid-ledger.test.ts`).
+    read; each question's transcript (a failed one's too) kept under the account and conversation with what was asked,
+    read and answered and nothing of who asked; deleting the account deleting its conversations, transcripts and
+    retries' answers, a run still answering deleting what it wrote after (`chat-api.test.ts`, `fishid-ledger.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
@@ -161,8 +170,8 @@ that would have caught it).
   - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
     `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
     last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
-    token reading its JSON and no page, and the page outside the section list the iOS app reads (web only, as that list is
-    the app's contract).
+    token reading its JSON and no page, and the page first in the section list the iOS app reads (the app's contract,
+    `protocols/owner-dashboard.openapi.json`), its blocks saying what the page shows.
   - The owner's dashboard on its own host, dashboard.aquatome.com (`apps/site/worker/dashboard-host.ts`, `access.ts`,
     `worker/test/dashboard-host.test.ts`):
     - Cloudflare Access's token on every request (RS256 by the team's certs, audience, issuer, expiry); missing or wrong
@@ -181,8 +190,11 @@ that would have caught it).
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
     session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows
     from the same data, in each of the page's states (headings, figures, tables, charts, photos and hidden pages, word
-    for word), and the overview's to-dos, areas and last days what the overview shows; each button makes the request
-    its page's form makes; a part that throws is 503; the times follow the zone the app sends; and
+    for word), and the overview's to-dos, areas and last days what the overview shows; the overview's version 2 adds up
+    (its tiles to their parts, found an answer to the scoreboard's star and never above the day's readers, every page
+    once in its group, every place it opens a section); each chart bar carries its words; a folded table comes without
+    its rows and a long one 50 rows a page (`/tables/{id}`); a section's periods; each button makes the request its
+    page's form makes; a part that throws is 503; the times follow the zone the app sends; and
     `protocols/owner-dashboard-vectors.json`, the replies the app's fake server serves, are the Worker's own
     (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`). The daily report's section: every
     block it sends, in each of its states, one the contract describes; its buttons set the delivery as the page's form
@@ -482,6 +494,21 @@ The layers above still check the result.
     reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
+  - **What a picture says it is.** Before any look, a species', plant's or breed's picture is left out when its own
+    words say it is no photo of it alive (`unfitCommons` and `ARTWORK` in `packages/engine/src/photos.ts`): a Commons
+    file's title and categories naming art (a drawing, illustration, engraving, plate, print, stamp, "1865 in art", a
+    book scan), a map or X-ray, a preserved or taxidermied specimen, food or a fish market, or its description saying it
+    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). The
+    Commons fallback for a page with no photo (`findPhotos`) also skips rejected photos. Each word counts only where it
+    means that: "specimens" in a category is a botanical garden's live plants, "Fishing in India" files a gourami in a
+    tank, "museum" a public aquarium, and a description's "illustration for a quiz", "30 mm SL" or "sold in markets"
+    are about live fish (the first sweep's false hits, looked at by eye). A guide's pictures aren't screened this way:
+    one may show lettuce for the fish. Found by a design review of the home page (2026-11-07): the Java barb's page
+    photos, the Commons search's first four, were Bleeker's drawing (a white box in dark mode), a fried fish, a fish
+    out of water and one in a hand, picked with no look at all; the dead-fish screen had noted the drawing and left it.
+    `packages/engine/scripts/unfit-photos.ts` applied the rule to the pictures already shown, with the dead-fish
+    screen's notes for main photos from any source: 190 rejected, 36 pages left with no photo of their own (34 with
+    none in their gallery either).
   - **One picture, once a page.** Every picture's image hash is in `content/picture-hashes.json` (`pnpm engine
     picture-hashes`, each cycle): a page decides its pictures in page order and never shows one twice, even as two files
     (two articles of one source each had a copy), and a card or tile takes its next photo, or none. A guide keeps every
@@ -688,6 +715,15 @@ The layers above still check the result.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
+    - a species', plant's or breed's Vietnamese name and other names as hobbyists write them (`alt-names.ts`
+      tidyName), on write (the merge) and each sweep: a place keeps its capital ("Rêu java" → "Rêu Java", beside
+      "Dương xỉ Java"; a short list, `NAME_PLACES`, since "anh đào", "trang trí", "cá úc" and Latin epithets are words),
+      and a plant's name loses "Cây thủy sinh" before it, which a list of plants says already ("Cây thủy sinh
+      Vallisneria (cỏ lươn)" wrapped on the home page). A name a person fixed (`nameFixed`) stays, and the address stays.
+      Found in a design review of the home page (2026-11-07), which also found the Java barb under "Cá hường Java", a
+      calque of "Java barb" on another fish's name (cá hường is the kissing gourami): it is "Cá mè vinh", fixed by
+      hand, and the translator's list of names that belong to one fish has both. A rule preferring a Vietnamese other
+      name to a translated one was weighed and left: most other names are the model's translations too
     - a species' other names ("Tên khác", its search names, the names other pages' text links it by), in each language:
       its own only (`packages/engine/src/alt-names.ts`). A breed page's own name leaves it, that page being found by it
       ("Bubble Eye Goldfish"; never a breed's other names: a name both list is the species'). A bred line's or colour form's (the species' name with a word such as Alien, hybrid, lai, albino, koi,

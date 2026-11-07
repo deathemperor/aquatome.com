@@ -1,6 +1,6 @@
 {
   "category": "loc",
-  "name": "Filter",
+  "name": "Filter, aerator, dan wavemaker",
   "lead": "Filter menjaga air tetap jernih dan menjadi tempat hidup bakteri yang mengolah kotoran ikan. Pilih jenis yang tepat sesuai ukuran akuarium dan sifat ikan.",
   "intro": "<p>Filter punya tiga tugas: menahan kotoran (filtrasi mekanis), menjadi tempat hidup bakteri yang mengubah amonia menjadi nitrit lalu nitrat (filtrasi biologis), dan menciptakan arus agar air bisa bertukar oksigen. Dari ketiganya, filtrasi biologis paling penting: air akuarium bisa terlihat bening tetapi tetap beracun kalau bakterinya belum cukup.</p><p>Tidak ada jenis filter yang \"terbaik\". Filter spons murah, senyap, dan aman untuk burayak serta udang. Filter gantung mudah dipasang untuk akuarium 40–100 liter. Filter canister kuat dan rapi untuk akuarium besar atau aquascape. Ikan arus deras seperti hillstream loach butuh tambahan wavemaker.</p>",
   "hero": {
@@ -104,6 +104,14 @@
         "source": "aquariumcoop"
       }
     }
+  ],
+  "order": [
+    "bot-bien",
+    "treo",
+    "thung",
+    "sump",
+    "suc-khi",
+    "tao-dong"
   ],
   "choose": [
     "<p>Hitung volume akuarium (panjang × lebar × tinggi dalam cm ÷ 1000 = liter), lalu pilih filter dengan debit 4–6 kali volume tersebut per jam.</p>",

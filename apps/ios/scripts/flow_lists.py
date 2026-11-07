@@ -149,6 +149,9 @@ REACH = {
     # Its row, in the Tài khoản sheet (and none signed out).
     APP + 'Owner/OwnerEntry.swift': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
+    # The chat's contract and the event stream it's read from: no screen uses them yet (job `kit` tests them).
+    KIT + 'Sources/Handbook/Chat.swift': NONE,
+    KIT + 'Sources/Handbook/ServerEvents.swift': NONE,
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
@@ -267,6 +270,9 @@ def check(runs, left, reached):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
+    # The chat's contract, before its screen: the kit's tests only.
+    for p in (KIT + 'Sources/Handbook/Chat.swift', KIT + 'Sources/Handbook/ServerEvents.swift'):
+        assert reached([p]) == set(), p
     # The catalog: the two flows that read its Indonesian.
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',

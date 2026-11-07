@@ -10,6 +10,17 @@
       "Item 7: \"bahan yang lebih berprotein\" is looser than \"meatier ingredients\". \"bahan berasaskan daging\" is closer."
     ]
   },
+  "andinoacara-rivulatus": {
+    "at": "2026-11-07",
+    "from": "2026-10-29",
+    "name": "Green Terror",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Item 1/6: \"Kekerasan air (GH)\" adds a \"(GH)\" label that the English doesn't have. Minor. The English says only \"Hardness\", and the value is in dGH.",
+      "Item 5: \"tumbuhan akuatik yang berakar\" is slightly wordy. \"tumbuhan berakar\" would be enough. Minor."
+    ]
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-06",
     "from": "2026-11-06",
@@ -236,6 +247,19 @@
       "Item 1: 'Max size ... SL' omitted imperial is fine, but 'jadi ia antara pilihan terbaik' reads slightly awkward."
     ]
   },
+  "heros-severus": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Severum",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"paling luar biasa\" for \"most uncharacteristic\" reads as \"most extraordinary\", which sounds positive. Use \"paling tidak tipikal\" or \"paling lain daripada kumpulannya\".",
+      "Item 1: \"tetapi ia juga wakil\" adds \"juga\", which is not in the English. Use \"tetapi ia merupakan wakil yang paling tidak tipikal\".",
+      "Items 1 and 5: \"luar biasa\" for \"untypical\" has the same problem. Use \"tidak lazim\" or \"tidak tipikal bagi Heros\".",
+      "Item 4: \"suka memakan\" for \"known to devour\" is a bit soft. \"Makan rakus\" or \"memakan habis\" is closer, and \"tumbuhan akuatik\" could be \"tumbuhan akuarium\"."
+    ]
+  },
   "hyphessobrycon-eques": {
     "at": "2026-11-06",
     "from": "2026-11-03",
@@ -260,6 +284,18 @@
       "Item 11: \"berlatarbelakangkan\" is non-standard; write \"berlatar belakangkan\" or rephrase (e.g. \"dengan latar warna hijau tumbuhan\").",
       "Item 15: \"lebih banyak lebih bagus\" is slightly literal; \"lebih ramai lebih meriah\" or \"semakin banyak semakin baik\" is more natural.",
       "Item 2: \"tangki\" used for aquarium inconsistently with \"akuarium\"; keep one term for consistency."
+    ]
+  },
+  "labidochromis-caeruleus": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Yellow Lab",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"yang ada di mana-mana\" for \"ubiquitous\" is a little stiff. Consider \"yang begitu lazim\" or \"yang sangat meluas dalam hobi\".",
+      "\"Pengeram mulut oleh induk betina\" is slightly awkward. \"Pengeram mulut maternal\" or \"Betina mengeram telur dalam mulut\" would read more naturally.",
+      "\"mengutip tompok itu ke dalam mulut bersama telurnya\" is clumsy. \"cuba memasukkan tompok itu ke dalam mulut bersama telur\" would be clearer."
     ]
   },
   "macropodus-opercularis": {
@@ -473,6 +509,20 @@
     "score": 0.95,
     "notes": []
   },
+  "rocio-octofasciata": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Jack Dempsey",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 10: \"sisik dari vent hingga sisik interpelvis\" leaves English \"vent\" in place. Use \"dubur\" or \"lubang dubur\".",
+      "Item 10: \"gill-raker\" (twice) is left in English. Use \"sikat insang\" or \"gill raker (sikat insang)\".",
+      "Item 10: \"baris sisik pipi bermod 6 (4-7)\" is stiff and hard to read. Use \"biasanya 6 (4-7)\" for \"modally 6\".",
+      "Item 2: \"menganjur ke selatan\" is a bit unnatural. \"merentang ke selatan\" is more natural.",
+      "Item 2: \"jabatan Cortés dan Yoro\" for Honduran departments. \"jabatan\" is acceptable, but \"wilayah/jabatan (department)\" would be clearer."
+    ]
+  },
   "scleropages-formosus": {
     "at": "2026-11-06",
     "from": "2026-10-30",
@@ -516,6 +566,18 @@
       "#7: 'pada musim bertelur' for 'at spawning time' — 'semasa waktu bertelur' is more natural; 'Sangat aman' should be 'Sangat jinak/tidak agresif'.",
       "#8: 'Pada musim bertelur' similarly; 'papila genital ... tirus' fine. 'roe (eggs)' simplified to 'telur' - fine.",
       "#1: 'kekal sebagai tambahan yang cantik' is literal; 'remain a beautiful addition' better as 'tetap menjadi pilihan yang menarik'."
+    ]
+  },
+  "thorichthys-meeki": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Firemouth cichlid",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 7: \"Ikan dalam kurungan\" for \"captive specimens\" is awkward. Use \"ikan yang dipelihara dalam akuarium\" or \"ikan tangkapan/ternakan\".",
+      "Item 11: \"sirip ekor berbentuk rata hingga bulan sabit\" is a loose rendering of \"truncate to lunate\". \"Terpangkas hingga sabit\" is clearer.",
+      "Item 10: \"substrate spawner\" is rendered as \"bertelur di atas permukaan\", which is vague. \"Bertelur pada substrat\" is closer to the hobby term."
     ]
   },
   "trichogaster-lalius": {

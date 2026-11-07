@@ -58,7 +58,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -197,5 +197,185 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "NP",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+          "countries": [
+            "PK",
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367054,
+      "total": 43,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          11
+        ],
+        [
+          "NP",
+          9
+        ],
+        [
+          "BD",
+          8
+        ],
+        [
+          "US",
+          8
+        ],
+        [
+          "PK",
+          6
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -112.5,
+          39.375,
+          2,
+          0
+        ],
+        [
+          -111.09375,
+          43.59375,
+          6,
+          0
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          67.5,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          73.125,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          28.125,
+          4,
+          4
+        ],
+        [
+          81.5625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          90,
+          22.5,
+          4,
+          4
+        ],
+        [
+          90,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          4,
+          4
+        ]
+      ]
+    }
+  }
 }

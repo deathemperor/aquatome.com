@@ -10,6 +10,50 @@
     "papua-new-guinea",
     "vogelkop"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Vogelkop Peninsula"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "These intensively coloured crayfish originate from Papua New Guinea, where they are found on the Vogelkop Peninsula.",
+          "countries": [
+            "PG"
+          ],
+          "regions": [
+            "Vogelkop Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8682286,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          130.78125,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

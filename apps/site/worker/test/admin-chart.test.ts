@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { dayChart, deltaHtml, lastDays, meter, niceTop, rankTable, spark, tiles, usd } from '../admin/chart'
+import { barWords, chipOf, dayChart, deltaHtml, deltaOf, lastDays, meter, niceTop, rankTable, spark, tiles, usd } from '../admin/chart'
 
 const days = (n: number) => lastDays(new Date('2026-11-02T10:00:00Z'), n)
 /** Each column's data: its readout's day, and the values it reads out. */
@@ -58,12 +58,12 @@ test('thirty days: today lighter and said so, every seventh day back from today 
   expect(html).not.toContain('class="key')
 })
 
-test('stacked parts: keyed in the readout, a 2px gap above each lower part, one round top; a series can wear the status tone', () => {
-  const html = dayChart({ id: 's', title: 'Theo kết quả', days: days(3), series: [{ label: 'Có', values: [2, 0, 1] }, { label: 'Không', values: [1, 0, 0], tone: 'bad' }, { label: 'Chặn', values: [0, 4, 1], tone: 'mute' }] })
-  expect(html).toContain('<span class="v"><i class="key s1"></i><b>3</b> Có</span><span class="v"><i class="key bad"></i><b>1</b> Không</span><span class="v"><i class="key mute"></i><b>5</b> Chặn</span>')
+test('stacked parts: keyed in the readout, a 2px gap above each lower part, one round top; a context series is muted', () => {
+  const html = dayChart({ id: 's', title: 'Theo kết quả', days: days(3), series: [{ label: 'Có', values: [2, 0, 1] }, { label: 'Không', values: [1, 0, 0] }, { label: 'Chặn', values: [0, 4, 1], tone: 'mute' }] })
+  expect(html).toContain('<span class="v"><i class="key s1"></i><b>3</b> Có</span><span class="v"><i class="key s2"></i><b>1</b> Không</span><span class="v"><i class="key mute"></i><b>5</b> Chặn</span>')
   expect(cols(html)[0]).toMatchObject({ d: 'Thứ Bảy 31/10', v: ['2', '1', '0'] })
-  // Top 5: day one is 2 of moss from 0, then 1 of rust on it with the gap and the round top.
-  expect(marks(html)[0]).toEqual([{ cls: 's1', b: 0, h: 40 }, { cls: 'bad up cap', b: 40, h: 20 }])
+  // Top 5: day one is 2 of moss from 0, then 1 of water on it with the gap and the round top.
+  expect(marks(html)[0]).toEqual([{ cls: 's1', b: 0, h: 40 }, { cls: 's2 up cap', b: 40, h: 20 }])
   expect(marks(html)[1]).toEqual([{ cls: 'mute cap', b: 0, h: 80 }])
   expect(ticks(html).map(t => t[1])).toEqual(['0', '5'])
 })
@@ -158,4 +158,37 @@ test('a row\'s small columns: the last seven dark, the seven before pale, the re
   expect(spark([5])).toBe('')
   expect(spark([0, 0, 0])).toBe('')
   expect(spark([null, null])).toBe('')
+})
+
+test('each bar\'s words for the app: an axis label, then its figure, its day and the other series; today and the days after it said so', () => {
+  const c = { id: 'f', title: 'Theo kết quả', days: days(3), series: [{ label: 'Có kết quả', values: [21, null, 4] }, { label: 'Chặn', values: [1, null, 0], tone: 'mute' as const }], partialLast: true }
+  expect(barWords(c)).toEqual({
+    labels: ['T7', 'CN', 'Hôm nay'],
+    readouts: [
+      { title: '21 có kết quả', detail: 'Thứ Bảy 31/10 · 1 chặn' },
+      { title: 'có kết quả: không có số liệu', detail: 'Chủ nhật 01/11 · chặn: không có số liệu' },
+      { title: '4 có kết quả', detail: 'Thứ Hai 02/11 · chưa hết ngày · 0 chặn' },
+    ],
+  })
+  // A week, Monday to Sunday, in English: today on Thursday, the days after it still to come; money as dollars.
+  const week = ['2026-11-02', '2026-11-03', '2026-11-04', '2026-11-05', '2026-11-06', '2026-11-07', '2026-11-08']
+  const w = barWords({ id: 'a', title: 'Found an answer', days: week, today: 3, series: [{ label: 'Found an answer', values: [3, 1, 0, 21, null, null, null] }], whole: { label: 'Readers', values: [5, 2, 1, 29, null, null, null] } }, 'en')
+  expect(w.labels).toEqual(['Mon', 'Tue', 'Wed', 'Today', 'Fri', 'Sat', 'Sun'])
+  expect(w.readouts[3]).toEqual({ title: '21 found an answer', detail: 'Thu 5 Nov, so far · 29 readers' })
+  expect(w.readouts[4]).toEqual({ title: 'Still to come', detail: 'Fri 6 Nov' })
+  expect(barWords({ id: 'u', title: 'Cost', days: week.slice(0, 2), series: [{ label: 'Cost', values: [1234.5, 0.004] }], unit: 'usd' }, 'en').readouts.map(r => r.title)).toEqual(['$1,234.50 cost', '$0.0040 cost'])
+  // Weeks: each its Monday.
+  expect(barWords({ id: 'k', title: 'Readers', days: ['2026-10-26', '2026-11-02'], period: 'week', partialLast: true, series: [{ label: 'Readers', values: [80, 40] }] }, 'en'))
+    .toEqual({ labels: ['26 Oct', '2 Nov'], readouts: [{ title: '80 readers', detail: 'Week of 26 Oct' }, { title: '40 readers', detail: 'Week of 2 Nov, so far' }] })
+  // A month of days: dates, not weekdays.
+  expect(barWords({ id: 'm', title: 'x', days: days(8), series: [{ label: 'x', values: Array(8).fill(1) }] }).labels[0]).toBe('26/10')
+})
+
+test('a change is coloured only past 5%', () => {
+  expect(deltaOf({ now: 105, before: 100, vs: 'x', good: 'up' }).tone).toBe('flat')
+  expect(deltaOf({ now: 106, before: 100, vs: 'x', good: 'up' }).tone).toBe('good')
+  expect(deltaOf({ now: 94, before: 100, vs: 'x', good: 'up' }).tone).toBe('bad')
+  expect(chipOf(105, 100, 'x', 'up')?.tone).toBe('plain')
+  expect(chipOf(4, 1, 'x', 'up')?.tone).toBe('good')
+  expect(chipOf(1, 0, 'x', 'up')?.tone).toBe('good')
 })

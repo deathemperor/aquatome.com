@@ -1,6 +1,6 @@
 {
  "category": "suoi",
- "name": "Sưởi",
+ "name": "Sưởi và làm mát",
  "hero": {
   "url": "https://media.aquatome.com/aquariumcoop/26169f0c99598eac.webp",
   "thumb": "https://media.aquatome.com/aquariumcoop/26169f0c99598eac-480.webp",
@@ -49,6 +49,11 @@
    "desc": "Thanh sưởi thả chìm có núm hoặc màn hình cài nhiệt độ. Loại phổ biến nhất cho bể 40–300 lít.",
    "pick": "Khoảng 1 W mỗi lít (bể 100 lít: 100 W). Bể trên 200 lít nên dùng hai sưởi nhỏ ở hai đầu: một cái hỏng, cái còn lại vẫn giữ nhiệt."
   }
+ ],
+ "order": [
+  "mini",
+  "chinh-nhiet",
+  "lam-lanh"
  ],
  "choose": [
   "Công suất: khoảng 1 W cho mỗi lít nước; phòng lạnh hoặc bể không nắp thì cộng thêm 30–50%.",

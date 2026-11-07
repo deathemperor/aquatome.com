@@ -10,6 +10,40 @@
     "indonesia",
     "barito"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Barito River",
+        "Borneo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: upper Barito River drainage in southern Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Barito River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202760,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

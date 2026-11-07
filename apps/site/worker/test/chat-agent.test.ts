@@ -8,7 +8,10 @@ import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, typ
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { topicsOf, type Topics } from '../chat/topics'
-import { chatTools, SECTION_CHARS, type Step } from '../chat/tools'
+import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
+import { chatTools, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
+import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
+import { factsOf } from '../chat/handbook'
 import { contract } from './contract'
 
 // The fixture build's app index and page copies (pnpm test builds the site first), as the Worker reads them from its assets.
@@ -18,7 +21,7 @@ const source: Source = { index: async lang => json(`app/${lang}.json`), shard: a
 const hb = async (): Promise<Handbook> => (await handbookOf(source, 'vi'))!
 const { misfits } = contract('chat.openapi.json')
 const block = { $ref: '#/components/schemas/Block' }
-const pick = (p: Partial<Choice>): Choice => ({ t: 'species', ids: [], path: null, heading: null, tool: null, fish: [], tank: null, ...p })
+const pick = (p: Partial<Choice>): Choice => ({ t: 'species', ids: [], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null, ...p })
 const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ text: 'x', covered: true, blocks, suggestions: [], ...o })
 const run = async (name: string, input: Record<string, unknown>, h?: Handbook) => {
   const tool = chatTools({ handbook: h ?? (await hb()), tanks: async () => [] }).find(t => t.name === name)!
@@ -60,25 +63,30 @@ test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), the
   expect(SECTION_CHARS).toBeLessThanOrEqual(4000)
 })
 
-test('read_tanks reads the reader\'s tanks, says when there are none, and is an error when they can\'t be read', async () => {
+test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
   const h = await hb()
-  const tank = { name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }] }
+  const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }
   const tool = (tanks: () => Promise<unknown>) => chatTools({ handbook: h, tanks: tanks as never }).find(t => t.name === 'read_tanks')!
-  expect(JSON.parse(await tool(async () => [tank]).run({}, { photosLeft: 0 }) as string)).toEqual([tank])
+  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish.
+  expect(JSON.parse(await tool(async () => [tank]).run({}, { photosLeft: 0 }) as string)).toEqual([
+    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }] },
+  ])
   expect(await tool(async () => []).run({}, { photosLeft: 0 })).toBe('The reader has no saved tanks.')
   await expect(tool(async () => null).run({}, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
   expect(tool(async () => []).step?.({})).toEqual({ kind: 'tanks' })
 })
 
-test('the blocks are filled from the handbook, each of the contract\'s shape: a card\'s facts the index\'s, a breed as its species, a section\'s own blocks, a tool\'s own link', async () => {
+test('the blocks are filled from the handbook, each of the contract\'s shape: a card\'s facts the index\'s, a breed as its species, a section\'s own blocks, a tool\'s own link and its check', async () => {
   const h = await hb()
+  // The tank-mates block's fish and tank, as Claude checked them first (a breed as its species, its count rounded).
+  const checked = checkMates([{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }], { l: 60, w: 30, h: 36 }, h)
   const { blocks, dropped } = await fill(answer([
     pick({ t: 'species', ids: ['paracheirodon-innesi'] }),
     pick({ t: 'compare', ids: ['paracheirodon-innesi', 'paracheirodon-axelrodi', 'paracheirodon-innesi'] }),
     pick({ t: 'section', path: '/vi/huong-dan/phan-loai-ca-dia/', heading: 'la-gi' }),
     pick({ t: 'section', path: '/vi/huong-dan/phan-loai-ca-dia/', heading: null }),
     pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2.4 }], tank: { l: 60, w: 30, h: 36 } }),
-  ]), h)
+  ]), h, [checked])
   expect(dropped).toEqual([])
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
   expect(blocks[0]).toEqual({ t: 'species', page: { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon xanh', sci: 'Paracheirodon innesi', url: '/vi/ca/ca-neon-xanh/', img: h.byId('paracheirodon-innesi')!.img },
@@ -89,7 +97,10 @@ test('the blocks are filled from the handbook, each of the contract\'s shape: a 
   expect(blocks[3]).toMatchObject({ t: 'section', blocks: [{ t: 'summary' }] })
   expect(blocks[3]).not.toHaveProperty('heading')
   // A breed is checked as the species it is a form of (the tool's own link names species), its count rounded.
-  expect(blocks[4]).toEqual({ t: 'tool', tool: 'tank-mates', name: h.byPath('/vi/cong-cu/nuoi-chung/')!.short ?? h.byPath('/vi/cong-cu/nuoi-chung/')!.name, url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:2&l=60&w=30&h=36' })
+  expect(blocks[4]).toEqual({ t: 'tool', tool: 'tank-mates', name: h.byPath('/vi/cong-cu/nuoi-chung/')!.short ?? h.byPath('/vi/cong-cu/nuoi-chung/')!.name, url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:2&l=60&w=30&h=36', check: drawnOf(checked) })
+  // The check as the app's tank check draws it: the verdict, then how full this tank would be.
+  expect(checked.verdict).toBeDefined()
+  expect(checked.stocking).toMatchObject({ percent: expect.any(Number), level: expect.stringMatching(/^(light|ok|full|over)$/) })
   // A breed's card: its own figures (its page's data card), not its species'; a plant's on the plants' scale.
   const breed = await fill(answer([pick({ ids: ['pigeon-blood-discus'] }), pick({ ids: ['oranda-goldfish'] }), pick({ ids: ['anubias-barteri-nana'] })]), h)
   // The figures as the fixture's pages have them, read from the index: the breed's card differs from its species'.
@@ -127,6 +138,173 @@ test('a pick the handbook doesn\'t have is dropped with its reason, and the rest
   expect(tools.dropped).toEqual(['tool: tank-mates with none of ["no-such-fish"]', 'tool: no null in vi', '2 blocks past 5'])
   expect(tools.blocks.map(b => b.t)).toEqual(['species', 'species', 'species'])
   expect(tools.blocks).toHaveLength(MAX_BLOCKS - 2)
+})
+
+test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s language; a tank-mates block goes out only with the check of its fish, counts and tank, and carries it', async () => {
+  const h = await hb()
+  const checks: MatesCheck[] = []
+  const tool = chatTools({ handbook: h, tanks: async () => [], checks }).find(t => t.name === 'check_tank_mates')!
+  expect(tool.step?.({})).toBeUndefined()
+  const out = JSON.parse(await tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }], tank: null }, { photosLeft: 0 }) as string) as MatesCheck
+  // Each fish as checked: a breed as its species, as the block's link names it.
+  expect(out.fish).toEqual([
+    { id: 'paracheirodon-innesi', name: 'Cá neon xanh', path: '/vi/ca/ca-neon-xanh/', count: 10 },
+    { id: 'symphysodon-aequifasciatus', name: h.byId('symphysodon-aequifasciatus')!.name, path: h.byId('symphysodon-aequifasciatus')!.path, count: 2 },
+  ])
+  // The tool's verdict, and its parts: the sentence the tool writes is the head and the reasons.
+  expect(out.answer).toMatchObject({ level: 'no', head: 'Không nên nuôi chung' })
+  expect(out.verdict).toEqual({ level: 'no', text: `${out.answer!.head}: ${out.answer!.reasons.join('; ')}.` })
+  // No tank given: the shortest tank they all need, as the tool says it.
+  expect(out.minTank).toMatch(/^Bể dài tối thiểu cho cả nhóm: \d+ cm\.$/)
+  expect(out.tank).toBeNull()
+  expect(out).not.toHaveProperty('stocking')
+  expect(checks).toEqual([out])
+  // An id that isn't a fish (a plant, a typo) is refused by name, not left out: the rest may be one fish, unchecked.
+  await expect(tool.run({ fish: [{ id: 'no-such-fish', count: 2 }], tank: null }, { photosLeft: 0 })).rejects.toThrow('Not fish: no-such-fish.')
+  await expect(tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'anubias-barteri-nana', count: 1 }], tank: null }, { photosLeft: 0 })).rejects.toThrow('Not fish: anubias-barteri-nana.')
+  await expect(tool.run({ fish: [], tank: null }, { photosLeft: 0 })).rejects.toThrow('None of these ids is a fish')
+  expect(checks).toEqual([out])
+  const two = [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'symphysodon-aequifasciatus', count: 2 }]
+  // In the reader's language: the check's own words, as the site's Indonesian tool has them (the fixture's Indonesian
+  // index is too small for these fish: the Vietnamese one, read as Indonesian).
+  const strings = JSON.parse(readFileSync(fileURLToPath(new URL('../chat/tank-check-strings.json', import.meta.url).href), 'utf8')) as Record<string, Record<string, string>>
+  const viaId = checkMates(two, null, { ...h, lang: 'id' })
+  expect(viaId.answer?.head).toBe(strings.id!['Không nên nuôi chung'])
+  expect(viaId.answer?.head).not.toBe('Không nên nuôi chung')
+  const cm = /\d+/.exec(out.minTank!)![0]
+  expect(viaId.minTank).toBe(strings.id!['Bể dài tối thiểu cho cả nhóm: <strong>{n} cm</strong>.']!.replace('{n}', cm).replace(/<\/?strong>/g, ''))
+  // A block of fish not checked, or checked with other counts or in another tank, isn't shown; one fish has nothing to check.
+  const mates = (fish: { id: string; count: number }[]) => pick({ t: 'tool', tool: 'tank-mates', fish })
+  expect((await fill(answer([mates(two)]), h)).dropped).toEqual(['tool: tank-mates ca-dia:2,ca-neon-xanh:10 not checked'])
+  const other = checkMates([{ id: 'paracheirodon-innesi', count: 6 }, { id: 'symphysodon-aequifasciatus', count: 2 }], null, h)
+  expect((await fill(answer([mates(two)]), h, [other])).blocks).toEqual([])
+  const shown = await fill(answer([mates(two)]), h, [other, out])
+  expect(shown.blocks).toMatchObject([{ t: 'tool', tool: 'tank-mates', check: drawnOf(out) }])
+  for (const b of shown.blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+  // Checked with no tank, the block of a sized tank isn't shown, nor the other way round: the check that went out is
+  // the one Claude read (an overfull tank's meter isn't left off a block that names the tank).
+  const tank = { l: 60, w: 30, h: 36 }
+  const inTank = (t: typeof tank | null) => pick({ t: 'tool', tool: 'tank-mates', fish: two, tank: t })
+  expect((await fill(answer([inTank(tank)]), h, [out])).dropped).toEqual(['tool: tank-mates ca-dia:2,ca-neon-xanh:10 in 60×30×36 not checked'])
+  const sized = checkMates(two, tank, h)
+  expect((await fill(answer([inTank(null)]), h, [sized])).blocks).toEqual([])
+  expect((await fill(answer([inTank({ l: 100, w: 40, h: 40 })]), h, [sized])).blocks).toEqual([])
+  const both = await fill(answer([inTank(tank)]), h, [out, sized])
+  expect(both.blocks).toMatchObject([{ check: drawnOf(sized) }])
+  expect(both.blocks[0]).toHaveProperty('check.stocking')
+  for (const b of both.blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+  const one = await fill(answer([mates([{ id: 'paracheirodon-innesi', count: 8 }])]), h)
+  expect(one.dropped).toEqual([])
+  expect(one.blocks[0]).not.toHaveProperty('check')
+  // A block naming something that isn't a fish isn't shown: its one fish left would go out unchecked.
+  const plant = await fill(answer([mates([{ id: 'paracheirodon-innesi', count: 8 }, { id: 'anubias-barteri-nana', count: 1 }])]), h)
+  expect(plant).toEqual({ blocks: [], dropped: ['tool: tank-mates with ["anubias-barteri-nana"], not fish'] })
+})
+
+test('check_tank_mates in the reader\'s tank checks it as the tank page does, with the fish added; its block names the tank, and links every kind up to six', async () => {
+  const h = await hb()
+  const dims = { l: 60, w: 30, h: 36 }
+  const tank: Tank = {
+    id: 'tank-1', name: 'Bể phòng khách', dims,
+    species: [{ id: 'paracheirodon-innesi', count: 6 }, { id: 'pigeon-blood-discus', count: 2 }],
+    unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 3 }, { name: 'Rong lạ', kind: 'plant' }, { name: 'Neon đỏ', kind: 'fish', sci: 'Paracheirodon cf. axelrodi', count: 4 }],
+  }
+  const other: Tank = { ...tank, id: 'tank-2', name: 'Bể 2', dims: { l: 100, w: 40, h: 40 } }
+  const checks: MatesCheck[] = []
+  let tanks: Tank[] | null = [tank, other]
+  const tool = chatTools({ handbook: h, tanks: async () => tanks, checks }).find(t => t.name === 'check_tank_mates')!
+  const ask = async (input: Record<string, unknown>) => JSON.parse(await tool.run({ tank: null, ...input }, { photosLeft: 0 }) as string) as MatesCheck
+  // A size given with the tank isn't the tank's: its own is.
+  const out = await ask({ fish: [{ id: 'paracheirodon-innesi', count: 4 }], tank: { l: 1, w: 1, h: 1 }, tankId: 'tank-1' })
+  expect(out.mine).toEqual({
+    id: 'tank-1', name: 'Bể phòng khách', dims,
+    fish: [{ name: 'Cá neon xanh', count: 6 }, { name: 'Cá đĩa Pigeon Blood', count: 2 }, { name: 'Cá lạ', count: 3 }, { name: 'Cá neon vua', count: 4 }],
+    added: [{ name: 'Cá neon xanh', count: 4 }],
+  })
+  // The rows the tank page makes (TankCheckView.swift): a breed under its species, with its own name; an entry without
+  // a page by its scientific name, else not checked; no plants; then the fish added, as if put on the tank.
+  const facts = (id: string) => factsOf(h.byId(id)!)
+  const rows = [
+    { name: 'Cá neon xanh', ...facts('paracheirodon-innesi'), count: 6, key: 'paracheirodon-innesi' },
+    { name: 'Cá đĩa Pigeon Blood', ...facts('symphysodon-aequifasciatus'), count: 2, key: 'symphysodon-aequifasciatus', species: 'Cá đĩa' },
+    { name: 'Cá neon vua', ...facts('paracheirodon-axelrodi'), count: 4, key: 'paracheirodon-axelrodi' },
+    { name: 'Cá neon xanh', ...facts('paracheirodon-innesi'), count: 4, key: 'paracheirodon-innesi' },
+  ] as TankFish[]
+  const ct = (s: string, v?: Record<string, string | number>) => (v ? s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m)) : s)
+  const fmt = (n: number, d = 1) => new Intl.NumberFormat('vi', { maximumFractionDigits: d }).format(n)
+  expect(drawnOf(out)).toEqual(tankCheck(rows, { dims }, ct, fmt, ['Cá lạ']))
+  expect(out.stocking).toBeDefined()
+  expect(out.unchecked).toContain('Cá lạ')
+  expect(out.unchecked).not.toContain('Rong lạ')
+  // Its block: the check, the tank, and the tool's link with every kind, counts summed (a breed as its species).
+  const mates = (fish: { id: string; count: number }[], tankId: string | null) => pick({ t: 'tool', tool: 'tank-mates', fish, tankId })
+  const neon4 = [{ id: 'paracheirodon-innesi', count: 4 }]
+  const { blocks, dropped } = await fill(answer([mates(neon4, 'tank-1')]), h, checks)
+  expect(dropped).toEqual([])
+  expect(blocks).toEqual([{ t: 'tool', tool: 'tank-mates', name: expect.any(String), url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:2,ca-neon-vua:4&l=60&w=30&h=36', check: drawnOf(out), tank: out.mine }])
+  for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+  // Another tank, or other fish added, wasn't checked; the same fish with no tank is a check of their own.
+  expect((await fill(answer([mates(neon4, 'tank-2')]), h, checks)).dropped).toEqual(['tool: tank-mates in tank tank-2 adding ca-neon-xanh:4 not checked'])
+  expect((await fill(answer([mates([{ id: 'paracheirodon-innesi', count: 5 }], 'tank-1')]), h, checks)).blocks).toEqual([])
+  const loose = await fill(answer([mates([...neon4, { id: 'symphysodon-aequifasciatus', count: 2 }], null)]), h, [await ask({ fish: [...neon4, { id: 'symphysodon-aequifasciatus', count: 2 }], tankId: 'tank-1' })])
+  expect(loose.dropped).toEqual(['tool: tank-mates ca-dia:2,ca-neon-xanh:4 not checked'])
+  // Two tanks with the same fish added: each block its own tank's check.
+  const there = await ask({ fish: neon4, tankId: 'tank-2' })
+  expect((await fill(answer([mates(neon4, 'tank-2')]), h, checks)).blocks).toMatchObject([{ tank: { id: 'tank-2', dims: other.dims }, check: drawnOf(there) }])
+  // The tank as it is: nothing added.
+  const asIs = await ask({ fish: [], tankId: 'tank-1' })
+  expect(asIs.mine!.added).toEqual([])
+  expect((await fill(answer([mates([], 'tank-1')]), h, checks)).blocks).toMatchObject([{ url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6,ca-dia:2,ca-neon-vua:4&l=60&w=30&h=36', tank: { added: [] } }])
+  // Past six kinds the tool's page would check other fish: no link, the block is the whole answer.
+  const full: Tank = { id: 'tank-3', name: 'Bể lớn', dims: { l: 120, w: 50, h: 50 }, unlisted: [], species: ['paracheirodon-innesi', 'paracheirodon-axelrodi', 'pterophyllum-scalare', 'mikrogeophagus-ramirezi', 'danio-margaritatus', 'boraras-brigittae'].map(id => ({ id })) }
+  tanks = [full]
+  const seven = await ask({ fish: [{ id: 'apistogramma-cacatuoides', count: 2 }], tankId: 'tank-3' })
+  expect(seven.kinds).toHaveLength(7)
+  const big = await fill(answer([mates([{ id: 'apistogramma-cacatuoides', count: 2 }], 'tank-3')]), h, checks)
+  expect(big.blocks).toEqual([{ t: 'tool', tool: 'tank-mates', name: expect.any(String), check: drawnOf(seven), tank: seven.mine }])
+  for (const b of big.blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+  // Counts not saved are the schools'.
+  expect(seven.kinds![0]).toEqual({ path: '/vi/ca/ca-neon-xanh/', count: 6 })
+  // Litres only: how full it is from them, and the shortest tank they all need.
+  tanks = [{ ...full, dims: undefined, litres: 300 }]
+  const round = await ask({ fish: [], tankId: 'tank-3' })
+  expect(round.stocking).toBeDefined()
+  expect(round.minTank).toBeDefined()
+  // A species and its breed added: counted together, so a check with the breed isn't taken for one without it.
+  tanks = [tank]
+  const discus = [{ id: 'symphysodon-aequifasciatus', count: 2 }]
+  const withBreed = [...discus, { id: 'pigeon-blood-discus', count: 3 }]
+  const plain = await ask({ fish: discus, tankId: 'tank-1' })
+  const both = await ask({ fish: withBreed, tankId: 'tank-1' })
+  expect(both.fish).toEqual([expect.objectContaining({ path: '/vi/ca/ca-dia/', count: 5 })])
+  expect((await fill(answer([mates(withBreed, 'tank-1')]), h, [plain, both])).blocks).toMatchObject([{ check: drawnOf(both) }])
+  expect((await fill(answer([mates(discus, 'tank-1')]), h, [plain, both])).blocks).toMatchObject([{ check: drawnOf(plain) }])
+  // No link when the tool's page would check something else: a fish it doesn't list (a breed with no species), more
+  // than 200 of one, a tank of litres only; nor with nothing it lists. Fish without a page are left out by both.
+  const linkOf = async (t: Tank, fish: { id: string; count: number }[] = []) => {
+    tanks = [t]
+    const c = await ask({ fish, tankId: t.id })
+    const b = await fill(answer([mates(fish, t.id)]), h, [c])
+    for (const x of b.blocks) expect(misfits(x, block), JSON.stringify(x)).toEqual([])
+    return (b.blocks[0] as { url?: string } | undefined)?.url
+  }
+  const base = { id: 'tank-4', name: 'Bể 4', dims, unlisted: [] }
+  expect(await linkOf({ ...base, species: [{ id: 'oranda-goldfish', count: 2 }, { id: 'paracheirodon-innesi', count: 6 }] })).toBeUndefined()
+  expect(await linkOf({ ...base, species: [{ id: 'paracheirodon-innesi', count: 300 }] }, [{ id: 'paracheirodon-axelrodi', count: 6 }])).toBeUndefined()
+  expect(await linkOf({ ...base, dims: undefined, litres: 54, species: [{ id: 'paracheirodon-innesi', count: 6 }] }, [{ id: 'paracheirodon-axelrodi', count: 6 }])).toBeUndefined()
+  expect(await linkOf({ ...base, species: [], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 3 }] })).toBeUndefined()
+  expect(await linkOf({ ...base, species: [{ id: 'paracheirodon-innesi', count: 6 }], unlisted: [{ name: 'Cá lạ', kind: 'fish' }] })).toBe('/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6&l=60&w=30&h=36')
+  // Without a tank too: a breed the tool's page doesn't list, no link; the check still shown.
+  const odd = [{ id: 'oranda-goldfish', count: 2 }, { id: 'paracheirodon-innesi', count: 6 }]
+  const oddCheck = checkMates(odd, null, h)
+  expect((await fill(answer([mates(odd, null)]), h, [oddCheck])).blocks).toEqual([{ t: 'tool', tool: 'tank-mates', name: expect.any(String), check: drawnOf(oddCheck) }])
+  // A tank that isn't the reader's, one that can't be read, or an empty one with nothing added: an error Claude reads.
+  tanks = [tank]
+  await expect(tool.run({ fish: neon4, tank: null, tankId: 'tank-9' }, { photosLeft: 0 })).rejects.toThrow('No tank tank-9')
+  tanks = [{ id: 'empty', name: 'Bể trống', species: [], unlisted: [] }]
+  await expect(tool.run({ fish: [], tank: null, tankId: 'empty' }, { photosLeft: 0 })).rejects.toThrow('That tank has no fish')
+  tanks = null
+  await expect(tool.run({ fish: neon4, tank: null, tankId: 'tank-1' }, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
 })
 
 test('a section is every block under its heading, to the next heading, however many: the part of the page the site draws', async () => {
@@ -332,7 +510,7 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   // The handbook by the site's own word for it in each language (its title: "Cẩm nang cá cảnh & thủy sinh").
   for (const word of ['cẩm nang', 'panduan', 'คู่มือ']) expect(SYSTEM).toContain(word)
   expect(bodies[0]!.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: ANSWER_SCHEMA } })
-  expect(bodies[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'read_tanks'])
+  expect(bodies[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'check_tank_mates', 'read_tanks'])
   // A refusal, or an answer cut short, is no answer: no blocks.
   expect(readAnswer(message([{ type: 'text', text: '{"text":' }], 'max_tokens'))).toBeUndefined()
   expect(readAnswer(message([], 'refusal'))).toBeUndefined()

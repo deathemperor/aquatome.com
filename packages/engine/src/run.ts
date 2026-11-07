@@ -237,7 +237,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       // Judged on depth at every merge too, as the public build shows it (published sources): a thin page is out of search.
       item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => mayPublish(sourceNames[x.source], 'text'))).deep)
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
-      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
+      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http, 4, blocked), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http, { skip: videoRejected }), [])
       const known = new Set(await s.ids('places'))
       for (const p of ensurePlaces(page.places, known)) await s.write('places', PlaceSchema, p)
@@ -252,7 +252,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
-      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http), [])
+      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)
       await appendChangelog(contentRoot, [log('plant', item.entity.id, !!existing.entity)])
       return [`plants/${item.entity.id}`]

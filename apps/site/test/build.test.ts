@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { DIST, page } from './dist'
+import { CATEGORY_ORDER } from '../src/lib/format'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 
@@ -325,6 +326,10 @@ describe('plants, guides, glossary, equipment, discovery', () => {
   test('equipment index and a page per product category', () => {
     for (const cat of ['be-ca', 'loc', 'thuc-an', 'suoi', 'cay-thuy-sinh']) expect(page(`/thiet-bi/${cat}/`).html, cat).toContain(`/go/shopee/?k=`)
     expect(page('/thiet-bi/').dom.querySelectorAll('a[href^="/thiet-bi/"]').length).toBeGreaterThanOrEqual(5)
+    // In a keeper's order (tank, filter, heater… food last), the written guides first: not by how many fish need them.
+    const cats = page('/thiet-bi/').dom.querySelectorAll('a.cat').map(a => a.getAttribute('href')!.split('/')[2]!)
+    expect(cats[0]).toBe('loc')
+    expect(cats.slice(1)).toEqual(CATEGORY_ORDER.filter(x => cats.slice(1).includes(x)))
   })
   test('equipment guide: hero, types with the species that need them, FAQ data; shop links collapsed', () => {
     const { html, dom } = page('/thiet-bi/loc/')

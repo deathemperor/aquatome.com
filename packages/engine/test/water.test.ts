@@ -67,3 +67,23 @@ test('a pass: no call for a species whose sources never mention salt or the sea;
   expect(await speciesWater(root, deps, { limit: 5 })).toMatchObject({ read: [], quiet: [], calls: 0 })
   expect(calls).toBe(1)
 })
+
+// The toadfish's own sentence on Seriously Fish: about salt ("euryhaline"), but in no word the check knows. FishBase: "Marine;
+// brackish … Euryhaline". A person set its water (`fixed`), as `nameFixed` holds a name.
+const TOADFISH = 'Although this species is euryhaline it rarely does well when maintained in freshwater for prolonged periods. The family Batrachoididae is the only family in the order Batrachoidiformes of which members are mostly distributed in marine and brackish waters.'
+
+test('toadfish: water a person set (`fixed`) stays, with no call, whatever its text says', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'water-'))
+  await mkdir(join(root, 'content/species/toadfish'), { recursive: true })
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify({ seriouslyfish: { publish: true } }))
+  const water = { kind: 'brackish', source: 'seriouslyfish', quote: 'Although this species is euryhaline it rarely does well when maintained in freshwater for prolonged periods.', fixed: true }
+  const raw = `${JSON.stringify({ ...entity('toadfish', `<p>${TOADFISH}</p>`), water }, null, 2)}\n`
+  await writeFile(join(root, 'content/species/toadfish/entity.json'), raw)
+  let calls = 0
+  const llm = (async () => { calls++; return { claims: [] } }) as Llm
+  const r = await speciesWater(root, { llm, now: () => new Date('2026-11-07T00:00:00Z'), order: [] }, { limit: 5 })
+  expect(calls).toBe(0)
+  expect(r).toMatchObject({ read: [], quiet: [], calls: 0 })
+  expect(await readFile(join(root, 'content/species/toadfish/entity.json'), 'utf8')).toBe(raw)
+  expect(SpeciesSchema.parse(JSON.parse(raw)).water).toEqual(water)
+})

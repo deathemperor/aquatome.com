@@ -19,7 +19,7 @@ At the top right of each tab's first screen, its own glass circle, after the tab
 ## The sheet
 
 A sheet at the large detent with "Tài khoản" as its title and "Xong" to close. Inset grouped lists, as the app's
-other lists. Row tiles follow iOS Settings: system blue, purple, grey, orange, the app green, dark grey; red only for
+other lists. Row tiles follow iOS Settings: system blue, indigo, grey, orange, the app green, dark grey; red only for
 faults and deletion.
 
 ![The sheet signed in as the owner: top, bottom, the appearance menu](img/sheet-signed-in.png)
@@ -28,7 +28,8 @@ In order:
 
 1. **Account.**
    - Signed in:
-     - The header: an avatar circle, "Đã đăng nhập", and the methods with the created date ("bằng Apple · từ tháng
+     - The header: an avatar circle (a pale wash of the app's green, the person in the green at half its height),
+       "Đã đăng nhập", and the methods with the created date ("bằng Apple · từ tháng
        10/2026"). The date comes through the system's formatter: a Thai phone shows 2569. The header isn't tappable.
      - The sync row: status, time and tank count, with a small "Đồng bộ ngay" capsule.
      - "Thêm passkey" while the account has none.
@@ -42,7 +43,8 @@ In order:
    - Biểu tượng ứng dụng, with the current icon as the row's image.
    - Giao diện: Theo máy (the default), Sáng, Tối, in the system menu. It applies at once, app-wide, and is kept on
      this phone only.
-   - Đã tải để đọc offline, with its count: it closes the sheet and opens Tìm's kept shelf.
+   - Đã tải để đọc offline, with its count, once a page is kept (like "Người đã chặn"): it closes the sheet and opens
+     Tìm's kept shelf.
    - Ổ cắm Smart Life, the Tuya keys: "Đã kết nối" or "Chưa thiết lập". The owner asked on 2026-11-06 for the keys
      "in a settings somewhere", not on each tank. The iOS lead moves them from Bể của tôi when they choose.
 4. **Quyền riêng tư**:
@@ -97,7 +99,7 @@ The drawing hides at accessibility text sizes.
 
 - At accessibility sizes:
   - a row's value moves under its title, and nothing truncates;
-  - the header stacks its avatar above the text;
+  - the header stacks its avatar above the text, and the avatar and row tiles grow with it (tiles up to 44 pt);
   - capsules move to their own line.
 - Indonesian: "Sinkronkan sekarang" drops under the sync status.
 - Thai keeps each row's height and wraps the long footers.

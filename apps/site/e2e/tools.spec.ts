@@ -64,8 +64,8 @@ test('tank-mates: a name with no match says so and keeps what was typed', async 
 test('tank-mates: an incompatible pair answers in one sentence first, then the warnings, then a table that fits', async ({ page }) => {
   await page.goto(TM)
   // A whole name typed out, common or scientific, is added without a pick. Two species both the fixture and aquatome.com
-  // have; the discus's name and address differ between them ("Cá đĩa", ca-dia in the fixture; "Cá đĩa nâu", ca-dia-nau on
-  // aquatome.com), so they're read from the page's own list.
+  // have; the discus's name and address are read from the page's own list, so a rename on aquatome.com ("Cá đĩa nâu",
+  // ca-dia-nau, until 2026-11-07) doesn't break it.
   const discus = await page.locator('#species-index').evaluate(el => (JSON.parse(el.textContent!) as { slug: string; name: string; scientificName: string }[]).find(i => i.scientificName === 'Symphysodon aequifasciatus')!)
   for (const name of [discus.scientificName, 'Cá neon xanh']) {
     await page.locator('#tm-input').fill(name)

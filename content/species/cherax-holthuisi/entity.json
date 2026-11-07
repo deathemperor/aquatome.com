@@ -10,6 +10,60 @@
     "indonesia",
     "lake-aitinjo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Lake Aitinjo",
+        "Bird's Head Peninsula",
+        "New Guinea"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Cherax holthuisi is a crayfish endemic to West Papua, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is found only in Lake Aitinjo on the Bird's Head Peninsula at the western end of New Guinea, in the Indonesian province of West Papua.",
+          "countries": [],
+          "regions": [
+            "Lake Aitinjo",
+            "Bird's Head Peninsula",
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5789936,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

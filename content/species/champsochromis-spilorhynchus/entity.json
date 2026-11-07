@@ -54,7 +54,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -180,5 +180,67 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Lake Malombe",
+        "Shire River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Champsochromis spilorhynchus is a large predatory cichlid known from Lake Malawi, Lake Malombe and the upper Shire River.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi",
+            "Lake Malombe",
+            "Shire River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372716,
+      "total": 7,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MW",
+          6
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          2
+        ],
+        [
+          33.75,
+          -14.0625,
+          2
+        ],
+        [
+          33.75,
+          -12.65625,
+          2
+        ],
+        [
+          33.75,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  }
 }

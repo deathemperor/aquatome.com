@@ -58,7 +58,7 @@ test('tank-mates: the chosen fish and their numbers go onto a tank; saving again
   await expect(page).toHaveURL(new RegExp(`/cong-cu/be-cua-toi/#be-${tanks[0]!.id}$`))
   await expect(page.locator('.tank')).toContainText('Bể 80 × 35 × 40')
 
-  // More neons and a discus (by its scientific name: aquatome.com has two "Cá đĩa"), onto the same tank.
+  // More neons and a discus (by its scientific name: aquatome.com has two discus species), onto the same tank.
   await page.goto('/cong-cu/nuoi-chung/?ca=ca-neon-xanh:20&l=60&w=30&h=36')
   await page.locator('#tm-input').fill('Symphysodon aequifasciatus')
   await page.locator('#tm-input').press('Enter')

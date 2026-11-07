@@ -2,9 +2,10 @@ import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang } from '@aq/schema'
+import { tidyName } from './alt-names'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
-import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
+import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
 
 /**
@@ -484,6 +485,8 @@ export function cardSlips<V extends { field: DataCardField; value: Figure }>(car
 }
 const firstFew = (xs: string[], n = 3) => [...xs.slice(0, n).map(s => `"${s}"`), ...(xs.length > n ? [`and ${xs.length - n} more`] : [])]
 
+/** The kinds of page named for what they are about: a species, a plant, a breed (the sweep's name fix, alt-names.ts tidyName). */
+export const NAMED_KINDS: readonly PageKind[] = ['species', 'plants', 'breeds']
 /** The kinds of page whose stored text the sweep fixes (sweep.ts): an equipment page is written whole by its own step. */
 export const SWEPT_KINDS: readonly PageKind[] = ['species', 'plants', 'guides', 'breeds', 'glossary', 'products']
 /**
@@ -495,6 +498,8 @@ export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
   furniture: SWEPT_KINDS, headings: SWEPT_KINDS, repeated: SWEPT_KINDS, labels: SWEPT_KINDS,
   // A guide's title is written; a breed's or product's is its name (a person may have fixed it: nameFixed), listed only.
   'title-count': ['guides'],
+  name: NAMED_KINDS,
+  wording: SWEPT_KINDS,
   caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
 }
 /** The findings the real-content test holds at zero. */
@@ -515,6 +520,14 @@ export const RULES: Rule[] = [
     id: 'title-count', title: 'Title promises a count the text doesn\'t have',
     about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays.',
     check: p => p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
+  },
+  {
+    id: 'name', title: 'A name not as hobbyists write it',
+    about: 'A species\', plant\'s or breed\'s Vietnamese name with a place in lower case ("Rêu java" beside "Dương xỉ Java"), or a plant\'s name with "Cây thủy sinh" before it, which a list of plants says already ("Cây thủy sinh Vallisneria (cỏ lươn)"). The sweep writes it as hobbyists do (alt-names.ts tidyName) and keeps the address; a name a person fixed is left.',
+    check: p => {
+      const tidy = p.lang === 'vi' && !p.nameFixed && NAMED_KINDS.includes(p.kind) ? tidyName(p.title, p.kind) : p.title
+      return tidy === p.title ? [] : [`"${p.title}" → "${tidy}"`]
+    },
   },
   {
     id: 'headings', title: 'Empty headings and blocks',
@@ -579,6 +592,11 @@ export const RULES: Rule[] = [
       const copies = [...laterCopies(fields)].flatMap(([fi, is]) => parse(fields[fi]!.html).querySelectorAll('p').filter((_, i) => is.has(i)).map(x => x.text.replace(/\s+/g, ' ').trim()))
       return [...new Set(copies)].map(s => `"${clip(s, 70)}"`)
     },
+  },
+  {
+    id: 'wording', title: 'Words Vietnamese readers write another way',
+    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể". The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, and in the fish summaries.',
+    check: p => [...new Set([p.title, ...p.fields.map(f => f.html), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].flatMap(wordingSlips))],
   },
   {
     id: 'english', title: 'Sentences left in English',
@@ -685,17 +703,22 @@ ${sections.join('\n')}`
 }
 
 type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
-/** The fixes made on write, on one stored translation: tidyHtml on its HTML, unescapePlain on its plain text. */
+/**
+ * The fixes made on write (tidyHtml on its HTML, unescapePlain on its plain text) and, on both, the words Vietnamese
+ * readers write another way (viWording), on one stored translation.
+ */
 export function fixTranslation(t: Stored): Stored {
+  const plain = (s: string) => viWording(unescapePlain(s))
+  const html = (s: string) => viWording(tidyHtml(s))
   return {
     ...t,
-    ...(t.name !== undefined ? { name: unescapePlain(t.name) } : {}),
-    ...(t.altNames ? { altNames: t.altNames.map(unescapePlain) } : {}),
-    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, tidyHtml(v)])) } : {}),
-    ...(t.body !== undefined ? { body: tidyHtml(t.body) } : {}),
-    ...(t.definition !== undefined ? { definition: tidyHtml(t.definition) } : {}),
-    ...(t.summary ? { summary: t.summary.map(unescapePlain) } : {}),
-    ...(t.faq ? { faq: t.faq.map(f => ({ q: unescapePlain(f.q), a: unescapePlain(f.a) })) } : {}),
+    ...(t.name !== undefined ? { name: plain(t.name) } : {}),
+    ...(t.altNames ? { altNames: t.altNames.map(plain) } : {}),
+    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, html(v)])) } : {}),
+    ...(t.body !== undefined ? { body: html(t.body) } : {}),
+    ...(t.definition !== undefined ? { definition: html(t.definition) } : {}),
+    ...(t.summary ? { summary: t.summary.map(plain) } : {}),
+    ...(t.faq ? { faq: t.faq.map(f => ({ q: plain(f.q), a: plain(f.a) })) } : {}),
   }
 }
 

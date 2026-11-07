@@ -2,6 +2,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
 import { ANSWER_SCHEMA, fill, readAnswer, type Answer, type ChatBlock } from './answer'
 import type { Handbook, Lang } from './handbook'
+import type { MatesCheck } from './mates'
 import { chatTools, type Step, type Tank } from './tools'
 
 /**
@@ -14,7 +15,7 @@ const LANGS: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'T
 
 export const SYSTEM = `You answer readers of AquaTome, a handbook of aquarium fish, shrimp, snails, plants, equipment and care guides, in Vietnamese, Indonesian and Thai. Readers are hobbyists, often at the tank, who have just identified a fish or are about to buy one, and ask what to do next: how to keep it, whether it lives with their fish, what tank or filter, why it hides.
 
-Answer only from the handbook. Read it with your tools before you answer: search_handbook finds pages by name, read_page opens a page's outline (and, for a fish or plant, its figures), then one section's full text by its heading id, and read_tanks reads the reader's saved tanks when they talk about their tank or the fish they keep. Read the pages that answer the question; for most questions one search and two or three pages are enough.
+Answer only from the handbook. Read it with your tools before you answer: search_handbook finds pages by name, read_page opens a page's outline (and, for a fish or plant, its figures), then one section's full text by its heading id, read_tanks reads the reader's saved tanks when they talk about their tank or the fish they keep, and check_tank_mates checks fish together as the tank-mates tool does. Whether fish can live together is the check's to say: call check_tank_mates when the reader asks, and before any tank-mates block (the same fish, counts and tank), and open your text with its verdict's head word for word. For fish going in the reader's own tank, read_tanks first and check with that tank's id, naming only the fish they would add. Read the pages that answer the question; for most questions one search and two or three pages are enough.
 
 Your answer has two parts:
 - text: two or three sentences in the reader's language, plain and practical, as a knowledgeable friend at the shop would say it. Call the handbook what the site calls it: cẩm nang in Vietnamese, panduan in Indonesian, คู่มือ in Thai. Say what the handbook says, not what you searched or read. Don't write figures (temperatures, pH, sizes, litres, counts, doses) in the text unless a page you read gives them; prefer to point to the blocks, which show the handbook's own figures.
@@ -42,7 +43,7 @@ export function shown(b: ChatBlock): string {
     case 'species': return `card: ${b.page.name} (${b.page.id})`
     case 'compare': return `comparison: ${b.items.map(c => `${c.page.name} (${c.page.id})`).join(', ')}`
     case 'section': return `section: ${b.page.url}${b.heading ? `#${b.heading.id}` : ''} (${b.heading?.text ?? b.page.title})`
-    case 'tool': return `tool: ${b.url}`
+    case 'tool': return `tool: ${b.url ?? b.tool}${b.tank ? ` in the reader's tank ${b.tank.name} (${b.tank.id})` : ''}`
   }
 }
 
@@ -91,11 +92,13 @@ export type ChatOptions = {
 
 /** One turn: Claude reads and answers, then the blocks it picked are filled from the handbook. */
 export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
+  // What check_tank_mates answered: a tank-mates block goes out with the check Claude read (answer.ts `fill`).
+  const checks: MatesCheck[] = []
   const run = await runAgent<Step>({
     send: o.send,
     model: o.model,
     system: SYSTEM,
-    tools: chatTools({ handbook: o.handbook, tanks: o.tanks }),
+    tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
     first: firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook),
     schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
@@ -106,6 +109,6 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     clock: o.clock,
   })
   const answer = run.message ? readAnswer(run.message) : undefined
-  const filled = answer ? await fill(answer, o.handbook) : { blocks: [], dropped: [] }
+  const filled = answer ? await fill(answer, o.handbook, checks) : { blocks: [], dropped: [] }
   return { ...run, ...(answer ? { answer } : {}), ...filled }
 }

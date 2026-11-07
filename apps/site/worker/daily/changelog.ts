@@ -1,3 +1,4 @@
+import { failedNote, heading, note, table, type Block, type Section } from '../admin/blocks'
 import { esc } from '../admin/chart'
 import { CHANGELOG_NAME, CHANGELOG_PATH, failedBox, isFailed, page, soft, type Soft } from '../admin/shell'
 import { localDay, WEEKDAY } from '../admin/time'
@@ -56,21 +57,31 @@ const AREA_NAME: Record<Area, string> = { Site: 'Trang web', App: 'Ứng dụng'
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const
 const dayHeading = (day: string) => `${WEEKDAY[WEEKDAYS[new Date(`${day}T00:00:00Z`).getUTCDay()]!]} · ${day.slice(8, 10)}/${day.slice(5, 7)}/${day.slice(0, 4)}`
 
-/** Each day in the viewer's zone, its changes by area (the site, the app, the engine), each line once. */
+/** Each day in the viewer's zone, newest first, with its changes by area (the site, the app, the engine), each line once. */
+function byDay(xs: Change[], tz: string): [string, Change[]][] {
+  const days = new Map<string, Change[]>()
+  for (const c of [...xs].sort((a, b) => Date.parse(b.at) - Date.parse(a.at))) {
+    const day = localDay(c.at, tz)
+    days.set(day, [...(days.get(day) ?? []), c])
+  }
+  return [...days].map(([day, cs]) => [day, AREAS.flatMap(area => [...new Set(cs.filter(c => c.area === area).map(c => c.text))].map(text => ({ area, text, at: '' })))])
+}
+
 export function changelogPage({ now, tz, xs }: ChangelogData): string {
   let body: string
   if (isFailed(xs)) body = failedBox('nhật ký thay đổi', xs)
   else if (!xs.length) body = `<p class="muted">${EMPTY}</p>`
-  else {
-    const days = new Map<string, Change[]>()
-    for (const c of [...xs].sort((a, b) => Date.parse(b.at) - Date.parse(a.at))) {
-      const day = localDay(c.at, tz)
-      days.set(day, [...(days.get(day) ?? []), c])
-    }
-    body = `<div class="log">${[...days].map(([day, cs]) => {
-      const items = AREAS.flatMap(area => [...new Set(cs.filter(c => c.area === area).map(c => c.text))].map(text => `<li><p>${esc(text)}</p><small>${AREA_NAME[area]}</small></li>`))
-      return `<section><h3>${dayHeading(day)}</h3><ol>${items.join('')}</ol></section>`
-    }).join('')}</div>`
-  }
+  else body = `<div class="log">${byDay(xs, tz).map(([day, cs]) => `<section><h3>${dayHeading(day)}</h3><ol>${cs.map(c => `<li><p>${esc(c.text)}</p><small>${AREA_NAME[c.area]}</small></li>`).join('')}</ol></section>`).join('')}</div>`
   return page(CHANGELOG_PATH, CHANGELOG_NAME, `<h1>${CHANGELOG_NAME}</h1><p class="lede">${LEDE}</p>${body}`, now, tz)
 }
+
+/** The same as blocks: each day a heading and its lines, each with its area under it. */
+export function changelogSection({ tz, xs }: ChangelogData): Section {
+  const blocks: Block[] = [note(LEDE)]
+  if (isFailed(xs)) blocks.push(failedNote('nhật ký thay đổi', xs))
+  else if (!xs.length) blocks.push(note(EMPTY, 'muted'))
+  else for (const [day, cs] of byDay(xs, tz)) blocks.push(heading(dayHeading(day), 3), table([CHANGE_COLUMN], cs.map(c => [{ text: c.text, sub: AREA_NAME[c.area] }])))
+  return { title: CHANGELOG_NAME, blocks }
+}
+/** The day's lines have no column head on the page. */
+export const CHANGE_COLUMN = 'Thay đổi'

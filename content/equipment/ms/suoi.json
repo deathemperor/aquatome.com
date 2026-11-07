@@ -1,6 +1,6 @@
 {
   "category": "suoi",
-  "name": "Pemanas (heater)",
+  "name": "Pemanas dan penyejuk",
   "lead": "Ikan tropika memerlukan air hangat yang stabil. Ketika cuaca sejuk, tangki tanpa pemanas paling mudah kehilangan ikan.",
   "intro": "<p>Kebanyakan ikan hiasan hidup pada suhu 24–28 °C. Di kawasan yang panas, air di dalam rumah biasanya cukup hangat sepanjang tahun. Di kawasan yang lebih sejuk dan di tanah tinggi pula, air tangki boleh turun di bawah 18 °C ketika cuaca sejuk. Ikan tropika yang kesejukan akan berhenti makan, dijangkiti penyakit bintik putih (white spot) dan mati perlahan-lahan.</p><p>Pemanas bertermostat akan terputus sendiri apabila suhu yang ditetapkan sudah dicapai, jadi suhu air kekal stabil siang dan malam. Termometer wajib digunakan bersama. Jangan percaya sepenuhnya pada angka di dail pemanas.</p>",
   "hero": {
@@ -49,6 +49,11 @@
         "caption": "Grzałka do akwarium"
       }
     }
+  ],
+  "order": [
+    "mini",
+    "chinh-nhiet",
+    "lam-lanh"
   ],
   "choose": [
     "<p>Kuasa: sekitar 1 W bagi setiap liter air. Untuk bilik yang sejuk atau tangki tanpa penutup, tambah 30–50 peratus.</p>",

@@ -1,0 +1,77 @@
+{
+  "id": "channa-burmanica",
+  "native": {
+    "input": "c9130504b6f535d0",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Ayeyarwaddy/Irrawaddy River in northern Myanmar, between the Kumon and Shan-ngaw mountain ranges, although the full extent of its range is unclear.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwaddy",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Ayeyarwaddy/Irrawaddy River in northern Myanmar, between the Kumon and Shan-ngaw mountain ranges, although the full extent of its range is unclear.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Ayeyarwaddy/Irrawaddy River in northern Myanmar, between the Kumon and Shan-ngaw mountain ranges, although the full extent of its range is unclear.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Mali Hka",
+        "source": "seriouslyfish",
+        "quote": "Records exist only from the Mali Hka drainage, one of two principal tributaries which join to form the Ayeyarwaddy north of Myitkyina, capital of Kachin state in the far north of the country.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa burmanica",
+    "status": "ACCEPTED",
+    "taxonKey": 2391445,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

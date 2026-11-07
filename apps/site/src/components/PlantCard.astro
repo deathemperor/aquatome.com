@@ -25,7 +25,11 @@ const { t } = i18n(Astro.url)
   <p class="meta">{plantMeta(t, p)}</p>
 </article>
 <style>
-  .pc a { text-decoration: none; color: inherit; display: block; }
+  /* The care line sits at the card's foot, so a row of cards lines up when a name runs to two lines. */
+  .pc { display: flex; flex-direction: column; height: 100%; }
+  /* The plant list's filter hides a card with `hidden`, which the flex above would override. */
+  .pc[hidden] { display: none; }
+  .pc a { text-decoration: none; color: inherit; display: block; margin-bottom: var(--space-2); }
   .plate { background: var(--c-plate); padding: 5px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
   .plate img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
   /* No photo yet: a leaf on the plate colour, the photos' shape, so the card doesn't read as a broken image. */
@@ -35,5 +39,5 @@ const { t } = i18n(Astro.url)
   h3 { font-size: var(--step-1); margin-top: var(--space-3); }
   .pc a:hover h3 { color: var(--c-moss); }
   .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); }
-  .meta { margin: var(--space-2) 0 0; padding-top: var(--space-2); border-top: 1px dotted var(--c-rule); font-size: 0.8rem; color: var(--c-ink-soft); }
+  .meta { margin: auto 0 0; padding-top: var(--space-2); border-top: 1px dotted var(--c-rule); font-size: 0.8rem; color: var(--c-ink-soft); }
 </style>
