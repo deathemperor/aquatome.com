@@ -68,6 +68,9 @@ Every chart, on both, reads a day's figures by touch: tap a bar, or drag across,
 its figures ("21 found an answer · Thu 5 Nov · 29 readers · 1 shop click"); the web shows it on hover too. Today's bar
 is lighter (the day isn't over); the chosen bar is the full colour.
 
+A chart's series take chart colours (the app's green, blue, grey; the web's series colours), never orange or red,
+which keep their meaning: Fish ID's "No answer" is blue.
+
 ## A section page
 
 Its answer first: up to three figures for the chosen period, one chart that can be tapped, then what needs the owner
@@ -104,7 +107,8 @@ The comments table's three states: held, shown (`approved`), hidden (`removed`).
 - Web: the site's look as today (paper and blackwater, Newsreader figures), light and dark with the system. On a phone
   it is one column, and the rail becomes the bar's "Pages" menu.
 - A change is coloured only past 5%: green up, red (rust on the web) down. Otherwise grey.
-- Orange (rust on the web) marks what waits on the owner; red is for faults.
+- Orange (rust on the web) marks what waits on the owner; red is for faults and drops. The server decides each
+  figure's colour, so the rule lives in one place.
 
 ![The app in dark, at the largest text, with nothing to do](img/dash-states.png)
 
