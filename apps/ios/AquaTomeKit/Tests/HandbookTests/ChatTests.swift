@@ -551,7 +551,8 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   #expect(r.url?.path == "/api/chat/cancel")
   #expect(r.value(forHTTPHeaderField: "Authorization") == "Bearer t")
   #expect(r.value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS/1.0")
-  let body = try #require(JSONSerialization.jsonObject(with: try #require(r.httpBody)) as? [String: Any])
+  let sent = try #require(r.httpBody)
+  let body = try #require(JSONSerialization.jsonObject(with: sent) as? [String: Any])
   #expect(body as? [String: String] == ["key": key.uuidString.lowercased()])
 }
 
@@ -622,7 +623,7 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   #expect(first.turn.n == 1)
   #expect(!first.turn.blocks.isEmpty)
   // Kept as a stream's `done` brings it: the same turn read again.
-  guard case .done(let again)? = Chat.event(ServerEvent(name: "done", data: first.data)) else { return Issue.record("not a done") }
+  guard case .done(let again)? = Chat.event(ServerEvent(name: "done", data: first.data)) else { Issue.record("not a done"); return }
   #expect(again.text == first.turn.text)
   #expect(again.blocks.count == first.turn.blocks.count)
 }
@@ -652,7 +653,8 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   let before = UUID()
   func body(_ start: Chat.Start?, _ continues: UUID?) throws -> [String: Any] {
     let r = Chat.ask("q", conversation: UUID(), lang: "vi", start: start, continues: continues, key: UUID(), site: site, token: "t", version: "1.0", ownCopy: nil)
-    return try #require(JSONSerialization.jsonObject(with: try #require(r.httpBody)) as? [String: Any])
+    let sent = try #require(r.httpBody)
+    return try #require(JSONSerialization.jsonObject(with: sent) as? [String: Any])
   }
   #expect(try body(Chat.Start(from: .species, about: "a"), before)["continues"] as? String == before.uuidString.lowercased())
   // Only a first question says so.
@@ -720,6 +722,7 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   #expect(sections.map(\.period) == [.today, .earlier])
   #expect(sections[0].rows.count == 2)
   #expect(Chat.Row([]) == nil)
+}
 
 @Test func aPhotoTheTurnShowedIsLeftOutOfASectionAtAnySize() throws {
   // As the recording has it: the card's at a width, the section's whole.
