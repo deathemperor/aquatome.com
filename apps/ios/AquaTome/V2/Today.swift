@@ -147,27 +147,24 @@ private struct FishOfTheDay: View {
   var body: some View {
     VStack(spacing: 0) {
       NavigationLink(value: item) {
-        V2Photo(src: item.img) { colour = $0 }
-          .frame(height: min(height, 640))
-          .overlay {
-            // Down as far as the name goes, which at the accessibility sizes is most of the photo.
-            let large = size.isAccessibilitySize
-            LinearGradient(stops: [.init(color: colour.opacity(large ? 0.95 : 0.85), location: 0),
-                                   .init(color: colour.opacity(large ? 0.95 : 0), location: large ? 0.7 : 0.5),
-                                   .init(color: colour.opacity(0), location: large ? 0.85 : 0.5)],
-                           startPoint: .top, endPoint: .bottom)
+        // At the accessibility sizes a name over the photo would hide the fish: it goes above, on the photo's colour.
+        if size.isAccessibilitySize {
+          VStack(spacing: 0) {
+            name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
+            V2Photo(src: item.img) { colour = $0 }.frame(height: 260)
           }
-          .overlay(alignment: .topLeading) {
-            VStack(alignment: .leading, spacing: 4) {
-              Eyebrow(text: "Gợi ý hôm nay")
-              Text(verbatim: item.name).font(.system(.largeTitle, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 5 : 2)
+        } else {
+          V2Photo(src: item.img) { colour = $0 }
+            .frame(height: height)
+            .overlay {
+              LinearGradient(stops: [.init(color: colour.opacity(0.85), location: 0), .init(color: colour.opacity(0), location: 0.5)],
+                             startPoint: .top, endPoint: .bottom)
             }
-            .foregroundStyle(.white)
-            .padding(20)
-          }
-          .overlay(alignment: .bottom) {
-            LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 80)
-          }
+            .overlay(alignment: .topLeading) { name }
+            .overlay(alignment: .bottom) {
+              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 80)
+            }
+        }
       }
       .buttonStyle(CardPress())
       .accessibilityIdentifier("v2-fish-of-the-day")
@@ -180,6 +177,16 @@ private struct FishOfTheDay: View {
     .v2Card()
     .matchedTransitionSource(id: item.path, in: zoom)
     .padding(.horizontal, 20)
+  }
+
+  private var name: some View {
+    VStack(alignment: .leading, spacing: 4) {
+      Eyebrow(text: "Gợi ý hôm nay")
+      Text(verbatim: item.name).font(.system(.largeTitle, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 5 : 2)
+        .multilineTextAlignment(.leading)
+    }
+    .foregroundStyle(.white)
+    .padding(20)
   }
 }
 
@@ -195,34 +202,44 @@ private struct GuideCard: View {
 
   var body: some View {
     NavigationLink(value: item) {
-      V2Photo(src: item.img) { colour = $0 }
-        .frame(height: min(height, 700))
-        .overlay {
-          // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
-          // Starts higher at the accessibility sizes, where the title takes most of the card.
-          let large = size.isAccessibilitySize
-          LinearGradient(stops: [.init(color: colour.opacity(0), location: large ? 0.05 : 0.3), .init(color: colour.opacity(0.95), location: large ? 0.25 : 0.55),
-                                 .init(color: colour, location: large ? 0.35 : 0.65)], startPoint: .top, endPoint: .bottom)
-        }
-        .overlay(alignment: .bottomLeading) {
-          VStack(alignment: .leading, spacing: 6) {
-            if let section = handbook.shelves.sections.first(where: { $0.key == item.section })?.label {
-              Text(verbatim: section).font(.footnote.weight(.bold)).textCase(.uppercase).opacity(0.8)
-            } else {
-              Eyebrow(text: "Hướng dẫn")
-            }
-            Text(verbatim: item.name).font(.system(.title, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 8 : 4)
-              .multilineTextAlignment(.leading)
+      Group {
+        // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour.
+        if size.isAccessibilitySize {
+          VStack(spacing: 0) {
+            V2Photo(src: item.img) { colour = $0 }.frame(height: 260)
+            words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
           }
-          .foregroundStyle(.white)
-          .padding(20)
+        } else {
+          V2Photo(src: item.img) { colour = $0 }
+            .frame(height: height)
+            .overlay {
+              // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
+              LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.3), .init(color: colour.opacity(0.95), location: 0.55),
+                                     .init(color: colour, location: 0.65)], startPoint: .top, endPoint: .bottom)
+            }
+            .overlay(alignment: .bottomLeading) { words }
         }
-        .animation(.easeInOut(duration: 0.4), value: colour)
-        .v2Card()
+      }
+      .animation(.easeInOut(duration: 0.4), value: colour)
+      .v2Card()
     }
     .buttonStyle(CardPress())
     .matchedTransitionSource(id: item.path, in: zoom)
     .padding(.horizontal, 20)
+  }
+
+  private var words: some View {
+    VStack(alignment: .leading, spacing: 6) {
+      if let section = handbook.shelves.sections.first(where: { $0.key == item.section })?.label {
+        Text(verbatim: section).font(.footnote.weight(.bold)).textCase(.uppercase).opacity(0.8)
+      } else {
+        Eyebrow(text: "Hướng dẫn")
+      }
+      Text(verbatim: item.name).font(.system(.title, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 8 : 4)
+        .multilineTextAlignment(.leading)
+    }
+    .foregroundStyle(.white)
+    .padding(20)
   }
 }
 
