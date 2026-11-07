@@ -69,6 +69,30 @@ function pruneOffScreen(): { hollow: WeakSet<Node>; unmark: () => void } {
   return { hollow, unmark: () => { for (const e of marked) delete e.dataset.captureBox } }
 }
 
+/**
+ * The library waits for every picture in the page to load, up to its timeout, before it draws. A lazy one below the
+ * screen, or in something hidden, hasn't loaded and won't: on a fish page, that was 8 s of "Đang chụp…" before a report
+ * went. Its address is taken off while the picture is taken (it's an empty box in it anyway) and put back after. One
+ * above the screen keeps it: without it the page above would change size and move what's on screen.
+ */
+function holdUnloaded(): () => void {
+  const held: [HTMLImageElement, string | null, string | null][] = []
+  for (const img of document.images) {
+    if (img.complete) continue
+    const r = img.getBoundingClientRect()
+    if (r.top < innerHeight && (r.width || r.height)) continue
+    held.push([img, img.getAttribute('src'), img.getAttribute('srcset')])
+    img.removeAttribute('srcset')
+    img.removeAttribute('src')
+  }
+  return () => {
+    for (const [img, src, srcset] of held) {
+      if (srcset !== null) img.setAttribute('srcset', srcset)
+      if (src !== null) img.setAttribute('src', src)
+    }
+  }
+}
+
 export async function captureViewport(): Promise<Blob> {
   const root = document.documentElement
   const scroll = scrollY
@@ -79,6 +103,7 @@ export async function captureViewport(): Promise<Blob> {
   }
   const unmark = markStuck(scroll)
   const { hollow, unmark: unbox } = pruneOffScreen()
+  const unhold = holdUnloaded()
   try {
     return await domToBlob(root, {
       type: 'image/jpeg',
@@ -111,6 +136,7 @@ export async function captureViewport(): Promise<Blob> {
       fetch: { placeholderImage: BLANK },
     })
   } finally {
+    unhold()
     unmark()
     unbox()
   }
