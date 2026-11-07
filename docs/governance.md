@@ -992,7 +992,8 @@ Rules (as for the site):
 4. No real device names (they carry the device's address), addresses or IDs, and no signing team ID, in the repository.
 5. **A performance budget only tightens.** A change that makes the app cheaper may lower its budget. Raising one needs a
    new `reason` in `perf-budgets.json` saying why the cost is worth it; the PR check fails on a budget raised with the
-   old reason, or removed.
+   old reason, or removed. The app's size is the one not to lower: 20 MB is the owner's room (2026-11-08), not a reading,
+   so it stays until the owner changes it. The job still reports each measured size.
 6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
    pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a
