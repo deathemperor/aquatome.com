@@ -93,6 +93,7 @@ export type Handbook = {
 const topicsIn = (t: Topics | null): Topics | null =>
   t?.v === 1 && t.pages && typeof t.pages === 'object' &&
   Object.values(t.pages).every(list => Array.isArray(list) && list.every(e => Array.isArray(e) && (e[0] === null || typeof e[0] === 'string') && typeof e[1] === 'string'))
+    && (t.held === undefined || (Array.isArray(t.held) && t.held.every(p => typeof p === 'string')))
     ? t : null
 
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
@@ -103,8 +104,9 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
   if (!index) return null
   const topics = topicsIn(read)
   // A guide held out of the chat while it is checked again (topics.ts `held`) isn't in its handbook at all: never found,
-  // read, shown or named in a step. With no topics file to say which, every video guide is held.
-  const held = topics && Array.isArray(read?.held) ? new Set(read.held) : null
+  // read, shown or named in a step. A topics file with no list holds none; with no topics file to say which, every video
+  // guide is held.
+  const held = topics ? new Set(topics.held ?? []) : null
   const items = index.items.filter(i => (held ? !held.has(i.path) : !(i.kind === 'guide' && i.video !== undefined)))
   const paths = new Map(items.map(i => [i.path, i]))
   const ids = new Map(items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
