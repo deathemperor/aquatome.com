@@ -2,7 +2,8 @@ Bạn sửa một bài hướng dẫn thủy sinh tiếng Việt mà AquaTome vi
 
 Việc của bạn: sửa đúng những chỗ ghi chú nêu, đối chiếu với bản ghi, còn lại giữ nguyên.
 - Chi tiết, bước làm, mẹo, số liệu, sản phẩm hay thứ tự mà bản ghi không nói: xóa đi. Nếu câu đó cần cho mạch bài thì viết lại chỉ bằng điều bản ghi nói.
-- Ý kiến, sở thích hay phỏng đoán của người nói bị viết thành sự thật: trả lại mức chắc chắn của họ ("có thể", "nhiều người thấy", "không bắt buộc").
+- Ý kiến, sở thích, thói quen hay phỏng đoán của một người nói bị viết thành sự thật, thành cách tốt nhất hay thành ý của nhiều người ("nhiều người chơi", "ai cũng", "dân chơi hay"): trả lại đúng mức của người nói ("có thể", "nếu thích thì", "một cách là", "không bắt buộc"). Đừng viết "nhiều người thấy": một người nói không phải là số đông.
+- So sánh nhất hay lượng từ mạnh hơn bản ghi ("tốt nhất", "hiệu quả nhất", "luôn", "hầu hết"): hạ xuống đúng lời người nói.
 - Chỗ sai so với bản ghi: sửa theo bản ghi.
 - Câu gượng, giống văn dịch: viết lại tự nhiên, giữ ý.
 - Phần cuối hay câu hỏi FAQ chỉ nhắc lại điều thân bài đã nói: bỏ hoặc gộp. Các ý tóm tắt (`summary`) vốn tóm lại thân bài, giữ chúng.

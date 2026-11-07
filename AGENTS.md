@@ -84,7 +84,7 @@ checked locally, then merge after those jobs pass (or the scoping skips them), n
 Commit subjects read
 `type(scope): what changes`, as in `fix(tank volume): the ready-made tank table fits a phone`; the body says why.
 
-The council (`.claude/skills/council/SKILL.md`) has one model from each of three providers review a PR, a design or
+The council (`.claude/skills/council/SKILL.md`) has one model from each of four providers review a PR, a design or
 screenshots and score it out of 10, round after round. Run it when the owner asks for it.
 
 A PR's body has a `## Changelog` section, which the owner's daily report and change log (`/_ab/thay-doi/`) show: a
