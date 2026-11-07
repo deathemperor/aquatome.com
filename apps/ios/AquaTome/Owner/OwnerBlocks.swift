@@ -16,6 +16,8 @@ struct OwnerDraw {
   /// A site page the app has as its own (pushed), from a link.
   let item: @MainActor (String) -> HandbookIndex.Item?
   let site: @MainActor (String) -> URL?
+  /// The zone the dashboard counts its days in: a card's small columns end yesterday there.
+  var tz = "Asia/Ho_Chi_Minh"
 
   /// `id`: what the UI tests find its links (or tiles) by.
   func block(_ b: Owner.Block, id: String) -> AnyView {
@@ -89,28 +91,20 @@ struct OwnerDraw {
     let d = f.delta
     let words = said(f.label, f.warn ? Owner.Tone.bad.said : nil, f.value, d?.text, d?.tone.said, d.flatMap { $0.vs.isEmpty ? nil : String(localized: "so với \($0.vs)") }, f.sub)
     let spark = f.spark
-    return go(f.to, AnyView(VStack(alignment: .leading, spacing: 6) {
+    // The card's words open its section; its small columns sit outside that link, so a tap on one reads it instead.
+    let link = go(f.to, AnyView(VStack(alignment: .leading, spacing: 6) {
       t.accessibilityLabel(Text(verbatim: words))
       if let m = f.meter { ProgressView(value: m).accessibilityHidden(true) }
-      if !spark.isEmpty {
-        // The last 7 days (the figure's) strong, the 7 before (the chip's comparison) paler, the rest faint.
-        Canvas { ctx, size in
-          let top = spark.compactMap { $0 }.max() ?? 0, w = size.width / CGFloat(spark.count)
-          for (i, v) in spark.enumerated() {
-            guard let v, top > 0 else { continue }
-            let h = max(1, size.height * CGFloat(v / top)), age = spark.count - 1 - i
-            let shade = age < 7 ? Color.accentColor : age < 14 ? Color.accentColor.opacity(0.42) : Color.secondary.opacity(0.3)
-            ctx.fill(Path(CGRect(x: CGFloat(i) * w + 0.5, y: size.height - h, width: max(1, w - 1), height: h)), with: .color(shade))
-          }
-        }
-        .frame(height: 22)
-        .accessibilityHidden(true)
-      }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .contentShape(.rect)), id)
+    return AnyView(VStack(alignment: .leading, spacing: 6) {
+      link
+      if !spark.isEmpty { OwnerSpark(label: f.label, values: spark, tz: tz) }
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(12)
-    .background(.fill.quaternary, in: .rect(cornerRadius: 12))
-    .contentShape(.rect)), id)
+    .background(.fill.quaternary, in: .rect(cornerRadius: 12)))
   }
 
   /// A table, scrolled sideways when its columns don't fit; a folded one opens by its label.
@@ -445,6 +439,55 @@ struct OwnerChart: View {
   static let rust = Color(light: 0xa6552d, dark: 0xcb7a5b)
   static let mute = Color(light: 0xa19c8e, dark: 0x5d7a75)
   static let whole = Color(light: 0xd9e2d5, dark: 0x244a45)
+}
+
+/// A card's last days as small columns, the last of them yesterday in the dashboard's zone: the last 7 (the figure's)
+/// strong, the 7 before (the chip's comparison) paler, the rest faint. A tap on a column, or a finger dragged across,
+/// reads its day and count under them, as the day charts do; VoiceOver swipes up or down through the days.
+struct OwnerSpark: View {
+  let label: String
+  let values: [Double?]
+  let tz: String
+  @State private var picked: Int?
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 2) {
+      Canvas { ctx, size in
+        let top = values.compactMap { $0 }.max() ?? 0, w = size.width / CGFloat(values.count)
+        if let picked { ctx.fill(Path(CGRect(x: CGFloat(picked) * w, y: 0, width: w, height: size.height)), with: .color(.secondary.opacity(0.18))) }
+        for (i, v) in values.enumerated() {
+          guard let v, top > 0 else { continue }
+          let h = max(1, size.height * CGFloat(v / top)), age = values.count - 1 - i
+          let shade = age < 7 ? Color.accentColor : age < 14 ? Color.accentColor.opacity(0.42) : Color.secondary.opacity(0.3)
+          ctx.fill(Path(CGRect(x: CGFloat(i) * w + 0.5, y: size.height - h, width: max(1, w - 1), height: h)), with: .color(shade))
+        }
+      }
+      .frame(height: 22)
+      .overlay(ChartTouch { picked = min(max(Int($0 * CGFloat(values.count)), 0), values.count - 1) })
+      .accessibilityElement()
+      .accessibilityLabel(Text(verbatim: label))
+      .accessibilityValue(Text(verbatim: day(picked ?? values.count - 1)))
+      .accessibilityAdjustableAction { d in
+        let at = picked ?? values.count - 1
+        switch d {
+        case .increment: picked = min(values.count - 1, at + 1)
+        case .decrement: picked = max(0, at - 1)
+        @unknown default: break
+        }
+      }
+      .accessibilityIdentifier("owner-spark")
+      if let picked { Text(verbatim: day(picked)).font(.caption2).monospacedDigit().foregroundStyle(.secondary).accessibilityIdentifier("owner-spark-day") }
+    }
+  }
+
+  /// A column's day (dd/mm) and count ("—": not recorded).
+  private func day(_ i: Int) -> String {
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = TimeZone(identifier: tz) ?? .current
+    guard values.indices.contains(i), let d = cal.date(byAdding: .day, value: i - values.count, to: cal.startOfDay(for: Date())) else { return "" }
+    let c = cal.dateComponents([.day, .month], from: d)
+    return String(format: "%02d/%02d", c.day ?? 0, c.month ?? 0) + " · " + (values[i].map { Owner.number($0, unit: nil) } ?? "—")
+  }
 }
 
 /// A chart's taps and sideways drags, as UIKit's recognizers take them, reported as how far across (0…1) the finger is.

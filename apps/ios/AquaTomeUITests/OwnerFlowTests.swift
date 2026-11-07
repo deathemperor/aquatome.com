@@ -71,6 +71,33 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(says(day, "08/10 · Có kết quả 14 · Không có kết quả 0 · Chặn trước khi gọi 1"), day.label)
   }
 
+  /// The overview's cards: a tap on one of a card's small columns, or a finger dragged across them, reads that day and
+  /// its count, and doesn't open the section (the card's words do).
+  func testTappingACardsSmallColumnsReadsThatDay() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    let spark = app.descendants(matching: .any).matching(identifier: "owner-spark").matching(NSPredicate(format: "label == 'Người đọc'")).firstMatch
+    XCTAssertTrue(spark.waitForExistence(timeout: 10), "no columns on the readers' card")
+    repeatUntil(spark.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
+    XCTAssertTrue(spark.isHittable, "the card isn't on screen")
+    let day = app.staticTexts["owner-spark-day"]
+    XCTAssertFalse(day.exists, "a day read before any tap")
+    // Its 30 columns end yesterday, in the dashboard's zone.
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")!
+    let ago = { (n: Int) -> String in
+      let c = cal.dateComponents([.day, .month], from: cal.date(byAdding: .day, value: -n, to: cal.startOfDay(for: Date()))!)
+      return String(format: "%02d/%02d", c.day!, c.month!)
+    }
+    let at = { (i: Double) in spark.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
+    at(29).tap()
+    XCTAssertTrue(says(day, ago(1) + " · 22"), day.label)
+    XCTAssertTrue(app.buttons["owner-todo"].firstMatch.exists, "the tap opened the card's section")
+    at(0).press(forDuration: 0.1, thenDragTo: at(2))
+    XCTAssertTrue(says(day, ago(28) + " · 22"), day.label)
+  }
+
   // A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
   func testALongCellShowsTwoLinesUntilTapped() {
     let app = launch()
