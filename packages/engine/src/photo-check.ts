@@ -44,15 +44,24 @@ const PER_SHEET = 6
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
 const STRIP = 8
 
+/**
+ * Species whose hobby colour forms belong to another species: the bred discus (turquoise, red, pigeon blood…) are
+ * Symphysodon aequifasciatus, which Commons and stock sites often file as S. discus, so Heckel's discus page took them
+ * (the owner's naming of the two, 2026-11-07).
+ */
+export const WILD_ONLY: Record<string, string> = {
+  'symphysodon-discus': 'it must be the wild Heckel discus, brown to blue-green with one bold dark bar through the middle of the body; a captive-bred colour form (turquoise, red, pigeon blood, snakeskin, golden, solid colours) is Symphysodon aequifasciatus, so "other"',
+}
+
 /** `captions`: per photo on the sheet, the caption of a guide photo judged here because the caption names the subject. */
 export const subjectPrompt = (s: Subject, captions: (string | undefined)[] = []) => {
   const names = s.names.length ? ` (${s.names.slice(0, 4).join(', ')})` : ''
   const what = s.kind === 'breeds'
     ? `the breed or line ${s.names[0] ?? s.id}${s.sci ? ` of ${s.sci}` : ''}. What sets it apart: ${s.breed ?? 'its name'}`
     : `${s.sci}${names}, ${s.kind === 'plants' ? 'an aquarium plant' : 'a fish or other aquatic animal'}`
-  const form = s.kind === 'breeds' || /['‘’"]| (var|cv|f)\. /.test(s.sci)
+  const form = WILD_ONLY[s.id] ?? (s.kind === 'breeds' || /['‘’"]| (var|cv|f)\. /.test(s.sci)
     ? 'it must be this breed, line or cultivar: the plain species or another form of it is "other"'
-    : 'its colour forms, sexes and young count as it'
+    : 'its colour forms, sexes and young count as it')
   return `Numbered photos from the page about ${what} in an aquarium handbook.
 For each photo n:
 - ok: "dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up, a fish lying on a tray, a board or the floor; a preserved, mounted, museum or lab specimen (for a snail, an empty museum shell; for a plant, a pressed herbarium sheet). When you can't tell whether it is alive, it is "dead". Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.
