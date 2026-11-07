@@ -75,6 +75,9 @@ struct SpeciesPage: View {
     .navigationTitle(scrolled ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
     .toolbarBackgroundVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
+    .modifier(TopEdge(shown: scrolled))
+    // Over the photo, the status bar and the bar's buttons in white.
+    .toolbarColorScheme(scrolled ? nil : .dark, for: .navigationBar)
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
         ShareLink(item: handbook.url(item)) { Image(systemName: "square.and.arrow.up") }
@@ -165,6 +168,20 @@ struct SpeciesPage: View {
         if let good = m.good { MatesRow(title: good.title, mates: good.items, good: true) }
         if let avoid = m.avoid { MatesRow(title: avoid.title, mates: avoid.items, good: false) }
       }
+    }
+  }
+}
+
+/// iOS 26's bars have no background of their own: the scroll view's top edge effect, hard (the page's words go under
+/// it), once the page is past its photo, and none over the photo.
+private struct TopEdge: ViewModifier {
+  let shown: Bool
+
+  func body(content: Content) -> some View {
+    if #available(iOS 26, *) {
+      content.scrollEdgeEffectStyle(.hard, for: .top).scrollEdgeEffectHidden(!shown, for: .top)
+    } else {
+      content
     }
   }
 }
