@@ -4,6 +4,7 @@ import { join, relative } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
+import { stillDone, type StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
 
 /**
@@ -22,7 +23,12 @@ import { stripPhotos } from './watermarks'
  * it back and the faces and subject steps take it off any other page. A brand leaves the guides ("logo: …"), and is kept
  * on an equipment guide, whose subject is the product. Each photo is judged once (`engine-state/_photo-guides.json`, URL
  * → verdict); one that can't be fetched is tried again next run. Leads first, since they are the guide's card too.
- * Video stills (a video's own frames) aren't judged here: video-stills.ts screens them for faces and text.
+ *
+ * A video guide's stills (its "Trong video" frames) too, after every photo, guides in order: teaching videos show hands
+ * planting and siphoning, and video-stills.ts screens a frame only for faces and for text. A person or a mark takes a still
+ * off its guide and onto the blocklist; a brand in a still's scene is recorded, not acted on. A still is judged once
+ * video-stills.ts won't change it again (`stillDone`: the video's own frame, or a tile it keeps for good), so a tile it is
+ * about to replace at a new address isn't judged twice, and a still taken off is one it never brings back.
  */
 export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string }
 export type GuidePhotoDeps = {
@@ -33,7 +39,7 @@ export const GUIDE_PHOTO_SCHEMA = {
   type: 'object', required: ['photos'],
   properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'person', 'mark', 'brand', 'note'], properties: { n: { type: 'number' }, person: { type: 'boolean' }, mark: { type: 'boolean' }, brand: { type: 'boolean' }, note: { type: 'string' } } } } },
 }
-export const GUIDE_PHOTO_PROMPT = `Numbered photos from an aquarium handbook's guides. For each photo n:
+export const GUIDE_PHOTO_PROMPT = `Numbered photos and video frames from an aquarium handbook's guides. For each photo n:
 - person: true if a person or any part of one is in it: a hand or fingers (planting, holding, pointing, working in the tank), an arm, a foot, a face, a body seen from behind, even small, cut off at the edge, blurred or behind the glass; false if not.
 - mark: true if a logo, watermark, signature, credit, web address or caption was added on top of the photo after it was taken, even small or faint, in a corner, in any script, with or without letters; false if not.
 - brand: true if a shop's or dealer's logo or name can be read or recognised in the photo: on a product it sells under its own name (such as an Aquarium Co-op bottle), a bag, a box, a sign or a price tag; false for a maker's own brand on its own product (Seachem, API, Fluval, Tetra, Oase and the like), for a product with no brand in view, and for text that isn't a brand.
@@ -41,8 +47,8 @@ export const GUIDE_PHOTO_PROMPT = `Numbered photos from an aquarium handbook's g
 Answer every photo, by its number.`
 const PER_SHEET = 6
 
-type Item = { url: string; lead: boolean; equipment: boolean }
-type Guide = { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string } }[] } }
+type Item = { url: string; lead: boolean; equipment: boolean; still: boolean }
+type Guide = { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string }; moments?: { t: number; url: string }[] }[] } }
 type Equipment = { hero?: { url: string }; types?: { photo?: { url: string } }[] }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 
@@ -51,10 +57,10 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
   await Promise.all(Array.from({ length: Math.max(1, n) }, async () => { while (next < items.length) await f(items[next++]!) }))
 }
 
-/** Why a photo leaves a guide, or an equipment guide (where a brand is the product's), or undefined. */
-export function guidePhotoOff(v: GuidePhotoVerdict | undefined, equipment: boolean): string | undefined {
+/** Why a photo leaves a guide, or undefined; `brandKept`: an equipment guide's (the brand is the product's) or a video still. */
+export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boolean): string | undefined {
   if (!v) return undefined
-  return v.person ? `people: ${v.note}` : v.mark ? `watermark: ${v.note}` : v.brand && !equipment ? `logo: ${v.note}` : undefined
+  return v.person ? `people: ${v.note}` : v.mark ? `watermark: ${v.note}` : v.brand && !brandKept ? `logo: ${v.note}` : undefined
 }
 
 export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { limit: number; parallel?: number }) {
@@ -62,14 +68,15 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const state = (f: string) => join(root, 'engine-state', f)
   const cache = (await readJson<Record<string, GuidePhotoVerdict>>(state('_photo-guides.json'))) ?? {}
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
-  const report = { sheets: 0, judged: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, stopped: '' }
+  const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
+  const report = { sheets: 0, judged: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '' }
 
-  // Every photo a guide or an equipment guide shows, with the files it is in.
+  // Every photo a guide or an equipment guide shows, and every video still, with the files they are in.
   const files: string[] = []
   const items = new Map<string, Item>()
-  const add = (url: string, lead: boolean, equipment: boolean) => {
-    const it = items.get(url) ?? { url, lead, equipment }
-    items.set(url, { url, lead: it.lead || lead, equipment: it.equipment || equipment })
+  const add = (url: string, lead: boolean, equipment: boolean, still = false) => {
+    const it = items.get(url) ?? { url, lead, equipment, still }
+    items.set(url, { url, lead: it.lead || lead, equipment: it.equipment || equipment, still: it.still || still })
   }
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
@@ -78,6 +85,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     files.push(file)
     for (const [i, p] of (g.photos ?? []).entries()) add(p.url, i === 0, false)
     for (const f of g.video?.figures ?? []) if (f.photo) add(f.photo.url, false, false)
+    // A tile video-stills.ts will replace with the video's frame waits for that frame.
+    for (const m of (g.video?.figures ?? []).flatMap(f => f.moments ?? [])) if (stillDone(m, done[id]?.kept)) add(m.url, false, false, true); else report.waiting++
   }
   // An equipment guide's photos are in each language's file too (equipment/id/…).
   for (const f of (await readdir(join(content, 'equipment'), { recursive: true }).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
@@ -89,8 +98,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     for (const t of e.types ?? []) if (t.photo) add(t.photo.url, false, true)
   }
 
-  // 1. The model judges photos not judged yet, leads first; `limit` sheets this run.
-  const todo = [...items.values()].filter(x => !(x.url in cache) && !(x.url in rejected)).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || a.i - b.i).map(({ x }) => x)
+  // 1. The model judges photos not judged yet, leads first, video stills last; `limit` sheets this run.
+  const todo = [...items.values()].filter(x => !(x.url in cache) && !(x.url in rejected)).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(a.x.still) - Number(b.x.still) || a.i - b.i).map(({ x }) => x)
   const batch = todo.slice(0, Math.max(0, o.limit) * PER_SHEET)
   report.left = todo.length - batch.length
   const sheets = Array.from({ length: Math.ceil(batch.length / PER_SHEET) }, (_, i) => batch.slice(i * PER_SHEET, (i + 1) * PER_SHEET))
@@ -127,10 +136,11 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     await rm(dir, { recursive: true, force: true })
   }
 
-  // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows, onto the blocklist.
+  // 2. Off the guides and equipment guides; a person, a mark, or a brand on a photo no equipment guide shows and that
+  // isn't a still, onto the blocklist.
   const now = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {} // re-read: entries another step added meanwhile stay
   for (const x of items.values()) {
-    const why = guidePhotoOff(cache[x.url], x.equipment)
+    const why = guidePhotoOff(cache[x.url], x.equipment || x.still)
     if (!why) continue
     report.off.push(`${x.url}: ${why}`)
     now[x.url] ??= why
@@ -140,7 +150,7 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const data = JSON.parse(raw) as unknown
     const removed: string[] = []
     const equipment = file.startsWith(join(content, 'equipment'))
-    stripPhotos(data, url => !!guidePhotoOff(cache[url], equipment), removed, report.kept)
+    stripPhotos(data, url => !!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still), removed, report.kept)
     if (!removed.length) continue
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)

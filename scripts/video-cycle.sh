@@ -52,7 +52,8 @@ pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-still
 # Photos that show their page's fish, plant or breed, with no person or logo (the GitHub engine's account runs out of
 # model calls mid-week): 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"
-# New guides' photos and their video sections' photos: no people, no logos (guide-photos.ts), 20 calls a run, leads first.
+# New guides' photos, their video sections' photos and their stills: no people, no logos (guide-photos.ts), 20 calls a
+# run, leads first, stills last; after video-stills, so a frame it just made can be judged in the same run.
 pnpm engine guide-photos --limit 20 || log "guide-photos: failed"
 # No dead fish on a page (dead-screen.ts): video thumbnails and main photos the photo check never asked about, 48 a run
 # (4 model calls); a dead one leaves every page for good.
