@@ -3,7 +3,6 @@
  * judge's brief and schema, and the tally of both orders. Pure: no calls, no files.
  */
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import type { Item } from '../../../apps/site/worker/chat/handbook'
 import type { Tank } from '../../../apps/site/worker/chat/tools'
 import { textOf } from '../../../apps/site/worker/chat/tools'
 
@@ -16,7 +15,7 @@ export type PostTank = {
   w: number | null
   h: number | null
   litres: number | null
-  /** `id`: the handbook's fish, pinned by hand where the name alone is ambiguous. */
+  /** `id`: the handbook's fish, pinned by hand (a name alone matches the wrong fish too often); none: no page. */
   fish: { name: string; count: number | null; id?: string }[]
   plants: string[]
   light: string | null
@@ -42,12 +41,11 @@ export const CONDITIONS = ['post', 'tank'] as const
 export type Condition = (typeof CONDITIONS)[number]
 
 /** The saved tank the `tank` condition gives the chat: what the chat reads of a tank today (api.ts `tanksOf`). */
-export function savedTank(t: PostTank, find: (name: string) => Item | undefined): Tank {
+export function savedTank(t: PostTank): Tank {
   const species: Tank['species'] = []
   const unlisted: Tank['unlisted'] = []
   for (const f of t.fish) {
-    const item = f.id ? { id: f.id } : find(f.name)
-    if (item?.id) species.push({ id: item.id, ...(f.count ? { count: f.count } : {}) })
+    if (f.id) species.push({ id: f.id, ...(f.count ? { count: f.count } : {}) })
     else unlisted.push({ name: f.name, kind: 'fish', ...(f.count ? { count: f.count } : {}) })
   }
   return {

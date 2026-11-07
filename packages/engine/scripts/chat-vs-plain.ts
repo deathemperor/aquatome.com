@@ -32,7 +32,6 @@ import { parseArgs } from 'node:util'
 import type { PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type ChatRun } from '../../../apps/site/worker/chat/agent'
 import { handbookOf, type Index, type Source } from '../../../apps/site/worker/chat/handbook'
-import { search } from '../../../apps/site/worker/chat/search'
 import type { Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
@@ -133,15 +132,14 @@ async function main() {
   const { keys } = await loadKeys(await readFile(args.keys!, 'utf8').catch(() => ''))
   if (!keys.length) throw new Error(`No key in ${args.keys}`)
   const store = memoryHealth()
-  const find = (name: string) => search(hb.items, name, 'fish', 1)[0]
   console.log(`${questions.length} questions × ${WANTED.join(', ')}; ${MODEL}, judged by ${JUDGE}; the chat's code at ${commit}`)
-  // The fish each saved tank holds, as the handbook found them by name: worth a look, a wrong match changes the answer.
-  for (const q of questions) for (const f of q.tank?.fish ?? []) if (!f.id) console.log(`  ${q.id}: "${f.name}" → ${find(f.name)?.id ?? 'no page (unlisted)'}`)
+  const gone = questions.flatMap(q => (q.tank?.fish ?? []).flatMap(f => (f.id && hb.byId(f.id)?.kind !== 'fish' ? [`${q.id}: ${f.id}`] : [])))
+  if (gone.length) throw new Error(`Pinned fish the handbook doesn't have: ${gone.join(', ')}`)
 
   const ours = (q: HardQuestion, c: Condition) => cachedFile<Answered>(`ours-${MODEL}-${brain}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
     const t = Date.now()
     try {
-      const tanks = c === 'tank' && q.tank ? [savedTank(q.tank, find)] : []
+      const tanks = c === 'tank' && q.tank ? [savedTank(q.tank)] : []
       const run: ChatRun = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, tanks: async () => tanks })
       const read = run.steps.flatMap(s => (s.kind === 'read' ? [s.page.url] : []))
       const usd = costOf(MODEL, run.spent)

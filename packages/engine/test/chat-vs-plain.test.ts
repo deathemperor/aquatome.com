@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import type { Item } from '../../../apps/site/worker/chat/handbook'
 import { agreed, blockText, outcome, savedTank, seenOurs, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
 
 const verdict = (v: Partial<Verdict>): Verdict => ({
@@ -58,17 +57,16 @@ describe("the tank condition's saved tank is what the chat reads of a tank today
     l: 60, w: 30, h: 36, litres: null, fish: [{ name: 'neon', count: 12 }, { name: 'cá lạ', count: null }, { name: 'betta', count: 1, id: 'betta-splendens' }],
     plants: ['rêu java'], light: '10h', co2: null, ferts: null, substrate: null, ageWeeks: 3, notes: null,
   }
-  it('fish the handbook has by id, the others unlisted, and its size; no plants or light', () => {
-    const find = (name: string) => (name === 'neon' ? ({ id: 'paracheirodon-innesi', kind: 'fish', name: 'Cá neon', path: '/vi/ca/ca-neon-xanh/' } as Item) : undefined)
-    expect(savedTank(tank, find)).toEqual({
+  it('fish pinned to the handbook by id, the others unlisted, and its size; no plants or light', () => {
+    expect(savedTank(tank)).toEqual({
       id: 'eval-tank', name: 'Bể của tôi', dims: { l: 60, w: 30, h: 36 },
-      species: [{ id: 'paracheirodon-innesi', count: 12 }, { id: 'betta-splendens', count: 1 }],
-      unlisted: [{ name: 'cá lạ', kind: 'fish' }],
+      species: [{ id: 'betta-splendens', count: 1 }],
+      unlisted: [{ name: 'neon', kind: 'fish', count: 12 }, { name: 'cá lạ', kind: 'fish' }],
     })
   })
   it('no size without all three sides', () => {
-    expect(savedTank({ ...tank, h: null, litres: 54 }, () => undefined)).toMatchObject({ litres: 54 })
-    expect(savedTank({ ...tank, h: null }, () => undefined)).not.toHaveProperty('dims')
+    expect(savedTank({ ...tank, h: null, litres: 54 })).toMatchObject({ litres: 54 })
+    expect(savedTank({ ...tank, h: null })).not.toHaveProperty('dims')
   })
 })
 
