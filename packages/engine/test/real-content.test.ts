@@ -24,7 +24,8 @@ test('no page has a defect the sweep fixes', async () => {
   expect(left, 'run pnpm engine sweep').toEqual(Object.fromEntries(Object.keys(RATCHETED).map(id => [id, []])))
 }, 300_000) // every page of the real content, in three languages: about 100 s on 2,599 pages
 
-// The owner's names of 2026-11-07. Listed, not swept: a page that gives a fish its old name beside the fish is written again.
+// The owner's names of 2026-11-07. The sweep writes each when the sentence says which fish it is (renameSwapped), so what
+// fails here is a sentence it left, the fish unclear: a page that keeps one is written again.
 test('no page calls a fish by the name it no longer has', async () => {
   const pages = await loadPages(fileURLToPath(new URL('../../../content', import.meta.url)))
   const { findings, errors } = checkPages(pages, RULES.filter(r => r.id === 'swapped-name'))
