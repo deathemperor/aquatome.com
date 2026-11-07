@@ -114,16 +114,21 @@ that would have caught it).
     the build (`apps/site/test/fish-id.test.ts`).
   - The chat's contract (`protocols/chat.openapi.json`), before its Worker: the recorded answers a fake server replays
     (`protocols/chat-stream-*.sse`, `chat-rate.json`) of its shape, with each section's blocks of the page schema's, the
-    text before the blocks and `done` holding the same text, blocks and steps, and the contract naming each; a stream
-    with an event after its end, a block or tool it doesn't know, a card with a figure the app index doesn't have, or a
-    section with no blocks refused (`apps/site/worker/test/chat-stream.test.ts`); every heading in the app's copy of a
-    page on the built web page with the same id, where the site's chat draws a section from
-    (`apps/site/test/chat-sections.test.ts`). The chat's agent, before its handler: the handbook searched by names as
-    readers type them, a page's outline and one section read by heading id, the reader's tanks read, every tool's input
-    and the answer's schema what structured outputs take; each block filled from the app index and the app's page copies
-    and of the contract's shape (a breed's card with its species' figures, a breed in a tank-mates link as its species),
-    a pick the handbook doesn't have dropped with its reason while the rest go out, and a turn's steps, request and
-    filled blocks on a fake Claude (`apps/site/worker/test/chat-agent.test.ts`).
+    steps, then the text, then the blocks, and `done` holding the same text, blocks and steps (the contract's `x-order`
+    and `x-whole`, which the shared helper checks on every stream), and the contract naming each; a stream with an event
+    after its end or out of order, a block or tool it doesn't know, a card with a figure the app index doesn't have or a
+    plant's on the fishes' scale, a section with no blocks or with a heading, or a tool's link without its own inputs
+    refused (`apps/site/worker/test/chat-stream.test.ts`); the helper holding the page and tank schemas' own rules
+    (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
+    the built web page with the same id, its section there not running into the next one, where the site's chat draws a
+    section from (`apps/site/test/chat-sections.test.ts`).
+    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words),
+    a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
+    schema what structured outputs take; each block filled from the app index and the app's page copies and of the
+    contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
+    breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
+    out, an answer with no text none, the run within 27 s, and a turn's steps, request and filled blocks on a fake
+    Claude (`apps/site/worker/test/chat-agent.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing

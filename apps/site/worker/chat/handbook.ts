@@ -24,8 +24,10 @@ export type Item = {
   img?: string
   /** A breed: the species it is a form of, when the index lists it. */
   of?: string
-  /** A breed's own figures: only breeds have them, so it marks a breed. */
-  card?: unknown
+  /** A breed's own figures, as its page's data card shows them (the app index's `card`): only breeds have them. */
+  card?: Partial<Pick<Item, (typeof FIGURES)[number]>>
+  /** A plant's figures, on the plants' scale (difficulty 1–3, not a fish's 1–8). */
+  plant?: PlantFacts
   /** A tool's name on its card (the tools page). */
   short?: string
   tempC?: Range
@@ -47,10 +49,30 @@ export type Source = {
   shard: (lang: Lang, kind: PageDoc['kind'], n: number) => Promise<PageShard | null>
 }
 
-/** The figures a card shows, the app index's facts (protocols/chat.openapi.json `Facts`). */
-export const FACT_KEYS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty', 'lifeYears'] as const
+/** The figures a fish's card shows, the app index's facts (protocols/chat.openapi.json `Facts`): measures, then behaviour. */
+const FIGURES = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
+const BEHAVIOUR = ['temperament', 'finNipper', 'schoolMin'] as const
+export const FACT_KEYS = [...FIGURES, ...BEHAVIOUR] as const
 export type Facts = Partial<Pick<Item, (typeof FACT_KEYS)[number]>>
-export const factsOf = (i: Item): Facts => Object.fromEntries(FACT_KEYS.filter(k => i[k] !== undefined).map(k => [k, i[k]]))
+/** A plant's figures (protocols/chat.openapi.json `PlantFacts`), as the app index's `plant` has them. */
+export type PlantFacts = { difficulty?: number; light?: string; co2?: string; growth?: string; placement?: string[] }
+const pick = (o: Partial<Record<string, unknown>> | undefined, keys: readonly string[]) => Object.fromEntries(keys.filter(k => o?.[k] !== undefined).map(k => [k, o![k]]))
+export const factsOf = (i: Item): Facts => pick(i, FACT_KEYS)
+/** A breed: one with figures of its own, or a form of a species. */
+export const isBreed = (i: Item) => i.kind === 'fish' && (i.card !== undefined || i.of !== undefined)
+
+/**
+ * What a card shows of a fish or plant (protocols/chat.openapi.json `Species`): a plant its `plant` figures; a species
+ * its facts; a breed its own figures (its page's data card; its species' when it has none) with its species'
+ * behaviour, which tank-mates checks it by.
+ */
+export function figuresOf(i: Item, byId: (id: string) => Item | undefined): { facts: Facts } | { plant: PlantFacts } {
+  if (i.kind === 'plant') return { plant: i.plant ?? {} }
+  if (!isBreed(i)) return { facts: factsOf(i) }
+  const species = i.of ? byId(i.of) : undefined
+  const own = pick(i.card, FIGURES)
+  return { facts: { ...(Object.keys(own).length ? own : pick(species, FIGURES)), ...pick(species ?? i, BEHAVIOUR) } }
+}
 
 /** One language's handbook, looked up: pages by path and by id, and a page's app copy. */
 export type Handbook = {
