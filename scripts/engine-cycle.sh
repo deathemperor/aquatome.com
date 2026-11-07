@@ -35,6 +35,7 @@ push() {
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
       if git pull -q --rebase -X theirs; then
+        sweep_merged
         verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
@@ -308,6 +309,7 @@ git commit -q -m "content: engine $PART $(date -u +%F)"
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails stays here unpushed, and the
 # next cycle drops it.
 catch_up
+sweep_merged
 if ! verify_cycle; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
