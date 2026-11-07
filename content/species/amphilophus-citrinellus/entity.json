@@ -11,6 +11,276 @@
     "lake-nicaragua",
     "costa-rica"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NI",
+        "CR"
+      ],
+      "regions": [
+        "Lake Apoyo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The midas cichlid, Amphilophus citrinellus, is a large cichlid from Nicaragua and Costa Rica, found in lakes, ponds and slow stretches of rivers.",
+          "countries": [
+            "NI",
+            "CR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A population of A. citrinellus inhabiting Lake Apoyo, a volcanic crater lake in Nicaragua is believed to have undergone this process, with a \"new\" species, A. zaliosus, arising to occupy a different ecological niche in the lake.",
+          "countries": [],
+          "regions": [
+            "Lake Apoyo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370102,
+      "total": 635,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "NI",
+          384
+        ],
+        [
+          "CR",
+          82
+        ],
+        [
+          "US",
+          74
+        ],
+        [
+          "TW",
+          63
+        ],
+        [
+          "PH",
+          10
+        ],
+        [
+          "IN",
+          6
+        ],
+        [
+          "DO",
+          3
+        ],
+        [
+          "ID",
+          3
+        ],
+        [
+          "AM",
+          2
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "SG",
+          2
+        ],
+        [
+          "AU",
+          1
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "HN",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          4,
+          0
+        ],
+        [
+          -98.4375,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          -94.21875,
+          45,
+          1,
+          0
+        ],
+        [
+          -88.59375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          -87.1875,
+          11.25,
+          327,
+          327
+        ],
+        [
+          -87.1875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          9.84375,
+          24,
+          24
+        ],
+        [
+          -85.78125,
+          11.25,
+          33,
+          33
+        ],
+        [
+          -84.375,
+          9.84375,
+          81,
+          81
+        ],
+        [
+          -81.5625,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          25.3125,
+          62,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          43.59375,
+          39.375,
+          2,
+          0
+        ],
+        [
+          71.71875,
+          18.28125,
+          6,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          14.0625,
+          10,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          22.5,
+          52,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          4,
+          0
+        ],
+        [
+          120.9375,
+          22.5,
+          5,
+          0
+        ],
+        [
+          153.28125,
+          -28.125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -173,8 +443,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn cho cichlid"
+        "bể cá 150cm"
       ]
     },
     {

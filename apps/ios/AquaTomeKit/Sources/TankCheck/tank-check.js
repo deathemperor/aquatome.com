@@ -188,7 +188,20 @@ var aqTankCheckStrings = {
     ...s.unknown.length ? [unsizedNote(s.unknown, ct, esc)] : []
   ];
   var unsizedNote = (names, ct, esc = same) => ct("Chưa có kích thước của {names}: chưa tính vào mật độ.", { names: names.map(esc).join(", ") });
-  function tankCheck(fish, size, ct, fmt, unlisted = []) {
+  function oneFishEach(rows) {
+    const groups = /* @__PURE__ */ new Map();
+    rows.forEach((r, i) => groups.set(r.key ?? i, [...groups.get(r.key ?? i) ?? [], r]));
+    return [...groups.values()].map((group) => {
+      const { key: _key, count: _count, species, ...fish } = group[0];
+      if (new Set(group.map((r) => r.name)).size > 1) fish.name = species ?? fish.name;
+      const given = group.flatMap((r) => r.count === void 0 ? [] : [r.count]);
+      const sum = given.reduce((a, b) => a + b, 0);
+      const count = !given.length ? void 0 : given.length === group.length ? sum : Math.max(sum, fish.schoolMin ?? 1);
+      return count === void 0 ? fish : { ...fish, count };
+    });
+  }
+  function tankCheck(rows, size, ct, fmt, unlisted = []) {
+    const fish = oneFishEach(rows);
     const mates = fish;
     const r = checkTankmates(mates, ct);
     const out = { warnings: [] };

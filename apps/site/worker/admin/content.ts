@@ -1,7 +1,8 @@
+import { LANGS, prefixedLang } from '@aq/schema/langs'
 import { withoutVi } from '../paths'
 import { isReader, querySessions, type Session } from '../readers'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
-import type { ByLang, ContentStats, EntityKind, Lang, PageKind, PageRow, Totals } from './content-shape'
+import { keepTotals, readKept, type ByLang, type ContentStats, type EntityKind, type KeptTotals, type Lang, type LowScores, type PageKind, type PageRow, type Totals } from './content-shape'
 
 export type * from './content-shape'
 
@@ -25,9 +26,22 @@ export async function loadContentStats(assets: Fetcher, origin: string): Promise
   return s
 }
 
+export const REVIEWS_PATH = '/_ab/reviews.json'
+
+/**
+ * The pages out of search for their score (dist/_ab/reviews.json, scripts/content-stats.ts lowScores), read as content.json
+ * is and answered 404 to everyone else the same way. Undefined without the file: the build predates it.
+ */
+export async function loadLowScores(assets: Fetcher, origin: string): Promise<LowScores | undefined> {
+  const r = await assets.fetch(new Request(new URL(REVIEWS_PATH, origin)))
+  if (!r.ok) return undefined // the build's 404 page
+  const s = (await r.json()) as LowScores
+  if (s?.v !== 1 || !Array.isArray(s.pages)) throw new Error(`reviews.json v${String(s?.v)}: this Worker reads v1`)
+  return s
+}
+
 export type PageInfo = { path: string; title: string; kind: PageKind; id?: string }
-const LANGS: Lang[] = ['vi', 'id', 'th']
-export const langOfPath = (path: string): Lang => (LANGS.find(l => path.startsWith(`/${l}/`)) ?? 'vi')
+export const langOfPath = (path: string): Lang => prefixedLang(path) ?? 'vi'
 const info = (kind: PageKind, [path, title, id]: PageRow): PageInfo => (id ? { path, title, kind, id } : { path, title, kind })
 
 /** Every built page by its path. */
@@ -66,6 +80,8 @@ export type ContentReads = {
   unread: { n: number; byKind: Partial<Record<PageKind, number>>; pages: PageInfo[] }
   /** Views of addresses this build doesn't have (an old address, a removed page, a typo). */
   elsewhere: { views: number; paths: number }
+  /** Readers per built page that had one, by its path: what orders the pages out of search (content-page.ts). */
+  readersOf?: Record<string, number>
 }
 
 /** The page index joined with Analytics Engine's sessions and page views. Pure: the query is queryContentReads. */
@@ -111,6 +127,7 @@ export function joinReads(stats: ContentStats, sessions: Session[], views: PageV
     top,
     unread: { n: unread.length, byKind: unreadByKind, pages: unread.slice(0, o.unreadList ?? 100) },
     elsewhere: { views: [...elsewhere.values()].reduce((a, b) => a + b, 0), paths: elsewhere.size },
+    readersOf: Object.fromEntries([...per].filter(([, x]) => x.readers.size).map(([path, x]) => [path, x.readers.size])),
   }
 }
 
@@ -123,6 +140,18 @@ export async function queryContentReads(accountId: string, token: string, stats:
 
 /** The prefix pages give D1's entity_ref ("species:<id>"), by page kind. */
 const REF: Partial<Record<PageKind, string>> = { fish: 'species', breed: 'breed', plant: 'plant', guide: 'guide', videoGuide: 'guide', equipment: 'equipment', product: 'product' }
+
+/** The build's pages by the key D1 gives them: "species:<id>" on /vi/, "id:species:<id>" on /id/ (src/lib/talk.ts). */
+export function pagesByRef(stats: ContentStats): Map<string, PageInfo> {
+  const byRef = new Map<string, PageInfo>()
+  for (const x of pageIndex(stats).values()) {
+    const pre = REF[x.kind]
+    if (!pre || !x.id) continue
+    const lang = langOfPath(x.path)
+    byRef.set(lang === 'vi' ? `${pre}:${x.id}` : `${lang}:${pre}:${x.id}`, x)
+  }
+  return byRef
+}
 
 export type PageTalk = { path: string; title: string; kind: PageKind; comments: number; photos: number }
 export type Talk = {
@@ -143,15 +172,10 @@ export type Talk = {
 export async function talkByPage(db: D1Database, stats: ContentStats, top = 20): Promise<Talk> {
   const [c, p] = await Promise.all([
     db.prepare("SELECT entity_ref AS ref, COUNT(*) AS n FROM comments WHERE status = 'approved' GROUP BY entity_ref").all<{ ref: string; n: number }>(),
-    db.prepare("SELECT entity_ref AS ref, COUNT(*) AS n FROM photos WHERE status = 'approved' GROUP BY entity_ref").all<{ ref: string; n: number }>(),
+    // A comment's photo counts on its comment's page.
+    db.prepare("SELECT COALESCE(c.entity_ref, p.entity_ref) AS ref, COUNT(*) AS n FROM photos p LEFT JOIN comments c ON p.entity_ref = 'comment:' || c.id WHERE p.status = 'approved' GROUP BY 1").all<{ ref: string; n: number }>(),
   ])
-  const byRef = new Map<string, PageInfo>()
-  for (const x of pageIndex(stats).values()) {
-    const pre = REF[x.kind]
-    if (!pre || !x.id) continue
-    const lang = langOfPath(x.path)
-    byRef.set(lang === 'vi' ? `${pre}:${x.id}` : `${lang}:${pre}:${x.id}`, x)
-  }
+  const byRef = pagesByRef(stats)
   const pages = new Map<string, PageTalk>()
   const out: Talk = { comments: 0, photos: 0, byKind: [], top: [], elsewhere: { comments: 0, photos: 0 } }
   const add = (rows: { ref: string; n: number }[], field: 'comments' | 'photos') => {
@@ -235,8 +259,9 @@ export const METADATA_MAX = 1024
 export async function recordSnapshot(kv: KVNamespace, assets: Fetcher, origin: string, now: Date): Promise<Totals | undefined> {
   const s = await loadContentStats(assets, origin)
   if (!s) return undefined
-  const body = JSON.stringify(s.totals)
-  await kv.put(`${SNAPSHOT_PREFIX}${now.toISOString().slice(0, 10)}`, body, new TextEncoder().encode(body).length <= METADATA_MAX ? { metadata: s.totals } : {})
+  const kept = keepTotals(s.totals)
+  const body = JSON.stringify(kept)
+  await kv.put(`${SNAPSHOT_PREFIX}${now.toISOString().slice(0, 10)}`, body, new TextEncoder().encode(body).length <= METADATA_MAX ? { metadata: kept } : {})
   return s.totals
 }
 
@@ -246,10 +271,10 @@ export async function listSnapshots(kv: KVNamespace): Promise<Snapshot[]> {
   const out: Snapshot[] = []
   let cursor: string | undefined
   for (let page = 0; page < 10; page++) {
-    const r = await kv.list<Totals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
+    const r = await kv.list<KeptTotals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
     for (const k of r.keys) {
-      const totals = k.metadata ?? (await kv.get<Totals>(k.name, 'json'))
-      if (totals) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals })
+      const kept = k.metadata ?? (await kv.get<KeptTotals>(k.name, 'json'))
+      if (kept) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals: readKept(kept) })
     }
     if (r.list_complete) break
     cursor = r.cursor
@@ -262,8 +287,8 @@ export type Added = { kinds: Record<EntityKind, ByLang>; sources: Record<string,
 export function added(from: Totals, to: Totals): Added {
   const kinds = {} as Record<EntityKind, ByLang>
   for (const k of Object.keys(to.kinds) as EntityKind[]) {
-    const a = from.kinds[k] ?? [0, 0, 0], b = to.kinds[k]
-    kinds[k] = [b[0] - a[0], b[1] - a[1], b[2] - a[2]]
+    const a = from.kinds[k], b = to.kinds[k]
+    kinds[k] = Object.fromEntries(LANGS.map(l => [l, (b[l] ?? 0) - (a?.[l] ?? 0)])) as ByLang
   }
   const sources: Record<string, number> = {}
   for (const s of new Set([...Object.keys(from.sources), ...Object.keys(to.sources)])) sources[s] = (to.sources[s] ?? 0) - (from.sources[s] ?? 0)

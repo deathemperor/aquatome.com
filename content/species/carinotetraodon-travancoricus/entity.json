@@ -10,6 +10,95 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Periyar",
+        "Pamba",
+        "Lake Vembanad",
+        "Chalakkudy"
+      ],
+      "sources": [
+        "aquariumbreeder",
+        "aquariumcoop",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumcoop",
+          "quote": "It comes from fully freshwater environments in the southwestern tip of India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Carinotetraodon travancoricus is endemic to rivers of the Western Ghats in South India.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
+          "countries": [],
+          "regions": [
+            "Periyar",
+            "Pamba",
+            "Lake Vembanad",
+            "Chalakkudy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407801,
+      "total": 16,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          15
+        ],
+        [
+          "BD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          8.4375,
+          9,
+          9
+        ],
+        [
+          75.9375,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -528,8 +617,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể cá mini thủy sinh"
+        "bể cá 30cm"
       ]
     },
     {

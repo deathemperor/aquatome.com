@@ -5,8 +5,7 @@
   "https://media.aquatome.com/scotcat/1786cca4a7c8e2b2.webp": "012d46c1c287f334",
   "https://media.aquatome.com/scotcat/e3865ecc3fe7f7bb.webp": "0b9b17154d86b2e6",
   "https://media.aquatome.com/scotcat/af57a74eebb616d0.webp": "0802094c18996a5a",
-  "https://media.aquatome.com/scotcat/82c69b556eb680b7.webp": "287062e1c5c3c3b9",
-  "https://media.aquatome.com/commons/d772e10cea2d661a.webp": "0f03cf1f6f1d0301"
+  "https://media.aquatome.com/scotcat/82c69b556eb680b7.webp": "287062e1c5c3c3b9"
  },
  "inat": {
   "taxon": 619192,
@@ -16,5 +15,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "gbif": {
+  "key": 2338727,
+  "next": null
+ }
 }

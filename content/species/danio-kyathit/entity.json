@@ -10,6 +10,59 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Chindwin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The orange-finned danio, Danio kyathit, is a small cyprinid from the upper Irrawaddy (Ayeyarwady) River drainage in northern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Irrawaddy"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type series was collected close to the city of Myitkyina, Kachin State, northern Myanmar from upper sections of three tributaries of the Irrawaddy/Ayeyarwaddy River drainage; the Hpa-Lap Chaung (Hpa-Lap stream), Mogaung Chaung and Chindwin Myit (Chindwin River).",
+          "countries": [],
+          "regions": [
+            "Chindwin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362721,
+      "total": 8,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          25.3125,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -177,8 +230,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90x30 cm",
-        "bể thủy sinh 90cm"
+        "bể cá 90cm"
       ]
     },
     {

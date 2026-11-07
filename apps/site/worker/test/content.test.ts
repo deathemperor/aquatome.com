@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { afterEach, expect, test, vi } from 'vitest'
-import { added, clicksByKind, joinReads, listSnapshots, loadContentStats, pageIndex, queryContentReads, recordSnapshot, talkByPage, type ContentStats, type Totals } from '../admin/content'
+import { LANGS } from '@aq/schema/langs'
+import { added, clicksByKind, joinReads, listSnapshots, loadContentStats, loadLowScores, pageIndex, queryContentReads, recordSnapshot, talkByPage, type ContentStats, type Totals } from '../admin/content'
+import { keepTotals, readKept } from '../admin/content-shape'
 import { testD1 } from './d1'
 
 // The fixture build's own content.json (pnpm test builds the site first): the loaders read what the script wrote.
@@ -51,7 +53,7 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(134)
+  expect(index.size).toBe(146)
   expect(index.get('/ca/ca-neon-vua/')).toEqual({ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 
@@ -80,11 +82,28 @@ test('reads: readers per page kind, the most-read pages with their titles, the p
     ['/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
     ['/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
   ])
-  expect(r.unread.n).toBe(132)
+  expect(r.unread.n).toBe(144)
   expect(r.unread.byKind).toMatchObject({ fish: 8, guide: 6, plant: 4 })
   expect(r.unread.pages.map(p => p.path)).not.toContain('/ca/ca-neon-vua/')
   expect(r.unread.pages).toHaveLength(100)
   expect(r.elsewhere).toEqual({ views: 4, paths: 1 })
+  // Readers per page that had one: what orders the pages out of search.
+  expect(r.readersOf).toEqual({ '/ca/ca-neon-vua/': 2, '/huong-dan/thay-nuoc-dung-cach/': 1 })
+})
+
+test('the pages out of search for their score: reviews.json through ASSETS; a build without it gives undefined; another shape is an error', async () => {
+  const LOW = readFileSync(fileURLToPath(new URL('../../dist/_ab/reviews.json', import.meta.url).href), 'utf8')
+  const at = (body: string | null) => ({
+    fetch: async (r: Request) => (body !== null && new URL(r.url).pathname === '/_ab/reviews.json'
+      ? new Response(body, { headers: { 'content-type': 'application/json' } })
+      : new Response('<!doctype html><h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } })),
+  }) as unknown as Fetcher
+  const low = await loadLowScores(at(LOW), 'https://aquatome.com')
+  expect(low!.pages.map(p => [p.path, p.kind, p.score])).toEqual([['/ca/ca-la-han/', 'breed', 0.6], ['/huong-dan/thay-nuoc-dung-cach/', 'guide', 0.6], ['/thuat-ngu/gh/', 'glossary', 0.6], ['/ca/ca-boraras-do/', 'fish', 0.61]])
+  expect(await loadLowScores(at(null), 'https://aquatome.com')).toBeUndefined()
+  await expect(loadLowScores(at('{"v":2,"pages":[]}'), 'https://aquatome.com')).rejects.toThrow('reviews.json v2: this Worker reads v1')
+  // content.json's shape isn't this file's.
+  await expect(loadLowScores(at(BODY), 'https://aquatome.com')).rejects.toThrow('reviews.json v1')
 })
 
 test('reads: the two Analytics Engine queries, over the days asked for, on the beacon\'s dataset, from the count\'s reset on', async () => {
@@ -143,17 +162,26 @@ test('affiliate clicks per page kind; a video guide\'s gear list names the guide
 test('growth: the day\'s totals kept under stats:YYYY-MM-DD with them as metadata, and every day read back in order', async () => {
   const store = kv()
   expect(await recordSnapshot(store, assets(), 'https://aquatome.com', NOW)).toEqual(STATS.totals)
-  expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(STATS.totals), metadata: STATS.totals })
-  // Days loaded without metadata are read one by one; a build without content.json records nothing.
-  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: [5, 0, 0] }, sources: { seriouslyfish: 4 }, built: null }
-  await store.put('stats:2026-10-30', JSON.stringify(older))
-  await store.put('stats:2026-10-31', JSON.stringify(older), { metadata: older })
+  // Kept as rows in the language table's order, with the order beside them: by name, seven languages would pass KV's 1 KB.
+  const today = keepTotals(STATS.totals)
+  expect(today.kinds.fish).toEqual(LANGS.map(l => STATS.totals.kinds.fish[l]))
+  expect(today.langs).toEqual(LANGS)
+  expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(today), metadata: today })
+  // Days loaded without metadata are read one by one; a build without content.json records nothing. Days kept before
+  // 2026-11-06 hold each count as [vi, id, th]: they read back by language, whether from the metadata or the value.
+  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: { vi: 5, id: 0, th: 0 } }, sources: { seriouslyfish: 4 }, built: { vi: 7, id: 2, th: 1 } }
+  const kept = { ...older, kinds: Object.fromEntries(Object.entries(older.kinds).map(([k, n]) => [k, [n.vi, n.id, n.th]])), built: [7, 2, 1] }
+  await store.put('stats:2026-10-30', JSON.stringify(kept))
+  await store.put('stats:2026-10-31', JSON.stringify(kept), { metadata: kept })
   expect(await recordSnapshot(store, assets(null), 'https://aquatome.com', new Date('2026-11-03T20:17:00Z'))).toBeUndefined()
   const days = await listSnapshots(store)
   expect(days.map(d => d.day)).toEqual(['2026-10-30', '2026-10-31', '2026-11-02'])
   expect(days[0]!.totals).toEqual(older)
+  expect(days[1]!.totals).toEqual(older)
+  // Rows read by the order kept with them, 0 for a language the day had none for.
+  expect(readKept({ ...today, kinds: { ...today.kinds, fish: [1, 5] }, langs: ['th', 'vi'] }).kinds.fish).toEqual({ vi: 5, id: 0, th: 1 })
   const a = added(days[0]!.totals, days[2]!.totals)
-  expect(a.kinds.fish).toEqual([4, 0, 0])
+  expect(a.kinds.fish).toEqual({ vi: 4, id: 0, th: 0 })
   expect(a.sources).toMatchObject({ seriouslyfish: 3, youtube: 2 })
   expect(a.photos).toEqual({ pages: 0, gallery: 0 })
 })

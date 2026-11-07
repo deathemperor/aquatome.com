@@ -6,7 +6,7 @@ import { expect } from 'vitest'
  * A contract in protocols/ the app builds against, for checking the Worker's answers: every answer's status is one the
  * contract lists, and its body has the contract's shape (talk.test.ts, fishid.test.ts).
  */
-export type Schema = { $ref?: string; type?: string | string[]; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean; items?: Schema; minItems?: number; maxItems?: number; oneOf?: Schema[]; enum?: unknown[]; const?: unknown; minimum?: number; maximum?: number; minLength?: number; maxLength?: number; pattern?: string }
+export type Schema = { $ref?: string; type?: string | string[]; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean; minProperties?: number; items?: Schema; minItems?: number; maxItems?: number; oneOf?: Schema[]; enum?: unknown[]; const?: unknown; minimum?: number; maximum?: number; minLength?: number; maxLength?: number; pattern?: string }
 /** A response's body by media type; a text/event-stream one names each event's schema (`x-events`) and the recorded streams that follow it (`x-fixtures`, files in protocols/). */
 export type Media = { schema: Schema; 'x-events'?: Record<string, Schema>; 'x-fixtures'?: string[] }
 export type Op = { responses: Record<string, { description: string; content: { 'application/json': Media; 'text/event-stream'?: Media } }> }
@@ -49,6 +49,7 @@ export function contract(file: string) {
       if (!v || typeof v !== 'object' || Array.isArray(v)) return [...out, `${at}: not an object`]
       const o = v as Record<string, unknown>
       for (const k of s.required ?? []) if (!(k in o)) out.push(`${at}.${k}: missing`)
+      if (Object.keys(o).length < (s.minProperties ?? 0)) out.push(`${at}: fewer than ${s.minProperties} properties`)
       for (const [k, p] of Object.entries(s.properties ?? {})) if (k in o) out.push(...misfits(o[k], p, `${at}.${k}`))
       if (s.additionalProperties === false) for (const k of Object.keys(o)) if (!(k in (s.properties ?? {}))) out.push(`${at}.${k}: not allowed`)
     } else if (type === 'array') {

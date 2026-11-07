@@ -1,7 +1,9 @@
 import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
-import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { breedFigures, speciesOf, type BreedFigures } from './breeds'
+import { categoriesIn } from './equipment'
+import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
@@ -13,13 +15,13 @@ import { seriesGuides } from './video'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
- * list. Fish, plants, guides, glossary terms and video series are every one the site's own lists show (a page out of
+ * list. Fish, plants, guides, glossary terms, video series and equipment are every one the site's own lists show (a page out of
  * search engines too). The app opens the page itself in a web view, so an item is only what a search result shows and
  * what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
-  /** `video`: a series of video guides (/vi/video/<slug>/). */
-  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video'
+  /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). */
+  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment'
   /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
   id?: string
   name: string
@@ -29,6 +31,8 @@ export type AppItem = {
   aka?: string[]
   /** A tool page's own title, the line under its heading and its description, for search. */
   words?: string[]
+  /** A tool's short name, as its card on the tools page (/vi/cong-cu/) has it: what the app's tiles say. */
+  short?: string
   /** The page in this language: "/id/ikan/<slug>/". */
   path: string
   /** A small photo (about 480 px wide). */
@@ -63,10 +67,22 @@ export type AppItem = {
   lifeYears?: Range
   /** Where a species lives in the wild and its wild records (lib/range.ts, protocols/range-vectors.json); breeds have none. */
   range?: AppRange
+  /**
+   * A breed that is a form of a species (`basedOn`, through a parent breed, up to the species): that species' id, when
+   * this index lists it. A tank's check counts the breed as that species (tank-check.ts groups a tank's fish by
+   * `of ?? id`), so the breed has none of the `Facts` of its own. Hybrids, and breeds linked to no species here, have none.
+   */
+  of?: string
+  /**
+   * A breed's own figures, as its page's data card shows them (breedFigures): what the app's facts card shows for it.
+   * An app that predates it shows none, as for a breed before.
+   */
+  card?: BreedFigures
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
- * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
+ * a tank with the tool's own code. Each one the content has no value for is left out. A breed has its figures only when
+ * it has no `of`: a hybrid, or a breed linked to no species, is a fish of its own, checked with no behaviour ("unsure").
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 export const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
@@ -86,6 +102,8 @@ export type AppIndex = {
   shards?: Partial<Record<PageDoc['kind'], KindShards>>
   /** The countries the items' `range` names (native, and outside), by code, A to Z, named in this language. None when none does. */
   countries?: Record<string, AppCountry>
+  /** What's new for the app (lib/app-latest.ts), where this language's site has /vi/moi-cap-nhat/. */
+  latest?: string
 }
 /**
  * The guides the index lists in this language, and the app has pages of (lib/app-page.ts): every one the site lists (the
@@ -101,6 +119,10 @@ export function appGuides(lang: Lang, c: Content): Content['guides'] {
  */
 export function appSpecies(lang: Lang, c: Content): Content['species'] {
   return served(lang, '/vi/ca/x/') ? listOrder(lang, c) : []
+}
+/** The breeds the index lists in this language, and the app has pages of: every one the fish list shows. */
+export function appBreeds(lang: Lang, c: Content): Content['breeds'] {
+  return served(lang, '/vi/ca/x/') ? c.breeds : []
 }
 /** The plants the index lists in this language, and the app has pages of: every one the plant list shows, as for species. */
 export function appPlants(lang: Lang, c: Content): Content['plants'] {
@@ -153,6 +175,9 @@ export type AppPlace = {
   kids?: string[]
 }
 
+/** The equipment categories the app gets, as this language's site has their pages. */
+export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet-bi/x/') ? categoriesIn(lang, c) : [])
+
 /**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
  * every language (the Vietnamese content's), so a breed gets its species' group even where that species has no page.
@@ -196,8 +221,18 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
-    // Every breed, as the fish list shows them.
-    for (const b of c.breeds) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
+    // Every breed, as the fish list shows them: a form of a listed species counted as it, any other with its own figures.
+    const listed = new Set(appSpecies(lang, c).map(s => s.id))
+    for (const b of appBreeds(lang, c)) {
+      const species = speciesOf(c, b)
+      const of = species && listed.has(species) ? species : undefined
+      const card = breedFigures(b)
+      const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
+      items.push(clean({
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds),
+        of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
+      }))
+    }
     home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
@@ -228,8 +263,13 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     const ph = guideImage(c, guides[0]!)
     items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
   }
-  for (const [vi, name, own] of TOOLS) {
-    if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })
+  // An equipment category as its page names it; the same categories the app gets pages of.
+  for (const u of appEquipment(lang, c)) {
+    const g = c.equipment.find(e => e.category === u.category)
+    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && smallSrc(g.hero) }))
+  }
+  for (const [vi, name, own, short] of TOOLS) {
+    if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
   }
   // Only what the index lists: a row's worth of each.
   const paths = new Set(items.map(i => i.path))
@@ -238,7 +278,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   home.groups = home.groups.filter(g => groups.has(g.id))
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
-  return { version: 1, lang, items, home, labels, places, ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}) }
+  return {
+    version: 1, lang, items, home, labels, places,
+    ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}),
+    ...(served(lang, '/vi/moi-cap-nhat/') ? { latest: `/app/latest/${lang}.json` } : {}),
+  }
 }
 
 /**
@@ -259,35 +303,41 @@ export function breedGroup(b: Pick<BreedEntity, 'basedOn' | 'parents'>, groupOf:
 /**
  * The tools: the page of calculators, and the ones with pages of their own. Each with its heading, then its page's own
  * title, the line under the heading and the description (the page's strings, so the same translations; a test holds
- * them to the built pages), so a search for "thể tích bể" finds "Bể bao nhiêu lít?".
+ * them to the built pages), so a search for "thể tích bể" finds "Bể bao nhiêu lít?". Then, for a tool with a card on
+ * the tools page, the short name the card has (the same string, so the same translations), which the app's tiles show.
  */
-const TOOLS: readonly (readonly [string, string, readonly string[]])[] = [
+const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] = [
   ['/vi/cong-cu/', 'Công cụ', ['Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.']],
   ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', [
     'Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con',
     'Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.',
     'Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.',
-  ]],
+  ], 'Nuôi chung'],
   ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', [
     'Tính thể tích bể cá: lít, gallon, độ dày kính',
     'Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…',
     'Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.',
-  ]],
+  ], 'Thể tích bể'],
+  ['/vi/cong-cu/du-toan-be/', 'Set một bể hết bao nhiêu tiền?', [
+    'Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng',
+    'Chọn cỡ bể và mức đầu tư. Công cụ cộng giá từng món, rồi tính tiền điện, CO₂, phân và thức ăn mỗi tháng, tất cả là khoảng giá.',
+    'Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.',
+  ], 'Dự toán chi phí'],
   ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', [
     'Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng',
     'Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.',
     'Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.',
-  ]],
+  ], 'Đèn Chihiros'],
   ['/vi/cong-cu/nhan-dien-ca/', 'Đây là cá gì?', [
     'Nhận diện cá qua ảnh',
     'Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.',
     'Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.',
-  ]],
+  ], 'Nhận diện cá'],
   ['/vi/cong-cu/be-cua-toi/', 'Bể của tôi', [
     'Bể của tôi: sổ ghi bể cá, cây và lịch đèn',
     'Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.',
     'Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.',
-  ]],
+  ], 'Bể của tôi'],
 ]
 
 /** Leaves out empty fields, so the file stays small. */

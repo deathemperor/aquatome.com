@@ -1,7 +1,7 @@
 import AccountSync
 import SwiftUI
 
-/// The account on the Tài khoản tab, as on the site's page: signing in, the sync, adding a passkey, signing out and
+/// The account in the Tài khoản sheet, as on the site's page: signing in, the sync, adding a passkey, signing out and
 /// deleting the account. When the server offers no accounts or can't be reached, or the tanks can't be sent, a line says
 /// so: the tab is never blank.
 struct AccountSection: View {
@@ -44,6 +44,7 @@ struct AccountSection: View {
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
+          .accessibilityValue(ownerForTests)
         if !account.canSync {
           Text("Các bể trên máy này chưa đồng bộ được: xem lý do trong Bể của tôi.").accessibilityIdentifier("account-cant-sync")
         }
@@ -74,16 +75,26 @@ struct AccountSection: View {
         Button("Xóa tài khoản", role: .destructive) { confirmDelete = true }
           .disabled(account.working)
           .accessibilityIdentifier("delete-account")
+          // On the button: iOS shows the question as a popover from the view it's on.
+          .confirmationDialog(String(localized: "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn."), isPresented: $confirmDelete, titleVisibility: .visible) {
+            Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
+          }
         AccountMessage()
       } header: {
         Text("Tài khoản aquatome.com")
       } footer: {
         Text("Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Bể trên máy này vẫn còn.")
       }
-      .confirmationDialog(String(localized: "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn."), isPresented: $confirmDelete, titleVisibility: .visible) {
-        Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
-      }
     }
+  }
+
+  /// The UI tests wait here for the owner's dashboard to have asked about this account; nothing in a release build.
+  private var ownerForTests: String {
+    #if DEBUG
+    account.owner.isOwner.map { $0 ? "owner" : "not owner" } ?? ""
+    #else
+    ""
+    #endif
   }
 
   /// The UI tests wait for a sync by this count; nothing for VoiceOver in a release build.
@@ -102,8 +113,8 @@ struct AccountSection: View {
   }
 }
 
-/// For the empty tanks list, signed out: tanks saved on aquatome.com or another phone come back by signing in, on the
-/// Tài khoản tab.
+/// For the empty tanks list, signed out: tanks saved on aquatome.com or another phone come back by signing in, in the
+/// Tài khoản sheet.
 struct SignInHint: View {
   @Environment(AccountModel.self) private var account
   @Environment(\.openScreen) private var openScreen
@@ -167,8 +178,8 @@ private struct Fine: View {
         // A list footer is grey already.
         .foregroundStyle(.primary)
       HStack(spacing: 16) {
-        Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan"))!)
-        Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!)
+        Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan"))!)
+        Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!)
       }
     }
     .font(.footnote)

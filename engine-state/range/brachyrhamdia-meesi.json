@@ -1,0 +1,100 @@
+{
+  "id": "brachyrhamdia-meesi",
+  "native": {
+    "input": "c6920f87db1f103a",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brachyrhamdia meesi is a small heptapterid catfish described from near Belém, at the mouth of the Amazon in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its precise distribution is unclear, however, with one record pertaining to the Río Madre de Dios basin, several thousand kilometres from Belém in southeastern Perú.",
+        "words": "Perú",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Río Madre de Dios",
+        "source": "seriouslyfish",
+        "quote": "Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyrhamdia meesi",
+    "status": "ACCEPTED",
+    "taxonKey": 2343648,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -12,6 +12,196 @@
     "venezuela",
     "maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Lake Maracaibo",
+        "Río Magdalena",
+        "Río Sinú"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Lake Maracaibo",
+            "Río Magdalena",
+            "Río Sinú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355989,
+      "total": 3019,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CO",
+          2990
+        ],
+        [
+          "VE",
+          24
+        ],
+        [
+          "PA",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -80.15625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -78.75,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -75.9375,
+          2.8125,
+          16,
+          16
+        ],
+        [
+          -75.9375,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          -75.9375,
+          5.625,
+          277,
+          277
+        ],
+        [
+          -75.9375,
+          7.03125,
+          1258,
+          1258
+        ],
+        [
+          -75.9375,
+          8.4375,
+          78,
+          78
+        ],
+        [
+          -75.9375,
+          9.84375,
+          134,
+          134
+        ],
+        [
+          -74.53125,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -74.53125,
+          7.03125,
+          314,
+          314
+        ],
+        [
+          -74.53125,
+          8.4375,
+          643,
+          643
+        ],
+        [
+          -74.53125,
+          9.84375,
+          231,
+          231
+        ],
+        [
+          -73.125,
+          8.4375,
+          15,
+          15
+        ],
+        [
+          -73.125,
+          9.84375,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -186,8 +376,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180x60",
-        "bể cá lớn"
+        "bể cá 180cm"
       ]
     },
     {

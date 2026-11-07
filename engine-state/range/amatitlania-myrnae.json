@@ -1,0 +1,81 @@
+{
+  "id": "amatitlania-myrnae",
+  "native": {
+    "input": "2468411c0bc99b21",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cryptoheros myrnae is a Central American cichlid from the Atlantic slope of Costa Rica and Panama.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cryptoheros myrnae is a Central American cichlid from the Atlantic slope of Costa Rica and Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Atlantic slope of Costa Rica and Panama.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Atlantic slope of Costa Rica and Panama.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amatitlania myrnae",
+    "status": "ACCEPTED",
+    "taxonKey": 9455875,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CR",
+      "PA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

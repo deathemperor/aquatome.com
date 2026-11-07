@@ -1,0 +1,76 @@
+{
+  "id": "betta-akarensis",
+  "native": {
+    "input": "bb941266443d174a",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the island of Borneo where it has been collected in both Brunei Darussalam and parts of the Malaysian state of Sarawak, with type locality 'Akar River, Sarawak state, Borneo, East Malaysia'.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the island of Borneo where it has been collected in both Brunei Darussalam and parts of the Malaysian state of Sarawak, with type locality 'Akar River, Sarawak state, Borneo, East Malaysia'.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta akarensis is a paternal mouthbrooding labyrinth fish from Borneo, collected in Brunei and the Malaysian state of Sarawak.",
+        "words": "Brunei",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta akarensis is a paternal mouthbrooding labyrinth fish from Borneo, collected in Brunei and the Malaysian state of Sarawak.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to the island of Borneo where it has been collected in both Brunei Darussalam and parts of the Malaysian state of Sarawak, with type locality 'Akar River, Sarawak state, Borneo, East Malaysia'.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta akarensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2394031,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BN",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

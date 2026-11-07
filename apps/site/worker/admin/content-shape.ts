@@ -1,10 +1,12 @@
 /**
  * The shape of dist/_ab/content.json: what the site's content is, written by scripts/content-stats.ts after each build and
- * read by the Worker (admin/content.ts) for the dashboard. Types only, no imports: the build script (astro check) and the
- * Worker (tsc -p worker) both import it.
+ * read by the Worker (admin/content.ts) for the dashboard. Types, and the form a day's totals are kept in (KeptTotals), with
+ * no imports but the language table: the build script (astro check), the backfill script (node) and the Worker (tsc -p
+ * worker) all import it.
  */
+import { LANGS, type Lang, type OtherLang } from '@aq/schema/langs'
 
-export type Lang = 'vi' | 'id' | 'th'
+export type { Lang }
 
 /** A kind of content item (content/<dir>). A video guide is a guide written from a YouTube video (its entity has `video`). */
 export type EntityKind = 'fish' | 'breed' | 'plant' | 'guide' | 'videoGuide' | 'series' | 'glossary' | 'equipment' | 'place' | 'product'
@@ -22,8 +24,8 @@ export type PageKind = EntityKind | 'gallery' | 'taxon' | 'group' | 'tool' | 'li
  */
 export type PageRow = [path: string, title: string] | [path: string, title: string, id: string]
 
-/** Counts in each language: [vi, id, th]. */
-export type ByLang = [vi: number, id: number, th: number]
+/** Counts in each language, by its code. A day kept in KV holds them as rows (KeptTotals). */
+export type ByLang = Record<Lang, number>
 
 /** A short list to act on: how many, and up to 50 of them ([vi path, Vietnamese name]), staples and popular fish first. */
 export type Gap = { n: number; top: [path: string, name: string][]; /** Per missing part, for a gap that is any of several (noKeyFacts: tempC, ph, sizeCm). */ by?: Record<string, number> }
@@ -49,6 +51,25 @@ export type Totals = {
   sources: Record<string, number>
   /** Photos on fish, plant and breed pages, and in galleries. */
   photos: { pages: number; gallery: number }
+  /** Fish pages whose card has temperature, pH and size (the noKeyFacts gap's other side). Days kept before 2026-11-07 have none. */
+  fullCards?: number
+}
+
+/**
+ * A day's totals as kept in KV (stats:YYYY-MM-DD, worker/admin/content.ts): each count a row in `langs` order, which keeps a
+ * day within KV's 1 KB of metadata, so one list() reads every day, as languages join (seven languages by name would pass it).
+ * Days kept before 2026-11-06 have no `langs`: their rows are [vi, id, th]. A new language goes last in the table, so code
+ * from before the table reads the rows it knows unchanged.
+ */
+export type KeptTotals = Omit<Totals, 'kinds' | 'built'> & { kinds: Record<EntityKind, number[]>; built: number[] | null; langs?: string[] }
+const row = (by: ByLang) => LANGS.map(l => by[l])
+export const keepTotals = (t: Totals): KeptTotals => ({
+  ...t, kinds: Object.fromEntries(Object.entries(t.kinds).map(([k, n]) => [k, row(n)])) as KeptTotals['kinds'], built: t.built && row(t.built), langs: [...LANGS],
+})
+/** Kept totals by language again, 0 for a language the day had no row for. */
+export function readKept({ langs = ['vi', 'id', 'th'], ...k }: KeptTotals): Totals {
+  const by = (r: number[]) => Object.fromEntries(LANGS.map(l => [l, r[langs.indexOf(l)] ?? 0])) as ByLang
+  return { ...k, kinds: Object.fromEntries(Object.entries(k.kinds).map(([kind, r]) => [kind, by(r)])) as Totals['kinds'], built: k.built && by(k.built) }
 }
 
 /** Per page source (engine-state/<source>.json): addresses the engine has met and what became of them. */
@@ -112,14 +133,32 @@ export type PhotoStats = {
   gallery: { pages: number; photos: number }
 }
 
+/**
+ * A quality review as the engine keeps it (engine-state/reviews/<kind>.json, packages/engine/src/review-log.ts), less its
+ * model and attempt. `kind`: the step that reviewed ("video-guide", "translation", "localize"…); `kept`: the page has the
+ * version it reviewed.
+ */
+export type LastReview = { kind: string; at: string; score: number; notes: string[]; kept: boolean }
+
+/** A built page out of search for a score under the bar: its path, its kind, its score as the build judged it, and its last review. */
+export type LowPage = { path: string; kind: PageKind; score: number; review?: LastReview }
+
+/**
+ * The shape of dist/_ab/reviews.json, written by scripts/content-stats.ts beside content.json and read only by the Worker's
+ * content page (admin/content.ts loadLowScores): every built page out of search for its score, lowest score first.
+ * Its own file, as the notes can run to a few KB a page: content.json, which every dashboard page and the nightly totals
+ * read, stays small.
+ */
+export type LowScores = { v: 1; /** The score a page needs (@aq/schema QUALITY_THRESHOLD). */ bar: number; pages: LowPage[] }
+
 export type ContentStats = {
   v: 1
   /** When the build wrote it (ISO). */
   builtAt: string
   /** Built with PUBLIC_BUILD=1 (production): sources without permission left out. */
   publicBuild: boolean
-  /** Items per kind (content/): how many, and how many have an Indonesian and a Thai page. */
-  inventory: Record<EntityKind, { total: number; id: number; th: number }>
+  /** Items per kind (content/): how many, and how many have a page in each other language. */
+  inventory: Record<EntityKind, { total: number } & Record<OtherLang, number>>
   /** Built pages per language and per page kind; null when no build output was read. */
   built: { total: ByLang; byKind: Partial<Record<PageKind, ByLang>> } | null
   /** Per content source (content/sources.json): fish, plants and guides with its text, as the build shows them. Breeds cite web pages, not these sources. */

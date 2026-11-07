@@ -17,13 +17,20 @@
     "dimorphism:seriouslyfish": "<p>Con đực có núm sinh dục nhọn, nhìn thấy rõ bên ngoài, nằm ngay trước vây hậu môn. Râu con đực cũng dài hơn hẳn. Còn con cái đã thành thục thường có thân to hơn một chút.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận cá sinh sản trong bể nuôi. Ngoài tự nhiên, cá trưởng thành di chuyển vào những vùng ngập tạm thời khi mùa mưa bắt đầu để đẻ.</p>",
     "notes:seriouslyfish": "<p>Tên thường gọi 'lancer' xuất phát từ gai vây lưng dài của một số loài trong giống này. Hiện giống có 7 loài.</p><p>Trong số đó, B. macracanthus giống nhất với B. majusculus và B. vaillantii. So với B. majusculus, loài này có gai vây ngực ngắn hơn (13,3–16,2 % SL so với 15,8–20,7 %), vây mỡ ngắn hơn (38,8–45,8 % SL so với 46,0–50,7 %), cuống đuôi thấp hơn (5,6–7,0 % SL so với 7,1–7,5 %) và cỡ trưởng thành lớn hơn. So với B. vaillantii, loài này có đường lưng dốc thoai thoải (B. vaillantii dốc đứng), gai vây lưng dài hơn (24,4–32,9 % SL so với 18,2–21,9 %) và cỡ trưởng thành lớn hơn.</p>",
-    "references:seriouslyfish": "<ul><li>Linder, R. S. and H. H. Ng (2002). Notes on the Lancers of the Genus Bagrichthys (Teleostei, Bagridae) Cat Chat: The Official Journal of The Catfish Study Group 3(3)</li><li>Ng, H. H. (2002). Bagrichthys majusculus, a new catfish from Indochina (Teleostei, Bagridae). Folia Zoologica 51(1), 49-54</li></ul>"
+    "references:seriouslyfish": "<ul><li>Linder, R. S. and H. H. Ng (2002). Notes on the Lancers of the Genus Bagrichthys (Teleostei, Bagridae) Cat Chat: The Official Journal of The Catfish Study Group 3(3)</li><li>Ng, H. H. (2002). Bagrichthys majusculus, a new catfish from Indochina (Teleostei, Bagridae). Folia Zoologica 51(1), 49-54</li></ul>",
+    "quickFacts:glaser": "<p>Đây là một loài cá da trơn khá lạ, rất hiếm khi được nhập về, có nguồn gốc Đông Nam Á (miền đông Sumatra). Cá lớn tối đa khoảng 20 cm. Dân buôn cá gọi nó là Black Lancer.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, loài này sống ở những đoạn sông nước chảy rất yếu.</p>",
+    "waterConditions:glaser": "<p>Các thông số hóa học của nước gần như không quan trọng với loài này. Nhiệt độ nước nên giữ trong khoảng 24–28°C.</p>",
+    "diet:glaser": "<p>Cá dễ ăn, nhận hết các loại thức ăn quen thuộc dùng cho cá cảnh.</p>",
+    "behaviour:glaser": "<p>Bagrichthys macracanthus hiền với cá khác trong bể. Tuy vậy, bạn đừng nuôi chung nó với những con nhỏ hơn khoảng một phần tư chiều dài của Black Lancer. Những con nhỏ như vậy có thể bị nó ăn thịt.</p><p>Bagrichthys macracanthus là cá ăn đêm. Ban ngày nó cần hang và các chỗ trốn khác thì mới thấy yên tâm. Tới giờ cho ăn, cá vẫn chui ra khỏi chỗ trốn, kể cả ban ngày.</p><p>Các con đực khá hay gây gổ với nhau. Nếu nuôi theo cặp, hoặc theo nhóm một đực với số cái nhiều hơn, chúng sẽ sống hòa thuận với nhau.</p>",
+    "dimorphism:glaser": "<p>Khi cá đã thành thục thì phân biệt đực cái rất dễ. Con đực có gai niệu sinh dục rất lạ, trông giống dương vật. Ở con cái, gai này có hình dạng bình thường. Cá còn nhỏ hơn nhiều, dài khoảng 8–10 cm, cũng đã nhận ra được con cái vì thân nó cao hơn hẳn.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.8
     }
   }
 }

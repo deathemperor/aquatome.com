@@ -16,9 +16,16 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// (PageDoc.level); a site without it, its `pages` (guides only: left as they were for apps older than levels). Empty
   /// from a site older than both.
   public let pages: [String: Int]
+  /// Whether the site takes the app's anonymous telemetry (`telemetry: true`): absent or anything else, it doesn't, and
+  /// the app sends none. The one place the app reads it.
+  public let telemetry: Bool
+  /// What's new on the site (Latest): its file's path ("/app/latest/vi.json"), where the language's site has the page;
+  /// nil from one without it.
+  public let latest: String?
 
-  /// `video`: a series of video guides (its page lists them).
-  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video }
+  /// `video`: a series of video guides (its page lists them). `equipment`: a kind of kit (filters, lights), the site's
+  /// /vi/thiet-bi/<category>/.
+  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment }
 
   public struct Item: Codable, Sendable, Hashable, Identifiable {
     public let kind: Kind
@@ -49,19 +56,30 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public let parts: Int?
     /// A tool page's own title, the line under its heading and its description: found by search, not shown.
     public let words: [String]
+    /// A breed that is a form of a species: the species' content id. A tank's check counts the breed as that species, so
+    /// it has no `facts` of its own.
+    public var of: String? { rare?.of }
+    /// A breed's own figures, as its page's data card shows them: what its facts card shows.
+    public var card: Facts? { rare?.card }
+    /// A tool's short name, as its card on the site's tools page has it: what Tìm's tool tiles say. None from a site older
+    /// than that, nor for the tools page itself.
+    public var short: String? { rare?.short }
+    /// `of`, `card` and `short`, behind one reference: only breeds and tools have them, and every item is copied as a list
+    /// scrolls, so held in each item they cost a fling through the fish about 2 MB (perf-budgets.json).
+    private let rare: Rare?
     public var id: String { path }
 
     /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
     public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words }
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words, of, card, short }
 
     public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
                 facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
-                video: Int? = nil, parts: Int? = nil, words: [String] = []) {
+                video: Int? = nil, parts: Int? = nil, words: [String] = [], of: String? = nil, card: Facts? = nil, short: String? = nil) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
       self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
-      self.video = video; self.parts = parts; self.words = words
+      self.video = video; self.parts = parts; self.words = words; self.rare = Rare(of: of, card: card, short: short)
     }
 
     public init(from decoder: any Decoder) throws {
@@ -82,6 +100,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       video = (try? c.decodeIfPresent(Int.self, forKey: .video)) ?? nil
       parts = (try? c.decodeIfPresent(Int.self, forKey: .parts)) ?? nil
       words = ((try? c.decodeIfPresent([String].self, forKey: .words)) ?? nil) ?? []
+      rare = Rare(of: (try? c.decodeIfPresent(String.self, forKey: .of)) ?? nil,
+                  card: (try? c.decodeIfPresent(Facts.self, forKey: .card)) ?? nil,
+                  short: (try? c.decodeIfPresent(String.self, forKey: .short)) ?? nil)
     }
 
     public func encode(to encoder: any Encoder) throws {
@@ -100,7 +121,25 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       try c.encodeIfPresent(video, forKey: .video)
       try c.encodeIfPresent(parts, forKey: .parts)
       if !words.isEmpty { try c.encode(words, forKey: .words) }
+      try c.encodeIfPresent(of, forKey: .of)
+      try c.encodeIfPresent(card, forKey: .card)
+      try c.encodeIfPresent(short, forKey: .short)
       try facts.encode(to: encoder)
+    }
+
+    /// What a breed's or a tool's item has that others don't: none for an item with none of it.
+    final class Rare: Sendable, Hashable {
+      let of: String?
+      let card: Facts?
+      let short: String?
+
+      init?(of: String?, card: Facts?, short: String?) {
+        guard of != nil || card != nil || short != nil else { return nil }
+        self.of = of; self.card = card; self.short = short
+      }
+
+      static func == (a: Rare, b: Rare) -> Bool { a.of == b.of && a.card == b.card && a.short == b.short }
+      func hash(into h: inout Hasher) { h.combine(of); h.combine(card); h.combine(short) }
     }
   }
 
@@ -226,8 +265,11 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     }
   }
 
-  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:]) {
+  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:],
+              telemetry: Bool = false, latest: String? = nil) {
     self.version = version; self.lang = lang; self.items = items; self.home = home; self.labels = labels; self.pages = pages
+    self.telemetry = telemetry
+    self.latest = latest
   }
 
   /// The index format this app reads. A site that changes it on purpose bumps `version`; the app then keeps its copy.
@@ -253,6 +295,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     // Each kind on its own: one this app can't read is left out, the others drawn.
     let shards = ((try? c.decodeIfPresent([String: Shards].self, forKey: .shards)) ?? nil) ?? [:]
     pages = !shards.isEmpty ? Self.drawn(shards, level: PageDoc.level) : ((try? c.decodeIfPresent([String: Int].self, forKey: .pages)) ?? nil) ?? [:]
+    telemetry = ((try? c.decodeIfPresent(Bool.self, forKey: .telemetry)) ?? nil) ?? false
+    latest = (try? c.decodeIfPresent(String.self, forKey: .latest)) ?? nil
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -263,10 +307,12 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     try c.encodeIfPresent(home, forKey: .home)
     if !labels.words.isEmpty { try c.encode(labels, forKey: .labels) }
     if !pages.isEmpty { try c.encode(pages, forKey: .pages) }
+    if telemetry { try c.encode(telemetry, forKey: .telemetry) }
+    try c.encodeIfPresent(latest, forKey: .latest)
   }
 
   // The copy kept on the phone writes `pages` alone: the kinds this app draws, already chosen.
-  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards }
+  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards, telemetry, latest }
   private struct Skipped: Decodable { init(from decoder: any Decoder) {} }
   /// The kinds an app knowing `level` draws itself, of the site's `shards`, with their shard counts: those at that level
   /// or a lower one (protocols/page-vectors.json, `levels`).
@@ -301,7 +347,8 @@ public func isInterruption(_ error: any Error) -> Bool {
 public enum PageRoute: Equatable, Sendable {
   /// Stays in the app: the site's own pages, and anything inside a page (embeds).
   case app
-  /// Opens in the browser or the app that handles it: other sites, links that ask for a new window, mail and phone.
+  /// Opens in the browser or the app that handles it: other sites, links that ask for a new window, mail and phone, and
+  /// the site's pages about itself (AboutTheSite).
   case outside
   /// Not followed: a new blank window.
   case none
@@ -312,13 +359,31 @@ public enum PageRoute: Equatable, Sendable {
     let scheme = url.scheme?.lowercased() ?? ""
     if ["about", "data", "blob"].contains(scheme) { return newWindow ? .none : .app }
     if !newWindow && !mainFrame { return .app }
-    if !newWindow && ["http", "https"].contains(scheme) && bare(url.host) == bare(site.host) { return .app }
+    if !newWindow && ["http", "https"].contains(scheme) && bare(url.host) == bare(site.host) {
+      return AboutTheSite.is(url) ? .outside : .app
+    }
     return .outside
   }
 
   private static func bare(_ host: String?) -> String? {
     guard let h = host?.lowercased() else { return nil }
     return h.hasPrefix("www.") ? String(h.dropFirst(4)) : h
+  }
+}
+
+/// The site's pages about itself: what it is (with its data table), how to reach it, its privacy policy. The app opens
+/// them in the browser, not in its web view (the owner's call, 2026-11-02): they aren't the handbook.
+enum AboutTheSite {
+  /// apps/site/src/lib/i18n.ts: each one's segment in each language.
+  static let sections = ["vi": ["gioi-thieu", "lien-he", "chinh-sach-bao-mat"], "id": ["tentang", "kontak", "kebijakan-privasi"],
+                         "th": ["about", "contact", "privacy"]]
+
+  /// `url` is one of them or a page below one ("/th/privacy/", "/vi/gioi-thieu/bang-du-lieu/"), the Vietnamese under
+  /// "/vi/" or at the root ("/lien-he/").
+  static func `is`(_ url: URL) -> Bool {
+    var parts = url.path(percentEncoded: false).split(separator: "/").map(String.init)
+    let lang = ["vi", "id", "th"].contains(parts.first ?? "") ? parts.removeFirst() : "vi"
+    return parts.first.map { sections[lang]?.contains($0) == true } ?? false
   }
 }
 

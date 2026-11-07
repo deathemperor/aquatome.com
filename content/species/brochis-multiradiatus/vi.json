@@ -1,11 +1,16 @@
 {
   "slug": "ca-chuot-brochis",
-  "name": "Cá chuột Brochis",
+  "name": "Cá chuột Brochis mõm dài",
   "altNames": [
     "Cá chuột ngọc lục bảo lớn",
     "Hog-nosed brochis",
     "Big emerald catfish",
-    "Cá chuột Brochis multiradiata"
+    "Cá chuột Brochis multiradiata",
+    "Cá chuột Brochis",
+    "Cá chuột hognose",
+    "Cá chuột Brochis vây dài",
+    "Hognose Brochis",
+    "Long-finned brochis"
   ],
   "sections": {
     "distribution:glaser": "<p>Đàn cá bố mẹ của loài nói đến ở đây có nguồn gốc từ Peru.</p>",
@@ -20,14 +25,27 @@
     "maintenance:scotcat": "<p>Chất lượng nước và cách chăm sóc nói chung rất quan trọng với loài này. Bạn nên thay ít nhất 25% nước mỗi hai tuần.</p>",
     "diet:scotcat": "<p>Cũng như các loài Brochis khác, chúng dễ ăn và nhận nhiều loại thức ăn trộn lẫn: thức ăn viên cho cá da trơn, thức ăn mảnh loại tốt, thức ăn dạng hạt, giun trắng nuôi và đồ đông lạnh như trùng huyết.</p>",
     "notes:scotcat": "<p>Brochis multiradiata có 17 tia vây lưng, trong khi B. splendens có 12 và B. britskii có 15. Mõm của nó cũng dài hơn hẳn hai loài kia. Dòng phát sinh: Brochis nằm trong Lineage 8 (nhánh phụ 1), chung nhóm \"mõm dài trung gian\" có thân cao hơn.</p><p>Từ nguyên: tên loài multiradiata nghĩa là có nhiều tia (vây).</p><p>Ghi chú: Năm 2003, Britto gộp Brochis vào Corydoras. Tuy vậy, một đợt rà soát sắp tới sẽ khôi phục Brochis (Cope, 1871) thành một giống riêng. Vì hai giống khác nhau khá rõ nên hiện tại tên Brochis vẫn được giữ. Trong đợt rà soát mới nhất (Dias et al 2024), Brochis multiradiatus được xếp vào Lineage 8 nhánh phụ 1. Tên giống Brochis được giữ nguyên, còn tên loài đổi thành multiradiata.</p>",
-    "references:scotcat": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Frederico, R.G. &amp; Jimenez-Prado, P. 2023. Corydoras (Brochis) multiradiata. The IUCN Red List of Threatened Species 2023.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>ScotCat Factsheet no. 129. March 2007.</p>"
+    "references:scotcat": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Frederico, R.G. &amp; Jimenez-Prado, P. 2023. Corydoras (Brochis) multiradiata. The IUCN Red List of Threatened Species 2023.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>ScotCat Factsheet no. 129. March 2007.</p>",
+    "quickFacts:seriouslyfish": "<p>Trong giới chơi cá, Brochis multiradiata thường được gọi là 'Brochis' mõm dài (hognose 'Brochis'). Loài này từ lâu mang tên Corydoras multiradiatus. Đây là một loài cá da trơn có giáp, sống ở phía tây bắc lưu vực Amazon, thuộc Ecuador và Peru. Loài này từng nằm trong chi Brochis. Nó có mõm kéo dài và 17-18 tia vây lưng, trong khi các loài Corydoras khác chỉ có 6-8 tia. Hiện chưa biết nhiều về nơi sống của loài này. Nhiều khả năng chúng sống ở các nhánh sông nhỏ và vùng nước tĩnh như nhánh sông nước tù và hồ móng ngựa, giống các loài họ hàng gần.</p>",
+    "distribution:seriouslyfish": "<p>Loài này phân bố tự nhiên ở các nhánh sông phía tây bắc lưu vực Amazon, thuộc Ecuador và Peru.</p><p>Nơi thu mẫu chuẩn (type locality) là 'Tributary of Río Lagartococha near town of Garza-Cocha, upper Río Napo system, Province Napo, Ecuador'.</p>",
+    "habitat:seriouslyfish": "<p>Thông tin duy nhất Orcés V. đưa ra là loạt mẫu chuẩn (type series) được thu ở độ cao 200-250 m so với mực nước biển. Dù vậy, loài này nhiều khả năng sống tụ thành đàn ở các nhánh sông nhỏ và vùng nước tĩnh như nhánh sông nước tù, hồ móng ngựa và hồ ven sông, giống các loài họ hàng gần.</p>",
+    "aquariumSize:seriouslyfish": "<p>Bể nên có kích thước tối thiểu 120 × 45 × 45 cm hoặc tương đương (khoảng 243 lít).</p>",
+    "maintenance:seriouslyfish": "<p>Nền tốt nhất là cát mịn. Sỏi tròn cạnh cũng dùng được, miễn là bạn giữ nền thật sạch.</p><p>Phần trang trí còn lại phần lớn tùy sở thích. Dù vậy, bạn nên bố trí vài chỗ ẩn nấp để cá thấy an toàn.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–26°C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 2–12 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Corydoras spp. là cá ăn tạp, chuyên bới tìm thức ăn dưới đáy. Chúng nhận hầu hết các loại thức ăn khô dạng chìm, cùng các loại thức ăn sống và đông lạnh cỡ nhỏ như ấu trùng chironomid (trùng huyết), trùng chỉ (Tubifex), v.v.</p><p>Cho ăn đa dạng thì cá mới giữ được thể trạng tốt nhất.</p><p>Đừng bao giờ để cá sống nhờ 'thức ăn thừa' của các loài khác trong bể, và cũng đừng trông chờ chúng 'dọn' bể giúp bạn.</p>",
+    "behaviour:seriouslyfish": "<p>Đây là loài hiền lành, thích sống theo đàn. Bạn nên nuôi một nhóm ít nhất 6-8 con.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành tròn mình hơn hẳn, thân cao hơn và lớn hơn cá đực một chút.</p>",
+    "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
+    "notes:seriouslyfish": "<p>Loài này từng thuộc chi Brochis và đôi khi còn được gọi là 'Brochis vây dài'.</p><p>Có thể phân biệt B. multiradiata với các loài từng thuộc Brochis khác nhờ mõm kéo dài và 17-18 tia vây lưng (B. splendens có 10-12 tia, còn B. britskii có 15-18 tia, thường là 15). Mọi loài còn lại trong chi Corydoras, cùng hai chi họ hàng gần là Aspidoras và Scleromystax, đều chỉ có 6-8 tia vây lưng.</p><p>Britto (2003) là người đầu tiên gộp Brochis thành đồng nghĩa của Corydoras. Lý do là nếu công nhận Brochis là chi hợp lệ thì Corydoras không còn là một nhóm đơn ngành. Các nghiên cứu phát sinh loài sau đó của Shimabukuro-Dias et al. (2004) và Alexandrou et al. (2011) đều ủng hộ quyết định này, dù tên Brochis vẫn xuất hiện nhiều trong sách báo thủy sinh. Về sau, Dias et al. (2024) công nhận lại chi Brochis và đưa loài này trở về chi đó.</p><p>Chi này thuộc họ Callichthyidae. Các loài trong họ thường được gọi chung là cá da trơn 'có giáp' (armoured hoặc mailed catfish), vì thân chúng phủ các tấm xương thay cho vảy. Phân loại của nhóm này khá rối, và người ta cho rằng còn nhiều loài chưa được mô tả. Vì vậy, cá chưa xác định rõ danh tính khi vào thị trường cá cảnh thường được gán mã số 'C' hoặc 'CW' để tiện tra cứu và sắp xếp.</p><p>Chúng có thể thở khí trời khi cần (thở khí tùy nghi). Qua quá trình tiến hóa, ruột của chúng đã biến đổi, chằng chịt mạch máu, để hấp thu oxy từ không khí. Nhờ vậy chúng sống sót được ở những nơi nước thiếu oxy. Trong bể, thỉnh thoảng bạn sẽ thấy chúng bơi lên mặt nước đớp một ngụm khí.</p><p>Gai vây ngực của chúng rất cứng, có thể đâm thủng da người, và vết 'chích' có thể cực kỳ đau. Vì vậy bạn cần cẩn thận khi bắt hay cầm cá. Người ta cho rằng chất tiết từ tuyến nách ở gốc mỗi gai thậm chí có thể hơi độc.</p>",
+    "references:seriouslyfish": "<ul><li>Orcés V., G. (1960). Peces ecuatorianos de la familia Callichthyidae, con la descripción de una especie nueva. Ciencia y Naturaleza (Quito) v. 3, 2-6</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Alexandrou, M. A. and M. I. Taylor (2011). Evolution, Ecology and Taxonomy of the Corydoradinae Revisited. In: Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 101-114</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Britto, M. R. (2003). Phylogeny of the subfamily Corydoradinae Hoedeman, 1952 (Siluriformes: Callichthyidae), with a definition of its genera. Proceedings of the Academy of Natural Sciences of Philadelphia, 153, 118-154</li><li>Hoedeman, J. J. (1952). Notes on the Ichthyology of Surinam (Dutch Guiana). The Catfish genera Hoplosternum and Callichthys, with key to the genera and groups of the family Callichthyidae. Beaufortia 1(12), 1-11</li><li>Reis, R. E. (1998). Anatomy and phylogenetic analysis of the neotropical callichthyid catfishes (Ostariophysi, Siluriformes). Zoological Journal of the Linnean Society 124(2), 105-168</li><li>Shimabukuro-Dias, C. K., C. Oliveira, R. E. Reis and F. Foresti (2004). Molecular phylogeny of the armored catfish family Callichthyidae (Ostariophysi, Siluriformes). Molecular Phylogenetics and Evolution 32(1), 152-163</li></ul>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "glaser": 0.9,
-      "scotcat": 0.8
+      "scotcat": 0.8,
+      "seriouslyfish": 0.93
     }
   }
 }

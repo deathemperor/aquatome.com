@@ -12,6 +12,79 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kapuas",
+        "Danau Sentarum"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from '18 miles east of Kuching, Sarawak state, Borneo, East Malaysia' and apparently endemic to western Borneo with a range extending into the Indonesian province of West Kalimantan (Kalimantan Barat) where it's known from the Kapuas River system, including the lake system of Danau Sentarum.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Danau Sentarum"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The false spanner barb, Barbodes kuchingensis, is a cyprinid apparently endemic to western Borneo, from Sarawak into the Kapuas system.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8074510,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          3
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -139,8 +212,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

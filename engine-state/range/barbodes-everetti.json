@@ -1,0 +1,81 @@
+{
+  "id": "barbodes-everetti",
+  "native": {
+    "input": "9e8ac0a34e4a98ec",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Poeh, Sarawak state, Borneo, East Malaysia' and it may be endemic to Sarawak plus parts of Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Poeh, Sarawak state, Borneo, East Malaysia' and it may be endemic to Sarawak plus parts of Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Poeh, Sarawak state, Borneo, East Malaysia' and it may be endemic to Sarawak plus parts of Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "seriouslyfish",
+        "quote": "In Kalimantan it occurs in forest streams in the foothills in clear water of variable flow, though in swiftly-moving environments it tends to show a preference for quieter, marginal zones.",
+        "ok": true
+      },
+      {
+        "name": "Natuna Besar",
+        "source": "seriouslyfish",
+        "quote": "It's said to occur on Sumatra but we've been unable to obtain any definitive records, and has been collected in the Natuna Besar archipelago, Riau Islands province, Indonesia, though not since the late 1980s.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbodes everetti",
+    "status": "ACCEPTED",
+    "taxonKey": 2364199,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

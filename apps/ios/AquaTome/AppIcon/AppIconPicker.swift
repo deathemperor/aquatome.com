@@ -1,7 +1,8 @@
 import SwiftUI
 import UIKit
 
-/// An icon the reader can give the app: the default AT, or one of the alternates drawn by scripts/app-icons.py.
+/// An icon the reader can give the app: the default (the round fish with leaf fins), or one of the alternates, all drawn
+/// by scripts/app-icons.py but the AT (the default until 2026-11-04).
 struct AppIconChoice: Identifiable {
   /// The alternate's name in the app (`AppIcon-…`), nil for the default.
   let alternate: String?
@@ -19,6 +20,8 @@ struct AppIconChoice: Identifiable {
       .init(alternate: "AppIcon-bubs-pink", name: "Cá tròn hồng"),
       .init(alternate: "AppIcon-bubs-aqua", name: "Cá tròn xanh ngọc"),
       .init(alternate: "AppIcon-bubs-sunrise", name: "Cá tròn bình minh"),
+      .init(alternate: "AppIcon-pages-pink", name: "Cá vây sách"),
+      .init(alternate: "AppIcon-lens-pink", name: "Cá kính lúp"),
       .init(alternate: "AppIcon-betta-grape", name: "Cá betta tím"),
       .init(alternate: "AppIcon-betta-reef", name: "Cá betta san hô"),
       .init(alternate: "AppIcon-betta-night", name: "Cá betta đêm"),
@@ -50,6 +53,7 @@ struct AppIconChoice: Identifiable {
       .init(alternate: "AppIcon-noel", name: "Giáng sinh"),
     ]),
     ("Thiết kế khác", [
+      .init(alternate: "AppIcon-at", name: "Chữ AT"),
       .init(alternate: "AppIcon-at-water", name: "AT dưới nước"),
       .init(alternate: "AppIcon-book", name: "Sách và nước"),
       .init(alternate: "AppIcon-leaf-fish", name: "Cá lá"),
@@ -154,8 +158,8 @@ struct AppIconPicker: View {
 }
 
 extension View {
-  /// UI tests: `-app-icons` opens the picker over the app (AppIconFlowTests). Its row in the Tài khoản tab comes once that
-  /// tab is in.
+  /// UI tests: `-app-icons` opens the picker over the app (AppIconFlowTests). Readers open it from its row in the Tài
+  /// khoản sheet.
   func appIconsForTests() -> some View {
     #if DEBUG
     modifier(AppIconsForTests())

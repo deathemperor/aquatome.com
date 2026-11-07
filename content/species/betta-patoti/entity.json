@@ -11,6 +11,52 @@
     "kalimantan",
     "mangar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mangar River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Mangar River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393991,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -267,8 +313,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể nuôi betta hoang dã"
+        "bể cá 80cm"
       ]
     },
     {

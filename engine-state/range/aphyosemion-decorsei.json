@@ -1,0 +1,100 @@
+{
+  "id": "aphyosemion-decorsei",
+  "native": {
+    "input": "7c1de1d8bb51dcf8",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Decorse's lyretail, Aphyosemion decorsei, is a killifish from the middle Ubangi River basin in the Central African Republic.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type locality is Bessou in Lobaye prefecture, and its range probably extends into northern Republic of Congo and Democratic Republic of Congo.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type locality is Bessou in Lobaye prefecture, and its range probably extends into northern Republic of Congo and Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the settlement of Bessou, Lobaye prefecture, Central African Republic, which lies within the Ubangi (also spelled Oubangui) River basin.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Ubangi is a major tributary of the Congo River and this species appears restricted to its middle section and thus probably extends into northern Republic of Congo and Democratic Republic of Congo.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Ubangi is a major tributary of the Congo River and this species appears restricted to its middle section and thus probably extends into northern Republic of Congo and Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ubangi",
+        "source": "seriouslyfish",
+        "quote": "Decorse's lyretail, Aphyosemion decorsei, is a killifish from the middle Ubangi River basin in the Central African Republic.",
+        "country": "CF",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "The Ubangi is a major tributary of the Congo River and this species appears restricted to its middle section and thus probably extends into northern Republic of Congo and Democratic Republic of Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion decorsei",
+    "status": "ACCEPTED",
+    "taxonKey": 2348233,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ]
+    ],
+    "native": [
+      "CF",
+      "CG",
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

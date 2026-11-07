@@ -1,53 +1,79 @@
 ---
-import type { Range } from '@aq/schema'
+import type { Range, SectionKey } from '@aq/schema'
 import GlossaryTip from './GlossaryTip.astro'
 import RangeBlock from './RangeBlock.astro'
+import PhoneFold from './PhoneFold.astro'
 import { getContent } from '../lib/content'
 import { figureHtml } from '../lib/figures'
-import { QUESTION_LABELS } from '../lib/sections'
+import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
 import { OFF_LABELS, sectionParts, type SectionProps } from '../lib/section-parts'
 import { fmt, isRange } from '../lib/format'
 import { i18n } from '../lib/i18n'
 /** `card`: a species' data card. Its figures are the page's own: a quick-facts list drops what the card already gives, and a
  * block that states a figure the card shows otherwise says which source it follows (@aq/schema card-facts). The text is
- * put together in lib/section-parts.ts, which the app's copy of the page reads too. */
-type Props = SectionProps
+ * put together in lib/section-parts.ts, which the app's copy of the page reads too.
+ * A slot named after a section (a species' tank mates under "behaviour", Vietnam's climate under "waterConditions") goes
+ * at the end of that section, or where it would be when the page has none. The sources' own reference lists ("Tài liệu
+ * tham khảo") go in the source list, which is one closed block after the text.
+ * `fold`: sections whose text a phone folds under their heading (PhoneFold.astro). */
+type Props = SectionProps & { fold?: SectionKey[] }
+const { fold = [] } = Astro.props
 // `t` is the entity's translation (a prop): the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const pair = (v: Range | number) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)
-const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props)
+const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props)
+const biblio = groups.find(g => g.key === 'references')
+// Each slot's place: inside its own section, else before the first section after where it would be (or the end).
+const SLOTS = (['waterConditions', 'behaviour'] as SectionKey[]).filter(k => Astro.slots.has(k))
+const at = (k: SectionKey) => { const i = groups.findIndex(g => g.key !== 'references' && DISPLAY_ORDER.indexOf(g.key) >= DISPLAY_ORDER.indexOf(k)); return i < 0 ? groups.length : i }
+const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !== k)
 ---
 <div class="wrap body">
   {groups.map((sec, i) => (<>
+    {before(i).map(k => <div class="slotted"><slot name={k} /></div>)}
     {wild && i === wildAt && <section data-section="range" id="muc-range"><h2>{wild.title}</h2><RangeBlock part={wild} /></section>}
-    <section data-section={sec.key} id={`muc-${sec.key}`} data-pagefind-ignore={sec.key === 'references' ? 'index' : undefined}>
-      <h2>{tr(QUESTION_LABELS[sec.key])}</h2>
-      {sec.blocks.map(b => (<>
-        {b.off.length > 0 && (
-          <p class="off" data-source={b.source} data-pagefind-ignore>
-            <span class="mark" aria-hidden="true" />
-            {tr('{source} ghi khác bảng dữ liệu:', { source: b.name })}{' '}
-            {b.off.map((o, i) => {
-              const fig = (v: Range | number) => (o.field === 'tempC' ? <span data-c={pair(v)}>{range(v)}°C</span>
-                : o.field === 'sizeCm' || o.field === 'tankCm' ? <span data-cm={pair(v)}>{range(v)} cm</span>
-                : o.field === 'gh' ? `${range(v)} dGH` : range(v))
-              return <span data-off={o.field}>{i > 0 && ', '}{tr(OFF_LABELS[o.field]!)} <span class="theirs">{fig(o.own)}</span> ({tr('bảng:')} <span class="ours">{fig(o.card)}</span>)</span>
-            })}.
-          </p>
-        )}
-        <div class="prose" data-source={b.source} set:html={b.vi} />
-      </>))}
-    </section>
+    {sec !== biblio && (
+      <section data-section={sec.key} id={`muc-${sec.key}`}>
+        <PhoneFold on={fold.includes(sec.key)}>
+        <h2 slot="head">{tr(QUESTION_LABELS[sec.key])}</h2>
+        {sec.blocks.map(b => (<>
+          {b.off.length > 0 && (
+            <p class="off" data-source={b.source} data-pagefind-ignore>
+              <span class="mark" aria-hidden="true" />
+              {tr('{source} ghi khác bảng dữ liệu:', { source: b.name })}{' '}
+              {b.off.map((o, i) => {
+                const fig = (v: Range | number) => (o.field === 'tempC' ? <span data-c={pair(v)}>{range(v)}°C</span>
+                  : o.field === 'sizeCm' || o.field === 'tankCm' || o.field === 'tankL' ? <span data-cm={pair(v)}>{range(v)} cm</span>
+                  : o.field === 'gh' ? `${range(v)} dGH` : range(v))
+                return <span data-off={o.field}>{i > 0 && ', '}{tr(OFF_LABELS[o.field]!)} <span class="theirs">{o.field === 'tankL' ? `${range(o.own)} ${tr('lít')}` : fig(o.own)}</span> ({tr('bảng:')} <span class="ours">{fig(o.card)}</span>)</span>
+              })}.
+            </p>
+          )}
+          <div class="prose" data-source={b.source} set:html={b.vi} />
+        </>))}
+        </PhoneFold>
+        {SLOTS.includes(sec.key) && <div class="slotted"><slot name={sec.key} /></div>}
+      </section>
+    )}
     {figAfter.has(i) && <Fragment set:html={figureHtml(lang, figAfter.get(i)!)} />}
   </>
   ))}
+  {before(groups.length).map(k => <div class="slotted"><slot name={k} /></div>)}
   {wild && wildAt === groups.length && <section data-section="range" id="muc-range"><h2>{wild.title}</h2><RangeBlock part={wild} /></section>}
   {refs.length > 0 && (
-    <section class="refs" id="nguon" aria-labelledby="nguon-h" data-pagefind-ignore>
-      <h2 id="nguon-h">{tr('Nguồn')}</h2>
-      <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener">{r.name}</a> <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
-      <p class="note">{tr('Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó.')}</p>
+    <section class="refs" id="nguon" data-pagefind-ignore>
+      <details>
+        <summary><h2 id="nguon-h">{tr('Nguồn')}</h2> <span class="n">{biblio ? tr('{n} nguồn và tài liệu tham khảo', { n: refs.length }) : tr('{n} nguồn', { n: refs.length })}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+        <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener">{r.name}</a> <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
+        <p class="note">{note}</p>
+        {biblio && (
+          <section class="biblio" data-section="references" id="muc-references">
+            <h3>{tr(QUESTION_LABELS.references)}</h3>
+            {biblio.blocks.map(b => <div class="prose" data-source={b.source} set:html={b.vi} />)}
+          </section>
+        )}
+      </details>
     </section>
   )}
   <GlossaryTip />
@@ -65,6 +91,24 @@ const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, await getCon
   .prose :global(p) { margin: 0 0 var(--space-3); line-height: 1.7; }
   .prose :global(.ml) { color: inherit; text-decoration-color: var(--c-moss); text-decoration-thickness: 1.5px; }
   .prose :global(.gl) { color: inherit; text-decoration: underline dotted var(--c-moss); text-decoration-thickness: 1.5px; }
+  /* Tank mates and Vietnam's climate, at the end of the section they answer. */
+  .slotted { grid-column: 1; }
+  /* The source list, closed: one row after the text, its count beside the heading; open, the numbered sources, then the
+     sources' own reference lists. */
+  .refs details { grid-column: 1; }
+  .refs summary { position: relative; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 var(--space-3); min-height: 2.75rem; padding-right: 2.75rem; cursor: pointer; list-style: none; }
+  .refs summary::-webkit-details-marker { display: none; }
+  .refs summary h2 { margin: 0; }
+  .refs summary .n { font-size: var(--step--1); color: var(--c-ink-soft); text-decoration: underline dotted var(--c-rule); text-underline-offset: 4px; }
+  .refs summary:hover .n { color: var(--c-ink); }
+  .refs .chev { position: absolute; right: var(--space-2); top: calc(50% - 8px); color: var(--c-ink-soft); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .refs details[open] .chev { transform: rotate(180deg); }
+  .refs details[open] > summary { margin-bottom: var(--space-3); padding-bottom: var(--space-2); border-bottom: 1px solid var(--c-rule); }
+  /* The row's rule is the summary's, the width of the column, open only (handbook.css rules the heading, hence its weight). */
+  :global(:root:not(#_)) .refs summary h2 { border-bottom: 0; padding-bottom: 0; }
+  .body .biblio { display: block; margin-top: var(--space-4); padding-bottom: 0; font-size: var(--step--1); color: var(--c-ink-soft); }
+  .biblio h3 { font-size: var(--step-1); margin-bottom: var(--space-2); color: var(--c-ink); }
+  .biblio .prose :global(p) { line-height: 1.6; overflow-wrap: anywhere; }
   /* The source list: numbers set like the marks in the text, so a reader matches them at a glance. */
   .refs ol { grid-column: 1; list-style: none; margin: 0; padding: 0; counter-reset: ref; font-size: var(--step--1); }
   .refs li { counter-increment: ref; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 var(--space-2); padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }

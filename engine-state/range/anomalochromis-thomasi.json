@@ -1,0 +1,94 @@
+{
+  "id": "anomalochromis-thomasi",
+  "native": {
+    "input": "98a73978eb501d95",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African butterfly cichlid, Anomalochromis thomasi, is a dwarf cichlid from forest streams in Sierra Leone, Guinea and Liberia.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African butterfly cichlid, Anomalochromis thomasi, is a dwarf cichlid from forest streams in Sierra Leone, Guinea and Liberia.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African butterfly cichlid, Anomalochromis thomasi, is a dwarf cichlid from forest streams in Sierra Leone, Guinea and Liberia.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sierra Leone, Guinea and Liberia.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sierra Leone, Guinea and Liberia.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sierra Leone, Guinea and Liberia.",
+        "words": "Liberia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anomalochromis thomasi",
+    "status": "ACCEPTED",
+    "taxonKey": 2372864,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        10
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "SL",
+      "GN",
+      "LR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

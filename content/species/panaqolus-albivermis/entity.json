@@ -8,13 +8,36 @@
   "lNumber": "L204",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "ucayali"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "planetcatfish",
+        "value": 13
+      }
+    ],
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.6,
+          "max": 8.6
+        }
       }
     ]
   },
@@ -26,16 +49,82 @@
       "html": "<p>Panaqolus albivermis received an official, valid name in 2013. It is one of the most beautiful L-numbers. Maximum length is around 10 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<ul><li>Scientific name: Panaqolus albivermis Lujan, Steele &amp; Velasquez, 2013</li><li>Common names: L204, Flash Pleco</li><li>IUCN Red List: Endangered (last assessed 2014)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l204_panaqolus_albivermis_en/",
       "html": "<p>The species originates from Peru.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Peru: Upper and Middle Ucayali drainage, Amazon basin. Type locality: Padre Abad Province, Irazola District, San Alejandro River, Ucayali River drainage, 8°55'02''S, 75°12'26''W, Peru, 195 metres above sea level. The original description has an N instead of an S in the coordinates of the type locality; this has been confirmed as a typo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Typically found in parts of the river 30–50 metres wide with a depth of up to 1 m. Conductivity is around 190 microsiemens. A strong current is preferred.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 6.6–8.6</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Sand or gravel bottom with a lot of driftwood. A few caves made from slate plates or bamboo pipes as potential spawning sites.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>A wood-eating species; vegetables are avidly eaten. Animal protein can be given once in a while but should not be the main diet, except when conditioning the fish for breeding, as it helps the female mature the eggs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Juveniles are good citizens; they become more territorial as they grow to maturity. Most ideally suited to a more active community tank, ideally with shoaling characins. Choose active tankmates carefully to avoid species that might nip at this pleco's ornate tail fin extensions.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Adult males have odontodes on the head and body; see the Cat-eLog Catfish of the Month article for sexing.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Breeding reports are available (see the Catfish of the Month article, December 2005, on spawning Panaque sp. L204). Caves of slate plate or bamboo pipes can serve as spawning sites.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l204_panaqolus_albivermis_en/",
       "html": "<p>Some spotted individuals were stocked under the name L204a; however, they do not represent a different species. Even among captive bred specimens from wild collected, striped parents, spotted youngsters appear every now and then.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>P. albivermis has a unique pattern: a dark brown to black base colour with very thin white to yellow vertical lines running from the upper body to the lower body. As the fish grows the lines tend to become broken, sometimes to the point where they become spots. Fins have thin white to yellow bands. Juveniles have rather white lines, which tend to turn yellow as the fish gets older.</p><p>Etymology: Panaqolus is derived from the indigenous term Panaque, in a form that implies a smaller size than that genus. The epithet albivermis combines the Latin albus (white) and vermis (worm), referring to the variable but distinctive white to yellow markings.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=126",
+      "html": "<p>Zootaxa 3691 (no. 1), pp 193, Fig. 1.</p>"
     }
   ],
   "photos": [
@@ -48,28 +137,6 @@
       "author": "Danny Blundell / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/panaqolus_albivermis.htm",
       "caption": "Panaqolus albivermis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/473340879514e88e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/473340879514e88e-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Dave Brough / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/panaqolus_albivermis.htm",
-      "caption": "Panaqolus albivermis: juvenile",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/74a73714c867f0eb.webp",
-      "thumb": "https://media.aquatome.com/scotcat/74a73714c867f0eb-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Dave Brough / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/panaqolus_albivermis.htm",
-      "caption": "Panaqolus albivermis: juvenile",
       "source": "scotcat"
     }
   ],
@@ -122,5 +189,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-06"
 }

@@ -12,6 +12,49 @@
     "bangladesh",
     "ganges"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Ganges"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is simply 'Assam, India', and this species appears restricted to the Brahmaputra River drainage in Assam State, northeastern India and probably the neighbouring state of West Bengal given that A. longipinnis, a synonym of this species (see 'Notes'), was described from the Ganges drainage.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Singer and Page (2015) restrict this species to the Brahmaputra and Ganges river basins of northern India and Bangladesh [p. 398].",
+          "countries": [
+            "BD"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Ganges"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193505,
+      "total": 0,
+      "fetched": "2026-11-05",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -184,8 +227,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x30"
+        "bể cá 120cm"
       ]
     },
     {

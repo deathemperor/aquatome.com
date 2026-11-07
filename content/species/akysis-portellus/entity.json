@@ -11,6 +11,60 @@
     "sittaung",
     "sittang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Sittaung River",
+        "Sittang River"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The smallmouth stream catfish, Akysis portellus, is a small akysid catfish from the Sittaung River system in southern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Sittaung River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Known from the type locality in the Sittang River drainage, southern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Sittang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340900,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -269,8 +323,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

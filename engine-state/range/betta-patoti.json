@@ -1,0 +1,59 @@
+{
+  "id": "betta-patoti",
+  "native": {
+    "input": "8ab113a43c183dd0",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mangar River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta patoti",
+    "status": "ACCEPTED",
+    "taxonKey": 2393991,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

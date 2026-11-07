@@ -12,6 +12,66 @@
     "salween",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's since been found in waters associated with the Salween (aka Thanlwin) River throughout southern Shan and even across the border in northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362708,
+      "total": 18,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          19.6875,
+          17,
+          17
+        ],
+        [
+          97.03125,
+          23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -244,7 +304,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p><p>Be sure to have the habitat ready before purchase.</p>"
+      "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p>"
     },
     {
       "key": "notes",
@@ -379,8 +439,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 30 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

@@ -12,6 +12,77 @@
     "ventuari",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Ventuari",
+        "Orinoco",
+        "Guapuchi"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The green phantom pleco, Baryancistrus demantoides, is a suckermouth catfish known only from where the río Ventuari meets the Orinoco in Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Ventuari",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Venezuela, Colombia",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, and also occurs in the lower reaches of the Ventuari as far as the inflowing río Guapuchi.",
+          "countries": [],
+          "regions": [
+            "Guapuchi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339924,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -211,8 +282,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45 cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

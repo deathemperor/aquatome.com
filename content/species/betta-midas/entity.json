@@ -12,6 +12,58 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta midas is a stout-bodied labyrinth fish from the lower Kapuas basin in West Kalimantan, Indonesian Borneo, and may also occur in western Sarawak.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the lower Kapuas river basin in West Kalimantan province, Indonesian Borneo near the village of Anjungan, about 60 km away from the town of Pontianak towards Mandor and Tayan.",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394029,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -133,8 +185,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

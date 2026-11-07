@@ -12,6 +12,70 @@
     "malaysia",
     "sambas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Acanthopsoides robertsi is a dwarf horse-face loach from the Kapuas River basin in West Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368111,
+      "total": 8,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -145,8 +209,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

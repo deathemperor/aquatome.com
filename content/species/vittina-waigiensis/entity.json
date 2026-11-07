@@ -10,6 +10,204 @@
     "indonesia",
     "waigeo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Waigiou"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The animals on which the description was based came from the island of Waigiou, which politically belongs to West Papua (Indonesia).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Waigiou"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7609508,
+      "total": 93,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "PH",
+          83
+        ],
+        [
+          "ID",
+          4
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "PW",
+          1
+        ],
+        [
+          "SG",
+          1
+        ],
+        [
+          "TH",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          7.03125,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          106.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          12.65625,
+          7,
+          0
+        ],
+        [
+          120.9375,
+          14.0625,
+          19,
+          0
+        ],
+        [
+          122.34375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          122.34375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          123.75,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          123.75,
+          9.84375,
+          5,
+          0
+        ],
+        [
+          123.75,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          125.15625,
+          7.03125,
+          40,
+          0
+        ],
+        [
+          125.15625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          135,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -47,7 +245,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/vittina-waigiensis-2/",
-      "html": "<p>The type specimens shown in the scientific database WoRMS are more similar in color and shape to a finely striped form of Vittina turrita. According to the current state of research, WoRMS refers to the species as Vittina waigiensis. Whether the animals referred to in the hobby as Vittina waigiensis really belong to this species must be checked again by a qualified person.</p><p>Lesson wrote: “This neritine must be extremely abundant on Waigiou Island; for the Papuans from Offach Bay brought us bamboo stuffed with it, which they used as a bartering object. We ourselves never came across it during our stay in this land of Papua.” The species was collected on a circumnavigation of the world by the corvette “La Coquille”, which lasted from 1822 to 1825.</p><p>All adult animals of V. waigiensis are missing the tip of their shell. This is not damage, but is part of normal shell growth, a phenomenon that occurs in many snail species. A striking feature is the striped soft body, particularly prominent in the head area.</p>"
+      "html": "<p>The type specimens shown in the scientific database WoRMS are more similar in color and shape to a finely striped form of Vittina turrita. According to the current state of research, WoRMS refers to the species as Vittina waigiensis. Whether the animals referred to in the hobby as Vittina waigiensis really belong to this species must be checked again by a qualified person.</p><p>All adult animals of V. waigiensis are missing the tip of their shell. This is not damage, but is part of normal shell growth, a phenomenon that occurs in many snail species. A striking feature is the striped soft body, particularly prominent in the head area.</p>"
     }
   ],
   "photos": [

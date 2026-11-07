@@ -3,6 +3,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, metricPage, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity } from '@aq/schema'
 import type { Llm } from './claude'
+import { lastKept, logReviews } from './review-log'
 import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
@@ -123,11 +124,15 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the guide on the site found, as the rewrite below does.
+  const before = kept ? await lastKept(root, { id: `guides/${id}`, lang: 'vi' }, ['topic']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
 
@@ -158,6 +163,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
+  await logReviews(root, 'topic', { id: `guides/${id}`, lang: 'vi' }, tries, review, o.now ? { now: o.now() } : {})
   return { id, slug, score: review.score, notes: review.notes, refs: refs.length }
 }
 
@@ -187,11 +193,15 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${T.lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the guide on the site found.
+  const before = o.redo ? await lastKept(root, { id: `guides/${id}`, lang }, ['topic']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
   const taken = new Set<string>()
@@ -202,11 +212,12 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   }
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
   const name = unescapePlain(w.name).trim()
-  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), lang === 'id' ? 'panduan' : 'guide', taken)
+  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
   const t = TranslationSchema.parse(metricPage({
     slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
   }, lang))
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+  await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, review)
   return { id, slug, score: review.score, notes: review.notes }
 }

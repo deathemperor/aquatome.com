@@ -1,3 +1,4 @@
+import { LANGS } from '@aq/schema/langs'
 import type Anthropic from '@anthropic-ai/sdk'
 import { LIMITS, type Limits } from '../agent/loop'
 import { sessionOf } from '../accounts/session'
@@ -93,7 +94,6 @@ const json = (data: unknown, status = 200) => Response.json(data, { status, head
 const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY && env.DB && env.FISHID_LEDGER)
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 const usdLimit = (env: FishIdEnv) => (Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY)
-const LANGS: Lang[] = ['vi', 'id', 'th']
 
 /**
  * Each key's problem in KV (fishid:key:<hash>), gone by itself once it no longer applies (KV's TTL, and `until`): a key
@@ -245,7 +245,7 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
 /** What an identification answers: the JSON body and its status (a stream sends the body as its last event). */
 type Done = { status: number; body: Record<string, unknown> }
 /** A run's outcome, from today's single call or the agent, before its answer is read. */
-type Called = { attempts: Attempt[]; usage: Usage; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'steps' | 'stopped' | 'later400'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
+type Called = { attempts: Attempt[]; usage: Usage; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'steps' | 'stopped' | 'rechecked' | 'later400'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 /** How long a result is kept for a retry with the same Idempotency-Key. */
 const RETRY_SEC = 15 * 60
@@ -333,7 +333,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     let out: Called
     if (catalogFirst) {
       const a = await identifyWithAgent({ healthy, store, photo, model, lang: up.lang, fetch: fetchImpl, random: deps.random, limits: { ...deps.limits, ms: Math.min(lim.ms, runMs()) }, onStep, onUsage, tools: { catalog: catalogFirst, facts: factsOf(env, url.origin, catalogFirst), onFactsMissing: () => count('facts') } })
-      const agent = { calls: a.calls, tools: a.tools, photos: a.photos, steps: a.steps, stopped: a.stopped, ...(a.later400 !== undefined ? { later400: a.later400 } : {}) }
+      const agent = { calls: a.calls, tools: a.tools, photos: a.photos, steps: a.steps, stopped: a.stopped, ...(a.rechecked ? { rechecked: true } : {}), ...(a.later400 !== undefined ? { later400: a.later400 } : {}) }
       out = { ...(a.ok ? { ok: true, message: a.message, hash: a.hash } : { ok: false, reason: a.reason }), attempts: a.attempts, usage: { input: a.spent.input, output: a.spent.output, cacheRead: a.spent.cacheRead, cacheWrite: a.spent.cacheWrite }, agent }
       if (a.stopped === 'fallback') count('fallback')
       if (a.stopped === 'calls') count('callLimit')
@@ -349,14 +349,14 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     rec.input = out.usage.input + (out.usage.cacheRead ?? 0) + (out.usage.cacheWrite ?? 0)
     rec.output = out.usage.output
     rec.cost = costOf(model, out.usage)
-    if (out.agent) Object.assign(rec, { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped } satisfies Partial<CallLog>)
+    if (out.agent) Object.assign(rec, { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, rechecked: out.agent.rechecked ? 1 : 0 } satisfies Partial<CallLog>)
     else if (out.ok) rec.turns = 1
     for (const a of out.attempts) tally.keys[a.hash] = (tally.keys[a.hash] ?? 0) + 1
     if (out.ok) tally.ok = out.hash
     const log = (outcome: string, extra: Record<string, unknown> = {}) => {
       rec.outcome = outcome
       // The agent's counts and its steps' kinds; never what it searched for. A later call's 400: the API's message.
-      const agent = out.agent ? { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, steps: out.agent.steps.map(s => s.kind), ...(out.agent.later400 !== undefined ? { later400: out.agent.later400 } : {}) } : {}
+      const agent = out.agent ? { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, steps: out.agent.steps.map(s => s.kind), ...(out.agent.rechecked ? { rechecked: true } : {}), ...(out.agent.later400 !== undefined ? { later400: out.agent.later400 } : {}) } : {}
       line({ fishId: outcome, model, ms: Date.now() - t, attempts: out.attempts.map(slim), ...agent, ...extra })
     }
     rec.attempts = out.attempts.length

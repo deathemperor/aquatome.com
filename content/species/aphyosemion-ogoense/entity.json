@@ -11,6 +11,99 @@
     "ogooue",
     "republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA",
+        "CG"
+      ],
+      "regions": [
+        "Ogooué",
+        "M'Passa River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the M'Passa River in the upper Ogooué drainage basin, southeastern Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Ogooué",
+            "M'Passa River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its current known range extends from that region into northern and central Republic of the Congo.",
+          "countries": [
+            "CG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348238,
+      "total": 20,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CG",
+          10
+        ],
+        [
+          "GA",
+          6
+        ],
+        [
+          "DE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          50.625,
+          4,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          12.65625,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -161,8 +254,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini có nắp đậy"
+        "bể cá 50cm"
       ]
     },
     {

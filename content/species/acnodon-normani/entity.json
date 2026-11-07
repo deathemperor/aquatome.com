@@ -10,6 +10,151 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Xingu",
+        "Tocantins"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The sheep pacu, Acnodon normani, is a serrasalmid from Brazil, possibly restricted to the Xingu and Tocantins watersheds of the Amazon basin.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the lower Amazon river basin, and possibly restricted to the Xingu and Tocantins watersheds.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Xingu",
+            "Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353604,
+      "total": 36,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -52.03125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -201,8 +346,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 300 lít"
+        "bể cá 150cm"
       ]
     },
     {

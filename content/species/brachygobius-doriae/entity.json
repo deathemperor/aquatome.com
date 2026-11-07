@@ -14,6 +14,132 @@
     "brunei",
     "belait"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Natuna Islands",
+        "Kapuas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Natuna Islands"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Borneo itself records exist from various localities in Sarawak and Brunei Darussalam, with the Kapuas river system, Kalimantan Barat (West Kalimantan) province, Indonesia, appearing to mark the limit of its eastward range.",
+          "countries": [
+            "BN"
+          ],
+          "regions": [
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377140,
+      "total": 24,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          11
+        ],
+        [
+          "BN",
+          10
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          115.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -153,8 +279,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

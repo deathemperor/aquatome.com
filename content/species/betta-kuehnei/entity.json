@@ -12,6 +12,54 @@
     "thailand",
     "narathiwat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta kuehnei is a paternal mouthbrooding labyrinth fish from Kelantan state, northeastern Peninsular Malaysia, and neighbouring Narathiwat, Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393989,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          5.625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -139,8 +187,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá mini có nắp"
+        "bể cá 60cm"
       ]
     },
     {

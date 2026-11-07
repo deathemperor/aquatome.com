@@ -11,6 +11,58 @@
     "peninsular-malaysia",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9304972,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -161,8 +213,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45 cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

@@ -14,6 +14,7 @@
 		D3236292626CA47984470E87 /* AccountSync in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFDEC878C6DCB864680A92D /* AccountSync */; };
 		7A1C3E5F2B4D6A8C0E1F2A3B /* Plugs in Frameworks */ = {isa = PBXBuildFile; productRef = 8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */; };
 		C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */ = {isa = PBXBuildFile; productRef = C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */; };
+		D7E1A2B3C4D5E6F708192A3B /* Telemetry in Frameworks */ = {isa = PBXBuildFile; productRef = D7E1A2B3C4D5E6F708192A3C /* Telemetry */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 				D3236292626CA47984470E87 /* AccountSync in Frameworks */,
 				7A1C3E5F2B4D6A8C0E1F2A3B /* Plugs in Frameworks */,
 				C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */,
+				D7E1A2B3C4D5E6F708192A3B /* Telemetry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +126,7 @@
 				4BFDEC878C6DCB864680A92D /* AccountSync */,
 				8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */,
 				C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */,
+				D7E1A2B3C4D5E6F708192A3C /* Telemetry */,
 			);
 			productName = AquaTome;
 			productReference = 81918909E83595C8F4212CCC /* AquaTome.app */;
@@ -297,10 +300,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Config/AquaTome-Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AquaTome;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "AquaTome dùng Bluetooth để tìm và điều khiển đèn bể cá của bạn.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "AquaTome dùng máy ảnh để chụp con cá bạn muốn nhận diện.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,10 +337,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Config/AquaTome-Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AquaTome;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "AquaTome dùng Bluetooth để tìm và điều khiển đèn bể cá của bạn.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "AquaTome dùng máy ảnh để chụp con cá bạn muốn nhận diện.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -453,6 +460,10 @@
 		C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TankCheck;
+		};
+		D7E1A2B3C4D5E6F708192A3C /* Telemetry */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Telemetry;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

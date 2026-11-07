@@ -1,0 +1,294 @@
+{
+  "id": "oreichthys-crenuchoides",
+  "scientificName": "Oreichthys crenuchoides",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Oreichthys",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "assam",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 14,
+          "max": 14
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>The Hifin barb is a very unusual representative of its kind. This small species only grows to 3-4 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>The original home of this species is in the north of India, in Assam and northern Bengal.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>There it inhabits slowly flowing waters. In their homeland, at the foot of the Himalayas, it gets very hot in summer, but during the monsoon season the water temperature drops to 14°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>These small barbs are completely undemanding in terms of water composition. You don't have to keep O. crenuchoides that cool, but it is a good idea to unplug the heating for a few months of the year and keep them at room temperature. This keeps the fish fit and you can enjoy them for a long time.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>They eat all commercially available ornamental fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>O. crenuchoides behaves completely peacefully towards conspecifics, other fish, shrimps, snails and plants.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>The males of O. crenuchoides develop a huge, sail-like dorsal fin. This fin remains small in the females and has a pretty yellow-black pattern. Some males disguise themselves as females and their dorsal fin remains small. This allows them to approach the spawning sites and spread their genetic material without being involved in competitive fights with the larger males. This behavior is mainly known from cichlids; it is called \"sneaker\" behavior.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/",
+      "html": "<p>In contrast to almost all barbs in the usual sense, O. crenuchoides spawn on the underside of leaves with their belly facing upwards.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>The drape fin barb, Oreichthys crenuchoides, is a small cyprinid possibly endemic to Brahmaputra tributaries in West Bengal, eastern India. The species is sometimes traded as Oreichthys cosuatis, O. sp. 'high fin', Puntius 'arunavii' or 'neon highfin barb'. Males have a significantly enlarged dorsal fin, and a large black marking at the caudal-fin base with no dark marking in the anal fin separates it from congeners.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>Possibly endemic to tributaries of the Brahmaputra River in West Bengal state, eastern India. The type specimens came from the Jorai River, close to the border with Assam, but it has been collected elsewhere, including the Ghoti Ganga River, Cooch Behar district (A. Rao, pers. comm.).</p><p>It is also known from the Buxa (often spelled 'Buxar') Tiger Reserve, a 760 km² forested area in the sub-division of Alipurduar, Jalpaiguri district and home to some of India's most recognised animals including tiger, elephant, leopard and regal python.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>At the type locality the Jorai River was around 5 m wide with a muddy substrate, contained quite clear water and was flowing slowly through 'open land'. This would seem typical since congeners also display a preference for slow-moving habitats.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>An aquarium with base dimensions of at least 60 × 30 cm (about 54 litres) is required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>Best kept in a well-decorated set-up with aquatic vegetation and woody structures. The addition of some floating plants to diffuse the light entering the aquarium also seems to be appreciated, and dried leaf litter can add a natural feel. Filtration, or at least water flow, should be relatively gentle, and use a soft substrate if possible since Oreichthys species have minuscule sensory bristles on the lower jaw which are used when foraging.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>Will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen foods such as Daphnia and Artemia will result in the best colouration and encourage the fish to come into breeding condition. It is noted as something of a shy, reluctant feeder.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>Unsuitable for most community aquaria as it may be intimidated or outcompeted for food by larger or more boisterous tankmates.</p><p>Small, peaceful cyprinids such as Trigonostigma or Boraras species make good choices, and it is suspected it will also do well with many South American characins, Otocinclus or pygmy Corydoras catfishes.</p><p>Although gregarious by nature it is a shoaling rather than schooling fish which develops a distinct pecking order, and rival males will exhibit some interesting sparring behaviour in captivity. It is best maintained in a group of 8 or more, but the tank must be decorated in such a way that many broken lines of sight are provided. If kept singly, in a very small group or in cramped conditions it can become withdrawn and subdominant fish may be bullied incessantly.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>Males grow a little larger than females, exhibit stronger colouration on the body and fins, and develop an extended dorsal fin, while sexually mature females possess a noticeably rounded abdomen during the spawning season.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. When in spawning condition small numbers of eggs will be laid daily, and in a mature, well-decorated aquarium as described above it is possible that small numbers of fry may start to appear without intervention.</p><p>However, if you want to increase the yield a slightly more controlled approach is required, perhaps the best method being isolation of one or two pairs in a separate aquarium containing nylon spawning mops or bunches of broad-leaved vegetation such as Anubias spp.</p><p>Females deposit eggs onto the underside of broad plant leaves or other solid surfaces while swimming in an inverted position, as in Pethia gelius, P. canius, and Trigonostigma species. An additional interesting behaviour noted by Schäfer (2009) is the tendency of some subordinate males to maintain a small body size and dorsal fin, thus assuming the general appearance of females. Such individuals were observed to display 'sneaking' behaviour during the spawning period, but if isolated from other males began to develop the typical extended dorsal fin after around 8 weeks.</p><p>The pair(s) can be left in situ for two or three days then removed, as the first eggs should hatch by the third day after the initial spawning. The fry will survive on their yolk sacs for around 5 more days, after which Paramecium or other microscopic food is required for the initial period. After 8 days they should be large enough to accept Artemia nauplii, microworm, etc.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<p>This fish is sometimes traded as Oreichthys cosuatis, Oreichthys sp. 'high fin', O. 'umangii' (a nomen nudum that has only ever been applied to an image of a fish in the book 'Ornamental Aquarium Fish of India' by K. L. Tekriwal and A. A. Rao), Puntius 'arunavii', or 'neon highfin barb'.</p><p>It can be distinguished from congeners by the following combination of characters: absence of a dark marking in the anal fin (vs. presence in other species); ½7½ scales between pelvic-fin origin and dorsal midline (vs. ½6½ in O. cosuatis and O. parvus); snout blunt (vs. pointed); black marking at caudal-fin base large and well-defined (vs. absent or small and poorly defined); 11–13 rows of pores on ventral surface of head; males with significantly enlarged dorsal fin; pharyngeal teeth arranged in three rows (1-3-4).</p><p>It seems certain that new species of Oreichthys will be described in the future as there exist at least three undescribed forms from Myanmar, four from India (including one said to originate in the Western Ghats mountain range, thus greatly extending the range of the genus), and possibly others from Thailand and the Mekong basin in Laos.</p><p>Distinguishing some of these from one another and the described species can be tricky; one variant from the Dibru River in Tinsukia District, Assam state, India is very similar to O. cosuatis but has a less rounded dorsal fin, for example, while other variants from Myanmar differ in fin colour or patterning such as the extent of the dark blotch at the caudal peduncle, with the latter absent in some forms.</p><p>The genus is defined by the following characters: small size up to 43 mm SL; body deep, stout and strongly compressed; barbels absent; head with rows of fine pores, normally concentrated on the snout, interorbital area, cheeks, and opercle; simple dorsal and anal-fin rays soft and smooth; 17–21+2 scales in lateral series; lateral line visible; 3 simple and 8 branched dorsal-fin rays; 3 simple and 5 branched anal-fin rays; abdomen rounded anterior to pelvic-fin origin, with a scaled keel between pelvic-fin base and anal-fin origin; pharyngeal teeth arranged in 3 rows of unequal length forming a pyramidal shape; presence of dark-grey, crescent-shaped marking on each scale; symphysial knob absent; gill rakers absent; no spine anterior to dorsal-fin origin.</p><p>The sensory pores on the snout, cheeks, throat, opercle and interorbital areas are lacking in most other cyprinids but present in a few genera including Eirmotus, Cyclocheilichthys, Neobarynotus, and a handful of other species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "html": "<ul><li>Tan, H-H. and M. Kottelat (2008). Revision of the cyprinid fish genus Eirmotus, with description of three new species from Sumatra and Borneo. Raffles Bulletin of Zoologhy 56(2), 423-433</li><li>Schäfer, F. (2009). Oreichthys crenuchoides, a new cyprinid from west Bengal, India. Ichthyological Exploration of Freshwaters 20(3), 201-211</li><li>V. Vilasri (2002). Oreichthys parvus Smith, 1933 (Teleostei: Cyprinidae), an Addition to the Fish Record from the Peat Swamp, Southern Thailand. The Natural History Journal of Chulalongkorn University 2(1), 64-65</li><li>Tekriwal, K. L. and A. A. Rao (1999). Ornamental Aquarium Fish of India Kingdom Books, 1-144</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/cb8e4876a810c9e6.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreichthys.jpg",
+      "caption": "Oreichthys crenuchoides in Wrocław Zoological Garden",
+      "thumb": "https://media.aquatome.com/commons/cb8e4876a810c9e6-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9ace3df00d288eaf.webp",
+      "width": 960,
+      "height": 665,
+      "licence": "CC BY-SA 4.0",
+      "author": "Beta Mahatvaraj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreichthys_crenuchoides_(cropped).jpg",
+      "caption": "Oreichthys crenuchoides (Drapefin Barb)",
+      "thumb": "https://media.aquatome.com/commons/9ace3df00d288eaf-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7c71223047150189.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7c71223047150189-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreichthys-crenuchoides",
+      "caption": "Adult female specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "U3bOCAl0WpA",
+      "title": "Indische Hochflossenbarbe - Oreichthys crenuchoides | Liquid Nature Fisch Vorstellung",
+      "durationSec": 726,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "nJpOGUZiwF4",
+      "title": "Oreichthys crenuchoides",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sVejOcaePSw",
+      "title": "ドレープフィンバルブ 　Drape Fin Barb 　Oreichthys crenuchoides",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BVFkCYPgND0",
+      "title": "Nieuwe video supermooie Oreichthys crenuchoides👌",
+      "durationSec": 102,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rYUctk3WHnQ",
+      "title": "Buxa forest (India) biotoop bij Aquarium Speciaalzaak Utaka - Oreichthys crenuchoides",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá rộng",
+        "cây thủy sinh nền",
+        "cây anubias",
+        "cây thủy sinh nổi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng vảy",
+        "thức ăn viên cho cá nhỏ",
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy lọc nước dòng chảy nhẹ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

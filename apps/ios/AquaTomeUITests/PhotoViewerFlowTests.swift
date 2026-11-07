@@ -31,6 +31,16 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(wait(shown, label: "full", timeout: 15), "the full photo didn't come: \(shown.label)")
   }
 
+  /// Each photo in the row keeps to its own place. A picture wider than its place (only the stand-in is, in this row) was
+  /// drawn clipped, but its frame reached 13 pt over the next photo's, for VoiceOver and where XCUITest aims.
+  func testARowsPhotosKeepToTheirPlaces() {
+    let app = launch()
+    let first = rowPhoto(app, "Đàn cá neon trong bể")
+    let second = app.buttons["Cá neon gần cây"].firstMatch
+    XCTAssertTrue(second.exists, "no second photo")
+    XCTAssertLessThanOrEqual(first.frame.maxX, second.frame.minX, "\(first.frame) reaches over \(second.frame)")
+  }
+
   /// Photo 1 of 28 fetches 2 and 3 with it; photo 8, picked in the strip, 6 to 10: nothing further, and none between.
   /// Full photos held back (`-slow-pictures`), the fetches left far behind are stopped on the way.
   func testOnlyThePhotosNearTheOneShownAreFetched() {
@@ -155,9 +165,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// A reader's photo keeps its report and block menu in the viewer.
   func testAReadersPhotoKeepsItsMenu() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server")
-    let photo = app.buttons["Ảnh của Lan"]
-    reveal(app, photo)
-    photo.tap()
+    rowPhoto(app, "Ảnh của Lan").tap()
     let menu = app.buttons["Tùy chọn cho ảnh của Lan"].firstMatch
     XCTAssertTrue(menu.waitForExistence(timeout: 10), "no options in the photo's viewer: \(app.debugDescription)")
     menu.tap()
@@ -169,8 +177,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// place when it doesn't come (`-fail-pictures`): never the photo before, under the new one's words.
   func testARowsPlaceNeverShowsThePhotoBefore() {
     let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fail-pictures", "p2-t")
-    let lan = app.buttons["Ảnh của Lan"]
-    reveal(app, lan)
+    let lan = rowPhoto(app, "Ảnh của Lan")
     settle(1)
     XCTAssertGreaterThan(colour(lan.screenshot().image), 0.12, "Lan's photo isn't drawn")
     lan.tap()
@@ -214,16 +221,25 @@ final class PhotoViewerFlowTests: XCTestCase {
   private func openViewer() -> XCUIApplication {
     let app = launch()
     rowPhoto(app, "Đàn cá neon trong bể").tap()
-    XCTAssertTrue(counter(app, "1/3").waitForExistence(timeout: 5), "no viewer")
+    XCTAssertTrue(counter(app, "1/3").waitForExistence(timeout: 5), "no viewer on the first photo")
     let shown = app.descendants(matching: .any)["picture-shown"]
     XCTAssertTrue(wait(shown, label: "full", timeout: 15), "the full photo didn't come: \(shown.label)")
     return app
   }
 
-  /// A photo in the gallery's row on the page, in view.
+  /// A photo in a row on the page, whole above the tab bar, with room under it for the gallery's "all photos" button. A
+  /// sliver of it above the bar counts as in view, and XCUITest then taps the sliver's corner, which can be the next
+  /// photo's (4 pt showed in #481's run: it opened 2/3, and the flows said "no viewer").
   private func rowPhoto(_ app: XCUIApplication, _ words: String) -> XCUIElement {
     let photo = app.buttons[words].firstMatch
     reveal(app, photo)
+    let bar = app.tabBars.firstMatch
+    if bar.exists, photo.frame.maxY + 60 > bar.frame.minY {
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: bar.frame.minY - photo.frame.maxY - 60)), withVelocity: .slow,
+                 thenHoldForDuration: 0.1)
+      XCTAssertLessThanOrEqual(photo.frame.maxY, bar.frame.minY, "\(words) is still under the tab bar")
+    }
     return photo
   }
 
@@ -274,7 +290,7 @@ final class PhotoViewerFlowTests: XCTestCase {
 
   /// Scrolls the page down until `e` is on screen.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<24 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

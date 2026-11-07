@@ -10,6 +10,135 @@
     "brazil",
     "espirito-santo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Doce River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: coastal streams from Rio de Janeiro to Santa Catarina, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: although it is possible that it is a species complex, Acentronichthys leptos was assessed as a single specific entity due to its wide distribution (from Santa Catarina to northern Rio de Janeiro and northern Espírito Santo, above the mouth of the Doce River to southern Bahia).",
+          "countries": [],
+          "regions": [
+            "Doce River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343628,
+      "total": 284,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          284
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -26.71875,
+          36,
+          36
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          33,
+          33
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          70,
+          70
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          23,
+          23
+        ],
+        [
+          -46.40625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -23.90625,
+          22,
+          22
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          27,
+          27
+        ],
+        [
+          -43.59375,
+          -22.5,
+          14,
+          14
+        ],
+        [
+          -42.1875,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          6,
+          6
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          -39.375,
+          -18.28125,
+          6,
+          6
+        ],
+        [
+          -39.375,
+          -16.875,
+          38,
+          38
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

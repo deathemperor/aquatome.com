@@ -1,0 +1,67 @@
+{
+  "id": "aborichthys-elongatus",
+  "native": {
+    "input": "7006469d3ec4f6df",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-tailed squirrel loach, Aborichthys elongatus, is a nemacheilid loach from Darjeeling District, West Bengal, in north-east India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "These are all tributaries of the Teesta River and thus part of the Brahmaputra River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Teesta",
+        "source": "seriouslyfish",
+        "quote": "These are all tributaries of the Teesta River and thus part of the Brahmaputra River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Sivalik Hills",
+        "source": "seriouslyfish",
+        "quote": "Andrew Arunava Rao of Malabar Tropicals told us it can be collected only in Darjeeling District, West Bengal State, north-east India from streams and small rivers running down from the Sivalik Hills including the Relli, Chel and Ghish.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aborichthys elongatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358761,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

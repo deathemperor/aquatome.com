@@ -13,6 +13,95 @@
     "manipur",
     "indawgyi-lake"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "IN"
+      ],
+      "regions": [
+        "Lake Indawgyi",
+        "Ayeyarwady",
+        "Lokchao",
+        "Chindwin",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Indawgyi stream catfish, Akysis prashadi, is an akysid catfish from Lake Indawgyi and the upper Ayeyarwady drainage in northern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Indawgyi",
+            "Ayeyarwady"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded from the Lokchao river in Manipur, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Lokchao"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Vishwanath et al. (2007) report that the species also occurs in the state of Manipur, northeastern India where it was recorded in the Lokchao river, an upper affluent of the Chindwin river system which is itself a tributary of the Ayeyarwady.",
+          "countries": [],
+          "regions": [
+            "Chindwin"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Indawgyi Lake and northern Irrawaddy River basin, Myanmar.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340906,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -277,8 +366,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

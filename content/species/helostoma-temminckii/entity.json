@@ -18,6 +18,206 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "VN",
+        "KH",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Dong Nai",
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the island of Java, Indonesia but currently accepted to occur throughout much of southern Indochina and the Malay Archipelago including Vietnam (Dong Nai river basin), Cambodia (Mekong), Thailand (Mekong, Chao Phraya, Tapi and Peninsular drainages), Peninsular Malaysia, the Greater Sunda Islands of Borneo (where it's restricted to western and southern zones of Sarawak and Kalimantan), Sumatra and Java.",
+          "countries": [
+            "ID",
+            "VN",
+            "KH",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Dong Nai",
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2392012,
+      "total": 41,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          19
+        ],
+        [
+          "MY",
+          16
+        ],
+        [
+          "BD",
+          2
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          90,
+          22.5,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          9,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          106.875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          106.875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          115.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -157,8 +357,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 300 lít"
+        "bể cá 150cm"
       ]
     },
     {

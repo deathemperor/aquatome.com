@@ -10,6 +10,63 @@
     "indonesia",
     "indragiri"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2407788,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          22.5,
+          -5.625,
+          1
+        ],
+        [
+          105.46875,
+          8.4375,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1
+        ],
+        [
+          112.5,
+          0,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -24,12 +81,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/auriglobus-modestus-2/",
       "html": "<p>The golden pufferfishes – the genus name Auriglobus means roughly \"golden globe\" – are pure freshwater pufferfishes. For a long time it was thought that there was only one species, A. modestus, which was placed in the genus Chonerhinos. Then it was discovered that there are actually five species, very similar to each other.</p><p>This golden pufferfish reaches a length of about 10 cm.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/auriglobus-modestus-2/",
-      "html": "<p>A shipment of Golden Puffers was received from Sumatra, more specifically from the Indragiri River. In all probability it is A. modestus. This is supported by anatomical characteristics (snout and caudal peduncle shape) and also by the locality, because the last reviser of the genus (Roberts, 1982) identified specimens from the Indragiri as A. modestus.</p>"
     },
     {
       "key": "diet",

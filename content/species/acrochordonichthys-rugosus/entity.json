@@ -17,6 +17,123 @@
     "sumatra",
     "rajang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Solo",
+        "Java",
+        "Sumatra",
+        "Borneo",
+        "Rajang"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the city of Surakarta in central Java, Indonesia, but as currently accepted this species is widely-distributed having been recorded from the Solo, Ciliwung and Citarum River drainages in Java, the Barito, Kapuas, Mahakam and Rajang River drainages in Kalimantan province, Indonesian Borneo, the Musi and Tulangbawan River drainages in Sumatra and the Bernam, Terengganu, Mae Nam Sungai Kolok, and Pattani River drainages in Peninsular Malaysia and southern Thailand.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Solo",
+            "Rajang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": [
+            "Java",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340879,
+      "total": 15,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MY",
+          9
+        ],
+        [
+          "ID",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -295,7 +412,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90x30",
         "bể cá 90cm"
       ]
     },

@@ -10,6 +10,50 @@
     "indonesia",
     "bintan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bintan Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Bintan Island, Riau Islands province, Indonesia, where it is known only from a handful of localities in the northern portion of the island.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bintan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394024,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -93,12 +137,6 @@
       "html": "<p><em>Betta miniopinna</em> is a small bubble-nesting labyrinth fish endemic to Bintan Island, Indonesia, where it is known from a few northern localities. A dark member of the mostly red <em>B. coccina</em> group, it is most similar to <em>B. persephone</em>. Development for tourism and rubber plantations has left it restricted to a few pockets of primary peat swamp forest, and it has been listed as Critically Endangered on the IUCN Red List since 1996.</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
-      "html": "<p>Wild caught Betta miniopinna from Indonesia (no specific location at this time). They are quite similar to Persephone but show more red on the ventral fins. Be sure to have the habitat ready before purchase.</p>"
-    },
-    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
@@ -139,12 +177,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-miniopinna",
       "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 4.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-miniopinna",
-      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -222,8 +254,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

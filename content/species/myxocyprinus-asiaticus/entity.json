@@ -10,6 +10,80 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to upper and middle sections of the Yangtze River system in China including its major tributary the Min River.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359106,
+      "total": 8,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CN",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          30.9375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -74,12 +148,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/myxocyprinus-asiaticus",
       "html": "<p>The Chinese sailfin sucker, Myxocyprinus asiaticus, is a catostomid endemic to the upper and middle Yangtze River system in China, including the Min. The only Asian member of its family, it is traded as juveniles under names such as 'Chinese banded shark', almost always without mention of an adult size of almost a metre or a lifespan of 25 years or more. Wild populations are threatened by dams, pollution, overfishing and introduced species.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/myxocyprinus-asiaticus-2/",
-      "html": "<p>Usually the fish come from Singapore, but as a test some were ordered from a new supplier in Hong Kong. The fish were observed carefully and two different phenotypes were found. Some specimens are reddish and the mighty dorsal fin is rounded at its tip. Others are rather black-and-white and the dorsal fin of these fish is much more pointed. Both phenotypes can be found in fish of the same size; the photographed ones are both 10-12 cm long. Do these differences in coloration represent the different sexes? That would be astonishing, as all whimple carps in the trade are still small juveniles.</p>"
     },
     {
       "key": "distribution",

@@ -3,10 +3,11 @@
   "name": "Cá cầu vồng neon đỏ mắt xanh",
   "altNames": [
     "Cá cầu vồng neon đỏ",
-    "Red Neon Blue Eye",
+    "Red-Neon Blue-eye",
     "Red Neon Rainbowfish",
     "Red Neon Blue Eye Rainbowfish",
-    "Cá mắt xanh neon đỏ"
+    "Cá mắt xanh neon đỏ",
+    "Paskai Red-Neon"
   ],
   "sections": {
     "quickFacts:bwaquatics": "<p>Pseudomugil luminatus, tên thường gọi là cá cầu vồng mắt xanh đỏ neon, là một loài cá nước ngọt nhỏ nhưng màu sắc rất rực rỡ. Cá trưởng thành dài khoảng 2,5–3,8 cm.</p>",
@@ -17,13 +18,17 @@
     "behaviour:bwaquatics": "<p>Đây là loài cá hiền và thích sống theo đàn, tốt nhất nên nuôi ít nhất 6–8 con. Những loài nuôi chung rất hợp gồm rasbora nhỏ, cá lúa (ricefish), cá chuột lùn và các loài cá cầu vồng hiền khác. Bạn nên tránh nuôi chung với cá lớn hoặc cá dữ, vì chúng có thể giành hết thức ăn. Cá bơi nhiều ở tầng giữa. Bể cần có cả khoảng trống để bơi lẫn chỗ để ẩn nấp.</p>",
     "dimorphism:bwaquatics": "<p>Con đực có thân màu đỏ đến cam rực rỡ, mắt xanh điện và vây dài. Con cái nhỏ hơn một chút, màu nhạt hơn nhưng vẫn có màu sắc đẹp.</p>",
     "reproduction:bwaquatics": "<p>Đây là loài đẻ trứng rải rác. Muốn cho cá sinh sản, bạn nên dùng bể riêng với nước mềm, hơi axit, có cây lá nhỏ hoặc búi tơ đẻ trứng. Cá bố mẹ cần được vỗ bằng thức ăn sống. Cá đẻ mỗi ngày, trứng bám vào các bề mặt mảnh và mịn. Trứng nở sau 7–10 ngày, tùy nhiệt độ. Lúc đầu, bạn cho cá bột ăn trùng cỏ hoặc nước xanh. Khi cá lớn dần thì chuyển sang artemia mới nở hoặc giun siêu nhỏ.</p>",
-    "notes:bwaquatics": "<p>Cá loài này là cá sinh sản trong bể nuôi. Chúng khỏe và dễ thích nghi một khi đã quen bể. Muốn cá giữ màu rực rỡ và tiếp tục sinh sản, bạn cần giữ nước thật sạch và điều kiện trong bể ổn định.</p>"
+    "notes:bwaquatics": "<p>Cá loài này là cá sinh sản trong bể nuôi. Chúng khỏe và dễ thích nghi một khi đã quen bể. Muốn cá giữ màu rực rỡ và tiếp tục sinh sản, bạn cần giữ nước thật sạch và điều kiện trong bể ổn định.</p>",
+    "distribution:glaser": "<p>Pseudomugil luminatus là một loài cá mắt xanh (họ Pseudomugilidae), sống ở miền nam New Guinea.</p>",
+    "notes:glaser": "<p>Pseudomugil sp. “paskai Red-Neon” về tới giới chơi cá lần đầu vào năm 2012. Đây là một trong những phát hiện ngoạn mục nhất về cá cảnh của thiên niên kỷ này. Từ lần nhập đầu tiên đến nay, loài cá này đã có chỗ đứng vững chắc trong giới chơi cá. Nó cũng tỏ ra là một loài cá cảnh đẹp, hiền và khỏe.</p><p>Có điều, loài này lúc đó chưa có tên khoa học. Mẫu vật ngâm bảo quản thường mất hết màu, và trông rất giống Pseudomugil paskai. Nhưng khi còn sống, P. paskai có màu hoàn toàn khác và xỉn hơn nhiều.</p><p>Giờ thì loài này đã có mô tả khoa học đúng quy cách. Tên hợp lệ và chính xác của nó là Pseudomugil luminatus.</p>",
+    "references:glaser": "<p>Allen, G. R., Unmack, P. J. &amp; R. K. Hadiaty (2016): Pseudomugil luminatus, a new species of Blue-eye (Teleostei: Pseudomugilidae) from southern New Guinea, with notes on P. gertrudae. Fishes of Sahul 30 (1): 950-961</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.8
+      "bwaquatics": 0.8,
+      "glaser": 0.9
     }
   }
 }

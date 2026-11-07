@@ -1,0 +1,58 @@
+{
+  "id": "betta-cracens",
+  "native": {
+    "input": "650be7fcbb01d917",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta cracens is a mouthbrooding labyrinth fish from the Jambi area of Sumatra, Indonesia, and it may also occur on nearby Bangka island.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the area of Bertam south of Jambi City, Jambi province, Sumatra, Indonesia and it may also occur on Pulau Bangka (Bangka island).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Betta cracens is a mouthbrooding labyrinth fish from the Jambi area of Sumatra, Indonesia, and it may also occur on nearby Bangka island.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the area of Bertam south of Jambi City, Jambi province, Sumatra, Indonesia and it may also occur on Pulau Bangka (Bangka island).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta cracens",
+    "status": "ACCEPTED",
+    "taxonKey": 2394001,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

@@ -8,13 +8,57 @@
   "places": [
     "africa",
     "malawi",
-    "lake-malawi"
+    "lake-malawi",
+    "mozambique"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 9
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 11.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ]
   },
@@ -26,10 +70,58 @@
       "html": "<p>Chindongo socolofi is one of the smallest mbuna. In the wild they barely exceed 8 cm in length; in the aquarium they can grow 50% larger. The species is relatively peaceful in the aquarium.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>The powder blue cichlid, Chindongo socolofi, is a mbuna endemic to Lake Malawi, found along the Mozambique coast between Cobue and Tumbi Point. It is still often sold as Pseudotropheus socolofi. Also known as 'Eduard's mbuna' and 'Pindani', it is one of the most popular Rift Lake cichlids and somewhat peaceful for a mbuna. Both sexes share the same powder blue colouration, which makes it hard to sex. Most fish on sale are tank-bred, and an albino form exists in aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>Endemic to Lake Malawi. It occurs along the coast of Mozambique, between Cobue and Tumbi point, although it has been introduced elsewhere.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>It inhabits relatively shallow water in the intermediate zone where the rocky shoreline gives way to sandy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>Standard length: 115 mm SL (11.5 cm). Aquarium base: 90 × 45 cm. Volume: ~154 litres.</p><p>90 × 45 × 38 cm - ~154 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>Arrange piles of rockwork in such a way as to form lots of caves and hiding places, leaving some open areas for swimming. A sandy substrate is preferable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>It will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach, nori etc. should form a large proportion of the diet. This can be supplemented with live and frozen varieties. Never feed beefheart or any other red meat as it will interfere with the digestive system of these fish.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/chindongo-socolofi/",
       "html": "<p>The colours of the mbuna serve to demarcate species from one another as clearly as possible. This makes it easier to recognise one's own species and avoids fights, since members of other species usually eat something else and there is less need to fight over food and females. Among the most combative mbuna is C. bellicosus, the type species of the genus. Chindongo socolofi, however, is relatively peaceful in the aquarium.</p><p>In many mbuna there is clear gender dichromatism: sexually mature males are coloured differently than females, and juveniles all look like females. Only sexually mature males defend territories and signal with showy colours that they invite passing females to mate; other males in showy colours are beaten up.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>Not especially aggressive for a mbuna although still unsuited to the general community tank. It should not be kept with large or aggressive mbuna. Good tankmates include Aulonocara, Copadichromis and quieter mbuna such as Labidochromis caeruleus. Male fish are territorial and a large aquarium is required if you wish to keep more than one. Each male should be provided with several females.</p>"
     },
     {
       "key": "dimorphism",
@@ -38,10 +130,28 @@
       "html": "<p>In Chindongo socolofi males and females cannot be distinguished by colour. Only the egg spots in the anal fin are missing in the females or are at least less pronounced.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>Not an easy species to sex as both males and females exhibit the same bright \"powder\" blue colouration. The egg spots in the anal fin of the male tend to be larger and more intense in colour than those of the female. Male fish also usually have longer pelvic fins than females. The easiest way to sex it is by observing its behaviour. As with other mbuna males are the more territorial sex and are often seen chasing females and other species in the tank. Obviously it can also be sexed by examination of the vents, but this approach is for experts only.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>Not too difficult. Maternal mouthbrooder. Ideally it should be spawned in a species tank in a harem of one male and at least 3 females, although it will often spawn in the community aquarium. A 90 cm aquarium is a good size and should be furnished as suggested above, along with some flat stones and areas of open substrate to act as potential spawning sites. The pH should be around 8.2-8.5 and the temperature 25 – 26.5 °C. Condition the fish with a high quality diet composed mainly of vegetable matter.</p><p>The male fish will clean and then display around his chosen spawning site, showing intense colour, and attempt to entice females to mate with him. He can be quite aggressive in his pursuits and it is in order to dissipate this aggression that this species is spawned in a harem. When a female is willing, she will approach the spawning site and lay her eggs there, immediately taking them into her mouth as she goes. The male has egg-shaped spots on his anal fin and the female is attracted to these. When she tries to add them to the brood in her mouth she actually receives sperm from the male, thus fertilising the eggs.</p><p>The female will carry the eggs for around 3-4 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation or harassment by the males. It is also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group. If the fish have bred in a community situation and you want to raise the fry you must remove her, however.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them artificially from that point as this usually results in a larger number of fry. The fry are large enough to take brine shrimp nauplii, microworm and powdered dried foods from birth.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/chindongo-socolofi/",
       "html": "<p>The genus Chindongo was described in 2016 together with its type species C. bellicosus. It includes C. ater, C. bellicosus, C. cyaneus, C. demasoni, C. elongatus, C. flavus, C. heteropictus, C. longior, C. minutus, C. saulosi and C. socolofi.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-socolofi",
+      "html": "<p>This common mbuna also goes by the names \"Eduard's mbuna\" and \"Pindani\". It is one of the most popular Rift Lake cichlids in the hobby due to its striking colouration and somewhat peaceful nature (for a mbuna). Wild fish can now be quite difficult to find, as the vast majority of specimens offered for sale are tank-bred. An albino form exists in aquaria and has achieved a fair degree of popularity. A highly recommended beginner's mbuna.</p>"
     }
   ],
   "photos": [
@@ -86,8 +196,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá cichlid Malawi"
+        "bể cá 90cm"
       ]
     },
     {
@@ -103,5 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

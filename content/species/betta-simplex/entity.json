@@ -10,6 +10,46 @@
     "thailand",
     "krabi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from Krabi province, southern (peninsular) Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394027,
+      "total": 8,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          7.03125,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -162,8 +202,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini có nắp"
+        "bể cá 60cm"
       ]
     },
     {

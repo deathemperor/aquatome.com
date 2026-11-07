@@ -9,16 +9,25 @@ import { speciesDepth } from '@aq/schema/depth'
 import { isAllowedLicence } from '@aq/schema/licence'
 import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
+import { LANG, LANGS, OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
 import { langOf, toVi } from '../src/lib/i18n.ts'
 import { VI_SECTIONS, withoutVi } from '../worker/paths.ts'
-import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
+import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, LastReview, LowPage, LowScores, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
 
 export const MAX_BYTES = 1_000_000
-const LANGS: Lang[] = ['vi', 'id', 'th']
 const GAP_LIST = 50
 /** Engine rules this mirrors, kept in step by test/content-stats.test.ts: a video's 3 tries (youtube.ts), a page's (state.ts), REWRITE_V (vi-backfill.ts). */
 export const MAX_ATTEMPTS = 3
 export const REWRITE_V = 2
+/** @aq/schema QUALITY_THRESHOLD (load.ts, which plain node can't import), kept in step by test/content-stats.test.ts. */
+export const QUALITY_BAR = 0.75
+/**
+ * The engine's reviews (review-log.ts REVIEW_KINDS) that set a page's score, and the rest: a title, a part the reader step
+ * rewrote (kept only at a passing score), a product's review section, a quick summary, a place's name (no place page is
+ * out of search for it), a plant's planting part (kept only at a passing score). test/content-stats.test.ts holds each of the engine's kinds to one list.
+ */
+export const SCORE_REVIEWS = ['video-guide', 'translation', 'vi-rewrite', 'breed', 'topic', 'product', 'localize', 'glossary', 'equipment', 'species'] as const
+export const OTHER_REVIEWS = ['reader-rewrite', 'title', 'product-reviews', 'summary', 'places', 'planting'] as const
 
 // Content files are read as the engine wrote them, without the schema's parser: the backfill runs this on old commits too.
 type Json = Record<string, any>
@@ -36,10 +45,14 @@ function items(root: string, dir: string): Item[] {
     const vi = read(join(root, dir, id, 'vi.json'))
     if (!e || !vi) return []
     const t: Item['t'] = { vi }
-    for (const l of ['id', 'th'] as const) { const x = read(join(root, dir, id, `${l}.json`)); if (x) t[l] = x }
+    for (const l of OTHER_LANGS) { const x = read(join(root, dir, id, `${l}.json`)); if (x) t[l] = x }
     return [{ id, e, t }]
   })
 }
+
+/** A count in each language: every one at 0, or each other language's (`f`). */
+const zeroByLang = () => Object.fromEntries(LANGS.map(l => [l, 0])) as ByLang
+const perOther = (f: (l: OtherLang) => number) => Object.fromEntries(OTHER_LANGS.map(l => [l, f(l)])) as Record<OtherLang, number>
 
 const ENTITY_KINDS: EntityKind[] = ['fish', 'breed', 'plant', 'guide', 'videoGuide', 'series', 'glossary', 'equipment', 'place', 'product']
 const zeroKinds = <T>(f: () => T) => Object.fromEntries(ENTITY_KINDS.map(k => [k, f()])) as Record<EntityKind, T>
@@ -64,13 +77,13 @@ function builtPages(dist: string): { path: string; title: string }[] {
     }
   }
   if (existsSync(join(dist, 'index.html'))) walk(dist, '/', VI_SECTIONS)
-  for (const l of LANGS) if (l !== 'vi' && existsSync(join(dist, l))) walk(join(dist, l), `/${l}/`)
+  for (const l of OTHER_LANGS) if (existsSync(join(dist, LANG[l].prefix))) walk(join(dist, LANG[l].prefix), `${LANG[l].prefix}/`)
   return out
 }
 
 type Slugs = Record<Lang, Map<string, string>> // slug → item id, per language
 const slugMap = (xs: Item[]): Slugs => {
-  const m = { vi: new Map(), id: new Map(), th: new Map() } as Slugs
+  const m = Object.fromEntries(LANGS.map(l => [l, new Map()])) as Slugs
   for (const x of xs) for (const l of LANGS) if (x.t[l]?.slug) m[l].set(x.t[l]!.slug, x.id)
   return m
 }
@@ -149,12 +162,12 @@ export function computeContentStats(o: StatsInput): ContentStats {
   const plantPages = plants.filter(x => sectionsOf(x.e).length > 0)
   const guidePages = guides.filter(x => textOk(x.e.source))
 
-  const count = (xs: Item[]) => ({ total: xs.length, id: xs.filter(x => x.t.id).length, th: xs.filter(x => x.t.th).length })
+  const count = (xs: Item[]) => ({ total: xs.length, ...perOther(l => xs.filter(x => x.t[l]).length) })
   const equip = (l: Lang) => files(l === 'vi' ? join(root, 'equipment') : join(root, 'equipment', l)).length
   const inventory: ContentStats['inventory'] = {
     fish: count(species), breed: count(breeds), plant: count(plants),
     guide: count(guides.filter(g => !isVideo(g))), videoGuide: count(guides.filter(isVideo)),
-    series: count(series), glossary: count(glossary), equipment: { total: equip('vi'), id: equip('id'), th: equip('th') },
+    series: count(series), glossary: count(glossary), equipment: { total: equip('vi'), ...perOther(equip) },
     place: count(places), product: count(products),
   }
 
@@ -167,14 +180,14 @@ export function computeContentStats(o: StatsInput): ContentStats {
       glossary: slugMap(glossary), place: new Set(places.map(p => p.id)), series: slugMap(series), product: slugMap(products),
     }
     pages = {}
-    const total: ByLang = [0, 0, 0]
+    const total = zeroByLang()
     const byKind: Partial<Record<PageKind, ByLang>> = {}
     for (const p of builtPages(o.dist)) {
       const [kind, id] = classify(p.path, s)
       ;(pages[kind] ??= []).push(id ? [p.path, p.title, id] : [p.path, p.title])
-      const li = LANGS.indexOf(langOf(p.path))
-      total[li]++
-      ;(byKind[kind] ??= [0, 0, 0])[li]++
+      const l = langOf(p.path)
+      total[l]++
+      ;(byKind[kind] ??= zeroByLang())[l]++
     }
     built = { total, byKind }
   }
@@ -272,14 +285,82 @@ export function computeContentStats(o: StatsInput): ContentStats {
     engine = { ...engineStats(o.engineState!, sourcesInfo, now), rewrite: progress }
   }
 
-  const kinds = zeroKinds<ByLang>(() => [0, 0, 0])
-  for (const k of ENTITY_KINDS) kinds[k] = [inventory[k].total, inventory[k].id, inventory[k].th]
+  const kinds = zeroKinds<ByLang>(zeroByLang)
+  for (const k of ENTITY_KINDS) kinds[k] = { vi: inventory[k].total, ...perOther(l => inventory[k][l]) }
   const totals: Totals = {
     kinds, built: built?.total ?? null,
     sources: Object.fromEntries(Object.entries(sources).map(([k, v]) => [k, v.fish + v.plant + v.guide])),
     photos: { pages: photos.pages, gallery: photos.gallery.photos },
+    fullCards: fishPages.length - (gaps.fish?.noKeyFacts?.n ?? 0),
   }
   return { v: 1, builtAt: now.toISOString(), publicBuild: o.publicBuild, inventory, built, sources, photos, engine, gaps, pages, totals }
+}
+
+/** Each kind of page with a score of its own: where its item is in content/ (and in a review's key). */
+const SCORED: Partial<Record<PageKind, string>> = { fish: 'species', breed: 'breeds', plant: 'plants', guide: 'guides', videoGuide: 'guides', glossary: 'glossary', product: 'products', equipment: 'equipment' }
+
+/**
+ * Whether a page is out of search for its score, as the build judges it (@aq/schema load.ts): a fish's or plant's score
+ * is the lowest of its shown sources' (cleanQuality), and with one its `indexable` follows that score; a fish's recorded
+ * `thin` was the depth rule's own call, so its score alone decides (judgeDepth). Out for its score: not passed, and under
+ * the bar. A fish out of search for being thin as well is in both lists (its gap `thin`).
+ */
+export function outForScore(dir: string, q: Json | undefined, textOk: (source: string) => boolean): number | undefined {
+  if (!q || typeof q.score !== 'number') return undefined
+  let { score, indexable } = q as { score: number; indexable: boolean }
+  if (dir === 'species' || dir === 'plants') {
+    const by = Object.entries((q.bySource ?? {}) as Record<string, number>).filter(([s]) => textOk(s)).map(([, v]) => v)
+    if (by.length) { score = Math.min(...by); indexable = score >= QUALITY_BAR }
+  }
+  const passed = dir === 'species' && q.reason === 'thin' ? score >= QUALITY_BAR : indexable
+  return !passed && score < QUALITY_BAR ? score : undefined
+}
+
+/** A page's last review, of these traces: one of the version it has, under the bar if any is (it says why), the newest. */
+export function lastReview(traces: LastReview[]): LastReview | undefined {
+  const rank = (t: LastReview) => [Number(t.kept), Number(t.score < QUALITY_BAR), t.at] as const
+  const after = (a: LastReview, b: LastReview) => {
+    const [x, y] = [rank(a), rank(b)]
+    return x[0] - y[0] || x[1] - y[1] || x[2].localeCompare(y[2])
+  }
+  return traces.reduce<LastReview | undefined>((best, t) => (!best || after(t, best) > 0 ? t : best), undefined)
+}
+
+/**
+ * dist/_ab/reviews.json: every built page out of search for its score (outForScore), lowest first, each with its last
+ * review (engine-state/reviews/<kind>.json, keyed "<lang>/<content path>", a part after "#"); none without engine state.
+ */
+export function lowScores(o: { contentRoot: string; engineState?: string; publicBuild: boolean; pages: ContentStats['pages'] }): LowScores {
+  const root = o.contentRoot
+  const sourcesInfo = read(join(root, 'sources.json')) ?? {}
+  const textOk = (s: string) => !o.publicBuild || sourcesInfo[s]?.publish === true
+  const traces = new Map<string, LastReview[]>()
+  const dir = o.engineState && join(o.engineState, 'reviews')
+  if (dir && existsSync(dir)) {
+    for (const kind of SCORE_REVIEWS) {
+      for (const [key, ts] of Object.entries((read(join(dir, `${kind}.json`)) ?? {}) as Record<string, Json[]>)) {
+        const page = key.split('#')[0]!
+        const list = traces.get(page) ?? []
+        for (const t of ts) list.push({ kind, at: String(t.at), score: Number(t.score), notes: ((t.notes ?? []) as unknown[]).map(String), kept: t.kept === true })
+        traces.set(page, list)
+      }
+    }
+  }
+  const pages: LowPage[] = []
+  for (const [kind, d] of Object.entries(SCORED) as [PageKind, string][]) {
+    for (const [path, , id] of o.pages?.[kind] ?? []) {
+      if (!id) continue
+      const lang = langOf(path)
+      // An equipment guide's other languages are content/equipment/<lang>/<category>.json; the Vietnamese one has no score.
+      const t = kind === 'equipment' ? (lang === 'vi' ? undefined : read(join(root, d, lang, `${id}.json`))) : read(join(root, d, id, `${lang}.json`))
+      const score = outForScore(d, t?.quality, textOk)
+      if (score === undefined) continue
+      const review = lastReview(traces.get(`${lang}/${d}/${id}`) ?? [])
+      pages.push({ path, kind, score, ...(review ? { review } : {}) })
+    }
+  }
+  pages.sort((a, b) => a.score - b.score || a.path.localeCompare(b.path))
+  return { v: 1, bar: QUALITY_BAR, pages }
 }
 
 /** The rewrite does a page again when it never ran, or did part of it under an older version (vi-backfill.ts `due`). */
@@ -344,12 +425,21 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const dist = resolve(process.env.OUT_DIR ?? fileURLToPath(new URL('../dist', import.meta.url)))
   const hiddenFile = process.env.HIDDEN_FILE ?? resolve(process.cwd(), '.hidden.json')
   const hidden = new Set(Object.keys(read(hiddenFile) ?? {}).map(withoutVi))
-  const stats = computeContentStats({ contentRoot, engineState: resolve(process.env.ENGINE_STATE ?? join(contentRoot, '../engine-state')), dist, publicBuild: process.env.PUBLIC_BUILD === '1', hidden })
+  const engineState = resolve(process.env.ENGINE_STATE ?? join(contentRoot, '../engine-state'))
+  const publicBuild = process.env.PUBLIC_BUILD === '1'
+  const stats = computeContentStats({ contentRoot, engineState, dist, publicBuild, hidden })
   const body = JSON.stringify(stats)
   mkdirSync(join(dist, '_ab'), { recursive: true })
   writeFileSync(join(dist, '_ab', 'content.json'), body)
   const n = Object.values(stats.pages ?? {}).reduce((a, xs) => a + xs.length, 0)
   console.log(`content-stats: ${n} pages, ${Math.round(Buffer.byteLength(body) / 1024)} KB${stats.engine ? '' : ' (no engine state)'}`)
+  // The pages out of search for their score, for the content page's "Còn thiếu"; read, like content.json, by the Worker alone.
+  const low = lowScores({ contentRoot, engineState, publicBuild, pages: stats.pages })
+  const lowBody = JSON.stringify(low)
+  writeFileSync(join(dist, '_ab', 'reviews.json'), lowBody)
+  console.log(`content-stats: ${low.pages.length} pages out of search for their score, ${low.pages.filter(p => p.review).length} with a review, ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB`)
+  // The same budget: about 2 KB of notes a page, it fits some 450 pages with a review.
+  if (Buffer.byteLength(lowBody) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/reviews.json is ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB, over its 1 MB budget: keep fewer notes a page`)
   // A budget, not a limit (an asset may be 25 MiB): over it, a warning on the deploy's run rather than a failed deploy,
   // since the dashboard's file shouldn't hold back the site's content. At about 90 bytes a page, it fits some 10,000 pages.
   if (Buffer.byteLength(body) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/content.json is ${Math.round(Buffer.byteLength(body) / 1024)} KB, over its 1 MB budget: make the page index smaller`)

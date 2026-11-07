@@ -10,6 +10,58 @@
     "thailand",
     "yom"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Yom River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The falcate chameleon catfish, Acrochordonichthys gyrinus, is an akysid catfish known only from the Yom River, Chao Phraya basin, northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described and known only from the Yom River in Phitsanulok Province, northern Thailand, the major tributary of the Nan River within the upper Chao Phraya drainage basin.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Yom River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340870,
+      "total": 1,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +189,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

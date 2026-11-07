@@ -10,6 +10,36 @@
     "indonesia",
     "batang-hari"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Batang Hari",
+        "Sumatra"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Batang Hari River basin, eastern Sumatra.",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340919,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -138,8 +168,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 30cm",
-        "bể cá nhỏ"
+        "bể cá 30cm"
       ]
     },
     {

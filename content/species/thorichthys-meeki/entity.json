@@ -16,6 +16,200 @@
     "united-states",
     "hawaii"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX",
+        "BZ",
+        "GT"
+      ],
+      "regions": [
+        "Río Tonalá",
+        "Yucatán Peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The firemouth cichlid, Thorichthys meeki, is a Central American cichlid from Mexico's Atlantic slope and the Yucatán south into Belize and Guatemala.",
+          "countries": [
+            "MX",
+            "BZ",
+            "GT"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its natural range extends eastward from the Río Tonalá system near Coatzacoalcos, on Mexico's Atlantic slope, through the states of Veracruz, Chiapas, Tabasco, around the Yucatán Peninsula, then southward into northern Belize and Guatemala.",
+          "countries": [],
+          "regions": [
+            "Río Tonalá",
+            "Yucatán Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370898,
+      "total": 1124,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MX",
+          993
+        ],
+        [
+          "GT",
+          92
+        ],
+        [
+          "BZ",
+          35
+        ],
+        [
+          "US",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          3,
+          0
+        ],
+        [
+          -112.5,
+          33.75,
+          1,
+          0
+        ],
+        [
+          -94.21875,
+          16.875,
+          36,
+          36
+        ],
+        [
+          -94.21875,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          -92.8125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          -92.8125,
+          16.875,
+          111,
+          111
+        ],
+        [
+          -92.8125,
+          18.28125,
+          64,
+          64
+        ],
+        [
+          -91.40625,
+          15.46875,
+          182,
+          182
+        ],
+        [
+          -91.40625,
+          16.875,
+          17,
+          17
+        ],
+        [
+          -91.40625,
+          18.28125,
+          24,
+          24
+        ],
+        [
+          -91.40625,
+          19.6875,
+          30,
+          30
+        ],
+        [
+          -91.40625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -90,
+          15.46875,
+          13,
+          13
+        ],
+        [
+          -90,
+          16.875,
+          92,
+          92
+        ],
+        [
+          -90,
+          18.28125,
+          159,
+          159
+        ],
+        [
+          -90,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -90,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -88.59375,
+          16.875,
+          14,
+          14
+        ],
+        [
+          -88.59375,
+          18.28125,
+          307,
+          307
+        ],
+        [
+          -88.59375,
+          19.6875,
+          54,
+          54
+        ],
+        [
+          -87.1875,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -87.1875,
+          21.09375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -155,8 +349,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x30"
+        "bể cá 120cm"
       ]
     },
     {

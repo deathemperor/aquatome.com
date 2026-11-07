@@ -1,0 +1,76 @@
+{
+  "category": "test-nuoc",
+  "name": "Kit ujian air (test kit)",
+  "lead": "Air yang jernih belum tentu air yang bersih. Kit ujian menunjukkan paras ammonia, nitrit, pH dan kekerasan air sebelum ikan sempat jatuh sakit.",
+  "intro": "<p>Ammonia dan nitrit tidak berwarna dan tidak berbau. Walaupun dalam kuantiti yang kecil, kedua-duanya boleh melecurkan insang ikan dan membunuhnya. Ujian paling perlu dibuat pada tangki baru, tangki yang baru ditambah ikan dan tangki yang ada ikan mati.</p><p>pH, GH (kekerasan am) dan KH (kekerasan karbonat) menentukan spesies yang sesuai dengan air paip di rumah anda. Ikan dari lembangan Amazon suka air lembut yang sedikit berasid, manakala cichlid Tasik Malawi memerlukan air keras dan beralkali.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/commons/047302cd5cfe7c68.webp",
+    "thumb": "https://media.aquatome.com/commons/047302cd5cfe7c68-480.webp",
+    "width": 960,
+    "height": 619,
+    "licence": "CC BY 2.5",
+    "author": "w:pl:Wikipedysta:Lukas3",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+    "caption": "Aquarium-NitrogenCycle.png"
+  },
+  "types": [
+    {
+      "id": "man",
+      "name": "Refraktometer (pengukur kemasinan)",
+      "match": "mặn|tỷ trọng|nước biển",
+      "desc": "<p>Mengukur kemasinan air dengan hanya setitis air. Perlu untuk tangki air payau (ikan buntal, ikan goby) dan tangki air laut.</p>",
+      "pick": "Kalibrasi dengan air suling setiap kali sebelum digunakan.",
+      "buy": "khúc xạ kế đo độ mặn"
+    },
+    {
+      "id": "tds",
+      "name": "Pen TDS (TDS meter)",
+      "match": "tds|ro",
+      "desc": "<p>Mengukur jumlah pepejal terlarut (TDS), jadi anda tahu sama ada air itu \"berat\" atau \"ringan\". Berguna untuk penternak udang hiasan dan pemelihara ikan air lembut.</p>",
+      "pick": "Tidak boleh menggantikan ujian GH/KH, tetapi murah dan cepat untuk memantau air yang baru ditukar setiap minggu.",
+      "buy": "bút đo tds"
+    },
+    {
+      "id": "test",
+      "name": "Kit ujian pH, GH, KH, ammonia, nitrit, nitrat",
+      "match": "ph|gh|kh|nitrat|no2|nh3|test|dung dịch|đồng|kit",
+      "desc": "<p>Ada dua jenis: jalur ujian yang dicelup dengan cepat, atau kit cecair titis yang dibandingkan warnanya. Kit cecair lebih tepat, jalur ujian lebih mudah.</p>",
+      "pick": "Sekurang-kurangnya perlu ujian ammonia, nitrit dan pH. Jika memelihara udang hiasan atau ikan air lembut, tambah ujian GH dan KH.",
+      "buy": "bộ test nước bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/925fb88907449688.webp",
+        "thumb": "https://media.aquatome.com/commons/925fb88907449688-480.webp",
+        "width": 960,
+        "height": 136,
+        "licence": "CC BY 4.0",
+        "author": "R. Henrik Nilsson",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_single_6_in_1_water_testing_strip_by_Tetra_GmbH_Germany.jpg",
+        "caption": "2022 single 6 in 1 water testing strip by Tetra GmbH Germany.jpg"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Tangki baru: uji ammonia dan nitrit 2–3 kali seminggu sehingga kedua-duanya kekal pada 0 selama sekurang-kurangnya seminggu.</p>",
+    "<p>Tangki yang sudah stabil: uji sebulan sekali dan setiap kali ikan menunjukkan kelakuan luar biasa.</p>",
+    "<p>Uji air paip sekali untuk mengetahui spesies yang sesuai dengan air di rumah anda sebelum membeli ikan.</p>"
+  ],
+  "mistakes": [
+    "<p>Menggunakan jalur ujian yang sudah tamat tempoh atau lembap: keputusannya salah.</p>",
+    "<p>Hanya menguji pH: pH yang baik tidak menunjukkan apa-apa tentang paras ammonia dan nitrit.</p>",
+    "<p>Kerap melaraskan pH dengan bahan kimia: ikan lebih tahan dengan pH yang stabil berbanding pH yang \"betul\" tetapi turun naik.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Berapa lama selepas ikan dimasukkan ke dalam tangki baru barulah air perlu diuji?",
+      "a": "<p>Uji dari hari pertama lagi, dan masukkan ikan apabila ammonia dan nitrit sudah turun ke 0, biasanya selepas penapis berjalan selama 3–6 minggu.</p>"
+    },
+    {
+      "q": "Jalur ujian atau kit cecair, mana lebih baik?",
+      "a": "<p>Kit cecair lebih tepat dan lebih murah jika dikira mengikut setiap ujian. Jalur ujian lebih cepat, sesuai untuk pemula dan untuk pemeriksaan pantas.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

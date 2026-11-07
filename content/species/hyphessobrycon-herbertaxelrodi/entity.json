@@ -19,12 +19,50 @@
         "BR"
       ],
       "regions": [
-        "Rio Paraguai",
+        "Paraguai",
         "Pantanal",
-        "Rio Sepotuba"
+        "Taquari",
+        "Sepotuba"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The black neon tetra, Hyphessobrycon herbertaxelrodi, is a characid from the upper rio Paraguai in Mato Grosso and Mato Grosso do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Paraguai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is widespread north and south of the Pantanal, favouring minor tributaries, headwater rivers, oxbows and seasonal floodplains.",
+          "countries": [],
+          "regions": [
+            "Pantanal"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Coxim on the Rio Taquary [= Taquari], Rio Paraguay [= Paraguai] basin, Mato Grosso, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Taquari"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Sepotuba empties into the Paraguai main channel around 500 kilometres upstream of the Taquiri, thus the species is assumed to occur in other drainages between them.",
+          "countries": [],
+          "regions": [
+            "Sepotuba"
+          ]
+        }
       ]
     },
     "records": {
@@ -454,8 +492,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {

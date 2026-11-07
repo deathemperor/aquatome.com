@@ -1,10 +1,10 @@
 import Handbook
 import SwiftUI
 
-/// The handbook before a search, as the site's home and lists arrange it: what the reader saved and read last; fish by
-/// group, then the well-known ones; plants by where they go, then easy ones; the first guides, then guides by subject;
-/// the video series and every video guide; the tools; the glossary. Each way in leads to one shelf of pages
-/// (BrowseView), never to everything at once.
+/// The handbook before a search, as the site's home and lists arrange it: the tools first, fish ID leading them; what the
+/// reader saved and read last; fish by group, then the well-known ones; plants by where they go, then easy ones; the
+/// first guides, then guides by subject; the video series and every video guide; equipment; the glossary. Each way in
+/// leads to one shelf of pages (BrowseView), never to everything at once.
 struct HomeList: View {
   @Environment(HandbookModel.self) private var handbook
 
@@ -15,6 +15,7 @@ struct HomeList: View {
     if handbook.status == .offline || handbook.status == .failed {
       Section { StatusText().font(.footnote) }
     }
+    Tools()
     if !saved.isEmpty {
       Section("Đã lưu để đọc sau") {
         ForEach(saved) { item in
@@ -39,6 +40,7 @@ struct HomeList: View {
 /// The ways into each kind, as the site's home and lists arrange them.
 private struct Shelves: View {
   let shelves: HandbookShelves
+  @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
     Section {
@@ -79,16 +81,147 @@ private struct Shelves: View {
       }
     }
 
-    let tools = shelves.all(.tool)
-    if !tools.isEmpty {
-      Section("Công cụ") { ForEach(tools) { Row(item: $0) } }
+    let kit = shelves.all(.equipment)
+    if !kit.isEmpty {
+      Section("Thiết bị") { ForEach(kit) { Row(item: $0) } }
     }
+
     Section("Thuật ngữ") {
       AllLink(browse: .glossary, count: shelves.all(.glossary).count, title: "Tất cả", id: "all-glossary")
     }
+    // What's new on the site, as its menu and footer offer it, with the day of its newest: the list stops at the site's
+    // 200, so a count would say nothing.
+    if let newest = handbook.latest.first {
+      Section {
+        NavigationLink(value: Browse.latest) {
+          LabeledContent { Text(verbatim: newest.entry.shown).monospacedDigit() } label: { Text("Mới cập nhật") }
+        }
+        .accessibilityIdentifier("all-latest")
+      }
+    }
     // How to reach AquaTome, signed in or not: the site's contact page, in the browser.
     Section {
-      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!).accessibilityIdentifier("contact")
+      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!).accessibilityIdentifier("contact")
+    }
+  }
+}
+
+/// Tìm's tools, first under search (the owner's ask): fish ID as the one card that leads, then the index's other tools as
+/// tiles, each by the short name its card on the site's tools page has, two to a row (one at accessibility sizes, so a
+/// name never squeezes). Left out: the tools a tab holds (the lights, the tanks) and the tools page itself. The card needs
+/// no index; the tiles come with it, so a tool the site adds shows here without an app release.
+private struct Tools: View {
+  @Environment(HandbookModel.self) private var handbook
+  @Environment(\.openScreen) private var openScreen
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let tiles = self.tiles
+    Section {
+      FishIdCard { openScreen(.fishId) }
+      if !tiles.isEmpty {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8, alignment: .top), count: size.isAccessibilitySize ? 1 : 2),
+                  spacing: 8) {
+          ForEach(tiles) { ToolTile(item: $0) }
+        }
+        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
+      }
+    } header: {
+      Text("Công cụ")
+    }
+  }
+
+  private var tiles: [HandbookIndex.Item] {
+    let tools = handbook.shelves.all(.tool)
+    // The tools page: the one every other tool's page is under (and there are others).
+    let page = tools.first { t in tools.count > 1 && tools.allSatisfy { $0.path.hasPrefix(t.path) } }
+    return tools.filter { item in
+      guard item.path != page?.path else { return false }
+      switch AppScreen.of(handbook.url(item), site: handbook.site) {
+      case .fishId, .lights, .tanks: return false
+      default: return true
+      }
+    }
+  }
+}
+
+/// Fish ID, leading Tìm's tools: the one card on Tìm filled with the accent colour, a button to its screen (which asks
+/// for the photo). Its words and icon take the ink that reads on that fill: white on light mode's dark green, near-black
+/// on dark mode's light green, where white would be 1.7:1. A card of its own on the list's background, as the tiles under
+/// it are; at accessibility sizes its icon goes above its words, which then have the card's whole width.
+private struct FishIdCard: View {
+  let open: () -> Void
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let ink = scheme == .dark ? Color(white: 0.07) : Color.white
+    let stacked = size.isAccessibilitySize
+    let layout = stacked ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
+    Button(action: open) {
+      HStack(spacing: 12) {
+        layout {
+          Image(systemName: "camera.fill")
+            .font(.title3)
+            .padding(10)
+            .background(ink.opacity(0.15), in: Circle())
+            .accessibilityHidden(true)
+          VStack(alignment: .leading, spacing: 2) {
+            Text("Đây là cá gì?").font(.headline)
+            Text("Chụp hoặc chọn ảnh: cá, tép, ốc hay cây").font(.subheadline)
+          }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        if !stacked { Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).accessibilityHidden(true) }
+      }
+      .foregroundStyle(ink)
+      .padding(16)
+      .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .listRowInsets(EdgeInsets())
+    .listRowBackground(Color.clear)
+    .listRowSeparator(.hidden)
+    .accessibilityIdentifier("tool-fish-id")
+  }
+}
+
+/// A tool as a tile: its symbol and short name (its page's title from a site that gives none), on a card like the list's
+/// rows. Its own screen when the app has one, else its page; a button either way, so the list adds no chevron of its own.
+private struct ToolTile: View {
+  let item: HandbookIndex.Item
+  @Environment(HandbookModel.self) private var handbook
+  @Environment(\.openScreen) private var openScreen
+
+  var body: some View {
+    let screen = AppScreen.of(handbook.url(item), site: handbook.site)
+    Button { openScreen(screen ?? .page(item.path)) } label: {
+      VStack(alignment: .leading, spacing: 6) {
+        Image(systemName: symbol(screen)).font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
+        Text(verbatim: item.short ?? item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary)
+          .multilineTextAlignment(.leading)
+      }
+      .frame(maxWidth: .infinity, minHeight: 64, alignment: .topLeading)
+      .padding(12)
+      .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .accessibilityIdentifier("tool-tile")
+  }
+
+  /// A known tool's symbol, by its screen or (one the app shows as its page) its page's name in any language; a wrench
+  /// for a tool the app doesn't know yet.
+  private func symbol(_ screen: AppScreen?) -> String {
+    switch screen {
+    case .some(.tankMates): return "fish"
+    case .some(.tankVolume): return "cube.transparent"
+    default:
+      let slug = item.path.split(separator: "/").last.map(String.init) ?? ""
+      return ["du-toan-be", "anggaran-akuarium", "tank-budget"].contains(slug) ? "banknote" : "wrench.and.screwdriver"
     }
   }
 }

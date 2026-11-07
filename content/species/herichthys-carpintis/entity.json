@@ -10,6 +10,124 @@
     "mexico",
     "panuco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Panuco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The pearlscale cichlid, Herichthys carpintis, is a large cichlid from northern Mexico, found in lagoons around the mouth of the Panuco drainage.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Panuco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373122,
+      "total": 119,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MX",
+          114
+        ],
+        [
+          "US",
+          4
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -115.3125,
+          35.15625,
+          1,
+          0
+        ],
+        [
+          -101.25,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -99.84375,
+          21.09375,
+          28,
+          28
+        ],
+        [
+          -99.84375,
+          22.5,
+          41,
+          41
+        ],
+        [
+          -99.84375,
+          23.90625,
+          16,
+          16
+        ],
+        [
+          -99.84375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -98.4375,
+          21.09375,
+          20,
+          20
+        ],
+        [
+          -98.4375,
+          22.5,
+          3,
+          3
+        ],
+        [
+          -98.4375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -91.40625,
+          29.53125,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          22.5,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -172,8 +290,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cichlid lớn"
+        "bể cá 120cm"
       ]
     },
     {

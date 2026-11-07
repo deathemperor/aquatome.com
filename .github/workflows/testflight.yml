@@ -137,12 +137,14 @@ jobs:
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
             -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
       # The signed app has every entitlement the project asks for (Sign in with Apple): an export that dropped one
-      # would ship an app whose sign-in fails. Checked before anything is uploaded.
+      # would ship an app whose sign-in fails. Checked before anything is uploaded. Notifications' APNs is the
+      # project's `development` (Xcode's builds) and the App Store's `production`.
       - name: Entitlements kept
         run: |
           python3 - "$RUNNER_TEMP/export/DistributionSummary.plist" apps/ios/Config/AquaTome.entitlements <<'EOF'
           import plistlib, sys
           summary, wanted = (plistlib.load(open(p, 'rb')) for p in sys.argv[1:])
+          if 'aps-environment' in wanted: wanted['aps-environment'] = 'production'
           signed = [i.get('entitlements', {}) for items in summary.values() for i in items]
           missing = sorted({k for e in signed for k, v in wanted.items() if e.get(k) != v}) if signed else ['(no app in the summary)']
           if missing: sys.exit(f'entitlements missing from the signed app: {missing}')

@@ -30,6 +30,9 @@ test('the queries: 30 days, bounded, readers\' copies only unless the test build
     expect(q, name).toMatch(/FROM aquatome_app WHERE/)
     expect(q, name).toMatch(/FORMAT JSON$/)
     if (name !== 'health') expect(q, name).toMatch(/LIMIT \d+/)
+    // Analytics Engine sorts only by what the query selects: "ORDER BY timestamp" with no timestamp chosen is a 422.
+    const order = /ORDER BY (\w+)/.exec(q)?.[1]
+    if (order) expect(q, name).toMatch(new RegExp(`\\bAS ${order}\\b`))
   }
   for (const q of Object.values(appSql(true))) expect(q).toContain("blob14 = '1'")
 })

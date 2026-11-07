@@ -10,6 +10,136 @@
     "guyana",
     "essequibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [
+        "Rio Essequibo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The glowlight tetra, Hemigrammus erythrozonus, is a small characin known only from the Rio Essequibo in Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Rio Essequibo, Guyana.",
+          "countries": [],
+          "regions": [
+            "Rio Essequibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354398,
+      "total": 53,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "GY",
+          41
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          0,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          4.21875,
+          24,
+          24
+        ],
+        [
+          -60.46875,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          12,
+          12
+        ],
+        [
+          -57.65625,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -162,8 +292,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 68 lít"
+        "bể cá 60cm"
       ]
     },
     {

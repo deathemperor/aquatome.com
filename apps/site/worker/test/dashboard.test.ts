@@ -1,3 +1,4 @@
+import { parse } from 'node-html-parser'
 import { expect, test } from 'vitest'
 import { safeEqual } from '../dashboard'
 import { affiliatePage, areas, hiddenPage, log, overviewPage, todos, type Overview } from '../admin/pages'
@@ -5,6 +6,7 @@ import { chipHtml, chipOf, lastDays } from '../admin/chart'
 import type { ContentStats, Snapshot, Totals } from '../admin/content'
 import { contentPage, perDay } from '../admin/content-page'
 import { loginPage, unset } from '../admin/shell'
+import { LOW, LOW_CONTENT } from './owner-sample'
 
 test('safeEqual compares whole strings', () => {
   expect(safeEqual('abc', 'abd')).toBe(false)
@@ -13,7 +15,7 @@ test('safeEqual compares whole strings', () => {
 })
 const NOW = new Date('2026-11-02T10:00:00Z')
 const nothing: Overview = { now: NOW, readers: unset('x'), clicks: unset('x'), fish: unset('x'), keys: unset('x'), photos: unset('x'), waiting: unset('x'), wanted: unset('x'), accounts: unset('x'), hidden: unset('x'), content: unset('x'), snapshots: unset('x') }
-const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Totals => ({ kinds: { fish: [fish, idFish, thFish], plant: [plant, 0, 0], guide: [guide, 0, 0] } as Totals['kinds'], built: null, sources: {}, photos: { pages: 0, gallery: 0 } })
+const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Totals => ({ kinds: { fish: { vi: fish, id: idFish, th: thFish }, plant: { vi: plant, id: 0, th: 0 }, guide: { vi: guide, id: 0, th: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources: {}, photos: { pages: 0, gallery: 0 } })
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
@@ -76,7 +78,7 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   const translated: Snapshot[] = [{ day: days[7]!, totals: totals(100, 20, 5, 10, 12) }, { day: days[8]!, totals: totals(100, 20, 5, 30, 32) }]
   expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới', section: 'noi-dung' })
   // A day not kept, or with nothing kept before it, is unknown rather than 0.
-  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([null, 10, null, null, null, null, null, 8, 2])
+  expect(perDay(snaps, days, t => t.kinds.fish.vi)).toEqual([null, 10, null, null, null, null, null, 8, 2])
 })
 
 test('overview areas: the last 7 whole days against the 7 before, the 30 whole days drawn; today left out', () => {
@@ -174,4 +176,54 @@ test('content page: what the build holds, the engine, what is missing; a part th
   if (gap) expect(html).toContain(`href="${gap.top[0]![0]}"`)
   // No content.json in this build: the page says so and nothing else.
   expect(contentPage({ now: NOW, stats: { failed: 'Bản build này chưa có content.json.' }, reads: unset('x'), talk: unset('x'), clicks: unset('x'), snapshots: [] })).toContain('Bản build này chưa có content.json.')
+})
+
+test('content page: the pages out of search for their score, counted by kind, the most read first, each with its last review\'s notes folded', () => {
+  const html = contentPage(LOW_CONTENT)
+  const low = parse(html).querySelector('section[aria-labelledby="thieu"] section.low')!
+  expect(low.querySelector('h3')!.text).toBe('Ẩn khỏi tìm kiếm vì điểm thấp')
+  expect(low.querySelectorAll('.kpi').map(k => [k.querySelector('dt')!.text, k.querySelector('.v')!.text, k.querySelector('.sub')!.text])).toEqual([
+    ['Cá', '33', 'tiếng Việt 31 · Indonesia 1 · Thái 1'], ['Bài từ video', '1', 'tiếng Việt 1'], ['Thuật ngữ', '1', 'tiếng Việt 1'],
+  ])
+  expect(low.querySelectorAll('thead th').map(t => t.text)).toEqual(['Trang', 'Loại', 'Điểm', 'Người đọc', 'Nhận xét gần nhất'])
+  // The 30 first: the two with readers, then the lowest score; the rest counted.
+  const rows = low.querySelectorAll('tbody tr')
+  expect(rows).toHaveLength(30)
+  expect(rows.slice(0, 6).map(r => [r.querySelector('th a')!.getAttribute('href'), r.querySelector('th')!.text, r.querySelector('.k')!.text, r.querySelector('.s')!.text, r.querySelector('.r')!.text])).toEqual([
+    ['/ca/ca-boraras-do/', 'Cá boraras đỏ', 'Cá tiếng Việt', '0,61', '12'],
+    ['/thuat-ngu/gh/', 'GH', 'Thuật ngữ tiếng Việt', '0,70', '3'],
+    ['/huong-dan/bon-phan-ray/', 'Bón phân cho ráy', 'Bài từ video tiếng Việt', '0,50', '0'],
+    ['/id/ikan/ikan-boraras/', 'Ikan boraras merah', 'Cá tiếng Indonesia', '0,62', '0'],
+    // No title in the build's page index: its address.
+    ['/th/fish/pla-boraras/', '/th/fish/pla-boraras/', 'Cá tiếng Thái', '0,70', '0'],
+    ['/ca/ca-00/', '/ca/ca-00/', 'Cá tiếng Việt', '0,74', '0'],
+  ])
+  expect(low.querySelectorAll('p.note').at(-1)!.text).toBe('Và 5 trang khác.')
+  // Several notes: the first is the fold's summary (two lines of it until opened), the rest under it; then which review, when.
+  const notes = LOW.pages[0]!.review!.notes
+  const why = rows[2]!.querySelector('td.why')!
+  expect(why.querySelector('details')!.getAttribute('open')).toBeUndefined()
+  expect(why.querySelector('summary')!.text).toBe(notes[0])
+  expect(why.querySelector('summary')!.getAttribute('data-more')).toBe('Xem cả 3 nhận xét')
+  expect(why.querySelectorAll('ul li').map(li => li.text)).toEqual(notes.slice(1))
+  expect(why.querySelector('small')!.text).toBe('Đánh giá bài viết từ video, 03/11 · 3 nhận xét')
+  expect(html).toContain('hedged &amp; &lt;don&#39;t&gt; give')
+  // One note, shown whole; the review's own score where it isn't the page's.
+  const one = rows[0]!.querySelector('td.why')!
+  expect(one.querySelector('details')).toBeNull()
+  expect(one.querySelector('p')!.text).toBe(LOW.pages[1]!.review!.notes[0])
+  expect(one.querySelector('small')!.text).toBe('Đánh giá bản dịch từ nguồn, 02/11, 0,55 điểm')
+  // A version the page doesn't have says so; no review kept; a review with no notes.
+  expect(rows[3]!.querySelector('td.why small')!.text).toBe('Đánh giá bản dịch, 04/11 · 2 nhận xét · bản này không được giữ')
+  expect(rows[1]!.querySelector('td.why')!.text).toBe('Chưa lưu lần đánh giá nào.')
+  expect(rows[4]!.querySelector('td.why p')!.text).toBe('Không có nhận xét.')
+  // Without readers: no readers' column, the lowest score first.
+  const plain = parse(contentPage({ ...LOW_CONTENT, reads: unset('AE') })).querySelector('section.low')!
+  expect(plain.querySelectorAll('thead th').map(t => t.text)).toEqual(['Trang', 'Loại', 'Điểm', 'Nhận xét gần nhất'])
+  expect(plain.querySelectorAll('tbody th a').slice(0, 3).map(a => a.getAttribute('href'))).toEqual(['/huong-dan/bon-phan-ray/', '/ca/ca-boraras-do/', '/id/ikan/ikan-boraras/'])
+  expect(plain.querySelector('p.note')!.text).toContain('Chưa có số người đọc: điểm thấp nhất lên trước.')
+  // A build without the file (from before it): nothing; a file that can't be read: says so in its place; none out: says so.
+  expect(contentPage({ ...LOW_CONTENT, low: undefined })).not.toContain('class="low"')
+  expect(contentPage({ ...LOW_CONTENT, low: { failed: 'bad json' } })).toContain('Không tải được danh sách trang điểm thấp (reviews.json).<code>bad json</code>')
+  expect(contentPage({ ...LOW_CONTENT, low: { v: 1, bar: 0.75, pages: [] } })).toContain('Ẩn khỏi tìm kiếm vì điểm thấp</h3><p class="muted">Không có trang nào.</p>')
 })

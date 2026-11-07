@@ -1,0 +1,140 @@
+{
+  "id": "botia-histrionica",
+  "native": {
+    "input": "be2bdc8a1204893e",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "loachesonline",
+        "quote": "Collected in the Salween Basin of India, China and Myanmar (Burma).",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "loachesonline",
+        "quote": "Collected in the Salween Basin of India, China and Myanmar (Burma).",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "loachesonline",
+        "quote": "Collected in the Salween Basin of India, China and Myanmar (Burma).",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "words": "Indian",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "loachesonline",
+        "quote": "Collected in the Salween Basin of India, China and Myanmar (Burma).",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia histrionica",
+    "status": "ACCEPTED",
+    "taxonKey": 2368029,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "CN",
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

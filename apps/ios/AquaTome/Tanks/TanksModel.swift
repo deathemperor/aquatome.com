@@ -2,6 +2,7 @@ import AccountSync
 import Foundation
 import Observation
 import Tanks
+import Telemetry
 
 /// "Bể của tôi" on this phone: the shared tank store (docs/my-tanks-sync.md), kept in Application Support. Works without
 /// an account; signing in later sends these same records to the account.
@@ -23,6 +24,8 @@ final class TanksModel {
   /// handbook has a page for one (then it isn't sent). The app sets them.
   @ObservationIgnored var wanted: Wanted?
   @ObservationIgnored var hasPage: (UnlistedEntry) -> Bool = { _ in false }
+  /// The app's anonymous telemetry: a tank added, or not. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
   #if DEBUG
   /// What the server took as wanted since launch, each body as sent (the UI tests read it).
   private(set) var wantedForTests: [String] = []
@@ -54,9 +57,16 @@ final class TanksModel {
   @discardableResult
   func add(named name: String, _ change: (inout Tank) -> Void) throws -> Tank {
     var s = store
-    let t = try s.addTank(name: name)
-    try s.updateTank(t.id) { change(&$0) }
-    try commit(s)
+    let t: Tank
+    do {
+      t = try s.addTank(name: name)
+      try s.updateTank(t.id) { change(&$0) }
+      try commit(s)
+    } catch {
+      telemetry?.record(.action(.tankAdd, ok: false, kind: Event.Kind(error)))
+      throw error
+    }
+    telemetry?.record(.action(.tankAdd, ok: true))
     saved(s.tank(t.id), before: nil)
     return s.tank(t.id) ?? t
   }
@@ -197,14 +207,15 @@ final class TanksModel {
   /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`),
   /// one with fish and plants on it (`life`), one with 20 kinds of fish, longer than the screen (`many`), a 60 cm tank
   /// with discus and neons, which don't go together (`clash`), or one with the stand-in Tuya cloud's first strip on it,
-  /// its outlets named "Đèn" and "CO2" (`plug`).
+  /// its outlets named "Đèn" and "CO2" (`plug`), or a 120 cm tank with discus and a
+  /// breed of the discus (`breed`, with `-breeds`).
   static func prepareForTests(_ args: [String], file: URL = defaultFile()) {
     let dir = file.deletingLastPathComponent()
     let fm = FileManager.default
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life", "many", "clash", "plug":
+    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed":
       let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
@@ -214,6 +225,7 @@ final class TanksModel {
         "many": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000004","name":"Bể đông","species":["# + many + #"],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "clash": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000003","name":"Bể 60","dims":{"l":60,"w":30,"h":36},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"paracheirodon-innesi","count":12}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "plug": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn"},{"code":"switch_2","label":"CO2"},{"code":"switch_3"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
+        "breed": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000006","name":"Bể đĩa","dims":{"l":120,"w":50,"h":50},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"pigeon-blood-discus","count":3}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
       try? Data(store.utf8).write(to: file)

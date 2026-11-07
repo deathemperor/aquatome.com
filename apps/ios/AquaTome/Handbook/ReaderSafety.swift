@@ -180,7 +180,7 @@ private struct ReaderActions: ViewModifier {
   }
 }
 
-/// The posters the reader blocks, each to unblock: on the Tài khoản tab and from a page's readers' part.
+/// The posters the reader blocks, each to unblock: in the Tài khoản sheet and from a page's readers' part.
 struct BlockedList: View {
   @Environment(HandbookModel.self) private var handbook
 
@@ -199,7 +199,7 @@ struct BlockedList: View {
   }
 }
 
-/// "Người đã chặn", on the Tài khoản tab under the account: there with accounts on or off, once anyone is blocked.
+/// "Người đã chặn", in the Tài khoản sheet under the account: there with accounts on or off, once anyone is blocked.
 struct BlockedSection: View {
   @Environment(HandbookModel.self) private var handbook
 

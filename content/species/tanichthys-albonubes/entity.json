@@ -14,6 +14,158 @@
     "pearl-river",
     "white-cloud-mountain"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [
+        "Pearl River Delta",
+        "Hainan Island"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The White Cloud Mountain minnow, Tanichthys albonubes, is a small cyprinid from Guangdong and Hainan in southern China and from northeastern Vietnam.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'White Cloud Mountain, Kwangtung, China', referring to White Cloud Mountain (also known as Mount Baiyun or Baiyunshan) a few miles north of the city of Guangzhou, Guangdong Province, China and this species is probably restricted to the Pearl River Delta region.",
+          "countries": [],
+          "regions": [
+            "Pearl River Delta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In 2007 an additional population was discovered on Hainan Island, Hainan province, which is separated from Guangdong by the 30 km wide Qiongzhou Strait (Chan and Chen, 2009).",
+          "countries": [],
+          "regions": [
+            "Hainan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5207572,
+      "total": 25,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "AU",
+          7
+        ],
+        [
+          "CN",
+          6
+        ],
+        [
+          "RE",
+          5
+        ],
+        [
+          "BR",
+          3
+        ],
+        [
+          "HK",
+          2
+        ],
+        [
+          "CZ",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -156.09375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          3,
+          0
+        ],
+        [
+          14.0625,
+          49.21875,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          -22.5,
+          4,
+          0
+        ],
+        [
+          54.84375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          112.5,
+          22.5,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          133.59375,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          150.46875,
+          -35.15625,
+          3,
+          0
+        ],
+        [
+          150.46875,
+          -33.75,
+          2,
+          0
+        ],
+        [
+          151.875,
+          -28.125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -429,8 +581,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể cá mini 40 lít"
+        "bể cá 60cm"
       ]
     },
     {

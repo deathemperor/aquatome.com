@@ -10,6 +10,61 @@
     "turkey",
     "lake-burdur"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Lake Burdur",
+        "Anatolia",
+        "Taurus mountains"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Burdur toothcarp, Anatolichthys sureyanus, is endemic to Lake Burdur in the Turkish Lakes region of southwestern Anatolia, Turkey.",
+          "countries": [
+            "TR"
+          ],
+          "regions": [
+            "Lake Burdur",
+            "Anatolia"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Burdur in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+          "countries": [],
+          "regions": [
+            "Taurus mountains"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11930588,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +192,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể kính 120x30"
+        "bể cá 120cm"
       ]
     },
     {

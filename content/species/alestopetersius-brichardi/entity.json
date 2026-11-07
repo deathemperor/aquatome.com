@@ -10,6 +10,115 @@
     "democratic-republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "Congo",
+        "Busira",
+        "Ruki",
+        "Lake Yandja",
+        "Pool Malebo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The cherry red Congo tetra, Alestopetersius brichardi, is an alestid from the middle Congo and tributaries such as the Busira and Ruki in DR Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A. brichardi appears to be known exclusively from the middle Congo including some tributaries such as the Busira and Ruki, and may also occur in affluents draining the Republic of Congo.",
+          "countries": [
+            "CG"
+          ],
+          "regions": [
+            "Congo",
+            "Busira",
+            "Ruki"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Yangambi, Lake Yandja', Yangambi being a settlement located on the Congo River in Orientale province, Democratic Republic of Congo.",
+          "countries": [],
+          "regions": [
+            "Lake Yandja"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There exists a single account from Pool Malebo (Stanley Pool) but all other records relate to localities considerably further upriver.",
+          "countries": [],
+          "regions": [
+            "Pool Malebo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356112,
+      "total": 18,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CD",
+          16
+        ],
+        [
+          "CG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          18.28125,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -125,8 +234,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x30"
+        "bể cá 120cm"
       ]
     },
     {

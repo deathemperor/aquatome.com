@@ -1,21 +1,25 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Translation } from '@aq/schema'
+import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Range, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { lastKept, logReviews } from './review-log'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
 import { breedLeads, readForumState } from './forum'
 import { breedKin, breedNames, cleanBreedAltNames } from './alt-names'
+import { isMarketplace } from './marketplaces'
+import { BOUNDS } from './process'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
 
 type Sourced = { fact: string; source: number }
-type CareField = 'tempC' | 'ph' | 'gh' | 'sizeCm' | 'tankCm'
+export const CARE_FIELDS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
+export type CareField = (typeof CARE_FIELDS)[number]
 type SourceKind = BreedEntity['sources'][number]['kind']
 /** What research found about one man-made fish: facts in the researcher's own words, each with the index of its source. */
 export type BreedFacts = {
@@ -32,6 +36,7 @@ export type BreedFacts = {
   commons?: string
   sources: { url: string; title: string; kind: SourceKind }[]
 }
+const SOURCES_SCHEMA = { type: 'array', items: { type: 'object', required: ['url', 'title', 'kind'], properties: { url: { type: 'string' }, title: { type: 'string' }, kind: { type: 'string', enum: ['breeder', 'shop', 'article', 'forum', 'video', 'paper', 'other'] } } } }
 const sourced = { type: 'array', items: { type: 'object', required: ['fact', 'source'], properties: { fact: { type: 'string' }, source: { type: 'number' } } } }
 const FACTS_SCHEMA = {
   type: 'object',
@@ -43,14 +48,19 @@ const FACTS_SCHEMA = {
     basedOn: { type: 'string' },
     parents: { type: 'array', items: { type: 'object', required: ['name', 'certain', 'source'], properties: { name: { type: 'string' }, scientificName: { type: 'string' }, certain: { type: 'boolean' }, source: { type: 'number' } } } },
     origin: sourced, looks: sourced, lines: sourced,
-    care: { type: 'array', items: { type: 'object', required: ['field', 'min', 'max', 'source'], properties: { field: { type: 'string', enum: ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm'] }, min: { type: 'number' }, max: { type: 'number' }, source: { type: 'number' } } } },
+    care: { type: 'array', items: { type: 'object', required: ['field', 'min', 'max', 'source'], properties: { field: { type: 'string', enum: CARE_FIELDS }, min: { type: 'number' }, max: { type: 'number' }, source: { type: 'number' } } } },
     keeping: sourced, breeding: sourced, health: sourced, buying: sourced, controversy: sourced,
     commons: { type: 'string' },
-    sources: { type: 'array', items: { type: 'object', required: ['url', 'title', 'kind'], properties: { url: { type: 'string' }, title: { type: 'string' }, kind: { type: 'string', enum: ['breeder', 'shop', 'article', 'forum', 'video', 'paper', 'other'] } } } },
+    sources: SOURCES_SCHEMA,
   },
 }
 
 export type BreedAsk = { name: string; kind?: BreedEntity['kind']; basedOn?: string }
+
+/** Difficulty and lifespan in a species' words (prompts/process.md), for what a breed's own sources say of it. */
+export const DIFFICULTY = 'difficulty (1 = very easy … 8 = expert; convert the source\'s scale: a rating out of 10 or 5 as its share of 8, rounded (8/10 is 6, 3/5 is 5); its words so: very easy 1, easy or beginner 2, easy to moderate 3, moderate or intermediate 4, moderate to difficult 5, difficult or advanced 6, very difficult 7, expert only 8), one whole number (min = max)'
+export const LIFE_YEARS = 'lifeYears in years (how long the fish lives in an aquarium, as the source states it: "4 years" is min = max = 4, "up to 5 years" is min = max = 5, "3 to 5 years" is 3–5; months as a fraction of a year; never inferred from anything else)'
+const ITS_OWN = 'Only a figure from a page about this fish (its care sheet, a breeder\'s, hobbyist\'s or shop\'s page on it): its rating of how hard this fish is to keep counts even when worded for its kind. Never a figure from a page about its species or a parent species (a species profile, the species\' encyclopedia article).'
 
 const researchPrompt = (a: BreedAsk) => `Research the aquarium fish "${a.name}" for a Vietnamese aquarium handbook. It is a man-made fish without a scientific name of its own: a hybrid, a line or colour form bred within one species, or a transgenic fish${a.kind ? ` (expected: ${a.kind})` : ''}. Use WebSearch and WebFetch. Search in English and in Vietnamese (the names Vietnamese hobbyists and shops use, Vietnamese forums and articles), and in the languages of the countries where it was developed when that helps.
 
@@ -62,7 +72,7 @@ Collect facts, each pointing at the index of its source in sources[]:
 - parents: for a hybrid, each parent species or fish as sources give it, with its scientific name when known; certain = false when its role is disputed or a guess.
 - origin: who developed it, where and when.
 - looks: the traits that define it and how hobbyists judge a good one. lines: named sub-lines or strains and what sets each apart.
-- care: temperature (°C), pH, GH, adult size (cm), minimum tank length (cm) as ranges (min = max for a single figure), each from a source. Convert units.
+- care: temperature (°C), pH, GH, adult size (cm), minimum tank length (cm) as ranges (min = max for a single figure), each from a source. Convert units. Also its ${DIFFICULTY} and ${LIFE_YEARS}. ${ITS_OWN}
 - keeping (tank, water, food, tankmates), breeding (can it breed, are offspring fertile, do they breed true), health (problems specific to it), buying (how to pick a healthy, good one).
 - controversy: criticism with who makes it (deformities from breeding, dyed, injected or tattooed fish, releases into the wild, bans).
 - commons: the Wikimedia Commons category with photos of it (for example "Category:Flowerhorn cichlid"), only if you confirmed it exists.
@@ -83,7 +93,19 @@ const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slu
 const GROUNDED = `Below are FACTS gathered about a man-made aquarium fish and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, origin, name and recommendation in the page is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented number, origin, parent, line, scientific name or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
-const BOUNDS: Record<CareField, [number, number]> = { tempC: [4, 40], ph: [2, 10.5], gh: [0, 50], sizeCm: [0.3, 300], tankCm: [10, 1000] }
+/**
+ * A researched care figure as the card keeps it, or undefined: outside the bounds the engine keeps for a species' card
+ * (process.ts), or a difficulty that isn't one figure. Temperature and difficulty in whole numbers (from °F, 18.3–22.2);
+ * a lifespan always a range, as a species' (months as tenths of a year).
+ */
+export function careValue(c: { field: CareField; min: number; max: number }): Range | number | undefined {
+  const [lo, hi] = BOUNDS[c.field] ?? [NaN, NaN]
+  const round = (v: number) => (c.field === 'tempC' || c.field === 'difficulty' ? Math.round(v) : c.field === 'lifeYears' ? Math.round(v * 10) / 10 : v)
+  const min = round(Math.min(c.min, c.max))
+  const max = round(Math.max(c.min, c.max))
+  if (!(min >= lo && max <= hi) || (c.field === 'difficulty' && min !== max)) return undefined
+  return c.field === 'lifeYears' ? { min, max } : min === max ? min : { min, max }
+}
 
 /** Research → what a page may use: only web links are kept as sources (`at`: a source's position among them), and a fact
  * whose source was dropped goes with it, so every claim on the page is cited. */
@@ -191,12 +213,16 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found, as the rewrite below does.
+  const before = kept ? await lastKept(root, { id: `breeds/${id}`, lang: 'vi' }, ['breed']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   // Any claim beyond the facts: one rewrite with the checker's notes; the better-grounded page is kept.
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
 
@@ -213,13 +239,9 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const today = d.gallery.now().toISOString().slice(0, 10)
   const care: BreedEntity['care'] = {}
   for (const c of facts.care) {
-    const [lo, hi] = BOUNDS[c.field] ?? [NaN, NaN]
-    // Temperatures converted from °F come as 18.3–22.2: whole degrees.
-    const round = (v: number) => (c.field === 'tempC' ? Math.round(v) : v)
-    const min = round(Math.min(c.min, c.max))
-    const max = round(Math.max(c.min, c.max))
-    if (!(min >= lo && max <= hi) || at(c.source) < 0) continue
-    ;(care[c.field] ??= []).push({ source: at(c.source), value: min === max ? min : { min, max } })
+    const value = careValue(c)
+    if (value === undefined || at(c.source) < 0) continue
+    ;(care[c.field] ??= []).push({ source: at(c.source), value })
   }
   // A link the page has stays (one given with --based-on too), and so do its parents' on a --redo (the same research).
   const basedOn = a.basedOn ?? was?.basedOn ?? species(facts.basedOn)
@@ -249,6 +271,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
+  await logReviews(root, 'breed', { id: `breeds/${id}`, lang: 'vi' }, tries, review, { now: d.gallery.now() })
   if (photos.length > 4) {
     await mkdir(join(content, 'gallery'), { recursive: true })
     await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: photos.slice(4), seen, updatedAt: today }), null, 2)}\n`)
@@ -276,11 +299,15 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found.
+  const before = o.redo ? await lastKept(root, { id: `breeds/${id}`, lang }, ['breed']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
   // Breeds share /ca/ with the species: an address and a name neither has in this language.
@@ -294,7 +321,7 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   }
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; nameFixed?: boolean } | null
   const name = localName(unescapePlain(w.name), prev, names, forWriter.name)
-  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
+  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), T.slugWords.fish, taken)
   // The Vietnamese page's own names are not names in this language, nor are its species' (cleanBreedAltNames).
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
   const breeds = await breedNames(join(root, 'content'), lang)
@@ -308,6 +335,7 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     ...(prev?.nameFixed ? { nameFixed: true } : {}),
   }, lang))
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+  await logReviews(root, 'breed', { id: `breeds/${id}`, lang }, tries, review)
   return { id, slug, score: review.score, notes: review.notes }
 }
 
@@ -357,5 +385,97 @@ export async function breedPhotos(root: string, d: GalleryDeps, o: { limit?: num
     }
   }
   await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
+  return report
+}
+
+const CARE_SCHEMA = {
+  type: 'object', required: ['figures', 'sources', 'none'],
+  properties: {
+    figures: { type: 'array', items: { type: 'object', required: ['field', 'min', 'max', 'source', 'quote'], properties: { field: { type: 'string', enum: ['difficulty', 'lifeYears'] }, min: { type: 'number' }, max: { type: 'number' }, source: { type: 'number' }, quote: { type: 'string' } } } },
+    sources: SOURCES_SCHEMA,
+    none: { type: 'string' },
+  },
+}
+type CareFound = { figures: { field: 'difficulty' | 'lifeYears'; min: number; max: number; source: number; quote: string }[]; sources: BreedFacts['sources']; none: string }
+/** What breed-care did for a breed: when, the figures it added (each with its source's words), or why it found none. */
+type CareTried = { at: string; added: string[]; none?: string }
+
+const carePrompt = (name: string, e: BreedEntity, r: BreedFacts | null, want: string[]) => {
+  const what = e.kind === 'hybrid' ? `a hybrid${e.parents.length ? ` of ${e.parents.map(p => p.name).join(' and ')}` : ''}` : `a ${e.kind === 'transgenic' ? 'transgenic fish' : 'line or colour form'}${r?.basedOn ? ` of ${r.basedOn}` : ''}`
+  return `The aquarium fish "${name}"${r?.enNames.length ? ` (also ${r.enNames.filter(n => n !== name).join(', ')})` : ''} is a man-made fish: ${what}. Find on the web, for this fish itself: ${[want.includes('difficulty') && `its ${DIFFICULTY}`, want.includes('lifeYears') && `its ${LIFE_YEARS}`].filter(Boolean).join('; and ')}.
+
+Use WebSearch and WebFetch. Its page already cites these sources: look at them first, then search for other care sheets and breeders' pages on it (in English, and in Vietnamese when that helps), also when a listed page fails to load.
+${e.sources.map(s => `- ${s.title}: ${s.url}`).join('\n')}
+
+Rules: ${ITS_OWN} Prefer breeders, long-time hobbyist articles and care sheets over shop copy. Never fetch Shopee, Lazada or Tiki pages. Each figure points at the index of its source in sources[], with quote: the source's own words that state it. If sources disagree, keep each figure with its own source. Leave out a figure no source states. none: why a figure asked for is missing and what was tried, in one sentence (empty when every one was found).`
+}
+
+/**
+ * Difficulty and lifespan for breed pages whose care card lacks either (`pnpm engine breed-care`), as a breed researched
+ * now gets them: one web research call a breed, for just those, each figure cited. Its figures join the card, and its new
+ * sources the page's sources (by address: one it cites keeps its place); nothing else on the page changes. The research
+ * kept for --redo (engine-state/breeds/<id>.json) gets them too. Each breed is tried once (engine-state/_breed-care.json:
+ * what it added, or why it found none), recorded as it goes; out of the model's limit, it stops and records nothing.
+ */
+export async function breedCare(root: string, research: Llm, o: { only?: string[]; limit?: number; model?: string; now?: () => Date } = {}) {
+  const content = join(root, 'content')
+  const triedFile = join(root, 'engine-state/_breed-care.json')
+  const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Record<string, CareTried>
+  const today = (o.now?.() ?? new Date()).toISOString().slice(0, 10)
+  const report = { done: [] as string[], none: [] as string[], failed: [] as string[], stopped: '' }
+  const indent = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
+  const same = (a: string, b: string) => a.replace(/\/$/, '') === b.replace(/\/$/, '')
+  for (const id of (await readdir(join(content, 'breeds')).catch(() => [] as string[])).sort()) {
+    if (o.only && !o.only.includes(id)) continue
+    if (report.done.length + report.none.length + report.failed.length >= (o.limit ?? Infinity)) break
+    const file = join(content, 'breeds', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw || tried[id]) continue
+    const e = JSON.parse(raw) as BreedEntity
+    const want = (['difficulty', 'lifeYears'] as const).filter(f => !e.care[f]?.length)
+    if (!want.length) continue
+    const factsFile = join(root, 'engine-state/breeds', `${id}.json`)
+    const factsRaw = await readFile(factsFile, 'utf8').catch(() => null)
+    const facts = factsRaw ? JSON.parse(factsRaw) as BreedFacts : null
+    const name = facts?.enNames[0] ?? id.replace(/-/g, ' ')
+    let r: CareFound
+    try {
+      r = await research<CareFound>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: carePrompt(name, e, facts, want), schema: CARE_SCHEMA, model: o.model ?? 'sonnet' })
+    } catch (err) {
+      if (err instanceof LlmError) { report.stopped = `${id}: ${err.message}`; break }
+      report.failed.push(`${id}: ${(err as Error).message.slice(0, 160)}`)
+      continue
+    }
+    const added: string[] = []
+    for (const f of r.figures ?? []) {
+      const s = r.sources?.[f.source]
+      const value = want.includes(f.field) ? careValue(f) : undefined
+      if (!s || value === undefined || !/^https?:\/\/\S+$/i.test(s.url) || isMarketplace(s.url)) continue
+      const source = { url: s.url, title: s.title, kind: s.kind }
+      let at = e.sources.findIndex(x => same(x.url, s.url))
+      if (at < 0) at = e.sources.push({ ...source, at: today }) - 1
+      const values = (e.care[f.field] ??= [])
+      if (values.some(v => v.source === at)) continue
+      values.push({ source: at, value })
+      if (facts) {
+        let i = facts.sources.findIndex(x => same(x.url, s.url))
+        if (i < 0) i = facts.sources.push(source) - 1
+        const { min, max } = typeof value === 'number' ? { min: value, max: value } : value
+        facts.care.push({ field: f.field, min, max, source: i })
+      }
+      added.push(`${f.field} ${typeof value === 'number' ? value : `${value.min}–${value.max}`}: "${String(f.quote ?? '').trim().slice(0, 200)}" (${s.url})`)
+    }
+    const none = r.none?.trim()
+    if (added.length) {
+      BreedSchema.parse(e)
+      await writeFile(file, `${JSON.stringify(e, null, indent(raw))}\n`)
+      if (facts) await writeFile(factsFile, `${JSON.stringify(facts, null, indent(factsRaw!))}\n`)
+    }
+    tried[id] = { at: today, added, ...(none ? { none } : {}) }
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
+    if (added.length) report.done.push(`${id}: ${added.join('; ')}`)
+    else report.none.push(`${id}: ${none || 'nothing found'}`)
+  }
   return report
 }

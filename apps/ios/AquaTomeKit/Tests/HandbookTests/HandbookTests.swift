@@ -39,19 +39,36 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(throws: (any Error).self) { try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":2,"lang":"vi","items":[]}"#.utf8)) }
 }
 
+/// The app sends its anonymous telemetry only once the site says it takes it: `telemetry: true`, nothing else.
+@Test func theSiteTakesTelemetryOnlyWhenItsIndexSaysTrue() throws {
+  func flag(_ field: String) throws -> Bool {
+    try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[]\#(field)}"#.utf8)).telemetry
+  }
+  #expect(try flag(#","telemetry":true"#))
+  #expect(try !flag(""))
+  #expect(try !flag(#","telemetry":false"#))
+  #expect(try !flag(#","telemetry":"true""#))
+  #expect(try !flag(#","telemetry":1"#))
+  // The copy kept on the phone says the same.
+  let kept = try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(HandbookIndex(lang: "vi", items: [], telemetry: true)))
+  #expect(kept.telemetry)
+}
+
 @Test func readsAVideoSeriesAVideoGuidesLengthAndAToolsOwnWords() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
    {"kind":"video","name":"Rêu hại từ A đến Z","sub":"MJ Aquascaping","path":"/vi/video/reu-hai-tu-a-den-z/","img":"https://i.ytimg.com/vi/x/hqdefault.jpg","parts":14},
    {"kind":"guide","name":"Cách hạn chế rêu hại","path":"/vi/huong-dan/cach-han-che-reu-hai/","section":"plantCare","video":1755},
-   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"]},
-   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5}
+   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"],"short":"Thể tích bể"},
+   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5,"short":7}
   ]}
   """#.utf8))
   #expect(ix.items.map(\.kind) == [.video, .guide, .tool, .tool])
   #expect(ix.items[0].sub == "MJ Aquascaping" && ix.items[0].parts == 14 && ix.items[0].video == nil)
   #expect(ix.items[1].video == 1755 && ix.items[1].words.isEmpty)
   #expect(ix.items[2].words == ["Tính thể tích bể cá: lít, gallon, độ dày kính"])
+  // Its short name, as Tìm's tiles say it; one this app can't read is left out, not the tool.
+  #expect(ix.items[2].short == "Thể tích bể" && ix.items[3].short == nil && ix.items[1].short == nil)
   // A value this app can't read is left out, never the item.
   #expect(ix.items[3].words.isEmpty && ix.items[3].video == nil && ix.items[3].parts == nil)
   #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)) == ix, "kept on the phone and read back the same")
@@ -167,6 +184,27 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("about:blank", newWindow: true) == .none)
 }
 
+// The site's pages about itself open in the browser, not the app's web view (the owner's call): about, with its data
+// table, contact and privacy, in each language, the Vietnamese under "/vi/" or at the root.
+@Test func theSitesPagesAboutItselfOpenInTheBrowser() {
+  let site = URL(string: "https://aquatome.com")!
+  func route(_ s: String) -> PageRoute { PageRoute.of(URL(string: s)!, site: site, mainFrame: true, newWindow: false) }
+  for s in ["https://aquatome.com/vi/gioi-thieu/", "https://aquatome.com/vi/gioi-thieu/bang-du-lieu/",
+            "https://aquatome.com/vi/lien-he/", "https://www.aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan",
+            "https://aquatome.com/lien-he/", "https://aquatome.com/gioi-thieu",
+            "https://aquatome.com/id/tentang/", "https://aquatome.com/id/tentang/tabel-data/", "https://aquatome.com/id/kontak/",
+            "https://aquatome.com/id/kebijakan-privasi/#tai-khoan", "https://aquatome.com/th/about/",
+            "https://aquatome.com/th/about/data-table/", "https://aquatome.com/th/contact/", "https://aquatome.com/th/privacy/"] {
+    #expect(route(s) == .outside, "\(s)")
+  }
+  // The handbook stays: the home page, a page whose slug starts as one does, one language's words in another's.
+  for s in ["https://aquatome.com/vi/", "https://aquatome.com/", "https://aquatome.com/vi/huong-dan/lien-he-nguon-nuoc/",
+            "https://aquatome.com/vi/gioi-thieu-ca-canh/", "https://aquatome.com/vi/about/", "https://aquatome.com/id/contact/",
+            "https://aquatome.com/about/"] {
+    #expect(route(s) == .app, "\(s)")
+  }
+}
+
 @Test func shopLinksAreTheSitesGoPaths() {
   let site = URL(string: "https://aquatome.com/vi/ca/ca-neon/")!
   #expect(ShopLink.is(URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, site: site))
@@ -229,6 +267,25 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(json["sizeCm"] as? Double == 4 && json["finNipper"] as? Bool == true && (json["ph"] as? [String: Double]) == ["min": 6, "max": 7.5])
   #expect(json["tempC"] == nil && json["id"] as? String == "x")
   #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(item)) == item)
+}
+
+@Test func readsABreedsSpeciesAndItsOwnFiguresApart() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"fish","id":"halfmoon-betta","name":"Cá betta Halfmoon","path":"/vi/ca/ca-betta-halfmoon/","of":"betta-splendens","card":{"tempC":{"min":24,"max":28},"sizeCm":6,"lifeYears":{"min":2,"max":3}}},
+   {"kind":"fish","id":"flowerhorn-cichlid","name":"Cá La Hán","path":"/vi/ca/ca-la-han/","sizeCm":30,"card":{"sizeCm":30}},
+   {"kind":"fish","id":"x","name":"X","path":"/vi/ca/x/","of":7,"card":"warm"}
+  ]}
+  """#.utf8))
+  // A form of a species: the species it is checked as, no figures of its own in `facts`, its card's figures apart.
+  #expect(ix.items[0].of == "betta-splendens" && !ix.items[0].facts.any)
+  #expect(ix.items[0].card == .init(tempC: .init(min: 24, max: 28), sizeCm: 6, lifeYears: .init(min: 2, max: 3)))
+  // A hybrid: a fish of its own.
+  #expect(ix.items[1].of == nil && ix.items[1].facts == .init(sizeCm: 30))
+  // What this app can't read is left out, not the fish.
+  #expect(ix.items.count == 3 && ix.items[2].of == nil && ix.items[2].card == nil)
+  // Kept on the phone as read.
+  #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(ix.items[0])) == ix.items[0])
 }
 
 @Test func readsAGuidesSubjectAndTheFishItNames() throws {
@@ -312,4 +369,16 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   // Five at most, unless asked otherwise.
   let many = (1...7).map { g("Neon \($0)", "care", ["neon"]) }
   #expect(HandbookIndex.guides(about: ["neon"], in: many).map(\.name) == ["Neon 1", "Neon 2", "Neon 3", "Neon 4", "Neon 5"])
+}
+
+// A kind of kit as the site's index lists it: read, on its shelf, found by its name, its page drawn by the app.
+@Test func aKindOfKitIsReadShelvedAndFound() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[{"kind":"equipment","name":"Lọc","path":"/vi/thiet-bi/loc/","img":"https://media.aquatome.com/a/loc-480.webp"}],
+   "shards":{"equipment":{"n":1,"level":2}}}
+  """#.utf8))
+  #expect(ix.items.map(\.kind) == [.equipment])
+  #expect(ix.pages == ["equipment": 1])
+  #expect(HandbookShelves(ix).all(.equipment).map(\.name) == ["Lọc"])
+  #expect(HandbookSearch(ix.items).find("loc", limit: 5).map(\.path) == ["/vi/thiet-bi/loc/"])
 }

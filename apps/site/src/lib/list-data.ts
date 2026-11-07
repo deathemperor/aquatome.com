@@ -3,7 +3,7 @@ import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
 import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { leadGuides, listOrder } from './home'
-import type { Lang, T } from './i18n'
+import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
 import { guideImages } from './mentions'
 import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
@@ -21,14 +21,14 @@ import { taxonKeys } from './taxa-places'
  * /data/<lang>/species/<list>.json).
  */
 
-/** The photo a card shows: its small picture, and its credit (author, licence, its page on the source). */
-export type CardPhoto = { src: string; w: number; h: number; author: string; licence: string; url: string }
+/** The photo a card shows: its small picture, and its credit (author, licence as shown, its page on the source; an Unsplash photographer's page). */
+export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
 export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
-const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, licence: p.licence, url: p.sourceUrl })
+export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl })
 
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
@@ -116,8 +116,8 @@ export const listedGuides = (c: Content) => c.guides.filter(g => g.kind !== 'dis
 /** A guide card's subject and its line on where the guide comes from, in the page's language (GuideCard). */
 export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
   label: t(GUIDE_KIND_LABELS[g.kind]!),
-  src: g.video ? t('Theo video của {name}', { name: g.video.channel })
-    : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 })
+  // No channel on a card (PRODUCT.md): a video guide is AquaTome's, from its video and any other sources.
+  src: g.source === 'aquatome' || g.video ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.video ? 1 : 0) + ((g.t.refs ?? g.refs)?.length ?? 0) })
     : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
 })
 

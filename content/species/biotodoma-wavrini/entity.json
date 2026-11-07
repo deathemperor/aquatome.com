@@ -13,6 +13,216 @@
     "negro",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO",
+        "BR"
+      ],
+      "regions": [
+        "Orinoco",
+        "Rio Negro",
+        "Casiquiare",
+        "Río Cinaruco",
+        "Río Ventuari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Orinoco eartheater, Biotodoma wavrini, is a geophagine cichlid from the Orinoco and rio Negro basins of Venezuela, Colombia and Brazil.",
+          "countries": [
+            "VE",
+            "CO",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Rio Negro",
+            "Casiquiare"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A natural habitat of this species is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+          "countries": [],
+          "regions": [
+            "Río Cinaruco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'upper Río Orinoco in Venezuela between San Fernando de Atabapo and Río Casiquiare, Venezuela', which appears to correspond to the lower Río Ventuari, a tributary of the Orinoco.",
+          "countries": [],
+          "regions": [
+            "Río Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372966,
+      "total": 364,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          326
+        ],
+        [
+          "BR",
+          24
+        ],
+        [
+          "CO",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          2.8125,
+          16,
+          16
+        ],
+        [
+          -68.90625,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          5.625,
+          54,
+          54
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          0,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          29,
+          29
+        ],
+        [
+          -67.5,
+          2.8125,
+          43,
+          43
+        ],
+        [
+          -67.5,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -67.5,
+          5.625,
+          169,
+          169
+        ],
+        [
+          -67.5,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          9,
+          9
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -152,8 +362,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá 150x45"
+        "bể cá 150cm"
       ]
     },
     {

@@ -1,0 +1,79 @@
+{
+  "id": "betta-macrostoma",
+  "native": {
+    "input": "b96f515179831a22",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo.",
+        "words": "Brunei",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak.",
+        "ok": true
+      },
+      {
+        "name": "Mendarem River",
+        "source": "seriouslyfish",
+        "quote": "In Brunei there exist a number of known localities along the Mendarem River and in Labi rainforest, all in the administrative area of Labi which borders Sarawak to the south.",
+        "country": "BN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta macrostoma",
+    "status": "ACCEPTED",
+    "taxonKey": 2394042,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BN",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

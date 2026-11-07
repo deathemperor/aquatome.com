@@ -1,0 +1,78 @@
+{
+  "id": "botia-kubotai",
+  "native": {
+    "input": "0ba161bfb89eaca1",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) River basin, Kayin/Karen State, Myanmar and another population was later discovered in the Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Hanthayaw",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) River basin, Kayin/Karen State, Myanmar and another population was later discovered in the Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia kubotai",
+    "status": "ACCEPTED",
+    "taxonKey": 2368030,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

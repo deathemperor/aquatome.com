@@ -17,6 +17,140 @@
     "mekong",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "TH",
+        "KH",
+        "LA"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Khlong",
+        "Java",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Jakarta, Bandong, Java, Indonesia', presumably referring to the city of Bandung, West Java Province, Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's since been recorded from Sumatra, Borneo, Peninsular Malaysia, the Chao Phraya and Mae Khlong watersheds in Thailand, and the Mekong River basin in Cambodia, Laos and Thailand.",
+          "countries": [
+            "TH",
+            "KH",
+            "LA"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Khlong",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8597456,
+      "total": 17,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          8
+        ],
+        [
+          "ID",
+          7
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          101.25,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -178,8 +312,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá 60x30"
+        "bể cá 60cm"
       ]
     },
     {

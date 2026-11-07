@@ -10,6 +10,70 @@
     "myanmar",
     "mogaung-chaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Mogaung Chaung",
+        "Ayeyarwaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from 'small rocky streams' of the Mogaung Chaung river system close to the towns of 'Kamaing' (often referred to as Kar Maing) and Namma (Nanmati?) in Myitkyina District, Kachin State, northern Myanmar, and the species appears restricted to this tributary of the much larger Ayeyarwaddy drainage.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Mogaung Chaung",
+            "Ayeyarwaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362712,
+      "total": 7,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          95.625,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -166,8 +230,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {

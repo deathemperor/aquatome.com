@@ -37,6 +37,7 @@ const facts: [string, string][] = [
   [t('Vị trí'), p.placement.map(x => t(PLANT_LABELS.placement[x]!)).join(', ')],
 ]
 import RedirectNote from '../../components/RedirectNote.astro'
+import BackToTop from '../../components/BackToTop.astro'
 const alternates = await alternatesOf('plants', p.id)
 ---
 <Base title={plantTitle(lang, p.t.name, p.scientificName)} description={`${p.t.name} (${p.scientificName}): ${facts.map(([k, v]) => `${k.toLowerCase()} ${v.toLowerCase()}`).join(', ')}. ${t('Cách trồng và chăm sóc.')}`} image={p.photos[0]?.url} noindex={!p.t.quality.indexable} alternates={alternates} credits={creditsFor([...figures, ...strip].map(x => x ?? undefined))}>
@@ -48,20 +49,18 @@ const alternates = await alternatesOf('plants', p.id)
       <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(p.t, p.scientificName, p.synonyms)}>{p.t.name}</h1>
       <RedirectNote from={p.t.redirectFrom} />
       <p class="sci binomial">{p.scientificName}</p>
+      {p.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: p.t.altNames.join(', ') })}</p>}
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
   {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={p.t.name} />}
-  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} />
+  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} refs={p.refs} />
+  {/* The guides that say more about it, then the shops (Vietnam's, Shopee/Lazada links: Vietnamese pages only). */}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
-  {/* Shops are Vietnam's (Shopee/Lazada links); every language has its own discussion. */}
-  {lang === 'vi' ? (
-    <div class="wrap two">
-      <ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} />
-      <Comments entity={`plant:${p.id}`} />
-    </div>
-  ) : <div class="wrap"><Comments entity={`plant:${p.id}`} /></div>}
+  {lang === 'vi' && <div class="wrap"><ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} /></div>}
+  <div class="wrap"><Comments entity={`plant:${p.id}`} /></div>
+  <BackToTop />
 </Base>
 <style>
   .crumb { font-size: 0.85rem; padding-top: var(--space-4); }
@@ -69,11 +68,14 @@ const alternates = await alternatesOf('plants', p.id)
   .top { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
   h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
   .binomial { font-size: var(--step-1); color: var(--c-ink-soft); margin: var(--space-1) 0 var(--space-4); }
+  .binomial:has(+ .alt) { margin-bottom: var(--space-2); }
+  .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: 0 0 var(--space-4); }
   .facts { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border: 1px solid var(--c-rule); background: var(--c-plate); }
   .facts div { padding: var(--space-3); border-bottom: 1px solid var(--c-rule); }
   .facts div:nth-child(odd) { border-right: 1px solid var(--c-rule); }
+  /* An odd last fact takes its whole row: no blank cell beside it. */
+  .facts div:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
   dt { font-size: 0.75rem; color: var(--c-ink-faint); }
   dd { margin: 0; font: 400 var(--step-1) var(--f-display); }
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
-  @media (max-width: 860px) { .top, .two { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .top { grid-template-columns: 1fr; } }
 </style>

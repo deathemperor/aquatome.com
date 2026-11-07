@@ -11,6 +11,83 @@
     "bei-jiang",
     "hong-kong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Hainan",
+        "Bei River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from Fujian, Guangdong, and Guangxi provinces in southern China, plus the islands of Hainan and Hong Kong.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Hainan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lian-Xian and Yang-Shan, Guangdong, China', corresponding to the Bei River drainage.",
+          "countries": [],
+          "regions": [
+            "Bei River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366389,
+      "total": 16,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CN",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          22.5,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

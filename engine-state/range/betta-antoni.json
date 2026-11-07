@@ -1,0 +1,70 @@
+{
+  "id": "betta-antoni",
+  "native": {
+    "input": "b6ab54d20208b1de",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Wild-caught, from Indonesia (\"LB\" location).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta antoni is a mouthbrooding labyrinth fish that appears endemic to the lower Kapuas basin in West Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the lower Kapuas river basin in the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the lower Kapuas river basin in the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sekayan",
+        "source": "seriouslyfish",
+        "quote": "Separate populations were collected from the Sekayan and Melawi rivers (both Kapuas tributaries) close to the townships of Sanggau and Nanga Pinoh, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Melawi",
+        "source": "seriouslyfish",
+        "quote": "Separate populations were collected from the Sekayan and Melawi rivers (both Kapuas tributaries) close to the townships of Sanggau and Nanga Pinoh, respectively.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta antoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2394007,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

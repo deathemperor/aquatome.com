@@ -4,18 +4,19 @@
   "altNames": [
     "Buce Round Leaf",
     "Bucephalandra sp. Round Leaf",
-    "Buce Daun Bulat"
+    "Buce daun bulat"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<ul><li>Porsi: 3 rizom</li></ul>",
-    "maintenance:bwaquatics": "<p>Bucephalandra adalah genus tumbuhan berbunga yang di habitat aslinya kadang tumbuh terendam (submersed) dan kadang di atas permukaan air (emersed). Tanaman ini bahkan bisa berbunga di bawah air. Buce sangat cocok untuk semua akuarium tanaman air dan jelas ideal untuk akuarium dengan cahaya rendah dan perawatan minim, misalnya akuarium cupang yang sederhana.</p>",
-    "notes:bwaquatics": "<p>Pastikan tempat atau akuariumnya sudah siap sebelum membeli.</p>"
+    "quickFacts:bwaquatics": "<ul><li>Jumlah: 3 rimpang</li></ul>",
+    "maintenance:aquatome": "<ul><li><strong>Penempatan:</strong> Buce (sebutan para penghobi untuk Bucephalandra) hidup menempel di kayu dan batu. Rumpun yang besar dengan batang tebal bisa diselipkan dalam-dalam ke celah di pangkal kayu. Rumpun kecil disebar merata ke bagian lain supaya komposisinya seimbang.</li><li><strong>Membersihkan rockwool:</strong> Kalau tanaman dibeli dalam bentuk pot, cabuti semua rockwool dari akarnya sebelum ditanam. Pekerjaan ini makan waktu dan membosankan, tapi layak dilakukan. Rockwool yang masih menempel di kayu kelihatan sangat mencolok.</li><li><strong>Belum langsung ditanam:</strong> Kalau tanaman datang duluan tapi jumlahnya belum cukup untuk ditanam, lepaskan saja dari pot lalu rendam terpisah di air supaya tanaman pelan-pelan beradaptasi. Setelah jumlahnya cukup, baru tanam sekaligus.</li><li><strong>Beberapa minggu pertama:</strong> Buce tumbuhnya lambat. Akuarium baru yang hanya berisi tanaman lambat seperti Buce, walaupun ditanam banyak, tetap mudah kena alga di awal. Tanam juga beberapa tanaman yang cepat tumbuh agar ikut menyerap kelebihan pupuk.</li></ul>",
+    "maintenance:bwaquatics": "<p>Bucephelandra adalah genus tumbuhan berbunga yang di habitat aslinya tumbuh terendam (submersed) dan kadang-kadang di atas permukaan air (emersed). Tanaman ini bahkan bisa berbunga di bawah air. Cocok untuk semua akuarium tanaman dan jelas ideal untuk akuarium dengan cahaya rendah dan perawatan minim, misalnya akuarium cupang sederhana.</p>"
   },
   "quality": {
-    "score": 0.8,
-    "indexable": true,
+    "score": 0.55,
+    "indexable": false,
     "bySource": {
-      "bwaquatics": 0.8
+      "bwaquatics": 0.55,
+      "aquatome": 0.55
     }
   }
 }

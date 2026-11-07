@@ -1,0 +1,73 @@
+{
+  "id": "otothyris-travassosi",
+  "scientificName": "Otothyris travassosi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otothyris",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "espirito-santo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1269",
+      "html": "<p>Otothyris travassosi Garavello, Britski &amp; Schaefer, 1998 (family Loricariidae). Maximum size 32 mm SL. Etymology: from the Greek otis, ous = ear + thyra, thyris = a little door.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1269",
+      "html": "<p>South America: Atlantic coast of southeastern Brazil, in rivers of Espírito Santo State. Type locality: Barra Sêca River at Linhares to São Mateus road, Espírito Santo State, Brazil. IUCN Red List category: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1269",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1269",
+      "html": "<p>American Museum Novitates No. 3222, pp 12, Figs. 2c, 6.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dọn tảo",
+        "viên chìm cho cá oto"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini",
+        "lọc sponge cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

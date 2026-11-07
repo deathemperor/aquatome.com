@@ -28,8 +28,14 @@ export const Run = z.object({
 export const Inline = z.union([z.string(), Run])
 export const Text = z.array(Inline)
 
-/** A photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. */
-export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional() })
+/**
+ * A photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence (empty for a photo a source let
+ * us use: the line alone), the photo's own page. An Unsplash photo's line is "Ảnh: <name> trên Unsplash", the name
+ * linking the photographer's page (`authorUrl`, when the engine has it) and "Unsplash" Unsplash's home, both with
+ * AquaTome's UTM, as Unsplash's API guidelines ask. `author`:
+ * the name as the line shows it (an Unsplash photo's), so a reader links that text without parsing each language's words.
+ */
+export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional(), authorUrl: z.string().optional(), author: z.string().optional() })
 export const Image = z.object({
   src: z.string(),
   w: z.number().int().positive(),
@@ -104,8 +110,9 @@ export const Gallery = z.object({
 /**
  * What each figure on a fish's data card rests on (the site's "Nguồn và độ tin cậy"), in the card's order. The figures
  * themselves are the app index's (`facts`), so they aren't repeated here. A row names the sources that give the figure
- * (`items`); where they disagree (`conflict`, the card's dot, explained by `legend`), each source's own figure and which
- * one the card shows (`note`).
+ * (`items`); where they disagree (`conflict`), each source's own figure and which one the card shows (`note`); where
+ * they disagree by enough to change how the fish is kept (`marked`, the card's dot, explained by `legend`; gapMatters in
+ * the site's lib/card-rows.ts). An app from before `marked` puts the dot on every `conflict`.
  */
 export const Trust = z.object({
   t: z.literal('trust'),
@@ -116,6 +123,7 @@ export const Trust = z.object({
     field: z.string(),
     label: z.string(),
     conflict: z.literal(true).optional(),
+    marked: z.literal(true).optional(),
     note: z.string().optional(),
     items: z.array(z.string()),
   })),
@@ -186,7 +194,7 @@ export const Video = z.object({
 
 export const PageDoc = z.object({
   v: z.literal(PAGE_VERSION),
-  kind: z.enum(['guide', 'fish', 'plant', 'glossary', 'video']),
+  kind: z.enum(['guide', 'fish', 'plant', 'glossary', 'video', 'equipment']),
   /** The web page: what "open on the web" and sharing use, and the app index's `path` for it. */
   path: z.string(),
   title: z.string(),

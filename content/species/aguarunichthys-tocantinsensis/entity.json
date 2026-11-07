@@ -10,6 +10,77 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Araguaia"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: rapids above Marabá, Rio Tocantins drainage, Pará State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Endemic to Brazil, it occurs in the Tocantins and Araguaia river basins, in the states of Goiás, Mato Grosso, Pará and Tocantins, where it is infrequent and not very abundant.",
+          "countries": [],
+          "regions": [
+            "Tocantins",
+            "Araguaia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338730,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -184,8 +255,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 200cm",
-        "bể cá 300 lít"
+        "bể cá 200cm"
       ]
     },
     {

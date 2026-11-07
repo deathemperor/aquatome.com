@@ -1,0 +1,94 @@
+{
+  "id": "akysis-vespa",
+  "native": {
+    "input": "902d588c88032e9f",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Ataran River drainage in Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Ataran River drainage in Myanmar (Salween/Thanlwin, Ataran).",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "scotcat",
+        "quote": "Asia: Ataran River drainage in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "planetcatfish",
+        "quote": "Asia: Ataran River drainage in Myanmar (Salween/Thanlwin, Ataran).",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis vespa",
+    "status": "ACCEPTED",
+    "taxonKey": 2340908,
+    "datasets": [
+      [
+        "bb8c87db-65c0-4d97-ab1a-ad94eb004dd6",
+        5
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

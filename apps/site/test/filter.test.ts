@@ -52,12 +52,23 @@ test('sure and unsure never overlap', () => {
   expect(unsureSpecies(mixed, tank).filter(i => sure.has(i))).toEqual([])
 })
 
-test('breeds: all with no query, a name search keeps the matches, any water filter hides them', () => {
-  expect(keepBreed('Betta Koi (Koi betta)', {})).toBe(true)
-  expect(keepBreed('Betta Koi (Koi betta)', { text: 'chach' })).toBe(false)
-  expect(keepBreed('Cá La Hán (Flowerhorn)', { text: 'la han' })).toBe(true)
-  expect(keepBreed('Cá La Hán (Flowerhorn)', { text: 'la han', tempC: 26 })).toBe(false)
-  expect(keepBreed('Cá La Hán (Flowerhorn)', { group: 'cichlid' })).toBe(false)
+// The owner (2026-11-06): a breed's card shows its temperature and pH as a species' does, so the water filter reads them.
+test('breeds: all with no query, a name search keeps the matches, the water filter reads their own figures', () => {
+  const flowerhorn = { tempC: { min: 26, max: 30 }, ph: { min: 6.5, max: 7.8 } }
+  expect(keepBreed('Betta Koi (Koi betta)', {}, {})).toBe(true)
+  expect(keepBreed('Betta Koi (Koi betta)', {}, { text: 'chach' })).toBe(false)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { text: 'la han' })).toBe(true)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { text: 'la han', tempC: 26 })).toBe(true)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { tempC: 24 })).toBe(false)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { tempC: 27, ph: 7 })).toBe(true)
+  // No figure for what the filter asks (a tank, a difficulty): it may fit, but the list can't say, so it stays out.
+  expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { tankCm: 120 })).toBe(false)
+  expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { group: 'cichlid' })).toBe(false)
+  // A breed's own difficulty, from its sources, is read as a species' is: the hardest the reader will take on.
+  const oranda = { tempC: { min: 18, max: 24 }, difficulty: 3 }
+  expect(keepBreed('Cá vàng Oranda', oranda, { difficultyMax: 3 })).toBe(true)
+  expect(keepBreed('Cá vàng Oranda', oranda, { difficultyMax: 2 })).toBe(false)
+  expect(keepBreed('Cá vàng Oranda', oranda, { difficultyMax: 5, tempC: 20 })).toBe(true)
 })
 
 // "Ca dia" listed Barbucca diabolica above the discus (2026-11-01): the search matched across two words, barbuc-ca dia-bolica.
@@ -67,8 +78,8 @@ test('a name search starts where a word does, never inside one', () => {
   expect(filterSpecies(all, { text: 'Ca dia' }).map(i => i.slug)).toEqual(['ca-dia'])
   expect(filterSpecies(all, { text: 'diabol' }).map(i => i.slug)).toEqual(['ca-chach-gai'])
   expect(filterSpecies(all, { text: 'innesi' }).map(i => i.slug)).toEqual(['ca-neon-xanh'])
-  expect(keepBreed('Barbucca diabolica', { text: 'ca dia' })).toBe(false)
-  expect(keepBreed('Cá dĩa Lam Đức (Blue Diamond discus)', { text: 'ca dia' })).toBe(true)
+  expect(keepBreed('Barbucca diabolica', {}, { text: 'ca dia' })).toBe(false)
+  expect(keepBreed('Cá dĩa Lam Đức (Blue Diamond discus)', {}, { text: 'ca dia' })).toBe(true)
 })
 // Thai writes no spaces between words, and its letters used to fold to nothing: a Thai search matched every species.
 test('a Thai name search matches Thai names, anywhere in the word', () => {

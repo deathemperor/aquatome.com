@@ -13,6 +13,156 @@
     "mekong",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "LA"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Sittaung",
+        "Tenasserim",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Burmese badis, Badis ruber, is a badid common throughout much of lowland Myanmar, from the Ayeyarwady and Sittaung south to the Tenasserim.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwady",
+            "Sittaung",
+            "Tenasserim"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Mekong basin in the provinces of Nong Khai and Chiang Rai, northern Thailand and Luang Prabang province, Laos.",
+          "countries": [
+            "TH",
+            "LA"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389459,
+      "total": 94,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          91
+        ],
+        [
+          "LA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          95.625,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          95.625,
+          16.875,
+          36,
+          36
+        ],
+        [
+          95.625,
+          18.28125,
+          10,
+          10
+        ],
+        [
+          95.625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          12,
+          12
+        ],
+        [
+          97.03125,
+          16.875,
+          12,
+          12
+        ],
+        [
+          97.03125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          21.09375,
+          7,
+          7
+        ],
+        [
+          99.84375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -140,8 +290,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

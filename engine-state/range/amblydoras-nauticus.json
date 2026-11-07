@@ -1,0 +1,126 @@
+{
+  "id": "amblydoras-nauticus",
+  "native": {
+    "input": "2069fc09c2c3940a",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Nauta, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Tigre",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazonia",
+        "source": "glaser",
+        "quote": "One of the most common species of Doradidae in Amazonia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblydoras nauticus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344001,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

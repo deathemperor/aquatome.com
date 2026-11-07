@@ -10,6 +10,58 @@
     "thailand",
     "tapi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Kra Isthmus",
+        "Tapi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Kra stream catfish, Akysis pulvinatus, is a small akysid catfish from southern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a stream discharging into the Andaman Sea in Kapoe district, Ranong Province, southern Thailand and at time of writing is known only from a series of similar streams on the western side of the Kra Isthmus, plus the upper Tapi river basin.",
+          "countries": [],
+          "regions": [
+            "Kra Isthmus",
+            "Tapi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340904,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +189,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30 cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

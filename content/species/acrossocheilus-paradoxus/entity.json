@@ -11,6 +11,89 @@
     "china",
     "fujian"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Taiwan banded barb, Acrossocheilus paradoxus, is a cyprinid native to Taiwan, where it occurs throughout western and northeastern river drainages.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to Taiwan, where it occurs throughout western and northeastern river drainages, plus Fujian and Zhejiang provinces, mainland China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366388,
+      "total": 7917,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TW",
+          7916
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          21.09375,
+          82,
+          82
+        ],
+        [
+          119.53125,
+          22.5,
+          2065,
+          2065
+        ],
+        [
+          119.53125,
+          23.90625,
+          1287,
+          1287
+        ],
+        [
+          120.9375,
+          22.5,
+          1936,
+          1936
+        ],
+        [
+          120.9375,
+          23.90625,
+          2546,
+          2546
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -68,12 +151,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acrossocheilus-paradoxus",
       "html": "<p>The Taiwan banded barb, Acrossocheilus paradoxus, is a cyprinid native to Taiwan, where it occurs throughout western and northeastern river drainages. It inhabits subtropical streams and small to medium rivers at medium to relatively high altitudes, and in the aquarium needs spotless, well-oxygenated water with moderate flow. Growing to around 200 mm SL, it needs a tank of at least 180 x 45 cm.</p><ul><li>Max size: 200 mm SL (8 in SL)</li><li>Aquarium size: 180 × 45 cm (72 × 18 in)</li><li>Temperature: 15–25°C (59–77°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acrossocheilus_paradoxus_en/",
-      "html": "<p>We received this interesting fish from Taiwan. The species usually attains a length around 12 cm. This means that our specimens are adult already. Maximum size recorded is around 20 cm.</p>"
     },
     {
       "key": "distribution",
@@ -166,8 +243,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180cm",
-        "bể cá lớn 365 lít"
+        "bể cá 180cm"
       ]
     },
     {

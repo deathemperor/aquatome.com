@@ -10,6 +10,59 @@
     "india",
     "sita"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Sita River",
+        "Western Ghats"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from two sites in the upper Sita River drainage close to the village of Agumbe, Karnataka state, southwestern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Sita River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Sita flows through part of the Western Ghats mountain range and by current knowledge B. ramachandrani is the only danionin endemic to that region, though some others do occur there.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962684,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          12.65625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -160,8 +213,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30 cm",
-        "bể cá dài 120cm"
+        "bể cá 120cm"
       ]
     },
     {

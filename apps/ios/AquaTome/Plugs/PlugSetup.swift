@@ -59,6 +59,10 @@ struct PlugSetup: View {
             Text("Đã lưu khóa của một dự án ở \(Self.name(dc)).").accessibilityIdentifier("keys-saved")
             // Not while keys are being checked: the check would keep them again after.
             Button("Xóa khóa", role: .destructive) { confirmRemove = true }.disabled(checking).accessibilityIdentifier("remove-keys")
+              // On the button: iOS shows the question as a popover from the view it's on.
+              .confirmationDialog(String(localized: "Xóa khóa Tuya trên máy này?"), isPresented: $confirmRemove, titleVisibility: .visible) {
+                Button("Xóa khóa", role: .destructive) { Task { result = nil; removeFailed = await !plugs.removeKeys() } }.accessibilityIdentifier("confirm-remove-keys")
+              }
             if removeFailed { Text("Không xóa được khóa khỏi Keychain: thử lại.").foregroundStyle(.red) }
           } footer: {
             Text("Xóa khóa không bật tắt ổ cắm nào: các ổ cắm trên bể vẫn còn, chỉ không bật tắt được cho tới khi nhập lại khóa.")
@@ -68,9 +72,6 @@ struct PlugSetup: View {
       .navigationTitle("Thiết lập ổ cắm")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Xong") { dismiss() }.accessibilityIdentifier("setup-done") } }
-      .confirmationDialog(String(localized: "Xóa khóa Tuya trên máy này?"), isPresented: $confirmRemove, titleVisibility: .visible) {
-        Button("Xóa khóa", role: .destructive) { Task { result = nil; removeFailed = await !plugs.removeKeys() } }.accessibilityIdentifier("confirm-remove-keys")
-      }
       .onAppear { if let dc = plugs.dataCenter { dataCenter = dc } }
     }
   }

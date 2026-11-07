@@ -12,6 +12,66 @@
     "mozambique",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MW",
+        "MZ",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded in Malawi, Mozambique and Tanzania (Lake Malawi).",
+          "countries": [
+            "MW",
+            "MZ",
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Malawi butterfly, Aulonocara jacobfreibergi, is a cichlid endemic to Lake Malawi, living where rocky shores give way to sand.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370488,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MW",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          33.75,
+          -14.0625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -139,8 +199,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x60 cm",
-        "bể cá cichlid lớn"
+        "bể cá 120cm"
       ]
     },
     {

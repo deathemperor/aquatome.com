@@ -1,0 +1,954 @@
+{
+  "id": "auchenoglanis-occidentalis",
+  "scientificName": "Auchenoglanis occidentalis",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Auchenoglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo",
+    "senegal",
+    "gambia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 46
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
+      "html": "<p>Auchenoglanis wittei is a very peaceful and attractive catfish. It reaches a length of at least about 30 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<ul><li>Common name: Giraffe Catfish</li><li>IUCN Red List: Least Concern (IUCN 2025). The species has a wide distribution with no known major widespread threats.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
+      "html": "<p>Keep in mind that this catfish attains at least about 30 cm, so it is suited only for large aquaria in the long term. Juvenile imports are currently 5-7 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
+      "html": "<p>In the Congo the genus is represented by Auchenoglanis wittei. The true A. occidentalis occurs in the Senegal, Casamance and Gambia rivers and is not imported as an aquarium fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Africa: Senegal, Casamance and Gambia river drainages in western Africa. Type locality: Sénégal. The species ranks among the African fish with very large distribution areas, being present from Senegal to Tanzania.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>This catfish needs a spacious tank considering its adult size.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>It is very tolerant of most water parameters. It can be kept at a low pH (6.5) with larger characins or barbs, or even in a Lake Tanganyika setup with cichlids from that lake in harder water, but soft, acidic conditions are preferable for a more contented fish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Its long pointed snout is well adapted to sifting worms and detritus in sandy substrate, so provide a sand floor and an external power filter with a good flow rate.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>This bagrid can grow to an impressive 46 cm but is basically a gentle giant and can be trusted with anything that cannot fit into its small mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>There are no reports of breeding this species in captivity, as it would need a very large tank with a number of individuals. In the wild the nested eggs are guarded by the male. The male also plays host to eggs and young of Dinotopterus cunningtoni, a member of the Clariidae catfish family, which takes advantage of the already prepared nest and feeds on the host brood.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
+      "html": "<p>Until recently only two species of Auchenoglanis were commonly accepted, namely A. biscutatus and A. occidentalis. This changed with the revision of Retzer (2010), who recognizes eight different species. A. wittei can be easily identified by the \"reticulated giraffe\" pattern of the body. It is the species most commonly referred to as A. occidentalis in aquarium literature (the real A. occidentalis is spotted as a juvenile and uniformly brown as an adult). It will probably take a long time until the correct determination is known by hobbyists.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Teugels et al. (1991) considered the genus Auchenoglanis to comprise two valid species: A. biscutatus and A. occidentalis. Work in 2010 by Michael Retzer recognised eight species, but a later re-evaluation by Geerinckx &amp; Vreven (2013), based on biometric, meristic and other morphological data, reconfirmed only two valid species. A. occidentalis was said to differ from other congeners (except A. tchadiensis) by a uniformly coloured body, and from A. tchadiensis by oval rather than triangular tooth patches on the upper jaw. A. biscutatus is distinguished from A. occidentalis by a postorbital head length greater than the preorbital head length, an adipose fin that rises abruptly, and a maxillary barbel with a tip not darker than the head colour.</p><p>A. acuticeps Pappenheim, 1914, A. tanganicanus Boulenger, 1906, A. chadiensis Pellegrin, 1909, A. sacchii (Vinciguerra, 1898) and A. wittei Giltay, 1930 are now all considered synonyms of A. occidentalis.</p><p>Etymology: the genus name Auchenoglanis is a replacement name for Auchenaspis Bleeker 1858 (preoccupied in fossil fishes); auchenos = neck and aspis = shield, referring to the broad nuchal shield; glanis = sheatfish (Silurus glanis), now used as a general term for catfish. The specific name occidentalis means western, referring to its distribution (described from Senegal) compared to the similar A. biscutatus of Egypt.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). Mushagalusa, D. 2025. Auchenoglanis occidentalis. The IUCN Red List of Threatened Species 2025. Retzer, ME (2010) Taxonomy of Auchenoglanis Günther 1865 (Siluriformes: Auchenoglanididae). Zootaxa 2655, pp. 25–51. ScotCat Factsheet no. 109. July 2005. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Tom Geerinckx &amp; Emmanuel Vreven (2013) A re-evaluation of the species-level diversity within the catfish genus Auchenoglanis (Siluriformes: Claroteidae), Journal of Natural History, 47:47-48, 2979-3010.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/61b09f956d1c8846.webp",
+      "thumb": "https://media.aquatome.com/scotcat/61b09f956d1c8846-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "caption": "Auchenoglanis occidentalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b048cf319b46178b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b048cf319b46178b-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "caption": "Auchenoglanis occidentalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f96051c32847a8aa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f96051c32847a8aa-480.webp",
+      "width": 500,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Reinhold Wawrzynski / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "caption": "Auchenoglanis occidentalis: 40cm. Aquarium Artis Amsterdam",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "oO7CD5MNEvE",
+      "title": "Releasing the African Giraffe catfish - Auchenoglanis occidentalis into the 240",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VOlEp8bmt-Y",
+      "title": "Giraffe Catfish division of territory",
+      "durationSec": 106,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "z-QqcaEK6kw",
+      "title": "Giraffe catfish,Auchenoglanis occidentalis",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jSd-qVDB5Q4",
+      "title": "オーネイトキャット　Bubu, Giraffe Catfish　Auchenoglanis occidentalis",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn chìm",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Casamance"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The true A. occidentalis occurs in the Senegal, Casamance and Gambia rivers and is not imported as an aquarium fish.",
+          "countries": [],
+          "regions": [
+            "Casamance"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337341,
+      "total": 582,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CD",
+          239
+        ],
+        [
+          "GM",
+          39
+        ],
+        [
+          "BJ",
+          32
+        ],
+        [
+          "ZM",
+          28
+        ],
+        [
+          "NG",
+          25
+        ],
+        [
+          "UG",
+          24
+        ],
+        [
+          "CM",
+          20
+        ],
+        [
+          "CG",
+          19
+        ],
+        [
+          "TZ",
+          18
+        ],
+        [
+          "CF",
+          17
+        ],
+        [
+          "CI",
+          15
+        ],
+        [
+          "EG",
+          13
+        ],
+        [
+          "SD",
+          13
+        ],
+        [
+          "ML",
+          12
+        ],
+        [
+          "TD",
+          12
+        ],
+        [
+          "SN",
+          11
+        ],
+        [
+          "GH",
+          10
+        ],
+        [
+          "NE",
+          7
+        ],
+        [
+          "BF",
+          6
+        ],
+        [
+          "SL",
+          6
+        ],
+        [
+          "ET",
+          5
+        ],
+        [
+          "GN",
+          4
+        ],
+        [
+          "SS",
+          3
+        ],
+        [
+          "TG",
+          2
+        ],
+        [
+          "BI",
+          1
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          4
+        ],
+        [
+          -15.46875,
+          12.65625,
+          41
+        ],
+        [
+          -15.46875,
+          15.46875,
+          1
+        ],
+        [
+          -14.0625,
+          12.65625,
+          4
+        ],
+        [
+          -12.65625,
+          7.03125,
+          1
+        ],
+        [
+          -12.65625,
+          9.84375,
+          1
+        ],
+        [
+          -12.65625,
+          12.65625,
+          1
+        ],
+        [
+          -11.25,
+          7.03125,
+          5
+        ],
+        [
+          -9.84375,
+          8.4375,
+          2
+        ],
+        [
+          -9.84375,
+          9.84375,
+          1
+        ],
+        [
+          -9.84375,
+          12.65625,
+          1
+        ],
+        [
+          -8.4375,
+          7.03125,
+          1
+        ],
+        [
+          -8.4375,
+          11.25,
+          3
+        ],
+        [
+          -8.4375,
+          12.65625,
+          5
+        ],
+        [
+          -7.03125,
+          7.03125,
+          1
+        ],
+        [
+          -5.625,
+          5.625,
+          1
+        ],
+        [
+          -5.625,
+          7.03125,
+          7
+        ],
+        [
+          -5.625,
+          8.4375,
+          2
+        ],
+        [
+          -5.625,
+          9.84375,
+          1
+        ],
+        [
+          -5.625,
+          12.65625,
+          1
+        ],
+        [
+          -4.21875,
+          8.4375,
+          3
+        ],
+        [
+          -4.21875,
+          11.25,
+          1
+        ],
+        [
+          -4.21875,
+          14.0625,
+          2
+        ],
+        [
+          -2.8125,
+          11.25,
+          1
+        ],
+        [
+          -1.40625,
+          5.625,
+          2
+        ],
+        [
+          -1.40625,
+          7.03125,
+          2
+        ],
+        [
+          -1.40625,
+          11.25,
+          2
+        ],
+        [
+          0,
+          5.625,
+          4
+        ],
+        [
+          0,
+          7.03125,
+          2
+        ],
+        [
+          0,
+          9.84375,
+          10
+        ],
+        [
+          0,
+          11.25,
+          5
+        ],
+        [
+          1.40625,
+          5.625,
+          8
+        ],
+        [
+          1.40625,
+          11.25,
+          7
+        ],
+        [
+          1.40625,
+          12.65625,
+          6
+        ],
+        [
+          2.8125,
+          11.25,
+          5
+        ],
+        [
+          4.21875,
+          5.625,
+          1
+        ],
+        [
+          4.21875,
+          9.84375,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          5
+        ],
+        [
+          5.625,
+          5.625,
+          8
+        ],
+        [
+          7.03125,
+          8.4375,
+          5
+        ],
+        [
+          8.4375,
+          5.625,
+          5
+        ],
+        [
+          8.4375,
+          11.25,
+          2
+        ],
+        [
+          8.4375,
+          49.21875,
+          1
+        ],
+        [
+          11.25,
+          7.03125,
+          3
+        ],
+        [
+          12.65625,
+          -7.03125,
+          3
+        ],
+        [
+          12.65625,
+          -5.625,
+          2
+        ],
+        [
+          12.65625,
+          8.4375,
+          5
+        ],
+        [
+          14.0625,
+          -5.625,
+          33
+        ],
+        [
+          14.0625,
+          -4.21875,
+          7
+        ],
+        [
+          14.0625,
+          0,
+          4
+        ],
+        [
+          14.0625,
+          7.03125,
+          1
+        ],
+        [
+          14.0625,
+          9.84375,
+          9
+        ],
+        [
+          15.46875,
+          -5.625,
+          7
+        ],
+        [
+          15.46875,
+          -4.21875,
+          6
+        ],
+        [
+          15.46875,
+          -2.8125,
+          3
+        ],
+        [
+          16.875,
+          -4.21875,
+          3
+        ],
+        [
+          16.875,
+          -2.8125,
+          1
+        ],
+        [
+          16.875,
+          -1.40625,
+          5
+        ],
+        [
+          16.875,
+          0,
+          1
+        ],
+        [
+          16.875,
+          8.4375,
+          5
+        ],
+        [
+          18.28125,
+          -1.40625,
+          7
+        ],
+        [
+          18.28125,
+          0,
+          3
+        ],
+        [
+          18.28125,
+          2.8125,
+          8
+        ],
+        [
+          18.28125,
+          4.21875,
+          4
+        ],
+        [
+          18.28125,
+          8.4375,
+          6
+        ],
+        [
+          19.6875,
+          -7.03125,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          2
+        ],
+        [
+          19.6875,
+          1.40625,
+          2
+        ],
+        [
+          19.6875,
+          4.21875,
+          2
+        ],
+        [
+          19.6875,
+          5.625,
+          3
+        ],
+        [
+          19.6875,
+          7.03125,
+          4
+        ],
+        [
+          19.6875,
+          9.84375,
+          1
+        ],
+        [
+          21.09375,
+          -5.625,
+          1
+        ],
+        [
+          21.09375,
+          2.8125,
+          3
+        ],
+        [
+          21.09375,
+          4.21875,
+          5
+        ],
+        [
+          21.09375,
+          8.4375,
+          2
+        ],
+        [
+          22.5,
+          -9.84375,
+          2
+        ],
+        [
+          22.5,
+          -7.03125,
+          2
+        ],
+        [
+          22.5,
+          -5.625,
+          4
+        ],
+        [
+          22.5,
+          -4.21875,
+          4
+        ],
+        [
+          22.5,
+          0,
+          2
+        ],
+        [
+          22.5,
+          1.40625,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          49
+        ],
+        [
+          23.90625,
+          1.40625,
+          10
+        ],
+        [
+          25.3125,
+          -9.84375,
+          8
+        ],
+        [
+          25.3125,
+          -8.4375,
+          1
+        ],
+        [
+          25.3125,
+          -7.03125,
+          2
+        ],
+        [
+          25.3125,
+          -4.21875,
+          4
+        ],
+        [
+          25.3125,
+          -2.8125,
+          2
+        ],
+        [
+          25.3125,
+          -1.40625,
+          1
+        ],
+        [
+          25.3125,
+          0,
+          6
+        ],
+        [
+          25.3125,
+          2.8125,
+          1
+        ],
+        [
+          26.71875,
+          -9.84375,
+          1
+        ],
+        [
+          26.71875,
+          -8.4375,
+          11
+        ],
+        [
+          26.71875,
+          -7.03125,
+          1
+        ],
+        [
+          26.71875,
+          2.8125,
+          4
+        ],
+        [
+          28.125,
+          -11.25,
+          1
+        ],
+        [
+          28.125,
+          -9.84375,
+          15
+        ],
+        [
+          28.125,
+          -7.03125,
+          10
+        ],
+        [
+          28.125,
+          -4.21875,
+          7
+        ],
+        [
+          28.125,
+          2.8125,
+          5
+        ],
+        [
+          29.53125,
+          -12.65625,
+          1
+        ],
+        [
+          29.53125,
+          -9.84375,
+          11
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          2
+        ],
+        [
+          29.53125,
+          -5.625,
+          14
+        ],
+        [
+          29.53125,
+          0,
+          14
+        ],
+        [
+          29.53125,
+          2.8125,
+          1
+        ],
+        [
+          29.53125,
+          15.46875,
+          1
+        ],
+        [
+          29.53125,
+          25.3125,
+          3
+        ],
+        [
+          30.9375,
+          -11.25,
+          5
+        ],
+        [
+          30.9375,
+          -9.84375,
+          2
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1
+        ],
+        [
+          30.9375,
+          1.40625,
+          15
+        ],
+        [
+          30.9375,
+          8.4375,
+          3
+        ],
+        [
+          30.9375,
+          21.09375,
+          9
+        ],
+        [
+          32.34375,
+          -8.4375,
+          1
+        ],
+        [
+          32.34375,
+          12.65625,
+          9
+        ],
+        [
+          32.34375,
+          15.46875,
+          3
+        ],
+        [
+          32.34375,
+          23.90625,
+          1
+        ],
+        [
+          33.75,
+          7.03125,
+          3
+        ],
+        [
+          39.375,
+          8.4375,
+          2
+        ]
+      ]
+    }
+  }
+}

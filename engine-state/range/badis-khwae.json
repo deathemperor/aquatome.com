@@ -1,0 +1,60 @@
+{
+  "id": "badis-khwae",
+  "native": {
+    "input": "2ccaabc6dfa79de8",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Badis khwae is a badid that appears to be endemic to the Khwae Noi River basin in western Thailand, close to the border with Myanmar.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the Khwae Noi River basin in western Thailand, close to the border with Myanmar, where it can be found in small streams feeding the main river.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Khwae Noi",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the Khwae Noi River basin in western Thailand, close to the border with Myanmar, where it can be found in small streams feeding the main river.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Badis khwae",
+    "status": "ACCEPTED",
+    "taxonKey": 2389465,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

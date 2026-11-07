@@ -14,6 +14,119 @@
     "thailand",
     "tapi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Mahakam",
+        "Borneo",
+        "Kapuas",
+        "Maenam Tapi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Bo River (= Sungai Boh), Mahakam River basin, Kalimantan Timur, Indonesia', a tributary of the Mahakam river system in East Kalimantan province, Indonesia (Borneo) and this species is distributed throughout much of the island including parts of Sarawak state, Malaysia.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Mahakam",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded in Peninsular Malaysia with the Maenam Tapi river in Surat Thani province, southern (peninsular) Thailand representing the northern limit of its known range.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Maenam Tapi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kapuas River basin, Kalimantan Barat (West Kalimantan) province it occurs sympatrically with the congener A. robertsi.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368112,
+      "total": 12,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          8
+        ],
+        [
+          "MY",
+          3
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          115.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -170,8 +283,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá 60x30"
+        "bể cá 60cm"
       ]
     },
     {

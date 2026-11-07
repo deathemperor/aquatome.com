@@ -12,7 +12,11 @@ private struct Vectors: Decodable, Sendable {
   struct FishQuery: Decodable, Sendable { let tankCm: Double?, tempC: Double?, ph: Double?, difficultyMax: Double? }
   struct PlantQuery: Decodable, Sendable { let light: String?, co2: String?, difficultyMax: Int? }
   struct Case<Q: Decodable & Sendable>: Decodable, Sendable { let note: String; let query: Q; let fit: [String]; let unsure: [String] }
+  /// A breed card's query: the fish list's figures, and the site's name search and group, which aren't this filter's.
+  struct BreedQuery: Decodable, Sendable { let tankCm: Double?, tempC: Double?, ph: Double?, difficultyMax: Double?, text: String?, group: String? }
+  struct BreedCase: Decodable, Sendable { let note: String; let query: BreedQuery; let kept: [String] }
   let species: [Fish], speciesCases: [Case<FishQuery>], plants: [Plant], plantCases: [Case<PlantQuery>]
+  let breeds: [Fish], breedCases: [BreedCase]
 }
 private let v: Vectors = {
   var url = URL(fileURLWithPath: #filePath)
@@ -45,11 +49,22 @@ private let v: Vectors = {
   }
 }
 
-@Test func aBreedIsOnlyInTheListWithNoFilter() {
-  let breed = HandbookIndex.Item(kind: .fish, contentId: "halfmoon", name: "Betta halfmoon", path: "/vi/ca/halfmoon/")
-  #expect(FishFilter().split([breed]).fit.count == 1)
-  let set = FishFilter(tankCm: 60).split([breed])
-  #expect(set.fit.isEmpty && set.unsure.isEmpty)
+@Test func filtersBreedsAsTheSitesListDoes() {
+  // A breed's figures are its own card's (the index's `card`), and it has no scientific name. One with no figures has
+  // no card at all, as the index leaves it out.
+  let items = v.breeds.map { f in
+    let card = HandbookIndex.Facts(tempC: f.tempC, ph: f.ph, tankCm: f.tankCm, difficulty: f.difficulty)
+    return HandbookIndex.Item(kind: .fish, contentId: f.name, name: f.name, path: "/vi/ca/\(f.name)/", card: card == .init() ? nil : card)
+  }
+  // The name search and the groups are the search's and the shelves', not this filter's.
+  let cases = v.breedCases.filter { $0.query.text == nil && $0.query.group == nil }
+  #expect(cases.count > 5)
+  for c in cases {
+    let q = c.query
+    let (fit, unsure) = FishFilter(tankCm: q.tankCm, tempC: q.tempC, ph: q.ph, difficultyMax: q.difficultyMax).split(items)
+    #expect(fit.map(\.name) == c.kept, Comment(rawValue: c.note))
+    #expect(unsure.isEmpty, Comment(rawValue: c.note))
+  }
 }
 
 @Test func aNumberIsOneTheSitesFormTakes() {

@@ -1,0 +1,50 @@
+{
+  "id": "nematobrycon-lacortei",
+  "native": {
+    "input": "a179b6916f86703f",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rainbow tetra, Nematobrycon lacortei, is a small characid from western Colombia, considered endemic to the Río San Juan system.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río San Juan",
+        "source": "seriouslyfish",
+        "quote": "The rainbow tetra, Nematobrycon lacortei, is a small characid from western Colombia, considered endemic to the Río San Juan system.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Calima",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'probably from Río Calima, Colombia'.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nematobrycon lacortei",
+    "status": "ACCEPTED",
+    "taxonKey": 2354002,
+    "datasets": [],
+    "native": [
+      "CO"
+    ],
+    "requests": 2,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

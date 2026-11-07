@@ -10,6 +10,60 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372469,
+      "total": 15,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MW",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          5
+        ],
+        [
+          33.75,
+          -14.0625,
+          4
+        ],
+        [
+          33.75,
+          -12.65625,
+          5
+        ],
+        [
+          33.75,
+          -11.25,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -143,8 +197,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 250 lít"
+        "bể cá 150cm"
       ]
     },
     {

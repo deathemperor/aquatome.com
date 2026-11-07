@@ -1,0 +1,76 @@
+{
+  "id": "atractosteus-tristoechus",
+  "native": {
+    "input": "f4aa68142e091772",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "CU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Cuban gar, Atractosteus tristoechus, known locally as 'manjuari', is a gar endemic to western Cuba and Isla de la Juventud.",
+        "words": "Cuba",
+        "ok": true
+      },
+      {
+        "code": "CU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Cuba where it's found throughout western parts of the island plus Isla de la Juventud (Isle of Youth, formerly known as the Isle of Pines).",
+        "words": "Cuba",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Isla de la Juventud",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Cuba where it's found throughout western parts of the island plus Isla de la Juventud (Isle of Youth, formerly known as the Isle of Pines).",
+        "country": "CU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Atractosteus tristoechus",
+    "status": "ACCEPTED",
+    "taxonKey": 2346762,
+    "datasets": [
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ]
+    ],
+    "native": [
+      "CU"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

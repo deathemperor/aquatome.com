@@ -1,0 +1,77 @@
+{
+  "vi/guides/loachesonline-care-the-loach-almanac#body": [
+    {
+      "at": "2026-11-06T12:51:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Item 1: 'Trùn chỉ đỏ (bloodworm)' changed to 'Trùn huyết (bloodworm, ấu trùng muỗi đỏ)': added gloss 'ấu trùng muỗi đỏ' not in the original.",
+        "Item 1: 'Giun tubifex' became 'trùn chỉ (tubifex)'. This is a name change, and it clashes with the original name 'trùn chỉ đỏ' for bloodworm.",
+        "Item 1: 'được biết là mang nhiều bệnh' became 'nổi tiếng mang nhiều mầm bệnh'. 'mầm bệnh' is a slight shift, and 'nổi tiếng' is stronger than 'được biết là'.",
+        "Item 1: 'Giun tubifex ... nên tốt nhất là tránh' is split and reordered, with the advice first and the reason second. Content is kept.",
+        "Item 1: 'những thứ dài ngoằn ngoèo' became 'những con dài ngoằn ngoèo'. This is minor.",
+        "Item 2: 'Nó tối đa hóa lượng thức ăn cá thật sự dùng để lớn' became 'Phần lớn thức ăn sẽ thật sự đi vào việc nuôi cá lớn'. This is a weaker claim ('most of the food' replaces 'maximizes').",
+        "Item 2: 'mục tiêu số một' became 'một mục tiêu lớn nhất'. This is fine.",
+        "Item 2: 'dành cho các loài ăn đêm' is kept. 'phần cơ thể không dùng tới' became 'phần thức ăn cơ thể không dùng tới', which clarifies the meaning but changes the wording."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy#body": [
+    {
+      "at": "2026-11-06T12:49:53Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"đồng danh\" → \"tên đồng nghĩa\": same meaning (synonym), fine",
+        "\"nhưng\" added: slight contrastive nuance not in BEFORE, minor"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/seriouslyfish-articles-whaddaya-mean-too-hot#body": [
+    {
+      "at": "2026-11-06T15:48:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"nuôi chung lâu dài\" became \"nuôi lâu dài thông thường\" — the sense of keeping fish together (community) is lost/changed",
+        "\"mạnh mẽ\" became \"sung sức\" — a minor nuance shift",
+        "\"Bạn sẽ thấy\" became \"Vì vậy\" — the addressee framing was replaced with an added causal link",
+        "\"Chưa con cá nào ... từng bị hại\" lost \"từng\" — a minor nuance"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-0KkgA9W52kQ#body": [
+    {
+      "at": "2026-11-06T21:49:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Nắp bể là nắp tự đóng\" (self-closing lid) changed to \"Nắp bể cũng là nắp tự làm\" (DIY lid): different fact.",
+        "\"khu vực phía trên bể gần như không bị động tới\" (top area barely touched) became \"được để trống\" (left empty): meaning changed.",
+        "\"Vì thế\" (so) in BEFORE refers to the scratches from hitting the bar. AFTER says \"Cũng vì cá hay nhảy\" (because fish jump), so the causal link is changed.",
+        "Tank dimensions reordered (length first) but values are correct; no issue."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-7DFk4bnIxEg#body": [
+    {
+      "at": "2026-11-06T21:51:26Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Dropped the parenthetical '(đổi ra khoảng 15 cm, chỉ là quy đổi gần đúng)'. It was a redundant, awkward conversion note, so removing it is harmless.",
+        "'tính theo' became 'tùy vào', and 'Lượng ống' became 'Số ống'. These are minor wording changes with the same meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ]
+}

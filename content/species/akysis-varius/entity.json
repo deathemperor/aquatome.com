@@ -15,6 +15,97 @@
     "siem-reap",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Xe Bangfai",
+        "Mun River",
+        "Siem Reap river"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The variable stream catfish, Akysis varius, is a small akysid catfish from the Mekong drainage in Laos, Thailand and Cambodia.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Xe Bangfai river system with type locality around 3 km upstream of Ban Pakphanang village in Khammouane/Khammouan province, central western Laos.",
+          "countries": [],
+          "regions": [
+            "Xe Bangfai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from the Mun River basin in Ubon Ratchathani and Nakhon Ratchasima provinces, central eastern Thailand as well as the Siem Reap river, which flows through the province of the same name, in northwestern Cambodia.",
+          "countries": [],
+          "regions": [
+            "Mun River",
+            "Siem Reap river"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340892,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          3
+        ],
+        [
+          "KH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -228,8 +319,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30 cm",
-        "bể cá mini 41 lít"
+        "bể cá 50cm"
       ]
     },
     {

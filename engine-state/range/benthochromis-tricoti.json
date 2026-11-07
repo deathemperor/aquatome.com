@@ -1,0 +1,86 @@
+{
+  "id": "benthochromis-tricoti",
+  "native": {
+    "input": "e9266dd107963724",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "BI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika, and recorded from the waters of all four countries bordering the lake: Burundi, DR Congo, Tanzania and Zambia.",
+        "words": "Burundi",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika, and recorded from the waters of all four countries bordering the lake: Burundi, DR Congo, Tanzania and Zambia.",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika, and recorded from the waters of all four countries bordering the lake: Burundi, DR Congo, Tanzania and Zambia.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika, and recorded from the waters of all four countries bordering the lake: Burundi, DR Congo, Tanzania and Zambia.",
+        "words": "Zambia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika, and recorded from the waters of all four countries bordering the lake: Burundi, DR Congo, Tanzania and Zambia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Benthochromis tricoti",
+    "status": "ACCEPTED",
+    "taxonKey": 2373775,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        6
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ]
+    ],
+    "native": [
+      "BI",
+      "CD",
+      "TZ",
+      "ZM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

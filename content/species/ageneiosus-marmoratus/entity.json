@@ -16,6 +16,136 @@
     "ecuador",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Essequibo",
+        "Amazon",
+        "Courantyne",
+        "Potaro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
+          "countries": [
+            "GY",
+            "SR",
+            "PE",
+            "EC"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
+          "countries": [],
+          "regions": [
+            "Essequibo",
+            "Potaro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+          "countries": [],
+          "regions": [
+            "Courantyne"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344560,
+      "total": 15,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          5
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "BR",
+          3
+        ],
+        [
+          "GY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -143,8 +273,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 540 lít"
+        "bể cá 150cm"
       ]
     },
     {

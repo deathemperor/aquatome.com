@@ -87,6 +87,29 @@
         "source": 4,
         "value": 120
       }
+    ],
+    "lifeYears": [
+      {
+        "source": 0,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 12,
+          "max": 15
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
     ]
   },
   "photos": [

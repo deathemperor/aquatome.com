@@ -32,11 +32,12 @@ export function photoFrom(photos: Photo[], sources: Partial<Record<SourceId, Sou
 }
 
 /**
- * The gallery page's line about its photos: how many, from which sites, and that they are under open licences or used
- * with permission (photos a source let us use say so). The app's copy of the gallery carries it too.
+ * The gallery page's line about its photos: how many, from which sites, and that they are under open licences when all
+ * are (a gallery with photos a source let us use names the source, and no more). The app's copy of the gallery carries
+ * it too.
  */
 export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
   const from = photoFrom(photos, sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
   const open = photos.every(p => !p.source)
-  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}, giấy phép mở hoặc được phép dùng.', { n: photos.length, from })
+  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from })
 }

@@ -11,6 +11,110 @@
     "hainan",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Hainan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from Guangdong and Hainan provinces (principally Hainan Island), southern China, plus the island of Taiwan.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Hainan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366435,
+      "total": 25,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CN",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          109.6875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          22.5,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          23.90625,
+          10,
+          10
+        ],
+        [
+          115.3125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          118.125,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -15,8 +15,48 @@ export const NAV = [
   ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
   ['/_ab/an-trang/', 'Ẩn trang'],
   ['/_ab/tai-khoan/', 'Tài khoản · Bình luận'],
+  ['/_ab/bao-cao/', 'Báo cáo hằng ngày'],
 ] as const
 export type AdminPath = (typeof NAV)[number][0]
+/**
+ * The scoreboard is on the web dashboard only, outside NAV: NAV is also the section list the iOS app draws (dashboard.ts
+ * SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's contract. The rail adds it.
+ */
+export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
+/** The daily report's log and its delivery (worker/daily), a section of the app's too. */
+export const REPORT_PATH = '/_ab/bao-cao/'
+export const REPORT_NAME = 'Báo cáo hằng ngày'
+/** The product change log (daily/changelog.ts), which the daily report adds to: web only, like the scoreboard. */
+export const CHANGELOG_PATH = '/_ab/thay-doi/'
+export const CHANGELOG_NAME = 'Thay đổi sản phẩm'
+export type WebPath = AdminPath | typeof SCOREBOARD_PATH | typeof CHANGELOG_PATH
+/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last), the change log. */
+const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1), [CHANGELOG_PATH, CHANGELOG_NAME]]
+/** Every page of the web dashboard, the one the app doesn't list included. */
+export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
+
+/** Their keys. A key's page, the pages under it (one report) and its JSON form (thanh-cong.json) are the dashboard's. */
+const KEYS = new Set(WEB_PAGES.map(p => p.slice('/_ab/'.length, -1)).filter(Boolean))
+const UNDER_KEY = /^\/([a-z0-9-]+)((?:\/[a-z0-9-]+)*\/|\.json)$/
+/**
+ * The /_ab/ path behind an address on the dashboard's own host (dashboard-host.ts): "/" → "/_ab/", "/bao-cao/1003/" →
+ * "/_ab/bao-cao/1003/", "/thanh-cong.json" → "/_ab/thanh-cong.json"; undefined for an address that isn't the dashboard's.
+ */
+export function innerPath(path: string): string | undefined {
+  if (path === '/') return '/_ab/'
+  const m = UNDER_KEY.exec(path)
+  return m && KEYS.has(m[1]!) ? `/_ab${path}` : undefined
+}
+/**
+ * The other way, for the host's links and redirects: a dashboard address as the host has it, the query and hash kept
+ * ("/_ab/doc-gia/?x=1#y" → "/doc-gia/?x=1#y"). The rest of /_ab/ (the forms, the images, the fonts) stays as it is.
+ */
+export function hostPath(path: string): string {
+  const at = path.search(/[?#]/)
+  const [p, rest] = at < 0 ? [path, ''] : [path.slice(0, at), path.slice(at)]
+  const own = p.startsWith('/_ab/') ? p.slice('/_ab'.length) : undefined
+  return own !== undefined && innerPath(own) === p ? `${own}${rest}` : path
+}
 
 const LATIN = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'
 const VIET = 'U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB'
@@ -47,10 +87,11 @@ a:hover{text-decoration-color:currentColor;color:var(--moss)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
 .num,td,.v,.fig{font-variant-numeric:tabular-nums}
 .masthead{background:var(--water);color:var(--on-dark);display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px max(16px,env(safe-area-inset-left)) 12px}
-.brand{font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:.005em}
+.brand{font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:.005em;margin-right:auto}
 .brand span{color:var(--on-dark-soft);font-weight:500}
 .brand span:before{content:'·';margin:0 .4em}
 .masthead time{color:var(--on-dark-soft);font-size:13px;white-space:nowrap}
+.masthead .out{color:var(--on-dark-soft);font-size:13px;white-space:nowrap;padding:14px 0;margin:-14px 0}
 .masthead :focus-visible{outline-color:#6fd6be}
 .frame{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr)}
 .rail{border-bottom:1px solid var(--rule);background:var(--plate)}
@@ -126,6 +167,35 @@ h3.sub-h{font:600 1.05rem/1.3 var(--serif);margin:22px 0 8px}
 .gaps details{margin-top:2px}
 ol.pages{margin:4px 0 6px;padding-left:1.6em;columns:2 14rem;column-gap:24px;font-size:14px}
 ol.pages li{break-inside:avoid;padding:2px 0}
+/* Out of search for a low score: each page, its score and its last review's notes, the first two lines until opened */
+.low .kpis{margin-bottom:12px}
+.low-t th,.low-t td{text-align:left}
+.low-t tbody th{min-width:12rem}
+.low-t td.s,.low-t td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.low-t td.s{font:600 1.05rem/1.3 var(--serif);color:var(--rust)}
+.low-t td.why{min-width:22rem;max-width:44rem;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
+.why p{margin:0}
+.why ul{list-style:none;margin:0;padding:0 0 0 1.1em}
+.why li{margin-top:6px}
+.why small{display:block;margin-top:6px;font-size:12.5px;color:var(--muted)}
+.why summary{list-style:none;cursor:pointer;position:relative;padding-left:1.1em}
+.why summary::-webkit-details-marker{display:none}
+.why summary:before{content:'▸';position:absolute;left:0;color:var(--muted)}
+.why details[open]>summary:before{content:'▾'}
+.why details:not([open]) summary span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.why details:not([open]) summary:after{content:attr(data-more);display:block;margin-top:4px;font-weight:600;color:var(--moss)}
+@media (max-width:720px){
+.low-t thead{display:none}
+.low-t,.low-t tbody{display:block}
+.low-t tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.low-t tr:last-child{border-bottom:0}
+.low-t tbody th,.low-t td{display:block;padding:0;border:0;background:none;min-width:0;max-width:none}
+.low-t td.k{grid-column:1;font-size:13px}
+.low-t td.s{grid-column:2;grid-row:1}
+.low-t td.r{grid-column:2;grid-row:2;font-size:13px;color:var(--muted)}
+.low-t td.r:after{content:' người đọc'}
+.low-t td.why{grid-column:1/-1;margin-top:8px;min-width:0}
+}
 .chart .kpis{border:0;border-radius:0;background:none}
 /* Detail pages: tiles, charts, tables, forms */
 table{border-collapse:collapse;width:100%}
@@ -170,7 +240,8 @@ summary:hover{color:var(--ink)}
 .js .readout.first .hint{display:block}
 .js .readout.first.sel .hint{visibility:hidden}
 .js .readout .hint:before{content:'Chạm vào một cột để xem ngày đó.'}
-@media (hover:hover){.js .readout .hint:before{content:'Trỏ vào một cột để xem ngày đó.'}}
+.js .readout.wk .hint:before{content:'Chạm vào một cột để xem tuần đó.'}
+@media (hover:hover){.js .readout .hint:before{content:'Trỏ vào một cột để xem ngày đó.'}.js .readout.wk .hint:before{content:'Trỏ vào một cột để xem tuần đó.'}}
 .key{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
 .cols .s1,.key.s1{background:var(--s1)}
 .cols .s2,.key.s2{background:var(--s2)}
@@ -215,6 +286,30 @@ summary:hover{color:var(--ink)}
 .rank caption span{display:inline-block;margin-right:16px;white-space:nowrap}
 .chart>.scroll{border:0;border-radius:0;background:none}
 .chart .rank th{min-width:6rem}
+/* The scoreboard's rows: the metric and what it counts, this week first, the shape of its 12 weeks last */
+.score{table-layout:fixed}
+.score thead th+th{text-align:right;width:8rem}
+.score thead th:last-child{width:136px}
+.score small{display:block;font-size:.78rem;font-weight:400;color:var(--muted);line-height:1.35;margin-top:2px}
+.score td{position:relative}
+.score .now b{font:600 1.15rem/1.3 var(--serif)}
+.score .chip{margin-left:2px}
+.score .spark{margin-left:auto}
+section>.split{margin-top:12px}
+@media (max-width:720px){
+.score thead{display:none}
+.score,.score tbody{display:block}
+.score tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 104px;gap:6px 8px;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.score tr:last-child{border-bottom:0}
+.score tbody th,.score td{display:block;padding:0;border:0;text-align:left;background:none}
+.score tbody th{grid-column:1/-1}
+.score td:before{content:attr(data-l);display:block;min-height:2.5em;font-size:.72rem;line-height:1.25;color:var(--muted);margin-bottom:2px}
+.score .spark{margin-left:0}
+}
+@media (max-width:359px){
+.score tr{grid-template-columns:repeat(3,minmax(0,1fr))}
+.score .trend{grid-column:1/-1}
+}
 /* A share of a whole: a thin bar on a pale track of its own hue */
 .meter{display:block;height:6px;max-width:14rem;margin:6px 0 4px;border-radius:3px;overflow:hidden;background:color-mix(in srgb,var(--s1) 16%,var(--plate))}
 .meter>span{display:block;height:100%;width:calc(var(--w) * 1%);background:var(--s1);border-radius:3px}
@@ -236,6 +331,8 @@ button.go,a.go{background:var(--ink);border-color:var(--ink);color:var(--paper);
 button.go:hover,a.go:hover{background:var(--moss);border-color:var(--moss);color:var(--paper)}
 a.go{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border-radius:9px;text-decoration:none}
 .thumb{display:block;width:96px;height:auto;border-radius:8px}
+/* A report as it was mailed: its own colours, inline, on the white a mail reads on */
+.mail{background:#fff;color:#1d2a22;border:1px solid var(--rule);border-radius:var(--r);overflow-x:auto;margin:16px 0}
 i.sci{font-style:italic}
 @media (min-width:1000px){
 .frame{grid-template-columns:232px minmax(0,1fr);gap:0 8px}
@@ -260,12 +357,13 @@ export const ICON = {
 }
 
 /**
- * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page; times rewritten in
+ * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page (at /, where the
+ * dashboard's own host has its pages; the one kept at /_ab before cleared); times rewritten in
  * it when this page was put together in another; then one reload, so the days follow it as well.
  */
 const TIME_JS = `(()=>{const d=document.documentElement,z=Intl.DateTimeFormat().resolvedOptions().timeZone
 if(!z)return
-const c='aq_tz='+encodeURIComponent(z);document.cookie=c+'; Path=/_ab; Max-Age=31536000; SameSite=Lax; Secure'
+const c='aq_tz='+encodeURIComponent(z);document.cookie='aq_tz=; Path=/_ab; Max-Age=0; SameSite=Lax; Secure';document.cookie=c+'; Path=/; Max-Age=31536000; SameSite=Lax; Secure'
 if(z===d.dataset.tz)return
 const f=new Intl.DateTimeFormat('en-GB',{timeZone:z,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'}),p=t=>Object.fromEntries(f.formatToParts(t).map(x=>[x.type,x.value])),y=p(new Date()).year,W={Sun:'Chủ nhật',Mon:'Thứ Hai',Tue:'Thứ Ba',Wed:'Thứ Tư',Thu:'Thứ Năm',Fri:'Thứ Sáu',Sat:'Thứ Bảy'}
 for(const t of document.querySelectorAll('time[datetime]')){const q=p(new Date(t.dateTime)),hm=q.hour+':'+q.minute
@@ -293,8 +391,8 @@ p.addEventListener('keydown',e=>{const l=cols.length-1,k=e.key,i=k==='ArrowRight
 if(i===null)return;e.preventDefault();pick(i)})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
-export function page(current: AdminPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
-  const nav = NAV.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
+export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
+  const nav = PAGE_NAV.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
   const script = body.includes('data-plot') ? `<script>${CHART_JS}</script>` : ''
   return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }

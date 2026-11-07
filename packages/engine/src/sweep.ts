@@ -1,12 +1,14 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { mayPublish, QUALITY_THRESHOLD, shownCard, type DataCardField, type Lang, type SpeciesEntity } from '@aq/schema'
+import { mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
+import { logReviews } from './review-log'
+import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 
@@ -16,12 +18,21 @@ import { breedsNamed } from './topics'
  * test fails on any left. Each file keeps its own indentation, and no page's date changes.
  * - the source site's comments, comment form and related posts: cut (cutFurniture)
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
+ * - a sentence that only says the text is translated, adapted or used with permission (the source's note under an
+ *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
  * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
  *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
+ * - a species' or plant's text from a shop (species-sources.ts): a block that speaks as the shop or sells goes, in English
+ *   and every language (the whole section when a translation's blocks don't match the English's). A page about one
+ *   variety (engine-state/_variety-pages.json) leaves a species page, with its source's card figures and photos, unless
+ *   it is all the page has; its summary waits to be written again
+ * - a species' tank search: the card's minimum tank as shops sell it ("bể cá 60cm", @aq/schema tankSearch), never a
+ *   smaller or mini tank the model named ("bể cá mini 20cm" for a betta whose card says 45 cm). A page with no tank row,
+ *   or a card with no minimum tank, is left as it is
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
  * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
@@ -38,13 +49,19 @@ import { breedsNamed } from './topics'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
   card: string[]
   /** Summaries sent back to be written again, their card having changed. */
   summaries: string[]
+  /** Species whose tank search was written again from the card, `id: old → new`. */
+  tanks: string[]
+  /** A shop's own talk taken off a page, `kind/id: key:source (blocks or the section)`. */
+  shop: string[]
+  /** Pages about one variety taken off a species page, `id: url`; `kept` when it is all the page has. */
+  varieties: string[]
   titles: string[]
   /** Other names taken off species pages, `lang/id: "name" (why)`, and off breed pages, `lang/breeds/id: …`. */
   names: string[]
@@ -57,7 +74,6 @@ export type SweepReport = {
   stopped: string
 }
 
-const LANGS: Lang[] = ['vi', 'id', 'th']
 type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A file's own indentation, so a change is the lines it changes. */
@@ -89,6 +105,7 @@ export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[
     if (repeats.some((f, i) => f.html !== out[i]!.html)) mark('repeated')
     out = step('headings', repeats, dropEmptyHeadings)
     out = step('labels', out, renumberLabels)
+    out = step('permission', out, dropPermissionNotes)
     const html = (field: string) => out.find(f => f.field === field)!.html
     const next = {
       ...tidy,
@@ -115,15 +132,15 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
-  const counted: { file: string; raw: string; t: Stored; kind: string; lang: Lang; id: string }[] = [] // raw: for its indentation
+  const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
 
-  // Text, in every language.
+  // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
-      for (const lang of LANGS) {
+      for (const lang of WRITTEN_LANGS) {
         const file = join(content, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
@@ -141,7 +158,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   }
 
   // A species' other names: its own, each once.
-  const breeds = Object.fromEntries(await Promise.all(LANGS.map(async l => [l, await breedNames(content, l)] as const))) as Record<Lang, BreedName[]>
+  const breeds = Object.fromEntries(await Promise.all(WRITTEN_LANGS.map(async l => [l, await breedNames(content, l)] as const))) as Record<WrittenLang, BreedName[]>
   const offFile = join(root, 'engine-state', '_names-off.json')
   const offLog = JSON.parse(await readFile(offFile, 'utf8').catch(() => '{}')) as Record<string, Record<string, string>>
   const today = new Date().toISOString().slice(0, 10)
@@ -156,7 +173,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
     const sci = (JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }).scientificName
     if (!sci) continue
-    for (const lang of LANGS) {
+    for (const lang of WRITTEN_LANGS) {
       const file = join(content, 'species', id, `${lang}.json`)
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
@@ -192,7 +209,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   for (const id of breedIds) {
     const e = JSON.parse(await readFile(join(content, 'breeds', id, 'entity.json'), 'utf8').catch(() => 'null')) as { basedOn?: string; parents: { species?: string }[] } | null
     if (!e) continue
-    for (const lang of LANGS) {
+    for (const lang of WRITTEN_LANGS) {
       const file = join(content, 'breeds', id, `${lang}.json`)
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
@@ -236,6 +253,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model)
         if (r.score >= QUALITY_THRESHOLD) { title = r.title; how = `rewritten (${r.score.toFixed(2)})` }
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
+        await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
       } catch (e) {
         if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
@@ -280,6 +298,75 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
   }
 
+  // A shop's own talk, and pages about one variety (species-sources.ts): before the card, which then reads what is left.
+  const varieties = await readVarietyPages(root)
+  type Entity = { sections: SpeciesEntity['sections']; dataCard?: Record<string, { source: string }[]>; photos?: { sourceUrl?: string }[] }
+  for (const kind of ['species', 'plants']) {
+    for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+      const file = join(content, kind, id, 'entity.json')
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const e = JSON.parse(raw) as Entity
+      if (!e.sections) continue
+      const off = new Set(kind === 'species' ? e.sections.filter(x => varieties[x.sourceUrl]).map(x => x.sourceUrl) : [])
+      if (!off.size && !e.sections.some(x => isShop(x.source))) continue
+      const langs = (await Promise.all(WRITTEN_LANGS.map(async l => {
+        const f = join(content, kind, id, `${l}.json`)
+        const r = await readFile(f, 'utf8').catch(() => null)
+        return r ? [{ f, raw: r, t: JSON.parse(r) as Stored & { sections: Record<string, string> } }] : []
+      }))).flat()
+      const before = langs.map(l => JSON.stringify(l.t))
+      let sections = e.sections
+      let summary = false
+      if (off.size) {
+        const kept = sections.filter(x => !off.has(x.sourceUrl))
+        if (!kept.some(x => x.key !== 'references')) report.varieties.push(...[...off].map(u => `${id}: ${u} (kept: all the page has)`))
+        else {
+          const gone = sections.filter(x => off.has(x.sourceUrl))
+          for (const x of gone) if (!kept.some(k => k.key === x.key && k.source === x.source)) for (const l of langs) delete l.t.sections[`${x.key}:${x.source}`]
+          for (const src of new Set(gone.map(x => x.source))) {
+            if (kept.some(k => k.source === src)) continue
+            for (const [f, vs] of Object.entries(e.dataCard ?? {})) {
+              const left = vs.filter(v => v.source !== src)
+              if (left.length === vs.length) continue
+              summary = true
+              if (left.length) e.dataCard![f] = left
+              else delete e.dataCard![f]
+            }
+          }
+          if (e.photos) e.photos = e.photos.filter(p => !off.has(p.sourceUrl ?? ''))
+          sections = kept
+          report.varieties.push(...[...off].map(u => `${id}: ${u}`))
+        }
+      }
+      sections = sections.flatMap(x => {
+        if (!isShop(x.source) || x.key === 'references') return [x]
+        const k = `${x.key}:${x.source}`
+        const has = langs.filter(l => l.t.sections[k] !== undefined)
+        const { en, tr } = withoutShopTalk(x.html, Object.fromEntries(has.map(l => [l.f, l.t.sections[k]!])))
+        if (en === x.html) return [x]
+        report.shop.push(`${kind}/${id}: ${k} (${en ? 'blocks' : 'the section'})`)
+        for (const l of has) { if (en) l.t.sections[k] = tr[l.f]!; else delete l.t.sections[k] }
+        return en ? [{ ...x, html: en }] : []
+      })
+      e.sections = sections
+      if (JSON.stringify(e) !== JSON.stringify(JSON.parse(raw))) {
+        await write(file, raw, e)
+        changed(`${kind}/${id}/entity.json`)
+      }
+      for (const [i, l] of langs.entries()) if (JSON.stringify(l.t) !== before[i]) { await write(l.f, l.raw, l.t); changed(l.f.slice(content.length + 1)) }
+      // The card lost figures: its summary, checked against the old card, waits to be written again.
+      const sfile = join(content, 'summaries', `${id}.json`)
+      const sraw = summary ? await readFile(sfile, 'utf8').catch(() => null) : null
+      const sum = sraw ? JSON.parse(sraw) as { review: string; problems?: string[] } : null
+      if (sraw && sum?.review === 'approved') {
+        await write(sfile, sraw, { ...sum, review: 'pending', problems: undefined })
+        changed(`summaries/${id}.json`)
+        report.summaries.push(id)
+      }
+    }
+  }
+
   // Card figures: hidden or shown again, as the build shows the card (published sources, no tank that is a volume).
   const sources = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { publish?: boolean | 'photos' }>
   for (const kind of ['species', 'breeds']) {
@@ -307,6 +394,23 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         report.summaries.push(id)
       }
     }
+  }
+
+  // A species' tank search, from its card as the build shows it (after the figures hidden above).
+  for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'species', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const e = JSON.parse(raw) as Pick<SpeciesEntity, 'dataCard' | 'sections' | 'productSlots'>
+    const tank = resolveDataCard(shownCard(e.dataCard ?? {}, e.sections ?? [], s => mayPublish(sources[s], 'text')).tankCm ?? [], 'tankCm')?.value
+    const row = e.productSlots?.find(x => x.category === 'be-ca')
+    if (typeof tank !== 'number' || !row) continue
+    const keywords = [tankSearch(tank)]
+    if (JSON.stringify(row.keywords) === JSON.stringify(keywords)) continue
+    report.tanks.push(`${id}: ${row.keywords.join(', ')} → ${keywords.join(', ')}`)
+    row.keywords = keywords
+    await write(file, raw, e)
+    changed(`species/${id}/entity.json`)
   }
   return report
 }

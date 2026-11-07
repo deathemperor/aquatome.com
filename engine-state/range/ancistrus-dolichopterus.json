@@ -1,0 +1,92 @@
+{
+  "id": "ancistrus-dolichopterus",
+  "native": {
+    "input": "37432201a83aa847",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ancistrus dolichopterus, the starlight ancistrus (L183), is a bristlenose catfish most likely endemic to the middle and lower rio Negro, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Some state it to be endemic to the middle and lower rio Negro, Amazonas state, Brazil while others claim it can also be found in Guyana or has a wider distribution within the Amazon basin.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Ancistrus dolichopterus, the starlight ancistrus (L183), is a bristlenose catfish most likely endemic to the middle and lower rio Negro, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus dolichopterus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961451,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "967a00a1-297b-478c-8c86-cf801e93a6af",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

@@ -12,6 +12,63 @@
     "democratic-republic-of-the-congo",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372570,
+      "total": 39,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TZ",
+          29
+        ],
+        [
+          "CD",
+          9
+        ],
+        [
+          "BI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -4.21875,
+          9
+        ],
+        [
+          29.53125,
+          -7.03125,
+          6
+        ],
+        [
+          29.53125,
+          -5.625,
+          24
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -174,8 +231,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 200 lít"
+        "bể cá 120cm"
       ]
     },
     {

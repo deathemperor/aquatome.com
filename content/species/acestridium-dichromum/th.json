@@ -1,0 +1,26 @@
+{
+  "slug": "acestridium-dichromum",
+  "name": "กรีนวิปเทล",
+  "altNames": [
+    "Green whiptail",
+    "ปลาวิปเทล",
+    "Whiptail catfish",
+    "Acestridium"
+  ],
+  "sections": {
+    "quickFacts:seriouslyfish": "<p>กรีนวิปเทล (Acestridium dichromum) เป็นปลาแคทฟิชขนาดเล็กในวงศ์ Loricariidae จากแม่น้ำริโอเนโกรตอนบนในบราซิลและแม่น้ำโอรีโนโกตอนบนในเวเนซุเอลา พบเฉพาะในสองลุ่มน้ำนี้และลำน้ำที่เชื่อมระหว่างกัน รวมถึงคลองกาซีกีอาเร (Casiquiare Canal)</p><p>ปลาชนิดนี้สามารถเปลี่ยนสีลำตัวเป็นโทนเขียวหรือโทนน้ำตาลได้ตามสภาพแวดล้อมรอบตัว</p><ul><li>ขนาดสูงสุด: 6.5 ซม. (ความยาวมาตรฐาน, SL)</li><li>ระดับความยาก: 3 จาก 8 (ปานกลาง)</li><li>การเลี้ยงเป็นกลุ่ม: ต้องเลี้ยงเป็นฝูง</li><li>ความเข้ากันได้กับปลาอื่น: ควรเลือกปลาร่วมตู้อย่างระมัดระวัง</li></ul>",
+    "quickFacts:glaser": "<p>ปลาแคทฟิชปากดูดขนาดเล็กที่หายากมาก โตได้ยาวเพียง 5-6 ซม. เท่านั้น</p>",
+    "distribution:seriouslyfish": "<p>พบเฉพาะในลุ่มแม่น้ำริโอเนโกรตอนบนในบราซิล แม่น้ำโอรีโนโกตอนบนในเวเนซุเอลา และลำน้ำที่เชื่อมระหว่างกัน รวมถึงคลองกาซีกีอาเร (Casiquiare Canal)</p><p>แหล่งที่พบตัวอย่างต้นแบบ (type locality) คือ Pozo Lucas ลำน้ำสาขาของแม่น้ำโอรีโนโก ห่างจาก San Fernando de Atabapo ไปทางใต้ 7 กิโลเมตร พิกัด 4°02'N, 67°42'W ลุ่มน้ำโอรีโนโก รัฐอามาโซนัส ประเทศเวเนซุเอลา</p>",
+    "distribution:glaser": "<p>ปลาชนิดนี้มีถิ่นกำเนิดในประเทศเวเนซุเอลา</p>",
+    "notes:glaser": "<p>ปลาชนิดนี้อาจเรียกได้ว่าเป็น “ปลาแคทฟิชปากดูดแคระคาเมเลียน” เพราะเมื่อเกาะอยู่บนใบพรรณไม้น้ำจะมีสีเขียวสด แต่เมื่อมีเพียงรากไม้และก้อนหินให้เกาะ สีจะเปลี่ยนเป็นน้ำตาลภายในไม่กี่วัน</p>",
+    "references:seriouslyfish": "<ul><li>Haseman, J. D. (1911). Descriptions of some new species of fishes and miscellaneous notes on others obtained during the expedition of the Carnegie Museum to central South America. Annals of the Carnegie Museum 7 (3-4; 17), 315-328</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
+    }
+  }
+}

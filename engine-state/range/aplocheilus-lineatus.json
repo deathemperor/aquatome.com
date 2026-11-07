@@ -1,0 +1,116 @@
+{
+  "id": "aplocheilus-lineatus",
+  "native": {
+    "input": "7f108f6fb1f868d1",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in peninsular India and also found in northern Sri Lanka.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in peninsular India and also found in northern Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to Singapore and Hong Kong.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "HK",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to Singapore and Hong Kong.",
+        "words": "Hong Kong",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SG",
+        "HK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aplocheilus lineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2347854,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        135
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "LK"
+    ],
+    "requests": 14,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

@@ -51,7 +51,7 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertLessThan(credit.frame.maxY, heading.frame.minY, "the credit after the page's first heading")
     // Tapped, each figure's sources.
     let toggle = sources.firstMatch
-    for _ in 0..<4 where !toggle.isHittable { app.swipeUp() }
+    repeatUntil(toggle.isHittable, times: 4) { app.swipeUp() }
     toggle.tap()
     let opened = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Seriously Fish: 20–26°C")).firstMatch
     XCTAssertTrue(opened.waitForExistence(timeout: 2), "the sources behind a figure don't open")
@@ -91,6 +91,16 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertTrue(card.waitForExistence(timeout: 5))
     let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
     XCTAssertTrue(facts.contains("pH, 4,5–6,5"), "\(facts)")
+  }
+
+  /// A breed checked as its species (`of`) keeps its own figures, as its page's data card gives them (`card`).
+  func testABreedShowsItsOwnFigures() {
+    let app = launch(more: "-breeds")
+    open(app, "Pigeon")
+    let card = app.descendants(matching: .any)["facts-card"]
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no facts card")
+    let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
+    XCTAssertEqual(facts, ["Nhiệt độ, 28–30°C", "pH, 5,5–7", "Kích thước, 15 cm", "Bể tối thiểu, 120 cm", "Độ khó 7/8: khó"])
   }
 
   /// A plant's care, as its page lists it, in the index's words: not the temperature the fixed index also has for it.

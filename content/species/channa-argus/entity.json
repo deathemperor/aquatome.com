@@ -1,0 +1,222 @@
+{
+  "id": "channa-argus",
+  "scientificName": "Channa argus",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Channa",
+  "group": "other",
+  "places": [
+    "asia",
+    "china",
+    "yangtze",
+    "russia",
+    "amur",
+    "north-korea",
+    "south-korea",
+    "japan",
+    "north-america",
+    "united-states",
+    "potomac"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 85
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>The northern snakehead, Channa argus, is a large snakehead native to eastern China, southeastern Russia and the Korean peninsula. Growing to 850 mm, it is largely unsuitable for the home aquarium given its size and natural behaviour. Introduced populations, first intended for aquaculture, are now established in Japan, the United States, central Asia and parts of eastern Europe.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li><li>Needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.</p><p>The latter were originally intended to be used for aquaculture projects but the species is now established in a number of rivers and other bodies of water.</p><p>Type locality is 'Chusan Island, China', corresponding to what is now more commonly referred to as Zhoushan Island in Zhejiang province, eastern China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>A generalist which has been collected in many different types of habitat although it does tend to avoid very fast-flowing water.</p><p>Like others in the genus it can tolerate hypoxic conditions due to its ability to breath atmospheric air (see 'Notes').</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>Standard length: 850 mm SL.</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>Relatively unfussy although some surface cover in the form of floating or overhanging vegetation or branches is appreciated.</p><p>It's essential to use a tightly-fitting cover since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<ul><li>Temperature: 0–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>An obligate predator feeding on smaller fishes, amphibians, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>Unrecorded in aquaria but bred in large scale outdoor aquaculture projects in China.</p><p>In nature spawning occurs in late spring to early summer.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<p>This species is largely unsuitable for the home aquarium given its eventual size and natural behaviour, and we know of only a handful of private aquarists with the facilities required to house it long-term.</p><p>It's currently illegal to import or own the species in the United States, United Kingdom and several other countries unless in possession of an official license.</p><p>C. argus is sometimes split into the nominative subspecies Channa argus argus native to China and Korea and C. a. warpachowskii from eastern Russia.</p><p>It can be told apart from related members of the genus by the following combination of characters: pelvic fins present; head narrow (interorbital space ≤25% of HL); dorsal and lateral scales on head small; 47-50 dorsal fin rays; dorsal-fin origin anterior to anal-fin origin; 31-36 anal-fin rays; 60-66 lateral line scales; no rounded blotches on caudal peduncle.</p><p>It's sometimes confused with the similar-looking C. maculatus but that species has 38-45 dorsal-fin rays, 26-29 anal-fin rays, 50-56 lateral line scales and 2-3 rounded blotches on the caudal peduncle.</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes.</p><p>There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>All Channa spp. possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium.</p><p>These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "html": "<ul><li>Courtenay, W. R., Jr. and J. D. Williams (2004). Snakeheads (Pisces, Channidae) - a biological synopsis and risk assessment. Circular, U. S. Department of the Interior, Geological Survey No. 1251, i-v + 1-143</li><li>Endruweit, M. (ed) (2012). Aquariophil World Wide Web electronic publication, www.aquariophil.org, accessed on 2012.05.17, Accessed on 12.10.04</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ec60a9cc80469ab8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ec60a9cc80469ab8-480.webp",
+      "width": 850,
+      "height": 530,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "caption": "Adult individual in a public aquarium display.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/acf56876b84286ba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/acf56876b84286ba-480.webp",
+      "width": 900,
+      "height": 349,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "caption": "Adult specimen from Jiayuezhen in the vicinity of Zhucheng, Shandong province, eastern China.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/43beba2a3000ebf8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/43beba2a3000ebf8-480.webp",
+      "width": 800,
+      "height": 343,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "caption": "Detail of head and anterior portion of body.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/59ccd85dfff88aec.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/59ccd85dfff88aec-480.webp",
+      "width": 600,
+      "height": 283,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-argus",
+      "caption": "Juvenile from Shanghai, eastern China, yawning.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "USkVLaGi45c",
+      "title": "Northern Snakehead / Channa Argus",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iouxs9oKTCk",
+      "title": "Apa yang Menarik dari Channa Argus",
+      "durationSec": 168,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "TXXd6rld__w",
+      "title": "Snakehead eats fish (Channa Argus) Read Describtion!",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-SKsivUmd7s",
+      "title": "PROSES PEMIJAHAN CHANNA ARGUS!! 1 Kolam Petak, Ribuan Benih Berhasil Menetas Serentak.",
+      "durationSec": 39,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá lóc",
+        "thức ăn cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

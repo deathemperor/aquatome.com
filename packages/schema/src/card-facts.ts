@@ -1,5 +1,6 @@
 import { parse } from 'node-html-parser'
 import { resolveDataCard } from './datacard'
+import { tankLengthFor } from './tank-sizes'
 import type { DataCardField, Range } from './types'
 
 /**
@@ -7,7 +8,8 @@ import type { DataCardField, Range } from './types'
  * keep the text from contradicting the card:
  * - a quick-facts list drops the items the card already carries for that source (each source's figure stays one tap
  *   away in the card's "Nguồn và độ tin cậy"), and the family (the page's header shows it): `dropCardRepeats`
- * - a block that states a figure the card resolved differently says so: `figuresOffCard`
+ * - a block that states a figure the card resolved differently says so: `figuresOffCard`, and a tank volume that makes
+ *   a shorter tank than the card's: `litresOffCard`; a quick-facts line that does either goes: `dropOffItems`
  */
 
 type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string }[]>>
@@ -170,4 +172,38 @@ export function figuresOffCard(card: Card, source: string, html: string): { fiel
     const r = resolveDataCard(vals, field)
     return own && r && key(own.value) !== key(r.value) && states(html, field, own.value) ? [{ field, own: own.value, card: r.value }] : []
   })
+}
+
+/** A volume in any of the languages ("8 lít", "54 L", "38 liter", "40 ลิตร"), not a rate ("300 lít/giờ", "lít mỗi giờ"). */
+const LITRES = new RegExp(String.raw`${NOT_SIDE}${NUM}(?:${TO}${NUM})?\s*(?:ลิตร|(?:lít|liter|litres?|liters?|l)(?![\p{L}/]))(?!\s*(?:\/|mỗi|per|tiap|ต่อ))`, 'giu')
+/** "1.000 lít" and "1,000 L" are a thousand litres: no tank is one litre to three decimals. */
+const litres = (s: string) => (/^\d{1,3}[.,]\d{3}$/.test(s) ? Number(s.replace(/[.,]/, '')) : num(s))
+/**
+ * The tank volumes a block gives that make a shorter tank than the card's minimum, each read as the shortest
+ * ready-made tank that holds it (tank-sizes.ts): The Spruce Pets' "Dung tích bể tối thiểu: 8 lít" is a 30 cm tank, under
+ * a 45 cm card. A volume beside a tank's sides or a length the card has is that tank's ("đáy 120 × 30 cm, khoảng 108
+ * lít": long and low, so more length than the shops' tank of 108 litres), and the length is what is read.
+ */
+export function litresOffCard(card: Card, html: string): { field: 'tankL'; own: Figure; card: number }[] {
+  const min = resolveDataCard(card.tankCm ?? [], 'tankCm')?.value
+  if (typeof min !== 'number') return []
+  const t = text(html)
+  if (new RegExp(String.raw`\d${BY}\s*\d`, 'i').test(t) || (card.tankCm ?? []).some(v => typeof v.value === 'number' && states(html, 'tankCm', v.value))) return []
+  const out: { field: 'tankL'; own: Figure; card: number }[] = []
+  for (const m of t.matchAll(LITRES)) {
+    const own: Figure = m[2] ? { min: litres(m[1]!), max: litres(m[2]) } : litres(m[1]!)
+    const len = tankLengthFor(isRange(own) ? own.min : own)
+    if (len !== undefined && len < min && !out.some(o => key(o.own) === key(own))) out.push({ field: 'tankL', own, card: min })
+  }
+  return out
+}
+
+/** A quick-facts block (any language) without the lines that state a figure off the card, or a volume that makes a shorter tank: '' when nothing is left. */
+export function dropOffItems(card: Card, source: string, html: string): string {
+  const root = parse(html)
+  const off = root.querySelectorAll('li').filter(li => figuresOffCard(card, source, li.innerHTML).length + litresOffCard(card, li.innerHTML).length > 0)
+  if (!off.length) return html
+  for (const li of off) li.remove()
+  for (const list of root.querySelectorAll('ul, ol')) if (list.querySelectorAll('li').length === 0) list.remove()
+  return root.textContent.trim() ? root.toString() : ''
 }

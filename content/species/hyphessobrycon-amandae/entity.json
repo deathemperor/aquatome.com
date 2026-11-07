@@ -10,6 +10,91 @@
     "brazil",
     "araguaia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Araguaia",
+        "Rio das Mortes",
+        "Tocantins"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ember tetra, Hyphessobrycon amandae, is a tiny characid from the rio das Mortes, a tributary of the Araguaia in Mato Grosso, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio das Mortes"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The das Mortes is a principal tributary of the Araguaia, itself the major affluent of the rio Tocantins in central Brazil, although the full range of H. amandae within the Araguaia system is unclear.",
+          "countries": [],
+          "regions": [
+            "Araguaia",
+            "Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354525,
+      "total": 13,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -15.46875,
+          7,
+          7
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -11.25,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -23,6 +108,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 20,
+          "max": 28
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 22,
           "max": 28
         }
       }
@@ -40,6 +132,13 @@
         "value": {
           "min": 5,
           "max": 7
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
         }
       }
     ],
@@ -67,6 +166,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -86,6 +189,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 2
+      },
+      {
+        "source": "aquariumcoop",
         "value": 2
       }
     ],
@@ -113,6 +220,12 @@
       "html": "<p>The ember tetra, Hyphessobrycon amandae, is a tiny characid from the rio das Mortes, a tributary of the Araguaia in Mato Grosso, Brazil. Also traded as the 'Amanda's', 'dwarf red', 'red' and 'fire' tetra, it grows to around 20 mm SL. Very peaceful and gregarious, it makes a good dither fish for Apistogramma and other dwarf cichlids and spawns often in a mature aquarium.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<ul><li>Scientific name: Hyphessobrycon amandae</li><li>Peaceful, omnivorous shoaling fish</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -125,16 +238,34 @@
       "html": "<p>Type locality is 'Rio das Mortes, some 100 km before its confluence with the Braço Maior of the Rio Araguaia (the western border of the Isla do Bananal). State of Mato Grosso.'</p><p>The das Mortes is a principal tributary of the Araguaia, itself the major affluent of the rio Tocantins in central Brazil, although the full range of H. amandae within the Araguaia system is unclear.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>Hyphessobrycon amandae is a common tetra found in Brazil. It comes from the same genus as many other well-known tetras in the pet trade, such as the black neon tetra, Von Rio tetra and lemon tetra.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
       "html": "<p>Little information appears to exist but presumably inhabits minor tributaries, backwaters and oxbow lakes rather than main river channels.</p><p>In the Araguaia drainage such habitats typically contain soft, weakly acidic water with the substrate covered by a layer of fallen leaves and branches.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>Ember tetras come from mildly acidic waters.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
       "html": "<p>Aquarium base dimensions of at least 45 × 30 cm or equivalent are suggested (volume about 41 litres).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>Because of their small size, they can be kept in a 19-litre nano tank with a smaller school, or in a larger tank with a big group.</p>"
     },
     {
       "key": "maintenance",
@@ -155,6 +286,18 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>They are adaptable enough to handle pH 5.5–7.5, 22–28°C, and very soft to moderately hard water. Slow flow with gentle filtration, using a sponge filter or pre-filter sponge, is preferred.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>Ember tetras tend to show brighter colours in planted tanks with a dark substrate and background. To create a South American biotope look, some hobbyists add catappa leaves, driftwood and other botanicals.</p>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -165,6 +308,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
       "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>In nature, they are omnivores that eat zooplankton, small invertebrates and plant matter. They are not picky, but have little mouths that prefer tiny, slow-sinking foods. A varied diet provides essential nutrients and vitamins.</p><ul><li>Nano pellets</li><li>Crushed flakes</li><li>Baby brine shrimp</li><li>Easy Fry and Small Fish Food</li><li>Daphnia</li><li>Cyclops</li><li>Rotifers</li></ul>"
     },
     {
       "key": "behaviour",
@@ -179,6 +328,12 @@
       "html": "<p>Very peaceful and will not compete well with very boisterous or much larger tankmates.</p><p>In a community it's best kept with similarly-sized, peaceful characids, smaller callichthyid or loricariid catfishes and sedate surface-dwellers such as hatchetfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not normally hunt fry.</p><p>In a more general community set-up it can be combined with smaller rasboras, barbs, anabantoids, etc.</p><p>It's gregarious and naturally forms schools meaning a minimum of 8-10 specimens is the recommended purchase since the fish will be less shy and display more interesting behaviour.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>Unlike many other nano fish, ember tetras are relatively outgoing, especially in large groups. They are naturally social, do not school tightly but form a loose group or shoal. Keeping at least 6–10 is recommended. They are good community fish with similar-sized peaceful animals that won't eat them, such as rasboras, tetras, danios, corydoras, hatchetfish, pencilfish, otocinclus and dwarf shrimp. Adult shrimp are left alone, but baby shrimp may be eaten, so provide dense plants and caves. They also suit as dither fish for Apistogramma. A blue betta or powder blue dwarf gourami makes a striking centrepiece, but some can be territorial, so be prepared to move them.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -191,6 +346,12 @@
       "html": "<p>Adult males are more intensely-coloured, especially when in spawning condition, while females are noticeably rounder-bodied.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>It can be hard to sex ember tetras. Males are slender in profile, while females have rounder bodies, especially when viewed from above.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -201,6 +362,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
       "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above.</p><p>An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place for 2-3 days before being removed, shortly after which and the first fry should be visible.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "html": "<p>Buy at least six fish to have a higher chance of getting both sexes. As egg scatterers, they show no parental care and will eat their own eggs and fry. They can be bred in a colony setting in a seasoned, mature aquarium with lots of microfauna and dense plants (such as Pogostemon stellatus 'octopus' and water sprite).</p><p>To produce greater numbers, prepare a small mature tank with a sponge filter or air stone for slow flow. Cover the bottom with plastic craft mesh and place java moss (or a spawning mop) underneath; eggs fall through the holes while adults cannot reach them. Catappa leaves can create biofilm for the fry and slightly acidify the water. After conditioning the adults with heavy feeding, move them to the breeding tank and remove them after a few days of spawning.</p><p>Fry need tiny foods such as infusoria, vinegar eels and powdered fry food at first. Feed small meals several times a day and do small daily water changes. After a couple of weeks they may take baby brine shrimp, greatly improving growth and survival. If fry sizes differ greatly, move the bigger ones to another grow-out tank.</p>"
     },
     {
       "key": "notes",
@@ -245,6 +412,39 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/aquariumcoop/1b9281390323b571.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/1b9281390323b571-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "caption": "Care Guide for Ember Tetras — Orange Jewels of the Nano Aquarium - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/34fe892d4255d066.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/34fe892d4255d066-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "caption": "Two ember tetras",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/af62e86157ae1e3a.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/af62e86157ae1e3a-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "caption": "ember tetras in planted tank",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/sprucepets/a5ed49932c844d54.webp",
       "thumb": "https://media.aquatome.com/sprucepets/a5ed49932c844d54-480.webp",
       "width": 1200,
@@ -265,6 +465,17 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
       "caption": "Adult male with pale colouration.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/95a0063ecc6ff295.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/95a0063ecc6ff295-480.webp",
+      "width": 1000,
+      "height": 666,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
+      "caption": "ember tetra",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -297,8 +508,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {
@@ -323,5 +533,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

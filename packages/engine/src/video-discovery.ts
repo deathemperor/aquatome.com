@@ -35,7 +35,7 @@ export const QUERIES = [
  * even with a full queue, and written first after the owner's picks. A handle is someone's: @KingofDIY is a stranger's
  * channel, The king of DIY is @thekingofdiy.
  */
-export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'thekingofdiy', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist']
+export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'thekingofdiy', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist', 'indoorecosystem']
 
 const FILE = (root: string) => join(root, 'engine-state/youtube-playlists.json')
 const VFILE = (root: string) => join(root, 'engine-state/youtube-videos.json')
@@ -51,7 +51,7 @@ const VET_SCHEMA = {
 }
 const VET = `You pick YouTube playlists for a Vietnamese aquarium handbook, which writes an original Vietnamese guide from each video and embeds the video.
 
-ok = true only if most videos teach how to keep, set up, aquascape, breed, feed or treat aquarium or pond fish, shrimp, snails or aquatic plants (care guides, how-tos, species profiles, troubleshooting, explainers), in English or Vietnamese.
+ok = true only if most videos teach how to keep, set up, aquascape, breed, feed or treat aquarium or pond fish, shrimp, snails, crabs (vampire crabs and other freshwater or land-and-water crabs) or aquatic plants, paludariums included (care guides, how-tos, species profiles, troubleshooting, explainers), in English or Vietnamese.
 ok = false for: vlogs, fish room or store tours, unboxings and product reviews, haul or "new fish" videos, livestreams (e.g. "livestream bán cá"), shop sales or price-list videos, contests, timelapses or relaxing footage without teaching, Shorts compilations, reef/saltwater-only playlists, kids' content, playlists mostly of other channels' videos, other languages.
 
 reason: a few words. lang: the language the videos are spoken in ("vi" or "en"; YouTube may show a Vietnamese video's title translated, so also go by the channel name). Reply with a verdict for every playlist id given.`
@@ -117,7 +117,7 @@ export async function discoverPlaylists(deps: { find: Finder; llm: Llm; root: st
 
 const VET_VIDEOS = `You pick single YouTube videos for a Vietnamese aquarium handbook, which writes an original Vietnamese guide from each video and embeds it.
 
-ok = true only if the title says the video teaches something practical about keeping, setting up, aquascaping, breeding, feeding or treating aquarium or pond fish, shrimp, snails or aquatic plants: a how-to, care guide, species profile, troubleshooting, explainer, DIY build with steps, or a tips list. In English or Vietnamese.
+ok = true only if the title says the video teaches something practical about keeping, setting up, aquascaping, breeding, feeding or treating aquarium or pond fish, shrimp, snails, crabs (vampire crabs and other freshwater or land-and-water crabs) or aquatic plants, paludariums included: a how-to, care guide, species profile, troubleshooting, explainer, DIY build with steps, or a tips list. In English or Vietnamese.
 ok = false for: vlogs, fish room or store tours, unboxings, product reviews or sponsored showcases, hauls, "new fish" or "I bought" videos, livestreams and Q&A streams ("livestream", "trực tiếp"), shop sales and price lists ("bán", "giá rẻ", "thanh lý", "săn hàng"), contests, timelapses or relaxing footage, Shorts, channel news, reef/saltwater-only topics, other languages.
 
 reason: a few words. lang: the language the video is spoken in ("vi" or "en"; YouTube may show a Vietnamese video's title translated, so also go by the channel name). Reply with a verdict for every id given.`

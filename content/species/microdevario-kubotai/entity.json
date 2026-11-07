@@ -13,6 +13,93 @@
     "myanmar",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM"
+      ],
+      "regions": [
+        "Salween",
+        "Ataran River",
+        "Suriya",
+        "Mae Khlong"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mae Khlong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
+          "countries": [],
+          "regions": [
+            "Ataran River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded in the Suriya (known as Hanthayaw in Myanmar) River basin, a headwater tributary of the Salween which rises in Tak province, Thailand.",
+          "countries": [],
+          "regions": [
+            "Suriya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363249,
+      "total": 5,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -278,8 +365,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nano",
-        "bể thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {

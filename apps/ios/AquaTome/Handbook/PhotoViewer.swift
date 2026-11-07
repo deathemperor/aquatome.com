@@ -256,7 +256,7 @@ struct GalleryViewer: View {
     if ProcessInfo.processInfo.arguments.contains("-large-gallery") {
       let many = (1...28).map { k in
         PageDoc.Image(src: "https://media.aquatome.com/g/many-\(k).webp", w: 1200, h: 800, alt: "Ảnh thử \(k)",
-                      thumb: "https://media.aquatome.com/g/many-\(k)-480.webp", credit: ("Ảnh: Tác giả \(k)", "CC BY 4.0", "https://example.org/photo/\(k)"))
+                      thumb: "https://media.aquatome.com/g/many-\(k)-480.webp", credit: PageDoc.Image.Credit(text: "Ảnh: Tác giả \(k)", licence: "CC BY 4.0", url: "https://example.org/photo/\(k)"))
       }
       return .gallery(title: title, note: note, photos: many, strip: Array(0..<10))
     }

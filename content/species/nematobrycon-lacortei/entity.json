@@ -10,6 +10,47 @@
     "colombia",
     "calima"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río San Juan",
+        "Río Calima"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The rainbow tetra, Nematobrycon lacortei, is a small characid from western Colombia, considered endemic to the Río San Juan system.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río San Juan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'probably from Río Calima, Colombia'.",
+          "countries": [],
+          "regions": [
+            "Río Calima"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354002,
+      "total": 0,
+      "fetched": "2026-11-05",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -149,8 +190,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá thủy sinh 120x30"
+        "bể cá 120cm"
       ]
     },
     {

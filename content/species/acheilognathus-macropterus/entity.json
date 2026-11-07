@@ -17,6 +17,244 @@
     "vietnam",
     "red-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN",
+        "RU"
+      ],
+      "regions": [
+        "Yangtze River",
+        "Amur",
+        "Songhua",
+        "Red River",
+        "Hainan Island",
+        "Korean peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
+          "countries": [
+            "CN",
+            "VN",
+            "RU"
+          ],
+          "regions": [
+            "Korean peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Chang Jiang [Yangtze River], China'.",
+          "countries": [],
+          "regions": [
+            "Yangtze River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+          "countries": [],
+          "regions": [
+            "Amur",
+            "Songhua",
+            "Red River",
+            "Hainan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359405,
+      "total": 700,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "KR",
+          572
+        ],
+        [
+          "JP",
+          108
+        ],
+        [
+          "CN",
+          17
+        ],
+        [
+          "RU",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          112.5,
+          22.5,
+          1,
+          1
+        ],
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          112.5,
+          33.75,
+          1,
+          1
+        ],
+        [
+          112.5,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          120.9375,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          33.75,
+          18,
+          0
+        ],
+        [
+          125.15625,
+          35.15625,
+          3,
+          0
+        ],
+        [
+          125.15625,
+          36.5625,
+          49,
+          0
+        ],
+        [
+          126.5625,
+          33.75,
+          57,
+          0
+        ],
+        [
+          126.5625,
+          35.15625,
+          229,
+          0
+        ],
+        [
+          126.5625,
+          36.5625,
+          65,
+          0
+        ],
+        [
+          127.96875,
+          33.75,
+          2,
+          0
+        ],
+        [
+          127.96875,
+          35.15625,
+          147,
+          0
+        ],
+        [
+          127.96875,
+          36.5625,
+          2,
+          0
+        ],
+        [
+          130.78125,
+          42.1875,
+          2,
+          2
+        ],
+        [
+          139.21875,
+          35.15625,
+          107,
+          0
+        ],
+        [
+          140.625,
+          35.15625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -74,18 +312,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acheilognathus-macropterus",
       "html": "<p>The giant Chinese bitterling, Acheilognathus macropterus, is a bitterling from China, the Korean peninsula, northern Vietnam and southeastern Russia. It has been introduced to Japan and is considered invasive there. Typical adults are 100 to 150 mm, and it appears in the trade only irregularly. Like all bitterlings it spawns in living unionid mussels, and its wide range suggests it may be a group of closely-related species.</p>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acheilognathus_macropterus_giant_bitterling_en/",
-      "html": "<p>For the first time ever we obtained this splendid bitterling via Hongkong. The species is said to become more than 25 cm long and this would make it the largest species of bitterling at all! However, our fish are currently 6-8 cm long and in full colour, so maybe more than one species is involved, as the bitterlings are a very confusing group of fishes. In any case our new importations are a gorgeous supplement to the ornamental fishes from China.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/acheilognathus_macropterus_giant_bitterling_en/",
-      "html": "<p>For our customers: the fish have code 800133 on our stocklist. Please note that we exclusively supply the wholesale trade. Only males available.</p>"
     },
     {
       "key": "distribution",
@@ -187,8 +413,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180x60",
-        "bể cá lớn 600 lít"
+        "bể cá 180cm"
       ]
     },
     {

@@ -3,18 +3,20 @@
   "name": "Bucephalandra Red Cherry",
   "altNames": [
     "Buce Red Cherry",
+    "Bucep Red Cherry",
     "Bucephalandra sp. Red Cherry"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Bucephalandra adalah genus tumbuhan berbunga yang di habitat aslinya kadang tumbuh terendam (submersed) dan kadang tumbuh di atas permukaan air (emersed). Tanaman ini bahkan bisa berbunga di dalam air.</p><p>Dijual per porsi berisi 3 rimpang (tersedia porsi tunggal, ganda, atau tripel).</p>",
-    "maintenance:bwaquatics": "<p>Tanaman ini sangat cocok untuk semua akuarium tanaman air, dan jelas ideal untuk akuarium dengan cahaya rendah dan perawatan minim, seperti akuarium cupang sederhana.</p>",
-    "notes:bwaquatics": "<p>Pastikan tempat untuk tanamannya sudah siap sebelum membeli.</p>"
+    "quickFacts:bwaquatics": "<p>Bucephalandra adalah genus tanaman berbunga yang di habitat aslinya kadang tumbuh terendam (submersed) dan kadang emersed. Tanaman ini bahkan bisa berbunga di dalam air.</p><p>Dijual per porsi berisi 3 rimpang (tersedia porsi tunggal, ganda, atau tiga).</p>",
+    "maintenance:aquatome": "<p>Bucephalandra Red Cherry adalah tanaman epifit. Tempatnya menempel di kayu (driftwood) atau batu, bukan ditanam di substrat seperti tanaman air biasa.</p><ul><li>Rumpun besar yang batangnya tebal diselipkan dalam-dalam ke celah di pangkal kayu. Rumpun kecil disebar merata di bagian lain supaya komposisinya seimbang.</li><li>Tanaman yang dibeli dalam pot harus dibersihkan dari semua rockwool-nya sebelum diikat ke kayu. Rockwool yang menempel di kayu kelihatan sangat mencolok. Tahap ini makan waktu dan membosankan, tapi layak dikerjakan.</li><li>Kalau tanamannya dikumpulkan dari beberapa tempat, pisahkan pesanan yang datang lebih dulu dan rendam di air supaya tanaman pelan-pelan beradaptasi. Setelah jumlahnya cukup, baru tanam semuanya sekaligus.</li><li>Tanaman ini tumbuh lambat, jadi akuarium baru yang isinya hanya Bucep, walaupun ditanam banyak, gampang kena lumut (alga) di minggu-minggu awal. Sebaiknya tanam juga beberapa tanaman yang cepat tumbuh supaya kelebihan nutrisi ikut terserap.</li></ul>",
+    "maintenance:bwaquatics": "<p>Tanaman ini cocok untuk semua akuarium tanaman air, dan jelas ideal untuk akuarium dengan cahaya rendah dan perawatan minim, misalnya akuarium cupang sederhana.</p>"
   },
   "quality": {
-    "score": 0.8,
-    "indexable": true,
+    "score": 0.72,
+    "indexable": false,
     "bySource": {
-      "bwaquatics": 0.8
+      "bwaquatics": 0.72,
+      "aquatome": 0.72
     }
   }
 }

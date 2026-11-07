@@ -8,8 +8,16 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/101c200138215ef1.webp": "721a0f1e0e0d39fb",
   "https://media.aquatome.com/seriouslyfish/bd606e0eb654e183.webp": "4399019e0d1d4ecc",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Apistogramma_bitaeniata.jpg/1280px-Apistogramma_bitaeniata.jpg": "4e6e8e0707170b81",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Apistogramma_bitaeniata_%2811120154523%29.jpg/1280px-Apistogramma_bitaeniata_%2811120154523%29.jpg": "6c6f6e2f3e9c6d74"
+  "https://media.aquatome.com/commons/625a90342e876096.webp": "4cce0c07070703c1",
+  "https://media.aquatome.com/commons/355ae217bd8f52c2.webp": "6c6f6e2f3c9c446c"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 611207,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

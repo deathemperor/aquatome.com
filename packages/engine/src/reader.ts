@@ -3,11 +3,12 @@ import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { metricPage, QUALITY_THRESHOLD, type Lang } from '@aq/schema'
+import { LANGS, metricPage, QUALITY_THRESHOLD, type Lang, type WrittenLang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { logReviews } from './review-log'
 import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
-import { pageUrl, type Page } from './pages'
+import { LANG_NAME, pageUrl, type Page } from './pages'
 import { reviewRewrite, reviewTranslation } from './quality'
 import { snapshotName } from './snapshot'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
@@ -53,8 +54,6 @@ export type ReaderEntry = {
 }
 export type ReaderState = Record<string, ReaderEntry>
 
-const LANG_NAME: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai' }
-const LANG_ORDER: Lang[] = ['vi', 'id', 'th']
 const KIND_ORDER = ['guides', 'species', 'plants', 'breeds', 'products', 'glossary', 'equipment']
 /** The page text sent at most (a long guide is cut), and the sources'. */
 const PAGE_CHARS = 16_000
@@ -101,10 +100,10 @@ export async function sourcesText(root: string, p: Page): Promise<string> {
  * most-read pages first, by language, then by their place in it (lower first).
  */
 export function duePages(pages: Page[], state: ReaderState, rank?: (p: Page) => number): Page[] {
-  const order = (p: Page) => [state[pageKey(p)]?.at ?? '', LANG_ORDER.indexOf(p.lang), KIND_ORDER.indexOf(p.kind), p.path] as const
+  const order = (p: Page) => [state[pageKey(p)]?.at ?? '', LANGS.indexOf(p.lang), KIND_ORDER.indexOf(p.kind), p.path] as const
   const due = (p: Page) => { const e = state[pageKey(p)]; const h = readerText(p).hash; return e?.hash !== h || (e.ruled !== h && sourcePagePhrases(p).length > 0) }
   return pages.filter(due).sort((a, b) => {
-    if (rank) { const r = LANG_ORDER.indexOf(a.lang) - LANG_ORDER.indexOf(b.lang) || rank(a) - rank(b); if (r) return r }
+    if (rank) { const r = LANGS.indexOf(a.lang) - LANGS.indexOf(b.lang) || rank(a) - rank(b); if (r) return r }
     const [x, y] = [order(a), order(b)]
     return x[0].localeCompare(y[0]) || x[1] - y[1] || x[2] - y[2] || x[3].localeCompare(y[3])
   })
@@ -188,7 +187,7 @@ const outline = (html: string) => {
  * the text lacks, and a second call scores it (same subject, natural, promises only what the text has). The caller keeps
  * it at QUALITY_THRESHOLD or more. Never the page's address.
  */
-export async function rewriteTitle(llm: Llm, title: string, html: string, lang: Lang, model?: string): Promise<{ title: string; score: number; notes: string[] }> {
+export async function rewriteTitle(llm: Llm, title: string, html: string, lang: WrittenLang, model?: string): Promise<{ title: string; score: number; notes: string[] }> {
   const why = countMismatch(title, html) ?? ''
   const items = outline(html)
   const m = model ? { model } : {}
@@ -262,13 +261,15 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
         if (!r) continue
         const kept = r.score >= QUALITY_THRESHOLD
         entry.rewrites = [...(entry.rewrites ?? []), { at: entry.at, field, score: r.score, kept, problems: fs.map(f => f.problem) }]
-        if (!kept) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
+        const traced = { id: `${p.kind}/${p.id}`, lang: 'vi', part: field }
+        if (!kept) { await logReviews(root, 'reader-rewrite', traced, [r], undefined, { now: d.now() }); report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
         if (field === 'body') t.body = r.html
         else if (field === 'definition') t.definition = r.html
         else t.sections![field.replace(/^sections\./, '')] = r.html
         // Fish, plant and breed pages are written in metric only, as by every other writer (metric.ts).
         const out = METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t
         await writeFile(file, `${JSON.stringify(out, null, 2)}\n`)
+        await logReviews(root, 'reader-rewrite', traced, [r], r, { now: d.now() })
         // What it fixed leaves the open list, and the page counts as read as it is now.
         entry.findings = entry.findings.filter(f => !fs.includes(f))
         now = { ...now, fields: now.fields.map(f => (f.field === field ? { ...f, html: fieldOf(out, field)! } : f)) }
@@ -315,7 +316,7 @@ The model reads a few pages a cycle as a careful reader would, against a rubric 
 yet first, then those whose text changed. Vietnamese wording it flags is rewritten and kept only when the reviewer passes
 it; the rest is listed here. A page is read again only when its text changes.
 
-Read as they are now: Vietnamese ${per('vi')}, Indonesian ${per('id')}, Thai ${per('th')}. Open findings: ${open.length} on
+Read as they are now: ${LANGS.map(l => `${LANG_NAME[l]} ${per(l)}`).join(', ')}. Open findings: ${open.length} on
 ${new Set(open.map(x => x.p.path)).size} pages.
 
 ## Could become a rule (${rules.length})

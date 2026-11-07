@@ -1,9 +1,11 @@
 {
   "slug": "ca-lau-kinh-duoi-roi-rineloricaria-eigenmanni",
-  "name": "Cá lau kính đuôi roi Rineloricaria eigenmanni",
+  "name": "Cá chổi thường",
   "altNames": [
     "Cá whiptail thường",
-    "Common Whiptail Catfish"
+    "Common Whiptail Catfish",
+    "Cá lau kính đuôi roi Rineloricaria eigenmanni",
+    "Cá whiptail"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Rineloricaria eigenmanni (Pellegrin, 1908)</li><li><strong>Tên thường gọi:</strong> Common Whiptail Catfish</li><li><strong>Nơi thu mẫu chuẩn:</strong> Sarare, Venezuela</li><li><strong>Kích thước:</strong> 102 mm SL (chiều dài chuẩn)</li><li><strong>Danh sách đỏ IUCN:</strong> Ít quan ngại (đánh giá lần gần nhất năm 2020)</li><li><strong>Từ nguyên:</strong> Tên giống ghép từ tiếng Hy Lạp rhinos (mũi) và tiếng Latin lorica, loricare (áo giáp hoặc áo giáp da). Tên loài đặt để vinh danh Tiến sĩ Carl H. Eigenmann (1863-1927), Giáo sư Ngư học ở Indiana.</li></ul>",
@@ -15,13 +17,25 @@
     "behaviour:planetcatfish": "<p>Loài này hiền và không giữ lãnh thổ. Chúng không làm hại cả những con cá bột nhỏ nhất.</p>",
     "dimorphism:planetcatfish": "<p>Cá đực mọc gai ngắn trên đỉnh đầu và trên vây ngực.</p>",
     "notes:planetcatfish": "<p>Đây là loài rất phổ biến. Muốn nhận ra chúng, bạn chỉ cần nhìn các vây có vạch ngang đi kèm những đường sẫm màu ở mặt bụng phần đuôi.</p>",
-    "references:planetcatfish": "<p>Bulletin de la Société Zoologique de France v. 33 (no. 6/7), pp 125.</p>"
+    "references:planetcatfish": "<p>Bulletin de la Société Zoologique de France v. 33 (no. 6/7), pp 125.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá chổi thường (Rineloricaria eigenmanni) là một loài loricariid hiền lành ở Colombia và Venezuela. Ngoài tự nhiên, cá sống giữa lớp lá khô phủ trên nền cát. Đây là một trong những loài hay bị bán chung dưới tên 'whiptail catfish' nhất. Cá đẻ khá dễ, hợp với người lần đầu thử cho cá da trơn sinh sản. Loài này hay bị nhầm với các loài khác. Muốn nhận ra R. eigenmanni thì bạn nhìn cuống đuôi: các vạch đen ở đó chạy vòng hết quanh thân cá, và các vây cũng có vạch.</p>",
+    "distribution:seriouslyfish": "<p>Colombia và Venezuela.</p>",
+    "habitat:seriouslyfish": "<p>Cá gần như lúc nào cũng sống giữa lớp lá khô phủ trên nền cát. Người ta gặp chúng ở cả vùng nước trong lẫn vùng nước trắng. Nước trắng ở đây là nước chứa nhiều phù sa, trầm tích hòa trong nước, chứ không phải nước chảy xiết qua ghềnh thác.</p>",
+    "aquariumSize:seriouslyfish": "<p>Cá ít bơi lội, phần lớn thời gian chỉ nằm yên. Một bể 90 × 30 × 30 cm, khoảng 81 lít, là đủ.</p>",
+    "maintenance:seriouslyfish": "<p>Bể biotope cho loài này có thể làm rất đơn giản. Bạn chỉ cần trải một lớp cát rồi rải lá khô lên trên. Lá sồi và lá dẻ gai (beech) không độc và đặc biệt hợp. Muốn đẹp hơn thì thêm vài cành cây cong queo (cành dẻ gai cũng tốt) và lác đác vài viên đá tròn. Nhớ bố trí vài cái hang bằng đá hoặc lũa, cùng mấy đoạn ống PVC để cá có chỗ đẻ. Cá sống trong bể trồng nhiều cây cũng ổn. Dù set kiểu nào thì cá cũng không ưa đèn quá sáng.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–29°C</li><li>pH: 6,0–7,4</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá ăn lớp aufwuchs (màng tảo và sinh vật nhỏ bám trên bề mặt) cùng các loài giáp xác nhỏ dưới nước. Nuôi trong bể thì cá ăn tạp. Cá nhận thức ăn khô loại chìm, rau củ đã chần như rau chân vịt, bí ngòi, cải xoăn, và cả thức ăn sống lẫn đông lạnh như trùng huyết hay bo bo.</p>",
+    "behaviour:seriouslyfish": "<p>Đây là một trong những loài cá da trơn hiền nhất, nên nuôi chung được với rất nhiều loài. Nếu set bể biotope, bạn có thể ghép cá với các loài characin nhỏ, Apistogramma, cá chuột (Corydoras) và các loricariid hiền khác. Ngoài ra, cá hợp với hầu hết bể cộng đồng toàn cá hiền. Đừng thả chung với loài quá hiếu động hay hung dữ. Gặp bạn cùng bể như vậy, cá sẽ trốn biệt và dễ bị giành hết thức ăn. Cá không giữ lãnh thổ, trừ lúc sinh sản. Tốt nhất là nuôi một nhóm nhỏ.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực trưởng thành mọc odontode (những gai nhỏ) trên đầu và trên tia vây ngực. Cá cái không có các gai này.</p>",
+    "reproduction:seriouslyfish": "<p>Nếu điều kiện bể phù hợp và cho ăn đầy đủ, cá đẻ khá dễ. Phần hơi khó là nuôi cá bột. Bạn nên bắt đầu với một nhóm từ sáu con non trở lên để có nhiều khả năng ra được một cặp. Bố trí bể như hướng dẫn ở trên, dùng các đoạn ống PVC đường kính dưới 5 cm làm hang đẻ. Nước cần mềm và hơi chua, chỉ thấp hơn mức trung tính một chút. Khi nuôi vỗ, cho cá ăn rau xanh nhiều dinh dưỡng như cải xoăn, rau chân vịt, kèm trùng huyết sống, đông lạnh hoặc thức ăn tương tự.</p><p>Lúc sẵn sàng đẻ, con đực chọn một cái hang và dọn thật kỹ. Con cái nào chịu đẻ sẽ vào hang này đẻ trứng, rồi con đực thụ tinh. Từ đó con cái không dính dáng gì nữa. Toàn bộ việc canh và chăm trứng do một mình con đực lo. Nó làm việc này rất chăm chỉ. Nó giữ hang không cho con khác lại gần và dùng vây quạt nước cho trứng. Đến đây, bạn có thể bắt các cá khác ra, hoặc chuyển luôn ống đẻ sang bể riêng để cá bột không bị ăn mất.</p><p>Trứng nở sau 4-5 ngày. Thêm 2 đến 3 ngày nữa thì cá bột bơi tự do, và lúc này có thể bắt cả con đực ra. Cá bột gặm được ngay lát dưa leo, rau chân vịt và các loại rau xanh khác. Chúng cũng ăn giun vi tế và ấu trùng artemia. Điều quan trọng nhất giai đoạn này là đừng để cá bột đói. Lúc nào trong bể cũng phải có sẵn thức ăn, và rau phải đủ mềm để chúng tiêu hóa được. Bạn có thể thử lá cải xoăn và rau chân vịt đã làm mềm trước. Cách làm mềm tốt hơn là ngâm nước vài ngày, đừng chần nước sôi, vì chần thường làm mất nhiều dưỡng chất. Rêu tảo mọc trên đá trong một bể để ngoài nắng cũng cho cá bột ăn được. Cá bột còn nhạy với chất lượng nước, nên mỗi ngày bạn nên thay một ít nước.</p><p>Nếu cá mãi không chịu đẻ, bạn thử thay một lượng nước lớn (50-70%) bằng nước mát hơn. Cách này giả lập lúc mùa mưa đổ về, nước lạnh tràn vào sông suối ngoài tự nhiên. Cứ vài ngày làm lại một lần, cá thường sẽ đẻ.</p>",
+    "notes:seriouslyfish": "<p>Trong rất nhiều loài bị bán chung dưới tên 'whiptail catfish', R. eigenmanni là một trong những loài hay gặp nhất. Đây là loài rất hợp cho người mới nuôi loricariid hoặc mới tập cho cá da trơn sinh sản. Cá chắc chắn không phải loại năng động. Nhưng khi đã quen bể và sống cùng bạn cùng bể phù hợp, cá cũng chẳng nhút nhát chút nào.</p><p>Lịch sử phân loại của loài này khá rối. Hiện nay cá thuộc chi Rineloricaria. Tuy vậy, lúc đầu loài này được mô tả là một loài Loricaria, đến năm 1908 mới chuyển sang Rineloricaria. Năm 2002, cá từng bị xếp vào chi Hemiloricaria vừa được khôi phục. Chưa đầy mười hai tháng sau, loài này lại về Rineloricaria. Hiện chỉ có tên Rineloricaria là hợp lệ, nhưng bạn vẫn hay thấy người ta gọi cá là Hemiloricaria.</p><p>Cá cũng hay bị nhầm với các loài khác. Muốn nhận dạng cho đúng, bạn nên nhìn hoa văn trên vây và mặt dưới của cuống đuôi dài. Nếu đúng là Rineloricaria eigenmanni, các vạch đen vắt ngang cuống đuôi sẽ chạy vòng hết quanh thân thành từng khoanh, và các vây cũng có vạch. Trong cả chi, không loài nào khác có đủ cả hai đặc điểm này.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "seriouslyfish": 0.9
     }
   }
 }

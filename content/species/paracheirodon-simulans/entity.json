@@ -13,6 +13,126 @@
     "orinoco",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+          "countries": [
+            "BR",
+            "CO",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Native to the upper Rio Negro and Orinoco River basins in South America.",
+          "countries": [],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353914,
+      "total": 23,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          12
+        ],
+        [
+          "CO",
+          9
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -107,12 +227,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
       "html": "<p>The green neon is the smallest and tiniest species of neon tetra. The maximum length is around 2.5 cm. One should not confuse this species with the neon costello, Hemigrammus hyanuary, which is also called the “green neon” occasionally. This is the reason why some people call Paracheirodon simulans the “blue neon”, but in the international trade the name “green neon” is established for the species.</p><p>Despite this babylonic confusion one cannot confuse P. simulans with any other species. Only in this neon tetra the intensive shining neon band runs from the tip of the snout right through to the end of the caudal peduncle.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -314,8 +428,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể thủy sinh 60cm",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

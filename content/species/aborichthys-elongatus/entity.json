@@ -10,6 +10,85 @@
     "india",
     "teesta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Teesta",
+        "Sivalik Hills"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red-tailed squirrel loach, Aborichthys elongatus, is a nemacheilid loach from Darjeeling District, West Bengal, in north-east India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "These are all tributaries of the Teesta River and thus part of the Brahmaputra River drainage.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra",
+            "Teesta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Andrew Arunava Rao of Malabar Tropicals told us it can be collected only in Darjeeling District, West Bengal State, north-east India from streams and small rivers running down from the Sivalik Hills including the Relli, Chel and Ghish.",
+          "countries": [],
+          "regions": [
+            "Sivalik Hills"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358761,
+      "total": 6,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -160,7 +239,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
         "bể cá 60cm"
       ]
     },

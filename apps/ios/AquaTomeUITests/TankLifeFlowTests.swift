@@ -86,7 +86,7 @@ final class TankLifeFlowTests: XCTestCase {
 
     // The tank's screen has grown (the check above, the guides below): the plant may be under the tab bar.
     let rotala = life(app, "Rotala đỏ")
-    for _ in 0..<4 where !(rotala.exists && rotala.isHittable) { app.swipeUp() }
+    repeatUntil(rotala.exists && rotala.isHittable, times: 4) { app.swipeUp() }
     rotala.swipeLeft()
     app.buttons["Xóa"].tap()
     XCTAssertTrue(life(app, "Rotala đỏ").waitForNonExistence(timeout: 5), "the plant is still on the tank")
@@ -124,13 +124,13 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(life(app, "Cá neon").waitForExistence(timeout: 5))
     // Under the fish, the plants and the tank-mates check: it may start under the tab bar.
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<4 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 4) { app.swipeUp() }
     XCTAssertTrue(guide.waitForExistence(timeout: 5), "no related guide")
     XCTAssertEqual(app.buttons.matching(identifier: "tank-guide").count, 1)
     XCTAssertTrue(guide.label.contains("Nuôi cá neon trong bể nhỏ"), guide.label)
     // The video guide apart, as a species page on the site lists them.
     let video = app.buttons.matching(identifier: "tank-video").firstMatch
-    for _ in 0..<2 where !(video.exists && video.isHittable) { app.swipeUp() }
+    repeatUntil(video.exists && video.isHittable, times: 2) { app.swipeUp() }
     XCTAssertTrue(video.exists && video.label.contains("Cách hạn chế rêu hại"), "no video guide apart")
     XCTAssertTrue(app.staticTexts["Có trong video hướng dẫn"].exists)
     guide.tap()
@@ -167,13 +167,13 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(waitForWanted(app, sent), "not sent as wanted, or not as the server takes it: \(wanted(app))")
     // Not checked with the fish the handbook has figures for: said so.
     let unchecked = app.staticTexts["unchecked"]
-    for _ in 0..<4 where !(unchecked.exists && unchecked.isHittable) { app.swipeUp() }
+    repeatUntil(unchecked.exists && unchecked.isHittable, times: 4) { app.swipeUp() }
     let line = "Chưa kiểm tra Ca bong mat tre: cẩm nang chưa có trang nên chưa có số liệu để so."
     let said = expectation(for: NSPredicate(format: "label == %@", line), evaluatedWith: unchecked)
     XCTAssertEqual(XCTWaiter.wait(for: [said], timeout: 5), .completed, "said instead: \(unchecked.label)")
 
     // Its number changed: not sent again.
-    for _ in 0..<4 where !(fish.exists && fish.isHittable) { app.swipeDown() }
+    repeatUntil(fish.exists && fish.isHittable, times: 4) { app.swipeDown() }
     swipeOpen(app, fish, "Số con")
     app.buttons["Số con"].tap()
     let count = app.textFields["put-count"]
@@ -206,7 +206,7 @@ final class TankLifeFlowTests: XCTestCase {
 
     let plant = life(app, "reu suoi")
     XCTAssertTrue(plant.waitForExistence(timeout: 5), "not on the tank")
-    for _ in 0..<4 where !(plant.exists && plant.isHittable) { app.swipeUp() }
+    repeatUntil(plant.exists && plant.isHittable, times: 4) { app.swipeUp() }
     XCTAssertTrue(plant.exists && plant.label.contains("chưa có trang"), "not with the tank's plants: \(plant.label)")
     // Among the plants: after the tank's rotala, in the same section.
     XCTAssertGreaterThan(plant.frame.minY, life(app, "Rotala đỏ").frame.minY)

@@ -12,6 +12,69 @@
     "cambodia",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Mekong",
+        "Borneo",
+        "Citarum",
+        "Brantas",
+        "Java"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Northern Borneo and Mekong basin.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is known only from the Citarum River drainage in western Java, although it is also known from the upper Brantas River drainage in eastern Java from specimens collected in the 1960's.",
+          "countries": [],
+          "regions": [
+            "Citarum",
+            "Brantas",
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340909,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          14.0625,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -106,8 +169,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 30cm",
-        "bể cá mini"
+        "bể cá 30cm"
       ]
     },
     {

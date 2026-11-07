@@ -1,0 +1,73 @@
+{
+  "id": "malapterurus-minjiriya",
+  "scientificName": "Malapterurus minjiriya",
+  "order": "Siluriformes",
+  "family": "Malapteruridae",
+  "genus": "Malapterurus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nigeria",
+    "niger",
+    "ethiopia",
+    "omo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 102
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1260",
+      "html": "<ul><li>Scientific name: Malapterurus minjiriya Sagua, 1987</li><li>Type locality: Lake Kainji, lower Niger River basin, Nigeria</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1260",
+      "html": "<p>Africa: known from the Niger River and Volta River system, the White Nile (Barro and Alvero Rivers) and the Omo River; probably also in the Chad and Senegal basins but has not been collected there.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1260",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1260",
+      "html": "<p>Identification: body with moderately to very large black spots irregularly scattered. Compared to M. electricus, its oral tooth bands are much larger.</p><p>Etymology: Malapterurus comes from the Greek malakos, meaning soft, pteron, meaning fin, and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1260",
+      "html": "<p>Journal of Fish Biology v. 30 (no. 1), pp 78, Fig. 1.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "alestopetersius-leopoldianus",
+  "native": {
+    "input": "656b4b74b4fb94b0",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lac Mai Ndombe",
+        "source": "glaser",
+        "quote": "This tetra was obtained for the first time from Lac Mai Ndombe (formerly known as Lake Leopold).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Alestopetersius leopoldianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356108,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        7
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

@@ -1,9 +1,10 @@
 import { z } from 'zod'
 import { isCountryCode } from './countries'
+import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
 export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
-export const LANGS = ['vi', 'id', 'th'] as const
+export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
 
@@ -13,11 +14,16 @@ const Range = z.object({ min: z.number(), max: z.number() })
  * `hidden`: why the build leaves this figure off the card (`pnpm engine sweep`: outside sane bounds, upside down, or a
  * minimum tank shorter than twice the fish). The figure stays here, with its source, for a person to look at.
  */
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional() })
+/**
+ * `ref`: a figure AquaTome researched (source 'aquatome'), the page in the species' `refs` it comes from.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
-const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string() })
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
+/** `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from. */
+const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional() })
+/** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
@@ -75,11 +81,24 @@ export const RangeSchema = z.object({
   if (native.size && cells.reduce((s, c) => s + (c[3] ?? 0), 0) !== countries.reduce((s, [c, n]) => s + (native.has(c) ? n : 0), 0)) fail('the cells\' records inside don\'t add up to the native countries\' records')
 })
 
+/** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
+const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
+/**
+ * `refs`: a species no licensed source covers, written by AquaTome from web research (engine species-research.ts): the
+ * pages its facts come from. Each of its sections and figures names the ones it rests on, so no AquaTome figure is uncited.
+ */
 export const SpeciesSchema = z.object({
   id: z.string(), scientificName: z.string(), order: z.string(), family: z.string(), genus: z.string(), group: z.string(),
   lNumber: z.string().optional(), places: z.array(z.string()), range: RangeSchema.optional(),
   dataCard: z.partialRecord(DataCardField, z.array(SourcedValue)),
   sections: z.array(Section), photos: z.array(Photo), videos: z.array(Video), productSlots: z.array(ProductSlot), updatedAt: z.string(),
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(),
+}).superRefine((e, ctx) => {
+  const n = e.refs?.length ?? 0
+  for (const [field, vs] of Object.entries(e.dataCard)) for (const v of vs ?? []) {
+    if (v.source === 'aquatome' && (v.ref === undefined || v.ref >= n)) ctx.addIssue({ code: 'custom', message: `an AquaTome ${field} figure that names no page in refs` })
+  }
+  for (const x of e.sections) if (x.refs?.some(i => i >= n)) ctx.addIssue({ code: 'custom', message: `a ${x.key} section citing a page refs doesn't have` })
 })
 
 export const PlantSchema = z.object({
@@ -93,6 +112,10 @@ export const PlantSchema = z.object({
   light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']),
   placement: z.array(z.enum(['foreground', 'midground', 'background', 'epiphyte', 'floating'])),
   sections: z.array(Section), photos: z.array(Photo), productSlots: z.array(ProductSlot), updatedAt: z.string(),
+  /** The pages AquaTome's own text on the plant was written from (a species-profile video, engine species-videos.ts), as a species' `refs`. */
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(),
+}).superRefine((e, ctx) => {
+  for (const x of e.sections) if (x.refs?.some(i => i >= (e.refs?.length ?? 0))) ctx.addIssue({ code: 'custom', message: `a ${x.key} section citing a page refs doesn't have` })
 })
 
 /**
@@ -117,8 +140,9 @@ export const VideoRef = z.object({
    */
   gear: z.array(z.object({ category: z.string(), type: z.string().optional(), brand: z.string().optional(), model: z.string().optional(), t: z.number().optional() })).optional(),
   /**
-   * Pictures per guide section (matched by its h3 text): stills from the video (YouTube storyboard frames, a click plays
-   * the video from there) and an open-licence photo. Absent until the images pass has run; [] when nothing fitted.
+   * Pictures per guide section (matched by its h3 text): stills from the video (its own frames, `-hd.webp`; a storyboard
+   * tile until `pnpm engine video-stills` reaches it; `t` is the second the still shows, and a click plays the video
+   * from it) and an open-licence photo. Absent until the images pass has run; [] when nothing fitted.
    */
   figures: z.array(z.object({
     heading: z.string(),
@@ -130,7 +154,8 @@ export const VideoRef = z.object({
  * A guide's photo can name the section it illustrates, by the h3 each language's text gives it (translations are written
  * on their own, so their headings differ): the page puts it under that heading.
  */
-const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), id: z.string().optional(), th: z.string().optional() }).optional() })
+const sectionIn = Object.fromEntries(WRITTEN_OTHER_LANGS.map(l => [l, z.string().optional()])) as Record<WrittenOtherLang, z.ZodOptional<z.ZodString>>
+const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...sectionIn }).optional() })
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
   source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(GuidePhoto), mentions: z.array(z.string()), updatedAt: z.string(),
@@ -175,17 +200,20 @@ export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a
 const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
-/** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
-const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
 /**
  * One product (brand + model), the same in every language and market: its specs and variants, each fact pointing at the
- * source it came from (manufacturer, shops, reviews). Written from facts only, never from a shop's text.
+ * source it came from (manufacturer, shops, reviews, `test`: AquaTome's own test notes). Written from facts only, never
+ * from a shop's text.
+ * `reviews`: the YouTube reviews its Vietnamese page summarizes (engine product-reviews.ts), the top one first (the page
+ * embeds it); each is a source of kind `video`. `channel` is kept to hold the text to the content rule that it never
+ * names one; the page's source list shows titles.
  */
 export const ProductSchema = z.object({
   id: z.string(), brand: z.string(), model: z.string(), category: z.string(), type: z.string().optional(),
   specs: z.array(ProductSpec), variants: z.array(z.object({ name: z.string(), specs: z.array(ProductSpec) })),
-  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['manufacturer', 'shop', 'review', 'video', 'forum', 'other']), at: z.string() })),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['manufacturer', 'shop', 'review', 'video', 'forum', 'test', 'other']), at: z.string() })),
+  reviews: z.object({ checkedAt: z.string(), videos: z.array(Video.extend({ channel: z.string() })) }).optional(),
   updatedAt: z.string(),
 })
 /** A product's prices in one market (content/products/<id>/<market>.json): shops' own listings, each dated. */
@@ -214,6 +242,14 @@ export const MarketSchema = z.object({
   prices: z.array(z.object({ shop: z.string(), url: WebUrl, variant: z.string().optional(), price: z.number(), at: z.string() })),
 })
 
+/**
+ * A claim's source on a product page: the source's address, not its place in the list, as research can list the sources
+ * again; `t`: for a video, the second the claim was said.
+ */
+const ProductCite = z.object({ url: WebUrl, t: z.number().int().nonnegative().optional() })
+/** Plain text and the sources behind it: the site draws the marks. */
+const CitedText = z.object({ text: z.string().min(1), cites: z.array(ProductCite).min(1) })
+
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
@@ -225,6 +261,16 @@ export const TranslationSchema = z.object({
   parents: z.array(z.string()).optional(),
   /** Products: names for the spec keys in this language. */
   labels: z.record(z.string(), z.string()).optional(),
+  /**
+   * Products: what the YouTube reviews found (engine product-reviews.ts). `agree`: said by two reviews or more; `differ`:
+   * where they part, each side its own; `single`: said by one; `measured`: figures a reviewer measured, how, and where.
+   */
+  reviews: z.object({
+    agree: z.array(CitedText), differ: z.array(z.object({ topic: z.string().min(1), sides: z.array(CitedText).min(2) })), single: z.array(CitedText),
+    measured: z.array(z.object({ what: z.string().min(1), value: z.string().min(1), how: z.string(), cite: ProductCite })),
+  }).optional(),
+  /** Products: what AquaTome found trying the product itself, cited to its test notes. */
+  tested: z.array(CitedText).optional(),
   /** Owner-chosen main name: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */

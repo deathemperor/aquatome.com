@@ -52,8 +52,9 @@ export function foldNearEmpty(sections: Section[], t: Translation, label: (vi: s
     vi[facts] = appendItem(vi[facts], `<li><strong>${label(SECTION_LABELS.vi[s.key])}:</strong> ${flat(html)}</li>`)
     const i = out.findIndex(x => x.key === 'quickFacts' && x.source === s.source)
     const en = `<li>${s.key}: ${flat(s.html)}</li>`
-    if (i >= 0) out[i] = { ...out[i]!, html: appendItem(out[i]!.html, en) }
-    else out.unshift({ key: 'quickFacts', source: s.source, sourceUrl: s.sourceUrl, html: `<ul>${en}</ul>` })
+    // AquaTome's own text keeps the pages it cites (SpeciesEntity refs).
+    if (i >= 0) out[i] = { ...out[i]!, html: appendItem(out[i]!.html, en), ...(s.refs ? { refs: [...new Set([...(out[i]!.refs ?? []), ...s.refs])] } : {}) }
+    else out.unshift({ key: 'quickFacts', source: s.source, sourceUrl: s.sourceUrl, html: `<ul>${en}</ul>`, ...(s.refs ? { refs: s.refs } : {}) })
   }
   return { sections: out, t: { ...t, sections: vi } }
 }

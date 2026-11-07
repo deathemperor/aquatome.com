@@ -6,12 +6,13 @@ import { fmt, isRange } from '../lib/format'
 import { smallSrc } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
 import { i18n } from '../lib/i18n'
-import { BREED_KIND, type Breed } from '../lib/breeds'
+import { BREED_KIND, careCard, type Breed } from '../lib/breeds'
+import { asNum, asRange } from '../lib/species-index'
 /**
  * `template`: every part, with stand-in figures and no picture, for the fish list's script to fill in (scripts/species-card.ts).
  * `breed`: a line or hybrid in the same card, its kind where the Latin name goes; its picture is the first one (the
- * credits list that one). No figures yet: the list's water filter doesn't read a breed's, so a card showing them would
- * contradict it. The name keeps the class `n` the fish list's search reads.
+ * credits list that one). Its figures are its care card's, as its page shows them, and `data-fig` holds them for the
+ * fish list's water filter (scripts/filter.ts keepBreed). The name keeps the class `n` the fish list's search reads.
  * `photo`: the picture its page chose (a page never shows one twice, lib/pictures.ts); null: none.
  */
 type Props = { eager?: boolean; template?: boolean; photo?: Photo | null } & ({ s: Localized<SpeciesEntity>; breed?: never } | { breed: Breed; s?: never })
@@ -20,14 +21,15 @@ const { s, breed, eager = false, template = false, photo } = Astro.props
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const p = photo !== undefined ? photo : breed ? breed.photos[0] : cleanPhoto(s.photos)
-const card = breed ? {} : s.dataCard
+const card = breed ? careCard(breed).card : s.dataCard
 const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [])
 const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [])
 const diff = template ? { value: 1 } : resolveDataCard(card.difficulty ?? [])
 const t = temp && isRange(temp.value) ? temp.value : undefined
 const h = ph && isRange(ph.value) ? ph.value : undefined
+const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankCm: asNum(resolveDataCard(card.tankCm ?? [])?.value), difficulty: asNum(diff?.value) } : undefined
 ---
-<article class="sc">
+<article class="sc" data-fig={fig && JSON.stringify(fig)}>
   <a href={`/vi/ca/${(breed ?? s).t.slug}/`}>
     <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p ? <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} /> : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
     {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p></>}
@@ -38,7 +40,7 @@ const h = ph && isRange(ph.value) ? ph.value : undefined
       {h && <div><dt>pH</dt><dd>{range(h)}</dd><RangeBar kind="ph" min={h.min} max={h.max} /></div>}
       {diff && typeof diff.value === 'number' && <div class="lvl"><dt>{tr('Độ khó')}</dt><dd><Difficulty value={diff.value} /></dd></div>}
     </dl>
-  ) : !breed && <p class="label none">{tr('Chưa có số liệu')}</p>}
+  ) : <p class="label none">{tr('Chưa có số liệu')}</p>}
 </article>
 <style>
   /* Labels sit at the card's foot so neighbouring cards' rows line up whatever the name's length. */

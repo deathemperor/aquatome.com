@@ -1,0 +1,41 @@
+---
+import { i18n } from '../lib/i18n'
+import { SHOP_NAMES, SHOPS } from '../lib/format'
+/**
+ * Which marketplace the page's shop links search: one choice for every link on the page (a[data-go]), instead of three
+ * links on each. The links are written for Shopee and work without this script; it shows the picker and rewrites them.
+ */
+const { t } = i18n(Astro.url)
+---
+<div class="shops" role="group" aria-label={t('Tìm trên sàn')} data-shop-pick hidden>
+  <span class="lbl" aria-hidden="true">{t('Tìm trên')}</span>
+  {SHOPS.map((s, i) => <button type="button" data-shop={s} aria-pressed={i === 0 ? 'true' : 'false'}>{SHOP_NAMES[s]}</button>)}
+</div>
+<script>
+  const NAMES: Record<string, string> = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
+  const choose = (shop: string) => {
+    for (const b of document.querySelectorAll<HTMLButtonElement>('[data-shop-pick] button')) b.setAttribute('aria-pressed', String(b.dataset.shop === shop))
+    for (const a of document.querySelectorAll<HTMLAnchorElement>('a[data-go]')) {
+      a.setAttribute('href', a.getAttribute('href')!.replace(/^\/go\/(?:shopee|lazada|tiki)\//, `/go/${shop}/`))
+      for (const n of a.querySelectorAll('[data-shop-name]')) n.textContent = NAMES[shop]!
+    }
+  }
+  for (const g of document.querySelectorAll<HTMLElement>('[data-shop-pick]')) {
+    g.hidden = false
+    g.addEventListener('click', e => {
+      const b = (e.target as Element).closest<HTMLButtonElement>('button[data-shop]')
+      if (b) choose(b.dataset.shop!)
+    })
+  }
+</script>
+<style>
+  .shops { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px; max-width: 100%; padding: 3px; border: 1px solid var(--c-rule); border-radius: 24px; background: var(--c-plate); }
+  .shops[hidden] { display: none; }
+  .lbl { font-size: var(--step--1); color: var(--c-ink-soft); padding-inline: var(--space-3) var(--space-2); }
+  button { font: inherit; font-size: 0.9rem; font-weight: 500; min-height: 44px; padding: 0 var(--space-4); border: 0; border-radius: 999px; background: none; color: var(--c-ink); cursor: pointer; }
+  button:hover { background: var(--c-select); }
+  button[aria-pressed='true'] { background: var(--c-ink); color: var(--c-paper); }
+  button:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  /* A 320 px screen: the three shops alone, a little tighter, so the picker never pushes the page sideways. */
+  @media (max-width: 359px) { .lbl { display: none; } button { padding: 0 var(--space-3); } }
+</style>

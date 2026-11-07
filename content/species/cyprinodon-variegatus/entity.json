@@ -1,0 +1,128 @@
+{
+  "id": "cyprinodon-variegatus",
+  "scientificName": "Cyprinodon variegatus",
+  "order": "Cyprinodontiformes",
+  "family": "Cyprinodontidae",
+  "genus": "Cyprinodon",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "united-states",
+    "mexico",
+    "bahamas",
+    "san-salvador-island",
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>Type locality is given as 'Carolinas, U.S.A.', but this species has a huge distribution extending southwards from Massachusetts state, northeastern U.S.A. along the Atlantic coast as far as northeastern Mexico, the Bahamas and Antilles, with a handful of records from northeastern South America (Venezuela).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>Tends to be most common in brackish to hypersaline environments such as coastal salt marshes, lagoons and estuaries.</p><p>On San Salvador Island, Bahamas, it appears to be the parent of a species group occurring in sympatry and exploiting diverse but specific resources with some spectacular morphological adaptations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) is just about acceptable for a single pair but like most members of the family Cyprinodontidae this species does best when maintained as a group in a larger tank or container.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>Need not be too complicated so long as there are plenty of broken lines-of-sight.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should be encouraged if possible.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<ul><li>Martin, C. H. and P. C. Wainwright (2013). Remarkable Species Flock of Cyprinodon Pupfishes Endemic to San Salvador Island, Bahamas. Bulletin of the Peabody Museum of Natural History 54(2), 231-240</li><li>Martin, C. H. and P. C. Wainwright (2013). Multiple Fitness Peaks on the Adaptive Landscape Drive Adaptive Radiation in the Wild. Science 339(6116), 208-211</li><li>Martin, C. H. and P. C. Wainwright (2011). Trophic novelty is linked to extremes rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes. Evolution 65(8), 2197-2212</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ebef183116bb8656.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ebef183116bb8656-480.webp",
+      "width": 700,
+      "height": 594,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "caption": "Nuptial male individual photographed on San Salvador Island, The Bahamas.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ff2669662b3621df.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ff2669662b3621df-480.webp",
+      "width": 800,
+      "height": 468,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "caption": "In its natural habitat, Crescent Pond, The Bahamas; female above, nuptial male below.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "caption": "Little Lake on San Salvador Island, the Bahamas is a natural habitat of this species.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí",
+        "lọc mút xốp"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

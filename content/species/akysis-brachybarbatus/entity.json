@@ -10,6 +10,47 @@
     "china",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Mekong",
+        "Lancang Jiang"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Southeast Asia: Lancangjiang [Mekong] River (Yunnan, China).",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is native to the lower Lancang Jiang basin in Menglian County and Mengla County, Yunnan.",
+          "countries": [],
+          "regions": [
+            "Lancang Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340893,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -136,7 +177,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá mini 30cm"
+        "bể cá 30cm"
       ]
     }
   ],

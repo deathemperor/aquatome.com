@@ -1,10 +1,14 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
-import { BREED_KIND } from './breeds'
+import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
+import { breedParts } from './breed-page'
+import { BREED_KIND, type Breed } from './breeds'
 import { photoCredit } from './cite'
+import { dmy } from './products'
 import { VN_WATER, vnClimate } from './climate'
 import { avoidWhy } from './companions'
+import type { CategoryUse } from './equipment'
+import { equipmentParts } from './equipment-page'
 import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
@@ -21,12 +25,12 @@ import { QUESTION_LABELS } from './sections'
 import { seriesParts } from './series-page'
 import { speciesParts } from './species-page'
 import { commentsKey, photosKey } from './talk'
-import { clock } from './video'
+import { clock, guideChapters, watchUrl } from './video'
 
 /**
  * The app's copy of each content page (packages/schema/src/app-page.ts): the page's own pieces, as the site's template
- * puts them together, turned into blocks. Guides, fish, plants, the glossary and video series; the comments, reader
- * photos and shop links of fish and plant pages are not in the copy yet.
+ * puts them together, turned into blocks. Guides, fish, plants, the glossary, video series and equipment; the comments,
+ * reader photos and shop links of fish and plant pages are not in the copy yet.
  */
 
 type Kind = PageDoc['kind']
@@ -43,10 +47,12 @@ const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = fa
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
 const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: appPath(lang, viPath) } : text)
 
-/** "Theo Aquarium Breeder", "AquaTome tổng hợp từ 4 nguồn rồi tự viết": the line under a guide's title (SourceCredit). */
+/**
+ * "Theo Aquarium Breeder", "AquaTome tổng hợp từ 4 nguồn rồi tự viết": the line under a guide's title (SourceCredit). A
+ * video guide's names no channel: its sources (refs, the video first) say whose it is.
+ */
 function credit(t: ReturnType<typeof translator>, c: Content, g: Localized<GuideEntity>, refs: GuideEntity['refs']): Inline[] {
-  if (g.source === 'aquatome') return [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: refs?.length ?? 0 }), href: '#nguon' }, ` ${t('rồi tự viết')}`]
-  if (g.video) return [`${t('Bài viết của AquaTome, dựa trên video của')} `, { text: g.video.channel, href: g.video.channelUrl }]
+  if (g.source === 'aquatome' || g.video) return [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: (g.video ? 1 : 0) + (refs?.length ?? 0) }), href: '#nguon' }, ` ${t('rồi tự viết')}`]
   return [`${t('Theo')} `, { text: c.sources[g.source]?.name ?? g.source, href: g.sourceUrl }]
 }
 
@@ -67,8 +73,8 @@ function pagesBlock(lang: Lang, listed: Set<string>, title: string, viPaths: str
 export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { blocks: Block[]; unknown: string[] } {
   const t = translator(lang)
   const { range } = fmt(lang)
-  const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, c, props)
-  const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
+  const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, c, props)
+  const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' || field === 'tankL' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
   const blocks: Block[] = []
   const unknown = new Set<string>()
   const prose = (html: string) => { const r = proseBlocks(lang, html); r.unknown.forEach(u => unknown.add(u)); blocks.push(...r.blocks) }
@@ -91,7 +97,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
     blocks.push({ t: 'h', text: t(QUESTION_LABELS[sec.key]), id: `muc-${sec.key}` })
     for (const b of sec.blocks) {
       if (b.off.length) {
-        const figures = b.off.map(o => `${t(OFF_LABELS[o.field]!)} ${fig(o.field, o.own)} (${t('bảng:')} ${fig(o.field, o.card)})`).join(', ')
+        const figures = b.off.map(o => `${t(OFF_LABELS[o.field]!)} ${o.field === 'tankL' ? `${range(o.own)} ${t('lít')}` : fig(o.field, o.own)} (${t('bảng:')} ${fig(o.field, o.card)})`).join(', ')
         blocks.push({ t: 'p', c: [`${t('{source} ghi khác bảng dữ liệu:', { source: b.name })} ${figures}.`] })
       }
       prose(b.vi)
@@ -102,18 +108,17 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
-      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })),
-      note: t('Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó.'),
+      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })), note,
     })
   }
   return { blocks, unknown: [...unknown].sort() }
 }
 
 /**
- * A fish's or plant's gallery as its strip shows it (GalleryStrip.astro) and its gallery page lists it: none when the
- * page shows no strip.
+ * A fish's, breed's or plant's gallery as its strip shows it (GalleryStrip.astro) and its gallery page lists it: none when
+ * the page shows no strip; no link when it has no gallery page (`viPath`).
  */
-function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string): Block[] {
+function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string | undefined): Block[] {
   const t = translator(lang)
   if (!strip.some(Boolean)) return []
   const photos = gallery.flatMap(p => {
@@ -125,7 +130,7 @@ function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>
   return [{
     t: 'gallery', title: t('Ảnh {name}', { name }), note: galleryNote(t, gallery, sources), photos,
     strip: strip.flatMap(p => (p && at.has(p.url) ? [at.get(p.url)!] : [])),
-    ...(served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
+    ...(viPath && served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
   }]
 }
 
@@ -143,6 +148,7 @@ function trustBlock(t: T, lang: Lang, card: SpeciesEntity['dataCard'], sources: 
     rows: rows.map(r => ({
       field: r.field, label: t(FIELD_LABELS[r.field]),
       ...(r.conflict ? { conflict: true as const, note: r.agreed ? t('Mức mọi nguồn cùng khuyên') : t('Mỗi nguồn ghi một mức') } : {}),
+      ...(r.marked ? { marked: true as const } : {}),
       items: (r.conflict ? r.vals : r.vals.slice(0, 1)).map(v => {
         const names = r.conflict ? [v.source] : r.sources
         const tail = r.conflict ? `: ${range(v.value)}${unit(r.field)}` : names.length > 1 ? ` · ${t('cùng một mức')}` : ''
@@ -173,7 +179,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const p = await speciesParts(lang, c, s)
   const lead = image(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
   const why = avoidWhy(t, p.mates.self.name)
   const mate = (x: Localized<SpeciesEntity>) => { const img = image(lang, cleanPhoto(x.photos), undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, ...(img ? { img } : {}) } }
@@ -209,11 +215,11 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     sub: s.scientificName,
     where: p.country ? [`${s.family}, `, linked(lang, p.country.t.name, `/vi/nguon-goc/${p.country.parent}/${p.country.id}/`)] : [s.family],
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
-    ...(p.firstSource ? { credit: [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
+    ...(p.firstSource ? { credit: p.researched ? [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: p.researched }), href: '#nguon' }, ` ${t('rồi tự viết')}.`] : [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `species:${s.id}`), photos: photosKey(`species:${s.id}`) },
     blocks: [
-      ...trustBlock(t, lang, s.dataCard, c.sources),
+      ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
       mates,
       ...(p.vn ? climateBlock(t, s.dataCard) : []),
       ...galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath),
@@ -228,6 +234,55 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
 }
 
 /**
+ * A breed's copy (pages/ca/[breed].astro, from the same parts), a fish's to the app: what it is (a form of its species,
+ * linked), its other names, the line under its card, its photo; then a hybrid's parents, the card's sources, the gallery,
+ * the summary, its text, its lines, the questions, the guides that name it and its sources. Its figures are the app
+ * index's (`card`), as a species' are.
+ */
+export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>): PageDoc {
+  const t = translator(lang)
+  const at = (viPath: string) => appPath(lang, viPath)
+  const p = breedParts(lang, c, b)
+  const lead = image(lang, b.photos[0], b.t.name)
+  const kind = t(BREED_KIND[b.kind])
+  const parents: Block[] = p.parents.length ? [{
+    t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
+      ...(i > 0 ? [', '] : []),
+      x.path ? { text: `${x.name} (${x.sci})`, href: at(x.path) } : x.name,
+      ...(x.certain ? [] : [` ${t('(chưa chắc chắn)')}`]),
+    ])],
+  }] : []
+  const lines: Block[] = p.lines.length ? [{
+    t: 'cards', title: t('Các dòng'),
+    items: p.lines.map((x, i) => { const img = image(lang, p.linePhotos[i], undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, sub: t(BREED_KIND[x.kind]), ...(img ? { img } : {}) } }),
+  }] : []
+  return {
+    v: PAGE_VERSION,
+    kind: 'fish',
+    path: at(`/vi/ca/${b.t.slug}/`),
+    title: b.t.name,
+    where: p.parent && b.kind === 'variety' ? [`${kind}${t(', dòng của')} `, { text: p.parent.name, href: at(p.parent.href) }] : [kind],
+    ...(b.t.altNames.length ? { aka: t('Tên khác: {names}', { names: b.t.altNames.join(', ') }) } : {}),
+    credit: [t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })],
+    ...(lead ? { lead } : {}),
+    // Readers' photos on the Vietnamese page alone, as the page has them.
+    talk: { comments: commentsKey(lang, p.key), ...(lang === 'vi' ? { photos: photosKey(p.key) } : {}) },
+    blocks: [
+      ...parents,
+      ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
+      ...galleryBlock(lang, c.sources, b.t.name, p.gallery, p.strip, p.galleryPath),
+      ...(b.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt'), items: b.t.summary }] : []),
+      ...(p.body ? proseBlocks(lang, p.body).blocks : []),
+      ...lines,
+      ...(b.t.faq?.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: b.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
+      ...pagesBlock(lang, listed, t('Bài viết nhắc đến'), p.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
+      ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), p.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),
+      ...(b.sources.length ? [{ t: 'refs' as const, title: t('Nguồn'), items: b.sources.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
+    ],
+  }
+}
+
+/**
  * A plant's copy (pages/cay/[slug].astro, from the same parts). Its care (difficulty, light, CO₂, growth, place) is
  * the app index's (`plant`), so it isn't repeated here.
  */
@@ -235,13 +290,14 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
   const lead = image(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })) })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), refs: p.refs })
   return {
     v: PAGE_VERSION,
     kind: 'plant',
     path: appPath(lang, `/vi/cay/${p.t.slug}/`),
     title: p.t.name,
     sub: p.scientificName,
+    ...(p.t.altNames.length ? { aka: t('Tên khác: {names}', { names: p.t.altNames.join(', ') }) } : {}),
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [
@@ -297,6 +353,80 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   }
 }
 
+/**
+ * An equipment category's copy (pages/thiet-bi/[category].astro, from the same parts), in the page's order, with the
+ * page's shop links as built (Shopee; `/go/<shop>/`, which the app opens outside it). The fish that need the kit are one
+ * "pages" block, however many: the app draws its rows as they scroll into view.
+ */
+export function equipmentDoc(lang: Lang, c: Content, u: CategoryUse, listed: Set<string>): PageDoc {
+  const t = translator(lang)
+  const at = (viPath: string) => appPath(lang, viPath)
+  const p = equipmentParts(lang, c, u)
+  const lead = image(lang, p.g?.hero, p.label)
+  const prose = (html: string) => proseBlocks(lang, html).blocks
+  const card = (path: string, name: string, photo: Photo | null, sub?: string) => {
+    const img = image(lang, photo, undefined, true)
+    return { path: at(path), name, ...(sub ? { sub } : {}), ...(img ? { img } : {}) }
+  }
+  const between = (runs: Inline[], gap: string): Inline[] => runs.flatMap((r, i) => (i ? [gap, r] : [r]))
+  return {
+    v: PAGE_VERSION,
+    kind: 'equipment',
+    path: at(`/vi/thiet-bi/${u.category}/`),
+    title: p.label,
+    ...(p.chips.length ? { meta: p.chips.join(' · ') } : {}),
+    ...(lead ? { lead } : {}),
+    blocks: [
+      ...(p.g ? [{ t: 'p' as const, c: [p.g.lead] }, ...prose(p.intro)] : []),
+      ...(p.kinds.length ? [{ t: 'h' as const, text: p.kindsTitle }] : []),
+      ...p.kinds.flatMap((k): Block[] => {
+        const photo = image(lang, k.photo, k.name)
+        return [
+          { t: 'h', text: k.name, id: k.id },
+          ...(photo ? [{ t: 'figure' as const, img: photo }] : []),
+          ...prose(k.desc),
+          { t: 'p', c: [{ text: t('Chọn thế nào:'), b: true }, ` ${k.pick}`] },
+          ...(k.picks.length ? [{ t: 'p' as const, c: [`${t('Đã tìm hiểu kỹ:')} `, ...between(k.picks.map(x => linked(lang, x.name, x.href)), ', ')] }] : []),
+          ...(k.buy ? [{ t: 'p' as const, c: [{ text: `${t('Mua')} ${k.buy.text} ${t('trên')} Shopee`, href: k.buy.href }] }] : []),
+          ...(k.searches.length ? [{ t: 'p' as const, c: [`${t('Hay tìm:')} `, ...between(k.searches, ', ')] }] : []),
+          ...(k.who.length ? [{ t: 'cards' as const, title: k.whoTitle, items: k.who.map(({ s, photo: ph }) => card(`/vi/ca/${s.t.slug}/`, s.t.name, ph)) }] : []),
+          ...(k.whoMore ? [{ t: 'p' as const, c: [t('+{n} loài', { n: k.whoMore })] }] : []),
+        ]
+      }),
+      ...(p.g ? [
+        { t: 'h' as const, text: t('Cách chọn') },
+        { t: 'list' as const, items: p.choose.map(prose) },
+        { t: 'h' as const, text: t('Sai lầm thường gặp') },
+        { t: 'list' as const, items: p.mistakes.map(prose) },
+      ] : []),
+      ...(p.creators.length ? [
+        { t: 'h' as const, text: t('Dân chơi dùng gì trong video') },
+        {
+          t: 'list' as const,
+          items: p.creators.map((x): Block[] => [{
+            t: 'p',
+            c: [
+              { text: x.name, b: true as const, ...(x.product ? { href: at(x.product) } : {}) },
+              ` · ${t('{n} video', { n: x.count })} · `,
+              ...between(x.guides.map(v => ({ text: v.t.name, href: at(`/vi/huong-dan/${v.t.slug}/`) })), ' · '),
+            ],
+          }]),
+        },
+      ] : []),
+      ...(p.plants.length ? [{ t: 'cards' as const, title: p.plantsTitle, items: p.plants.map(({ p: x, photo }) => card(`/vi/cay/${x.t.slug}/`, x.t.name, photo, x.scientificName)) }] : []),
+      ...(p.plantsMore ? [{ t: 'p' as const, c: [linked(lang, p.plantsMore.text, p.plantsMore.href)] }] : []),
+      ...pagesBlock(lang, listed, p.usersTitle, p.users.map(s => `/vi/ca/${s.t.slug}/`), p.users.length),
+      ...(p.faq.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: p.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
+      ...pagesBlock(lang, listed, t('Bài viết liên quan'), p.guides.map(x => `/vi/huong-dan/${x.g.t.slug}/`), 6),
+      ...(p.vn && p.keywordLinks.length ? [
+        { t: 'h' as const, text: p.keywordsTitle },
+        { t: 'list' as const, items: p.keywordLinks.map((x): Block[] => [{ t: 'p', c: [x] }]) },
+        { t: 'p' as const, c: [t('Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết.')] },
+      ] : []),
+    ],
+  }
+}
+
 /** A guide's copy; `listed` is the app index's paths (listedPaths). */
 export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
@@ -329,7 +459,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       video: {
         youtubeId: v.youtubeId, title: v.title, channel: v.channel, durationSec: v.durationSec,
         ...(v.transcribed ? {} : { subtitles: t('Phụ đề tiếng Việt') }),
-        ...(v.chapters.length > 1 ? { chapters: v.chapters.map((ch, i) => ({ at: ch.start, title: g.t.chapters?.[i] ?? ch.title })) } : {}),
+        ...(guideChapters(v, g.t.chapters).length > 1 ? { chapters: guideChapters(v, g.t.chapters).map(ch => ({ at: ch.start, title: ch.title })) } : {}),
       },
     } : {}),
     talk: { comments: commentsKey(lang, `guide:${g.id}`) },
@@ -337,7 +467,10 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       ...(g.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt nhanh'), items: g.t.summary }] : []),
       ...blocks,
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
-      ...(p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
+      ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
+        ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
+        ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
+      ] }] : []),
       ...pages(p.series && p.pos + 1 < p.inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.next.map(x => `/vi/huong-dan/${x.t.slug}/`)),
       ...pages(t('Loài và cây trong bài'), [...p.species.map(s => `/vi/ca/${s.t.slug}/`), ...p.plants.map(x => `/vi/cay/${x.t.slug}/`)]),
     ],
@@ -354,10 +487,11 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
     const listed = listedPaths(lang, c)
     byLang.set(lang, docs = (async () => ({
       guide: appGuides(lang, c).map(g => guideDoc(lang, c, g, listed)),
-      fish: await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))),
+      fish: [...await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))), ...appBreeds(lang, c).map(b => breedDoc(lang, c, b, listed))],
       plant: appPlants(lang, c).map(p => plantDoc(lang, c, p, listed)),
       glossary: appGlossary(lang, c).map(g => glossaryDoc(lang, g)),
       video: appSeries(lang, c).map(({ s }) => videoDoc(lang, c, s)),
+      equipment: appEquipment(lang, c).map(u => equipmentDoc(lang, c, u, listed)),
     }))())
   }
   return docs
@@ -365,10 +499,11 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
 
 /**
  * The level an app must know to draw each kind itself (packages/schema/src/app-page.ts, PageShard). Guides are the first
- * app's (level 1); fish, plant, glossary and video series pages use blocks it shows as "open on the web", so they are
- * level 2.
+ * app's (level 1); fish, plant, glossary, video series and equipment pages use blocks it shows as "open on the web", so
+ * they are level 2. Equipment needs no block a level-2 app lacks, and an app that predates it leaves out the index's items
+ * of that kind, so it never opens these copies.
  */
-export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2, video: 2 }
+export const PAGE_LEVELS: Record<Kind, number> = { guide: 1, fish: 2, plant: 2, glossary: 2, video: 2, equipment: 2 }
 
 /**
  * What the app index says of the shards: every kind's count and level (`shards`), and the counts of the level-1 kinds

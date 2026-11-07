@@ -1,0 +1,142 @@
+{
+  "ms/breeds/bubble-eye-goldfish": [
+    {
+      "at": "2026-11-06T17:24:54Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Kekerasan air (GH) 4–20 dGH\": the facts give GH 4–20 with no unit, so 'dGH' is a small addition.",
+        "\"Jangka hayat ... 10–15 tahun (sumber lain)\": this is supported by the facts (source 8).",
+        "\"Ia sukar mencari makanan\" and \"ia perenang yang lemah\" in the beginner FAQ: these are supported, but they are presented as reasons the source gave for 'not suitable for beginners'. The facts don't state that link.",
+        "\"Boleh, tetapi hanya dengan ikan yang perlahan\": this leaves out the advice to keep it apart, which is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:24:54Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Siapa sebenarnya penternak pertamanya tidak direkodkan\" – not in the facts (unsupported claim).",
+        "\"10–15 tahun (sumber lain)\" is supported, but the intro says \"penglihatannya terhad\" – facts say vision is impaired, which is acceptable.",
+        "\"sediakan tangki ... penapis yang disediakan khas\" / \"ia perlukan tangki dan penapis yang disediakan khas\" – generalisation not directly stated.",
+        "\"kantungnya mudah pecah\" given as the reason it is not suitable for beginners – facts only say not suitable for beginners, with no reason given.",
+        "\"Ada juga yang memberi salad dan timun\" – facts say lettuce and cucumber, and \"salad\" is a loose rendering of lettuce.",
+        "Size \"10–20 cm\" – facts say 10–20.3 cm; this is roughly acceptable.",
+        "Care table GH \"4–20\" has no unit; this is minor."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/butterfly-koi": [
+    {
+      "at": "2026-11-06T17:26:52Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Sumber menyarankan kolam kira-kira 3,800 liter seekor dengan kedalaman sekurang-kurangnya 90 cm hingga lebih 1 m\" is a mild merge of two sources. It is supported.",
+        "\"Ia hidup lama dan boleh membesar dengan besar, jadi rancang kolam yang cukup luas sebelum membeli\" is a small generality and is not stated as a recommendation in the facts.",
+        "\"Kolam simen menaikkan pH, jadi kolam jenis ini perlu dikedap\" is supported.",
+        "\"Pada tahun 1980-an\" and \"sekitar 1982\" are supported.",
+        "The heading \"Rakan sekolam\" and the answer \"Boleh, kerana penjagaannya hampir sama\" are slight paraphrases. They are supported.",
+        "\"Sumber yang sama menegaskan\" ties the 'not goldfish' statement to the 'Asian carp' source. This matches source 2.",
+        "\"Pada ikan yang jarang ditemui, siripnya sepanjang badan\" matches the facts.",
+        "\"Sesetengah peminat di Jepun\" matches the facts.",
+        "\"Penternak koi pakar\" is supported.",
+        "\"Sirip dan ekornya... dua pertiga\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:26:52Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"kolam tanpa objek tajam sangat penting\" and \"ikan ini boleh hidup puluhan tahun dan membesar besar\": mild generalisations. The first rests on the sharp-objects fact, but the 'sangat penting' emphasis is an addition.",
+        "\"Dijual di kedai ikan hiasan dan kedai kolam\": the facts say 'pet and pond shops', so this is a fair paraphrase. The 'Kolam' table row merges two sources (90 cm and >1 m) into one range, which is acceptable.",
+        "\"tidak terlalu terdedah kepada arus yang kuat\": slight embellishment of the advice about slow swimming in strong currents.",
+        "\"kolam simen ... permukaannya perlu disalut atau dikedap\": 'disalut' (coated) is not in the facts. The facts only say to seal the pond.",
+        "\"Sirip terus memanjang apabila ikan semakin tua, jadi ikan dewasa mempunyai sirip paling panjang\": the facts support this, since older fish have the longest fins.",
+        "\"Ikan itu kurang laku, lalu Blue Ridge ... mengacukkannya dengan koi\": supported.",
+        "\"Air yang bersih, kolam tanpa objek tajam dan pengendalian yang berhati-hati membantu mengelakkannya\" (in the FAQ): this implies prevention of torn fins. It is mostly supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/crossback-golden-arowana": [
+    {
+      "at": "2026-11-06T23:12:31Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Ikan dasar yang besar atau ikan pari mungkin sesuai\" is supported.",
+        "\"Tangki perlu panjang, tidak perlu dalam\" is a fair rendering of \"long rather than deep\".",
+        "\"Paling sesuai dipelihara seekor sahaja\" slightly strengthens the facts' \"Keep it as a single display fish\". This is minor.",
+        "\"Sumber pertama turut menyebut isipadu\" is supported only loosely. The 600–1,000 L figure is from source 6, which also gives 180–200 cm, so this is fine.",
+        "\"Ladang-ladang inilah yang membekalkan kebanyakan ikan gred tinggi untuk eksport\" is supported.",
+        "\"Ia membesar sehingga kira-kira 90 cm\" is supported.",
+        "The intro's \"bentuk warna emas Scleropages formosus\" is a mild generalisation. The facts call it a variety based on S. formosus.",
+        "\"Cuba beli dari ladang yang bereputasi\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T23:12:31Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Ikan ini tidak sesuai untuk pemula\" – the facts give difficulty 5 but no explicit beginner statement; mild inference, and the reasons given (size, clean water, sturdy lid) are not stated as reasons.",
+        "\"tangki sepanjang 180–200 cm dengan isipadu kira-kira 600–1,000 liter\" – the facts give 600–1,000 L from one source and 180–200 cm from the same source; this is acceptable, but linking them is an inference.",
+        "\"Minta kedua-dua dokumen ini\" – advice to ask for both documents is not in the facts.",
+        "\"nama jenis atau 'ketulenan' yang dinyatakan oleh penjual tidak semestinya tepat\" – an unsupported claim about seller-stated names and purity; the facts only say farms cross types and purity is reduced.",
+        "\"Di sesetengah tempat, ada juga pemilik yang membuat pembedahan kosmetik\" – the facts say this happens in Vietnam, and the page drops the price and the location (generalised).",
+        "\"Pada ikan muda, pastikan warna emasnya sedang menuju ke baris itu\" – an extension, loosely supported by the buying advice.",
+        "\"Ada penggemar yang menasihatkan cahaya lembut untuk arowana emas\" – the facts say gentle lighting for Kim Long (Vietnamese keepers); this is generalised and the attribution is blurred.",
+        "\"air yang bersih\" in the intro is a generality; the facts say soft, slightly acidic, well-filtered water."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/crowntail-betta": [
+    {
+      "at": "2026-11-06T23:14:34Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"24–27 °C\" for Source B: the fact says 24.4–26.7, which rounds to about 24–27 °C, so this is acceptable.",
+        "\"Ikan jantan juga tidak boleh dipelihara bersama jantan lain\" is in the intro under the buying advice. It is supported, but it is placed oddly.",
+        "\"Dua sumber menilai tahap kesukarannya sebagai 2\" is supported, but the page gives no scale. This is a small generality.",
+        "\"Ada juga sumber yang menyenaraikan beberapa negara Asia Tenggara\" is vague. The fact names Thailand, Cambodia, Indonesia and Vietnam. This is minor.",
+        "\"Ikan jantan membina sarang buih dan menjaga telur\" is supported.",
+        "The intro says the webbing is \"lebih pendek\" and the page says \"Satu sumber lain pula menganggap ia lebih sukar dijaga ... jejarinya mudah melengkung jika kualiti air tidak dijaga\". The fact says only that the long rays curl without careful care. Tying this to water quality is a slight embellishment.",
+        "\"hujung jejari boleh reput dan tercabut\" is a slight stretch of \"crumble off\". It is acceptable.",
+        "\"Kerosakan akibat ammonia tidak boleh pulih\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T23:14:34Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Kitaran nitrogen yang sudah matang dan tukar air yang konsisten sangat penting\" is not in the facts.",
+        "\"Thailand, Kemboja dan Indonesia sebagai negara asal\" omits Vietnam from the listed origins. This is a small change.",
+        "\"jadi asal usulnya agak jelas\" is an added conclusion that the facts do not state.",
+        "\"24–27 °C (sumber lain)\" rounds 24.4–26.7 °C. This is acceptable rounding.",
+        "\"Jadi pertimbangkan perkara ini sebelum membuat pesanan\" is advice not found in the facts.",
+        "\"Punca yang biasa ialah kualiti air yang buruk\" in the FAQ presents poor water as the usual cause of curling. The facts say high ammonia causes curling, and they also say long rays curl without careful care.",
+        "\"Boleh\" in the FAQ on mixing crowntails with other fish is a stronger yes than the facts give. They list suitable tankmates, but they also describe crowntails as aggressive.",
+        "The kept-tank-size claim \"sirip panjangnya tidak rosak\" is supported. \"Sirip ventral bergerigi\" is supported as a Vietnamese buyers' preference."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

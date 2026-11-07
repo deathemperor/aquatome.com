@@ -20,8 +20,11 @@ const groups = [...new Set(c.species.map(s => s.group))].sort()
 // species' photo), each card's as the data file has it.
 const { breeds, breedPhotos, species, photos } = fishList(lang, c)
 const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
+// The breed cards drawn: two full rows on a computer (5 a row), five on a phone. The rest are in the breed list's template
+// until asked for, so the page's elements stay under Lighthouse's budget however many breeds there are (e2e/lighthouse.spec.ts).
+const BREEDS = 10
 ---
-<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...breedPhotos, ...firstPhotos].map(p => p ?? undefined))} creditsLater>
+<Browse title={t('Tất cả loài')} heading={t('Tất cả loài')} intro={t('{n} hồ sơ loài cá, tép và ốc. Lọc theo bể và nước của bạn.', { n: c.species.length })} credits={creditsFor([...breedPhotos.slice(0, BREEDS), ...firstPhotos].map(p => p ?? undefined))} creditsLater>
   <FilterBox id="filter-box" prefix="species" summary={t('Lọc theo bể và nước')}>
     <label>{t('Tên')} <input name="q" type="search" placeholder={t('neon, Corydoras…')} /></label>
     <label>{t('Nhóm')}
@@ -34,17 +37,45 @@ const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
       <select name="difficultyMax"><option value="">{t('Bất kỳ')}</option><option value="3">{t('Dễ')}</option><option value="5">{t('Dễ và vừa')}</option></select>
     </label>
   </FilterBox>
-  <BreedList breeds={breeds} photos={breedPhotos} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} />
+  <BreedList breeds={breeds} photos={breedPhotos} heading={t('Cá lai và các dòng cá cảnh')} bare eager={4} first={BREEDS} />
   <FilterResults prefix="species" total={c.species.length} src={`/data/${lang}/species.json`} heading={t('Danh sách loài')} why={t('Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.')}>
     <SpeciesGrid species={first} photos={firstPhotos} template />
   </FilterResults>
 </Browse>
 <script>
-  import type { SpeciesListItem } from '../../lib/list-data'
-  import { filterSpecies, keepBreed, queryFromParams, unsureSpecies } from '../../scripts/filter'
+  import type { CardPhoto, SpeciesListItem } from '../../lib/list-data'
+  import { filterSpecies, keepBreed, queryFromParams, unsureSpecies, type SpeciesQuery } from '../../scripts/filter'
   import { filterList } from '../../scripts/filter-list'
+  import { creditPhoto } from '../../scripts/photo-credits'
   import { buildCard } from '../../scripts/species-card'
   const breeds = document.querySelector<HTMLElement>('section.breeds')
+  // The breed cards past the first few wait in the list's template (BreedList `first`): added for "Xem tất cả", or for a
+  // filter, which reads every breed. Each one's photo is credited as it joins the page.
+  const list = breeds?.querySelector('ul'), rest = breeds?.querySelector('template'), more = breeds?.querySelector<HTMLElement>('.more')
+  const drawn = list?.children.length ?? 0
+  let all = false, q: SpeciesQuery = {}
+  function addRest() {
+    if (!rest?.isConnected) return
+    for (const li of rest.content.querySelectorAll<HTMLElement>('li[data-credit]')) creditPhoto(JSON.parse(li.dataset.credit!) as CardPhoto)
+    list!.append(rest.content)
+    rest.remove()
+  }
+  // A search leads with its results: the breed cards above the list stay only when they match it, figures and all.
+  function showBreeds() {
+    if (!breeds || !list) return
+    const filtering = Object.values(q).some(v => v !== undefined)
+    if (all || filtering) addRest()
+    let n = 0
+    list.querySelectorAll<HTMLElement>(':scope > li').forEach((li, i) => {
+      const c = li.querySelector<HTMLElement>('.sc')!
+      li.hidden = (i >= drawn && !all && !filtering) || !keepBreed(c.querySelector('.n')!.textContent!, JSON.parse(c.dataset.fig ?? '{}'), q)
+      if (!li.hidden) n++
+    })
+    breeds.hidden = n === 0
+    if (more) more.hidden = all || filtering
+  }
+  // Focus goes to the first card added, where the reader goes on reading.
+  more?.querySelector('button')!.addEventListener('click', () => { all = true; showBreeds(); list!.children[drawn]?.querySelector('a')?.focus() })
   filterList<SpeciesListItem>('species', {
     match: (items, p) => {
       const q = queryFromParams(p)
@@ -52,13 +83,6 @@ const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
     },
     // A species past the first page becomes a card the first time it shows.
     build: buildCard,
-    onRun: p => {
-      // A search leads with its results: the breed cards above the list stay only when they match it.
-      if (!breeds) return
-      const q = queryFromParams(p)
-      let n = 0
-      breeds.querySelectorAll('li').forEach(li => { li.hidden = !keepBreed(li.querySelector('.n')!.textContent!, q); if (!li.hidden) n++ })
-      breeds.hidden = n === 0
-    },
+    onRun: p => { q = queryFromParams(p); showBreeds() },
   })
 </script>
