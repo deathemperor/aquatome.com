@@ -56,13 +56,30 @@ private func events(_ s: String) async throws -> [ServerEvent] {
   #expect(seen == 2)
 }
 
-/// The app's session, served the recorded stream by a stand-in for the network.
+/// A model on the main actor reads a stream with its own closure (the chat screen's).
+@MainActor private final class MainActorReader {
+  var names: [String] = []
+  func read(_ s: String) async throws { try await ServerEvents.read(stream(s)) { self.names.append($0.name); return true } }
+}
+
+@Test @MainActor func aModelOnTheMainActorReadsTheStreamWithItsOwnClosure() async throws {
+  let m = MainActorReader()
+  try await m.read("event: step\ndata: {}\n\nevent: done\ndata: {}\n\n")
+  #expect(m.names == ["step", "done"])
+}
+
+/// The app's session, served a recorded answer by a stand-in for the network: a stream (or `status` and `type`'s), the
+/// request left open after it when `open`, as a turn still being answered is; `stopped` counts the requests ended.
 private final class Recorded: URLProtocol, @unchecked Sendable {
   nonisolated(unsafe) static var body = Data()
+  nonisolated(unsafe) static var status = 200
+  nonisolated(unsafe) static var type = "text/event-stream"
+  nonisolated(unsafe) static var open = false
+  nonisolated(unsafe) static var stopped = 0
   override class func canInit(with request: URLRequest) -> Bool { true }
   override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
   override func startLoading() {
-    let res = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "text/event-stream"])!
+    let res = HTTPURLResponse(url: request.url!, statusCode: Self.status, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": Self.type])!
     client?.urlProtocol(self, didReceive: res, cacheStoragePolicy: .notAllowed)
     // In pieces, as the network brings them: some cut in the middle of a line, or of a letter.
     var at = Self.body.startIndex
@@ -71,23 +88,58 @@ private final class Recorded: URLProtocol, @unchecked Sendable {
       client?.urlProtocol(self, didLoad: Self.body[at..<end])
       at = end
     }
-    client?.urlProtocolDidFinishLoading(self)
+    if !Self.open { client?.urlProtocolDidFinishLoading(self) }
   }
-  override func stopLoading() {}
+  override func stopLoading() { Self.stopped += 1 }
+
+  static func session(_ body: Data, status: Int = 200, type: String = "text/event-stream", open: Bool = false) -> ServerEvents.Send {
+    (Self.body, Self.status, Self.type, Self.open, Self.stopped) = (body, status, type, open, 0)
+    let c = URLSessionConfiguration.ephemeral
+    c.protocolClasses = [Recorded.self]
+    return ServerEvents.urlSession(URLSession(configuration: c))
+  }
 }
 
-@Test func theAppsSessionGivesTheStreamsEventsAsTheRecordedStreamHasThem() async throws {
+// One at a time: they share the stand-in's answer.
+@Suite(.serialized) struct TheAppsSession {
+@Test func givesTheStreamsEventsAsTheRecordedStreamHasThem() async throws {
   let data = try recorded("chat-stream-species.sse")
-  Recorded.body = data
-  let c = URLSessionConfiguration.ephemeral
-  c.protocolClasses = [Recorded.self]
-  let (status, bytes) = try await ServerEvents.urlSession(URLSession(configuration: c))(URLRequest(url: site.appending(path: "api/chat")))
-  #expect(status == 200)
+  let (response, bytes) = try await Recorded.session(data)(URLRequest(url: site.appending(path: "api/chat")))
+  #expect(response.statusCode == 200 && response.value(forHTTPHeaderField: "Content-Type") == "text/event-stream")
   var got: [ServerEvent] = []
   try await ServerEvents.read(bytes) { got.append($0); return true }
   let want = try await ServerEvents.events(in: data)
   #expect(got == want)
   #expect(got.map(\.name) == ["step", "step", "step", "text", "text", "block", "block", "block", "done"])
+}
+
+/// The first event of an answer still coming, then no more read, as a model stops at a turn's end: the stream let go of.
+private func firstEventOnly(_ send: ServerEvents.Send) async throws -> Int {
+  let (_, bytes) = try await send(URLRequest(url: site.appending(path: "api/chat")))
+  var seen = 0
+  try await ServerEvents.read(bytes) { _ in seen += 1; return false }
+  return seen
+}
+
+@Test func endsTheRequestWhenTheStreamIsNoLongerRead() async throws {
+  // A turn still being answered: the request stays open until the reading stops.
+  let seen = try await firstEventOnly(Recorded.session(Data("event: step\ndata: {}\n\n".utf8), open: true))
+  #expect(seen == 1)
+  let until = Date().addingTimeInterval(5)
+  while Recorded.stopped == 0 && Date() < until { try await Task.sleep(for: .milliseconds(20)) }
+  #expect(Recorded.stopped == 1)
+}
+
+@Test func givesARefusalsStatusTypeAndBody() async throws {
+  // The recorded refusal: its status, type and body as the Worker sends them.
+  let fixture = try #require(JSONSerialization.jsonObject(with: recorded("chat-rate.json")) as? [String: Any])
+  let status = try #require(fixture["status"] as? Int), type = try #require((fixture["headers"] as? [String: String])?["content-type"])
+  let sent = try JSONSerialization.data(withJSONObject: try #require(fixture["body"]))
+  let (response, bytes) = try await Recorded.session(sent, status: status, type: type)(URLRequest(url: site.appending(path: "api/chat")))
+  #expect(response.statusCode == 429 && response.value(forHTTPHeaderField: "Content-Type") == "application/json")
+  let body = try await ServerEvents.collect(bytes)
+  #expect(Chat.refusal(body, status: response.statusCode) == .refused("rate", limit: 30))
+}
 }
 
 // MARK: The recorded answers
@@ -130,11 +182,12 @@ private func key(_ b: Chat.Block) -> String {
   #expect(steps.contains(.search("cá neon nuôi đàn")))
   // The neon's card with its figures as the index has them; its guide's section, whole, with no heading in it; the
   // tank-mates tool set to six neons.
-  guard case .species(let card) = blocks[0] else { Issue.record("no card first"); return }
+  guard case .species(let card) = try #require(blocks.first) else { Issue.record("no card first"); return }
   #expect(card.page.id == "paracheirodon-innesi" && card.page.kind == "species" && card.page.path == "/vi/ca/ca-neon-xanh/")
   #expect(card.page.img?.host == "media.aquatome.com")
   let facts = try #require(card.facts)
   #expect(facts.tempC != nil && facts.ph != nil && facts.schoolMin != nil && card.plant == nil)
+  try #require(blocks.count == 3)
   guard case let .section(page, heading, body) = blocks[1] else { Issue.record("no section second"); return }
   #expect(page.kind == "guide" && heading != nil && !body.isEmpty && !body.contains { $0.t == "h" || $0.t == "web" })
   guard case .tool(let tool) = blocks[2] else { Issue.record("no tool third"); return }
@@ -169,7 +222,28 @@ private func key(_ b: Chat.Block) -> String {
   guard case .block(.species(let c))? = block(#"{"t":"species","page":{"id":"a","kind":"species","name":"A","url":"https://example.com/a/"},"facts":{"tempC":"warm","sizeCm":4}}"#)
   else { Issue.record("the card went"); return }
   #expect(c.facts?.tempC == nil && c.facts?.sizeCm == 4 && c.page.path == nil)
-  // A plant's figures, on its own 1–3 scale.
+  // Figures that aren't an object: none, and the card stays (JSONSerialization would raise on them).
+  for odd in ["null", #""warm""#, "4", "true", "[1]"] {
+    guard case .block(.species(let o))? = block(#"{"t":"species","page":\#(linked),"facts":\#(odd),"plant":\#(odd)}"#)
+    else { Issue.record("the card went with figures \(odd)"); continue }
+    #expect(o.facts == nil && o.plant == nil)
+  }
+  // A comparison of more than four: its first four (the contract's most).
+  let five = (1...5).map { #"{"page":{"id":"s\#($0)","kind":"species","name":"S"}}"# }.joined(separator: ",")
+  guard case .block(.compare(let cards))? = block(#"{"t":"compare","items":[\#(five)]}"#) else { Issue.record("no comparison"); return }
+  #expect(cards.map(\.page.id) == ["s1", "s2", "s3", "s4"])
+  // A section stops at a heading in it, one without words too: what's under it is another section's.
+  let guide = #""page":{"kind":"guide","title":"G","url":"/vi/g/"}"#
+  for h in [#"{"t":"h","text":"Khác","id":"khac"}"#, #"{"t":"h"}"#] {
+    guard case .block(.section(_, _, let cut))? = block(#"{"t":"section",\#(guide),"blocks":[{"t":"p","c":["Một."]},\#(h),{"t":"p","c":["Hai."]}]}"#)
+    else { Issue.record("the section went"); continue }
+    #expect(cut.map(\.t) == ["p"])
+  }
+  // A heading it can't read (no id): not shown as the page's opening; a null one is the opening.
+  #expect(block(#"{"t":"section",\#(guide),"heading":{"text":"H"},"blocks":[{"t":"p","c":["Một."]}]}"#) == nil)
+  guard case .block(.section(_, nil, _))? = block(#"{"t":"section",\#(guide),"heading":null,"blocks":[{"t":"p","c":["Một."]}]}"#)
+  else { Issue.record("a null heading isn't the opening"); return }
+  // A plant's figures, read as a plant's (its difficulty on the plants' scale, not in a fish's figures).
   guard case .block(.species(let p))? = block(#"{"t":"species","page":{"id":"b","kind":"plant","name":"B"},"plant":{"difficulty":2,"light":"low"}}"#)
   else { Issue.record("the plant went"); return }
   #expect(p.plant?.difficulty == 2 && p.plant?.light == "low" && p.facts == nil)
@@ -177,6 +251,17 @@ private func key(_ b: Chat.Block) -> String {
   guard case .block(.section(_, nil, let blocks))? = block(#"{"t":"section","page":{"kind":"guide","title":"G","url":"/vi/g/"},"blocks":[{"t":"p","c":["Một."]},{"t":"hologram"}]}"#)
   else { Issue.record("the opening went"); return }
   #expect(blocks.map(\.t) == ["p", "web"])
+}
+
+@Test func anAnswerOrErrorItCantReadStillEndsTheTurn() {
+  func error(_ name: String, _ data: String) -> String? {
+    if case .error(let code)? = Chat.event(ServerEvent(name: name, data: data)) { code } else { nil }
+  }
+  // A done that isn't a turn (its conversation no UUID), or not JSON; an error without its code.
+  #expect(error("done", #"{"conversation":"x","n":1,"text":"","covered":true}"#) == "failed")
+  #expect(error("done", "not json") == "failed")
+  #expect(error("error", "{}") == "failed")
+  #expect(error("error", #"{"error":"resting"}"#) == "resting")
 }
 
 @Test func aRefusedQuestionSaysWhy() throws {
@@ -222,8 +307,9 @@ private func key(_ b: Chat.Block) -> String {
     FishId.Guess(scientificName: sci, commonName: "", variety: nil, confidence: c, reason: "",
                  page: id.map { FishId.Linked(id: $0, name: $0, sci: sci, path: nil, img: nil) }, species: nil, sameGenus: [])
   }
-  let long = String(repeating: "x", count: 140)
-  let f = FishId.Identification(verdict: "fish", results: [g("Paracheirodon innesi", "paracheirodon-innesi", 0.9), g(long, nil, 0.2), g("C c", "c", 0.1), g("D d", "d", 0.05)])
+  // 140 letters, each two UTF-16 units (e and its accent apart): cut between letters, within the Worker's 100 units.
+  let long = String(repeating: "e\u{301}", count: 140)
+  let f = FishId.Identification(verdict: "fish", results: [g("Paracheirodon innesi", "paracheirodon-innesi", 0.9), g(long, String(repeating: "i", count: 101), -0.2), g("C c", "c", .nan), g("D d", "d", 0.05)])
   let start = Chat.Start(from: .fishId, about: "paracheirodon-innesi", identified: Chat.Identified(f))
   let r = Chat.ask("Nuôi sao?", conversation: UUID(), lang: "th", start: start, key: UUID(), site: site, token: "t", version: "1", ownCopy: nil)
   let sent = try #require(r.httpBody)
@@ -232,7 +318,11 @@ private func key(_ b: Chat.Block) -> String {
   let identified = try #require(body["identified"] as? [String: Any])
   let results = try #require(identified["results"] as? [[String: Any]])
   #expect(identified["verdict"] as? String == "fish" && results.count == 3)
-  #expect((results[1]["scientificName"] as? String)?.count == 100 && results[1]["id"] == nil)
+  // The long name cut to 50 letters (100 units), an id too long for a page dropped, a confidence below 0 or none at all 0.
+  #expect((results[1]["scientificName"] as? String)?.utf16.count == 100 && (results[1]["scientificName"] as? String)?.count == 50)
+  #expect(results[1]["id"] == nil && results[1]["confidence"] as? Double == 0 && results[2]["confidence"] as? Double == 0)
+  // A verdict the contract doesn't have: no guesses sent.
+  #expect(Chat.Identified(FishId.Identification(verdict: "maybe", results: [])) == nil)
   #expect(results[0]["id"] as? String == "paracheirodon-innesi" && results[0]["confidence"] as? Double == 0.9)
   // Every name sent is one the contract's question has, and each guess's, one its guesses have.
   let question = schema("Question")["properties"] as! [String: Any]
@@ -253,8 +343,13 @@ private func key(_ b: Chat.Block) -> String {
   var c = Chat.Conversation(account: "a")
   // Not asked yet: no 24 hours running.
   #expect(!c.ended(account: "a", now: t0.addingTimeInterval(48 * 3600)))
+  // Asked, then refused (never answered): no 24 hours running either.
   c.asked(at: t0)
+  #expect(!c.ended(account: "a", now: t0.addingTimeInterval(48 * 3600)))
+  // Retried an hour on (the same question), then answered: its 24 hours from when it was first asked.
   c.asked(at: t0.addingTimeInterval(3600))
+  let answered = c.answered(n: 1)
+  #expect(!answered)
   #expect(c.started == t0)
   #expect(!c.ended(account: "a", now: t0.addingTimeInterval(24 * 3600 - 1)))
   #expect(c.ended(account: "a", now: t0.addingTimeInterval(24 * 3600)))
@@ -265,12 +360,18 @@ private func key(_ b: Chat.Block) -> String {
   let t0 = Date(timeIntervalSince1970: 1_700_000_000)
   var c = Chat.Conversation(account: "a")
   c.asked(at: t0)
-  let first = c.answered(n: 1, at: t0), second = c.answered(n: 2, at: t0.addingTimeInterval(60))
+  let first = c.answered(n: 1)
+  c.asked(at: t0.addingTimeInterval(60))
+  let second = c.answered(n: 2)
   #expect(!first && !second)
-  // The Worker no longer held it (deleted a day after its last question): its 24 hours from now.
-  let later = t0.addingTimeInterval(30 * 3600)
-  let anew = c.answered(n: 1, at: later)
+  // The same answer again (a retry's replay): nothing changes.
+  let replay = c.answered(n: 2)
+  #expect(!replay && c.turns == 2)
+  // The Worker didn't hold it: its 24 hours from that question.
+  let later = t0.addingTimeInterval(3 * 3600)
+  c.asked(at: later)
+  let anew = c.answered(n: 1)
   #expect(anew)
   #expect(c.started == later && c.turns == 1)
-  #expect(!c.ended(account: "a", now: later.addingTimeInterval(3600)))
+  #expect(!c.ended(account: "a", now: later.addingTimeInterval(23 * 3600)))
 }

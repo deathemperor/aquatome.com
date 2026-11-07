@@ -37,13 +37,31 @@ public enum Chat {
     public let results: [Guess]
     public init(verdict: String, results: [Guess]) { self.verdict = verdict; self.results = results }
 
-    /// Fish ID's identification as the contract takes it: three guesses at most, names no longer than 100 characters, a
-    /// guess's id its page's (a breed's, else the species' or plant's).
-    public init(_ f: FishId.Identification) {
+    /// The contract's verdicts.
+    static let verdicts: Set = ["fish", "plant", "other", "unclear"]
+
+    /// Fish ID's identification as the contract takes it, or nil for a verdict it doesn't have: three guesses at most,
+    /// names no longer than 100 UTF-16 units (as the Worker counts them, cut between letters), a guess's id its page's (a
+    /// breed's, else the species' or plant's) and none when longer than that (cut, it would name no page), a confidence
+    /// no lower than 0.
+    public init?(_ f: FishId.Identification) {
+      guard Self.verdicts.contains(f.verdict) else { return nil }
       verdict = f.verdict
       results = f.results.prefix(3).map { g in
-        Guess(scientificName: String(g.scientificName.prefix(100)), id: g.page.map { String($0.id.prefix(100)) }, confidence: g.confidence)
+        Guess(scientificName: Self.cut(g.scientificName, 100), id: g.page.flatMap { $0.id.utf16.count <= 100 ? $0.id : nil },
+              confidence: g.confidence.isFinite ? max(0, g.confidence) : 0)
       }
+    }
+
+    /// The letters of `s` that fit in `max` UTF-16 units.
+    static func cut(_ s: String, _ max: Int) -> String {
+      var out = "", n = 0
+      for c in s {
+        n += c.utf16.count
+        if n > max { break }
+        out.append(c)
+      }
+      return out
     }
   }
 
@@ -215,15 +233,17 @@ public enum Chat {
     return .refused(code ?? "failed", limit: o?["limit"] as? Int)
   }
 
-  /// A stream's event, or nil for one this app doesn't know or can't read (a newer event, a block of a newer `t`).
+  /// A stream's event, or nil for one this app doesn't know or can't read (a newer event, a block of a newer `t`). A
+  /// `done` or `error` it can't read ends the turn all the same, as `error("failed")`. A stream that ends with neither
+  /// was cut short (the connection, or the reading stopped): ask again with the same key, which gets the turn.
   public static func event(_ e: ServerEvent) -> Event? {
-    guard let o = object(Data(e.data.utf8)) else { return nil }
+    let o = object(Data(e.data.utf8))
     switch e.name {
-    case "step": return step(o).map(Event.step)
-    case "text": return (o["text"] as? String).map(Event.text)
-    case "block": return block(o).map(Event.block)
-    case "done": return turn(o).map(Event.done)
-    case "error": return (o["error"] as? String).map(Event.error)
+    case "step": return o.flatMap(step).map(Event.step)
+    case "text": return (o?["text"] as? String).map(Event.text)
+    case "block": return o.flatMap(block).map(Event.block)
+    case "done": return o.flatMap(turn).map(Event.done) ?? .error("failed")
+    case "error": return .error(o?["error"] as? String ?? "failed")
     default: return nil
     }
   }
@@ -252,14 +272,19 @@ public enum Chat {
     case "species":
       return card(o).map(Block.species)
     case "compare":
-      let items = (o["items"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(card) }
-      return items.count >= 2 ? .compare(items) : nil
+      // Two to four (the contract's): past four, the first four.
+      let items = (o["items"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(card) }.prefix(4)
+      return items.count >= 2 ? .compare(Array(items)) : nil
     case "section":
       guard let page = page(o["page"]), let raw = o["blocks"] as? [Any] else { return nil }
-      let h = o["heading"] as? [String: Any]
-      let heading = (h?["text"] as? String).flatMap { text in (h?["id"] as? String).map { (text: text, id: $0) } }
-      // Never a heading in it (the contract's rule): one would start another section.
-      let blocks = raw.map(PageDoc.Block.read).filter { $0.t != "h" }
+      var heading: (text: String, id: String)?
+      if let h = o["heading"], !(h is NSNull) {
+        // A heading it can't read: not the page's opening, which the section would show as and open at.
+        guard let h = h as? [String: Any], let text = h["text"] as? String, let id = h["id"] as? String else { return nil }
+        heading = (text, id)
+      }
+      // Up to a heading, never one (the contract's rule): one would start another section, which isn't this one.
+      let blocks = raw.prefix { ($0 as? [String: Any])?["t"] as? String != "h" }.map(PageDoc.Block.read)
       return blocks.isEmpty ? nil : .section(page: page, heading: heading, blocks: blocks)
     case "tool":
       guard let tool = o["tool"] as? String, let name = o["name"] as? String, let path = own(o["url"]) else { return nil }
@@ -273,7 +298,8 @@ public enum Chat {
     guard let p = o["page"] as? [String: Any], let id = p["id"] as? String, let kind = p["kind"] as? String, let name = p["name"] as? String else { return nil }
     let img = (p["img"] as? String).flatMap { $0.hasPrefix("https://") ? URL(string: $0) : nil }
     func decoded<T: Decodable>(_ key: String) -> T? {
-      (o[key]).flatMap { try? JSONSerialization.data(withJSONObject: $0) }.flatMap { try? JSONDecoder().decode(T.self, from: $0) }
+      // An object only: JSONSerialization raises (it can't throw) on a value that isn't one, as `null`.
+      (o[key] as? [String: Any]).flatMap { try? JSONSerialization.data(withJSONObject: $0) }.flatMap { try? JSONDecoder().decode(T.self, from: $0) }
     }
     return Card(page: Linked(id: id, kind: kind, name: name, sci: p["sci"] as? String, path: own(p["url"]), img: img),
                 facts: decoded("facts"), plant: decoded("plant"))
@@ -298,10 +324,12 @@ public enum Chat {
     public static let lasts: TimeInterval = 24 * 60 * 60
     public private(set) var id: UUID
     public private(set) var account: String
-    /// When its first question was asked.
+    /// When its first answered question was asked: the Worker counts its 24 hours from then.
     public private(set) var started: Date?
     /// The questions answered in it.
     public private(set) var turns = 0
+    /// The question being asked, when it was: nil once answered.
+    private var asking: Date?
 
     public init(account: String, id: UUID = UUID()) { self.account = account; self.id = id }
 
@@ -310,14 +338,17 @@ public enum Chat {
       account != self.account || started.map { now.timeIntervalSince($0) >= Self.lasts } == true
     }
 
-    /// A question asked: the first one starts its 24 hours.
-    public mutating func asked(at now: Date) { if started == nil { started = now } }
+    /// A question asked. A retry of it (the same key) isn't another.
+    public mutating func asked(at now: Date) { if asking == nil { asking = now } }
 
-    /// A turn answered, numbered `n`: true when it starts the conversation again on the Worker (1, over earlier turns),
-    /// its 24 hours counted from `now`.
-    public mutating func answered(n: Int, at now: Date) -> Bool {
+    /// The question asked, answered as turn `n`: true when it starts the conversation again on the Worker (1, over
+    /// earlier turns). The first answered starts the 24 hours, from when it was asked: a refused question starts none. The
+    /// same answer again (a retry's replay) changes nothing.
+    public mutating func answered(n: Int) -> Bool {
+      guard let at = asking else { return false }
+      asking = nil
       let anew = n == 1 && turns > 0
-      if anew { started = now }
+      if started == nil || anew { started = at }
       turns = n
       return anew
     }

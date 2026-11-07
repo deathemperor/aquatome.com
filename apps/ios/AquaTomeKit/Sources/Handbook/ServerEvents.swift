@@ -10,15 +10,17 @@ public struct ServerEvent: Sendable, Equatable {
 
 /// Server-sent events, as the Worker streams an answer (the chat's, protocols/chat.openapi.json): read from the
 /// response's bytes as they come, by the HTML standard's rules for event streams. Generic, by the events' names: the
-/// chat reads its own (Chat.event), and another stream (fish ID's) can read its.
+/// chat reads its own (Chat.event), and another stream (fish ID's) can read its. Read on the caller's actor (a model on
+/// the main actor hands its own closure).
 public enum ServerEvents {
-  /// A request sent for a stream: the answer's status and its bytes as they arrive. The app's session (`urlSession`), or
-  /// a stand-in.
-  public typealias Send = @Sendable (URLRequest) async throws -> (status: Int, bytes: AsyncThrowingStream<UInt8, any Error>)
+  /// A request sent for a stream: the answer (its status, and its type: a refusal is JSON, not a stream) and its bytes as
+  /// they arrive. The app's session (`urlSession`), or a stand-in.
+  public typealias Send = @Sendable (URLRequest) async throws -> (response: HTTPURLResponse, bytes: AsyncThrowingStream<UInt8, any Error>)
 
   /// Each event in `bytes`, in order, as soon as the blank line that ends it arrives; an event the bytes end in the middle
   /// of isn't one (the standard's rule: it may be cut short). `each` returning false stops reading.
-  public static func read<Bytes: AsyncSequence>(_ bytes: Bytes, _ each: (ServerEvent) async throws -> Bool) async throws where Bytes.Element == UInt8 {
+  public static func read<Bytes: AsyncSequence>(_ bytes: Bytes, isolation: isolated (any Actor)? = #isolation,
+                                                _ each: (ServerEvent) async throws -> Bool) async throws where Bytes.Element == UInt8 {
     var reader = ServerEventReader()
     var line: [UInt8] = []
     // A \r ends a line, and a \n straight after it belongs to that end.
@@ -33,6 +35,16 @@ public enum ServerEvents {
     }
   }
 
+  /// A refusal's whole body (JSON, not a stream), up to `limit` bytes.
+  public static func collect(_ bytes: AsyncThrowingStream<UInt8, any Error>, limit: Int = 1 << 16) async throws -> Data {
+    var out = Data()
+    for try await b in bytes {
+      out.append(b)
+      if out.count >= limit { break }
+    }
+    return out
+  }
+
   /// The events of a whole stream, as `read` gives them.
   public static func events(in data: Data) async throws -> [ServerEvent] {
     var out: [ServerEvent] = []
@@ -43,8 +55,8 @@ public enum ServerEvents {
   /// The app's session for a stream: its bytes handed on as they arrive, the request ended when they're no longer read.
   public static func urlSession(_ session: URLSession) -> Send {
     { request in
-      let (bytes, response) = try await session.bytes(for: request)
-      let status = (response as? HTTPURLResponse)?.statusCode ?? 0
+      let (bytes, answer) = try await session.bytes(for: request)
+      guard let response = answer as? HTTPURLResponse else { throw URLError(.badServerResponse) }
       let stream = AsyncThrowingStream<UInt8, any Error> { c in
         let task = Task {
           do {
@@ -56,7 +68,7 @@ public enum ServerEvents {
         }
         c.onTermination = { _ in task.cancel() }
       }
-      return (status, stream)
+      return (response, stream)
     }
   }
 }
