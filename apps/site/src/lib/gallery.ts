@@ -31,13 +31,20 @@ export function photoFrom(photos: Photo[], sources: Partial<Record<SourceId, Sou
   }))]
 }
 
+const fromWords = (t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>) =>
+  photoFrom(photos, sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
+
 /**
- * The gallery page's line about its photos: how many, from which sites, and that they are under open licences when all
- * are (a gallery with photos a source let us use names the source, and no more). The app's copy of the gallery carries
- * it too.
+ * The app's line about a gallery's photos: how many, from which sites, and that they are under open licences when all
+ * are (a gallery with photos a source let us use names the source, and no more).
  */
 export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
-  const from = photoFrom(photos, sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
   const open = photos.every(p => !p.source)
-  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from })
+  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from: fromWords(t, photos, sources) })
+}
+
+/** The same line on the gallery page itself, with no number: its title is the count. */
+export function galleryLine(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
+  const open = photos.every(p => !p.source)
+  return t(open ? 'Ảnh từ {from}, giấy phép mở.' : 'Ảnh từ {from}.', { from: fromWords(t, photos, sources) })
 }

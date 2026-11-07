@@ -2,18 +2,20 @@
 import { i18n } from '../lib/i18n'
 /**
  * A sticky row of links to a long page's main parts, in page order; the part being read is marked as the reader scrolls.
- * At most `max` (five fit a phone's row, or nearly): past that, the parts in `drop` are left out first, in its order.
+ * `end`: a chip that stays in sight at the row's end, the others scrolling beside it (the photos, lib/species-page.ts
+ * jumpRow); it isn't one of the parts marked.
  */
-interface Props { items: { href: string; label: string }[]; max?: number; drop?: string[] }
-const { max = 5, drop = [] } = Astro.props
-const out = new Set<string>()
-for (const href of drop) if (Astro.props.items.length - out.size > max && Astro.props.items.some(i => i.href === href)) out.add(href)
-const items = Astro.props.items.filter(i => !out.has(i.href)).slice(0, max)
+interface Props { items: { href: string; label: string; end?: boolean }[] }
+const { items } = Astro.props
+const end = items.find(i => i.end)
 const { t } = i18n(Astro.url)
 ---
 {items.length >= 2 && (
   <nav class="jump" aria-label={t('Các mục trong trang')} data-jump data-pagefind-ignore>
-    <ul class="wrap">{items.map(i => <li><a href={i.href}>{i.label}</a></li>)}</ul>
+    <div class="wrap row">
+      <ul>{items.filter(i => i !== end).map(i => <li><a href={i.href}>{i.label}</a></li>)}</ul>
+      {end && <a class="end" href={end.href}>{end.label}</a>}
+    </div>
   </nav>
 )}
 <script>
@@ -54,8 +56,12 @@ const { t } = i18n(Astro.url)
   /* --sticky-top: the height of a header that stays on screen, if the page has one (none today). */
   :global(html) { scroll-padding-top: calc(var(--sticky-top, 0px) + 4.5rem); scroll-behavior: smooth; }
   .jump { position: sticky; top: var(--sticky-top, 0px); z-index: 2; background: var(--c-paper); border-block: 1px solid var(--c-rule); }
-  ul { position: relative; list-style: none; margin-block: 0; display: flex; gap: var(--space-2); padding-block: var(--space-2); overflow-x: auto; scrollbar-width: none; }
+  .row { display: flex; align-items: center; gap: var(--space-2); }
+  /* The scrolling chips run to the screen's edge, past the page's margins, on the side no chip stays at. */
+  ul { position: relative; list-style: none; flex: 0 1 auto; min-width: 0; margin: 0 0 0 calc(-1 * var(--space-5)); display: flex; gap: var(--space-2); padding: var(--space-2) 0 var(--space-2) var(--space-5); overflow-x: auto; scrollbar-width: none; }
+  ul:last-child { margin-right: calc(-1 * var(--space-5)); padding-right: var(--space-5); }
   ul::-webkit-scrollbar { display: none; }
+  .end { flex: none; }
   ul[data-more='end'] { mask-image: linear-gradient(to right, #000 calc(100% - 3.5rem), transparent); }
   ul[data-more='start'] { mask-image: linear-gradient(to left, #000 calc(100% - 3.5rem), transparent); }
   ul[data-more='both'] { mask-image: linear-gradient(to right, transparent, #000 3.5rem, #000 calc(100% - 3.5rem), transparent); }
@@ -64,5 +70,5 @@ const { t } = i18n(Astro.url)
   a:hover { color: var(--c-ink); border-color: var(--c-ink-soft); }
   a[aria-current] { background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
   /* A phone's row: tighter chips, so five short ones nearly fit at 390 px. */
-  @media (max-width: 480px) { ul { gap: 6px; } a { padding: 0 0.8rem; } }
+  @media (max-width: 480px) { ul, .row { gap: 6px; } a { padding: 0 0.8rem; } }
 </style>
