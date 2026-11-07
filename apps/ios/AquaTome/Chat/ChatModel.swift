@@ -48,6 +48,14 @@ final class ChatStore {
     perAccount = s?.perAccount
   }
 
+  /// The app went to the background or came back: the latest chat's stream stops, and its question is asked again
+  /// with its key, whichever screen is showing.
+  func inFront(_ front: Bool) {
+    if front { current?.resume() } else { current?.leave() }
+  }
+
+  func isCurrent(_ m: ChatModel) -> Bool { current === m }
+
   /// The chat for `route`: the open one when it's the same start, by the same account, within its 24 hours; else the one
   /// kept on the phone, on the same terms (the app was closed meanwhile); else a new one.
   func model(for route: ChatRoute, account: AccountModel, site: URL, lang: String) -> ChatModel {
@@ -87,9 +95,9 @@ final class ChatModel {
     var last: String?
   }
 
-  /// What stops a question before it goes, shown over the box; the question stays in the box.
+  /// What stops a question before it goes, shown over the box; the question stays in the box. (Signed out is the
+  /// account's own state: its card shows while there's no account, and goes once one signs in.)
   enum Stop: Equatable {
-    case signedOut
     /// The reader's day used, with its limit.
     case rate(Int?)
     /// The site's day used.
@@ -114,6 +122,8 @@ final class ChatModel {
   @ObservationIgnored private weak var store: ChatStore?
   @ObservationIgnored private var conversation: Chat.Conversation?
   @ObservationIgnored private var running: Task<Void, Never>?
+  /// Which ask `running` is: an ask started from inside another (a 410's new conversation) outlives the one that started it.
+  @ObservationIgnored private var runId = UUID()
   @ObservationIgnored private let path = NWPathMonitor()
 
   init(route: ChatRoute, account: AccountModel, site: URL, lang: String, store: ChatStore) {
@@ -126,6 +136,13 @@ final class ChatModel {
       conversation = k.conversation
       thread = k.thread.map(\.asked)
     }
+    #if DEBUG
+    // The UI tests' "no network": the simulator's own path is up, so it isn't watched.
+    if ProcessInfo.processInfo.arguments.contains("-chat-path-offline") {
+      pathOffline = true
+      return
+    }
+    #endif
     path.pathUpdateHandler = { [weak self] p in
       let down = p.status != .satisfied
       Task { @MainActor in
@@ -136,15 +153,13 @@ final class ChatModel {
       }
     }
     path.start(queue: .global(qos: .utility))
-    #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-chat-path-offline") { pathOffline = true }
-    #endif
   }
 
   deinit { path.cancel() }
 
-  /// The latest question is still being answered: send stays off (a second would be 409).
-  var answering: Bool { thread.last?.outcome == .asking }
+  /// The latest question is still being answered, or its answer was cut short (its run may still be going on): send
+  /// stays off (a second question would be 409) until it's answered or asked again.
+  var answering: Bool { [.asking, .failed("cut")].contains(thread.last?.outcome) }
   var maxChars: Int { store?.maxChars ?? 500 }
   var perAccount: Int? { store?.perAccount }
 
@@ -168,13 +183,13 @@ final class ChatModel {
     guard !pathOffline, q.utf16.count <= maxChars else { return }
     guard let user = account.user?.id else {
       if let suggestion { draft = suggestion }
-      stop = .signedOut
       return
     }
     stop = nil
     couldntSend = false
     let anew = startIfNeeded(user)
-    draft = ""
+    // A chip tapped leaves what the reader was writing in the box.
+    if suggestion == nil { draft = "" }
     thread.append(Asked(id: UUID(), question: q, key: UUID(), anew: anew))
     ask(thread.count - 1)
   }
@@ -191,10 +206,16 @@ final class ChatModel {
   /// kept error), or the same one for an answer cut short (it gets the turn, counted once). After its answer was lost,
   /// in a new conversation.
   func retry(_ id: UUID) {
-    guard let i = thread.firstIndex(where: { $0.id == id }), i == thread.count - 1, !answering, let user = account.user?.id else { return }
+    guard let i = thread.firstIndex(where: { $0.id == id }), i == thread.count - 1, thread[i].outcome != .asking,
+          let user = account.user?.id else { return }
     switch thread[i].outcome {
     case .failed("cut"):
-      break
+      // Asked again with its key: past its 24 hours, its answer is lost, not asked anew.
+      thread[i].resumed = true
+      thread[i].reply = Chat.Reply()
+      thread[i].outcome = .asking
+      ask(i)
+      return
     case .lost:
       conversation = Chat.Conversation(account: user)
       thread[i].anew = thread[..<i].contains { $0.outcome == .answered }
@@ -234,10 +255,11 @@ final class ChatModel {
   }
 
   private func ask(_ i: Int) {
-    let id = thread[i].id
+    let id = thread[i].id, run = UUID()
+    runId = run
     running = Task { [weak self] in
       await self?.run(id)
-      self?.running = nil
+      if self?.runId == run { self?.running = nil }
     }
   }
 
@@ -250,13 +272,16 @@ final class ChatModel {
     let first = c.turns == 0
     // Claude may read the reader's tanks: the account has them first.
     if first && !item.resumed { await account.sync() }
+    // Left, or started over, meanwhile: the question waits, or is gone.
+    guard !Task.isCancelled, index(id) != nil else { return }
     let ask = { (token: String) in
       Chat.ask(item.question, conversation: c.id, lang: self.lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
                token: token, version: Self.version, ownCopy: Self.ownCopy)
     }
+    var admitted = false
     do {
       guard let (response, bytes) = try await account.stream(ask) else {
-        unsend(id, .signedOut)
+        unsend(id, nil)
         return
       }
       guard response.statusCode == 200, response.value(forHTTPHeaderField: "Content-Type")?.hasPrefix("text/event-stream") == true else {
@@ -264,6 +289,8 @@ final class ChatModel {
         refused(id, Chat.refusal(body, status: response.statusCode))
         return
       }
+      // Taken: the question counts, and its run goes on whatever happens to the stream.
+      admitted = true
       try await ServerEvents.read(bytes) { [weak self] e in
         guard let self, let event = Chat.event(e) else { return true }
         return self.take(event, data: e.data, id)
@@ -274,7 +301,8 @@ final class ChatModel {
       // Left for the background (the stream stopped): the question waits, to be asked again on return.
       if Task.isCancelled || (error as? URLError)?.code == .cancelled { return }
       guard let i = index(id) else { return }
-      if !thread[i].reply.writing && thread[i].reply.steps.isEmpty && Self.noNetwork(error) && !thread[i].resumed {
+      // Never taken (no answer at all): it didn't go. Taken, it's asked again with its key.
+      if !admitted && Self.noNetwork(error) && !thread[i].resumed {
         couldntSend = true
         unsend(id, nil)
       } else {
@@ -311,7 +339,8 @@ final class ChatModel {
     guard let i = index(id) else { return }
     switch r {
     case .signedOut:
-      unsend(id, .signedOut)
+      // The session is over: the account says so (its card), the question back in the box.
+      unsend(id, nil)
       Task { await account.refresh() }
     case .refused("rate", let limit):
       unsend(id, .rate(limit ?? perAccount))
@@ -331,7 +360,9 @@ final class ChatModel {
       thread[i].key = UUID()
       ask(i)
     case .refused(let code, _):
-      thread[i].outcome = .failed(["unavailable", "resting"].contains(code) ? "unavailable" : "failed")
+      // `failed` (502): Claude's answer our side couldn't use, counted. Any other refusal comes before a question is
+      // taken, and isn't.
+      thread[i].outcome = .failed(code == "failed" ? "failed" : "unavailable")
       conversation?.failed()
       keep()
     }
@@ -389,6 +420,8 @@ final class ChatModel {
   private static func kept() -> Kept? { (try? Data(contentsOf: file)).flatMap { try? JSONDecoder().decode(Kept.self, from: $0) } }
 
   private func keep() {
+    // A chat no longer the latest (another opened since) leaves the latest's kept.
+    guard store?.isCurrent(self) != false else { return }
     guard let conversation, !thread.isEmpty else {
       try? FileManager.default.removeItem(at: Self.file)
       return

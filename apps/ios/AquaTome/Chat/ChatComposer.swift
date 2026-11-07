@@ -65,7 +65,7 @@ struct ChatComposer: View {
   }
 
   @ViewBuilder private var above: some View {
-    if let stop = model.stop, stop != .signedOut {
+    if let stop = model.stop {
       StopCard(stop: stop, question: model.draft) { openScreen(.search($0)) }.transition(.opacity)
     } else if signedOut && !model.thread.isEmpty {
       ChatSignIn().transition(.opacity)

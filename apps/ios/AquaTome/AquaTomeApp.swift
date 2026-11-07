@@ -120,7 +120,10 @@ struct AquaTomeApp: App {
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) {
+        // The latest chat's answer stops in the background, and is asked for again on return (ChatStore).
+        if phase == .background { chat.inFront(false) }
         guard phase == .active else { return }
+        chat.inFront(true)
         Task { await account.refresh() }
         // Whether the chat is on: its entries show only then.
         Task { await chat.refresh(account: account, site: handbook.site) }

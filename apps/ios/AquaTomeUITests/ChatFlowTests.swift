@@ -11,7 +11,8 @@ final class ChatFlowTests: XCTestCase {
   /// From a fish's page: signed in on the screen, a starter asked; the wait and its steps, then the steps folded into the
   /// pages read, the text, and the next questions.
   func testAFishsPageAsksAndTheAnswerComesInAfterItsSteps() {
-    let app = launch()
+    // An event every 3 s: the wait and its steps stay long enough to be seen.
+    let app = launch("-chat-slow")
     openChat(app)
     XCTAssertTrue(element(app, "chat-about").label.contains("Về: Cá neon"), element(app, "chat-about").label)
     XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].exists, "no empty screen's question")
@@ -27,11 +28,11 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "chat-step").waitForExistence(timeout: 5), "no step while waiting")
     // The text starts: the steps fold into the pages read; the wait goes.
     let fold = app.buttons["chat-fold"]
-    XCTAssertTrue(fold.waitForExistence(timeout: 10), "the steps didn't fold")
+    XCTAssertTrue(fold.waitForExistence(timeout: 20), "the steps didn't fold")
     XCTAssertTrue(fold.label.contains("Đã đọc 2 trang trong cẩm nang"), fold.label)
     XCTAssertFalse(element(app, "chat-wait").exists, "still waiting with the text in")
     let answer = element(app, "chat-answer")
-    XCTAssertTrue(answer.waitForExistence(timeout: 10), "no whole answer")
+    XCTAssertTrue(answer.waitForExistence(timeout: 20), "no whole answer")
     XCTAssertTrue(answer.staticTexts.firstMatch.label.hasPrefix("Cá neon xanh dễ nuôi"), answer.staticTexts.firstMatch.label)
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 5), "no next questions")
     // The fold opened lists the steps again, a page read opening that page.
@@ -92,19 +93,19 @@ final class ChatFlowTests: XCTestCase {
 
   /// A failed answer that counts: said so, and asked again under the same bubble, never a second one.
   func testAFailedAnswerIsAskedAgainUnderTheSameBubble() {
-    let app = launch("-chat-failed")
+    let app = launch("-chat-failed", "-chat-slow")
     openChat(app)
     signIn(app)
     ask(app, "Neon sống bao lâu?")
     let failed = element(app, "chat-failed")
-    XCTAssertTrue(failed.waitForExistence(timeout: 10), "no failed card")
+    XCTAssertTrue(failed.waitForExistence(timeout: 20), "no failed card")
     XCTAssertTrue(failed.staticTexts["Không có câu trả lời"].exists)
     XCTAssertTrue(failed.staticTexts["Câu này vẫn được tính vào 30 câu hôm nay."].exists)
     let again = app.buttons["chat-again"]
     XCTAssertEqual(again.label, "Hỏi lại · tính thêm 1 câu")
     again.tap()
     XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 5), "not asked again")
-    XCTAssertTrue(failed.waitForExistence(timeout: 10), "no failed card the second time")
+    XCTAssertTrue(failed.waitForExistence(timeout: 20), "no failed card the second time")
     XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1, "the question posted twice")
   }
 

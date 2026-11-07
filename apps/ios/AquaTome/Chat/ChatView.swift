@@ -11,7 +11,6 @@ struct ChatView: View {
   @Environment(ChatStore.self) private var store
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
-  @Environment(\.scenePhase) private var phase
   @State private var model: ChatModel?
   @State private var confirming = false
 
@@ -36,11 +35,8 @@ struct ChatView: View {
     }
     .onAppear {
       if model == nil { model = store.model(for: route, account: account, site: handbook.site, lang: handbook.lang) }
+      // A question still being answered when the app last closed: asked again with its key.
       model?.resume()
-    }
-    .onChange(of: phase) {
-      // The stream stops in the background; back in front, the question is asked again with its key.
-      if phase == .background { model?.leave() } else if phase == .active { model?.resume() }
     }
   }
 }
@@ -61,7 +57,7 @@ private struct ChatThread: View {
   @State private var newBelow = false
   @State private var lastInView = true
 
-  private var signedOut: Bool { account.user == nil || model.stop == .signedOut }
+  private var signedOut: Bool { account.user == nil }
 
   var body: some View {
     ScrollViewReader { proxy in
@@ -158,10 +154,11 @@ private struct ChatThread: View {
       if a.anew { NewConversation() }
       Bubble(text: a.question).id(a.id)
       switch a.outcome {
+      // Asked again only under the latest question.
       case .failed(let code):
-        FailedCard(code: code, perAccount: model.perAccount) { model.retry(a.id) }.transition(.opacity)
+        FailedCard(code: code, perAccount: model.perAccount, again: last ? { model.retry(a.id) } : nil).transition(.opacity)
       case .lost:
-        LostCard { model.retry(a.id) }.transition(.opacity)
+        LostCard(again: last ? { model.retry(a.id) } : nil).transition(.opacity)
       case .asking, .answered:
         answer(a, last: last)
       }
@@ -205,9 +202,10 @@ private struct ChatThread: View {
       if open { unfolded.remove(a.id) } else { unfolded.insert(a.id) }
     } label: {
       HStack(alignment: .firstTextBaseline, spacing: 6) {
-        Image(systemName: "checkmark.circle").foregroundStyle(.secondary)
+        Image(systemName: "checkmark.circle").foregroundStyle(.secondary).accessibilityHidden(true)
         Text(Self.label(fold)).multilineTextAlignment(.leading)
         Image(systemName: "chevron.down").font(.caption.weight(.semibold)).rotationEffect(.degrees(open ? 180 : 0)).foregroundStyle(.tertiary)
+          .accessibilityHidden(true)
       }
       .font(.subheadline)
       .foregroundStyle(.secondary)
@@ -230,7 +228,7 @@ private struct ChatThread: View {
   /// A step, done: a page read opens it; a search is Claude's own words.
   @ViewBuilder private func step(_ s: Chat.Step) -> some View {
     let line = HStack(alignment: .firstTextBaseline, spacing: 6) {
-      Image(systemName: "checkmark").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+      Image(systemName: "checkmark").font(.caption.weight(.semibold)).foregroundStyle(.secondary).accessibilityHidden(true)
       switch s {
       case .search(let q): Text("Đã tìm “\(q)”")
       case .read(let p): Text("Đã đọc \(p.title)")
@@ -391,7 +389,7 @@ private struct NewConversation: View {
 private struct FailedCard: View {
   let code: String
   let perAccount: Int?
-  let again: () -> Void
+  let again: (() -> Void)?
 
   var body: some View {
     // `failed`: our side couldn't use Claude's answer, and it counts; else Claude couldn't be reached, or the answer was
@@ -404,7 +402,7 @@ private struct FailedCard: View {
         Text("Chưa liên lạc được Claude. Câu này không bị tính.")
       }
     } action: {
-      Button(action: again) { counted ? Text("Hỏi lại · tính thêm 1 câu") : Text("Thử lại") }.accessibilityIdentifier("chat-again")
+      if let again { Button(action: again) { counted ? Text("Hỏi lại · tính thêm 1 câu") : Text("Thử lại") }.accessibilityIdentifier("chat-again") }
     }
     .accessibilityIdentifier("chat-failed")
   }
@@ -412,12 +410,12 @@ private struct FailedCard: View {
 
 /// A question asked again after the app had left it, past its conversation's 24 hours: its answer can't be had.
 private struct LostCard: View {
-  let again: () -> Void
+  let again: (() -> Void)?
   var body: some View {
     ChatCard(icon: "clock.badge.exclamationmark", title: Text("Không lấy lại được câu trả lời này")) {
       EmptyView()
     } action: {
-      Button("Hỏi lại", action: again).accessibilityIdentifier("chat-again")
+      if let again { Button("Hỏi lại", action: again).accessibilityIdentifier("chat-again") }
     }
     .accessibilityIdentifier("chat-lost")
   }
