@@ -2,7 +2,7 @@ Giọng văn (quan trọng nhất sau độ chính xác):
 
 Viết như một người chơi thủy sinh lâu năm giải thích cho bạn mới chơi, bằng tiếng Việt người Việt thật sự nói và viết. Người đọc phải không nhận ra đây là bài dịch hay bài máy viết.
 
-- Câu đầy đủ chủ ngữ, vị ngữ. Không viết kiểu ghi chú: không lược chủ ngữ, không nối hai vế bằng dấu chấm phẩy. Không dùng dấu chấm phẩy. Dấu hai chấm chỉ đặt trước một danh sách.
+- Câu đầy đủ chủ ngữ, vị ngữ. Không viết kiểu ghi chú: không lược chủ ngữ, không nối hai vế bằng dấu chấm phẩy. Nhưng đừng mở liền mấy câu bằng cùng một chủ ngữ ("Cá…", "Cá…", "Cây…"): gộp hai câu cùng chủ ngữ làm một, hoặc dùng "nó", "chúng", "loài này". Không dùng dấu chấm phẩy. Dấu hai chấm chỉ đặt trước một danh sách.
 - Mỗi câu một ý. Câu dài quá thì tách đôi. Xen câu ngắn với câu dài cho có nhịp.
 - Nói thẳng nguyên nhân bằng "do", "vì", "là do", "là dấu hiệu của". Không dùng "liên quan (đến)" để chỉ nguyên nhân.
 - Không bê cấu trúc tiếng Anh sang: "nên đừng…" (so don't), "điều này giúp…", "có thể giúp", "đóng vai trò", "một cách + tính từ", "việc + động từ" làm chủ ngữ, câu bị động với "được" khi đã biết ai làm.
@@ -15,6 +15,7 @@ Viết như một người chơi thủy sinh lâu năm giải thích cho bạn m
 - Không nhắc tác giả, người làm video, kênh hay bài gốc: không viết "theo tác giả", "tác giả cho rằng", "trong video này", "bài gốc". Trang đã ghi nguồn, nên cứ viết thẳng ý. Bỏ dòng tên tác giả và phần giới thiệu tác giả. Người mô tả loài trong phân loại học ("Knaack, 1962", "các tác giả xếp loài này vào…") thì giữ.
 - Nói như người nuôi, không như sách: "đủ lớn để đẻ" chứ không "trưởng thành sinh dục", "trồng và chăm như nhau" chứ không "có cùng nhu cầu chăm sóc", "dính vào" chứ không "tiếp xúc với".
 - Dùng từ dân chơi Việt quen dùng: set bể, thay nước, châm phân, châm CO2, rêu bám, cây lên, lũa, nền, lọc. Từ tiếng Anh chỉ giữ khi dân chơi Việt vẫn nói vậy (drop checker, dark start, BBA), lần đầu giải thích ngắn.
+- Algae trong bể là "rêu": rêu hại, rêu tóc, rêu chùm đen (BBA), rêu đốm xanh, "cá ăn rêu". "Tảo" chỉ dùng cho tảo nâu (tảo silic), tảo lam, tảo làm thức ăn (spirulina) và tảo ngoài tự nhiên.
 - Tên châu lục viết như người Việt viết: châu Phi, châu Á, châu Âu, châu Mỹ, Nam Mỹ. Không viết "Phi châu".
 
 Ví dụ, câu máy viết và câu người viết:

@@ -30,7 +30,7 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"' }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
     { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ' }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ' }, // 167 | 14 | 15
-    { say: 'nhờ vậy', find: 'nhờ (?:vậy|đó)', instead: '"thế là", hoặc để câu sau tự nói' }, // 169 | 12 | 0
+    { say: 'nhờ vậy', find: 'nhờ (?:vậy|đó)', instead: 'để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp' }, // 169 | 12 | 0
     { say: 'lý do là', instead: '"vì", "là do"' }, // 153 | 6 | 19
     { say: 'thủ phạm', instead: '"nguyên nhân", "là do"' }, // 70 | 6 | 0
     { say: 'lý tưởng', instead: '"hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C")' }, // 230 | 34 | 15: seven times the forum's
@@ -49,11 +49,15 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'keo siêu dính', instead: '"keo 502"' }, // 5 | 0 | 0; the videos say keo 502 (30)
     // The editors' third round (2026-11-07), each held by the references.
     { say: 'rất nên', instead: '"nên", "tốt nhất là"' }, // 41 | 0 | 0
-    { say: 'loricariid', instead: '"cá tỳ bà", "pleco"' }, // 48 | 0 | 0; tỳ bà 30 in the forum, pleco 11 in the videos
+    { say: 'loricariid', instead: '"cá lau kiếng", "cá tỳ bà", "pleco"' }, // 48 | 0 | 0; tỳ bà 30 and lau kiếng 26 in the forum, pleco 11 in the videos
     { say: 'muối bể cá', instead: '"muối hột"' }, // 4 | 0 | 0; muối hột 63 in the forum
     // "giới chơi" used to point here, and the rewrite took it: guides 295, species 120, video guides 117 | 24 | 7.
     { say: 'dân chơi', instead: 'thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai' },
     { say: 'được chuộng', instead: '"nhiều người nuôi", "dễ kiếm", hoặc nói thẳng vì sao' }, // 20 | 0 | 0
+    // The editors' fourth round.
+    { say: 'cây thân đứng', instead: '"cây cắt cắm"' }, // 20 | 0 | 0; cây cắt cắm 59 in the videos
+    { say: 'lọc sponge', instead: '"lọc bio"' }, // 10 | 0 | 0; lọc bio 22 in the videos
+    { say: 'sản xuất hàng loạt', instead: '"nuôi đại trà", "nuôi hàng loạt"' }, // 3 | 0 | 0: fish aren't factory goods
     // The editors' second round (2026-11-07), each checked here: textbook words where a keeper says what happens.
     { say: 'trưởng thành sinh dục', instead: '"đủ lớn để đẻ", "bắt cặp được"' }, // 33 | 0 | 0
     { say: 'cá nhân giống', instead: '"cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân")' }, // 29 | 0 | 0
@@ -76,7 +80,7 @@ export const TICS: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'phần lớn, hầu hết, đa số', find: 'phần lớn|hầu hết|đa số', instead: 'nói "bao nhiêu" bằng động từ ("thường", "chủ yếu"), hoặc bỏ' },
     { say: 'dù vậy, tuy vậy, tuy nhiên', find: '(?:dù|tuy) (?:vậy|nhiên)', instead: '"nhưng", hoặc bỏ: hai câu đặt cạnh nhau đã đủ ý ngược' },
     { say: 'nhìn chung, nói chung', find: '(?:nhìn|nói) chung', instead: '"thường", hoặc bỏ' },
-    { say: 'vì vậy, vì thế, nhờ vậy, thế nên, vậy nên, do đó', find: '(?:vì|nhờ) (?:vậy|thế|đó)|(?:thế|vậy) nên|do đó', instead: 'để câu sau tự nói, hoặc nối hai câu bằng "nên", "thế là"' },
+    { say: 'vì vậy, vì thế, nhờ vậy, thế nên, vậy nên, do đó, thế là', find: '(?:vì|nhờ) (?:vậy|thế|đó)|(?:thế|vậy) nên|do đó|thế là', instead: 'để câu sau tự nói, hoặc nối hai câu bằng "nên", "thế là"' },
   ],
 }
 /** Two "nên" a word apart at most: "Thế nên nên mua", "nên bạn nên", "nên không nên". */
