@@ -82,6 +82,12 @@ export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as y
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
  * app mid-answer), and the handler still writes the turn and settles after it.
  */
+/**
+ * The chat's pace (loop.ts `pace`), from its calls' times on the hard questions (chat-vs-plain.ts `--answers-only`):
+ * the call that writes the answer took 5.1 times the run's average call at the median and 6.7 at the 90th percentile at
+ * medium effort, 4.0 and 5.7 at low, at normal speed; a little less at 1.75 times slower.
+ */
+export const CHAT_PACE = { answer: 7, quick: 5.5 }
 export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000 }
 
 export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[] }
@@ -99,6 +105,8 @@ export type ChatOptions = {
   handbook: Handbook
   tanks: () => Promise<Tank[] | null>
   effort?: 'low' | 'medium' | 'high'
+  /** The forced answer's effort when time is short (loop.ts `lastEffort`): low unless the eval asks otherwise. */
+  lastEffort?: 'low' | 'medium' | 'high'
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
   /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
@@ -134,6 +142,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     first: firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook),
     schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
+    lastEffort: o.lastEffort ?? 'low',
+    pace: CHAT_PACE,
     maxTokens: MAX_TOKENS,
     limits: { ...CHAT_LIMITS, ...o.limits },
     lastWord: LAST_WORD,

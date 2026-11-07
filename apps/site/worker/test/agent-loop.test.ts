@@ -172,6 +172,31 @@ test('27 s from the first call: no call gets past it, and with under 12 s left t
   expect(t).toMatchObject({ stopped: 'error', calls: 1, error: new Error('out of time') })
 })
 
+test('pace: a slow run keeps the answer\'s time from its own calls, so it answers sooner, at the quick effort, with all the time left', async () => {
+  // Calls of 3.4 s: after two, a third reading call would leave 27 - 6.8 - 3.4 = 16.8 s, under 5.5 × 3.4 = 18.7 s, so the
+  // third call is the answer; 20.2 s is left, under 7 × 3.4 = 23.8 s, so it is a quick one. Without pace it would read on.
+  const pace = { answer: 7, quick: 5.5 }
+  const reads = () => [() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()]
+  const clock = { now: 0, per: [3_400, 3_400, 15_000] }
+  const c = script(reads(), clock)
+  const r = await runAgent(input(c.send, { clock: () => clock.now, effort: 'medium', lastEffort: 'low', pace }))
+  expect(c.calls.map(x => [x.body.tool_choice!.type, x.body.output_config!.effort, x.timeoutMs])).toEqual([['auto', 'medium', 20_000], ['auto', 'medium', 20_000], ['none', 'low', 20_200]])
+  expect(r.stopped).toBe('time')
+
+  const before = { now: 0, per: [3_400, 3_400, 15_000] }
+  const d = script(reads(), before)
+  await runAgent(input(d.send, { clock: () => before.now, effort: 'medium', lastEffort: 'low' }))
+  expect(d.calls[2]!.body.tool_choice!.type).toBe('auto')
+})
+
+test('pace: a run at normal speed reads on to its limits, and its forced answer keeps its effort and may take all the time left', async () => {
+  const clock = { now: 0, per: [1_000, 1_000, 5_000] }
+  const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()], clock)
+  const r = await runAgent(input(c.send, { clock: () => clock.now, effort: 'medium', lastEffort: 'low', pace: { answer: 7, quick: 5.5 }, limits: { calls: 3 } }))
+  expect(c.calls.map(x => [x.body.tool_choice!.type, x.body.output_config!.effort, x.timeoutMs])).toEqual([['auto', 'medium', 20_000], ['auto', 'medium', 20_000], ['none', 'medium', 25_000]])
+  expect(r.stopped).toBe('calls')
+})
+
 test('a tool that throws, and one Claude names that doesn\'t exist: an is_error result each, counted as tool calls; the run goes on', async () => {
   const c = script([() => asks([{ name: 'broken', input: {} }, { name: 'delete_everything', input: {} }]), () => answers()])
   const r = await runAgent(input(c.send))
