@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { ANSWER_SCHEMA, fill, readAnswer, type Answer, type ChatBlock } from './answer'
+import { ANSWER_SCHEMA, fill, readAnswer, textReader, type Answer, type ChatBlock } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { MatesCheck } from './mates'
 import { chatTools, type Step, type Tank } from './tools'
@@ -76,7 +76,11 @@ export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens:
 
 export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[] }
 export type ChatOptions = {
-  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
+  /**
+   * One call to Claude. With `onText`, the call streams, and each raw delta of its text content (never its thinking)
+   * goes to `onText` as it comes; the call still returns its whole message.
+   */
+  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number; onText?: (delta: string) => void }) => Promise<Anthropic.Message>
   model: string
   lang: Lang
   question: string
@@ -87,15 +91,33 @@ export type ChatOptions = {
   effort?: 'low' | 'medium' | 'high'
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
+  /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
+  onText?: (piece: string) => void
   clock?: () => number
+}
+
+/**
+ * `send`, with each call's text read as it comes (`textReader`) and given to `onText`. A call that has given the reader
+ * any text is the answer: its tool calls are dropped and the run ends on it, since what the reader has read can't be
+ * taken back.
+ */
+function streaming(send: ChatOptions['send'], onText: (piece: string) => void): ChatOptions['send'] {
+  return async (body, opts) => {
+    const read = textReader()
+    let shown = false
+    const m = await send(body, { ...opts, onText: delta => { const piece = read(delta); if (piece) { shown = true; onText(piece) } } })
+    if (!shown) return m
+    return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
+  }
 }
 
 /** One turn: Claude reads and answers, then the blocks it picked are filled from the handbook. */
 export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // What check_tank_mates answered: a tank-mates block goes out with the check Claude read (answer.ts `fill`).
   const checks: MatesCheck[] = []
+  // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
-    send: o.send,
+    send: o.onText ? streaming(o.send, o.onText) : o.send,
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
