@@ -24,6 +24,28 @@ extension XCUIApplication {
     XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar", file: file, line: line)
   }
 
+  /// Whether what scrolls under the title stays out of sight behind it, the clock and the title.
+  func titleReadsCleanly(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
+    let seen = behindTheTitle()
+    print("behind the title, \(screen): \(seen)")
+    XCTAssertLessThan(seen, 0.05, "\(screen): what scrolls under the title shows behind it", file: file, line: line)
+  }
+
+  /// The spread of brightness, 0 to 1, in the clear band between the status bar's clock and its icons, above the title's
+  /// row. On iOS's soft edge, CI's shots with words behind read 0.06 to 0.39 here (a guide 0.06, a fish 0.10, Tìm's tools
+  /// at the largest text 0.39), and those with nothing behind read 0.
+  private func behindTheTitle() -> CGFloat {
+    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return 1 }
+    let scale = CGFloat(shot.width) / frame.width
+    let band = CGRect(x: frame.width * 0.3 * scale, y: 22 * scale, width: frame.width * 0.4 * scale, height: 32 * scale).integral
+    guard let box = shot.cropping(to: band) else { return 1 }
+    var px = [UInt8](repeating: 0, count: box.width * box.height)
+    guard let ctx = CGContext(data: &px, width: box.width, height: box.height, bitsPerComponent: 8, bytesPerRow: box.width,
+                              space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return 1 }
+    ctx.draw(box, in: CGRect(x: 0, y: 0, width: box.width, height: box.height))
+    return CGFloat((px.max() ?? 255) - (px.min() ?? 0)) / 255
+  }
+
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
   /// text (a fish's page has hundreds, and the screen may change between two).
   private func lowestWords() -> CGFloat {
