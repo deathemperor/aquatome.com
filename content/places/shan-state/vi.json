@@ -1,10 +1,13 @@
 {
   "slug": "shan-state",
-  "name": "Shan State",
-  "altNames": [],
+  "name": "bang Shan",
+  "altNames": [
+    "Shan State"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

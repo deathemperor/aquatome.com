@@ -1,10 +1,13 @@
 {
   "slug": "old-calabar-river",
-  "name": "Old Calabar River",
-  "altNames": [],
+  "name": "sông Old Calabar",
+  "altNames": [
+    "Old Calabar River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

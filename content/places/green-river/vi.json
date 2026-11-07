@@ -1,10 +1,13 @@
 {
   "slug": "green-river",
-  "name": "Green River",
-  "altNames": [],
+  "name": "sông Green",
+  "altNames": [
+    "Green River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

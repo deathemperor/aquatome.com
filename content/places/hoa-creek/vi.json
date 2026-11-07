@@ -1,10 +1,13 @@
 {
   "slug": "hoa-creek",
-  "name": "Hoa Creek",
-  "altNames": [],
+  "name": "suối Hoa",
+  "altNames": [
+    "Hoa Creek"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

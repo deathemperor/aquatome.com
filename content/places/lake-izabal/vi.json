@@ -1,10 +1,13 @@
 {
   "slug": "lake-izabal",
-  "name": "Lake Izabal",
-  "altNames": [],
+  "name": "hồ Izabal",
+  "altNames": [
+    "Lake Izabal"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

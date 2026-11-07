@@ -1,10 +1,13 @@
 {
   "slug": "rio-atrato",
-  "name": "Rio Atrato",
-  "altNames": [],
+  "name": "sông Atrato",
+  "altNames": [
+    "Rio Atrato"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

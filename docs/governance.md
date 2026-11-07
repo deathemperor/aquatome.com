@@ -790,6 +790,9 @@ The layers above still check the result.
       own check runs once, when it is written, and a card changes without its page changing. Found in a design lab
       (2026-11-07): Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C, as the card had taken Seriously
       Fish's range that day; 54 of 505 approved summaries were off their card. A real-content test holds them at zero
+    - a Vietnamese place name with River, Island, Lake, Basin, Province, Mountains, Peninsula or a leading Rio or Río left
+      in another language: `pnpm engine name-places-vi` gives rivers and regions the names readers use ("sông Hồng"),
+      reviewed, and the sweep puts the generic word in Vietnamese until it has. Found by a reader's page, held over all.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector

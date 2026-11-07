@@ -1,3 +1,4 @@
+import { readdirSync, readFileSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -5,6 +6,7 @@ import { expect, test } from 'vitest'
 import { loadAll, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
+import { ENGLISH_PLACE_WORD } from '../src/place-names'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
@@ -68,3 +70,19 @@ test('no approved summary states a figure its card doesn\'t show', async () => {
   const left = (await readSummaries(root)).filter(s => s.review === 'approved' && cards.has(s.id)).flatMap(s => cardProblems(s, cards.get(s.id)!).map(p => `${s.id}: ${p}`))
   expect(left, 'run pnpm engine sweep').toEqual([])
 }, 300_000) // the real content loaded once: about 60 s on a loaded machine
+
+// Every place, not the one a reader complained of: the sweep puts a generic word in Vietnamese each cycle, and the
+// place-names step gives the name readers use (place-names.ts). 147 of 816 places on 2026-11-08, before them.
+test('no Vietnamese place name keeps River, Island, Lake, Basin, Province, Mountains, Peninsula or Rio in another language', () => {
+  const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
+  const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
+  expect(names.filter(n => ENGLISH_PLACE_WORD.test(n))).toEqual([])
+})
+
+// Alone, these read as a province or as nothing: "Bắc Giang" on a Chinese fish, "Mã" on a Vietnamese one.
+test('no river a Vietnamese reader knows by name goes without its "sông"', () => {
+  const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
+  const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
+  const known = ['Bắc Giang', 'Đông Giang', 'Tây Giang', 'Châu Giang', 'Mân Giang', 'Tùng Hoa', 'Nin', 'Dương Tử', 'Mê Kông', 'Sê Kông', 'Hoàng Hà', 'Lam', 'Mã', 'Vệ', 'Thu Bồn', 'Trà Khúc', 'Bến Hải']
+  expect(names.filter(n => known.includes(n))).toEqual([])
+})

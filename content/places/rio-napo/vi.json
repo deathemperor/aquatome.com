@@ -1,10 +1,13 @@
 {
   "slug": "rio-napo",
-  "name": "Rio Napo",
-  "altNames": [],
+  "name": "sông Napo",
+  "altNames": [
+    "Rio Napo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

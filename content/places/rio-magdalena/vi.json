@@ -1,10 +1,13 @@
 {
   "slug": "rio-magdalena",
-  "name": "Rio Magdalena",
-  "altNames": [],
+  "name": "sông Magdalena",
+  "altNames": [
+    "Rio Magdalena"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

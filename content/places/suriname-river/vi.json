@@ -1,10 +1,13 @@
 {
   "slug": "suriname-river",
-  "name": "Suriname River",
-  "altNames": [],
+  "name": "sông Suriname",
+  "altNames": [
+    "Suriname River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

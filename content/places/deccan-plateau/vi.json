@@ -1,10 +1,13 @@
 {
   "slug": "deccan-plateau",
-  "name": "Deccan Plateau",
-  "altNames": [],
+  "name": "cao nguyên Deccan",
+  "altNames": [
+    "Deccan Plateau"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

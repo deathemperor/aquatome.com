@@ -306,7 +306,8 @@ export async function writeRangePlaces(root: string, ids: string[]) {
     const native = (await readJson<SpeciesEntity>(join(root, 'content/species', id, 'entity.json')))?.range?.native
     for (const name of native?.regions ?? []) {
       if (known.has(placeId(name))) continue
-      const p = rangePlace(name, native!.quotes?.find(q => q.regions.includes(name))?.countries[0] ?? native!.countries[0])
+      const said = native!.quotes?.find(q => q.regions.includes(name))?.countries
+      const p = rangePlace(name, said?.length ? said : native!.countries)
       known.add(p.entity.id)
       await mkdir(join(dir, p.entity.id), { recursive: true })
       await writeFile(join(dir, p.entity.id, 'entity.json'), `${JSON.stringify(PlaceSchema.parse(p.entity), null, 2)}\n`)

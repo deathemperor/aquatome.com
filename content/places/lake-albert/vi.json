@@ -1,10 +1,13 @@
 {
   "slug": "lake-albert",
-  "name": "Lake Albert",
-  "altNames": [],
+  "name": "hồ Albert",
+  "altNames": [
+    "Lake Albert"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }
