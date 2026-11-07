@@ -737,6 +737,11 @@ The layers above still check the result.
     HTML or entities left in the text; a paragraph repeated; sentences left in English; Vietnamese on Indonesian and
     Thai pages outside the names the site marks; imperial units with no metric figure beside them; a photo caption
     naming another fish; data card figures out of bounds, or a minimum tank shorter than twice the adult fish.
+    Two Vietnamese words written as one ("que thử đa chỉtiêu": a word that reads as two syllables, loanwords such as
+    "nitơ" aside) are listed; once a person confirms one, the sweep's wording fixes write it apart on every page. Found
+    in a design lab (2026-11-07): that word in the tank-cycling guide, a translation's typo, and the least killifish's
+    list of traits run together ("Sống bầy đàn: cóMức độ hoạt động…"), the only section in the content stored with no
+    tags.
   - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
     `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
     becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its
