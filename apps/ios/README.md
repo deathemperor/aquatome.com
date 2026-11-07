@@ -111,7 +111,7 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant, a guide, a kind of kit and the fish-ID screen top to bottom, light
-  and dark, and CI's job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
+  and dark, and Tìm's tools (light, dark and the largest text), and CI's job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
   request whose change can reach the pages, or labelled `ios-full`. Locally:
 
   ```sh

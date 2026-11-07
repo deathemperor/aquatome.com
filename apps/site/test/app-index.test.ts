@@ -362,6 +362,21 @@ test('a tool carries its page\'s own title, the line under its heading and its d
   expect(index('vi').items.filter(i => i.kind !== 'tool').some(i => 'words' in i)).toBe(false)
 })
 
+test('a tool with a card on the tools page carries that card\'s name as its short name, the app\'s tiles\' word; the tools page itself none', () => {
+  for (const lang of LANGS) {
+    const tools = index(lang).items.filter(i => i.kind === 'tool')
+    const root = tools.find(i => i.path.split('/').filter(Boolean).length <= 2)!
+    const { dom } = appPage(root.path)
+    const cards = new Map(dom.querySelectorAll('.tools a').map(a => [appHref(a.getAttribute('href')!), a.querySelector('strong')?.text]))
+    expect(root.short, lang).toBeUndefined()
+    for (const tool of tools.filter(i => i !== root)) expect(tool.short, tool.path).toBe(cards.get(tool.path))
+  }
+  // The tile order the app shows: the index's.
+  expect(index('vi').items.filter(i => i.kind === 'tool').map(i => i.short)).toEqual(
+    [undefined, 'Nuôi chung', 'Thể tích bể', 'Dự toán chi phí', 'Đèn Chihiros', 'Nhận diện cá', 'Bể của tôi'])
+  expect(index('vi').items.filter(i => i.kind !== 'tool').some(i => 'short' in i)).toBe(false)
+})
+
 test('fish come in the site\'s list order with their group, a breed with its parent\'s; plants with their care', () => {
   const vi = index('vi').items
   const fish = vi.filter(i => i.kind === 'fish')
