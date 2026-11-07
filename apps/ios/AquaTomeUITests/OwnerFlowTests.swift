@@ -63,7 +63,11 @@ final class OwnerFlowTests: XCTestCase {
     let top = columns.frame.minY
     columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.05, thenDragTo: columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: -1.5)))
     XCTAssertLessThan(columns.frame.minY, top - 100, "the page didn't scroll from the chart")
-    repeatUntil(shown(), times: 4) { app.swipeDown(velocity: .slow) }
+    // Back where it was, by as much as it went, with a finger below the chart held at the end so the page doesn't coast:
+    // a chart scrolled up but still "on screen" can have its columns under the navigation bar, where a tap misses them.
+    let below = app.windows.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45))
+    below.press(forDuration: 0.05, thenDragTo: below.withOffset(CGVector(dx: 0, dy: top - columns.frame.minY)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    XCTAssertTrue(shown() && abs(columns.frame.minY - top) < 40, "the chart isn't back where it was: \(columns.frame.minY) for \(top)")
     // Untouched: the last of its 30 days, today, not over yet.
     XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
     let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
