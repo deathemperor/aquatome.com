@@ -43,7 +43,7 @@ struct V2Root: View {
           .v2ClearUnderTabBar()
       }
       Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
+      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
       Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar() }
     }
     // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
@@ -122,7 +122,10 @@ private extension View {
 
   /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey), so the fade doesn't
   /// show a lighter band.
-  func v2ClearUnderTabBar(on ground: Color = .clear) -> some View { modifier(ClearUnderTabBar(ground: ground)) }
+  /// `fade` shorter where a pinned footer of v1's ends just above the bar.
+  func v2ClearUnderTabBar(on ground: Color = .clear, fade: CGFloat = V2Fade.height) -> some View {
+    modifier(ClearUnderTabBar(ground: ground, fade: fade))
+  }
 }
 
 enum V2Fade {
@@ -141,13 +144,17 @@ private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
   /// The fade's height. Short: v1's pinned controls end just above it. v2's own pages end above it (`v2ClearOfTheFade`);
   /// an inset out here doesn't reach inside a navigation stack.
-  private let fade: CGFloat = V2Fade.height
+  let fade: CGFloat
+  /// What a page asks to stand on while its colour reaches the bar (`v2FootGround`): the colour runs on under the bar,
+  /// with no white fog between.
+  @State private var footGround: Color?
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
 
   func body(content: Content) -> some View {
     if #available(iOS 26, *) {
       content
+        .environment(\.v2FootGround, $footGround)
         .background {
           Color.clear.ignoresSafeArea(.keyboard).onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.bottom } action: { bar = $0 }
         }
@@ -162,7 +169,7 @@ private struct ClearUnderTabBar: ViewModifier {
           }
           .ignoresSafeArea()
         }
-        .background { ground.ignoresSafeArea() }
+        .background { (footGround ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
         // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
         // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
         .overlay {
@@ -184,6 +191,8 @@ extension EnvironmentValues {
   /// A fish's whole page (v1's, FullPage) pushed on the stack in front ("Xem trang đầy đủ"), counted for switching back
   /// to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
+  /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
+  @Entry var v2FootGround: Binding<Color?>?
 }
 
 @available(iOS 18, *)
@@ -195,16 +204,16 @@ private struct Destinations: ViewModifier {
     content
       .navigationDestination(for: HandbookIndex.Item.self) { item in
         Group {
-          if item.kind == .fish { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)) }
+          if item.kind == .fish { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade() }
         }
         .navigationTransition(.zoom(sourceID: item.path, in: zoom))
       }
-      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item)) }
-      .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
-      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
-      .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }
-      .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url) }
-      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query) }
+      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item)).v2ClearOfTheFade() }
+      .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade() }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade() }
+      .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade() }
+      .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url).v2ClearOfTheFade() }
+      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query).v2ClearOfTheFade() }
   }
 }
 

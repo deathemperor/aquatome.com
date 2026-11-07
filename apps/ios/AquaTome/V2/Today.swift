@@ -11,10 +11,9 @@ struct TodayView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Namespace private var zoom
-  /// The feed scrolled under the status bar: a band behind it then, none at the top.
-  @State private var under = false
-  /// The header has gone up: the profile button stays, as on Khám phá's bar (the switch back to v1 is behind it).
-  @State private var headerGone = false
+  /// The large title has gone up into the bar, as on Khám phá.
+  @State private var titleGone = false
+  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = Date.now
   /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
@@ -25,7 +24,10 @@ struct TodayView: View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
-          header
+          Text(today, format: .dateTime.weekday(.wide).day().month(.wide))
+            .font(.footnote.weight(.semibold)).textCase(.uppercase).foregroundStyle(.v2Faint)
+            .padding(.horizontal, 20)
+            .padding(.bottom, -16)
           // The kept copy in use, or none at all, as v1's Tìm says.
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
@@ -46,21 +48,10 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .v2ClearOfTheFade()
-      .toolbarVisibility(.hidden, for: .navigationBar)
-      // With no bar, the feed would scroll bare under the status bar: a band behind it once it does.
-      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 4 } action: { _, u in under = u }
-      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 60 } action: { _, gone in headerGone = gone }
-      .modifier(ClearUnderTopBar(shown: under))
-      .overlay(alignment: .topTrailing) {
-        if headerGone {
-          ProfileButton().tint(.primary).font(.title2)
-            .frame(width: 44, height: 44)
-            .background(.regularMaterial, in: Circle())
-            .padding(.trailing, 16).padding(.top, 2)
-            .transition(.opacity)
-        }
-      }
-      .animation(.easeInOut(duration: 0.2), value: headerGone)
+      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > titleHeight } action: { _, gone in titleGone = gone }
+      .modifier(ClearUnderTopBar(shown: titleGone))
+      .navigationTitle("Hôm nay")
+      .profileButton()
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
@@ -71,21 +62,6 @@ struct TodayView: View {
       today = .now
       heldBeginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
     }
-  }
-
-  private var header: some View {
-    HStack(alignment: .bottom) {
-      VStack(alignment: .leading, spacing: 2) {
-        Text(today, format: .dateTime.weekday(.wide).day().month(.wide))
-          .font(.footnote.weight(.semibold)).textCase(.uppercase).foregroundStyle(.secondary)
-        Text("Hôm nay").font(.largeTitle.weight(.bold))
-      }
-      Spacer()
-      // The same colour as on Khám phá's bar (in a bar, a button's primary is the text's; here it would be the app's tint).
-      ProfileButton().font(.title).tint(.primary).frame(minWidth: 44, minHeight: 44).padding(.bottom, 2)
-    }
-    .padding(.horizontal, 20)
-    .padding(.top, 8)
   }
 
   enum Card: Identifiable {
@@ -419,6 +395,7 @@ private struct TankSketch: View {
 private struct SeriesCard: View {
   let item: HandbookIndex.Item
   let zoom: Namespace.ID
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     NavigationLink(value: item) {
@@ -427,7 +404,7 @@ private struct SeriesCard: View {
         Image(systemName: "play.fill").font(.title3)
           .frame(width: 48, height: 48)
           .background(Circle().fill(.white.opacity(0.18)))
-        Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(3).multilineTextAlignment(.leading)
+        Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(size.isAccessibilitySize ? nil : 3).multilineTextAlignment(.leading)
         if let n = item.parts { Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75) }
       }
       .foregroundStyle(.white)

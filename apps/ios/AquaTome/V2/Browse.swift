@@ -14,6 +14,7 @@ struct BrowseHome: View {
   let front: Bool
   @State private var recentShown: [HandbookIndex.Item] = []
   @State private var savedShown: [HandbookIndex.Item] = []
+  @State private var held = false
   /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
   /// title before this.
   @State private var titleGone = false
@@ -99,11 +100,20 @@ struct BrowseHome: View {
       .v2Destinations(zoom: zoom)
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
-      .refreshable { await handbook.load() }
+      .refreshable {
+        await handbook.load()
+        holdShelves()
+      }
     }
-    // On the stack, not its first screen, which disappears and comes back with a page pushed and popped.
-    .onChange(of: front, initial: true) { holdShelves() }
-    // The handbook arriving: not with a page open, for the zoom back to where it was tapped.
+    // On the stack, not its first screen, which disappears and comes back with a page pushed and popped. Never with a page
+    // open: for the zoom back to where it was tapped.
+    .onAppear {
+      if !held {
+        held = true
+        holdShelves()
+      }
+    }
+    .onChange(of: front) { if path.isEmpty { holdShelves() } }
     .onChange(of: handbook.status) { if path.isEmpty { holdShelves() } }
   }
 
@@ -120,7 +130,7 @@ struct BrowseHome: View {
   /// The top: wide cards, the next one peeking.
   private func featured(_ items: [HandbookIndex.Item]) -> some View {
     ScrollView(.horizontal, showsIndicators: false) {
-      LazyHStack(spacing: 12) {
+      LazyHStack(alignment: .top, spacing: 12) {
         ForEach(items) { item in
           NavigationLink(value: item) {
             FeaturedCard(item: item, height: featuredHeight).containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 12) }
@@ -133,7 +143,7 @@ struct BrowseHome: View {
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
-    .scrollClipDisabled()
+    .v2ShelfEdge()
   }
 
   /// The fish groups as photo tiles, two rows that page sideways; at the accessibility sizes, the first five down the
@@ -147,7 +157,7 @@ struct BrowseHome: View {
               V2Photo(src: g.img).frame(width: 88, height: 88).clipShape(.rect(cornerRadius: 20, style: .continuous))
               VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: g.label).font(.body.weight(.semibold))
-                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.secondary)
+                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.v2Faint)
               }
               Spacer(minLength: 0)
             }
@@ -200,6 +210,7 @@ struct BrowseHome: View {
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
+    .v2ShelfEdge()
   }
 
   /// Pages as lockups in columns of three that page sideways, each with its button, the next column peeking; at the
@@ -230,6 +241,7 @@ struct BrowseHome: View {
         }
         .contentMargins(.horizontal, 20, for: .scrollContent)
         .scrollTargetBehavior(.viewAligned)
+        .v2ShelfEdge()
       }
     }
   }
@@ -255,6 +267,7 @@ struct BrowseHome: View {
       }
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
+    .v2ShelfEdge()
   }
 
   private func guides(_ items: [HandbookIndex.Item]) -> some View {
@@ -281,6 +294,7 @@ struct BrowseHome: View {
       }
       .contentMargins(.horizontal, 20, for: .scrollContent)
       .scrollTargetBehavior(.viewAligned)
+      .v2ShelfEdge()
     }
   }
 
@@ -314,6 +328,7 @@ struct BrowseHome: View {
       }
       .contentMargins(.horizontal, 20, for: .scrollContent)
       .scrollTargetBehavior(.viewAligned)
+      .v2ShelfEdge()
     }
   }
 

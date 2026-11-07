@@ -148,8 +148,7 @@ struct Lockup: View {
               .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item), line != title {
               Text(verbatim: line).font(.subheadline).italic(scientific && line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
-                // Darker than the system's secondary, 3.5:1 on white: a fish's figures are what a row is read for.
-                .foregroundStyle(onDark ? Color.white.opacity(0.75) : Color.primary.opacity(0.6))
+                .foregroundStyle(onDark ? Color.white.opacity(0.75) : .v2Faint)
             }
           }
           Spacer(minLength: 0)
@@ -205,7 +204,8 @@ private extension Text {
 }
 
 /// A fish's figures across the page, a column each (its name, the figure, a word under it), as an app's page has its
-/// ratings, age and size: the temperature and pH drawn on their scales.
+/// ratings, age and size: the temperature and pH drawn on their scales. All of them in view, in rows: no figure to find
+/// by scrolling, none cut by the screen's edge.
 struct FactsStrip: View {
   let facts: HandbookIndex.Facts
   var onDark = false
@@ -215,6 +215,7 @@ struct FactsStrip: View {
   /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
   @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
   @Environment(\.dynamicTypeSize) private var size
+  @State private var width: CGFloat = 393
 
   struct Column: Identifiable {
     let id: Int
@@ -228,14 +229,7 @@ struct FactsStrip: View {
   }
 
   var body: some View {
-    if size.isAccessibilitySize {
-      list
-    } else if columns.count <= 4 {
-      // A few share the width, not half of it empty, unless the text has grown past that.
-      ViewThatFits(in: .horizontal) { row; strip }
-    } else {
-      strip
-    }
+    if size.isAccessibilitySize { list } else { rows }
   }
 
   /// At the accessibility sizes, one figure a line down the page: across, a column takes the screen and cuts the next
@@ -245,7 +239,7 @@ struct FactsStrip: View {
       ForEach(columns) { c in
         VStack(alignment: .leading, spacing: 2) {
           Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil)
-            .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+            .foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
           Text(verbatim: c.caption.map { "\(c.value) (\($0))" } ?? c.value).font(.title3.weight(.bold))
             .foregroundStyle(onDark ? .white : .primary)
         }
@@ -256,39 +250,32 @@ struct FactsStrip: View {
     .padding(.horizontal, 20)
   }
 
-  private var row: some View {
-    HStack(alignment: .top, spacing: 0) {
-      ForEach(columns) { c in divided(c, columns.count == 1 ? AnyView(figure(c).padding(.leading, 8)) : AnyView(figure(c).frame(minWidth: column, maxWidth: .infinity))) }
-      // One alone starts where the words above it do, not floating in the middle.
-      if columns.count == 1 { Spacer(minLength: 0) }
-    }
-    .padding(.horizontal, 12)
-  }
-
-  private var strip: some View {
-    ScrollView(.horizontal, showsIndicators: false) {
-      HStack(alignment: .top, spacing: 0) {
-        ForEach(columns) { c in
-          // Four whole on a phone, then only the next one's rule: there's more to see, and no figure cut in two.
-          divided(c, figure(c).containerRelativeFrame(.horizontal) { w, _ in max(w / 4, column) })
-        }
-      }
-      .padding(.leading, 12)
-    }
-    .contentMargins(.trailing, 28, for: .scrollContent)
-    .mask {
-      HStack(spacing: 0) {
-        Color.black
-        LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: 28)
+  private var rows: some View {
+    let all = columns, lone = all.count == 1
+    // As many across as fit, up to all of them: a few share the width, not half of it empty.
+    let across = max(1, min(all.count, Int((width - 24) / column)))
+    return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0, alignment: .top), count: across), spacing: 14) {
+      ForEach(all) { c in
+        // One alone starts where the words above it do.
+        figure(c, alignment: lone ? .leading : .center)
+          .frame(maxWidth: .infinity, alignment: lone ? .leading : .center)
+          .padding(.vertical, 4)
+          .overlay(alignment: .leading) {
+            if c.id % across > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
+          }
+          .accessibilityElement(children: .combine)
       }
     }
+    .padding(.horizontal, lone ? 20 : 12)
+    .frame(maxWidth: .infinity)
+    .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
   }
 
-  private func figure(_ c: Column) -> some View {
-    VStack(spacing: 5) {
+  private func figure(_ c: Column, alignment: HorizontalAlignment) -> some View {
+    VStack(alignment: alignment, spacing: 5) {
       Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
-        .multilineTextAlignment(.center)
-        .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+        .multilineTextAlignment(alignment == .leading ? .leading : .center)
+        .foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
       Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
         .foregroundStyle(onDark ? .white : .primary)
       if let bar = c.bar {
@@ -301,18 +288,9 @@ struct FactsStrip: View {
           }
           .padding(.top, 2)
       } else if let caption = c.caption {
-        Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+        Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
       }
     }
-  }
-
-  private func divided(_ c: Column, _ view: some View) -> some View {
-    view
-      .padding(.vertical, 4)
-      .overlay(alignment: .leading) {
-        if c.id > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
-      }
-      .accessibilityElement(children: .combine)
   }
 
   private var columns: [Column] {
@@ -382,21 +360,25 @@ struct WordsOnPhoto<Words: View>: ViewModifier {
 }
 
 /// A solid band behind the status bar and the bar, fading into the page below them, while `shown`: iOS's own edges leave a
-/// page's words legible through the glass, the hard one too.
+/// page's words legible through the glass, the hard one too. `ground`, the colour under it: the page's, where that isn't
+/// the screen's.
 struct ClearUnderTopBar: ViewModifier {
   let shown: Bool
+  var ground = Color(.systemBackground)
+  /// Growing with the text: a line straddling the band's edge fades, not sliced.
+  @ScaledMetric(relativeTo: .body) private var fade: CGFloat = 12
 
   func body(content: Content) -> some View {
-    let ground = Color(.systemBackground)
     edgeHidden(content)
       .safeAreaInset(edge: .top, spacing: 0) {
         Color.clear.frame(height: 0)
           .background(ground.opacity(shown ? 1 : 0))
           .overlay(alignment: .top) {
             LinearGradient(colors: [ground, ground.opacity(0)], startPoint: .top, endPoint: .bottom)
-              .frame(height: 12).opacity(shown ? 1 : 0).allowsHitTesting(false)
+              .frame(height: fade).opacity(shown ? 1 : 0).allowsHitTesting(false)
           }
           .animation(.easeInOut(duration: 0.2), value: shown)
+          .animation(.easeInOut(duration: 0.2), value: ground)
       }
   }
 
@@ -405,8 +387,25 @@ struct ClearUnderTopBar: ViewModifier {
   }
 }
 
-/// How wide a card is on a shelf of `across` whole cards, then a sliver of the next: never so much of it that its words are
-/// cut through. `w` is the shelf's width less its 20-point margins.
+extension ShapeStyle where Self == Color {
+  /// A line under a page's name: the text's colour at 60%. The system's secondary measures 3.5:1 on white, under 4.5:1.
+  static var v2Faint: Color { .primary.opacity(0.6) }
+}
+
+extension View {
+  /// A shelf's far edge: its sliver of the next card fades out, words and all, as they don't read cut through.
+  func v2ShelfEdge() -> some View {
+    mask {
+      HStack(spacing: 0) {
+        Color.black
+        LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: 36)
+      }
+    }
+  }
+}
+
+/// How wide a card is on a shelf of `across` whole cards, then a sliver of the next, fading out (`v2ShelfEdge`). `w` is the
+/// shelf's width less its 20-point margins.
 func shelfCard(_ w: CGFloat, across: CGFloat, spacing: CGFloat) -> CGFloat {
   (w + 20 - 36 - across * spacing) / across
 }

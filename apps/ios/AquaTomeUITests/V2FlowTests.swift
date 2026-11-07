@@ -204,6 +204,31 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(received.label.contains(#""depth":90"#), "read to the end before a word was read: \(received.label)")
   }
 
+  /// A fish's page that didn't come says so, with the handbook online too, and "Thử lại" reads it.
+  func testAFishsPageThatDidntComeSaysSoAndTriesAgain() {
+    let app = launch("-pages-later", "-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    let again = app.buttons["v2-retry"]
+    XCTAssertTrue(again.waitForExistence(timeout: 5), "nothing says the page didn't come")
+    // The index says the pages a moment after a page opens (`-pages-later`).
+    Thread.sleep(forTimeInterval: 1.5)
+    again.tap()
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "trying again didn't read it")
+  }
+
+  /// The search tab shows its screen, not the tab that was in front.
+  func testTheSearchTabReplacesTheTabInFront() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Đèn")
+    XCTAssertTrue(app.navigationBars["Đèn Chihiros"].waitForExistence(timeout: 5), "no Đèn")
+    app.tabBars.buttons.element(boundBy: app.tabBars.buttons.count - 1).tap()
+    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "the search tab didn't show its screen")
+    XCTAssertFalse(app.navigationBars["Đèn Chihiros"].exists, "Đèn stayed in front")
+  }
+
   func testTheTabBarStaysWholeWhileScrolling() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -283,7 +308,7 @@ final class V2FlowTests: XCTestCase {
     for _ in 0..<12 { app.swipeUp(velocity: .fast) }
     XCTAssertTrue(last.exists, "no last tile")
     let bar = app.tabBars.buttons["Khám phá"].frame.minY
-    XCTAssertLessThanOrEqual(last.frame.maxY, bar - 20, "the page ends in the fade")
+    XCTAssertLessThanOrEqual(last.frame.maxY, bar - 30, "the page ends in the fade")
   }
 
   /// What's faded out under the bar can't be tapped: a tap under it, with a card behind, opens nothing.

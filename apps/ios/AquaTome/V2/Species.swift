@@ -29,6 +29,7 @@ struct SpeciesPage: View {
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
+  @Environment(\.v2FootGround) private var footGround
   /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
   @State private var reading: PageReading?
   @State private var doc: PageDoc?
@@ -44,6 +45,9 @@ struct SpeciesPage: View {
   @State private var scrolled = false
   /// The bar's foot on the screen, whether the bar is showing or not.
   @State private var barFoot: CGFloat = 106
+  /// Where the page's colour reaches: still under the top bar, and down into the fade over the tab bar.
+  @State private var colourAt = ColourAt(top: true, foot: true)
+  private struct ColourAt: Equatable { var top, foot: Bool }
 
   /// The page's own photo, at the top.
   private var hero: String? { item.img ?? doc?.lead?.src }
@@ -67,7 +71,8 @@ struct SpeciesPage: View {
       VStack(spacing: 0) {
         if let hero {
           V2Photo(src: hero) { colour = $0 }
-            .frame(height: 420)
+            // Less on a small phone, so the name and figures still show under it.
+            .containerRelativeFrame(.vertical) { h, _ in min(420, h * 0.46) }
             // A shade under the status bar, so it reads on a light photo.
             .overlay(alignment: .top) {
               LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
@@ -88,13 +93,19 @@ struct SpeciesPage: View {
       }
       .background(colour)
       .animation(.easeInOut(duration: 0.45), value: colour)
+      // The scroll view's height stops where the fade over the tab bar starts (`v2ClearOfTheFade`).
+      .onGeometryChange(for: ColourAt.self) { [barFoot] g in
+        let end = g.frame(in: .scrollView).maxY
+        return ColourAt(top: end > barFoot, foot: end > g.bounds(of: .scrollView)?.height ?? .infinity)
+      } action: { colourAt = $0 }
       VStack(alignment: .leading, spacing: 28) {
         if !asked {
           ProgressView().frame(maxWidth: .infinity)
-        } else if doc == nil, handbook.status != .ready {
-          // Online, nil is a page this build can't read, not the network: "Xem trang đầy đủ" below is the way to it.
+        } else if doc == nil {
           VStack(alignment: .leading, spacing: 4) {
-            Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.secondary)
+            // With the handbook online, it may be a page this build can't read, not the network ("Xem trang đầy đủ" reaches it).
+            let why: LocalizedStringKey = handbook.status == .ready ? "Không tải được trang." : "Không tải được trang. Kiểm tra kết nối mạng."
+            Text(why).font(.footnote).foregroundStyle(.v2Faint)
             Button("Thử lại") {
               asked = false
               retries += 1
@@ -142,6 +153,11 @@ struct SpeciesPage: View {
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     // The top inset counts the bar once it shows: the status bar's alone without it.
     .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = scrolled ? $0 : $0 + 44 }
+    .onChange(of: colourAt.foot) { standOnColour() }
+    .onChange(of: colour) { standOnColour() }
+    .onAppear { standOnColour() }
+    // Not over the next page's, which may have appeared first.
+    .onDisappear { if footGround?.wrappedValue == colour { footGround?.wrappedValue = nil } }
     .accessibilityIdentifier("v2-species")
     .navigationTitle(scrolled ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
@@ -149,10 +165,11 @@ struct SpeciesPage: View {
     // in a dark bar. The bar itself once the name has gone under it.
     .toolbarVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
     .overlay(alignment: .top) { if !scrolled { overPhoto } }
-    .modifier(ClearUnderTopBar(shown: scrolled))
-    // Over the photo and the colour under it, the status bar in white. The page's own after it, never nil: iOS can keep the
+    // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
+    .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
+    // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
-    .toolbarColorScheme(scrolled ? scheme : .dark, for: .navigationBar)
+    .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
     .toolbar {
       ToolbarItemGroup(placement: .topBarTrailing) {
         // Saved to read later, as v1's page saves it (the Tìm tab lists them).
@@ -174,6 +191,10 @@ struct SpeciesPage: View {
       asked = true
       handbook.read(item)
     }
+  }
+
+  private func standOnColour() {
+    footGround?.wrappedValue = colourAt.foot ? colour : nil
   }
 
   /// Back, save and share, over the photo.
@@ -208,7 +229,7 @@ struct SpeciesPage: View {
 
   private var header: some View {
     VStack(alignment: .leading, spacing: 6) {
-      leadCredit
+      if hero != nil { leadCredit }
       Text(verbatim: item.name).font(.largeTitle.weight(.bold)).foregroundStyle(.white)
         .fixedSize(horizontal: false, vertical: true)
         .accessibilityAddTraits(.isHeader)
@@ -242,12 +263,17 @@ struct SpeciesPage: View {
   }
 
   /// The photo's credit, quietly on it, each piece linking where it says, as on v1's page.
-  @ViewBuilder private var leadCredit: some View {
-    if let line = doc?.lead.flatMap({ credit($0) }) {
-      // On the colour under the photo: its licence reads at 4.5:1 whatever the photo, however many lines it wraps to.
-      Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white).multilineTextAlignment(.trailing)
-        .frame(maxWidth: .infinity, alignment: .trailing)
-    }
+  private var leadCredit: some View {
+    // On the colour under the photo: its licence reads at 4.5:1 whatever the photo, however many lines it wraps to. Its line
+    // kept before the page comes, so the name doesn't drop when it does.
+    Text(doc?.lead.flatMap { credit($0) } ?? blankLine).foregroundStyle(.white.opacity(0.75)).tint(.white).multilineTextAlignment(.trailing)
+      .frame(maxWidth: .infinity, alignment: .trailing)
+  }
+
+  private var blankLine: AttributedString {
+    var line = AttributedString(" ")
+    line.font = .caption2
+    return line
   }
 
   /// The first gallery's title, the full-screen viewer's.
@@ -281,6 +307,7 @@ struct SpeciesPage: View {
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
+    .v2ShelfEdge()
   }
 
   private var hasMates: Bool {
@@ -332,7 +359,7 @@ struct SpeciesPage: View {
           Text(verbatim: mistakes.title).font(.headline).accessibilityAddTraits(.isHeader).padding(.top, 8)
           ForEach(mistakes.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
         }
-        if let by = s.by { Text(verbatim: by).font(.footnote).foregroundStyle(.secondary).padding(.top, 4) }
+        if let by = s.by { Text(verbatim: by).font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
       }
       .padding(.horizontal, 20)
     }
@@ -359,7 +386,7 @@ struct SpeciesPage: View {
           }
           .accessibilityElement(children: .combine)
         }
-        if !c.note.isEmpty { Text(verbatim: c.note).font(.footnote).foregroundStyle(.secondary) }
+        if !c.note.isEmpty { Text(verbatim: c.note).font(.footnote).foregroundStyle(.v2Faint) }
       }
       .padding(.horizontal, 20)
     }
@@ -382,9 +409,11 @@ struct SpeciesPage: View {
         if let avoid = m.avoid, !avoid.items.isEmpty { MatesRow(title: avoid.title, mates: avoid.items, good: false) }
         // What explains the shelves straight under them, the credits last.
         VStack(alignment: .leading, spacing: 6) {
-          if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.secondary) }
+          if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.v2Faint) }
           toolButton(m.tool.text, m.tool.href)
+          // Capped: at the largest text, licence lines would take the screen.
           MatesCredits(photos: ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img))
+            .dynamicTypeSize(...DynamicTypeSize.xxLarge)
         }
         .padding(.horizontal, 20)
       }
@@ -412,25 +441,24 @@ struct SpeciesPage: View {
   }
 }
 
-/// One side of "Nuôi chung": its fish as tiles that open their pages, why under each.
 /// The tank-mates' photos' credits under their shelves, as v1's page lists a row of cards' (CardsPart): one row per who
 /// took them, with its line; several photos, or a photographer's page in the line, then a number for each photo's page.
 private struct MatesCredits: View {
   let photos: [PageDoc.Image]
   /// Small to the eye, 44 points to the finger.
   @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
-  private typealias Row = (line: AttributedString, who: String, licence: String, profile: String?, urls: [String?])
+  private struct Row { var credit: PageDoc.Image.Credit; var urls: [URL] }
 
   private var rows: [Row] {
     photos.reduce(into: []) { rows, img in
       guard let c = img.credit else { return }
-      if let i = rows.firstIndex(where: { $0.who == c.text && $0.licence == c.licence && $0.profile == c.authorUrl }) {
-        if c.url == nil || !rows[i].urls.contains(c.url) {
-          rows[i].urls.append(c.url)
-          rows[i].line = credit(c, photo: false)
-        }
+      let url = c.url.flatMap(URL.init(string:))
+      if let i = rows.firstIndex(where: { $0.credit.text == c.text && $0.credit.licence == c.licence && $0.credit.authorUrl == c.authorUrl }) {
+        if let url, !rows[i].urls.contains(url) { rows[i].urls.append(url) }
+        // The one with its page, for a row of one link.
+        if rows[i].credit.url == nil { rows[i].credit = c }
       } else {
-        rows.append((credit(c, photo: c.authorUrl == nil), c.text, c.licence, c.authorUrl, [c.url]))
+        rows.append(Row(credit: c, urls: url.map { [$0] } ?? []))
       }
     }
   }
@@ -441,31 +469,33 @@ private struct MatesCredits: View {
       VStack(alignment: .leading, spacing: 0) {
         ForEach(rows.indices, id: \.self) { i in
           let row = rows[i]
-          let links = row.urls.compactMap { $0.flatMap(URL.init(string:)) }
-          if links.count <= 1 && row.profile == nil {
-            Text(row.line)
+          if row.urls.count <= 1 && row.credit.authorUrl == nil {
+            Text(credit(row.credit))
+          } else if row.urls.isEmpty {
+            Text(credit(row.credit, photo: false))
           } else {
-            Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(links.count) ảnh").font(.caption2)
+            Text(credit(row.credit, photo: false)) + Text(verbatim: " · ").font(.caption2) + Text("\(row.urls.count) ảnh").font(.caption2)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: number), spacing: 0, alignment: .leading)], alignment: .leading, spacing: 0) {
-              ForEach(Array(links.enumerated()), id: \.offset) { j, url in
+              ForEach(Array(row.urls.enumerated()), id: \.offset) { j, url in
                 Link(destination: url) {
                   Text(verbatim: String(j + 1)).font(.caption2).underline().frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
                 }
-                .accessibilityLabel(Text("\(row.who), ảnh \(j + 1)"))
+                .accessibilityLabel(Text("\(row.credit.text), ảnh \(j + 1)"))
                 .accessibilityRemoveTraits(.isButton)
                 .accessibilityAddTraits(.isLink)
               }
             }
-            // 44 points to the finger, not 44 of blank between the lines.
+            // 44 points to the finger, not 44 of blank between the lines (the caller caps the text's size).
             .padding(.vertical, -12)
           }
         }
       }
-      .foregroundStyle(.secondary).tint(Color.secondary)
+      .foregroundStyle(.v2Faint).tint(Color.v2Faint)
     }
   }
 }
 
+/// One side of "Nuôi chung": its fish as tiles that open their pages, why under each.
 private struct MatesRow: View {
   let title: String
   let mates: [PageDoc.Mates.Mate]
@@ -494,8 +524,11 @@ private struct MatesRow: View {
               tile(m, photo: photoHeight, why: 3).containerRelativeFrame(.horizontal, alignment: .leading) { w, _ in shelfCard(w, across: 2, spacing: 12) }
             }
           }
+          .scrollTargetLayout()
         }
         .contentMargins(.horizontal, 20, for: .scrollContent)
+        .scrollTargetBehavior(.viewAligned)
+        .v2ShelfEdge()
       }
     }
   }
@@ -513,7 +546,7 @@ private struct MatesRow: View {
           .overlay { if src == nil { Image(systemName: item?.kind.symbol ?? "fish").font(.title2).foregroundStyle(.secondary) } }
         Text(verbatim: m.name).font(.subheadline.weight(.semibold)).lineLimit(lines == nil ? nil : 2)
         // Its lines whole: a row across a scroll view would give it its one line's height.
-        if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.secondary).lineLimit(lines).fixedSize(horizontal: false, vertical: true) }
+        if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.v2Faint).lineLimit(lines).fixedSize(horizontal: false, vertical: true) }
       }
       .multilineTextAlignment(.leading)
     }
