@@ -149,7 +149,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   {equipment.length > 0 && (
     <section class="wrap block" aria-labelledby="equip-h">
       <div class="head"><h2 id="equip-h" class="h">{t('Mua thiết bị: chọn thế nào')}</h2><a href="/vi/thiet-bi/">{t('Tất cả thiết bị →')}</a></div>
-      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{shownTypes(e).map(x => x.name.replace(/(\d) (?=[a-zA-Zđ])/g, '$1\u00a0')).join(' · ')}</span></a></li>)}</ul>
+      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{shownTypes(e).map((x, i, all) => <><span class="it">{x.name.replace(/(\d) (?=[a-zA-Zđ])/g, '$1\u00a0')}{i < all.length - 1 && ' ·'}</span>{i < all.length - 1 && ' '}</>)}</span></a></li>)}</ul>
     </section>
   )}
 
@@ -218,6 +218,8 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .equip a { display: grid; gap: 2px; min-height: 44px; padding-block: var(--space-3); text-decoration: none; color: inherit; }
   .equip b { font: 500 var(--step-1) var(--f-display); }
   .equip span { font-size: 0.85rem; color: var(--c-ink-soft); }
+  /* A kind breaks between items, never inside one, and its dot stays with the item before it. */
+  .equip .it { display: inline-block; }
   .equip a:hover b { color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.15em; }
 
   @media (max-width: 900px) {
