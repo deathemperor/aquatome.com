@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, SYSTEM } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search } from '../chat/search'
@@ -148,6 +148,18 @@ test('Thai, written without spaces, is searched by its words: a word inside a ti
   expect(search(items, 'ปลาทอง', null)).toEqual([])
   // Vietnamese as before: accents folded.
   expect(fold('Cá Đĩa')).toBe('ca dia')
+})
+
+test('the chat\'s forced last call is told to answer from what it read', async () => {
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
+  const out = await answerQuestion({
+    send: async body => { bodies.push(body); return message([{ type: 'text', text: JSON.stringify(final) }]) },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], limits: { calls: 1 },
+  })
+  expect(out.stopped).toBe('calls')
+  expect(bodies[0]!.tool_choice).toEqual({ type: 'none' })
+  expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain(JSON.stringify(LAST_WORD).slice(1, -1))
 })
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {

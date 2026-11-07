@@ -127,7 +127,8 @@ that would have caught it).
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
     breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
-    out, an answer with no text none, the run within 27 s, and a turn's steps, request and filled blocks on a fake
+    out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
+    loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
     Claude (`apps/site/worker/test/chat-agent.test.ts`).
     Its handler (`CHAT`, off unless `1`), every answer held to the contract: off without the flag or what it needs; an
     app session as a bearer or a site session from the site's own pages and nothing else, and a fish ID guess closed and
