@@ -29,7 +29,7 @@ export type Identification = { verdict: Verdict; guesses: Guess[] }
 /** Tokens: input not cached, output, and the agent's cached input (read, written). */
 export type Usage = { input: number; output: number; cacheRead?: number; cacheWrite?: number }
 
-const LANGUAGE: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai' }
+const LANGUAGE: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai', ms: 'Malay' }
 
 // No prompt caching: the instructions are a few hundred tokens, under every model's cache minimum, and at a few hundred
 // calls a day most would miss the 5-minute window anyway.

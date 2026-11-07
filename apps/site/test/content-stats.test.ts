@@ -24,26 +24,27 @@ test('the build writes dist/_ab/content.json; the fixture build has no engine st
   expect(same(built)).toEqual(same(stats))
 })
 
-test('inventory: items per kind in content/, and how many have an Indonesian and a Thai page', () => {
+test('inventory: items per kind in content/, and how many have an Indonesian, a Thai and a Malay page', () => {
+  // The fixture's Malay: one of each kind the engine writes in it.
   expect(stats.inventory).toEqual({
-    fish: { total: 9, id: 0, th: 0 }, breed: { total: 3, id: 0, th: 0 }, plant: { total: 4, id: 0, th: 0 },
-    guide: { total: 7, id: 0, th: 0 }, videoGuide: { total: 2, id: 0, th: 0 }, series: { total: 2, id: 0, th: 0 },
-    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 6, id: 0, th: 0 },
+    fish: { total: 9, id: 0, th: 0, ms: 1 }, breed: { total: 3, id: 0, th: 0, ms: 1 }, plant: { total: 4, id: 0, th: 0, ms: 1 },
+    guide: { total: 7, id: 0, th: 0, ms: 1 }, videoGuide: { total: 2, id: 0, th: 0, ms: 0 }, series: { total: 2, id: 0, th: 0, ms: 0 },
+    glossary: { total: 4, id: 0, th: 0, ms: 1 }, equipment: { total: 1, id: 0, th: 0, ms: 1 }, place: { total: 12, id: 0, th: 0, ms: 1 }, product: { total: 6, id: 0, th: 0, ms: 0 },
   })
 })
 
-test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
-  // 146 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual({ vi: 104, id: 21, th: 21 })
-  const n = (vi: number, id = 0, th = 0) => ({ vi, id, th })
-  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(3), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(7, 7, 7), other: n(6, 5, 5) })
+test('built pages: every index.html under /, /id/, /th/ and /ms/, by kind, each with its h1 and its item', () => {
+  // 176 pages, as markdown.ts counts them (every page under the four languages). Malay's tools are one fewer: no setup budget.
+  expect(stats.built!.total).toEqual({ vi: 104, id: 21, th: 21, ms: 30 })
+  const n = (vi: number, id = 0, th = 0, ms = 0) => ({ vi, id, th, ms })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9, 0, 0, 1), breed: n(3, 0, 0, 1), plant: n(4, 0, 0, 1), guide: n(7, 0, 0, 1), videoGuide: n(2), glossary: n(4, 0, 0, 1), series: n(1), gallery: n(3, 0, 0, 1), tool: n(7, 7, 7, 6), other: n(6, 5, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
   // Only the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/'])
+  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/ms/aplikasi/', '/ms/dasar-privasi/', '/ms/hubungi/', '/ms/tentang/', '/ms/tentang/jadual-data/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 
@@ -51,15 +52,15 @@ test('a page\'s kind and item from its address, in each language (slugs are per 
   const m = (pairs: [string, string][]) => new Map(pairs)
   const none = m([])
   const s = {
-    fish: { vi: m([['ca-neon', 'p-innesi']]), id: m([['ikan-neon', 'p-innesi']]), th: m([['pla-neon', 'p-innesi']]) },
-    breed: { vi: m([['ca-la-han', 'flowerhorn']]), id: none, th: none },
-    plant: { vi: m([['ray-nana', 'a-nana']]), id: m([['anubias-nana', 'a-nana']]), th: none },
-    guide: { vi: m([['thay-nuoc', 'g1'], ['bon-phan', 'youtube-x']]), id: m([['ganti-air', 'g1']]), th: none },
+    fish: { vi: m([['ca-neon', 'p-innesi']]), id: m([['ikan-neon', 'p-innesi']]), th: m([['pla-neon', 'p-innesi']]), ms: m([['ikan-neon', 'p-innesi']]) },
+    breed: { vi: m([['ca-la-han', 'flowerhorn']]), id: none, th: none, ms: none },
+    plant: { vi: m([['ray-nana', 'a-nana']]), id: m([['anubias-nana', 'a-nana']]), th: none, ms: none },
+    guide: { vi: m([['thay-nuoc', 'g1'], ['bon-phan', 'youtube-x']]), id: m([['ganti-air', 'g1']]), th: none, ms: none },
     video: new Set(['youtube-x']),
-    glossary: { vi: m([['ph', 'ph']]), id: m([['ph', 'ph']]), th: m([['ph', 'ph']]) },
+    glossary: { vi: m([['ph', 'ph']]), id: m([['ph', 'ph']]), th: m([['ph', 'ph']]), ms: none },
     place: new Set(['asia', 'china']),
-    series: { vi: m([['reu-hai', 'PL1']]), id: none, th: none },
-    product: { vi: m([['oase', 'oase-1']]), id: none, th: none },
+    series: { vi: m([['reu-hai', 'PL1']]), id: none, th: none, ms: none },
+    product: { vi: m([['oase', 'oase-1']]), id: none, th: none, ms: none },
   }
   expect(classify('/id/ikan/ikan-neon/', s)).toEqual(['fish', 'p-innesi'])
   expect(classify('/th/fish/pla-neon/photos/', s)).toEqual(['gallery', 'p-innesi'])
@@ -76,6 +77,8 @@ test('a page\'s kind and item from its address, in each language (slugs are per 
   expect(classify('/id/asal/asia/', s)).toEqual(['place', 'asia'])
   expect(classify('/phan-loai/cichliformes/cichlidae/', s)).toEqual(['taxon'])
   expect(classify('/th/tools/tank-volume/', s)).toEqual(['tool'])
+  expect(classify('/ms/ikan/ikan-neon/', s)).toEqual(['fish', 'p-innesi'])
+  expect(classify('/ms/alat/isi-padu-tangki/', s)).toEqual(['tool'])
   expect(classify('/id/peralatan/loc/', s)).toEqual(['equipment', 'loc'])
   expect(classify('/san-pham/oase/', s)).toEqual(['product', 'oase-1'])
   expect(classify('/', s)).toEqual(['list'])
@@ -232,7 +235,7 @@ test('backfill: each past day\'s totals from the last commit of the day, as entr
     git('2026-10-30T23:00:00Z', 'add', '-A')
     git('2026-10-30T23:00:00Z', 'commit', '-qm', 'two')
     const days = backfill(repo, 'HEAD', '2026-10-31')
-    expect(days.map(d => [d.day, d.totals.kinds.fish, d.totals.sources.youtube])).toEqual([['2026-10-28', { vi: 1, id: 0, th: 0 }, 1], ['2026-10-29', { vi: 1, id: 0, th: 0 }, 1], ['2026-10-30', { vi: 2, id: 1, th: 0 }, 2]])
+    expect(days.map(d => [d.day, d.totals.kinds.fish, d.totals.sources.youtube])).toEqual([['2026-10-28', { vi: 1, id: 0, th: 0, ms: 0 }, 1], ['2026-10-29', { vi: 1, id: 0, th: 0, ms: 0 }, 1], ['2026-10-30', { vi: 2, id: 1, th: 0, ms: 0 }, 2]])
     expect(days.every(d => d.totals.built === null)).toBe(true)
     const entries = bulkEntries(days)
     const kept = keepTotals(days[0]!.totals)

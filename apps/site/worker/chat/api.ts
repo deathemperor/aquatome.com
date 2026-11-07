@@ -81,7 +81,7 @@ const MAX_BODY = 16 * 1024
 const MAX_NAME = 100
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
-const LANGS = ['vi', 'id', 'th'] as const
+const LANGS = ['vi', 'id', 'th', 'ms'] as const
 const json = (data: unknown, status = 200) => Response.json(data, { status, headers: { 'cache-control': 'no-store' } })
 const sse = (event: string, data: unknown) => `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
 const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-store' }

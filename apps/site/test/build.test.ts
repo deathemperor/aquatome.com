@@ -961,15 +961,15 @@ test('the logo link is named by its visible text (no aria-label that differs fro
 
 test('every page has the language menu; a fish without other-language pages offers their fish lists', () => {
   // The header's (computers) and the menu sheet's (phones).
-  for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
+  for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/', '/ms/']) for (const menu of ['header', '#site-menu']) {
     const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
     expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual([...LANGS])
   }
   for (const menu of ['header', '#site-menu']) {
     const fish = page('/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
+    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined], ['/ms/ikan/', undefined]])
     // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
     const id = page('/id/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/', undefined], ['/id/', 'true'], ['/th/', undefined]])
+    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/', undefined], ['/id/', 'true'], ['/th/', undefined], ['/ms/', undefined]])
   }
 })
