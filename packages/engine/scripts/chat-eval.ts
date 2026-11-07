@@ -365,7 +365,7 @@ function report(rows: Row[]): string {
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
     '- **Tank-mates: checked · opens with it:** tank-mates blocks picked whose fish, counts and tank Claude checked first (check_tank_mates; the Worker shows no other) · answers with a verdict shown whose text opens with its head, word for word. The check\'s verdict is listed under each answer.',
-    '- **Points to blocks:** answers whose text refers to its blocks ("xem thẻ bên dưới", "bảng dưới đây"), which the reader sees under it anyway; the prompt says never to. The words are listed by each answer. A floor: other ways to say it aren\'t caught.',
+    '- **Points to blocks:** answers whose text refers to its blocks ("xem thẻ bên dưới", "bảng dưới đây"), which the reader sees under it anyway; the prompt says never to. The words are listed by each answer: a flag for a look, not a count (other wordings aren\'t caught, and "below" as a place ending a clause can be).',
     '- **Figures not in a page:** answers whose text has a number that nothing Claude was sent has: the question, the searches\' results, the parts of pages it opened (listed below). A small number (a list\'s 2 or 3) may be in what it read by chance, so this is a floor.',
     '- **Stopped:** answered when Claude chose / at the calls, tool-call, time or token limit / a call failed.',
     '- **Cost:** response usage × list price, every call, per question. **Latency:** first call to the filled answer, on this machine.',

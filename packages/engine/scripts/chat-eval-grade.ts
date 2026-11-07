@@ -12,14 +12,15 @@ export const numbersIn = (s: string): number[] =>
     : Number(n.replace(',', '.')))
 
 /**
- * Where a Vietnamese answer's text points to its blocks ("xem thẻ bên dưới", "bảng dưới đây"), which the reader sees
- * under it anyway (the prompt: never refer to them). A block's name with where it is, "dưới đây", or "below" as the
- * sentence's end; not "below" as a place ("ở dưới đáy bể") or a figure ("dưới 20 °C"). For a look: a floor, not a count
- * of every way to say it.
+ * Where a Vietnamese answer's text points to its blocks ("xem thẻ bên dưới", "bảng dưới đây", "mục bên dưới"), which
+ * the reader sees under it anyway (the prompt: never refer to them): a block's name with where it is, "dưới đây", or
+ * "below" ending a clause. A flag for a look, not a count: it misses other wordings, and can flag "below" as a place
+ * that ends a clause ("lót phân nền bên dưới,"), though not one before what's below ("ở dưới đáy bể") or a figure
+ * ("dưới 20 °C").
  */
 const POINTS = [
-  /(?<!\p{L})(thẻ|bảng|khối|công cụ)( (ở|bên|phía))? (dưới|trên|này|kèm)(?!\p{L})/giu,
-  /(?<!\p{L})xem (thẻ|bảng|khối|công cụ)(?!\p{L})/giu,
+  /(?<!\p{L})(thẻ|bảng|khối|mục|phần|công cụ)( (ở|bên|phía))? (dưới|trên|này|kèm)(?!\p{L})/giu,
+  /(?<!\p{L})xem (thẻ|bảng|khối|mục|công cụ)(?!\p{L})/giu,
   /(?<!\p{L})dưới đây(?!\p{L})/giu,
   /(?<!\p{L})(ở|bên|phía) dưới(?= *([.,:;!?)]|$| (là|có|để|cho|nhé)(?!\p{L})))/giu,
 ]

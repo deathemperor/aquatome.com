@@ -87,6 +87,7 @@ test('an answer that points to its blocks is caught, not one that says "below" a
   expect(pointsAt('Thử công cụ nuôi chung ở dưới nhé.')).toEqual(['ở dưới'])
   expect(pointsAt('Các con số có ở bên dưới.')).toEqual(['bên dưới'])
   expect(pointsAt('Dùng công cụ này để tính số lít.')).toEqual(['công cụ này'])
+  expect(pointsAt('Phần dưới có các bước thay nước; xem mục Cần bể bao lớn.')).toEqual(['phần dưới', 'xem mục'])
   // Below as a place, a figure, or a word that only starts the same.
   expect(pointsAt('Cá chuột sống ở dưới đáy bể, nhiệt độ dưới 26 °C là vừa.')).toEqual([])
   expect(pointsAt('Lớp nền bên dưới cây nên dày 5 cm.')).toEqual([])

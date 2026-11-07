@@ -347,6 +347,33 @@ test('retries by Idempotency-Key: after the answer, the kept turn with no new co
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
 
+test('a retry while its run still answers waits for it even past the conversation\'s 24 hours: not 410, not a second run', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const t0 = Date.now()
+  let at = t0
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const c = claude([...NEON, async () => { await held; return reads('/vi/ca/ca-neon-xanh/') }, NEON[1]!])
+  const d = deps(c.fetch, { clock: () => at, pollMs: 5, waitMs: 5000 })
+  await run(ask(bearer(me.token)), e, d)
+  // The conversation's last question, asked in its last seconds, still answering as its 24 hours pass.
+  at = t0 + 24 * 3600_000 - 5_000
+  const key = { 'idempotency-key': 'ad3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
+  const last = run(ask(bearer(me.token), { question: 'Câu cuối' }, key), e, d)
+  while (c.bodies.length < 3) await tick()
+  at = t0 + 24 * 3600_000 + 5_000
+  const retry = run(ask(bearer(me.token), { question: 'Câu cuối' }, key), e, d)
+  // The retry in before the answer lands.
+  for (let i = 0; i < 20; i++) await tick()
+  release()
+  const [a, b] = await Promise.all([last, retry])
+  expect(a.body).toMatchObject({ n: 2 })
+  expect(b.body).toEqual(a.body)
+  expect(c.bodies).toHaveLength(4)
+  expect(Object.values(ledger.day()!.readers)).toEqual([2])
+})
+
 test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn is kept for the conversation\'s life, the mark clears, the ledger settles', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)
@@ -519,6 +546,13 @@ test('failures: Claude unreachable on every key is unavailable and gives the cou
   expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
   const ok = await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))
   expect(ok.body).toMatchObject({ n: 1 })
+  // Unavailable gave its count back: a resend with its key gets the same answer for a while, then is asked again (not
+  // the 503 for the conversation's whole day).
+  const key = { 'idempotency-key': '9d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
+  const other = { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }
+  expect((await run(ask(bearer(me.token), other, key), e, deps(down.fetch))).body).toEqual({ error: 'unavailable' })
+  expect((await run(ask(bearer(me.token), other, key), e, deps(claude(NEON).fetch, { clock: () => Date.now() + 60_000 }))).body).toEqual({ error: 'unavailable' })
+  expect((await run(ask(bearer(me.token), other, key), e, deps(claude(NEON).fetch, { clock: () => Date.now() + 16 * 60_000 }))).body).toMatchObject({ n: 1 })
   // On a stream, the same error as an event after the stream began.
   const s = await run(ask(bearer(me.token), { conversation: '8f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }, { accept: 'text/event-stream' }), e, deps(bad.fetch))
   expect((await s.res.text()).endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
