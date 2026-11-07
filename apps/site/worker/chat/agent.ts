@@ -64,6 +64,8 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
 }
 
 export const MAX_TOKENS = 4096
+/** The forced last call's word (runAgent's lastWord): told nothing, Claude sometimes answered with no text. */
+export const LAST_WORD = 'You can\'t read more pages now. Answer the reader from what you have read: the text, and the blocks from those pages. If it isn\'t enough, say so plainly and set covered to false.'
 /**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
@@ -99,6 +101,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     effort: o.effort ?? 'medium',
     maxTokens: MAX_TOKENS,
     limits: { ...CHAT_LIMITS, ...o.limits },
+    lastWord: LAST_WORD,
     onStep: o.onStep,
     clock: o.clock,
   })
