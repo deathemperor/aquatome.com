@@ -6,9 +6,9 @@ import { LlmError, type Llm } from './claude'
 import { logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
 import { isShop, withoutShopTalk } from './species-sources'
+import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/planting.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const CHECK = `A short Vietnamese passage on where to place and how to plant an aquarium plant, for a hobbyists' handbook, and the INPUT it was written from (the plant's figures, its page's text, guides written from videos).
 Score 0–1: 1.0 = every statement is in the INPUT (its "vị trí" figure counts), nothing added, natural Vietnamese a hobbyist would write; 0.75 = small wording issues, facts intact; below 0.75 = a planting method, number, caution or advice the INPUT doesn't give, a parent species' size or colour given as this plant's, a guide's or video's mention, or Vietnamese that reads as a translation.
 notes: up to 6 short, concrete problems (in English), quoting the phrase. Empty if none.`

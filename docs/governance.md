@@ -742,6 +742,8 @@ The layers above still check the result.
     in a design lab (2026-11-07): that word in the tank-cycling guide, a translation's typo, and the least killifish's
     list of traits run together ("Sống bầy đàn: cóMức độ hoạt động…"), the only section in the content stored with no
     tags.
+    Words the language's hobbyists rarely write are counted (`phrases.ts`: per phrase, never held, since only a model can
+    mend one in its sentence; how the list is found: docs/review/phrases.md).
   - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
     `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
     becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its

@@ -15,9 +15,9 @@ import { ABOUT } from './planting'
 import { lastKept, logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
 import type { VideoMeta } from './youtube'
+import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/species.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 
 /** The parts of a species page research fills, in the page's order (the rest come from licensed sources only). */
 const SECTIONS = ['notes', 'distribution', 'habitat', 'beforeYouBuy', 'aquariumSize', 'waterConditions', 'diet', 'behaviour', 'dimorphism', 'reproduction'] as const satisfies readonly SectionKey[]
