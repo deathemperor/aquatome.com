@@ -5,8 +5,9 @@ The owner's rulings, 2026-11-07. `CHAT` stays `"0"` in `apps/site/wrangler.jsonc
 ## The privacy page
 
 All of the Vietnamese below is approved, and it goes live in that PR, not before. A change that alters the meaning goes back
-to the owner. Translate it into Indonesian and Thai (`apps/site/src/i18n/{id,th}.json`) and into the page's English part,
-and move the page's date.
+to the owner. Translate it into Indonesian, Thai and Malay (`apps/site/src/i18n/{id,th,ms}.json`) and into the page's
+English part, and move the page's date. The Writing Lead reads the translations; a faithful one doesn't go back to the
+owner.
 
 ### The new section: Hỏi về cá
 
