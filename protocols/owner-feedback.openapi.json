@@ -113,7 +113,7 @@
           "kind": { "type": "string", "pattern": "^[a-z-]{1,20}$", "description": "What the item is: fish, plant, guide, section…" },
           "item": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]{1,120}$", "description": "The item's id." },
           "section": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]{1,120}$", "description": "The id of the heading they were under." },
-          "lang": { "enum": ["vi", "id", "th"] },
+          "lang": { "enum": ["vi", "id", "th", "ms"] },
           "version": { "type": "string", "pattern": "^[A-Za-z0-9 _.+()-]{1,60}$", "description": "The site's build or the app's version and build." },
           "theme": { "enum": ["light", "dark"] },
           "textSize": { "type": "string", "pattern": "^[A-Za-z0-9 _.%-]{1,30}$" },
