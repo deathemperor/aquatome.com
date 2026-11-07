@@ -71,3 +71,25 @@ test('what a heading is about: its scientific name in brackets decides, else the
   expect(headingSubject('Lời kết', fish)).toBeUndefined()
   expect(headingSubject('11. Cá neon thường (Paracheirodon axelrodi)', fish)).toBeUndefined() // a species without a page here, whatever its name
 })
+
+// 2026-11-07, a design lab: the "5 easy plants" guide's "Pogostemon stellatus Octopus" linked P. stellatus (strong light,
+// CO₂), when the easy Octopus shops sell is P. quadrifolius, whose page has "Pogostemon stellatus 'Octopus'". The 50 red
+// plants guide wrote it ‘Octopus’. A trade or cultivar name is the same name with or without its quotes, in any style.
+const plants = [
+  { key: 'plant:pogostemon-stellatus', href: '/vi/cay/stellatus/', names: ['Pogostemon stellatus', 'Cây sao nước'] },
+  { key: 'plant:pogostemon-quadrifolius', href: '/vi/cay/quadrifolius/', names: ['Pogostemon quadrifolius', "Pogostemon stellatus 'Octopus'"] },
+  { key: 'species:hypancistrus-sp', href: '/vi/ca/l066/', names: ["Hypancistrus sp. 'L066'", "Sterba's cory"] },
+]
+test('a trade or cultivar name in quotes links its page however the text quotes it, or with no quotes', () => {
+  for (const written of ['Pogostemon stellatus Octopus', "Pogostemon stellatus 'Octopus'", 'Pogostemon stellatus ‘Octopus’', 'Pogostemon stellatus “Octopus”', 'Pogostemon stellatus "Octopus"', 'pogostemon stellatus octopus']) {
+    expect(linkTerms(`<p>${written} mọc nhanh.</p>`, plants, 'ml').keys, written).toEqual(['plant:pogostemon-quadrifolius'])
+  }
+  // The species alone is still the species, and a name with one apostrophe is as it was.
+  expect(linkTerms('<p>Pogostemon stellatus cần CO₂.</p>', plants, 'ml').keys).toEqual(['plant:pogostemon-stellatus'])
+  expect(linkTerms("<p>Sterba's cory và Hypancistrus sp. L066.</p>", plants, 'ml').keys).toEqual(['species:hypancistrus-sp'])
+  expect(linkTerms('<p>Sterbas cory.</p>', plants, 'ml').keys).toEqual([])
+  // Its own page doesn't link it, however it is written, nor the species its first words name.
+  expect(linkTerms('<p>Pogostemon stellatus Octopus mọc nhanh.</p>', plants, 'ml', new Set(['plant:pogostemon-quadrifolius'])).keys).toEqual([])
+  // A heading about it is about it.
+  expect(headingSubject('3. Pogostemon stellatus Octopus', plants)?.key).toBe('plant:pogostemon-quadrifolius')
+})

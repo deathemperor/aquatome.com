@@ -2,7 +2,12 @@
   "id": "trichromis-salvini",
   "temperament": "predator",
   "finNipper": false,
-  "schoolMin": 6,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T06:26:09.803Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-07T12:59:04.639Z"
 }

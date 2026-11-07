@@ -2,7 +2,12 @@
   "id": "sphaerichthys-osphromenoides",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 6,
+  "schoolMin": 4,
   "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-06T21:22:27.709Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-07T12:56:52.344Z"
 }

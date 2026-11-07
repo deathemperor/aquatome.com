@@ -5,7 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { SpeciesSchema } from '@aq/schema'
-import { captionSubject, checkPagePhotos, deadNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -53,13 +53,13 @@ test('another fish and no photo of it leave the page and are rejected; can\'t te
   const r = await root([{ id: 'trigonostigma-heteromorpha', sci: 'Trigonostigma heteromorpha', vi: { name: 'Cá tam giác', altNames: ['Harlequin rasbora', 'Cá rasbora hề'] }, photos: ['pale', 'platy', 'typical', 'river', 'map', 'rare'] }])
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('old')]: 'watermark: a logo' }))
   const d = model({
-    platy: { ok: 'other', note: 'a platy, Xiphophorus maculatus' }, typical: { typical: true }, river: { ok: 'habitat' },
+    platy: { ok: 'other', note: 'a platy, Xiphophorus maculatus' }, typical: { typical: true }, river: { note: 'a school in a wild stream' },
     map: { ok: 'none', note: 'a range map' }, rare: { ok: 'unsure', note: 'too small to tell' },
   })
   const out = await checkPagePhotos(r, d, { limit: 10, today: '2026-11-02' })
   expect(d.seen[0]!.prompt).toContain('Trigonostigma heteromorpha (Cá tam giác, Harlequin rasbora)')
   expect(out.removed.map(name)).toEqual(['platy', 'map'])
-  expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['typical', 'pale', 'rare', 'river'])
+  expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['typical', 'pale', 'river', 'rare'])
   // Added to the blocklist; what was there stays.
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({
     [url('old')]: 'watermark: a logo',
@@ -82,12 +82,16 @@ test('a re-run costs nothing: every verdict is cached per photo and page', async
   expect(Object.keys(await json(r, 'engine-state/_photo-subjects.json'))).toHaveLength(9)
 })
 
-test('the first check\'s verdicts count where a photo is on one page; its "can\'t tell" is asked again', async () => {
-  const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['sure', 'unsure', 'new'] }])
-  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [url('sure')]: { ok: 'yes', typical: true, note: '' }, [url('unsure')]: { ok: 'unsure', typical: false, note: '' } }))
+test('the first check\'s verdicts count where a photo is on one page until it is asked again, as every verdict from before the check asked about people is', async () => {
+  const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['unsure', 'map', 'sure', 'new'] }])
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [url('sure')]: { ok: 'yes', typical: true, note: '' }, [url('unsure')]: { ok: 'unsure', typical: false, note: '' }, [url('map')]: { ok: 'no', typical: false, note: 'a map' } }))
   const d = model({})
+  // With no model calls to spend, its "no" still takes the map off and its typical photo still leads.
+  await checkPagePhotos(r, d, { limit: 0 })
+  expect(d.seen).toEqual([])
+  expect(await urls(r, 'content/species/danio-rerio/entity.json')).toEqual(['sure', 'unsure', 'new'])
   await checkPagePhotos(r, d, { limit: 10 })
-  expect(d.seen.map(s => s.photos)).toEqual([['unsure', 'new']])
+  expect(d.seen.map(s => s.photos)).toEqual([['sure', 'unsure', 'new']])
 })
 
 test('most-read pages first, each page\'s own photos and gallery strip before the rest of the galleries', async () => {
@@ -316,8 +320,8 @@ test('photos to judge again are picked from the notes of earlier looks: the chec
   }))
   await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
     [url('shell')]: { 'sulcospira-testudinaria': v('Naturalis museum shell specimens labelled Brotia testudinaria') },
-    // Judged since the check asks about dead fish and logos: not asked again.
-    [url('new')]: { 'cichla-temensis': v('dead fish on ice', { ok: 'dead', logo: false }) },
+    // Judged since the check asks about dead fish, logos and people: not asked again.
+    [url('new')]: { 'cichla-temensis': v('dead fish on ice', { ok: 'dead', logo: false, person: false }) },
   }))
   await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [url('tag')]: { ocr: [], watermark: false, kind: 'none', what: 'preserved specimen photo, no text' } }))
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('gone')]: 'dead: already off' }))
@@ -362,4 +366,72 @@ test('a page that loses its last photo keeps a valid page file, with no photo, a
   expect(SpeciesSchema.safeParse(e).success).toBe(true)
   expect(await urls(r, 'content/gallery/cichla-temensis.json')).toEqual([])
   expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/## Left with no photo \(1\)\n\n- species\/cichla-temensis\n/)
+})
+
+test('a lake with no fish is "not a photo of it": an old "habitat" verdict is asked again and the page loses it; the fish seen in the wild stays', async () => {
+  // Found by a design review (2026-11-07): the firemouth's only photo, a lake with a park and a tower, was judged
+  // "habitat" (its wild place, with or without it) and kept, so it led the page, its index card and tank-mates blocks.
+  const r = await root([{ id: 'thorichthys-meeki', sci: 'Thorichthys meeki', photos: ['lake'], gallery: ['wild'] }])
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [url('lake')]: { 'thorichthys-meeki': { ok: 'habitat', typical: false, note: 'lake with a park and a tower', logo: false } },
+    [url('wild')]: { 'thorichthys-meeki': { ok: 'habitat', typical: false, note: 'two firemouths over sand in a clear river', logo: false } },
+  }))
+  const d = model({ lake: { ok: 'none', note: 'lake with a park and a tower, no fish' } })
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([['lake', 'wild']])
+  expect(d.seen[0]!.prompt).toContain('a landscape or wild place (a river, stream, lake, swamp or shore) where it can\'t be picked out')
+  expect(d.seen[0]!.prompt).toContain('and so does it in the wild where it is clearly seen')
+  expect(d.seen[0]!.prompt).not.toContain('"habitat"')
+  expect(await urls(r, 'content/species/thorichthys-meeki/entity.json')).toEqual([])
+  expect(await urls(r, 'content/gallery/thorichthys-meeki.json')).toEqual(['wild'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('lake')]: 'not Thorichthys meeki: lake with a park and a tower, no fish' })
+})
+
+test('a person or a hand in the shot takes a photo off every page, gallery and guide, though the fish is what it shows', async () => {
+  // PRODUCT.md: "Photos never show people (hands count)". The check called a fish held in a hand "yes": on 2026-11-07,
+  // 97 photos still shown had a note saying hands or people.
+  const r = await root([{ id: 'hypancistrus-zebra', sci: 'Hypancistrus zebra', photos: ['inhand', 'tank'], gallery: ['inhand'] }], { plecos: { photos: [photo('inhand')] } })
+  const d = model({ inhand: { typical: true, person: true, note: 'adult held in a hand over a river' } })
+  const out = await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen[0]!.prompt).toContain('- person: true if a person or any part of one is in the photo: a hand or fingers')
+  expect(await urls(r, 'content/species/hypancistrus-zebra/entity.json')).toEqual(['tank'])
+  expect(await urls(r, 'content/gallery/hypancistrus-zebra.json')).toEqual([])
+  expect(await urls(r, 'content/guides/plecos/entity.json')).toEqual([])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('inhand')]: 'people: adult held in a hand over a river' })
+  expect(out.blocked).toEqual([`${url('inhand')}: people: adult held in a hand over a river`])
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('tank')]['hypancistrus-zebra']).toMatchObject({ ok: 'yes', person: false, logo: false })
+  expect(await readFile(join(r, 'docs/review/photo-subjects.md'), 'utf8')).toMatch(/a person in it: 1;[\s\S]*species\/hypancistrus-zebra \| \[photo\]\(https:\/\/media\.example\/inhand\.webp\) \| people: adult held in a hand over a river/)
+})
+
+test('a photo only the first check judged, before it asked about logos, is asked again: a faint signature the text reader missed takes it off', async () => {
+  // Found by a design review (2026-11-07): Boraras urophthalmoides led with a photo signed faintly in Thai at the bottom.
+  // macOS Vision read no text on it, Commons isn't a logo source, and the first check's "yes" stood for it.
+  const r = await root([{ id: 'boraras-urophthalmoides', sci: 'Boraras urophthalmoides', photos: ['signed', 'clean'] }])
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [url('signed')]: { ok: 'yes', typical: true, note: 'adult among plants' }, [url('clean')]: { ok: 'yes', typical: true, note: 'adult' } }))
+  const d = model({ signed: { typical: true, logo: true, note: 'adult among plants; faint Thai signature, bottom centre' } })
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([['signed', 'clean']])
+  expect(d.seen[0]!.prompt).toContain('in any script, with or without readable letters')
+  expect(await urls(r, 'content/species/boraras-urophthalmoides/entity.json')).toEqual(['clean'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('signed')]: 'watermark: adult among plants; faint Thai signature, bottom centre' })
+})
+
+test('photos to judge first also come from notes saying a hand or a person, and from the old "habitat" verdict', async () => {
+  const r = await root([{ id: 'hypostomus-plecostomus', sci: 'Hypostomus plecostomus', photos: ['hand', 'river', 'tank', 'asked'], gallery: ['tay'] }])
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({
+    [url('hand')]: { ok: 'yes', typical: true, note: 'Adult held in a hand by a river' },
+    [url('river')]: { ok: 'habitat', typical: false, note: 'Wide brown river, no fish' },
+  }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [url('tank')]: { 'hypostomus-plecostomus': { ok: 'yes', typical: true, note: 'adult on driftwood in a tank', logo: false } },
+    [url('asked')]: { 'hypostomus-plecostomus': { ok: 'yes', typical: true, note: 'adult held in a hand', logo: false, person: false } },
+  }))
+  const g = join(r, 'content/gallery/hypostomus-plecostomus.json')
+  await writeFile(g, JSON.stringify({ ...(await json(r, 'content/gallery/hypostomus-plecostomus.json')), photos: [photo('tay', 'Cá tỳ bà cầm trên tay')] }))
+  expect(Object.fromEntries([...await recheckCandidates(r)].map(([u, n]) => [name(u), n]))).toEqual({
+    hand: 'Adult held in a hand by a river',
+    river: 'Wide brown river, no fish',
+    tay: 'Cá tỳ bà cầm trên tay',
+  })
+  expect(peopleNote('Adult among dead leaves on the bottom')).toBe(false)
 })

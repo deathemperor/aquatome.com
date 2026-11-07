@@ -272,6 +272,27 @@ test('a card\'s Seriously Fish difficulty read before the engine read its word i
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).dataCard.difficulty).toEqual([{ source: 'glaser', value: 5 }])
 })
 
+// 2026-11-07, a design lab: Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C. It was checked against the card
+// when it was written, and the card's rule for sources that disagree changed after; its page didn't.
+test('an approved summary stating a figure its card no longer shows waits to be written again; one that agrees stays', async () => {
+  const root = await store()
+  await sweep(root)
+  const c = join(root, 'content')
+  const card = { tempC: [{ source: 'seriouslyfish', value: { min: 23, max: 29 } }, { source: 'sprucepets', value: { min: 23, max: 27 } }], sizeCm: [{ source: 'seriouslyfish', value: 3.5 }] }
+  for (const [id, sci, name, summary] of [['paracheirodon-axelrodi', 'Paracheirodon axelrodi', 'Cá neon vua', 'Nước 23–27 °C, cá dài 3,5 cm.'], ['paracheirodon-simulans', 'Paracheirodon simulans', 'Cá neon xanh lục', 'Nước 23–29 °C, cá dài 3,5 cm.']] as const) {
+    await mkdir(join(c, 'species', id), { recursive: true })
+    await writeFile(join(c, 'species', id, 'entity.json'), `${JSON.stringify(species(id, sci, { dataCard: card }), null, 2)}\n`)
+    await writeFile(join(c, 'species', id, 'vi.json'), `${JSON.stringify(vi(name, { 'distribution:seriouslyfish': '<p>Rio Negro.</p>' }), null, 2)}\n`)
+    await writeFile(join(c, 'summaries', `${id}.json`), `${JSON.stringify({ id, summary, mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }, null, 2)}\n`)
+  }
+  const r = await sweep(root)
+  expect(await json(root, 'content/summaries/paracheirodon-axelrodi.json')).toMatchObject({ review: 'pending', summary: 'Nước 23–27 °C, cá dài 3,5 cm.' })
+  expect((await json(root, 'content/summaries/paracheirodon-axelrodi.json')).problems).toBeUndefined()
+  expect(await json(root, 'content/summaries/paracheirodon-simulans.json')).toMatchObject({ review: 'approved' })
+  expect(r.summaries).toEqual(['paracheirodon-axelrodi'])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 test('a name as hobbyists write it: "Rêu Java", "Vallisneria (cỏ lươn)"; a name a person fixed and the addresses stay (home page review, 2026-11-07)', async () => {
   const root = await store()
   const c = join(root, 'content')

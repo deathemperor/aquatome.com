@@ -2,7 +2,12 @@
   "id": "dichotomyctere-ocellatus",
   "temperament": "semi-aggressive",
   "finNipper": true,
-  "schoolMin": 6,
+  "schoolMin": 4,
   "speciesUpdatedAt": "2026-11-03",
-  "generatedAt": "2026-11-03T07:14:34.379Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-07T12:51:08.356Z"
 }
