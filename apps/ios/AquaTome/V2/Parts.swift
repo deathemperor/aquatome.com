@@ -132,18 +132,19 @@ struct Lockup: View {
         // Its photo level with the name when the words run to many lines.
         HStack(alignment: size.isAccessibilitySize ? .top : .center, spacing: 12) {
           if icon {
-            V2Photo(src: item.img)
+            // A fish's colour worked out here too, so its page opens in it, not in green first.
+            V2Photo(src: item.img, colour: item.kind == .fish ? { _ in } : nil)
               .frame(width: side, height: side)
               .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
               .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary) } }
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
-            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).italic(title != nil && title == item.sub)
+            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).italic(scientific && title != nil && title == item.sub)
               .lineLimit(size.isAccessibilitySize ? nil : 2)
               .foregroundStyle(onDark ? .white : .primary)
-            if let line = line ?? Lockup.line(item) {
-              Text(verbatim: line).font(.subheadline).italic(line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
+            if let line = line ?? Lockup.line(item), line != title {
+              Text(verbatim: line).font(.subheadline).italic(scientific && line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
                 .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
             }
           }
@@ -174,10 +175,14 @@ struct Lockup: View {
     }
   }
 
-  /// The line under a page's name: a fish's scientific name, a plant's, a guide's kind; none for kit, under its own
-  /// heading.
+  /// `sub` is a scientific name, in italics, on these; a video series' is its channel.
+  private var scientific: Bool { item.kind == .fish || item.kind == .plant }
+
+  /// The line under a page's name: a fish's scientific name, a plant's, a video series' count, a guide's kind; none for
+  /// kit, under its own heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
-    item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
+    if item.kind == .video, let n = item.parts { return String(localized: "\(n) video") }
+    return item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
   }
 }
 
@@ -187,6 +192,7 @@ private extension Text {
     font(.subheadline.weight(.bold))
       .foregroundStyle(onDark ? Color.white : Color.accentColor)
       .padding(.horizontal, 16)
+      .padding(.vertical, 5)
       .frame(minWidth: 72, minHeight: 30)
       .background(Capsule().fill(onDark ? AnyShapeStyle(.white.opacity(0.15)) : AnyShapeStyle(.fill.tertiary)))
       .frame(minHeight: 44)
@@ -199,6 +205,8 @@ private extension Text {
 struct FactsStrip: View {
   let facts: HandbookIndex.Facts
   var onDark = false
+  /// Left out where the page's "Nuôi chung" says it.
+  var temperament = true
   @Environment(HandbookModel.self) private var handbook
   /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
   @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
@@ -216,7 +224,14 @@ struct FactsStrip: View {
   }
 
   var body: some View {
-    if size.isAccessibilitySize { list } else { strip }
+    if size.isAccessibilitySize {
+      list
+    } else if columns.count <= 4 {
+      // A few share the width, not half of it empty, unless the text has grown past that.
+      ViewThatFits(in: .horizontal) { row; strip }
+    } else {
+      strip
+    }
   }
 
   /// At the accessibility sizes, one figure a line down the page: across, a column takes the screen and cuts the next
@@ -237,36 +252,20 @@ struct FactsStrip: View {
     .padding(.horizontal, 20)
   }
 
+  private var row: some View {
+    HStack(alignment: .top, spacing: 0) {
+      ForEach(columns) { c in divided(c, figure(c).frame(minWidth: column, maxWidth: .infinity)) }
+    }
+    .padding(.horizontal, 12)
+  }
+
   private var strip: some View {
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(alignment: .top, spacing: 0) {
         ForEach(columns) { c in
-          VStack(spacing: 5) {
-            Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
-              .multilineTextAlignment(.center)
-              .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
-            Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
-              .foregroundStyle(onDark ? .white : .primary)
-            if let bar = c.bar {
-              Capsule().fill(onDark ? .white.opacity(0.22) : Color.primary.opacity(0.1))
-                .frame(width: 64, height: 4)
-                .overlay(alignment: .leading) {
-                  Capsule().fill(onDark ? .white : Color.accentColor)
-                    .frame(width: max(6, 64 * (bar.upperBound - bar.lowerBound)), height: 4)
-                    .offset(x: 64 * bar.lowerBound)
-                }
-                .padding(.top, 2)
-            } else if let caption = c.caption {
-              Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
-            }
-          }
-          // Four whole on a phone, the fifth fading out past them (never a stray digit): there's more to see.
-          .containerRelativeFrame(.horizontal) { w, _ in max((w - 44) / 4, column) }
-          .padding(.vertical, 4)
-          .overlay(alignment: .leading) {
-            if c.id > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
-          }
-          .accessibilityElement(children: .combine)
+          // Four whole on a phone, then only the next one's rule and the start of its words, fading out: there's more to
+          // see, and no figure cut in two.
+          divided(c, figure(c).containerRelativeFrame(.horizontal) { w, _ in max((w - 24) / 4, column) })
         }
       }
       .padding(.leading, 12)
@@ -278,6 +277,37 @@ struct FactsStrip: View {
         LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: 28)
       }
     }
+  }
+
+  private func figure(_ c: Column) -> some View {
+    VStack(spacing: 5) {
+      Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
+        .multilineTextAlignment(.center)
+        .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+      Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
+        .foregroundStyle(onDark ? .white : .primary)
+      if let bar = c.bar {
+        Capsule().fill(onDark ? .white.opacity(0.22) : Color.primary.opacity(0.1))
+          .frame(width: 64, height: 4)
+          .overlay(alignment: .leading) {
+            Capsule().fill(onDark ? .white : Color.accentColor)
+              .frame(width: max(6, 64 * (bar.upperBound - bar.lowerBound)), height: 4)
+              .offset(x: 64 * bar.lowerBound)
+          }
+          .padding(.top, 2)
+      } else if let caption = c.caption {
+        Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+      }
+    }
+  }
+
+  private func divided(_ c: Column, _ view: some View) -> some View {
+    view
+      .padding(.vertical, 4)
+      .overlay(alignment: .leading) {
+        if c.id > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
+      }
+      .accessibilityElement(children: .combine)
   }
 
   private var columns: [Column] {
@@ -298,23 +328,8 @@ struct FactsStrip: View {
     if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
     if let r = facts.gh { add("Độ cứng (dGH)", HandbookIndex.Facts.range(r, locale), upper: false) }
     if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
-    if let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
+    if temperament, let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
     return out
-  }
-}
-
-/// A video series' artwork, there being no thumbnails to show (the photo rules): a tick for each of its videos, as a
-/// strip of film.
-struct SeriesTicks: View {
-  let count: Int
-
-  var body: some View {
-    HStack(spacing: 3) {
-      ForEach(0..<min(count, 20), id: \.self) { _ in
-        RoundedRectangle(cornerRadius: 1.5).fill(.white.opacity(0.45)).frame(maxWidth: 12, minHeight: 18, maxHeight: 18)
-      }
-    }
-    .accessibilityHidden(true)
   }
 }
 
@@ -332,6 +347,56 @@ struct ShelfHeader<More: Hashable>: View {
       }
     }
     .padding(.horizontal, 20)
+  }
+}
+
+/// Words on a photo, on a wash of its colour: opaque behind them however long they run (4.5:1 on any photo), fading out
+/// past them, and the rest of the photo clear.
+struct WordsOnPhoto<Words: View>: ViewModifier {
+  let colour: Color
+  let edge: VerticalEdge
+  var fade: CGFloat = 56
+  @ViewBuilder let words: Words
+  @State private var height: CGFloat = 0
+
+  func body(content: Content) -> some View {
+    content
+      .overlay(alignment: edge == .top ? .top : .bottom) {
+        let out = LinearGradient(colors: [colour, colour.opacity(0)], startPoint: edge == .top ? .top : .bottom,
+                                 endPoint: edge == .top ? .bottom : .top).frame(height: fade)
+        VStack(spacing: 0) {
+          if edge == .bottom { out }
+          colour.frame(height: height)
+          if edge == .top { out }
+        }
+      }
+      .overlay(alignment: edge == .top ? .topLeading : .bottomLeading) {
+        words.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height = $0 }
+      }
+  }
+}
+
+/// A solid band behind the status bar and the bar, fading into the page below them, while `shown`: iOS's own edges leave a
+/// page's words legible through the glass, the hard one too.
+struct ClearUnderTopBar: ViewModifier {
+  let shown: Bool
+
+  func body(content: Content) -> some View {
+    let ground = Color(.systemBackground)
+    edgeHidden(content)
+      .safeAreaInset(edge: .top, spacing: 0) {
+        Color.clear.frame(height: 0)
+          .background(ground.opacity(shown ? 1 : 0))
+          .overlay(alignment: .top) {
+            LinearGradient(colors: [ground, ground.opacity(0)], startPoint: .top, endPoint: .bottom)
+              .frame(height: 12).opacity(shown ? 1 : 0).allowsHitTesting(false)
+          }
+          .animation(.easeInOut(duration: 0.2), value: shown)
+      }
+  }
+
+  @ViewBuilder private func edgeHidden(_ content: Content) -> some View {
+    if #available(iOS 26, *) { content.scrollEdgeEffectHidden(true, for: .top) } else { content }
   }
 }
 

@@ -42,8 +42,8 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
-      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath).v2ClearUnderTabBar() }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar() }
+      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
+      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
       Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar() }
     }
     // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
@@ -51,9 +51,9 @@ struct V2Root: View {
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
-    // Grown or replaced, not gone back: the kept pages' row replaces it, a path of the same length.
-    .onChange(of: handbookPath) { old, new in
-      if !new.isEmpty, new.count >= old.count { selection = .browse }
+    // From another tab this stack changes only by a link (the kept pages' row replaces it, whatever its length).
+    .onChange(of: handbookPath) { _, new in
+      if !new.isEmpty { selection = .browse }
       if let f = ownFrom, new.count <= f { ownFrom = nil }
     }
     .onChange(of: todayPath.count) { if let f = todayOwnFrom, todayPath.count <= f { todayOwnFrom = nil } }
@@ -120,19 +120,26 @@ private extension View {
     if #available(iOS 26, *) { scrollEdgeEffectHidden(true, for: .bottom) } else { self }
   }
 
-  func v2ClearUnderTabBar() -> some View { modifier(ClearUnderTabBar()) }
+  /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey), so the fade doesn't
+  /// show a lighter band.
+  func v2ClearUnderTabBar(on ground: Color = .clear) -> some View { modifier(ClearUnderTabBar(ground: ground)) }
 }
 
 /// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
 /// through the bar). iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
 /// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
+  let ground: Color
+  /// The fade's height. Short: a page's pinned controls end just above it.
+  private let fade: CGFloat = 24
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
 
   func body(content: Content) -> some View {
     if #available(iOS 26, *) {
       content
+        // A page's end and its pinned controls stop above the fade, not in it.
+        .safeAreaPadding(.bottom, bar >= 49 ? fade : 0)
         .background {
           Color.clear.ignoresSafeArea(.keyboard).onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.bottom } action: { bar = $0 }
         }
@@ -141,12 +148,13 @@ private struct ClearUnderTabBar: ViewModifier {
             Color.black
             // A bar at the foot of the screen; an iPad's is at the top, with only the home indicator's inset here.
             if bar >= 49 {
-              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: 24) // Short: a page's pinned controls end just above the bar.
+              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: fade)
               Color.clear.frame(height: bar)
             }
           }
           .ignoresSafeArea()
         }
+        .background { ground.ignoresSafeArea() }
         // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
         // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
         .overlay {

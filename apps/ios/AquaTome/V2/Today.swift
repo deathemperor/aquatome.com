@@ -11,8 +11,10 @@ struct TodayView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Namespace private var zoom
-  /// The feed scrolled under the status bar: a bar's material behind it then, none at the top.
+  /// The feed scrolled under the status bar: a band behind it then, none at the top.
   @State private var under = false
+  /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
+  @State private var today = Date.now
 
   var body: some View {
     NavigationStack(path: $path) {
@@ -39,27 +41,27 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .toolbarVisibility(.hidden, for: .navigationBar)
-      // With no bar, the feed would scroll bare under the status bar: a bar's material behind it once it does.
+      // With no bar, the feed would scroll bare under the status bar: a band behind it once it does.
       .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 4 } action: { _, u in under = u }
-      .safeAreaInset(edge: .top, spacing: 0) {
-        Color.clear.frame(height: 0).background(.bar.opacity(under ? 1 : 0)).animation(.easeInOut(duration: 0.2), value: under)
-      }
+      .modifier(ClearUnderTopBar(shown: under))
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
     .v2StackLinks($path)
+    .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in today = .now }
   }
 
   private var header: some View {
     HStack(alignment: .bottom) {
       VStack(alignment: .leading, spacing: 2) {
-        Text(Date.now, format: .dateTime.weekday(.wide).day().month(.wide))
+        Text(today, format: .dateTime.weekday(.wide).day().month(.wide))
           .font(.footnote.weight(.semibold)).textCase(.uppercase).foregroundStyle(.secondary)
         Text("Hôm nay").font(.largeTitle.weight(.bold))
       }
       Spacer()
-      ProfileButton().font(.title).frame(minWidth: 44, minHeight: 44).padding(.bottom, 2)
+      // The same colour as on Khám phá's bar (in a bar, a button's primary is the text's; here it would be the app's tint).
+      ProfileButton().font(.title).tint(.primary).frame(minWidth: 44, minHeight: 44).padding(.bottom, 2)
     }
     .padding(.horizontal, 20)
     .padding(.top, 8)
@@ -86,7 +88,7 @@ struct TodayView: View {
   /// one card only (its card is where it zooms from).
   private var cards: [Card] {
     let s = handbook.shelves
-    let day = Calendar.current.ordinality(of: .day, in: .era, for: .now) ?? 0
+    let day = Calendar.current.ordinality(of: .day, in: .era, for: today) ?? 0
     // One with a photo where the shelf has any.
     func pick(_ items: [HandbookIndex.Item], _ turn: Int = 0) -> HandbookIndex.Item? {
       let photographed = items.filter { $0.img != nil }, pool = photographed.isEmpty ? items : photographed
@@ -99,7 +101,7 @@ struct TodayView: View {
     if let f = pick(easy.isEmpty ? s.featuredFish : easy) { out.append(.fish(f)) }
     if let g = pick(s.firstGuides) { out.append(.guide(g)) }
     // The northern winter (November to March): the well-known fish that need a heater. Vietnam's season, so Vietnamese only.
-    let month = Calendar.current.component(.month, from: .now)
+    let month = Calendar.current.component(.month, from: today)
     var shown = Set(out.compactMap { if case let .fish(i) = $0 { i.path } else if case let .guide(i) = $0 { i.path } else { nil } })
     if handbook.lang == "vi", [11, 12, 1, 2, 3].contains(month) {
       let warm = s.featuredFish.filter { ($0.facts.tempC?.min ?? 0) >= 23 && $0.img != nil && !shown.contains($0.path) }
@@ -128,7 +130,8 @@ private struct Eyebrow: View {
 
 /// A fish's figures in a line: "Dễ · 24–30 °C · 15 cm".
 @MainActor func factsLine(_ item: HandbookIndex.Item, _ lang: String) -> String? {
-  let locale = Locale(identifier: lang), f = item.facts
+  // A breed's are on its own card, as on its page.
+  let locale = Locale(identifier: lang), f = item.facts.any ? item.facts : item.card ?? item.facts
   var parts: [String] = []
   if let d = f.difficulty { parts.append(FactsCard.level(d)) }
   if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale)) °C") }
@@ -152,7 +155,7 @@ private struct FishOfTheDay: View {
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
   /// Taller with the text, so a long name at the larger sizes stays on the photo.
-  @ScaledMetric(relativeTo: .largeTitle) private var height: CGFloat = 380
+  @ScaledMetric(relativeTo: .largeTitle) private var height: CGFloat = 420
 
   var body: some View {
     VStack(spacing: 0) {
@@ -166,13 +169,9 @@ private struct FishOfTheDay: View {
         } else {
           V2Photo(src: item.img) { colour = $0 }
             .frame(height: height)
-            .overlay {
-              LinearGradient(stops: [.init(color: colour.opacity(0.85), location: 0), .init(color: colour.opacity(0), location: 0.5)],
-                             startPoint: .top, endPoint: .bottom)
-            }
-            .overlay(alignment: .topLeading) { name }
+            .modifier(WordsOnPhoto(colour: colour, edge: .top) { name })
             .overlay(alignment: .bottom) {
-              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 80)
+              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 56)
             }
         }
       }
@@ -231,12 +230,7 @@ private struct GuideCard: View {
         } else {
           V2Photo(src: item.img) { colour = $0 }
             .frame(height: height)
-            .overlay {
-              // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
-              LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.3), .init(color: colour.opacity(0.95), location: 0.55),
-                                     .init(color: colour, location: 0.65)], startPoint: .top, endPoint: .bottom)
-            }
-            .overlay(alignment: .bottomLeading) { words }
+            .modifier(WordsOnPhoto(colour: colour, edge: .bottom) { words })
         }
       }
       .animation(.easeInOut(duration: 0.4), value: colour)
@@ -416,10 +410,7 @@ private struct SeriesCard: View {
           .frame(width: 48, height: 48)
           .background(Circle().fill(.white.opacity(0.18)))
         Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(3).multilineTextAlignment(.leading)
-        if let n = item.parts {
-          SeriesTicks(count: n)
-          Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75)
-        }
+        if let n = item.parts { Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75) }
       }
       .foregroundStyle(.white)
       .frame(maxWidth: .infinity, alignment: .leading)

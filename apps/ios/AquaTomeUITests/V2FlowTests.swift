@@ -134,6 +134,11 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
     neon.tap()
     XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    // Two screens deep there: the row's one is a shorter path, not a longer one.
+    let whole = app.buttons["v2-full-page"]
+    repeatUntil(whole.exists && whole.isHittable, times: 8) { app.swipeUp() }
+    whole.tap()
+    XCTAssertFalse(app.buttons["v2-full-page"].waitForExistence(timeout: 2), "the whole page didn't open")
     app.openTab("Hôm nay")
     app.openAccount()
     let row = app.buttons["kept-row"]
@@ -150,6 +155,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    // Its lead photo's too, past the photo's one stop for VoiceOver.
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "the lead photo without its credit")
     for credit in ["Ảnh: Tác giả 1 · CC BY 2.0", "Jane Doe"] {
       repeatUntil(app.links[credit].exists, times: 6) { app.swipeUp() }
       XCTAssertTrue(app.links[credit].exists, "a photo without its credit: \(credit)")
@@ -177,6 +184,23 @@ final class V2FlowTests: XCTestCase {
     let received = app.descendants(matching: .any)["telemetry-received"].firstMatch
     let sent = expectation(for: NSPredicate(format: "label CONTAINS %@", #""depth":90,"path":"/vi/ca/ca-neon/","t":"scroll""#), evaluatedWith: received)
     XCTAssertEqual(XCTWaiter.wait(for: [sent], timeout: 10), .completed, "not sent: \(received.label)")
+  }
+
+  func testAFishsPageOpenedAndLeftUnreadReportsNoDepthPastTheScreen() {
+    let app = launch("-site-telemetry", "-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    XCTAssertTrue(app.buttons["v2-full-page"].waitForExistence(timeout: 5), "its text didn't come")
+    XCUIDevice.shared.press(.home)
+    let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
+    let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background")
+    app.activate()
+    let received = app.descendants(matching: .any)["telemetry-received"].firstMatch
+    XCTAssertTrue(received.waitForExistence(timeout: 10), "nothing sent")
+    XCTAssertFalse(received.label.contains(#""depth":90"#), "read to the end before a word was read: \(received.label)")
   }
 
   func testTheTabBarStaysWholeWhileScrolling() {
@@ -248,6 +272,24 @@ final class V2FlowTests: XCTestCase {
     app.buttons["v2-back"].tap()
     XCTAssertTrue(neon.firstMatch.waitForExistence(timeout: 5), "not back on Khám phá")
     XCTAssertEqual(neon.count, 1, "Cá neon is on two shelves")
+  }
+
+  func testAPageJustReadTakesItsPlaceOnKhamPhaOnlyNextTime() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "something read already")
+    neon.tap()
+    XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.buttons["v2-back"].tap()
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "not back on Khám phá")
+    // The shelves stay as they were, for the page's zoom back to where it was tapped.
+    XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "the shelves moved on coming back")
+    app.openTab("Hôm nay")
+    app.openTab("Khám phá")
+    XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
   }
 
   /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.

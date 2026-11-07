@@ -13,18 +13,23 @@ struct BrowseHome: View {
   /// tapped, for its zoom back, and the shelves don't move; it takes its new place next time.
   let front: Bool
   @State private var recentShown: [HandbookIndex.Item] = []
+  /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
+  /// title before this.
+  @State private var titleGone = false
+  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
   @Namespace private var zoom
   // Sizes growing with the text, so a tile's words stay whole at the larger sizes.
-  @ScaledMetric(relativeTo: .title3) private var featuredHeight: CGFloat = 230
+  @ScaledMetric(relativeTo: .title3) private var featuredHeight: CGFloat = 250
   @ScaledMetric(relativeTo: .subheadline) private var tileHeight: CGFloat = 104
   @ScaledMetric(relativeTo: .subheadline) private var tileWidth: CGFloat = 168
   @ScaledMetric(relativeTo: .body) private var rowHeight: CGFloat = 76
   @ScaledMetric(relativeTo: .subheadline) private var guideWidth: CGFloat = 250
-  @ScaledMetric(relativeTo: .headline) private var videoWidth: CGFloat = 200
-  @ScaledMetric(relativeTo: .headline) private var videoHeight: CGFloat = 190
+  @ScaledMetric(relativeTo: .headline) private var videoWidth: CGFloat = 230
+  @ScaledMetric(relativeTo: .headline) private var videoHeight: CGFloat = 176
+  @ScaledMetric(relativeTo: .title3) private var toolSymbolHeight: CGFloat = 28
 
   var body: some View {
     let s = handbook.shelves
@@ -40,7 +45,7 @@ struct BrowseHome: View {
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
           }
-          featured(top)
+          if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved) }
           if !recent.isEmpty { columns("Đọc gần đây", recent) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
@@ -55,16 +60,27 @@ struct BrowseHome: View {
           let plants = s.easyPlants.filter { !onTop.contains($0.path) }
           if !plants.isEmpty || !s.placements.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
-              if !plants.isEmpty { columns("Cây thủy sinh", plants, more: Browse.plants(nil)) }
-              chips(s.placements.map { ($0.label, $0.count, Browse.plants($0.key)) })
+              // Its chips never without a heading.
+              if plants.isEmpty {
+                ShelfHeader(title: "Cây thủy sinh", more: size.isAccessibilitySize ? nil : Browse.plants(nil))
+              } else {
+                columns("Cây thủy sinh", plants, more: Browse.plants(nil))
+              }
+              if !s.placements.isEmpty { chips(s.placements.map { ($0.label, $0.count, Browse.plants($0.key)) }) }
             }
           }
           let first = s.firstGuides.filter { !onTop.contains($0.path) }
-          VStack(alignment: .leading, spacing: 12) {
-            if !first.isEmpty {
-              if size.isAccessibilitySize { columns("Bắt đầu từ đây", first, more: Browse.guides(nil)) } else { guides(first) }
+          if !first.isEmpty || !s.sections.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+              if first.isEmpty {
+                ShelfHeader(title: "Hướng dẫn", more: size.isAccessibilitySize ? nil : Browse.guides(nil))
+              } else if size.isAccessibilitySize {
+                columns("Bắt đầu từ đây", first, more: Browse.guides(nil))
+              } else {
+                guides(first)
+              }
+              if !s.sections.isEmpty { chips(s.sections.map { ($0.label, $0.count, Browse.guides($0.key)) }) }
             }
-            chips(s.sections.map { ($0.label, $0.count, Browse.guides($0.key)) })
           }
           let series = s.all(.video).filter { !onTop.contains($0.path) }
           if !series.isEmpty {
@@ -76,15 +92,18 @@ struct BrowseHome: View {
         }
         .padding(.vertical, 12)
       }
-      .modifier(HardTopEdge())
+      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > titleHeight } action: { _, gone in titleGone = gone }
+      .modifier(ClearUnderTopBar(shown: titleGone))
       .navigationTitle("Khám phá")
       .profileButton()
       .v2Destinations(zoom: zoom)
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
-      .task(id: "\(front) \(handbook.status)") { recentShown = handbook.recent(nil) }
     }
+    // On the stack, not its first screen, which disappears and comes back with a page pushed and popped.
+    .onChange(of: front, initial: true) { recentShown = handbook.recent(nil) }
+    .onChange(of: handbook.status) { recentShown = handbook.recent(nil) }
   }
 
   /// The top's pages: the fish and guides the site puts first, with photos.
@@ -152,8 +171,9 @@ struct BrowseHome: View {
             V2Photo(src: g.img)
               .frame(width: tileWidth, height: tileHeight)
               .overlay {
-                // Enough under the words on a light photo: 4.5:1 for the count too.
-                LinearGradient(stops: [.init(color: .clear, location: 0.3), .init(color: .black.opacity(0.75), location: 0.85)], startPoint: .top, endPoint: .bottom)
+                // Enough under the words on a light photo, up to a two-line name's first line: 4.5:1.
+                LinearGradient(stops: [.init(color: .clear, location: 0.1), .init(color: .black.opacity(0.6), location: 0.5), .init(color: .black.opacity(0.75), location: 0.85)],
+                               startPoint: .top, endPoint: .bottom)
               }
               .overlay(alignment: .bottomLeading) {
                 HStack(alignment: .firstTextBaseline) {
@@ -183,7 +203,7 @@ struct BrowseHome: View {
       if size.isAccessibilitySize {
         VStack(alignment: .leading, spacing: 14) {
           ForEach(items.prefix(more == nil ? items.count : 5)) { item in
-            Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
+            Lockup(item: item, line: factsLine(item, handbook.lang))
               .matchedTransitionSource(id: item.path, in: zoom)
           }
           if let more { moreLink(more) }
@@ -193,9 +213,9 @@ struct BrowseHome: View {
         ScrollView(.horizontal, showsIndicators: false) {
           LazyHGrid(rows: Array(repeating: GridItem(.fixed(rowHeight), spacing: 12), count: min(3, items.count)), spacing: 16) {
             ForEach(items) { item in
-              Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
-                // One column's worth: the whole width for the words, no next column to peek.
-                .containerRelativeFrame(.horizontal) { w, _ in items.count <= 3 ? w - 40 : w - 72 }
+              Lockup(item: item, line: factsLine(item, handbook.lang))
+                // One column's worth: the whole width for the words, no next column to peek (`w` is less the margins).
+                .containerRelativeFrame(.horizontal) { w, _ in items.count <= 3 ? w : w - 32 }
                 .matchedTransitionSource(id: item.path, in: zoom)
             }
           }
@@ -215,7 +235,8 @@ struct BrowseHome: View {
           NavigationLink(value: p.to) {
             HStack(spacing: 6) {
               Text(verbatim: p.label)
-              Text(p.count, format: .number).foregroundStyle(.secondary)
+              // Less than the system's secondary, which measured 3.2:1 on the chip's fill (v1's KindChip the same).
+              Text(p.count, format: .number).opacity(0.6)
             }
             .font(.subheadline.weight(.semibold))
             .padding(.horizontal, 14)
@@ -269,10 +290,7 @@ struct BrowseHome: View {
                   .frame(width: 36, height: 36).background(Circle().fill(.white.opacity(0.2)))
                 Text(verbatim: item.name).font(.headline).lineLimit(4).multilineTextAlignment(.leading)
                 Spacer(minLength: 0)
-                if let n = item.parts {
-                  SeriesTicks(count: n)
-                  Text("\(n) video").font(.caption.weight(.semibold)).opacity(0.8)
-                }
+                if let n = item.parts { Text("\(n) video").font(.caption.weight(.semibold)).opacity(0.8) }
               }
               .foregroundStyle(.white)
               .padding(14)
@@ -347,7 +365,7 @@ struct BrowseHome: View {
   private func toolLabel(_ title: Text, _ symbol: String) -> some View {
     VStack(alignment: .leading, spacing: 10) {
       // One height for every symbol: the words start on one line across a row.
-      Image(systemName: symbol).font(.title3).foregroundStyle(Color.accentColor).frame(height: 28, alignment: .leading)
+      Image(systemName: symbol).font(.title3).foregroundStyle(Color.accentColor).frame(height: toolSymbolHeight, alignment: .leading)
       title.font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(3).multilineTextAlignment(.leading)
     }
     .frame(maxWidth: .infinity, minHeight: 84, alignment: .topLeading)
@@ -380,12 +398,7 @@ private struct FeaturedCard: View {
       } else {
         V2Photo(src: item.img) { colour = $0 }
           .frame(height: height)
-          .overlay {
-            // Opaque under the words: the small kind reads at 4.5:1 on a light photo too.
-            LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.35), .init(color: colour, location: 0.72)],
-                           startPoint: .top, endPoint: .bottom)
-          }
-          .overlay(alignment: .bottomLeading) { words }
+          .modifier(WordsOnPhoto(colour: colour, edge: .bottom, fade: 44) { words })
       }
     }
     .animation(.easeInOut(duration: 0.4), value: colour)
@@ -399,12 +412,5 @@ private struct FeaturedCard: View {
     }
     .foregroundStyle(.white)
     .padding(16)
-  }
-}
-
-/// iOS 26's hard top edge, as on a fish's page: the words under the bar's title don't show through it.
-private struct HardTopEdge: ViewModifier {
-  func body(content: Content) -> some View {
-    if #available(iOS 26, *) { content.scrollEdgeEffectStyle(.hard, for: .top) } else { content }
   }
 }

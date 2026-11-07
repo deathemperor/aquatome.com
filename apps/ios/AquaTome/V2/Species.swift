@@ -33,6 +33,8 @@ struct SpeciesPage: View {
   @State private var doc: PageDoc?
   /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
   @State private var asked = false
+  /// "Thử lại" pressed, so many times.
+  @State private var retries = 0
   @State private var colour: Color
   @State private var putting = false
   /// The gallery's photo shown full screen.
@@ -71,25 +73,39 @@ struct SpeciesPage: View {
               LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
             }
             .overlay(alignment: .bottom) {
-              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
+              // Opaque behind the credit: the licence reads at 4.5:1 on any photo.
+              LinearGradient(stops: [.init(color: colour.opacity(0), location: 0), .init(color: colour, location: 0.7)],
+                             startPoint: .top, endPoint: .bottom).frame(height: 140)
             }
-            .overlay(alignment: .bottomTrailing) { leadCredit }
             .accessibilityElement()
             .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
             .accessibilityAddTraits(.isImage)
+            // Past the photo's one stop, so VoiceOver reaches its links.
+            .overlay(alignment: .bottomTrailing) { leadCredit }
         } else {
           // No photo (a third of the fish): the page starts at the name, under its buttons, not at an empty box.
           Color.clear.frame(height: 116)
         }
         header
-        FactsStrip(facts: facts, onDark: true).padding(.vertical, 14)
+        FactsStrip(facts: facts, onDark: true, temperament: !hasMates).padding(.vertical, 14)
         if !photos.isEmpty { gallery.padding(.bottom, 24) }
       }
       .background(colour)
       .animation(.easeInOut(duration: 0.45), value: colour)
       VStack(alignment: .leading, spacing: 28) {
-        if asked, doc == nil {
-          Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 20)
+        if !asked {
+          ProgressView().frame(maxWidth: .infinity)
+        } else if doc == nil {
+          VStack(alignment: .leading, spacing: 4) {
+            Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.secondary)
+            Button("Thử lại") {
+              asked = false
+              retries += 1
+            }
+            .frame(minHeight: 44)
+            .accessibilityIdentifier("v2-retry")
+          }
+          .padding(.horizontal, 20)
         }
         if hasSummary { summary } else { firstParagraph }
         climate
@@ -112,11 +128,13 @@ struct SpeciesPage: View {
       .padding(.bottom, 40)
     }
     .ignoresSafeArea(edges: .top)
-    .onScrollGeometryChange(for: Int.self) { g in
+    // Once its text is in: the photo and name alone fit the screen, "read to the end" at once.
+    .onScrollGeometryChange(for: Int?.self) { [loaded = doc != nil] g in
+      guard loaded else { return nil }
       let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
       return Event.depths.last { share >= Double($0) } ?? 0
     } action: { _, mark in
-      reading?.scrolled(to: Double(mark) / 100)
+      if let mark { reading?.scrolled(to: Double(mark) / 100) }
     }
     .onAppear {
       if reading == nil { reading = PageReading(path: item.path, telemetry: telemetry.telemetry) }
@@ -133,7 +151,7 @@ struct SpeciesPage: View {
     // in a dark bar. The bar itself once the name has gone under it.
     .toolbarVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
     .overlay(alignment: .top) { if !scrolled { overPhoto } }
-    .modifier(TopEdge(shown: scrolled))
+    .modifier(ClearUnderTopBar(shown: scrolled))
     // Over the photo and the colour under it, the status bar in white.
     .toolbarColorScheme(scrolled ? nil : .dark, for: .navigationBar)
     .toolbar {
@@ -151,7 +169,8 @@ struct SpeciesPage: View {
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
       GalleryViewer(title: galleryTitle, note: "", photos: photos, readers: nil, index: viewing ?? 0)
     }
-    .task(id: item.path) {
+    .task(id: "\(item.path) \(retries)") {
+      if retries > 0 { await handbook.load() }
       doc = await handbook.doc(item)
       asked = true
       handbook.read(item)
@@ -262,6 +281,21 @@ struct SpeciesPage: View {
     .scrollTargetBehavior(.viewAligned)
   }
 
+  private var hasMates: Bool {
+    doc?.blocks.contains { if case .mates = $0 { true } else { false } } == true
+  }
+
+  /// The tank-mates tool's link where the page lists no tank-mates: a paragraph of that link alone, before its summary
+  /// and sections (as v1's page reads it; a breed's line naming its parents has more to it).
+  private var toolLink: (text: String, href: String)? {
+    guard let doc else { return nil }
+    let lead = doc.blocks.firstIndex { if case .summary = $0 { true } else if case .heading = $0 { true } else { false } } ?? doc.blocks.count
+    for case let .paragraph(runs) in doc.blocks[..<lead] where runs.count == 1 {
+      if let href = runs[0].href { return (runs[0].text, href) }
+    }
+    return nil
+  }
+
   private var hasSummary: Bool {
     doc?.blocks.contains { if case let .summary(_, items, text, _, _) = $0 { text != nil || !items.isEmpty } else { false } } == true
   }
@@ -312,8 +346,9 @@ struct SpeciesPage: View {
         Text(verbatim: c.title).font(.title2.weight(.bold)).accessibilityAddTraits(.isHeader)
         ForEach(c.items.indices, id: \.self) { i in
           HStack(alignment: .firstTextBaseline, spacing: 8) {
-            Image(systemName: c.items[i].ok ? "checkmark.circle.fill" : "xmark.circle.fill")
-              .foregroundStyle(c.items[i].ok ? Color.green : Color.red)
+            // A warning, not "can't keep it": what to do about it follows, and red is "Tránh"'s.
+            Image(systemName: c.items[i].ok ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+              .foregroundStyle(c.items[i].ok ? Color.green : Color.warning)
               .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
               Text(verbatim: c.items[i].label).font(.body.weight(.semibold))
@@ -346,17 +381,23 @@ struct SpeciesPage: View {
         VStack(alignment: .leading, spacing: 6) {
           MatesCredits(photos: ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img))
           if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.secondary) }
-          Button { open(m.tool.href) } label: {
-            // Its words end in their own arrow.
-            Text(verbatim: m.tool.text).font(.subheadline.weight(.semibold)).multilineTextAlignment(.leading)
-              .frame(minHeight: 44)
-            .contentShape(.rect)
-          }
-          .accessibilityIdentifier("v2-mates-tool")
+          toolButton(m.tool.text, m.tool.href)
         }
         .padding(.horizontal, 20)
       }
+    } else if let link = toolLink {
+      toolButton(link.text, link.href).padding(.horizontal, 20)
     }
+  }
+
+  private func toolButton(_ text: String, _ href: String) -> some View {
+    Button { open(href) } label: {
+      // Its words end in their own arrow.
+      Text(verbatim: text).font(.subheadline.weight(.semibold)).multilineTextAlignment(.leading)
+        .frame(minHeight: 44)
+        .contentShape(.rect)
+    }
+    .accessibilityIdentifier("v2-mates-tool")
   }
 
   /// A link of the page's to one of the app's screens (the tank-mates tool), as v1's page opens it.
@@ -365,20 +406,6 @@ struct SpeciesPage: View {
           let screen = AppScreen.of(url, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
                                     group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) else { return }
     openScreen(screen)
-  }
-}
-
-/// iOS 26's bars have no background of their own: the scroll view's top edge effect, hard (the page's words go under
-/// it), once the page is past its photo, and none over the photo.
-private struct TopEdge: ViewModifier {
-  let shown: Bool
-
-  func body(content: Content) -> some View {
-    if #available(iOS 26, *) {
-      content.scrollEdgeEffectStyle(.hard, for: .top).scrollEdgeEffectHidden(!shown, for: .top)
-    } else {
-      content
-    }
   }
 }
 
@@ -469,11 +496,15 @@ private struct MatesRow: View {
     let item = handbook.item(at: m.path)
     return NavigationLink(value: item) {
       VStack(alignment: .leading, spacing: 6) {
-        V2Photo(src: m.img?.src ?? item?.img)
+        let src = m.img?.src ?? item?.img
+        V2Photo(src: src)
           .frame(width: lines == nil ? photo * 1.5 : width, height: photo)
           .clipShape(.rect(cornerRadius: 14, style: .continuous))
+          // A third of the fish have no photo: the tile says what it is, not an empty box.
+          .overlay { if src == nil { Image(systemName: item?.kind.symbol ?? "fish").font(.title2).foregroundStyle(.secondary) } }
         Text(verbatim: m.name).font(.subheadline.weight(.semibold)).lineLimit(lines == nil ? nil : 2)
-        if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.secondary).lineLimit(lines) }
+        // Its lines whole: a row across a scroll view would give it its one line's height.
+        if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.secondary).lineLimit(lines).fixedSize(horizontal: false, vertical: true) }
       }
       .multilineTextAlignment(.leading)
     }
