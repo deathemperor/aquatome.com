@@ -84,9 +84,10 @@ export const RangeSchema = z.object({
 /**
  * The water a fish is kept in when it isn't fresh (engine water.ts): `brackish` or `marine` (sea water), from a sentence
  * of one of its sources that says so (`quote`, as the source writes it, in English). None: kept in fresh water, or not
- * read yet (engine-state/water/<id>.json says which).
+ * read yet (engine-state/water/<id>.json says which). `fixed`: set by a person, who checked it, and the water step leaves
+ * it, as `nameFixed` holds a name.
  */
-export const WaterSchema = z.object({ kind: z.enum(['brackish', 'marine']), source: SourceId, quote: z.string().min(1) })
+export const WaterSchema = z.object({ kind: z.enum(['brackish', 'marine']), source: SourceId, quote: z.string().min(1), fixed: z.literal(true).optional() })
 
 /** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
 const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)

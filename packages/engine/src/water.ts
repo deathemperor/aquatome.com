@@ -12,7 +12,8 @@ import type { SourceConfig } from './sources'
  * Whether a species is kept in brackish or sea water (content `water`, `@aq/schema` WaterSchema), read by the model from
  * what its sources say, again when that text changes. A species whose sources never mention salt, the sea or brackish
  * water is fresh with no call. A claim stays only with a sentence of its source, found there word for word, that
- * itself mentions salt, the sea or brackish water. The claims stay in engine-state/water/<id>.json.
+ * itself mentions salt, the sea or brackish water. The claims stay in engine-state/water/<id>.json. Water a person set
+ * (`fixed`) is left as it is.
  */
 
 const TEMPLATE = readFileSync(new URL('./prompts/water.md', import.meta.url), 'utf8')
@@ -113,6 +114,7 @@ export async function speciesWater(root: string, deps: WaterDeps, opts: { limit:
     const raw = await readFile(file, 'utf8').catch(() => '')
     if (!raw) continue
     const entity = JSON.parse(raw) as SpeciesEntity
+    if (entity.water?.fixed) continue
     const audit = (await readJson<Audit>(auditFile(id))) ?? { id }
     const blocks = blocksOf(entity, mayUse)
     const input = inputHash(entity.scientificName, blocks)
