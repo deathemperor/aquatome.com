@@ -1,0 +1,35 @@
+{
+  "id": "epiplatys-duboisi",
+  "native": {
+    "input": "63fe213c161717cf",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Epiplatys duboisi",
+    "status": "ACCEPTED",
+    "taxonKey": 2348711,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        21
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

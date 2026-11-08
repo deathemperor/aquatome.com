@@ -4,13 +4,48 @@
   "File:Cambarellus puer 53937865.jpg",
   "File:Cambarellus puer 13203072.jpg",
   "File:Cambarellus puer 13203074.jpg",
-  "File:Cambarellus puer 61222726.jpg"
+  "File:Cambarellus puer 61222726.jpg",
+  "inat:7107944",
+  "inat:7107986",
+  "inat:7108663",
+  "inat:13203072",
+  "inat:13203074",
+  "inat:53937865",
+  "inat:61222687",
+  "inat:61222704",
+  "inat:61222726",
+  "inat:445527758",
+  "inat:445527777",
+  "inat:445527788",
+  "inat:466461637",
+  "inat:466461656",
+  "inat:466461923",
+  "inat:466461936",
+  "inat:666138966",
+  "inat:666138936",
+  "inat:666138919",
+  "inat:721421558",
+  "inat:721431656",
+  "inat:721421513"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/703a69798444a9d9.webp": "1721271bf318409c",
   "https://media.aquatome.com/commons/363d69528950314e.webp": "133bb372f0e5662c",
   "https://media.aquatome.com/commons/ace7ca2329d0f045.webp": "100c34f07078f971",
-  "https://media.aquatome.com/commons/17d91e1623426cb4.webp": "f0f0f0b0b1707030"
+  "https://media.aquatome.com/commons/17d91e1623426cb4.webp": "f0f0f0b0b1707030",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/7107944/large.jpg": "31270f31f0514b23",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/7107986/large.jpg": "5c77e6b1b096ae1c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/7108663/large.jpg": "fef8f8f060c0c030",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/13203074/large.jpg": "104cb0b2727af973",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/721421558/large.jpg": "0820caa2e0c23532"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 96521,
+  "pass": "done",
+  "after": {
+   "research": 393580125,
+   "agree": 292912960
+  }
+ }
 }

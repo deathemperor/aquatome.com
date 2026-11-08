@@ -1,0 +1,43 @@
+{
+  "id": "eutropiichthys-cetosus",
+  "native": {
+    "input": "be52932ad5675c7f",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Kaladan River drainage in southern Mizoram, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kaladan River",
+        "source": "scotcat",
+        "quote": "Asia: Kaladan River drainage in southern Mizoram, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Eutropiichthys cetosus",
+    "status": "ACCEPTED",
+    "taxonKey": 8115072,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

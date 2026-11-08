@@ -5,6 +5,45 @@ naturalness findings, and how many the corpus check held (the phrase is far rare
 the site, and hobbyists use the replacement). A seat that judges a language well has most of its findings held over two
 rounds or more; the skill's "Weighing the seats" says what that changes.
 
+## The app's card copy (2026-11-08)
+
+Seven rounds on the calendar's themes, shelf titles and story cards (`content/curation.json`), with the Anthropic and
+xAI seats only; OpenAI and Google were out on the Cursor limit. These aren't in the tallies below, which count pages.
+- **Vietnamese, held by the references:**
+  - "trải nền cao dần về phía sau" for "dốc về sau" (Anthropic): 8 a million words in the video guides, against 0.
+  - "lưu thông tốt" for "nước chảy tốt" (Anthropic): in the forum and the videos, while the other is in neither.
+  - "bể thủy sinh" for "bể cây": 27.7 against 0.7.
+  - "người mới" for "bể đầu tiên": 66.6 against 0.7.
+  - Both seats, both rare: "đặt ở chỗ" for "đặt chỗ", and "phòng khi mất điện" for "phòng mất điện".
+- **Indonesian, Thai and Malay** have no hobbyist corpus yet. A finding held when both seats raised it, or when the
+  site's own pages bear it out:
+  - Thai: "ปลาพื้นเมือง"; "ปลาหมอไทย", the climbing perch page's other name; "ปลาช่อนและปลาชะโด", since the giant
+    snakehead's page never calls it ปลาช่อน.
+  - Malay: "berkumpulan", 627 a million words on the site's Malay pages against 19 for the Indonesian "berkelompok",
+    which round 4 had brought in.
+  - The beginners' shelf in two beats (xAI alone): "cocok untuk pemula" and "sesuai untuk pemula", both the site's own
+    words.
+- **Labels, not wording.** Most findings were labels that promised more than the pages say: goldfish on a cold shelf,
+  a Thai betta on a native one, a ram among small schooling fish. Each became a planner rule
+  (`packages/engine/src/curation.ts`), so they're not counted against the seats.
+
+## The app's trivia cards (2026-11-08)
+
+Rounds 8–11 on the first two Hôm nay cards (`content/cards`), Vietnamese, each one fact from dated papers. The Anthropic
+and xAI seats only; OpenAI and Google were out on the Cursor limit. Lowest of four, Anthropic then xAI: medaka 8/7, 9/7,
+8/9, 9/9; climbing perch 6/6, 9/7, 9/9. Round 11's last finding (xAI: "Hai trong 8 con nở" read as only two
+hatching, which Anthropic also stopped on) was taken after both scored 9. Not in the tallies below.
+- **Faithfulness, both seats, every round:** a detail from the fish's page cited as the paper's ("vài trăm mét", "có
+  gai", "thân sau", "xòe"); a hedge tightened ("chỉ" for the paper's "predominantly"); one clause carrying two facts,
+  so the limit on one stuck to the other (the 43 eggs read as the first week's); a conclusion left outside its citation,
+  so it read as ours. A card's every sentence now sits on the source it names.
+- **Held, one seat:** "bắt cặp" for a third "giao phối" (Anthropic; 37 a million words in the forum, against 16); "hạ
+  cánh" for "về mặt đất" (Anthropic); the hatch's second half, so 8 of 43 doesn't read as a failure (xAI).
+- **The eyebrow:** both seats found "Có thể bạn chưa biết" a stale banner, close to the style guide's "bạn có biết".
+  "Chuyện ít ai biết" (Anthropic) held; "Chuyện ít kể" (xAI) wasn't taken. Neither is in the references: a rubric.
+- **Split:** "tạp chí" before a journal's name (Anthropic: always; xAI: never before "Journal of…", which stutters).
+  It stays before a name that doesn't say it's a journal.
+
 ## Vietnamese
 
 Rounds 1 and 2 (2026-11-07) had the Anthropic seat alone, and weren't tallied.

@@ -12,9 +12,13 @@
     "paracheirodon-innesi",
     "alternanthera-reineckii",
     "lagenandra-meeboldii",
-    "rotala-wallichii"
+    "rotala-wallichii",
+    "nymphaea-zenkeri",
+    "hygrophila-polysperma",
+    "marsilea-hirsuta",
+    "vesicularia-montagnei"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "nSfYE7PXUmY",
     "title": "Hồ thuỷ sinh nature 1.2m hướng dẫn setup và chăm sóc toàn tập - Tập 2 - thuỷ sinh Quoidecor",
@@ -37,20 +41,21 @@
       "Rotala colorata",
       "Rotala rotundifolia",
       "Rotala sp.",
-      "Hemianthus callitrichoides",
-      "Eleocharis sp.",
-      "Bucephalandra sp.",
-      "Staurogyne repens",
-      "Hygrophila sp.",
-      "Nymphaea sp.",
-      "Paracheirodon innesi",
-      "Alternanthera reineckii",
-      "Limnophila sp.",
-      "Lagenandra meeboldii",
-      "Fissidens sp.",
       "Rotala wallichii",
-      "Ludwigia sp.",
-      "Hydrocotyle sp."
+      "Eleocharis sp.",
+      "Hemianthus callitrichoides",
+      "Alternanthera reineckii",
+      "Nymphaea zenkeri",
+      "Bucephalandra sp.",
+      "Paracheirodon innesi",
+      "Hygrophila polysperma",
+      "Staurogyne repens",
+      "Marsilea hirsuta",
+      "Lagenandra meeboldii",
+      "Vesicularia montagnei",
+      "Fissidens sp.",
+      "Hydrocotyle sp.",
+      "Ludwigia sp."
     ],
     "gear": [
       {
@@ -62,7 +67,7 @@
         "category": "phan-nen",
         "type": "phan",
         "brand": "JBL",
-        "model": "Aquabasic Plus",
+        "model": "Aquabasic plus",
         "t": 0
       },
       {
@@ -78,7 +83,7 @@
       },
       {
         "category": "loc",
-        "type": "thung",
+        "type": "treo",
         "brand": "Atman",
         "model": "RF 1301",
         "t": 0
@@ -127,113 +132,74 @@
       {
         "category": "test-nuoc",
         "type": "test",
-        "t": 415
+        "t": 450
       }
     ],
     "figures": [
       {
-        "heading": "Trồng theo thứ tự nào",
+        "heading": "Trồng hậu cảnh với các loại cây cắt cắm",
         "moments": [
           {
-            "t": 129,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t129.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây đã trồng ở hậu cảnh sau đá, nền cát trắng phía trước."
+            "t": 100,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các ngọn cây cắt cắm đã trồng giữa đá và cát."
           },
           {
-            "t": 139,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t139.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ thủy sinh với đá và lũa, đang cắm cây hậu cảnh phía sau."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây hậu cảnh mới cắm bên cạnh đá và lũa trong bể."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p0-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p0-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 1413,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_pinnatifida-3-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây dương xỉ gắn trên lũa trong hồ thủy sinh, lá xanh khỏe."
-        }
+        ]
       },
       {
-        "heading": "Cây hậu cảnh: chọn gì và trồng ở đâu",
+        "heading": "Trồng tiền cảnh và các bụi điểm màu",
         "moments": [
           {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t99.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi vảy ốc siêu đỏ và các cây hậu cảnh được trồng cạnh đá."
+            "t": 170,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bó ngưu mao chiên cầm trên tay, chuẩn bị tách ra từng bụi nhỏ."
           },
           {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây hậu cảnh lá nhỏ được trồng sát đá và lũa trong hồ."
+            "t": 250,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm trân châu ngọc trai xanh mướt còn nguyên, trước khi tách ngọn để trồng."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p1-bmRpZm9saWEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p1-bmRpZm9saWEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p1-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p1-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
-          "height": 1142,
-          "licence": "CC BY-SA 3.0",
-          "author": "Vinayaraj",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia.jpg",
-          "caption": "Bụi Rotala lá cạn ra hoa tím, thân đỏ, mọc dày thành thảm."
-        }
-      },
-      {
-        "heading": "Cây trung cảnh và tiền cảnh",
-        "moments": [
-          {
-            "t": 248,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t248.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mảng trân châu ngọc trai nguyên tấm trước khi tách ra trồng."
-          },
-          {
-            "t": 282,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t282.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây trung cảnh mọc xanh sát chân đá trong hồ thủy sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p2-dW1fVS5BLkUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p2-dW1fVS5BLkUuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ranjith-chemmad",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium_U.A.E.jpg",
-          "caption": "Hồ thủy sinh có thảm cỏ tiền cảnh xanh mượt, trung cảnh trồng cây thân đỏ và xanh."
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh trồng dày cây tiền cảnh, nhiều bụi cây màu đỏ xanh và cá neon."
         }
       },
       {
         "heading": "Gắn cây lên lũa",
         "moments": [
           {
-            "t": 347,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t347.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay dán cây liễu đỏ lên nhánh lũa bằng keo thủy sinh."
+            "t": 340,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Búi cây liễu đỏ răng cưa cầm trên tay, chuẩn bị gắn lên lũa."
           },
           {
-            "t": 377,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t377.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhánh lũa đã gắn cây được đặt trong hồ thủy sinh."
+            "t": 380,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây liễu đỏ đã được dán vào nhánh lũa trong hồ, dưới nước."
           }
         ]
       },
@@ -241,60 +207,108 @@
         "heading": "Bơm nước và lắp thiết bị sau khi trồng",
         "moments": [
           {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t426.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh quạt làm mát gắn trên hồ thủy sinh đã bố cục."
+            "t": 420,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã đầy nước, hai quạt đôi gắn phía trên thành bể."
           },
           {
-            "t": 441,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t441.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ đã đầy nước, hai quạt đôi gắn phía trên thành hồ."
+            "t": 445,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at445-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh có lũa, đá và quạt làm mát."
           }
         ]
       },
       {
-        "heading": "Thả cá vào ngày thứ 5",
+        "heading": "Trồng bổ sung hôm sau",
         "moments": [
           {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t580.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Túi cá neon albino trước khi thả vào hồ."
+            "t": 535,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at535-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bó cây rotala sơ chế sẵn, chuẩn bị trồng bổ sung."
           },
           {
-            "t": 595,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t595.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Túi cá được ngâm trong hồ để cá quen nhiệt độ."
-          }
-        ]
-      },
-      {
-        "heading": "Cây sau 5 ngày trông ra sao",
-        "moments": [
-          {
-            "t": 624,
-            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/t624.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các bụi cây xanh và đỏ đã tươi, cứng cáp, mọc đều trên nền cát."
+            "t": 540,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây trồng thêm ở tiền cảnh và quanh lũa trong hồ."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p7-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p7-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p4-X2V4X3NpdHUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p4-X2V4X3NpdHUuanBn-480.webp",
           "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây tươi, lá cứng cáp, có cây lá đỏ và vài lá mới."
+          "height": 587,
+          "licence": "CC BY-SA 4.0",
+          "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
+          "caption": "Bể thủy sinh mới trồng với lũa, đá và các cây tiền cảnh, hậu cảnh."
+        }
+      },
+      {
+        "heading": "Thả cá đợt đầu",
+        "moments": [
+          {
+            "t": 580,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at580-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Túi cá neon albino đang được ngâm trước khi thả vào bể."
+          },
+          {
+            "t": 600,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at600-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá được thả từ từ vào bể thủy sinh có đá và lũa."
+          }
+        ]
+      },
+      {
+        "heading": "Chăm bể trong 5 ngày đầu",
+        "moments": [
+          {
+            "t": 620,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at620-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh mới setup với đá đỏ, lũa và đèn phía trên."
+          },
+          {
+            "t": 630,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây dương xỉ và cây lá đỏ phát triển tốt trên nền cát."
+          }
+        ]
+      },
+      {
+        "heading": "Cây thay đổi thế nào sau 5 ngày",
+        "moments": [
+          {
+            "t": 740,
+            "url": "https://media.aquatome.com/video/nSfYE7PXUmY/at740-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm cây thân đỏ và cây xanh mọc dày, lá tươi cứng cáp."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/nSfYE7PXUmY/p7-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/nSfYE7PXUmY/p7-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_vendetta_Green-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cây thủy sinh mới trồng dưới đèn, lá tươi và đã ra thêm lá mới."
         }
       }
     ]

@@ -21,9 +21,10 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
-import { FIT_KINDS, fitReport, runFit } from './fit'
+import { FIT_KINDS, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
-import { candidates, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { fitRewrite } from './fit-rewrite'
+import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
@@ -427,7 +428,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const added = await ownPhotos(ROOT, resolve(process.env.INIT_CWD ?? process.cwd(), list), media())
   console.log(`own-photos: ${added.length} added\n${added.join('\n')}`)
 } else if (cmd === 'metric') {
-  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or gallons.
+  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or
+  // gallons, and a figure only a conversion gives rounded to what a keeper here says (round.ts).
   const changed = await metricPages(join(ROOT, 'content'), ROOT)
   console.log(`metric: ${changed.length} pages${changed.length ? `: ${changed.slice(0, 20).join(', ')}${changed.length > 20 ? ', …' : ''}` : ''}`)
 } else if (cmd === 'sweep') {
@@ -475,16 +477,31 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'fit') {
   // Is each page written for its reader (fit.ts)? The model reads the pages due in a random order, so a run stopped part
   // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
-  // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th]. FIT_MODEL: the reading model. Opus by
+  // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…: these alone,
+  // the most-read first before a rewrite]. FIT_MODEL: the reading model. Opus by
   // default: on a test sample Sonnet missed about half of what's written for elsewhere and a quarter of the source talk.
   const all = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
-  const pages = all.filter(p => (!values.kind || values.kind.split(',').includes(p.kind)) && (!values.lang || values.lang.split(',').includes(p.lang)))
+  const only = values.only ? new Set(values.only.split(',')) : undefined
+  const pages = all.filter(p => (!values.kind || values.kind.split(',').includes(p.kind)) && (!values.lang || values.lang.split(',').includes(p.lang)) && (!only || only.has(fitKey(p))))
   const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20), root: ROOT })
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state))
   await writeFitSummary(ROOT, all, state)
   console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
+} else if (cmd === 'fit-rewrite') {
+  // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written
+  // again and kept only when their reviewers pass them; the most-read fish and plants first, then breeds, then guides.
+  // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order, tried before or not] [--kind species,guides]
+  const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
+  const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
+  const popular = popularityOrder(await popularFirst(ROOT))
+  const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
+  const only = values.only?.split(',')
+  const order = only ? only.flatMap(k => pages.filter(p => fitKey(p) === k)) : [...pages].sort((a, b) => rank(a) - rank(b))
+  const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only })
+  for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+  console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'gate') {
   // Last in each cycle (gate.ts): the pages whose text the cycle changed are read against the checklist; a new page that
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
@@ -504,8 +521,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const cur = await readCalendar(ROOT)
   const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
   const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  const cards = await cardsOf(ROOT)
   if (values.check) {
-    const wrong = checkCalendar(cur, cands, today, days)
+    const wrong = checkCalendar(cur, cands, today, days, cards)
     for (const x of wrong) console.log(`  ${x}`)
     console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
     if (wrong.length) process.exitCode = 1
@@ -515,7 +533,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
     for (const x of r.filled) console.log(`  filled ${x}`)
     for (const x of r.empty) console.log(`  empty ${x}`)
-    const left = checkCalendar(calendar, cands, today, days)
+    const left = checkCalendar(calendar, cands, today, days, cards)
     for (const x of left) console.log(`  still wrong: ${x}`)
     console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty; ${left.length} problems`)
   }

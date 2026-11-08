@@ -1,0 +1,123 @@
+{
+  "id": "bangana-ariza",
+  "scientificName": "Bangana ariza",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Bangana",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "pakistan",
+    "indus",
+    "india",
+    "krishna",
+    "bangladesh",
+    "myanmar",
+    "afghanistan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "html": "<p>Gymnostomus ariza is a cyprinid widely distributed from the Indus basin in Pakistan through India, Bangladesh and Myanmar. Growing to around 300 mm SL, it inhabits flowing streams and tributaries with clear water. It needs a very large tank and should be kept in a group. It has a confusing taxonomic history, having been placed in Bangana, Cirrhinus and Labeo in recent years. It breeds in temporarily-inundated zones in the wet season and is also produced commercially for food.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "html": "<p>Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.</p><p>Type locality is 'Vedawati stream, tributary of Tungabahdra River, Krishna basin, southern India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "html": "<p>Inhabits flowing streams and tributaries with clear water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "html": "<p>Naturally breeds during the wet season in temporarily-inundated zones, and is also produced commercially for food, a process involving induced breeding and rapid growth in ponds.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "html": "<p><strong>Etymology</strong></p><p>Gymnostomus: from the Ancient Greek γυμνός (gumnós), meaning 'naked', and στόμα (stóma), meaning 'mouth', presumably in reference to the lack of barbels in this genus.</p><p>ariza: presumably derived from arija, the vernacular Telugu name for this species.</p><p><strong>Taxonomy and diagnosis</strong></p><p>According to Roberts (1997) G. ariza can be diagnosed by the following combination of characters: body with variably intense thin stripes distributed mostly above the lateral line; larger individuals sometimes with a broad midlateral stripe; 32-35 lateral scales; 7-8/1/5-6 transverse scale rows; 8-9 branched dorsal-fin rays 8-9; 22-24+ 11-12=34(4), 35 (3) vertebrae; live colour pattern variable, overall dull dirty white to greyish, silvery or yellow.</p><p>It has a confusing taxonomic history, having been placed in Labeo, Cirrhinus and Bangana in recent decades, and is now in Gymnostomus (Yang et al., 2012). Yang et al. used Gymnostomus only for the Indian species and treated the Southeast Asian genus Henicorhynchus separately. Their phylogeny placed the two in separate evolutionary lineages, so they are not closely related. Kottelat (2013) moved the Henicorhynchus species into Gymnostomus, but later authors have not followed him, and those Southeast Asian species are placed in Henicorhynchus again.</p><p>Gymnostomus species are considered members of the tribe Labeonini within the putative cyprinid subfamily Cyprininae or simply the subfamily Labeoninae (name varies with author). According to the most recent phylogenetic research, this grouping is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). Among these, Gymnostomus is included in the Labeoina alongside Labeo, Bangana sensu stricto (which includes the genus Nukta), Cirrhinus sensu stricto, Cirrhinus microlepis (which is of a different genetic lineage to other Cirrhinus species), and Incisilabeo. The Southeast Asian species once placed in Gymnostomus belong to Henicorhynchus, and that genus is in the Osteochilina.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "html": "<ul><li>Hamilton, F. (1807). A journey from Madras through the countries of Mysore, Canara, and Malabar, performed under the orders of the most noble the Marquis Wellesley, governor general of India, for the express purpose of investigating the state of agriculture, arts, and commerce; the religion, manners, and customs; the history natural and civil, and antiquities, in the dominions of the rajah of Mysore, and the countries acquired by the Honourable East India company., i-iv + 1-479 + i-xiii + index</li><li>Liu, K. and W. Zhou (2009). Bangana brevirostris, a new species of cyprinid fish (Teleostei: Cypriniformes) from the Lancang-Jiang (Upper Mekong River) drainage in Yunnan, southwest China. Zootaxa 1980, 61-68</li><li>Roberts, T. R. (1997). Systematic revision of the tropical Asian labeoin cyprinid fish genus Cirrhinus, with descriptions of new species and biological observations on C. lobatus. Natural History Bulletin of the Siam Society 45(2), 171-203</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/500e9e5b6a8fe035.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/500e9e5b6a8fe035-480.webp",
+      "width": 782,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "caption": "This species tends to have thin stripes on the upper portion of the body.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f61c7868e8b9fe98.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f61c7868e8b9fe98-480.webp",
+      "width": 770,
+      "height": 459,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "caption": "Juvenile individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f41d869e3da84162.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f41d869e3da84162-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnostomus-ariza",
+      "caption": "Specimen from Assam state, northeastern India.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -147,8 +147,34 @@
   "File:Eleotris butis Ford 67.jpg",
   "File:Histoire physique, naturelle, et politique de Madagascar (9500920317).jpg",
   "File:Butis butis hi res.jpg",
-  "File:Butis butis (বাইলা) - DSC02481.jpg"
+  "File:Butis butis (বাইলা) - DSC02481.jpg",
+  "inat:14060021",
+  "inat:14208709",
+  "inat:14308844",
+  "inat:14308845",
+  "inat:25407235",
+  "inat:25407251",
+  "inat:28971832",
+  "inat:28971815",
+  "inat:28971800",
+  "inat:31613599",
+  "inat:32203392",
+  "inat:376663091",
+  "inat:376663094",
+  "inat:376663095"
  ],
- "hashes": {},
- "commons": "2026-11-06"
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/14308845/large.jpg": "131101c4ccc68480",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/28971815/large.jpeg": "1b3f2f2f3f3f3f1f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/376663091/large.jpeg": "244640e061300001"
+ },
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 96263,
+  "pass": "done",
+  "after": {
+   "research": 213147060,
+   "agree": 0
+  }
+ }
 }

@@ -2,20 +2,22 @@
   "slug": "java-fern-narrow",
   "name": "Java Fern Narrow",
   "altNames": [
-    "Microsorum pteropus 'Narrow'",
-    "Narrow Leaf Java Fern",
     "Pakis Jawa Narrow",
-    "Java Fern Narrow Leaf"
+    "Microsorum pteropus Narrow",
+    "Java Fern Narrow Leaf",
+    "Microsorum Narrow"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Tipe: berimpang (rizoma)</li><li>Asal: Asia (kultivar muncul atau dibiakkan di penangkaran)</li><li>Tinggi: 10–20+ cm (tinggi rata-rata setelah dua bulan di akuarium)</li></ul>",
-    "notes:tropica": "<p>Microsorum pteropus adalah spesies yang sangat bervariasi, dan varietas baru mudah dibiakkan. Microsorum pteropus 'Narrow' memiliki daun yang lebih sempit, yang tumbuh dengan sudut tidak terlalu lancip dari batangnya dibandingkan Microsorum pteropus biasa. Panjang daunnya mencapai 10–20 cm dan rimpangnya 10–15 cm atau lebih. Tanaman ini mudah menempel pada akar kayu dan batu. Tanaman hias yang juga cocok untuk akuarium berukuran kecil.</p>"
+    "quickFacts:tropica": "<ul><li>Jenis: berrimpang (rhizome)</li><li>Asal: Asia (kultivar muncul atau dibiakkan dalam budidaya)</li><li>Tinggi: 10–20+ cm (tinggi rata-rata setelah dua bulan di akuarium)</li></ul>",
+    "maintenance:aquatome": "<p>Java Fern Narrow adalah tanaman midground, dan tampilannya paling bagus kalau diikat pada kayu atau batu di sekitar bagian tengah akuarium. Tempelkan rimpangnya ke permukaan kayu dengan daun menghadap ke atas, lalu ikat pelan-pelan dengan benang atau senar pancing, cukup untuk menahan tanaman supaya tidak hanyut, jangan diikat terlalu kencang. Rimpangnya perlu tetap terbuka, karena kalau terkubur rapat di dalam substrat, rimpang mudah membusuk perlahan. Kalau tetap ingin menanamnya di substrat, cukup tancapkan bagian akarnya saja dan biarkan rimpangnya berada di atas permukaan substrat. Setelah beberapa minggu akarnya akan menempel kuat sendiri pada kayu atau batu, dan saat itu ikatannya bisa dilepas.</p>",
+    "notes:tropica": "<p>Microsorum pteropus adalah spesies yang sangat bervariasi, dan varietas baru mudah dibiakkan. Microsorum pteropus 'Narrow' punya daun yang lebih sempit, yang tumbuh dari batang dengan sudut yang tidak selancip Microsorum pteropus biasa. Daunnya bisa mencapai 10–20 cm dan rimpangnya 10–15 cm atau lebih. Tanaman ini mudah menempel pada akar kayu dan batu. Tanaman yang dekoratif dan juga cocok untuk akuarium yang lebih kecil.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": true,
+    "score": 0.3,
+    "indexable": false,
     "bySource": {
-      "tropica": 0.85
+      "tropica": 0.3,
+      "aquatome": 0.3
     }
   }
 }

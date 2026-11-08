@@ -377,6 +377,18 @@
       "kept": true
     }
   ],
+  "id/places/bandama-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Bandama (Vietnamese, not Indonesian; should be Sungai Bandama)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bang-pakong": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -597,6 +609,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/benue-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Benue (should be Sungai Benue)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -979,6 +1003,18 @@
       "kept": true
     }
   ],
+  "id/places/cavalla-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Cavalla (should be Sungai Cavalla)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cayman-islands": [
     {
       "at": "2026-11-06T19:55:55Z",
@@ -1215,6 +1251,18 @@
       "kept": true
     }
   ],
+  "id/places/comoe-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Comoé (should be Sungai Komoé/Comoé)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/comte": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -1409,6 +1457,18 @@
       "kept": true
     }
   ],
+  "id/places/daying-jiang": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Daying (should be Sungai Daying)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/daying-river": [
     {
       "at": "2026-11-07T03:57:48Z",
@@ -1458,6 +1518,18 @@
       "score": 0.3,
       "notes": [
         "Demerera → Demerara (inconsistent)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/deopani-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Deopani (should be Sungai Deopani)"
       ],
       "attempt": "first",
       "kept": true
@@ -1543,6 +1615,18 @@
       "kept": true
     }
   ],
+  "id/places/dong-nai-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Đồng Nai (should be Sungai Dong Nai)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/du-river": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -1552,6 +1636,18 @@
         "du-river: \"Du\" should be Sungai Du"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/duc-my-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông Đức Mỹ (Vietnamese)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1675,6 +1771,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/gabon-estuary": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "cửa sông Gabon (Vietnamese; should be Estuari Gabon)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -1919,6 +2027,18 @@
       "kept": true
     }
   ],
+  "id/places/he-jiang": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "sông He (should be Sungai He)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/hoa-creek": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -1946,6 +2066,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/huong": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2321,6 +2451,16 @@
       "kept": true
     }
   ],
+  "id/places/kaladan-river": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kalimantan-barat": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2511,6 +2651,16 @@
       "kept": true
     }
   ],
+  "id/places/khersan": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/khoh-river": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2561,6 +2711,16 @@
       "notes": [
         "Kinabatangan: source Kinabantangan mismatch, ok but inconsistent"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kinarom": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -2683,6 +2843,26 @@
       "kept": true
     }
   ],
+  "id/places/kumaradhara": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kumaradhara-netravati-river-system": [
+    {
+      "at": "2026-11-08T08:48:27Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kwagila": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -2748,6 +2928,16 @@
       "at": "2026-11-08T05:20:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-ejagham": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -3025,6 +3215,16 @@
       "kept": true
     }
   ],
+  "id/places/li-jiang": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/likoma": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -3292,6 +3492,16 @@
       "kept": true
     }
   ],
+  "id/places/mae-nam-ping": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mae-ping": [
     {
       "at": "2026-11-08T05:20:54Z",
@@ -3330,6 +3540,16 @@
   "id/places/mahaica": [
     {
       "at": "2026-11-08T05:20:54Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mahanadi-river": [
+    {
+      "at": "2026-11-08T08:48:28Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
@@ -3551,6 +3771,16 @@
       "kept": true
     }
   ],
+  "id/places/marun": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mascarene-islands": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -3684,6 +3914,16 @@
   "id/places/mendarem-river": [
     {
       "at": "2026-11-08T05:20:55Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mendawai": [
+    {
+      "at": "2026-11-08T08:48:28Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
@@ -4077,6 +4317,16 @@
       "kept": true
     }
   ],
+  "id/places/niger-river-delta": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nile-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -4302,6 +4552,16 @@
   "id/places/oueme": [
     {
       "at": "2026-11-08T05:20:56Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/padas": [
+    {
+      "at": "2026-11-08T08:48:28Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
@@ -4799,6 +5059,16 @@
       "kept": true
     }
   ],
+  "id/places/rio-aguarico": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-amapari": [
     {
       "at": "2026-11-06T13:59:22Z",
@@ -5161,6 +5431,16 @@
       "kept": true
     }
   ],
+  "id/places/rio-juriti": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-jurua": [
     {
       "at": "2026-11-06T19:55:55Z",
@@ -5426,6 +5706,16 @@
   "id/places/rio-pastaza": [
     {
       "at": "2026-11-08T05:21:30Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-paucerna": [
+    {
+      "at": "2026-11-08T08:48:28Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
@@ -5832,6 +6122,16 @@
   "id/places/saint-john-river": [
     {
       "at": "2026-11-08T05:21:30Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/saint-paul": [
+    {
+      "at": "2026-11-08T08:48:28Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
@@ -6413,6 +6713,16 @@
       "kept": true
     }
   ],
+  "id/places/tapti-river": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/taquari": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -6440,6 +6750,16 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/tatau": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -6621,6 +6941,16 @@
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/togo-hills": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -7121,6 +7451,36 @@
       "at": "2026-11-08T05:22:00Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/zagros": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/zagros-mountains": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/zanzibar": [
+    {
+      "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -11772,6 +12132,18 @@
       "kept": true
     }
   ],
+  "th/places/bandama-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Bandama → บันดามา (Thai usually แม่น้ำบันดามา; no 'river' term)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bang-pakong": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -12010,6 +12382,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/benue-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -12406,6 +12790,18 @@
       "kept": true
     }
   ],
+  "th/places/cavalla-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cayman-islands": [
     {
       "at": "2026-11-06T20:00:19Z",
@@ -12664,6 +13060,18 @@
       "kept": true
     }
   ],
+  "th/places/comoe-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/comoros": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -12892,6 +13300,18 @@
       "kept": true
     }
   ],
+  "th/places/daying-jiang": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Daying → ต้าอิ๋ง (missing river/เจียง; Daying Jiang should be แม่น้ำต้าอิ๋ง or ต้าอิ๋งเจียง)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/daying-river": [
     {
       "at": "2026-11-07T04:00:41Z",
@@ -12931,6 +13351,18 @@
       "score": 0.6,
       "notes": [
         "Demerera → เดเมรารา (usual: เดเมอรารา)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/deopani-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
       ],
       "attempt": "first",
       "kept": true
@@ -13206,6 +13638,16 @@
       "kept": true
     }
   ],
+  "th/places/gabon-estuary": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/gamba": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -13455,6 +13897,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/he-jiang": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -13948,6 +14400,18 @@
       "kept": true
     }
   ],
+  "th/places/kaladan-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kalimantan-barat": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -14142,6 +14606,16 @@
       "kept": true
     }
   ],
+  "th/places/khersan": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/khoh-river": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -14187,6 +14661,16 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kinarom": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -14342,6 +14826,26 @@
       "kept": true
     }
   ],
+  "th/places/kumaradhara": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kumaradhara-netravati-river-system": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kwagila": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -14461,6 +14965,16 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-ejagham": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -14728,6 +15242,18 @@
       "kept": true
     }
   ],
+  "th/places/li-jiang": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Ly → หลีเจียง (li-jiang: source name is Vietnamese 'Ly', Thai rendering of Lijiang is fine, but mismatch noted)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/likoma": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -14990,6 +15516,18 @@
       "kept": true
     }
   ],
+  "th/places/mae-nam-ping": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Ping → ปิง (Thai atlas would write แม่น้ำปิง)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mae-ping": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -15026,6 +15564,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mahanadi-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Mahanadi → มหานที (should be มหานทีหรือมหานที แม่น้ำ; acceptable but lacks แม่น้ำ)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15252,6 +15802,16 @@
       "kept": true
     }
   ],
+  "th/places/marun": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mascarene-islands": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -15406,6 +15966,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mendawai": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Mendawai → เมินดาไว (questionable; มินดาไว/เมนดาไว more likely)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15913,6 +16485,16 @@
       "kept": true
     }
   ],
+  "th/places/niger-river-delta": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nile-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -16153,6 +16735,16 @@
       "notes": [
         "เวเม (Ouémé): doubtful; the usual Thai would be อูเอเม"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/padas": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -16665,6 +17257,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-aguarico": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-amapari": [
     {
       "at": "2026-11-06T14:05:41Z",
@@ -17055,6 +17659,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-juriti": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-jurua": [
     {
       "at": "2026-11-06T20:00:19Z",
@@ -17337,6 +17953,18 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-paucerna": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -17794,6 +18422,16 @@
       "at": "2026-11-08T05:29:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/saint-paul": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -18443,6 +19081,18 @@
       "kept": true
     }
   ],
+  "th/places/tapti-river": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/taquari": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -18456,6 +19106,16 @@
   "th/places/tasek-bera": [
     {
       "at": "2026-11-08T05:30:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tatau": [
+    {
+      "at": "2026-11-08T08:57:32Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -18674,6 +19334,16 @@
       "notes": [
         "tocantins-river: โตกังชีส (standard โตกันตินส์)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/togo-hills": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -19186,6 +19856,26 @@
       "kept": true
     }
   ],
+  "th/places/zagros": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/zagros-mountains": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/zambezi": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -19193,6 +19883,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/zanzibar": [
+    {
+      "at": "2026-11-08T08:57:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -20019,6 +20719,16 @@
       "kept": true
     }
   ],
+  "vi/places/bandama-river": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bang-pakong": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -20435,6 +21145,16 @@
       "at": "2026-11-07T20:33:12Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/benue-river": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -20970,6 +21690,16 @@
       "kept": true
     }
   ],
+  "vi/places/cavalla-river": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/cayman-islands": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -21282,6 +22012,16 @@
       "kept": true
     }
   ],
+  "vi/places/comoe-river": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/comte": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -21580,6 +22320,16 @@
       "kept": true
     }
   ],
+  "vi/places/daying-jiang": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/daying-river": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -21657,6 +22407,16 @@
       "at": "2026-11-07T20:34:11Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/deopani-river": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -21996,6 +22756,16 @@
       "notes": [
         "No other line names the wrong place. The Chinese-derived names (Điền Trì, Đông Giang, Hàn Giang, Phúc Kiến, Quảng Đông, Hải Nam) are correct, and so are established forms like biển Chết, Ngũ Đại Hồ, sông Hằng, sông Hán and Gyeongsang Bắc."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/gabon-estuary": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -22417,6 +23187,16 @@
       "at": "2026-11-07T20:34:11Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/he-jiang": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23112,6 +23892,16 @@
       "kept": true
     }
   ],
+  "vi/places/kaladan-river": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kalimantan": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -23446,6 +24236,16 @@
       "kept": true
     }
   ],
+  "vi/places/khersan": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/khoh-river": [
     {
       "at": "2026-11-07T20:35:06Z",
@@ -23543,6 +24343,16 @@
       "at": "2026-11-07T20:35:06Z",
       "model": "sonnet",
       "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kinarom": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23760,6 +24570,26 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kumaradhara": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kumaradhara-netravati-river-system": [
+    {
+      "at": "2026-11-08T08:45:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -23987,6 +24817,16 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-ejagham": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -24475,6 +25315,18 @@
       "kept": true
     }
   ],
+  "vi/places/li-jiang": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Everything else uses the source's proper name with the generic word in Vietnamese, or a known Vietnamese name such as \"sông Ly\" for the Li River. None of them points to the wrong place."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/likoma": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -24842,6 +25694,16 @@
       "kept": true
     }
   ],
+  "vi/places/mae-nam-ping": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mae-ping": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -24916,6 +25778,16 @@
       "at": "2026-11-07T20:36:52Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mahanadi-river": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25259,6 +26131,16 @@
       "kept": true
     }
   ],
+  "vi/places/marun": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mascarene-islands": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -25440,6 +26322,16 @@
       "at": "2026-11-07T20:36:53Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mendawai": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26221,6 +27113,16 @@
       "kept": true
     }
   ],
+  "vi/places/niger-river-delta": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nile": [
     {
       "at": "2026-11-07T20:37:54Z",
@@ -26590,6 +27492,16 @@
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/padas": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -27408,6 +28320,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-aguarico": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-amapari": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -27894,6 +28816,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-juriti": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-jurua": [
     {
       "at": "2026-11-07T20:38:47Z",
@@ -28271,6 +29203,16 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-paucerna": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -28935,6 +29877,16 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/saint-paul": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -30009,6 +30961,16 @@
       "kept": true
     }
   ],
+  "vi/places/tapti-river": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/taquari": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -30046,6 +31008,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tatau": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -30360,6 +31332,16 @@
       "at": "2026-11-07T20:41:16Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/togo-hills": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -31140,11 +32122,41 @@
       "kept": true
     }
   ],
+  "vi/places/zagros": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/zagros-mountains": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/zambezi": [
     {
       "at": "2026-11-07T20:41:17Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/zanzibar": [
+    {
+      "at": "2026-11-08T08:45:15Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true

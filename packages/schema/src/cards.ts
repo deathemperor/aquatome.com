@@ -1,16 +1,18 @@
 import { z } from 'zod'
-import { PhotoSchema } from './schemas'
+import { HeldSchema, PhotoSchema } from './schemas'
 
 /**
  * Short cards for the app's Hôm nay (content/cards/<id>/entity.json and <lang>.json): trivia, a newly described species, a
- * trend, an event, a product. They have no page on the site. The editorial calendar names one as `cards/<id>` in a day's
- * story (docs/curation.md). Each cites dated sources and is written through the Writing Lead's writer and gate.
+ * trend, an event, a product. They have no page on the site. The editorial calendar names one as `cards/<id>`, a day's
+ * `card` (docs/curation.md). Each cites dated sources and is written through the Writing Lead's writer and gate.
  */
 export const CARD_TYPES = ['trivia', 'new-species', 'trend', 'event', 'product'] as const
 const Day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
 /** A page the card is about, by its kind and content id, as the calendar names pages. */
 const About = z.string().regex(/^(species|breeds|guides|plants|products)\/[A-Za-z0-9_-]+$/)
-const Source = z.object({ url: z.string().url(), title: z.string().min(1), publisher: z.string().min(1), date: Day, accessed: Day })
+/** A source's own date, as precise as it gives it: a paper's year ("1998"), a month ("2024-06") or a day. */
+const SourceDate = z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/)
+const Source = z.object({ url: z.string().url(), title: z.string().min(1), publisher: z.string().min(1), date: SourceDate, accessed: Day })
 
 export const CardSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
@@ -33,14 +35,14 @@ export const CardSchema = z.object({
   if (c.type === 'product' && !c.product) say('a product card needs `product`')
 })
 
-/** Why the gate holds a card back in this language (gate.ts `Held`): the build leaves it out. */
-const Held = z.object({ checks: z.array(z.string()), at: z.string() })
+/** The eyebrow and title fit Hôm nay's card at the largest text size (v2 Lab, 2026-11-08); a tap opens the body. */
 export const CardTextSchema = z.object({
-  eyebrow: z.string().min(1).max(60),
-  title: z.string().min(1).max(140),
+  eyebrow: z.string().min(1).max(24),
+  title: z.string().min(1).max(70),
   /** HTML, about 80 words. */
   body: z.string().min(1).max(2000),
-  held: Held.optional(),
+  /** Why the gate holds the card back in this language: the build leaves it out. */
+  held: HeldSchema.optional(),
 })
 
 export type CardEntity = z.infer<typeof CardSchema>

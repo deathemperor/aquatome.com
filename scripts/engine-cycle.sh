@@ -30,11 +30,13 @@ deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aqua
 push() {
   for _ in 1 2 3; do
     if ! git pull -q --rebase; then
-      log "another part changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
+      local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+      log "another part changed the same files: $clash"
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
       if git pull -q --rebase -X theirs; then
+        replan_merged "$clash"
         sweep_merged
         verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
@@ -89,6 +91,7 @@ else
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
   git checkout -q main && git pull -q --ff-only
 fi
+cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.

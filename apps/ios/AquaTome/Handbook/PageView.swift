@@ -116,6 +116,7 @@ struct PageView: View {
       }
       .onAppear { handbook.read(item) }
       .onChange(of: trial, initial: true) { navigator.railOn = trial == .rail }
+      .ownerShows(item.path, as: "page")
       .sheet(isPresented: $putting, onDismiss: {
         if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
       }) {
@@ -196,8 +197,8 @@ private struct WebPage: UIViewRepresentable {
     config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
     context.coordinator.bridge(config.userContentController)
     let web = WKWebView(frame: .zero, configuration: config)
-    // As the app's own screens: a page's words passing under the tab bar are cut off there, not shown through its glass.
-    if #available(iOS 26.0, *) { web.scrollView.bottomEdgeEffect.style = .hard }
+    // As the app's own screens: a page's words passing under the title are cut off there, not shown behind it.
+    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.style = .hard }
     web.navigationDelegate = context.coordinator
     web.allowsBackForwardNavigationGestures = true
     // Ads stay out of the app: AdSense isn't allowed in an app's web view that isn't registered with Google.

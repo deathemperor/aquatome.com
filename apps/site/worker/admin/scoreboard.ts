@@ -1,6 +1,6 @@
 import { LANG, LANGS, type Lang } from '@aq/schema/langs'
-import { isReader, isSearch } from '../readers'
-import { aeSql, COUNTED, EVENTS, num, READERS_FROM } from './ae'
+import { automated, isOurs, isReader, isSearch } from '../readers'
+import { aeSql, EVENTS, num, READERS_FROM, SINCE_RESET, WHO_RANK } from './ae'
 import { orNoTable } from './app'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
 import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type DayChart, type Tile } from './chart'
@@ -72,10 +72,13 @@ function level(now: Date, points: { day: string; value: number | null | undefine
 
 // ——— The readers' beacon ———
 
-/** A session's rows: one per kind of event, page, referrer and country, with the kind's highest value and how many. */
-export type BeaconRow = { sid: string; t: string; p: string; ref: string; cc: string; first: string; v: number | string; n: number | string }
-export const BEACON_SQL = (from: string) => `SELECT blob4 AS sid, blob2 AS t, blob3 AS p, blob5 AS ref, blob6 AS cc, min(timestamp) AS first, max(double1) AS v, SUM(_sample_interval) AS n
-FROM ${EVENTS} WHERE blob2 IN ('view', 'time', 'scroll', 'aff') AND timestamp >= toDateTime('${from.slice(0, 19).replace('T', ' ')}') AND ${COUNTED} GROUP BY sid, t, p, ref, cc FORMAT JSON`
+/**
+ * A session's rows: one per kind of event, page, referrer and country, with the kind's highest value and how many, and
+ * the strongest mark among them (`who`, ae.ts WHO_RANK): visitsOf leaves out a tab any of whose rows is marked.
+ */
+export type BeaconRow = { sid: string; t: string; p: string; ref: string; cc: string; first: string; v: number | string; n: number | string; who?: number | string }
+export const BEACON_SQL = (from: string) => `SELECT blob4 AS sid, blob2 AS t, blob3 AS p, blob5 AS ref, blob6 AS cc, min(timestamp) AS first, max(double1) AS v, SUM(_sample_interval) AS n, ${WHO_RANK}
+FROM ${EVENTS} WHERE blob2 IN ('view', 'time', 'scroll', 'aff') AND timestamp >= toDateTime('${from.slice(0, 19).replace('T', ' ')}') AND ${SINCE_RESET} GROUP BY sid, t, p, ref, cc FORMAT JSON`
 export const queryBeacon = (accountId: string, token: string, from: string) => aeSql<BeaconRow>(accountId, token, BEACON_SQL(from))
 
 /** Each language's tool pages, under its word for /cong-cu/ (a test holds them to src/lib/i18n.ts). The list itself is not a tool. */
@@ -85,25 +88,32 @@ const isTool = (path: string) => path.length > TOOLS[langOfPath(path)].length &&
 /** A session as the scoreboard reads it: where it landed, from where, and what it did. */
 export type Visit = { at: number; land: string; ref: string; cc: string; pages: number; t: number; scroll: number; landT: number; landScroll: number; shop: number; tool: boolean }
 
-/** The beacon's rows as sessions, by each one's first view; a session with no view of its own (it began before the count) is left out. */
+/**
+ * The beacon's rows as sessions, by each one's first view, as the readers page counts them (readers.ts): a session with no
+ * view of its own (it began before the count), one of ours (any row marked) or a likely automated one is left out.
+ */
 export function visitsOf(rows: BeaconRow[]): Visit[] {
   const bySid = new Map<string, BeaconRow[]>()
   for (const r of rows) bySid.set(r.sid, [...(bySid.get(r.sid) ?? []), r])
-  const out: Visit[] = []
-  for (const xs of bySid.values()) {
+  const out: (Visit & { sid: string })[] = []
+  const tabs: Parameters<typeof automated>[0] = []
+  for (const [sid, xs] of bySid) {
+    if (xs.some(isOurs)) continue
     const views = xs.filter(r => r.t === 'view').sort((a, b) => msOf(a.first) - msOf(b.first))
     const first = views[0]
     if (!first) continue
+    tabs.push({ sid, first: first.first, land: first.p, ref: first.ref, cc: first.cc })
     const land = pagePathOf(first.p)
     const highest = (t: string, only?: string) => Math.max(0, ...xs.filter(r => r.t === t && (!only || pagePathOf(r.p) === only)).map(r => num(r.v)))
     const paths = new Set(views.map(r => pagePathOf(r.p)))
     out.push({
-      at: msOf(first.first), land, ref: first.ref, cc: first.cc, pages: paths.size,
+      sid, at: msOf(first.first), land, ref: first.ref, cc: first.cc, pages: paths.size,
       t: highest('time'), scroll: highest('scroll'), landT: highest('time', land), landScroll: highest('scroll', land),
       shop: xs.filter(r => r.t === 'aff').reduce((n, r) => n + num(r.n), 0), tool: [...paths].some(isTool),
     })
   }
-  return out
+  const auto = automated(tabs)
+  return out.filter(v => !auto.has(v.sid)).map(({ sid: _, ...v }) => v)
 }
 
 const readers = (xs: Visit[]) => xs.filter(isReader)

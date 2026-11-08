@@ -1,0 +1,197 @@
+{
+  "id": "hemibagrus-wyckioides",
+  "scientificName": "Hemibagrus wyckioides",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Hemibagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "mekong",
+    "laos",
+    "vietnam",
+    "cambodia",
+    "thailand",
+    "chao-phraya"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 19,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 130
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (130 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>The Asian red tailed catfish, Hemibagrus wyckioides, is a bagrid from the Mekong system in China, Laos, Vietnam, Cambodia and Thailand. It also occurs in the Chao Phraya drainage. The largest bagrid in central Indochina, it reaches at least 900–1000 mm and 70–80 kg, and the largest specimen known measured 1300 mm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Juveniles are sometimes sold, but buying them is strongly discouraged given its size, aggression and a lifespan of several decades.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Type locality is given simply as 'Cambodia', but this species is currently considered to occur throughout much of the Mekong river system in China, Laos, Vietnam, Cambodia and Thailand plus the Chao Phraya drainage in Thailand.</p><p>Some records pertaining to H. nemurus from the Lancangjiang (upper Mekong) basin in Yunnan province, southern China, relate to H. wyckioides, with the former actually restricted to the island of Java, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Inhabits main river channels, including whitewater rapids, and performs localised migration into flooded forest during the wet season from July to October.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Suitable only for public installations or the very largest private aquaria. The tank needs to be at least 2 m long.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Likely to prefer dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping.</p><p>An enormous filtration system and dedicated regime of water changes should also be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<ul><li>Temperature: 19–29°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>This species is a predator feeding primarily on crustaceans and smaller fishes, although there should be no need to use such live foods in captivity.</p><p>Smaller specimens will readily accept live or frozen bloodworm, Tubifex and most dried foods whereas adults can be offered earthworms, prawns/shrimp, mussels, strips of white fish flesh and larger sinking pellets.</p><p>Juveniles require a relatively high-protein diet whereas adults should not require feeding on a daily basis with 1-2 meals per week sufficient.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Likely to prove aggressively territorial and incompatible with other fishes in all but the largest public installations and even then may attack its tankmates.</p><p>It's also one of few freshwater fishes that appear unafraid of humans meaning care must be exercised when performing maintenance.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>The male has an elongate genital papilla located anterior to the anal-fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Unrecorded in aquaria but this species is produced in commercial quantities via artificial treatment with hormones.</p><p>Under these conditions incubation has been observed to take 30-38 hours at 28 °C with the fry initially measuring around 5 mm TL.</p><p>The yolk sac is fully-absorbed after a further 3 days with the larval stage ending after 4-8 days and post-larval stage 9-12 days.</p><p>After 30 days the juveniles were fully-developed with an average total length of 42 mm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<p>Juvenile specimens are sometimes available in the aquarium trade although their purchase is strongly discouraged, and given its eventual size, aggressive nature and the fact it can live for several decades this species shouldn't be considered a home aquarium subject in all but the most exceptional circumstances.</p><p>H. wyckioides can be told apart from most other congeners by the diagnostic characters given in Ng and Kottelat (2013) for the H. wyckii species group and from other group members except H. maydelli by possessing red (vs. grey) fins.</p><p>It can be distinguished from H. maydelli by having a grey-coloured (vs. green) body plus a greater dorsal to adipose distance (9.6–13.6 vs. 4.0–7.0 % SL).</p><p>Hemibagrus has been divided into a number of putative species groups which may or may not represent monophyletic assemblages, and following a major review by Ng and Kottelat (2013) H. wyckioides is included in the H. wyckii group.</p><p>Members of this assemblage can be told apart from other congeners by possession of a broad, highly-depressed head, 50-54 vertebrae and light-coloured principal rays in both upper and lower caudal-fin lobes.</p><p>Currently valid members are H. maydelli, H. microphthalmus, H. wyckii, and H. wyckioides.</p><p>The genus Hemibagrus currently contains 40 nominal species which are distributed east of the Godavari River system in India and south of the Changjiang (Yangtze) drainage in China, with Southeast Asia a particular centre of diversity.</p><p>Many species are important food fishes and some are cultured for the purpose, or for sport angling.</p><p>Hemibagrus has previously been considered synonymous with Mystus but following Ng and Kottelat (2013) members can be diagnosed by their moderate to large adult size and strongly-depressed head shape with the interorbital region normally flat or slightly convex.</p><p>The grouping also shares a number of characters with the genera Sperata and Bagrus, and these three can be separated from other bagrids by the following: mesethmoid highly depressed (vs. not highly depressed), prominent (vs. reduced) dorsoposterior laminar extension of the mesethmoid, the first infraorbital with (vs. lacking) a posterolateral spine, enlarged (vs. moderate or small) premaxilla, and the metapterygoid with a long, free posterior margin (vs. contacting quadrate and hyomandibular).</p><p>Hemibagrus can be told apart from Sperata by possession of a relatively short and slender (vs. enlarged and elongate) interneural and by absence (vs. presence) of a concave surface in the posterior portion of the posttemporal in which lies a portion of the swimbladder.</p><p>It's distinguished from Bagrus by possession of 7, very rarely 8 (vs. 8-10) soft dorsal-fin rays.</p><p>Etymology: Hemibagrus comes from the Greek hemi, meaning 'half' and the generic name Bagrus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-wyckioides",
+      "html": "<ul><li>Ratanatrivong, W. (2011). Breeding Enhancement of Red-tail Catfish, Hemibagrus wyckioides (Fang and Chaux, 1949) by Using Cyclodextrin Complex. Unpublished dissertation from the Graduate School of KU and KU Library, 34-51</li><li>Ng, H. H. and M. Kottelat (2013). Revision of the Asian catfish genus Hemibagrus Bleeker, 1862 (Teleostei: Siluriformes: Bagridae). The Raffles Bulletin of Zoology 61(1), 205-291</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. and W. J. Rainboth (1999). The bagrid catfish genus Hemibagrus (Teleostei: Siluriformes) in central Indochina with a new species from the Mekong River. The Raffles Bulletin of Zoology 47(2), 555-576</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Z220w6qKDVU",
+      "title": "Asian red tail catfish, Hemibagrus wyckioides, 2.5', clip from longer video",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hYHhw5W6k7c",
+      "title": "ARTC Hemibagrus wyckioides crankypants 16 inches",
+      "durationSec": 139,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iBaHutxhTok",
+      "title": "Asian red tail catfish #fish #aquarium #fishaquarium #fishtank #aquascape #monsterfish",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WNS5geVCZhY",
+      "title": "Asian red tail catfish / Hemibagrus Wyckioides [Full belly]",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính cỡ lớn trên 2m"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn",
+        "máy bơm hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "thức ăn cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

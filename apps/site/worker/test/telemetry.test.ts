@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
-import { PAGE_PATH, parseEvent } from '../telemetry/events'
+import { eventPoint, PAGE_PATH, parseBatch, parseEvent } from '../telemetry/events'
 import { measure, summarise, parseReport } from '../telemetry/diagnostics'
 import { PER_HOUR } from '../telemetry/shared'
 import { contract } from './contract'
@@ -100,7 +100,7 @@ test('events: each a data point with the app, its country and its session; nothi
   expect(r.status).toBe(202)
   expect(r.headers.get('set-cookie')).toBeNull()
   const s = SESSION.toLowerCase()
-  const meta = ['1.0 (114)', '26.5', 'iPhone17,3', 'vi', 'VN', s, '', '']
+  const meta = ['1.0 (114)', '26.5', 'iPhone17,3', 'vi', 'VN', s, '', '', '']
   expect(points.map(p => [p.blobs.slice(0, 7), p.doubles, p.indexes])).toEqual([
     [['view', '/ca/ca-neon-vua/', '', '', '', '', ''], [1, 0], [s]],
     [['view', '', 'lights', '', '', '', ''], [1, 1200], [s]],
@@ -114,9 +114,26 @@ test('events: each a data point with the app, its country and its session; nothi
   ])
   for (const p of points) {
     expect(p.blobs.slice(7)).toEqual(meta)
-    expect(p.blobs).toHaveLength(15) // Analytics Engine takes 20 at most
+    expect(p.blobs).toHaveLength(16) // Analytics Engine takes 20 at most
     expect(p.blobs.join('').length).toBeLessThan(16_000)
   }
+})
+
+test('events: the install code is accepted, and kept only once the app build that sends it ships (APP_INSTALL_ID)', async () => {
+  const INSTALL = '6F1C2A90-3B4D-4E5F-8A7B-1C2D3E4F5A6B'
+  const { e, points } = env()
+  const r = await handle(post(EVENTS, { ...BATCH, install: INSTALL }), e)
+  expect(r.status).toBe(202)
+  expect(misfits({ ...BATCH, install: INSTALL }, schema('Batch'))).toEqual([])
+  expect(misfits({ ...BATCH, install: 'a@b.c' }, schema('Batch'))).not.toEqual([])
+  // Off (today): accepted, and dropped.
+  expect(points.every(p => p.blobs[15] === '')).toBe(true)
+  // On: kept, lower case, beside the launch's session.
+  const b = parseBatch(JSON.stringify({ ...BATCH, install: INSTALL }))!
+  expect(eventPoint(b, b.events[0]!, 'VN', false, true).blobs[15]).toBe(INSTALL.toLowerCase())
+  expect(eventPoint(parseBatch(JSON.stringify(BATCH))!, b.events[0]!, 'VN', false, true).blobs[15]).toBe('')
+  // Not a UUID: the batch is refused, as a bad session is.
+  expect((await handle(post(EVENTS, { ...BATCH, install: 'a@b.c' }), e)).status).toBe(400)
 })
 
 test('events: one that breaks the contract is dropped alone and counted; the others are kept', async () => {

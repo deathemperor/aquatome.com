@@ -153,3 +153,22 @@ test('a session runs heavy work only in the checks queue', () => {
   // A simulator run in the checks queue is still the simulator queue's.
   expect(hook('lockf -k ~/.cache/aquatome/checks.lock xcodebuild test').stderr).toContain('sim-run.py')
 })
+
+// Simulator.app's window is WindowServer's to draw every frame, on top of the simulator's own rendering (2026-11-08: the
+// screen's compositing was a third of the GPU through a heavy thermal hour). Simulators run headless.
+test('a session boots simulators headless, never in Simulator.app', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  for (const c of [
+    'open -a Simulator',
+    'open -a Simulator.app',
+    'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app',
+    'xcrun simctl boot "iPhone 17" && open -a Simulator',
+  ]) {
+    const r = hook(c)
+    expect(r.status, c).toBe(2)
+    expect(r.stderr, c).toContain('headless')
+  }
+  for (const c of ['xcrun simctl boot "iPhone 17"', 'open https://aquatome.com', 'open -a Preview shot.png', 'rg "open -a Simulator" docs']) {
+    expect(hook(c).status, c).toBe(0)
+  }
+})

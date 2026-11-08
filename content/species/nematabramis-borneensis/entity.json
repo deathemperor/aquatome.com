@@ -1,0 +1,92 @@
+{
+  "id": "nematabramis-borneensis",
+  "scientificName": "Nematabramis borneensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Nematabramis",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "malaysia",
+    "sabah",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-borneensis",
+      "html": "<p>Max size: 105 mm SL (10.5 cm).</p><p>Nematabramis borneensis is a cyprinid endemic to the Malaysian state of Sabah in northern Borneo. It looks particularly similar to N. alestes, sharing a dark lateral stripe, but is told apart immediately by its barbels, which are longer than the head.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-borneensis",
+      "html": "<p>Found in the Malaysian state of Sabah in northern Borneo and in Kalimantan, Indonesia.</p><p>Type locality is 'Kota Belud District, Kota Belud'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-borneensis",
+      "html": "<p>Nematabramis species are found a variety of habitat-types, from swiftly-flowing tributary streams to pools, lakes, and degraded swamps.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-borneensis",
+      "html": "<p>This species can be distinguished from congeners by the following combination of characters: barbels longer than head but not extending beyond pectoral-fin base; body relatively slender, depth fits 3.6-4.2 times in SL; head relatively long, length fits 3.8-4.1 times in SL; 8 branched dorsal-fin rays; 13-16 branched anal-fin rays; 8 scale rows between dorsal-fin origin and anal-fin origin.</p><p>It looks particularly similar to N. alestes with both species possessing a colour pattern comprising a dark lateral stripe on the body, but can be distinguished immediately by possessing barbels longer than the head (vs. shorter than the head in N. alestes).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-borneensis",
+      "html": "<ul><li>Inger, R. F. and P. K. Chin (1962). The fresh-water fishes of North Borneo. Fieldiana Zoology v.45, 1-268</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Martin-Smith, K. M. and H. H. Tan (1998). Diversity of freshwater fishes from eastern Sabah: annotated checklist for Danum Valley and a consideration of inter- and intra-catchment variability. Raffles Bulletin of Zoology 46(2), 573-604</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ee81bb7b683cc4d0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ee81bb7b683cc4d0-480.webp",
+      "width": 600,
+      "height": 230,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-borneensis",
+      "caption": "This species possesses longer barbels than the similar-looking N. alestes.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

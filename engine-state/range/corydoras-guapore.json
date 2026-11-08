@@ -1,0 +1,92 @@
+{
+  "id": "corydoras-guapore",
+  "native": {
+    "input": "0adf77c376a3ab5e",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Guaporé cory, Gastrodermus guapore, long known as Corydoras guapore, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Guaporé cory, Gastrodermus guapore, long known as Corydoras guapore, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Río Paucerna",
+        "source": "seriouslyfish",
+        "quote": "It is likely to occur in various tributary drainages at least as far upstream as the Río Paucerna in Noel Kempff Mercado National Park.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras guapore",
+    "status": "ACCEPTED",
+    "taxonKey": 2342752,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

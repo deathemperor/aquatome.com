@@ -23,6 +23,12 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   refused, since side by side they took the Mac to heavy thermal pressure (2026-11-08). One test file needs no turn:
   `pnpm exec vitest run <file>`.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
+- What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
+  2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
+  one in the Device panel only while you need to. Close the preview tabs and browser windows you open, run browsers
+  headless for automated work, and stop a log stream (`log stream`, `simctl spawn … log stream`) when you've read it.
+- Engine and video runs wait for cooler hours: while macOS reports heavy thermal pressure, a run waits up to 2 h before
+  it starts (`cool`, `scripts/cycle-checks.sh`).
 - Remove your worktree when its PR merges (`git worktree remove <path>`).
 - Keep what's worth keeping (working folders, prototypes, eval caches, briefs, run progress) in `~/.cache/aquatome/<area>/`,
   never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
