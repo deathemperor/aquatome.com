@@ -47,10 +47,14 @@ struct SpeciesPage: View {
   @State private var scrolled = false
   /// The name itself has gone under the bar: the bar says it from here, not above the name still on the page.
   @State private var nameGone = false
-  /// The page's width and top, and the bar's middle, for the name in the bar.
+  /// The page's width and place, the bar's middle, its buttons' inner edges and the name's own width, for the name in the bar.
   @State private var width: CGFloat = 0
-  @State private var top: CGFloat = 0
+  @State private var origin = CGPoint.zero
   @State private var barMid: CGFloat = 0
+  @State private var backEnd: CGFloat = 0
+  @State private var saveStart: CGFloat = 0
+  @State private var shareStart: CGFloat = 0
+  @State private var nameWidth: CGFloat = 0
   /// The bar's foot on the screen.
   @State private var barFoot: CGFloat = 106
   /// Where the page's colour reaches: still under the top bar, and down into the fade over the tab bar.
@@ -58,6 +62,8 @@ struct SpeciesPage: View {
   /// Shown, not under another page: only then may it set the colour under the tab bar. Under another, its photo can still
   /// come late and give it a colour, which would land under that page's foot.
   @State private var front = false
+  /// This page, for the colour it puts under the tab bar (`FootGround`).
+  @State private var me = UUID()
   private struct ColourAt: Equatable { var top, foot: Bool }
 
   /// The page's own photo, at the top.
@@ -165,17 +171,17 @@ struct SpeciesPage: View {
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = $0 }
     .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
-    .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minY } action: { top = $0 }
+    .onGeometryChange(for: CGPoint.self) { $0.frame(in: .global).origin } action: { origin = $0 }
     .onChange(of: colourAt.foot) { if front { standOnColour() } }
     .onChange(of: colour) { if front { standOnColour() } }
     .onAppear {
       front = true
       standOnColour()
     }
-    // Not over the next page's, which may have appeared first, and may have the same colour.
+    // Not over the next page's, which may have appeared first, with the same colour, or be the same fish's.
     .onDisappear {
       front = false
-      if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil }
+      if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
     }
     .accessibilityIdentifier("v2-species")
     .navigationBarTitleDisplayMode(.inline)
@@ -201,24 +207,32 @@ struct SpeciesPage: View {
     // starts on the edge and goes down the page scrolls it, and a tap there lands.
     .simultaneousGesture(DragGesture(minimumDistance: 12).onEnded {
       let t = $0.translation
-      if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2 { goBack() }
+      // Not when the finger turns back before it lifts: that's changing one's mind, as with iOS's own.
+      if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2,
+        $0.predictedEndTranslation.width >= t.width - 4 { goBack() }
     })
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
     .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
     // The name in the bar once it has left the page, on the colour too, in the bar's middle. The page's own, not iOS's
     // title: with the bar's buttons on no glass, on the colour, iOS set its title beside the back button, and moved it to
-    // the middle as the glass came. No wider than leaves the buttons 145 points each side; a long name is cut short. At
-    // the bar's own size, as iOS's title is. Not read: the page's name is, as its heading.
+    // the middle as the glass came. Placed as iOS's is (`barName`); a name wider than the room is cut short. At the bar's
+    // own size, as iOS's title is. Not read: the page's name is, as its heading.
     .overlay(alignment: .top) {
       if nameGone, barMid > 0 {
+        let place = barName
         Text(verbatim: item.name).font(.headline).lineLimit(1).dynamicTypeSize(.large)
           .foregroundStyle(colourAt.top ? Color.white : Color.primary)
-          .frame(maxWidth: max(60, width - 290))
-          .position(x: width / 2, y: barMid - top)
+          .frame(maxWidth: place.room)
+          .position(x: place.x, y: barMid - origin.y)
           .allowsHitTesting(false)
           .accessibilityHidden(true)
           .accessibilityIdentifier("v2-bar-name")
       }
+    }
+    // The name's width on one line, for `barName`.
+    .background {
+      Text(verbatim: item.name).font(.headline).dynamicTypeSize(.large).fixedSize().hidden()
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { nameWidth = $0 }
     }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
@@ -227,8 +241,9 @@ struct SpeciesPage: View {
       ToolbarItem(placement: .topBarLeading) {
         Button { goBack() } label: {
           round("chevron.left")
-            // Where the bar's middle is, for the name in it.
+            // Where the bar's middle is, and the room's start, for the name in it.
             .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).midY } action: { barMid = $0 }
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).maxX } action: { backEnd = $0 }
         }
           .buttonStyle(.plain)
           .accessibilityLabel(Text("Quay lại"))
@@ -238,14 +253,20 @@ struct SpeciesPage: View {
       ToolbarItem(placement: .topBarTrailing) {
         // Saved to read later, as v1's page saves it (the Tìm tab lists them).
         let saved = handbook.isSaved(item)
-        Button { handbook.toggleSaved(item) } label: { round(saved ? "bookmark.fill" : "bookmark") }
+        Button { handbook.toggleSaved(item) } label: {
+          round(saved ? "bookmark.fill" : "bookmark")
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { saveStart = $0 }
+        }
           .buttonStyle(.plain)
           .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
           .accessibilityIdentifier("save-for-later")
       }
       .v2Glass(!colourAt.top)
       ToolbarItem(placement: .topBarTrailing) {
-        ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
+        ShareLink(item: handbook.url(item)) {
+          round("square.and.arrow.up")
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { shareStart = $0 }
+        }
           .buttonStyle(.plain)
           .accessibilityLabel(Text("Chia sẻ"))
       }
@@ -268,14 +289,25 @@ struct SpeciesPage: View {
     }
   }
 
+  /// Where the name in the bar sits and how wide it may be, as iOS places its title: in the screen's middle when it fits
+  /// there between the buttons, else in the middle of the room between them. Before the buttons are measured, 145 points
+  /// left each side.
+  private var barName: (x: CGFloat, room: CGFloat) {
+    let middle = width / 2, gap: CGFloat = 8
+    let lead = backEnd - origin.x, trail = min(saveStart, shareStart) - origin.x
+    guard backEnd > 0, saveStart > 0, shareStart > 0, trail - lead > 2 * gap + 60 else { return (middle, max(60, width - 290)) }
+    let even = 2 * (min(middle - lead, trail - middle) - gap)
+    return nameWidth <= even ? (middle, even) : ((lead + trail) / 2, trail - lead - 2 * gap)
+  }
+
   private func standOnColour() {
-    footGround?.wrappedValue = colourAt.foot ? FootGround(page: item.path, colour: colour) : nil
+    footGround?.wrappedValue = colourAt.foot ? FootGround(page: me, colour: colour) : nil
   }
 
   /// Its colour off the tab as the back starts, not once the page has gone; the page under it, a fish's too, sets its own
   /// as it appears.
   private func goBack() {
-    if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil }
+    if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
     dismiss()
   }
 
@@ -304,11 +336,11 @@ struct SpeciesPage: View {
         Button { putting = true } label: {
           Label("Thêm vào bể", systemImage: "plus")
             .font(.body.weight(.semibold))
-            // Two lines at the largest text in a longer language, not shrunk.
-            .lineLimit(2)
+            // More lines at the largest text in a longer language, not shrunk.
+            .lineLimit(3)
             .foregroundStyle(colour)
             .padding(.horizontal, 18)
-            .padding(.vertical, 6)
+            .padding(.vertical, size.isAccessibilitySize ? 12 : 6)
             .frame(minHeight: 44)
             // On two lines a capsule's ends curve in on the words.
             .background((size.isAccessibilitySize ? AnyShape(RoundedRectangle(cornerRadius: 22, style: .continuous)) : AnyShape(Capsule())).fill(.white))
@@ -360,7 +392,7 @@ struct SpeciesPage: View {
         ForEach(Array(photos.enumerated()), id: \.element.src) { i, p in
           VStack(alignment: .leading, spacing: 4) {
             Button { viewing = i } label: {
-              V2Photo(src: p.thumb ?? p.src)
+              V2Photo(src: p.thumb ?? p.src, ground: colour)
                 .aspectRatio(1.6, contentMode: .fit)
                 .clipShape(.rect(cornerRadius: 16, style: .continuous))
             }
