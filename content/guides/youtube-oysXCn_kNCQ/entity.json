@@ -1,6 +1,6 @@
 {
   "id": "youtube-oysXCn_kNCQ",
-  "kind": "setup",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=oysXCn_kNCQ",
   "html": "",
@@ -8,7 +8,7 @@
   "mentions": [
     "carassius-auratus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "oysXCn_kNCQ",
     "title": "My favourite aquarium project!",
@@ -27,9 +27,7 @@
       "height": 720
     },
     "transcribed": true,
-    "taxa": [
-      "Carassius auratus"
-    ],
+    "taxa": [],
     "gear": [
       {
         "category": "be-ca",
@@ -39,124 +37,93 @@
       {
         "category": "loc",
         "type": "sump",
-        "t": 144
-      },
-      {
-        "category": "suoi",
-        "t": 718
+        "t": 2
       }
     ],
     "figures": [
       {
-        "heading": "Hệ thống nhỏ giọt hoạt động thế nào",
+        "heading": "Hệ thống nhỏ giọt là gì",
         "moments": [
           {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t128.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng bơi trong bể lớn, nước được bổ sung đều đặn."
-          },
-          {
-            "t": 137,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t137.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nước sạch chảy từ ống vào bể, đúng nguyên lý nhỏ giọt."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nước sạch chảy thành tia nhỏ từ ống vào bể."
           }
         ]
       },
       {
-        "heading": "Dẫn nước tới bể",
+        "heading": "Dẫn nước tới bể thế nào",
         "moments": [
           {
-            "t": 226,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t226.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh đầu van nhựa dùng để nối ống dẫn nước."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Van giảm áp (pressure regulator) dùng gắn vào vòi nước."
           },
           {
-            "t": 304,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t304.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dòng nước từ ống chảy vào bể."
+            "t": 270,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lắp van giảm áp 30 PSI vào đầu nối dây dẫn nước."
           }
         ]
       },
       {
-        "heading": "Xử lý clo trong nước máy",
+        "heading": "Chỉnh lưu lượng bao nhiêu là đủ",
         "moments": [
           {
-            "t": 383,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t383.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh bình tự chế đựng vật liệu lọc hóa học."
+            "t": 300,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống dẫn nước nhỏ giọt thả xuống bể có lớp nền."
           },
           {
-            "t": 392,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t392.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình nhỏ đựng vật liệu lọc treo trong bể để xử lý nước đầu vào."
+            "t": 310,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dòng nước nhỏ giọt chảy từ ống vào bể."
+          }
+        ]
+      },
+      {
+        "heading": "Khoan lỗ tràn trên bể đang có nước",
+        "moments": [
+          {
+            "t": 530,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mũi khoét lỗ dùng để khoan lỗ tràn trên bể."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/oysXCn_kNCQ/p3-FjdGlUdWJlLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/oysXCn_kNCQ/p3-FjdGlUdWJlLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/oysXCn_kNCQ/p6-SG9sZV9TYXcuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oysXCn_kNCQ/p6-SG9sZV9TYXcuanBn-480.webp",
           "width": 960,
-          "height": 623,
+          "height": 640,
           "licence": "CC BY-SA 4.0",
-          "author": "El Mono Español",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:ActiTube.jpg",
-          "caption": "Than hoạt tính dạng viên, vật liệu thường dùng để khử clo trong nước máy."
+          "author": "Herusutimbul",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mata_Bor_Hidroponik_Hole_Saw.jpg",
+          "caption": "Bộ mũi khoét lỗ các cỡ dùng để khoan lỗ tràn cho bể."
         }
       },
       {
-        "heading": "Khoan lỗ tràn cho bể đang chạy",
+        "heading": "Đặt lỗ tràn ở đâu, mất điện thì sao",
         "moments": [
           {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t520.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mũi khoét lỗ tròn có răng cưa, dùng để khoan lỗ tràn."
+            "t": 550,
+            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at550-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Người chơi chỉ vào dòng nước vào và mặt nước phía trên bể chính."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/oysXCn_kNCQ/p5-NfNjhEJTIyLkpQRw.webp",
-          "thumb": "https://media.aquatome.com/video/oysXCn_kNCQ/p5-NfNjhEJTIyLkpQRw-480.webp",
-          "width": 960,
-          "height": 715,
-          "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_core_hole_saw_%22LEC_68D%22.JPG",
-          "caption": "Mũi khoét phủ kim cương dùng để khoan lỗ tràn trên kính bể."
-        }
-      },
-      {
-        "heading": "Ưu và nhược điểm",
-        "moments": [
-          {
-            "t": 598,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/t598.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể lớn nuôi cá rồng, phía dưới tủ bể là hệ thống lọc."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/oysXCn_kNCQ/p6-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/oysXCn_kNCQ/p6-TmV3X1N1bXAuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "Public domain",
-          "author": "Gtstricky",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Hệ thống bể lọc tràn bằng acrylic có bơm, nước chảy và thoát liên tục."
-        }
+        ]
       }
     ]
   }
