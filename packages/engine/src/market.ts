@@ -26,7 +26,7 @@ export type Product = {
     ingredient?: string
     /** No source names one: what the writers are told instead. */
     noIngredient?: string
-    /** Treatments: the note's sentence on what it is. */
+    /** Treatments: what it is, and what it's mistaken for here, which the writer puts beside the medicine (marketFor). */
     says?: string
   }>>
   /** Treatments: the problems its source uses it for, which a remedy in the note may answer. */
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     market: { vi: hard({ ingredient: 'formaldehyde và xanh malachite (malachite green chloride)', says: 'Ich-X có hoạt chất là formaldehyde và xanh malachite (malachite green chloride).' }) } },
   { name: 'Maracyn', match: /\bmaracyn(?![\s-]*(?:2|two|ii)\b)/i, kind: 'treatment', problems: ['fungus', 'finRot', 'cyanobacteria', 'quarantine'],
     ingredient: { en: 'erythromycin', ref: MARACYN_LABEL },
-    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Maracyn là kháng sinh erythromycin. Maracyn Two là thuốc khác, hoạt chất là minocycline.' }) } },
+    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Thuốc tên gần giống là Maracyn Two, hoạt chất minocycline, khác hẳn, và có bán ở đây: ai cần erythromycin thì đừng mua nhầm Maracyn Two.' }) } },
   { name: 'ParaCleanse', match: /\bpara[\s-]?cleanse\b/i, kind: 'treatment', problems: ['parasites'],
     ingredient: { en: 'praziquantel and metronidazole; amounts per packet not read', ref: PARASITES_ARTICLE },
     market: { vi: hard({ ingredient: 'praziquantel và metronidazole', says: 'ParaCleanse có praziquantel để trị giun sán và metronidazole để diệt một số vi khuẩn và đơn bào.' }) } },
@@ -257,11 +257,19 @@ const MARKET_LINE: Record<MarketStatus['status'], string> = {
  * What a writer needs to know of its market: each product the source names, then what's on sale here for the problems it's
  * about, with its doses and where they come from. A language with no market data says so: no product is known to be sold.
  */
+/**
+ * How keepers here go about a problem where a source abroad does it its own way: the house's line (the chief, 8 Nov 2026),
+ * not a sourced dose. In the table, so the writer writes it and the reviewer counts it as supported.
+ */
+const PRACTICE: Partial<Record<Lang, Partial<Record<ProblemId, string>>>> = { vi: {
+  quarantine: 'Cá mới trông khỏe: nhiều người chơi chỉ cách ly và theo dõi, cá có bệnh mới trị. Trị phòng cho cá khỏe là một cách khác, không phải việc phải làm. Ai trị phòng thì mỗi thuốc theo liều và lịch trên nhãn của nó.',
+} }
+
 export function marketFor(lang: Lang, source: string, problems: ProblemId[]): string {
   const named = PRODUCTS.filter(p => mentions(p, source))
   const lines = named.map(p => {
     const m = p.market[lang]
-    return `- ${p.name}: ${MARKET_LINE[m?.status ?? 'unknown']}. ${m?.ingredient ? `Hoạt chất: ${m.ingredient}.` : m?.noIngredient ?? ''}`.trim()
+    return `- ${p.name}: ${MARKET_LINE[m?.status ?? 'unknown']}. ${m?.ingredient ? `Hoạt chất: ${m.ingredient}.` : m?.noIngredient ?? ''} ${m?.says ?? ''}`.trim()
   })
   const unlisted = 'Sản phẩm khác trong dữ kiện chưa ai kiểm tra: nói loại sản phẩm hoặc hoạt chất, không đưa tên hãng làm thứ cần mua, liều theo nhãn.'
   const wanted = new Set([...problems, ...named.flatMap(p => p.problems ?? [])])
@@ -271,5 +279,10 @@ export function marketFor(lang: Lang, source: string, problems: ProblemId[]): st
     ...(r.how ? [r.how.text] : []),
     ...(r.risks ? [`Rủi ro: ${r.risks}`] : []),
   ].join('\n'))
-  return [...lines, unlisted, ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : [])].join('\n')
+  const practice = [...wanted].flatMap(p => PRACTICE[lang]?.[p] ?? [])
+  return [
+    ...lines, unlisted,
+    ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : []),
+    ...(practice.length ? ['', 'Người chơi ở đây làm thế này. Bài nói tới chuyện đó thì viết đúng ý này:', ...practice] : []),
+  ].join('\n')
 }
