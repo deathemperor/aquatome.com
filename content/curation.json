@@ -15,11 +15,8 @@
    "fish": [
     "breeds/ryukin-goldfish",
     "species/pterophyllum-altum",
-    "breeds/butterfly-koi",
-    "species/monocirrhus-polyacanthus",
     "breeds/bubble-eye-goldfish",
-    "species/betta-anabatoides",
-    "species/osphronemus-laticlavius"
+    "species/betta-anabatoides"
    ],
    "guides": [
     "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua",
@@ -68,7 +65,6 @@
       "breeds/ryukin-goldfish",
       "breeds/black-moor-goldfish",
       "breeds/bubble-eye-goldfish",
-      "breeds/butterfly-koi",
       "species/oryzias-latipes",
       "species/tanichthys-albonubes",
       "species/macropodus-opercularis"
@@ -92,7 +88,7 @@
      ]
     }
    ],
-   "why": "The cold monsoon reaches northern Vietnam in November and Thailand turns cool, so fish that need no heater and fish that do, with heater and power-cut guides."
+   "why": "The cold monsoon reaches northern Vietnam in November and Thailand turns cool, so fish that take the cold and fish that need a heater, with heater and power-cut guides."
   },
   {
    "from": "2026-11-16",
@@ -108,21 +104,17 @@
    ],
    "fish": [
     "species/boraras-maculatus",
-    "species/nannostomus-marginatus",
-    "species/anentome-helena",
-    "species/pristella-maxillaris",
-    "species/nematobrycon-palmeri"
+    "species/nannostomus-marginatus"
    ],
    "guides": [
-    "guides/youtube-CSLWc2X7VFE",
     "guides/aquariumcoop-blogs-aquarium-beginner-planted-aquarium",
     "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
-    "guides/youtube-EIjUVVFcNmo",
     "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
     "guides/youtube-ahN0nP8HLaI",
     "guides/youtube-YLGv95LMF6c",
     "guides/aquatome-be-ca-nuoi-bao-nhieu-con-la-vua-cach-tinh-mat-do-tha-ca-theo-the-tich-va-loai",
-    "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung"
+    "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
+    "guides/youtube-cGTFcYJ_BQs"
    ],
    "hero": [
     {
@@ -162,8 +154,7 @@
       "species/boraras-merah",
       "species/boraras-maculatus",
       "species/nannostomus-marginatus",
-      "species/pristella-maxillaris",
-      "species/nematobrycon-palmeri"
+      "species/pristella-maxillaris"
      ]
     },
     {
@@ -176,21 +167,87 @@
      },
      "pages": [
       "species/poecilia-reticulata",
-      "species/oryzias-latipes",
-      "species/tanichthys-albonubes",
+      "species/xiphophorus-maculatus",
       "species/thayeria-boehlkei",
-      "species/corydoras-aeneus",
-      "species/corydoras-panda",
-      "species/corydoras-hastatus"
+      "species/corydoras-aeneus"
      ]
     }
    ],
-   "why": "Small desk tanks and small schooling fish, what beginners ask about most in every market."
+   "why": "Small tanks and the small schooling fish that suit them, with guides for setting one up."
+  },
+  {
+   "from": "2026-11-23",
+   "to": "2026-11-29",
+   "theme": {
+    "vi": "Cá bản địa Việt Nam",
+    "id": "Ikan asli Asia Tenggara",
+    "th": "ปลาพื้นถิ่นเอเชียตะวันออกเฉียงใต้",
+    "ms": "Ikan asli Asia Tenggara"
+   },
+   "tags": [
+    "local"
+   ],
+   "fish": [
+    "species/betta-splendens",
+    "species/macropodus-opercularis",
+    "species/channa-micropeltes",
+    "species/trichopodus-trichopterus",
+    "species/anabas-testudineus",
+    "species/mastacembelus-erythrotaenia",
+    "species/oryzias-latipes",
+    "species/datnioides-pulcher"
+   ],
+   "guides": [
+    "guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens",
+    "guides/aquatome-cho-ca-betta-sinh-san-chon-cap-ep-de-to-bot-va-cham-ca-bot",
+    "guides/aquariumcoop-blogs-aquarium-betta-tank-mates"
+   ],
+   "hero": [],
+   "shelves": [
+    {
+     "id": "ca-loc",
+     "title": {
+      "vi": "Cá lóc",
+      "id": "Ikan channa",
+      "th": "ปลาช่อน",
+      "ms": "Ikan haruan"
+     },
+     "pages": [
+      "species/channa-asiatica",
+      "species/channa-micropeltes",
+      "species/channa-gachua",
+      "species/channa-lucius",
+      "species/channa-marulius",
+      "species/channa-maculata"
+     ]
+    },
+    {
+     "id": "ban-dia-be-nho",
+     "title": {
+      "vi": "Cá bản địa cho bể nhỏ",
+      "id": "Ikan asli untuk akuarium kecil",
+      "th": "ปลาพื้นถิ่นสำหรับตู้เล็ก",
+      "ms": "Ikan asli untuk akuarium kecil"
+     },
+     "pages": [
+      "species/betta-splendens",
+      "species/betta-imbellis",
+      "species/betta-siamorientalis",
+      "species/oryzias-latipes",
+      "species/boraras-urophthalmoides",
+      "species/dermogenys-pusilla"
+     ]
+    }
+   ],
+   "why": "Fish native to Vietnam and its region, led by snakeheads, the fish readers find the site through most in search."
   }
  ],
  "days": [
   {
    "date": "2026-11-09",
+   "fish": "breeds/ryukin-goldfish",
+   "img": "https://media.aquatome.com/commons/186c58df38d6deb7.webp",
+   "guide": "guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater",
    "story": {
     "page": "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua",
     "eyebrow": {
@@ -200,12 +257,9 @@
      "vi": "Trời lạnh, bể cá cần gì"
     },
     "dek": {
-     "vi": "Giữ ấm cho bể, đặt sưởi đúng chỗ và xử lý khi mất điện"
+     "vi": "Chọn sưởi đủ công suất, đặt đúng chỗ, ốp xốp giữ nhiệt và xử lý khi mất điện"
     }
    },
-   "fish": "breeds/ryukin-goldfish",
-   "img": "https://media.aquatome.com/commons/186c58df38d6deb7.webp",
-   "guide": "guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater",
    "why": "Fish: Cá vàng Lưu kim (Ryukin), on this week's list, tolerates cold, well known. Guide: Cách chọn máy sưởi hồ cá phù hợp, on this week's list, 3 search impressions."
   },
   {
@@ -217,10 +271,9 @@
   },
   {
    "date": "2026-11-11",
-   "fish": "breeds/butterfly-koi",
-   "img": "https://media.aquatome.com/commons/643145c43d453de9.webp",
+   "img": "https://media.aquatome.com/commons/f27b1295f7044218.webp",
    "guide": "guides/youtube-DZ0JTLYiawU",
-   "why": "Fish: Koi bướm (Butterfly koi), on this week's list, tolerates cold, well known, 1 search impression. Guide: Dưỡng cá thủy sinh mùa giao mùa: bệnh hay gặp, đánh thuốc, bể dưỡng, on this week's list."
+   "why": "Fish: Cá tai tượng đuôi đỏ khổng lồ, on this week's list."
   },
   {
    "date": "2026-11-12",
@@ -231,7 +284,6 @@
   },
   {
    "date": "2026-11-13",
-   "fish": "species/monocirrhus-polyacanthus",
    "img": "https://media.aquatome.com/commons/0d6a85f8a0767346.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-goldfish-food",
    "why": "Fish: Cá lá Nam Mỹ, on this week's list. Guide: 10 loại thức ăn tốt nhất cho cá vàng nên thử, on this week's list."
@@ -252,18 +304,6 @@
   },
   {
    "date": "2026-11-16",
-   "story": {
-    "page": "guides/youtube-CSLWc2X7VFE",
-    "eyebrow": {
-     "vi": "Cho người mới"
-    },
-    "title": {
-     "vi": "Set bể thủy sinh và chăm hai tuần đầu"
-    },
-    "dek": {
-     "vi": "Chọn bể, trải nền, dựng lũa đá, trồng cây, rồi chăm hai tuần đầu"
-    }
-   },
    "fish": "species/boraras-maculatus",
    "img": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-beginner-planted-aquarium",
@@ -278,14 +318,24 @@
   },
   {
    "date": "2026-11-18",
-   "fish": "species/anentome-helena",
    "img": "https://media.aquatome.com/commons/53186ed7ade1b1e2.webp",
-   "guide": "guides/youtube-EIjUVVFcNmo",
-   "why": "Fish: Ốc ăn ốc, on this week's list, small. Guide: Cách set bể thủy sinh để bàn cubic 30 cho người mới, on this week's list."
+   "guide": "guides/youtube-cGTFcYJ_BQs",
+   "story": {
+    "page": "guides/youtube-EIjUVVFcNmo",
+    "eyebrow": {
+     "vi": "Cho người mới"
+    },
+    "title": {
+     "vi": "Set bể thủy sinh cubic 30 để bàn"
+    },
+    "dek": {
+     "vi": "Bể 27 lít có CO2: dựng đá lũa, trải nền dốc về sau, trồng cây, rồi chạy lọc một ngày mới châm vi sinh"
+    }
+   },
+   "why": "Guide: Set bể thủy sinh nano 20 lít cho cá betta, từ nền đến thả cá, on this week's list."
   },
   {
    "date": "2026-11-19",
-   "fish": "species/pristella-maxillaris",
    "img": "https://media.aquatome.com/commons/8bcda1de30433fcd.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
    "why": "Fish: Cá tetra tia X, on this week's list. Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list."
@@ -297,7 +347,6 @@
   },
   {
    "date": "2026-11-21",
-   "fish": "species/nematobrycon-palmeri",
    "img": "https://media.aquatome.com/commons/8b72348ac5522211.webp",
    "guide": "guides/youtube-YLGv95LMF6c",
    "why": "Fish: Cá emperor tetra, on this week's list. Guide: Bảo dưỡng bể thủy sinh hằng tuần cho người mới: các bước đơn giản, on this week's list."
@@ -306,6 +355,44 @@
    "date": "2026-11-22",
    "guide": "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
    "why": "Guide: Thả cá mới mua vào bể: cách thuần nước đúng để cá không sốc, on this week's list."
+  },
+  {
+   "date": "2026-11-23",
+   "fish": "species/datnioides-pulcher",
+   "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
+   "guide": "guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens",
+   "why": "Fish: Cá thái hổ Siam, on this week's list, native to Vietnam, 1 search impression. Guide: Cách chăm sóc cá betta (cá chọi Xiêm) - Betta splendens, on this week's list."
+  },
+  {
+   "date": "2026-11-24",
+   "guide": "guides/aquariumcoop-blogs-aquarium-betta-tank-mates",
+   "why": "Guide: 5 loài bạn cùng bể tốt nhất cho cá betta trong bể cộng đồng, on this week's list."
+  },
+  {
+   "date": "2026-11-25",
+   "guide": "guides/aquariumbreeder-snails-external-anatomy",
+   "why": "Guide: Giải phẫu ngoại hình của ốc, 8 search impressions."
+  },
+  {
+   "date": "2026-11-26",
+   "guide": "guides/aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam",
+   "guideImg": "https://media.aquatome.com/commons/e15dbfab9fbaa170.webp",
+   "why": "Guide: Phân loại cá dĩa: 14 lớp NADA, can, vùng D và tên gọi tiếng Việt, 2 search impressions."
+  },
+  {
+   "date": "2026-11-27",
+   "guide": "guides/sprucepets-why-do-betta-fish-fight-5183979",
+   "why": "Guide: Hành vi của cá betta: hiểu về tính hung hăng và cách phòng tránh đánh nhau, 6 search impressions."
+  },
+  {
+   "date": "2026-11-28",
+   "guide": "guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con",
+   "why": "Guide: Cá bảy màu sắp đẻ: dấu hiệu, cách tách cá mẹ và nuôi cá con, 5 search impressions."
+  },
+  {
+   "date": "2026-11-29",
+   "guide": "guides/sprucepets-platy-types-1381066",
+   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
   }
  ],
  "loops": {},

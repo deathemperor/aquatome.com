@@ -222,6 +222,10 @@ const score = (c: Candidate, w: CurationWeek | undefined, today: string) => {
   return inList + tags * 2 + known + photo + Math.log1p(c.demand) + fresh + (c.indexable ? 0.5 : 0)
 }
 
+/** A week with tags takes only fish that match one, or that are on its own list (editors, 2026-11-08: a 30 cm catfish and
+ * a 40 cm predator had filled small-tank days). */
+const fitsWeek = (c: Candidate, w: CurationWeek | undefined) => !w?.tags.length || w.fish.includes(c.ref) || w.tags.some(t => TAGS[t]?.(c.facts))
+
 export type PlanReport = { kept: string[]; filled: string[]; replaced: { date: string; slot: string; was: string; why: string }[]; empty: string[] }
 
 /**
@@ -243,7 +247,10 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
     for (const slot of ['fish', 'guide'] as const) {
       const ref = d[slot]
       const c = ref ? byRef.get(ref) : undefined
-      const p = ref ? problem(c, 'square', slot === 'fish' ? d.img : d.guideImg, { photo: slot === 'fish' }) : 'empty'
+      const p = ref
+        ? (problem(c, 'square', slot === 'fish' ? d.img : d.guideImg, { photo: slot === 'fish' }) ??
+          (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined))
+        : 'empty'
       if (ref && !p) { report.kept.push(`${date} ${slot}`); continue }
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
       const kind = slot === 'fish' ? ['species', 'breeds'] : ['guides']
@@ -251,9 +258,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const yesterday = out.get(addDays(date, -1))
       const best = cands
         .filter(x => kind.includes(x.kind) && !problem(x, 'square', undefined, { photo: slot === 'fish' }) && !used(x.ref, date))
-        // A week with tags takes only fish that match one, or that are on its own list (editors, 2026-11-08: a 30 cm
-        // catfish and a 40 cm predator had filled small-tank days).
-        .filter(x => slot !== 'fish' || !w?.tags.length || w.fish.includes(x.ref) || w.tags.some(t => TAGS[t]?.(x.facts)))
+        .filter(x => slot !== 'fish' || fitsWeek(x, w))
         // Not the same group two days running.
         .filter(x => slot !== 'fish' || !x.group || x.group !== byRef.get(yesterday?.fish ?? '')?.group)
         .map(x => ({ x, s: score(x, w, from) }))

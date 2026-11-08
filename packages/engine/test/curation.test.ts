@@ -88,6 +88,12 @@ test('a week with tags takes only fish that match one, or that are on its own li
   const { calendar, report } = plan(cur, cands, '2026-11-16', 3)
   expect(calendar.days.map(d => d.fish)).toEqual(['species/listed', 'species/a', undefined])
   expect(report.empty).toContain('2026-11-18 fish')
+  // A pick already in the calendar that the week's tags no longer take is replaced, unless a person chose it.
+  const big30 = cands[1]!
+  const was = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url }] })
+  expect(plan(was, cands, '2026-11-16', 1).report.replaced).toEqual([{ date: '2026-11-16', slot: 'fish', was: 'species/big', why: "doesn't match this week's tags (nano)" }])
+  const chosen = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url, fixed: true }] })
+  expect(plan(chosen, cands, '2026-11-16', 1).calendar.days[0]!.fish).toBe('species/big')
 })
 
 test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no cold fish, nor a 90 cm tank\'s tetra a small one', () => {
