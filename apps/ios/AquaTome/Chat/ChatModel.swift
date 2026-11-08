@@ -36,6 +36,9 @@ final class ChatStore {
   /// Whether chat is on: no entry shows until GET says so.
   private(set) var on = false
   private(set) var maxChars = 500
+
+  /// A question was refused as too long at this limit: the Worker's own, until its status next says.
+  func tooLong(over limit: Int) { maxChars = limit }
   /// Questions a day for an account, for the day-used card.
   private(set) var perAccount: Int?
   @ObservationIgnored private var current: ChatModel?
@@ -348,6 +351,10 @@ final class ChatModel {
       unsend(id, .busy)
     case .refused("chat_off", _):
       unsend(id, .off)
+    case .refused("too long", let limit):
+      // Longer than the Worker takes, though the box let it go: back in the box, which says the Worker's limit.
+      if let limit { store?.tooLong(over: limit) }
+      unsend(id, nil)
     case .refused("ended", _) where thread[i].resumed:
       thread[i].outcome = .lost
       conversation?.failed()

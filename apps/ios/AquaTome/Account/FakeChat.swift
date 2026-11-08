@@ -24,6 +24,10 @@ final class FakeChat {
   private var kept: [String: (account: String, last: String)] = [:]
   /// Questions answered in each conversation, by account and id.
   private var turns: [String: Int] = [:]
+  /// The number after a launch argument (`-chat-max 1500`).
+  private func number(_ flag: String) -> Int? {
+    args.firstIndex(of: flag).flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }
+  }
   private var gap: Duration { args.contains("-chat-slow") ? .seconds(3) : .milliseconds(500) }
 
   init(_ args: [String], account: @escaping (String) -> String?) {
@@ -39,7 +43,7 @@ final class FakeChat {
   /// GET's answer, or nil for a request that isn't the chat's.
   func status(_ r: URLRequest) -> (Data, HTTPURLResponse)? {
     guard r.url?.path == "/api/chat", (r.httpMethod ?? "GET") == "GET" else { return nil }
-    let body = args.contains("-chat-off") ? #"{"on":false}"# : #"{"on":true,"perAccount":30,"maxTurns":20,"maxChars":500}"#
+    let body = args.contains("-chat-off") ? #"{"on":false}"# : #"{"on":true,"perAccount":30,"maxTurns":20,"maxChars":\#(number("-chat-max") ?? 500)}"#
     return (Data(body.utf8), Self.response(r, 200, type: "application/json"))
   }
 
@@ -57,7 +61,9 @@ final class FakeChat {
       if args.contains("-chat-lost") { return refuse(410, #"{"error":"ended"}"#) }
       return (Self.response(r, 200, type: "text/event-stream"), stream([k.last], gap: .zero))
     }
-    guard question.utf16.count <= 500 else { return refuse(413, #"{"error":"too long"}"#) }
+    // `-chat-refuses-over`: a Worker that takes less than its status said.
+    let over = number("-chat-refuses-over") ?? number("-chat-max") ?? 500
+    guard question.utf16.count <= over else { return refuse(413, #"{"error":"too long","limit":\#(over)}"#) }
     if args.contains("-chat-rate") { return refuse(429, #"{"error":"rate","limit":30}"#) }
     if args.contains("-chat-busy") { return refuse(429, #"{"error":"busy"}"#) }
     let at = "\(sub) \(conversation)"

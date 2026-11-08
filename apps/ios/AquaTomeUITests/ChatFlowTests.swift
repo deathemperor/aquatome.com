@@ -195,7 +195,26 @@ final class ChatFlowTests: XCTestCase {
     box.tap()
     box.typeText(String(repeating: "a", count: 501))
     XCTAssertEqual(element(app, "chat-length").label, "501/500")
-    XCTAssertTrue(app.staticTexts["Câu hỏi dài quá: rút gọn để gửi."].exists)
+    XCTAssertTrue(app.staticTexts["Câu hỏi tối đa 500 ký tự. Bạn rút gọn bớt rồi gửi lại nhé."].exists)
+    XCTAssertFalse(app.buttons["chat-send"].isEnabled)
+  }
+
+  /// A Worker that takes less than its status said: the question it refused as too long back in the box, which says its
+  /// limit (grouped as Vietnamese writes a number) with send off.
+  func testAQuestionTheWorkerFindsTooLongGoesBackInTheBoxWithItsLimit() {
+    let app = launch("-chat-max", "1500", "-chat-refuses-over", "1000")
+    openChat(app)
+    signIn(app)
+    let box = element(app, "chat-box")
+    box.tap()
+    let words = String(repeating: "a", count: 1001)
+    box.typeText(words)
+    XCTAssertFalse(app.staticTexts["Câu hỏi tối đa 1.500 ký tự. Bạn rút gọn bớt rồi gửi lại nhé."].exists, "said too long at the status's limit")
+    app.buttons["chat-send"].tap()
+    XCTAssertTrue(app.staticTexts["Câu hỏi tối đa 1.000 ký tự. Bạn rút gọn bớt rồi gửi lại nhé."].waitForExistence(timeout: 5),
+                  "the Worker's limit not said")
+    XCTAssertEqual(box.value as? String, words, "the question didn't come back to the box")
+    XCTAssertFalse(app.staticTexts["chat-question"].exists, "the refused question stayed as a bubble")
     XCTAssertFalse(app.buttons["chat-send"].isEnabled)
   }
 
