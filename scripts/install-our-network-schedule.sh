@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Tell the site, every 10 minutes, that this Mac's network is ours (worker/us.ts): the beacon then marks every visit from it,
 # the agents' preview browser, their Chrome, the simulators, Device panel sessions and any browser script, as ours, and the
-# readers page counts them apart instead of as readers. The site keeps only a keyed hash of the address, and forgets it two
-# hours after the last report, so a new address (the router restarting) is ours within 10 minutes and the old one isn't.
+# readers page counts them apart instead of as readers. The site keeps only a keyed hash of the address, and forgets it 25
+# minutes after the last report, so a new address (the router restarting, the laptop on another network) is ours within
+# 10 minutes, and one the Mac left, a café's, is a reader's again within 25.
 #
 #   scripts/install-our-network-schedule.sh
 #

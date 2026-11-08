@@ -3,18 +3,20 @@ import { APP_SQL, automated, BURST, queryReaders, sourceOf, summariseAppReads, s
 import { overviewPage, readersPage, readersSection } from '../admin/pages'
 import type { ChartBlock } from '../admin/blocks'
 import { unset } from '../admin/shell'
+import { visitsOf } from '../admin/scoreboard'
 
 test('readers: sessions that scrolled half a page or stayed 30 s; sources, top pages and countries from readers', () => {
+  // Each tab's referrer and country are its first event's; '=' is one of our own pages, a tab a reader opened from ours.
   const sessions = [
-    { sid: 'a', first: '2026-10-29 07:00:00', pages: '2', t: '60', scroll: '0' },
-    { sid: 'b', first: '2026-10-29 08:00:00', pages: '1', t: '0', scroll: '90' },
-    { sid: 'c', first: '2026-10-28 09:00:00', pages: '1', t: '0', scroll: '0' }, // a bounce (or a bot running JS)
+    { sid: 'a', first: '2026-10-29 07:00:00', pages: '2', t: '60', scroll: '0', ref: 'www.google.com.vn', cc: 'VN', who: '0' },
+    { sid: 'b', first: '2026-10-29 08:00:00', pages: '1', t: '0', scroll: '90', ref: '=', cc: 'US', who: '0' },
+    { sid: 'c', first: '2026-10-28 09:00:00', pages: '1', t: '0', scroll: '0', ref: 'www.facebook.com', cc: 'SG', who: '0' }, // a bounce (or a bot running JS)
   ]
   const views = [
-    { sid: 'a', p: '/vi/ca/ca-betta/', ref: 'www.google.com.vn', cc: 'VN', views: '1' }, // its old address: the same page
-    { sid: 'a', p: '/thiet-bi/loc/', ref: '', cc: 'VN', views: '1' },
-    { sid: 'b', p: '/ca/ca-betta/', ref: '', cc: 'US', views: '1' },
-    { sid: 'c', p: '/', ref: 'www.facebook.com', cc: 'SG', views: '1' },
+    { sid: 'a', p: '/vi/ca/ca-betta/', views: '1' }, // its old address: the same page
+    { sid: 'a', p: '/thiet-bi/loc/', views: '1' },
+    { sid: 'b', p: '/ca/ca-betta/', views: '1' },
+    { sid: 'c', p: '/', views: '1' },
   ]
   const r = summariseReaders(sessions, views, 14)
   expect(r).toMatchObject({ sessions: 3, readers: 2 })
@@ -56,10 +58,10 @@ test('readers count from the reset: every beacon query reads from then on, and t
   })
   const tz = 'Asia/Ho_Chi_Minh'
   const r = await queryReaders('acc', 'tok', 14, tz)
-  // Sessions, views and our own sessions from the beacon; the app's from its own dataset.
-  expect(sent).toHaveLength(4)
+  // Sessions (ours among them, by their mark) and views from the beacon; the app's from its own dataset.
+  expect(sent).toHaveLength(3)
   const beacon = sent.filter(q => q.includes('FROM aquatome_events'))
-  expect(beacon).toHaveLength(3)
+  expect(beacon).toHaveLength(2)
   expect(beacon.every(q => q.includes("timestamp >= toDateTime('2026-11-05 03:10:00')"))).toBe(true)
   expect(r.from).toBe('2026-11-05T03:10:00Z')
   const now = new Date('2026-11-06T09:00:00Z')
@@ -85,13 +87,14 @@ test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an i
 })
 
 test('our sessions are left out of the count and counted apart, by their mark', () => {
-  const sessions = [{ sid: 'r', first: '2026-11-07 01:00:00', pages: 1, t: 60, scroll: 0, land: '/ca/ca-betta/', ref: 'www.google.com', cc: 'VN' }]
-  const ours = [
-    { sid: 'o', who: 4, t: 0, scroll: 90 }, { sid: 't1', who: '3', t: 30, scroll: 0 }, { sid: 't2', who: 3, t: 0, scroll: 0 },
-    { sid: 'n', who: 2, t: 180, scroll: 50 }, { sid: 'a', who: 1, t: 0, scroll: 0 },
+  const tab = (sid: string, who: number | string, t: number, scroll: number) => ({ sid, first: '2026-11-07 01:00:00', pages: 1, t, scroll, land: '/ca/ca-betta/', ref: '', cc: 'VN', who })
+  const sessions = [
+    { ...tab('r', 0, 60, 0), ref: 'www.google.com' },
+    tab('o', 4, 0, 90), tab('t1', '3', 30, 0), tab('t2', 3, 0, 0), tab('n', 2, 180, 50), tab('a', 1, 0, 0),
   ]
-  const r = summariseReaders(sessions, [], 14, 'UTC', ours)
+  const r = summariseReaders(sessions, [], 14)
   expect([r.sessions, r.readers]).toEqual([1, 1])
+  expect(r.daily).toEqual([{ day: '2026-11-07', sessions: 1, readers: 1 }])
   expect(r.excluded).toEqual([
     { who: 'owner', sessions: 1, readers: 1 }, { who: 'team', sessions: 2, readers: 1 }, { who: 'net', sessions: 1, readers: 1 }, { who: 'app', sessions: 1, readers: 0 },
   ])
@@ -116,9 +119,13 @@ test('a burst of fresh tabs sweeping the pages is likely automated: shown apart,
   // A crowd sent to one page (a shared link) is readers, however many; so are fewer fresh tabs than BURST.n.
   expect(automated(Array.from({ length: 40 }, (_, i) => tab(i, { land: '/id/ikan/cupang/' }))).size).toBe(0)
   expect(automated(sweep.slice(0, BURST.n - 1)).size).toBe(0)
-  // The same tabs spread over a day are readers too.
+  // The same tabs spread over a day are readers too, and so are tabs a reader opened from one of our pages ('=').
   expect(automated(Array.from({ length: 30 }, (_, i) => tab(i * 120))).size).toBe(0)
+  expect(automated(sweep.map(s => ({ ...s, ref: '=' }))).size).toBe(0)
   expect(readersPage(new Date('2026-11-07T16:00:00Z'), r)).toContain('Likely automated')
+  // The scoreboard and the overview read the same rule: the sweep's visits aren't there.
+  const rows = [...sweep, fromGoogle].map(s => ({ sid: s.sid, t: 'view', p: s.land!, ref: s.ref!, cc: s.cc!, first: s.first, v: 1, n: 1, who: 0 }))
+  expect(visitsOf(rows).map(v => v.ref)).toEqual(['www.google.com'])
 })
 
 test('the app beside the web: before the App Store, every app session is ours', () => {

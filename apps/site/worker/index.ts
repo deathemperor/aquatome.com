@@ -11,10 +11,10 @@ import { dashboardHostRoute } from './dashboard-host'
 import { dailyReportRoute } from './daily/api'
 import { feedbackQueue, sendFeedback } from './feedback'
 import { ownerApi } from './owner-api'
-import { isOwnerVisit } from './owner'
-import { isOurBrowser, needsUsCookie, ourNetworkRoute, US_SET, usLinkRoute, whoIs } from './us'
+import { ourNetworkRoute, usLinkRoute, whoIs, type Who } from './us'
+import { APP_STORE_FROM } from './readers'
 import { recordSnapshot } from './admin/content'
-import { parseEvent, toDataPoint } from './events'
+import { ownReferrer, parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
 import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
 import { appPageClosed } from './app-switch'
@@ -89,8 +89,8 @@ async function events(req: Request, url: URL, env: FullEnv): Promise<Response> {
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e) return new Response(null, { status: 400 })
-  env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? ''), await whoIs(req, env)))
-  return new Response(null, { status: 204, headers: needsUsCookie(req) ? { 'set-cookie': US_SET } : {} })
+  env.EVENTS?.writeDataPoint(toDataPoint(ownReferrer(e, url.hostname), String((req as { cf?: { country?: string } }).cf?.country ?? ''), await whoIs(req, env)))
+  return new Response(null, { status: 204 })
 }
 
 /** /go/:network/?k=&c=&e= → 302 to the best affiliate target; a reader's click on one of our pages counted after the response. */
@@ -102,8 +102,11 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   // The catalog is an upgrade, never a dependency: any D1 problem falls back to the search link.
   if (env.DB) target = await resolveGo(p, env.DB, env, now).catch(() => target)
   const { location, productId } = target
-  const click = req.method === 'GET' && fromOurPage(req) && !isOwnerVisit(req) && !isOurBrowser(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
-  if (env.DB && click) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
+  const click = req.method === 'GET' && fromOurPage(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  // A reader's click only, as the readers page counts them (us.ts): not ours, and not the app's until it is on the App Store.
+  const theirs = (who: Who) => who === '' || (who === 'app' && APP_STORE_FROM !== null && now.getTime() >= Date.parse(APP_STORE_FROM))
+  const db = env.DB
+  if (db && click) wait(whoIs(req, env).then(who => (theirs(who) ? recordClick(db, p, productId, now) : undefined)).catch(() => {}))
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
