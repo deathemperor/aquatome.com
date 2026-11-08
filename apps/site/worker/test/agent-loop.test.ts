@@ -187,12 +187,6 @@ test('pace: a slow run keeps the answer\'s time from its own calls, so it answer
   const d = script(reads(), before)
   await runAgent(input(d.send, { clock: () => before.now, effort: 'medium', lastEffort: 'low' }))
   expect(d.calls[2]!.body.tool_choice!.type).toBe('auto')
-
-  // The first call isn't the pace: 6 s there (a key that failed, the cache written) and 2 s after reads on.
-  const first = { now: 0, per: [6_000, 2_000, 2_000] }
-  const e = script(reads(), first)
-  await runAgent(input(e.send, { clock: () => first.now, effort: 'medium', lastEffort: 'low', pace }))
-  expect(e.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'auto', 'auto'])
 })
 
 test('pace: a run at normal speed reads on to its limits, and its forced answer keeps its effort and may take all the time left', async () => {

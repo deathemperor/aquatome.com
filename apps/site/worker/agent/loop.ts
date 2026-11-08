@@ -64,11 +64,12 @@ export type AgentInput<Step> = {
   /** The forced last call's effort, when it isn't `effort`; with `pace`, only when the time left won't hold an answer at `effort`. */
   lastEffort?: 'low' | 'medium' | 'high'
   /**
-   * The last call's time from the run's pace: its calls after the first, averaged (the first writes the cache and, on the
-   * Worker, picks a key, so it is slower whatever the API's speed). Another call is made only while it would leave
+   * The last call's time from the run's pace: its calls so far, averaged. Another call is made only while it would leave
    * `quick` times that (and `lastCallMs`), so a slow run answers sooner. The forced call is at `effort` when the time
    * left holds `answer` times it, else at `lastEffort` (always, when the pace forced it), and it may take all the time
-   * left, not only `callMs`.
+   * left, not only `callMs`. The first call counts: in a slow hour it is the first sign (left out, 20 of 96 hard
+   * questions failed at 1.75 times slower, not 6). A first call that tried a failing key first counts that time too,
+   * and the run then answers a call sooner, never later.
    */
   pace?: { answer: number; quick: number }
   /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */
@@ -122,12 +123,11 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   let marks = marksIn(a.first)
   /** The answer sent back by `recheck`: it stands if the run then fails, runs out of time or ends on anything but an answer. */
   let held: Anthropic.Message | undefined
-  /** The time the calls after the first took, and how many: the run's pace. */
+  /** The time the calls so far took: the run's pace. */
   let took = 0
-  let paced = 0
   for (;;) {
     const left = deadline - clock()
-    const each = paced ? took / paced : 0
+    const each = run.calls ? took / run.calls : 0
     const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < a.pace.quick * each)
     const forced: Stopped | undefined = run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined
@@ -150,7 +150,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
     } catch (e) {
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
     }
-    if (run.calls > 1) { took += clock() - began; paced++ }
+    took += clock() - began
     run.spent.input += r.usage.input_tokens
     run.spent.cacheRead += r.usage.cache_read_input_tokens ?? 0
     run.spent.cacheWrite += r.usage.cache_creation_input_tokens ?? 0
