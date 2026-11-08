@@ -84,7 +84,7 @@ final class ViAtRootFlowTests: XCTestCase {
 
   private func launch(atRoot: Bool = true, reset: Bool = true) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-v2", "NO"]
       + (atRoot ? ["-vi-at-root"] : []) + (reset ? ["-reset-defaults"] : [])
     app.launch()
     return app

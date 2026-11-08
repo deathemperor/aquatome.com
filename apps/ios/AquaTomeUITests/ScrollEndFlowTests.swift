@@ -9,13 +9,13 @@ final class ScrollEndFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
   func testTimsHomeEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 10), "not Tìm's home")
     ends(app, "Tìm's home")
   }
 
   func testASearchsResultsEndAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 10), "no search field")
     field.tap()
@@ -41,7 +41,7 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   func testWhatsNewEndsAboveTheTabBar() {
-    let app = launch(["-whats-new"])
+    let app = launch(["-v2", "NO", "-whats-new"])
     let row = app.descendants(matching: .any)["all-latest"]
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 10), "not Tìm's home")
     repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }

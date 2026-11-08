@@ -126,7 +126,7 @@ final class OfflineFlowTests: XCTestCase {
     // Next launch the index has the guides in 2 shards: the kept shard is another count's file.
     app.terminate()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-pages-count", "2"]
-    app.launchForFlow()
+    app.launchForFlow(.old)
     let fish = app.descendants(matching: .any)["all-fish"]
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no handbook")
     app.swipeDown()
@@ -160,7 +160,7 @@ final class OfflineFlowTests: XCTestCase {
   private func launch(_ more: [String] = [], reset: Bool = true) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 

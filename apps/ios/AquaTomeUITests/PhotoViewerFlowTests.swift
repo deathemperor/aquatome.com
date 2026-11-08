@@ -205,7 +205,7 @@ final class PhotoViewerFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
       + (pictures ? ["-fixed-pictures"] : []) + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()

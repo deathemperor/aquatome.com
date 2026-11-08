@@ -34,7 +34,7 @@ final class ReaderPostFlowTests: XCTestCase {
 
   /// After posting, a page read again within the site's minute of caching still shows the reader's comment.
   func testTheReadersCommentStaysWhenThePageIsReadAgain() {
-    let app = launch()
+    let app = launch("-v2", "NO")
     openNeon(app)
     signInToPost(app, "post-comment")
     let name = app.textFields["post-name"]
@@ -291,7 +291,7 @@ final class ReaderPostFlowTests: XCTestCase {
   /// The posters blocked are a row of the Tài khoản sheet (how many), opening their page, each to let back; not in the
   /// tanks tab. After the last, the page says nobody is blocked and the row goes.
   func testABlockedPosterIsListedInTheAccountSheet() {
-    let app = launch()
+    let app = launch("-v2", "NO")
     openNeon(app)
     act(app, "Tùy chọn cho bình luận của Minh", "Chặn người này")
     let block = app.buttons["Chặn"]
@@ -320,7 +320,7 @@ final class ReaderPostFlowTests: XCTestCase {
 
   /// AquaTome's contact page is a tap away on the Tìm home, signed out with accounts off.
   func testTheContactPageIsReachableSignedOut() {
-    let app = launch(accounts: "off")
+    let app = launch(accounts: "off", "-v2", "NO")
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no search field")
     let contact = app.descendants(matching: .any)["contact"]
     repeatUntil(contact.exists && contact.isHittable, times: 12) { app.swipeUp() }

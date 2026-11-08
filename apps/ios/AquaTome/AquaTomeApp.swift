@@ -17,8 +17,8 @@ struct AquaTomeApp: App {
   @State private var handbookPath = NavigationPath()
   /// The profile button's sheet (AccountView), open.
   @State private var showingAccount = false
-  /// The app's v2 shown in place of v1 (V2Root), switched in the Tài khoản sheet.
-  @AppStorage("v2") private var v2 = false
+  /// v2 (V2Root), or the old look where the reader turned it on in the Tài khoản sheet (V2Switch).
+  @AppStorage(V2Switch.key) private var v2 = V2Switch.byDefault
   /// "Giao diện", set in the sheet (AppearanceRow): the phone's, or light or dark.
   @AppStorage(Appearance.key) private var appearance = Appearance.system
   /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
@@ -82,10 +82,9 @@ struct AquaTomeApp: App {
   var body: some Scene {
     WindowGroup {
       Group {
-        // v2 (the Tài khoản sheet's "Giao diện mới (thử nghiệm)", off by default): the same models and links (V2Root).
-        // Only where the switch is offered: "v2" left on in TestFlight survives the update to the App Store's build,
-        // which has no switch to turn it off.
-        if v2, V2Switch.offered, #available(iOS 18, *) {
+        // v2, unless the reader went back to the old look (V2Switch): the same models and links (V2Root). iOS 17 has
+        // the old look alone.
+        if v2, #available(iOS 18, *) {
           V2Root(tab: $tab, handbookPath: $handbookPath, tanksPath: $tanksPath)
         } else {
           TabView(selection: $tab) {

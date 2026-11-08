@@ -118,7 +118,7 @@ final class FactsCardFlowTests: XCTestCase {
   private func launch(language: String = "vi", locale: String = "vi_VN", more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-reset-defaults", "-fixed-handbook"] + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 

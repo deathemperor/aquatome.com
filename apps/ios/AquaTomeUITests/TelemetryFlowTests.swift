@@ -94,7 +94,7 @@ final class TelemetryFlowTests: XCTestCase {
 
   func testWithNoTanksAndSignedOutTheSwitchIsInTheSheetAndOffEmptiesTheQueue() {
     // The Worker down: the tabs opened wait in the queue's file.
-    let app = launch("-site-telemetry", "-telemetry-down")
+    let app = launch("-v2", "NO", "-site-telemetry", "-telemetry-down")
     app.openTab("Bể của tôi")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not the empty tanks tab")
     leaveAndComeBack(app)

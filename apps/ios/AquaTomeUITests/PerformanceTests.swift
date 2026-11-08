@@ -6,19 +6,20 @@ import XCTest
 final class PerformanceTests: XCTestCase {
   private let args = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-large-handbook"]
 
-  /// From a tap on the icon to the first screen answering touches.
+  /// From a tap on the icon to the first screen answering touches: v2's, the app's look.
   func testLaunch() {
     let app = XCUIApplication()
-    app.launchArguments = args
+    app.launchArguments = args + ["-v2", Look.v2.rawValue]
     measure(metrics: [XCTApplicationLaunchMetric(waitUntilResponsive: true)]) { app.launch() }
   }
 
   /// The handbook's fish, more than the site has: the app's CPU time and its memory while flinging down through them.
   /// The simulator reports no scroll hitches, only the length of the deceleration animation, which the app doesn't
   /// set; the hosted runners' virtual Macs read CPU instructions and cycles as 0, so the budget is on CPU time.
+  /// On the old look, whose "Tất cả loài" lists every fish on one long list.
   func testFlingingThroughTheFish() {
     let app = XCUIApplication()
-    app.launchArguments = args
+    app.launchArguments = args + ["-v2", Look.old.rawValue]
     app.launch()
     // Every fish: the home's "Tất cả loài", as photo cards.
     app.descendants(matching: .any)["all-fish"].tap()

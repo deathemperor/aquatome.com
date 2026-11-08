@@ -1717,6 +1717,28 @@
         }
       }
     },
+    "Bật để các tab và trang trở lại như trước khi ứng dụng đổi giao diện.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan agar tab dan halaman kembali seperti sebelum tampilan diperbarui."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan supaya tab dan halaman kembali seperti sebelum reka bentuk ditukar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเพื่อให้แท็บและหน้าในแอปกลับไปเหมือนตอนที่ยังไม่เปลี่ยนหน้าตา"
+          }
+        }
+      }
+    },
     "Bật “%@”?": {
       "localizations": {
         "id": {
@@ -5193,6 +5215,28 @@
         }
       }
     },
+    "Dùng giao diện cũ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gunakan tampilan lama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reka bentuk lama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าตาแบบเดิม"
+          }
+        }
+      }
+    },
     "Dùng lại": {
       "localizations": {
         "id": {
@@ -5607,28 +5651,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปลักษณ์"
-          }
-        }
-      }
-    },
-    "Giao diện mới (thử nghiệm)": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tampilan baru (uji coba)"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antara muka baharu (percubaan)"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หน้าตาใหม่ (ทดลอง)"
           }
         }
       }

@@ -224,7 +224,7 @@ final class FishIdFlowTests: XCTestCase {
 
   /// A session the Worker refuses while the account still holds it: the screen says it didn't work, not nothing.
   func testARefusedSessionWhileStillSignedInIsSaid() {
-    let app = launch("-picked-photo", "-fish-id-session-refused")
+    let app = launch("-v2", "NO", "-picked-photo", "-fish-id-session-refused")
     openTool(app)
     signIn(app)
     send(app)

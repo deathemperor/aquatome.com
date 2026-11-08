@@ -16,6 +16,7 @@ struct AccountView: View {
         AccountSection()
         OwnerEntry()
         AppSection()
+        if #available(iOS 18, *) { OldLookSection() }
         PrivacySection()
         AboutSection()
         LeaveSection()
@@ -75,8 +76,6 @@ struct Tile: View {
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
-  /// The app's v2 in place of v1 (V2Root): debug and TestFlight builds only (V2Switch).
-  @AppStorage("v2") private var v2 = false
 
   var body: some View {
     Section("Ứng dụng") {
@@ -85,12 +84,6 @@ private struct AppSection: View {
       }
       .accessibilityIdentifier("app-icon-row")
       AppearanceRow()
-      if #available(iOS 18, *), V2Switch.offered {
-        Toggle(isOn: $v2) {
-          Label { Text("Giao diện mới (thử nghiệm)") } icon: { Tile(symbol: "sparkles", color: Tile.green) }
-        }
-        .accessibilityIdentifier("v2-switch")
-      }
       let kept = handbook.keptItems.count
       if kept > 0 {
         Button { openScreen(.kept) } label: {
@@ -105,6 +98,25 @@ private struct AppSection: View {
         }
         .accessibilityIdentifier("kept-row")
       }
+    }
+  }
+}
+
+/// The old look (V2Switch), for a reader who'd rather have it: a group of its own under "Ứng dụng", apart from its
+/// "Giao diện" (light or dark), which shares its word, with what it brings back said under it. None on iOS 17, which has
+/// the old look alone.
+@available(iOS 18, *)
+private struct OldLookSection: View {
+  @AppStorage(V2Switch.key) private var v2 = V2Switch.byDefault
+
+  var body: some View {
+    Section {
+      Toggle(isOn: Binding { !v2 } set: { v2 = !$0 }) {
+        Label { Text("Dùng giao diện cũ") } icon: { Tile(symbol: "clock.arrow.circlepath", color: .gray) }
+      }
+      .accessibilityIdentifier("old-look-switch")
+    } footer: {
+      Text("Bật để các tab và trang trở lại như trước khi ứng dụng đổi giao diện.")
     }
   }
 }
