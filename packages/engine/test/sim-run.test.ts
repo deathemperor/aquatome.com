@@ -128,7 +128,10 @@ test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simula
     await wait(200)
     const before = nice(mac.pid)
     expect(nice(sim.pid)).toBe(before)
-    expect(spawnSync(SIM_RUN, ['sleep', '1'], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+    // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
+    // before sim-run had looked once (2026-11-08).
+    const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
+    expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
     expect(nice(sim.pid)).toBe(20)
     expect(nice(mac.pid)).toBe(before)
   } finally {
