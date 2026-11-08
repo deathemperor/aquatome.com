@@ -8,7 +8,7 @@ import { marketFor } from '../src/market'
 
 const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
 const good = { name: 'Tảo lam: làm gì trước', summary: ['Hút sạch rồi trị.'], body: '<h3>Trị</h3><p>Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước.</p>', faq: [{ q: 'Có hại cá không?', a: 'Quá liều thì hại.' }] }
-const fake = (answers: { written: object[]; score?: number; reviews?: { score: number; notes: string[]; hedges?: { fact: string; quote: string }[] }[]; facts?: typeof FACTS }) => {
+const fake = (answers: { written: object[]; score?: number; reviews?: { score: number; notes: string[]; hedges?: { fact: string; quote: string }[]; unsafe?: number[] }[]; facts?: typeof FACTS }) => {
   const calls: { kind: string; prompt: string; model?: string }[] = []
   const left = [...answers.written]
   const llm = (async (a: Parameters<Llm>[0]) => {
@@ -154,4 +154,14 @@ test('the hedge check holds the reviewer to the facts and the page', () => {
 
 test('a medicine the source names reaches the writer with what it is mistaken for here', () => {
   expect(marketFor('vi', 'Maracyn', [])).toContain('đừng mua nhầm Maracyn Two')
+})
+
+test('a note a reader could harm fish by following holds the guide back, whatever its score', async () => {
+  const mix = 'Mixing any antibiotic, ich medicine and dewormer: FACTS give it only for the tested trio.'
+  const held = fake({ written: [good, good], reviews: [{ score: 0.9, notes: [mix], unsafe: [0] }, { score: 0.9, notes: [mix], unsafe: [0] }] })
+  expect(await writeForReader({ llm: held.llm }, 'g', 'Source.')).toMatchObject({ kept: false, tries: 2 })
+  expect(held.calls.filter(c => c.kind === 'write')[1]!.prompt).toContain(mix)
+  // Mended, it's kept; a number that names no note counts for nothing.
+  const mended = fake({ written: [good, good], reviews: [{ score: 0.9, notes: [mix], unsafe: [0] }, { score: 0.9, notes: [], unsafe: [3] }] })
+  expect(await writeForReader({ llm: mended.llm }, 'g', 'Source.')).toMatchObject({ kept: true, tries: 2 })
 })

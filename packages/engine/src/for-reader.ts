@@ -40,11 +40,11 @@ const WRITE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['name', 'summary', 'body', 'faq'],
   properties: { name: { type: 'string' }, summary: { type: 'array', items: { type: 'string' } }, body: { type: 'string' }, faq: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } } },
 }
-const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"; a schedule, dose or safety claim FACTS give for named products, written for any medicine of that kind), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. hedges: every fact in FACTS that says how often or how sure (may, might, often, usually, sometimes, a lot of times, likely, probably; can or could only where it means may, as in "bacteria can follow", not where it means is able to, as in "the medicine can only kill adults"), copied exactly, each with the one GUIDE sentence that says that fact, copied exactly ("" if the guide leaves the fact out). Reply only with JSON.`
+const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"; a schedule, dose or safety claim FACTS give for named products, written for any medicine of that kind), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. hedges: every fact in FACTS that says how often or how sure (may, might, often, usually, sometimes, a lot of times, likely, probably; can or could only where it means may, as in "bacteria can follow", not where it means is able to, as in "the medicine can only kill adults"), copied exactly, each with the one GUIDE sentence that says that fact, copied exactly ("" if the guide leaves the fact out). unsafe: the numbers (0 for the first) of your notes a reader could harm fish, shrimp, snails or plants by following: a dose, a medicine, a mix of medicines or a schedule FACTS and MARKET don't give for it. [] if none. Reply only with JSON.`
 const REVIEW_SCHEMA = {
-  type: 'object', additionalProperties: false, required: ['score', 'notes', 'hedges'],
+  type: 'object', additionalProperties: false, required: ['score', 'notes', 'hedges', 'unsafe'],
   properties: {
-    score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } },
+    score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } }, unsafe: { type: 'array', items: { type: 'integer' } },
     hedges: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['fact', 'quote'], properties: { fact: { type: 'string' }, quote: { type: 'string' } } } },
   },
 }
@@ -119,9 +119,11 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     const findings = fitFindings(page, made)
     const wrong = findings.filter(f => f.check !== 'words')
     const outside = amountsOutside(plain(clean), input)
-    const r = await d.llm<{ score: number; notes: string[]; hedges?: { fact: string; quote: string }[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
+    const r = await d.llm<{ score: number; notes: string[]; hedges?: { fact: string; quote: string }[]; unsafe?: number[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
     const score = Math.min(1, Math.max(0, Number(r.score) || 0))
     const lost = hedgesLost(r.hedges ?? [], facts.facts.map(f => f.fact), plain(clean))
+    // A note a reader could harm fish by following holds the guide back, whatever its score.
+    const unsafe = (r.unsafe ?? []).filter(i => r.notes?.[i])
     const notes = [
       ...wrong.map(f => `${f.check}: "${f.quote}": ${f.why}`),
       ...findings.filter(f => f.check === 'words').map(f => `Chữ người chơi ít dùng: "${f.quote}"${f.fix ? ` (${f.fix})` : ''}`),
@@ -129,7 +131,7 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
       ...lost.map(h => `Nói chắc hơn dữ kiện: "${h.quote}" (dữ kiện: "${h.fact}"). Giữ đúng mức như dữ kiện: "có thể", "thường", "nhiều khi"…`),
       ...(r.notes ?? []),
     ]
-    return { written: clean, findings, score, notes, ok: !wrong.length && !outside.length && !lost.length && score >= QUALITY_THRESHOLD }
+    return { written: clean, findings, score, notes, ok: !wrong.length && !outside.length && !lost.length && !unsafe.length && score >= QUALITY_THRESHOLD }
   }
   // A draft with notes goes back once to mend those sentences. Writing it afresh only swapped one run's slips for another's.
   let best = await check(await write())
