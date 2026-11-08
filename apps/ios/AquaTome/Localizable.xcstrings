@@ -8735,6 +8735,28 @@
         }
       }
     },
+    "Ngôn ngữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bahasa"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bahasa"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาษา"
+          }
+        }
+      }
+    },
     "Ngũ giác góc": {
       "localizations": {
         "id": {
@@ -17047,6 +17069,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/"
+          }
+        }
+      }
+    },
+    "Ứng dụng sẽ dùng %@ từ lần mở sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ akan dipakai saat aplikasi dibuka lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi akan menggunakan %@ apabila dibuka semula."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จะใช้%@เมื่อเปิดแอปครั้งถัดไป"
           }
         }
       }

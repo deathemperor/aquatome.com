@@ -91,6 +91,29 @@ catch_up() {
 # started with, so a run went on with its old script against main's code: on 2026-11-08 a video run tested before it
 # committed, as its old script did, though main's now commits first, and its failed tests left its work uncommitted. The
 # run starts again from the top of main's script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as
+# The gate (gate.ts), last of the steps that write pages, timed for the Mac's load report (150 Opus reads at 3 jobs is real
+# time on a big rewrite day). A crash stops the run before it publishes, and the run's work goes on a branch of its own,
+# committed and never pushed, to gate and publish by hand: the next run's reset (from_main) would drop it uncommitted,
+# and a commit left on main would go out ungated with a later push. `gate_or_keep "<commit message>" <paths it commits>`.
+gate_or_keep() {
+  local msg=$1 start=$SECONDS rc=0 branch
+  shift
+  pnpm engine gate || rc=$?
+  log "gate: took $((SECONDS - start)) s"
+  [ "$rc" -eq 0 ] && return 0
+  if [ -n "$(git status --porcelain -- "$@")" ]; then
+    branch="gate-crashed/$(date -u +%Y%m%dT%H%M%S)"
+    if git checkout -q -b "$branch" && git add -- "$@" && git commit -q -m "$msg, gate crashed, not published $(date -u +%F)"; then
+      log "gate: crashed, not publishing: this run's work is committed on $branch, not pushed"
+    else
+      log "gate: crashed, not publishing, and keeping this run's work on $branch failed"
+    fi
+  else
+    log "gate: crashed, not publishing"
+  fi
+  return 1
+}
+
 # `from_main "$@"`.
 from_main() {
   git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
