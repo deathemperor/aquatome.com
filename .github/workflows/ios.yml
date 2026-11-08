@@ -101,10 +101,11 @@ jobs:
       # Macs to themselves. A job can't take whichever Mac is free: runs-on names one kind. The Mac runs one job at a time
       # (aquatome-mac-1). Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of
       # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
-      # There, jobs `app` and `handbook` run their classes on two copies of the runner's simulator at once (`parallel`):
-      # Xcode hands each copy a class at a time. Two, the most sim-run.py allows: the Mac is also someone's working
-      # machine, where three made a short job take ten times as long (2026-11-08). GitHub's Macs (three cores) keep one. Job `lights` keeps one too: there it runs the light flows alone (flows-to-run.py
-      # `--own-mac`); on GitHub's Macs a full run puts other classes beside them (WITH_LIGHTS).
+      # There, every flow job runs on the runner's one simulator, with no copies (`parallel`, which also marks the own
+      # Mac's jobs for their longer limit and the copies' clean-up). The Mac is also someone's working machine: with two
+      # copies a 0.4 s job on it took 5 to 12 s, with three ten times as long (2026-11-08). GitHub's Macs (three cores)
+      # keep one too. Job `lights` there runs the light flows alone (flows-to-run.py `--own-mac`); on GitHub's Macs a full
+      # run puts other classes beside them (WITH_LIGHTS).
       - id: where
         env:
           LOCAL: >-
@@ -113,7 +114,7 @@ jobs:
         run: |
           if [ "$LOCAL" = true ]; then
             echo 'runner=["self-hosted","macOS","aquatome"]'
-            echo 'parallel=-parallel-testing-enabled YES -parallel-testing-worker-count 2'
+            echo 'parallel=-parallel-testing-enabled NO'
           else
             echo 'runner="macos-26"'
           fi | tee -a "$GITHUB_OUTPUT"

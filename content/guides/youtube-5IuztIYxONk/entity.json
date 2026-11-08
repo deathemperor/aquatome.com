@@ -6,9 +6,10 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "osteoglossum-bicirrhosum"
+    "osteoglossum-bicirrhosum",
+    "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "5IuztIYxONk",
     "title": "HOW THE 2,000G AQUARIUM WAS MADE",
@@ -28,7 +29,8 @@
     },
     "transcribed": true,
     "taxa": [
-      "Osteoglossum bicirrhosum"
+      "Scleropages formosus",
+      "Potamotrygon sp."
     ],
     "gear": [
       {
@@ -39,132 +41,125 @@
       {
         "category": "loc",
         "type": "thung",
-        "t": 415
+        "t": 384
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao chọn bê tông thay vì kính hay acrylic",
+        "heading": "Vì sao phải làm bể tại chỗ",
         "moments": [
           {
             "t": 0,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t0.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể xây gạch mở nóc đặt cạnh dãy bể kính dọc tường."
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Căn phòng với bể xây lớn để hở miệng, bên cạnh là dãy bể kính."
           },
           {
-            "t": 158,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t158.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khoảng sàn trống đã đánh dấu để đặt bể lớn."
+            "t": 25,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung bể lớn trắng, miệng để trống, đặt ngay trên nền phòng."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5IuztIYxONk/p0-0ODI2ODE5KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p0-0ODI2ODE5KS5qcGc-480.webp",
+          "width": 960,
+          "height": 969,
+          "licence": "Public domain",
+          "author": "Internet Archive Book Images",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20484826819).jpg",
+          "caption": "Hình vẽ một bể gỗ lớn để hở miệng, không giằng phía trên."
+        }
+      },
+      {
+        "heading": "So sánh kính, acrylic và bê tông",
+        "moments": [
+          {
+            "t": 165,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nền phòng trống với khung gỗ, chỗ định xây bể bê tông."
           }
         ]
       },
       {
-        "heading": "Các bước đổ bể bê tông",
+        "heading": "Ba bước đổ vỏ bể",
         "moments": [
           {
-            "t": 202,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t202.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cốp pha gỗ và ván ép dựng quanh khung thép gân của bể."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cốp pha ván ép đã dựng xong, sắt cây cắm lên từ móng."
           },
           {
-            "t": 227,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t227.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khung cốp pha hoàn chỉnh với thép chờ nhô lên, sẵn sàng đổ bê tông."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung cốp pha gỗ 2x4 và ván ép nhìn từ trên xuống, sắt thò ra."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/5IuztIYxONk/p1-VzdF8yMDE3LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p1-VzdF8yMDE3LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/5IuztIYxONk/p2-VzdF8yMDE3LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p2-VzdF8yMDE3LmpwZw-480.webp",
           "width": 960,
           "height": 576,
           "licence": "CC BY-SA 4.0",
           "author": "Artaxerxes",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Concrete_foundation_preparation_downtown_Littleton_NH_August_2017.jpg",
-          "caption": "Cốp pha gỗ và lưới thép gân đã dựng sẵn, chuẩn bị đổ bê tông."
+          "caption": "Cốp pha gỗ và lưới sắt gia cố chuẩn bị đổ bê tông."
         }
       },
       {
-        "heading": "Bơm bê tông hay đổ bằng xô",
+        "heading": "Đổ bằng xe bơm hay bằng xô",
         "moments": [
           {
-            "t": 266,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t266.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Máng gỗ dẫn bê tông từ ngoài sân vào cốp pha trong nhà."
+            "t": 260,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cốp pha có nhiều thanh chống, sẵn sàng để đổ bê tông."
           },
           {
-            "t": 276,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t276.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bê tông đã đổ vào cốp pha gỗ của bể."
+            "t": 280,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bê tông đã đổ vào cốp pha, còn ướt và lổn nhổn."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/5IuztIYxONk/p2-ydWNrc18wMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p2-ydWNrc18wMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/5IuztIYxONk/p3-LV8yOTQwNzEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p3-LV8yOTQwNzEuanBn-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Judgefloro",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1157Everdigm_concrete_pump_trucks_03.jpg",
-          "caption": "Xe bơm bê tông cần dài đang đỗ bên đường, sẵn sàng làm việc."
+          "height": 743,
+          "licence": "Public domain",
+          "author": "Unknown authorUnknown author or not provided",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22Some_of_the_40_four-yard_concrete_buckets.%22_-_NARA_-_294071.jpg",
+          "caption": "Những thùng đổ bê tông lớn xếp trên toa xe lửa, sẵn sàng vận chuyển."
         }
       },
       {
-        "heading": "Xử lý bề mặt trước khi cho nước vào",
+        "heading": "Xử lý mặt trong, lắp kính và sưởi sàn",
         "moments": [
           {
-            "t": 281,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t281.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mặt trong bể đã quét lớp epoxy trắng chống thấm."
+            "t": 305,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các vòng ống sưởi sàn trải trên lớp lưới thép dưới đáy bể."
           },
           {
-            "t": 306,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t306.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thành bể bê tông thô và ô mở để lắp kính acrylic quan sát."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/5IuztIYxONk/p3-jb25jcmV0ZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p3-jb25jcmV0ZS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Multiblast122",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honed_and_polished_concrete.jpg",
-          "caption": "Bề mặt bê tông đã mài nhẵn, phẳng và bóng, gần giống bước xử lý bề mặt."
-        }
-      },
-      {
-        "heading": "Chuyện sưởi cho bể bê tông",
-        "moments": [
-          {
-            "t": 301,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t301.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống sưởi sàn trắng đi uốn lượn trên lưới thép trước khi đổ bê tông."
-          },
-          {
-            "t": 311,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t311.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đường ống sưởi sàn cuộn thành các vòng trên nền lưới thép."
+            "t": 315,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống sưởi sàn uốn vòng dưới đáy bể bê tông, nối ra cụm ống."
           }
         ],
         "photo": {
@@ -175,68 +170,44 @@
           "licence": "CC0",
           "author": "Kiwiev",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Public_domain_image_-_underfloor_heating_installation.JPG",
-          "caption": "Hệ thống ống sưởi sàn màu đỏ được lắp trên nền trước khi đổ bê tông."
+          "caption": "Hệ ống sưởi sàn được lót sẵn trên mặt nền trước khi đổ lớp bê tông."
         }
       },
       {
-        "heading": "Lọc và thay nước cho bể cỡ này",
+        "heading": "Lọc của bể và cách xả ngược",
         "moments": [
           {
-            "t": 385,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t385.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nuôi cá rồng châu Á với lũa và cây thủy sinh."
-          },
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t395.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay chỉnh van và ống nước của hệ thùng lọc."
+            "t": 455,
+            "url": "https://media.aquatome.com/video/5IuztIYxONk/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh tay vặn van trên đường ống của lọc ngoài."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/5IuztIYxONk/p5-cyxfUGVuZ28uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p5-cyxfUGVuZ28uanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5IuztIYxONk/p5-sXzA2MDIyNy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p5-sXzA2MDIyNy5qcGc-480.webp",
           "width": 960,
-          "height": 1280,
+          "height": 614,
           "licence": "CC BY-SA 3.0",
           "author": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melbourne_Aquarium_pumps,_Pengo.jpg",
-          "caption": "Hệ bể lớn với thùng lọc và đường ống nước chạy song song."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
+          "caption": "Các loại giá thể lọc sinh học: sứ ống, bi nhựa, sỏi nung và mút lọc."
         }
       },
       {
-        "heading": "Lau kính và hút nền",
-        "moments": [
-          {
-            "t": 572,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t572.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đưa cây chà cán dài lau kính trước bể, cá đuối lượn bên trong."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t350.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cạnh bể bê tông đổ tại chỗ, mặt bể phẳng và dày."
-          },
-          {
-            "t": 563,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/t563.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể xi măng xây gạch giả đá, bên trong đầy cây thủy sinh."
-          }
-        ]
+        "heading": "Lịch chăm hằng tuần",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5IuztIYxONk/p6-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p6-4NjgyMTIyKS5qcGc-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Cá đuối nước ngọt nằm trên nền sỏi trong bể kính."
+        }
       }
     ]
   }
