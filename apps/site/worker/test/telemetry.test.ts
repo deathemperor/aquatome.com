@@ -7,6 +7,7 @@ import { measure, summarise, parseReport } from '../telemetry/diagnostics'
 import { PER_HOUR } from '../telemetry/shared'
 import { contract } from './contract'
 import { testD1 } from './d1'
+import { APP_INSTALL_ID } from '../stats-switch'
 
 const { misfits, answer } = contract('app-telemetry.openapi.json')
 const schema = (name: string) => ({ $ref: `#/components/schemas/${name}` })
@@ -126,8 +127,8 @@ test('events: the install code is accepted, and kept only once the app build tha
   expect(r.status).toBe(202)
   expect(misfits({ ...BATCH, install: INSTALL }, schema('Batch'))).toEqual([])
   expect(misfits({ ...BATCH, install: 'a@b.c' }, schema('Batch'))).not.toEqual([])
-  // Off (today): accepted, and dropped.
-  expect(points.every(p => p.blobs[15] === '')).toBe(true)
+  // As the switch says: kept with it on, dropped with it off.
+  expect(points.every(p => p.blobs[15] === (APP_INSTALL_ID ? INSTALL.toLowerCase() : ''))).toBe(true)
   // On: kept, lower case, beside the launch's session.
   const b = parseBatch(JSON.stringify({ ...BATCH, install: INSTALL }))!
   expect(eventPoint(b, b.events[0]!, 'VN', false, true).blobs[15]).toBe(INSTALL.toLowerCase())
