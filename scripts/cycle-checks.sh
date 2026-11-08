@@ -59,8 +59,9 @@ verify() {
     return 1
   done
 }
-# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -q 'Test timed out in'; }
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time. grep reads it all (-c, not -q): under
+# pipefail, tail cut off by grep's early exit would make a match read as none.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
@@ -76,46 +77,55 @@ keep_timed_out() {
   git branch -q -f "$branch" HEAD && log "tests ran out of time: this run's work is kept on $branch for the next run"
 }
 # The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
-# then pushed. Tests that run out of time again keep it for the run after; a real failure moves it to
-# kept-failed/<job>/<when>, never pushed, as the gate's crash keeps its work (gate_or_keep). Then this run's own work
-# starts from main. `publish_kept <job>`, after the run's install and merge drivers.
+# then pushed. Only tests that fail for real move it to kept-failed/<job>/<when>, never pushed, as the gate's crash keeps
+# its work (gate_or_keep); anything else (tests out of time again, a push that didn't land, a clash it couldn't settle)
+# keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
+# and merge drivers.
 publish_kept() {
   local branch
   engine_clone || return 0
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
     log "publishing $branch, kept when its tests ran out of time"
-    TIMED_OUT=
     git reset -q --hard "$branch"
     if push_kept; then
       git branch -q -D "$branch"
       log "published $branch"
-    elif [ -n "$TIMED_OUT" ]; then
-      log "tests ran out of time again: $branch stays kept for the next run"
-    else
+    elif [ -n "$KEPT_FAILED" ]; then
       git branch -q -M "$branch" "kept-failed/${branch#kept/}"
-      log "$branch failed its tests, or clashed with main: on kept-failed/${branch#kept/}, not pushed"
+      log "$branch failed its tests: on kept-failed/${branch#kept/}, not pushed"
+    else
+      log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
     fi
-    git fetch -q origin && git reset -q --hard origin/main
+    git fetch -q origin || true
+    git reset -q --hard origin/main
   done
 }
-# The checked-out kept work on top of main, swept and checked, pushed: as push() does, lines both changed give way to
-# the kept work's, and after any merge it's swept and checked again.
+# The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
+# kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
+# when its tests failed for real; KEPT_WHY says why it isn't published.
 push_kept() {
-  local first=1
+  local check=1 clash
+  KEPT_FAILED= KEPT_WHY=
   for _ in 1 2 3; do
     if ! git pull -q --rebase origin main; then
+      clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
-      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; return 1; }
-      first=1
+      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+      replan_merged "$clash"
+      check=1
     fi
-    if [ -n "$first" ]; then
+    if [ -n "$check" ]; then
       sweep_merged
-      verify 'pnpm test' || return 1
-      first=
+      if ! verify 'pnpm test'; then
+        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"; else KEPT_FAILED=1; fi
+        return 1
+      fi
+      check=
     fi
     git push -q origin HEAD:main && return 0
-    sleep 30
+    sleep "${PUSH_PAUSE:-30}"
   done
+  KEPT_WHY="the push didn't land"
   return 1
 }
 # verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site

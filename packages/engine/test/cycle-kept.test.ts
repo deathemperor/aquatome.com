@@ -14,10 +14,15 @@ const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8
 function timedOut(runs: string[]) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-timed-out-'))
   const r = spawnSync('bash', ['-c', `
+    set -euo pipefail
     log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; calm() { :; }
     n=0; runs=(${runs.map(r => `'${r}'`).join(' ')})
-    checks() { local r="\${runs[$n]}"; echo "$r"; n=$((n + 1)); [ "$r" = ok ]; }
-    verify 'pnpm test'; echo "code=$? timed_out=$TIMED_OUT"`], { encoding: 'utf8' })
+    checks() {
+      local r="\${runs[$n]}"; n=$((n + 1))
+      if [ "$r" = long ]; then echo 'Error: Test timed out in 30000ms.'; head -c 300000 /dev/zero | tr '\\0' x; return 1; fi
+      echo "$r"; [ "$r" = ok ]
+    }
+    code=0; verify 'pnpm test' || code=$?; echo "code=$code timed_out=$TIMED_OUT"`], { encoding: 'utf8' })
   return r.stdout.trim()
 }
 
@@ -28,6 +33,8 @@ test('a run gives up as timed out only when its tests ran out of time on the sec
   expect(timedOut([late, 'AssertionError: expected 1 to be 2'])).toBe('code=1 timed_out=')
   expect(timedOut(['AssertionError: expected 1 to be 2'])).toBe('code=1 timed_out=')
   expect(timedOut([late, 'ok'])).toBe('code=0 timed_out=')
+  // A long log after the time-out, as a whole suite's is: still read as out of time, under the scripts' pipefail.
+  expect(timedOut(['long', 'long'])).toBe('code=1 timed_out=1')
 })
 
 // An engine clone (~/.local/share/aquatome/<job>) of a bare origin, its main one commit; `pnpm` stood in for (the sweep);
@@ -46,6 +53,7 @@ function clone() {
   sh(`git init -q --bare -b main origin.git && git clone -q origin.git ${repo} 2>/dev/null`, {}, home)
   sh('git config user.email a@example.com && git config user.name a && git checkout -q -b main && mkdir -p content sources engine-state docs/review && echo main > content/a.json && git add . && git commit -qm main && git push -q -u origin main 2>/dev/null')
   const cycle = (body: string, extra: Record<string, string> = {}) => sh(`
+    set -euo pipefail; PUSH_PAUSE=0
     log() { echo "LOG $*"; }; TEST_LOG="${home}/test.log"; source "${CHECKS}"; calm() { :; }
     checks() { [ -z "\${CHECK:-}" ] || { echo "$CHECK"; return 1; }; }
     ${body}`, extra)
@@ -57,10 +65,12 @@ function clone() {
     return log
   }
   // Another job's push meanwhile, from a second clone.
-  const elsewhere = () => sh(`git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && echo sf > content/c.json && git add . && git commit -qm sf && git push -q 2>/dev/null`, {}, home)
+  const elsewhere = (file = 'content/c.json') => sh(`rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && echo sf > ${file} && git add . && git commit -qm sf && git push -q 2>/dev/null`, {}, home)
   const onMain = (file: string) => sh(`git --git-dir=origin.git show main:${file} 2>/dev/null || true`, {}, home)
   const branches = () => sh("git for-each-ref --format='%(refname:short)' refs/heads/").split('\n').filter(b => b !== 'main')
-  return { sh, cycle, timedOutRun, elsewhere, onMain, branches }
+  // The origin refusing every push, or taking them again.
+  const refusing = (on: boolean) => sh(on ? 'printf "#!/bin/sh\\nexit 1\\n" > origin.git/hooks/pre-receive && chmod 755 origin.git/hooks/pre-receive' : 'rm -f origin.git/hooks/pre-receive', {}, home)
+  return { sh, cycle, timedOutRun, elsewhere, onMain, branches, refusing }
 }
 
 test("a run whose tests ran out of time keeps its work, and the next run publishes it on main as it is then", () => {
@@ -84,15 +94,38 @@ test('kept work whose tests run out of time again stays kept; a real failure mov
   const c = clone()
   c.timedOutRun()
   const [kept = ''] = c.branches()
-  expect(c.cycle('publish_kept photos', { CHECK: 'Error: Test timed out in 30000ms.' })).toContain(`LOG tests ran out of time again: ${kept} stays kept`)
+  expect(c.cycle('publish_kept photos', { CHECK: 'Error: Test timed out in 30000ms.' })).toContain(`LOG ${kept} isn't published yet (tests out of time again): it stays kept`)
   expect(c.branches()).toEqual([kept])
   expect(c.onMain('content/b.json')).toBe('')
   c.cycle('publish_kept photos', { CHECK: 'AssertionError: expected 1 to be 2' })
   expect(c.branches()).toEqual([kept.replace(/^kept\//, 'kept-failed/')])
   expect(c.onMain('content/b.json')).toBe('')
   // Another job's kept work isn't this one's to publish.
-  c.sh('git branch kept/videos/20261108T000000 HEAD~0')
+  c.sh('git branch kept/videos/20261108T000000 HEAD')
   expect(c.cycle('publish_kept photos')).toBe('')
+  expect(c.branches()).toContain('kept/videos/20261108T000000')
+})
+
+test("kept work whose push doesn't land stays kept, and goes out with the next run's push", () => {
+  const c = clone()
+  c.timedOutRun()
+  const [kept = ''] = c.branches()
+  c.refusing(true)
+  expect(c.cycle('publish_kept photos')).toContain(`LOG ${kept} isn't published yet (the push didn't land): it stays kept`)
+  expect(c.branches()).toEqual([kept])
+  c.refusing(false)
+  expect(c.cycle('publish_kept photos')).toContain(`LOG published ${kept}`)
+  expect(c.onMain('content/b.json')).toBe('photos')
+})
+
+test("kept work that clashes with main gets its own lines, as a run's push does, and is checked again", () => {
+  const c = clone()
+  c.timedOutRun()
+  c.elsewhere('content/b.json')
+  expect(c.onMain('content/b.json')).toBe('sf')
+  const log = c.cycle('publish_kept photos')
+  expect(log).toMatch(/LOG published kept\/photos\//)
+  expect(c.onMain('content/b.json')).toBe('photos')
 })
 
 test('a real failure, or a checkout that is not an engine clone, keeps nothing', () => {
