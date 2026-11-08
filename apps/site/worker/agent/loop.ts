@@ -67,10 +67,8 @@ export type AgentInput<Step> = {
    * The last call's time from the run's pace: its calls so far, averaged. Another call is made only while it would leave
    * `quick` times that (and `lastCallMs`), so a slow run answers sooner; after the first call alone, `first` times it,
    * since one slow call isn't yet a slow hour. The forced call is at `effort` when the time left holds `answer` times
-   * it, else at `lastEffort` (always, when the pace forced it), and it may take all the time left, not only `callMs`.
-   * A first call that tried a failing key first counts that time too. On the chat's hard questions, 96 turns each: at
-   * normal speed 0 failed and 4 answered from no page, against 2 and 16 with `quick` from the first call; at 1.75 times
-   * slower 7 failed and 17 answered from no page, against 6 and 47, or 13 and 12 with nothing forced before the third.
+   * it, else at `lastEffort`, and it may take all the time left, not only `callMs`. A first call that tried a failing
+   * key first counts that time too. The chat's figures, and what they did: `CHAT_PACE` (chat/agent.ts).
    */
   pace?: { answer: number; quick: number; first: number }
   /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */

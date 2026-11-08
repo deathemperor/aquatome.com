@@ -585,23 +585,26 @@ test('the chat\'s forced last call is told to answer from what it read and its o
 })
 
 test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time from its own pace', async () => {
-  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
-  let now = 0
-  const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
-  const out = await answerQuestion({
-    send: async body => {
-      bodies.push(body)
-      now += 4_000
-      return bodies.length < 3
-        ? message([{ type: 'tool_use', id: `t${bodies.length}`, name: 'search_handbook', input: { query: 'neon' } }], 'tool_use')
-        : message([{ type: 'text', text: JSON.stringify(final) }])
-    },
-    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => now,
-  })
   // Calls of 4 s: after one, another leaves 27 - 4 - 4 = 19 s, over 4 × 4 = 16 s, so the second reads; after two, 15 s,
-  // under 6.5 × 4 = 26 s, so the third answers, at low: 19 s is under 7 × 4 = 28 s.
-  expect(out.stopped).toBe('time')
-  expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort])).toEqual([['auto', 'medium'], ['auto', 'medium'], ['none', 'low']])
+  // under 6.5 × 4 = 26 s, so the third answers, at low: 19 s is under 7 × 4 = 28 s. Calls of 3.1 s: after two, another
+  // leaves 17.7 s, under 6.5 × 3.1 = 20.15 s (over 5.5 × 3.1, which read on), and 20.8 s is under 7 × 3.1 = 21.7 s.
+  for (const ms of [4_000, 3_100]) {
+    const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+    let now = 0
+    const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
+    const out = await answerQuestion({
+      send: async body => {
+        bodies.push(body)
+        now += ms
+        return bodies.length < 3
+          ? message([{ type: 'tool_use', id: `t${bodies.length}`, name: 'search_handbook', input: { query: 'neon' } }], 'tool_use')
+          : message([{ type: 'text', text: JSON.stringify(final) }])
+      },
+      model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => now,
+    })
+    expect(out.stopped, `${ms} ms`).toBe('time')
+    expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort]), `${ms} ms`).toEqual([['auto', 'medium'], ['auto', 'medium'], ['none', 'low']])
+  }
 })
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
