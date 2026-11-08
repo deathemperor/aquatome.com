@@ -18,5 +18,8 @@ export function parseEvent(body: string): AbEvent | null {
   return { p, t: t as EventType, v, sid, ...(r ? { r } : {}) }
 }
 
-/** Analytics Engine layout: blob1 unused (was the A/B skin), blob2 type, blob3 path, blob4 session, blob5 referrer host, blob6 country; double1 value; index session. */
-export const toDataPoint = (e: AbEvent, country = '') => ({ blobs: ['', e.t, e.p, e.sid, e.r ?? '', country], doubles: [e.v], indexes: [e.sid] })
+/**
+ * Analytics Engine layout: blob1 who, when not a reader (us.ts: owner, team, net, app; '' for a reader; the A/B skin
+ * until 2026-10), blob2 type, blob3 path, blob4 session, blob5 referrer host, blob6 country; double1 value; index session.
+ */
+export const toDataPoint = (e: AbEvent, country = '', who = '') => ({ blobs: [who, e.t, e.p, e.sid, e.r ?? '', country], doubles: [e.v], indexes: [e.sid] })

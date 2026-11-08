@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { queryReaders, sourceOf, summariseReaders } from '../readers'
+import { APP_SQL, automated, BURST, queryReaders, sourceOf, summariseAppReads, summariseReaders, type Session } from '../readers'
 import { overviewPage, readersPage, readersSection } from '../admin/pages'
 import type { ChartBlock } from '../admin/blocks'
 import { unset } from '../admin/shell'
@@ -56,8 +56,11 @@ test('readers count from the reset: every beacon query reads from then on, and t
   })
   const tz = 'Asia/Ho_Chi_Minh'
   const r = await queryReaders('acc', 'tok', 14, tz)
-  expect(sent).toHaveLength(2)
-  expect(sent.every(q => q.includes('FROM aquatome_events') && q.includes("timestamp >= toDateTime('2026-11-05 03:10:00')"))).toBe(true)
+  // Sessions, views and our own sessions from the beacon; the app's from its own dataset.
+  expect(sent).toHaveLength(4)
+  const beacon = sent.filter(q => q.includes('FROM aquatome_events'))
+  expect(beacon).toHaveLength(3)
+  expect(beacon.every(q => q.includes("timestamp >= toDateTime('2026-11-05 03:10:00')"))).toBe(true)
   expect(r.from).toBe('2026-11-05T03:10:00Z')
   const now = new Date('2026-11-06T09:00:00Z')
   const c = readersSection(now, r, tz).blocks.find((b): b is ChartBlock => b.kind === 'chart')!
@@ -79,4 +82,56 @@ test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an i
     expect(src, f).not.toMatch(/IF\([^()]*double\d+, 0\)/)
     expect(src, f).not.toMatch(/IF\([^()]*, double\d+\)/)
   }
+})
+
+test('our sessions are left out of the count and counted apart, by their mark', () => {
+  const sessions = [{ sid: 'r', first: '2026-11-07 01:00:00', pages: 1, t: 60, scroll: 0, land: '/ca/ca-betta/', ref: 'www.google.com', cc: 'VN' }]
+  const ours = [
+    { sid: 'o', who: 4, t: 0, scroll: 90 }, { sid: 't1', who: '3', t: 30, scroll: 0 }, { sid: 't2', who: 3, t: 0, scroll: 0 },
+    { sid: 'n', who: 2, t: 180, scroll: 50 }, { sid: 'a', who: 1, t: 0, scroll: 0 },
+  ]
+  const r = summariseReaders(sessions, [], 14, 'UTC', ours)
+  expect([r.sessions, r.readers]).toEqual([1, 1])
+  expect(r.excluded).toEqual([
+    { who: 'owner', sessions: 1, readers: 1 }, { who: 'team', sessions: 2, readers: 1 }, { who: 'net', sessions: 1, readers: 1 }, { who: 'app', sessions: 1, readers: 0 },
+  ])
+  const html = readersPage(new Date('2026-11-07T12:00:00Z'), r)
+  expect(html).toContain('Left out of the count')
+  expect(html).toContain('Our network (the agents’ Mac, its simulators and preview browser)')
+  expect(readersSection(new Date('2026-11-07T12:00:00Z'), r).blocks.some(b => b.kind === 'heading' && b.text === 'Left out of the count')).toBe(true)
+})
+
+// 7 Nov 2026: about 100 fresh Indonesian tabs in two hours, a new species page every 30 s or so, none from an outside site.
+test('a burst of fresh tabs sweeping the pages is likely automated: shown apart, not as readers', () => {
+  const t0 = Date.parse('2026-11-07T13:00:00Z')
+  const tab = (i: number, o: Partial<Session> = {}): Session => ({ sid: `s${i}`, first: new Date(t0 + i * 30_000).toISOString().slice(0, 19).replace('T', ' '), pages: 1, t: i % 10 ? 0 : 30, scroll: 0, land: `/id/ikan/fish-${i}/`, ref: '', cc: 'ID', ...o })
+  const sweep = Array.from({ length: 30 }, (_, i) => tab(i))
+  const fromGoogle = tab(99, { sid: 'g', ref: 'www.google.com', t: 60 })
+  const elsewhere = tab(98, { sid: 'v', cc: 'VN', t: 60 })
+  expect([...automated([...sweep, fromGoogle, elsewhere])].sort()).toEqual(sweep.map(s => s.sid).sort())
+  const r = summariseReaders([...sweep, fromGoogle, elsewhere], [], 14)
+  expect([r.sessions, r.readers]).toEqual([2, 2])
+  expect(r.automated).toEqual({ sessions: 30, readers: 3, bursts: [{ cc: 'ID', from: sweep[0]!.first, to: sweep[29]!.first, sessions: 30 }] })
+  expect(r.daily).toEqual([{ day: '2026-11-07', sessions: 2, readers: 2, automated: 30 }])
+  // A crowd sent to one page (a shared link) is readers, however many; so are fewer fresh tabs than BURST.n.
+  expect(automated(Array.from({ length: 40 }, (_, i) => tab(i, { land: '/id/ikan/cupang/' }))).size).toBe(0)
+  expect(automated(sweep.slice(0, BURST.n - 1)).size).toBe(0)
+  // The same tabs spread over a day are readers too.
+  expect(automated(Array.from({ length: 30 }, (_, i) => tab(i * 120))).size).toBe(0)
+  expect(readersPage(new Date('2026-11-07T16:00:00Z'), r)).toContain('Likely automated')
+})
+
+test('the app beside the web: before the App Store, every app session is ours', () => {
+  const rows = [
+    { sid: 'x', test: '', first: '2026-11-07 14:00:00', pages: 3, t: 30, scroll: 90 },
+    { sid: 'y', test: '1', first: '2026-11-07 15:00:00', pages: 1, t: 0, scroll: 0 },
+    { sid: 'z', test: '', first: '2026-12-02 15:00:00', pages: 1, t: 0, scroll: 50 },
+  ]
+  expect(summariseAppReads(rows, null)).toEqual({ onStore: false, sessions: 0, readers: 0, ours: { sessions: 3, readers: 2 } })
+  expect(summariseAppReads(rows, '2026-12-01T00:00:00Z')).toEqual({ onStore: true, sessions: 1, readers: 1, ours: { sessions: 2, readers: 1 } })
+  expect(APP_SQL(14)).toContain('FROM aquatome_app')
+  const r = { ...summariseReaders([], [], 14), app: summariseAppReads(rows, null) }
+  const html = readersPage(new Date('2026-11-07T16:00:00Z'), r)
+  expect(html).toContain('Web and app')
+  expect(html).toContain('not on the App Store yet')
 })

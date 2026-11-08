@@ -11,8 +11,10 @@ export const EVENTS = 'aquatome_events'
  * checks, the owner and the owner's agents, from before the beacon left them out. The old dataset has nothing after it.
  */
 export const READERS_FROM = '2026-11-05T03:10:00Z'
-/** Every beacon query's condition: no row from before the reset. */
-export const COUNTED = `timestamp >= toDateTime('${READERS_FROM.slice(0, 19).replace('T', ' ')}')`
+/** No row from before the reset. */
+export const SINCE_RESET = `timestamp >= toDateTime('${READERS_FROM.slice(0, 19).replace('T', ' ')}')`
+/** Every beacon query's condition: no row from before the reset, and none of ours (blob1, worker/us.ts). */
+export const COUNTED = `${SINCE_RESET} AND blob1 = ''`
 
 /** The beacon's rows for a query (`sql` names its table). */
 export const eventsSql = <T>(accountId: string, token: string, sql: (table: string) => string) => aeSql<T>(accountId, token, sql(EVENTS))

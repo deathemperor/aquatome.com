@@ -62,7 +62,7 @@ test('visitors get the page as built: no skin, no cookie, private, no validators
   expect(seen[0]?.headers.get('if-none-match')).toBeNull() // never revalidate against the shared ETag
 })
 
-test('events: same-origin, not a bot, not the owner, small body', async () => {
+test('events: same-origin, not a bot, small body; the owner\'s marked (us.test.ts)', async () => {
   const body = JSON.stringify({ p: '/vi/', t: 'view', v: 1, sid: 'abc123def456' })
   const post = (headers: Record<string, string>, b = body) => new Request('https://x.test/_e', { method: 'POST', body: b, headers: { ...browser, origin: 'https://x.test', ...headers } })
   const { e, points } = env()
@@ -71,8 +71,8 @@ test('events: same-origin, not a bot, not the owner, small body', async () => {
   expect((await handle(post({}, '{"p":"x"}'), e)).status).toBe(400)
   expect((await handle(post({ 'user-agent': 'Googlebot' }), e)).status).toBe(204) // accepted silently, not recorded
   expect((await handle(post({ 'content-length': '9000' }), e)).status).toBe(413)
-  expect((await handle(post({ cookie: 'aq_owner=1' }), e)).status).toBe(204) // the owner's own visit: not recorded
-  expect(points).toHaveLength(1)
+  expect((await handle(post({ cookie: 'aq_owner=1' }), e)).status).toBe(204) // the owner's own visit: recorded as theirs, not a reader's
+  expect(points.map(p => (p as { blobs: string[] }).blobs[0])).toEqual(['', 'owner'])
 })
 
 test('dashboard: signed out, a page is the site\'s sign-in in its place, which comes back to it; the old token opens nothing', async () => {
