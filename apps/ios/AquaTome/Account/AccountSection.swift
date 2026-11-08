@@ -33,6 +33,7 @@ struct AccountSection: View {
     case .signedIn(let user):
       Section {
         Who(user: user)
+        AccountPictureRow()
         SyncRow()
         PasskeyRows()
         AccountMessage()
@@ -104,15 +105,18 @@ private struct Who: View {
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 14))
     let side = min(circle, 84)
     layout {
-      // The person in the app's green, half the circle's height, on a pale wash of it: it reads on the card in light
-      // and dark (a grey circle was the dark card's own colour).
-      Image(systemName: "person.fill")
-        .resizable()
-        .scaledToFit()
-        .frame(width: side / 2, height: side / 2)
-        .foregroundStyle(.tint)
-        .frame(width: side, height: side)
-        .background(Color.accentColor.opacity(0.15), in: .circle)
+      // The account's fish once one's chosen (ProfilePictures), as on the profile button. Else the person in the app's
+      // green, half the circle's height, on a pale wash of it: it reads on the card in light and dark (a grey circle was
+      // the dark card's own colour).
+      AccountPictureMark(size: side) {
+        Image(systemName: "person.fill")
+          .resizable()
+          .scaledToFit()
+          .frame(width: side / 2, height: side / 2)
+          .foregroundStyle(.tint)
+          .frame(width: side, height: side)
+          .background(Color.accentColor.opacity(0.15), in: .circle)
+      }
         .accessibilityHidden(true)
       VStack(alignment: .leading, spacing: 2) {
         Text("Đã đăng nhập").font(.title3.weight(.semibold))
@@ -126,7 +130,7 @@ private struct Who: View {
 
   private var since: String {
     guard let made = Self.date(user.createdAt) else { return String(localized: "bằng \(account.ways)") }
-    return String(localized: "bằng \(account.ways) · từ tháng \(made.formatted(.dateTime.month(.defaultDigits).year()))")
+    return String(localized: "bằng \(account.ways) · từ tháng \(made.formatted(.dateTime.month(.defaultDigits).year().locale(.app)))")
   }
 
   /// The server's time (`2026-11-01T00:00:00.000Z`, or without the fraction).
@@ -237,10 +241,10 @@ private struct SyncRow: View {
 
   /// A sync's time: today's alone, yesterday's said so, an older one with its day.
   static func when(_ d: Date) -> String {
-    let time = d.formatted(date: .omitted, time: .shortened)
+    let time = d.formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))
     if Calendar.current.isDateInToday(d) { return time }
     if Calendar.current.isDateInYesterday(d) { return String(localized: "\(time) hôm qua") }
-    return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits)))")
+    return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits).locale(.app)))")
   }
 
   /// The UI tests wait here for the owner's dashboard to have asked about this account; nothing in a release build.

@@ -31,7 +31,10 @@ import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
+import { largePhotos } from './large-photos'
 import { mirrorPhotos } from './mirror-photos'
+import sharp from 'sharp'
+import { seedGalleries } from './gallery-seed'
 import { fishbasePhotos, inatPhotos } from './fishbase-photos'
 import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
@@ -363,11 +366,38 @@ if (cmd === 'run' || cmd === 'card-fill') {
   } finally {
     await fetcher.close()
   }
+} else if (cmd === 'gallery-seed') {
+  // Candidates found by hand ({ <page id>: Candidate[] }, gallery.ts keys), at the front of each page's gallery queue,
+  // for the gallery step to screen next (gallery-seed.ts). pnpm engine gallery-seed --from <file>
+  if (!values.from) throw new Error('gallery-seed: --from <file>')
+  const r = await seedGalleries(ROOT, JSON.parse(await readFile(values.from, 'utf8')))
+  console.log(`gallery-seed: ${r.added} candidates queued on ${r.pages} pages, ${r.skipped} already known, shown, rejected or not licensed, ${r.invalid} malformed, ${r.unknown.length} pages not found${r.unknown.length ? ` (${r.unknown.slice(0, 10).join(', ')})` : ''}`)
 } else if (cmd === 'mirror-photos') {
   // Commons and iNaturalist photos served from our bucket (their hosts set third-party cookies; WebP, long cache). --limit N uploads; --dry-run counts.
   const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const r = await mirrorPhotos(ROOT, { bytes, media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined, dryRun: values['dry-run'] })
   console.log(`mirror-photos: ${r.mirrored} stored, ${r.files} files updated, ${r.pending} photos waiting, ${r.failed.length} failed`)
+  for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
+} else if (cmd === 'large-photos') {
+  // Copies 1,200 on the short side of the photos that may lead the app's large cards (large-photos.ts), for the fish and breed
+  // pages --only id,id, in that order. --limit N: photos fetched this run.
+  // pnpm engine large-photos --only betta-splendens,poecilia-reticulata [--limit 200]
+  const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const commons = async (file: string) => {
+    const u = new URL('https://commons.wikimedia.org/w/api.php')
+    for (const [k, v] of Object.entries({ action: 'query', format: 'json', titles: `File:${file}`, prop: 'imageinfo', iiprop: 'url|size', iiurlwidth: '2400' })) u.searchParams.set(k, v)
+    const res = await fetch(u, { headers: { 'user-agent': UA } })
+    if (!res.ok) return undefined
+    const pages = ((await res.json()) as { query?: { pages?: Record<string, { imageinfo?: { thumburl?: string; url?: string }[] }> } }).query?.pages ?? {}
+    const ii = Object.values(pages)[0]?.imageinfo?.[0]
+    return ii?.thumburl ?? ii?.url
+  }
+  // Turned the way it shows (EXIF orientations 5-8 are quarter turns).
+  const size = async (b: Uint8Array) => { const m = await sharp(b).metadata(); return (m.orientation ?? 1) >= 5 ? { width: m.height, height: m.width } : { width: m.width, height: m.height } }
+  const ids = (values.only ?? '').split(',').map(x => x.trim()).filter(Boolean)
+  if (!ids.length) throw new Error('large-photos: --only id,id')
+  const r = await largePhotos(ROOT, ids, { bytes, commons, size, put: media().putLarge, sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined })
+  console.log(`large-photos: ${r.added} added, ${r.smaller} with no larger size, ${r.skipped} from a source without one, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
 } else if (cmd === 'fishbase-photos') {
   // Nonn Panitvong's FishBase and iNaturalist photos (used with permission) on the pages of the species they show.

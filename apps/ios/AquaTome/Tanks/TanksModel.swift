@@ -300,12 +300,12 @@ struct TankFields: Equatable {
     return v
   }
 
-  private static func text(_ v: Double) -> String { v.formatted(.number.grouping(.never).precision(.fractionLength(0...6))) }
+  private static func text(_ v: Double) -> String { v.formatted(.number.locale(.app).grouping(.never).precision(.fractionLength(0...6))) }
 }
 
 /// Litres as the site writes them: one decimal under 100, whole above; halves round up, as the browser rounds.
 func litresText(_ l: Double, digits: Int? = nil) -> String {
-  let style = FloatingPointFormatStyle<Double>.number.rounded(rule: .toNearestOrAwayFromZero)
+  let style = FloatingPointFormatStyle<Double>.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero)
     .precision(.fractionLength(0...(digits ?? (l < 100 ? 1 : 0))))
   return String(localized: "\(l.formatted(style)) lít")
 }

@@ -36,7 +36,7 @@ test('a native range without records is words only: its countries (linked to the
 test('a name stored as in a sentence: lower case inside the line, a capital where it starts a list item', () => {
   const river = { ...c.places[0]!, id: 'song-x', kind: 'river' as const, parent: undefined, t: { ...c.places[0]!.t, name: 'sông Hồng' } }
   const r = { native: native({ countries: [], regions: ['Song X'], quotes: [{ source: 'seriouslyfish' as const, quote: 'In the Red River.', countries: [], regions: ['Song X'] }] }) }
-  const p = rangeParts('vi', { ...c, places: [...c.places, river] }, { id: 'x', name: 'Cá', range: r }, marks(['seriouslyfish']))!
+  const p = rangeParts('vi', { ...c, places: [...c.places, river], placeNames: { ...c.placeNames, [river.id]: river.t.name } }, { id: 'x', name: 'Cá', range: r }, marks(['seriouslyfish']))!
   expect(plain(p.words)).toBe('Sông, hồ, vùng: sông Hồng1')
   expect(plain(p.said?.html)).toMatch(/^Sông Hồng · /)
   expect(capitalized('quần đảo Cayman')).toBe('Quần đảo Cayman')
@@ -150,4 +150,16 @@ test('in Indonesian and Thai: every word translated, the countries named in that
     expect(isVietnamese(words), `${lang}: ${words}`).toBe(false)
     expect(words, lang).toContain(countryName('VE', lang))
   }
+})
+
+test("a source's sentence keeps its own words, and the Vietnamese names in it are marked Vietnamese", () => {
+  // The Thai page of Bagarius rutilus quoted Seriously Fish's "the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers" unmarked,
+  // and the live check found Vietnamese on a Thai page (2026-11-08).
+  const quote = 'Known from the Red River, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam.'
+  const r = { native: native({ countries: [], regions: ['Red River'], quotes: [{ source: 'seriouslyfish' as const, quote, countries: [], regions: ['Red River'] }] }) }
+  const html = rangeParts('th', c, { id: 'x', name: 'x', range: r }, marks(['seriouslyfish']))!.said!.html
+  expect(html).toContain('<span lang="vi">Sông Kỳ Cùng</span>')
+  // Outside the marked names, no letter only Vietnamese has (what the live check looks for, e2e/fixtures.ts).
+  expect(html.replace(/<span lang="vi">[^<]*<\/span>/g, '')).not.toMatch(/[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i)
+  expect(plain(html)).toContain(quote)
 })

@@ -135,7 +135,7 @@ private struct MoreResults: View {
   var body: some View {
     let shown = handbook.results.count
     VStack(alignment: .leading, spacing: 4) {
-      Text("Đang hiện \(shown.formatted()) trong \((shown + handbook.left).formatted()) kết quả. Gõ thêm để thu hẹp.")
+      Text("Đang hiện \(shown.formatted(.number.locale(.app))) trong \((shown + handbook.left).formatted(.number.locale(.app))) kết quả. Gõ thêm để thu hẹp.")
         // As the chips' counts: the footer's secondary measured 3.3:1 on the light look's background.
         .foregroundStyle(Color.primary.opacity(0.6))
         .accessibilityIdentifier("more-note")
@@ -153,11 +153,11 @@ private struct NoneOfKind: View {
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted()))" } }
+    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted(.number.locale(.app))))" } }
     ContentUnavailableView {
       Label("Không có kết quả trong “\(kind.title)”", systemImage: "magnifyingglass")
     } description: {
-      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and))).")
+      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and).locale(.app))).")
     } actions: {
       Button("Xem tất cả") { handbook.kind = nil }.accessibilityIdentifier("see-all")
     }

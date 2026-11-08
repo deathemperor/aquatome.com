@@ -23,7 +23,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Django_the_fish.JPG",
       "caption": "Cá bình tích balloon màu trắng trong bể thủy sinh",
       "best": true,
-      "kind": "form"
+      "kind": "form",
+      "large": {
+        "url": "https://media.aquatome.com/commons/025ba6de7bd7d6ca-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "seen": 11,

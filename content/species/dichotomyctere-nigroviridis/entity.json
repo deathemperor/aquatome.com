@@ -438,7 +438,12 @@
       "author": "Starseed",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_nigroviridis_1.jpg",
       "caption": "Tetraodon nigroviridis - The green puffer fish",
-      "thumb": "https://media.aquatome.com/commons/dc869ceba62259ce-480.webp"
+      "thumb": "https://media.aquatome.com/commons/dc869ceba62259ce-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/dc869ceba62259ce-large.webp",
+        "width": 1797,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fe02ac9e8991f2ab.webp",
@@ -448,7 +453,12 @@
       "author": "Guérin Nicolas (messages)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_nigroviridis_(Wroclaw_zoo).JPG",
       "caption": "Picture taken in the zoo of Wrocław (Poland): Tetraodon nigroviridis (Marion de Procé, 1822)",
-      "thumb": "https://media.aquatome.com/commons/fe02ac9e8991f2ab-480.webp"
+      "thumb": "https://media.aquatome.com/commons/fe02ac9e8991f2ab-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fe02ac9e8991f2ab-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/38861749ea40c49f.webp",
@@ -458,7 +468,12 @@
       "author": "Viktoria Schmuck",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gr%C3%BCner_Kugelfisch.png",
       "caption": "Grüner Kugelfisch: Jungtier",
-      "thumb": "https://media.aquatome.com/commons/38861749ea40c49f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/38861749ea40c49f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/38861749ea40c49f-large.webp",
+        "width": 1553,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
