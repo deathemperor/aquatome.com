@@ -35,8 +35,14 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 2. **A checked photo big enough for its card.**
    - "Checked" means judged the right subject and typical, with no person, logo, face or watermark (the engine's photo
      checks), and not on the `avoid` list.
-   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's cards are about 400×420 pt, and
-     Khám phá's top cards are wider than tall.
+   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's fish card is about 400×420 pt, its
+     guide and story cards a 16:9 photo (400×225 pt at the widest, which a 1280×720 video still fills), and Khám phá's
+     top cards are wider than tall. A guide without one is still picked, and drawn without a photo; the planner gives
+     a kept guide or story a photo when its page gets one.
+   - A guide's photo has passed only the face and watermark checks, so the editor looks at each before the week goes
+     out, and puts a diagram, a photo with words on it or two photos joined in `avoid`.
+3. **Variety.** No fish or guide comes back within four weeks, and no two days running show the same group of fish, or
+   guides of the same kind or from the same source.
 
 Among the pages that pass, it scores:
 - the week's own lists first, in their order;
@@ -74,10 +80,23 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
 ## New kinds of Hôm nay card (owner, 2026-11-08)
 
 Each needs dated sources, and is written through the Writing Lead's writer and gate. A card is
-`content/cards/<id>/entity.json` and a `<lang>.json` per language it's written in (`packages/schema/src/cards.ts`): the
-eyebrow at most 24 characters and the title 70, so they fit the card at the largest text size, and a body of about 80
-words. `pnpm engine gate` reads it before it's committed, and `pnpm engine curate --check` says when a day's card is
-missing, held back in every language, or outside its days.
+`content/cards/<id>/entity.json` and a `<lang>.json` per language (`packages/schema/src/cards.ts`): the eyebrow at most 24
+characters and the title 70, so they fit the card at the largest text size, and a body of about 80 words.
+- **The editor writes the Vietnamese only**, through the editors (bar 9) and `pnpm engine gate` before it's committed. Each
+  cycle the engine translates it into the other served languages: a reviewer holds each translation to the Vietnamese, it's
+  kept only when it passes and fits the limits, and the gate reads it like any card once the gate runs in the cycle
+  (#881; until then the reviewer is the check). A changed Vietnamese card is translated again, and one the gate holds
+  takes its translations down, at the next cycle's translation step: for up to a cycle (about 3 hours) the old
+  translations still show. Malay is translated in the cycle's "ahead" block, which a long cycle skips, so a Malay card
+  can come a cycle after the Indonesian and Thai.
+- **An event in a reader's country is shown only in that country's language** (`cardShownIn`): an event whose
+  `event.country` is Vietnam shows in Vietnamese only; one in Indonesia, Thailand or Malaysia (or Brunei, for Malay) is
+  still written in Vietnamese, as the translation's source, but never shown in Vietnamese and translated into that one
+  language. An event anyone can enter from anywhere (IAPLC, entries online) is translated into all of them. Never use
+  `held` to keep a card out of a language: the gate lets a held card out once it passes. A Vietnamese source the gate
+  holds makes no translation until it passes, which the gate run before the commit shows.
+- `pnpm engine curate --check` says when a day's card is missing, its files don't parse, it's held back or unwritten in
+  every language it's shown in, or it's outside its days.
 
 | Kind | Sources | Cadence | Rules |
 | --- | --- | --- | --- |
@@ -121,27 +140,47 @@ Pages likely to be featured come first.
 
 ### Video loops
 
-Short silent loops, real footage of the species: a fish swimming, or hovering with its fins moving.
+Short silent loops, real footage of the species: a fish swimming, or hovering with its fins moving. A day with no good
+footage shows the still photo.
 - **Format**: HEVC (tagged `hvc1`), 1080×1080, the source's own frame rate up to 30 fps (25 fps footage stretched to 30
-  stutters), BT.709 SDR, no audio track, faststart, 5–8 s looping without a jump. 1 MB is the target and 1.5 MB the
+  stutters), BT.709 SDR, no audio track, faststart, 6–10 s looping without a jump. 1 MB is the target and 1.5 MB the
   most. There's an H.264 copy for browsers, and a WebP poster of a sharp frame with the fish in it, under 120 KB.
   `scripts/make-loop.sh` makes all three.
-- **Sources, in order**:
-  1. clips under a licence that allows it: Wikimedia Commons, Pexels, Pixabay, other CC0 or CC BY with credit shown;
-  2. permitted sources whose permission covers video (none does yet);
-  3. the owner's tanks;
-  4. Vietnamese shops, breeders and YouTubers, by permission.
+- **Sources** (owner, 2026-11-08), only what we may use freely:
+  1. open-licensed clips: Wikimedia Commons, the Internet Archive, other CC0, CC BY or CC BY-SA, credited as the
+     licence asks;
+  2. YouTube videos their uploader released under YouTube's Creative Commons licence (CC BY 3.0, "reuse allowed"),
+     under the rules below.
 
-  Never a cut from a YouTube video we may only embed.
+  A YouTube video under the standard licence is only ever embedded with YouTube's player, never cut. No shop, breeder or
+  channel is asked for footage.
+- **A YouTube clip**:
+  - Found with the Data API's `videoLicense=creativeCommon` filter, and the watch page must say "Creative Commons
+    Attribution license (reuse allowed)".
+  - Its uploader filmed it: the description and the channel's uploads show one person's or one shop's own filming. A
+    dealer's shop or a public aquarium is fine if the uploader shot it. Never a compilation, re-upload, TV or news clip,
+    footage with someone else's watermark, or a description that credits someone else or says "All Rights Reserved"
+    against the mark.
+  - Fish ID's prompt and model name the species on three frames of the cut, each at 0.75 or more, with its reason.
+    No clip where the ID is unsure.
+  - Downloaded slow and small: the clip only (`yt-dlp --download-sections`, rate-limited), at the lowest quality that
+    gives a clean 1080 crop. Never through the Data API key.
+  - Its record: the video's address, channel and title, the cut (`cut`, seconds), the day the licence was read
+    (`checkedAt`) and an Internet Archive copy of the page (`snapshot`). The schema refuses a YouTube loop without them.
+    The cut is all the footage used: `make-loop.sh` takes a second more than the loop for its crossfade, so an 8 s loop
+    from 266 s is cut 266–275, and for one that plays back and forth (`BOUNCE`) the cut is half the loop. The snapshot is
+    `https://web.archive.org/web/<yyyymmddhhmmss>/` and the video's own address. The schema holds both.
+    The saved page, the API's answer and Fish ID's frames are kept in the media lead's records.
 - **Each clip** is checked: the right species, no people, hands, logos, watermarks or text, good enough for a large
-  card. Its credit shows wherever it plays: the author, the licence linked to its own page (`licenceUrl`), and
-  "cut and looped from" the original, linked. A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
+  card. Its credit shows wherever it plays: the author, the original's title when it has one (`title`, which CC BY 3.0
+  asks for), linked to the original, the licence linked to its own page (`licenceUrl`), and that it was cut ("cắt
+  đoạn"). A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
 - **Uploading**: to `aquatome-media/loops/<id>-<n>.{mp4,-h264.mp4,webp}` with a year's immutable cache, never over a key
   in use. Check that a key is free with a HEAD request, never a GET: media.aquatome.com caches a GET's 404 for four
   hours, so the file can't be fetched there even once it's uploaded.
 - **A loop kept for now** (`replace`): one under the council's bar that the chief chose to ship, with what replaces it.
-  The koi (8/10, a bubble shows twice in the dissolve) waits for the owner's or a shop's footage, and goes back to the
-  photo if the owner dislikes the dissolve.
+  The koi (8/10, a bubble shows twice in the dissolve) is replaced when a better open-licensed or CC BY koi clip turns
+  up, and goes back to the photo if the owner dislikes the dissolve.
 
 ### Generated video
 

@@ -133,6 +133,19 @@ test('a fact the guide says more surely than the facts do goes back, and is not 
   expect(once.calls.filter(c => c.kind === 'write')[1]!.prompt).toContain('Nói chắc hơn dữ kiện: "Nấm chỉ mọc trên vết thương hở')
   const twice = fake({ facts, written: [sure, sure], reviews: [{ score: 0.95, notes: [], hedges: [pair(sure)] }, { score: 0.95, notes: [], hedges: [pair(sure)] }] })
   expect((await writeForReader({ llm: twice.llm }, 'g', 'x')).kept).toBe(false)
+  // The reviewer is handed the facts that hedge, and only those, to go through one by one.
+  const review = once.calls.find(c => c.kind === 'review')!.prompt
+  expect(review).toContain(`--- HEDGED FACTS ---\n- ${fact}\n`)
+  expect(review.split('--- HEDGED FACTS ---')[1]!.split('--- GUIDE ---')[0]).not.toContain('hydrogen peroxide')
+  // A list under a lead-in that hedges keeps the fact's hedge in each item.
+  const listed = { ...good, body: `${good.body}<p>Vết thương hở có thể do mấy thứ sau:</p><ul><li>Nấm mọc trên vết thương hở.</li></ul>` }
+  const ok = fake({ facts, written: [listed], reviews: [{ score: 0.95, notes: [], hedges: [{ fact, quote: 'Nấm mọc trên vết thương hở.' }] }] })
+  expect(await writeForReader({ llm: ok.llm }, 'g', 'x')).toMatchObject({ kept: true, tries: 1 })
+  // A sentence with a name in italics is found as the reviewer read it.
+  const italic = { ...good, body: `${good.body}<p>Nấm (<em>Saprolegnia</em>) chỉ mọc trên vết thương hở.</p>` }
+  const seen = fake({ facts, written: [italic, italic], reviews: [0, 1].map(() => ({ score: 0.95, notes: [], hedges: [{ fact, quote: 'Nấm (Saprolegnia) chỉ mọc trên vết thương hở.' }] })) })
+  expect((await writeForReader({ llm: seen.llm }, 'g', 'x')).kept).toBe(false)
+  expect(seen.calls.find(c => c.kind === 'review')!.prompt).toContain('Nấm (Saprolegnia) chỉ mọc')
 })
 
 test('a medicine the source names reaches the writer with what it is mistaken for here', () => {

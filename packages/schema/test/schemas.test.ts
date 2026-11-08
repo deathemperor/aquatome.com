@@ -63,3 +63,32 @@ test("the calendar names a card for a day in the story's place, never both", asy
   expect(cal({ card: 'guides/x' })).toBe(false)
   expect(cal({ card: 'cards/trivia-betta', story: { page: 'guides/x' } })).toBe(false)
 })
+
+test('a loop cut from YouTube is CC BY 3.0 and keeps its whole record: title, cut, the day the licence was read, a dated copy', async () => {
+  const { LoopSchema } = await import('../src/curation')
+  const yt = {
+    src: 'https://media.aquatome.com/loops/x-1.mp4', poster: 'https://media.aquatome.com/loops/x-1.webp', w: 1080, h: 1080, seconds: 8,
+    licence: 'CC BY 3.0', licenceUrl: 'https://creativecommons.org/licenses/by/3.0/', author: 'A channel', source: 'https://www.youtube.com/watch?v=XeeAEokdrR0',
+    title: 'A title', cut: { from: 266, to: 275 }, checkedAt: '2026-11-08', snapshot: 'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0',
+  }
+  expect(LoopSchema.safeParse(yt).success).toBe(true)
+  for (const k of ['title', 'cut', 'checkedAt', 'snapshot'] as const) expect(LoopSchema.safeParse({ ...yt, [k]: undefined }).success, k).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' }).success).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, source: 'https://youtu.be/XeeAEokdrR0' }).success).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 274, to: 266 } }).success).toBe(false)
+  // The snapshot is a dated Internet Archive copy of this video's page, not another's or an undated one.
+  for (const snapshot of [
+    'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=ZgYIaxohVJM',
+    'https://web.archive.org/web/2026/https://www.youtube.com/watch?v=XeeAEokdrR0',
+    'https://archive.ph/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0',
+    'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0&t=1',
+  ]) expect(LoopSchema.safeParse({ ...yt, snapshot }).success, snapshot).toBe(false)
+  // Its length fits its cut: the cut less a crossfade of up to a second (8 s from 9 s), or twice it played back and forth.
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 274 } }).success).toBe(true)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 270 } }).success).toBe(true)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 280 } }).success).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 272 } }).success).toBe(false)
+  // A loop from elsewhere (Commons, Internet Archive) needs none of it.
+  const { title: _t, cut: _c, checkedAt: _d, snapshot: _s, ...bare } = yt
+  expect(LoopSchema.safeParse({ ...bare, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', source: 'https://commons.wikimedia.org/wiki/File:X.webm' }).success).toBe(true)
+})

@@ -13,6 +13,110 @@
     "temburong",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "BN",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Padas",
+        "Kinabatangan",
+        "Segama",
+        "Temburong",
+        "Belalong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mengalong River, Beaufort District, Sabah, northern Borneo', but G. lepidogaster is the most widely-distributed member of the genus and in Sabah state (Malaysia) it's also known to occur in the rivers Padas, Kimanis, Petagas, Labuk, Kinabatangan, Segama, Kalabakan, plus all rivers draining into Wallace Bay.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Padas",
+            "Kinabatangan",
+            "Segama"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional records exist from the Temburong River in Brunei Darussalam and the Sebuku, Sembakung and Sesayap drainages in East Kalimantan province, Indonesia.",
+          "countries": [
+            "BN",
+            "ID"
+          ],
+          "regions": [
+            "Temburong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Batu Apoi Forest Reserve, Brunei, G. lepidogaster was found in small tributary streams of the Belalong River, comprising partially-shaded hill streams of 1-5 metres in width broken up by cascades ranging from 2-3 metres to 15 metres in height.",
+          "countries": [],
+          "regions": [
+            "Belalong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358905,
+      "total": 65,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          65
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          115.3125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          4.21875,
+          17,
+          17
+        ],
+        [
+          115.3125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          4.21875,
+          37,
+          37
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

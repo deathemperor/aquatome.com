@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "astronotus-ocellatus",
-    "scleropages-formosus"
+    "scleropages-formosus",
+    "electrophorus-electricus",
+    "pterophyllum-scalare"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "AqBogTwt6c4",
     "title": "How i built my MOST POWERFUL DIY aquarium filter yet! The king of DIY",
@@ -29,10 +31,10 @@
     },
     "taxa": [
       "Astronotus ocellatus",
-      "Symphysodon sp.",
+      "Scleropages formosus",
       "Electrophorus electricus",
-      "Pterophyllum sp.",
-      "Scleropages formosus"
+      "Symphysodon sp.",
+      "Pterophyllum scalare"
     ],
     "gear": [
       {
@@ -49,36 +51,35 @@
         "category": "loc",
         "type": "thung",
         "brand": "Fluval",
-        "model": "FX5",
-        "t": 825
+        "model": "FX6",
+        "t": 810
       },
       {
         "category": "co2",
-        "t": 1050
+        "t": 1046
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 0
+        "category": "suoi",
+        "t": 478
       }
     ],
     "figures": [
       {
-        "heading": "Sump là gì và nước chạy trong hệ thống ra sao",
+        "heading": "Sump là gì và nước chạy thế nào",
         "moments": [
           {
             "t": 10,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t10.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Sump nằm dưới bể chính với các ngăn lọc và ống nước nối."
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khoang sump nằm dưới bể chính với nước và vật liệu lọc."
           },
           {
             "t": 30,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t30.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hệ thống ống PVC dẫn nước tràn từ phía sau bể về sump."
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các ống PVC tràn phía sau tấm chắn trong bể, dẫn nước xuống sump."
           }
         ],
         "photo": {
@@ -89,61 +90,71 @@
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Sump acrylic nhiều ngăn lọc đặt riêng, có bơm và thiết bị lọc bên trong."
+          "caption": "Thùng sump acrylic nhiều ngăn với bơm và bộ lọc, chưa đổ nước."
         }
       },
       {
-        "heading": "Dựng thân sump và vách ngăn",
+        "heading": "Khung sump và vách ngăn",
         "moments": [
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t69.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lòng bể kính sump với các vách mica dán silicon bên trong."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể sump kính trống với các vách ngăn acrylic dán bên trong."
           }
         ]
       },
       {
-        "heading": "Công dụng của từng ngăn",
+        "heading": "Các ngăn lọc theo thứ tự",
         "moments": [
           {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t109.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bàn chải lọc đen và miếng bông lọc đặt trong ngăn lọc cơ học."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn lọc có chổi lọc và một viên mút lọc để sẵn."
           },
           {
-            "t": 278,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t278.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh cây lọc cơ học dạng chổi sợi đen đặt trên bàn."
+            "t": 250,
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh chổi lọc màu đen có vòng nhựa để cầm."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/AqBogTwt6c4/p2-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/AqBogTwt6c4/p2-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Khối mút lọc màu đen, thấy rõ các lỗ mút dùng cho ngăn lọc cơ học."
+        }
       },
       {
-        "heading": "Lọc tầng sôi chạy thế nào",
+        "heading": "Hạt chạy hoạt động thế nào",
         "moments": [
           {
-            "t": 337,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t337.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh hạt K3 trắng, nhiều rãnh nhỏ cho vi sinh bám."
+            "t": 340,
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các hạt K3 màu trắng nằm trong nước."
           },
           {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/t426.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hạt K3 đang lơ lửng và đảo trong ngăn lọc tầng sôi."
+            "t": 370,
+            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hạt K3 đã đổ vào ngăn lọc, nằm lơ lửng trong bể."
           }
         ]
       },
       {
-        "heading": "Tính lượng vật liệu lọc theo số cá",
+        "heading": "Tính lượng vật liệu lọc theo cá đang nuôi",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/AqBogTwt6c4/p5-lX1pvb18wMS5qcGc.webp",
@@ -153,7 +164,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "H. Zell",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
-          "caption": "Cá Oscar trưởng thành nhìn nghiêng, thấy rõ toàn thân trong bể."
+          "caption": "Một con cá Oscar trưởng thành bơi trong bể, thấy rõ toàn bộ thân hình."
         }
       }
     ]

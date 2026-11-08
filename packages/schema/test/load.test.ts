@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll } from '../src/index'
+import { cardShownIn, loadAll } from '../src/index'
 import { withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -279,5 +279,19 @@ test("the app's cards: those the gate holds back in a language are left out ther
   // Thai: held there; Indonesian: not written.
   expect((await loadAll({ root, lang: 'th', publicBuild: true })).cards).toEqual([])
   expect((await loadAll({ root, lang: 'id', publicBuild: true })).cards).toEqual([])
+})
+
+test("an event card in one of the readers' countries shows only in its language: a fair in Bangkok is Thai only, its Vietnamese card the translators' source", async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, dir, { recursive: true })
+  const file = join(dir, 'cards/betta-tet/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...e, event: { ...e.event, place: 'Bangkok', country: 'TH' } }))
+  await writeFile(join(dir, 'cards/betta-tet/th.json'), JSON.stringify({ eyebrow: 'งานประกวด', title: 'งานประกวดปลากัด', body: '<p>ที่กรุงเทพฯ</p>' }))
+  expect((await loadAll({ root: dir, lang: 'vi', publicBuild: true })).cards.map(c => c.id)).toEqual(['new-rasbora'])
+  expect((await loadAll({ root: dir, lang: 'th', publicBuild: true })).cards.map(c => c.id)).toEqual(['betta-tet'])
+  expect(cardShownIn({ event: { country: 'BN' } }, 'ms')).toBe(true)
+  expect(cardShownIn({ event: { country: 'JP' } }, 'vi')).toBe(true)
+  expect(cardShownIn({}, 'id')).toBe(true)
 })
 

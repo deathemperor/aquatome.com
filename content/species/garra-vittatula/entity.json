@@ -9,6 +9,35 @@
     "asia",
     "myanmar"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2366766,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          4
+        ],
+        [
+          "BD",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          21.09375,
+          3
+        ],
+        [
+          94.21875,
+          18.28125,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,28 +1,5 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Corundum-271368.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Corundum-271368.jpg/500px-Corundum-271368.jpg",
-   "width": 768,
-   "height": 1010,
-   "licence": "CC BY-SA 3.0",
-   "author": "Robert M. Lavinsky",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corundum-271368.jpg",
-   "caption": "Corundum (Var.: Ruby) Locality: Mogok, Pyin Oo Lwin District, Mandalay Division, Burma (Myanmar) (Locality at mindat.org) Size: 5.5 x 3.2 x 3 cm. The former own",
-   "key": "File:Corundum-271368.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Corundum-251603.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Corundum-251603.jpg/500px-Corundum-251603.jpg",
-   "width": 734,
-   "height": 800,
-   "licence": "CC BY-SA 3.0",
-   "author": "Robert M. Lavinsky",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corundum-251603.jpg",
-   "caption": "Corundum (Var.: Ruby) Locality: Mogok, Pyin Oo Lwin District, Mandalay Division, Burma (Myanmar) (Locality at mindat.org) Size: 8.4 x 7.8 x 6.4 cm. A rather lar",
-   "key": "File:Corundum-251603.jpg"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Orange Pigeon Blood Discus.jpg",
   "File:Symphysodon aequifasciatus - Karlsruhe Zoo 02.jpg",
@@ -32,18 +9,20 @@
   "File:Ruby (GeoDIL number - 1026).jpg",
   "File:Corundum (GeoDIL number - 2535).jpg",
   "flickr:30699666402",
-  "flickr:30185058984"
+  "flickr:30185058984",
+  "File:Corundum-271368.jpg",
+  "File:Corundum-251603.jpg"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/d0e12f6f5895d15d.webp": "054f0f8e860627d5",
   "https://images.unsplash.com/photo-1548425923-a7d6c37d7f18?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NXx8cGlnZW9uJTIwYmxvb2QlMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDM3ODQ2fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "4d8f1607071e1f4b",
   "https://images.unsplash.com/photo-1581720001997-af0c81be7818?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OXx8cGlnZW9uJTIwYmxvb2QlMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDM3ODQ2fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "1c18392d6c653359",
-  "https://images.unsplash.com/photo-1710880661963-11f9b71365f0?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OHx8cGlnZW9uJTIwYmxvb2QlMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDM3ODQ2fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "f3919d3dbd9c95b5",
   "https://images.unsplash.com/photo-1785665615482-662c5313e713?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjJ8fHBpZ2VvbiUyMGJsb29kJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQzNzg0Nnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "0bb9ce071b1e6438",
   "https://media.aquatome.com/commons/d6e664993c58a1ab.webp": "539d3d2e5e0d8dfa"
  },
  "commons": "2026-11-04",
  "openverse": {
   "next": null
- }
+ },
+ "exhausted": "2026-11-08"
 }

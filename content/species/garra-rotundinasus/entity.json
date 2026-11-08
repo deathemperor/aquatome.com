@@ -10,6 +10,40 @@
     "china",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yiluowadi Jiang",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Yiluowadi Jiang (upper Irrawaddy river system) in Yunnan province, southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yiluowadi Jiang",
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366834,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

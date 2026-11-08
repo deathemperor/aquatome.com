@@ -2,6 +2,42 @@
   "id": "epalzeorhynchos-frenatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/319836503.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319836503-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319836503",
+      "caption": "Cá mập cầu vồng albino xanh nhạt vây đỏ trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/233486452.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/233486452-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Jenny Saito",
+      "sourceUrl": "https://www.inaturalist.org/photos/233486452",
+      "caption": "Cá mập cầu vồng thân đen vây đỏ bên đá trang trí",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/440612957.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/440612957-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "Rojesh Man Shikhrakar",
+      "sourceUrl": "https://www.inaturalist.org/photos/440612957",
+      "caption": "Cá mập cầu vồng thân đen vây đỏ bơi trên nền sỏi",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/8795e37d8e6dec5f.webp",
       "thumb": "https://media.aquatome.com/commons/8795e37d8e6dec5f-480.webp",
       "width": 1200,
@@ -36,9 +72,33 @@
       "caption": "Cá mập cầu vồng thân xanh tím, vây đỏ trong bể thủy sinh",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/188272718.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188272718-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Jenny Saito",
+      "sourceUrl": "https://www.inaturalist.org/photos/188272718",
+      "caption": "Cá mập cầu vồng albino bơi trên nền đá trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/233486465.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/233486465-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Jenny Saito",
+      "sourceUrl": "https://www.inaturalist.org/photos/233486465",
+      "caption": "Cá mập cầu vồng thân đen vây đỏ trong bể kính",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 6,
+  "seen": 18,
   "updatedAt": "2026-11-08",
   "builtAt": "2026-11-08"
 }

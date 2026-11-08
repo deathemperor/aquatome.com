@@ -1,0 +1,115 @@
+{
+  "id": "hampala-bimaculata",
+  "native": {
+    "input": "83ece572bb8aaeb4",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo with records from the Malaysian states of Sarawak and Sabah, Indonesian province of East Kalimantan (Kalimantan Timur), and Brunei Darussalam.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo with records from the Malaysian states of Sarawak and Sabah, Indonesian province of East Kalimantan (Kalimantan Timur), and Brunei Darussalam.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo with records from the Malaysian states of Sarawak and Sabah, Indonesian province of East Kalimantan (Kalimantan Timur), and Brunei Darussalam.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Indonesia: Borneo: Kalimantan Timur: Howong [about 0°15'N 115°30'E], Bo and Kajan Rivers'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo with records from the Malaysian states of Sarawak and Sabah, Indonesian province of East Kalimantan (Kalimantan Timur), and Brunei Darussalam.",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "Drainages recorded include Baleh, Balui, Baram, Besua, Kayan, Rajang and Bo.",
+        "ok": true
+      },
+      {
+        "name": "Baram",
+        "source": "seriouslyfish",
+        "quote": "Drainages recorded include Baleh, Balui, Baram, Besua, Kayan, Rajang and Bo.",
+        "ok": true
+      },
+      {
+        "name": "Kayan",
+        "source": "seriouslyfish",
+        "quote": "Drainages recorded include Baleh, Balui, Baram, Besua, Kayan, Rajang and Bo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hampala bimaculata",
+    "status": "ACCEPTED",
+    "taxonKey": 2367427,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID",
+      "BN"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

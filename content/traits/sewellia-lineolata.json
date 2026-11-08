@@ -2,7 +2,12 @@
   "id": "sewellia-lineolata",
   "temperament": "semi-aggressive",
   "finNipper": false,
-  "schoolMin": 6,
+  "schoolMin": 3,
   "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T14:48:10.150Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T19:53:49.406Z"
 }

@@ -188,17 +188,19 @@ The script never submits the app for review, attaches a build or releases it: it
 they're sent. The App Review contact is entered on the App Store Connect website, never here.
 
 Before the first submission (the owner's to approve), by hand in App Store Connect: the App Privacy answers match
-`AquaTome/PrivacyInfo.xcprivacy` and the telemetry below. Once the app sends an install id, that's a Device ID, not
-linked to the reader, for analytics, in the manifest in the same change and in those answers.
+`AquaTome/PrivacyInfo.xcprivacy` and the telemetry below, the install id among them: a Device ID, not linked to the
+reader, for analytics.
 
-## Anonymous telemetry
+## Telemetry
 
 What the privacy policy lists, to aquatome.com's own Worker, nothing to anyone else (`AquaTomeKit/Sources/Telemetry`,
 to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the requests):
 
 - **Events**, in batches of up to 100 with the app's version, iOS's version, the phone's model (`iPhone17,3`), the
-  language and a session id made anew at each launch and never reused for another launch (a batch waiting in the queue
-  keeps its launch's): `view` (a page opened, drawn by the app or as
+  language, a session id made anew at each launch and never reused for another launch (a batch waiting in the queue
+  keeps its launch's), and this install's id (`Install`: random, made at the first batch, kept in UserDefaults so it
+  goes with the app, made anew after 13 months, deleted when the reader turns telemetry off; in no other request, never
+  beside the account): `view` (a page opened, drawn by the app or as
   the web page, by its path; a tab, a tank's screen, a shelf), and on a page the app draws, `scroll` (50 and 90%) and
   `time` (30, 60 and 180 s on the screen with the app in front), the site beacon's marks, and `aff` (a shop link
   tapped); and `action` (`light.connect`, `light.write`, `plug.switch`, `tank.add`, `post.comment`, `post.photo`, and
@@ -219,7 +221,7 @@ to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the r
   `aqcheck=1` (`SiteMark`), every link, so the site leaves that tab's views out of its readers'.
 - **Off** until the site's index, read fresh at this launch, says `telemetry: true` (`HandbookIndex.telemetry`; the
   copy kept from an earlier launch doesn't count; absent or false, the app drops what waits and records nothing), and
-  whenever the reader turns off "Gửi thống kê ẩn danh" (in the Tài khoản sheet). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
+  whenever the reader turns off "Gửi thống kê" (in the Tài khoản sheet). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
   what waits is dropped.
 
 On the simulator the requests go to a stand-in Worker (`FakeCollector`), shown to the UI tests as `telemetry-received`
@@ -319,7 +321,8 @@ Jobs `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac
 have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner runs,
 `aquatome-mac-1`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
 them overloaded it on 2026-11-05. Its service has `Nice` 10, which reaches its builds but not the simulator's processes:
-launchd starts those, at normal priority. Its flow jobs take their turn with everyone else's simulator runs through
+launchd starts those, at normal priority. Its flow jobs test on one simulator, with no copies: with two, a 0.4 s job on
+the Mac took 5 to 12 s (2026-11-08). They take their turn with everyone else's simulator runs through
 `scripts/sim-run.py` (one at a time, at most two copies of a simulator), so a job can wait for a lead's run and a lead's
 run for a job, and the job's time limit there is longer to allow for it. `aquatome-mac-2` stays registered, stopped and disabled, so a reboot doesn't
 start it (`launchctl disable gui/$(id -u)/actions.runner.deathemperor-aquatome.com.aquatome-mac-2`). A full run on main

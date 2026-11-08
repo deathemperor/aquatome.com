@@ -2,7 +2,12 @@
   "id": "knodus-borki",
   "temperament": "peaceful",
   "finNipper": true,
-  "schoolMin": 10,
+  "schoolMin": 8,
   "speciesUpdatedAt": "2026-11-03",
-  "generatedAt": "2026-11-03T07:49:30.785Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T14:03:57.557Z"
 }

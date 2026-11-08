@@ -1,0 +1,84 @@
+{
+  "id": "moema-quiii",
+  "scientificName": "Moema quiii",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Moema",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_quiii_en/",
+      "html": "<p>Killifish are generally beautiful fish. This spectacular species was imported from Peru and has wonderful colours as well as an extraordinary size of about 11 cm. Only a single male could be collected by the supplier.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_quiii_en/",
+      "html": "<p>Origin: Peru.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_quiii_en/",
+      "html": "<p>The unusual name “quiii” refers to Belinda Peck, who got the nickname Qui-i-i from an Ese Eja shaman. The species is named in honour of Mrs. Peck.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "UtirFU5QcUQ",
+      "title": "Moema Quiii",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "atEfYhKBh8U",
+      "title": "Moema hellneri Jungfische 4 Monate alt",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RPz0GhfcyNY",
+      "title": "MVI 8564",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pVtp2tjYbwg",
+      "title": "Simpsonichthys hellneri   25 Convencion de la Sociedad Española de Killis",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá killifish"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá killifish",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

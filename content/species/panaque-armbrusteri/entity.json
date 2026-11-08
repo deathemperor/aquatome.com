@@ -1,0 +1,204 @@
+{
+  "id": "panaque-armbrusteri",
+  "scientificName": "Panaque armbrusteri",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Panaque",
+  "group": "catfish",
+  "lNumber": "L027, LDA077",
+  "places": [
+    "south-america",
+    "brazil",
+    "tapajos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "planetcatfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<ul><li>Scientific name: Panaque armbrusteri Lujan, Hidalgo &amp; Stewart, 2010</li><li>Common names: L027, Tapajos Royal Pleco, LDA077, Gulstribet Kongesugemalle (Denmark), Thunder Royal Pleco</li><li>IUCN: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>South America: Brazil: Rio Tapajós basin, Amazon, Lower Amazon. Type locality: Tapajós River drainage, Teles Pires River, near the highway MT-416 ferry, Mato Grosso State, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>Natural habitat is among fallen trees and wood-tangles.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>All Panaque appear to feed on wood, so wood should be present in the tank. They also take prepared algae wafers and fresh vegetables (zucchini, cucumber, peas, green beans) and tubers (potato, yams and similar).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>Generally peaceful, but may defend their territory against conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>Males have heavy odontal growth on pectoral fin and long interopercular spines.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>The genus Panaque is identified by spoon-shaped teeth, noticeably wider at the tip than at the base, and by the lack of a buccal papilla. The base colouration is brownish black with beige stripes, and the eye is also beige. Young fish have a 1/3 clear stripe in their black/brown caudal fins with no posterior edge colour. Adult fish (over 172 mm SL) have teeth angles greater than 100°. The caudal fin is truncate rather than forked or lunate.</p><p>The common name Thunder Royal Pleco comes from the English translation of a Japanese general term referring to both lightning and thunder. It refers to the lightning-like light horizontal stripes seen especially in larger individuals.</p><p>Etymology: \"panaque\" is a Venezuelan common name for this fish. The specific epithet honours Jonathan W. Armbruster, ichthyologist and Curator of Fishes at the Auburn University Museum Fish Collection.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1304",
+      "html": "<p>Copeia 2010 (no. 4), pp 677, Figs. 1-2, 4-5.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ed46023bbc1de92e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ed46023bbc1de92e-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_armbrusteri.htm",
+      "caption": "Panaque armbrusteri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b5ee04205f812658.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b5ee04205f812658-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_armbrusteri.htm",
+      "caption": "Panaque armbrusteri: Head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4441d54d507e9ccd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4441d54d507e9ccd-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_armbrusteri.htm",
+      "caption": "Panaque armbrusteri: View of mouth",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/600b4a533858c402.webp",
+      "thumb": "https://media.aquatome.com/scotcat/600b4a533858c402-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_armbrusteri.htm",
+      "caption": "Panaque armbrusteri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/16fa351dd7d450b5.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "JSutton93",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_armbrusteri.jpg",
+      "caption": "Panaque armbrusteri at Berlin Aquarium",
+      "thumb": "https://media.aquatome.com/commons/16fa351dd7d450b5-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "7QTh_EF6QEw",
+      "title": "Panaque cf. armbrusteri 'xingu' - L027",
+      "durationSec": 79,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3GD8Lx7QC40",
+      "title": "Panaque cf. armbrusteri - São Felix do Xingu",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GCEkiQMcvYE",
+      "title": "Panaque cf. armbrusteri - Rio Araguaia",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "duPI-CcZeyo",
+      "title": "ROYAL PLECOS ! Collecting and keeping Panaque armbrusteri from the Rio Araguaia, Brazil.",
+      "durationSec": 431,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rong tảo cho cá lau kiếng"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

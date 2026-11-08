@@ -2,52 +2,64 @@
   "id": "boraras-brigittae",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/22472342490.webp",
+      "thumb": "https://media.aquatome.com/flickr/22472342490-480.webp",
+      "width": 1024,
+      "height": 1023,
+      "licence": "CC BY-SA 2.0",
+      "author": "Daiju Azuma",
+      "sourceUrl": "https://www.flickr.com/photos/97624390@N00/22472342490",
+      "caption": "Cá rasbora muỗi đực màu đỏ cam bơi trong bể nền tối",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/33de0bd15f65808d.webp",
       "thumb": "https://media.aquatome.com/commons/33de0bd15f65808d-480.webp",
       "width": 1200,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "JoKrimmel",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borasasb_(cropped).jpg",
-      "caption": "Cá rasbora ớt trưởng thành màu đỏ, vây lưng cao, chụp cận cảnh trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/33de0bd15f65808d-large.webp",
         "width": 2250,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "JoKrimmel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borasasb_(cropped).jpg",
+      "caption": "Cá rasbora ớt trưởng thành màu đỏ, vây lưng cao, chụp cận cảnh trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/0996c8928e74bf80.webp",
       "thumb": "https://media.aquatome.com/commons/0996c8928e74bf80-480.webp",
       "width": 1200,
       "height": 880,
-      "licence": "CC0",
-      "author": "Fantomeno 14",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora-orn%C3%A9-3-min-2617071259.jpg",
-      "caption": "Cá rasbora ớt màu đỏ cam bơi trong bể nền tối",
       "large": {
         "url": "https://media.aquatome.com/commons/0996c8928e74bf80-large.webp",
         "width": 1300,
         "height": 954
-      }
+      },
+      "licence": "CC0",
+      "author": "Fantomeno 14",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora-orn%C3%A9-3-min-2617071259.jpg",
+      "caption": "Cá rasbora ớt màu đỏ cam bơi trong bể nền tối"
     },
     {
       "url": "https://media.aquatome.com/commons/75e92837b21cdbe6.webp",
       "thumb": "https://media.aquatome.com/commons/75e92837b21cdbe6-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Atulbhats",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_brigittae.jpg",
-      "caption": "Cá rasbora ớt đỏ với sọc đen bên thân trong bể nền xanh tối",
       "large": {
         "url": "https://media.aquatome.com/commons/75e92837b21cdbe6-large.webp",
         "width": 1801,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Atulbhats",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_brigittae.jpg",
+      "caption": "Cá rasbora ớt đỏ với sọc đen bên thân trong bể nền xanh tối"
     }
   ],
-  "seen": 8,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 9,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

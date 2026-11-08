@@ -10,6 +10,59 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar, a range forming a natural barrier isolating most the area from the remainder of the country.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was originally collected in 1998 from the Naung Pin Thar Chaung, a small stream within the Irrawaddy watershed which runs alongside a logging road and drains the eastern face of the Rakhine Yoma.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366738,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          16.875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

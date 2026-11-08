@@ -1,0 +1,72 @@
+{
+  "id": "auriglobus-silus",
+  "scientificName": "Auriglobus silus",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Auriglobus",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "dataCard": {
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/auriglobus-silus/",
+      "html": "<p>Origin: Thailand. Available size: 4–5 cm.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/auriglobus-silus/",
+      "html": "<p>They are easy to keep and do not need special water parameters.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/auriglobus-silus/",
+      "html": "<p>In bigger sizes they can tend to fight between themselves.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/auriglobus-silus/",
+      "html": "<p>A frisky puffer received from Thailand in December 2007. All in all it is an interesting puffer, which will be kept mainly by experts or experienced hobbyists.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nóc nước ngọt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nóc",
+        "ốc cho cá nóc ăn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

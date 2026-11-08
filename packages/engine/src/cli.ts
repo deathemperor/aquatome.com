@@ -90,6 +90,7 @@ import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
+import { localizeCards } from './cards-intl'
 import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
 import { abNamespace, listReaderWants } from './readers-wanted'
@@ -863,6 +864,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const limit = values.only || values.top ? undefined : Number(values.limit ?? 10)
   const r = await localizeSpecies(ROOT, claudeCli, lang, ids, { redo: values.redo, model: 'opus', now: () => new Date(), english: sci => englishName(sci, http), limit, kind })
   console.log(`localize ${lang}: ${r.done.length} done, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.done, ...r.failed].join('\n')}`)
+} else if (cmd === 'localize-cards') {
+  // The app's short cards in another language, translated from the Vietnamese card (cards-intl.ts): each not yet in it, or
+  // --only ids; --redo writes them again.
+  const lang = values.lang as TargetLang
+  if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-cards --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only id,id] [--redo]`)
+  const only = values.only?.split(',').map(s => s.trim()).filter(Boolean)
+  for (const r of await localizeCards(ROOT, claudeCli, lang, { redo: values.redo, ...(only ? { only } : {}) })) console.log(JSON.stringify(r))
 } else if (cmd === 'localize-breeds') {
   // Breed pages (hybrids, lines) in another language, written from their saved research (--only ids; --redo).
   const lang = values.lang as TargetLang

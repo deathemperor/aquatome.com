@@ -10,6 +10,105 @@
     "brazil",
     "ribeira-de-iguape"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Ribeira de Iguape",
+        "Rio Bethary",
+        "Paranapanema"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Bethary of Rio Ribeira, São Paulo, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Bethary"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Ribeira de Iguape River basin.",
+          "countries": [],
+          "regions": [
+            "Ribeira de Iguape"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Harttia kronei occurs in the Ribeira de Iguape and Paranapanema river basins, in the states of São Paulo and Paraná.",
+          "countries": [],
+          "regions": [
+            "Paranapanema"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202417,
+      "total": 155,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          155
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -26.71875,
+          12,
+          12
+        ],
+        [
+          -50.625,
+          -25.3125,
+          27,
+          27
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          100,
+          100
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          10,
+          10
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

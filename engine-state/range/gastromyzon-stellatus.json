@@ -1,0 +1,69 @@
+{
+  "id": "gastromyzon-stellatus",
+  "native": {
+    "input": "75927962e89ae9ed",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sarawak, Sadong and Lupar River drainages in southern Sarawak state, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sarawak River",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sarawak, Sadong and Lupar River drainages in southern Sarawak state, Malaysian Borneo.",
+        "country": "MY",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Sadong",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sarawak, Sadong and Lupar River drainages in southern Sarawak state, Malaysian Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Lupar",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sarawak, Sadong and Lupar River drainages in southern Sarawak state, Malaysian Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sarawak, Sadong and Lupar River drainages in southern Sarawak state, Malaysian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon stellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358903,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

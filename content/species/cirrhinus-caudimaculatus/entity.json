@@ -14,6 +14,80 @@
     "chao-phraya",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+          "countries": [
+            "CN",
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5206468,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          4
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

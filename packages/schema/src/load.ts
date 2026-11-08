@@ -2,7 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { shownCard } from './card-facts'
-import { CardSchema, CardTextSchema, type Card } from './cards'
+import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
@@ -183,7 +183,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     products.push(await exists(file) ? { ...p, market: await readJson(file, MarketSchema) } : p)
   }
 
-  // A card in this language, unless the gate holds it back there; a photo this build may not show is dropped, not the card.
+  // A card in this language, unless the gate holds it back there or it's an event in another reader's country
+  // (cardShownIn); a photo this build may not show is dropped, not the card.
   const cards: Card[] = []
   const cardsDir = join(root, 'cards')
   for (const id of (await readdir(cardsDir).catch(() => [] as string[])).sort()) {
@@ -192,6 +193,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const t = await readJson(tPath, CardTextSchema)
     if (t.held) continue
     const { photo, ...card } = await readJson(join(cardsDir, id, 'entity.json'), CardSchema)
+    if (!cardShownIn(card, lang)) continue
     const shown = photo && cleanPhotos([photo])[0]
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }

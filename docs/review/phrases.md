@@ -85,6 +85,11 @@ Per million words, site | forum | videos:
 | trị rộng, trị diện rộng | 0 | 0.7 | 0 | what it treats: trị luôn cả ba thứ (both editors, rounds 9 and 10) |
 | chỗ bắt đầu | 1.6 | 0 | 0 | để tham khảo (192 in the forum) |
 | được cho là | species 147, guides 30 | 3.3 | 0 | the source's own certainty: say it plainly, or có lẽ, nghe nói when the source doubts |
+| gần như không | species 168, guides 142 | 4 | 15 | hầu như không (18.5), ít khi (28), or say it plainly |
+| việc đầu tiên là | guides 42 | 0 | 3.7 | đầu tiên là (129 in the videos), trước tiên, or do it |
+| dây hơi | guides 11 | 0 | 0 | dây oxy (7.9, 3.7) |
+| gầy rộc | species 14, guides 3.3 | 0 | 0 | gầy (37 in the forum), gầy đi |
+| người cho đẻ | species 8.6 | 0 | 0 | trại, người ép đẻ (30 in the forum) |
 
 In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
 

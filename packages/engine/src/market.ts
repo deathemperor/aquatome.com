@@ -262,7 +262,7 @@ const MARKET_LINE: Record<MarketStatus['status'], string> = {
  * not a sourced dose. In the table, so the writer writes it and the reviewer counts it as supported.
  */
 const PRACTICE: Partial<Record<Lang, Partial<Record<ProblemId, string>>>> = { vi: {
-  quarantine: 'Cá mới trông khỏe: nhiều người chơi chỉ cách ly và theo dõi, cá có bệnh mới trị. Trị phòng cho cá khỏe là một cách khác, không phải việc phải làm. Ai trị phòng thì mỗi thuốc theo liều và lịch trên nhãn của nó.',
+  quarantine: 'cá mới trông khỏe: nhiều người chơi chỉ cách ly, theo dõi, có bệnh mới trị; trị phòng: một cách khác, không bắt buộc; liều, lịch: theo nhãn thuốc mua',
 } }
 
 export function marketFor(lang: Lang, source: string, problems: ProblemId[]): string {
@@ -279,10 +279,11 @@ export function marketFor(lang: Lang, source: string, problems: ProblemId[]): st
     ...(r.how ? [r.how.text] : []),
     ...(r.risks ? [`Rủi ro: ${r.risks}`] : []),
   ].join('\n'))
-  const practice = [...wanted].flatMap(p => PRACTICE[lang]?.[p] ?? [])
+  // Only where the source itself takes the problem up: a product it names for something else doesn't bring the line in.
+  const practice = problems.flatMap(p => PRACTICE[lang]?.[p] ?? [])
   return [
     ...lines, unlisted,
     ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : []),
-    ...(practice.length ? ['', 'Người chơi ở đây làm thế này. Bài nói tới chuyện đó thì viết đúng ý này:', ...practice] : []),
+    ...(practice.length ? ['', 'Người chơi ở đây làm thế này (ghi chú, không phải câu văn). Chỉ viết ý nào khi DỮ KIỆN nói tới đúng chuyện đó, bằng lời của bạn:', ...practice] : []),
   ].join('\n')
 }

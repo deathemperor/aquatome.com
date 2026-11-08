@@ -10,6 +10,94 @@
     "china",
     "zhu-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Zhu Jiang",
+        "Chiang Jiang",
+        "Min Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed in southern China, with records from the Zhu Jiang (Pearl River), Chiang Jiang, and Min Jiang watersheds.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Zhu Jiang",
+            "Chiang Jiang",
+            "Min Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366863,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          19
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          106.875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          10,
+          10
+        ],
+        [
+          112.5,
+          22.5,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

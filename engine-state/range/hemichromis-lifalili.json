@@ -1,0 +1,66 @@
+{
+  "id": "hemichromis-lifalili",
+  "native": {
+    "input": "83121f2cdd3da49d",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blood-red jewel cichlid, Hemichromis lifalili, is a cichlid endemic to the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemichromis lifalili",
+    "status": "ACCEPTED",
+    "taxonKey": 2371376,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        17
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

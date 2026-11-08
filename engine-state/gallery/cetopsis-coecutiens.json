@@ -1,41 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/466242615/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/466242615/medium.jpeg",
-   "width": 2048,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Renato Moraes",
-   "sourceUrl": "https://www.inaturalist.org/photos/466242615",
-   "key": "inat:466242615"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205572863/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/205572863/medium.jpg",
-   "width": 2048,
-   "height": 1371,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/205572863",
-   "key": "inat:205572863"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/257185482/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/257185482/medium.jpeg",
-   "width": 1249,
-   "height": 937,
-   "licence": "CC BY",
-   "author": "jorgehenao",
-   "sourceUrl": "https://www.inaturalist.org/photos/257185482",
-   "key": "inat:257185482"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Candiru catfishes in Brazil.jpg",
   "File:Siluriformes.png",
   "File:Stream fish from Araguaia and Rio da Mortes basin.png",
-  "File:Cetopsis coecutiens 205572863.jpg"
+  "File:Cetopsis coecutiens 205572863.jpg",
+  "inat:466242615",
+  "inat:205572863",
+  "inat:257185482"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/3c0dea58b276480b.webp": "131be28e9a630f0f",
@@ -45,5 +17,13 @@
   "https://media.aquatome.com/scotcat/342d4d7cbbd70e93.webp": "17070d688be63409",
   "https://media.aquatome.com/scotcat/3084bb596e4768c5.webp": "2b731dc3873e78e0"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 610021,
+  "pass": "done",
+  "after": {
+   "research": 259700179,
+   "agree": 0
+  }
+ }
 }

@@ -1,0 +1,78 @@
+{
+  "id": "anablepsoides-hartii",
+  "scientificName": "Anablepsoides hartii",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Anablepsoides",
+  "group": "killifish",
+  "places": [],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_hartii_en/",
+      "html": "<p>Rivulus hartii (the species has recently been placed in the genus Anablepsoides, thus the correct name is now Anablepsoides hartii) becomes comparatively large and grows to a maximum size of 11 cm. In the aquarium this rather peaceful fish can live up to 3 years.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_hartii_en/",
+      "html": "<p>The tank must always be absolutely densely covered, for all Rivulus are perfect jumpers.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "uPWN4uj7SpI",
+      "title": "Anablepsoides hartii früher Rivulus hartii Jungfische 4 Wochen alt",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eaO0BwKx1e4",
+      "title": "Anablepsoides spec.affin hartii GR 06.6, Izcaragua",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ALyly9N9vik",
+      "title": "Episode 2 - Jumping Guabine (Anablepsoides hartii)",
+      "durationSec": 191,
+      "lang": "en-GB"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể có nắp đậy kín",
+        "nắp kính bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

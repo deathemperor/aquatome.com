@@ -47,3 +47,17 @@ test('what a reviewer quotes is found as it would read it, and a hedge is read i
   // "Can thiệp" and "may mắn" are Vietnamese words, not "can" and "may".
   expect(part('Đừng can thiệp vào bể, may mắn là cá khỏe.', 'Để yên bể, cá khỏe.')).toEqual([])
 })
+
+test('a list item says what its lead-in says: under "có thể … sau:" it keeps the hedge; under a plain lead-in it loses it', () => {
+  const from = 'Stagnation can happen if the current in the tank is too slow.'
+  const pair = [{ from, to: 'Dòng chảy trong bể quá yếu.' }]
+  expect(hedgesLost(pair, from, '<p>Nước có thể bị đọng trong mấy trường hợp sau:</p><ul><li>Dòng chảy trong bể quá yếu.</li><li>Nền nhiều cặn.</li></ul>')).toEqual([])
+  expect(hedgesLost(pair, from, '<p>Nước bị đọng trong mấy trường hợp sau:</p><ul><li>Dòng chảy trong bể quá yếu.</li></ul>')).toEqual(pair)
+  // The hedge before another list's lead-in doesn't reach this one, nor one in an earlier clause of its own.
+  expect(hedgesLost(pair, from, '<p>Có thể làm thế này.</p><p>Nước bị đọng khi:</p><ul><li>Dòng chảy trong bể quá yếu.</li></ul>')).toEqual(pair)
+  expect(hedgesLost(pair, from, '<p>Nước có thể bẩn, nên xem các chỗ sau:</p><ul><li>Dòng chảy trong bể quá yếu.</li></ul>')).toEqual(pair)
+  // A lead-in in bold, and an item after a list inside the list.
+  expect(hedgesLost(pair, from, '<p><strong>Nước có thể bị đọng khi:</strong></p><ul><li>Dòng chảy trong bể quá yếu.</li></ul>')).toEqual([])
+  expect(hedgesLost(pair, from, '<p>Nước <em>có thể</em> bị đọng khi:</p><ul><li>Nền:<ul><li>Nhiều cặn.</li></ul></li><li>Dòng chảy trong bể quá yếu.</li></ul>')).toEqual([])
+  expect(hedgesLost(pair, from, '<p>Nước có thể bị đọng khi:</p><ul><li>Nền nhiều cặn.</li></ul><p>Còn nữa.</p><ul><li>Dòng chảy trong bể quá yếu.</li></ul>')).toEqual(pair)
+})

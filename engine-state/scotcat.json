@@ -577,6 +577,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm": {
+    "entityIds": [
+      "species/bunocephalus-colombianus"
+    ],
+    "updatedAt": "2026-11-08T11:46:38.538Z",
+    "hash": "f6154d569fd8db901fb2663ded752a10792c1bce43835d591b27b2c3bca14f37",
+    "processedHash": "f6154d569fd8db901fb2663ded752a10792c1bce43835d591b27b2c3bca14f37",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
       "species/ageneiosus-magoi"
@@ -957,6 +967,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm": {
+    "entityIds": [
+      "species/noturus-leptacanthus"
+    ],
+    "updatedAt": "2026-11-08T18:05:45.665Z",
+    "hash": "0ac70234463ea31d547802693f330c4f96d6791399b2a66a9171ec767adabde3",
+    "processedHash": "0ac70234463ea31d547802693f330c4f96d6791399b2a66a9171ec767adabde3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm": {
+    "entityIds": [
+      "species/noturus-nocturnus"
+    ],
+    "updatedAt": "2026-11-08T18:07:16.138Z",
+    "hash": "f600a9ddbd36a0a3cd420404ecd3bed300dc0453cb4142bd4b10d0b86b8dbbe4",
+    "processedHash": "f600a9ddbd36a0a3cd420404ecd3bed300dc0453cb4142bd4b10d0b86b8dbbe4",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm": {
     "entityIds": [
       "species/ancistrus-macrophthalmus"
@@ -994,6 +1024,16 @@
     "updatedAt": "2026-11-02T12:24:18.790Z",
     "hash": "e491644268d1d6f5f18095beb63ff7a15206c15553d6a073ad35e3294a44c2ed",
     "processedHash": "e491644268d1d6f5f18095beb63ff7a15206c15553d6a073ad35e3294a44c2ed",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm": {
+    "entityIds": [
+      "species/dekeyseria-scaphirhyncha"
+    ],
+    "updatedAt": "2026-11-08T11:47:50.642Z",
+    "hash": "109ca3b0a9c877759231ec1c6525ecb4d532dd3d8e133ccae4003e59ae633cff",
+    "processedHash": "109ca3b0a9c877759231ec1c6525ecb4d532dd3d8e133ccae4003e59ae633cff",
     "status": "processed",
     "attempts": 0
   },
@@ -1137,6 +1177,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm": {
+    "entityIds": [
+      "species/hypostomus-gymnorhynchus"
+    ],
+    "updatedAt": "2026-11-08T11:51:24.216Z",
+    "hash": "94d0f7ba0d47a8a726a929c166b5ddd17221cff89a178c9c128536001fbe7cb2",
+    "processedHash": "94d0f7ba0d47a8a726a929c166b5ddd17221cff89a178c9c128536001fbe7cb2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hypostomus_isbrueckeri.htm": {
     "entityIds": [
       "species/hypostomus-isbrueckeri"
@@ -1247,6 +1297,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm": {
+    "entityIds": [
+      "species/panaque-bathyphilus"
+    ],
+    "updatedAt": "2026-11-08T18:10:10.591Z",
+    "hash": "c9809105d5121b3a49ebf701bf00db057a0432a9b560be16b96efbba3929a730",
+    "processedHash": "c9809105d5121b3a49ebf701bf00db057a0432a9b560be16b96efbba3929a730",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
@@ -1312,6 +1372,16 @@
     "updatedAt": "2026-11-07T01:33:24.291Z",
     "hash": "acf7d804006cecf8e841cd46595d5ada70d23e47cf6dbf2868f6fb180b4b9c71",
     "processedHash": "acf7d804006cecf8e841cd46595d5ada70d23e47cf6dbf2868f6fb180b4b9c71",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm": {
+    "entityIds": [
+      "species/mochokus-niloticus"
+    ],
+    "updatedAt": "2026-11-08T11:53:17.130Z",
+    "hash": "ca8feb0b2b4f6cba6857f9278e0c51f036be9aea5ef19484e4f8e74439812f3a",
+    "processedHash": "ca8feb0b2b4f6cba6857f9278e0c51f036be9aea5ef19484e4f8e74439812f3a",
     "status": "processed",
     "attempts": 0
   },
@@ -1415,6 +1485,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm": {
+    "entityIds": [
+      "species/hemisilurus-heterorhynchus"
+    ],
+    "updatedAt": "2026-11-08T11:49:31.006Z",
+    "hash": "45c6cc8c47a96b6cbad50c3c0f361d5199879c71d0833ea5421697ecbb54f689",
+    "processedHash": "45c6cc8c47a96b6cbad50c3c0f361d5199879c71d0833ea5421697ecbb54f689",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/siluridae/hemisilurus_moolenburghi.htm": {
     "entityIds": [
       "species/hemisilurus-moolenburghi"
@@ -1442,6 +1522,16 @@
     "updatedAt": "2026-11-02T21:43:18.805Z",
     "hash": "ebf447eaf1bc29e8ab796a4e2bb2804093d9277114a74ff49d9578f0b530a539",
     "processedHash": "ebf447eaf1bc29e8ab796a4e2bb2804093d9277114a74ff49d9578f0b530a539",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/exostoma_labiatum.htm": {
+    "entityIds": [
+      "species/exostoma-labiatum"
+    ],
+    "updatedAt": "2026-11-08T18:02:20.056Z",
+    "hash": "41d8cec16c93010c6e0669d1a5afe4fc6395311829754f18db74c517c4353263",
+    "processedHash": "41d8cec16c93010c6e0669d1a5afe4fc6395311829754f18db74c517c4353263",
     "status": "processed",
     "attempts": 0
   },

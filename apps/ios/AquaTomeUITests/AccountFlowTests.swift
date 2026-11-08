@@ -198,6 +198,31 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(drawn(app, "appearance-app", was), "the tabs aren't as the phone is again")
   }
 
+  /// "Ngôn ngữ": a language chosen in the sheet opens the app in it from the next launch, as iOS's Settings → AquaTome →
+  /// Language would (both keep the app's AppleLanguages), with a line in that language saying so until then, and none for
+  /// the language it's in; "Theo máy" gives it back to the phone, which has none of the three (Vietnamese). The relaunches
+  /// leave out -AppleLanguages, which would stand over the kept choice. The language is read off "Bể của tôi", a tab both
+  /// looks have (v2's search tab has no title).
+  func testALanguageChosenInTheSheetOpensTheAppInItNextTime() {
+    var app = launch()
+    XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row")
+    XCTAssertFalse(element(app, "language-note").exists, "a note with nothing chosen")
+    pickLanguage(app, "ภาษาไทย")
+    XCTAssertEqual(reached(app, "language-note").label, "จะใช้ภาษาไทยเมื่อเปิดแอปครั้งถัดไป")
+    pickLanguage(app, "Tiếng Việt")
+    XCTAssertTrue(element(app, "language-note").waitForNonExistence(timeout: 5), "a note for the language it's in")
+    pickLanguage(app, "ภาษาไทย")
+    app = relaunchKeepingLanguage(app)
+    XCTAssertTrue(app.tabBars.buttons["ตู้ของฉัน"].waitForExistence(timeout: 10), "not in Thai after the relaunch")
+    app.openAccount()
+    XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row in Thai")
+    XCTAssertFalse(element(app, "language-note").exists, "the note outlived the relaunch")
+    pickLanguage(app, "ตามเครื่อง")
+    XCTAssertEqual(reached(app, "language-note").label, "Ứng dụng sẽ dùng Tiếng Việt từ lần mở sau.")
+    app = relaunchKeepingLanguage(app)
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].waitForExistence(timeout: 10), "not back in the phone's language")
+  }
+
   /// A sync the server can't take offers only the button that helps: "Cập nhật ứng dụng" for an account's store from a
   /// newer app, and none for an account that's full or records it refused, where trying again changes nothing.
   func testASyncTheServerCantTakeOffersOnlyTheButtonThatHelps() {
@@ -226,7 +251,7 @@ final class AccountFlowTests: XCTestCase {
     for _ in 0..<4 { repo.deleteLastPathComponent() }
     let vectors = try JSONSerialization.jsonObject(with: Data(contentsOf: repo.appending(path: "protocols/owner-dashboard-vectors.json"))) as? [String: Any]
     let overview = (vectors?["replies"] as? [[String: Any]])?.first { $0["name"] as? String == "dashboard" }?["body"] as? [String: Any]
-    let todos = try XCTUnwrap((overview?["todos"] as? [Any])?.count, "no overview in the vectors")
+    let todos = try XCTUnwrap((overview?["needs"] as? [Any])?.count, "no overview in the vectors")
     XCTAssertGreaterThan(todos, 0, "the overview has no to-dos to count")
     let app = launch(resetServer: true, "-fake-owner", "ui-apple")
     signIn(app)
@@ -572,6 +597,25 @@ final class AccountFlowTests: XCTestCase {
       sum += Int(px[i + 2])
     }
     return Double(sum) / Double(w * h * 3 * 255)
+  }
+
+  /// "Ngôn ngữ" set from its menu in the sheet: the item whose name starts so ("Theo máy" has the phone's language under
+  /// it).
+  private func pickLanguage(_ app: XCUIApplication, _ name: String) {
+    tap(app, "language")
+    let item = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(name) in the menu")
+    item.tap()
+  }
+
+  /// The app opened again as the last launch left it, in the language it keeps: no -AppleLanguages or -AppleLocale, which
+  /// would stand over it.
+  private func relaunchKeepingLanguage(_ app: XCUIApplication) -> XCUIApplication {
+    app.terminate()
+    let again = XCUIApplication()
+    again.launchArguments = ["-fixed-handbook", "-fake-accounts", "on"]
+    again.launchForFlow()
+    return again
   }
 
   /// "Giao diện" set from its menu in the sheet.

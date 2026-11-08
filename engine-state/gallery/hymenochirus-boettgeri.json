@@ -1,165 +1,29 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/African_dwarf_frog.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/African_dwarf_frog.jpg/500px-African_dwarf_frog.jpg",
-   "width": 4000,
-   "height": 2804,
-   "licence": "Public domain",
-   "author": "James Gathany",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_dwarf_frog.jpg",
-   "caption": "This photograph depicts an African dwarf frog, Hymenochirus boettgeri. CDC is collaborating with public health officials in many states to investigate a multist",
-   "key": "File:African dwarf frog.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/African-dwarf-frog.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/African-dwarf-frog.jpg/500px-African-dwarf-frog.jpg",
-   "width": 2816,
-   "height": 2112,
-   "licence": "Public domain",
-   "author": "Wonx2150 (talk)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:African-dwarf-frog.jpg",
-   "caption": "photo of an African dwarf frog in a fishtank",
-   "key": "File:African-dwarf-frog.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Vervelling1hb.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Vervelling1hb.JPG/500px-Vervelling1hb.JPG",
-   "width": 3008,
-   "height": 2000,
-   "licence": "CC BY-SA 3.0",
-   "author": "Swa Vleminckx",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vervelling1hb.JPG",
-   "caption": "Vervelling Hymenochirus boettgeri",
-   "key": "File:Vervelling1hb.JPG"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/426837211/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/426837211/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Ryan van Huyssteen",
-   "sourceUrl": "https://www.inaturalist.org/photos/426837211",
-   "key": "inat:426837211"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/426837662/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/426837662/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Ryan van Huyssteen",
-   "sourceUrl": "https://www.inaturalist.org/photos/426837662",
-   "key": "inat:426837662"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/426837920/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/426837920/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Ryan van Huyssteen",
-   "sourceUrl": "https://www.inaturalist.org/photos/426837920",
-   "key": "inat:426837920"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87896416/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/87896416/medium.jpeg",
-   "width": 2048,
-   "height": 1356,
-   "licence": "CC0",
-   "author": "Marius Burger",
-   "sourceUrl": "https://www.inaturalist.org/photos/87896416",
-   "key": "inat:87896416"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87896482/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/87896482/medium.jpeg",
-   "width": 2048,
-   "height": 1356,
-   "licence": "CC0",
-   "author": "Marius Burger",
-   "sourceUrl": "https://www.inaturalist.org/photos/87896482",
-   "key": "inat:87896482"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Karlik01.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Karlik01.jpg/500px-Karlik01.jpg",
-   "width": 1350,
-   "height": 1344,
-   "licence": "CC BY-SA 3.0",
-   "author": "Mwatro",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karlik01.jpg",
-   "caption": "Karlik szponiasty (Hymenochirus boettgeri)",
-   "key": "File:Karlik01.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/581830719/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/581830719/medium.jpg",
-   "width": 2000,
-   "height": 1315,
-   "licence": "CC BY",
-   "author": "jeanlouisamiet",
-   "sourceUrl": "https://www.inaturalist.org/photos/581830719",
-   "key": "inat:581830719"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Hymenochirus_boettgeri_-_Royal_Museum_for_Central_Africa_-_DSC06879.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Hymenochirus_boettgeri_-_Royal_Museum_for_Central_Africa_-_DSC06879.JPG/500px-Hymenochirus_boettgeri_-_Royal_Museum_for_Central_Africa_-_DSC06879.JPG",
-   "width": 3648,
-   "height": 5472,
-   "licence": "CC BY-SA 4.0",
-   "author": "Daderot",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hymenochirus_boettgeri_-_Royal_Museum_for_Central_Africa_-_DSC06879.JPG",
-   "caption": "Exhibit in the Royal Museum for Central Africa, Tervuren, Belgium. Photography was permitted in the museum without restriction.",
-   "key": "File:Hymenochirus boettgeri - Royal Museum for Central Africa - DSC06879.JPG"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Bogwood_Betta.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bogwood_Betta.jpg/500px-Bogwood_Betta.jpg",
-   "width": 3264,
-   "height": 2448,
-   "licence": "CC BY-SA 3.0",
-   "author": "en:User:JohnnyMrNinja",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bogwood_Betta.jpg",
-   "caption": "A male crown-tail betta splendens, a corydoras catfish (I can't remember the species), and an African dwarf frog around a piece of bogwood in an aquarium. The w",
-   "key": "File:Bogwood Betta.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Young_male_DAF.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Young_male_DAF.jpg/500px-Young_male_DAF.jpg",
-   "width": 2759,
-   "height": 1664,
-   "licence": "CC BY 3.0",
-   "author": "Stuart Halliday - w:en:Quatermass (talk | contribs)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Young_male_DAF.jpg",
-   "caption": "One year old young male Dwarf African Clawed Frog - Hymenochirus boettgeri",
-   "key": "File:Young male DAF.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Karlik-szponiasty02.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Karlik-szponiasty02.jpg/500px-Karlik-szponiasty02.jpg",
-   "width": 1675,
-   "height": 986,
-   "licence": "CC BY-SA 3.0",
-   "author": "Mwatro",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karlik-szponiasty02.jpg",
-   "caption": "Karlik szponiasty (Hymenochirus boettgeri)",
-   "key": "File:Karlik-szponiasty02.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/African_dwarf_frog_cutted.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/African_dwarf_frog_cutted.png/500px-African_dwarf_frog_cutted.png",
-   "width": 1302,
-   "height": 742,
-   "licence": "Public domain",
-   "author": "James Gathany",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_dwarf_frog_cutted.png",
-   "caption": "cutted and cropped version of File:African dwarf frog.jpg, edited by B kimmel",
-   "key": "File:African dwarf frog cutted.png"
-  }
+ "queue": [],
+ "judged": [
+  "File:African dwarf frog.jpg",
+  "File:African-dwarf-frog.jpg",
+  "File:Vervelling1hb.JPG",
+  "inat:426837211",
+  "inat:426837662",
+  "inat:426837920",
+  "inat:87896416",
+  "inat:87896482",
+  "File:Karlik01.jpg",
+  "inat:581830719",
+  "File:Hymenochirus boettgeri - Royal Museum for Central Africa - DSC06879.JPG",
+  "File:Bogwood Betta.jpg",
+  "File:Young male DAF.jpg",
+  "File:Karlik-szponiasty02.jpg",
+  "File:African dwarf frog cutted.png",
+  "File:Amplexus of ADF.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/1306a73e1f5eb0e1.webp": "7d3533557a372534",
+  "https://media.aquatome.com/commons/e3981fa7bd247b39.webp": "960644724c6c8c9b",
+  "https://media.aquatome.com/commons/9f9f77c6d7ed4829.webp": "999bc35f5d33e6ca",
+  "https://media.aquatome.com/commons/1c4f01f631a7d163.webp": "ba9ae4c4948a4e3a",
+  "https://media.aquatome.com/commons/a2769188d12caeb4.webp": "31660bd112d80e02"
+ },
+ "commons": "2026-11-08"
 }

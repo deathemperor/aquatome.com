@@ -3,140 +3,83 @@ import Handbook
 import SwiftUI
 
 /// What drawing a block needs from the screen it's on, and the drawing: one switch over the block's kind, each part a
-/// plain view (AnyView) and as much of it as can be one Text, no generic helpers: every reader downloads this code, and
-/// only the owner runs it.
+/// plain view (AnyView) on the grouped background, in a card where it's a list, a chart or a table. No generic helpers:
+/// every reader downloads this code, and only the owner runs it.
 @MainActor
 struct OwnerDraw {
+  /// The section's key and the period it was read for: a table's further rows are read with them.
+  let key: String
+  let period: String?
   let working: Bool
   let run: @MainActor (Owner.Action) -> Void
   /// A form's request: whether the server took it.
   let send: @MainActor (Owner.Action) async -> Bool
-  /// Reads the section from another address (a switch's).
+  /// Reads the section from another address (a switch's, a comments filter's).
   let open: @MainActor (String) -> Void
   /// A site page the app has as its own (pushed), from a link.
   let item: @MainActor (String) -> HandbookIndex.Item?
   let site: @MainActor (String) -> URL?
-  /// The zone the dashboard counts its days in: a card's small columns end yesterday there.
-  var tz = "Asia/Ho_Chi_Minh"
 
-  /// `id`: what the UI tests find its links (or tiles) by.
-  func block(_ b: Owner.Block, id: String) -> AnyView {
+  func block(_ b: Owner.Block) -> AnyView {
     switch b {
     case .heading(let text, let level, let anchor):
-      let t = Text(verbatim: text).font(level <= 2 ? .title3.bold() : .headline).accessibilityHeading(level <= 2 ? .h2 : .h3)
-        .padding(.top, level <= 2 ? 10 : 2)
+      let t = Text(verbatim: text).font(level <= 2 ? .headline : .subheadline.weight(.semibold)).foregroundStyle(.secondary)
+        .accessibilityAddTraits(.isHeader).accessibilityHeading(level <= 2 ? .h2 : .h3)
+        .padding(.top, level <= 2 ? 12 : 4).padding(.horizontal, 4)
       // Where a link opens the section at it.
       return anchor.map { AnyView(t.id($0)) } ?? AnyView(t)
     case .note(let text, let tone):
-      return AnyView(Text(verbatim: text).font(.callout).foregroundStyle(tone == .plain ? Color.secondary : tone.color)
-        .accessibilityLabel(Text(verbatim: said(text, tone.said))))
+      return AnyView(Text(verbatim: text).font(.footnote).foregroundStyle(tone == .plain || tone == .muted ? Color.secondary : tone.color)
+        .padding(.horizontal, 4)
+        .accessibilityLabel(Text(verbatim: Self.said(text, tone.said))))
     case .figures(let items):
-      return grid(items.map { tile($0, id) })
+      return AnyView(OwnerFigures(items: items).ownerCard())
     case .chart(let c):
-      return AnyView(OwnerChart(chart: c))
+      return AnyView(OwnerChart(chart: c).ownerCard())
     case .table(let t):
-      return table(t)
+      guard let id = t.id, let folded = t.folded else {
+        return AnyView(OwnerTable(columns: t.columns, rows: t.rows, empty: t.empty, id: t.id, count: t.count, next: t.next, draw: self))
+      }
+      // Folded: a row naming it, its figure on the right, opening its rows on a page of their own.
+      let route = OwnerTableRoute(key: key, id: id, title: folded, columns: t.columns, period: period)
+      return AnyView(NavigationLink(value: route) {
+        OwnerRow(title: folded, figure: t.figure ?? t.count.map(String.init), tone: .plain, chevron: true)
+      }
+      .buttonStyle(.plain)
+      .ownerCard(padded: false)
+      .accessibilityIdentifier("owner-folded"))
     case .cards(let cards, let empty, let hidden):
       let views = cards.isEmpty ? [AnyView(Text(verbatim: empty ?? "").foregroundStyle(.secondary))] : cards.map(card)
       // Photos two to a row, made as they scroll into view: a section may keep a hundred.
       guard hidden else {
         return AnyView(LazyVGrid(columns: [GridItem(.flexible(), spacing: 12, alignment: .top), GridItem(.flexible(), alignment: .top)], alignment: .leading,
-                                 spacing: 12) { ForEach(views.indices, id: \.self) { views[$0] } })
+                                 spacing: 12) { ForEach(views.indices, id: \.self) { views[$0] } }.ownerCard())
       }
-      return AnyView(VStack(alignment: .leading, spacing: 14) { ForEach(views.indices, id: \.self) { views[$0] } })
+      return AnyView(VStack(alignment: .leading, spacing: 14) { ForEach(views.indices, id: \.self) { views[$0] } }.frame(maxWidth: .infinity, alignment: .leading).ownerCard())
     case .actions(let a):
       return buttons(a)
     case .form(let f):
-      return AnyView(OwnerForm(form: f, working: working, send: send))
+      return AnyView(OwnerForm(form: f, working: working, send: send).ownerCard())
     case .toggle(let label, let on, let href):
       return AnyView(Toggle(isOn: Binding(get: { on }, set: { _ in open(href) })) { Text(verbatim: label) }
         .disabled(working)
+        .ownerCard()
         .accessibilityIdentifier("owner-switch"))
-    case .link(let l):
-      var t = Text(verbatim: l.title).foregroundStyle(l.tone == .plain ? Color.primary : l.tone.color)
-      if let s = l.text { t = t + Text(verbatim: "\n" + s).font(.subheadline).foregroundStyle(.secondary) }
-      if let label = l.label, !label.isEmpty { t = t + Text(verbatim: "\n" + label).font(.subheadline.weight(.semibold)).foregroundStyle(Color.accentColor) }
-      return go(l.to, AnyView(HStack {
-        t.accessibilityLabel(Text(verbatim: said(l.title, l.text, l.label, l.tone.said)))
-        Spacer(minLength: 0)
-        if l.to != nil { Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true) }
-      }
-      .padding(.vertical, 4)
-      .contentShape(.rect)), id)
+    case .comments(let c):
+      return AnyView(OwnerComments(comments: c, draw: self))
     }
   }
 
   /// What VoiceOver says for a part: its words, the tone too (it can't see the colour).
-  private func said(_ parts: String?...) -> String { parts.compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: ", ") }
-
-  /// Two to a row, all made at once (a screen of them, at most).
-  private func grid(_ views: [AnyView]) -> AnyView {
-    AnyView(Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 12) {
-      ForEach(Array(stride(from: 0, to: views.count, by: 2)), id: \.self) { i in
-        GridRow {
-          views[i]
-          if i + 1 < views.count { views[i + 1] } else { Color.clear }
-        }
-      }
-    })
-  }
-
-  /// A KPI tile, or an area's card: its figure, the change, what it counts, a meter or its last 30 days.
-  private func tile(_ f: Owner.Figure, _ id: String) -> AnyView {
-    var t = Text(verbatim: f.label).font(.footnote).foregroundStyle(.secondary)
-    if f.warn { t = t + Text(verbatim: " ⚠︎").foregroundStyle(Color.warning) }
-    t = t + Text(verbatim: "\n" + f.value).font(.title2.bold())
-    if let d = f.delta { t = t + Text(verbatim: "  " + d.text).font(.caption.weight(.semibold)).foregroundStyle(d.tone.color) }
-    if let s = f.sub { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
-    let d = f.delta
-    let words = said(f.label, f.warn ? Owner.Tone.bad.said : nil, f.value, d?.text, d?.tone.said, d.flatMap { $0.vs.isEmpty ? nil : String(localized: "so với \($0.vs)") }, f.sub)
-    let spark = f.spark
-    // The card's words open its section; its small columns sit outside that link, so a tap on one reads it instead.
-    let link = go(f.to, AnyView(VStack(alignment: .leading, spacing: 6) {
-      t.accessibilityLabel(Text(verbatim: words))
-      if let m = f.meter { ProgressView(value: m).accessibilityHidden(true) }
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .contentShape(.rect)), id)
-    return AnyView(VStack(alignment: .leading, spacing: 6) {
-      link
-      if !spark.isEmpty { OwnerSpark(label: f.label, values: spark, tz: tz) }
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(12)
-    .background(.fill.quaternary, in: .rect(cornerRadius: 12)))
-  }
-
-  /// A table, scrolled sideways when its columns don't fit; a folded one opens by its label.
-  private func table(_ t: Owner.Table) -> AnyView {
-    if t.rows.isEmpty { return AnyView(Text(verbatim: t.empty ?? "").foregroundStyle(.secondary)) }
-    let grid = AnyView(ScrollView(.horizontal) {
-      Grid(alignment: .topLeading, horizontalSpacing: 16, verticalSpacing: 8) {
-        GridRow {
-          ForEach(t.columns.indices, id: \.self) { Text(verbatim: t.columns[$0]).font(.footnote.weight(.semibold)).foregroundStyle(.secondary) }
-        }
-        ForEach(t.rows.indices, id: \.self) { r in
-          Divider().gridCellUnsizedAxes(.horizontal)
-          GridRow { ForEach(t.rows[r].indices, id: \.self) { cell(t.rows[r][$0]) } }
-        }
-      }
-      .font(.callout)
-      .padding(12)
-    }
-    .background(.fill.quaternary, in: .rect(cornerRadius: 12))
-    .accessibilityElement(children: .contain)
-    .accessibilityIdentifier("owner-table"))
-    guard let folded = t.folded else { return grid }
-    return AnyView(DisclosureGroup { grid } label: { Text(verbatim: folded) })
-  }
+  static func said(_ parts: String?...) -> String { parts.compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: ", ") }
 
   /// A cell: its text (a link's in the tint), its second line smaller. A long one (a review's notes run to some 4 KB, a
   /// note a line) shows two lines until tapped, as the web's does.
-  private func cell(_ c: Owner.Link) -> AnyView {
-    if c.to == nil, c.title.count > 60 || c.title.contains("\n") { return AnyView(Capped(width: 240) { OwnerFold(cell: c, said: said(c.title, c.text, c.tone.said)) }) }
+  func cell(_ c: Owner.Link) -> AnyView {
+    if c.to == nil, c.title.count > 60 || c.title.contains("\n") { return AnyView(Capped(width: 240) { OwnerFold(cell: c, said: Self.said(c.title, c.text, c.tone.said)) }) }
     var t = Text(verbatim: c.title).foregroundStyle(c.to != nil ? Color.accentColor : c.tone.color)
     if let s = c.text { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
-    return go(c.to, AnyView(Capped(width: 240) { t.accessibilityLabel(Text(verbatim: said(c.title, c.text, c.tone.said))) }), "")
+    return go(c.to, AnyView(Capped(width: 240) { t.accessibilityLabel(Text(verbatim: Self.said(c.title, c.text, c.tone.said))) }), "")
   }
 
   /// A photo or a hidden page, with its buttons.
@@ -150,7 +93,7 @@ struct OwnerDraw {
   }
 
   /// A part's buttons, in a row, or one under another when they don't fit across.
-  private func buttons(_ actions: [Owner.Action]) -> AnyView {
+  func buttons(_ actions: [Owner.Action]) -> AnyView {
     let each = ForEach(actions.indices, id: \.self) { i in
       let a = actions[i]
       Button(role: a.asks ? .destructive : nil) { run(a) } label: { Text(verbatim: a.label) }
@@ -165,9 +108,9 @@ struct OwnerDraw {
     })
   }
 
-  /// Where a part goes: a section, pushed (at a heading); a page of the site, as the app opens one (or in the browser); an address, in
-  /// the browser.
-  private func go(_ to: Owner.Destination?, _ v: AnyView, _ id: String) -> AnyView {
+  /// Where a part goes: a section, pushed (at a heading); a page of the site, as the app opens one (or in the browser);
+  /// an address, in the browser.
+  func go(_ to: Owner.Destination?, _ v: AnyView, _ id: String) -> AnyView {
     var out = v
     switch to {
     case .section(let key, let anchor)?: out = AnyView(NavigationLink(value: OwnerRoute(key: key, anchor: anchor)) { v }.buttonStyle(.plain))
@@ -181,15 +124,88 @@ struct OwnerDraw {
   }
 }
 
-/// A long cell: two lines of its text, all of it once tapped ("Xem thêm" only when there's more), the line under it
+/// A row of a list: its title (and second line) on the left, its figure on the right in its tone, a chevron when it
+/// opens something.
+struct OwnerRow: View {
+  let title: String
+  var text: String? = nil
+  let figure: String?
+  let tone: Owner.Tone
+  var chevron = false
+
+  var body: some View {
+    let words = Text(verbatim: title) + (text.map { Text(verbatim: "\n" + $0).font(.subheadline).foregroundStyle(.secondary) } ?? Text(verbatim: ""))
+    let right = figure.map { Text(verbatim: $0).foregroundStyle(tone == .plain ? Color.secondary : tone.color).monospacedDigit() }
+    ViewThatFits(in: .horizontal) {
+      HStack(alignment: .firstTextBaseline, spacing: 8) {
+        words.frame(maxWidth: .infinity, alignment: .leading)
+        right
+        if chevron { Self.chevron }
+      }
+      // At the largest text, the figure under the title.
+      HStack(spacing: 8) {
+        VStack(alignment: .leading, spacing: 2) { words; right }.frame(maxWidth: .infinity, alignment: .leading)
+        if chevron { Self.chevron }
+      }
+    }
+    .padding(.horizontal, 16).padding(.vertical, 11)
+    .contentShape(.rect)
+    .accessibilityElement(children: .ignore)
+    .accessibilityLabel(Text(verbatim: OwnerDraw.said(title, text, figure, tone.said)))
+  }
+
+  static let chevron: some View = Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+}
+
+/// Up to three figures to a row, each its value over what it counts and its change; one to a row at the largest text.
+struct OwnerFigures: View {
+  let items: [Owner.Figure]
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let across = size.isAccessibilitySize ? 1 : min(3, max(items.count, 1))
+    Grid(alignment: .topLeading, horizontalSpacing: 14, verticalSpacing: 14) {
+      ForEach(Array(stride(from: 0, to: items.count, by: across)), id: \.self) { i in
+        GridRow {
+          ForEach(i..<min(i + across, items.count), id: \.self) { figure(items[$0]) }
+        }
+      }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+  }
+
+  private func figure(_ f: Owner.Figure) -> some View {
+    var t = Text(verbatim: f.value).font(.title2.bold()).monospacedDigit() + Text(verbatim: "\n" + f.label).font(.footnote).foregroundStyle(.secondary)
+    if let d = f.delta { t = t + Text(verbatim: " " + d.text).font(.footnote).foregroundStyle(d.tone == .plain ? Color.secondary : d.tone.color) }
+    if let s = f.sub { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
+    return VStack(alignment: .leading, spacing: 6) {
+      t
+      if let m = f.meter { ProgressView(value: m).tint(OwnerChart.green).accessibilityHidden(true) }
+    }
+    .accessibilityElement(children: .ignore)
+    .accessibilityLabel(Text(verbatim: OwnerDraw.said(f.label, f.value, f.delta?.text, f.delta?.tone.said, f.sub)))
+    .accessibilityIdentifier("owner-figure")
+  }
+}
+
+extension View {
+  /// On a card of the grouped background, as an inset list's rows are.
+  func ownerCard(padded: Bool = true) -> some View {
+    padding(padded ? 16 : 0)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 14))
+  }
+}
+
+/// A long cell: two lines of its text, all of it once tapped ("More" only when there's more), the line under it
 /// always. Said whole, its tone too, as a cell is; a button only when there's more to show.
-private struct OwnerFold: View {
+struct OwnerFold: View {
   let cell: Owner.Link
   /// What VoiceOver says: the text, the line under it and the tone (it can't see the colour).
   let said: String
   @State private var open = false
   /// The text's height in two lines, and all of it, at the cell's width: measured apart from what's shown, so folding
-  /// it again doesn't take "Xem thêm" away for a moment.
+  /// it again doesn't take "More" away for a moment.
   @State private var two: CGFloat = 0
   @State private var full: CGFloat = 0
 
@@ -206,13 +222,13 @@ private struct OwnerFold: View {
               .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { full = $0 }
           }
         }
-      if more { Text(open ? "Thu gọn" : "Xem thêm").font(.caption.weight(.semibold)).foregroundStyle(Color.accentColor) }
+      if more { Text(verbatim: open ? "Less" : "More").font(.caption.weight(.semibold)).foregroundStyle(Color.accentColor) }
       if let s = cell.text { Text(verbatim: s).font(.caption).foregroundStyle(.secondary) }
     }
     .multilineTextAlignment(.leading)
     Group {
       if more {
-        Button { open.toggle() } label: { shown }.buttonStyle(.plain).accessibilityValue(Text(open ? "Thu gọn" : "Xem thêm"))
+        Button { open.toggle() } label: { shown }.buttonStyle(.plain).accessibilityValue(Text(verbatim: open ? "Less" : "More"))
       } else {
         shown.accessibilityElement(children: .ignore)
       }
@@ -224,7 +240,7 @@ private struct OwnerFold: View {
 
 /// At most `width` across, wrapped to its whole height. `frame(maxWidth:)` passes a sideways scroll view's unlimited
 /// width on as it is, so a table's grid measured each cell as one line and cut it there.
-private struct Capped: Layout {
+struct Capped: Layout {
   let width: CGFloat
 
   func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
@@ -295,244 +311,4 @@ struct OwnerImage: View {
         missing = image == nil
       }
   }
-}
-
-/// Columns over days, as the site's charts: the series stacked from the baseline in their order (a negative value below
-/// it), `whole` pale behind them, today lighter while it isn't over, a day not recorded a gap. Drawn with paths: the axis
-/// gives its lowest and highest number, the title the unit, a line under it the series' colours.
-struct OwnerChart: View {
-  let chart: Owner.Chart
-  /// The day a tap, or a finger dragged across, picked: its column marked and its values read out under the chart, as
-  /// the site's charts do (#510). nil: the last day.
-  @State private var picked: Int?
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 4) {
-      Text(verbatim: chart.unit == "usd" ? chart.title + " ($)" : chart.title).font(.subheadline.weight(.semibold))
-      if chart.isEmpty {
-        Text(verbatim: chart.empty ?? "").foregroundStyle(.secondary)
-      } else {
-        let (low, high) = range
-        HStack(alignment: .top, spacing: 6) {
-          VStack(alignment: .trailing) {
-            Text(verbatim: Owner.number(high, unit: chart.unit))
-            Spacer()
-            Text(verbatim: Owner.number(low, unit: chart.unit))
-          }
-          .font(.caption2).foregroundStyle(.secondary).monospacedDigit()
-          Canvas { ctx, size in draw(ctx, size, low, high) }
-            .overlay(ChartTouch { picked = column(at: $0) })
-            .accessibilityElement()
-          .accessibilityLabel(Text(verbatim: chart.title))
-          .accessibilityValue(Text(verbatim: day(shown) + ". " + readout))
-          // VoiceOver: swiping up or down reads the next or the previous day.
-          .accessibilityAdjustableAction { d in
-            switch d {
-            case .increment: picked = min(chart.days.count - 1, shown + 1)
-            case .decrement: picked = max(0, shown - 1)
-            @unknown default: break
-            }
-          }
-          .accessibilityIdentifier("owner-chart-columns")
-        }
-        .frame(height: 150)
-        HStack {
-          Text(verbatim: chart.days.first.map(Owner.dayLabel) ?? "")
-          Spacer()
-          Text(verbatim: chart.days.last.map(Owner.dayLabel) ?? "")
-        }
-        .font(.caption2).foregroundStyle(.secondary)
-        Text(verbatim: day(shown)).font(.caption).monospacedDigit().accessibilityIdentifier("owner-chart-day")
-        if chart.series.count > 1 || chart.whole != nil {
-          // The colours' squares aren't words: VoiceOver gets the names.
-          key.font(.caption).accessibilityLabel(Text(verbatim: (chart.series + [chart.whole].compactMap { $0 }).map(\.label).joined(separator: ", ")))
-        }
-        if let m = chart.missing, chart.series.contains(where: { $0.values.contains(nil) }) {
-          Text(verbatim: "— " + m).font(.caption).foregroundStyle(.secondary)
-        }
-      }
-    }
-    .accessibilityElement(children: .contain)
-    .accessibilityIdentifier("owner-chart")
-  }
-
-  /// The day read out: the one picked, else the last.
-  private var shown: Int { min(picked ?? chart.days.count - 1, max(chart.days.count - 1, 0)) }
-
-  /// The column under a finger `across` the chart (0…1).
-  private func column(at across: CGFloat) -> Int {
-    let n = chart.days.count
-    return min(max(Int(across * CGFloat(n)), 0), max(n - 1, 0))
-  }
-
-  /// A day's values, as the site's readout gives them: the day, then each series' value ("—": not recorded), the
-  /// whole's last; today's says it isn't over.
-  private func day(_ i: Int) -> String {
-    guard chart.days.indices.contains(i) else { return "" }
-    let n = { (v: Double?) in v.map { Owner.number($0, unit: chart.unit) } ?? "—" }
-    var day = Owner.dayLabel(chart.days[i])
-    if chart.partialLast && i == chart.days.count - 1 { day += " (" + String(localized: "chưa hết ngày") + ")" }
-    return ([day] + (chart.series + [chart.whole].compactMap { $0 }).map { "\($0.label) \(n($0.values[safe: i] ?? nil))" }).joined(separator: " · ")
-  }
-
-  /// The lowest and highest the columns reach, 0 between them.
-  private var range: (Double, Double) {
-    var low = 0.0, high = 0.0
-    for i in chart.days.indices {
-      let v = chart.series.compactMap { $0.values[safe: i] ?? nil }
-      low = min(low, v.filter { $0 < 0 }.reduce(0, +))
-      high = max(high, v.filter { $0 > 0 }.reduce(0, +), (chart.whole?.values[safe: i] ?? nil) ?? 0)
-    }
-    return (low, high > low ? high : low + 1)
-  }
-
-  private func draw(_ ctx: GraphicsContext, _ size: CGSize, _ low: Double, _ high: Double) {
-    let n = chart.days.count, step = size.width / CGFloat(max(n, 1)), y = { (v: Double) in size.height * CGFloat((high - v) / (high - low)) }
-    func bar(_ i: Int, _ from: Double, _ to: Double, _ color: Color) {
-      let top = y(max(from, to)), rect = CGRect(x: CGFloat(i) * step + step * 0.15, y: top, width: step * 0.7, height: max(1, y(min(from, to)) - top))
-      ctx.fill(Path(rect), with: .color(color.opacity(chart.partialLast && i == n - 1 ? 0.45 : 1)))
-    }
-    // The column read out, marked behind its bars.
-    ctx.fill(Path(CGRect(x: CGFloat(shown) * step, y: 0, width: step, height: size.height)), with: .color(.secondary.opacity(0.18)))
-    for i in 0..<n {
-      if let w = chart.whole?.values[safe: i] ?? nil { bar(i, 0, w, Self.whole) }
-      var up = 0.0, down = 0.0
-      for (s, series) in chart.series.enumerated() {
-        guard let v = series.values[safe: i] ?? nil, v != 0 else { continue }
-        if v > 0 { bar(i, up, up + v, color(s)); up += v } else { bar(i, down, down + v, color(s)); down += v }
-      }
-    }
-    ctx.fill(Path(CGRect(x: 0, y: y(0), width: size.width, height: 0.5)), with: .color(.secondary))
-  }
-
-  /// The series' colours, in a line.
-  private var key: Text {
-    var t = Text(verbatim: "")
-    for s in chart.series.indices { t = t + Text(verbatim: "■ ").foregroundStyle(color(s)) + Text(verbatim: chart.series[s].label + "   ") }
-    if let w = chart.whole { t = t + Text(verbatim: "■ ").foregroundStyle(Self.whole) + Text(verbatim: w.label) }
-    return t.foregroundStyle(.secondary)
-  }
-
-  /// For VoiceOver: the days it covers, then each series' latest value and its lowest and highest ("—": not recorded).
-  private var readout: String {
-    guard let first = chart.days.first, let last = chart.days.last else { return "" }
-    let n = { (v: Double?) in v.map { Owner.number($0, unit: chart.unit) } ?? "—" }
-    return ([String(localized: "\(Owner.dayLabel(first)) đến \(Owner.dayLabel(last))")] + (chart.series + [chart.whole].compactMap { $0 }).map { s in
-      let v = s.values.compactMap { $0 }
-      return String(localized: "\(s.label): mới nhất \(n(s.values.last ?? nil)), thấp nhất \(n(v.min())), cao nhất \(n(v.max()))")
-    }).joined(separator: ". ")
-  }
-
-  /// The site's series colours (moss, water, rust), as its admin pages draw them in each mode; `bad` the status colour,
-  /// `mute` context only.
-  private func color(_ s: Int) -> Color {
-    switch chart.series[s].tone ?? ["s1", "s2", "s3"][min(s, 2)] {
-    case "s2": Self.water
-    case "s3", "bad": Self.rust
-    case "mute": Self.mute
-    default: Self.moss
-    }
-  }
-
-  static let moss = Color(light: 0x0c6944, dark: 0x36a980)
-  static let water = Color(light: 0x2d76a3, dark: 0x359bd9)
-  static let rust = Color(light: 0xa6552d, dark: 0xcb7a5b)
-  static let mute = Color(light: 0xa19c8e, dark: 0x5d7a75)
-  static let whole = Color(light: 0xd9e2d5, dark: 0x244a45)
-}
-
-/// A card's last days as small columns, the last of them yesterday in the dashboard's zone: the last 7 (the figure's)
-/// strong, the 7 before (the chip's comparison) paler, the rest faint. A tap on a column, or a finger dragged across,
-/// reads its day and count under them, as the day charts do; VoiceOver swipes up or down through the days.
-struct OwnerSpark: View {
-  let label: String
-  let values: [Double?]
-  let tz: String
-  @State private var picked: Int?
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 2) {
-      Canvas { ctx, size in
-        let top = values.compactMap { $0 }.max() ?? 0, w = size.width / CGFloat(values.count)
-        if let picked { ctx.fill(Path(CGRect(x: CGFloat(picked) * w, y: 0, width: w, height: size.height)), with: .color(.secondary.opacity(0.18))) }
-        for (i, v) in values.enumerated() {
-          guard let v, top > 0 else { continue }
-          let h = max(1, size.height * CGFloat(v / top)), age = values.count - 1 - i
-          let shade = age < 7 ? Color.accentColor : age < 14 ? Color.accentColor.opacity(0.42) : Color.secondary.opacity(0.3)
-          ctx.fill(Path(CGRect(x: CGFloat(i) * w + 0.5, y: size.height - h, width: max(1, w - 1), height: h)), with: .color(shade))
-        }
-      }
-      .frame(height: 22)
-      .overlay(ChartTouch { picked = min(max(Int($0 * CGFloat(values.count)), 0), values.count - 1) })
-      .accessibilityElement()
-      .accessibilityLabel(Text(verbatim: label))
-      .accessibilityValue(Text(verbatim: day(picked ?? values.count - 1)))
-      .accessibilityAdjustableAction { d in
-        let at = picked ?? values.count - 1
-        switch d {
-        case .increment: picked = min(values.count - 1, at + 1)
-        case .decrement: picked = max(0, at - 1)
-        @unknown default: break
-        }
-      }
-      .accessibilityIdentifier("owner-spark")
-      if let picked { Text(verbatim: day(picked)).font(.caption2).monospacedDigit().foregroundStyle(.secondary).accessibilityIdentifier("owner-spark-day") }
-    }
-  }
-
-  /// A column's day (dd/mm) and count ("—": not recorded).
-  private func day(_ i: Int) -> String {
-    var cal = Calendar(identifier: .gregorian)
-    cal.timeZone = TimeZone(identifier: tz) ?? .current
-    guard values.indices.contains(i), let d = cal.date(byAdding: .day, value: i - values.count, to: cal.startOfDay(for: Date())) else { return "" }
-    let c = cal.dateComponents([.day, .month], from: d)
-    return String(format: "%02d/%02d", c.day ?? 0, c.month ?? 0) + " · " + (values[i].map { Owner.number($0, unit: nil) } ?? "—")
-  }
-}
-
-/// A chart's taps and sideways drags, as UIKit's recognizers take them, reported as how far across (0…1) the finger is.
-/// A drag that starts up or down fails at once and the page scrolls, as anywhere else: a SwiftUI drag on a scroll
-/// view's content keeps it from scrolling, even one alongside it (the flow checks both).
-private struct ChartTouch: UIViewRepresentable {
-  let touched: (CGFloat) -> Void
-
-  func makeUIView(context: Context) -> UIView {
-    let v = UIView()
-    v.backgroundColor = .clear
-    v.isAccessibilityElement = false
-    v.addGestureRecognizer(UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.touch(_:))))
-    let pan = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.touch(_:)))
-    pan.delegate = context.coordinator
-    v.addGestureRecognizer(pan)
-    return v
-  }
-  func updateUIView(_ v: UIView, context: Context) { context.coordinator.touched = touched }
-  func makeCoordinator() -> Coordinator { Coordinator(touched) }
-
-  @MainActor final class Coordinator: NSObject, UIGestureRecognizerDelegate {
-    var touched: (CGFloat) -> Void
-    init(_ touched: @escaping (CGFloat) -> Void) { self.touched = touched }
-    @objc func touch(_ g: UIGestureRecognizer) {
-      guard let v = g.view, v.bounds.width > 0 else { return }
-      touched(min(max(g.location(in: v).x / v.bounds.width, 0), 1))
-    }
-    // Only a sideways drag is the chart's.
-    func gestureRecognizerShouldBegin(_ g: UIGestureRecognizer) -> Bool {
-      guard let pan = g as? UIPanGestureRecognizer else { return true }
-      let v = pan.velocity(in: pan.view)
-      return abs(v.x) > abs(v.y)
-    }
-  }
-}
-
-private extension Color {
-  init(light: UInt32, dark: UInt32) {
-    func rgb(_ c: UInt32) -> UIColor { UIColor(red: CGFloat(c >> 16 & 0xff) / 255, green: CGFloat(c >> 8 & 0xff) / 255, blue: CGFloat(c & 0xff) / 255, alpha: 1) }
-    self.init(uiColor: UIColor { $0.userInterfaceStyle == .dark ? rgb(dark) : rgb(light) })
-  }
-}
-
-private extension Array {
-  /// A chart's value on a day it may have none for (a series shorter than its days).
-  subscript(safe i: Int) -> Element? { indices.contains(i) ? self[i] : nil }
 }

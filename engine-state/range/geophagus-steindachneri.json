@@ -1,0 +1,161 @@
+{
+  "id": "geophagus-steindachneri",
+  "native": {
+    "input": "e18450b5c52598a9",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Río Magdalena drainage, Colombia, including its major tributary the Río Cauca, plus the Río Sinú drainage in northwestern Colombia and Río Limón basin, northwestern Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Río Magdalena drainage, Colombia, including its major tributary the Río Cauca, plus the Río Sinú drainage in northwestern Colombia and Río Limón basin, northwestern Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Magdalena",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Río Magdalena drainage, Colombia, including its major tributary the Río Cauca, plus the Río Sinú drainage in northwestern Colombia and Río Limón basin, northwestern Venezuela.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Sinú",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Río Magdalena drainage, Colombia, including its major tributary the Río Cauca, plus the Río Sinú drainage in northwestern Colombia and Río Limón basin, northwestern Venezuela.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Limón",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Río Magdalena drainage, Colombia, including its major tributary the Río Cauca, plus the Río Sinú drainage in northwestern Colombia and Río Limón basin, northwestern Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Lago de Maracaibo",
+        "source": "seriouslyfish",
+        "quote": "The latter drains into Lago de Maracaibo (Lake Maracaibo) close to the Caribbean Sea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus steindachneri",
+    "status": "ACCEPTED",
+    "taxonKey": 5208440,
+    "datasets": [
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        455
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        250
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        121
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        108
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        104
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        87
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        28
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        15
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        15
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        12
+      ],
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        3
+      ],
+      [
+        "5cd7bc3e-3c7d-49a2-8619-70e8e692177b",
+        3
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "a42f9427-5b5e-4531-90e2-1a1f30cdb813",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

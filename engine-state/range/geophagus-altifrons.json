@@ -1,0 +1,137 @@
+{
+  "id": "geophagus-altifrons",
+  "native": {
+    "input": "4bd7428caddd9b2a",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Barra do Rio-negro' which corresponds to the Fort of São José da Barra do Rio Negro, built by the Portugese at the site of what is now the city of Manaus, Amazonas state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's also been introduced to some streams and inland reservoirs in Singapore where it appears to be thriving.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "seriouslyfish",
+        "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus altifrons",
+    "status": "ACCEPTED",
+    "taxonKey": 5208430,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        118
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        89
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        54
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        51
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

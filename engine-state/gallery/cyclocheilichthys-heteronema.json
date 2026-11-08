@@ -1,49 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263845887/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/263845887/medium.jpeg",
-   "width": 1800,
-   "height": 1800,
-   "licence": "CC BY-SA",
-   "author": "Abu Hamas",
-   "sourceUrl": "https://www.inaturalist.org/photos/263845887",
-   "key": "inat:263845887"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263845868/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/263845868/medium.jpeg",
-   "width": 2000,
-   "height": 1500,
-   "licence": "CC BY-SA",
-   "author": "Abu Hamas",
-   "sourceUrl": "https://www.inaturalist.org/photos/263845868",
-   "key": "inat:263845868"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263845878/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/263845878/medium.jpeg",
-   "width": 1000,
-   "height": 1000,
-   "licence": "CC BY-SA",
-   "author": "Abu Hamas",
-   "sourceUrl": "https://www.inaturalist.org/photos/263845878",
-   "key": "inat:263845878"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251817800/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251817800/medium.jpg",
-   "width": 2048,
-   "height": 941,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/251817800",
-   "key": "inat:251817800"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Cyclocheilichthys heteronema.jpg",
-  "File:Cyclocheilichthys heteronema closeup.jpg"
+  "File:Cyclocheilichthys heteronema closeup.jpg",
+  "inat:263845887",
+  "inat:263845868",
+  "inat:263845878",
+  "inat:251817800"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/b0fb368434040173.webp": "253a78603134d65b",
@@ -52,5 +15,13 @@
   "https://media.aquatome.com/commons/9a1b9857341090a3.webp": "9a8ca5871be99113",
   "https://media.aquatome.com/commons/e0f2a2ae3c1cfaa2.webp": "2100448d24030830"
  },
- "commons": "2026-11-07"
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 187289,
+  "pass": "done",
+  "after": {
+   "research": 152813202,
+   "agree": 0
+  }
+ }
 }

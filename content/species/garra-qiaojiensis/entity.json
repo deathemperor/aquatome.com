@@ -11,6 +11,63 @@
     "irrawaddy",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Irrawaddy"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Garra qiaojiensis occurs only very locally in the Irrawaddy system of China and Burma.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366802,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          23.90625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

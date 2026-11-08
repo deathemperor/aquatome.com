@@ -1,39 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Gr%C3%BCner_Leporinus_%28Tierpark_Hellabrunn_M%C3%BCnchen%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Gr%C3%BCner_Leporinus_%28Tierpark_Hellabrunn_M%C3%BCnchen%29.jpg/500px-Gr%C3%BCner_Leporinus_%28Tierpark_Hellabrunn_M%C3%BCnchen%29.jpg",
-   "width": 2554,
-   "height": 1915,
-   "licence": "CC BY-SA 4.0",
-   "author": "Fiver, der Hellseher",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gr%C3%BCner_Leporinus_(Tierpark_Hellabrunn_M%C3%BCnchen).jpg",
-   "caption": "Grüner Leporinus (Leporinus affinis) in Tierpark Hellabrunn",
-   "key": "File:Grüner Leporinus (Tierpark Hellabrunn München).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/US_Washington_Zoo_0605_094_%2817188191050%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/US_Washington_Zoo_0605_094_%2817188191050%29.jpg/500px-US_Washington_Zoo_0605_094_%2817188191050%29.jpg",
-   "width": 800,
-   "height": 600,
-   "licence": "CC BY-SA 2.0",
-   "author": "Diego Tirira from Quito, Ecuador",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Washington_Zoo_0605_094_(17188191050).jpg",
-   "caption": "US Washington Zoo 0605 094",
-   "key": "File:US Washington Zoo 0605 094 (17188191050).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/US_Washington_Zoo_0605_135_%2817189534189%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/US_Washington_Zoo_0605_135_%2817189534189%29.jpg/500px-US_Washington_Zoo_0605_135_%2817189534189%29.jpg",
-   "width": 800,
-   "height": 600,
-   "licence": "CC BY-SA 2.0",
-   "author": "Diego Tirira from Quito, Ecuador",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Washington_Zoo_0605_135_(17189534189).jpg",
-   "caption": "US Washington Zoo 0605 135",
-   "key": "File:US Washington Zoo 0605 135 (17189534189).jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Grüner Leporinus (Tierpark Hellabrunn München).jpg",
+  "File:US Washington Zoo 0605 094 (17188191050).jpg",
+  "File:US Washington Zoo 0605 135 (17189534189).jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/3/35/Gr%C3%BCner_Leporinus_%28Tierpark_Hellabrunn_M%C3%BCnchen%29.jpg": "64ec9cbcf4f8ac3c"
+ },
+ "commons": "2026-11-08"
 }

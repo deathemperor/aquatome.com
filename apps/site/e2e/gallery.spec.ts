@@ -13,7 +13,7 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
     const gallery = galleryOf(section)
     test.skip(!gallery, `no ${what} gallery in this build`)
     await page.goto(gallery!.replace(/anh\/$/, ''))
-    const all = page.locator('section.strip .head a')
+    const all = page.locator('section.strip :is(.head a, a.all):visible') // a fish page's row on a phone has its own
     await expect(all).toHaveAttribute('href', gallery!)
     await all.click()
     await expect(page).toHaveURL(new RegExp(`${gallery}$`))

@@ -53,13 +53,16 @@ final class TelemetryFlowTests: XCTestCase {
     let sent = received(app).label
     // In any form: as it is, or lowercased with marks between its parts (as a code is sent).
     XCTAssertFalse(sent.lowercased().filter { $0.isLetter || $0.isNumber }.contains("dysl30a1b2c3"), "the light's name was sent")
-    // The only ids sent are the sessions': not the account's, nor the light's.
+    // The only ids sent are the sessions' and the install's (one): not the account's, nor the light's.
     let uuid = try! NSRegularExpression(pattern: "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")
     let ids = Set(uuid.matches(in: sent, range: NSRange(sent.startIndex..., in: sent)).map { String(sent[Range($0.range, in: sent)!]) })
     let session = try! NSRegularExpression(pattern: #""session":"([^"]+)""#)
     let sessions = Set(session.matches(in: sent, range: NSRange(sent.startIndex..., in: sent)).map { String(sent[Range($0.range(at: 1), in: sent)!]) })
+    let install = try! NSRegularExpression(pattern: #""install":"([^"]+)""#)
+    let installs = Set(install.matches(in: sent, range: NSRange(sent.startIndex..., in: sent)).map { String(sent[Range($0.range(at: 1), in: sent)!]) })
     XCTAssertFalse(sessions.isEmpty, "no session in \(sent)")
-    XCTAssertEqual(ids, sessions, "an id that isn't a session's was sent: \(sent)")
+    XCTAssertEqual(installs.count, 1, "not one install id in \(sent)")
+    XCTAssertEqual(ids, sessions.union(installs), "an id that isn't a session's or the install's was sent: \(sent)")
   }
 
   func testTurningTheSwitchOffDropsWhatWaitsAndStopsSending() {
@@ -145,7 +148,7 @@ final class TelemetryFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the tank isn't listed")
   }
 
-  /// "Gửi thống kê ẩn danh", in the Tài khoản sheet, which is closed again after (what the app sent is read under it).
+  /// "Gửi thống kê", in the Tài khoản sheet, which is closed again after (what the app sent is read under it).
   private func toggle(_ app: XCUIApplication, on: Bool) {
     app.openAccount()
     defer { app.closeAccount() }

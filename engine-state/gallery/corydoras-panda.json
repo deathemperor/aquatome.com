@@ -44,11 +44,11 @@
   "https://media.aquatome.com/commons/bd5f672e76319a4c.webp": "c5c5d79dcc6ac696",
   "https://media.aquatome.com/commons/ccd6c50890efdf3c.webp": "b0b46a4c1c5d1901",
   "https://media.aquatome.com/seriouslyfish/53e6291703d64f0a.webp": "ece6f6e7e7673625",
-  "https://live.staticflickr.com/3937/15395977000_13362f4d5f_b.jpg": "be19eb6bd56c797d",
-  "https://live.staticflickr.com/8596/15894924088_174e2a10a5_b.jpg": "69a797929484d2bb",
-  "https://live.staticflickr.com/8632/15788717909_65d203667f_b.jpg": "6e69cc4edbf9f4ec",
-  "https://live.staticflickr.com/5614/15439449509_48c269bb13_b.jpg": "4eda524f6f661dce",
-  "https://live.staticflickr.com/7538/15787333638_7862a43e8e_b.jpg": "3510a3c54199989c"
+  "https://media.aquatome.com/flickr/15439449509.webp": "4eda524f6f76199e",
+  "https://media.aquatome.com/flickr/15395977000.webp": "be18eb6bf56c797e",
+  "https://media.aquatome.com/flickr/15894924088.webp": "492797968484f2bf",
+  "https://media.aquatome.com/flickr/15788717909.webp": "6a69cc4edbf9f4ec",
+  "https://media.aquatome.com/flickr/15787333638.webp": "3810a1c14199989c"
  },
  "inat": {
   "taxon": null,
@@ -64,6 +64,7 @@
   "next": null
  },
  "openverse": {
-  "next": 2
- }
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

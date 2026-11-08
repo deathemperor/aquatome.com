@@ -56,6 +56,9 @@ struct AquaTomeApp: App {
     // as a reader sees it.
     if ProcessInfo.processInfo.arguments.contains("-no-animations") { UIView.setAnimationsEnabled(false) }
     #endif
+    // The phone's language, taken while the app has none of its own (after the tests' reset): what "Theo máy" gives
+    // once it has, though the sheet was never opened (Language.swift).
+    _ = AppLanguage.phone
     // Read after the tests' reset above (the handbook keeps the pages read).
     let handbook = HandbookModel()
     _handbook = State(initialValue: handbook)
@@ -107,10 +110,14 @@ struct AquaTomeApp: App {
       // The tab bar stays whole and where it is on every screen, as the App Store's does, with iOS's own glass and the soft
       // fade of what scrolls under it (the owner, 7 Nov).
       .tabBarNeverMinimizes()
+      .titleOverWhatScrolls()
       #if DEBUG
       // Whatever tab or page is showing, for the video tests: the pages' players still alive.
       .background { PlayerCount() }
       #endif
+      // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone. Inside the
+      // environment below, which it reads the account from.
+      .ownerReports { OwnerReportHere.place(tab: tab.screen.rawValue, account: showingAccount, lang: handbook.lang) }
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
@@ -300,6 +307,12 @@ struct AquaTomeApp: App {
 private extension View {
   @ViewBuilder func tabBarNeverMinimizes() -> some View {
     if #available(iOS 26.0, *) { tabBarMinimizeBehavior(.never) } else { self }
+  }
+
+  /// What scrolls under a screen's title is cut off there. iOS's soft edge leaves it readable behind the clock and title,
+  /// the larger the text the more so (8 Nov). The bottom stays soft, under the tab bar.
+  @ViewBuilder func titleOverWhatScrolls() -> some View {
+    if #available(iOS 26.0, *) { scrollEdgeEffectStyle(.hard, for: .top) } else { self }
   }
 }
 
