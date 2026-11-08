@@ -28,7 +28,7 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
 
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
     guard let page = OwnerPush.page(response.notification.request.content.userInfo) else { return }
-    await MainActor.run { UIApplication.shared.open(page) }
+    await MainActor.run { UIApplication.shared.open(OwnCopy.marked(page, site: AccountsClient.site)) }
   }
 
   /// Asks APNs for this phone's token if the owner turned them on here and iOS lets the app show them (each launch: the
