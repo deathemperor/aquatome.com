@@ -38,19 +38,85 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$H
 # not on a broken build: the sf cycle of 2026-11-04 lost five hours of pages to 32 timeouts at a 5-minute load of 700 on
 # 16 cores (the next cycle starts by dropping a failed one's work). So once the load has fallen (calm), the step that
 # ran out of time runs once more, and the steps before it, which passed, don't: on 2026-11-07 the pages part's tests ran
-# out of time, and their second run queued the whole build again.
+# out of time, and their second run queued the whole build again. Tests that run out of time on that run too set
+# TIMED_OUT, and the run's work is kept for the next run (keep_timed_out).
 verify() {
-  local step again=
+  local step again= from
   : >"$TEST_LOG"
+  TIMED_OUT=
   calm
   for step in "$@"; do
+    from=$(wc -c <"$TEST_LOG")
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
-    [ -z "$again" ] && grep -q 'Test timed out in' "$TEST_LOG" || return 1
+    ran_out "$from" || return 1
+    [ -z "$again" ] || { TIMED_OUT=1; return 1; }
     again=1
     log "tests ran out of time on a busy Mac: checking again once it is calmer"
     calm
-    checks "$step" >>"$TEST_LOG" 2>&1 || return 1
+    from=$(wc -c <"$TEST_LOG")
+    checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    ran_out "$from" && TIMED_OUT=1
+    return 1
   done
+}
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -q 'Test timed out in'; }
+
+# A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
+# work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
+# leaves alone, and that run publishes it before its own work (publish_kept). Until 2026-11-08 the next run dropped it:
+# that day a videos run and a photos run lost their work to load, redone from nothing. Only in the Mac's engine clones,
+# which a run resets as it starts: GitHub's runners keep nothing past a run, and any other checkout is someone's own.
+# `keep_timed_out <job>`, where a run gives up publishing.
+engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
+keep_timed_out() {
+  [ -n "${TIMED_OUT:-}" ] && engine_clone || return 0
+  local branch
+  branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  git branch -q -f "$branch" HEAD && log "tests ran out of time: this run's work is kept on $branch for the next run"
+}
+# The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
+# then pushed. Tests that run out of time again keep it for the run after; a real failure moves it to
+# kept-failed/<job>/<when>, never pushed, as the gate's crash keeps its work (gate_or_keep). Then this run's own work
+# starts from main. `publish_kept <job>`, after the run's install and merge drivers.
+publish_kept() {
+  local branch
+  engine_clone || return 0
+  for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
+    log "publishing $branch, kept when its tests ran out of time"
+    TIMED_OUT=
+    git reset -q --hard "$branch"
+    if push_kept; then
+      git branch -q -D "$branch"
+      log "published $branch"
+    elif [ -n "$TIMED_OUT" ]; then
+      log "tests ran out of time again: $branch stays kept for the next run"
+    else
+      git branch -q -M "$branch" "kept-failed/${branch#kept/}"
+      log "$branch failed its tests, or clashed with main: on kept-failed/${branch#kept/}, not pushed"
+    fi
+    git fetch -q origin && git reset -q --hard origin/main
+  done
+}
+# The checked-out kept work on top of main, swept and checked, pushed: as push() does, lines both changed give way to
+# the kept work's, and after any merge it's swept and checked again.
+push_kept() {
+  local first=1
+  for _ in 1 2 3; do
+    if ! git pull -q --rebase origin main; then
+      git rebase --abort 2>/dev/null || true
+      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; return 1; }
+      first=1
+    fi
+    if [ -n "$first" ]; then
+      sweep_merged
+      verify 'pnpm test' || return 1
+      first=
+    fi
+    git push -q origin HEAD:main && return 0
+    sleep 30
+  done
+  return 1
 }
 # verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site
 # (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
