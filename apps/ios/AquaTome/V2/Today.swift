@@ -76,12 +76,12 @@ struct TodayView: View {
   }
 
   /// In the app's language, as the words around it: on a phone set to a language the app doesn't have, iOS's locale can be
-  /// another of the app's (Malay, on an English phone), and `Text(_:format:)` would put that one in. The day and month after
-  /// the weekday kept on one line ("8 tháng 11", not "8 tháng" over "11").
+  /// another of the app's (Malay, on an English phone), and `Text(_:format:)` would put that one in. The day and its month
+  /// kept on one line ("8 tháng 11", not "8 tháng" over "11"), in Thai too, which has no comma before them.
   private var date: String {
     let s = today.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: handbook.lang)))
-    guard let comma = s.range(of: ", ", options: .backwards) else { return s }
-    return s[..<comma.upperBound] + s[comma.upperBound...].replacingOccurrences(of: " ", with: "\u{00A0}")
+    guard let day = s.firstIndex(where: \.isNumber) else { return s }
+    return s[..<day] + s[day...].replacingOccurrences(of: " ", with: "\u{00A0}")
   }
 
   enum Card: Identifiable {

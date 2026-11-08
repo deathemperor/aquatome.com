@@ -163,7 +163,7 @@ struct BrowseHome: View {
             HStack(spacing: 12) {
               V2Photo(src: g.img).frame(width: 88, height: 88).clipShape(.rect(cornerRadius: 20, style: .continuous))
                 // No photo: the kind's mark, as a row's.
-                .overlay { if g.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title3).foregroundStyle(.secondary) } }
+                .overlay { if g.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: g.label).font(.body.weight(.semibold))
                 Text(g.count, format: .number).font(.subheadline).foregroundStyle(.v2Faint)
@@ -278,7 +278,7 @@ struct BrowseHome: View {
               VStack(alignment: .leading, spacing: 8) {
                 V2Photo(src: item.img)
                   .aspectRatio(1.8, contentMode: .fit)
-                  .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary) } }
+                  .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
                   .clipShape(.rect(cornerRadius: 16, style: .continuous))
                   .matchedTransitionSource(id: item.path, in: zoom)
                 Text(verbatim: item.name).font(.subheadline.weight(.semibold)).lineLimit(3)
@@ -412,6 +412,8 @@ private struct GroupTile: View {
 
   var body: some View {
     V2Photo(src: group.img, ground: colour) { colour = $0 }
+      // No photo: the kind's mark on the colour, as a row's, not an empty block.
+      .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
       .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 20) {
         HStack(alignment: .firstTextBaseline) {
           Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
