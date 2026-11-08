@@ -8,7 +8,7 @@ import { getContent } from '../src/lib/content'
 const IMG = 'https://media.aquatome.com/commons/0000000000000001.webp'
 const LOOP = {
   src: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.mp4', poster: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.webp',
-  w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
+  w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
 }
 const calendar: Curation = CurationSchema.parse({
   version: 1,
@@ -28,7 +28,7 @@ const calendar: Curation = CurationSchema.parse({
     { date: '2026-11-09', fish: 'species/paracheirodon-axelrodi', img: IMG, guide: 'guides/aquariumcoop-blogs-aquarium-5-gallon-fish', by: { ms: { fish: 'species/apistogramma-cacatuoides', img: IMG } } },
     { date: '2026-11-10', fish: 'breeds/flowerhorn-cichlid', img: IMG, guide: 'guides/setup-be-dau-tien', story: { page: 'guides/setup-be-dau-tien', eyebrow: { vi: 'Bể đầu tiên' }, title: { vi: 'Set bể từ đầu' } } },
   ],
-  loops: { 'apistogramma-cacatuoides': LOOP },
+  loops: { 'apistogramma-cacatuoides': { ...LOOP, replace: 'when better footage comes' } },
 })
 const index = async (lang: 'vi' | 'ms', today = '2026-11-10') => appIndex(lang, await getContent(lang), new Map(), (await getContent('vi')).species, { calendar, today })
 const pathOf = (ix: Awaited<ReturnType<typeof index>>, id: string) => ix.items.find(i => i.id === id)?.path
@@ -70,7 +70,7 @@ test('Khám phá gets this week\'s theme, top cards and shelves, in its language
   expect((await index('vi', '2026-11-30')).home.week).toBeUndefined()
 })
 
-test('a fish with a loop carries it in every language that lists it', async () => {
+test('a fish with a loop carries it in every language that lists it, without the media lead\'s note on replacing it', async () => {
   for (const lang of ['vi', 'ms'] as const) expect((await index(lang)).items.find(i => i.id === 'apistogramma-cacatuoides')?.loop, lang).toEqual(LOOP)
   expect((await index('vi')).items.filter(i => i.loop).length).toBe(1)
 })

@@ -81,5 +81,10 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
   return out
 }
 
-/** A species' or breed's loop, by its content id. */
-export const loopOf = (cur: Curation | null, id: string | undefined): Loop | undefined => (cur && id ? cur.loops[id] : undefined)
+/** A species' or breed's loop, by its content id, as the app gets it: `replace` is the media lead's note, not the app's. */
+export const loopOf = (cur: Curation | null, id: string | undefined): Omit<Loop, 'replace'> | undefined => {
+  const loop = cur && id ? cur.loops[id] : undefined
+  if (!loop) return undefined
+  const { replace: _, ...rest } = loop
+  return rest
+}

@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs'
+import { cp, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, type Curation } from '@aq/schema'
-import { across, cardWorthy, checkCalendar, LARGE_PX, plan, problem, type Candidate } from '../src/curation'
+import { across, candidates, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -79,4 +82,44 @@ test('the calendar in the repository parses, and names no page twice on Hôm nay
   for (const a of picks) for (const b of picks) if (a !== b && a.ref === b.ref) expect(Math.abs(a.t - b.t), a.ref).toBeGreaterThanOrEqual(28 * 86400_000)
   // Every day has its fish's card photo.
   for (const d of cur.days) if (d.fish) expect(d.img, d.date).toBeDefined()
+})
+
+test('a week with tags takes only fish that match one, or that are on its own list', () => {
+  const nano = (id: string) => fish(id, { facts: { places: [], coldwater: false, sizeMax: 3, schoolMin: 6 } })
+  const cands = [nano('a'), fish('big', { facts: { places: [], coldwater: false, sizeMax: 30 } }), fish('listed', { facts: { places: [], coldwater: false, sizeMax: 40 } }), guide('g1'), guide('g2'), guide('g3')]
+  const cur = CurationSchema.parse({ version: 1, weeks: [{ from: '2026-11-16', to: '2026-11-22', theme: { vi: 'Bể nhỏ' }, tags: ['nano'], fish: ['species/listed'] }], days: [] })
+  const { calendar, report } = plan(cur, cands, '2026-11-16', 3)
+  expect(calendar.days.map(d => d.fish)).toEqual(['species/listed', 'species/a', undefined])
+  expect(report.empty).toContain('2026-11-18 fish')
+  // A pick already in the calendar that the week's tags no longer take is replaced, unless a person chose it.
+  const big30 = cands[1]!
+  const was = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url }] })
+  expect(plan(was, cands, '2026-11-16', 1).report.replaced).toEqual([{ date: '2026-11-16', slot: 'fish', was: 'species/big', why: "doesn't match this week's tags (nano)" }])
+  const chosen = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url, fixed: true }] })
+  expect(plan(chosen, cands, '2026-11-16', 1).calendar.days[0]!.fish).toBe('species/big')
+})
+
+test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no cold fish, nor a 90 cm tank\'s tetra or a lone ram a small schooling one', () => {
+  const f = { places: [], coldwater: false }
+  expect(TAGS.cold!({ ...f, coldwater: true, tempMin: 20 })).toBe(false)
+  expect(TAGS.cold!({ ...f, coldwater: true })).toBe(true)
+  expect(TAGS.cold!({ ...f, tempMin: 16 })).toBe(true)
+  expect(TAGS.nano!({ ...f, sizeMax: 3, tankCm: 45, schoolMin: 6 })).toBe(true)
+  expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 90, schoolMin: 6 })).toBe(false)
+  expect(TAGS.nano!({ ...f, sizeMax: 1.5, invert: true, schoolMin: 10 })).toBe(false)
+  // Small, but kept alone or in pairs: no fish for a week of small schooling fish.
+  expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 60 })).toBe(false)
+  // Native by the page's native range, not by where it was recorded.
+  expect(TAGS.local!({ ...f, places: ['vietnam', 'thailand'], native: ['TH'] })).toBe(false)
+  expect(TAGS.local!({ ...f, places: ['vietnam'] })).toBe(true)
+})
+
+test('a breed\'s card can use a checked photo from its gallery', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'curation-'))
+  await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), join(root, 'content'), { recursive: true })
+  const url = 'https://images.unsplash.com/photo-1000000000007-flowerhorn7?ixid=fixture&w=1280&q=80&fm=jpg&fit=max'
+  await mkdir(join(root, 'engine-state'))
+  await writeFile(join(root, 'engine-state', '_photo-subjects.json'), JSON.stringify({ [url]: { 'flowerhorn-cichlid': { ok: 'yes', typical: true, note: '' } } }))
+  const fh = (await candidates(root)).find(c => c.ref === 'breeds/flowerhorn-cichlid')
+  expect(fh?.photo.square?.url).toBe(url)
 })
