@@ -57,11 +57,11 @@ catch_up() {
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }
-# Start from GitHub's main, this very script too. bash reads a script as it runs, so after a reset that changed the running
-# file it would go on at the same byte in main's version, partway into some line: on 2026-11-08 a video run skipped its
-# commit lines and left its work uncommitted. The reset and the restart are one function, read whole when this file was
-# sourced, so nothing between them is read from the changed file; the run then starts again from the top of main's
-# script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as `from_main "$@"`.
+# Start from GitHub's main, this very script too. git writes main's version as a new file, and bash keeps reading the one it
+# started with, so a run went on with its old script against main's code: on 2026-11-08 a video run tested before it
+# committed, as its old script did, though main's now commits first, and its failed tests left its work uncommitted. The
+# run starts again from the top of main's script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as
+# `from_main "$@"`.
 from_main() {
   git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
   [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
