@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3128 | 2929 | 1348 | 68 | 43 | 165 | 32 | 883 | 372 | 2773 | 435 | 5 | 11 | 0 | 3 | 0 | 2 |
-| Indonesian | 1027 | 987 | 312 | 18 | 4 | 3 | 5 | 152 | 65 | 44 | 141 | 0 | 0 | 0 | 4 | 0 | 0 |
-| Thai | 1020 | 979 | 299 | 16 | 4 | 4 | 3 | 132 | 82 | 78 | 130 | 0 | 0 | 0 | 2 | 0 | 0 |
+| Vietnamese | 3173 | 2914 | 1342 | 68 | 43 | 162 | 32 | 880 | 369 | 2758 | 431 | 5 | 11 | 0 | 3 | 0 | 2 |
+| Indonesian | 1027 | 987 | 312 | 18 | 4 | 3 | 5 | 152 | 65 | 43 | 141 | 0 | 0 | 0 | 4 | 0 | 0 |
+| Thai | 1020 | 980 | 299 | 16 | 4 | 4 | 3 | 132 | 82 | 78 | 130 | 0 | 0 | 0 | 2 | 0 | 0 |
 | Malay | 156 | 131 | 47 | 4 | 1 | 0 | 0 | 17 | 18 | 8 | 20 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 123, Indonesian 2 of 58, Thai 2 of 57, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 123, Indonesian 2 of 58, Thai 2 of 58, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -21,8 +21,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - metronidazole: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (3 pages); parasites, wholeTank: 12.5 mg/l, 0.013 g/l (8 pages); parasites, bath: 6.25 mg/l, 0.05 tablet/l (4 pages); bacteria, unsaid: 12.5 mg/l (1 pages)
 - epsom salt: water, other: 2.5 ml/l (1 pages); other, bath: 0.264 thìa/l, 0.263 sendok/l, 0.263 ช้อน/l, 0.264 sudu/l (4 pages); unsaid, wholeTank: 0.263–0.789 ml/l (1 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, wholeTank: 0.263–0.789 ml/l, 0.25–0.75 ml/l (3 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages)
 - malachite green: ich, wholeTank: 0.132 ml/l (1 pages); fungus, bath: 0.1 mg/l (4 pages); fungus, spot: 100 mg/l (4 pages)
+- fenbendazole: parasites, bath: 25 mg/l (2 pages); parasites, wholeTank: 0.001 g/l, 0.003 g/l (3 pages)
 - hydrogen peroxide 3%: cyanobacteria, spot: 0.75 ml/l (2 pages); algae, spot: 0.5 ml/l (3 pages); algae, wholeTank: 0.4 ml/l, 0.395 ml/l (3 pages)
-- fenbendazole: parasites, bath: 25 mg/l (1 pages); parasites, wholeTank: 0.001 g/l, 0.003 g/l (3 pages)
 - sodium bicarbonate: water, other: 1 g/l, 2 g/l (4 pages); water, wholeTank: 0.05 g/l, 0.05 ml/l (2 pages)
 - indian almond leaf: water, wholeTank: 0.05 leaf/l, 0.025–0.05 leaf/l (4 pages); water, other: 0.5 leaf/l (1 pages); other, wholeTank: 1 g/l (1 pages)
 - maracyn: fungus, wholeTank: 0.026 packet/l (1 pages); quarantine, wholeTank: 0.026 packet/l, 0.025 packet/l (3 pages); finRot, wholeTank: 0.026 packet/l (1 pages); bacteria, wholeTank: 0.026 packet/l (1 pages)

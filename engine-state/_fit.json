@@ -2193,19 +2193,10 @@
  },
  "id/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "dcdbff1f6b166e73",
+  "hash": "3ff82fbe853ce473",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "udang sungai hidup",
-    "why": "Literal rendering of English 'live crayfish'; Indonesian keepers call it lobster air tawar.",
-    "by": "model",
-    "fix": "lobster air tawar hidup"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "id/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
@@ -17220,7 +17211,7 @@
  },
  "th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "84750ca020ac9c5b",
+  "hash": "dbd30541be2404ee",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -17298,7 +17289,19 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "ฟอร์มาลดีไฮด์ 0.17 มล./ลิตร นาน 15 นาที"
+    "quote": "การแช่ฟอร์มาลดีไฮด์ 0.17 มล./ลิตร นาน 15 นาที"
+   },
+   {
+    "treatment": "fenbendazole",
+    "strength": "",
+    "amount": 25,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "เฟนเบนดาโซล 25 มก./ลิตร (แช่ 2 ครั้ง ครั้งละ 12 ชม. เว้น 24 ชม. ระหว่างครั้ง)"
    },
    {
     "treatment": "ivermectin",
@@ -17323,18 +17326,6 @@
     "use": "parasites",
     "method": "bath",
     "quote": "มีเบนดาโซล 1 มก./ลิตร นาน 12 ชม."
-   },
-   {
-    "treatment": "trichlorfon",
-    "strength": "",
-    "amount": 0.5,
-    "amountMax": 2,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "other",
-    "method": "",
-    "quote": "ไตรคลอร์ฟอนที่ 0.5–2 ppm"
    }
   ],
   "sourceRead": true
@@ -40250,10 +40241,26 @@
  },
  "vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "4651ceda6550272c",
+  "hash": "850d1db458b9672d",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "một con cá rồng bạc trưởng thành cần bể 240 x 90 x 90 cm",
+    "why": "An 8 × 3 × 3 ft tank converted to cm, a size no keeper in Vietnam would name.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Mắt sụp (drop eye)",
+    "why": "A calque of the English 'drop eye'; arowana keepers in Vietnam call it lé mắt.",
+    "by": "model",
+    "fix": "lé mắt"
+   }
+  ],
   "products": []
  },
  "vi/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
@@ -40690,7 +40697,7 @@
  },
  "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "75588abd90cb8310",
+  "hash": "86177129336b6073",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -40717,7 +40724,7 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "dip",
+    "method": "bath",
     "quote": "Tắm muối 3%"
    },
    {
@@ -40729,7 +40736,7 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "bath",
+    "method": "wholeTank",
     "quote": "sau đó ngâm muối 0,2%"
    },
    {
@@ -40741,7 +40748,7 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "bath",
+    "method": "wholeTank",
     "quote": "0,02–0,2%"
    },
    {
@@ -40751,7 +40758,7 @@
     "amountMax": 25,
     "unit": "g",
     "per": 1,
-    "perUnit": "m³",
+    "perUnit": "cubic metre",
     "use": "parasites",
     "method": "bath",
     "quote": "10–25 g/m³"
