@@ -1,0 +1,50 @@
+{
+  "id": "gymnochanda-ploegi",
+  "native": {
+    "input": "baa4671e83224a2b",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "bwaquatics",
+        "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gymnochanda ploegi",
+    "status": "ACCEPTED",
+    "taxonKey": 8026320,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

@@ -1,5 +1,8 @@
 {
   "id": "paranapanema",
   "kind": "region",
-  "parent": "brazil"
+  "parent": "brazil",
+  "countries": [
+    "BR"
+  ]
 }

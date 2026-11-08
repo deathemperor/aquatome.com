@@ -21,6 +21,74 @@
       "Items 1 and 6: the label \"Kekerasan air (GH): 5–12 dGH\" adds \"(GH)\" to \"Hardness\", and the unit is dGH. This is harmless, but \"Kekerasan air: 5–12 dGH\" is cleaner."
     ]
   },
+  "abramites-hypselonotus": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Marbled Headstander",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "Item 10: 'Tiada laporan pembiakan dalam kurungan direkodkan' is slightly stiff. 'Tiada rekod pembiakan dalam kurungan' would read more naturally."
+    ]
+  },
+  "acanthicus-adonis": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Adonis Pleco",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 1: '600 mm' left in mm; convert to metric cm ('60 cm atau lebih') for consistency with other units (item 1 and item 4 use cm/m).",
+      "Item 4: '600 × 200 cm' and '24,000 litres' fine, but 'diperlukan' sentence order is awkward; also 'liter' should be 'liter' consistently (ok) - minor.",
+      "Item 7: 'lancefish' left untranslated; use local term e.g. 'ikan lancefish (sand eel)' or 'ikan belanak/ikan puput' equivalent, or give a local name.",
+      "Item 7: 'sisa buangan/sisa organik manusia' is awkward; use 'sisa buangan manusia/sisa organik'.",
+      "Item 11: 'suckermouth armoured catfish' left in English; give Malay e.g. 'ikan keli bersungut penyedut berperisai' with English in brackets.",
+      "Item 11: 'mereka mampu menyedut udara atmosfera' - 'menyedut' is odd; use 'menarik nafas/bernafas dengan udara atmosfera'. 'fakultatif' placement awkward.",
+      "Item 1: 'Polka dot lyre tail pleco' left untranslated as a trade name is fine, but 'rio Tocantins' lacks 'Sungai' for clarity.",
+      "Item 1/11: 'tangki' vs 'akuarium' and 'yang paling besar atau kolam tropika' is ambiguous (largest tropical ponds?); use 'akuarium persendirian terbesar atau kolam tropika'.",
+      "Item 5: 'paip plastik' fine; 'jadual tukar air yang tetap' is slightly weaker than 'dedicated regime'; consider 'rejim tukar air yang khusus'.",
+      "Item 10: 'bertelur di dalam gua' - use 'pembiak gua' / 'bertelur dalam lubang/gua'; 'mengurus telur' should be 'menjaga telur'."
+    ]
+  },
+  "acanthicus-hystrix": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Lyre Tail Pleco",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"lancefish\" is left in English. Give a Malay name, or use \"(sand lance)\" in brackets after a Malay term.",
+      "\"dalam kurungan\" (and \"dibiakkan dalam kurungan\") for \"in captivity\" is awkward. Use \"dalam penangkaran\" or \"di dalam akuarium\", which is what Malaysian hobbyists say."
+    ]
+  },
+  "acanthocobitis-botia": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Zipper loach",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 4: 'Ukuran dasar tangki melebihi 75 × 30 cm sudah memadai' — 'in excess of' is rendered awkwardly; better 'sekurang-kurangnya 75 × 30 cm'. The volume '~68 liter' is the converted figure; per the rounding rule it should be ~70 liter. Also use the Malaysian spelling 'liter/liter' consistently.",
+      "Item 11: 'sirip ekor yang tajam' for 'pointed caudal fin' should be 'runcing'; 'tajam' means sharp.",
+      "Item 11: 'emarginate' translated as 'bertakuk' is acceptable, but 'truncate' as 'rata hujungnya' is fine. 'Kekerasan air (GH)' is fine.",
+      "Item 1: 'Sejak sekian lama ia disangka bertaburan' is awkward; use 'Ia sekian lama disangka terdapat dari Pakistan hingga barat Thailand'. 'agak lasak' for 'relatively hardy' is acceptable.",
+      "Item 5: 'Walaupun pergerakan air yang tinggi tidak wajib' is stiff; use 'arus air yang kuat tidak semestinya diperlukan'.",
+      "Item 3: 'batu kerikil besar' for 'cobbles' is unclear; use 'batu bulat' or 'batu sungai'.",
+      "Item 10: 'berkemungkinan memakan telurnya' after 'nampaknya' is redundant; simplify to 'spesies ini berkemungkinan memakan telurnya'.",
+      "Item 7: 'ephemeropteran' and 'chironomid' are left untranslated; consider 'larva agas (chironomid)' and 'larva langau-Mei (Ephemeroptera)'."
+    ]
+  },
+  "acanthocobitis-pavonacea": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Peacock loach",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 5: 'susunan jenis hillstream ... aquascape berbatu' leaves English terms bare; consider 'susunan jenis sungai berarus deras (hillstream)' and 'aquascape' in brackets or a Malay equivalent.",
+      "Item 1: 'mengitar semula air tangki 8–12 kali sejam' is slightly clumsy; 'memutar ganti air dalam tangki 8–12 kali sejam' or similar would be more natural."
+    ]
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-06",
     "from": "2026-11-04",
