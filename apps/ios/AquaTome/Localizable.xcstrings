@@ -18327,24 +18327,24 @@
         }
       }
     },
-    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. Ảnh của bạn không gửi kèm câu hỏi.": {
+    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn tới Claude.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Claude, model AI dari Anthropic, menjawab berdasarkan panduan AquaTome. Untuk hal yang belum ada di panduan, Claude memakai pengetahuan umum tentang memelihara ikan. Foto Anda tidak dikirim bersama pertanyaan."
+            "value": "Claude, model AI dari Anthropic, menjawab berdasarkan panduan AquaTome. Untuk hal yang belum ada di panduan, Claude memakai pengetahuan umum tentang memelihara ikan. AquaTome tidak mengirim foto Anda ke Claude."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Claude, model AI daripada Anthropic, menjawab berdasarkan buku panduan AquaTome. Bagi perkara yang belum ada dalam buku panduan, Claude menggunakan pengetahuan am tentang memelihara ikan. Foto anda tidak dihantar bersama soalan."
+            "value": "Claude, model AI daripada Anthropic, menjawab berdasarkan buku panduan AquaTome. Bagi perkara yang belum ada dalam buku panduan, Claude menggunakan pengetahuan am tentang memelihara ikan. AquaTome tidak menghantar foto anda kepada Claude."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "Claude โมเดล AI ของ Anthropic ตอบโดยอิงจากคู่มือ AquaTome ส่วนที่คู่มือยังไม่มี Claude จะใช้ความรู้ทั่วไปเรื่องการเลี้ยงปลา รูปของคุณจะไม่ถูกส่งไปพร้อมกับคำถาม"
+            "value": "Claude โมเดล AI ของ Anthropic ตอบโดยอิงจากคู่มือ AquaTome ส่วนที่คู่มือยังไม่มี Claude จะใช้ความรู้ทั่วไปเรื่องการเลี้ยงปลา AquaTome ไม่ได้ส่งรูปของคุณไปยัง Claude"
           }
         }
       }
@@ -18811,24 +18811,24 @@
         }
       }
     },
-    "Câu hỏi gửi tới Claude và được lưu đến khi bạn xóa tài khoản.": {
+    "AquaTome gửi câu hỏi tới Claude và lưu đến khi bạn xóa tài khoản.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pertanyaan dikirim ke Claude dan disimpan sampai Anda menghapus akun."
+            "value": "AquaTome mengirim pertanyaan ke Claude dan menyimpannya sampai Anda menghapus akun."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Soalan dihantar kepada Claude dan disimpan sehingga anda memadamkan akaun."
+            "value": "AquaTome menghantar soalan kepada Claude dan menyimpannya sehingga anda memadam akaun."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "คำถามจะส่งไปยัง Claude และเก็บไว้จนกว่าคุณจะลบบัญชี"
+            "value": "AquaTome ส่งคำถามไปยัง Claude และเก็บไว้จนกว่าคุณจะลบบัญชี"
           }
         }
       }
