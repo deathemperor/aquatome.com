@@ -800,6 +800,10 @@
             "type": "boolean",
             "description": "false: the handbook doesn't cover the question. The text says so and the blocks hold the nearest page; the question counts as a wanted topic."
           },
+          "general": {
+            "type": "boolean",
+            "description": "true: part of the answer isn't from a page or tool the run read, but Claude's general fishkeeping knowledge; false: all of it is. The Worker sets it true when the run read no page and the answer says something; otherwise it is Claude's own word, true when unsure. Missing: not known (a turn from before, a refusal, or a Worker that doesn't set it yet), and the client shows nothing. It comes only once the chat's eval finds Claude's word right 19 times in 20."
+          },
           "model": {
             "type": "string"
           },
