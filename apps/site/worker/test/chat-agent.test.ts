@@ -855,11 +855,17 @@ test('a conversation\'s first answer brings its title, in the same call: the tit
   }
   expect(TITLE_RULE('th')).toContain('in Thai')
   expect(titled.out.answer?.title).toBe('Cá betta bỏ ăn')
-  // A chat with a subject (a species page, or fish ID's first guess) is listed under it: the title leaves it out.
+  // A chat with a subject (a species page, or fish ID's first guess when it was almost certain) is listed under it: the
+  // title leaves it out, by every name. Fish ID unsure, the row says "Your photo": the title names no guess.
   const told = (start: Start, title = true) => JSON.stringify(firstMessage('vi', 'Nuôi mấy con?', [], start, h, title).content)
-  expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('shows this one under Cá neon xanh already: the title names the problem and leaves Cá neon xanh out')
-  expect(told({ from: 'fish-id', about: 'paracheirodon-innesi', identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'paracheirodon-innesi', confidence: 0.55 }] } })).toContain('leaves Cá neon xanh out')
-  expect(told({ from: 'species', about: 'paracheirodon-innesi' }, false)).not.toContain('leaves Cá neon xanh out')
+  const photo = (confidence: number): Start => ({ from: 'fish-id', about: 'paracheirodon-innesi', identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'paracheirodon-innesi', confidence }] } })
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('shows this one under Cá neon xanh already: the title names the problem and leaves it out, by any of its names (Cá neon xanh')
+  expect(told(photo(0.8))).toContain('shows this one under Cá neon xanh already')
+  expect(told(photo(0.8))).not.toContain('Fish ID isn')
+  expect(told(photo(0.79))).not.toContain('shows this one under')
+  expect(told(photo(0.79))).toContain('Fish ID isn\'t sure of it: the title names no fish it guessed')
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' }, false)).not.toContain('shows this one under')
+  expect(told(photo(0.5), false)).not.toContain('Fish ID isn')
   expect(told({})).not.toContain('shows this one under')
   const not = await asked({})
   expect(not.body.output_config!.format).toEqual({ type: 'json_schema', schema: ANSWER_SCHEMA })
