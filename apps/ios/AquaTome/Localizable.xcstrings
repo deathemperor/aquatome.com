@@ -6095,24 +6095,24 @@
         }
       }
     },
-    "Gửi thống kê ẩn danh": {
+    "Gửi thống kê": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kirim statistik anonim"
+            "value": "Kirim statistik"
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hantar statistik tanpa nama"
+            "value": "Hantar statistik"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ส่งสถิติแบบไม่ระบุตัวตน"
+            "value": "ส่งสถิติ"
           }
         }
       }

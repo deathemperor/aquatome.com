@@ -82,7 +82,7 @@ private let sent: [Event] = [.view(path: neon), .view(path: "/ca/ca-neon/"), .vi
 @Test("Batches of every event the app sends fit the contract's Batch, and a report its Report")
 func sentFitsTheContract() {
   for e in sent { #expect(e.fits, "\(e)") }
-  var b = Batch(about, session: session, events: sent)
+  var b = Batch(about, session: session, install: "0b7e3c1d-2f4a-4c6b-8d9e-1a2b3c4d5e6f", events: sent)
   for i in b.events.indices { b.events[i].at = 1000 * i }
   #expect(misfits(json(Wire.body(b)), schema("Batch")) == [])
   // A batch at its limits: 100 events, the latest `at`.
