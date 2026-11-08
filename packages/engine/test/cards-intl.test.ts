@@ -3,23 +3,25 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeCard, localizeCards } from '../src/cards-intl'
+import { cardHash, localizeCard, localizeCards } from '../src/cards-intl'
 
 const VI = { eyebrow: 'Chuyện ít ai biết', title: 'Cá medaka Nhật từng giao phối ngoài không gian', body: '<p>Năm 1994, bốn con cá medaka (<em>Oryzias latipes</em>) bay 15 ngày trên quỹ đạo.</p>' }
 const ID = { eyebrow: 'Fakta unik', title: 'Ikan medaka pernah kawin di luar angkasa', body: '<p>Pada 1994, empat ekor medaka (<em>Oryzias latipes</em>) terbang 15 hari di orbit.</p>' }
 async function root(vi: object = VI) {
   const r = await mkdtemp(join(tmpdir(), 'cards-intl-'))
   await mkdir(join(r, 'content/cards/medaka'), { recursive: true })
+  await mkdir(join(r, 'engine-state'))
   await writeFile(join(r, 'content/cards/medaka/vi.json'), JSON.stringify(vi))
   return r
 }
-/** The translator gives `written` in turn; the reviewer, `scores` in turn. */
-const fake = (written: object[], scores: number[]) => {
+/** The translator gives `written` in turn; the reviewer, `scores` in turn (a score, or a score with notes). */
+const fake = (written: object[], scores: (number | { score: number; notes: string[] })[]) => {
   const calls: { kind: string; prompt: string }[] = []
   const llm = (async ({ prompt, schema }: { prompt: string; schema: object }) => {
     if ((schema as { required: string[] }).required.includes('eyebrow')) { calls.push({ kind: 'write', prompt }); return written.shift() }
     calls.push({ kind: 'review', prompt })
-    return { score: scores.shift(), notes: [] }
+    const r = scores.shift()!
+    return typeof r === 'number' ? { score: r, notes: [] } : r
   }) as Llm
   return { llm, calls }
 }
@@ -46,7 +48,7 @@ test('one that doesn\'t fit the card or doesn\'t pass goes back once, and is wri
   const r = await root()
   const once = fake([long, ID], [0.95, 0.92])
   expect(await localizeCard(r, once.llm, 'medaka', 'id')).toMatchObject({ kept: true, score: 0.92 })
-  expect(once.calls.filter(c => c.kind === 'write')[1]!.prompt).toContain('title:')
+  expect(once.calls.filter(c => c.kind === 'write')[1]!.prompt.split('sent back for these')[1]).toMatch(/\n- title: /)
   expect(await read(r)).toEqual(ID)
 
   const r2 = await root()
@@ -63,4 +65,42 @@ test('a card the gate holds back in Vietnamese isn\'t translated', async () => {
   const { llm, calls } = fake([ID], [0.95])
   expect(await localizeCard(r, llm, 'medaka', 'id')).toEqual({ id: 'medaka', skipped: 'held back in Vietnamese' })
   expect(calls).toEqual([])
+})
+
+test('one that passes with notes isn\'t written again: the notes are a passing reviewer\'s', async () => {
+  const r = await root()
+  const { llm, calls } = fake([ID], [{ score: 0.95, notes: ['"Fakta unik" could be "Fakta menarik".'] }])
+  expect(await localizeCard(r, llm, 'medaka', 'id')).toMatchObject({ kept: true })
+  expect(calls.map(c => c.kind)).toEqual(['write', 'review'])
+})
+
+test('a translation of an older Vietnamese card is made again, and taken down if the new one isn\'t kept; held in Vietnamese, it\'s taken down', async () => {
+  const r = await root()
+  await localizeCard(r, fake([ID], [0.95]).llm, 'medaka', 'id')
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_cards-intl.json'), 'utf8'))).toEqual({ 'id/medaka': cardHash(VI) })
+  // The Vietnamese corrected: translated again.
+  const fixed = { ...VI, body: '<p>Năm 1994, bốn con cá medaka (<em>Oryzias latipes</em>) bay 15 ngày trên tàu con thoi.</p>' }
+  await writeFile(join(r, 'content/cards/medaka/vi.json'), JSON.stringify(fixed))
+  const again = fake([{ ...ID, body: '<p>Pada 1994, empat ekor medaka (<em>Oryzias latipes</em>) terbang 15 hari dengan pesawat ulang-alik.</p>' }], [0.95])
+  expect(await localizeCard(r, again.llm, 'medaka', 'id')).toMatchObject({ kept: true })
+  expect((await read(r)).body).toContain('pesawat ulang-alik')
+  // Corrected again, and the new translation fails: the old one goes, being of a text that's no longer there.
+  await writeFile(join(r, 'content/cards/medaka/vi.json'), JSON.stringify(VI))
+  expect(await localizeCard(r, fake([ID, ID], [0.5, 0.5]).llm, 'medaka', 'id')).toMatchObject({ kept: false })
+  await expect(read(r)).rejects.toThrow()
+  // Translated, then held back in Vietnamese: taken down.
+  await localizeCard(r, fake([ID], [0.95]).llm, 'medaka', 'id')
+  await writeFile(join(r, 'content/cards/medaka/vi.json'), JSON.stringify({ ...VI, held: { checks: ['harm'], at: '2026-11-09' } }))
+  expect((await localizeCard(r, fake([], []).llm, 'medaka', 'id')).skipped).toContain('taken down')
+  await expect(read(r)).rejects.toThrow()
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_cards-intl.json'), 'utf8'))).toEqual({})
+})
+
+test('a card that fails is reported and the others go on; a folder with no Vietnamese card is passed over', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/cards/aaa-broken'))
+  await writeFile(join(r, 'content/cards/aaa-broken/vi.json'), JSON.stringify({ title: 'Không có dòng nhỏ' }))
+  await mkdir(join(r, 'content/cards/empty'))
+  const out = await localizeCards(r, fake([ID], [0.95]).llm, 'id')
+  expect(out.map(x => [x.id, x.skipped?.slice(0, 7) ?? x.kept])).toEqual([['aaa-broken', 'failed:'], ['medaka', true]])
 })
