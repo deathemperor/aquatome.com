@@ -38,8 +38,11 @@ TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', UI)
 # The first half, run by `handbook (1)` with the page shots; `handbook (2)` runs the rest of HANDBOOK, so a class added
 # there later runs in it. Split by their times on #677's run of 2026-11-07 (42352065312), where every job neared its
 # hour and `handbook (2)`, 3,033 s of flows and about ten minutes of build and simulator, passed them all and stopped at
-# it: 1,984 s here, 1,907 s in the rest, the others of HANDBOOK beside the light flows (WITH_LIGHTS).
-HANDBOOK_FIRST = ['NativePageFlowTests', 'PageShotsFlowTests']
+# it: 1,984 s here, 1,907 s in the rest, the others of HANDBOOK beside the light flows (WITH_LIGHTS). The page shots then
+# grew to 57: on #758's full run of 2026-11-08 this half, NativePageFlowTests with them, ran 66 minutes of tests and
+# stopped at the 75-minute limit, while #911's other half took 44 minutes. So the shots run here alone, and
+# NativePageFlowTests (648 s) with the rest.
+HANDBOOK_FIRST = ['PageShotsFlowTests']
 # The light flows' first half, run by `lights (1)`; `lights (2)` runs the rest of LightFlowTests, so a flow added later
 # runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s).
 LIGHT_FIRST = [
