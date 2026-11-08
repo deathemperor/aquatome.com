@@ -4,7 +4,7 @@
 Leads' runs and the runner's jobs share one queue (~/.cache/aquatome/sim.lock), separate from the checks lock, so vitest
 doesn't wait behind an hour of flows. A job's stop reaches the command, as `exec` does in ios.yml: lockf(1) wouldn't pass
 it on, which left xcodebuild running with no parent on 2026-11-04. Copies of the simulator are capped at MAX_COPIES. The
-runner's jobs wait while the Mac is hot before they take their turn (cool).
+runner's jobs on this Mac wait while it's hot before they take their turn (cool).
 """
 import fcntl
 import os
@@ -43,9 +43,10 @@ def thermal():
 
 
 def cool():
-    """The runner's jobs (main's iOS runs) wait while the Mac is hot, up to COOL_MINUTES, before they queue: the engine's
-    runs do the same (cool, scripts/cycle-checks.sh). Leads' runs don't wait here."""
-    if not os.environ.get("GITHUB_ACTIONS"):
+    """This Mac's runner's jobs (main's iOS runs) wait while the Mac is hot, up to COOL_MINUTES, before they queue: the
+    engine's runs do the same (cool, scripts/cycle-checks.sh). Leads' runs don't wait here, nor do jobs on GitHub's Macs,
+    which run this script too and whose heat isn't this Mac's."""
+    if os.environ.get("RUNNER_ENVIRONMENT") != "self-hosted":
         return
     waited = 0.0
     while waited < COOL_MINUTES * 60 and thermal() >= HOT:

@@ -85,19 +85,22 @@ echo "com.apple.system.thermalpressurelevel $level"
   return { run, calls }
 }
 
-// Main's iOS runs back on this Mac (2026-11-08) wait while it's hot, as the engine's runs do; leads' runs don't wait here.
-test("the runner's simulator run waits while the Mac is hot, and a lead's doesn't", () => {
+// Main's iOS runs back on this Mac (2026-11-08) wait while it's hot, as the engine's runs do. Leads' runs don't wait here,
+// nor do pull requests' jobs on GitHub's Macs, which run sim-run too.
+test("this Mac's runner's simulator run waits while the Mac is hot, and a lead's or GitHub's Macs' doesn't", () => {
   const runner = hot([2, 3, 2, 1])
-  const r = runner.run({ GITHUB_ACTIONS: 'true' })
+  const r = runner.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted' })
   expect(r.status).toBe(0)
   expect(runner.calls()).toBe(4)
   expect(r.stdout).toContain('the Mac is hot')
-  const lead = hot([2])
-  expect(lead.run({ GITHUB_ACTIONS: '' }).status).toBe(0)
-  expect(lead.calls()).toBe(0)
+  for (const env of [{ GITHUB_ACTIONS: '', RUNNER_ENVIRONMENT: '' }, { GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'github-hosted' }]) {
+    const other = hot([2])
+    expect(other.run({ ...env, SIM_RUN_COOL_MINUTES: '0.0001' }).status).toBe(0) // a short wait, should it wrongly wait
+    expect(other.calls()).toBe(0)
+  }
   // Still hot at the end of the wait: it goes on.
   const stuck = hot([2])
-  const s = stuck.run({ GITHUB_ACTIONS: 'true', SIM_RUN_COOL_MINUTES: '0.0001' })
+  const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
   expect(s.status).toBe(0)
   expect(s.stdout).toContain('went on after')
 }, 30_000)
