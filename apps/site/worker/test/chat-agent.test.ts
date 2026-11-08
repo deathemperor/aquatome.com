@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -580,6 +580,8 @@ test('the chat\'s forced last call is told to answer from what it read and its o
   expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain(JSON.stringify(LAST_WORD).slice(1, -1))
   // Most hard questions end on this call: it must not take back the general knowledge the owner allowed.
   expect(LAST_WORD).toContain('your own knowledge of fishkeeping')
+  // Written at low effort when time is short, it slipped Vietnamese's "cẩm nang" into Malay answers without this.
+  expect(LAST_WORD).toContain('only in the reader\'s language')
 })
 
 test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time from its own pace', async () => {
@@ -653,8 +655,12 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   expect(out.blocks.map(b => b.t)).toEqual(['species'])
   expect(out.dropped).toEqual(['species: no fish or plant "nope"'])
   expect(bodies[0]!.system).toBe(SYSTEM)
-  // The handbook by the site's own word for it in each language (its title: "Cẩm nang cá cảnh & thủy sinh").
-  for (const word of ['cẩm nang', 'panduan', 'คู่มือ']) expect(SYSTEM).toContain(word)
+  // The handbook by the site's own word for it, the reader's language's only: the prompt shared by every language has none.
+  for (const word of Object.values(HANDBOOK)) expect(SYSTEM).not.toContain(word)
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    const said = JSON.stringify(firstMessage(lang, 'x', [], {}, h).content)
+    for (const word of Object.values(HANDBOOK)) expect(said.includes(word), `${lang}: ${word}`).toBe(HANDBOOK[lang].includes(word))
+  }
   expect(bodies[0]!.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: ANSWER_SCHEMA } })
   expect(bodies[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'check_tank_mates', 'read_tanks'])
   // A refusal, or an answer cut short, is no answer: no blocks.
