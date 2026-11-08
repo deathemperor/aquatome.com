@@ -16,7 +16,7 @@ const at = (m: number) => `2026-11-07 ${String(1 + Math.floor(m / 60)).padStart(
 // 25 tabs on the fish page: 20 read half of it and stayed 30 s, and the first 10 went on to the guide, which none read.
 const tabs: TabPage[] = []
 for (let i = 0; i < 25; i++) {
-  tabs.push({ sid: `t${i}`, p: FISH, first: at(i), views: 1, scroll: i < 20 ? 90 : 0, t: i < 20 ? 60 : 0, shop: i === 0 ? 1 : 0 })
+  tabs.push({ sid: `t${i}`, p: FISH, first: at(i), views: 1, scroll: i < 20 ? 90 : 0, t: i < 20 ? 60 : 0, shop: i === 0 ? 1 : 0, tank: i < 3 ? 1 : 0, src: i === 4 ? '2' : 0 })
   if (i < 10) tabs.push({ sid: `t${i}`, p: GUIDE, first: at(i + 1), views: '1', scroll: 0, t: 0, shop: 0 })
 }
 // The count's tabs: ours and automated ones aren't among them (readers.ts querySessions), so their rows count nowhere.
@@ -51,7 +51,8 @@ test('the score: reading and search, each pulled towards a middle value until th
   expect(expectedCtr(3)).toBe(0.1)
   expect(fish.search).toBeCloseTo((1000 * 1 + 100 * 0.5) / 1100)
   expect(fish.score).toBe(Math.round((100 * (2 * (50 / 75) + 1050 / 1100)) / 3))
-  expect(fish.figures).toMatchObject({ tabs: 25, half: 20, s30: 20, next: 10, shop: 1, impressions: 1000 })
+  expect(fish.figures).toMatchObject({ tabs: 25, half: 20, s30: 20, next: 10, shop: 1, tank: 3, src: 2, impressions: 1000 })
+  expect(fish.why).toContain('clicks: 1 shop, 3 add to tank, 2 source')
   // Our 40 tabs on the guide count nowhere: the guide has its 10 tabs only.
   const guide = q.worst[0]!
   expect([guide.path, guide.figures.tabs, guide.reading]).toEqual([GUIDE, 10, 0])

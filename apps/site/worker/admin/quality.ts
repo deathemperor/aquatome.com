@@ -43,13 +43,14 @@ export const expectedCtr = (pos: number) => (pos <= 10 ? EXPECTED_CTR[Math.max(0
 
 export const HELP = `Score, 0 to 100. Reading, from our readers (our own visits and automated bursts left out): the average of three shares of a page’s tabs, those that scrolled half the page, stayed 30 s, and went on to another page. Search, from Google Search Console: the page’s click rate against what its position usually gets (position 1 about 28%, 3 about 10%, 10 about 2%), at most 1. Until there is enough data, reading is pulled towards its section’s average as if it had ${SCORE.kReading} more tabs, and search towards one half as if it had ${SCORE.kSearch} more impressions. Score = 100 × (2 × reading + search) ÷ 3, or the one there is. A page is ranked once it has ${SCORE.minTabs} tabs or ${SCORE.minImpressions} impressions in ${SCORE.days} days.`
 
-/** Per tab and page, over `days`: its first view, views, how far it scrolled, how long it stayed, shop clicks. */
-export type TabPage = { sid: string; p: string; first: string; views: number | string; scroll: number | string; t: number | string; shop: number | string }
+/** Per tab and page, over `days`: its first view, views, how far it scrolled, how long it stayed, shop, "add to tank" and source clicks. */
+export type TabPage = { sid: string; p: string; first: string; views: number | string; scroll: number | string; t: number | string; shop: number | string; tank?: number | string; src?: number | string }
 export const TAB_PAGES_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, min(timestamp) AS first, SUM(IF(blob2 = 'view', _sample_interval, 0)) AS views,
-  MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, SUM(IF(blob2 = 'aff', _sample_interval, 0)) AS shop
-FROM ${table} WHERE blob2 IN ('view', 'scroll', 'time', 'aff') AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p LIMIT 100000 FORMAT JSON`
+  MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, SUM(IF(blob2 = 'aff', _sample_interval, 0)) AS shop,
+  SUM(IF(blob2 = 'tank', _sample_interval, 0)) AS tank, SUM(IF(blob2 = 'src', _sample_interval, 0)) AS src
+FROM ${table} WHERE blob2 IN ('view', 'scroll', 'time', 'aff', 'tank', 'src') AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p LIMIT 100000 FORMAT JSON`
 
-export type Figures = { tabs: number; half: number; end: number; s30: number; next: number; shop: number; impressions: number; clicks: number; position: number; impressionsBefore: number; clicksBefore: number }
+export type Figures = { tabs: number; half: number; end: number; s30: number; next: number; shop: number; tank: number; src: number; impressions: number; clicks: number; position: number; impressionsBefore: number; clicksBefore: number }
 export type QualityRow = {
   path: string; title: string; section: string; key?: string
   /** null for a page with figures from before the window only: on the decaying list, with nothing to score. */
@@ -80,7 +81,7 @@ const sectionOf = (p: PageInfo) => `${p.kind}·${prefixedLang(p.path) ?? 'vi'}`
 /** Each page's figures from the beacon's tabs the count keeps (`counted`: none of ours, none automated) and Search Console's rows. */
 function figuresByPage(index: Map<string, PageInfo>, tabs: TabPage[], counted: Set<string>, gsc: Gsc | undefined): Map<string, Figures> {
   const out = new Map<string, Figures>()
-  const fig = (path: string) => out.get(path) ?? out.set(path, { tabs: 0, half: 0, end: 0, s30: 0, next: 0, shop: 0, impressions: 0, clicks: 0, position: 0, impressionsBefore: 0, clicksBefore: 0 }).get(path)!
+  const fig = (path: string) => out.get(path) ?? out.set(path, { tabs: 0, half: 0, end: 0, s30: 0, next: 0, shop: 0, tank: 0, src: 0, impressions: 0, clicks: 0, position: 0, impressionsBefore: 0, clicksBefore: 0 }).get(path)!
   const bySid = new Map<string, TabPage[]>()
   for (const r of tabs) {
     if (!counted.has(r.sid) || num(r.views) <= 0) continue
@@ -100,6 +101,8 @@ function figuresByPage(index: Map<string, PageInfo>, tabs: TabPage[], counted: S
       if (num(r.t) >= 30) f.s30++
       if (r.first < last) f.next++
       f.shop += num(r.shop)
+      f.tank += num(r.tank ?? 0)
+      f.src += num(r.src ?? 0)
     }
   }
   for (const [p, [impressions, clicks, position, impressionsBefore, clicksBefore]] of Object.entries(gsc?.pages ?? {})) {
@@ -149,7 +152,8 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
     })
   }
 
-  const read = (r: QualityRow) => r.figures.tabs ? `${fmtEn(r.figures.tabs)} tabs: ${pct(r.figures.half / r.figures.tabs)} read half, ${pct(r.figures.s30 / r.figures.tabs)} stayed 30 s, ${pct(r.figures.next / r.figures.tabs)} went on` : ''
+  const acted = (f: Figures) => [f.shop ? `${fmtEn(f.shop)} shop` : '', f.tank ? `${fmtEn(f.tank)} add to tank` : '', f.src ? `${fmtEn(f.src)} source` : ''].filter(Boolean).join(', ')
+  const read = (r: QualityRow) => r.figures.tabs ? `${fmtEn(r.figures.tabs)} tabs: ${pct(r.figures.half / r.figures.tabs)} read half, ${pct(r.figures.s30 / r.figures.tabs)} stayed 30 s, ${pct(r.figures.next / r.figures.tabs)} went on${acted(r.figures) ? `; clicks: ${acted(r.figures)}` : ''}` : ''
   const seen = (r: QualityRow) => r.figures.impressions ? `Google: ${fmtEn(r.figures.impressions)} impressions at position ${posText(r.figures.position)}, ${pct(r.figures.clicks / r.figures.impressions)} clicked (usual ${pct(expectedCtr(r.figures.position))})` : ''
   const both = (r: QualityRow) => [read(r), seen(r)].filter(Boolean).join('; ')
   const titleFix = (r: QualityRow) => r.figures.impressions >= SCORE.minImpressions && r.figures.position <= 10 && r.figures.clicks / r.figures.impressions < expectedCtr(r.figures.position) / 2

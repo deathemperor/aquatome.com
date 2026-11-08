@@ -77,7 +77,7 @@ const { t } = i18n(Astro.url)
         <label>{t('Tên')} <input name="uname" maxlength="80" autocomplete="off" /></label>
         <label>{t('Tên khoa học (nếu biết)')} <input name="usci" maxlength="120" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder={t('Ví dụ: Rhinogobius duospilus')} /></label>
         <label>{t('Số con (nếu muốn)')} <input name="ucount" type="number" inputmode="numeric" min="1" max="9999" /></label>
-        <p class="acts"><button type="button" class="primary" data-life-add>{t('Thêm vào bể')}</button> <button type="button" class="quiet" data-life-cancel>{t('Hủy')}</button></p>
+        <p class="acts"><button type="button" class="primary" data-life-add data-ev="tank">{t('Thêm vào bể')}</button> <button type="button" class="quiet" data-life-cancel>{t('Hủy')}</button></p>
       </div>
       <p class="hint life-msg" data-life-msg aria-live="polite"></p>
     </fieldset>

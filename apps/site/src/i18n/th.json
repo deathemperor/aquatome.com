@@ -1302,11 +1302,15 @@
   "Xem tất cả {n} cá lai và dòng cá cảnh": "ดูปลาลูกผสมและสายพันธุ์ปลาสวยงามทั้งหมด {n} ชนิด",
   "Bài viết liên quan": "บทความที่เกี่ยวข้อง",
   "Gợi ý mua hay gặp ({n})": "คำแนะนำการซื้อที่พบบ่อย ({n})",
-  "{n} nguồn và tài liệu tham khảo": "{n} แหล่งข้อมูลและเอกสารอ้างอิง",
-  "Bảng dữ liệu": "ตารางข้อมูล",
-  "Các phần trên dịch hoặc tổng hợp từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.": "เนื้อหาข้างต้นแปลหรือเรียบเรียงจากแหล่งข้อมูลเหล่านี้ แต่ละย่อหน้าระบุหมายเลขแหล่งข้อมูลไว้",
-  "Lên đầu trang": "กลับขึ้นด้านบน",
-  "Một chấm đỏ cạnh tên ô nghĩa là các nguồn ghi số cách xa nhau, đủ để đổi cách nuôi: như nhiệt độ cách nhau hơn 1°C, kích thước hay bể lệch hơn một phần năm. Hai khoảng còn chồng lên nhau, hay lệch ít hơn thế (mỗi nguồn làm tròn một kiểu), thì không có chấm. Mở \"Nguồn và độ tin cậy\" dưới bảng để xem số của từng nguồn. Bảng chỉ ghi một số, chọn như sau:": "จุดสีแดงข้างชื่อช่องหมายความว่าแหล่งข้อมูลระบุตัวเลขห่างกันมากพอจะเปลี่ยนวิธีเลี้ยง เช่น อุณหภูมิห่างกันเกิน 1°C หรือขนาดตัวและตู้ต่างกันเกินหนึ่งในห้า ถ้าสองช่วงยังซ้อนกันอยู่ หรือต่างกันน้อยกว่านั้น (แต่ละแหล่งปัดตัวเลขต่างกัน) จะไม่มีจุด เปิด \"แหล่งข้อมูลและความน่าเชื่อถือ\" ใต้ตารางเพื่อดูตัวเลขของแต่ละแหล่ง ตารางระบุเพียงตัวเลขเดียว โดยเลือกดังนี้:",
-  "Xem cả {n} video": "ดูวิดีโอทั้งหมด {n} รายการ",
-  "Xem đủ bảng": "ดูตารางทั้งหมด"
+  "(bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê, xóa khi đóng tab.": "(หน่วยความจำเซสชัน): รหัสเซสชันแบบสุ่มสำหรับสถิติ ถูกลบเมื่อปิดแท็บ",
+  "(bộ nhớ trình duyệt, đổi mới sau 13 tháng): mã khách ngẫu nhiên để đếm lượt quay lại.": "(หน่วยความจำของเบราว์เซอร์ แทนที่ด้วยรหัสใหม่หลัง 13 เดือน): รหัสผู้เข้าชมแบบสุ่ม เพื่อนับการกลับมาเยี่ยมชม",
+  "(bộ nhớ trình duyệt): chỉ có khi bạn bấm “Không đếm tôi”; trình duyệt này không gửi thống kê nữa.": "(หน่วยความจำของเบราว์เซอร์): มีเฉพาะเมื่อคุณกด “ไม่ต้องนับฉัน” แล้วเบราว์เซอร์นี้จะไม่ส่งสถิติอีก",
+  "Không đếm tôi": "ไม่ต้องนับฉัน",
+  "Xóa mã khách và ngừng gửi mọi thống kê từ trình duyệt này. Bấm lại để được đếm lại.": "ลบรหัสผู้เข้าชมและหยุดส่งสถิติทั้งหมดจากเบราว์เซอร์นี้ กดอีกครั้งหากต้องการให้นับอีก",
+  "Ứng dụng tạo một mã ngẫu nhiên khi được cài và gửi kèm sự kiện để đếm lượt quay lại. Mã này không gắn với tài khoản hay mã quảng cáo của máy, mất khi bạn gỡ ứng dụng, và không được gửi khi bạn tắt Tài khoản → Gửi thống kê.": "แอปจะสร้างรหัสแบบสุ่มเมื่อติดตั้ง และส่งไปพร้อมกับเหตุการณ์เพื่อนับการกลับมาใช้งาน รหัสนี้ไม่ผูกกับบัญชีของคุณหรือรหัสโฆษณาของเครื่อง จะหายไปเมื่อคุณลบแอป และจะไม่ถูกส่งเมื่อปิด บัญชี → ส่งสถิติ",
+  "Không dữ liệu nào trong số này gắn với tài khoản, tên, email hay mã quảng cáo của bạn, và không dùng để theo dõi bạn qua ứng dụng hay trang web khác. Tắt được trong Tài khoản → Gửi thống kê. Lưu tối đa 3 tháng.": "ไม่มีข้อมูลใดในส่วนนี้ผูกกับบัญชี ชื่อ อีเมล หรือรหัสโฆษณาของคุณ และไม่ใช้เพื่อติดตามคุณผ่านแอปหรือเว็บไซต์อื่น ปิดได้ที่ บัญชี → ส่งสถิติ เก็บไว้ไม่เกิน 3 เดือน",
+  "Thống kê (không gắn với danh tính)": "สถิติ (ไม่ผูกกับตัวตนของคุณ)",
+  "Để biết trang nào hữu ích và người đọc có quay lại không, trang gửi các sự kiện: đường dẫn trang, trang dẫn bạn tới (nếu có), quốc gia, mức cuộn, thời gian đọc, lượt bấm liên kết mua hàng, lượt bấm “thêm vào bể” và liên kết nguồn, một mã phiên và một mã khách ngẫu nhiên. Mã khách do trình duyệt tự tạo ở lần ghé đầu, nằm trong bộ nhớ của trình duyệt (không phải cookie) và tự đổi mới sau 13 tháng. Nó chỉ cho biết cùng một trình duyệt đã quay lại. Chúng tôi không bao giờ ghép nó với tên, email, tài khoản hay địa chỉ IP của bạn. Sự kiện lưu tối đa 3 tháng. Trình duyệt bật Global Privacy Control hoặc Do Not Track thì không có mã khách. Muốn không bị đếm nữa, bấm “Không đếm tôi” ở mục 3.": "เพื่อให้ทราบว่าหน้าใดมีประโยชน์และผู้อ่านกลับมาอีกหรือไม่ เว็บไซต์จะส่งเหตุการณ์ ได้แก่ ลิงก์หน้า เว็บไซต์ที่พาคุณมา (ถ้ามี) ประเทศ ระดับการเลื่อนหน้า เวลาอ่าน การคลิกลิงก์ซื้อสินค้า การคลิก “เพิ่มลงตู้” และลิงก์แหล่งที่มา รหัสเซสชัน และรหัสผู้เข้าชมแบบสุ่ม เบราว์เซอร์ของคุณสร้างรหัสผู้เข้าชมเองในการเข้าชมครั้งแรก และเก็บไว้ในหน่วยความจำของเบราว์เซอร์เอง (ไม่ใช่คุกกี้) รหัสนี้จะถูกแทนที่ด้วยรหัสใหม่หลังจาก 13 เดือน และบอกเราได้เพียงว่าเบราว์เซอร์เดิมกลับมาอีก เราจะไม่นำรหัสนี้ไปรวมกับชื่อ อีเมล บัญชี หรือที่อยู่ IP ของคุณไม่ว่ากรณีใด เหตุการณ์เก็บไว้ไม่เกิน 3 เดือน เบราว์เซอร์ที่เปิด Global Privacy Control หรือ Do Not Track จะไม่ได้รับรหัสผู้เข้าชม หากไม่ต้องการให้นับอีก กด “ไม่ต้องนับฉัน” ในหัวข้อ 3",
+  "Thống kê (trang web và ứng dụng): tối đa 3 tháng.": "สถิติ (เว็บไซต์และแอป): เก็บไว้ไม่เกิน 3 เดือน",
+  "Thống kê từ ứng dụng": "สถิติจากแอป"
 }
