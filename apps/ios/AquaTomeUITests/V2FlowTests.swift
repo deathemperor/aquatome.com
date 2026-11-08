@@ -188,7 +188,7 @@ final class V2FlowTests: XCTestCase {
 
   /// At the largest text a card's round mark (a guide's book, a story's quote, a video's play) holds its symbol inside its
   /// circle, and grows no bigger than at the largest size before the accessibility ones: not a play triangle out past its
-  /// circle, not a quarter of the screen of decoration.
+  /// circle, not a quarter of the screen of decoration. It leads each card the same way, over its eyebrow.
   func testACardsMarkHoldsItsSymbolAndStaysSmallAtTheLargestText() {
     let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14", "-fixed-pictures",
                      "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
@@ -204,6 +204,8 @@ final class V2FlowTests: XCTestCase {
         continue
       }
       XCTAssertLessThanOrEqual(mark.circle.width, 72, "\(words)'s mark \(Int(mark.circle.width)) pt across")
+      // First on each card, then its eyebrow: under a wrapped eyebrow it hung below a word left on its own line.
+      XCTAssertLessThan(mark.circle.minY - f.minY, 32, "\(words)'s mark isn't the first thing on its card")
       XCTAssertTrue(mark.circle.insetBy(dx: -1, dy: -1).contains(mark.symbol), "\(words)'s symbol \(mark.symbol) out past its circle \(mark.circle)")
     }
   }

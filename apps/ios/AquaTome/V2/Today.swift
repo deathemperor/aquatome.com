@@ -523,8 +523,9 @@ private struct SeriesCard: View {
   var body: some View {
     NavigationLink(value: item) {
       VStack(alignment: .leading, spacing: 14) {
-        Eyebrow(text: "Video hướng dẫn")
+        // Its mark first, as a guide's or a story's: under its eyebrow, wrapped at the largest text, it hung below a word.
         CardMark(symbol: "play.fill")
+        Eyebrow(text: "Video hướng dẫn")
         Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(size.isAccessibilitySize ? nil : 3).multilineTextAlignment(.leading)
         if let n = item.parts { Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75) }
       }
