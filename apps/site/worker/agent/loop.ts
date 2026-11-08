@@ -84,7 +84,8 @@ export type AgentInput<Step> = {
   /**
    * Said after the last message on the call a limit forces (tool_choice none), that call only: what to do with no more
    * tools. Without it, the chat's forced answer was sometimes empty ({"text":""}): told nothing, Claude had no answer
-   * ready. A function gets why the call was forced, so a call the time forced can ask for less.
+   * ready. A function gets why the call was forced, so a call the time forced can ask for less: `time` whenever the time
+   * was short, even when the calls or tools ran out first (on whole forum posts the tools mostly do).
    */
   lastWord?: string | ((why: Stopped) => string)
   clock?: () => number
@@ -144,7 +145,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         tool_choice: forced ? { type: 'none' } : { type: 'auto' },
         ...(a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
-        messages: forced && a.lastWord ? withWord(history, typeof a.lastWord === 'string' ? a.lastWord : a.lastWord(forced)) : [...history],
+        messages: forced && a.lastWord ? withWord(history, typeof a.lastWord === 'string' ? a.lastWord : a.lastWord(late ? 'time' : forced)) : [...history],
       }, { timeoutMs: forced && a.pace ? left : Math.min(left, lim.callMs), call: run.calls })
     } catch (e) {
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
