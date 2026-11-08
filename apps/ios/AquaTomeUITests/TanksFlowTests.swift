@@ -103,9 +103,13 @@ final class TanksFlowTests: XCTestCase {
   // A phone in a language the app doesn't have (English): the app's words are Vietnamese, and so are its numbers. Once the
   // app had Malay, iOS made its locale Malay's (8 Nov): a decimal took Malay's point (64.8 lít), and the words looked up
   // through a LocalizedStringResource (a field's prompt, Đèn's presets) came in Malay.
-  func testAPhoneInEnglishGetsTheAppsWordsAndDecimals() {
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimals() { phoneInEnglish() }
+  /// v2, the app's look (the owner, 8 Nov), whose tabs hold the same screens.
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimalsInV2() { phoneInEnglish(["-v2", "YES"]) }
+
+  private func phoneInEnglish(_ more: [String] = []) {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-fixed-handbook", "-reset-defaults"]
+    app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-fixed-handbook", "-reset-defaults"] + more
     app.launchForFlow()
     app.openTab("Bể của tôi")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the empty state")
