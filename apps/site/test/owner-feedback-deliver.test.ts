@@ -255,6 +255,14 @@ test("a Mac waking from sleep starts a fault anew, and a message that can't go i
   await expect(fails(woke + 15.5 * MIN, goes)).rejects.toThrow()
   expect(goes).toHaveBeenCalledTimes(1)
   expect(goes.mock.calls[0][0]).toContain('`the queue: HTTP 503`')
+  // An answer that wasn't JSON is named, not quoted: it may be a sign-in's, with its code.
+  const garbled = faultStore()
+  const said = vi.fn(async (_: string) => ({}))
+  for (let m = 0; m <= 15; m += 0.5) {
+    await expect(watchedRun({ run: async () => JSON.parse('{"credential":"SECRETCODE1"'), alert: said, fault: garbled, now: m * MIN, log: () => {} })).rejects.toThrow()
+  }
+  expect(said.mock.calls[0][0]).toContain('`an answer that was not JSON`')
+  expect(said.mock.calls[0][0]).not.toContain('SECRETCODE1')
   await expect(fails(woke + 16 * MIN, goes)).rejects.toThrow()
   expect(goes).toHaveBeenCalledTimes(1)
   expect(ALERT_AFTER_MS).toBe(15 * MIN)

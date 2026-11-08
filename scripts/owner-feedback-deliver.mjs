@@ -119,9 +119,10 @@ const ALERT_RUNS = 3
  * between two runs' starts was sleep, and a fault goes on only from the run after it. */
 const ASLEEP_MS = 30 * 60_000
 
-/** An error's first line, the t3 CLI's arguments left out: the log has the rest. */
+/** An error's first line, the t3 CLI's arguments left out: the log has the rest. JSON's own error quotes what it read, which
+ * may be a sign-in's answer, so it's named and not quoted. */
 const firstLine = e =>
-  String(e?.message ?? e).split('\n')[0].replace(/^(Command failed: \S+ auth \S+ \S+).*/, '$1').replace(homedir(), '~').slice(0, 200) +
+  (e instanceof SyntaxError ? 'an answer that was not JSON' : String(e?.message ?? e)).split('\n')[0].replace(/^(Command failed: \S+ auth \S+ \S+).*/, '$1').replace(homedir(), '~').slice(0, 200) +
   (e?.killed ? ' (ran out of time)' : '')
 
 /** The fault's one message: our own words, and an error from this Mac's own steps in code quotes. */
