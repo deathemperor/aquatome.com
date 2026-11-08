@@ -1,0 +1,122 @@
+{
+  "id": "hemiodus-atranalis",
+  "native": {
+    "input": "2b2dd1ddcca96b19",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus atranalis is a shoaling hemiodontid characin from Guyana, Peru and Brazil, found in floodplain rivers and lakes.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus atranalis is a shoaling hemiodontid characin from Guyana, Peru and Brazil, found in floodplain rivers and lakes.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus atranalis is a shoaling hemiodontid characin from Guyana, Peru and Brazil, found in floodplain rivers and lakes.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Peru and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiodus atranalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2354913,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        28
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "PE",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

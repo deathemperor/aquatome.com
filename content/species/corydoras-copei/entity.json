@@ -10,6 +10,49 @@
     "peru",
     "pastaza"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Pastaza",
+        "Río Marañón",
+        "Río Samiria"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma copei, long known as Corydoras copei, is an armoured catfish from Peru, apparently endemic to the Río Pastaza basin and possibly the lower Río Marañón.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Pastaza",
+            "Río Marañón"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Downstream of Río Huytoyacu, right tributary of Río Pastaza, about 40 kilometers north of Lago Rimachi, 4°13'S, 76°38'W, Peru', and this species appears to be endemic to the Pastaza basin and possibly the lower rio Marañón with a couple of records from the rio Samiria, a right bank tributary.",
+          "countries": [],
+          "regions": [
+            "Río Samiria"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342637,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

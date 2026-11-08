@@ -12,7 +12,7 @@ import { LIVE } from './pages'
 const DASH = `https://${DASHBOARD_HOST}`
 const TEAM = 'e2e.cloudflareaccess.test'
 const AUD = 'e2e-aud'
-const IS_DASHBOARD = 'nav[aria-label="Các mục quản trị"]'
+const IS_DASHBOARD = 'nav[aria-label="Dashboard pages"]'
 
 const pair = generateKeyPair('RS256', { extractable: true })
 const token = async () => new SignJWT({ email: 'owner@aquatome.test' }).setProtectedHeader({ alg: 'RS256', kid: 'k' }).setAudience([AUD]).setIssuer(`https://${TEAM}`).setExpirationTime('1h').sign((await pair).privateKey)
@@ -106,7 +106,7 @@ test.describe('locally', () => {
     await page.goto(`${DASH}/`)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     const out = page.locator('.masthead a.out')
-    await expect(out).toHaveText('Đăng xuất')
+    await expect(out).toHaveText('Sign out')
     expect((await out.boundingBox())!.height).toBeGreaterThanOrEqual(44)
     await out.click()
     await expect(page).toHaveURL(`${DASH}/cdn-cgi/access/logout`)
@@ -141,7 +141,7 @@ test('live: a stranger gets no dashboard from the host, and what the Worker does
   const home = await request.get(`${DASH}/`, { maxRedirects: 0 }).catch(() => null)
   if (!home) return
   expect(home.status()).not.toBe(200) // Access's way to its login, or the Worker's 403
-  expect(await home.text()).not.toContain('Các mục quản trị')
+  expect(await home.text()).not.toContain('Dashboard pages')
   const file = await request.get(`${DASH}/favicon.png`, { maxRedirects: 0 })
   if (file.status() === 200) expect(file.headers()['x-robots-tag']).toContain('noindex')
 })

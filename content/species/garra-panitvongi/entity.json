@@ -12,6 +12,33 @@
     "myanmar",
     "kayin-state"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Salween",
+        "Ataran"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Loài này có ở hệ thống sông Ataran, thuộc lưu vực sông Salween, vùng đông nam Myanmar và tây Thái Lan.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Salween",
+            "Ataran"
+          ]
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

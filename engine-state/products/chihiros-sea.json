@@ -1,0 +1,50 @@
+{
+  "found": false,
+  "specs": [],
+  "variants": [],
+  "prices": [],
+  "fits": [],
+  "usage": [],
+  "issues": [
+    {
+      "fact": "The only mention of 'Chihiros SEA_LED (WRGB)' I found is in the supported-device list of an unofficial open-source Home Assistant/CLI control project. The project calls it a WRGB-type light and gives no specs, so there is no official product page, size range or retail listing to check it against.",
+      "source": 0
+    },
+    {
+      "fact": "The marine-light category at Shrimp Home, a Vietnamese shop, has no product called Chihiros SEA. The only Chihiros light it lists is the NOVA 1 Marine Coral Light.",
+      "source": 1
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "NOVA 1 Marine Coral Light",
+      "why": "This is the Chihiros marine/coral light you can actually buy in Vietnam. Shrimp Home lists it at 5,345,000₫, which makes it the closest real match if 'SEA' was meant to be a saltwater light.",
+      "source": 1
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "Z Sea Marine Z400",
+      "why": "A marine LED that is a bit cheaper than the NOVA 1, at 4,610,000₫ on Shrimp Home.",
+      "source": 1
+    },
+    {
+      "brand": "HS",
+      "model": "F830 (đèn kẹp bể biển)",
+      "why": "A budget clip-on light for small reef tanks, listed at 600,000₫ on Shrimp Home.",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/TheMicDiet/chihiros-led-control",
+      "title": "TheMicDiet/chihiros-led-control – Control your Chihiros LEDs with Home Assistant or CLI",
+      "kind": "other"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-bien",
+      "title": "Đèn led biển – Shrimp Home",
+      "kind": "shop"
+    }
+  ]
+}

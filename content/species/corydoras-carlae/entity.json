@@ -16,12 +16,14 @@
         "AR"
       ],
       "regions": [
+        "Río Iguazu",
         "Iguazu",
         "Paraná",
         "La Plata"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -34,6 +36,14 @@
             "Iguazu",
             "Paraná",
             "La Plata"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the lower Río Iguazu in Misiones province, northern Argentina.",
+          "countries": [],
+          "regions": [
+            "Río Iguazu"
           ]
         }
       ]

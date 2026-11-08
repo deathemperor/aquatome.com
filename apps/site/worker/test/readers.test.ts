@@ -1,6 +1,6 @@
 import { afterEach, expect, test, vi } from 'vitest'
 import { APP_SQL, automated, BURST, queryReaders, sourceOf, summariseAppReads, summariseReaders, type Session } from '../readers'
-import { overviewPage, readersPage, readersSection } from '../admin/pages'
+import { areas, readersPage, readersSection } from '../admin/pages'
 import type { ChartBlock } from '../admin/blocks'
 import { unset } from '../admin/shell'
 import { visitsOf } from '../admin/scoreboard'
@@ -22,15 +22,15 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   expect(r).toMatchObject({ sessions: 3, readers: 2 })
   expect(r.daily).toEqual([{ day: '2026-10-29', sessions: 2, readers: 2 }, { day: '2026-10-28', sessions: 1, readers: 0 }])
   expect(r.pages[0]).toEqual({ path: '/ca/ca-betta/', views: 2 })
-  expect(r.sources).toEqual([{ source: '(trực tiếp)', sessions: 1, readers: 1 }, { source: 'facebook', sessions: 1, readers: 0 }, { source: 'google', sessions: 1, readers: 1 }])
+  expect(r.sources).toEqual([{ source: '(direct)', sessions: 1, readers: 1 }, { source: 'facebook', sessions: 1, readers: 0 }, { source: 'google', sessions: 1, readers: 1 }])
   expect(r.countries).toEqual([{ cc: 'US', readers: 1 }, { cc: 'VN', readers: 1 }])
   expect(sourceOf('l.facebook.com')).toBe('facebook')
   expect(sourceOf('www.aquariumcoop.com')).toBe('aquariumcoop.com')
   const now = new Date('2026-10-29T12:00:00Z')
   const html = readersPage(now, r)
-  expect(html).toContain('Người đọc thật')
+  expect(html).toContain('<h1>Readers</h1>')
   expect(html).toContain('/ca/ca-betta/')
-  expect(html).toContain('Phiên và người đọc mỗi ngày')
+  expect(html).toContain('Tabs and readers by day')
   expect(html).toContain('<a href="/ca/ca-betta/">')
   // A path is whatever a script sent to the beacon: only the site's own pages become links.
   const forged = readersPage(now, { ...r, pages: [{ path: '//evil.example/login', views: 9 }, { path: '/\\evil.example', views: 8 }] })
@@ -38,12 +38,11 @@ test('readers: sessions that scrolled half a page or stayed 30 s; sources, top p
   expect(forged).not.toContain('href="/\\')
   expect(forged).toContain('//evil.example/login')
   // The overview counts readers over 7 days and links to their page, which has the details.
-  const dash = overviewPage({ now, readers: r.daily, clicks: unset('D1'), fish: unset('AE'), keys: undefined, photos: unset('ảnh'), waiting: unset('D1'), wanted: unset('KV'), accounts: unset('D1'), hidden: unset('KV'), content: unset('ASSETS'), snapshots: unset('KV') })
-  expect(dash).toContain('href="/_ab/doc-gia/"')
-  expect(dash).toContain('người đọc · 7 ngày')
-  expect(dash).not.toContain('/ca/ca-betta/')
+  const dash = areas({ now, readers: r.daily, clicks: unset('D1'), fish: unset('AE'), keys: undefined, photos: unset('photos'), waiting: unset('D1'), wanted: unset('KV'), accounts: unset('D1'), hidden: unset('KV'), content: unset('ASSETS'), snapshots: unset('KV') })[0]!
+  expect(dash).toMatchObject({ name: 'Readers', href: '/_ab/doc-gia/', sub: 'readers · 7 days · 1 session' })
+  expect(JSON.stringify(dash)).not.toContain('/ca/ca-betta/')
   // Not configured, or Analytics Engine failing: said in its place.
-  expect(readersPage(now, undefined)).toContain('Chưa cấu hình AE_API_TOKEN')
+  expect(readersPage(now, undefined)).toContain('Not set up: AE_API_TOKEN')
   expect(readersPage(now, { failed: 'analytics engine sql 422: bad' })).toContain('analytics engine sql 422: bad')
 })
 
@@ -70,8 +69,8 @@ test('readers count from the reset: every beacon query reads from then on, and t
   expect(c.series[0]!.values.slice(-3)).toEqual([null, 0, 1])
   expect(c.whole!.values.slice(-3)).toEqual([null, 0, 1])
   expect(c.series[0]!.values.slice(0, -2).every(v => v === null)).toBe(true)
-  expect(c.missing).toBe('chưa đếm: số đếm bắt đầu lại từ 05/11')
-  expect(readersPage(now, r, tz)).toContain('đếm lại từ')
+  expect(c.missing).toBe('not counted: the count started again on 5 Nov')
+  expect(readersPage(now, r, tz)).toContain('(counted again from')
   // Without a reset in the data (the samples), every day counts as before.
   const { from: _, ...before } = r
   expect(readersSection(now, before, tz).blocks.find((b): b is ChartBlock => b.kind === 'chart')!.series[0]!.values.every(v => v !== null)).toBe(true)

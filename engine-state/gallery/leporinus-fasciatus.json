@@ -1,162 +1,38 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Oniria_-_Poisson_46.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Oniria_-_Poisson_46.jpg/500px-Oniria_-_Poisson_46.jpg",
-   "width": 6000,
-   "height": 4000,
-   "licence": "CC BY-SA 4.0",
-   "author": "Tylwyth Eldar",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oniria_-_Poisson_46.jpg",
-   "caption": "Leporinus à bandes (Leporinus fasciatus) à Oniria, aquarium de Canet-en-Roussillon.",
-   "key": "File:Oniria - Poisson 46.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Leporinus_fasciatus%2C_Pengo.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Leporinus_fasciatus%2C_Pengo.jpg/500px-Leporinus_fasciatus%2C_Pengo.jpg",
-   "width": 2560,
-   "height": 1920,
-   "licence": "CC BY-SA 3.0",
-   "author": "Wikimedia Commons",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporinus_fasciatus,_Pengo.jpg",
-   "key": "File:Leporinus fasciatus, Pengo.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Rokke_%283755675666%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Rokke_%283755675666%29.jpg/500px-Rokke_%283755675666%29.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY-SA 2.0",
-   "author": "Charlotte S H Jensen from København, Danmark",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rokke_(3755675666).jpg",
-   "caption": "Leporinus fasciatus (striped fish), Myloplus schomburgkii (\"half\" silvery fish) and Potamotrygon leopoldi (spotted stingray)",
-   "key": "File:Rokke (3755675666).jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60303967/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/60303967/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Christoph Moning",
-   "sourceUrl": "https://www.inaturalist.org/photos/60303967",
-   "key": "inat:60303967"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Leporinusfasciatus.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Leporinusfasciatus.jpg/500px-Leporinusfasciatus.jpg",
-   "width": 2000,
-   "height": 1500,
-   "licence": "CC BY-SA 3.0",
-   "author": "Citron",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporinusfasciatus.jpg",
-   "caption": "Leporinus fasciatus",
-   "key": "File:Leporinusfasciatus.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Leporinus_fasciatus_205538267.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Leporinus_fasciatus_205538267.jpg/500px-Leporinus_fasciatus_205538267.jpg",
-   "width": 2048,
-   "height": 1371,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporinus_fasciatus_205538267.jpg",
-   "caption": "banded leporinus (Leporinus fasciatus) in Brazil",
-   "key": "File:Leporinus fasciatus 205538267.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205538267/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/205538267/medium.jpg",
-   "width": 2048,
-   "height": 1371,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/205538267",
-   "key": "inat:205538267"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Banded_Leporinus_%28Leporinus_fasciatus%29_%287124562451%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Banded_Leporinus_%28Leporinus_fasciatus%29_%287124562451%29.jpg/500px-Banded_Leporinus_%28Leporinus_fasciatus%29_%287124562451%29.jpg",
-   "width": 4320,
-   "height": 3240,
-   "licence": "CC BY-SA 2.0",
-   "author": "Bernard DUPONT from FRANCE",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banded_Leporinus_(Leporinus_fasciatus)_(7124562451).jpg",
-   "caption": "Zoo du Lunaret, Montpellier, FRANCE",
-   "key": "File:Banded Leporinus (Leporinus fasciatus) (7124562451).jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187562706/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/187562706/medium.jpg",
-   "width": 1727,
-   "height": 1875,
-   "licence": "CC0",
-   "author": "Andrew J. Crawford",
-   "sourceUrl": "https://www.inaturalist.org/photos/187562706",
-   "key": "inat:187562706"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/454580489/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/454580489/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Matthew Inabinett",
-   "sourceUrl": "https://www.inaturalist.org/photos/454580489",
-   "key": "inat:454580489"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/741700746/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/741700746/medium.jpg",
-   "width": 2048,
-   "height": 1360,
-   "licence": "CC BY",
-   "author": "Matthew Inabinett",
-   "sourceUrl": "https://www.inaturalist.org/photos/741700746",
-   "key": "inat:741700746"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/470664348/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/470664348/medium.jpeg",
-   "width": 2048,
-   "height": 1360,
-   "licence": "CC BY",
-   "author": "Matthew Inabinett",
-   "sourceUrl": "https://www.inaturalist.org/photos/470664348",
-   "key": "inat:470664348"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/514010694/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/514010694/medium.jpg",
-   "width": 2048,
-   "height": 1360,
-   "licence": "CC BY",
-   "author": "Matthew Inabinett",
-   "sourceUrl": "https://www.inaturalist.org/photos/514010694",
-   "key": "inat:514010694"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187562683/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/187562683/medium.jpg",
-   "width": 2048,
-   "height": 1250,
-   "licence": "CC0",
-   "author": "Andrew J. Crawford",
-   "sourceUrl": "https://www.inaturalist.org/photos/187562683",
-   "key": "inat:187562683"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leporinus_fasciatus_205538267_%28cropped%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Leporinus_fasciatus_205538267_%28cropped%29.jpg/500px-Leporinus_fasciatus_205538267_%28cropped%29.jpg",
-   "width": 2048,
-   "height": 909,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporinus_fasciatus_205538267_(cropped).jpg",
-   "caption": "banded leporinus (Leporinus fasciatus) in Brazil",
-   "key": "File:Leporinus fasciatus 205538267 (cropped).jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Oniria - Poisson 46.jpg",
+  "File:Leporinus fasciatus, Pengo.jpg",
+  "File:Rokke (3755675666).jpg",
+  "inat:60303967",
+  "File:Leporinusfasciatus.jpg",
+  "File:Leporinus fasciatus 205538267.jpg",
+  "inat:205538267",
+  "File:Banded Leporinus (Leporinus fasciatus) (7124562451).jpg",
+  "inat:187562706",
+  "inat:454580489",
+  "inat:741700746",
+  "inat:470664348",
+  "inat:514010694",
+  "inat:187562683",
+  "File:Leporinus fasciatus 205538267 (cropped).jpg",
+  "File:Leporinus fasciatus.jpg",
+  "File:Leporinus fasciatus -Zoo Frankfurt.jpg",
+  "File:Anostomidae Leporinus cf fasciatus (5807037498).jpg",
+  "File:Leporinus fasciatus 3zz.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/005c241adafc3ce7.webp": "3f376398b8c62f2f",
+  "https://upload.wikimedia.org/wikipedia/commons/6/68/Oniria_-_Poisson_46.jpg": "7e3cf7733a1c54b9",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c2/Leporinus_fasciatus%2C_Pengo.jpg": "73f05d03c3e32c6c",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a5/Leporinusfasciatus.jpg": "5870e84cd8cd4143",
+  "https://upload.wikimedia.org/wikipedia/commons/e/ee/Banded_Leporinus_%28Leporinus_fasciatus%29_%287124562451%29.jpg": "1a3cae87e3ebfabd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/741700746/original.jpg": "363434c486c0f2de",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/470664348/original.jpeg": "313b1f5f0f27c7c7",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/187562683/original.jpg": "4d491de3192726b4",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Leporinus_fasciatus.jpg/1280px-Leporinus_fasciatus.jpg": "cfe6b79ad6f66e4d",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Leporinus_fasciatus_-Zoo_Frankfurt.jpg/1280px-Leporinus_fasciatus_-Zoo_Frankfurt.jpg": "10124294724b29ed",
+  "https://upload.wikimedia.org/wikipedia/commons/2/23/Leporinus_fasciatus_3zz.jpg": "c1993a5589ab5e34"
+ },
+ "commons": "2026-11-08"
 }

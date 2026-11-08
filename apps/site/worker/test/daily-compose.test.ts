@@ -20,7 +20,7 @@ function quiet(now = NOW): Overview {
   const z = days.slice(1).map(() => 0)
   return {
     now, tz: TZ, readers: [], clicks: { days, clicks: days.map(() => 0) },
-    fish: { days: days.slice(1), perDay: { ok: z, none: z, blocked: z, usd: z, tin: z, tout: z }, unmatched: [], recent: [], periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } },
+    fish: { days: days.slice(1), perDay: { ok: z, none: z, blocked: z, usd: z, tin: z, tout: z }, unmatched: [], recent: [], periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none }, byDay: new Map(), early: new Map() },
     keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] },
     photos: 3, waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, hidden: {},
     accounts: { days: days.slice(1), users: 5, newUsers: z, synced: 2, openSessions: 1, credentials: [], comments: [], newComments: z },
@@ -38,8 +38,8 @@ function gh(over: Partial<GitHubSide> = {}): GitHubSide {
     failing: [], issues: nothing, notes: 0, prs: { ready: nothing, draft: nothing }, ...over,
   }
 }
-const metric = (key: string, unit: Metric['unit'], now: number | null, lastSoFar: number | null, last: number | null): Metric => ({ key, name: `Tên tiếng Việt ${key}`, group: 'reach', unit, now, lastSoFar, last, weeks: [] })
-/** The week's scoreboard as loadScoreboard gives it; its names are the page's Vietnamese, which the report doesn't print. */
+const metric = (key: string, unit: Metric['unit'], now: number | null, lastSoFar: number | null, last: number | null): Metric => ({ key, name: `The page's name for ${key}`, group: 'reach', unit, now, lastSoFar, last, weeks: [] })
+/** The week's scoreboard as loadScoreboard gives it; its names are the page's, which the report doesn't print. */
 const SCORE: Scoreboard = {
   v: 1, at: NOW.toISOString(), tz: TZ, page: dashboardUrl('/_ab/thanh-cong/'), docs: '', weeks: [], countingFrom: '2026-11-05T03:10:00Z', northStar: 'answered',
   metrics: [metric('answered', 'count', 12, 9, 20), metric('readers', 'count', 1234, 1000, 2500), metric('sessions', 'count', 4000, 3000, 6000), metric('searchShare', 'percent', 66.6667, 50, 40), metric('stepShare', 'percent', 33.3333, null, 25), metric('shopPer1000', 'per1000', 2.5, 0, null)],
@@ -100,7 +100,7 @@ test('needs care: failures with no later success, open problem issues and what G
   }) })
   const care = needsCare(i)
   expect(care.map(c => c.title)).toEqual(['Deploy aquatome.com is failing', 'GitHub did not give part of this report', '#576 Deploy failed'])
-  expect(care[0]).toMatchObject({ text: '2 failed runs since 05/11 22:00, no success after.', href: `${REPO}/actions/runs/7` })
+  expect(care[0]).toMatchObject({ text: '2 failed runs since Thu 5 Nov, 22:00, no success after.', href: `${REPO}/actions/runs/7` })
   expect(care[2]!.href).toBe(`${REPO}/issues/576`)
   const r = compose(i)
   expect(r.subject).toBe('AquaTome daily · 6 Nov · 3 need care')
@@ -123,9 +123,9 @@ test('needs care: every open issue counts, past the ones listed', () => {
 test('needs care: a moderation queue only once it is late; past 30 hours the overview\'s to-do says it, once', () => {
   const waiting = (hours: number) => input({ overview: { ...quiet(), waiting: { comments: 2, photos: 0, oldest: new Date(NOW.getTime() - hours * 3_600_000).toISOString() } } })
   expect(titles(waiting(5))).toEqual([])
-  expect(needsCare(waiting(7))).toEqual([{ title: 'Moderation is behind', text: '2 comments waiting since 06/11 00:00.', href: '/_ab/binh-luan/' }])
+  expect(needsCare(waiting(7))).toEqual([{ title: 'Moderation is behind', text: '2 comments waiting since Fri 6 Nov, 0:00.', href: '/_ab/binh-luan/' }])
   expect(needsCare(input({ overview: { ...quiet(), waiting: { comments: 0, photos: 1, oldest: new Date(NOW.getTime() - 7 * 3_600_000).toISOString() } } }))[0]!.href).toBe('/_ab/anh-ban-doc/')
-  expect(titles(waiting(31))).toEqual(['Moderation has not run'])
+  expect(titles(waiting(31))).toEqual(['Moderation hasn’t run'])
   expect(needsCare(waiting(31))[0]!.href).toContain('/actions/workflows/moderate.yml')
   // Waiting and small, it is a number in the site's table.
   expect(compose(waiting(5)).text).toContain('Comments waiting: 2')
@@ -136,8 +136,8 @@ test('needs care: the AI spend of the day that just ended, past 80% of the cap, 
   const keys = o.keys as Exclude<Overview['keys'], { failed: string } | undefined>
   // The report goes at 07:00 in Vietnam, as the ledger's UTC day turns: yesterday's is the whole day.
   const spent = (usd: number) => input({ overview: { ...o, keys: { ...keys, cap: 50, spend: [{ day: '2026-11-06', usd: 0.4 }, { day: '2026-11-05', usd }] } } })
-  expect(needsCare(spent(46.5))).toEqual([{ title: 'AI spend on 05/11: $46.50 (93% of the $50 cap)', text: 'Fish ID and chat share this cap; once it\'s reached, both rest until 07:00.', href: '/_ab/nhan-dien-ca/' }])
-  expect(compose(spent(46.5)).text).toContain('AI spend on 05/11: $46.50 (93% of the $50 cap)')
+  expect(needsCare(spent(46.5))).toEqual([{ title: 'AI spend at 93% of its cap', text: 'Fish ID and chat: $46.50 of the $50 cap on 5 Nov.', href: '/_ab/nhan-dien-ca/' }])
+  expect(compose(spent(46.5)).text).toContain('AI spend at 93% of its cap')
   expect(needsCare(spent(39))).toEqual([])
 })
 
@@ -146,12 +146,12 @@ test('needs care: fish ID keys, in English', () => {
   const resting = { ...KEY, state: 'credit' as const, until: '2026-11-06T08:00:00.000Z' }
   // The owner's rule: one key out is the rotation's to skip, and only every key out is theirs.
   expect(needsCare(keys([resting, { ...KEY, n: 2 }]))).toEqual([])
-  expect(needsCare(keys([resting]))).toEqual([{ title: 'Fish ID and chat are down: every Anthropic key is resting', text: '#1 out of credit until 06/11 15:00', href: '/_ab/nhan-dien-ca/#key' }])
-  expect(titles(keys([KEY], 2))).toEqual(['2 lines of ANTHROPIC_KEYS can\'t be read'])
+  expect(needsCare(keys([resting]))).toEqual([{ title: 'Fish ID and chat are down', text: 'Every key resting, the first until Fri 6 Nov, 15:00.', href: '/_ab/nhan-dien-ca/#key' }])
+  expect(titles(keys([KEY], 2))).toEqual(['2 key lines unreadable'])
   expect(titles(input({ overview: { ...quiet(), keys: undefined } }))).toEqual(['Fish ID is off'])
   // The error text stays on the dashboard: a report prints no error it didn't write.
   const failed = needsCare(input({ overview: { ...quiet(), keys: { failed: 'KV down at 203.0.113.9' } } }))[0]!
-  expect(failed.title).toBe('Could not read the Anthropic keys\' state')
+  expect(failed.title).toBe('Can’t read the keys’ state')
   expect(JSON.stringify(failed)).not.toContain('203.0.113.9')
 })
 
@@ -163,10 +163,10 @@ test('needs care: the overview\'s to-dos, each of them, in English with the page
     const r = compose({ now: S.NOW, overview, app: noApp, gh: gh(), scoreboard })
     expect(`${r.subject}\n${r.text}\n${r.html}`).not.toMatch(VIETNAMESE)
   }
-  expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual(['Fish ID and chat are down: every Anthropic key is resting', '2Hr Aquarist needs you to pass a browser check'])
+  expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual(['Fish ID and chat are down', '2Hr Aquarist needs a browser check'])
   expect(titles({ now: S.NOW, overview: failed, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual([
-    'Could not read the Anthropic keys\' state', 'Could not load readers', 'Could not load affiliate clicks', 'Could not load the fish ID log', 'Could not load comments and accounts',
-    'Could not load the moderation queues', 'Could not load reader photos', 'Could not load the wanted names', 'Could not load the hidden pages', 'Could not load the content totals', 'Could not load the daily content totals',
+    'Can’t read the keys’ state', 'Readers didn’t load', 'Shop clicks didn’t load', 'The fish ID log didn’t load', 'Accounts didn’t load',
+    'Moderation queues didn’t load', 'Reader photos didn’t load', 'Wanted names didn’t load', 'Hidden pages didn’t load', 'Content totals didn’t load', 'Daily content totals didn’t load',
   ])
 })
 
@@ -219,9 +219,9 @@ test('built: deploys and the live version, content pushes with what they added, 
     ios: runs(3, 1), testflight: { uploads: [{ build: 184, url: `${REPO}/actions/runs/20`, at: '2026-11-05T17:53:13Z' }, { build: 183, url: `${REPO}/actions/runs/19`, at: '2026-11-05T16:00:00Z' }], failed: 1 }, appStore: runs(1, 0),
     watch: runs(6, 2), notes: 2, prs: { ready: { total: 1, items: [{ number: 562, title: 'test: y', url: `${REPO}/pull/562` }] }, draft: { total: 4, items: [] } },
   }) }))
-  expect(text).toContain('Deploys: 5 runs, 1 failed. Live: abc1234, deployed 06/11 03:19.')
+  expect(text).toContain('Deploys: 5 runs, 1 failed. Live: abc1234, deployed Fri 6 Nov, 3:19.')
   expect(text).toContain('Content pushes: Engine: 8 cycles, 1 failed. 12 content commits (engine pages 7, videos 5).')
-  expect(text).toContain('Added 04/11 to 05/11: fish vi +5, id +2; guides vi +2; photos +20 on pages.')
+  expect(text).toContain('Added 4 Nov to 5 Nov: fish vi +5, id +2; guides vi +2; photos +20 on pages.')
   expect(text).not.toContain('Merged PRs')
   expect(text).toContain('App builds: ios.yml: 3 runs, 1 failed. TestFlight: 2 uploads (build 184, 183), 1 failed. App Store: 1 run, 0 failed.')
   expect(text).toContain('Live checks: 6 runs, 2 failed. 2 review notes open.')

@@ -1,8 +1,8 @@
 {
   "id": "dekeyseria-scaphirhyncha",
   "native": {
-    "input": "1e1fb1ad5838f932",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "123c5e186d1593a9",
+    "at": "2026-11-08T18:57:48.756Z",
     "claims": [
       {
         "code": "BR",
@@ -21,15 +21,21 @@
         "ok": true
       },
       {
-        "name": "Solimões",
+        "name": "Amazon",
         "source": "planetcatfish",
         "quote": "Also recorded from the Middle Amazon (Solimões), Negro and the Lower Amazon, Nhamundá.",
         "ok": true
       },
       {
-        "name": "Nhamundá",
-        "source": "planetcatfish",
-        "quote": "Also recorded from the Middle Amazon (Solimões), Negro and the Lower Amazon, Nhamundá.",
+        "name": "Rio Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Upper course of the Rio Orinoco and the middle to lower Rio Amazon.",
+        "ok": true
+      },
+      {
+        "name": "Rio Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper course of the Rio Orinoco and the middle to lower Rio Amazon.",
         "ok": true
       }
     ],

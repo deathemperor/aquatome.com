@@ -2,7 +2,12 @@
   "id": "puntigrus-tetrazona",
   "temperament": "semi-aggressive",
   "finNipper": true,
-  "schoolMin": 8,
+  "schoolMin": 7,
   "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T20:39:26.526Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T19:51:14.150Z"
 }

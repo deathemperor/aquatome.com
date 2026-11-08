@@ -1,0 +1,19 @@
+{
+  "slug": "ca-killi-gunther",
+  "name": "Cá killi Günther",
+  "altNames": [
+    "Günther's Nothobranch"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Nothobranchius guentheri là một loài cá killi thuộc nhóm Nothobranchius. Nuôi trong bể, nó sống được khoảng hai năm.</p>",
+    "notes:glaser": "<p>Hiện trên thị trường có cá trại cho đẻ ở Đức.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}
