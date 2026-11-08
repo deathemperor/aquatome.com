@@ -85372,9 +85372,9 @@
   },
   "vi/species/lepidocephalichthys-hasselti": {
     "at": "2026-11-08",
-    "hash": "7dc304d7301c322d",
+    "hash": "8fff6f17711bdfc6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -94571,6 +94571,611 @@
     "hash": "1e82f25d1428c37d",
     "model": "opus",
     "checklist": 2,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/crenicichla-johanna": {
+    "at": "2026-11-08",
+    "hash": "6ccd5a4e31e1c18e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/crenicichla-lugubris": {
+    "at": "2026-11-08",
+    "hash": "c98f398ad7beb69e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/crenicichla-tigrina": {
+    "at": "2026-11-08",
+    "hash": "72b34351f48c6217",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hyphessobrycon-bentosi": {
+    "at": "2026-11-08",
+    "hash": "a7f1edb163e39ed0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lates-angustifrons": {
+    "at": "2026-11-08",
+    "hash": "d610095b50404c41",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể cỡ khoảng 6 m x 1,8 m x 3 m mới chỉ là mức tối thiểu.",
+        "why": "These sizes look converted from feet (20 × 6 × 10 ft), not sizes a Vietnamese keeper would pick.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "chẳng hạn cá trout nguyên con",
+        "why": "Keepers in Vietnam don't call this fish \"cá trout\" with the English word left in.",
+        "by": "model",
+        "fix": "cá hồi vân"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lates-calcarifer": {
+    "at": "2026-11-08",
+    "hash": "631bdb2b0c85ea61",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Cỡ khoảng 6 m x 1,8 m x 3 m mới chỉ là mức tối thiểu.",
+        "why": "Tank dimensions converted from feet (20 × 6 × 10 ft), not a size anyone in Vietnam would give.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/laubuka-caeruleostigmata": {
+    "at": "2026-11-08",
+    "hash": "1b5ede3f91c70b7f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/laubuka-fasciata": {
+    "at": "2026-11-08",
+    "hash": "573cbcf0101877df",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/laubuka-siamensis": {
+    "at": "2026-11-08",
+    "hash": "78a66b341e0afa96",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/leiarius-longibarbis": {
+    "at": "2026-11-08",
+    "hash": "15290f7db60d0352",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "cá lancefish",
+        "why": "Lancefish is a frozen food sold in British fish shops; keepers in Vietnam can't easily buy it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lepidiolamprologus-boulengeri": {
+    "at": "2026-11-08",
+    "hash": "0e7a38e21569fb82",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Vỏ ốc sên escargot dùng tốt, hầu hết các tiệm thực phẩm cao cấp tử tế đều có bán.",
+        "why": "Assumes gourmet food shops that sell escargot shells, as in the source's country.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-goalparensis": {
+    "at": "2026-11-08",
+    "hash": "e922baccae62c162",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Con cá trong ảnh là con duy nhất từng được biết tới.",
+        "why": "Refers to a photo from the source article that the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-irrorata": {
+    "at": "2026-11-08",
+    "hash": "dd57e32ea4d1f562",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-jonklaasi": {
+    "at": "2026-11-08",
+    "hash": "87d4d94ee62b92bf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "trùn chỉ đỏ (bloodworm)",
+        "why": "Trùn chỉ is tubifex; bloodworm is called trùn huyết by Vietnamese keepers.",
+        "by": "model",
+        "fix": "trùn huyết"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-kranos": {
+    "at": "2026-11-08",
+    "hash": "e983079cd23cd8c7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-micropogon": {
+    "at": "2026-11-08",
+    "hash": "dad9d94ddbebe107",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-tomaculum": {
+    "at": "2026-11-08",
+    "hash": "1115301c182046be",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepidocephalichthys-zeppelini": {
+    "at": "2026-11-08",
+    "hash": "86faa1cc9fb062bf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepidocephalus-macrochir": {
+    "at": "2026-11-08",
+    "hash": "e52aeb7e45ea7519",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepidosiren-paradoxa": {
+    "at": "2026-11-08",
+    "hash": "f509a152f656e82d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepisosteus-oculatus": {
+    "at": "2026-11-08",
+    "hash": "8e93cb5285e8cc22",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/leporacanthicus-galaxias": {
+    "at": "2026-11-08",
+    "hash": "0826b593f0f34a25",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/leporacanthicus-heterodon": {
+    "at": "2026-11-08",
+    "hash": "d619efb797f46293",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "có thể gắn thổi luồng hoặc cục sủi lớn",
+        "why": "\"Thổi luồng\" is not the usual hobby term for a powerhead in Vietnam.",
+        "by": "model",
+        "fix": "máy tạo sóng / bơm tạo luồng"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/leporellus-vittatus": {
+    "at": "2026-11-08",
+    "hash": "1f3d1d73549fb8c0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Các con trong ảnh được bắt ở Río Casanare, Colombia",
+        "why": "Points to the source's photos, which this page doesn't have.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "(khoảng 756 lít)",
+        "why": "756 litres is 200 US gallons converted to litres, not a tank size anyone in Vietnam would give.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/leporinus-brunneus": {
+    "at": "2026-11-08",
+    "hash": "bbd087ce21fc6fcc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/leptobotia-guilinensis": {
+    "at": "2026-11-08",
+    "hash": "988ecafa3c7ce582",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ở xứ nóng, mấy tháng hè có thể phải dùng máy làm lạnh nước.",
+        "why": "Treats a hot climate as somewhere else; a keeper in Vietnam lives in one and will likely need a chiller most of the year, not just in summer.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/leptobotia-microphthalma": {
+    "at": "2026-11-08",
+    "hash": "0c0fcfd6c30b669d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "thịt hải sản có vỏ",
+        "why": "Calque of English 'shellfish meat'; keepers name the actual foods.",
+        "by": "model",
+        "fix": "thịt tôm, nghêu, sò"
+      }
+    ],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/leptobotia-pellegrini": {
+    "at": "2026-11-08",
+    "hash": "4a98d81b06798b11",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/leptobotia-rubrilabris": {
+    "at": "2026-11-08",
+    "hash": "ffb01fb6bb04e203",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/leptobotia-taeniops": {
+    "at": "2026-11-08",
+    "hash": "627dea6ff44dae94",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/lestradea-perspicax": {
+    "at": "2026-11-08",
+    "hash": "27c2ae230ead0d5a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/limia-nigrofasciata": {
+    "at": "2026-11-08",
+    "hash": "ea2d34f7623d1e4a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/liosomadoras-oncinus": {
+    "at": "2026-11-08",
+    "hash": "327d3a930ef39d14",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lobocheilos-rhabdoura": {
+    "at": "2026-11-08",
+    "hash": "5ae93510855b579c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lophiobagrus-cyclurus": {
+    "at": "2026-11-08",
+    "hash": "dcfdc1e919611edc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/luciosoma-bleekeri": {
+    "at": "2026-11-08",
+    "hash": "f5baba72936f18f7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/luciosoma-pellegrinii": {
+    "at": "2026-11-08",
+    "hash": "72ce41b5e1198742",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Ảnh của nó xem ở trang về L. setigerum.",
+        "why": "Points the reader to a photo on another page of the source site, which this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/luciosoma-setigerum": {
+    "at": "2026-11-08",
+    "hash": "65876d1670016514",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/macrochirichthys-macrochirus": {
+    "at": "2026-11-08",
+    "hash": "0b4ac09c2004e024",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/macrognathus-zebrinus": {
+    "at": "2026-11-08",
+    "hash": "4355869e6e2edc7e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "Lớp nền dày 2,5 cm là đủ.",
+        "why": "2.5 cm is a converted 1-inch figure from an imperial source.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/macropodus-erythropterus": {
+    "at": "2026-11-08",
+    "hash": "3dc46ff8421f958c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/macropodus-hongkongensis": {
+    "at": "2026-11-08",
+    "hash": "653c4742dc9aab9d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/macropodus-ocellatus": {
+    "at": "2026-11-08",
+    "hash": "0d2a855fef9dda08",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/maskaheros-regani": {
+    "at": "2026-11-08",
+    "hash": "b2be3a972b0492f2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mastacembelus-albomaculatus": {
+    "at": "2026-11-08",
+    "hash": "0d9a90e9da60d1e8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mastacembelus-ellipsifer": {
+    "at": "2026-11-08",
+    "hash": "339c5fbdfde7ad90",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "Những loài lươn này cũng mất hẳn bong bóng bơi",
+        "why": "\"Bong bóng bơi\" is a calque of English \"swim bladder\"; Vietnamese keepers say \"bóng hơi\".",
+        "by": "model",
+        "fix": "bóng hơi"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mastacembelus-plagiostomus": {
+    "at": "2026-11-08",
+    "hash": "a37ec5fa5946ffb0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/maylandia-greshakei": {
+    "at": "2026-11-08",
+    "hash": "aa5126750aebd70a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/maylandia-lombardoi": {
+    "at": "2026-11-08",
+    "hash": "ff4c698adc6824b8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/maylandia-zebra": {
+    "at": "2026-11-08",
+    "hash": "93b653059445b53b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Dài 120 cm × cao 45 cm × rộng 37,5 cm – 213 lít",
+        "why": "Odd 37.5 cm side and a volume that doesn't match the sides point to a conversion from inches/gallons.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mchenga-flavimanus": {
+    "at": "2026-11-08",
+    "hash": "f08a64daf1aeda46",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/niwaella-delicata": {
+    "at": "2026-11-08",
+    "hash": "ac9c92145d04fbff",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nothobranchius-guentheri": {
+    "at": "2026-11-08",
+    "hash": "9d4468f45260543e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pao-baileyi": {
+    "at": "2026-11-08",
+    "hash": "97901ebdb1e54206",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pao-suvattii": {
+    "at": "2026-11-08",
+    "hash": "d5e55b25ac1e526b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/phalloceros-caudimaculatus": {
+    "at": "2026-11-08",
+    "hash": "d77eb33dd5ba99de",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudotropheus-fainzilberi": {
+    "at": "2026-11-08",
+    "hash": "fc2fb61d641368e1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinodoras-boehlkei": {
+    "at": "2026-11-08",
+    "hash": "19f4462fc20392e1",
+    "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   }
