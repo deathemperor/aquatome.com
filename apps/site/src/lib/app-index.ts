@@ -6,7 +6,7 @@ import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
-import { smallSrc } from './img'
+import { largeOf, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
@@ -38,6 +38,11 @@ export type AppItem = {
   path: string
   /** A small photo (about 480 px wide). */
   img?: string
+  /**
+   * The same photo's large copy, 1,200 px or more on its short side: the app opens a page's header and draws a card in
+   * its large layout only with one, before the page itself arrives.
+   */
+  large?: { url: string; width: number; height: number }
   /** A fish's short silent loop, real footage of it (content/curation.json `loops`): for cards and its page. */
   loop?: Loop
   /** A guide's subject, as the guide list groups them (GuideEntity['kind']: setup, care, plantCare, …). */
@@ -189,6 +194,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
+  const large = (photos: (Photo | undefined)[]) => largeOf(photos[0]).large
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
@@ -220,7 +226,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const life = resolveDataCard(s.dataCard.lifeYears ?? [], 'lifeYears')?.value
       const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
-        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
+        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), large: large(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
@@ -232,7 +238,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const card = breedFigures(b)
       const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
       items.push(clean({
-        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), large: large(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }
@@ -242,7 +248,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   if (served(lang, '/vi/cay/x/')) {
     for (const p of appPlants(lang, c)) {
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
-      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
+      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), large: large(p.photos), plant }))
     }
     home.plants = easyPlants(c, 30).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
@@ -254,7 +260,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
       // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
       const ph = guideImage(c, g)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), large: large([ph]), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }

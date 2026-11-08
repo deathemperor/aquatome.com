@@ -9,3 +9,7 @@ function commonsThumb(p: Photo) {
 
 /** Card/thumbnail source: our recorded 480px thumb, Wikimedia's 500px size, else the full photo. */
 export const smallSrc = (p: Photo) => (p.thumb !== p.url ? p.thumb : undefined) ?? (new URL(p.url).host.endsWith('wikimedia.org') ? thumbOf(p.url) ?? commonsThumb(p) : undefined) ?? p.url
+
+/** A photo's large copy for the app's large layouts, as the page format and the app index carry it, or nothing. */
+export const largeOf = (p: Photo | undefined): { large?: { url: string; width: number; height: number } } =>
+  p?.large ? { large: { url: p.large.url, width: Math.round(p.large.width), height: Math.round(p.large.height) } } : {}

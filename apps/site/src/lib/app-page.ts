@@ -16,7 +16,7 @@ import { galleryNote } from './gallery'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
-import { smallSrc } from './img'
+import { largeOf, smallSrc } from './img'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
 import type { RangeParts } from './range'
@@ -39,10 +39,13 @@ const ORIGIN = 'https://aquatome.com'
 /** Every path the app index lists in this language: the only pages a "pages" block names. */
 export const listedPaths = (lang: Lang, c: Content) => new Set(appIndex(lang, c).items.map(i => i.path))
 
-/** A photo with its credit, as the page credits it. `small`: its small copy, as a card or a thumbnail shows it. */
+/**
+ * A photo with its credit, as the page credits it. `small`: its small copy, as a card or a thumbnail shows it. Either way
+ * it carries its large copy when it has one, for the app's large layouts and its full-screen viewer.
+ */
 const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = false): Image | undefined =>
   p && p.width > 0 && p.height > 0
-    ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p) }
+    ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p), ...largeOf(p) }
     : undefined
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
 const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: appPath(lang, viPath) } : text)

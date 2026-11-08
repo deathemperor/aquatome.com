@@ -36,12 +36,18 @@ export const Text = z.array(Inline)
  * the name as the line shows it (an Unsplash photo's), so a reader links that text without parsing each language's words.
  */
 export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional(), authorUrl: z.string().optional(), author: z.string().optional() })
+/**
+ * `large`: a copy for the app's large layouts (a page's header, a full-screen photo), 1,200 px or more on its short side.
+ * A photo without one has no original that big: the app shows it in a smaller layout rather than scale it up.
+ */
+export const Large = z.object({ url: z.string(), width: z.number().int().positive(), height: z.number().int().positive() })
 export const Image = z.object({
   src: z.string(),
   w: z.number().int().positive(),
   h: z.number().int().positive(),
   alt: z.string().optional(),
   credit: Credit.optional(),
+  large: Large.optional(),
 })
 
 export const Heading = z.object({ t: z.literal('h'), text: z.string(), id: z.string().optional() })

@@ -171,6 +171,29 @@
                 "text",
                 "licence"
               ]
+            },
+            "large": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "height": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "url",
+                "width",
+                "height"
+              ]
             }
           },
           "required": [
@@ -547,6 +570,29 @@
                     "text",
                     "licence"
                   ]
+                },
+                "large": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "width": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "height": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "width",
+                    "height"
+                  ]
                 }
               },
               "required": [
@@ -675,6 +721,29 @@
                         "required": [
                           "text",
                           "licence"
+                        ]
+                      },
+                      "large": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          },
+                          "width": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "height": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "width",
+                          "height"
                         ]
                       }
                     },
@@ -919,6 +988,29 @@
                       "licence"
                     ]
                   },
+                  "large": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "width": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "height": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "width",
+                      "height"
+                    ]
+                  },
                   "thumb": {
                     "type": "string"
                   }
@@ -1075,6 +1167,29 @@
                               "text",
                               "licence"
                             ]
+                          },
+                          "large": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "width": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "height": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 9007199254740991
+                              }
+                            },
+                            "required": [
+                              "url",
+                              "width",
+                              "height"
+                            ]
                           }
                         },
                         "required": [
@@ -1157,6 +1272,29 @@
                             "required": [
                               "text",
                               "licence"
+                            ]
+                          },
+                          "large": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "width": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "height": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 9007199254740991
+                              }
+                            },
+                            "required": [
+                              "url",
+                              "width",
+                              "height"
                             ]
                           }
                         },
@@ -1315,6 +1453,29 @@
                         "required": [
                           "text",
                           "licence"
+                        ]
+                      },
+                      "large": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          },
+                          "width": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "height": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "width",
+                          "height"
                         ]
                       }
                     },
