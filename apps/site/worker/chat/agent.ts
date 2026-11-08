@@ -70,8 +70,6 @@ export const TITLE_FORM: Record<Lang, { asks: string; case: string; examples: [s
   th: { asks: 'with ไหม, กี่ or ยังไง, and never a "?"', case: '', examples: ['ปลาสอดไม่กินอาหาร นิ่งอยู่มุมตู้', 'ตู้ 40 ลิตรเลี้ยงปลาหมอสี 3 ตัวได้ไหม'] },
   ms: { asks: 'ending with "?", as "… tak?" or "… ke?"', case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Java); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.', examples: ['Ikan molly tak makan, diam di sudut', 'Tangki 3 kaki cukup untuk seekor louhan tak?'] },
 }
-/** Fish ID is unsure of the photo: more than one guess, or the first under 70%. */
-const unsure = (i: NonNullable<Start['identified']>) => i.results.length > 1 || (i.results[0]?.confidence ?? 0) < 0.7
 /** What the first message asks for the conversation's title (`ChatOptions.title`). */
 export const TITLE_RULE = (lang: Lang) => {
   const f = TITLE_FORM[lang]
@@ -94,14 +92,11 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
   if (start.from === 'fish-id' && start.identified) {
     const guesses = start.identified.results.map(r => `${r.scientificName}${r.id ? ` (id ${r.id})` : ''}, ${Math.round(r.confidence * 100)}%`).join('; ')
     parts.push(`They come from AquaTome's fish ID, which named their photo (${start.identified.verdict}): ${guesses || 'nothing it could name'}.`)
-    // Beside the guesses, where Claude reads them: in the title's rule, far from them, half the titles named the first guess.
-    if (title && unsure(start.identified)) {
-      const genera = new Set(start.identified.results.map(r => r.scientificName.split(' ')[0]))
-      const genus = genera.size === 1 ? [...genera][0] : undefined
-      parts.push(`Fish ID is unsure of it${genus ? `: every guess is a ${genus}` : ''}. Unless the reader names it, the title calls it ${genus ? `what keepers call any ${genus} in ${LANGS[lang]}` : 'as the reader does, or by the group its guesses share'}, never by one guess's own name.`)
-    }
   }
   if (about) parts.push(`The chat is about ${about.name}${about.sub ? ` (${about.sub})` : ''}, id ${about.id}, page ${about.path}.${start.from === 'species' ? ' They opened it from that page, so they have seen its card: it counts as shown.' : ''}`)
+  // The list names the conversation's subject on the row's second line ("Cá neon xanh · 3 câu"), so a title naming it
+  // says it twice. Without it, fish ID's unsure guesses can't put the wrong fish in the title either.
+  if (title && about) parts.push(`The reader's list of chats shows this one under ${about.name} already: the title names the problem and leaves ${about.name} out, naming a fish or plant only when it is another one.`)
   if (earlier.length) {
     parts.push('Earlier in this conversation:')
     earlier.forEach((t, i) => parts.push(`${i + 1}. Reader: ${t.question}\nYou: ${t.text}${t.blocks.length ? `\nShown: ${t.blocks.map(shown).join('; ')}` : ''}`))
