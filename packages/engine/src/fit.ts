@@ -9,6 +9,7 @@ import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
+import { CONVERTED_LITRES } from './round'
 import { snapshotName } from './snapshot'
 
 /**
@@ -115,7 +116,7 @@ const IMPERIAL = [
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
 ]
 /** A volume only a conversion from gallons would give. A dose's figures are the dose check's. */
-const CONVERTED = re(`(?<![\\d.,])(?:19|38|57|76|114|151|208|284|379)\\s*(?:lít|liter|litre|l|ลิตร)(?![\\p{L}\\p{N}])`)
+const CONVERTED = re(`(?<![\\d.,])(?:${CONVERTED_LITRES.join('|')})\\s*(?:lít|liter|litre|l|ลิตร)(?![\\p{L}\\p{N}])`)
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
 const DOSE = re(WORD(`${AMOUNT}(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|sachet|tablet|butir|ซอง|เม็ด|หยด)`))
 
