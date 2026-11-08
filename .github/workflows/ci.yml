@@ -80,6 +80,13 @@ jobs:
         run: pnpm --filter site exec playwright install --with-deps chromium
       - name: Browser checks on the fixture build, as a phone and a computer
         run: pnpm --filter site e2e
+      # What the owner's report draws, in the browser the owner's iPhone has. Chromium has none of its faults.
+      - name: Install WebKit for Playwright
+        run: pnpm --filter site exec playwright install --with-deps webkit
+      - name: The owner's picture, as an iPhone
+        run: pnpm --filter site e2e --project=iphone
+        env:
+          E2E_IPHONE: '1'
       # The AI page review (docs/governance.md, layer 3) on PRs that change the site's code: advisory, as a PR comment.
       # Only for this repository's branches (a fork's PR never sees the token).
       - id: review

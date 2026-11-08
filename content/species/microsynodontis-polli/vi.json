@@ -1,7 +1,11 @@
 {
   "slug": "ca-nheo-lun-microsynodontis-polli",
-  "name": "Cá nheo lùn Microsynodontis polli",
-  "altNames": [],
+  "name": "Cá synodontis lùn",
+  "altNames": [
+    "Cá nheo lùn Microsynodontis polli",
+    "Cá da trơn synodontis pygmy",
+    "Pygmy Synodontis"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Microsynodontis polli là một trong ba loài Synodontis lùn hiện còn rất ít tài liệu. Hai loài còn lại là M. lamberti và M. batesii. Cả ba đều có nguồn gốc từ vùng Tây Phi đến Trung Phi.</p>",
     "distribution:glaser": "<p>M. polli được ghi nhận ở thượng nguồn sông Niger, thuộc Guinea và Liberia.</p>",
@@ -9,14 +13,24 @@
     "behaviour:glaser": "<p>Đây là loài cá rất hiền. Chúng sống tốt nhất khi nuôi riêng trong bể một loài. Nếu nuôi chung thì ít nhất trong bể không nên có những loài hiếu động, hay quậy phá như các loài cichlid cỡ lớn hơn. Chúng là cá sống theo đàn, vì vậy bạn nên nuôi từ 6 con trở lên.</p>",
     "diet:glaser": "<p>M. polli ăn được phần lớn các loại thức ăn chế biến sẵn cho cá cảnh, ví dụ trùng huyết đông lạnh, giun trắng, thức ăn viên nén và thức ăn dạng vảy chìm.</p>",
     "dimorphism:glaser": "<p>Con cái có thân tròn hơn con đực.</p>",
-    "reproduction:glaser": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>"
+    "reproduction:glaser": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá synodontis lùn (Microsynodontis polli) là một loài cá trê nhỏ sống ở thượng lưu sông Niger, thuộc Liberia và Guinea. Cá trưởng thành dài khoảng 40 mm SL. Ngoài tiệm, loài này đôi khi bị dán nhầm nhãn thành Synodontis sp. 'Nyong' hoặc M. batesii, nhưng thân nó không có các vằn rõ như M. batesii. Cá mới nhập về thường yếu. Tính nó lại khá nhát, vì vậy đừng nuôi chung với cá hung dữ hay cá bơi quá khỏe, quá hiếu động.</p>",
+    "distribution:seriouslyfish": "<p>Đây là loài cá Tây Phi, phân bố ở Liberia và Guinea. Chúng sống ở một số khu vực thuộc lưu vực thượng nguồn sông Niger.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 40 mm. Đáy bể: 45 × 30 cm. Thể tích: khoảng 41 lít (45 × 30 × 30 cm).</p>",
+    "maintenance:seriouslyfish": "<p>Loài này hợp với bể tối, nền mềm, có đá, lũa và rễ cây xoắn xếp thành các hốc cho cá trốn. Đèn nên để dịu. Cá thích bể có cây thủy sinh, nhưng không có cây cũng không sao.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–27°C</li><li>pH: 6,8–7,5</li><li>Độ cứng: 10–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Cá ăn được cả thức ăn đông lạnh, thức ăn sống lẫn thức ăn khô.</p>",
+    "behaviour:seriouslyfish": "<p>M. polli sống chung ổn với hầu hết các loài cá hiền. Hợp nhất là cá tetra châu Phi, cichlid lùn như Pelvicachromis hay Anomalochromis, và các loài mormyrid nhỏ. Cá khá nhát, nên đừng thả chung với cá hung dữ hay cá bơi quá khỏe, quá hiếu động. Chúng không đánh nhau với đồng loại, nuôi theo đàn hoàn toàn không có vấn đề gì.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá cái trưởng thành có bụng tròn hơn cá đực.</p>",
+    "reproduction:seriouslyfish": "<p>Chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
+    "notes:seriouslyfish": "<p>Giống Microsynodontis có khoảng một chục loài đã được mô tả, nhưng phần lớn hầu như không thấy trong giới chơi cá. Dù vậy, M. polli thuộc nhóm hay gặp hơn cả. Các loài Microsynodontis nhỏ hơn nhiều so với Synodontis, và loài lớn nhất trong giống là M. batesii. Muốn phân biệt chúng với Synodontis và giống Mochokiella trông khá giống thì bạn nhìn vây đuôi. Vây đuôi của Microsynodontis tròn hoặc chỉ chẻ nhẹ, còn ở hai giống kia vây đuôi chẻ sâu. Một điểm khá thú vị là nhãn cầu của Microsynodontis cố định, không đảo được. Synodontis thì ngược lại, mắt của chúng cử động được. Lúc mới nhập về, Microsynodontis thường khá yếu, vì vậy bạn cần thuần nước thật cẩn thận. Ngoài tiệm, loài này đôi khi bị dán nhầm nhãn thành Synodontis sp. \"Nyong\" hoặc M. batesii. Khác với M. batesii, thân nó không có vằn rõ.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "seriouslyfish": 0.85
+    }
   }
 }

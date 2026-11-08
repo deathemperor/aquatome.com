@@ -1,4 +1,74 @@
 {
+  "vi/products/chihiros-c-ii": [
+    {
+      "at": "2026-11-07T03:38:14Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Thủy Sinh Tím báo bản RGB gần hết\": the facts only say Thủy Sinh Tím said it was nearly sold out. They don't say it was the RGB version.",
+        "\"Nhà sản xuất ghi bể dài khoảng 20–40 cm\" and similar: the facts source this to Aquasabi, a retailer, not the manufacturer.",
+        "\"trang nhà sản xuất tự mâu thuẫn\": the facts say the page contradicts itself but don't say it is the manufacturer's page.",
+        "\"Không. Nhà sản xuất ghi không nên dùng đèn dưới nắp\": the facts don't attribute this to the manufacturer.",
+        "\"Bản trắng rẻ hơn\" in the Q&A is supported, but the page gives no prices. The facts' price figures were left out.",
+        "\"bản RGB ... một shop ghi 20–40 cm, shop khác ghi 20–45 cm\": supported. \"GreenDeal ghi bản trắng\": the facts' variant data supports this."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T03:38:14Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Nhiều người kêu kẹp không chắc\" / \"Nhiều người đánh giá trên Aquasabi\": facts say 'reviewers' generally, with only 4 reviews in total; 'many' is a stretch.",
+        "\"Bể kính dày hơn thì đèn không kẹp vào được\": this is an inference; the facts only give 8 mm as the maximum.",
+        "\"Kiểu bể hợp nhất là bể mở, không nắp\": invented elaboration; the facts only say not to use it under a lid.",
+        "\"C II chỉ có một cỡ\": not in the facts; the facts list two versions with different dimensions.",
+        "\"Bản trắng rẻ hơn bản RGB khá nhiều\": the facts give about 1.3M vs 1.78–1.95M, which is cheaper but not necessarily 'khá nhiều'. Mildly overstated.",
+        "\"Bản RGB ... pha màu ánh sáng ngay trên app\" and \"chỉ cần đèn sáng và hẹn giờ được\": the white version's scheduling is supported, but the suggestion for the RGB buyer (colour for red plants and shrimp) draws on one shop's claim presented as general fit.",
+        "\"bạn nên kẹp vừa tay và kiểm tra kính sau khi lắp\": invented advice not in the facts.",
+        "\"Bạn nhớ cẩn thận lúc thao tác gần nước\": invented safety advice.",
+        "\"công suất cao hơn một chút\": 16 W vs 20 W is a 25% rise; the wording is a small characterisation not in the facts.",
+        "\"Trên diễn đàn UKAPS, một người dùng cả hai đèn\": supported. \"hay hết\" (often out of stock) in the intro generalises from one-time stock checks."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-c-ii-rgb": [
+    {
+      "at": "2026-11-08T01:47:10Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bản RGB có phổ màu để bạn tự chỉnh tỷ lệ... Nếu bạn cần chỉnh màu cho cây đỏ hoặc cho tép lên màu thì bạn cần bản RGB\" is a mild extrapolation; the facts only say sellers claim this.",
+        "\"Hai bản dùng chung thân đèn và chung app\" is supported only by the alternatives note (source 5), which is fine. The claim that White is \"giá rẻ hơn\" has no price figure in the page, but it is supported.",
+        "\"Nhà phân phối ở Việt Nam ghi bể 20–40 cm\" and \"Một nguồn ghi bể rộng khoảng 20–45 cm\" are supported. \"Các nguồn khác ghi mức thấp hơn: ... 30–50 cm (Shaquarium)\" is wrong, because 30–50 cm is not lower than 20–45 cm; it is a wider range. The page's own line saying Shaquarium is \"rộng hơn\" contradicts this.",
+        "\"Thân đèn nhỏ nên đặt được ở chỗ chật như góc bàn làm việc\" is supported only loosely (\"desk\").",
+        "\"Dòng C II có hai bản\" is an unsupported generalisation. The facts list only two variants, but they do not say the line has only two.",
+        "\"LedStar ... rẻ hơn C2 RGB một chút\" is supported. \"Shrimp Home có hàng sẵn\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T01:47:10Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"C II chỉ có một cỡ\" - the facts never say C II comes in only one size.",
+        "\"Bản White ra trước\" - facts only say RGB is an upgrade of the earlier white-only C II; this is roughly supported, so it is minor.",
+        "\"Ráp chân nhôm\" - the facts say \"alloy stand\"; aluminium is reasonable but slightly specific.",
+        "\"Đèn phải kẹp vào thành kính\" and \"Đèn chỉ có kẹp để gắn vào thành kính\" - roughly supported by the rim clamp bracket, but stated more absolutely than the facts.",
+        "\"giá rẻ hơn khá nhiều\" for C II White - the facts give about 500,000₫ less; this is vague but supported in direction.",
+        "\"Được, nhưng bạn phải mua thêm chân đế C II Light Base\" - the facts only say you need the Light Base for bowls, terrariums or wabi-kusa; \"bể tròn\" and \"bể không có thành kính\" are extrapolated to all round and rimless tanks.",
+        "\"Hãng ghi bể 20–45 cm\" in the 60 cm FAQ - the facts only say the 20–45 cm range comes from a source and don't attribute it to the manufacturer; \"Hãng làm đèn này cho bể nano...\" is also an attribution assumption.",
+        "\"Nhà phân phối ghi bể 20–40 cm\" - this is supported (VN distributor listing)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-wrgb-ii-pro": [
     {
       "at": "2026-11-06T21:03:59Z",

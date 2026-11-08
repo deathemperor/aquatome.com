@@ -5,7 +5,8 @@
   "File:Botia striata2.jpg",
   "File:環纹鼠 Botia striata - panoramio.jpg",
   "File:Botia striata in a home aquarium.jpg",
-  "File:Botia striata 174117581.jpg"
+  "File:Botia striata 174117581.jpg",
+  "inat:174117581"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/dad88aad53ed71c8.webp": "090d9649659c9f9e",
@@ -16,5 +17,13 @@
   "https://media.aquatome.com/commons/fb513e7e7a9960a5.webp": "0f0617674e1376c4",
   "https://media.aquatome.com/commons/bc141b8a89021ec1.webp": "3c1e1f1bf1e0ac44"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 95925,
+  "pass": "done",
+  "after": {
+   "research": 103959525,
+   "agree": 0
+  }
+ }
 }

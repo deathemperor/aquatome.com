@@ -5,7 +5,7 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { loadAll, SOURCE_IDS, type SourceId } from '@aq/schema'
+import { loadAll, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
@@ -21,6 +21,9 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
+import { FIT_KINDS, fitReport, runFit } from './fit'
+import { gate, writeFitSummary } from './gate'
+import { candidates, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
@@ -48,6 +51,7 @@ import { tidyCredits } from './wiki-author'
 import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
+import { namePlacesVi } from './place-names'
 import { speciesRanges } from './range'
 import { gbifClient } from './range-records'
 import { speciesWater } from './water'
@@ -119,7 +123,7 @@ const readersWanted = (() => {
   }
 })()
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -437,6 +441,53 @@ if (cmd === 'run' || cmd === 'card-fill') {
   await writeFile(join(ROOT, 'docs/review/reader.md'), readerReport(r.rewritten.length ? await loadPages(join(ROOT, 'content')) : pages, state))
   console.log(`reader: ${r.read.length} pages read, ${r.findings} findings, ${r.rewritten.length} parts rewritten, ${r.notKept.length} not kept, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.read.map(x => `read: ${x}`), ...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+} else if (cmd === 'fit') {
+  // Is each page written for its reader (fit.ts)? The model reads the pages due in a random order, so a run stopped part
+  // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
+  // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th]. FIT_MODEL: the reading model. Opus by
+  // default: on a test sample Sonnet missed about half of what's written for elsewhere and a quarter of the source talk.
+  const all = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
+  const pages = all.filter(p => (!values.kind || values.kind.split(',').includes(p.kind)) && (!values.lang || values.lang.split(',').includes(p.lang)))
+  const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20), root: ROOT })
+  await mkdir(join(ROOT, 'docs/review'), { recursive: true })
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state))
+  await writeFitSummary(ROOT, all, state)
+  console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.failed) console.log(`failed: ${x}`)
+} else if (cmd === 'gate') {
+  // Last in each cycle (gate.ts): the pages whose text the cycle changed are read against the checklist; a new page that
+  // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
+  // pnpm engine gate [--limit N: model reads at most] [--jobs N]
+  const { report: r, state, pages, held } = await gate(ROOT, { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150) })
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
+  await writeFitSummary(ROOT, pages, state, { held })
+  for (const a of ['hold', 'release', 'revert', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
+  for (const x of r.failed) console.log(`  failed: ${x}`)
+  console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'curate') {
+  // The editorial calendar (curation.ts, content/curation.json): fill Hôm nay's next days and replace any pick that stopped
+  // passing (reader fit, a checked photo big enough for its card). --check only lists what's wrong and exits 1 if anything is.
+  // pnpm engine curate [--days 21] [--from YYYY-MM-DD] [--check] [--gsc <Search Console pages export>]
+  const days = Number(values.days ?? 21)
+  const today = values.from ?? vnDate(new Date())
+  const cur = await readCalendar(ROOT)
+  const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
+  const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  if (values.check) {
+    const wrong = checkCalendar(cur, cands, today, days)
+    for (const x of wrong) console.log(`  ${x}`)
+    console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
+    if (wrong.length) process.exitCode = 1
+  } else {
+    const { calendar, report: r } = plan(cur, cands, today, days)
+    await writeCalendar(ROOT, calendar)
+    for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
+    for (const x of r.filled) console.log(`  filled ${x}`)
+    for (const x of r.empty) console.log(`  empty ${x}`)
+    const left = checkCalendar(calendar, cands, today, days)
+    for (const x of left) console.log(`  still wrong: ${x}`)
+    console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty; ${left.length} problems`)
+  }
 } else if (cmd === 'traits') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.
@@ -793,6 +844,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo]`)
   const r = await localizeGlossary(ROOT, claudeCli, lang, { redo: values.redo, model: 'opus', only: values.only?.split(',').map(s => s.trim()).filter(Boolean) })
   console.log(`localize-glossary ${lang}: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.reviews, ...r.failed].join('\n')}`)
+} else if (cmd === 'name-places-vi') {
+  // Vietnamese names for rivers and regions, the ones readers use (place-names.ts): every place not yet named (--redo: all of them).
+  const r = await namePlacesVi(ROOT, claudeCli, { redo: values.redo, model: 'opus' })
+  console.log(`name-places-vi: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.reviews, ...r.failed].join('\n')}`)
 } else if (cmd === 'localize-places') {
   // Place names in another language (the origin pages): every place not yet named (--redo: all of them).
   const lang = values.lang as TargetLang

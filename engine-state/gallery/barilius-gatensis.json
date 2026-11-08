@@ -1,12 +1,22 @@
 {
  "queue": [],
  "judged": [
-  "File:Barilius gatensis Achilles 149.jpg"
+  "File:Barilius gatensis Achilles 149.jpg",
+  "inat:600726682",
+  "inat:600726672"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/8ef98a06f7204a57.webp": "630c610f5c736934",
   "https://media.aquatome.com/seriouslyfish/8cac69f0efcf4052.webp": "d37b388ade9a81e2",
   "https://media.aquatome.com/seriouslyfish/e7e10481fd707894.webp": "0105170787070301"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 1315717,
+  "pass": "done",
+  "after": {
+   "research": 331179669,
+   "agree": 0
+  }
+ }
 }

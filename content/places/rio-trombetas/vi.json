@@ -1,10 +1,13 @@
 {
   "slug": "rio-trombetas",
-  "name": "Rio Trombetas",
-  "altNames": [],
+  "name": "sông Trombetas",
+  "altNames": [
+    "Rio Trombetas"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

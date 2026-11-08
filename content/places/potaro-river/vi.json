@@ -1,10 +1,13 @@
 {
   "slug": "potaro-river",
-  "name": "Potaro River",
-  "altNames": [],
+  "name": "sông Potaro",
+  "altNames": [
+    "Potaro River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

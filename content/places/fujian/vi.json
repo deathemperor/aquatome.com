@@ -1,10 +1,13 @@
 {
   "slug": "fujian",
-  "name": "Fujian",
-  "altNames": [],
+  "name": "Phúc Kiến",
+  "altNames": [
+    "Fujian"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

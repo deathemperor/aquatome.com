@@ -1,0 +1,344 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Power",
+      "value": "20 W",
+      "source": 0
+    },
+    {
+      "key": "Luminous flux",
+      "value": "1580 lm",
+      "source": 0
+    },
+    {
+      "key": "LEDs",
+      "value": "40 full-spectrum RGB 3-in-1 diodes",
+      "source": 0
+    },
+    {
+      "key": "Dimensions (L x W x H)",
+      "value": "24.0 x 5.0 x 2.5 cm (9.45 x 2.00 x 1.00 in)",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank width",
+      "value": "20–45 cm",
+      "source": 0
+    },
+    {
+      "key": "Input voltage",
+      "value": "AC 110–240 V, 50/60 Hz",
+      "source": 0
+    },
+    {
+      "key": "Control",
+      "value": "Built-in Bluetooth controller, My Chihiros app",
+      "source": 0
+    },
+    {
+      "key": "Mount",
+      "value": "Rim clamp bracket with 360° swivel neck",
+      "source": 0
+    },
+    {
+      "key": "In the box",
+      "value": "Light panel and swivel arm, rim-mount glass clamp, built-in Bluetooth controller, dual-voltage power adapter and cable",
+      "source": 0
+    },
+    {
+      "key": "Dimensions (VN distributor listing)",
+      "value": "235 x 49 x 13 mm; stand height 20 cm",
+      "source": 3
+    },
+    {
+      "key": "Recommended tank size (VN listing)",
+      "value": "20–40 cm",
+      "source": 3
+    },
+    {
+      "key": "LED lifespan",
+      "value": "50,000 hours",
+      "source": 3
+    },
+    {
+      "key": "Water resistance",
+      "value": "IP43",
+      "source": 1
+    },
+    {
+      "key": "Housing material",
+      "value": "Aluminium body to help shed heat",
+      "source": 1
+    },
+    {
+      "key": "Color",
+      "value": "Black",
+      "source": 1
+    },
+    {
+      "key": "Warranty (VN shops)",
+      "value": "1 month from delivery; drops and water damage not covered",
+      "source": 1
+    },
+    {
+      "key": "Warranty (Greendeal)",
+      "value": "6 months",
+      "source": 6
+    }
+  ],
+  "variants": [
+    {
+      "name": "Chihiros C II RGB (C2 RGB)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "20 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1580 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40 RGB 3-in-1",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Chihiros C II White (C2 White)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "16 W",
+          "source": 10
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1500 lm",
+          "source": 10
+        },
+        {
+          "key": "LEDs",
+          "value": "60 white LEDs",
+          "source": 10
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Quới Decor",
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-c2-rgb/",
+      "variant": "C2 RGB",
+      "vnd": 1780000,
+      "source": 1
+    },
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/den-led-kep-chihiros-c2-trang-rgb-desktop-light",
+      "variant": "C2 RGB",
+      "vnd": 1820000,
+      "source": 5
+    },
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/den-led-kep-chihiros-c2-trang-rgb-desktop-light",
+      "variant": "C2 White",
+      "vnd": 1335000,
+      "source": 5
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-c2-rgb",
+      "variant": "C2 RGB",
+      "vnd": 1850000,
+      "source": 2
+    },
+    {
+      "shop": "Shaquarium",
+      "url": "https://shaquarium.com/san-pham/%C4%91%C3%A8n-chihiros-c2-rgb.html",
+      "variant": "C2 RGB",
+      "vnd": 1850000,
+      "source": 4
+    },
+    {
+      "shop": "Greendeal (out of stock)",
+      "url": "https://www.greendeal.vn/chihiros-led-c2-rgb",
+      "variant": "C2 RGB",
+      "vnd": 1850000,
+      "source": 6
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-kep-cao-cap-chihiros-c2-rgb",
+      "variant": "C2 RGB",
+      "vnd": 1950000,
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Made for nano and mini desktop tanks about 20–45 cm wide.",
+      "source": 0
+    },
+    {
+      "fact": "For bowls, terrariums or wabi-kusa with no glass rim to clamp to, you need the separately sold C II Light Base.",
+      "source": 0
+    },
+    {
+      "fact": "Greendeal says it works best on tanks up to 45 cm and can stretch to 60 cm at most.",
+      "source": 6
+    },
+    {
+      "fact": "Shaquarium gives a recommended range of 30–50 cm, wider than other shops list.",
+      "source": 4
+    },
+    {
+      "fact": "Sellers say the RGB spectrum supports both green and red plants and makes shrimp and snails look more vivid.",
+      "source": 2
+    },
+    {
+      "fact": "Small size suits tight spots such as a desk.",
+      "source": 3
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Install the My Chihiros app (App Store or Google Play) and sign up with an email. The account only keeps your lights separate from other users' lights.",
+      "source": 6
+    },
+    {
+      "fact": "Put the alloy stand together, clamp it on the tank, then set the light's height and angle.",
+      "source": 5
+    },
+    {
+      "fact": "Turn on power, switch on Bluetooth and location on your phone, then pick the light from the list of nearby devices in the app.",
+      "source": 5
+    },
+    {
+      "fact": "In the app you can set RGB colour mix, brightness and on/off timers across several time slots, or use the default program.",
+      "source": 1
+    },
+    {
+      "fact": "No separate controller is needed because Bluetooth is built into the light.",
+      "source": 0
+    },
+    {
+      "fact": "The shade (light-blocking hood) is sold separately.",
+      "source": 5
+    }
+  ],
+  "issues": [
+    {
+      "fact": "One buyer said the heavy clamp-on light chipped a piece of glass off his nano tank within minutes of mounting. Be careful on thin or rimless nano glass.",
+      "source": 0
+    },
+    {
+      "fact": "One owner measured about 17 W at full power, below the rated 20 W, and asked whether the gap was due to the controller or Bluetooth.",
+      "source": 9
+    },
+    {
+      "fact": "Specs vary between Vietnamese shops (1500 vs 1580 lm; 20–40, 20–45 or 30–50 cm tanks; different dimensions). Check with the seller.",
+      "source": 4
+    },
+    {
+      "fact": "Shop warranty is short: usually only 1 month, with drops and water damage excluded.",
+      "source": 1
+    },
+    {
+      "fact": "The RGB version is an upgrade of the earlier white-only C II. Shops use both names, 'C2' and 'CII', for the same light.",
+      "source": 2
+    },
+    {
+      "fact": "The white C II uses 60 white LEDs at 16 W. The RGB version has 40 RGB 3-in-1 LEDs at 20 W.",
+      "source": 10
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "C II White (C2 White)",
+      "why": "Same body and app for about 500,000₫ less (1,335,000₫ at Shrimp Home), but white light only and lower output (16 W).",
+      "source": 5
+    },
+    {
+      "brand": "Funlux",
+      "model": "Nano RGB 15W",
+      "why": "Much cheaper at about 690,000₫. Also app-controlled and rotates 360°, with IP54 rating, but weaker at 1000–1100 lm.",
+      "source": 7
+    },
+    {
+      "brand": "Week",
+      "model": "S Pro (RGB + UV)",
+      "why": "About 1,150,000₫ for 30–45 cm tanks. Has RGB plus UV, 1080–1680 lm, app control and a 3-month warranty, but hangs above the tank rather than clamping on.",
+      "source": 7
+    },
+    {
+      "brand": "LedStar",
+      "model": "AQ WRGB N series Nano II",
+      "why": "Clip-on WRGB nano light at 1,580,000₫, a bit cheaper than the C2 RGB. In stock at Shrimp Home.",
+      "source": 8
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://buceplant.com/products/chihiros-c-series-rgb-led-light-vr-ii",
+      "title": "Chihiros CII Series RGB LED Light – Buce Plant",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-c2-rgb/",
+      "title": "Chihiros C2 RGB – Thủy Sinh Quới Decor",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-c2-rgb",
+      "title": "Đèn Led Chihiros C2 RGB – Bách Khoa Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-kep-cao-cap-chihiros-c2-rgb",
+      "title": "Đèn LED Kẹp Cao Cấp Chihiros C2 RGB – Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shaquarium.com/san-pham/%C4%91%C3%A8n-chihiros-c2-rgb.html",
+      "title": "Đèn Chihiros C2 RGB – Shaquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-kep-chihiros-c2-trang-rgb-desktop-light",
+      "title": "Đèn led kẹp Chihiros C2 trắng, RGB Desktop Light – Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.greendeal.vn/chihiros-led-c2-rgb",
+      "title": "CHIHIROS - LED C2 RGB – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/den-thuy-sinh-be-ca-mini",
+      "title": "9 dòng đèn thủy sinh bể cá mini LED RGB – Thủy Sinh 4U",
+      "kind": "review"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-kep",
+      "title": "Đèn led kẹp – Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/chihiros-c2-rgb-wattage-clarification.72230",
+      "title": "Chihiros C2 RGB wattage clarification – UKAPS forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://buceplant.com/products/chihiros-c-series-led-light-vr-ii",
+      "title": "Chihiros CII Series White LED Light – Buce Plant",
+      "kind": "shop"
+    }
+  ]
+}

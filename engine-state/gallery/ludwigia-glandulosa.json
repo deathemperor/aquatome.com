@@ -33,7 +33,8 @@
   "inat:728940656",
   "inat:740776344",
   "File:Aquatic and wetland plants of southwestern United States (Page 1189) BHL3347653.jpg",
-  "File:Ludwigia glandulosa Sandy Creek Park KG (2).jpg"
+  "File:Ludwigia glandulosa Sandy Creek Park KG (2).jpg",
+  "flickr:50184495328"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/df63d71447a3164f.webp": "f16be9d59c13b6b5",
@@ -42,10 +43,10 @@
   "https://media.aquatome.com/inaturalist/8935602.webp": "d3cb1ab529cbf293",
   "https://media.aquatome.com/inaturalist/707729398.webp": "8281a21149133537",
   "https://media.aquatome.com/inaturalist/707729493.webp": "93344c0a5a995567",
-  "https://media.aquatome.com/inaturalist/272605148.webp": "55e80c9b4d365e3d",
   "https://media.aquatome.com/inaturalist/219942095.webp": "cd56f15a69bbd474",
   "https://media.aquatome.com/inaturalist/707729416.webp": "6c230f46f19bba21",
-  "https://media.aquatome.com/inaturalist/272588374.webp": "d3ce667992d331a8"
+  "https://media.aquatome.com/inaturalist/272588374.webp": "d3ce667992d331a8",
+  "https://live.staticflickr.com/65535/50184495328_3cf5f44d5e_b.jpg": "2311522621999f9e"
  },
  "inat": {
   "taxon": 164854,
@@ -59,5 +60,9 @@
  "gbif": {
   "key": 5421019,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-07"
 }

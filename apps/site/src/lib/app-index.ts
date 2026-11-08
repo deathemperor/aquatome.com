@@ -1,7 +1,8 @@
-import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import { resolveDataCard, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
+import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
@@ -9,7 +10,7 @@ import { smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
-import { appRange, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
+import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
 import { seriesGuides } from './video'
 
@@ -37,6 +38,8 @@ export type AppItem = {
   path: string
   /** A small photo (about 480 px wide). */
   img?: string
+  /** A fish's short silent loop, real footage of it (content/curation.json `loops`): for cards and its page. */
+  loop?: Loop
   /** A guide's subject, as the guide list groups them (GuideEntity['kind']: setup, care, plantCare, …). */
   section?: string
   /** The fish and plants a guide names, by content id, as its page links them ("Bài viết nhắc đến loài này"). */
@@ -148,7 +151,7 @@ export function appSeries(lang: Lang, c: Content): { s: Content['series'][number
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
  */
-export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] }
+export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] } & AppCuration
 /**
  * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
  * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
@@ -182,7 +185,7 @@ export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
  * every language (the Vietnamese content's), so a breed gets its species' group even where that species has no page.
  */
-export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species): AppIndex {
+export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species, cur?: { calendar: Curation; today: string }): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
@@ -201,8 +204,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const origins = originPages(lang, c)
   const paged = new Set(origins.map(p => p.id))
   const places: AppPlace[] = origins.map(p => {
-    const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => x.t.name) : []
-    return { id: p.id, name: p.t.name, kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
+    const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => capitalized(x.t.name)) : []
+    return { id: p.id, name: capitalized(p.t.name), kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
   })
   const regionName = regionNames(c.places)
   const taxa = served(lang, '/vi/phan-loai/x/')
@@ -217,7 +220,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const life = resolveDataCard(s.dataCard.lifeYears ?? [], 'lifeYears')?.value
       const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
-        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), group: groupOf.get(s.id),
+        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
@@ -229,7 +232,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const card = breedFigures(b)
       const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
       items.push(clean({
-        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds),
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }
@@ -276,6 +279,16 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
+  // The editorial calendar's days and this week's picks, only those this index lists.
+  if (cur) {
+    // Each page the calendar can name, by kind and content id, at its address in this index.
+    const refs = new Map<string, string>()
+    for (const s of appSpecies(lang, c)) refs.set(`species/${s.id}`, at(`/vi/ca/${s.t.slug}/`))
+    for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
+    for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
+    for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
+    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }))
+  }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
   return {

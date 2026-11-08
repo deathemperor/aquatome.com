@@ -1,10 +1,13 @@
 {
   "slug": "loktak-lake",
-  "name": "Loktak Lake",
-  "altNames": [],
+  "name": "hồ Loktak",
+  "altNames": [
+    "Loktak Lake"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

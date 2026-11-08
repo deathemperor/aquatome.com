@@ -1,10 +1,13 @@
 {
   "slug": "corsica",
-  "name": "Corsica",
-  "altNames": [],
+  "name": "Corse",
+  "altNames": [
+    "Corsica"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

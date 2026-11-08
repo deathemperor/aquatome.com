@@ -1,10 +1,13 @@
 {
   "slug": "cachoeira-do-el-dorado",
-  "name": "Cachoeira do el Dorado",
-  "altNames": [],
+  "name": "thác El Dorado",
+  "altNames": [
+    "Cachoeira do el Dorado"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

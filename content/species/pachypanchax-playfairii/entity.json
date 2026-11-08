@@ -1,0 +1,207 @@
+{
+  "id": "pachypanchax-playfairii",
+  "scientificName": "Pachypanchax playfairii",
+  "order": "Cyprinodontiformes",
+  "family": "Aplocheilidae",
+  "genus": "Pachypanchax",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "seychelles",
+    "tanzania",
+    "zanzibar"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax_playfairii_en/",
+      "html": "<p>The Golden Panchax, Pachypanchax playfairii, is the only primary freshwater fish species from the Seychelles. It is one of the more robust killifish species and one of the comparatively rare killis that can be kept even in community tanks, although tankmates should not be too small. The maximum length reported in literature is 10 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>Playfair's panchax, Pachypanchax playfairii, is a killifish from forest streams in the granitic Seychelles, and has been translocated to Zanzibar. The only purely freshwater fish native to the Seychelles, it is known there from Mahé, Praslin, Silhouette and La Digue. Raised scales on the back of most adult males and a black ocellus in the dorsal fin of females tell it apart from all congeners.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax_playfairii_en/",
+      "html": "<p>Aquarists who read older books find this killifish in all literature until the 1970s. Then the species seemed to disappear from the mainstream of the aquarium hobby. The specimens offered are tank-bred, bred in Europe.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>Type locality is given simply as 'Seychelles' and this species was originally endemic to the Granitic Seychelles, i.e., those islands in the centre of the group composed chiefly of granite rock.</p><p>A translocated population now exists on Zanzibar while in the Seychelles it's known from the islands of Mahé, Praslin, Silhouette and La Digue.</p><p>This species' conservation status is currently in need of evaluation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>Unlike the outer coral-based islands the Granitic Seychelles are covered in tropical moist forest with a number of endemic plant and animal species, and P. playfairii inhabits small streams under forest cover.</p><p>It's the only purely freshwater fish species native to the Seychelles although the endemic microdesmid Parioglossus multiradiatus also occurs in the lower reaches of some streams while it appears that some non-natives have become established, in particular the tilapia Oreochromis mossambicus.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>An unfussy feeder and will accept quality dried products as well as live and frozen fare, including earthworms of its own body length as well as bloodworm, Tubifex, Daphnia, etc.</p><p>Wingless fruit flies of the genus Drosophila and tiny crickets are also excellent foods if gut-loaded prior to use.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax_playfairii_en/",
+      "html": "<p>It can be kept in community tanks, but tankmates should not be too small.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>Relatively peaceful although much smaller fishes are likely to be predated on, and given its conservation status it's perhaps best maintained alone.</p><p>It can be maintained in a group provided the aquarium contains sufficient refuges.</p><p>Rival males will regularly fight amongst themselves but serious physical damage is rare.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax_playfairii_en/",
+      "html": "<p>Females can be easily recognized by the dark spot in the dorsal fin.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>Males grow larger than females and develop more-extended fins as they mature, plus they are far more colourful than females with a series of reddish-brown spots on the flanks.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax_playfairii_en/",
+      "html": "<p>In specimens ready to spawn the scales on the back ruffle up. This phenomenon is unique among all the fish species known so far.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>If conditions are suitable this species is not difficult to breed and will deposit its eggs among live plants, aquatic mosses, synthetic mops, etc.</p><p>It's perhaps best spawned in a group which can be left in situ and in a well-decorated set-up some fry may escape predation by the adults, otherwise eggs or medium can be removed to a separate container for incubation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax_playfairii_en/",
+      "html": "<p>Specimens are about 5 cm long and sexually fully mature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<p>This species can be immediately told apart from all congeners by the presence of raised scales on the dorsal surface of most adult males and a black ocellus in the dorsal fin of females.</p><p>The genus Pachypanchax is endemic to Madagascar and the granitic Seychelles with one recently translocated population known from the island of Zanzibar.</p><p>The position of the family Aplocheilidae within the Order Cyprinodontiformes and its constituent members appears to be in question.</p><p>It's generally been considered a natural, monophyletic lineage comprising species from India, South East Asia, The Seychelles and Madagascar but the results of a phylogenetic analysis by Hertwig (2008) suggest that the genus Aplocheilus represents the basal sister group to all other Cyprinodontiformes with Pachypanchax forming a separate, less-ancient evolutionary lineage.</p><p>The author stopped short of suggesting new family groups for the two genera, however, and both remain in Aplocheilidae at time of writing.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-playfairii",
+      "html": "<ul><li>Loiselle, P. V. (2006). A review of the Malagasy Pachypanchax (Teleostei: Cyprinodontiformes, Aplocheilidae), with descriptions of four new species. Zootaxa 1366, 1-44</li><li>Myers, G. S. (1933). Pachypanchax, a New Genus of Cyprinodont Fishes from The Seychelles Islands and Madagascar. American Museum Novitates No. 592, 1 p.</li><li>Hertwig, S. T. (2008). Phylogeny of the Cyprinodontiformes (Teleostei, Atherinomorpha): the contribution of cranial soft tissue characters. Zoologica Scripta 37(2), 141-174</li><li>Murphy, W. J. and G. E. Collier (1997). A molecular phylogeny for aplocheiloid fishes (Atherinomorpha, Cyprinodontiformes): the role of vicariance and the origins of annualism. Molecular Biology and Evolution 14(8), 790-799</li><li>Günther, A. (1866). Catalogue of fishes in the British Museum. Catalogue of the Physostomi, containing the families Salmonidae, Percopsidae, Galaxidae, Mormyridae, Gymnarchidae, Esocidae, Umbridae, Scombresocidae, Cyprinodontidae, in the collection of the British Museum. Catalogue of fishes in the British Museum v. 6, i-xv + 1-368</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "0EMlK5L1tCM",
+      "title": "New killifish babies pachypanchax playfairii",
+      "durationSec": 83,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "ZHECa6qs2Rk",
+      "title": "Pachypanchax playfairii",
+      "durationSec": 212,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qUIdwlJdP_w",
+      "title": "Pachypanchax playfairii - (Günther, 1866) - (Aplocheilidae) - Panchax de Playfair - France - 09/2017",
+      "durationSec": 170,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oNNg4CgAyZs",
+      "title": "Pachypanchax playfairii",
+      "durationSec": 12,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá killifish",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

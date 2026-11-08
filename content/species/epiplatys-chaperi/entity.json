@@ -1,0 +1,134 @@
+{
+  "id": "epiplatys-chaperi",
+  "scientificName": "Epiplatys chaperi",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Epiplatys",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "ghana",
+    "ivory-coast",
+    "togo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6.5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>According to the literature, E. chaperi grows to around 6.5 cm long (including fins). However, these are extremely large specimens. Captive-bred specimens that are sexually mature measure only 4 cm in total length. The life expectancy is 2-3 years, which is the same as for comparably sized livebearers (e.g. platies or mollies).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>Epiplatys chaperi has a large distribution area in western Africa (Ivory Coast, Ghana and Togo), covering a good 600 km. Until now, five subspecies (chaperi, samborskii, schreiberi, sheljuzhkoi and spillmanni) have been distinguished within this large area, but Huber (2024) has elevated all of them to the rank of full species.</p><p>The locality variant \"Angona\" (from Ghana) has been widespread among killifish keepers for several decades. It can be distinguished from other E. chaperi by its orange-red fins. Over the decades, the \"silent post effect\" occurred from time to time and Angona became Angola. However, the African state of Angola is located 4,500 km south of Ghana – there are no Epiplatys chaperi there.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>No requirements are placed on the water composition. The water temperature should be in the range 22 – 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>They eat all commercially available ornamental fish food, but preferably from the water surface.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>Epiplatys chaperi is just as suitable for community aquariums with calm, select companion fish as the closely related species E. monroviae.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>The spawn of this species does not require a dry phase.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/",
+      "html": "<p>Huber, J. H. (2024): Taxonomic reappraisal and rearrangement of genus Epiplatys and its generic and specific components, with 2 new subgenera. Killi-Data Series 2024: 4-60.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "2R8bv1K7A4w",
+      "title": "Epiplatys chaperi chaperi \"Angona\"",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NAvN7hcFsTg",
+      "title": "Epiplatys chaperi",
+      "durationSec": 115,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zImjYfvFYZs",
+      "title": "Epiplaty chaperi chaperi \"Angona\"",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5kXKJG_GFPE",
+      "title": "Jeunes Epiplatys chaperi chaperi \"Angona\"",
+      "durationSec": 34,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ có nắp"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn nổi cho cá nhỏ",
+        "thức ăn cá killifish"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

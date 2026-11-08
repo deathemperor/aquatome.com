@@ -1,0 +1,212 @@
+{
+  "id": "limia-melanogaster",
+  "scientificName": "Limia melanogaster",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Limia",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "jamaica"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_melanogaster_en/",
+      "html": "<p>Wild forms of livebearers are only rarely kept continuously by hobbyists over decades. Poecilia melanogaster is one of these species.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>The black-bellied limia, Limia melanogaster, is a small livebearer endemic to Jamaica, where it usually lives in small streams. Originally placed in Limia, it was later treated as a member of Poecilia and has since been returned to Limia, but much of the literature still refers to it as Poecilia. Peaceful and easy to breed, it is not often seen for sale in the hobby.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_melanogaster_en/",
+      "html": "<p>It originates from Jamaica, but only bred ones are available from time to time. P. melanogaster can be found only occasionally in pet shops: if it appears there, it will soon be sold again.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_melanogaster_en/",
+      "html": "<p>Jamaica.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>Jamaica.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>It is usually found living in small streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>Standard length: 40 mm SL (4 cm).</p><p>Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>Prefers a tank with densely planted areas but also plenty of open swimming space hence the relatively large recommended tank size. Also appreciates some floating cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 7.5–8.5</li><li>Hardness: 20–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>Very unfussy. Will accept most foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>Peaceful and can be combined with other small hard water tolerant fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>The male is smaller and possesses a gonopodium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>Easy. Reproduces in the usual livebearer fashion. Males can be incredibly vigorous in their pursuit of females, so the breeding tank should be as large as possible with heavily planted areas in which the females can take shelter. The addition of some floating plants is also a good idea. The adult fish are less cannibalistic than many livebearer species and can be left in the aquarium if so desired. Each brood may contain 20-50 fry, and gestation takes between 4-6 weeks. The fry are large enough to take newly hatched brine shrimp or powdered flake from birth, although they take several months to exhibit adult colouration.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_melanogaster_en/",
+      "html": "<p>Given the immense number of colourful sports of guppy, platy, molly and others, a wild form that can compete with them is without doubt a colourful fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/limia-melanogaster",
+      "html": "<p>This species was originally classified in the genus Limia before this was made a sub-genus of Poecilia. Confusingly they have been reclassified once more into Limia, but are still referred to as members of Poecilia in much of the available literature. L. melanogaster is endemic to Jamaica. It is not often seen for sale in the hobby.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/4e48471f68141ae7.webp",
+      "thumb": "https://media.aquatome.com/commons/4e48471f68141ae7-480.webp",
+      "width": 960,
+      "height": 719,
+      "licence": "CC BY-SA 4.0",
+      "author": "Radek Sejkora",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limia_melanogaster.jpg",
+      "caption": "Limie tříbarvá"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "NVEE-X_XP3Q",
+      "title": "Kleine AQUARIEN kleine FISCHE (Limia melanogaster) /TAX",
+      "durationSec": 436,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "6URctkVMQxA",
+      "title": "Limia melanogaster and Dennerle plants",
+      "durationSec": 86,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XcO1Hcgqy5o",
+      "title": "Breeder series #3 Limia Melanogaster |DW Aquatics",
+      "durationSec": 622,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "yAXm8OoG14s",
+      "title": "Limia Melanogaster plus fry",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "thức ăn cho cá đẻ con"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc sủi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

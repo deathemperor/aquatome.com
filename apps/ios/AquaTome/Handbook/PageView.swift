@@ -21,6 +21,8 @@ struct PageView: View {
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
+  /// The tank to open once the put sheet has closed.
+  @State private var openAfter: String?
   /// The page as the app draws it, once looked for (`tried`); the web page when there's none or the reader asks for it.
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
@@ -114,7 +116,11 @@ struct PageView: View {
       }
       .onAppear { handbook.read(item) }
       .onChange(of: trial, initial: true) { navigator.railOn = trial == .rail }
-      .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+      .sheet(isPresented: $putting, onDismiss: {
+        if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
+      }) {
+        if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
+      }
   }
 
   private var trial: PageNavigator.Trial {

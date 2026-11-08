@@ -33,7 +33,6 @@
   "inat:493359946"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/b6425bfb9df87a15.webp": "650dcd0d0f1f1292",
   "https://media.aquatome.com/commons/9432726606f767fa.webp": "27ffc383c8ba67ba",
   "https://media.aquatome.com/commons/cacdbe0396fa7be4.webp": "5b1b074f0e9a1262",
   "https://media.aquatome.com/commons/550b7a4323ad6001.webp": "6f3f0f2693595c83",
@@ -62,5 +61,9 @@
  "gbif": {
   "key": 2368346,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

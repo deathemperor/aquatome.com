@@ -1696,7 +1696,7 @@
               "type": "string",
               "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
             },
-            "description": "Oldest first, in the viewer's zone (or Vietnam's, where the data keeps Vietnam's days: the section's notes say so)."
+            "description": "Oldest first, in the viewer's zone (or the days the data is kept by, Vietnam's or a nightly save's: the section's notes say so). A chart starts where its count does, so it can have fewer days than its window."
           },
           "series": {
             "type": "array",
@@ -1718,7 +1718,7 @@
           },
           "partialLast": {
             "type": "boolean",
-            "description": "The last day is today, not over yet: drawn lighter."
+            "description": "The last day is still being counted: drawn lighter. It is today, or, on a chart kept by a nightly save, the day the next save closes, which can be yesterday by the viewer's clock: don't call it today yourself, `labels` and `readouts` say it."
           },
           "empty": {
             "type": "string",
@@ -1745,7 +1745,7 @@
           "today": {
             "type": "integer",
             "minimum": 0,
-            "description": "Today's bar, drawn lighter (the day isn't over), when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). A chart whose last day is today says so with `partialLast` and this too."
+            "description": "Today's bar, drawn lighter (the day isn't over), when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). A chart whose last day is still being counted says so with `partialLast` and this too."
           },
           "period": {
             "type": "string",
@@ -2378,7 +2378,7 @@
           "url": {
             "type": "string",
             "pattern": "^https://aquatome\\.com/_ab/bao-cao/[^/?#]+/$",
-            "description": "The report's page on the dashboard. The app opens it on a tap, and ignores a url that isn't https on aquatome.com; signed out on the web, the page asks the owner to sign in and comes back."
+            "description": "The report's page on the dashboard. The app opens it on a tap, and ignores a url that isn't https on aquatome.com; a browser is sent on to the dashboard's own address, where Cloudflare Access asks a signed-out owner to sign in, and lands on the report."
           }
         }
       },

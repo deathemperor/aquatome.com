@@ -435,3 +435,43 @@ test('photos to judge first also come from notes saying a hand or a person, and 
   })
   expect(peopleNote('Adult among dead leaves on the bottom')).toBe(false)
 })
+
+// The v2 Lab (2026-11-08): the model took a Dario dario male for a Badis badis, and a Channa andrao was "can't tell" on
+// two snakehead pages; the gallery's Vietnamese captions had dropped the species the Commons file name gave.
+test('a Commons photo whose file name names another species with a page leaves that page, whatever the model said', async () => {
+  const r = await root([
+    { id: 'badis-badis', sci: 'Badis badis', gallery: ['dario', 'blue', 'both', 'andrao'] },
+    { id: 'channa-andrao', sci: 'Channa andrao' },
+    { id: 'dario-dario', sci: 'Dario dario', gallery: ['dario'] },
+    { kind: 'plants', id: 'anubias-barteri', sci: 'Anubias barteri' },
+    { kind: 'plants', id: 'anubias-barteri-var-glabra', sci: 'Anubias barteri var. glabra', gallery: ['glabra'] },
+    { id: 'neocaridina-davidi', sci: 'Neocaridina davidi', extra: { synonyms: ['Neocaridina heteropoda'] }, gallery: ['cherry', 'tenellus'] },
+    { id: 'danio-margaritatus', sci: 'Danio margaritatus' },
+    { kind: 'plants', id: 'helanthium-tenellum', sci: 'Helanthium tenellum', extra: { synonyms: ['Echinodorus tenellus'] } },
+  ])
+  const files: Record<string, string> = {
+    dario: 'Dario_dario_male.jpg', andrao: 'Channa_andrao_im_Aquarium.jpg', blue: 'Blauwe_badis_(man).jpg', both: 'Badis_badis_and_Dario_dario.jpg',
+    glabra: 'Anubias_barteri_var._glabra-Jardin_botanique_de_Berlin_(2).jpg', cherry: 'Neocaridina_heteropoda,_Danio_margaritatus.jpg',
+    tenellus: 'Red_cherry_shrimp_on_Echinodorus_tenellus.jpg',
+  }
+  for (const id of ['badis-badis', 'dario-dario', 'anubias-barteri-var-glabra', 'neocaridina-davidi']) {
+    const f = join(r, 'content/gallery', `${id}.json`)
+    const g = JSON.parse(await readFile(f, 'utf8'))
+    for (const p of g.photos) p.sourceUrl = `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(files[name(p.url)]!)}`
+    await writeFile(f, `${JSON.stringify(g, null, 2)}\n`)
+  }
+  // The model's earlier look: a Badis badis male.
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('dario')]: { 'badis-badis': { ok: 'yes', typical: true, note: 'a Badis badis male', logo: false, person: false } } }))
+  const d = model({})
+  const out = await checkPagePhotos(r, d, { limit: 10 })
+  expect(out.removed).toEqual([`gallery/badis-badis.json: ${url('dario')}`, `gallery/badis-badis.json: ${url('andrao')}`])
+  expect(await urls(r, 'content/gallery/badis-badis.json')).toEqual(['blue', 'both'])
+  expect(await urls(r, 'content/gallery/dario-dario.json')).toEqual(['dario'])
+  // A variety's photo filed under its species, a synonym with another fish in the shot, and a plant in the tank, stay.
+  expect(await urls(r, 'content/gallery/anubias-barteri-var-glabra.json')).toEqual(['glabra'])
+  expect(await urls(r, 'content/gallery/neocaridina-davidi.json')).toEqual(['cherry', 'tenellus'])
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('dario')]['badis-badis']).toEqual({ ok: 'other', typical: false, note: 'its Commons file names Dario dario', logo: false, person: false, file: true })
+  // Not sent to the model for Badis badis, and not rejected for good: Dario dario's page keeps it, and Channa andrao's may take it.
+  expect(d.seen.filter(s => s.prompt.includes('Badis badis')).flatMap(s => s.photos)).toEqual(['blue', 'both'])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+})

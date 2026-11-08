@@ -46,7 +46,6 @@
   "https://media.aquatome.com/inaturalist/246842861.webp": "1c17993c7c4d7d07",
   "https://media.aquatome.com/inaturalist/371607430.webp": "b3cce8e081b28c78",
   "https://media.aquatome.com/inaturalist/371607379.webp": "c3e5cdd8e1193083",
-  "https://media.aquatome.com/inaturalist/251105703.webp": "07030b41090d0913",
   "https://media.aquatome.com/inaturalist/543890514.webp": "d9cc8cc48e3f7b8c",
   "https://media.aquatome.com/inaturalist/543890446.webp": "e3d3c7dbb3b32373",
   "https://media.aquatome.com/inaturalist/543892998.webp": "ab6b42412d2f171e",
@@ -64,5 +63,9 @@
  "gbif": {
   "key": 5211201,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

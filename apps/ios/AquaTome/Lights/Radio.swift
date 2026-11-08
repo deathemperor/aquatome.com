@@ -41,7 +41,7 @@ final class BluetoothRadio: Radio {
 /// The simulator's light: a WRGB II Slim holding the owner's everyday schedule. Launch arguments for UI tests:
 /// `-fake-clock-unset` (as after a power cut), `-fake-clock-slow` (seven hours behind), `-fake-old-firmware` (firmware
 /// 19), `-fake-other-schedule` (10:00–17:00, 55%, ramp 15: not the form's starting values), `-fake-slow` (each frame
-/// takes 1.5 s), `-fake-no-bluetooth` (the reader refused Bluetooth), `-fake-drop` (the light drops the first connection
+/// takes 1.5 s), `-fake-slower` (each frame 4 s), `-fake-no-bluetooth` (the reader refused Bluetooth), `-fake-drop` (the light drops the first connection
 /// at the first level set by hand, and isn't seen by a scan again: it can only be connected to again as the light it was),
 /// `-fake-drop-reading` (the same, at the first status request, while the app reads the light).
 @MainActor
@@ -101,7 +101,7 @@ final class FakeRadio: Radio {
         }
       }
     }
-    fake.writeDelay = arguments.contains("-fake-slow") ? .milliseconds(1500) : .milliseconds(15)
+    fake.writeDelay = arguments.contains("-fake-slower") ? .seconds(4) : arguments.contains("-fake-slow") ? .milliseconds(1500) : .milliseconds(15)
     held = fake
     return fake
   }

@@ -8,13 +8,37 @@
   "places": [
     "south-america",
     "suriname",
-    "suriname-river"
+    "suriname-river",
+    "french-guiana",
+    "approuague"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 18.8
+      },
+      {
+        "source": "scotcat",
+        "value": 19
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,10 +50,52 @@
       "html": "<ul><li>Scientific name: Harttia surinamensis Boeseman, 1971</li><li>IUCN Red List: Least Concern (last assessed 2023)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Harttia surinamensis Boeseman, 1971 (L040), family Loricariidae. Similar to H. fluminensis but differs in colour and morphometrics. Size: 19 cm. Temperature: 25-30°C. pH: 6.0-7.0.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1263",
       "html": "<p>South America: Guyana waters, coastal rivers of the Guianas and Suriname coastal rivers. Type locality: Grandam, Gran Rio, upper Suriname River, Suriname.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>South America: coastal rivers from the Suriname River east to the Approuague River.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Very abundant in zones of swiftly flowing plunging waters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Not the easiest genus to keep as they need clean, oxygen-rich water and a strong current. Does not do well as imports because of the difficulty of travelling in containers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Temperature 25-30°C, pH 6.0-7.0. Clean, oxygen-rich water with a strong current.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Dry foods, algae wafers, Spirulina and normal tablet foods. Frozen foods, Artemia nauplii, glass worms and Daphnia.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>The adult male has very well developed odontodes on the front edge of its pectoral fins. Males tend to have odontodes (hair-like structures) on the first ray of the pectoral fins, and the male's head is broader.</p>"
     },
     {
       "key": "reproduction",
@@ -38,10 +104,22 @@
       "html": "<p>There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Identification: the main identification points are the dark crescent on the caudal fin and the black tips of the caudal fin.</p><p>Etymology: the genus name Harttia honours Charles Frederick Hartt (1840-1878), geologist, paleontologist and naturalist, who collected many specimens that Steindachner studied during the Thayer Expedition (1865-1866) to Brazil. The specific name surinamensis means \"from Surinam\".</p><p>IUCN Red List: precise estimates of the current population size are not known, and population abundance is considered low in most of its range. However, although its range may be impacted by mining activities, the species occupies a large distribution across Suriname and French Guiana. It is currently assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1263",
       "html": "<p>Zoologische Verhandelingen (Leiden) No. 116, pp 28, Pl. 3.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm",
+      "html": "<p>Boujard, T., M. Pascal, F.J. Meunier and P.-Y. Le Bail, 1997. Poissons de Guyane. Guide écologique de l'Approuague et de la réserve des Nouragues. Institut National de la Recherche Agronomique, Paris, 219 p.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2015).</p><p>Lasso-Alcalá, O.M., Martínez, E.O., Mikolji, I. &amp; Quintero-T., E. 2023. Harttia surinamensis. The IUCN Red List of Threatened Species 2023.</p><p>Le Bail, P.-Y., P. Keith and P. Planquette, 2000. Atlas des poissons d'eau douce de Guyane. Tome 2, Fascicule II: Siluriformes. Collection Patrimoines Naturels 43(II): 307p. Paris: Publications scientifiques du Muséum national d'Histoire naturelle.</p>"
     }
   ],
   "photos": [
@@ -81,5 +159,6 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07",
+  "lNumber": "L040"
 }

@@ -116,6 +116,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/are-crayfish-good-pets-for-beginners-pros-and-cons/": {
+    "lastmod": "2026-06-06T17:37:24+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-are-crayfish-good-pets-for-beginners-pros-and-cons"
+    ],
+    "updatedAt": "2026-11-07T02:10:31.927Z",
+    "hash": "8717bf477ee45f74d22a533f1e49f4a9bf51dc34ce364042cf0e6edb6513267e",
+    "processedHash": "8717bf477ee45f74d22a533f1e49f4a9bf51dc34ce364042cf0e6edb6513267e",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/are-land-snails-good-pets-pros-and-cons/": {
     "lastmod": "2026-06-06T17:36:11+00:00",
     "entityIds": [],
@@ -407,12 +418,32 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:37:25+00:00",
+    "entityIds": [
+      "species/epiplatys-annulatus"
+    ],
+    "updatedAt": "2026-11-08T00:20:46.009Z",
+    "hash": "962ac8408d4109660511f73490a3938ce6555ae0f207506352d45a70e01d99d8",
+    "processedHash": "962ac8408d4109660511f73490a3938ce6555ae0f207506352d45a70e01d99d8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/coenobita-brevimanus-detailed-care-guide/": {
     "lastmod": "2026-06-06T17:36:51+00:00",
     "entityIds": [],
     "updatedAt": "2026-11-04T22:27:00.163Z",
     "hash": "9822a90e4003f355b10a6719d195e7cd956d4d54e13bfd948890548c424de902",
     "processedHash": "9822a90e4003f355b10a6719d195e7cd956d4d54e13bfd948890548c424de902",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/coenobita-clypeatus-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:37:06+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-07T01:57:51.895Z",
+    "hash": "85783e405d5543b7daf4d4b2e47a40e1f0874726420fce1f7d2d19f5b7d69b74",
+    "processedHash": "85783e405d5543b7daf4d4b2e47a40e1f0874726420fce1f7d2d19f5b7d69b74",
     "status": "skipped",
     "attempts": 0
   },
@@ -556,6 +587,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/do-crayfish-need-to-come-out-of-water/": {
+    "lastmod": "2026-06-06T17:37:25+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water"
+    ],
+    "updatedAt": "2026-11-08T00:24:25.712Z",
+    "hash": "520e113a083abee02547786eae865cfd848ed7f9ec1cb8ead100f511b0ba61a5",
+    "processedHash": "520e113a083abee02547786eae865cfd848ed7f9ec1cb8ead100f511b0ba61a5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:57+00:00",
     "entityIds": [
@@ -689,6 +731,15 @@
     "hash": "4a5efd8cc1f166f254cb8cb432196929ce0b5c5b96089c18599905e98e8e892a",
     "processedHash": "4a5efd8cc1f166f254cb8cb432196929ce0b5c5b96089c18599905e98e8e892a",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-dig-up-molting-hermit-crab-the-right-way/": {
+    "lastmod": "2026-06-06T17:37:06+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-07T01:58:44.218Z",
+    "hash": "254d3409aacc8d140be30320441d88d647b47b3507e4ecef29c738a319b65d67",
+    "processedHash": "254d3409aacc8d140be30320441d88d647b47b3507e4ecef29c738a319b65d67",
+    "status": "skipped",
     "attempts": 0
   },
   "https://aquariumbreeder.com/how-to-euthanize-your-snails-and-shrimp-humanely/": {
@@ -938,6 +989,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:37:06+00:00",
+    "entityIds": [
+      "plants/aponogeton-madagascariensis"
+    ],
+    "updatedAt": "2026-11-07T01:59:03.439Z",
+    "hash": "25f64db3f599fca9cf4d2d2fa7d1136cc28f9565e9cf0254cd2206be89f0f06f",
+    "processedHash": "25f64db3f599fca9cf4d2d2fa7d1136cc28f9565e9cf0254cd2206be89f0f06f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/malaysian-black-scorpion-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:36:30+00:00",
     "entityIds": [],
@@ -1061,6 +1123,17 @@
     "updatedAt": "2026-11-06T11:56:19.746Z",
     "hash": "636ae552e04bcec3a377ec614592e48f713be01dee9c87469c0ca01746eaab32",
     "processedHash": "636ae552e04bcec3a377ec614592e48f713be01dee9c87469c0ca01746eaab32",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/most-popular-questions-about-crayfish/": {
+    "lastmod": "2026-06-06T17:37:25+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-most-popular-questions-about-crayfish"
+    ],
+    "updatedAt": "2026-11-08T00:14:33.397Z",
+    "hash": "fc3626c1daf0675792796c3076c218d0b8460cd77da219cc1ed9a8c2830312da",
+    "processedHash": "fc3626c1daf0675792796c3076c218d0b8460cd77da219cc1ed9a8c2830312da",
     "status": "processed",
     "attempts": 0
   },
@@ -1196,6 +1269,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/protein-skimmer-for-a-nano-reef-aquarium/": {
+    "lastmod": "2026-06-06T17:37:25+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-protein-skimmer-for-a-nano-reef-aquarium"
+    ],
+    "updatedAt": "2026-11-08T00:18:33.918Z",
+    "hash": "f2fdc06ae8e48fa656e701f0e4a7593bd86c030fb0a75de20dfc1aa1ce4141f0",
+    "processedHash": "f2fdc06ae8e48fa656e701f0e4a7593bd86c030fb0a75de20dfc1aa1ce4141f0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/queen-arabesque-l260-pleco-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:36:11+00:00",
     "entityIds": [],
@@ -1244,6 +1328,17 @@
     "updatedAt": "2026-11-01T02:00:45.794Z",
     "hash": "60b66f11c7c0eb75d0c239300d022aec0326e254fbadd37a38fa0843c0843ef5",
     "processedHash": "60b66f11c7c0eb75d0c239300d022aec0326e254fbadd37a38fa0843c0843ef5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/red-mangrove-crab-care/": {
+    "lastmod": "2026-06-06T17:37:24+00:00",
+    "entityIds": [
+      "species/manarma-moeschii"
+    ],
+    "updatedAt": "2026-11-07T02:06:10.013Z",
+    "hash": "b45e6bb0928cd5677cfcbd260fa48aae9c0ffeaca043a228f1869757e6e27bbf",
+    "processedHash": "b45e6bb0928cd5677cfcbd260fa48aae9c0ffeaca043a228f1869757e6e27bbf",
     "status": "processed",
     "attempts": 0
   },
@@ -1330,6 +1425,17 @@
     "updatedAt": "2026-11-06T19:21:06.039Z",
     "hash": "825a4d58d45e79a0f7dd3a5add0d719e3fd6d8e860709be2bd524d43e3878eb5",
     "processedHash": "825a4d58d45e79a0f7dd3a5add0d719e3fd6d8e860709be2bd524d43e3878eb5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/salvinia-auriculata-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:39:49+00:00",
+    "entityIds": [
+      "plants/salvinia-auriculata"
+    ],
+    "updatedAt": "2026-11-08T00:09:09.870Z",
+    "hash": "775ec5b4784bf19a2398bd51c0609d1ab4d411990da3a8ac4a8cdaf9083eb585",
+    "processedHash": "775ec5b4784bf19a2398bd51c0609d1ab4d411990da3a8ac4a8cdaf9083eb585",
     "status": "processed",
     "attempts": 0
   },
@@ -1470,6 +1576,15 @@
     "hash": "cba5d617edc87fd4700831097a90fb847d476a71457c92d6dcdfc3a88a2bd0e2",
     "processedHash": "cba5d617edc87fd4700831097a90fb847d476a71457c92d6dcdfc3a88a2bd0e2",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/strawberry-hermit-crab-detailed-guide-care/": {
+    "lastmod": "2026-06-06T17:37:24+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T00:14:22.991Z",
+    "hash": "b5eb831647362f3f246fa77855e7062b1dd38437d3ab2e55e6946b5b6c280641",
+    "processedHash": "b5eb831647362f3f246fa77855e7062b1dd38437d3ab2e55e6946b5b6c280641",
+    "status": "skipped",
     "attempts": 0
   },
   "https://aquariumbreeder.com/submerged-aquarium-plants-as-nitrate-suppressors/": {

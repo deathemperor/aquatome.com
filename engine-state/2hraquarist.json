@@ -1,17 +1,23 @@
 {
   "https://www.2hraquarist.com/blogs/algae-control/algae-and-tank-maturity": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T13:27:08.014Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-algae-and-tank-maturity"
+    ],
+    "updatedAt": "2026-11-07T23:21:04.214Z",
+    "hash": "3144da4a09237a960f6ca305a3d57c3f8d12943b6722ea69827ec152b9df2515",
+    "processedHash": "3144da4a09237a960f6ca305a3d57c3f8d12943b6722ea69827ec152b9df2515",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/algae-control-101": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T13:28:14.612Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-algae-control-101"
+    ],
+    "updatedAt": "2026-11-07T23:24:30.685Z",
+    "hash": "240c7dba0d36f54164c23ead08ccc018d18e25c42d1f517e12d84c9c671c9887",
+    "processedHash": "240c7dba0d36f54164c23ead08ccc018d18e25c42d1f517e12d84c9c671c9887",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/ccontrol-algae-excess-nutrients": {
     "entityIds": [],
@@ -142,45 +148,64 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/prevent-algae-growth": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-prevent-algae-growth"
+    ],
+    "updatedAt": "2026-11-07T01:02:56.633Z",
+    "hash": "473691eaa24648e806f475419bd500204dda8682598c4fe9c7a022dcbbb72f45",
+    "processedHash": "473691eaa24648e806f475419bd500204dda8682598c4fe9c7a022dcbbb72f45",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/solving-algae-issues-without-using-algicides": {
     "entityIds": [],
-    "updatedAt": "2026-11-06T18:35:31.895Z",
+    "updatedAt": "2026-11-07T01:12:59.465Z",
     "status": "error",
     "attempts": 2,
     "error": "fetch failed"
   },
-  "https://www.2hraquarist.com/blogs/algae-control/solving-algae-issues-without-using-algicides": {
-    "entityIds": [],
-    "updatedAt": "2026-11-06T18:35:37.018Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
-  },
   "https://www.2hraquarist.com/blogs/algae-control/tackle-algae-by-doing-nothing": {
     "entityIds": [],
-    "updatedAt": "2026-11-06T18:35:42.226Z",
+    "updatedAt": "2026-11-07T01:13:04.754Z",
+    "status": "error",
+    "attempts": 2,
+    "error": "fetch failed"
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/this-wouldnt-work": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T01:13:10.896Z",
     "status": "error",
     "attempts": 1,
     "error": "fetch failed"
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T21:58:22.460Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "plants/limnophila-aromatica"
+    ],
+    "updatedAt": "2026-11-07T23:15:59.738Z",
+    "hash": "e78f99d85408f8a9f0753d2fb6203ccee808219431058be73fc7b373da614587",
+    "processedHash": "e78f99d85408f8a9f0753d2fb6203ccee808219431058be73fc7b373da614587",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-ludwigia-brevipes": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T22:00:34.676Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "plants/ludwigia-brevipes"
+    ],
+    "updatedAt": "2026-11-07T23:19:07.884Z",
+    "hash": "64a37ecf28e86d4e70899c42bbd017c98e429e3cd3082874b24e88c1044e4187",
+    "processedHash": "64a37ecf28e86d4e70899c42bbd017c98e429e3cd3082874b24e88c1044e4187",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-micranthemum-tweediei-monte-carlo": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T21:59:28.439Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "plants/micranthemum-tweediei"
+    ],
+    "updatedAt": "2026-11-07T23:12:36.990Z",
+    "hash": "af0bb197afffbcba9fc1e91b35900f251ed290a23e8491689bdef583d9287b68",
+    "processedHash": "af0bb197afffbcba9fc1e91b35900f251ed290a23e8491689bdef583d9287b68",
+    "status": "processed",
+    "attempts": 0
   }
 }

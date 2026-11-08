@@ -1,0 +1,21 @@
+{
+  "slug": "ca-tra-mui",
+  "name": "Cá tra mũi",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<p>Tên khoa học: Pangasius nasutus (Bleeker, 1863). Họ: Pangasiidae. Kích thước tối đa: 90 cm SL (chiều dài chuẩn, đo từ mõm đến gốc đuôi). Sách Đỏ IUCN: Ít quan tâm (lần đánh giá gần nhất vào năm 2019).</p><p>Nguồn gốc tên gọi: chữ Pangasius bắt nguồn từ pungas, tên mà người địa phương nói tiếng Bengal dùng để gọi loài cá này.</p>",
+    "distribution:planetcatfish": "<p>Châu Á: loài này sống ở các con sông trên Sumatra và Borneo thuộc quần đảo Đại Sunda, và ở bán đảo Malaysia. Mẫu chuẩn được thu ở sông Barito, Bandjarmasin, miền nam Kalimantan, Borneo, Indonesia.</p>",
+    "equipment:planetcatfish": "<p>Loài cá này cần một khoảng trống thật rộng để bơi. Bạn nên trồng thêm ít cây trong bể, vì có cây thì cá bớt nhát hơn.</p>",
+    "dimorphism:planetcatfish": "<p>Cá cái có thân tròn đầy hơn cá đực.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có tài liệu nào ghi nhận loài này sinh sản trong bể nuôi.</p>",
+    "references:planetcatfish": "<p>Verslagen en Mededeelingen der Koninklijke Akademie van Wetenschappen. Afdeling Natuurkunde. v. 15, pp 72.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.8
+    },
+    "reason": "thin"
+  }
+}
