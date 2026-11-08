@@ -414,7 +414,7 @@ final class HandbookModel {
 #if DEBUG
 extension HandbookIndex {
   /// UI tests' calendar (`-plan`): 13 November planned whole, its fish one Hôm nay's own picks never are, each card with
-  /// its photo; the 14th as most planned days are so far, no fish, and a guide and a story without a photo, the story's
+  /// its photo; the 14th planned with no fish, and a guide and a story without a photo, the story's
   /// line as long as the editors write them; the 15th not planned. The 13th's story tells the guide the app's own picks
   /// lead with, in the editors' words.
   static let fixtureDays: [Home.Day] = [

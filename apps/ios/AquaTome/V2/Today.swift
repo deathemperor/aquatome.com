@@ -176,6 +176,22 @@ struct TodayView: View {
 }
 
 /// The words on a card above its title; `faded` on a photo's colour, not on a colour of their own (4.5:1 on white).
+/// A card's round mark (a guide's book, a story's quote, a video's play), all one size: its circle grows with the text up to
+/// the largest size before the accessibility ones, no further (past it, a quarter of the screen of decoration), and its
+/// symbol is a share of the circle, so it sits inside at any size.
+private struct CardMark: View {
+  let symbol: String
+  @ScaledMetric(relativeTo: .title3) private var scaled: CGFloat = 48
+
+  var body: some View {
+    let d = min(scaled, 64)
+    Image(systemName: symbol).font(.system(size: d * 0.42, weight: .semibold))
+      .frame(width: d, height: d)
+      .background(Circle().fill(.white.opacity(0.18)))
+      .accessibilityHidden(true)
+  }
+}
+
 private struct Eyebrow: View {
   let text: LocalizedStringKey
   var faded = true
@@ -284,14 +300,17 @@ private struct GuideCard: View {
     self.img = img
     self.words = words
     self.zoom = zoom
-    _colour = State(initialValue: PhotoColour.cached(img) ?? PhotoColour.fallback)
+    // Until its photo comes, or when it doesn't, its own ground: not the tank card's green, one card twice.
+    _colour = State(initialValue: PhotoColour.cached(img) ?? (words == nil ? Self.rust : Self.plum)[0])
   }
+
+  /// A guide's ground, and a story's: each its own, so the two without a photo aren't one card twice.
+  private static let rust = [Color(red: 0.48, green: 0.23, blue: 0.13), Color(red: 0.3, green: 0.13, blue: 0.08)]
+  private static let plum = [Color(red: 0.36, green: 0.17, blue: 0.33), Color(red: 0.22, green: 0.1, blue: 0.21)]
 
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
-  /// The mark's circle grows with its symbol, so the largest text doesn't clip it.
-  @ScaledMetric(relativeTo: .title3) private var mark: CGFloat = 48
 
   var body: some View {
     NavigationLink(value: item) {
@@ -312,17 +331,14 @@ private struct GuideCard: View {
           // card's play button: a card to open, not a heading over the next. A story's ground is its own too, so a guide and
           // a story both without one aren't one card twice.
           VStack(alignment: .leading, spacing: 14) {
-            Image(systemName: item.kind == .plant ? "leaf.fill" : item.kind == .guide ? "book.pages.fill" : "fish.fill")
-              .font(.title3).frame(width: mark, height: mark).background(Circle().fill(.white.opacity(0.18)))
-              .accessibilityHidden(true)
+            // A story, the editors' words: a quote's mark, not a guide's book.
+            CardMark(symbol: words != nil ? "quote.opening" : item.kind == .plant ? "leaf.fill" : item.kind == .guide ? "book.pages.fill" : "fish.fill")
             cover
           }
           .foregroundStyle(.white)
           .frame(maxWidth: .infinity, alignment: .leading)
           .padding(20)
-          .background(LinearGradient(colors: words == nil ? [Color(red: 0.48, green: 0.23, blue: 0.13), Color(red: 0.3, green: 0.13, blue: 0.08)]
-                                       : [Color(red: 0.36, green: 0.17, blue: 0.33), Color(red: 0.22, green: 0.1, blue: 0.21)],
-                                     startPoint: .topLeading, endPoint: .bottomTrailing))
+          .background(LinearGradient(colors: words == nil ? Self.rust : Self.plum, startPoint: .topLeading, endPoint: .bottomTrailing))
         }
       }
       .animation(.easeInOut(duration: 0.4), value: colour)
@@ -508,9 +524,7 @@ private struct SeriesCard: View {
     NavigationLink(value: item) {
       VStack(alignment: .leading, spacing: 14) {
         Eyebrow(text: "Video hướng dẫn")
-        Image(systemName: "play.fill").font(.title3)
-          .frame(width: 48, height: 48)
-          .background(Circle().fill(.white.opacity(0.18)))
+        CardMark(symbol: "play.fill")
         Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(size.isAccessibilitySize ? nil : 3).multilineTextAlignment(.leading)
         if let n = item.parts { Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75) }
       }
