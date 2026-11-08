@@ -845,6 +845,145 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-ca-chet-hang-loat-trong-be-lam-gi-ngay-va-tim-nguyen-nhan-the-nao": [
+    {
+      "at": "2026-11-08T12:49:17Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Insang dan darah bertukar warna coklat gelap seperti coklat\" - facts say chocolate-brown; minor wording, fine.",
+        "\"(lebih kurang 0.95 liter)\" - the litre conversion for one quart is not in the facts (small added detail, correct but unsupported).",
+        "\"Ikan keli saluran\" for channel catfish - translation addition, harmless.",
+        "\"Kedua-dua keadaan ini memerlukan ikan dipindahkan, bukan sekadar tukar air\" - the facts give this for old tank syndrome and for ammonia >5 mg/L with pH <7, but the 'not just water change' wording for the second condition is an extrapolation.",
+        "\"Ikan yang keracunan nitrit ... Ikan berkumpul dekat saluran udara\" listed as a worry sign - fine.",
+        "\"pemanas cepat menghabiskan bateri\" - facts say it drains the battery; 'cepat' is a small embellishment.",
+        "\"Pertimbangkan diagnosis makmal ... Punca tidak dapat dikenal pasti\" - 'when to worry more' advice is not in the facts, but is a reasonable generality.",
+        "\"Ikan yang hampir mati ... patut dimatikan\" - supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T12:49:17Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"tidak lebih daripada kira-kira 0.5 °C sejam\" contradicts the facts: the limit is 1°F (about 1°C) per hour.",
+        "\"kira-kira 1 liter air tangki\" is a conversion/change: the facts say about one quart (roughly 0.95 L), so it is approximately fine but not exact.",
+        "\"Insang dan darah bertukar warna coklat seperti coklat masakan\" is a odd rewording of chocolate-brown; minor.",
+        "\"Ikan keli saluran\" etc. is supported; \"Kalau pH naik lebih daripada 1 unit\" is supported.",
+        "\"kerana paras oksigen paling rendah pada waktu pagi\" is supported.",
+        "\"Pam udara berbateri\" is supported.",
+        "\"Kematian berterusan walaupun parameter air sudah baik\" in the worry section is not in the facts (invented trigger).",
+        "\"pH jatuh di bawah 6.0 dalam tangki yang lama tidak dibuang airnya\" is supported only loosely.",
+        "The opening line \"kuatkan pengudaraan ... uji air\" as the first step is a general recommendation not directly in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": [
+    {
+      "at": "2026-11-08T16:00:44Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Bagi ikan yang sudah tidak mahu makan, rendaman dalam air ialah pilihan\" – the facts do not say this; it is the writer's inference.",
+        "\"Rendaman dengan suhu tinggi ... 1 tablet metronidazole setiap 20 liter\" – the facts say 1 tablet of Metronidazol per 20 litres, but the table lists it as 'Rendaman dengan suhu tinggi'. This is only loosely supported.",
+        "\"Nasihat ini tidak sesuai dengan kaedah makanan berubat, jadi ikut satu kaedah sahaja\" – the facts do not say this. It is the writer's rule.",
+        "\"Sumber lain menyebut nama yang berbeza\" and the idea that the sources describe different names – an editorial framing the facts do not state.",
+        "\"Metronidazole ... disebut oleh sumber-sumber untuk Hexamita. Ia hanya untuk ikan yang bukan untuk dimakan\" – the facts limit the 'non-food fish' remark to Spironucleus. The guide applies it to Hexamita generally.",
+        "\"Kalau ikan menolak makanan lebih daripada tiga hari ... asingkan ikan dan mulakan rawatan metronidazole dengan segera\" – the facts only say to treat at once. They do not name the drug here, and the guide adds isolation to this trigger.",
+        "\"jadi rupa luaran sahaja tidak cukup untuk menilai tahap jangkitan\" – the writer's inference. The facts only say that heavily infected fish often showed no other abnormalities.",
+        "\"Menurut sumbernya, Spironucleus menyerang semua jenis cichlid, ikan laga...\" – this is fine. 'Ikan laga' for betta is a translation, not an unsupported claim.",
+        "\"produk ubat siap guna yang seumpamanya (ikut label produk itu)\" – the facts name API General Cure with no dose. 'By the label' is the writer's rule, not a claim."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T16:00:44Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Warna menjadi gelap\" and \"berlegar dekat permukaan air\" are listed under later signs in discus, but the facts give darkened colour and hovering near the surface as general signs (source 2), not later-stage ones. This is a small reassignment.",
+        "\"Ikan berbaring dekat dasar tangki ... kadang-kadang ada luka di perut\" is fine. But \"Lubang kecil ... Kes teruk\" puts head pits under severe cases, and the facts do not say they are severe-stage signs.",
+        "\"Penyakit ini menyerang semua jenis cichlid, ikan laga, gourami\" is attributed to Hexamita/the disease in general, but the facts say this only for Spironucleus.",
+        "\"Discus, oscar dan angelfish dikatakan paling mudah dijangkiti\" is supported. However, the opening that Hexamita is \"juga dipanggil Spironucleus\" is not stated in the facts. They treat the two as separate names and never say they are the same organism.",
+        "Step 1 and the intro say to treat with metronidazole in a quarantine tank at 28–30 °C. This sits awkwardly with the later 32–33 °C or 86–88 °F advice, and it presents a mix of rules from different sources as one procedure.",
+        "\"Dubur bengkak dan merah, kadang-kadang ada luka di perut\" matches the facts. \"Anak ikan dan ikan muda mula mati\" under \"Bila perlu risau\" is an added worry trigger, since the facts only list it as a Spironucleus sign.",
+        "\"Seorang moderator forum mendapati metronidazole sahaja mungkin tidak melekat dengan baik\" omits the fact's other half, that the moderator also used a product like API General Cure. This is a minor omission."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:46:03Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Mandian | Metronidazole 5 mg/L | 3 jam sehari selama 5 hari\" and the food row combine facts correctly, but the merged food row 'Metronidazole 50 mg/kg ... 5 hari berturut-turut' is a blend of sources; acceptable but slightly interpreted.",
+        "\"Ikan baharu yang baru sampai: jangkitan ... boleh menyebabkan kematian dalam masa seminggu\" is generalised from the angelfish shipping finding to any new fish.",
+        "\"Najis putih berlendir pada ikan discus, angelfish dan cichlid lain sering dikaitkan dengan Hexamita\" is a mild generalisation.",
+        "\"Ikan saya nampak sihat... Ya\" is a FAQ answer that goes a little beyond the facts.",
+        "\"kepala dan perut yang cengkung\" is acceptable for 'sunken head and belly'.",
+        "\"Bolehkah metronidazole digunakan dalam tangki yang ada udang atau siput? Tidak digalakkan\" is the writer's inference from the toxicity fact; acceptable.",
+        "The intro sentence 'rawatan dengan metronidazole mengikut dos dan jadual yang betul' is a mild generality, not a claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:46:03Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"1 g bagi setiap kira-kira 76 liter\": facts say 1 gram per 20 gallons; the litre conversion is the writer's and the guide omits the original unit (~75.7 L is arithmetically fine, but presented as source figure).",
+        "\"suhu dinaikkan ke kira-kira 30–31 °C\": facts say 86 to 88 (Fahrenheit implied), i.e. about 30–31 °C. The conversion is correct but the Fahrenheit unit was only implied in the facts.",
+        "\"suhu kira-kira 35.5 °C selama lima hari\": facts say 96°F, which is about 35.5 °C. The conversion is right, but it is the writer's own figure.",
+        "\"Warna badan menjadi gelap\" is listed under later signs: the facts list darkened colour among the general signs, not as a later stage.",
+        "\"kadang-kadang berjuntai dari badan\": the facts do not say the feces trail or hang from the body. They say 'mucus-trailing' and 'stringy'.",
+        "\"Cara pasti untuk mengesahkan Hexamita ialah pemeriksaan wet mount di bawah mikroskop\" and \"Hexamita hanya dapat disahkan melalui pemeriksaan wet mount\": the facts only say diagnosis is made with a wet mount (for Spironucleus). They do not say it is the only sure way or that a microscope is needed.",
+        "\"menggunakan produk ubat lain mengikut label\": the facts only say the moderator used a product like API General Cure. No label dosing is given for it.",
+        "\"1 biji tablet metronidazole bagi setiap 20 liter ... Suhu 32–33 °C\" is credited to \"Penternak discus\", but the facts call it a Vietnamese method.",
+        "\"Ini berbeza dengan kaedah makanan berubat yang memerlukan ikan makan\": the writer's own comparison, not stated in the facts.",
+        "Title and intro frame the guide as discus-only, while the topic is angelfish. Several angelfish findings are mixed in without clear separation."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T12:51:41Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Metronidazole ialah ubat yang paling kerap disebut\" is a mild unsupported generalisation; the facts only list it as the treatment.",
+        "\"Pilih satu kaedah sahaja dan ikut dengan tepat\" is advice not stated in the facts, though it is consistent with the warnings against overdosing.",
+        "\"kepala dan perut yang kelihatan cengkung\" is acceptable (sunken head and belly), but the \"Rawat jika ikan enggan makan lebih daripada tiga hari\" step is placed under first aid without a source ordering. This is minor.",
+        "\"Metronidazole disenaraikan ... hanya untuk ikan yang bukan ikan makanan\" is supported.",
+        "The table labels the 1 g per 20 gallons dose as \"Dalam tangki\" and the Vietnamese method as \"Rendaman\". The \"rendaman\" label for the Vietnamese method is an interpretation of \"2-day soak\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T12:51:41Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"lebih kurang 75 liter\" for 20 gallons is an added conversion not in the facts (roughly correct).",
+        "\"lebih kurang 30–31 °C\" and \"lebih kurang 35.5 °C\" are conversions not in the facts. The facts only imply Fahrenheit for 86–88.",
+        "\"Hexamita memang punca yang paling terkenal\" is supported, but \"selalunya dikaitkan dengan Hexamita\" in the intro is a mild generalisation.",
+        "\"Perut membengkak; dalam kes lain kepala dan perut kelihatan cengkung\" merges separate keeper accounts. It is acceptable but loosely framed.",
+        "\"Seorang penternak mencadangkan makanan berubat untuk dua atau tiga kali pemberian setiap tiga bulan\" is supported. \"Penternak berpengalaman\" as the source label for the 1 g/20 gal dose is not in the facts.",
+        "\"rawat dalam tangki berasingan\" in the shrimp/snail FAQ answer is an inference. The facts only say metronidazole is toxic to shrimp and snails.",
+        "\"Jangkitan pada ikan yang baru dihantar boleh membawa maut dalam masa seminggu\" generalises the angelfish shipping finding to discus.",
+        "The moderator's \"digantikan dengan ubat campuran untuk parasit dalaman\" paraphrases API General Cure with extra description."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "th/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
     {
       "at": "2026-11-08T14:57:25Z",
@@ -1777,76 +1916,6 @@
         "\"Để nước qua đêm không làm mất chloramine được\" adds \"overnight\", but the facts say only that leaving the water to stand doesn't remove chloramine. The claim that many places have chloramine in tap water is also not in the facts.",
         "\"Cá có thể bị stress... Vì vậy khi tẩy vôi ở mặt trong\" is acceptable. \"Cặn còn lại có thể làm chết cá\" is consistent with the facts.",
         "The \"rửa sạch rồi làm lại\" and \"kem đánh bóng\" glass-scratch steps are supported. \"Bột tẩy rửa kính bể cá đa năng\" is presented without any caveat about whether it is safe."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "ms/guides/aquatome-ca-chet-hang-loat-trong-be-lam-gi-ngay-va-tim-nguyen-nhan-the-nao": [
-    {
-      "at": "2026-11-08T12:49:17Z",
-      "model": "sonnet",
-      "score": 0.9,
-      "notes": [
-        "\"Insang dan darah bertukar warna coklat gelap seperti coklat\" - facts say chocolate-brown; minor wording, fine.",
-        "\"(lebih kurang 0.95 liter)\" - the litre conversion for one quart is not in the facts (small added detail, correct but unsupported).",
-        "\"Ikan keli saluran\" for channel catfish - translation addition, harmless.",
-        "\"Kedua-dua keadaan ini memerlukan ikan dipindahkan, bukan sekadar tukar air\" - the facts give this for old tank syndrome and for ammonia >5 mg/L with pH <7, but the 'not just water change' wording for the second condition is an extrapolation.",
-        "\"Ikan yang keracunan nitrit ... Ikan berkumpul dekat saluran udara\" listed as a worry sign - fine.",
-        "\"pemanas cepat menghabiskan bateri\" - facts say it drains the battery; 'cepat' is a small embellishment.",
-        "\"Pertimbangkan diagnosis makmal ... Punca tidak dapat dikenal pasti\" - 'when to worry more' advice is not in the facts, but is a reasonable generality.",
-        "\"Ikan yang hampir mati ... patut dimatikan\" - supported."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T12:49:17Z",
-      "model": "sonnet",
-      "score": 0.6,
-      "notes": [
-        "\"tidak lebih daripada kira-kira 0.5 °C sejam\" contradicts the facts: the limit is 1°F (about 1°C) per hour.",
-        "\"kira-kira 1 liter air tangki\" is a conversion/change: the facts say about one quart (roughly 0.95 L), so it is approximately fine but not exact.",
-        "\"Insang dan darah bertukar warna coklat seperti coklat masakan\" is a odd rewording of chocolate-brown; minor.",
-        "\"Ikan keli saluran\" etc. is supported; \"Kalau pH naik lebih daripada 1 unit\" is supported.",
-        "\"kerana paras oksigen paling rendah pada waktu pagi\" is supported.",
-        "\"Pam udara berbateri\" is supported.",
-        "\"Kematian berterusan walaupun parameter air sudah baik\" in the worry section is not in the facts (invented trigger).",
-        "\"pH jatuh di bawah 6.0 dalam tangki yang lama tidak dibuang airnya\" is supported only loosely.",
-        "The opening line \"kuatkan pengudaraan ... uji air\" as the first step is a general recommendation not directly in the facts."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "ms/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": [
-    {
-      "at": "2026-11-08T12:51:41Z",
-      "model": "sonnet",
-      "score": 0.9,
-      "notes": [
-        "\"Metronidazole ialah ubat yang paling kerap disebut\" is a mild unsupported generalisation; the facts only list it as the treatment.",
-        "\"Pilih satu kaedah sahaja dan ikut dengan tepat\" is advice not stated in the facts, though it is consistent with the warnings against overdosing.",
-        "\"kepala dan perut yang kelihatan cengkung\" is acceptable (sunken head and belly), but the \"Rawat jika ikan enggan makan lebih daripada tiga hari\" step is placed under first aid without a source ordering. This is minor.",
-        "\"Metronidazole disenaraikan ... hanya untuk ikan yang bukan ikan makanan\" is supported.",
-        "The table labels the 1 g per 20 gallons dose as \"Dalam tangki\" and the Vietnamese method as \"Rendaman\". The \"rendaman\" label for the Vietnamese method is an interpretation of \"2-day soak\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T12:51:41Z",
-      "model": "sonnet",
-      "score": 0.8,
-      "notes": [
-        "\"lebih kurang 75 liter\" for 20 gallons is an added conversion not in the facts (roughly correct).",
-        "\"lebih kurang 30–31 °C\" and \"lebih kurang 35.5 °C\" are conversions not in the facts. The facts only imply Fahrenheit for 86–88.",
-        "\"Hexamita memang punca yang paling terkenal\" is supported, but \"selalunya dikaitkan dengan Hexamita\" in the intro is a mild generalisation.",
-        "\"Perut membengkak; dalam kes lain kepala dan perut kelihatan cengkung\" merges separate keeper accounts. It is acceptable but loosely framed.",
-        "\"Seorang penternak mencadangkan makanan berubat untuk dua atau tiga kali pemberian setiap tiga bulan\" is supported. \"Penternak berpengalaman\" as the source label for the 1 g/20 gal dose is not in the facts.",
-        "\"rawat dalam tangki berasingan\" in the shrimp/snail FAQ answer is an inference. The facts only say metronidazole is toxic to shrimp and snails.",
-        "\"Jangkitan pada ikan yang baru dihantar boleh membawa maut dalam masa seminggu\" generalises the angelfish shipping finding to discus.",
-        "The moderator's \"digantikan dengan ubat campuran untuk parasit dalaman\" paraphrases API General Cure with extra description."
       ],
       "attempt": "first",
       "kept": false

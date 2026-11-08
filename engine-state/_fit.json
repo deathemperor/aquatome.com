@@ -14818,6 +14818,53 @@
   ],
   "sourceRead": true
  },
+ "ms/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": {
+  "at": "2026-11-08",
+  "hash": "ef12034c1afccd63",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "metronidazole",
+    "strength": "",
+    "amount": 250,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 40,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "250 mg setiap 40 liter"
+   },
+   {
+    "treatment": "metronidazole",
+    "strength": "",
+    "amount": 500,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 30,
+    "perUnit": "ml",
+    "use": "parasites",
+    "method": "food",
+    "quote": "Rendam makanan dalam 500 mg metronidazole yang dilarutkan dalam 30 ml air tangki"
+   },
+   {
+    "treatment": "metronidazole",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "g",
+    "per": 75,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "wholeTank",
+    "quote": "1 gram setiap kira-kira 75 liter"
+   }
+  ],
+  "sourceRead": true
+ },
  "ms/plants/acorus-gramineus": {
   "at": "2026-11-07",
   "hash": "e69dfc118c7dbe49",
@@ -52435,70 +52482,109 @@
  },
  "vi/guides/youtube-ddIenwrxWgU": {
   "at": "2026-11-08",
-  "hash": "e4ebb1c2d69a082b",
+  "hash": "592c4ed610e21016",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "kit",
-    "part": "P5",
-    "quote": "Bể được chọn ở đây là Dennerle Nano 55 lít, dài 45 cm.",
-    "why": "The whole page is one foreign hobbyist's shopping list of products sold in Europe (IKEA cabinet, Dennerle, TwinStar, Oase, Superfish), with prices in euros.",
+    "check": "price",
+    "part": "P1",
+    "quote": "giá khoảng 70 €, gần bằng nửa giá Twinstar",
+    "why": "Price given in euros.",
     "by": "model"
    },
    {
     "check": "price",
-    "part": "P6",
-    "quote": "Chihiros dòng B 45 cm, giá khoảng 70 euro",
-    "why": "The price is in euros, not Vietnamese dong.",
+    "part": "P1",
+    "quote": "Bộ rẻ nhất giá khoảng 110 €",
+    "why": "Price given in euros.",
     "by": "model"
    },
    {
     "check": "price",
-    "part": "P8",
-    "quote": "Ở tiệm, bộ CO2 rẻ nhất khoảng 110 euro",
-    "why": "A shop price in euros, which only makes sense abroad.",
+    "part": "P1",
+    "quote": "ví dụ của Twinstar, khoảng 60 €",
+    "why": "Price given in euros.",
+    "by": "model"
+   },
+   {
+    "check": "price",
+    "part": "P1",
+    "quote": "loại cao cấp hơn khoảng 15 €",
+    "why": "Price given in euros.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P2",
-    "quote": "Kệ ở đây là một tủ IKEA Besta dài 120 cm",
-    "why": "It describes the source's own cabinet as if the reader knew the setup.",
+    "part": "P1",
+    "quote": "Hai bể ở đây đều là Dennerle Nano 55 lít",
+    "why": "Refers to the source's own tanks as if the reader knew them.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P7",
-    "quote": "Mẫu được nhân viên tiệm gợi ý là Dennerle 50 W",
-    "why": "It retells the source author's own shopping story with shop staff the reader never met.",
+    "part": "P1",
+    "quote": "Đây là lần đầu dùng dòng đèn này nên chưa nói trước được nó chạy ra sao.",
+    "why": "First-person voice of the original writer.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P8",
-    "quote": "Bộ này bỏ qua đếm giọt",
-    "why": "It refers to the source's own CO2 build as if the reader knew it.",
+    "part": "P1",
+    "quote": "Nhân viên tiệm giới thiệu sưởi Dennerle loại nhiệt cố định",
+    "why": "Narrates the writer's own shop visit.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Trong hai mẫu so ở tiệm, một mẫu chạy 400 lít/giờ",
+    "why": "Refers to the writer's comparison at a shop the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "cứ xem ở khu bể nano là được",
+    "why": "Points at a section of the source's shop.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Có thể kê bể nano lên tủ gia dụng như IKEA Bestå.",
+    "why": "Assumes IKEA furniture is a normal household option, which it isn't in Vietnam.",
     "by": "model"
    },
    {
     "check": "words",
-    "part": "P6",
-    "quote": "Lọc trong (internal): rẻ, đặt chìm trong bể.",
-    "why": "A word-for-word rendering of 'internal filter'; keepers in Vietnam call it lọc chìm.",
+    "part": "P1",
+    "quote": "Van điện (solenoid) để tắt CO2 vào ban đêm.",
+    "why": "Keepers in Vietnam call this van điện từ.",
+    "by": "model",
+    "fix": "van điện từ"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Lọc trong (internal)",
+    "why": "Calque of 'internal filter'; keepers say lọc chìm.",
     "by": "model",
     "fix": "lọc chìm"
    }
   ],
   "products": [
-   "IKEA Besta",
+   "IKEA Bestå",
    "Dennerle Nano",
-   "TwinStar 450E",
-   "Chihiros dòng B",
+   "Superfish",
+   "Twinstar 450E",
+   "Chihiros B series",
    "Oase FiltoSmart Thermo 100",
-   "Superfish AquaFlow 200",
-   "Dennerle 50 W",
-   "sủi TwinStar"
+   "Aquaflow 200",
+   "ARL 300",
+   "Dennerle",
+   "Twinstar",
+   "Keo 502"
   ]
  },
  "vi/guides/youtube-dEiOXBOzlgU": {
