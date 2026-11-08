@@ -66,6 +66,17 @@ sweep_merged() {
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }
+# The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
+# line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
+# 2026-11-08, against an editor's re-plan): its tests failed and the part's photos waited a cycle. So when the calendar
+# is among the clashing files ($1), it is main's, planned again on this cycle's photos, as the curate step plans.
+replan_merged() {
+  [[ " $1 " == *" content/curation.json "* ]] || return 0
+  git show '@{u}:content/curation.json' > content/curation.json
+  pnpm engine curate || log "curate: failed"
+  git add content/curation.json
+  git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
+}
 catch_up() {
   git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
