@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
+import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
 import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
@@ -365,6 +366,33 @@ test('a section is every block under its heading, to the next heading, however m
   expect(blocks[0]).toMatchObject({ t: 'section', heading: { id: 'mot' }, blocks: paras })
   expect(blocks[1]).toMatchObject({ t: 'section', blocks: [{ t: 'p', c: ['Mở đầu.'] }] })
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+})
+
+test('a page the site leaves out (held by the reader-fit gate, or removed) is no page to the chat, of any kind, in any language', async () => {
+  // The site's build leaves a held or removed page out of its app index (apps/site/test/held.test.ts), and the chat's
+  // handbook is that index: a page not in it is never found, read, carded or shown, even with its copy still in a shard.
+  const all = (await source.index('vi'))!
+  const kinds = [...new Set(all.items.map(i => i.kind))].filter(k => k !== 'tool').sort()
+  expect(kinds).toEqual(['equipment', 'fish', 'glossary', 'guide', 'plant', 'video'])
+  for (const lang of LANGS) {
+    for (const kind of kinds) {
+      const gone = all.items.find(i => i.kind === kind)!
+      const left = { ...all, items: all.items.filter(i => i !== gone) }
+      // The same pages under each language: the handbook's code is the same for all of them.
+      const h = (await handbookOf({ ...source, index: async () => left, shard: (_l, k, n) => source.shard('vi', k, n) }, lang))!
+      const at = `${lang} ${kind} ${gone.path}`
+      expect(Object.values((await source.shard('vi', kind as PageDoc['kind'], 0))?.pages ?? {}).length, at).toBeGreaterThan(0)
+      expect(h.byPath(gone.path), at).toBeUndefined()
+      if (gone.id) expect(h.byId(gone.id), at).toBeUndefined()
+      expect(await h.page(gone.path), at).toBeUndefined()
+      const out = (await run('search_handbook', { query: gone.name, kind: null }, h)).out as string
+      expect(out.startsWith('No page') ? [] : JSON.parse(out).map((x: { path: string }) => x.path), at).not.toContain(gone.path)
+      await expect(run('read_page', { path: gone.path, heading: null }, h), at).rejects.toThrow(/No page at/)
+      const picks = [pick({ t: 'section', path: gone.path }), ...(gone.id ? [pick({ t: 'species', ids: [gone.id] })] : [])]
+      const { blocks } = await fill(answer(picks), h)
+      expect(blocks, at).toEqual([])
+    }
+  }
 })
 
 test('a guide held out of the chat (a video guide being checked again) is never found, read or shown; the others are', async () => {
