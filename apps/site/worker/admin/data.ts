@@ -1,5 +1,7 @@
 import { PREFIX, type Wanted } from '../wanted'
 import { lastDays } from './chart'
+import { HIDDEN_BY_OWNER, SHOWN_BY_OWNER } from './comments'
+import type { OwnerAct } from './today'
 import { dayStart, HOME_TZ, sqlOffset } from './time'
 
 /** The dashboard's reads from D1 and KV: small, read-only, on the tables and keys that exist. Days are the viewer's (`tz`), except where a table keeps its own. */
@@ -73,4 +75,22 @@ export async function moderationWaiting(db: D1Database): Promise<Waiting> {
   ])
   const oldest = [c?.oldest, p?.oldest].filter((x): x is string => Boolean(x)).sort()[0] ?? null
   return { comments: c?.n ?? 0, photos: p?.n ?? 0, oldest }
+}
+
+/**
+ * The owner's newest decisions kept with their time: the comment last shown or hidden (admin/comments.ts writes its
+ * reason and decided_at), and, where readers' photos are on, the photo last approved (the moderation publishes it with
+ * the owner's reason, packages/engine/src/reader-photos.ts) or removed.
+ */
+export async function ownerActs(db: D1Database, photos: boolean): Promise<OwnerAct[]> {
+  type Row = { ref: string; reason: string; at: string }
+  const [c, p] = await Promise.all([
+    db.prepare('SELECT entity_ref AS ref, reason, decided_at AS at FROM comments WHERE reason IN (?, ?) AND decided_at IS NOT NULL ORDER BY decided_at DESC LIMIT 1')
+      .bind(SHOWN_BY_OWNER, HIDDEN_BY_OWNER).first<Row>(),
+    photos ? db.prepare("SELECT entity_ref AS ref, reason, decided_at AS at FROM photos WHERE reason IN ('approved by owner', 'removed by owner') AND decided_at IS NOT NULL ORDER BY decided_at DESC LIMIT 1").first<Row>() : null,
+  ])
+  return [
+    ...(c ? [{ kind: c.reason === SHOWN_BY_OWNER ? 'comment-shown' as const : 'comment-hidden' as const, at: c.at, ref: c.ref }] : []),
+    ...(p ? [{ kind: p.reason === 'approved by owner' ? 'photo-approved' as const : 'photo-removed' as const, at: p.at, ref: p.ref }] : []),
+  ]
 }

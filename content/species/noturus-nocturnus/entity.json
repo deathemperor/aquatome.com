@@ -15,6 +15,34 @@
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 16,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -26,10 +54,46 @@
       "html": "<p>Noturus nocturnus Jordan &amp; Gilbert, 1886. Common names: Freckled Madtom, Fregnet Giftmalle (Denmark). Family: Ictaluridae. Size: 15 cm SL. IUCN Red List category: Least Concern (last assessed 2012).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>Common name: Freckled madtom. Family: Ictaluridae. Adult size: 12 cm. Temperature: 16–23°C. pH: 6.5–7.2.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
       "html": "<p>North America: Mississippi River basin from northern Illinois to Louisiana, and from eastern Kentucky to central Kansas and Oklahoma in the USA; Gulf Slope drainages from Mobile Bay in Alabama to Guadalupe River in Texas, USA.</p><p>Type locality: Saline River, near Benton railroad bridge, at Benton, Saline County, Arkansas, U.S.A.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>North America: Mississippi River basin from northern Illinois to Louisiana, and from eastern Kentucky to central Kansas and Oklahoma in the USA; Gulf Slope drainages from Mobile Bay in Alabama to Guadalupe River in Texas, USA.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>Inhabits sand-gravel riffles and runs near debris and among tree roots along undercut banks in creeks to large rivers.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>The madtoms are well suited to aquarium life. Provide river gravel and smooth rounded stones for hiding places during the day. A power filter at one end of the tank will provide the conditions of a flowing stream for these catfish. As with most of this genus, handle with care: the pectoral fin spine has a poison gland at its base.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>Feeds on aquatic insect immatures dominated by mayflies, caddisflies, midges, and blackflies. In the aquarium they like most meaty food, such as cut-up earth worms, frozen bloodworm and prawns. They will also take tablet and pellet foods. A varied diet will keep them in optimum health.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>Can be housed with other North American fishes such as minnows, darters and shiners.</p>"
     },
     {
       "key": "reproduction",
@@ -44,10 +108,22 @@
       "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The specific epithet refers to its black (nocturnus = night) colour.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>Description: This species is moderately robust. The head is depressed, rounded above with the upper jaw overhanging the lower. 4 pairs of barbels. Pectoral fin spine with anterior edge smooth, posterior edge roughened or with 3–5 serrations. Anal fin is short, 15–20 rays. Colouration: Body has a uniform colour of a brown back with the sides lighter with dark freckles. The belly is yellowish. The bases of the median fins are dusky and lighter towards the edges, margins are clear.</p><p>Etymology: nocturnus means nocturnal, referring to the dark colouration.</p><p>IUCN Red List: Least Concern in view of the large extent of occurrence, large number of subpopulations, large population size, and lack of major threats.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
       "html": "<p>Proceedings of the United States National Museum v. 9 (no. 549) (for 14 Aug. 1886), pp 6.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2012). NatureServe. 2013. Noturus nocturnus. The IUCN Red List of Threatened Species 2013. The Audubon Society Field guide to North American Fishes, Whales &amp; Dolphins. Alfred A. Knopf, New York. 848 p.</p>"
     }
   ],
   "photos": [
@@ -75,13 +151,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/3bdad73f52ea8ca3.webp",
+      "thumb": "https://media.aquatome.com/commons/3bdad73f52ea8ca3-480.webp",
       "width": 800,
       "height": 533,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson from RAF Lakenheath, UK & San Marcos, TX, USA & UK",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freckled_madtom_(Noturus_nocturnus)_(4015394815).jpg",
-      "caption": "Freckled madtom (Noturus nocturnus)",
-      "thumb": "https://media.aquatome.com/commons/3bdad73f52ea8ca3-480.webp"
+      "caption": "Freckled madtom (Noturus nocturnus)"
     }
   ],
   "videos": [
@@ -92,6 +168,36 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước bể cá",
+        "lọc ngoài bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông bể cá",
+        "đá cuội tròn trang trí bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-08"
 }

@@ -1,0 +1,81 @@
+{
+  "id": "henicorhynchus-entmema",
+  "native": {
+    "input": "775d5633919848c2",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Henicorhynchus entmema",
+    "status": "ACCEPTED",
+    "taxonKey": 11141644,
+    "datasets": [
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

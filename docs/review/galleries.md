@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 428 | 17 | 9 | 13 | 441 |
-| rest | 20 | 1270 | 83 | 0 | 15 | 1338 |
+| rest | 20 | 1272 | 83 | 0 | 18 | 1337 |
 
-## Short of target: every source read (145)
+## Short of target: every source read (154)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -115,7 +115,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/monodactylus-sebae | shop | 8 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
 | plants/ludwigia-glandulosa | shop | 9 | 60 |
-| species/dario-dario | shop | 1 | 60 |
+| species/dario-dario | shop | 0 | 60 |
 | plants/limnophila-aromatica | shop | 18 | 60 |
 | plants/utricularia-graminifolia | shop | 10 | 60 |
 | species/poropanchax-normani | shop | 6 | 60 |
@@ -160,4 +160,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gnathonemus-petersii | shop | 11 | 60 |
 | species/cyphotilapia-frontosa | shop | 28 | 60 |
 | plants/cryptocoryne-nurii | shop | 0 | 60 |
+| plants/cryptocoryne-undulata | shop | 2 | 60 |
+| species/ctenolucius-hujeta | shop | 7 | 60 |
+| species/astyanax-mexicanus | shop | 20 | 60 |
+| species/iriatherina-werneri | shop | 2 | 60 |
+| species/helostoma-temminckii | shop | 15 | 60 |
+| plants/bacopa-salzmannii | shop | 3 | 60 |
+| species/epalzeorhynchos-kalopterus | shop | 2 | 60 |
+| plants/cardamine-lyrata | shop | 2 | 60 |
+| species/pseudomugil-furcatus | shop | 5 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

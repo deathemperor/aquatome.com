@@ -967,6 +967,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm": {
+    "entityIds": [
+      "species/noturus-leptacanthus"
+    ],
+    "updatedAt": "2026-11-08T18:05:45.665Z",
+    "hash": "0ac70234463ea31d547802693f330c4f96d6791399b2a66a9171ec767adabde3",
+    "processedHash": "0ac70234463ea31d547802693f330c4f96d6791399b2a66a9171ec767adabde3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm": {
+    "entityIds": [
+      "species/noturus-nocturnus"
+    ],
+    "updatedAt": "2026-11-08T18:07:16.138Z",
+    "hash": "f600a9ddbd36a0a3cd420404ecd3bed300dc0453cb4142bd4b10d0b86b8dbbe4",
+    "processedHash": "f600a9ddbd36a0a3cd420404ecd3bed300dc0453cb4142bd4b10d0b86b8dbbe4",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm": {
     "entityIds": [
       "species/ancistrus-macrophthalmus"
@@ -1277,6 +1297,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm": {
+    "entityIds": [
+      "species/panaque-bathyphilus"
+    ],
+    "updatedAt": "2026-11-08T18:10:10.591Z",
+    "hash": "c9809105d5121b3a49ebf701bf00db057a0432a9b560be16b96efbba3929a730",
+    "processedHash": "c9809105d5121b3a49ebf701bf00db057a0432a9b560be16b96efbba3929a730",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
@@ -1492,6 +1522,16 @@
     "updatedAt": "2026-11-02T21:43:18.805Z",
     "hash": "ebf447eaf1bc29e8ab796a4e2bb2804093d9277114a74ff49d9578f0b530a539",
     "processedHash": "ebf447eaf1bc29e8ab796a4e2bb2804093d9277114a74ff49d9578f0b530a539",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/exostoma_labiatum.htm": {
+    "entityIds": [
+      "species/exostoma-labiatum"
+    ],
+    "updatedAt": "2026-11-08T18:02:20.056Z",
+    "hash": "41d8cec16c93010c6e0669d1a5afe4fc6395311829754f18db74c517c4353263",
+    "processedHash": "41d8cec16c93010c6e0669d1a5afe4fc6395311829754f18db74c517c4353263",
     "status": "processed",
     "attempts": 0
   },

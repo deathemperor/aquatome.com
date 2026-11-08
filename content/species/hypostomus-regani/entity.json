@@ -1,0 +1,161 @@
+{
+  "id": "hypostomus-regani",
+  "scientificName": "Hypostomus regani",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraguay",
+    "uruguay",
+    "argentina"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>The giant white spot plec, Hypostomus regani, is a large suckermouth catfish from Brazil, Paraguay, Uruguay and Argentina. It is very hardy and grows to around 400 mm SL. Peaceful with most tankmates, it is territorial with similarly-sized bottom dwellers, especially its own kind, so a very large tank is needed to keep other large catfish with it.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>Brazil, Paraguay, Uruguay and Argentina.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>No specific details are available.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>A tank of 120 cm x 45 cm x 45 cm (243 litres) is just about adequate for a single fish, but a much bigger tank would be needed to house more than one of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>A spacious tank is required, preferably with a sandy substrate. Provide hiding places and shade with some big chunks of driftwood and smooth rocks. Dim lighting is beneficial, and use a powerful filter to deal with the large amounts of waste it produces. Any plants are likely to be uprooted but hardy species that can be attached to decor such as java fern or Anubias may survive, as will floating varieties.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>An unfussy feeder, it will accept most foods. Offer regular feedings of greens such as cucumber, courgette, blanched spinach etc., as well as dried, live and frozen foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>A peaceful species that can be kept with a variety of tankmates, such as larger characins, cyprinids, peaceful cichlids and other catfish. It's territorial with any similarly-sized bottom dwellers, especially conspecifics, so a very large tank is needed if any other large catfish are to be kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>Unreported in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-regani",
+      "html": "<p>An attractive and very hardy larger plec.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "lọc ngoài công suất mạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

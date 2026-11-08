@@ -232,7 +232,7 @@ test('the dashboard lists a comment\'s photo with reader photos, marked so, link
   const owner = await t.signIn()
   ;(t.env as unknown as { OWNER_ACCOUNTS: string }).OWNER_ACCOUNTS = owner.id
   const page = await (await handle(new Request(`${ORIGIN}/_ab/anh-ban-doc/`, { headers: { cookie: `__Host-aq_session=${await createSession(t.db, owner.id, 'web', new Date())}` } }), t.env)).text()
-  expect(page.match(/Ảnh kèm bình luận<\/span> <a href="\/ca\/ca-neon-xanh\/">\/ca\/ca-neon-xanh\/<\/a>/g)).toHaveLength(2)
+  expect(page.match(/From a comment<\/span> <a href="\/ca\/ca-neon-xanh\/">\/ca\/ca-neon-xanh\/<\/a>/g)).toHaveLength(2)
   expect(page).not.toContain('comment:')
   expect(page).toContain(`/_ab/anh/${w.photo.id}`)
 })
@@ -245,10 +245,10 @@ test('the dashboard\'s rows: a comment\'s photo by its page, or its key without 
     { id: 'r', entity_ref: 'species:x', name: 'Tú', thumb: 'https://media.aquatome.com/readers/r-480.webp', created_at: at },
   ]
   const html = photosPage(shown, [], new Date(at))
-  expect(html).toContain('Ảnh kèm bình luận</span> <a href="/ca/x/">/ca/x/</a>')
-  expect(html).toContain('Ảnh kèm bình luận</span> id:guide:y')
+  expect(html).toContain('From a comment</span> <a href="/ca/x/">/ca/x/</a>')
+  expect(html).toContain('From a comment</span> id:guide:y')
   expect(html).toContain('<strong>Tú</strong><br>species:x')
   const blocks = photosSection(shown, [], new Date(at)).blocks
   const items = (blocks.find(b => b.kind === 'photos') as { items: { id: string; meta: string[] }[] }).items
-  expect(items.map(i => i.meta.slice(0, -1))).toEqual([['Ảnh kèm bình luận', '/ca/x/'], ['Ảnh kèm bình luận', 'id:guide:y'], ['species:x']])
+  expect(items.map(i => i.meta.slice(0, -1))).toEqual([['From a comment', '/ca/x/'], ['From a comment', 'id:guide:y'], ['species:x']])
 })

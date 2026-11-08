@@ -41,7 +41,7 @@ async function answer(req: Request, url: URL, env: AdminEnv, now: Date): Promise
 
 /** Link attributes with an address on this host, as our templates write them (user text is escaped: its quotes aren't quotes). */
 const LINK = /\b(href|src|action)="(\/(?!\/)[^"]*)"/g
-const SIGN_OUT = '<a class="out" href="/cdn-cgi/access/logout">Đăng xuất</a>'
+const SIGN_OUT = '<a class="out" href="/cdn-cgi/access/logout">Sign out</a>'
 /**
  * A page's links as this host reads them, in one place, so the app's JSON and each new page need nothing: a dashboard
  * page's by its address here, the site's pages (a hidden page, a read page) back on the site, where they are.

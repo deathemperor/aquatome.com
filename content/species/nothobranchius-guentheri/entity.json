@@ -1,0 +1,53 @@
+{
+  "id": "nothobranchius-guentheri",
+  "scientificName": "Nothobranchius guentheri",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Nothobranchius",
+  "group": "killifish",
+  "places": [],
+  "dataCard": {
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_guentheri_en/",
+      "html": "<p>Nothobranchius guentheri is a nothobranch that reaches an age of about two years under aquarium conditions.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_guentheri_en/",
+      "html": "<p>German-bred fish are currently available.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá killi",
+        "bể 40 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -1,0 +1,90 @@
+{
+  "id": "hypostomus-hondae",
+  "scientificName": "Hypostomus hondae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Hypostomus hondae (Regan, 1912). Family Loricariidae. Type locality: Honda, Colombia. Maximum size 350 mm SL. IUCN Red List: Not Evaluated.</p><p>Synonyms: Cochliodon hondae, Cochliodon pospisili, Plecostomus hondae.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>South America: Magdalena River and Lake Maracaibo basins, and Colombian Caribbean rivers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus Cochliodon group. All these species have higher backs than other related species and spoon-shaped teeth (like Panaque).</p><p>Etymology: Greek hypo = under + Greek stoma = mouth. Named after the river Honda where the type specimen was captured.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Proceedings of the Zoological Society of London 1912 (pt 3) (art. 36), pp 666, Pl. 76 (fig. 3).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/666377cf769dd0e7.webp",
+      "width": 960,
+      "height": 582,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypostomus_hondae.jpg",
+      "caption": "By: Zuluaga-Gómez A.",
+      "thumb": "https://media.aquatome.com/commons/666377cf769dd0e7-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

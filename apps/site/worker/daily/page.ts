@@ -9,16 +9,16 @@ import { getSettings, type ReportSettings } from './settings'
 /**
  * /_ab/bao-cao/: how the owner gets the daily report (email, the phone's notification), and the reports kept, newest
  * first, each as it was sent. The app reads the same as the section bao-cao (owner-api.ts), its buttons POST
- * /api/owner/report-settings as the page's form posts /_ab/bao-cao/cai-dat. Vietnamese around them, as the rest of the
- * dashboard; the report itself is in English.
+ * /api/owner/report-settings as the page's form posts /_ab/bao-cao/cai-dat. In English, as the report and the rest of
+ * the dashboard.
  */
 
 export const SETTINGS_FORM = `${REPORT_PATH}cai-dat`
 const SETTINGS_API = '/api/owner/report-settings'
-const LEDE = 'Mỗi sáng 7 giờ (giờ Việt Nam): việc cần xử lý, điểm nổi bật, những gì đã build và số liệu. Lưu ở đây 90 ngày.'
-const NO_REPORTS = 'Chưa có báo cáo nào. Báo cáo đầu tiên đến lúc 7 giờ sáng (giờ Việt Nam).'
-const HOW = 'Nhận báo cáo'
-const LIST = 'Các báo cáo'
+const LEDE = 'Every morning at 7:00 (Vietnam time): what needs you, the highlights, what shipped and the figures. Kept here 90 days.'
+const NO_REPORTS = 'No reports yet. The first comes at 7:00 (Vietnam time).'
+const HOW = 'How it reaches you'
+const LIST = 'Reports'
 
 /** `phones`: how many phones the app registered in a session still live; `keyed`: the APNs key is set. */
 export type Delivery = { settings: ReportSettings; phones: number; keyed: boolean }
@@ -39,25 +39,25 @@ export async function loadReports(env: PushEnv & { AB: KVNamespace }, now: Date,
 
 /** The state of both, in a line: and, when push is on but can't go, why and what to do. */
 export function deliveryNote({ settings: s, phones, keyed }: Delivery): { text: string; tone: TextTone } {
-  const mail = `Email: ${s.email ? 'đang bật' : 'đang tắt'}.`
-  if (!s.push) return { text: `${mail} Thông báo trên điện thoại: đang tắt.`, tone: 'plain' }
-  if (phones && keyed) return { text: `${mail} Thông báo trên điện thoại: đang bật, gửi đến ${fmt(phones)} điện thoại.`, tone: 'plain' }
-  const missing = [phones ? '' : 'chưa có điện thoại nào đăng ký', keyed ? '' : 'chưa có khóa APNs'].filter(Boolean).join(' và ')
-  const todo = phones ? '' : ' Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo báo cáo trên máy này”.'
-  return { text: `${mail} Thông báo trên điện thoại: đang bật, nhưng ${missing} nên chưa gửi được.${todo}`, tone: 'bad' }
+  const mail = `Email: ${s.email ? 'on' : 'off'}.`
+  if (!s.push) return { text: `${mail} Phone notifications: off.`, tone: 'plain' }
+  if (phones && keyed) return { text: `${mail} Phone notifications: on, to ${fmt(phones)} ${phones === 1 ? 'phone' : 'phones'}.`, tone: 'plain' }
+  const missing = [phones ? '' : 'no phone has signed up', keyed ? '' : 'there is no APNs key'].filter(Boolean).join(' and ')
+  const todo = phones ? '' : ' Open the AquaTome app on the phone and turn on “Nhận thông báo báo cáo trên máy này”.'
+  return { text: `${mail} Phone notifications: on, but ${missing}, so none can go.${todo}`, tone: 'bad' }
 }
 
 /** Each switch flipped, as one button: the page's form and the app's buttons make the same change. */
 export const deliveryActions = (s: ReportSettings): Action[] => [
-  { label: s.email ? 'Tắt email' : 'Bật email', method: 'POST', path: SETTINGS_API, body: { email: !s.email } },
-  { label: s.push ? 'Tắt thông báo' : 'Bật thông báo', method: 'POST', path: SETTINGS_API, body: { push: !s.push } },
+  { label: s.email ? 'Turn off email' : 'Turn on email', method: 'POST', path: SETTINGS_API, body: { email: !s.email } },
+  { label: s.push ? 'Turn off notifications' : 'Turn on notifications', method: 'POST', path: SETTINGS_API, body: { push: !s.push } },
 ]
 
 const WHY: Record<string, string> = {
-  no_recipient: 'chưa có người nhận', no_binding: 'chưa có binding EMAIL',
-  no_apns_key: 'chưa có khóa APNs', no_device: 'chưa có điện thoại nào đăng ký', bad_apns_key: 'khóa APNs không đọc được',
-  all_off: 'email và thông báo đều đang tắt', sessions_unread: 'không đọc được phiên đăng nhập',
-  dropped: 'đã đăng xuất hoặc không còn nhận thông báo',
+  no_recipient: 'no recipient', no_binding: 'no EMAIL binding',
+  no_apns_key: 'no APNs key', no_device: 'no phone signed up', bad_apns_key: 'the APNs key can’t be read',
+  all_off: 'email and notifications are both off', sessions_unread: 'couldn’t read the sign-in sessions',
+  dropped: 'signed out or no longer taking notifications',
 }
 type Part = { text: string; tone: 'good' | 'bad' | 'plain'; why?: string }
 /**
@@ -66,13 +66,13 @@ type Part = { text: string; tone: 'good' | 'bad' | 'plain'; why?: string }
  */
 function parts(r: Pick<ReportMeta, 'sent' | 'why' | 'push'>): Part[] {
   const out: Part[] = []
-  if (r.sent) out.push({ text: 'Đã gửi email', tone: 'good' })
-  else if (r.why !== 'email_off') out.push({ text: 'Chưa gửi email', tone: 'bad', ...(r.why ? { why: r.why } : {}) })
+  if (r.sent) out.push({ text: 'Email sent', tone: 'good' })
+  else if (r.why !== 'email_off') out.push({ text: 'Email not sent', tone: 'bad', ...(r.why ? { why: r.why } : {}) })
   const p = r.push
-  if (p?.sent) out.push({ text: `Đã gửi ${fmt(p.sent)} thông báo`, tone: 'good', ...(p.why ? { why: p.why } : {}) })
-  else if (p && p.why !== 'push_off') out.push({ text: 'Chưa gửi thông báo', tone: 'bad', ...(p.why ? { why: p.why } : {}) })
-  if (p?.dropped) out.push({ text: `Bỏ ${fmt(p.dropped)} điện thoại`, tone: 'plain', why: 'dropped' })
-  return out.length ? out : [{ text: 'Không gửi', tone: 'plain', why: 'all_off' }]
+  if (p?.sent) out.push({ text: `${fmt(p.sent)} ${p.sent === 1 ? 'notification' : 'notifications'} sent`, tone: 'good', ...(p.why ? { why: p.why } : {}) })
+  else if (p && p.why !== 'push_off') out.push({ text: 'Notification not sent', tone: 'bad', ...(p.why ? { why: p.why } : {}) })
+  if (p?.dropped) out.push({ text: `${fmt(p.dropped)} ${p.dropped === 1 ? 'phone' : 'phones'} dropped`, tone: 'plain', why: 'dropped' })
+  return out.length ? out : [{ text: 'Not sent', tone: 'plain', why: 'all_off' }]
 }
 const statusHtml = (r: Pick<ReportMeta, 'sent' | 'why' | 'push'>) => parts(r)
   .map(x => `<span class="chip${x.tone === 'plain' ? '' : ` ${x.tone}`}">${x.text}</span>${x.why ? `: ${x.why in WHY ? esc(WHY[x.why]!) : `<code>${esc(x.why)}</code>`}` : ''}`).join(' · ')
@@ -81,14 +81,14 @@ const statusText = (r: Pick<ReportMeta, 'sent' | 'why' | 'push'>) => parts(r).ma
 /** Rows the whole width of a phone, each one tap, as the overview's. */
 export function reportsPage({ now, tz, delivery, xs }: ReportsData): string {
   let how: string
-  if (isFailed(delivery)) how = failedBox('cách nhận báo cáo', delivery)
+  if (isFailed(delivery)) how = failedBox('the report settings', delivery)
   else {
     const n = deliveryNote(delivery)
     const buttons = deliveryActions(delivery.settings).map(a => Object.entries(a.body!).map(([k, v]) => `<button name="${k}" value="${v ? 1 : 0}">${a.label}</button>`).join('')).join('')
     how = `<p${n.tone === 'bad' ? ' class="failed" role="status"' : ''}>${esc(n.text)}</p><form class="inline" method="post" action="${SETTINGS_FORM}">${buttons}</form>`
   }
-  const list = isFailed(xs) ? failedBox('danh sách báo cáo', xs) : xs.length
-    ? `<ul class="areas">${xs.map(r => `<li><a class="area" href="${REPORT_PATH}${esc(r.id)}/"><span><span class="name">${esc(r.subject)}</span> <span class="sub">${timeTag(r.when, tz, now)} · ${statusHtml(r)} · ${fmt(r.care)} cần xử lý</span></span><span></span>${ICON.chevron}</a></li>`).join('')}</ul>`
+  const list = isFailed(xs) ? failedBox('the reports', xs) : xs.length
+    ? `<ul class="areas">${xs.map(r => `<li><a class="area" href="${REPORT_PATH}${esc(r.id)}/"><span><span class="name">${esc(r.subject)}</span> <span class="sub">${timeTag(r.when, tz, now)} · ${statusHtml(r)} · ${fmt(r.care)} to handle</span></span><span></span>${ICON.chevron}</a></li>`).join('')}</ul>`
     : `<p class="muted">${NO_REPORTS}</p>`
   return page(REPORT_PATH, REPORT_NAME, `<h1>${REPORT_NAME}</h1><p class="lede">${LEDE}</p><h2>${HOW}</h2>${how}<h2>${LIST}</h2>${list}`, now, tz)
 }
@@ -96,15 +96,15 @@ export function reportsPage({ now, tz, delivery, xs }: ReportsData): string {
 /** The page as blocks, for the app: the state and its two buttons, then the reports, each opening its page. */
 export function reportsSection({ now, tz, delivery, xs }: ReportsData): Section {
   const blocks: Block[] = [note(LEDE), heading(HOW)]
-  if (isFailed(delivery)) blocks.push(failedNote('cách nhận báo cáo', delivery))
+  if (isFailed(delivery)) blocks.push(failedNote('the report settings', delivery))
   else {
     const n = deliveryNote(delivery)
     blocks.push(note(n.text, n.tone), { kind: 'actions', actions: deliveryActions(delivery.settings) })
   }
   blocks.push(heading(LIST))
-  if (isFailed(xs)) blocks.push(failedNote('danh sách báo cáo', xs))
+  if (isFailed(xs)) blocks.push(failedNote('the reports', xs))
   else if (!xs.length) blocks.push(note(NO_REPORTS, 'muted'))
-  else blocks.push(table(['Báo cáo'], xs.map(r => [{ text: r.subject, sub: `${timeText(r.when, tz, now)} · ${statusText(r)} · ${fmt(r.care)} cần xử lý`, href: `${REPORT_PATH}${r.id}/` }])))
+  else blocks.push(table(['Report'], xs.map(r => [{ text: r.subject, sub: `${timeText(r.when, tz, now)} · ${statusText(r)} · ${fmt(r.care)} to handle`, href: `${REPORT_PATH}${r.id}/` }])))
   return { title: REPORT_NAME, blocks }
 }
 
@@ -112,5 +112,5 @@ export function reportsSection({ now, tz, delivery, xs }: ReportsData): Section 
 export async function reportPage(kv: KVNamespace, id: string, now: Date, tz = HOME_TZ): Promise<string | undefined> {
   const r = await getReport(kv, id)
   if (!r) return undefined
-  return page(REPORT_PATH, REPORT_NAME, `<p><a href="${REPORT_PATH}">← ${REPORT_NAME}</a></p><h1>${esc(r.subject)}</h1><p>${timeTag(r.when, tz, now)} · ${statusHtml(r)}</p><div class="mail">${r.html}</div><details><summary>Bản văn bản</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(r.text)}</pre></details>`, now, tz)
+  return page(REPORT_PATH, REPORT_NAME, `<p><a href="${REPORT_PATH}">← ${REPORT_NAME}</a></p><h1>${esc(r.subject)}</h1><p>${timeTag(r.when, tz, now)} · ${statusHtml(r)}</p><div class="mail">${r.html}</div><details><summary>Plain text</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(r.text)}</pre></details>`, now, tz)
 }
