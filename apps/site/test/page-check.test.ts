@@ -110,6 +110,16 @@ describe('the nano guide (the owner\'s report)', () => {
   })
 })
 
+// 2026-11-08, the check on aquatome.com (/cay/duong-xi-microsorum/): two videos naming the fern, each card with the
+// same filter photo (one picture in two files) from its video's sections. The "video guides" cards took their pictures
+// without the page's. The fixture's two videos naming the cherry shrimp have one picture in two files the same way.
+test('a page\'s video cards repeat no picture of the page', () => {
+  const path = '/ca/tep-red-cherry/'
+  const { html, dom } = page(path)
+  expect(dom.querySelectorAll('.vg a.gc').length).toBe(2)
+  expect(checkPage(path, html, facts).filter(p => p.check === 'repeat')).toEqual([])
+})
+
 // 2026-11-01, Spruce Pets' "11 easiest fish": 4 of 11 fish sections had a photo; the goldfish under the molly, the tiger
 // barb (named in passing) under the cherry barb.
 test('the easy-fish guide (the owner\'s report): each fish section shows that fish', () => {

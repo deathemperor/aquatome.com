@@ -3,7 +3,7 @@ import { breedsOf } from './breeds'
 import { companionsOf } from './companions'
 import { GALLERY_COLUMN, GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { served, translator, type Lang } from './i18n'
-import { guidesMentioning } from './mentions'
+import { guideImages, guidesMentioning } from './mentions'
 import { distinctPhotos, morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
 import { approvedSummary } from './summaries'
@@ -78,8 +78,10 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
     ...(grid ? [{ href: galleryPath, label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
   ])
   const mentioning = guidesMentioning(c, `species:${s.id}`)
+  const videoGuides = mentioning.filter(g => g.video)
+  const videoPhotos = takeEach(pics, videoGuides, g => guideImages(c, g))
   return {
     country, firstSource, researched, ...namedCard(c, s), summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
-    guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
+    guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos,
   }
 }
