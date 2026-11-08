@@ -5,6 +5,8 @@
     "cache-control": "no-store"
   },
   "body": {
-    "result": "cancelled"
+    "result": "cancelled",
+    "counted": false,
+    "freeLeft": 7
   }
 }

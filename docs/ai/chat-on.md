@@ -54,4 +54,5 @@ chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện ch�
   conversations, hidden ones marked, without the logs, comments or photos.
 - A stopped question's log is kept, the owner's ruling.
 - The Worker serves "Báo sai" (`POST /api/chat/conversations/{id}/report`) and the stop limit (`counted`, `freeLeft`;
-  `freeStops` in the status). The reports' table is a production migration: the owner's OK first, through the chief.
+  `freeStops` in the status). A report is kept in R2 under the account, as its conversations are, so it needs no
+  migration, and deleting the account deletes it.
