@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# The engine cycle's and the video job's checks before they publish (sourced by engine-cycle.sh and video-cycle.sh, which
-# define log and TEST_LOG).
+# The engine cycle's and the video jobs' checks before they publish, and their start from main (sourced by engine-cycle.sh,
+# video-cycle.sh and video-recheck.sh, which define log and TEST_LOG).
 # The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
 # slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
 # The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
@@ -56,4 +56,15 @@ catch_up() {
   git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
+}
+# Start from GitHub's main, this very script too. bash reads a script as it runs, so after a reset that changed the running
+# file it would go on at the same byte in main's version, partway into some line: on 2026-11-08 a video run skipped its
+# commit lines and left its work uncommitted. The reset and the restart are one function, read whole when this file was
+# sourced, so nothing between them is read from the changed file; the run then starts again from the top of main's
+# script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as `from_main "$@"`.
+from_main() {
+  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
+  AQ_SCRIPT_HEAD="$(git rev-parse HEAD)"; export AQ_SCRIPT_HEAD
+  exec bash "$0" "$@"
 }
