@@ -38,6 +38,7 @@ struct SpeciesPage: View {
   @State private var asked = false
   /// "Thử lại" pressed, so many times.
   @State private var retries = 0
+  @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
   @State private var putting = false
   /// The gallery's photo shown full screen.
@@ -46,10 +47,17 @@ struct SpeciesPage: View {
   @State private var scrolled = false
   /// The name itself has gone under the bar: the bar says it from here, not above the name still on the page.
   @State private var nameGone = false
+  /// The page's width and top, and the bar's middle, for the name in the bar.
+  @State private var width: CGFloat = 0
+  @State private var top: CGFloat = 0
+  @State private var barMid: CGFloat = 0
   /// The bar's foot on the screen.
   @State private var barFoot: CGFloat = 106
   /// Where the page's colour reaches: still under the top bar, and down into the fade over the tab bar.
   @State private var colourAt = ColourAt(top: true, foot: true)
+  /// Shown, not under another page: only then may it set the colour under the tab bar. Under another, its photo can still
+  /// come late and give it a colour, which would land under that page's foot.
+  @State private var front = false
   private struct ColourAt: Equatable { var top, foot: Bool }
 
   /// The page's own photo, at the top.
@@ -73,7 +81,7 @@ struct SpeciesPage: View {
     ScrollView {
       VStack(spacing: 0) {
         if let hero {
-          V2Photo(src: hero) { colour = $0 }
+          V2Photo(src: hero, ground: colour) { colour = $0 }
             // Less on a small phone, so the name and figures still show under it.
             .containerRelativeFrame(.vertical) { h, _ in min(420, h * 0.46) }
             .overlay(alignment: .bottom) {
@@ -156,15 +164,20 @@ struct SpeciesPage: View {
     .onDisappear { reading?.shown(false) }
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = $0 }
-    .onChange(of: colourAt.foot) { standOnColour() }
-    .onChange(of: colour) { standOnColour() }
-    .onAppear { standOnColour() }
+    .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
+    .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minY } action: { top = $0 }
+    .onChange(of: colourAt.foot) { if front { standOnColour() } }
+    .onChange(of: colour) { if front { standOnColour() } }
+    .onAppear {
+      front = true
+      standOnColour()
+    }
     // Not over the next page's, which may have appeared first, and may have the same colour.
-    .onDisappear { if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil } }
+    .onDisappear {
+      front = false
+      if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil }
+    }
     .accessibilityIdentifier("v2-species")
-    // Once the colour has left the bar too: on it, the bar's buttons have no glass, and a long name set between them would
-    // jump to the middle as the glass comes.
-    .navigationTitle(nameGone && !colourAt.top ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)
@@ -184,21 +197,39 @@ struct SpeciesPage: View {
       }
     }
     // The edge swipe back, whatever iOS's own does with its back button hidden and a zoom: under test, none of its gestures
-    // went back from a zoomed page.
-    .overlay(alignment: .leading) {
-      Color.clear.frame(width: 16).contentShape(.rect)
-        // Across, not a thumb going down the page that drifts in.
-        .gesture(DragGesture(minimumDistance: 12).onEnded { let t = $0.translation; if t.width > 60, t.width > abs(t.height) * 2 { goBack() } })
-        .accessibilityHidden(true)
-    }
+    // went back from a zoomed page. A drag from the left edge, across; alongside the page's own scrolling, so a thumb that
+    // starts on the edge and goes down the page scrolls it, and a tap there lands.
+    .simultaneousGesture(DragGesture(minimumDistance: 12).onEnded {
+      let t = $0.translation
+      if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2 { goBack() }
+    })
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
     .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
+    // The name in the bar once it has left the page, on the colour too, in the bar's middle. The page's own, not iOS's
+    // title: with the bar's buttons on no glass, on the colour, iOS set its title beside the back button, and moved it to
+    // the middle as the glass came. No wider than leaves the buttons 145 points each side; a long name is cut short. At
+    // the bar's own size, as iOS's title is. Not read: the page's name is, as its heading.
+    .overlay(alignment: .top) {
+      if nameGone, barMid > 0 {
+        Text(verbatim: item.name).font(.headline).lineLimit(1).dynamicTypeSize(.large)
+          .foregroundStyle(colourAt.top ? Color.white : Color.primary)
+          .frame(maxWidth: max(60, width - 290))
+          .position(x: width / 2, y: barMid - top)
+          .allowsHitTesting(false)
+          .accessibilityHidden(true)
+          .accessibilityIdentifier("v2-bar-name")
+      }
+    }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
     .toolbar {
       ToolbarItem(placement: .topBarLeading) {
-        Button { goBack() } label: { round("chevron.left") }
+        Button { goBack() } label: {
+          round("chevron.left")
+            // Where the bar's middle is, for the name in it.
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).midY } action: { barMid = $0 }
+        }
           .buttonStyle(.plain)
           .accessibilityLabel(Text("Quay lại"))
           .accessibilityIdentifier("v2-back")
@@ -225,6 +256,8 @@ struct SpeciesPage: View {
       GalleryViewer(title: galleryTitle, note: "", photos: photos, readers: nil, index: viewing ?? 0)
     }
     // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
+    // "Thử lại" asks its photos again too.
+    .environment(\.v2PhotoTries, retries)
     .task(id: "\(item.path) \(retries)") {
       guard doc == nil else { return }
       // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
@@ -266,7 +299,7 @@ struct SpeciesPage: View {
         .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).maxY < barFoot } action: { gone in
           withAnimation(.easeInOut(duration: 0.2)) { nameGone = gone }
         }
-      if let sub = item.sub { Text(verbatim: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
+      if let sub = item.sub { LatinName(text: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
       if Life(item) != nil {
         Button { putting = true } label: {
           Label("Thêm vào bể", systemImage: "plus")
@@ -277,7 +310,8 @@ struct SpeciesPage: View {
             .padding(.horizontal, 18)
             .padding(.vertical, 6)
             .frame(minHeight: 44)
-            .background(Capsule().fill(.white))
+            // On two lines a capsule's ends curve in on the words.
+            .background((size.isAccessibilitySize ? AnyShape(RoundedRectangle(cornerRadius: 22, style: .continuous)) : AnyShape(Capsule())).fill(.white))
         }
         .buttonStyle(.plain)
         // Not into a store this app must leave alone (newer, unreadable), as v1's page.

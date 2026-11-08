@@ -221,6 +221,8 @@ extension EnvironmentValues {
   @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
   @Entry var v2FootGround: Binding<FootGround?>?
+  /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
+  @Entry var v2PhotoTries = 0
 }
 
 /// The colour a page has the tab stand on, and whose it is: two pages can have the same one.

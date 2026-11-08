@@ -290,27 +290,41 @@ final class V2FlowTests: XCTestCase {
   func testAFishsPageGoesBackByTheEdgeSwipe() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
-    let card = app.buttons["v2-fish-of-the-day"]
-    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    card.tap()
-    let back = app.buttons["v2-back"]
-    XCTAssertTrue(back.waitForExistence(timeout: 5), "the fish's page didn't open")
-    // A thumb going up the page from its edge, drifting in: the page stays.
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    let back = app.buttons["v2-back"], lead = app.links["John Roe"]
+    XCTAssertTrue(lead.waitForExistence(timeout: 5), "the neon's page didn't come")
+    // A thumb going up the page from its edge, drifting in: the page scrolls, and stays.
+    let top = lead.frame.minY
     app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.75))
       .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.25)), withVelocity: .default, thenHoldForDuration: 0)
     XCTAssertFalse(back.waitForNonExistence(timeout: 2), "a drag up the page from its edge went back")
+    XCTAssertLessThan(lead.frame.minY, top - 100, "a drag up the page from its edge didn't scroll it")
     app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.5))
       .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)), withVelocity: .default, thenHoldForDuration: 0)
     XCTAssertTrue(back.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
   }
 
-  /// A photo that doesn't come (offline and not kept; none comes under test): a photo's place, not an empty box.
+  /// A photo that doesn't come (offline and not kept; none comes under test): a photo's place, not an empty box. None where
+  /// there's no photo at all: the fixture's index has none, so none on Hôm nay. (The place is hidden from VoiceOver, which
+  /// the tests can't see: they still find it.)
   func testAPhotoThatDoesntComeShowsItsPlace() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertFalse(app.images["v2-photo-missing"].exists, "a photo's place on Hôm nay, where nothing has a photo")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
-    XCTAssertTrue(app.images["v2-photo-missing"].firstMatch.waitForExistence(timeout: 5), "an empty box where the neon's photo didn't come")
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "the neon's page didn't come")
+    // The lead photo, one stop for VoiceOver with what it's of.
+    let lead = app.images.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(lead.exists, "no lead photo on the neon's page")
+    Thread.sleep(forTimeInterval: 1)
+    // A mark at its middle, on the box's grey.
+    let f = lead.frame, shot = Pixels(XCUIScreen.main.screenshot()), box = shot.at(f.midX - 60, f.midY)
+    let mark = stride(from: f.midX - 16, through: f.midX + 16, by: 1).flatMap { x in
+      stride(from: f.midY - 16, through: f.midY + 16, by: 1).map { shot.at(x, $0).distance(to: box) }
+    }.max()!
+    XCTAssertGreaterThan(mark, 25, "an empty box where the neon's photo didn't come")
   }
 
   /// Back from a fish's page to the fish's page under it: that page's colour under the tab bar again, not white.
@@ -354,16 +368,16 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: foot), 40, "white under the tab bar: \(colour) above, \(foot) under it")
   }
 
-  /// What's on the bar reads, on the page's colour and after it, and the name comes into it only after. On the colour iOS
-  /// 26's glass goes pale under white symbols, so it's the page's own round buttons there; after it iOS can keep the dark
-  /// scheme, white on the white band.
+  /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
+  /// middle as the colour goes. On the colour iOS 26's glass goes pale under white symbols, so it's the page's own round
+  /// buttons there; after it iOS can keep the dark scheme, white on the white band.
   func testAFishsPageBarReadsOnItsColourAndAfterIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
-    let title = app.navigationBars.staticTexts["Cá neon"]
+    let title = app.staticTexts["v2-bar-name"]
     func up() {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow, thenHoldForDuration: 0.3)
@@ -371,22 +385,28 @@ final class V2FlowTests: XCTestCase {
     let back = app.buttons["v2-back"]
     XCTAssertTrue(back.exists, "iOS's glass on the page's colour")
     // The page's name under the bar, the bar still on the colour.
-    let name = app.staticTexts["Cá neon"].firstMatch
+    let name = app.scrollViews.staticTexts["Cá neon"].firstMatch
     repeatUntil(name.frame.maxY < back.frame.maxY, times: 6) { up() }
     XCTAssertLessThan(name.frame.maxY, back.frame.maxY, "the name didn't go under the bar")
     // Beside its chevron, inside its circle.
     let circle = Pixels(XCUIScreen.main.screenshot()).at(back.frame.minX + 7, back.frame.midY)
     XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)")
-    // No name in the bar yet: set between buttons with no glass, a long one would jump as the glass comes.
-    XCTAssertFalse(title.exists, "the name in the bar while it's on the colour")
-    repeatUntil(title.exists, times: 6) { up() }
-    XCTAssertTrue(title.exists, "the name didn't come into the bar after the colour")
-    let f = title.frame
-    let shot = Pixels(XCUIScreen.main.screenshot())
-    XCTAssertLessThan(shot.at(f.minX - 6, f.midY).contrastWithWhite, 1.1, "the page's colour under the bar's title")
-    let ground = shot.at(f.minX - 6, f.midY)
-    let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
-    XCTAssertGreaterThan(strongest, 120, "the bar's title doesn't read on its ground")
+    // The name in the bar from then on, the colour still under it, in the bar's middle.
+    XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
+    let onColour = title.frame
+    XCTAssertEqual(onColour.midX, app.frame.midX, accuracy: 2, "the bar's name isn't in its middle")
+    func reads(_ what: String) {
+      let shot = Pixels(XCUIScreen.main.screenshot()), f = title.frame, ground = shot.at(f.minX - 6, f.midY)
+      let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
+      XCTAssertGreaterThan(strongest, 120, "the bar's name doesn't read \(what)")
+    }
+    reads("on the colour")
+    // Past the colour: the name where it was, as the glass comes.
+    func bar() -> Pixels.RGB { Pixels(XCUIScreen.main.screenshot()).at(onColour.minX - 6, onColour.midY) }
+    repeatUntil(bar().contrastWithWhite < 1.1, times: 6) { up() }
+    XCTAssertLessThan(bar().contrastWithWhite, 1.1, "the page's colour never went")
+    XCTAssertEqual(title.frame.midX, onColour.midX, accuracy: 1, "the bar's name moved as the colour went")
+    reads("after the colour")
   }
 
   /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.

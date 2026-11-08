@@ -13,6 +13,7 @@ struct TodayView: View {
   @Namespace private var zoom
   /// The large title has gone up into the bar, as on Khám phá.
   @State private var titleGone = false
+  @State private var refreshes = 0
   @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = Date.now
@@ -59,7 +60,11 @@ struct TodayView: View {
       .v2ClearsFootGoingBack(path.count)
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
-      .refreshable { await handbook.load() }
+      .refreshable {
+        await handbook.load()
+        refreshes += 1
+      }
+      .environment(\.v2PhotoTries, refreshes)
     }
     .v2StackLinks($path)
     .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
@@ -135,15 +140,17 @@ private struct Eyebrow: View {
   let locale = Locale(identifier: lang), f = item.facts.any ? item.facts : item.card ?? item.facts
   var parts: [String] = []
   if let d = f.difficulty { parts.append(FactsCard.level(d)) }
-  if let t = f.tempC { parts.append(degrees(t, locale)) }
+  if let t = f.tempC { parts.append(HandbookIndex.Facts.degrees(t, locale)) }
   // A figure stays with its unit when the line wraps.
   if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale))\u{A0}cm") }
   return parts.isEmpty ? nil : parts.joined(separator: " · ")
 }
 
-/// "24–30 °C", whole when a line wraps: the range and its unit on one line.
-func degrees(_ t: HandbookIndex.Facts.Range, _ locale: Locale) -> String {
-  "\(HandbookIndex.Facts.range(t, locale).replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}"))\u{A0}°C"
+extension HandbookIndex.Facts {
+  /// "24–30 °C", whole when a line wraps: the range and its unit on one line.
+  static func degrees(_ t: Range, _ locale: Locale) -> String {
+    "\(range(t, locale).replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}"))\u{A0}°C"
+  }
 }
 
 /// The fish of the day: its photo, its colour washed over the top for its name, and its lockup on a band of that colour.
@@ -171,10 +178,10 @@ private struct FishOfTheDay: View {
         if size.isAccessibilitySize {
           VStack(spacing: 0) {
             name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
-            V2Photo(src: item.img) { colour = $0 }.frame(height: 260)
+            V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260)
           }
         } else {
-          V2Photo(src: item.img) { colour = $0 }
+          V2Photo(src: item.img, ground: colour) { colour = $0 }
             .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
               LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 56)
@@ -230,11 +237,11 @@ private struct GuideCard: View {
         // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour.
         if size.isAccessibilitySize {
           VStack(spacing: 0) {
-            V2Photo(src: item.img) { colour = $0 }.frame(height: 260)
+            V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260)
             words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
           }
         } else {
-          V2Photo(src: item.img) { colour = $0 }
+          V2Photo(src: item.img, ground: colour) { colour = $0 }
             .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height) { words })
         }
       }
@@ -276,7 +283,7 @@ private struct SeasonCard: View {
         .fixedSize(horizontal: false, vertical: true)
       VStack(spacing: 0) {
         ForEach(items) { item in
-          Lockup(item: item, line: item.facts.tempC.map { degrees($0, Locale(identifier: handbook.lang)) },
+          Lockup(item: item, line: item.facts.tempC.map { HandbookIndex.Facts.degrees($0, Locale(identifier: handbook.lang)) },
                  thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)

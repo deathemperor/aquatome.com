@@ -18,6 +18,7 @@ struct BrowseHome: View {
   /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
   /// title before this.
   @State private var titleGone = false
+  @State private var refreshes = 0
   @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
@@ -104,7 +105,9 @@ struct BrowseHome: View {
       .refreshable {
         await handbook.load()
         holdShelves()
+        refreshes += 1
       }
+      .environment(\.v2PhotoTries, refreshes)
     }
     // On the stack, not its first screen, which disappears and comes back with a page pushed and popped. Never with a page
     // open: for the zoom back to where it was tapped.
@@ -398,7 +401,7 @@ private struct GroupTile: View {
   }
 
   var body: some View {
-    V2Photo(src: group.img) { colour = $0 }
+    V2Photo(src: group.img, ground: colour) { colour = $0 }
       .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 20) {
         HStack(alignment: .firstTextBaseline) {
           Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
@@ -430,11 +433,11 @@ private struct FeaturedCard: View {
       // At the accessibility sizes the words would cover the photo: they go under it, on its colour.
       if size.isAccessibilitySize {
         VStack(spacing: 0) {
-          V2Photo(src: item.img) { colour = $0 }.frame(height: 200)
+          V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 200)
           words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
         }
       } else {
-        V2Photo(src: item.img) { colour = $0 }
+        V2Photo(src: item.img, ground: colour) { colour = $0 }
           .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 44) { words })
       }
     }

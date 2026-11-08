@@ -13,12 +13,15 @@ struct V2Photo: View {
   /// What its colour is known by, if not `src`: a fish's page looks it up by the index's photo, which a tank-mate's tile may
   /// show in another size.
   var colourKey: String?
+  /// The colour of the card or page around it, for its place when it doesn't come: that colour, not a grey band in it.
+  var ground: Color?
   var colour: ((Color) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
   /// The address that didn't come (offline, not kept).
   @State private var missing: String?
   @State private var pixels = CGSize.zero
   @Environment(\.displayScale) private var scale
+  @Environment(\.v2PhotoTries) private var tries
 
   /// What this address shows: what was decoded here, or what's in memory at any size, the full photo first, so a page
   /// zooming out of a card has it in its first frame.
@@ -32,14 +35,23 @@ struct V2Photo: View {
       .overlay {
         if let image {
           Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
-        } else if missing == src {
-          // A photo's place, not an empty box, as v1's pictures show it.
-          Image(systemName: "photo").font(.title2).foregroundStyle(.tertiary).accessibilityIdentifier("v2-photo-missing")
+        } else {
+          ZStack {
+            // No photo, or one that didn't come: in the colour around it, if any, not a grey band in it.
+            if src == nil || missing == src, let ground { ground }
+            // One that didn't come: a photo's place, not an empty box, as v1's pictures show it. Not read: what the photo
+            // was of is in the page's or the row's own words. None for no photo at all: a row has its own mark.
+            if let src, missing == src {
+              Image(systemName: "photo").font(.title2)
+                .foregroundStyle(ground == nil ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.white.opacity(0.4)))
+                .accessibilityIdentifier("v2-photo-missing").accessibilityHidden(true)
+            }
+          }
         }
       }
       .clipped()
       .onGeometryChange(for: CGSize.self) { $0.size } action: { pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
-      .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))") {
+      .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))|\(tries)") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
         let full = V2Photo.full(src)
@@ -162,6 +174,26 @@ private func calmed(_ c: Scored) -> Scored {
   return (c.score, r, g, b)
 }
 
+/// A scientific name. At the accessibility sizes a word a line, each made smaller if it must to fit its line: a genus too
+/// long for one broke into a line that read as another word ("Paracheirod", "on innesi").
+struct LatinName: View {
+  let text: String
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    if size.isAccessibilitySize {
+      VStack(alignment: .leading, spacing: 0) {
+        ForEach(Array(text.split(separator: " ").enumerated()), id: \.offset) { _, word in
+          Text(verbatim: String(word)).lineLimit(1).minimumScaleFactor(0.5)
+        }
+      }
+      .accessibilityElement(children: .combine)
+    } else {
+      Text(verbatim: text)
+    }
+  }
+}
+
 /// A page as one line of a shelf or a card: its photo as a rounded square (the page's "icon"), its name, a line, and its
 /// button, the same wherever the page shows: "Thêm" onto a tank for a fish or plant, "Đọc" for a guide, else "Xem". The
 /// name and photo open the page; the button is its own.
@@ -180,13 +212,13 @@ struct Lockup: View {
   @State private var putting = false
 
   var body: some View {
-    // At the accessibility sizes the button goes under the words, which get the row's whole width.
+    // At the accessibility sizes the button goes under the words, and the photo over them: the words get the row's whole
+    // width, where beside the photo a long name ran a word to a line.
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
     let side = min(thumb, 88)
     layout {
       NavigationLink(value: item) {
-        // Its photo level with the name when the words run to many lines.
-        HStack(alignment: size.isAccessibilitySize ? .top : .center, spacing: 12) {
+        layout {
           if icon {
             // A fish's colour worked out here too, so its page opens in it, not in green first.
             V2Photo(src: item.img, colour: item.kind == .fish ? { _ in } : nil)
@@ -196,12 +228,17 @@ struct Lockup: View {
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
-            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).italic(scientific && title != nil && title == item.sub)
-              .lineLimit(size.isAccessibilitySize ? nil : 2)
-              .foregroundStyle(onDark ? .white : .primary)
+            Group {
+              if scientific, let title, title == item.sub { LatinName(text: title) } else { Text(verbatim: title ?? item.name) }
+            }
+            .font(.body.weight(.semibold)).italic(scientific && title != nil && title == item.sub)
+            .lineLimit(size.isAccessibilitySize ? nil : 2)
+            .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item), line != title {
               Group {
-                if size.isAccessibilitySize {
+                if size.isAccessibilitySize, scientific, line == item.sub {
+                  LatinName(text: line)
+                } else if size.isAccessibilitySize {
                   // A line of figures too long for one row goes a figure to a row, so no dot is left at a row's end or start.
                   ViewThatFits(in: .horizontal) {
                     Text(verbatim: line).lineLimit(1)
@@ -215,8 +252,9 @@ struct Lockup: View {
               .foregroundStyle(onDark ? Color.white.opacity(0.75) : .v2Faint)
             }
           }
-          Spacer(minLength: 0)
+          if !size.isAccessibilitySize { Spacer(minLength: 0) }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(.rect)
       }
       .buttonStyle(.plain)
