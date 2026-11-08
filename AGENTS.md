@@ -28,8 +28,8 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 - `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, and
   nightly the worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
   `~/.cache/aquatome/worktree-archive/` (30 days, never pushed).
-- How the Mac is doing is `~/.cache/aquatome/machine-metrics.jsonl`: a small job's time, the jobs waiting and how long.
-  Load is background only: one booted simulator reads about 65, and past about 1,000 the counter wraps.
+- How the Mac is doing is `~/.cache/aquatome/machine-metrics.jsonl`: a small job's time, the jobs waiting and how long,
+  and heat. Load is background only: one booted simulator reads about 65, and past about 1,000 the counter wraps.
 
 ## Checks also run on aquatome.com
 
