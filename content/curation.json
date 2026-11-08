@@ -257,6 +257,90 @@
     }
    ],
    "why": "Fish native to Vietnam by their pages, led by snakeheads, the fish readers find the site through most in search."
+  },
+  {
+   "from": "2026-11-30",
+   "to": "2026-12-06",
+   "theme": {
+    "vi": "Cá châu Phi",
+    "id": "Ikan Afrika",
+    "th": "ปลาจากแอฟริกา"
+   },
+   "tags": [],
+   "fish": [
+    "species/cyphotilapia-frontosa",
+    "species/polypterus-senegalus",
+    "species/labidochromis-caeruleus",
+    "species/synodontis-eupterus",
+    "species/pelvicachromis-pulcher",
+    "species/gnathonemus-petersii",
+    "species/maylandia-estherae",
+    "species/erpetoichthys-calabaricus",
+    "species/tropheus-duboisi",
+    "species/synodontis-petricola"
+   ],
+   "guides": [
+    "guides/youtube-ohUzvlrSQDs"
+   ],
+   "hero": [
+    {
+     "page": "species/cyphotilapia-frontosa",
+     "img": "https://media.aquatome.com/commons/bc4cff24b4e87dba-large.webp"
+    },
+    {
+     "page": "species/pelvicachromis-pulcher",
+     "img": "https://media.aquatome.com/commons/92d29fe557075047-large.webp"
+    },
+    {
+     "page": "species/labidochromis-caeruleus",
+     "img": "https://media.aquatome.com/commons/0eb6aa8510474bca-large.webp"
+    },
+    {
+     "page": "species/maylandia-estherae",
+     "img": "https://media.aquatome.com/commons/1f046c287b79d404-large.webp"
+    },
+    {
+     "page": "species/synodontis-eupterus",
+     "img": "https://media.aquatome.com/commons/246581693eccf859-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ho-malawi-tanganyika",
+     "title": {
+      "vi": "Cá hồ Malawi và Tanganyika",
+      "id": "Ikan Danau Malawi dan Tanganyika",
+      "th": "ปลาจากทะเลสาบมาลาวีและแทนกันยิกา"
+     },
+     "pages": [
+      "species/labidochromis-caeruleus",
+      "species/maylandia-estherae",
+      "species/aulonocara-maylandi",
+      "species/cyphotilapia-frontosa",
+      "species/tropheus-duboisi",
+      "species/cyprichromis-leptosoma",
+      "species/altolamprologus-compressiceps",
+      "species/synodontis-petricola"
+     ]
+    },
+    {
+     "id": "ca-la-chau-phi",
+     "title": {
+      "vi": "Cá lạ châu Phi",
+      "id": "Ikan unik dari Afrika",
+      "th": "ปลาแปลกจากแอฟริกา"
+     },
+     "pages": [
+      "species/polypterus-senegalus",
+      "species/erpetoichthys-calabaricus",
+      "species/gnathonemus-petersii",
+      "species/ctenopoma-acutirostre",
+      "species/synodontis-eupterus",
+      "species/auchenoglanis-occidentalis"
+     ]
+    }
+   ],
+   "why": "Fish from Africa: the group with the most pages that pass reader fit and have a large photo. Cichlids from Lakes Malawi and Tanganyika, and Africa's odd fish (bichirs, ropefish, elephantnose, upside-down catfish). No Malay theme or shelves: most of these fish have no Malay page yet."
   }
  ],
  "days": [
@@ -265,8 +349,8 @@
    "fish": "species/acrossocheilus-paradoxus",
    "img": "https://media.aquatome.com/inaturalist/216739809-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-cladophora",
-   "why": "Guide: Cách loại bỏ tảo cladophora, the best left with a big enough photo.",
-   "guideImg": "https://media.aquatome.com/2hraquarist/ecd9ac8852f565f3.webp"
+   "guideImg": "https://media.aquatome.com/2hraquarist/ecd9ac8852f565f3.webp",
+   "why": "Guide: Cách loại bỏ tảo cladophora, the best left with a big enough photo."
   },
   {
    "date": "2026-11-09",
@@ -323,8 +407,8 @@
    "fish": "species/betta-anabatoides",
    "img": "https://media.aquatome.com/bwaquatics/ee2c04cb1a2140b8.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-cynobacteria",
-   "why": "Guide: Cách kiểm soát vi khuẩn lam (tảo lam) trong bể thủy sinh, the best left with a big enough photo.",
-   "guideImg": "https://media.aquatome.com/2hraquarist/df5fdbb89b7067de.webp"
+   "guideImg": "https://media.aquatome.com/2hraquarist/df5fdbb89b7067de.webp",
+   "why": "Guide: Cách kiểm soát vi khuẩn lam (tảo lam) trong bể thủy sinh, the best left with a big enough photo."
   },
   {
    "date": "2026-11-15",
@@ -350,6 +434,7 @@
    "date": "2026-11-18",
    "img": "https://media.aquatome.com/commons/40a970f67cc6e69d-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms",
+   "guideImg": "https://media.aquatome.com/2hraquarist/a9c11948bc323c9f.webp",
    "story": {
     "page": "guides/youtube-EIjUVVFcNmo",
     "eyebrow": {
@@ -362,8 +447,7 @@
      "vi": "Bể 27 lít: dựng đá lũa, trải nền cao dần về phía sau, trồng cây, chạy lọc một ngày rồi mới châm vi sinh và lắp CO2"
     }
    },
-   "why": "Guide: Cách kiểm soát tảo nâu (tảo cát) trong bể thủy sinh, the best left with a big enough photo.",
-   "guideImg": "https://media.aquatome.com/2hraquarist/a9c11948bc323c9f.webp"
+   "why": "Guide: Cách kiểm soát tảo nâu (tảo cát) trong bể thủy sinh, the best left with a big enough photo."
   },
   {
    "date": "2026-11-19",
@@ -376,7 +460,8 @@
    "date": "2026-11-20",
    "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
    "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
-   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
+   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions.",
+   "card": "cards/trivia-glass-catfish-name"
   },
   {
    "date": "2026-11-21",
@@ -396,8 +481,8 @@
    "fish": "species/datnioides-pulcher",
    "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae",
-   "why": "Guide: Cách kiểm soát tảo sợi (tảo tóc, tảo lông, tảo chỉ), the best left with a big enough photo.",
-   "guideImg": "https://media.aquatome.com/2hraquarist/de1486196265f59b.webp"
+   "guideImg": "https://media.aquatome.com/2hraquarist/de1486196265f59b.webp",
+   "why": "Guide: Cách kiểm soát tảo sợi (tảo tóc, tảo lông, tảo chỉ), the best left with a big enough photo."
   },
   {
    "date": "2026-11-24",
@@ -412,9 +497,9 @@
    "fish": "species/channa-marulius",
    "img": "https://media.aquatome.com/commons/407a83407c0434ed-large.webp",
    "guide": "guides/sprucepets-barb-species-1380768",
+   "guideImg": "https://media.aquatome.com/sprucepets/0b24516e48902bab.webp",
    "card": "cards/trivia-climbing-perch-land",
-   "why": "Guide: Cá barb: hồ sơ các loài, the best left with a big enough photo.",
-   "guideImg": "https://media.aquatome.com/sprucepets/0b24516e48902bab.webp"
+   "why": "Guide: Cá barb: hồ sơ các loài, the best left with a big enough photo."
   },
   {
    "date": "2026-11-26",
@@ -434,8 +519,8 @@
    "date": "2026-11-28",
    "img": "https://media.aquatome.com/commons/d6469d9d31e58aa4-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
-   "why": "Guide: Cách loại bỏ tảo gạc nai (staghorn algae), the best left with a big enough photo.",
-   "guideImg": "https://media.aquatome.com/2hraquarist/2ff2150b8977932c.webp"
+   "guideImg": "https://media.aquatome.com/2hraquarist/2ff2150b8977932c.webp",
+   "why": "Guide: Cách loại bỏ tảo gạc nai (staghorn algae), the best left with a big enough photo."
   },
   {
    "date": "2026-11-29",
@@ -487,7 +572,7 @@
    "title": "Meine ZierfischWelten Roter Neon - Paracheirodon axelrodi",
    "cut": {
     "from": 266,
-    "to": 274
+    "to": 275
    },
    "checkedAt": "2026-11-08",
    "snapshot": "https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0"
@@ -506,7 +591,7 @@
    "title": "코이 플라캇 베타 물멍(Relaxing with koi plakat betta tank watch)",
    "cut": {
     "from": 194,
-    "to": 201.5
+    "to": 202.5
    },
    "checkedAt": "2026-11-08",
    "snapshot": "https://web.archive.org/web/20261108153329/https://www.youtube.com/watch?v=ZgYIaxohVJM"

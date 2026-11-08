@@ -15,7 +15,7 @@ const YT_LOOP = {
   w: 1080, h: 1080, seconds: 8, licence: 'CC BY 3.0', licenceUrl: 'https://creativecommons.org/licenses/by/3.0/', author: 'A channel',
   source: 'https://www.youtube.com/watch?v=XeeAEokdrR0', title: 'A title',
 }
-const YT_RECORD = { cut: { from: 266, to: 274 }, checkedAt: '2026-11-08', snapshot: 'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0' }
+const YT_RECORD = { cut: { from: 266, to: 275 }, checkedAt: '2026-11-08', snapshot: 'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0' }
 const calendar: Curation = CurationSchema.parse({
   version: 1,
   weeks: [

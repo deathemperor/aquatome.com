@@ -14,8 +14,14 @@
   "inat:609971628",
   "inat:130817261"
  ],
- "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/60517860/original.jpeg": "040490e0c1c00641"
- },
- "commons": "2026-11-07"
+ "hashes": {},
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 1560839,
+  "pass": "done",
+  "after": {
+   "research": 335735091,
+   "agree": 0
+  }
+ }
 }

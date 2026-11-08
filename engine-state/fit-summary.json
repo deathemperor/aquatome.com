@@ -1,5 +1,5 @@
 {
- "day": "2026-11-08",
+ "day": "2026-11-09",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -12,30 +12,30 @@
  "langs": {
   "vi": {
    "pages": 3083,
-   "read": 2944,
-   "wrong": 1368,
+   "read": 2929,
+   "wrong": 1360,
    "pct": 47,
-   "held": 21
+   "held": 20
   },
   "id": {
-   "pages": 998,
+   "pages": 1018,
    "read": 978,
-   "wrong": 315,
+   "wrong": 314,
    "pct": 32,
    "held": 1
   },
   "th": {
-   "pages": 991,
+   "pages": 1011,
    "read": 971,
-   "wrong": 300,
+   "wrong": 299,
    "pct": 31,
    "held": 1
   },
   "ms": {
-   "pages": 134,
+   "pages": 147,
    "read": 122,
-   "wrong": 49,
-   "pct": 40,
+   "wrong": 47,
+   "pct": 38,
    "held": 1
   }
  },
@@ -58,50 +58,63 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-ty-ba-buom-myersi/",
-   "url": "https://aquatome.com/ca/ca-ty-ba-buom-myersi/",
-   "title": "Cá tỳ bà bướm myersi",
+   "path": "/vi/ca/ca-rang-chep-zagros/",
+   "url": "https://aquatome.com/ca/ca-rang-chep-zagros/",
+   "title": "Cá răng chép Zagros",
    "wrong": [
     {
-     "check": "words",
-     "quote": "ghi nhận"
+     "check": "source",
+     "quote": "chúng tôi"
     },
     {
-     "check": "words",
-     "quote": "giới chơi"
+     "check": "source",
+     "quote": "chúng tôi đặc biệt khuyên nên nuôi riêng"
     },
     {
-     "check": "words",
-     "quote": "thị trường cá cảnh"
+     "check": "source",
+     "quote": "(xem “thiết lập bể”)"
     }
    ]
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-garra-hughi/",
-   "url": "https://aquatome.com/ca/ca-garra-hughi/",
-   "title": "Cá Garra hughi",
+   "path": "/vi/ca/ca-chach-suoi-schistura-aurantiaca/",
+   "url": "https://aquatome.com/ca/ca-chach-suoi-schistura-aurantiaca/",
+   "title": "Cá chạch suối Schistura aurantiaca",
    "wrong": [
     {
-     "check": "words",
-     "quote": "thị trường cá cảnh"
+     "check": "source",
+     "quote": "Con suối trong ảnh chảy qua một khu rừng có tán cây cao chừng 50 m."
     },
+    {
+     "check": "units",
+     "quote": "bề rộng suối thay đổi theo mùa nhưng chưa bao giờ quá 9,1 mét"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-betta-foerschi/",
+   "url": "https://aquatome.com/ca/ca-betta-foerschi/",
+   "title": "Cá betta foerschi",
+   "wrong": [
     {
      "check": "words",
      "quote": "ghi nhận"
     },
     {
      "check": "words",
-     "quote": "Lý tưởng"
+     "quote": "gần như không"
+    },
+    {
+     "check": "words",
+     "quote": "Dù vậy"
     }
    ]
-  },
-  {
-   "lang": "ms",
-   "path": "/ms/ikan/ikan-toman/",
-   "url": "https://aquatome.com/ms/ikan/ikan-toman/",
-   "title": "Ikan toman",
-   "wrong": []
   }
  ]
 }

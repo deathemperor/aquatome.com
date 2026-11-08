@@ -103,6 +103,21 @@ func requests() async throws {
   #expect(contract[page.path]?.object?["get"] != nil)
 }
 
+@MainActor @Test("The account's picture: set, on the session's user after, taken off with null (sent as null, not left out); an id not shaped as one refused; the contract's path")
+func picture() async throws {
+  let fake = FakeAccounts()
+  let api = client(fake)
+  let s = try await signIn(api, "apple-1")
+  #expect(try await api.setPicture("halfmoon-betta", token: s.token).picture == "halfmoon-betta")
+  guard case .on(_, _, let u?) = try await api.session(token: s.token) else { Issue.record("not signed in"); return }
+  #expect(u.picture == "halfmoon-betta")
+  #expect(try await api.setPicture(nil, token: s.token).picture == nil)
+  let sent = fake.requests.filter { $0.url!.path == "/api/v1/account/picture" }.map { $0.httpBody.flatMap { try? JSON.parse($0).object } }
+  #expect(sent.map { $0?["picture"] } == [.string("halfmoon-betta"), .null])
+  await #expect(throws: AccountError.refused("bad_picture")) { _ = try await api.setPicture("Not an id", token: s.token) }
+  #expect(contract["/api/v1/account/picture"]?.object?["post"] != nil)
+}
+
 @MainActor @Test("Email: a code to the address, a token for each request, the code once, five wrong ones and it's gone; the same address, the same account")
 func email() async throws {
   let fake = FakeAccounts()
