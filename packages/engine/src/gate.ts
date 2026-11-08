@@ -14,7 +14,8 @@ import { loadCards, loadPages, pageUrl, type Page } from './pages'
  * - a new page that fails any check but words is held: kept in the repository with `held`, which the build leaves out;
  * - a live page whose new text fails a check its old text passed gets its committed text back;
  * - a page with a fault no rewording fixes or advice that would hurt (HOLD_ALWAYS) is held, changed or not, unless it's a
- *   live page whose new text brought it, which gets its old text back; harm found in one language holds every language;
+ *   live page whose new text brought it, which gets its old text back; harm found in one language holds every language,
+ *   and harm the rules find (a medicine in grams per litre: fit.ts, harmfulDoses) holds a page before any model reads it;
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
  *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
@@ -144,11 +145,19 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   }
   const saved = (p: Page) => { const e = state[fitKey(p)]; return e?.hash === fitText(p).hash ? e : undefined }
   // Advice that would hurt, found in one language, holds the page in every language: they're written from the same facts,
-  // and a read in one language can miss what a read in another found.
-  const harmedPages = () => new Set(all.filter(p => { const e = saved(p); return e && gateChecks(p, e).has('harm') }).map(p => `${p.kind}/${p.id}`))
-  let harmed = harmedPages()
-  const checksOf = (p: Page, e?: FitEntry) => { const c = gateChecks(p, e); if (harmed.has(`${p.kind}/${p.id}`)) c.add('harm'); return c }
+  // and a read in one language can miss what a read in another found. The rules find it with no read (a medicine in grams
+  // per litre). A text this run put back isn't the one on disk: it counts for nothing, and the one put back is held below
+  // if it has to be.
   const reverts: string[] = [], holdAfter: [string, FitCheck[]][] = []
+  const harmFiles = () => {
+    const out = new Map<string, Set<string>>()
+    for (const p of all) if (!reverts.includes(fileOf(p)) && gateChecks(p, saved(p)).has('harm')) out.set(`${p.kind}/${p.id}`, (out.get(`${p.kind}/${p.id}`) ?? new Set()).add(fileOf(p)))
+    return out
+  }
+  let harmed = harmFiles()
+  /** Harm in another of the page's language files, which holds this one too. */
+  const harmedBeside = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => [...(harmed.get(`${p.kind}/${p.id}`) ?? [])].some(f => f !== fileOf(p) && !reverts.includes(f))
+  const checksOf = (p: Page, e?: FitEntry) => { const c = gateChecks(p, e); if (harmedBeside(p)) c.add('harm'); return c }
   const apply = async (f: string, call: GateCall) => {
     if (call.action === 'hold' && held.get(f)?.checks.join() === call.checks.join()) return // held already, for the same checks
     const path = byFile.get(f)!.path
@@ -164,9 +173,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     report.unread.push(p.path)
     if (held) { pending.push(f); return }
     reverts.push(f)
-    // The text put back is held if its own saved read has a fault that holds a page.
+    // The text put back is held if its own saved read, or the rules, find a fault that holds a page.
     const old = head.pages.get(fitKey(p)), e = state[fitKey(p)]
-    const back = old && e?.hash === fitText(old).hash ? [...checksOf(old, e)].sort() : []
+    const back = old ? [...checksOf(old, e?.hash === fitText(old).hash ? e : undefined)].sort() : []
     if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
   }
   const pending: string[] = []
@@ -222,10 +231,10 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   // A fault no rewording fixes holds a page whether or not this cycle changed it, and harm in any language, with this
   // run's reads, holds it in each: a page read earlier in the run that passed too, as a new guide's Thai page that came
   // with a harmful Vietnamese one.
-  harmed = harmedPages()
+  harmed = harmFiles()
   for (const p of all) {
     const f = fileOf(p), e = saved(p)
-    if ((GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && ((!changed.has(f) && e) || harmed.has(`${p.kind}/${p.id}`))) {
+    if ((GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && ((!changed.has(f) && e) || harmedBeside(p) || harmed.get(`${p.kind}/${p.id}`)?.has(f))) {
       const checks = [...checksOf(p, e)].sort()
       if (checks.some(c => HOLD_ALWAYS.includes(c))) await apply(f, { action: 'hold', checks })
     }

@@ -128,3 +128,42 @@ test('localizeTopic in Malay: addressed by its name, and a name another guide ha
   expect(prompts[0]).toContain('Malaysia')
   expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
 })
+
+test('a dose from a fish farm\'s page or a forum post is written only when another page, not a farm\'s, gives it too', async () => {
+  const research: TopicFacts = {
+    found: true,
+    species: [],
+    sources: [
+      { url: 'https://tepbac.example/nam', title: 'Bệnh nấm trên cá', kind: 'farm' },
+      { url: 'https://forum.example/arowana', title: 'Arowana diseases', kind: 'forum' },
+      { url: 'https://vet.example/dips', title: 'Dips', kind: 'vet' },
+      { url: 'https://farm2.example/dips', title: 'Tắm muối cho cá', kind: 'farm' },
+    ],
+    facts: [
+      { section: 'treatment', fact: 'Bath in NaCl 2–3% for 15–30 minutes', source: 0 },
+      { section: 'treatment', fact: '1% salt with 0.8 g quinine per liter', source: 1 },
+      { section: 'treatment', fact: 'Tắm muối định kỳ 2–3% trong 15–20 phút', source: 0, also: [3] }, // another farm: not enough
+      { section: 'treatment', fact: 'A 30 g/L salt dip for 0.5–10 minutes', source: 0, also: [2] }, // a vet gives it too
+      { section: 'signs', fact: 'White cotton-like tufts on the skin', source: 0 }, // no dose: kept
+      { section: 'treatment', fact: 'Keepers raise the temperature 2–3 °C and add aeration', source: 1 }, // no dose: kept
+      { section: 'prevention', fact: 'Keep nitrate below 20 ppm', source: 1 }, // the water's own level: kept
+      { section: 'treatment', fact: 'Copper at 0.2 ppm for two weeks', source: 1 }, // a medicine's level: a dose
+      { section: 'treatment', fact: 'Remove the fish if it rolls onto its side', source: 2 },
+    ],
+  }
+  const root = await site()
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.92, notes: [] } as never
+    return { name: 'Cá bị nấm', slug: 'fish-fungus', summary: ['x'], body: '<p>x</p>', faq: [] } as never
+  }
+  const r = await makeTopic(root, { research: async () => research as never, llm }, { topic: 'Cá bị nấm', kind: 'disease' })
+  const written = (p: string) => research.facts.filter(f => p.includes(f.fact)).map(f => f.fact)
+  const kept = ['A 30 g/L salt dip for 0.5–10 minutes', 'White cotton-like tufts on the skin', 'Keepers raise the temperature 2–3 °C and add aeration', 'Keep nitrate below 20 ppm', 'Remove the fish if it rolls onto its side']
+  expect(written(prompts[0]!)).toEqual(kept)
+  // Nor in another language, from the same research.
+  prompts.length = 0
+  await localizeTopic(root, llm, r.id, 'id')
+  expect(written(prompts[0]!)).toEqual(kept)
+})

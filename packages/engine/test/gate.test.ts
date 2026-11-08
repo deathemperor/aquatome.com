@@ -265,6 +265,44 @@ test('a new guide that comes in two languages, one harmful, is held in both, whi
   expect((await readJson(root, 'content/guides/new-two/th.json')).held).toMatchObject({ checks: ['harm'] })
 })
 
+test('a dose the rules call harmful holds a page with no read, in every language; a text put back is held for its own, not for the one it replaced', async () => {
+  const commit = (root: string) => { git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x') }
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  const overdose = (t: Record<string, unknown>) => { t.body = `${t.body as string}<p>Kanamycin ngâm: 2–5 g/L.</p>` }
+  // Live, never read, the cycle didn't touch it: held with no call, and its Thai page with it.
+  const root = await repo()
+  await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+  await edit(root, GUIDE, overdose)
+  commit(root)
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toEqual([])
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+
+  // A cycle brings it: the old text comes back, not held, nor is its Thai page; read, or with the accounts out.
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  for (const llm of [reader(), none]) {
+    const brought = await repo()
+    await writeFile(join(brought, th), await readFile(join(brought, GUIDE), 'utf8'))
+    commit(brought)
+    const before = await readFile(join(brought, GUIDE), 'utf8')
+    await edit(brought, GUIDE, overdose)
+    await gate(brought, { llm, now })
+    expect(await readFile(join(brought, GUIDE), 'utf8')).toBe(before)
+    expect((await readJson(brought, th)).held).toBeUndefined()
+  }
+
+  // The committed text has it and the change can't be read: put back, and held for its own.
+  const had = await repo()
+  await edit(had, GUIDE, overdose)
+  commit(had)
+  const committed = await readFile(join(had, GUIDE), 'utf8')
+  await edit(had, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+  await gate(had, { llm: none, now })
+  expect(JSON.parse(await readFile(join(had, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(committed), held: { checks: ['harm'], at: '2026-11-09' } })
+})
+
 test('a text put back that no rewording fixes is held', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })

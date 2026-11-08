@@ -130,6 +130,60 @@ const DOSE = re(WORD(`${AMOUNT}(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|
 const PER_VOLUME = re(`\\d[\\d.,]*\\s*(?:ml|mg|g|gói|viên|thìa|muỗng|giọt|sachet|tablet|ซอง|เม็ด|หยด)[^.\\n]{0,40}(?:lít|liter|litre|ลิตร|gallon|galon)`)
 export const hasDose = (p: Page) => { PER_VOLUME.lastIndex = 0; return PER_VOLUME.test(fitText(p).text) }
 
+/**
+ * Doses no reading is needed to call harmful, from guides of 8 Nov 2026 whose figures were copied faithfully from wrong
+ * sources: a medicine in grams per litre (a source's milligrams written as grams, a forum post's figure), a salt dip of 2%
+ * or more held over 10 minutes (a fish farm's, for food fish; a vet's dip is 30 g/L for at most 10), and copper at 1 ppm or
+ * more with no product, type or label beside it (a chelated product's level, which given for copper sulphate kills fish).
+ * They are `harm`, so the gate holds a page with one before any model reads it.
+ */
+const NUM = '\\d+(?:[.,]\\d+)?(?:\\s*[–-]\\s*\\d+(?:[.,]\\d+)?)?'
+const top = (s: string) => Number(s.split(/\s*[–-]\s*/).at(-1)!.replace(',', '.'))
+const MEDICINE = re(`${WORD('kanamycin|quinin\\p{L}*|kina|metronidazol\\p{L}*|praziquantel|levamisol\\p{L}*|erythromycin|oxytetracyclin\\p{L}*|tetracyclin\\p{L}*|doxycyclin\\p{L}*|nitrofura\\p{L}*|furazolidon\\p{L}*|malachit\\p{L}*|methylen\\p{L}*|formalin|formaldehyd\\p{L}*|permanganat\\p{L}*|thuốc tím|acriflavin\\p{L}*|ampicillin|amoxicillin|enrofloxacin|ciprofloxacin|trimethoprim|fenbendazol\\p{L}*|flubendazol\\p{L}*|trichlorfon|dipterex|chloroquin\\p{L}*|kháng sinh|antibiotik\\p{L}*|antibiotics?')}|ควินิน|ด่างทับทิม|ยาปฏิชีวนะ`)
+const SALT = re(`${WORD('muối|độ mặn|salt|salinity|NaCl|garam|kemasinan|ppt')}|เกลือ|ความเค็ม|‰`)
+const G_PER_L = re(`(?<![\\d.,])(${NUM})\\s*(?:g|gm|gr|gam|gram|grams|ก\\.|กรัม)\\.?\\s*((?:\\p{L}+\\s+){0,2}?)(?:\\/|per|mỗi|trên|cho mỗi|in every|setiap|bagi setiap|ต่อ)\\s*(?:1\\s*)?(?:l|lít|lit|liter|litre|liters|litres|ลิตร)(?!\\p{L})`)
+const DIP = re(`(?<![\\d.,])(${NUM})\\s*%[^.!?%]{0,60}?(?<![\\d.,])(${NUM})\\s*(?:(?:phút|minit|minutes?|mins?|menit)(?!\\p{L})|นาที|((?:giờ|hours?|jam)(?!\\p{L})|ชั่วโมง))`)
+const DECOR = re(`${WORD('đồ trang trí|ngâm đồ|đồ vật|dụng cụ|vợt|dekorasi|hiasan|peralatan|decor\\p{L}*|ornaments?|equipment|nets?')}|ของตกแต่ง|อุปกรณ์`)
+const CU_WORD = `(?:ion\\s+)?(?:đồng(?!\\s*(?:thời|ý|hồ|bằng|đều|loạt|nghĩa|nhất|dạng|bộ|lòng|tiền|minh|hành|cỡ)(?!\\p{L}))|copper|tembaga|kuprum|Cu)(?!\\p{L})|ทองแดง|คอปเปอร์`
+const CU_UNIT = '(?:ppm|mg\\s*\\/\\s*(?:l|lít|liter|litre))(?!\\p{L})'
+const CU_AFTER = re(`(?<![\\d.,])(${NUM})\\s*${CU_UNIT}\\s*(?:${CU_WORD})`)
+/** Thai has no full stops: a space before Thai words ends a phrase. */
+const CU_BEFORE = re(`(?:${WORD('copper|tembaga|kuprum|đồng sunfat|đồng sulfat|đồng chelat\\p{L}*|thuốc đồng|ion đồng|đồng tự do|nồng độ đồng')}|ทองแดง|คอปเปอร์)((?:(?!\\s[\\u0E00-\\u0E7F])[^.!?;\\n]){0,60}?)(?<![\\d.,])(${NUM})\\s*${CU_UNIT}`)
+const ALKALINITY = re(`${WORD('kiềm|độ cứng|alkalin\\p{L}*|kesadahan|KH|GH')}|ความเป็นด่าง|ความกระด้าง|อัลคาลินิตี`)
+const NAMED_COPPER = re(`${WORD('coppersafe|cupramine|chelat\\p{L}*|kelat|terkelat|nhãn|label')}|คีเลต|ฉลาก`)
+/** Where the last match of `r` in `s` ends, or -1. */
+const endOf = (r: RegExp, s: string) => { let at = -1; for (const m of s.matchAll(r)) at = m.index + m[0].length; return at }
+
+/** What these find in one part's text: the words, and why. */
+export function harmfulDoses(text: string): { quote: string; why: string }[] {
+  const out: { quote: string; why: string }[] = []
+  // The words as the page has them, without the marks a list item, a table cell or a heading takes in the text.
+  const say = (quote: string, why: string) => out.push({ quote: quote.replace(/(?:^|\n)\s*(?:-|\||##)\s*/g, ' ').trim(), why })
+  // The sentence a figure is in, up to it (`n` characters at most) and on from it.
+  const lead = (i: number, n: number) => { const s = text.slice(Math.max(0, i - n), i); return s.slice(Math.max(0, endOf(/[.!?](?=\s)/g, s))) }
+  const tail = (i: number) => { const s = text.slice(i, i + 60); const end = s.search(/[.!?](?=\s|$)/); return end < 0 ? s : s.slice(0, end) }
+  for (const m of text.matchAll(G_PER_L)) {
+    const before = lead(m.index, 120)
+    // The figure is a medicine's when one is named between it and its unit, or is named after any salt before it.
+    if (endOf(MEDICINE, m[2]!) >= 0 || endOf(MEDICINE, before) > endOf(SALT, before)) say(`${before}${m[0]}`, 'a medicine in grams per litre, where medicines are dosed in milligrams')
+  }
+  for (const m of text.matchAll(DIP)) {
+    const before = lead(m.index, 60), salt = endOf(SALT, before)
+    const minutes = top(m[2]!) * (m[3] ? 60 : 1)
+    if (top(m[1]!) >= 2 && minutes > 10 && salt >= 0 && !/\d/.test(before.slice(salt)) && endOf(DECOR, before) < 0) say(`${before}${m[0]}`, 'a salt dip of 2% or more held over 10 minutes, where a vet\'s dip is 30 g/L for at most 10')
+  }
+  // One finding a figure, found with its copper word after it or before.
+  const seen = new Set<number>()
+  const copper = (at: number, figure: string, quote: string) => {
+    if (seen.has(at) || top(figure) < 1 || endOf(NAMED_COPPER, `${lead(at, 120)}${tail(at)}`) >= 0) return
+    seen.add(at)
+    say(quote, 'copper at 1 ppm or more with no product, type or label beside it: copper sulphate at that level kills fish')
+  }
+  for (const m of text.matchAll(CU_AFTER)) copper(m.index, m[1]!, `${lead(m.index, 60)}${m[0]}`)
+  for (const m of text.matchAll(CU_BEFORE)) if (endOf(ALKALINITY, m[1]!) < 0) copper(m.index + m[0].lastIndexOf(m[2]!), m[2]!, m[0])
+  return out
+}
+
 /** The products in the table that a reader in this language may not find: hard here, or, with no market data, all of them. */
 const foreignIn = (lang: Lang) => PRODUCTS.filter(x => { const s = x.market[lang]?.status; return s === 'hard' || (s === undefined && lang !== 'vi') })
 const clip = (s: string) => s.trim().split(/\s+/).slice(0, 20).join(' ')
@@ -153,6 +207,7 @@ export function fitRules(p: Page): FitFinding[] {
       if (x && s.match(DOSE)) say('dose', id, s, `a dose tied to ${x.name}`, { product: x.name })
     }
     for (const q of phraseQuotes(text, p.lang)) say('words', id, q.quote, `listed: ${q.instead}`, { fix: q.instead })
+    for (const h of harmfulDoses(text)) say('harm', id, h.quote, h.why)
   }
   return dedupe(out)
 }

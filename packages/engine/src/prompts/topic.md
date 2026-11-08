@@ -12,6 +12,10 @@ Viết:
 Quy tắc:
 - Chỉ dùng dữ kiện trong bảng. Không thêm con số, tên thuốc, liều, loài hay lời khuyên nào bảng không có. Giữ đúng mức chắc chắn của dữ kiện.
 - Thuốc: ghi hoạt chất (ví dụ "xanh methylen", "muối không i-ốt"), không quảng cáo nhãn hàng. Ghi rõ điều cần cẩn thận mà dữ kiện có (tép, ốc, cây, cá da trơn chịu thuốc kém).
+- Liều dữ kiện ghi cho một sản phẩm có tên là liều của riêng sản phẩm đó. Không viết nó thành liều của hoạt chất hay của cả loại thuốc ("một loại thuốc đồng", "kanamycin"): không nêu tên sản phẩm thì viết "liều theo nhãn thuốc bạn mua". Mức dữ kiện nói một loại giữ (đồng chelate 1,5–2,0 ppm) thì ghi kèm tên loại đó.
+- Thuốc dữ kiện không ghi liều: viết "liều theo nhãn", không tự đặt liều, và không nói dữ kiện hay nguồn thiếu liều.
+- Mỗi liều đi cùng lịch dùng của chính nó (bảng: một hàng một cách). Liều dữ kiện không cho lịch thì bỏ, không lấy lịch của nguồn này gắn cho liều của nguồn kia.
+- Tiệm bán cá ở nước ngoài (Aquarium Co-Op…) là nguồn thì gọi là "một hướng dẫn nuôi cá", không nêu tên tiệm.
 - Không chẩn đoán thay người đọc: nói dấu hiệu nào giống bệnh nào và cách phân biệt nếu dữ kiện có.
 - Khi các nguồn ghi khác nhau, nói rõ là khác nhau và nêu cả hai.
 - Không nhắc đến người viết, kênh, video hay "theo tác giả". Không viết giá cụ thể.

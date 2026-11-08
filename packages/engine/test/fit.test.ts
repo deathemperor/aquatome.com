@@ -123,6 +123,48 @@ test('advice that would hurt is a finding the checker keeps, and its prompt asks
   expect(fitPrompt('vi', 'guides')).toContain('- harm: ')
 })
 
+test('doses that need no reading to call harmful, as the guides of 8 Nov had them, in each language', () => {
+  const harm = (html: string, lang: Page['lang'] = 'vi') => found('harm', html, { lang })
+  // A medicine in grams per litre: named before the figure, after a salt's own figure, or between the figure and its unit.
+  expect(harm('<ul><li>Kanamycin ngâm: 2–5 g/L</li></ul>')).toEqual(['Kanamycin ngâm: 2–5 g/L'])
+  expect(harm('<p>Đốm trắng: pha muối 1% cùng 0.8 g quinine mỗi lít.</p>')).toHaveLength(1)
+  expect(harm('<p>Bintik putih: garam 1% dengan kina 0,8 g per liter.</p>', 'id')).toHaveLength(1)
+  expect(harm('<p>เกลือ 1% ร่วมกับควินิน 0.8 กรัมต่อลิตร</p>', 'th')).toHaveLength(1)
+  expect(harm('<p>Sumber ini juga menyenaraikan mandian kanamycin 2–5 g/L.</p>', 'ms')).toHaveLength(1)
+  // A salt dip of 2% or more over 10 minutes, in a table too.
+  expect(harm('<p>Khuyến nông khuyên tắm muối 2–3% định kỳ, mỗi lần 15–20 phút.</p>')).toHaveLength(1)
+  expect(harm('<table><tr><td>Tắm muối NaCl</td><td>Nồng độ 2–3% trong 15–30 phút</td></tr></table>')).toHaveLength(1)
+  expect(harm('<p>Rendaman garam rutin 2–3% selama 15–20 menit.</p>', 'id')).toHaveLength(1)
+  expect(harm('<p>แช่เกลือ 2–3% เป็นประจำครั้งละ 15–20 นาทีเพื่อฆ่าไข่</p>', 'th')).toHaveLength(1)
+  expect(harm('<p>Tắm muối 2% trong 1 giờ.</p>')).toHaveLength(1)
+  // Copper at 1 ppm or more with nothing to say which product or type it is.
+  expect(harm('<p>Họ ước tính mức này vào khoảng 1,5–2,0 ppm đồng, giữ nước ấm 30 ngày.</p>')).toHaveLength(1)
+  expect(harm('<p>ซึ่งร้านระบุว่าราว 1.5–2.0 ppm copper ที่อุณหภูมิ 29°C</p>', 'th')).toHaveLength(1)
+  expect(harm('<p>Đồng sunfat giữ ở 1,5 ppm trong 10 ngày.</p>')).toHaveLength(1)
+
+  // What only looks like one: a vet's dip, a salt figure, a soak for decor, a copper type or label named, a weak copper
+  // level, alkalinity, "đồng ý", a word that holds "kina", a stock solution's strength, a dose in milligrams.
+  for (const [html, lang] of [
+    ['<p>Tắm muối 30 g/lít, từ 30 giây đến 10 phút tùy loài; cá nghiêng mình thì vớt ra ngay.</p>', 'vi'],
+    ['<p>Tắm muối 3% trong 5–10 phút.</p>', 'vi'],
+    ['<p>Một nghiên cứu còn thấy nâng độ mặn từ 0 lên 3 g/L làm số sán tăng. Praziquantel diệt sán trưởng thành.</p>', 'vi'],
+    ['<p>Ngâm đồ trong nước muối 1–2% khoảng 10–15 phút, xả lại rồi đặt vào bể.</p>', 'vi'],
+    ['<p>Dekorasi: rendam dalam air garam 2% selama 10–15 menit, bilas.</p>', 'id'],
+    ['<p>Thuốc đồng: liều theo nhãn thuốc bạn mua. Mỗi loại giữ một mức riêng: đồng chelate thường 1,5–2,0 ppm, đồng sunfat thấp hơn nhiều.</p>', 'vi'],
+    ['<p>Kuprum terkelat komersial pada kira-kira 5 ml bagi setiap 20 liter (sekitar 1.5–2.0 ppm kuprum).</p>', 'ms'],
+    ['<p>Liều dùng là 0,15 ppm ion đồng, ngâm tối đa 10 ngày.</p>', 'vi'],
+    ['<p>Đồng sunfat: không dùng khi độ kiềm dưới 50 mg/L.</p>', 'vi'],
+    ['<p>คอปเปอร์ซัลเฟต: ห้ามใช้เมื่อค่าอัลคาลินิตีต่ำกว่า 50 mg/L</p>', 'th'],
+    ['<p>ใส่คอปเปอร์ซัลเฟต ความเข้มข้นควรอย่างน้อย 1.5–2 mg/l แล้วกำจัดทองแดงออกก่อนปล่อยปลา</p>', 'th'],
+    ['<p>Merck thì không đồng ý và ghi rằng 2 mg/L NH3 đủ giết nhiều loài cá.</p>', 'vi'],
+    ['<p>Kemungkinan 3 g per liter pupuk cukup.</p>', 'id'],
+    ['<p>Dung dịch 1–2,5% glutaraldehyde thường chứa 10–25 g/L.</p>', 'vi'],
+    ['<p>Kanamycin 50–100 mg/L.</p>', 'vi'],
+  ] as const) expect(harm(html, lang), html).toEqual([])
+  // Each is held as harm: a finding of the rules', with why.
+  expect(fitRules(page('<p>Kanamycin ngâm: 2–5 g/L</p>')).find(f => f.check === 'harm')).toMatchObject({ by: 'rule', why: expect.stringContaining('milligrams') })
+})
+
 test('the report counts and never lists a page', () => {
   const a = page('<p>Mua trên Amazon.</p>', { id: 'a-secret-slug' })
   const entry = { at: '2026-11-08', hash: fitText(a).hash, model: 'm', findings: [], products: ['Hikari', 'hikari', 'Ich-X'] }

@@ -14,21 +14,24 @@ const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8
 const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8')
 
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'vietnam', 'myths', 'other'] as const
+const KINDS = ['vet', 'university', 'maker', 'article', 'forum', 'paper', 'farm', 'other'] as const
 /** What research found about one fishkeeping topic: facts in the researcher's own words, each with its source's index. */
 export type TopicFacts = {
   found: boolean
-  facts: { section: (typeof SECTIONS)[number]; fact: string; source: number }[]
+  /** `also`: other sources that give the same, which a dose from a farm's page or a forum post needs (usableFact). */
+  facts: { section: (typeof SECTIONS)[number]; fact: string; source: number; also?: number[] }[]
   /** Scientific names of the fish and plants the facts are about (links to their pages). */
   species: string[]
-  sources: { url: string; title: string; kind: 'vet' | 'university' | 'maker' | 'article' | 'forum' | 'paper' | 'other' }[]
+  /** `farm`: written for fish farmed for food (ponds, cages, hatcheries, a farming office's advice). */
+  sources: { url: string; title: string; kind: (typeof KINDS)[number] }[]
 }
 const FACTS_SCHEMA = {
   type: 'object', required: ['found', 'facts', 'species', 'sources'],
   properties: {
     found: { type: 'boolean' },
-    facts: { type: 'array', items: { type: 'object', required: ['section', 'fact', 'source'], properties: { section: { type: 'string', enum: SECTIONS }, fact: { type: 'string' }, source: { type: 'number' } } } },
+    facts: { type: 'array', items: { type: 'object', required: ['section', 'fact', 'source'], properties: { section: { type: 'string', enum: SECTIONS }, fact: { type: 'string' }, source: { type: 'number' }, also: { type: 'array', items: { type: 'number' } } } } },
     species: { type: 'array', items: { type: 'string' } },
-    sources: { type: 'array', items: { type: 'object', required: ['url', 'title', 'kind'], properties: { url: { type: 'string' }, title: { type: 'string' }, kind: { type: 'string', enum: ['vet', 'university', 'maker', 'article', 'forum', 'paper', 'other'] } } } },
+    sources: { type: 'array', items: { type: 'object', required: ['url', 'title', 'kind'], properties: { url: { type: 'string' }, title: { type: 'string' }, kind: { type: 'string', enum: KINDS } } } },
   },
 }
 
@@ -39,10 +42,27 @@ const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping to
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
 - what (what it is, why it matters), signs (how it looks, how to tell it from look-alikes), causes, firstAid (what to do at once), treatment (methods with exact doses, temperatures and durations as sources give them, and what fish, shrimp, snails or plants cannot take them), steps (for a how-to: the steps in order), prevention, mistakes (common errors), vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there), myths (claims sources say are wrong, with who says so), other.
 - species: scientific names of the fish or plants the topic is mostly about or that sources single out (sensitive species, typical victims). Empty if none.
-- sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind.
+- sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind. farm: a page written for fish farmed for food (ponds, cages, hatcheries, an agriculture or fisheries office's advice to farmers), whatever its publisher.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
-Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. Never fetch Shopee, Lazada or Tiki pages.`
+Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Never fetch Shopee, Lazada or Tiki pages.`
+
+/**
+ * A dose a reader would measure out, in a fact's words: an amount, or a salt's percentage. The owner's chief, 8 Nov 2026,
+ * after guides gave a fish farm's salt dips and a forum post's quinine to aquarium keepers: "a dose taken from a source
+ * written for farmed food fish, or from a single forum post, needs a second source before it's used."
+ */
+const DOSE_FACT = /\d\s*(?:mg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|cc)(?![\p{L}])|\d\s*%\s*(?:salt|muối|NaCl)|(?:salt|muối|NaCl)[^.;]{0,20}?\d\s*%/iu
+/** A level in ppm is a dose unless it's the water's own (nitrate below 20 ppm). */
+const LEVEL_FACT = /\d\s*(?:ppm|ppt)(?![\p{L}])/iu
+const WATER = /nitrat|nitrit|ammonia|amoni|oxygen|\boxy\b|TDS|CO2|CO₂|\bKH\b|\bGH\b/iu
+const isDose = (fact: string) => DOSE_FACT.test(fact) || (LEVEL_FACT.test(fact) && !WATER.test(fact))
+/** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
+export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
+  const s = r.sources[f.source]
+  if (!s || (s.kind !== 'farm' && s.kind !== 'forum') || !isDose(f.fact)) return true
+  return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && o.url !== s.url && o.kind !== 'farm' })
+}
 
 const WRITE_SCHEMA = {
   type: 'object', required: ['name', 'summary', 'body', 'faq'],
@@ -54,7 +74,7 @@ const WRITE_SCHEMA = {
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around.
+const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A medicine or product the facts give no dose for, dosed "by the label", is the writer's rule, not a claim.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
 /** Scientific name → page id, for the species and plants we have. */
@@ -111,7 +131,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   // fact whose source was dropped goes with it, and the rest are renumbered.
   const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
   const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
-  const facts = researched.facts.filter(f => at(f.source) >= 0).map(f => ({ ...f, source: at(f.source) }))
+  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
   const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts` }
 
@@ -184,9 +204,9 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
   // Facts about Vietnam itself stay on the Vietnamese page; this page cites only the sources its facts come from
   // (in the Vietnamese page's order), numbered afresh.
-  const kept = researched.facts.filter(f => f.section !== 'vietnam' && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
+  const kept = researched.facts.filter(f => f.section !== 'vietnam' && usableFact(researched, f) && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
   const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
-  const facts = kept.map(f => ({ ...f, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
+  const facts = kept.map(f => ({ section: f.section, fact: f.fact, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
   if (!facts.length) return { id, skipped: 'no facts' }
   const forWriter = { topic: vi.name, kind: entity.kind, facts }
   const T = TARGETS[lang]
