@@ -144,8 +144,8 @@ struct ChatHistoryView: View {
   }
 }
 
-/// A row: the page's photo (a camera for fish ID, whose photo never went to the chat), its first question on up to two
-/// lines, and one grey line: whose, how many questions, and when. The conversation on screen says so first.
+/// A row: the page's photo (a camera for fish ID, whose photo never went to the chat), its title (else its first question)
+/// on up to two lines, and one grey line: whose, how many questions, and when. The conversation on screen says so first.
 private struct ChatHistoryRow: View {
   let row: Chat.Row
   let here: Bool
@@ -162,7 +162,7 @@ private struct ChatHistoryRow: View {
     HStack(spacing: 12) {
       picture
       VStack(alignment: .leading, spacing: 3) {
-        Text(row.first.question).font(.subheadline.weight(.medium)).lineLimit(size.isAccessibilitySize ? nil : 2).multilineTextAlignment(.leading)
+        Text(row.title ?? row.first.question).font(.subheadline.weight(.medium)).lineLimit(size.isAccessibilitySize ? nil : 2).multilineTextAlignment(.leading)
         line.font(.footnote).lineLimit(size.isAccessibilitySize ? nil : 1)
       }
       Spacer(minLength: 0)

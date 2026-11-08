@@ -64,6 +64,8 @@ final class FakeChat {
     var hidden = false
     var closed = false
     var kept: [(question: String, asked: Date, turn: [String: Any])] = []
+    /// `-chat-titles`: the seeded conversations' titles.
+    var title: String?
   }
 
   /// The number after a launch argument (`-chat-max 1500`).
@@ -282,6 +284,7 @@ final class FakeChat {
     if let about = c.about { o["about"] = about }
     if let i = c.identified { o["identified"] = i }
     if let k = c.continues { o["continues"] = k }
+    if let t = c.title { o["title"] = t }
     return o
   }
 
@@ -319,12 +322,16 @@ final class FakeChat {
       let now = Date()
       return days == 0 ? max(Calendar.current.startOfDay(for: now), now.addingTimeInterval(-3600)) : Calendar.current.date(byAdding: .day, value: -days, to: now)!
     }
-    func add(_ question: String, about: String?, from: String = "species", identified: Any? = nil, days: Int, n: Int = 1, closed: Bool = true, continues: String? = nil) -> String {
+    let titled = args.contains("-chat-titles")
+    func add(_ question: String, about: String?, from: String = "species", identified: Any? = nil, days: Int, n: Int = 1, closed: Bool = true, continues: String? = nil,
+             title: String? = nil) -> String {
       let id = UUID().uuidString.lowercased(), at = back(days)
       var r = Record(id: id, account: sub, question: question, from: from, about: about.map { page($0) }, identified: identified, started: at, last: at,
                      continues: continues, closed: closed)
+      r.title = titled ? title : nil
       for k in 1...n {
         var t = turn
+        t["title"] = nil
         t["conversation"] = id
         t["n"] = k
         r.kept.append((k == 1 ? question : "Câu thứ \(k)?", at, t))
@@ -333,12 +340,12 @@ final class FakeChat {
       return id
     }
     let first = add("Thả bao nhiêu con thì vừa bể của tôi?", about: "symphysodon-aequifasciatus", days: 29)
-    _ = add("Cá đĩa ăn gì?", about: "symphysodon-aequifasciatus", days: 28, continues: first)
+    _ = add("Cá đĩa ăn gì?", about: "symphysodon-aequifasciatus", days: 28, continues: first, title: "Thức ăn hằng ngày")
     _ = add("Nuôi chung với cá neon được không?", about: "betta-splendens", from: "fish-id",
             identified: ["verdict": "fish", "results": [["scientificName": "Betta splendens", "confidence": 0.9]]], days: 3)
     let open = args.contains("-chat-history-open")
-    _ = add("Bể neon của mình rêu tóc mọc kín, làm sao hết?", about: "paracheirodon-innesi", days: open ? 0 : 1, closed: !open)
-    _ = add("Cá betta nhà mình bỏ ăn hai ngày nay, phải làm sao?", about: "betta-splendens", days: 0, n: 2, closed: false)
+    _ = add("Bể neon của mình rêu tóc mọc kín, làm sao hết?", about: "paracheirodon-innesi", days: open ? 0 : 1, closed: !open, title: "Rêu tóc mọc kín bể")
+    _ = add("Cá betta nhà mình bỏ ăn hai ngày nay, phải làm sao?", about: "betta-splendens", days: 0, n: 2, closed: false, title: "Bỏ ăn hai ngày liền")
   }
 
   /// The recorded turn, for the conversations the list opens with.

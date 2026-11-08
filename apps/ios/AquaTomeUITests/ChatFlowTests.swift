@@ -297,6 +297,25 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(row(openList(app), "Bể neon").label.contains("Đang mở"), "doesn't say it's open")
   }
 
+  /// A row says its title, the first in its chain, oldest first: a first conversation carried on a day later may have none
+  /// while the one carrying it on has one. With none, a row says its first question, as before. The earlier conversation
+  /// offered under the starters says its title too.
+  func testARowSaysTheFirstTitleInItsChainElseItsFirstQuestion() {
+    let app = launch("-chat-history", "-chat-titles")
+    openChat(app)
+    signIn(app)
+    let earlier = element(app, "chat-earlier")
+    XCTAssertTrue(earlier.waitForExistence(timeout: 5), "not offered")
+    XCTAssertTrue(earlier.label.contains("Rêu tóc mọc kín bể"), earlier.label)
+    let rows = openList(app)
+    XCTAssertEqual(rows.count, 4)
+    let chain = row(rows, "Thức ăn hằng ngày")
+    XCTAssertTrue(chain.exists && chain.label.contains("2 câu"), "the row doesn't say its second conversation's title")
+    XCTAssertFalse(row(rows, "Thả bao nhiêu con").exists, "a row with a title says its first question")
+    XCTAssertTrue(row(rows, "Bỏ ăn hai ngày liền").exists, "a titled row without its title")
+    XCTAssertTrue(row(rows, "Nuôi chung với cá neon").exists, "a row with no title doesn't say its first question")
+  }
+
   /// A fish's page whose latest conversation is still open reopens it, and the next question goes on in it: no divider, and
   /// one row with one more question.
   func testAnOpenConversationAboutThisFishReopensAndGoesOnInIt() {
