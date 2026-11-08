@@ -1,7 +1,8 @@
 ---
 url: https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica
 title: How to grow Limnophila aromatica - The 2Hr Aquarist
-fetchedAt: 2026-11-04T00:26:40.526Z
+fetchedAt: 2026-11-07T23:16:11.982Z
+capturedAt: 2025-04-27T13:37:59.000Z
 hash: e78f99d85408f8a9f0753d2fb6203ccee808219431058be73fc7b373da614587
 ---
 

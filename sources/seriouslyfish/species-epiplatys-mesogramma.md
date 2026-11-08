@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/epiplatys-mesogramma
 title: Epiplatys mesogramma · Seriously Fish
-fetchedAt: 2026-11-07T06:11:06.628Z
+fetchedAt: 2026-11-07T20:38:13.414Z
 hash: 553c0c122f808ee01663364c23f8148fd6caf3b71d33b2f4d10c11daba7648b1
 ---
 

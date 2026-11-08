@@ -5,8 +5,12 @@
   "sourceUrl": "https://www.youtube.com/watch?v=YLGv95LMF6c",
   "html": "",
   "photos": [],
-  "mentions": [],
-  "updatedAt": "2026-10-30",
+  "mentions": [
+    "hygrophila-pinnatifida",
+    "eleocharis-parvula",
+    "caridina-multidentata"
+  ],
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "YLGv95LMF6c",
     "title": "AQUARIUM MAINTENANCE FOR BEGINNERS - QUICK AND SIMPLE",
@@ -87,9 +91,8 @@
       },
       {
         "category": "den",
-        "type": "thuy-sinh",
         "brand": "Dennerle",
-        "model": "power led 5.0",
+        "model": "Power LED 5.0",
         "t": 0
       },
       {
@@ -110,7 +113,7 @@
         "category": "phan-nen",
         "type": "phan",
         "brand": "Tropica",
-        "model": "aquasoil",
+        "model": "Aquasoil",
         "t": 0
       },
       {
@@ -119,22 +122,17 @@
         "t": 0
       },
       {
-        "category": "khac",
+        "category": "be-ca",
+        "type": "nano",
         "brand": "Dennerle",
-        "model": "Scapers Flow",
+        "model": "Scapers Tank 70L",
         "t": 0
-      },
-      {
-        "category": "khac",
-        "brand": "Dennerle",
-        "model": "Cleanator",
-        "t": 217
       },
       {
         "category": "be-ca",
         "type": "nano",
         "brand": "Dennerle",
-        "model": "Scapers Tank 70L",
+        "model": "Nano Cube 10L",
         "t": 0
       },
       {
@@ -147,139 +145,187 @@
       {
         "category": "be-ca",
         "type": "nano",
-        "brand": "Dennerle",
-        "model": "Nano Cube",
+        "brand": "Beta Line",
+        "model": "Nano 40",
         "t": 0
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "t": 295
       },
       {
         "category": "loc",
         "type": "treo",
         "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Dennerle",
+        "model": "Cleanator",
+        "t": 217
+      },
+      {
+        "category": "khac",
+        "brand": "INTAQO",
+        "model": "controller",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Dennerle",
+        "model": "Scapers Flow",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao bể nào cũng phải bảo dưỡng",
+        "heading": "Vì sao phải bảo dưỡng định kỳ",
         "moments": [
-          {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t35.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá nhỏ bơi giữa rêu và cây thủy sinh xanh tốt trong bể."
-          },
           {
             "t": 40,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t40.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng ống siphon hút chất thải và thay nước trong bể thủy sinh."
-          }
-        ]
-      },
-      {
-        "heading": "Quan sát trước khi bắt tay vào làm",
-        "moments": [
-          {
-            "t": 124,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t124.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nano kiểu Hà Lan cây xanh tốt, vừa tỉa gần đây."
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng ống hút siphon vệ sinh nền trong bể thủy sinh đầy cây."
           },
           {
-            "t": 144,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t144.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh ống xả của lọc và thảm cây trong bể."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây xanh tốt, được tỉa gọn và giữ trong tầm kiểm soát."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YLGv95LMF6c/p2-lfRmVydGlnLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YLGv95LMF6c/p2-lfRmVydGlnLmpwZw-480.webp",
-          "width": 960,
-          "height": 339,
-          "licence": "CC BY-SA 3.0",
-          "author": "Shay Fertig",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Enchanted_Garden_by_Shay_Fertig.jpg",
-          "caption": "Bể thủy sinh kiểu Hà Lan với cây xanh đỏ rậm rạp và cá neon."
+          "url": "https://media.aquatome.com/video/YLGv95LMF6c/p0-0ZXJfRmlzaC5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/YLGv95LMF6c/p0-0ZXJfRmlzaC5wbmc-480.webp",
+          "width": 940,
+          "height": 788,
+          "licence": "CC BY-SA 4.0",
+          "author": "Chamika Ranaweera",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_Algae_Eater_Fish.png",
+          "caption": "Bể thủy sinh với cây xếp lá xanh tốt trên lũa và đàn cá bơi quanh."
         }
       },
       {
-        "heading": "Quy trình bảo dưỡng cơ bản khoảng 20 phút",
+        "heading": "Một buổi bảo dưỡng mất bao lâu",
         "moments": [
           {
-            "t": 169,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t169.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cỡ nhỏ với lily pipe thủy tinh gắn bên thành kính."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây thân đỏ và xanh mọc dày, cần tỉa định kỳ."
           },
           {
-            "t": 322,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t322.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ngâm và vệ sinh ống lily pipe trong xô nước pha thuốc tẩy."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh trải thảm cây xanh mướt, đã chạy ổn định."
           }
-        ]
-      },
-      {
-        "heading": "Cắt tỉa một bể lâu ngày chưa tỉa",
-        "moments": [
-          {
-            "t": 427,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t427.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay tỉa và gỡ rêu hại giữa các bụi cây hậu cảnh trong bể."
-          },
-          {
-            "t": 456,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t456.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dọn tiền cảnh thảm cỏ bằng tay và ống hút ở cuối buổi tỉa."
-          }
-        ]
-      },
-      {
-        "heading": "Bảo dưỡng nhanh cho bể nano ít việc",
-        "moments": [
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t560.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cube cây rậm xanh, chỉ cần thay nước và chà kính."
-          },
-          {
-            "t": 595,
-            "url": "https://media.aquatome.com/video/YLGv95LMF6c/t595.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng dụng cụ vệ sinh bể nano có rêu mỏng bám kính."
-          }
-        ]
-      },
-      {
-        "heading": "Có cần vệ sinh lọc hằng tuần không",
-        "moments": [],
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YLGv95LMF6c/p6-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YLGv95LMF6c/p6-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/YLGv95LMF6c/p1-BcXVhcml1bS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/YLGv95LMF6c/p1-BcXVhcml1bS5KUEc-480.webp",
           "width": 960,
           "height": 720,
+          "licence": "CC0",
+          "author": "Tdwittt",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
+          "caption": "Bể mới set với lũa và cây lá nền trên nền đất đen."
+        }
+      },
+      {
+        "heading": "Trình tự bảo dưỡng cơ bản",
+        "moments": [
+          {
+            "t": 135,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at135-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nano kiểu Dutch vừa tỉa xong, cây xanh và gọn gàng."
+          },
+          {
+            "t": 145,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đầu hút, đầu xả lọc và diffuser trong bể cây dày."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/YLGv95LMF6c/p2-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YLGv95LMF6c/p2-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây rậm rạp nuôi cá neon, cần tỉa và bảo dưỡng đều đặn."
+        }
+      },
+      {
+        "heading": "Tỉa một bể đã lâu không tỉa",
+        "moments": [
+          {
+            "t": 400,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây thân đỏ Ludwigia 'Mini Super Red' trong bể thủy sinh."
+          },
+          {
+            "t": 435,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at435-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang tỉa cây thân đỏ ở hậu cảnh, thảm cỏ phía trước."
+          }
+        ]
+      },
+      {
+        "heading": "Bể nano nhỏ thì làm gọn hơn",
+        "moments": [
+          {
+            "t": 550,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at550-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng ống xi phông thay nước nhanh cho bể nano."
+          },
+          {
+            "t": 565,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at565-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cube chạy lâu, cây xanh um gần tràn nhưng vẫn khỏe."
+          }
+        ]
+      },
+      {
+        "heading": "Có cần vệ sinh lọc mỗi tuần không",
+        "moments": [
+          {
+            "t": 630,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Kệ nhiều bể nhỏ trồng cây, đèn sáng trong phòng."
+          },
+          {
+            "t": 640,
+            "url": "https://media.aquatome.com/video/YLGv95LMF6c/at640-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhiều cây và rêu xanh um, nước trong, ít bẩn."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/YLGv95LMF6c/p5-b0V4dGVybm8uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/YLGv95LMF6c/p5-b0V4dGVybm8uanBn-480.webp",
+          "width": 960,
+          "height": 1280,
           "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Miếng mút lọc màu đen, chỉ cần vệ sinh khi dòng chảy yếu."
+          "author": "Katn88",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:FiltroExterno.jpg",
+          "caption": "Lọc thùng Eheim đặt dưới tủ bể, chỉ cần vệ sinh khi dòng chảy yếu."
         }
       }
     ]

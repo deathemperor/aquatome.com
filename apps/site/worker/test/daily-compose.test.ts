@@ -21,7 +21,7 @@ function quiet(now = NOW): Overview {
   return {
     now, tz: TZ, readers: [], clicks: { days, clicks: days.map(() => 0) },
     fish: { days: days.slice(1), perDay: { ok: z, none: z, blocked: z, usd: z, tin: z, tout: z }, unmatched: [], recent: [], periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } },
-    keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] },
+    keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] },
     photos: 3, waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, hidden: {},
     accounts: { days: days.slice(1), users: 5, newUsers: z, synced: 2, openSessions: 1, credentials: [], comments: [], newComments: z },
     content: { engine: { needsHuman: [], sources: [], videos: { waiting: 0, writtenAt: [] } }, inventory: {} } as unknown as Overview['content'],
@@ -142,7 +142,7 @@ test('needs care: the AI spend of the day that just ended, past 80% of the cap, 
 })
 
 test('needs care: fish ID keys, in English', () => {
-  const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } } })
+  const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } } })
   const resting = { ...KEY, state: 'credit' as const, until: '2026-11-06T08:00:00.000Z' }
   // The owner's rule: one key out is the rotation's to skip, and only every key out is theirs.
   expect(needsCare(keys([resting, { ...KEY, n: 2 }]))).toEqual([])
@@ -322,4 +322,20 @@ test('the workflow\'s body: read strictly, every link this repository\'s', () =>
 test('the report writes numbers the English way, not the dashboard\'s Vietnamese way', async () => {
   const { fmt } = await import('../daily/compose')
   expect([fmt(2.1, 1), fmt(1234), fmt(0.11, 2)]).toEqual(['2.1', '1,234', '0.11'])
+})
+
+test("coming up in the app: Khám phá's week with its theme and the curator's note, then Hôm nay's fish a day; nothing without a calendar", () => {
+  const calendar = { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 'Trời trở lạnh', why: 'Gió mùa về, bể cần sưởi.' }], days: [{ date: '2026-11-06', fish: 'Cá ông tiên altum' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'Cá vàng Lưu kim (Ryukin)', why: 'Fish: Cá vàng Lưu kim (Ryukin), fine without a heater.' }] }
+  const r = compose(input({ gh: gh({ calendar }) }))
+  expect(r.text).toContain(['COMING UP IN THE APP', 'Khám phá, week of Mon 9 Nov: Trời trở lạnh. Gió mùa về, bể cần sưởi.', 'Hôm nay', '- Fri 6 Nov: Cá ông tiên altum', '- Sat 7 Nov: no fish picked, the app picks its own', '- Sun 8 Nov: Fish: Cá vàng Lưu kim (Ryukin), fine without a heater.'].join('\n'))
+  expect(r.text.indexOf('COMING UP IN THE APP')).toBeGreaterThan(r.text.indexOf('BUILT (last 24 hours)'))
+  expect(r.text.indexOf('COMING UP IN THE APP')).toBeLessThan(r.text.indexOf('\nSITE'))
+  expect(r.html).toContain('>Coming up in the app</h3>')
+  expect(r.html).toContain('Fri 6 Nov: Cá ông tiên altum')
+  const without = compose(input())
+  expect(without.text).not.toContain('COMING UP')
+  expect(without.html).not.toContain('Coming up')
+  const bad = (c: unknown) => parseGitHubSide(JSON.stringify({ ...gh(), calendar: c }))
+  expect(bad(calendar)?.calendar).toEqual(calendar)
+  for (const c of [{ weeks: [], days: [{ date: 'soon' }] }, { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 1 }], days: [] }, { weeks: [], days: Array.from({ length: 15 }, () => ({ date: '2026-11-06' })) }, { days: [] }, 'x']) expect(bad(c), JSON.stringify(c).slice(0, 60)).toBeNull()
 })

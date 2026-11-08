@@ -2,6 +2,18 @@
   "id": "betta-pugnax",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/512357919.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/512357919-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ooi Qie",
+      "sourceUrl": "https://www.inaturalist.org/photos/512357919",
+      "caption": "Cá betta pugnax đực trên nền cát ven suối",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/0bbdfae84bcca19b.webp",
       "thumb": "https://media.aquatome.com/commons/0bbdfae84bcca19b-480.webp",
       "width": 1200,
@@ -24,9 +36,33 @@
       "caption": "Cá betta pugnax trong bể kính, thân nâu vây xòe",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/125779421.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125779421-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "syuhada",
+      "sourceUrl": "https://www.inaturalist.org/photos/125779421",
+      "caption": "Cá betta pugnax bơi trên nền sỏi trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/537430537.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/537430537-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/537430537",
+      "caption": "Cá betta pugnax thân cam trong bể chụp ảnh tạm thời",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 21,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

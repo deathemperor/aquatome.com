@@ -1,10 +1,13 @@
 {
   "slug": "nam-youan",
-  "name": "Nam Youan",
-  "altNames": [],
+  "name": "sông Youan",
+  "altNames": [
+    "Nam Youan"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

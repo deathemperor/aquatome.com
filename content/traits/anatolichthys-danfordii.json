@@ -2,7 +2,12 @@
   "id": "anatolichthys-danfordii",
   "temperament": "semi-aggressive",
   "finNipper": false,
-  "schoolMin": 3,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-29T05:26:24.461Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T02:00:28.475Z"
 }

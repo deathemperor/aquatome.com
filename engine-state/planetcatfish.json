@@ -2429,39 +2429,54 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1243": {
-    "entityIds": [],
-    "updatedAt": "2026-11-03T09:36:05.772Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "species/pangasius-nasutus"
+    ],
+    "updatedAt": "2026-11-08T00:55:07.666Z",
+    "hash": "f3d0f4038b1fd5b301641cc3a7cecc686abf28dbf76f12bebbb2013f418a50f3",
+    "processedHash": "f3d0f4038b1fd5b301641cc3a7cecc686abf28dbf76f12bebbb2013f418a50f3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1244": {
-    "entityIds": [],
-    "updatedAt": "2026-11-03T09:37:12.136Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "species/hemisilurus-heterorhynchus"
+    ],
+    "updatedAt": "2026-11-08T00:56:16.869Z",
+    "hash": "ce05d299141024970b286010fa67de9802e4a5aac52ab97266f4d9a5df52e432",
+    "processedHash": "ce05d299141024970b286010fa67de9802e4a5aac52ab97266f4d9a5df52e432",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1245": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T08:00:41.543Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "species/bathyclarias-nyasensis"
+    ],
+    "updatedAt": "2026-11-08T00:57:11.840Z",
+    "hash": "2829c73267a3ae8ed9512ae48a603b39e4812f23d4bb282308ab6202ff17e934",
+    "processedHash": "2829c73267a3ae8ed9512ae48a603b39e4812f23d4bb282308ab6202ff17e934",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1246": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T23:31:37.665Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "species/mochokus-niloticus"
+    ],
+    "updatedAt": "2026-11-08T00:58:29.699Z",
+    "hash": "7c487b263b4ab159b42d9d86173cc02074d19ead594c02b219cb28021b813810",
+    "processedHash": "7c487b263b4ab159b42d9d86173cc02074d19ead594c02b219cb28021b813810",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1247": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T23:32:43.796Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "species/noturus-nocturnus"
+    ],
+    "updatedAt": "2026-11-08T00:59:50.447Z",
+    "hash": "5fcc4ad3d26375327144ecd1d7d5d9ad4325138c87f2cc351ca74c21f1725a5e",
+    "processedHash": "5fcc4ad3d26375327144ecd1d7d5d9ad4325138c87f2cc351ca74c21f1725a5e",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1248": {
     "entityIds": [],
@@ -2803,9 +2818,9 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1282": {
     "entityIds": [],
-    "updatedAt": "2026-11-07T03:03:41.889Z",
+    "updatedAt": "2026-11-08T01:01:14.485Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "no archived copy (HTTP 500)"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1283": {
@@ -2847,6 +2862,160 @@
     "updatedAt": "2026-11-07T03:07:42.317Z",
     "hash": "1afed6e0e64d019bcaa0bc212a50642b443dc88f4b9a1e322e8560b652ffaff1",
     "processedHash": "1afed6e0e64d019bcaa0bc212a50642b443dc88f4b9a1e322e8560b652ffaff1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1288": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:01:16.461Z",
+    "hash": "e1e90c40fb23cff70a78642b57ebc98756cd2292cb1eb63638f3a7f48fd46c24",
+    "processedHash": "e1e90c40fb23cff70a78642b57ebc98756cd2292cb1eb63638f3a7f48fd46c24",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1289": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:03:32.778Z",
+    "hash": "2adf3e0fe6a4edc3303c8d58f7248576e8fc4bcad001bc6902b75e7f934fa48b",
+    "processedHash": "2adf3e0fe6a4edc3303c8d58f7248576e8fc4bcad001bc6902b75e7f934fa48b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=129": {
+    "entityIds": [
+      "species/gymnallabes-typus"
+    ],
+    "updatedAt": "2026-11-08T01:04:00.238Z",
+    "hash": "3f4574f0f20695c5757d86131350dcb92782cb2daa6ed8029ef0c39dfed41bde",
+    "processedHash": "3f4574f0f20695c5757d86131350dcb92782cb2daa6ed8029ef0c39dfed41bde",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1290": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:05:07.170Z",
+    "hash": "ec684b1f3e16c71bc253c765f3dcc03da7adb90762be194590fef943b18223e5",
+    "processedHash": "ec684b1f3e16c71bc253c765f3dcc03da7adb90762be194590fef943b18223e5",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1291": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:05:22.822Z",
+    "hash": "037b1e86ba0b463fc5b2ed654527963d291edfdfc9d55065635f009ad6888e9b",
+    "processedHash": "037b1e86ba0b463fc5b2ed654527963d291edfdfc9d55065635f009ad6888e9b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1292": {
+    "entityIds": [
+      "species/hypostomus-gymnorhynchus"
+    ],
+    "updatedAt": "2026-11-08T01:05:37.854Z",
+    "hash": "bf34224191a0cc926667cea16f717f1339bb3fb229f9b4a62cd8b554e7c7150d",
+    "processedHash": "bf34224191a0cc926667cea16f717f1339bb3fb229f9b4a62cd8b554e7c7150d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1293": {
+    "entityIds": [
+      "species/rineloricaria-platyura"
+    ],
+    "updatedAt": "2026-11-08T01:06:33.715Z",
+    "hash": "10a78554d969bca4b8e9fc6075ed4bab13ee32671bef3c0057c2b254a666ca82",
+    "processedHash": "10a78554d969bca4b8e9fc6075ed4bab13ee32671bef3c0057c2b254a666ca82",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1294": {
+    "entityIds": [
+      "species/rineloricaria-teffeana"
+    ],
+    "updatedAt": "2026-11-08T01:07:38.284Z",
+    "hash": "2e5af313ef863301260c80bbdc48fbbd637a013894f9ab329683e0152936382a",
+    "processedHash": "2e5af313ef863301260c80bbdc48fbbd637a013894f9ab329683e0152936382a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1295": {
+    "entityIds": [
+      "species/pterygoplichthys-punctatus"
+    ],
+    "updatedAt": "2026-11-08T01:10:32.931Z",
+    "hash": "16b104fb702ac4f729a0bd47eb46ccee91e66a041616300c45911be990912fe3",
+    "processedHash": "16b104fb702ac4f729a0bd47eb46ccee91e66a041616300c45911be990912fe3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1296": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:12:50.478Z",
+    "hash": "25516945f50ac22556460eb3b23d1ce3d83170ae32d5ad68cd6b5bb915c2dae4",
+    "processedHash": "25516945f50ac22556460eb3b23d1ce3d83170ae32d5ad68cd6b5bb915c2dae4",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1297": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:13:33.470Z",
+    "hash": "b1223a17652a48e5606f553d7b356082aaac0abf8674efb94c9cfbf42bb3346f",
+    "processedHash": "b1223a17652a48e5606f553d7b356082aaac0abf8674efb94c9cfbf42bb3346f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1298": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:13:42.030Z",
+    "hash": "126573474418d1e834f13d11f7b99b90c0c35c0b98d1d256c92e7080feddc5b6",
+    "processedHash": "126573474418d1e834f13d11f7b99b90c0c35c0b98d1d256c92e7080feddc5b6",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1299": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:14:15.313Z",
+    "hash": "c5792b32dc76061145b110c24c1a8a41575dc96cf735fdef8b8bc9edb0d61576",
+    "processedHash": "c5792b32dc76061145b110c24c1a8a41575dc96cf735fdef8b8bc9edb0d61576",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=13": {
+    "entityIds": [
+      "species/lepthoplosternum-pectorale"
+    ],
+    "updatedAt": "2026-11-08T01:14:52.336Z",
+    "hash": "17acb62596888ce405483d032cdf51916c0f8ac562f3acf0f06c9cd485931e05",
+    "processedHash": "17acb62596888ce405483d032cdf51916c0f8ac562f3acf0f06c9cd485931e05",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=130": {
+    "entityIds": [
+      "species/dekeyseria-scaphirhyncha"
+    ],
+    "updatedAt": "2026-11-08T01:15:54.588Z",
+    "hash": "1583c77f6e6151b4012f474660d73087d385b7e5d78b4ac6b5da367dc2f30c11",
+    "processedHash": "1583c77f6e6151b4012f474660d73087d385b7e5d78b4ac6b5da367dc2f30c11",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1300": {
+    "entityIds": [
+      "species/bunocephalus-colombianus"
+    ],
+    "updatedAt": "2026-11-08T01:17:01.387Z",
+    "hash": "f8f265d084d8193d46ace8b4a7835c96fdbc60745f000db2cd747da0ff10817b",
+    "processedHash": "f8f265d084d8193d46ace8b4a7835c96fdbc60745f000db2cd747da0ff10817b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1301": {
+    "entityIds": [
+      "species/noturus-leptacanthus"
+    ],
+    "updatedAt": "2026-11-08T01:17:59.710Z",
+    "hash": "513567d05b1320c9df528232ceabfc3509f88cf14997862c275d4326ea3f1ea3",
+    "processedHash": "513567d05b1320c9df528232ceabfc3509f88cf14997862c275d4326ea3f1ea3",
     "status": "processed",
     "attempts": 0
   }

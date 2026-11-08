@@ -64,7 +64,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-fasciolatus",
-      "html": "<p>The banded epiplatys, Epiplatys fasciolatus, is a killifish from coastal Guinea-Bissau, Guinea and Sierra Leone to western Liberia. It mostly inhabits freshwater swamps and minor tributary streams, in grassy savannah at some localities and rainforest at others. Males carry metallic blue or green pigmentation on the body and fins, with a red submarginal band on the anal and lower caudal fins.</p>"
+      "html": "<p>The banded epiplatys, Epiplatys fasciolatus, is a killifish from coastal Guinea-Bissau, Guinea and Sierra Leone to western Liberia. It mostly inhabits freshwater swamps and minor tributary streams, in grassy savannah at some localities and rainforest at others. Males carry metallic blue or green pigmentation on the body and fins, with a red submarginal band on the anal and lower caudal fins.</p><ul><li>Social: needs to be in a group</li><li>Compatibility: fine with others</li></ul>"
     },
     {
       "key": "distribution",
@@ -82,7 +82,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-fasciolatus",
-      "html": "<p>Minimum base dimensions of 80 × 30 cm or equivalent (about 72 litres) are recommended although smaller aquaria can be used for breeding purposes.</p>"
+      "html": "<p>Minimum base dimensions of 80 × 30 cm or equivalent are recommended (about 72 litres) although smaller aquaria can be used for breeding purposes.</p>"
     },
     {
       "key": "maintenance",
@@ -145,7 +145,20 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-bPKo_FTog4",
+      "title": "Epiplatys fasciolatus fasciolatus \"Conakry\"",
+      "durationSec": 102,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XJVE2_Gz-Hk",
+      "title": "Epiplatys fasciolatus fasciolatus \"Conakry\" 7 weeks old",
+      "durationSec": 105,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -165,13 +178,22 @@
       "category": "phan-nen",
       "keywords": [
         "cát nền bể cá",
-        "lá bàng khô"
+        "lá bàng khô",
+        "cát nền thủy sinh"
       ]
     },
     {
       "category": "den",
       "keywords": [
         "đèn led bể cá ánh sáng dịu"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias",
+        "dương xỉ java",
+        "rêu java"
       ]
     }
   ],

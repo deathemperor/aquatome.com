@@ -17,6 +17,8 @@ import { definition, type Tool } from './tools'
  * - Past the tool calls, a `tool_use` gets a "limit reached" `is_error` result; a tool that throws, or one Claude names
  *   that doesn't exist, gets an `is_error` result with a short message. Both count as tool calls.
  * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`).
+ * - With `pace`, the time kept for the last call follows the run's own speed, so a slow hour reads less and still
+ *   answers: see `pace`.
  * - `recheck` may send an answer Claude chose back once, with more to read. That answer is held: if a later call fails,
  *   time runs out, or the run ends on anything but an answer (cut short, a refusal, a tool request on the forced call),
  *   the held answer is the run's.
@@ -59,6 +61,17 @@ export type AgentInput<Step> = {
   first: Anthropic.MessageParam
   schema: Record<string, unknown>
   effort: 'low' | 'medium' | 'high'
+  /** The forced last call's effort, when it isn't `effort`; with `pace`, only when the time left won't hold an answer at `effort`. */
+  lastEffort?: 'low' | 'medium' | 'high'
+  /**
+   * The last call's time from the run's pace: its calls so far, averaged. Another call is made only while it would leave
+   * `quick` times that (and `lastCallMs`), so a slow run answers sooner. The forced call is at `effort` when the time
+   * left holds `answer` times it, else at `lastEffort` (always, when the pace forced it), and it may take all the time
+   * left, not only `callMs`. The first call counts: in a slow hour it is the first sign (left out, 20 of 96 hard
+   * questions failed at 1.75 times slower, not 6). A first call that tried a failing key first counts that time too,
+   * and the run then answers a call sooner, never later.
+   */
+  pace?: { answer: number; quick: number }
   /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */
   thinking?: Anthropic.ThinkingConfigParam
   maxTokens: number
@@ -110,12 +123,18 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   let marks = marksIn(a.first)
   /** The answer sent back by `recheck`: it stands if the run then fails, runs out of time or ends on anything but an answer. */
   let held: Anthropic.Message | undefined
+  /** The time the calls so far took: the run's pace. */
+  let took = 0
   for (;;) {
     const left = deadline - clock()
-    const forced: Stopped | undefined = run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : left < lim.lastCallMs ? 'time'
+    const each = run.calls ? took / run.calls : 0
+    const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < a.pace.quick * each)
+    const forced: Stopped | undefined = run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined
     if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }
     run.calls++
+    const effort = forced && a.lastEffort && !(a.pace && left >= a.pace.answer * each) ? a.lastEffort : a.effort
+    const began = clock()
     let r: Anthropic.Message
     try {
       r = await a.send({
@@ -125,12 +144,13 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         tools,
         tool_choice: forced ? { type: 'none' } : { type: 'auto' },
         ...(a.thinking ? { thinking: a.thinking } : {}),
-        output_config: { effort: a.effort, format: { type: 'json_schema', schema: a.schema } },
+        output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
         messages: forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
-      }, { timeoutMs: Math.min(left, lim.callMs), call: run.calls })
+      }, { timeoutMs: forced && a.pace ? left : Math.min(left, lim.callMs), call: run.calls })
     } catch (e) {
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
     }
+    took += clock() - began
     run.spent.input += r.usage.input_tokens
     run.spent.cacheRead += r.usage.cache_read_input_tokens ?? 0
     run.spent.cacheWrite += r.usage.cache_creation_input_tokens ?? 0

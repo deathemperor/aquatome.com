@@ -1,0 +1,63 @@
+{
+  "id": "devario-neilgherriensis",
+  "native": {
+    "input": "0352d8133d24471c",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to tributaries of the Bhavani river system in the Nilgiri Hills of Tamil Nadu state, southern India including the Pykara, Avalanche and Kaity streams.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bhavani",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to tributaries of the Bhavani river system in the Nilgiri Hills of Tamil Nadu state, southern India including the Pykara, Avalanche and Kaity streams.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Nilgiri Hills",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to tributaries of the Bhavani river system in the Nilgiri Hills of Tamil Nadu state, southern India including the Pykara, Avalanche and Kaity streams.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario neilgherriensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2361488,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

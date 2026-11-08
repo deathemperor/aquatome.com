@@ -1,4 +1,40 @@
 {
+  "vi/plants/pogostemon-stellatus#-b8xzLDI9zE": [
+    {
+      "at": "2026-11-08T03:05:11Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Lá cây hẹp và dài\" / \"đúng bốn lá\" per node and Australia-style details: fine, but \"Trước đây cây này không được mấy ai để ý\" is ok; \"Phải đến khi dân chơi thủy sinh bắt đầu chuộng\" ok. No major issue here.",
+        "\"Một người trồng cây này lâu năm\": the video never says the keeper has kept it for many years; invented 'lâu năm'.",
+        "\"Cứ mỗi đốt thân... xòe ra như ngôi sao\": ok, but \"Đây là trải nghiệm của một người, khác với mức khó và nhu cầu CO2 ghi cho loài này\" is meta-commentary; awkward, reads as translated/instructional.",
+        "\"đèn chỉ cần từ mức trung bình trở lên chứ không nhất thiết phải mạnh\": video says at least medium lighting; 'không nhất thiết phải mạnh' is an added inference, and contradicts page as rule-like.",
+        "\"Nếu tỉa ngọn đều tay, cây sẽ ra bụi rậm\": ok, but \"bể đẻ\" and \"người này thấy\" repeat; the keeper's experience is partly given as a general statement (\"Châm phân nước chắc chắn có lợi cho cây\") rather than as one keeper's view.",
+        "\"Vì mọc nhanh nên cây hút nitrate tốt, nước trong bể sạch hơn\": video says healthier environment for fish, not 'nước sạch hơn'; also 'khác với tốc độ trung bình' contrasts with page, but video says 'fast-growing' as the keeper's view — fine.",
+        "\"Cắt như vậy không làm hại cây mẹ\" and \"với bể nhỏ thì gần như bắt buộc\": video says 'a must' for small tanks regarding propagation being easy; OK but slightly stretched.",
+        "Omits nothing required, but the 'Bạn có thể thả nổi, nên trồng xuống nền' is stated as a rule though it's the keeper's opinion ('I think it looks much better')."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T03:05:11Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "Contradiction with page not flagged: video says easy, hardy, no CO2 needed, medium light; page says difficulty 3/3, high light, CO2 required. NEW says \"dễ trồng và khỏe, không châm CO2 cây vẫn lên\" without saying it differs from the page.",
+        "\"Cây cần đèn ít nhất ở mức trung bình\" contradicts page light high, and the difference is not stated.",
+        "\"Bể nhỏ thì bạn phải cắt tỉa thường xuyên, nên lúc nào cũng có sẵn ngọn để trồng\" is not in the video; video only says propagation is a must for smaller tanks.",
+        "\"dù có châm thêm phân thì cây vẫn tốt hơn\" is a mild extrapolation; video says fertilizer will definitely help.",
+        "\"Cây mẹ không bị ảnh hưởng gì\" slightly overstates; video says it will not be harmed and recovers.",
+        "\"Một người nuôi loài này thấy...\" then \"người nuôi này\" is stilted and the generalised statements (\"Bể đèn yếu thì cây không đẹp\") are given as a rule; video says it does not do well in low light.",
+        "The video's \"up to 50cm\" and Australia origin are omitted, which is fine; but \"Chỉ khi giới chơi thủy sinh chuộng nó, cây mới lan ra bể của dân chơi khắp nơi\" is awkward, translation-like Vietnamese.",
+        "\"Do là cây thân lớn nhanh\" is unnatural; it should be \"cây thân dài mọc nhanh\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/axelrodia-riesei#G7YKeIn7c1w": [
     {
       "at": "2026-11-07T20:43:36Z",
@@ -109,6 +145,38 @@
       "kept": true
     }
   ],
+  "vi/species/panaque-cochliodon#_F_qdXPeQSM": [
+    {
+      "at": "2026-11-08T03:03:38Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Có tin về một con nuôi trong bể dài khoảng 45 cm\" misreads the video. The video says a specimen of about 45 cm was reported in captivity. It does not say the tank was 45 cm long.",
+        "\"Bể vẫn phải có lũa, nhưng bạn đừng coi lũa là thức ăn chính\" is not said in the video. The video only says the fish gnaws wood and gets algae, fungi etc. from it.",
+        "\"nhỏ hơn mức hơn 40 cm\" is awkward and reads like a translation. It compares to the page's figure without clearly saying the video differs.",
+        "\"Ngoài tự nhiên loài này sống ở sông nước chảy tại Colombia\" mostly repeats the page's distribution (Colombia).",
+        "\"dòng chảy mạnh\" overstates the video, which says good circulation and sufficient dissolved oxygen.",
+        "\"Nhiều loài cá lau kính màu mè trốn sau đá gần như cả ngày\" softens the video's \"95% of the time\" and generalises it to many species. The video says \"some showy plecos\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T03:03:38Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "aquariumSize: \"thường được ghi khoảng 30 cm\" differs from the page card (sizeCm 40), but the text never says it differs from the page. The brief asked for that to be stated plainly.",
+        "aquariumSize: \"Một người nuôi loài này không dùng bể dưới 340 lít\" credits the speaker with long-term experience keeping the species. The video only says \"personally, I wouldn't\", so this is a small overreach. \"Theo người này\" also reads stiffly.",
+        "maintenance: \"với lượng phân lớn như vậy\" repeats the page's aquariumSize claim that the fish produces a lot of waste. It is not new information.",
+        "diet: \"rau tươi như bí ngòi, bí đỏ\" overlaps the page's vegetable-heavy diet line. Only the specific vegetables are new.",
+        "notes: \"mỗi lần bơi ra là cả bể đều thấy\" slightly embellishes the video's \"when it comes out, you notice it\".",
+        "diet: \"Cá gặm lũa rất nhiều nhờ bộ răng chuyên cạo gỗ ngập nước. Có điều, chúng không sống nhờ chất xơ...\" is a bit stiff and translated in tone."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/sawbwa-resplendens#8D2Wn53DSsg": [
     {
       "at": "2026-11-06T16:41:58Z",
@@ -206,6 +274,40 @@
         "[diet] \"Ngoài Daphnia và Artemia\" – cyclops and mosquito larvae are in video, but 'lăng quăng (bọ gậy)' is a loose rendering of 'small mosquito larvae'",
         "[dimorphism] \"xanh lam pha bạc\" ok; but \"Đực và cái khác nhau rõ đến mức... hai loài\" repeats page's already stated strong dimorphism (page says male and female look very different)",
         "[dimorphism] \"Mút vây đuôi ... đỏ tươi hoặc đỏ cam\" largely duplicates page's red caudal spots on males, little new"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/yasuhikotakia-splendida#_cxoAr6O5AQ": [
+    {
+      "at": "2026-11-08T03:01:03Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"cá heo sọc lưng (skunk botia, Y. morleti)\": the video only says \"skunk botia\" and doesn't name Y. morleti. It also doesn't say \"sọc lưng\". The page's Y. morleti entry says the species has a transverse dark stripe across the back, which doesn't match the video's skunk botia comparison.",
+        "[notes] \"màu xanh bạc... ánh vàng ngả xanh lục\": the page doesn't give this body colour. The video does say silvery-blue with a greenish-gold sheen, so it is supported. But \"lớn con hơn và màu sắc sặc sỡ hơn hẳn\" is the video's comparison with the skunk botia, and it is not flagged as one source's view.",
+        "[behaviour] \"Một người nuôi loài này lại thấy cá khá hiếu động và hay gây sự\": the video presents this as a general statement, not as one keeper's experience. The wording attributes it to a keeper who isn't in the video.",
+        "[behaviour] The keeper attribution contradicts the page, which says keepers find it milder than some congeners. The text doesn't plainly say where the video differs from the page. It says \"hơi nhút nhát hơn\" than other botias, but the video says \"somewhat shy\" for hiding places, so that is a loose paraphrase.",
+        "[behaviour] \"Có vẻ âm thanh là một cách để chúng giao tiếp\": this is supported. The sentence \"Người ta cho rằng...\" is also fine. But the behaviour section doesn't mention group size or the aggression spread in larger groups, and that is not a problem here.",
+        "[diet] \"Thức ăn khô... viên chìm, hạt nhỏ hoặc viên tảo dẹt\": the page already gives dry food and varied diet, and the video's list adds little. \"hạt nhỏ\" for granules is a loose translation, and the \"(algae wafer)\" parenthetical reads as translated."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T03:01:03Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Có một mô tả khác về tính khí của loài này\" – video differs from page (page says hiền hơn), but this wording doesn't state the contrast plainly; it reads as a translated framing.",
+        "\"So với các loài botia khác, splendida hơi nhút nhát\" – the video says this, but the page's claim that the species is gentler is not clearly contrasted; also \"Vì vậy bể cần nhiều chỗ che chắn và chỗ trốn\" repeats the page's maintenance advice about hiding places/structure.",
+        "\"Nuôi đàn đông thì sự hung hăng được chia đều\" – the video's group-size point (5+ and larger groups) is already on the page (hierarchy, group size); only partially new and the hierarchy is on page.",
+        "\"Bạn cũng có thể nuôi chung với các loài cá heo hiếu động khác\" – tank mate advice (other rowdy loaches) overlaps the page's tank-mate list; the page says Botia/Syncrossus are fine.",
+        "\"Thân cá màu xanh bạc, dọc lưng ánh lên sắc vàng xanh\" – fine, but \"lớn hơn và màu sắc rực rỡ hơn nhiều\" omits that this compares with the skunk botia only in the video's terms; \"nhiều\" overstates (\"far more colorful\" ok) — minor.",
+        "\"Thức ăn khô dùng được ở dạng viên chìm, cám hạt hoặc viên tảo dạng bánh\" – page already lists dry food; the specific forms are new but \"cám hạt\" and \"dạng bánh\" read as translation (granules/wafers).",
+        "\"nghiến gai dưới ổ mắt hoặc răng hầu\" – fine factually, but \"tập tính này gần như chưa ai nghiên cứu\" is stated as a general fact; wording is stiff and translated-sounding.",
+        "The video's assertive aggression claim (\"hung hăng\") directly contradicts the page's \"hiền hơn\", yet NEW does not say it contradicts the page."
       ],
       "attempt": "first",
       "kept": false

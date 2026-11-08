@@ -1,9 +1,33 @@
 {
   "id": "epalzeorhynchos-kalopterus",
   "native": {
-    "input": "72cb1396697236ea",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "e9baa0fe5b6b515d",
+    "at": "2026-11-08T03:17:10.020Z",
     "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flying fox, Epalzeorhynchos kalopterum, is a cyprinid from southern Thailand, Peninsular Malaysia and the Greater Sunda Islands.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flying fox, Epalzeorhynchos kalopterum, is a cyprinid from southern Thailand, Peninsular Malaysia and the Greater Sunda Islands.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo where it's known from the Kahajan and Barito river basins, plus the Kapuas drainage in Kalimantan Barat (West Kalimantan).",
+        "words": "Indonesia",
+        "ok": true
+      },
       {
         "code": "ID",
         "status": "native",
@@ -29,7 +53,45 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo where it's known from the Kahajan and Barito river basins, plus the Kapuas drainage in Kalimantan Barat (West Kalimantan).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Barito",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo where it's known from the Kahajan and Barito river basins, plus the Kapuas drainage in Kalimantan Barat (West Kalimantan).",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo where it's known from the Kahajan and Barito river basins, plus the Kapuas drainage in Kalimantan Barat (West Kalimantan).",
+        "ok": true
+      },
+      {
+        "name": "Kahajan",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo where it's known from the Kahajan and Barito river basins, plus the Kapuas drainage in Kalimantan Barat (West Kalimantan).",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it's been collected from the Indragiri, Batang Hari and Palembang/Musi rivers and in Thailand from the southern provinces of Surat Thani and Yala.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to southern Thailand, Peninsular Malaysia and the Greater Sunda Islands of Borneo, Sumatra and Java although recent occurence records are rather scarce.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

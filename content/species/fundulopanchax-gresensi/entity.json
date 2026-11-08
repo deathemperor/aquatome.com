@@ -1,0 +1,149 @@
+{
+  "id": "fundulopanchax-gresensi",
+  "scientificName": "Fundulopanchax gresensi",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Fundulopanchax",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon",
+    "cross-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.7
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-gresensi",
+      "html": "<ul><li>Space: small tank</li><li>Water: flexible</li><li>Temperature: needs a steady temperature</li><li>Social: best in a pair</li><li>Compatibility: choose tankmates carefully</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-gresensi",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The set-up need not be too complicated but be sure to cover the aquarium well since this species is a prodigious jumper.</p><p>Fundulopanchax gresensi is a killifish known only from a small area in the upper Cross River basin, western Cameroon. It has been collected from shallow, swampy sections of forested streams, some of which may dry out in the dry season. The commonest hobby strain is known as 'Takwai'. It jumps well, so the aquarium needs a good cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-gresensi",
+      "html": "<p>Known only from a relatively small area near the villages of Takwai I and II, Atebong Wire and Edjuingan in western Cameroon, with records existing from the Bagwor and Mack river systems both of which are tributaries within the upper Cross River basin, western Cameroon.</p><p>Type locality is 'West Cameroon, 5°34'N, 9°50'E'.</p><p>Collections of wild fish are generally labelled with some form of code or locality details in order that they can be told apart, thus limiting the possibility of hybridisation, and in this case the commonest hobby strain is known as 'Takwai'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-gresensi",
+      "html": "<p>Collected from shallow, swampy sections of forested streams, some of which may dry out during the dry season.</p><p>Certain parts of its range may also be threatened with deforestation but details are scarce.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-gresensi",
+      "html": "<p>The set-up need not be too complicated but be sure to cover the aquarium well since this species is a prodigious jumper.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should not be discouraged.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-gresensi",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "jH8qudIDN5Q",
+      "title": "Fundulopanchax gresensi Takwae",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "I6RmaMWYVWk",
+      "title": "Fundulopanchax gresensi.flv",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pFF9XXgQsT0",
+      "title": "ficha: Fundulopanchax gresensi",
+      "durationSec": 131,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "3mpkqt9afdk",
+      "title": "fundulopanchax gresensi takwai",
+      "durationSec": 300,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá mini có nắp đậy",
+        "bể cá 30cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút xốp sủi khí",
+        "máy sủi khí mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh dễ trồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -2,6 +2,18 @@
   "id": "boulengerochromis-microlepis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/689258916.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/689258916-480.webp",
+      "width": 1024,
+      "height": 589,
+      "licence": "CC BY",
+      "author": "Zach Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/689258916",
+      "caption": "Cá hoàng đế Tanganyika non có sọc vằn bơi ở vùng cát tự nhiên",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d5e62a76f97c4a79.webp",
       "thumb": "https://media.aquatome.com/commons/d5e62a76f97c4a79-480.webp",
       "width": 1025,
@@ -14,7 +26,7 @@
       "kind": "juvenile"
     }
   ],
-  "seen": 4,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 9,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

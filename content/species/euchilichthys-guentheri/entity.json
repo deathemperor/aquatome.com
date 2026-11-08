@@ -1,0 +1,211 @@
+{
+  "id": "euchilichthys-guentheri",
+  "scientificName": "Euchilichthys guentheri",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Euchilichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "republic-of-the-congo",
+    "zambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.4,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 19
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>Euchilichthys guentheri is a mochokid catfish from the Democratic Republic of Congo, where it inhabits fast-flowing areas of rivers. It is very rare in the hobby. It is told apart from similar Chiloglanis species by its elliptical mouthparts and larger adult size, reaching 19 cm. It needs strong flow and well-oxygenated water, and becomes territorial with conspecifics as it matures.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>Inhabits fast flowing areas of rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>Standard length: 19 cm SL.</p><p>Aquarium base: 120 × 30 cm.</p><p>Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>The aquarium should have a fine gravel or sand substrate and a scattering of smooth rocks of varying sizes. Pieces of driftwood can be used to provide areas of shelter. Water flow should be strong and the water well oxygenated. The use of powerheads is recommended. Plants are not essential although algal growth should not be discouraged. It will not thrive in aquaria with low water movement or poor oxygenation.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.4–7.4</li><li>Hardness: 3–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>It's an omnivorous species and will accept small live and frozen foods such as daphnia, brineshrimp or bloodworm as well as greenstuffs in the form of cucumber slices, algae wafers etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>A relatively peaceful species that mixes well with other rheophilic species. Good tankmates include Alestiid tetras, Nannocharax, fast water Synodontis such as S. brichardi and cichlids such as Steatocranus and the South American Teleocichla species. Although it can be kept in groups when juvenile it becomes territorial with conspecifics as it matures.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>Unrecorded in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/euchilichthys-guentheri",
+      "html": "<p>This is one of only 4 described species of Euchilichthys (although more have been discovered) and is very rare in the hobby. It can be distinguished from similar Chiloglanis species by its elliptical (as opposed to circular) mouthparts and larger adult size. Unlike the South American Loricariids, it lacks armoured scuting on the body.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/0b96ef4cbfcc1607.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0b96ef4cbfcc1607-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/euchilichthys_guentheri.htm",
+      "caption": "Euchilichthys guentheri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3fb08e1b175c0638.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3fb08e1b175c0638-480.webp",
+      "width": 500,
+      "height": 198,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/euchilichthys_guentheri.htm",
+      "caption": "Euchilichthys guentheri",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ddihJfFDZbw",
+      "title": "Euchilichthys guentheri",
+      "durationSec": 170,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WaA0ruVXrGQ",
+      "title": "Predatory Fish Forum : RARE import Euchilichthys sp. Congo Sucker Mouth Catfish",
+      "durationSec": 154,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sSlNUJLGG4I",
+      "title": "Congo Rapids Part 2: Eels, catfish, and blind fish!",
+      "durationSec": 563,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "D1FCS3UjA5U",
+      "title": "Congo rapids tank",
+      "durationSec": 517,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "bơm tạo sóng bể cá",
+        "lọc thùng bể 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "sỏi mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "viên tảo cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

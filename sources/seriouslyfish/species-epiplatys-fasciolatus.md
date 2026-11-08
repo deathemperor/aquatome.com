@@ -1,13 +1,12 @@
 ---
 url: https://www.seriouslyfish.com/species/epiplatys-fasciolatus
 title: Epiplatys fasciolatus (Banded Epiplatys) · Seriously Fish
-fetchedAt: 2026-11-07T05:54:51.681Z
-hash: 7ee9d5be9093286c96e42a81834a3320f1fa6d6a63771b8039aceb2f90696644
+fetchedAt: 2026-11-07T20:33:12.806Z
+hash: d72fdad44c7c889a94b67f26025421a43930b15898bed126bd181d5a908b3747
 ---
 
 On this page
-11
-sections
+11 sections
 - Etymology
 - Distribution
 - Habitat

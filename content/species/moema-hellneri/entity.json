@@ -1,0 +1,81 @@
+{
+  "id": "moema-hellneri",
+  "scientificName": "Moema hellneri",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Moema",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "peru",
+    "rio-napo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/",
+      "html": "<p>Moema hellneri (formerly Moema cf. ortegai) was imported from Peru. Females are around 8 cm, males around 12 cm long, which places them among the largest killifish known so far. Males have extremely large pectoral fins, and their whole finnage is much enlarged.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/",
+      "html": "<p>M. hellneri originates from the Rio Napo drainage in Peru, whereas M. ortegai originates from the drainage of the Madre de Dios. Usually no information on the collecting sites of imported aquarium fish is available, so many reports on Moema from Peru still bear wrong names.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/",
+      "html": "<p>Moema are bottom divers: the spawning pair dives deep into the bottom, where the eggs dwell during the dry season. The adults die then and thus never become old in the wild, but in captivity they can live as long as 1.5 years. The eggs need 5-10 months to hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/",
+      "html": "<p>Lexicon: Moema is a city in Brazil; ortegai is a dedication name.</p><p>On 24 November 2003 Wilson J. E. M. Costa described Moema hellneri and M. ortegai. The original paper was illustrated only with poor pictures of preserved specimens, and the diagnoses were based on features not visible externally, mainly the dentition and the shape of the maxillary bones.</p><p>On 12 November 2003, J. H. Huber described Moema quiii from the Rio Tambopata (Madre de Dios drainage, Peru). The authors did not know of each other's work, which led to confusion over names. It later became clear that Moema ortegai and Moema quiii are the same species, and the older name, M. quiii, is the valid one. The fish imported and named M. cf. ortegai are in fact M. hellneri.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/",
+      "html": "<p>Costa, W. J. E. M. (2003): Two new annual fishes of the genus Moema Costa, 1989, from the Peruvian Amazon (Teleostei, Cyprinodontiformes, Rivulidae). Boletim do Museu Nacional do Rio de Janeiro, Nova Série. Zoologia No. 513: 1-10.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

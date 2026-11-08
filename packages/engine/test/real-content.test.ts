@@ -24,7 +24,8 @@ test('no page has a defect the sweep fixes', async () => {
   expect(left, 'run pnpm engine sweep').toEqual(Object.fromEntries(Object.keys(RATCHETED).map(id => [id, []])))
 }, 300_000) // every page of the real content, in three languages: about 100 s on 2,599 pages
 
-// The owner's names of 2026-11-07. Listed, not swept: a page that gives a fish its old name beside the fish is written again.
+// The owner's names of 2026-11-07. The sweep writes each when the sentence says which fish it is (renameSwapped), so what
+// fails here is a sentence it left, the fish unclear: a page that keeps one is written again.
 test('no page calls a fish by the name it no longer has', async () => {
   const pages = await loadPages(fileURLToPath(new URL('../../../content', import.meta.url)))
   const { findings, errors } = checkPages(pages, RULES.filter(r => r.id === 'swapped-name'))
@@ -86,3 +87,14 @@ test('no river a Vietnamese reader knows by name goes without its "sông"', () =
   const known = ['Bắc Giang', 'Đông Giang', 'Tây Giang', 'Châu Giang', 'Mân Giang', 'Tùng Hoa', 'Nin', 'Dương Tử', 'Mê Kông', 'Sê Kông', 'Hoàng Hà', 'Lam', 'Mã', 'Vệ', 'Thu Bồn', 'Trà Khúc', 'Bến Hải']
   expect(names.filter(n => known.includes(n))).toEqual([])
 })
+
+// Settled from the fungus guide's source (Practical Fishkeeping, "Dealing with fish egg 'fungus'"): 1 ml per about 3.5
+// litres is for 35% hydrogen peroxide. A reader here buys oxy già at the pharmacy, where it is 3% (market.ts), so a 35%
+// dose that doesn't say so reads as a dose for that bottle, at about a twelfth of the strength.
+test('a Vietnamese page that doses 35% oxy già says it isn\'t the pharmacy\'s 3%', async () => {
+  const pages = await loadPages(fileURLToPath(new URL('../../../content', import.meta.url)), ['vi'])
+  const strong = /(?:oxy già|hydrogen peroxide|H2O2)[^.!?]{0,40}35\s*%|35\s*%[^.!?]{0,40}(?:oxy già|hydrogen peroxide|H2O2)/i
+  const told = /không phải[^.!?]{0,40}3\s*%[^.!?]{0,40}nhà thuốc/i
+  const text = (p: (typeof pages)[number]) => [...p.fields.map(f => f.html), ...p.lines.map(l => l.text)].join(' ').replace(/<[^>]+>/g, ' ')
+  expect(pages.filter(p => strong.test(text(p)) && !told.test(text(p))).map(p => p.path)).toEqual([])
+}, 300_000)

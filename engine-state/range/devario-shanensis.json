@@ -1,0 +1,59 @@
+{
+  "id": "devario-shanensis",
+  "native": {
+    "input": "c62c21c7868731f7",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Duthawadi and Salween river systems in Shan state, northeastern Myanmar although the full extent of its range remains somewhat unclear.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Duthawadi",
+        "source": "seriouslyfish",
+        "quote": "Known from the Duthawadi and Salween river systems in Shan state, northeastern Myanmar although the full extent of its range remains somewhat unclear.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Known from the Duthawadi and Salween river systems in Shan state, northeastern Myanmar although the full extent of its range remains somewhat unclear.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario shanensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2361496,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

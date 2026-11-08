@@ -12,9 +12,11 @@
     "cryptocoryne-albida",
     "microsorum-pteropus",
     "bucephalandra-sp",
-    "pogostemon-helferi"
+    "pogostemon-helferi",
+    "microdevario-kubotai",
+    "helanthium-tenellum"
   ],
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "awWblosRzrQ",
     "title": "UNS 30C BLACKWATER FOR BLUE NEON RASBORAS! Natural Style Aquascape Tutorial",
@@ -34,16 +36,19 @@
     },
     "taxa": [
       "Sundadanio axelrodii",
-      "Sundadanio reytiarius",
+      "Sundadanio rediculatus",
+      "Microdevario kubotai",
       "Apistogramma sp.",
       "Hyphessobrycon sp.",
-      "Danio margaritatus",
+      "Neocaridina davidi",
+      "Helanthium tenellum",
       "Microsorum pteropus",
-      "Cryptocoryne albida",
+      "Cryptocoris albida",
       "Bucephalandra sp.",
       "Epipremnum aureum",
-      "Neocaridina davidi",
-      "Pogostemon helferi"
+      "Vesicularia sp.",
+      "Danio margaritatus",
+      "Hemigrammus sp."
     ],
     "gear": [
       {
@@ -57,7 +62,7 @@
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Twinstar",
-        "model": "B series",
+        "model": "30B",
         "t": 184
       },
       {
@@ -68,20 +73,15 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 319
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
         "brand": "WIO",
         "model": "Druid gravel",
-        "t": 387
+        "t": 390
       },
       {
         "category": "khac",
         "brand": "WIO",
         "model": "Elder root",
-        "t": 430
+        "t": 450
       },
       {
         "category": "phan-nen",
@@ -91,9 +91,10 @@
         "t": 498
       },
       {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 564
+        "category": "khac",
+        "brand": "WIO",
+        "model": "Mulchbed",
+        "t": 870
       },
       {
         "category": "khac",
@@ -102,15 +103,14 @@
         "t": 640
       },
       {
-        "category": "khac",
-        "brand": "WIO",
-        "model": "Mulchbed",
-        "t": 870
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 564
       },
       {
         "category": "phan-nen",
         "type": "la",
-        "t": 895
+        "t": 898
       },
       {
         "category": "test-nuoc",
@@ -120,165 +120,165 @@
     ],
     "figures": [
       {
-        "heading": "Bể và thiết bị dùng những gì",
+        "heading": "Giữ vi sinh để bể mới chạy nhanh hơn",
         "moments": [
           {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at210-hd.webp",
+            "t": 560,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at560-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh bể kính trong, keo silicone trong suốt và tấm lót xốp dày."
+            "caption": "Bể mới đã có lũa và phân nền, đang đổ nước vào."
           },
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at250-hd.webp",
+            "t": 600,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at600-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cube kính siêu trong có phông trắng, đặt trên kệ cùng các bể khác."
+            "caption": "Bể nhỏ đã bày lũa và phân nền, đang chuẩn bị chạy."
           }
         ]
       },
       {
-        "heading": "Dựng bố cục bằng đá, lũa và cành khô",
+        "heading": "Làm bố cục đá và lũa",
         "moments": [
           {
             "t": 320,
             "url": "https://media.aquatome.com/video/awWblosRzrQ/at320-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đá lava đen đặt trước trong bể, viên to lệch sang một bên."
+            "caption": "Hai viên đá nham thạch đen đặt trong bể, viên lớn lệch sang một bên."
           },
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at390-hd.webp",
+            "t": 400,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bố cục đá lava kết hợp lũa và cành khô trong bể nhỏ."
-          }
-        ]
-      },
-      {
-        "heading": "Làm nền: cát phía trước, phân nền phía sau",
-        "moments": [
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at510.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hỗn hợp cát vàng cam lẫn cành vụn, sỏi và đá cuội nhỏ."
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp phân nền đen được lót dưới đáy bể phía sau."
+            "caption": "Bố cục đá nham thạch kết hợp lũa trong bể nhỏ."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/awWblosRzrQ/p2-RvbV9zYW5kLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p2-RvbV9zYW5kLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/awWblosRzrQ/p1-LF9OZXZhZGEuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p1-LF9OZXZhZGEuSlBH-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 2.0",
-          "author": "kerinin",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
-          "caption": "Lớp cát nền trong bể kính, phía sau có đá lũa xếp gọn."
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Famartin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:2014-07-18_17_09_19_Closeup_of_basalt_in_the_Black_Rock_Lava_Flow,_Nevada.JPG",
+          "caption": "Cận cảnh bề mặt đá nham thạch đen nhiều vân, nứt rãnh tự nhiên."
         }
       },
       {
-        "heading": "Đổ nước và làm trong nước",
+        "heading": "Nền cát và phân nền",
         "moments": [
           {
-            "t": 620,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at620-hd.webp",
+            "t": 510,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at510-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể bố cục lũa đã đổ nước, đang chạy lọc để nước trong dần."
+            "caption": "Cát WIO Biotope Bed Mere trộn sẵn cành vụn, sỏi và đá cuội."
           },
           {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at630-hd.webp",
+            "t": 550,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at550-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đã đổ đầy nước, bên cạnh là chai Seachem Clarity để làm trong nước."
+            "caption": "Rải cát nền vào bể đã bày sẵn lũa."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/awWblosRzrQ/p2-g4MzU5NDIpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p2-g4MzU5NDIpLmpwZw-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, united arab emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atlantic_Halibut_is_one_of_the_largest_flounders_(27798835942).jpg",
+          "caption": "Nền cát mịn với đá lớn trong bể, nhìn khá tự nhiên."
+        }
+      },
+      {
+        "heading": "Vì sao bố cục bể nước đen nên đơn giản",
+        "moments": [
+          {
+            "t": 670,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at670-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể chỉ có đá nham thạch và vài cành lũa nhỏ, bố cục đơn giản."
+          },
+          {
+            "t": 680,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at680-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc nhìn khác của hardscape gọn gàng với đá và cành nhỏ."
           }
         ]
       },
       {
-        "heading": "Chọn cây và trồng cây",
+        "heading": "Chọn và trồng cây",
         "moments": [
           {
             "t": 780,
             "url": "https://media.aquatome.com/video/awWblosRzrQ/at780-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh java fern và cây xanh bám quanh khúc lũa và đá lava."
+            "caption": "Cận cảnh dương xỉ java và cỏ trồng bên khúc lũa trong bể."
           },
           {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at830-hd.webp",
+            "t": 790,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at790-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể sau khi trồng xong: java fern bên trái, giant hair grass ở hậu cảnh."
+            "caption": "Bể đã trồng dương xỉ java bên trái và cây nổi trên mặt nước."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/awWblosRzrQ/p4-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p4-ydS1JbmRpYS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/awWblosRzrQ/p4-cnUtSW5kaWEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p4-cnUtSW5kaWEuanBn-480.webp",
           "width": 960,
-          "height": 720,
+          "height": 1280,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_lucens-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi crypt xanh tươi trồng trên nền đất tối, phía sau có dương xỉ java."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leptochilus_pteropus-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Một bụi dương xỉ java khỏe mạnh với lá xanh đậm, sẵn sàng để trồng."
         }
       },
       {
-        "heading": "Trồng trầu bà trên lọc treo",
-        "moments": [
-          {
-            "t": 960,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at960.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây trầu bà còn trong chậu, chuẩn bị đem trồng thử."
-          },
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at970.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rũ sạch đất khỏi rễ trầu bà trong thau trước khi đặt vào lọc."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/awWblosRzrQ/p6-yNjM0MzA3KS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p6-yNjM0MzA3KS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 2.0",
-          "author": "Dinesh Valke from Thane, India",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scindapsus_aureus_%3F_(312634307).jpg",
-          "caption": "Lá trầu bà (pothos) xanh vàng khỏe mạnh, dây leo bám thân."
-        }
-      },
-      {
-        "heading": "Mua cá và chỉnh nước cho loài nhạy cảm",
+        "heading": "Tìm cá và chỉnh nước trước khi thả",
         "moments": [
           {
             "t": 1060,
             "url": "https://media.aquatome.com/video/awWblosRzrQ/at1060-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đã set xong với cá nhỏ bơi dưới lớp rêu và cây phía trên."
+            "caption": "Bể trưng bày ở cửa hàng với lũa, rêu phủ và đàn cá nhỏ."
           },
           {
-            "t": 1310,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at1310-hd.webp",
+            "t": 1070,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at1070-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đo chỉ số nước bằng bút đo ở bể nhỏ trước khi thả cá."
+            "caption": "Bể thủy sinh trong cửa hàng với lũa và cây phủ trên mặt."
+          }
+        ]
+      },
+      {
+        "heading": "Thuần cá bằng cách nhỏ giọt",
+        "moments": [
+          {
+            "t": 1320,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at1320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Túi cá trong cốc, nước bể nhỏ giọt từ từ qua ống dây."
+          },
+          {
+            "t": 1330,
+            "url": "https://media.aquatome.com/video/awWblosRzrQ/at1330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống dây sủi dẫn nước từ bể nhỏ giọt vào túi cá."
           }
         ]
       }

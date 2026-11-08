@@ -1,0 +1,52 @@
+{
+  "id": "devario-xyrops",
+  "native": {
+    "input": "522fdf24e7f63218",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blue moon 'danio', Devario xyrops, is a devario known only from small streams draining the western slope of the Rakhine Yoma in western Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rakhine Yoma",
+        "source": "seriouslyfish",
+        "quote": "The blue moon 'danio', Devario xyrops, is a devario known only from small streams draining the western slope of the Rakhine Yoma in western Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario xyrops",
+    "status": "ACCEPTED",
+    "taxonKey": 2361568,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

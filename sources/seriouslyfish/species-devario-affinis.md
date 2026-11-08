@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-affinis
 title: Devario affinis · Seriously Fish
-fetchedAt: 2026-11-07T04:18:30.082Z
+fetchedAt: 2026-11-07T18:48:32.588Z
 hash: 63a4c0cc478e8a11e50b5183ef0158816270a69cd23cdb83f2e1301cb144a2ab
 ---
 

@@ -38,3 +38,13 @@ test("a guide photo keeps its section's heading in a language the site doesn't s
   const g = GuideSchema.parse({ id: 'g', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://x', html: '', photos: [photo], mentions: [], updatedAt: '2026-11-06' })
   expect(g.photos[0]!.section).toEqual({ vi: 'Lọc', id: 'Filter', ms: 'Penapis' })
 })
+
+test("a card: an event names its event, a product card its product, and no window ends before it starts; the gate's held is kept", async () => {
+  const { CardSchema, CardTextSchema } = await import('../src/index')
+  const base = { id: 'x', type: 'trivia', sources: [{ url: 'https://example.org/a', title: 'A', publisher: 'P', date: '2026-11-01', accessed: '2026-11-08' }], show: { from: '2026-11-10', until: '2026-11-20' }, updatedAt: '2026-11-08' }
+  expect(CardSchema.safeParse(base).success).toBe(true)
+  for (const bad of [{ type: 'event' }, { type: 'product' }, { show: { from: '2026-11-10', until: '2026-11-01' } }, { sources: [] }, { type: 'quiz' }, { about: ['places/hanoi'] }, { event: { start: '2026-11-16', end: '2026-11-15', place: 'x', country: 'VN', organiser: 'y' } }]) expect(CardSchema.safeParse({ ...base, ...bad }).success, JSON.stringify(bad)).toBe(false)
+  expect(CardSchema.safeParse({ ...base, type: 'product', product: 'products/a-heater' }).success).toBe(true)
+  const held = { checks: ['words'], at: '2026-11-08T00:00:00Z' }
+  expect(CardTextSchema.parse({ eyebrow: 'e', title: 't', body: '<p>b</p>', held }).held).toEqual(held)
+})

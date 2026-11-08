@@ -142,6 +142,44 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(plugs.waitForExistence(timeout: 5), "no plugs on the tank")
   }
 
+  /// The owner's way to the blank tank (7 Nov): a fish's page opened from a tank on Bể của tôi, a new tank made in the put
+  /// sheet (it opens on the tank already there; "Bể mới" picked from its list), then "Xem trong Bể của tôi →", which
+  /// replaces the stack the sheet's page is on once the sheet has closed.
+  func testANewTankMadeFromAPageOpenedOnATankIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life") // "Bể cá neon": 12 neons
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    let row = life(app, "Cá neon")
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the tank didn't open")
+    row.tap()
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "from-a-tank")
+  }
+
+  /// The same in dark, as the owner's phone was.
+  func testANewTankMadeFromAPageInTheDarkIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life", "-dark")
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    let row = life(app, "Cá neon")
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the tank didn't open")
+    row.tap()
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "from-a-tank-dark")
+  }
+
+  /// The same new tank, the fish's page from Tìm while Bể của tôi has a tank open: that stack replaced while it isn't shown.
+  func testANewTankMadeFromAPageWhileAnotherTankIsOpenIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life")
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    XCTAssertTrue(app.navigationBars["Bể cá neon"].waitForExistence(timeout: 5), "the tank didn't open")
+    app.openTab("Tìm")
+    openPage(app, "Cá neon")
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "another-tank-open")
+  }
+
   /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
   /// at once, with no sheet closing.
   func testALinkToATankOpensItShownFromAnotherTab() {
@@ -383,6 +421,36 @@ final class TankLifeFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
     app.launchForFlow()
     return app
+  }
+
+  /// From a fish's page: "Bể mới" picked in the put sheet (it opens on the first tank), named, saved, then the tank opened.
+  private func putOnANewTank(_ app: XCUIApplication, _ name: String) {
+    let put = app.buttons["put-on-tank"]
+    XCTAssertTrue(put.waitForExistence(timeout: 10), "no way to put it on a tank")
+    put.tap()
+    let picker = app.buttons["put-tank"]
+    XCTAssertTrue(picker.waitForExistence(timeout: 5), "no tanks to pick from")
+    picker.tap()
+    let new = app.buttons["Bể mới"].firstMatch
+    XCTAssertTrue(new.waitForExistence(timeout: 5), "no Bể mới among the tanks")
+    new.tap()
+    let field = app.textFields["put-name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no new tank offered")
+    field.tap()
+    field.typeText(name)
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "no way to the tank")
+    app.buttons["put-open"].tap()
+  }
+
+  /// The tank open, its neons and its Sửa on screen, not only there for VoiceOver.
+  private func seesTheNeons(_ app: XCUIApplication, on tank: String, shot: String) {
+    XCTAssertTrue(app.navigationBars[tank].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    shoot(shot)
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
   }
 
   /// A page from the Tìm tab, searched by its name (a row below the fold isn't there to find), typed without accents: the
