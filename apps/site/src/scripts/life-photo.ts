@@ -37,10 +37,10 @@ export function initPhoto(panel: HTMLElement, o: {
     const label = p?.name ?? guessEntry(r, answer!.verdict).name
     const species = p && r.species ? `<p class="also">${escapeHtml(ct('Một dòng của'))} ${escapeHtml(r.species.name)}</p>` : ''
     const none = p ? '' : `<p class="add">${escapeHtml(ct('Chưa có trong cẩm nang.'))}</p>`
-    const act = `<p class="act"><button type="button" class="quiet" data-guess="${i}"${there ? ' disabled' : ''} aria-label="${escapeHtml(there ? ct('Đã có: {name}', { name: label }) : ct('Thêm vào bể: {name}', { name: label }))}">${escapeHtml(there ? ct('Đã có') : ct('Thêm vào bể'))}</button></p>`
+    const act = `<p class="act"><button type="button" class="quiet" data-ev="tank" data-guess="${i}"${there ? ' disabled' : ''} aria-label="${escapeHtml(there ? ct('Đã có: {name}', { name: label }) : ct('Thêm vào bể: {name}', { name: label }))}">${escapeHtml(there ? ct('Đã có') : ct('Thêm vào bể'))}</button></p>`
     const genus = genusHtml(ct, r, (l, j) => {
       const on = o.has(pageOf(l))
-      return `<button type="button" class="sib" data-sib="${i}:${j}"${on ? ' disabled' : ''} aria-label="${escapeHtml(on ? ct('Đã có: {name}', { name: l.name }) : ct('Thêm vào bể: {name}', { name: l.name }))}"><span class="nm">${escapeHtml(l.name)}${l.sci ? ` <i>${escapeHtml(l.sci)}</i>` : ''}</span><span class="tag" aria-hidden="true">${escapeHtml(on ? ct('Đã có') : ct('Thêm'))}</span></button>`
+      return `<button type="button" class="sib" data-ev="tank" data-sib="${i}:${j}"${on ? ' disabled' : ''} aria-label="${escapeHtml(on ? ct('Đã có: {name}', { name: l.name }) : ct('Thêm vào bể: {name}', { name: l.name }))}"><span class="nm">${escapeHtml(l.name)}${l.sci ? ` <i>${escapeHtml(l.sci)}</i>` : ''}</span><span class="tag" aria-hidden="true">${escapeHtml(on ? ct('Đã có') : ct('Thêm'))}</span></button>`
     })
     // The name as text, not a link: the form isn't saved yet.
     return guessHtml(ct, r, escapeHtml(label), `${species}${none}${act}${genus}`)

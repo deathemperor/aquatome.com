@@ -21,6 +21,8 @@ public struct AccountUser: Sendable, Equatable, Codable {
   public let id: String
   public let createdAt: String?
   public let methods: [AccountMethod]
+  /// The fish picture the reader chose for the account (an id of protocols/profile-pictures.json), if any.
+  public var picture: String? = nil
 }
 
 /// The sign-ins the server offers (client ids are the web's; the app uses its own).
@@ -316,6 +318,12 @@ public struct AccountsClient: Sendable {
   }
 
   /// Ends this phone's session (the server answers 204 for one that had ended already).
+  /// The account's fish picture set, or taken off with nil (sent as null): the account as it now is. An id the server's
+  /// set hasn't is refused `bad_picture`.
+  public func setPicture(_ id: String?, token: String) async throws -> AccountUser {
+    try AccountUser(try await call("POST", "/api/v1/account/picture", token: token, body: ["picture": id.map(JSON.string) ?? .null])["user"])
+  }
+
   public func signOut(token: String) async throws {
     _ = try await call("POST", "/api/v1/auth/logout", token: token, body: [:])
   }
@@ -359,6 +367,6 @@ extension AccountUser {
     self.init(id: id, createdAt: o["createdAt"]?.string, methods: try methods.map { m in
       guard let m = m.object, let id = m["id"]?.string, let kind = m["kind"]?.string, let at = m["createdAt"]?.string else { throw AccountError.badReply }
       return AccountMethod(id: id, kind: kind, createdAt: at, lastUsedAt: m["lastUsedAt"]?.string)
-    })
+    }, picture: o["picture"]?.string)
   }
 }

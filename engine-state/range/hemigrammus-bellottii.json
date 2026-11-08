@@ -1,0 +1,200 @@
+{
+  "id": "hemigrammus-bellottii",
+  "native": {
+    "input": "a9b4200960570455",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dash-dot tetra, Hemigrammus bellottii, is a small characin from the Rio Solimões, Negro and Maroni basins in Brazil and French Guiana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dash-dot tetra, Hemigrammus bellottii, is a small characin from the Rio Solimões, Negro and Maroni basins in Brazil and French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Solimoes, Negro, and Maroni basins in French Guiana and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Solimoes, Negro, and Maroni basins in French Guiana and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Solimões",
+        "source": "seriouslyfish",
+        "quote": "The dash-dot tetra, Hemigrammus bellottii, is a small characin from the Rio Solimões, Negro and Maroni basins in Brazil and French Guiana.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "The dash-dot tetra, Hemigrammus bellottii, is a small characin from the Rio Solimões, Negro and Maroni basins in Brazil and French Guiana.",
+        "ok": true
+      },
+      {
+        "name": "Maroni",
+        "source": "seriouslyfish",
+        "quote": "The dash-dot tetra, Hemigrammus bellottii, is a small characin from the Rio Solimões, Negro and Maroni basins in Brazil and French Guiana.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus bellottii",
+    "status": "ACCEPTED",
+    "taxonKey": 2354363,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        514
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        174
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        151
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        81
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        57
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        55
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        49
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        46
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        26
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        24
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        20
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        16
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        8
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        7
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        6
+      ],
+      [
+        "2d74ce7a-a3c9-4045-b98d-7bb6cd043894",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        3
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

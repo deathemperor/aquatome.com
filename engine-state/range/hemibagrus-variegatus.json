@@ -1,0 +1,60 @@
+{
+  "id": "hemibagrus-variegatus",
+  "native": {
+    "input": "0967cec63872ee2b",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Hemibagrus variegatus Ng & Ferraris, 2000. Type locality: Tenasserim River, Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Tenasserim river drainage in southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tenasserim River",
+        "source": "planetcatfish",
+        "quote": "Asia: known only from the Tenasserim river drainage in southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus variegatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338192,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

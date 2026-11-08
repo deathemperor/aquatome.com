@@ -134,7 +134,7 @@ REACH = {
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ChatFlowTests'],
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
     # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it; its card's
     # Apple and Google buttons too.
@@ -170,7 +170,7 @@ REACH = {
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank',
                              'TankVolumeFlowTests', 'TankMatesFlowTests'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
-                                   'OwnerFlowTests', 'ChatFlowTests'],
+                                   'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).

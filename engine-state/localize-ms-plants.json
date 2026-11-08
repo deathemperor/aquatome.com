@@ -458,5 +458,59 @@
     "notes": [
       "Item 2: \"tumbuhan karpet\" narrows \"cây nền\" (ground or foreground plants). Use \"tumbuhan latar depan/tumbuhan dasar\" or \"tumbuhan yang ditanam dalam substrat\"."
     ]
+  },
+  "bucephalandra-sp-dark-skeleton-king": {
+    "at": "2026-11-08",
+    "from": "2026-11-06",
+    "name": "Bucephalandra Dark Skeleton King",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 1: Source spells 'Bucephelandra' but the translation silently changes it to 'Bucephalandra'. This is a correction, so the Latin name is not kept as written. It is minor.",
+      "Item 1: 'secara emersed (separa timbul)' leaves English in place. Use 'timbul di atas air (emersed)' or similar, for example 'tumbuh timbul'. Likewise 'tenggelam dalam air' could be 'tenggelam (submersed)'.",
+      "Item 2: The English source is actually Vietnamese and was not in English. The MS follows the content faithfully, so there is no real problem. Note that 'tumbuhan epifit yang hidup melekat' adds 'epifit', which is not in the source (the source says 'cây sống bám'). It is acceptable but slightly redundant.",
+      "Item 2: 'penyepit' is non-standard for aquascaping tweezers. Use 'forsep' or 'penyepit (tweezers)'.",
+      "Item 2: 'mengikat pokok' and 'tanam semuanya sekali gus' are fine, but 'rendam secara berasingan ... supaya pokok biasa dengan air' is awkward. Use 'supaya pokok menyesuaikan diri dengan air'.",
+      "Item 2: 'Tangki baharu yang hanya ditanam dengan tumbuhan yang tumbuh perlahan, walaupun ditanam banyak' is clumsy. Rephrase to 'walaupun ditanam banyak, tangki baharu yang hanya mempunyai tumbuhan perlahan membesar mudah diserang alga'.",
+      "Item 3: 'tangki berlampu malap' is an awkward rendering of 'low light'. Use 'cahaya rendah'. 'ikan laga' is fine for betta."
+    ]
+  },
+  "bucephalandra-sp-degori": {
+    "at": "2026-11-08",
+    "from": "2026-11-06",
+    "name": "Bucephalandra Degori",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 1: the Latin genus name is changed from \"Bucephelandra\" (source) to \"Bucephalandra\". Latin names should stay as in the source, even though the new spelling is the correct botanical one.",
+      "Item 1: \"separa timbul (emersed)\" adds \"separa\" (semi). The source says emersed, meaning grown out of water, so use \"timbul (emersed)\" or \"tumbuh di atas permukaan air\".",
+      "Item 2: the source text is Vietnamese, not English. The Malay follows it faithfully, so no translation error to fix here."
+    ]
+  },
+  "bucephalandra-sp-mini-melawi": {
+    "at": "2026-11-08",
+    "from": "2026-11-06",
+    "name": "Bucephalandra Mini Melawi",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 1: the source spells the genus \"Bucephelandra\" but the Malay has \"Bucephalandra\". This is a correct spelling fix, but the Latin name no longer matches the source, so check it was intended.",
+      "Item 1: \"Portion\" is rendered as \"Saiz\". \"Saiz\" suggests plant size, so \"Kuantiti\" or \"Bahagian\" would fit better for single, double or triple rhizome portions.",
+      "Item 2: the source text is Vietnamese, not English. The Malay follows it faithfully, so I found no meaning errors."
+    ]
+  },
+  "bucephalandra-sp-needle-leaf": {
+    "at": "2026-11-08",
+    "from": "2026-10-30",
+    "name": "Bucephalandra Needle Leaf",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "'pygmaeae' was changed to 'pygmaea' — keep the Latin name unchanged as in the source ('pygmaeae').",
+      "'cahaya yang lebih sedikit terang' is awkward and unclear; use 'cahaya yang sedikit lebih terang'.",
+      "'memerlukan keadaan yang sedikit lebih tinggi' is awkward; use 'keperluan yang sedikit lebih tinggi' or 'lebih menuntut'.",
+      "'kedua-duanya banyak persamaan' is missing a verb; use 'kedua-duanya mempunyai banyak persamaan'.",
+      "'tangki' is acceptable, but 'akuarium' is the more common hobby term; consider 'dalam akuarium'."
+    ]
   }
 }
