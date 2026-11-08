@@ -1,0 +1,27 @@
+{
+  "id": "new-rasbora",
+  "type": "new-species",
+  "sources": [
+    {
+      "url": "https://example.org/a",
+      "title": "A note",
+      "publisher": "Example",
+      "date": "2026-11-01",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "show": {
+    "from": "2026-11-10",
+    "until": "2026-12-10"
+  },
+  "photo": {
+    "url": "https://media.aquatome.com/commons/x.webp",
+    "width": 1600,
+    "height": 1200,
+    "licence": "CC BY-NC 4.0",
+    "author": "A. Author",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:X.jpg"
+  },
+  "rotate": 7,
+  "updatedAt": "2026-11-08"
+}
