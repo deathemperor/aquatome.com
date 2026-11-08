@@ -8,13 +8,39 @@
   "places": [
     "asia",
     "india",
-    "brahmaputra"
+    "brahmaputra",
+    "myanmar",
+    "salween",
+    "china",
+    "irrawaddy"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 11
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +52,22 @@
       "html": "<ul><li>Scientific name: Exostoma labiatum (McClelland, 1842)</li><li>Common name: Burmese Bat Catfish</li><li>Type locality: Mishmee Hills [Mishmi Mountains], Arunachal Pradesh, India.</li><li>Etymology: Greek, exos = outside + Greek, stoma = mouth</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/exostoma_labiatum.htm",
+      "html": "<ul><li>Common name: Burmese bat catfish</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
       "html": "<p>Asia: India. Reported from the Brahmaputra River in Tibet and the upper Salween basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/exostoma_labiatum.htm",
+      "html": "<p>Asia: Brahmaputra drainage, northeast India (Hora &amp; Silas, 1952b; Chu et al., 1999; Jayaram, 1999). Reported from the Salween drainage, Myanmar (Kottelat, 1989) and the Irrawaddy drainage, China (Chu et al., 1999).</p><p>Type locality: Mishmee Hills, Meghalaya, India.</p><p>IUCN Red List: Exostoma labiatum has been recorded from a few locations in India (Meghalaya and Arunachal Pradesh) and China (Tibet), but its distribution range is inferred to be wide in the Brahmaputra River drainage. Although there is insufficient information on distribution, biology and population, lack of any known or identified threats to the species makes it a candidate for Least Concern, but the listing needs updating (IUCN 2010).</p>"
     },
     {
       "key": "habitat",
@@ -44,10 +82,22 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/exostoma_labiatum.htm",
+      "html": "<p>Description: Exostoma is distinguished from Glyptosternon, Glaridoglanis, Pareuchiloglanis, Euchiloglanis and Parachiloglanis by having a continuous post-labial groove. Exostoma is distinguished from Pseudexostoma and Oreoglanis by having homodont (vs. heterodont) dentition in the lower jaw. It is further distinguished from Oreoglanis by having oar-shaped, distally flattened (vs. pointed) teeth in the upper jaw, and from Pseudexostoma by having homodont (vs. heterodont) teeth in the upper jaw. Exostoma is distinguished from Myersglanis by having tooth patches separated in the upper jaw and oar-shaped, distally flattened teeth in both jaws (vs. tooth patches juxtaposed and pointed teeth in both jaws). Exostoma is further distinguished from Pseudexostoma and Oreoglanis by having 10–11 branched pectoral rays (vs. 16–18).</p><p>Etymology: The specific name labiatum is Latin for lipped, referring to its multilobate lips, “reflected and spread continuously around the mouth, so as to form a broad flat sucker”.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
       "html": "<p>Calcutta Journal of Natural History v. 2 (no. 8), pp 588.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/exostoma_labiatum.htm",
+      "html": "<p>Ng, H.H. 2010. Exostoma labiatum. The IUCN Red List of Threatened Species 2010. The ETYFish Project. Fish Name Etymology Database © Christopher Scharpf. Thomson, Alfred W.; Page, Lawrence M. (2006). \"Genera of the Asian Catfish Families Sisoridae and Erethistidae (Teleostei: Siluriformes)\". Zootaxa 1345: 1–96.</p>"
     }
   ],
   "photos": [

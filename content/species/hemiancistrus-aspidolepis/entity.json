@@ -1,0 +1,97 @@
+{
+  "id": "hemiancistrus-aspidolepis",
+  "scientificName": "Hemiancistrus aspidolepis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hemiancistrus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "panama",
+    "gatun-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 7.4,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 24
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1322",
+      "html": "<ul><li>Scientific name: Hypostomus aspidolepis (Günther, 1867)</li><li>Type locality: Veragua, Panama.</li><li>Synonyms: Chaetostomus aspidolepis, Hemiancistrus aspidolepis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1322",
+      "html": "<p>Central America: Gatun River basin in the Caribbean coastal drainage. Panama Caribbean rivers, Chagres, Gatun.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1322",
+      "html": "<p>In the wild this species can be found in a water temperature of about 25°C, pH 7.4 and in strong current.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1322",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1322",
+      "html": "<p>Proceedings of the Zoological Society of London 1866 (pt 3), pp 603.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 150cm",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}
