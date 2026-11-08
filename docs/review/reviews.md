@@ -9,17 +9,17 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 288 | 240 (vi 240) | 240 |
-| translation | 506 | 94 (vi 94) | 94 |
-| vi-rewrite | 124 | 0 | 0 |
-| reader-rewrite | 10 | 0 | 0 |
+| translation | 516 | 101 (vi 101) | 101 |
+| vi-rewrite | 136 | 0 | 0 |
+| reader-rewrite | 11 | 0 | 0 |
 | title | 1 | 0 | 0 |
-| breed | 8 | 1 (ms 1) | 1 |
-| topic | 20 | 0 | 0 |
+| breed | 10 | 2 (ms 2) | 2 |
+| topic | 22 | 0 | 0 |
 | product | 5 | 0 | 0 |
 | product-reviews | 5 | 0 | 0 |
 | summary | 363 | 12 (vi 12) | 12 |
-| localize | 676 | 263 (id 140, ms 18, th 105) | 263 |
-| places | 3085 | 1601 (id 713, ms 113, th 676, vi 99) | 232 |
+| localize | 733 | 287 (id 146, ms 20, th 121) | 287 |
+| places | 3758 | 2184 (id 758, ms 651, th 676, vi 99) | 311 |
 | equipment | 5 | 0 | 0 |
 | planting | 15 | 0 | 0 |
 | species | 1 | 0 | 0 |
@@ -117,20 +117,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-94 of 506 pages under the bar.
+101 of 516 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 91 | 288 |
-| Wording: unnatural, literal, stiff or chatty | 75 | 143 |
-| Says what the source doesn't (invented, added) | 74 | 157 |
-| Meaning changed or wrong | 65 | 106 |
-| Hobby terms and names | 51 | 69 |
-| Leaves out what the source says | 33 | 50 |
-| States as certain what the source hedges, or what garbled captions only hint at | 33 | 40 |
-| Text left in another language | 32 | 38 |
-| A number, unit, dose or price | 29 | 39 |
-| Repeats itself (intro, summary, steps and FAQ) | 28 | 37 |
+| Other | 98 | 310 |
+| Wording: unnatural, literal, stiff or chatty | 81 | 151 |
+| Says what the source doesn't (invented, added) | 80 | 172 |
+| Meaning changed or wrong | 70 | 115 |
+| Hobby terms and names | 52 | 70 |
+| Leaves out what the source says | 36 | 53 |
+| Text left in another language | 35 | 42 |
+| A number, unit, dose or price | 34 | 45 |
+| States as certain what the source hedges, or what garbled captions only hint at | 34 | 43 |
+| Repeats itself (intro, summary, steps and FAQ) | 30 | 39 |
 | Names or points to the video, channel, creator or source | 5 | 6 |
 | Copied from the transcript or source | 1 | 1 |
 
@@ -170,12 +170,6 @@ under `<lang>/<path>`.
 - #2: 'bang' is missing its diacritic, so 'Hai bang' should be 'Hai bang' → 'Hai bang' (correct: 'Hai bang' = 'Hai bang'); write 'Hai bang' as 'Hai bang' with the proper form 'Hai bang' → 'Hai bang'. In short: fix the typo 'bang' → 'bang' (s… — vi/species/ilyodon-furcidens (glaser), 0.55
 - Red swamp section: the Pros/Cons list drops "Medium size" ("Kích thước vừa phải" is present) but the English pros include "Medium size" – check; more importantly the "Nice looking" item is kept. However the sentence "Eat pest snailsEat goo… — vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species (aquariumbreeder), 0.60
 
-### States as certain what the source hedges, or what garbled captions only hint at
-
-- Item 5: "đầu hồi nước" is non-standard for 'outflows'; use 'đầu nước ra/ống xả'. 'đầu ra' for 'returns' is also unclear. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
-- #1: 'bắt Ilyodon về làm thức ăn' – 'found on the human menu' is slightly changed; and 'Vì to như vậy' overstates causation, since 15 cm is exceptional only. — vi/species/ilyodon-furcidens (glaser), 0.55
-- "Khí hô hấp và ion trao đổi ngay lúc nước chảy qua" is awkward and its word order is unclear. Try "Việc trao đổi khí hô hấp và ion diễn ra khi nước được hút vào khoang mang và chảy qua bề mặt mang". — vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water (aquariumbreeder), 0.60
-
 ### Text left in another language
 
 - Item 4: "white shark" is left in English in brackets. Remove it, or use "cá mập trắng" only. — vi/species/labeo-chrysophekadion (glaser), 0.50
@@ -184,15 +178,21 @@ under `<lang>/<path>`.
 
 ### A number, unit, dose or price
 
+- Item 1: 'Max size: 75 mm SL (3.0 in SL)' - dropping the inches is fine, but keep 'SL' explained (chiều dài chuẩn) or consistent. — vi/species/tanakia-signifer (seriouslyfish), 0.55
 - Red swamp: "most will grow up to 4 – 5 inches (10 – 12 cm)" translated "dài tới 10 – 12 cm" ok, but "need at least 20 gallons... per adult crayfish" – "mỗi con cần ít nhất khoảng 80 lít" ok. Omitted: "These crayfish do particularly well in… — vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species (aquariumbreeder), 0.60
 - #2 "lên quá 30°C khá xa": awkward; use "vượt xa mức 30°C". — vi/species/aplocheilus-panchax (glaser), 0.60
-- Item 11: English says miniaturised adults are 'less than 20 mm (0.8 in) SL', but item 1 gives max size 30 mm. The VI keeps 20 mm and drops the imperial figure, which is acceptable. However, 'Kích thước trưởng thành nhỏ của loài này là kết … — vi/species/horadandia-atukorali (seriouslyfish), 0.60
+
+### States as certain what the source hedges, or what garbled captions only hint at
+
+- Item 5: "đầu hồi nước" is non-standard for 'outflows'; use 'đầu nước ra/ống xả'. 'đầu ra' for 'returns' is also unclear. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
+- #1: 'bắt Ilyodon về làm thức ăn' – 'found on the human menu' is slightly changed; and 'Vì to như vậy' overstates causation, since 15 cm is exceptional only. — vi/species/ilyodon-furcidens (glaser), 0.55
+- "Khí hô hấp và ion trao đổi ngay lúc nước chảy qua" is awkward and its word order is unclear. Try "Việc trao đổi khí hô hấp và ion diễn ra khi nước được hút vào khoang mang và chảy qua bề mặt mang". — vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water (aquariumbreeder), 0.60
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
 - Item 9: "Cá cái ... có thể lớn hơn" is correct but repeats the subject. Merge into one sentence. "likely to be deeper-bodied" is rendered as "nhiều khả năng có thân cao hơn", which is fine. — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
+- Item 4: 'trạng thái diapause (ngừng phát triển)' - 'arrested development' was earlier rendered 'ngừng phát triển' too; use 'ngủ đông phôi/diapause' and avoid duplicating the gloss. — vi/species/tanakia-signifer (seriouslyfish), 0.55
 - Item 9: 'loài Danio spp.', 'loài Botia spp.' and 'Yasuhikotakia spp.' are redundant. Use 'các loài Danio' or 'Danio spp.', not both. — vi/species/ambastaia-nigrolineata (seriouslyfish), 0.60
-- Item 1: 'cá rô phi lùn' for dwarf cichlid is non-standard. Use 'cá cichlid lùn' or 'cá rô phi lùn Nam Mỹ'. Also drop the duplicated '(dwarf cichlid)'. Item 2: 'cùng loài hoặc không' is clumsy. — vi/species/apistogramma-steindachneri (seriouslyfish), 0.60
 
 ### Names or points to the video, channel, creator or source
 
@@ -206,11 +206,11 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-0 of 124 pages under the bar.
+0 of 136 pages under the bar.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 10 pages under the bar.
+0 of 11 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -218,29 +218,32 @@ under `<lang>/<path>`.
 
 ## breed: breed pages, against their research
 
-1 of 8 pages under the bar.
+2 of 10 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1 | 5 |
-| A number, unit, dose or price | 1 | 2 |
-| Says what the source doesn't (invented, added) | 1 | 1 |
+| Other | 2 | 13 |
+| A number, unit, dose or price | 2 | 3 |
+| Says what the source doesn't (invented, added) | 2 | 2 |
 
 ### Other
 
+- "penyakit bintik putih (white spot)" - the facts say ich; white spot is a fair translation, so this is fine. Ignore this note. — ms/breeds/flowerhorn-cichlid, 0.60
 - "Spesies asalnya berasal dari Amerika Selatan" – the facts give only Trinidad, Venezuela and Colombia, with no continent stated (a small generalisation). — ms/breeds/electric-blue-acara, 0.70
 
 ### A number, unit, dose or price
 
+- "Ia perlukan air panas yang bersih" - generic, but roughly supported by the temperature facts. — ms/breeds/flowerhorn-cichlid, 0.60
 - "lebih baik jika sekitar 210 liter ke atas" – facts say 55 gallons or more preferred; 55 gallons ≈ 208 L, so this is acceptable, but "sekitar 210 liter" is a slight rounding. — ms/breeds/electric-blue-acara, 0.70
 
 ### Says what the source doesn't (invented, added)
 
+- "Satu sumber menilai louhan sebagai ikan yang agak mencabar" - the facts give only difficulty 4, with no scale. 'Agak mencabar' (fairly challenging) is an invented interpretation. — ms/breeds/flowerhorn-cichlid, 0.60
 - "Electric Blue Acara biasanya dijual lebih mahal" – the facts say only that they sell for more, so "biasanya" is a small addition. — ms/breeds/electric-blue-acara, 0.70
 
 ## topic: AquaTome's own guides, against their research
 
-0 of 20 pages under the bar.
+0 of 22 pages under the bar.
 
 ## product: product pages, against their research
 
@@ -292,21 +295,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-263 of 676 pages under the bar.
+287 of 733 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 246 | 724 |
-| Wording: unnatural, literal, stiff or chatty | 229 | 489 |
-| Says what the source doesn't (invented, added) | 159 | 237 |
-| Meaning changed or wrong | 156 | 250 |
-| Hobby terms and names | 145 | 199 |
-| A number, unit, dose or price | 135 | 173 |
-| Text left in another language | 103 | 146 |
-| Leaves out what the source says | 84 | 98 |
-| States as certain what the source hedges, or what garbled captions only hint at | 67 | 75 |
-| Repeats itself (intro, summary, steps and FAQ) | 63 | 69 |
-| Copied from the transcript or source | 7 | 7 |
+| Other | 269 | 786 |
+| Wording: unnatural, literal, stiff or chatty | 249 | 533 |
+| Meaning changed or wrong | 172 | 281 |
+| Says what the source doesn't (invented, added) | 172 | 254 |
+| Hobby terms and names | 158 | 218 |
+| A number, unit, dose or price | 144 | 185 |
+| Text left in another language | 110 | 153 |
+| Leaves out what the source says | 90 | 106 |
+| States as certain what the source hedges, or what garbled captions only hint at | 75 | 84 |
+| Repeats itself (intro, summary, steps and FAQ) | 69 | 75 |
+| Copied from the transcript or source | 8 | 8 |
 
 ### Other
 
@@ -320,17 +323,17 @@ under `<lang>/<path>`.
 - Item 12: "ปลาตระกูลปลาตะเพียน" for "cyprinids" is fine, but "ปลาหมู" for "loaches" is not standard. Use "ปลาหมู" with care, or "ปลาหมูขนาดเล็ก (loaches)". The phrase "แย่งอาหารไปได้" is added to "outcompete", which is slightly narrower. — th/species/betta-patoti, 0.30
 - Item 11: 'ใบโอ๊ก' for oak leaves is fine; 'พรรณไม้หนาแน่น' for 'dense vegetation' is stiff — use 'ไม้น้ำปลูกหนาแน่น'. — th/species/betta-persephone, 0.30
 
-### Says what the source doesn't (invented, added)
-
-- Item 2: 'rimpang mudah membusuk perlahan' adds 'perlahan', which the source only implies. Use 'mudah membusuk'. — id/plants/microsorum-pteropus-narrow, 0.30
-- Item 27: "ikan yang dibesarkan bersama strain atau corak yang berbeda dari dirinya akan lebih menyukai corak tersebut" adds "strain" and is confusing. The English says cross-reared fish prefer the pattern they were raised with. Rephrase to… — id/species/danio-rerio, 0.30
-- Item 4: 'tidak pernah direkodkan dari lembangan tersebut' is acceptable, but the source locality quote is untranslated English. Leave it as a quoted locality if intended; otherwise add a gloss. — ms/species/paracheirodon-axelrodi, 0.30
-
 ### Meaning changed or wrong
 
 - Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error. — id/plants/microsorum-pteropus-narrow, 0.30
 - Item 9: "blackworms" is translated as "ไส้เดือนน้ำ". Use "หนอนแดงน้ำจืด" or "ไส้เดือนน้ำ" consistently. Blackworms are Lumbriculus, so "ไส้เดือนน้ำ" is acceptable, but "หนอนแดง" in the same sentence risks confusing readers. — th/species/betta-patoti, 0.30
-- Item 5: 'Rio Negro di Sungai Amazon' is wrong. The Rio Negro is a tributary of the Amazon. Write 'anak sungai Rio Negro bagi Sungai Amazon'. — ms/species/paracheirodon-axelrodi, 0.30
+- Item 27: "ikan yang dibesarkan bersama strain atau corak yang berbeda dari dirinya akan lebih menyukai corak tersebut" adds "strain" and is confusing. The English says cross-reared fish prefer the pattern they were raised with. Rephrase to… — id/species/danio-rerio, 0.30
+
+### Says what the source doesn't (invented, added)
+
+- Item 2: 'rimpang mudah membusuk perlahan' adds 'perlahan', which the source only implies. Use 'mudah membusuk'. — id/plants/microsorum-pteropus-narrow, 0.30
+- Item 4: 'tidak pernah direkodkan dari lembangan tersebut' is acceptable, but the source locality quote is untranslated English. Leave it as a quoted locality if intended; otherwise add a gloss. — ms/species/paracheirodon-axelrodi, 0.30
+- Item 12: 'clown killifish' is translated as 'ปลาคิลลี่หางแดง'. 'หางแดง' is an added fact. Use ปลาคิลลี่คลาวน์. — th/plants/cryptocoryne-wendtii, 0.50
 
 ### Hobby terms and names
 
@@ -376,17 +379,18 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-1601 of 3085 pages under the bar.
+2184 of 3758 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 189 | 199 |
-| Meaning changed or wrong | 18 | 18 |
-| Leaves out what the source says | 18 | 18 |
+| Other | 259 | 279 |
+| Leaves out what the source says | 26 | 26 |
+| Meaning changed or wrong | 19 | 19 |
+| Hobby terms and names | 8 | 8 |
+| Wording: unnatural, literal, stiff or chatty | 8 | 8 |
 | Text left in another language | 6 | 6 |
-| Wording: unnatural, literal, stiff or chatty | 5 | 5 |
-| Hobby terms and names | 3 | 3 |
 | States as certain what the source hedges, or what garbled captions only hint at | 2 | 2 |
+| Repeats itself (intro, summary, steps and FAQ) | 2 | 2 |
 
 ### Other
 
@@ -394,17 +398,29 @@ under `<lang>/<path>`.
 - sông Benue (should be Sungai Benue) — id/places/benue-river, 0.10
 - sông Cavalla (should be Sungai Cavalla) — id/places/cavalla-river, 0.10
 
+### Leaves out what the source says
+
+- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
+- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/river-congo, 0.30
+- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/sadong-river, 0.30
+
 ### Meaning changed or wrong
 
 - Ayeyarwaddy → Ayeyarwady (inconsistent/wrong spelling) — id/places/ayeyarwaddy, 0.30
+- 'Paraguay' for rio-paraguai: inconsistent/incorrect spelling for the Paraguai river (Brazil); Malay would be Sungai Paraguay — ms/places/rio-paraguai, 0.30
 - Thua Luu → ถัวลืว (wrong, should be ทัวลือ/ถั่วลือ) — th/places/thua-luu, 0.40
-- Rio Tietê → ชีเอเต (should be ตีเอเต/เชียเต; wrong) — th/places/rio-tiete, 0.55
 
-### Leaves out what the source says
+### Hobby terms and names
 
-- Mogaung Chaung → โมกอง (missing chaung) — th/places/mogaung-chaung, 0.40
 - sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/siem-reap-river, 0.40
 - sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/ve, 0.40
+- sông Bandama → บันดามา (Thai usually แม่น้ำบันดามา; no 'river' term) — th/places/bandama-river, 0.60
+
+### Wording: unnatural, literal, stiff or chatty
+
+- Rio Trombetas → ตรงเบตัส (unnatural; should be ตรอมเบตัส/โตรมเบตาส) — th/places/rio-trombetas, 0.40
+- Tennasserim → Perbukitan Tenasserim: the source spelling is fine, but the Indonesian form is more commonly "Pegunungan Tenasserim" — id/places/tennasserim-hills, 0.40
+- Approuage → Approuague: spelling differs from source key, but fine as correction — ms/places/approuage, 0.55
 
 ### Text left in another language
 
@@ -412,22 +428,15 @@ under `<lang>/<path>`.
 - "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/mogaung-chaung, 0.72
 - "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/nam-leuk, 0.72
 
-### Wording: unnatural, literal, stiff or chatty
-
-- Rio Trombetas → ตรงเบตัส (unnatural; should be ตรอมเบตัส/โตรมเบตาส) — th/places/rio-trombetas, 0.40
-- Tennasserim → Perbukitan Tenasserim: the source spelling is fine, but the Indonesian form is more commonly "Pegunungan Tenasserim" — id/places/tennasserim-hills, 0.40
-- sông Bắc Giang → เป่ย์เจียง (Bei River should be แม่น้ำเป๋ย/เป่ยเจียง; spelling เป่ย์ is odd) — th/places/bei-river, 0.60
-
-### Hobby terms and names
-
-- sông Bandama → บันดามา (Thai usually แม่น้ำบันดามา; no 'river' term) — th/places/bandama-river, 0.60
-- sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/siem-reap-river, 0.40
-- sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/ve, 0.40
-
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - Ribeira de Iguape → ริเบย์ราจีอีกวาปี (garbled; should be ริเบย์รา-ดี-อีกวาเป) — th/places/ribeira-de-iguape, 0.40
 - ละเว (Nam Lawe): doubtful; Lawe is probably a Thai-region river, but the name is unclear — th/places/nam-lawe-river, 0.60
+
+### Repeats itself (intro, summary, steps and FAQ)
+
+- "Sungai Ma" for Nam Ma/Ma River duplicates fine — ms/places/ma, 0.60
+- "Sungai Ma" for Nam Ma/Ma River duplicates fine — ms/places/nam-ma, 0.60
 
 ## equipment: equipment buying guides in Indonesian and Thai, against the Vietnamese
 

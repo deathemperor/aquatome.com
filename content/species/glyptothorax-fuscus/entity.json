@@ -11,6 +11,140 @@
     "chao-phraya",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mekong",
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Glyptothorax fuscus Fowler, 1934. Type locality: Chantaburi, southeastern Thailand. Size: 121 mm SL. A stout-bodied species with a relatively slender caudal peduncle and a fairly uniformly coloured, rusty brown body with a few scattered darker spots.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Chao Phraya and Mekong basins, and the Malay Peninsula.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Mekong",
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341313,
+      "total": 31,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          16
+        ],
+        [
+          "TH",
+          10
+        ],
+        [
+          "MY",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          -1.40625,
+          10,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          11.25,
+          4,
+          4
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

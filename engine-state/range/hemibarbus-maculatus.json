@@ -1,0 +1,160 @@
+{
+  "id": "hemibarbus-maculatus",
+  "native": {
+    "input": "47f6ae6084753862",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "MN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "words": "Mongolia",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has probably been introduced to Vietnam and Laos, or records from these countries represent another species.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has probably been introduced to Vietnam and Laos, or records from these countries represent another species.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "ok": true
+      },
+      {
+        "name": "Amur",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "ok": true
+      },
+      {
+        "name": "Taiwan",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "country": "CN",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KP",
+        "VN",
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibarbus maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2365995,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "fd799ab3-7c13-4fc6-aa85-08df09364385",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "KR",
+      "MN",
+      "RU",
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

@@ -3321,5 +3321,227 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/species/aphyosemion-congicum#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:16:34Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Item 1: \"Kích thước tối đa: 45 mm SL\" leaves the abbreviation \"SL\" unexplained. Use \"chiều dài chuẩn (SL)\" or \"45 mm chiều dài chuẩn\".",
+        "Item 1: \"Cá killi Congo\" for \"Congo lyretail\" is acceptable. \"cá đuôi đàn lia Congo\" would keep the \"lyretail\" meaning, if the encyclopedia uses that name.",
+        "Item 1: \"Tuy nhiên\" adds a contrast that the English does not state. It is harmless, but \"nhưng\" or no connector would be closer."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-decorsei#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:17:11Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 1: \"Cá đuôi đàn lia Decorse\" is acceptable, but \"SL (chiều dài chuẩn)\" leaves SL half in English. Use \"chiều dài chuẩn (SL)\" or just \"chiều dài chuẩn\".",
+        "Item 1: \"2.0 in SL\" was dropped. This is allowed as an imperial figure, so it is fine.",
+        "Item 2: \"appears restricted to its middle section\" became \"dường như chỉ phân bố ở đoạn trung lưu của sông\". This is fine.",
+        "Item 3: \"ornamented\" became \"nhiều họa tiết\". \"được trang trí\" or \"có hoa văn\" would be more natural.",
+        "Item 3: \"semeion ... banner, flag\" became \"biểu ngữ, lá cờ\". This is acceptable, but \"cờ hiệu, lá cờ\" might read better."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:17:11Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"50 mm SL (chiều dài chuẩn, không tính đuôi)\": the English gives only \"SL\"; the added explanation is an inference. \"Chiều dài chuẩn\" already means length without the caudal fin, so the gloss is redundant and risky. Use \"50 mm SL (chiều dài chuẩn)\".",
+        "\"2.0 in SL\" is dropped, which is fine as a unit conversion.",
+        "In #1, \"Mẫu định danh của loài (type locality) được thu ở Bessou\" mistranslates type locality. Type locality is the place the type specimen was collected (\"nơi thu mẫu định danh\"), not the specimen. Also fix this in #2: \"Mẫu định danh (type locality) được thu ở khu dân cư Bessou\". Say \"Nơi thu mẫu định danh (type locality) là khu dân cư Bessou…\".",
+        "In #2, \"hình như chỉ sống\" is too colloquial and weakens \"appears restricted to\". Use \"dường như chỉ phân bố ở\".",
+        "In #2, \"khu dân cư Bessou\" for \"settlement\" is awkward. Use \"làng/xã Bessou\" or \"điểm dân cư Bessou\".",
+        "In #3, the Greek \"ἀφúη\" has a Latin \"ú\" mixed into the Greek word. The original is \"ἀφύη\". Restore the original Greek spelling.",
+        "In #3, \"Tên này nói tới vây đuôi\" is acceptable. \"Hoa văn\" for \"ornamented\" is slightly off; \"được trang trí\" or \"nhiều họa tiết\" is better."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/aphyosemion-elberti#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:17:34Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 1: 'Its range follows the Sanaga River system across Cameroon' is rendered fine, but the English omits eastern Nigeria and the Vietnamese does the same, so this is consistent. No fix is needed there.",
+        "Item 1: 'nuôi được bể nhỏ' is a slight rewording of 'small tank'. Use 'cần bể nhỏ' or 'bể nhỏ' to stay closer to the original.",
+        "Item 1: 'nước mát giữ nhiệt ổn định' is awkward. Use 'nước mát, nhiệt độ giữ ổn định'.",
+        "Item 1: 'Mẫu dùng để mô tả loài lấy ở' adds the idea of a specimen. The English says 'described from'. Acceptable, but 'Loài được mô tả từ vùng ...' is more faithful.",
+        "Item 1: 'SL' is left unexplained. Write 'chiều dài chuẩn (SL)' on first use.",
+        "Item 4: 'ghép từ hai chữ Hy Lạp' adds 'compound' information that the English does not state. Minor.",
+        "Item 4: 'mẫu chuẩn (holotype)' is acceptable, but 'mẫu định danh' is the more standard Vietnamese term. Using 'holotype' in brackets is fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-erythron#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:17:47Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Cá killi đuôi đàn hạc đỏ\": the common name is acceptable, but \"lyretail\" is often rendered \"đuôi đàn lia\"; consider keeping the term consistent with the encyclopedia.",
+        "\"Trước khi có tên chính thức\": \"prior to description\" means before the formal scientific description, so \"trước khi được mô tả khoa học\" is more precise.",
+        "\"Kích thước tối đa: 25 mm SL\": keep the \"SL\" abbreviation but gloss it once, e.g. \"chiều dài chuẩn (SL)\", so readers can understand it.",
+        "Entry 2: \"Ngoài Río Muni\" is a small addition. The English only says additional collections were made, so it could be \"Ngoài ra\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-gabunense#glaser": [
+    {
+      "at": "2026-11-08T14:19:09Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"nhóm cá killi nhiều màu\" could be \"nhóm cá killi sặc sỡ\" for 'colourful'.",
+        "Minor: \"rất khỏe\" for 'really hardy' could be \"rất khỏe, dễ thích nghi\" or \"rất bền bỉ\"; acceptable as is."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-gabunense#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:19:09Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Item 11: \"Cách dễ nhất là để đáy bể trống và dùng búi len\" turns \"We recommend a bare-bottomed setup\" into a claim that it is the easiest. Use \"Nên để đáy bể trống và dùng búi len...\".",
+        "Item 2: \"nắp hở một chút là cá có thể ra ngoài\" is not in the English. Remove it or keep it plain: \"Loài này nhảy rất giỏi nên nắp phải thật khít\".",
+        "Item 2: the same jumping warning appears twice in the paragraph. This follows the source, so merge the repeats if the field is meant to read smoothly.",
+        "Item 11: \"ép đẻ killi\" is a bit informal. Consider \"cho killi đẻ\" or \"nhân giống killi\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-hanneloreae#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:19:25Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "#1: \"Hannelore's lyretail\" left in English; give a Vietnamese common name or note it as a trade name in a Vietnamese form.",
+        "#1: \"Nơi người ta thu mẫu để mô tả loài\" is wordy; \"Nơi thu mẫu chuẩn (type locality)\" or \"Địa phương mẫu chuẩn\" is the established term.",
+        "#1: \"Kích thước tối đa: 40 mm SL\" is fine, but SL is left unexplained; write \"chiều dài chuẩn (SL)\".",
+        "#1: \"ở Malinga, giữa dãy núi\" is slightly ambiguous; \"phân bố ở Malinga, nằm giữa dãy núi...\" reads better.",
+        "#2: \"Mẫu dùng để mô tả loài lấy ở Malinga\" is awkward; use \"Địa phương mẫu chuẩn là Malinga...\".",
+        "#2: \"Chỗ này\" is colloquial; use \"Khu vực này\".",
+        "#3: \"hai chữ Hy Lạp\" should be \"hai từ Hy Lạp\".",
+        "#3: \"xẻ hình đàn lia\" adds \"xẻ\" (cleft), which the English does not say; use \"hình đàn lia\".",
+        "#3: \"tác giả thứ hai mô tả loài\" adds \"mô tả loài\"; \"tác giả thứ hai\" is enough."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-herzogi#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:19:42Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 1: 'SL' left in 'Kích thước tối đa: 45 mm SL' - better 'chiều dài chuẩn (SL)' for clarity; minor.",
+        "Item 4: 'paratype' left untranslated - consider 'mẫu paratype (mẫu phụ)' or 'mẫu chuẩn phụ'.",
+        "Item 4: 'ghép từ hai chữ Hy Lạp' - 'từ tiếng Hy Lạp' is more natural; 'giống' should be 'chi' (genus) in standard taxonomy terms.",
+        "Item 2: 'Thực ra vùng sống của nó rộng hơn nhiều' is slightly added emphasis; acceptable but could be tighter.",
+        "Item 1: 'đuôi đàn lia' fine; 'Cá killi' acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-loennbergii#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:19:58Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Item 1: 'Cá killi Lönnberg' drops the 'lyretail' common name; use something like 'cá killi đuôi đàn lia Lönnberg'.",
+        "Item 1: 'nó còn sống rải rác khắp vùng' – 'rải rác' (scattered) is not in the source, which says 'wider distribution'. Use 'phân bố rộng hơn trong vùng'.",
+        "Item 1: 'đo từ mõm tới gốc đuôi' is an added explanation of SL. It is acceptable, but 'chiều dài chuẩn (SL)' is more standard. Also, 2.0 in SL was dropped, which is fine.",
+        "Item 1: 'mẫu bắt ở sông Kienké' adds 'mẫu bắt' (specimens caught), which is not in the source. Use 'mô tả từ sông Kienké'.",
+        "Item 2: 'sống rộng ra cả vùng xung quanh' is awkward and slightly changes the meaning. Use 'phân bố rộng hơn trong khu vực'.",
+        "Item 4: 'xẻ hình đàn lia' is wrong for 'lyre-shaped'. Use 'hình đàn lia' and drop 'xẻ'.",
+        "Item 4: 'Gr.' is left untranslated. Use 'tiếng Hy Lạp' or keep the Greek script only.",
+        "Item 4: 'người đã viết nhiều công trình về khu hệ cá Cameroon' paraphrases 'author of several contributions to the fish-fauna'. Closer: 'tác giả của nhiều đóng góp về khu hệ cá Cameroon'.",
+        "Item 4: 'giống' for genus is acceptable, but 'chi' is the standard taxonomic term."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-mimbon#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:20:14Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Item 1: 'SL' left as English abbreviation; prefer 'chiều dài chuẩn (SL)' on first use.",
+        "Item 4: 'xòe hình đàn lia' adds 'xòe' (spread), not in the source 'lyre-shaped'; use 'hình đàn lia'.",
+        "Item 4: 'tên người Fang ... gọi các loài Aphyosemion' is slightly loose; 'local vernacular name' could be rendered as 'tên gọi bản địa của người Fang dùng cho các loài Aphyosemion'.",
+        "Item 2: 'dòng đầu nguồn khác ... như Abanga, Mbei...' fine; consider adding 'sông' before the names for consistency with item 1."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-ogoense#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:21:18Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"cá nuôi chung ... khỏe và lanh\" is slightly colloquial; \"mạnh bạo\" or \"hung hăng\" would be more neutral for \"vigorous\".",
+        "Minor: \"hộp bơ thực vật\" is fine, but \"hộp đựng bơ thực vật (margarine)\" would be clearer.",
+        "Minor: \"màu mè\" is a bit colloquial for \"colourful\"; \"màu sắc sặc sỡ hơn\" would suit an encyclopedia better."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-rectogoense#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:21:36Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 1: 'hai con sông nằm trong lưu vực' – English says 'part of' the basin; 'hai con sông' is acceptable but 'Đến nay người ta mới chỉ thấy nó' is slightly awkward; consider 'chỉ được ghi nhận ở'.",
+        "Item 4: 'xẻ hình đàn lia' – 'lyre-shaped' is better as 'hình đàn lia' (drop 'xẻ', which adds the meaning 'split/forked').",
+        "Item 4: 'Radda, tác giả thứ nhất của bài mô tả' adds 'của bài mô tả' (of the description), not in source; use 'tác giả đầu tiên Radda'.",
+        "Item 4: 'Nó có vẻ ghép từ phân từ Latin rectus' – 'Latin' is better as 'La-tinh/Latinh'; and 'tên loài' for 'specific epithet' should be 'tính từ định danh loài' or 'danh pháp loài'.",
+        "Item 4: 'ghép từ hai chữ Hy Lạp' – 'chữ' means letters/words; 'từ' is more natural."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aphyosemion-splendopleure#seriouslyfish": [
+    {
+      "at": "2026-11-08T14:22:40Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Item 10: \"ép đẻ\" is slightly harsh for \"breeders\"; consider \"người nuôi sinh sản\" or \"người chơi cá killi\".",
+        "Item 10: \"Hợp nhất là bể không nền\" is a bit awkward; \"Tốt nhất là dùng bể không nền\" reads more naturally.",
+        "Item 10: \"Người ta hay khuyên cho đẻ theo nhóm ba con\" is fine, but \"nhóm ba con\" could be \"một đực hai cái\" only if the source says so (it doesn't), so leave it as is."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

@@ -11,6 +11,55 @@
     "bangladesh",
     "rajshahi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: northern Bengal in India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also recorded from Indian waters (West Bengal, Assam, Arunachal Pradesh) and Bangladesh (Rajshahi Division).",
+          "countries": [
+            "BD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341509,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

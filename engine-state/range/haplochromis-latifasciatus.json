@@ -1,0 +1,63 @@
+{
+  "id": "haplochromis-latifasciatus",
+  "native": {
+    "input": "08e212d89ee4b3ba",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "UG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found only in two lakes in Uganda, Lake Kyoga (although it is possibly extinct there) and the adjacent (and much smaller) Lake Nawampasa.",
+        "words": "Uganda",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Kyoga",
+        "source": "seriouslyfish",
+        "quote": "It is found only in two lakes in Uganda, Lake Kyoga (although it is possibly extinct there) and the adjacent (and much smaller) Lake Nawampasa.",
+        "country": "UG",
+        "ok": true
+      },
+      {
+        "name": "Lake Nawampasa",
+        "source": "seriouslyfish",
+        "quote": "It is found only in two lakes in Uganda, Lake Kyoga (although it is possibly extinct there) and the adjacent (and much smaller) Lake Nawampasa.",
+        "country": "UG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Haplochromis latifasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2373360,
+    "datasets": [
+      [
+        "90b6055a-c12b-4c91-951a-7efbe184bca1",
+        35
+      ],
+      [
+        "7d0726ee-f3f7-4c08-bd46-a1360abb3803",
+        16
+      ],
+      [
+        "48a18d17-96f2-4a0d-89ad-bbe1ac6ce72c",
+        6
+      ]
+    ],
+    "native": [
+      "UG"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

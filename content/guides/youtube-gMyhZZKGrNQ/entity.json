@@ -1,6 +1,6 @@
 {
   "id": "youtube-gMyhZZKGrNQ",
-  "kind": "care",
+  "kind": "setup",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=gMyhZZKGrNQ",
   "html": "",
@@ -17,7 +17,7 @@
     "glossostigma-elatinoides",
     "neocaridina-davidi"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "gMyhZZKGrNQ",
     "title": "LESS ALGAE AND BETTER PLANT GROWTH WITH REVERSE OSMOSIS WATER?",
@@ -73,7 +73,7 @@
         "type": "thung",
         "brand": "Oase",
         "model": "FiltoSmart 60",
-        "t": 420
+        "t": 401
       },
       {
         "category": "phan-nen",
@@ -101,138 +101,126 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 468
+        "t": 465
       }
     ],
     "figures": [
       {
-        "heading": "Nước máy có dùng được cho bể cây không",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p0-uYV9ydWJyYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p0-uYV9ydWJyYS5qcGc-480.webp",
-          "width": 960,
-          "height": 727,
-          "licence": "CC BY 2.0",
-          "author": "Carnat Joel",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brackish_water_tank_for_Halocaridina_rubra.jpg",
-          "caption": "Bể cây nhỏ với rêu đá, cây thủy sinh xanh mướt và đàn cá nhỏ."
-        }
-      },
-      {
-        "heading": "Những trường hợp nên dùng nước RO",
+        "heading": "Khi nào nước RO thật sự có ích",
         "moments": [
           {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/t59-hd.webp",
+            "t": 70,
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh có thảm cây xanh kín phía trước, set bằng nước RO."
+            "caption": "Bể thủy sinh với thảm cây xanh kín đáy và rêu phủ lũa."
+          },
+          {
+            "t": 80,
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at80-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cỏ mọc dày phủ kín nền bể, góc nhìn khác."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p2-FNyU4RiVBMC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p2-FNyU4RiVBMC5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Billtsai1518",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%AE%E7%8F%8D%E7%8F%A0.jpg",
-          "caption": "Thảm Glossostigma xanh mướt, mọc kín và dày trong bể thủy sinh."
-        }
+        ]
       },
       {
-        "heading": "Máy lọc RO hoạt động thế nào",
+        "heading": "Máy RO lọc nước thế nào",
         "moments": [
           {
             "t": 320,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/t314-hd.webp",
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at320-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Máy lọc RO nhỏ gắn trên tường, có ống nước nối vào."
+            "caption": "Máy RO lắp trên tường, có dây nước nối vào máy."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p3-9GYWN0b3J5LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p3-9GYWN0b3J5LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p2-FuZV9jb2lsLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p2-FuZV9jb2lsLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Z22",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_system_at_Bedok_NEWater_Factory.jpg",
-          "caption": "Hệ thống RO công nghiệp với dàn ống chứa màng lọc xếp thành hàng."
+          "height": 1158,
+          "licence": "CC BY 3.0",
+          "author": "David Shankbone",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_membrane_coil.jpg",
+          "caption": "Cuộn màng RO nhìn từ đầu, lớp màng lọc rất mịn quấn quanh ống giữa."
         }
       },
       {
-        "heading": "Bù khoáng cho nước RO trước khi dùng",
+        "heading": "Phải bù khoáng cho nước RO",
         "moments": [
           {
             "t": 930,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/t913-hd.webp",
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at930-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bút đo TDS hiển thị chỉ số nước RO trong cốc."
+            "caption": "Bút đo TDS đặt trong cốc nước RO vừa hứng."
           },
           {
             "t": 940,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/t923-hd.webp",
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at940-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhúng bút đo TDS vào bể để kiểm tra chỉ số nước."
+            "caption": "Dùng bút đo TDS kiểm tra nước trong bể thủy sinh."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p4-kcy1tZXRlci5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p4-kcy1tZXRlci5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p3-kcy1tZXRlci5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p3-kcy1tZXRlci5qcGc-480.webp",
           "width": 960,
           "height": 1707,
           "licence": "CC BY-SA 3.0",
           "author": "Spotless property",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tds-meter.jpg",
-          "caption": "Bút đo TDS nhúng trong cốc nước để kiểm tra chỉ số nước RO."
+          "caption": "Bút đo TDS đang nhúng vào cốc nước để kiểm tra nước RO."
         }
       },
       {
-        "heading": "Nước máy và nước RO khác nhau ở đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p5-IwMjAxMTAxLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p5-IwMjAxMTAxLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Solomon203",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yen_Sun_Technology_YS-8103RWT_20201101.jpg",
-          "caption": "Máy lọc nước RO gia đình dùng để tạo nước tinh khiết cho bể."
-        }
-      },
-      {
-        "heading": "Muốn tự so sánh thì làm sao cho công bằng",
+        "heading": "Set hai bể so sánh nước máy và nước RO cho công bằng",
         "moments": [
           {
             "t": 390,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/t383-hd.webp",
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at390-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể thủy sinh trống giống hệt nhau đặt cạnh nhau để so sánh."
+            "caption": "Hai bể thủy tinh trống giống hệt nhau đặt cạnh nhau để so sánh."
           },
           {
-            "t": 820,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/t805-hd.webp",
+            "t": 520,
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at520-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đang bài trí đá và cây trong bể, bể có đèn phía trên."
+            "caption": "Cân đất nền aquasoil màu đen trên cân điện tử cho mỗi bể."
+          }
+        ]
+      },
+      {
+        "heading": "Chọn và trồng cây để thấy khác biệt",
+        "moments": [
+          {
+            "t": 660,
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các hộp cây nuôi cấy mô mới về xếp trên bàn để kiểm tra."
+          },
+          {
+            "t": 790,
+            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at790-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây đã được trồng trên nền đất cạnh khúc lũa trong hồ chưa đổ nước."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p6-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p6-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p5-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p5-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
           "height": 338,
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt, ít rêu, có đàn cá neon bơi."
+          "caption": "Bể thủy sinh trồng nhiều loại cây thân mọc dày, màu sắc đa dạng."
         }
       }
     ]

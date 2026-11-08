@@ -2818,9 +2818,9 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1282": {
     "entityIds": [],
-    "updatedAt": "2026-11-08T01:01:14.485Z",
+    "updatedAt": "2026-11-08T13:06:18.467Z",
     "status": "error",
-    "attempts": 2,
+    "attempts": 3,
     "error": "no archived copy (HTTP 500)"
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1283": {
@@ -3017,6 +3017,108 @@
     "hash": "513567d05b1320c9df528232ceabfc3509f88cf14997862c275d4326ea3f1ea3",
     "processedHash": "513567d05b1320c9df528232ceabfc3509f88cf14997862c275d4326ea3f1ea3",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1302": {
+    "entityIds": [
+      "species/pseudolaguvia-shawi"
+    ],
+    "updatedAt": "2026-11-08T13:06:31.379Z",
+    "hash": "a02c4461de713d2328801e0be19f20dd849b83a2622e56d5ead42d0d5eb61855",
+    "processedHash": "a02c4461de713d2328801e0be19f20dd849b83a2622e56d5ead42d0d5eb61855",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1303": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T13:08:52.629Z",
+    "hash": "15dda60715dddb52d0a67c5c00112e6275394276d9b57d254b9075771e44ba07",
+    "processedHash": "15dda60715dddb52d0a67c5c00112e6275394276d9b57d254b9075771e44ba07",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1304": {
+    "entityIds": [
+      "species/panaque-armbrusteri"
+    ],
+    "updatedAt": "2026-11-08T13:09:40.431Z",
+    "hash": "ba7d24f03ecd47c52733f86396e727c9555d66bf3a415a680499985ee3416de2",
+    "processedHash": "ba7d24f03ecd47c52733f86396e727c9555d66bf3a415a680499985ee3416de2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1305": {
+    "entityIds": [
+      "species/microsynodontis-hirsuta"
+    ],
+    "updatedAt": "2026-11-08T13:11:43.782Z",
+    "hash": "4703b3e04aa2d73228198bc84037136db2dc7ce0f58b9de38e35d2d3939dae8d",
+    "processedHash": "4703b3e04aa2d73228198bc84037136db2dc7ce0f58b9de38e35d2d3939dae8d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1306": {
+    "entityIds": [
+      "species/microsynodontis-nannoculus"
+    ],
+    "updatedAt": "2026-11-08T13:12:39.369Z",
+    "hash": "4c4f2a2dbc75aac8a3eebeb479a2035b018622f2a63919ef13773111ff736fa6",
+    "processedHash": "4c4f2a2dbc75aac8a3eebeb479a2035b018622f2a63919ef13773111ff736fa6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1307": {
+    "entityIds": [
+      "species/microsynodontis-nasutus"
+    ],
+    "updatedAt": "2026-11-08T13:13:38.800Z",
+    "hash": "17adf50534d76eb2e8689c13379d10e81e28a6327674520a1e918ef00f529254",
+    "processedHash": "17adf50534d76eb2e8689c13379d10e81e28a6327674520a1e918ef00f529254",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1308": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T13:14:35.738Z",
+    "hash": "a34ed51d8656a847d995fec53d33954a5a501da4d8c1fb137469a88a1718fb4b",
+    "processedHash": "a34ed51d8656a847d995fec53d33954a5a501da4d8c1fb137469a88a1718fb4b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1309": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T13:15:36.753Z",
+    "hash": "5ec16ab630110ecc8a9bee7b51a64222e1d368da6722d52344196cefdaa486e2",
+    "processedHash": "5ec16ab630110ecc8a9bee7b51a64222e1d368da6722d52344196cefdaa486e2",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=131": {
+    "entityIds": [
+      "species/exostoma-labiatum"
+    ],
+    "updatedAt": "2026-11-08T13:16:08.057Z",
+    "hash": "12a1a203ac48aeea608f753c6cfa120eab77cfd78def62e6478cdeaef1f2052d",
+    "processedHash": "12a1a203ac48aeea608f753c6cfa120eab77cfd78def62e6478cdeaef1f2052d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1310": {
+    "entityIds": [
+      "species/baryancistrus-longipinnis"
+    ],
+    "updatedAt": "2026-11-08T13:17:09.124Z",
+    "hash": "0ec7740308984124b65c8403ee6a7008ebaa4dff5db12fcf1bab14625ba9224b",
+    "processedHash": "0ec7740308984124b65c8403ee6a7008ebaa4dff5db12fcf1bab14625ba9224b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1311": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T13:18:58.287Z",
+    "hash": "0fd1d7c95ca8741201bae1138d71d971ab48ceb31a81d5a583da360495a6c936",
+    "processedHash": "0fd1d7c95ca8741201bae1138d71d971ab48ceb31a81d5a583da360495a6c936",
+    "status": "skipped",
     "attempts": 0
   }
 }

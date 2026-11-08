@@ -1,0 +1,166 @@
+{
+  "id": "hemigrammus-boesemani",
+  "native": {
+    "input": "40c1587ff4457e60",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boesman's tetra, Hemigrammus boesemani, is a small characin officially recorded from Suriname, French Guiana and Peru.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boesman's tetra, Hemigrammus boesemani, is a small characin officially recorded from Suriname, French Guiana and Peru.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boesman's tetra, Hemigrammus boesemani, is a small characin officially recorded from Suriname, French Guiana and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded in Suriname, French Guiana and Peru.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded in Suriname, French Guiana and Peru.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded in Suriname, French Guiana and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus boesemani",
+    "status": "ACCEPTED",
+    "taxonKey": 2354391,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        48
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        48
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        43
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        20
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        12
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GF",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}
