@@ -322,6 +322,7 @@ final class ChatModel {
     switch e {
     case .done(let t):
       thread[i].outcome = .answered
+      Self.hadAnswer = true
       thread[i].last = data
       // A turn numbered 1 over earlier turns: the Worker no longer held them.
       if conversation?.answered(n: t.n) == true, i > 0 { thread[i].anew = true }
@@ -398,6 +399,12 @@ final class ChatModel {
   static var ownCopy: String? { OwnCopy.isOurs ? AccountsClient.ourCopy : nil }
 
   // MARK: Kept on the phone
+
+  /// This phone has had an answer: the empty screen then says only that Claude, an AI, answers from the handbook.
+  static var hadAnswer: Bool {
+    get { UserDefaults.standard.bool(forKey: "chat-had-answer") }
+    set { UserDefaults.standard.set(newValue, forKey: "chat-had-answer") }
+  }
 
   /// The latest chat, kept so a question being answered when the app closed is asked again (with its key) when it
   /// opens again, and its conversation goes on: the conversation, and each question with its answer's last event.

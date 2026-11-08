@@ -16,6 +16,8 @@ final class ChatFlowTests: XCTestCase {
     openChat(app)
     XCTAssertTrue(element(app, "chat-about").label.contains("Về: Cá neon"), element(app, "chat-about").label)
     XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].exists, "no empty screen's question")
+    // No answer on this phone yet: who answers, in full.
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "not the whole line about who answers")
     signIn(app)
     let starter = app.buttons.matching(identifier: "chat-chip").firstMatch
     XCTAssertTrue(starter.waitForExistence(timeout: 5), "no starters after signing in")
@@ -69,7 +71,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(about.waitForExistence(timeout: 5), "no chat")
     XCTAssertTrue(about.label.contains("Về: ảnh của bạn"), about.label)
     XCTAssertTrue(about.label.contains("Gần như chắc chắn Cá neon, có thể Green neon tetra"), about.label)
-    XCTAssertTrue(app.staticTexts["Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."].exists)
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."].exists)
     XCTAssertTrue(app.buttons["Làm sao phân biệt với green neon tetra?"].exists, "no starter telling the guesses apart")
   }
 
@@ -170,6 +172,9 @@ final class ChatFlowTests: XCTestCase {
     start.tap()
     XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].waitForExistence(timeout: 5), "not empty")
     XCTAssertFalse(app.staticTexts["chat-question"].exists)
+    // This phone has had an answer: only that Claude, an AI, answers from the handbook.
+    XCTAssertTrue(app.staticTexts["Claude\u{00A0}(AI) trả lời theo cẩm nang AquaTome."].exists, "not the short line after an answer")
+    XCTAssertFalse(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "still the whole line after an answer")
   }
 
   /// No network: said over the box, send off, a starter tapped goes into the box.

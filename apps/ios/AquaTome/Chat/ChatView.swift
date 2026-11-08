@@ -119,14 +119,7 @@ private struct ChatThread: View {
       }
       .font(.title2.weight(.bold))
       .accessibilityAddTraits(.isHeader)
-      Group {
-        if s.fromPhoto {
-          Text("Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi.")
-        } else {
-          Text("Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá.")
-        }
-      }
-      .foregroundStyle(.secondary)
+      WhoAnswers(fromPhoto: s.fromPhoto)
       // Signed out, none of them could be sent: the sign-in card instead.
       if signedOut {
         ChatSignIn().padding(.top, 12)
@@ -284,6 +277,30 @@ private struct ChatHeader: View {
     .padding(.top, 12)
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("chat-about")
+  }
+}
+
+/// Who answers and from what: the whole line until this phone has had an answer, then only that Claude, an AI, answers
+/// from the handbook (each answer's general-knowledge mark says the rest). Read as the empty screen first draws, so a
+/// line on screen never changes in front of the reader. A no-break space keeps "(AI)" from standing alone on a line.
+private struct WhoAnswers: View {
+  let fromPhoto: Bool
+  @State private var short = ChatModel.hadAnswer
+
+  var body: some View {
+    Group {
+      switch (short, fromPhoto) {
+      case (false, false):
+        Text("Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá.")
+      case (false, true):
+        Text("Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi.")
+      case (true, false):
+        Text("Claude\u{00A0}(AI) trả lời theo cẩm nang AquaTome.")
+      case (true, true):
+        Text("Claude\u{00A0}(AI) trả lời theo cẩm nang AquaTome. AquaTome không gửi ảnh của bạn kèm câu hỏi.")
+      }
+    }
+    .foregroundStyle(.secondary)
   }
 }
 
