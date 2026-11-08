@@ -325,9 +325,9 @@ test('the report writes numbers the English way, not the dashboard\'s Vietnamese
 })
 
 test("coming up in the app: Khám phá's week with its theme and the curator's note, then Hôm nay's fish a day; nothing without a calendar", () => {
-  const calendar = { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 'Trời trở lạnh', why: 'Gió mùa về, bể cần sưởi.' }], days: [{ date: '2026-11-06', fish: 'Cá ông tiên altum' }, { date: '2026-11-07' }] }
+  const calendar = { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 'Trời trở lạnh', why: 'Gió mùa về, bể cần sưởi.' }], days: [{ date: '2026-11-06', fish: 'Cá ông tiên altum' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'Cá vàng Lưu kim (Ryukin)', why: 'Fish: Cá vàng Lưu kim (Ryukin), fine without a heater.' }] }
   const r = compose(input({ gh: gh({ calendar }) }))
-  expect(r.text).toContain(['COMING UP IN THE APP', 'Khám phá, week of Mon 9 Nov: Trời trở lạnh. Gió mùa về, bể cần sưởi.', 'Hôm nay', '- Fri 6 Nov: Cá ông tiên altum', '- Sat 7 Nov: no fish picked, the app picks its own'].join('\n'))
+  expect(r.text).toContain(['COMING UP IN THE APP', 'Khám phá, week of Mon 9 Nov: Trời trở lạnh. Gió mùa về, bể cần sưởi.', 'Hôm nay', '- Fri 6 Nov: Cá ông tiên altum', '- Sat 7 Nov: no fish picked, the app picks its own', '- Sun 8 Nov: Fish: Cá vàng Lưu kim (Ryukin), fine without a heater.'].join('\n'))
   expect(r.text.indexOf('COMING UP IN THE APP')).toBeGreaterThan(r.text.indexOf('BUILT (last 24 hours)'))
   expect(r.text.indexOf('COMING UP IN THE APP')).toBeLessThan(r.text.indexOf('\nSITE'))
   expect(r.html).toContain('>Coming up in the app</h3>')

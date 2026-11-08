@@ -195,11 +195,11 @@ function built({ now, overview: o, gh }: ComposeInput): Built[] {
 
 const CAL_DAY = new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })
 const calDay = (date: string) => CAL_DAY.format(new Date(`${date}T00:00:00Z`))
-/** What the app shows next, from the editorial calendar: Khám phá's week, its theme and the curator's note, then Hôm nay's fish a day. */
+/** What the app shows next, from the editorial calendar: Khám phá's week, its theme and the curator's note, then Hôm nay's fish a day, in the curator's words when the day has them. */
 function coming(c: Calendar): Built[] {
   return [
     ...c.weeks.map(w => ({ label: `Khám phá, week of ${calDay(w.from)}`, text: `${w.theme}${w.why ? `. ${w.why}` : ''}` })),
-    { label: 'Hôm nay', text: '', lines: c.days.map(d => ({ text: `${calDay(d.date)}: ${d.fish ?? 'no fish picked, the app picks its own'}` })) },
+    { label: 'Hôm nay', text: '', lines: c.days.map(d => ({ text: `${calDay(d.date)}: ${d.fish ? (d.why ?? d.fish) : 'no fish picked, the app picks its own'}` })) },
   ]
 }
 

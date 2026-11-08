@@ -126,7 +126,8 @@ const plusDays = (date, n) => new Date(Date.parse(`${date}T00:00:00Z`) + n * DAY
 /**
  * What the app's Hôm nay and Khám phá show over the next CAL_DAYS days, from the editorial calendar in `root`, the
  * repository (content/curation.json, docs/curation.md): the weeks they touch, with their Vietnamese theme and the
- * curator's `why`, and each day's fish by its Vietnamese name (a day with none shows the app's own pick). Undefined
+ * curator's `why`, and each day's fish by its Vietnamese name with the day's `why` (a day with no fish shows the app's
+ * own pick). Each `why` is one plain sentence for the owner, never shown in the app. Undefined
  * without a calendar. `now`: a Date; the days are Vietnam's.
  */
 export function calendar(root, now) {
@@ -139,8 +140,8 @@ export function calendar(root, now) {
   const to = plusDays(from, CAL_DAYS - 1)
   const days = Array.from({ length: CAL_DAYS }, (_, i) => {
     const date = plusDays(from, i)
-    const fish = cur.days?.find(d => d.date === date)?.fish
-    return fish ? { date, fish: name(fish) } : { date }
+    const d = cur.days?.find(d => d.date === date)
+    return d?.fish ? { date, fish: name(d.fish), ...(d.why ? { why: String(d.why).slice(0, 300) } : {}) } : { date }
   })
   const weeks = (cur.weeks ?? []).filter(w => w.to >= from && w.from <= to)
     .map(w => ({ from: w.from, to: w.to, theme: clip(w.theme?.vi ?? ''), ...(w.why ? { why: String(w.why).slice(0, 300) } : {}) }))

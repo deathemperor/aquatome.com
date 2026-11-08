@@ -258,14 +258,15 @@ test("the app's next 7 days from the calendar in the checkout: the weeks they to
     days: [
       { date: '2026-11-05', fish: 'species/pterophyllum-altum' },
       // 07:00 in Vietnam: today is the 6th there.
-      { date: '2026-11-06', fish: 'species/pterophyllum-altum' },
+      { date: '2026-11-06', fish: 'species/pterophyllum-altum', why: 'Fish: Cá ông tiên altum, on this week\'s list.' },
+      { date: '2026-11-07', why: 'A note on a day with no fish.' },
       { date: '2026-11-08', fish: 'breeds/no-such-page' },
     ],
   })
   const c = calendar(root, NOW)!
   expect(c.weeks).toEqual([{ from: '2026-11-02', to: '2026-11-08', theme: 'Trời trở lạnh', why: 'Gió mùa về.' }, { from: '2026-11-09', to: '2026-11-15', theme: 'Cá vàng' }])
   expect(c.days.map(d => d.date)).toEqual(['2026-11-06', '2026-11-07', '2026-11-08', '2026-11-09', '2026-11-10', '2026-11-11', '2026-11-12'])
-  expect(c.days.slice(0, 3)).toEqual([{ date: '2026-11-06', fish: 'Cá ông tiên altum' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'breeds/no-such-page' }])
+  expect(c.days.slice(0, 3)).toEqual([{ date: '2026-11-06', fish: 'Cá ông tiên altum', why: 'Fish: Cá ông tiên altum, on this week\'s list.' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'breeds/no-such-page' }])
   // The Worker takes it with the rest.
   expect(parseGitHubSide(JSON.stringify({ ...sum(), calendar: c }))?.calendar).toEqual(c)
 })

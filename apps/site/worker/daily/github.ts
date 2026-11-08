@@ -24,7 +24,7 @@ export type Failing = { workflow: string; url: string; since: string; failures: 
  * The app's next days from the editorial calendar (content/curation.json), which the collector reads in its checkout: the
  * weeks they touch, with the Vietnamese theme and the curator's note for the owner, and each day's fish by its name.
  */
-export type Calendar = { weeks: { from: string; to: string; theme: string; why?: string }[]; days: { date: string; fish?: string }[] }
+export type Calendar = { weeks: { from: string; to: string; theme: string; why?: string }[]; days: { date: string; fish?: string; why?: string }[] }
 export type GitHubSide = {
   runId: string
   runUrl: string
@@ -81,7 +81,7 @@ const calendar = (x: unknown): Calendar => {
     }, 4),
     days: list(r.days, y => {
       const d = record(y)
-      return { date: date(d.date), ...(d.fish === undefined ? {} : { fish: text(d.fish) }) }
+      return { date: date(d.date), ...(d.fish === undefined ? {} : { fish: text(d.fish) }), ...(d.why === undefined ? {} : { why: text(d.why, MAX_CHANGE) }) }
     }, 14),
   }
 }
