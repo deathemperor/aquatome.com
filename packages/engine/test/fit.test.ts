@@ -49,6 +49,23 @@ test('harmful doses as other pages write them; and what is not one: a water chan
     // One table row, or list item, can't lend the one after it a label.
     ['<table><tr><td>Thuốc tím</td><td>theo nhãn</td></tr><tr><td>Đồng sunfat</td><td>2 ppm</td></tr></table>', 'vi'],
     ['<ul><li>Xanh methylen: theo nhãn</li><li>Đồng sunfat: 2 ppm</li></ul>', 'vi'],
+    // A strength given in both units, either first; "hingga" brings the water to a strength, it's no bound.
+    ['<p>Tắm muối 3% (khoảng 30 g/L) trong 20 phút.</p>', 'vi'],
+    ['<p>Tắm muối 30 g/L (3%) trong 20 phút.</p>', 'vi'],
+    ['<p>Rendam garam 3% (30 g/L) selama 20 menit.</p>', 'id'],
+    ['<p>แช่เกลือ 3% (30 กรัมต่อลิตร) นาน 20 นาที</p>', 'th'],
+    ['<p>Tambahkan garam hingga 3%, rendam 30 menit.</p>', 'id'],
+    // A dip for days or overnight; a medicine a word after its unit; "vào", "ในน้ำ"; other spellings.
+    ['<p>Ngâm cá trong nước muối 3% qua đêm.</p>', 'vi'],
+    ['<p>Tắm muối 2% trong 2 ngày.</p>', 'vi'],
+    ['<p>Pha 2 g/lít xanh methylen để ngâm cá.</p>', 'vi'],
+    ['<p>Hòa 1 g kanamycin vào 1 lít nước.</p>', 'vi'],
+    ['<p>ละลายควินิน 1 กรัมในน้ำ 1 ลิตร</p>', 'th'],
+    ['<p>ฟอร์มาลีน 2 กรัมต่อลิตร</p>', 'th'],
+    ['<p>Rendam dengan formol 2 g/L.</p>', 'id'],
+    // Copper as Vietnamese keepers name it, beside the words "đồng" also is.
+    ['<p>Ion đồng 1,5 ppm.</p>', 'vi'],
+    ['<p>Giữ nồng độ đồng 1,5–2 ppm trong 14 ngày.</p>', 'vi'],
   ] as const) expect(harm(html, lang), html).toHaveLength(1)
   for (const [html, lang] of [
     ['<p>Sau khi tắm muối, thay 30% nước sau 24 giờ.</p>', 'vi'],
@@ -67,6 +84,32 @@ test('harmful doses as other pages write them; and what is not one: a water chan
     ['<p>ผสมเกลือ: สูตรหลักคือเกลือเม็ดไม่เสริมไอโอดีน 30 กรัมต่อน้ำ 1 ลิตร เปิดลมไว้ราว 24 ชั่วโมงให้ไข่อาร์ทีเมียฟัก</p>', 'th'],
     ['<p>จุ่มเกลือ 30–35 g/L นาน 3–5 นาที ถ้าอาการไม่เฉียบพลัน แช่เกลือเจือจาง 5 g/L นาน 90 นาที</p>', 'th'],
     ['<p>เริ่มจากละลายเกลือไม่เสริมไอโอดีนประมาณ 30 กรัมต่อน้ำ 1 ลิตร ใส่ไข่ในปริมาณพอดี คุมอุณหภูมิราว 25–28 °C แล้วรอ 20–24 ชั่วโมง</p>', 'th'],
+    // "Đồng" is also together, a field, a fellow, the currency and a province.
+    ['<p>Cộng đồng người chơi cá dĩa giữ nitrat dưới 20 ppm.</p>', 'vi'],
+    ['<p>Cá rô đồng sống tốt ở TDS 50–300 ppm.</p>', 'vi'],
+    ['<p>Cá ăn thịt đồng loại khi nitrat lên 40 ppm.</p>', 'vi'],
+    ['<p>Bút đo giá 150 nghìn đồng đo tới 100 ppm.</p>', 'vi'],
+    ['<p>Ở Đồng Tháp, nước kênh có TDS 200 ppm.</p>', 'vi'],
+    // A tank's salinity, beside its hours of light.
+    ['<p>Độ mặn 10–20‰, chiếu sáng 8–10 giờ mỗi ngày.</p>', 'vi'],
+    ['<p>ความเค็ม 25 ppt เปิดไฟ 8 ชั่วโมง</p>', 'th'],
+    // The dip's own time, not the wait after it, a fast before it or a repeat.
+    ['<p>Tắm muối 2% trong 5–10 phút, lặp lại sau 24 giờ nếu cần.</p>', 'vi'],
+    ['<p>Tắm muối 2% trong 5 phút rồi theo dõi cá 24 giờ.</p>', 'vi'],
+    ['<p>Rendam garam 2% selama 5 menit, ulangi setelah 24 jam.</p>', 'id'],
+    ['<p>Cho cá nhịn ăn 24 giờ, rồi tắm muối 2% trong 5 phút.</p>', 'vi'],
+    ['<p>Tắm muối 3%, lặp lại sau 24 giờ.</p>', 'vi'],
+    // A water change, or what a share of the parasites does, after a salt word.
+    ['<p>Sau khi tắm muối, thay 10% lượng nước sau 24 giờ.</p>', 'vi'],
+    ['<p>Setelah perawatan garam, ganti air 10% setiap 24 jam.</p>', 'id'],
+    ['<p>Setelah mandi garam, ganti 10% volume air setiap 24 jam.</p>', 'id'],
+    ['<p>หลังแช่เกลือ เปลี่ยนน้ำ 10% ทุก 24 ชั่วโมง</p>', 'th'],
+    ['<p>Tắm muối giúp diệt 5% ký sinh trùng sau 30 phút.</p>', 'vi'],
+    // A stock solution named after its strength.
+    ['<p>Hòa 1 g metronidazole trong 1 lít nước, rồi lấy 10 ml cho mỗi 40 lít.</p>', 'vi'],
+    ['<p>Larutkan 1 g metronidazol dalam 1 liter air sebagai larutan stok.</p>', 'id'],
+    // A table row's first cell names its copper's type for the whole row.
+    ['<table><tr><td>Kuprum terkelat (chelated copper)</td><td>Ikut label produk yang dibeli. Penternak itu menyasarkan kira-kira 1.5–2.0 ppm kuprum.</td></tr></table>', 'ms'],
   ] as const) expect(harm(html, lang), html).toEqual([])
 })
 

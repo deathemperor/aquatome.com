@@ -54,14 +54,35 @@ Rules: facts in your own words, short, one claim each. Keep numbers and units as
  * written for farmed food fish, or from a single forum post, needs a second source before it's used."
  */
 const AMOUNT = /\d\s*(?:mg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|ppm|ppt|‰|%|percent|phần trăm|persen)(?![\p{L}])/iu
-/** So much in so much water: "per 40 litres", "/L", "mỗi m³". */
-const PER_VOLUME = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3)(?![\p{L}])/iu
-/** The water's own levels: a figure for these is the water's, not a dose. */
-const WATER = /nitrat|nitrit|ammonia|amoni|oxygen|\boxy\b|TDS|CO2|CO₂|\bKH\b|\bGH\b/iu
-/** An amount that names a medicine, copper or salt, or is so much per litre of something not the water's own. */
-const isDose = (fact: string) => AMOUNT.test(fact) && (NAMES_TREATMENT.test(fact) || (PER_VOLUME.test(fact) && !WATER.test(fact)))
-/** A page's address without its query or anchor: another page of the same thread is the same source. */
-const pageOf = (url: string) => url.replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase()
+/** Something measured out, never a fish's weight: a spoon, a cap, a drop. */
+const MEASURE = /\d\s*(?:ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|sachets?)(?![\p{L}])/iu
+/** A level in the water: a treatment's, unless it is the water's own. */
+const LEVEL = /\d\s*(?:ppm|ppt|‰|mg\s*\/\s*l(?:ít|iters?|itres?)?)(?![\p{L}])/iu
+/** So much in so much water, food or fish: "per 40 litres", "/L", "mỗi m³", "per kg of food". */
+const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?)(?![\p{L}])/iu
+/** The water's own levels: a figure for these is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
+const WATER = /nitrat|nitrit|ammonia|amoni|oxygen|\boxy\b(?!\s*già)|TDS|CO2|CO₂|\bKH\b|\bGH\b/iu
+/** A treatment the rules have no name for: a dose, a bath, a medicine by its kind. */
+const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา|รักษา|แช่/iu
+/**
+ * An amount that names a treatment; a level not the water's own; something measured out; a weight per volume, food or
+ * fish; a percentage of a bath or a solution. A fish's weight or a water change is not one.
+ */
+const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fact) || TREATING.test(fact)))
+  || (LEVEL.test(fact) && !WATER.test(fact)) || MEASURE.test(fact) || (AMOUNT.test(fact) && PER.test(fact) && !WATER.test(fact))
+/**
+ * A page's address, as one source: another page of the same thread is the same one ("/page-2", "&start=20", an anchor),
+ * and the query keeps only what names a thread or a post on its own ("?t=1" and "?t=2" are two threads).
+ */
+const pageOf = (url: string) => {
+  try {
+    const u = new URL(url)
+    const query = [...u.searchParams].filter(([k]) => /^(?:t|topic|topicid|threadid|thread|tid|showtopic|id)$/i.test(k)).map(([k, v]) => `${k}=${v}`).sort().join('&')
+    return `${u.host}${u.pathname.replace(/\/page-?\d+\/?$/i, '').replace(/\/+$/, '')}${query ? `?${query}` : ''}`.toLowerCase()
+  } catch {
+    return url.replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase()
+  }
+}
 /** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
 export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
   const s = r.sources[f.source]

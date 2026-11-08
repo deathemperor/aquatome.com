@@ -144,9 +144,23 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is so
     ['20–30‰ salt water', 0],
     ['Tắm nước muối 20‰', 0],
     ['1 capful per 40 litres', 1],
+    // A treatment the rules have no name for, by its level, measure or rate.
+    ['Hydrogen peroxide at 25 ppm for 30 minutes', 1],
+    ['Ivermectin at 0.1 ppm kills worms', 1],
+    ['Dose Cupramine to 0.5 ppm', 1],
+    ['Dose 1 capful of Paraguard daily', 1],
+    ['Oxy già 3% liều 1 ml cho 4 lít', 1],
+    ['A 3% hydrogen peroxide dip for 5 minutes', 1],
+    ['Toltrazuril 10 mg per kg of food', 1],
+    ['Vitamin C 200–300 g per 100 kg of feed', 0],
   ] as const) expect(usable(fact, source), fact).toBe(false)
-  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week']) expect(usable(fact), fact).toBe(true)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm']) expect(usable(fact), fact).toBe(true)
   expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
+  // Another page of the same thread is no second source; another thread is, whatever the forum's addresses.
+  const threads = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
+  expect(threads('https://forum.example/threads/ich.9/', 'https://forum.example/threads/ich.9/page-2')).toBe(false)
+  expect(threads('https://forum.example/viewtopic.php?t=1', 'https://forum.example/viewtopic.php?t=1&start=20#p5')).toBe(false)
+  expect(threads('https://forum.example/viewtopic.php?t=1', 'https://forum.example/viewtopic.php?t=2')).toBe(true)
 })
 
 test('a dose from a fish farm\'s page or a forum post is written only when another page, not a farm\'s, gives it too', async () => {
