@@ -58,7 +58,7 @@ chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện ch�
   conversations, hidden ones marked, without the logs, comments or photos.
 - A stopped question's log is kept, the owner's ruling.
 - The Worker serves "Báo sai" (`POST /api/chat/conversations/{id}/report`) and the stop limit (`counted`, `freeLeft`;
-  `freeStops` in the status). A report is kept in R2 under the account, as its conversations are, so it needs no
+  10 free stops a day). A report is kept in R2 under the account, as its conversations are, so it needs no
   migration, and deleting the account deletes it. The chat's evals read reports there, by reference, and never copy one
   into the repository (it is public, and its history can't be deleted): results there name a report by an id that
   doesn't name the account, never its words, the Mac's eval caches drop a report's answers once the report is gone, and
