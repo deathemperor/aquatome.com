@@ -82,6 +82,11 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'cá ram', instead: '"cá phượng hoàng" (Mikrogeophagus ramirezi)' }, // guides 57 | 0 | 0; phượng hoàng 23 in the forum
     { say: 'quả sủi', instead: '"cục sủi"' }, // guides 24, video guides 98 | 2.6 | 3.7; cục sủi 18 in the forum
     { say: 'nền trồng cây', instead: '"phân nền"' }, // guides 16 | 0 | 0; phân nền 24 in the forum, 255 in the videos
+    { say: 'bể trồng cây', find: '(?:bể|đèn) trồng cây', instead: '"bể thủy sinh", "đèn thủy sinh"' }, // species 84, guides 75 | 0.7 | 3.7; bể thủy sinh 28 in the forum, 841 in the videos
+    { say: 'dựng bể', instead: '"set bể"' }, // video guides 39, guides 9 | 0 | 0; set bể 30 in the videos
+    { say: 'xao động', instead: '"làm mặt nước gợn", "khuấy mặt nước"' }, // guides 17 | 0.7 | 0
+    { say: 'trị rộng', find: 'trị (?:diện )?rộng', instead: 'nói trị những gì: "trị luôn cả ba thứ"' }, // 0 | 0.7 | 0; both editors, rounds 9 and 10
+    { say: 'chỗ bắt đầu', instead: '"để tham khảo"' }, // 1.6 | 0 | 0; tham khảo 192 in the forum
     { say: 'được cho là', instead: 'đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói"' }, // species 147, guides 30 | 3.3 | 0
     // The editors' second round (2026-11-07), each checked here: textbook words where a keeper says what happens.
     { say: 'trưởng thành sinh dục', instead: '"đủ lớn để đẻ", "bắt cặp được"' }, // 33 | 0 | 0

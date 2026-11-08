@@ -149,7 +149,7 @@ const PEROXIDE_FILE = 'sources/aquariumbreeder/blue-green-algae-cyanobacteria-pr
 export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
   {
     id: 'salt', name: 'muối hột',
-    lead: { text: 'Có shop trong nước bán muối hột dành cho bể cá, túi 1 kg. Các liều dưới đây dùng muối hột dành cho bể cá hoặc muối mỏ NaCl. Đừng dùng muối ăn, muối biển hay muối Epsom.', figures: ['1 kg'],
+    lead: { text: 'Có shop trong nước bán muối hột dành cho bể cá, túi 1 kg. Các liều dưới đây dùng muối hột dành cho bể cá hoặc muối mỏ NaCl. Đừng dùng muối ăn, muối pha cho bể cá biển hay muối Epsom.', figures: ['1 kg'],
       refs: [{ url: 'https://thucanchoca.com/san-pham/muoi-hot-cho-ho-ca', title: 'Muối hột cho hồ cá, túi 1 kg (Thức Ăn Cho Cá, xem ngày 07/11/2026)' }] },
     uses: [
       { problem: 'ich', guide: SALT_GUIDE, quotes: [{ file: SALT_FILE, text: 'Use a concentration of 1 Tbsp of salt per 2 gallons of water' }, { file: SALT_FILE, text: 'you can use this recipe to treat ich (a common ailment also known as white spot disease) for a period of 10 days' }],

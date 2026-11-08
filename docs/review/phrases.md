@@ -79,6 +79,11 @@ Per million words, site | forum | videos:
 | cá ram | guides 57 | 0 | 0 | cá phượng hoàng (23 in the forum), the ram's own page's name |
 | quả sủi | guides 24, video guides 98 | 2.6 | 3.7 | cục sủi (18 in the forum) |
 | nền trồng cây | guides 16 | 0 | 0 | phân nền (24 in the forum, 255 in the videos) |
+| bể trồng cây, đèn trồng cây | species 84, guides 75 | 0.7 | 3.7 | bể thủy sinh (28 in the forum, 841 in the videos), đèn thủy sinh |
+| dựng bể | video guides 39, guides 9 | 0 | 0 | set bể (30 in the videos) |
+| xao động | guides 17 | 0.7 | 0 | làm mặt nước gợn |
+| trị rộng, trị diện rộng | 0 | 0.7 | 0 | what it treats: trị luôn cả ba thứ (both editors, rounds 9 and 10) |
+| chỗ bắt đầu | 1.6 | 0 | 0 | để tham khảo (192 in the forum) |
 | được cho là | species 147, guides 30 | 3.3 | 0 | the source's own certainty: say it plainly, or có lẽ, nghe nói when the source doubts |
 
 In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
