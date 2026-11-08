@@ -36,7 +36,7 @@ test('a native range without records is words only: its countries (linked to the
 test('a name stored as in a sentence: lower case inside the line, a capital where it starts a list item', () => {
   const river = { ...c.places[0]!, id: 'song-x', kind: 'river' as const, parent: undefined, t: { ...c.places[0]!.t, name: 'sông Hồng' } }
   const r = { native: native({ countries: [], regions: ['Song X'], quotes: [{ source: 'seriouslyfish' as const, quote: 'In the Red River.', countries: [], regions: ['Song X'] }] }) }
-  const p = rangeParts('vi', { ...c, places: [...c.places, river] }, { id: 'x', name: 'Cá', range: r }, marks(['seriouslyfish']))!
+  const p = rangeParts('vi', { ...c, places: [...c.places, river], placeNames: { ...c.placeNames, [river.id]: river.t.name } }, { id: 'x', name: 'Cá', range: r }, marks(['seriouslyfish']))!
   expect(plain(p.words)).toBe('Sông, hồ, vùng: sông Hồng1')
   expect(plain(p.said?.html)).toMatch(/^Sông Hồng · /)
   expect(capitalized('quần đảo Cayman')).toBe('Quần đảo Cayman')
