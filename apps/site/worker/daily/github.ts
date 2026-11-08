@@ -20,6 +20,11 @@ export type Listed = { total: number; items: Item[] }
 export type Runs = { runs: number; failed: number }
 /** A workflow whose last runs on main failed with no success after them: its newest failure's link, when the first was. */
 export type Failing = { workflow: string; url: string; since: string; failures: number }
+/**
+ * The app's next days from the editorial calendar (content/curation.json), which the collector reads in its checkout: the
+ * weeks they touch, with the Vietnamese theme and the curator's note for the owner, and each day's fish by its name.
+ */
+export type Calendar = { weeks: { from: string; to: string; theme: string; why?: string }[]; days: { date: string; fish?: string }[] }
 export type GitHubSide = {
   runId: string
   runUrl: string
@@ -42,6 +47,7 @@ export type GitHubSide = {
   issues: Listed
   notes: number
   prs: { ready: Listed; draft: Listed }
+  calendar?: Calendar
 }
 
 class Refused extends Error {}
@@ -64,6 +70,20 @@ const change = (x: unknown): Change => {
   const r = record(x)
   const area = AREAS.find(a => a === r.area) ?? refuse()
   return { area, text: text(r.text, MAX_CHANGE).trim() || refuse(), at: moment(r.at) }
+}
+const date = (x: unknown) => (typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) ? x : refuse())
+const calendar = (x: unknown): Calendar => {
+  const r = record(x)
+  return {
+    weeks: list(r.weeks, y => {
+      const w = record(y)
+      return { from: date(w.from), to: date(w.to), theme: text(w.theme), ...(w.why === undefined ? {} : { why: text(w.why, MAX_CHANGE) }) }
+    }, 4),
+    days: list(r.days, y => {
+      const d = record(y)
+      return { date: date(d.date), ...(d.fish === undefined ? {} : { fish: text(d.fish) }) }
+    }, 14),
+  }
 }
 const runs = (x: unknown): Runs => {
   const r = record(x)
@@ -110,6 +130,7 @@ export function parseGitHubSide(body: string): GitHubSide | null {
       issues: listed(r.issues),
       notes: count(r.notes),
       prs: { ready: listed(prs.ready), draft: listed(prs.draft) },
+      ...(r.calendar === undefined ? {} : { calendar: calendar(r.calendar) }),
     }
   } catch {
     return null

@@ -4,7 +4,9 @@
 // mails it. The workflow's run id is its idempotency key: a retried POST never sends twice. Uses the gh CLI (GH_TOKEN) and
 // AB_DASH_TOKEN. DRY_RUN=1 prints the JSON instead of posting it (GITHUB_REPOSITORY=owner/name to try it locally).
 import { execFileSync } from 'node:child_process'
-import { pathToFileURL } from 'node:url'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { productChanges, sectionLines, titleQualifies } from './changelog.mjs'
 
 const REPORT_URL = 'https://aquatome.com/_ab/report'
@@ -117,6 +119,34 @@ export function summarise(raw, { now, runId, runUrl }) {
   }
 }
 
+/** The app's next days, as the report prints them. */
+const CAL_DAYS = 7
+const VN_DATE = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Ho_Chi_Minh' })
+const plusDays = (date, n) => new Date(Date.parse(`${date}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10)
+/**
+ * What the app's Hôm nay and Khám phá show over the next CAL_DAYS days, from the editorial calendar in `root`, the
+ * repository (content/curation.json, docs/curation.md): the weeks they touch, with their Vietnamese theme and the
+ * curator's `why`, and each day's fish by its Vietnamese name (a day with none shows the app's own pick). Undefined
+ * without a calendar. `now`: a Date; the days are Vietnam's.
+ */
+export function calendar(root, now) {
+  let cur
+  try { cur = JSON.parse(readFileSync(join(root, 'content/curation.json'), 'utf8')) } catch { return undefined }
+  const name = ref => {
+    try { return clip(JSON.parse(readFileSync(join(root, 'content', ref, 'vi.json'), 'utf8')).name ?? ref) } catch { return clip(ref) }
+  }
+  const from = VN_DATE.format(now)
+  const to = plusDays(from, CAL_DAYS - 1)
+  const days = Array.from({ length: CAL_DAYS }, (_, i) => {
+    const date = plusDays(from, i)
+    const fish = cur.days?.find(d => d.date === date)?.fish
+    return fish ? { date, fish: name(fish) } : { date }
+  })
+  const weeks = (cur.weeks ?? []).filter(w => w.to >= from && w.from <= to)
+    .map(w => ({ from: w.from, to: w.to, theme: clip(w.theme?.vi ?? ''), ...(w.why ? { why: String(w.why).slice(0, 300) } : {}) }))
+  return { weeks, days }
+}
+
 /** Everything `summarise` needs, through `api` (a path → its JSON). A part GitHub won't give is named in `missing`, not counted as none. */
 export function read(api, repo, now) {
   const missing = []
@@ -201,7 +231,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const { GITHUB_REPOSITORY: repo, GITHUB_RUN_ID: runId = '0', GITHUB_SERVER_URL: server = 'https://github.com', AB_DASH_TOKEN: token, DRY_RUN: dry } = process.env
   const now = new Date()
   const api = path => JSON.parse(execFileSync('gh', ['api', path], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'], maxBuffer: 64 * 1024 * 1024 }))
-  const payload = summarise(read(api, repo, now), { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` })
+  const cal = calendar(fileURLToPath(new URL('..', import.meta.url)), now)
+  const payload = { ...summarise(read(api, repo, now), { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` }), ...(cal ? { calendar: cal } : {}) }
   if (dry) console.log(JSON.stringify(payload, null, 2))
   else if (!(await post(payload, { token }))) process.exit(1)
 }

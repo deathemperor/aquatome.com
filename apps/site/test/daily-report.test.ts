@@ -1,5 +1,8 @@
 import { expect, test, vi } from 'vitest'
-import { post, read, summarise } from '../../../scripts/daily-report.mjs'
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { calendar, post, read, summarise } from '../../../scripts/daily-report.mjs'
 import { parseGitHubSide } from '../worker/daily/github'
 
 // The collector, on GitHub's JSON as its REST API gives it: no network.
@@ -237,4 +240,32 @@ test('post: a refusal that won\'t change ends it at once', async () => {
     expect(fetchFn).toHaveBeenCalledTimes(1)
     expect(q.sleep).not.toHaveBeenCalled()
   }
+})
+
+test("the app's next 7 days from the calendar in the checkout: the weeks they touch, each day's fish by its Vietnamese name, a day without one left without", () => {
+  const root = mkdtempSync(join(tmpdir(), 'aq-cal-'))
+  const write = (path: string, o: unknown) => { mkdirSync(join(root, path, '..'), { recursive: true }); writeFileSync(join(root, path), JSON.stringify(o)) }
+  expect(calendar(root, NOW)).toBeUndefined()
+  write('content/species/pterophyllum-altum/vi.json', { name: 'Cá ông tiên altum' })
+  write('content/curation.json', {
+    version: 1, loops: {}, avoid: {},
+    weeks: [
+      { from: '2026-10-26', to: '2026-11-01', theme: { vi: 'Đã qua' } },
+      { from: '2026-11-02', to: '2026-11-08', theme: { vi: 'Trời trở lạnh', th: 'x' }, why: 'Gió mùa về.' },
+      { from: '2026-11-09', to: '2026-11-15', theme: { vi: 'Cá vàng' } },
+      { from: '2026-11-16', to: '2026-11-22', theme: { vi: 'Còn xa' } },
+    ],
+    days: [
+      { date: '2026-11-05', fish: 'species/pterophyllum-altum' },
+      // 07:00 in Vietnam: today is the 6th there.
+      { date: '2026-11-06', fish: 'species/pterophyllum-altum' },
+      { date: '2026-11-08', fish: 'breeds/no-such-page' },
+    ],
+  })
+  const c = calendar(root, NOW)!
+  expect(c.weeks).toEqual([{ from: '2026-11-02', to: '2026-11-08', theme: 'Trời trở lạnh', why: 'Gió mùa về.' }, { from: '2026-11-09', to: '2026-11-15', theme: 'Cá vàng' }])
+  expect(c.days.map(d => d.date)).toEqual(['2026-11-06', '2026-11-07', '2026-11-08', '2026-11-09', '2026-11-10', '2026-11-11', '2026-11-12'])
+  expect(c.days.slice(0, 3)).toEqual([{ date: '2026-11-06', fish: 'Cá ông tiên altum' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'breeds/no-such-page' }])
+  // The Worker takes it with the rest.
+  expect(parseGitHubSide(JSON.stringify({ ...sum(), calendar: c }))?.calendar).toEqual(c)
 })
