@@ -148,7 +148,10 @@ guide (#869). The engine kept none of the three: quarantine for a hardened "can"
 as true of any shop product, the shopping list as a kit. Scores, lowest of four: blue-green algae 7, 6; quarantine 7,
 6; shopping list 7, 7 (Anthropic, xAI). Faithfulness set every score: with the facts in the packet, both seats found the
 "can"s the hedge check missed ("cũng yếu dần", "xử nốt phần chưa trị: tẩy giun", "cũng bị hại theo"), so the
-reviewer is now handed the hedged facts by the code rather than left to find them.
+reviewer is now handed the hedged facts by the code rather than left to find them. On the same three texts it then found
+6 hardened sentences in quarantine (5 before, "xử nốt phần chưa trị: tẩy giun" among the new) and 4 in algae (1
+before). Three of algae's were list items under "Nước có thể bị đọng trong mấy trường hợp sau:", whose lead-in carries
+the hedge, so an item now takes its list's lead-in's hedge.
 
 Held by the references, both seats: "kém chịu kháng sinh" (0), "bỏng pH" (0; the replacement is open: "sốc pH" 1.3 is
 another harm, "bỏng da" 1.3), "gầy rộc" (0 in either reference, the species pages' 14; "gầy" 37), and "ăn đèn" (0;

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { fitFindings, ownSource, productOf, readFit, type FitFinding } from './fit'
-import { hedgesLost } from './hedges'
+import { hedged, hedgesLost } from './hedges'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
@@ -41,7 +41,7 @@ const WRITE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['name', 'summary', 'body', 'faq'],
   properties: { name: { type: 'string' }, summary: { type: 'array', items: { type: 'string' } }, body: { type: 'string' }, faq: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } } },
 }
-const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"; a schedule, dose or safety claim FACTS give for named products, written for any medicine of that kind), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. hedges: every fact in FACTS that says how often or how sure (may, might, often, usually, sometimes, a lot of times, likely, probably; can or could only where it means may, as in "bacteria can follow", not where it means is able to, as in "the medicine can only kill adults"), copied exactly, with one pair for each GUIDE sentence that says that fact (in the summary, a section's first lines, the body or the questions), each copied exactly, or one pair with "" if the guide leaves the fact out. unsafe: the numbers (0 for the first) of your notes a reader could harm fish, shrimp, snails or plants by following: a dose, a medicine, a mix of medicines or a schedule FACTS and MARKET don't give for it. [] if none. Reply only with JSON.`
+const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"; a schedule, dose or safety claim FACTS give for named products, written for any medicine of that kind), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. hedges: go through every line of HEDGED FACTS, the facts a program found a word of how often or how sure in. For each whose word means that (may, might, often, usually, sometimes, a lot of times, likely, probably; can or could only where it means may, as in "bacteria can follow", not where it means is able to, as in "the medicine can only kill adults"), give the fact copied exactly, with one pair for each GUIDE sentence that says that fact (in the summary, a section's first lines, the body or the questions), each copied exactly, or one pair with "" if the guide leaves the fact out. unsafe: the numbers (0 for the first) of your notes a reader could harm fish, shrimp, snails or plants by following: a dose, a medicine, a mix of medicines or a schedule FACTS and MARKET don't give for it. [] if none. Reply only with JSON.`
 const REVIEW_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['score', 'notes', 'hedges', 'unsafe'],
   properties: {
@@ -69,6 +69,8 @@ export function amountsOutside(text: string, allowed: string): string[] {
 }
 
 const plain = (w: Written) => [w.name, ...w.summary, w.body.replace(/<[^>]+>/g, ' '), ...w.faq.flatMap(f => [f.q, f.a])].join('\n')
+/** The same with the body's markup, for what reads its lists (hedgesLost). */
+const marked = (w: Written) => [w.name, ...w.summary, w.body, ...w.faq.flatMap(f => [f.q, f.a])].join('\n')
 const asPage = (id: string, w: Written): Page => ({
   lang: 'vi', kind: 'guides', id, title: w.name, path: `/vi/huong-dan/${id}/`, fields: [{ field: 'body', html: w.body }],
   lines: [...w.summary.map((s, i) => ({ field: `summary.${i}`, text: s })), ...w.faq.flatMap((f, i) => [{ field: `faq.${i}.q`, text: f.q }, { field: `faq.${i}.a`, text: f.a }])],
@@ -96,6 +98,8 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     system: 'Bạn viết bài hướng dẫn cá cảnh bằng tiếng Việt. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
     prompt: [WRITE, VI_STYLE, ...(o.voice ? [`Giọng của bài này:\n${o.voice}`] : []), ...(o.name ? [`Tiêu đề bài đã chốt: "${o.name}". Giữ đúng tiêu đề này, và trong bài gọi thứ tiêu đề nói tới bằng đúng tên trong đó.`] : []), ...(draft ? [`Bản nháp dưới đây bị trả lại vì các lý do sau. Sửa đúng những chỗ đó, bỏ điều dữ kiện không có, giữ nguyên mọi câu khác:\n${notes.map(n => `- ${n}`).join('\n')}\n\n--- BẢN NHÁP ---\n${JSON.stringify(draft)}`] : []), input].join('\n\n'),
   })
+  // The facts that hedge, listed by the code: a reviewer asked to find them itself missed some ("can", "a lot of times").
+  const hedgedFacts = facts.facts.map(f => f.fact).filter(hedged).map(f => `- ${f}`).join('\n')
   const check = async (w: Written) => {
     const clean = { ...w, name: o.name ?? unescapePlain(w.name).trim(), body: sanitizeHtml(w.body) }
     const page = asPage(id, clean)
@@ -104,9 +108,9 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     const findings = fitFindings(page, made)
     const wrong = findings.filter(f => f.check !== 'words')
     const outside = amountsOutside(plain(clean), input)
-    const r = await d.llm<{ score: number; notes: string[]; hedges?: { fact: string; quote: string }[]; unsafe?: number[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
+    const r = await d.llm<{ score: number; notes: string[]; hedges?: { fact: string; quote: string }[]; unsafe?: number[] }>({ system: GROUNDED, prompt: `${input}\n\n--- HEDGED FACTS ---\n${hedgedFacts || '(none)'}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
     const score = Math.min(1, Math.max(0, Number(r.score) || 0))
-    const lost = hedgesLost((r.hedges ?? []).map(h => ({ from: h.fact, to: h.quote })), facts.facts.map(f => f.fact).join('\n'), plain(clean))
+    const lost = hedgesLost((r.hedges ?? []).map(h => ({ from: h.fact, to: h.quote })), facts.facts.map(f => f.fact).join('\n'), marked(clean))
     // A note a reader could harm fish by following holds the guide back, whatever its score.
     const unsafe = (r.unsafe ?? []).filter(i => r.notes?.[i])
     const notes = [

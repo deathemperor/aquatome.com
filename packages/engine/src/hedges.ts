@@ -19,7 +19,7 @@ export const HEDGE_VI = /(?<!\p{L})(?:có thể|(?<!(?:bình|bất|khác|coi|b�
  */
 const HEDGE_VI_FROM = new RegExp(HEDGE_VI.source.replace('hay(?= \\p{L})', 'hay (?:bị|gặp|có|mọc|bùng|làm|thấy|ăn|đẻ|chết|cắn|đuổi|nhảy|trốn|vướng)'), 'iu')
 /** In its own language: "can thiệp" and "may mắn" are Vietnamese, not "can" and "may". */
-const hedged = (s: string) => (/\p{M}/u.test(s.normalize('NFD')) ? HEDGE_VI_FROM : HEDGE_EN).test(s)
+export const hedged = (s: string) => (/\p{M}/u.test(s.normalize('NFD')) ? HEDGE_VI_FROM : HEDGE_EN).test(s)
 
 export type HedgePair = { from: string; to: string }
 const ENTITY: Record<string, string> = { lt: '<', gt: '>', amp: '&', nbsp: ' ', quot: '"', '#39': "'" }
@@ -32,10 +32,18 @@ const text = (s: string) => s
   .replace(/&(lt|gt|amp|nbsp|quot|#39);/g, (_, e: string) => ENTITY[e]!)
   .replace(/\s+/g, ' ').replace(/ ([,.;:!?)])/g, '$1').trim()
 
-/** The pairs whose source sentence hedges and whose written sentence, there in the text, no longer does. */
+/** The items of each list whose lead-in hedges: "Nước có thể bị đọng trong mấy trường hợp sau:" hedges every one under it. */
+const underHedge = (html: string) => [...html.matchAll(/([^.!?:>]*):\s*(?:<\/p>\s*)?<(ul|ol)\b[^>]*>([\s\S]*?)<\/\2>/gi)]
+  .filter(m => HEDGE_VI.test(text(m[1]!)))
+  .flatMap(m => [...m[3]!.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(li => text(li[1]!)))
+
+/**
+ * The pairs whose source sentence hedges and whose written sentence, there in the text, no longer does, by itself or by the
+ * lead-in of the list it's in. `to` in its markup, for the lists.
+ */
 export function hedgesLost(pairs: HedgePair[], from: string, to: string): HedgePair[] {
-  const a = text(from), b = text(to)
-  return pairs.filter(x => x.to.trim() && a.includes(text(x.from)) && hedged(text(x.from)) && b.includes(text(x.to)) && !HEDGE_VI.test(text(x.to)))
+  const a = text(from), b = text(to), listed = underHedge(to)
+  return pairs.filter(x => x.to.trim() && a.includes(text(x.from)) && hedged(text(x.from)) && b.includes(text(x.to)) && !HEDGE_VI.test(text(x.to)) && !listed.some(li => li.includes(text(x.to))))
 }
 
 /** What a reviewer is asked for, naming its two texts as its prompt does ("EN" and "VI", "BEFORE" and "AFTER"). */
