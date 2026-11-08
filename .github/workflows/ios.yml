@@ -33,14 +33,18 @@ permissions:
 jobs:
   # Whether a pull request is ready (a draft runs nothing on macOS), and which flows each flow job runs: the full suite
   # on main, nightly, by hand and on a pull request labelled `ios-full`; on any other pull request, the smoke set, the
-  # classes of the flow files it edits, and the page shots when its change can reach the pages, packed into as few jobs
+  # classes of the flow files it edits, and the page shots of the screens its change reaches, packed into as few jobs
   # as hold them (each job builds the app and holds one of GitHub's five Macs), while main's run after the merge runs
   # the other flows its change can reach (apps/ios/scripts/flows-to-run.py says how it decides; job `report` opens an
   # issue when main's run fails). A job with no flows to run is skipped, and doesn't hold a Mac. Job `perf` runs on
-  # every ready pull request, with the kit's tests; job `kit` runs them nightly, when `perf` doesn't.
+  # every ready pull request that changes what it builds or checks (flows-to-run.py's `perf`), with the kit's tests;
+  # job `kit` runs them nightly, when `perf` doesn't.
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read  # step `same`: whether the run before passed
     outputs:
       ready: ${{ steps.pick.outputs.ready }}
       app: ${{ steps.pick.outputs.app }}
@@ -52,6 +56,7 @@ jobs:
       lights: ${{ steps.pick.outputs.lights }}
       lights_1: ${{ steps.pick.outputs.lights_1 }}
       lights_2: ${{ steps.pick.outputs.lights_2 }}
+      perf: ${{ steps.pick.outputs.perf }}
       runner: ${{ steps.where.outputs.runner }}
       parallel: ${{ steps.where.outputs.parallel }}
     steps:
@@ -59,6 +64,33 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 2
+      # A push that only merges main into a ready pull request runs nothing when the run at the head before it passed: that
+      # run checked its change merged with main, and the merge leaves the app's and the protocols' files as merging does
+      # on its own (only-main-merged.sh). Merges of main started 28% of the pull requests' Mac time on 2026-11-08 (the
+      # leads' own refusal: .claude/hooks/main-merge.py). One that resolved a conflict in those files is new code, and
+      # runs; so does anything this can't tell.
+      - id: same
+        if: github.event_name == 'pull_request' && github.event.action == 'synchronize' && !github.event.pull_request.draft
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.pull_request.head.sha }}
+          BASE: ${{ github.event.pull_request.base.ref }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          [ "$(git cat-file -p "$AFTER" | grep -c '^parent ')" = 2 ] || exit 0
+          git fetch -q --unshallow origin "+refs/heads/$BASE:refs/remotes/origin/$BASE" "+refs/pull/$PR/head:refs/remotes/origin/pull" || exit 0
+          apps/ios/scripts/only-main-merged.sh "$BEFORE" "$AFTER" "origin/$BASE" || exit 0
+          # The run before: passed, with its macOS jobs (a draft's, or one that ran nothing, doesn't count).
+          for id in $(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/ios.yml/runs?head_sha=$BEFORE&event=pull_request&status=success" --jq '.workflow_runs[].id' || true); do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$id/jobs" --jq '[.jobs[] | select(.conclusion == "success" and (.name | test("flows|performance")))] | length' || echo 0)
+            if [ "$n" -gt 0 ]; then
+              echo "same=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$id" | tee -a "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          echo "no passing run at ${BEFORE:0:8}: this one runs"
       # bash as `shell:` fails on any part of the pipe (pipefail): a script or diff that breaks fails the job, rather
       # than leaving the flow jobs skipped on a green run. A moved file is listed at both ends (--no-renames), and a
       # path with Vietnamese letters as itself (quotePath).
@@ -66,6 +98,7 @@ jobs:
         shell: bash
         env:
           DRAFT: ${{ github.event.pull_request.draft }}
+          SAME: ${{ steps.same.outputs.same }}
           FULL: ${{ contains(github.event.pull_request.labels.*.name, 'ios-full') }}
           # The own Mac takes this run (step `where`'s rule): its full run puts nothing beside the light flows.
           LOCAL: >-
@@ -76,6 +109,9 @@ jobs:
           if [ "$GITHUB_EVENT_NAME" = pull_request ] && [ "$DRAFT" = true ]; then
             printf 'ready=false\napp=[]\nhandbook=[]\nlights=[]\n' | tee -a "$GITHUB_OUTPUT"
             echo "::notice title=Draft::the iOS jobs run once this pull request is marked ready"
+          elif [ -n "$SAME" ]; then
+            printf 'ready=false\napp=[]\nhandbook=[]\nlights=[]\n' | tee -a "$GITHUB_OUTPUT"
+            echo "::notice title=Only main merged in::the iOS jobs passed on this change merged with main ($SAME), and this push only merged main in. Merge main in only to resolve a conflict"
           elif [ "$GITHUB_EVENT_NAME" != pull_request ] || [ "$FULL" = true ]; then
             echo ready=true | tee -a "$GITHUB_OUTPUT"
             if [ "$LOCAL" = true ]; then own=--own-mac; else own=; fi
@@ -204,11 +240,12 @@ jobs:
   # a regression unseen. Measured apart from the flows, so a flow's retry never touches a measurement. Budgets are
   # checked in code, not in an Xcode .xcbaseline: a baseline belongs to one machine model, and on hosted runners it
   # would stop applying, silently, the day the machines change. The translations are checked here too, from this
-  # job's build: it runs on every ready pull request, and a flow job may not. So are the kit's unit tests.
+  # job's build: it runs on every ready pull request that changes the app, and a flow job may not. So are the kit's unit tests.
   perf:
     name: "iOS app: performance, size and strings"
     needs: changes
-    if: needs.changes.outputs.ready == 'true' && github.event_name != 'schedule'
+    # A pull request's change to none of what it builds or checks (flows-to-run.py's `perf`) skips it.
+    if: needs.changes.outputs.ready == 'true' && github.event_name != 'schedule' && needs.changes.outputs.perf != 'false'
     runs-on: macos-26
     timeout-minutes: 40
     steps:
