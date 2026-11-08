@@ -26,7 +26,7 @@ export type Product = {
     ingredient?: string
     /** No source names one: what the writers are told instead. */
     noIngredient?: string
-    /** Treatments: the note's sentence on what it is. */
+    /** Treatments: what it is, and what it's mistaken for here, which the writer puts beside the medicine (marketFor). */
     says?: string
   }>>
   /** Treatments: the problems its source uses it for, which a remedy in the note may answer. */
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     market: { vi: hard({ ingredient: 'formaldehyde và xanh malachite (malachite green chloride)', says: 'Ich-X có hoạt chất là formaldehyde và xanh malachite (malachite green chloride).' }) } },
   { name: 'Maracyn', match: /\bmaracyn(?![\s-]*(?:2|two|ii)\b)/i, kind: 'treatment', problems: ['fungus', 'finRot', 'cyanobacteria', 'quarantine'],
     ingredient: { en: 'erythromycin', ref: MARACYN_LABEL },
-    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Maracyn là kháng sinh erythromycin. Maracyn Two là thuốc khác, hoạt chất là minocycline.' }) } },
+    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Thuốc tên gần giống là Maracyn Two, hoạt chất minocycline, khác hẳn, và có bán ở đây: ai cần erythromycin thì đừng mua nhầm Maracyn Two.' }) } },
   { name: 'ParaCleanse', match: /\bpara[\s-]?cleanse\b/i, kind: 'treatment', problems: ['parasites'],
     ingredient: { en: 'praziquantel and metronidazole; amounts per packet not read', ref: PARASITES_ARTICLE },
     market: { vi: hard({ ingredient: 'praziquantel và metronidazole', says: 'ParaCleanse có praziquantel để trị giun sán và metronidazole để diệt một số vi khuẩn và đơn bào.' }) } },
@@ -149,7 +149,7 @@ const PEROXIDE_FILE = 'sources/aquariumbreeder/blue-green-algae-cyanobacteria-pr
 export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
   {
     id: 'salt', name: 'muối hột',
-    lead: { text: 'Có shop trong nước bán muối hột cho hồ cá, túi 1 kg. Các liều dưới đây dùng muối hồ cá thông thường hoặc muối mỏ NaCl. Đừng dùng muối ăn, muối biển hay muối Epsom.', figures: ['1 kg'],
+    lead: { text: 'Có shop trong nước bán muối hột dành cho bể cá, túi 1 kg. Các liều dưới đây dùng muối hột dành cho bể cá hoặc muối mỏ NaCl. Đừng dùng muối ăn, muối pha cho bể cá biển hay muối Epsom.', figures: ['1 kg'],
       refs: [{ url: 'https://thucanchoca.com/san-pham/muoi-hot-cho-ho-ca', title: 'Muối hột cho hồ cá, túi 1 kg (Thức Ăn Cho Cá, xem ngày 07/11/2026)' }] },
     uses: [
       { problem: 'ich', guide: SALT_GUIDE, quotes: [{ file: SALT_FILE, text: 'Use a concentration of 1 Tbsp of salt per 2 gallons of water' }, { file: SALT_FILE, text: 'you can use this recipe to treat ich (a common ailment also known as white spot disease) for a period of 10 days' }],
@@ -168,7 +168,7 @@ export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
     how: { guide: SALT_GUIDE, quotes: [{ file: SALT_FILE, text: 'aquarium salt does not evaporate or get filtered out' }],
       text: '1 muỗng canh vào khoảng 15 ml. Bạn đo muối cho cẩn thận vì rất dễ quá liều. Muối không bay hơi và lọc cũng không lọc nó ra được, nên bạn chỉ châm thêm muối khi thay nước, và chỉ châm đúng phần tương ứng với lượng nước thay.',
       words: ['1 muỗng canh vào khoảng 15 ml'] },
-    risks: 'Muối không dùng được với phần lớn cây thủy sinh và ốc. Cá da trơn anchor rất nhạy với muối, và các loài cá da trơn, cá chạch có thể nhạy cảm hơn với sự thay đổi độ mặn. Quá liều thì muối giết sạch mọi thứ trong bể.',
+    risks: 'Muối không dùng được với phần lớn cây thủy sinh và ốc. Có loài cá da trơn rất nhạy với muối, còn cá da trơn nói chung và cá chạch có thể chịu kém hơn cá khác khi độ mặn thay đổi. Quá liều thì muối giết sạch mọi thứ trong bể.',
     carried: /\d muỗng (?:canh|cà phê) muối cho/i,
     more: SALT_GUIDE,
     refs: [
@@ -257,11 +257,19 @@ const MARKET_LINE: Record<MarketStatus['status'], string> = {
  * What a writer needs to know of its market: each product the source names, then what's on sale here for the problems it's
  * about, with its doses and where they come from. A language with no market data says so: no product is known to be sold.
  */
+/**
+ * How keepers here go about a problem where a source abroad does it its own way: the house's line (the chief, 8 Nov 2026),
+ * not a sourced dose. In the table, so the writer writes it and the reviewer counts it as supported.
+ */
+const PRACTICE: Partial<Record<Lang, Partial<Record<ProblemId, string>>>> = { vi: {
+  quarantine: 'cá mới trông khỏe: nhiều người chơi chỉ cách ly, theo dõi, có bệnh mới trị; trị phòng: một cách khác, không bắt buộc; liều, lịch: theo nhãn thuốc mua',
+} }
+
 export function marketFor(lang: Lang, source: string, problems: ProblemId[]): string {
   const named = PRODUCTS.filter(p => mentions(p, source))
   const lines = named.map(p => {
     const m = p.market[lang]
-    return `- ${p.name}: ${MARKET_LINE[m?.status ?? 'unknown']}. ${m?.ingredient ? `Hoạt chất: ${m.ingredient}.` : m?.noIngredient ?? ''}`.trim()
+    return `- ${p.name}: ${MARKET_LINE[m?.status ?? 'unknown']}. ${m?.ingredient ? `Hoạt chất: ${m.ingredient}.` : m?.noIngredient ?? ''} ${m?.says ?? ''}`.trim()
   })
   const unlisted = 'Sản phẩm khác trong dữ kiện chưa ai kiểm tra: nói loại sản phẩm hoặc hoạt chất, không đưa tên hãng làm thứ cần mua, liều theo nhãn.'
   const wanted = new Set([...problems, ...named.flatMap(p => p.problems ?? [])])
@@ -271,5 +279,11 @@ export function marketFor(lang: Lang, source: string, problems: ProblemId[]): st
     ...(r.how ? [r.how.text] : []),
     ...(r.risks ? [`Rủi ro: ${r.risks}`] : []),
   ].join('\n'))
-  return [...lines, unlisted, ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : [])].join('\n')
+  // Only where the source itself takes the problem up: a product it names for something else doesn't bring the line in.
+  const practice = problems.flatMap(p => PRACTICE[lang]?.[p] ?? [])
+  return [
+    ...lines, unlisted,
+    ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : []),
+    ...(practice.length ? ['', 'Người chơi ở đây làm thế này (ghi chú, không phải câu văn). Chỉ viết ý nào khi DỮ KIỆN nói tới đúng chuyện đó, bằng lời của bạn:', ...practice] : []),
+  ].join('\n')
 }

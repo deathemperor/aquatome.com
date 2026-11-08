@@ -10,6 +10,38 @@
     "india",
     "kaladan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Kaladan River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Kaladan River drainage in southern Mizoram, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Kaladan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8115072,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

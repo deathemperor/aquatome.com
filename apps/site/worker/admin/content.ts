@@ -63,7 +63,7 @@ export const pagePathOf = (p: string) => {
 // ——— Reads (Analytics Engine) ———
 
 export type PageView = { sid: string; p: string; views: number | string }
-/** Views per session and page; the sessions come from readers.ts's query, so "reader" means what it means there. */
+/** Views per session and page; the sessions come from readers.ts's query, so "reader" means what it means there, and a view counts only in a tab it counts (none of ours, none automated). */
 export const PAGE_VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, SUM(_sample_interval) AS views
 FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p FORMAT JSON`
 
@@ -88,9 +88,11 @@ export type ContentReads = {
 export function joinReads(stats: ContentStats, sessions: Session[], views: PageView[], days: number, o: { top?: number; unreadList?: number } = {}): ContentReads {
   const index = pageIndex(stats)
   const readerSids = new Set(sessions.filter(isReader).map(s => s.sid))
+  const counted = new Set(sessions.map(s => s.sid))
   const per = new Map<string, { readers: Set<string>; views: number }>()
   const elsewhere = new Map<string, number>()
   for (const v of views) {
+    if (!counted.has(v.sid)) continue
     const path = pagePathOf(v.p)
     if (!index.has(path)) { elsewhere.set(path, (elsewhere.get(path) ?? 0) + num(v.views)); continue }
     const x = per.get(path) ?? { readers: new Set<string>(), views: 0 }

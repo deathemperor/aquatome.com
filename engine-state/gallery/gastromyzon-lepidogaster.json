@@ -1,26 +1,9 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/422929748/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/422929748/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Dan L.",
-   "sourceUrl": "https://www.inaturalist.org/photos/422929748",
-   "key": "inat:422929748"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/422929736/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/422929736/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Dan L.",
-   "sourceUrl": "https://www.inaturalist.org/photos/422929736",
-   "key": "inat:422929736"
-  }
- ],
+ "queue": [],
  "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/719f95d68393acb2.webp": "5ce0d5bfc7ed7c5c",
+  "https://media.aquatome.com/seriouslyfish/2cd3d22315945b19.webp": "6f03879a23030403"
+ },
+ "commons": "2026-11-08"
 }

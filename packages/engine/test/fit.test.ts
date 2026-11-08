@@ -112,6 +112,15 @@ test('a guide read with an older checklist is read again; another page is not, u
   const old = (p: Page) => ({ at: '2026-11-07', hash: fitText(p).hash, model: 'opus', findings: [], products: [] })
   expect(fitDue([g, s], { [fitKey(g)]: old(g), [fitKey(s)]: old(s) }).map(p => p.id)).toEqual(['g'])
   expect(fitDue([g], { [fitKey(g)]: { ...old(g), checklist: CHECKLIST } })).toEqual([])
+  // Read before the harm check, a guide is read for it.
+  expect(fitDue([g, s], { [fitKey(g)]: { ...old(g), checklist: 2 }, [fitKey(s)]: { ...old(s), checklist: 2 } }).map(p => p.id)).toEqual(['g'])
+})
+
+test('advice that would hurt is a finding the checker keeps, and its prompt asks for it', () => {
+  const text = '[P1 Bắt cá] Tăng CO₂ gấp 5 đến 10 lần và tắt lọc cho tới khi cá ngáp.'
+  const harm = { check: 'harm', part: 'P1', quote: 'Tăng CO₂ gấp 5 đến 10 lần và tắt lọc', why: 'fish suffocate', fix: '', product: '' }
+  expect(keepFit([harm], text, 'vi').map(x => x.check)).toEqual(['harm'])
+  expect(fitPrompt('vi', 'guides')).toContain('- harm: ')
 })
 
 test('the report counts and never lists a page', () => {

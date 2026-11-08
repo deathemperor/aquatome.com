@@ -12,6 +12,8 @@ import { chatTools, type Step, type Tank } from './tools'
  * nothing of keys. Plain TypeScript, no Cloudflare types: the eval script runs the same in Node.
  */
 const LANGS: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai', ms: 'Malay' }
+/** The handbook as the site calls it in each language (its title: "Cẩm nang cá cảnh & thủy sinh"). The prompt gives only the reader's: with every language's word in it, an Indonesian or Malay answer now and then said "cẩm nang". */
+export const HANDBOOK: Record<Lang, string> = { vi: 'cẩm nang', id: 'panduan', th: 'คู่มือ', ms: 'buku panduan' }
 
 export const SYSTEM = `You answer readers of AquaTome, a handbook of aquarium fish, shrimp, snails, plants, equipment and care guides, in Vietnamese, Indonesian, Thai and Malay. Readers are hobbyists, often at the tank. Some ask something quick: how to keep a fish, whether it lives with their fish, what tank or filter. Many bring a problem: algae, fish sick or dying, a new tank cycling, a tank to plan, the wrong fish together. Answer as an experienced keeper who has read the whole handbook would.
 
@@ -26,7 +28,7 @@ Start from the handbook and what the reader told you, and use your own knowledge
 Whether fish can live together is the check's to say: call check_tank_mates when the reader asks, and before any tank-mates block (the same fish, counts and tank), and open your text with its verdict's head word for word. For fish going in the reader's own tank, read_tanks first and check with that tank's id, naming only the fish they would add.
 
 Your answer has two parts:
-- text, in the reader's language, plain text (no markdown: no bold, no headings, no bullets), as a knowledgeable friend at the shop would say it. In Vietnamese, call yourself "mình" and the reader "bạn", never "tôi"; in Indonesian "aku" and "kamu"; in Thai "เรา" and "คุณ"; in Malay "saya" and "anda". Call the handbook what the site calls it: cẩm nang in Vietnamese, panduan in Indonesian, คู่มือ in Thai, buku panduan in Malay, and never another language's word for it. Say what the handbook says, not what you searched or read. Never refer to the blocks (no "below", "the table", "see the card"): the reader sees them under it.
+- text, in the reader's language, plain text (no markdown: no bold, no headings, no bullets), as a knowledgeable friend at the shop would say it. In Vietnamese, call yourself "mình" and the reader "bạn", never "tôi"; in Indonesian "aku" and "kamu"; in Thai "เรา" and "คุณ"; in Malay "saya" and "anda". Call the handbook what the site calls it in the reader's language, the word the first message gives, and never another language's word for it. Say what the handbook says, not what you searched or read. Never refer to the blocks (no "below", "the table", "see the card"): the reader sees them under it.
   - A problem to fix or a plan to make: first one or two sentences with the likely cause, tied to their details (with a tank-mates block, the verdict's head is the first sentence). Then the steps in order, each on its own line as "1. ", "2. " and so on: at most five, each one action for their tank in about 15 words, no sub-steps. Then one line on what to watch and when to check back.
   - A quick question: two or three sentences, the answer first.
 - blocks: what to show under the text, from what you read. The reader sees a section folded to its first few lines, so pick the narrowest heading that holds the guide's own steps or details they will want next, not a page's opening or its questions. A species card (its id) when your text leans on a fish's or plant's figures; a comparison (two to four ids) when the reader weighs fish against each other; a tool filled from the conversation (tank-mates with the fish and how many, tank-volume or tank-budget with the tank's sides in cm) when the reader would use it next. One or two blocks is usual; never a block for a page you didn't read, and never a card or section shown earlier in this conversation (the reader has it above).
@@ -59,7 +61,7 @@ export function shown(b: ChatBlock): string {
 
 /** The first message: the start, the earlier turns, then the question, in the reader's language. */
 export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook): Anthropic.MessageParam {
-  const parts: string[] = [`The reader writes in ${LANGS[lang]}; answer in ${LANGS[lang]}, with the ${lang} pages the tools give.`]
+  const parts: string[] = [`The reader writes in ${LANGS[lang]}; answer in ${LANGS[lang]}, with the ${lang} pages the tools give. The site calls the handbook "${HANDBOOK[lang]}".`]
   const about = start.about ? hb.byId(start.about) : undefined
   if (start.from === 'fish-id' && start.identified) {
     const guesses = start.identified.results.map(r => `${r.scientificName}${r.id ? ` (id ${r.id})` : ''}, ${Math.round(r.confidence * 100)}%`).join('; ')
@@ -76,13 +78,18 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
 
 export const MAX_TOKENS = 4096
 /** The forced last call's word (runAgent's lastWord): told nothing, Claude sometimes answered with no text. */
-export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. When the handbook doesn\'t answer the question, say so plainly, set covered to false and still give safe first steps.'
+export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. When the handbook doesn\'t answer the question, say so plainly, set covered to false and still give safe first steps. Write only in the reader\'s language, and name the handbook in it as your instructions do.'
 /**
  * The chat's pace (loop.ts `pace`), from its calls' times on the hard questions (chat-vs-plain.ts `--answers-only`):
  * the call that writes the answer took 5.1 times the run's average call at the median and 6.7 at the 90th percentile at
- * medium effort, 4.0 and 5.7 at low, at normal speed; a little less at 1.75 times slower.
+ * medium effort, 4.0 and 5.7 at low, at normal speed; a long forum post's, 6 times a reading call at 1.75 times slower,
+ * hence `quick`. `first` answers at the second call only after a first call over 4.5 s (27 / (2 + 4), less the tools'
+ * time): 1 turn in 10 at 1.75 times slower, and at normal speed none in one run of 96, 4 in another. On the 96 hard
+ * questions: at normal speed 0 failed and 4 answered from no page, against 2 and 16 with main's rule before (`quick`
+ * 5.5 from the first call); at 1.75 times slower 7 failed and 17 from no page, against 6 and 47, or 13 and 12 with
+ * nothing forced before the third call.
  */
-export const CHAT_PACE = { answer: 7, quick: 5.5 }
+export const CHAT_PACE = { answer: 7, quick: 6.5, first: 4 }
 /**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the

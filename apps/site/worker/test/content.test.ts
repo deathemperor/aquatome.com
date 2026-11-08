@@ -89,6 +89,8 @@ test('reads: readers per page kind, the most-read pages with their titles, the p
   expect(r.elsewhere).toEqual({ views: 4, paths: 1 })
   // Readers per page that had one: what orders the pages out of search.
   expect(r.readersOf).toEqual({ '/ca/ca-neon-vua/': 2, '/huong-dan/thay-nuoc-dung-cach/': 1 })
+  // A view in a tab the count leaves out (ours, or likely automated: not in the sessions) counts nowhere, views included.
+  expect(joinReads(STATS, sessions, [...views, { sid: 'ours', p: '/ca/ca-neon-vua/', views: '5' }, { sid: 'ours', p: '/ca/ca-cu/', views: '1' }], 30)).toEqual(r)
 })
 
 test('the pages out of search for their score: reviews.json through ASSETS; a build without it gives undefined; another shape is an error', async () => {

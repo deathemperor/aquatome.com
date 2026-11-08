@@ -69,7 +69,7 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 33
+        "t": 30
       },
       {
         "category": "co2",
@@ -94,119 +94,71 @@
     ],
     "figures": [
       {
-        "heading": "Hai bể được set và vận hành thế nào",
+        "heading": "Giai đoạn đầu: lá nhạt ở bể nền đất",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at30.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Toàn cảnh bể thủy sinh với lũa, đá và thảm cây phủ nền."
+          },
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at40.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh thảm Monte Carlo và giant baby tears trước lũa trong bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/sdYW9rupCa8/p0-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/sdYW9rupCa8/p0-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-3-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm cây Monte Carlo xanh mướt mọc dày trong bể thủy sinh nền đất."
+        }
+      },
+      {
+        "heading": "Vì sao thảm Monte Carlo ở bể nền đất không lên",
         "moments": [
           {
             "t": 10,
             "url": "https://media.aquatome.com/video/sdYW9rupCa8/at10-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ nền vào hai bể kính trống lúc mới set."
+            "caption": "Đổ đất nền vào bể, đất chỉ dồn ở giữa, chưa sát kính trước."
           },
           {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at430.webp",
+            "t": 20,
+            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at20.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh với thảm cỏ xanh, lũa và cây rotala đỏ."
+            "caption": "Hai bể đã bố trí lũa và đá, lớp đất nền nằm lùi sau kính."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/sdYW9rupCa8/p0-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/sdYW9rupCa8/p0-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh đèn mạnh, cây thân đỏ xanh rậm rạp, thảm cây phía trước và cá nhỏ."
-        }
+        ]
       },
       {
-        "heading": "Vì sao bể đất ao thiếu dinh dưỡng từ sớm",
+        "heading": "Đo nước cho thấy gì",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cỏ nhỏ xanh mướt phủ nền sỏi trong bể đất ao."
-          },
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at455-hd.webp",
+            "t": 15,
+            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at15-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh với rêu Java, cây đỏ và thảm cỏ nền."
-          }
-        ]
-      },
-      {
-        "heading": "Bể aquasoil sau gần hai tháng",
-        "moments": [
-          {
-            "t": 124,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at124.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể aquasoil với thảm Monte Carlo phủ kín nền và cây đỏ phía sau."
+            "caption": "Đổ nền aquasoil vào bể kính trong lúc setup."
           },
           {
-            "t": 257,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at257.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh rotala màu đỏ tươi phía sau lũa và rêu xanh um tùm."
+            "t": 25,
+            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có lũa, đá và thảm cây xanh phủ nền."
           }
         ]
-      },
-      {
-        "heading": "Bể đất ao sau gần hai tháng",
-        "moments": [
-          {
-            "t": 435,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at435.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể đất ao với cây rậm và lũa phủ rêu."
-          },
-          {
-            "t": 534,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at534.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm phía trước thưa, lớp đất lùi xa khỏi kính trước."
-          }
-        ]
-      },
-      {
-        "heading": "Rêu hại ở hai bể",
-        "moments": [
-          {
-            "t": 232,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at232.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh thảm rêu và lũa trong bể aquasoil, gần như sạch rêu hại."
-          },
-          {
-            "t": 242,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at242.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Kính và nền thảm của bể aquasoil nhìn gần, gần như không có rêu hại."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/sdYW9rupCa8/p4-JkX2FsZ2FlLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/sdYW9rupCa8/p4-JkX2FsZ2FlLnBuZw-480.webp",
-          "width": 873,
-          "height": 556,
-          "licence": "CC BY 3.0",
-          "author": "Emboli",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu chổi đen (BBA) bám thành chùm xám đen trên lá cây trong bể."
-        }
       }
     ]
   }

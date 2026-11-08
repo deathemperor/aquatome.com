@@ -5,9 +5,11 @@ Write facts in plain English, one claim each, short. Group them with `section`: 
 Keep:
 - Every figure with its unit, as the source gives it. Doses, temperatures, durations and strengths are never rounded or changed, and each stays attached to what it is a dose of. A dose of a commercial product goes only in that product's `dose` below, never in `facts`, however the source says it. Doses of a plain chemical (salt, hydrogen peroxide) stay in `facts`.
 - Details a keeper notices: how it looks, smells or feels, what it does in the tank, what goes wrong first.
+- How often and how sure, word for word: "a lot of times", "often", "usually", "sometimes", "can", "may", "likely" stay in the fact that carries them. "A lot of times a fungal infection means an open wound" is not "a fungal infection means an open wound".
 - Strength words and conditions as the source has them: "the most common things we use" is not "what every tank needs"; "can vary greatly"; "and/or"; "(if overfeeding is a problem)". Things the source lists apart stay apart ("LED light and Wi-Fi timer" are two items).
 - Whose a claim is, so a reader of your list can't misread it: "the slowest-killing problem is internal tapeworms, so the dewormer comes last", not "the dewormer (slowest killer)". A claim tested on named products names them: "Maracyn, Ich-X and ParaCleanse were tested together and are safe for…", not "the medicines are safe". What an active ingredient does stays a fact of its own, apart from any brand.
 - The source's opinions, marked as such ("the writer prefers…"), and how sure it is: "may", "likely" and "I think" stay.
+- A product the source warns against buying, or tells apart from one with a similar name ("Maracyn Two is a different medicine"): the warning is a fact, and both products go in `products`.
 - Warnings: what a treatment harms (shrimp, snails, plants, filter bacteria, catfish), written right after the dose they belong to, and what each dose is for and how it is used (spot, whole tank, bath).
 
 Leave out:

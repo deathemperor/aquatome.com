@@ -43,7 +43,30 @@
       "html": "<p>Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 352.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e4e6e9c757d53479.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e4e6e9c757d53479-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Tim Aldridge / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "caption": "Noturus leptacanthus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/77d3abce046040da.webp",
+      "thumb": "https://media.aquatome.com/scotcat/77d3abce046040da-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "nv_multispeciesfishing / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "caption": "Noturus leptacanthus: US-1, Ridge Spring, SC 29129, USA",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "uQ4IhRQlsdQ",

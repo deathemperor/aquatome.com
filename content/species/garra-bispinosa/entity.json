@@ -12,6 +12,64 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Daying Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Garra bispinosa is a cyprinid known only from its type locality, the Daying Jiang in the Irrawaddy basin, Yunnan Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known only from the type locality, given as 'Daying Jiang, a tributary flowing to the Yiluowadi Jiang (Irrawaddy River) basin in Yingjiang, Yunnan Province, China'.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Daying Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366793,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          23.90625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

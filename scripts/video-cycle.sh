@@ -30,6 +30,7 @@ COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 
 # Start from GitHub's main: anything this clone held unpushed was a run whose push failed, and is redone.
 from_main "$@"
+cool
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The photo caches and run records in engine-state, and new pages, merge as the GitHub cycle merges them (.gitattributes).
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'

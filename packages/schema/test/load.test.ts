@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll } from '../src/index'
+import { cardShownIn, loadAll } from '../src/index'
 import { withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -138,6 +138,32 @@ test('another language has only the places one of its fish comes from; Vietnames
   expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
 })
 
+test('a page the reader-fit gate holds back in a language is no page there where the site asks, and the engine still reads it', async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-held-'))
+  await cp(root, dir, { recursive: true })
+  const held = { checks: ['kit'], at: '2026-11-08' }
+  const hold = async (file: string, from = file) => writeFile(join(dir, file), JSON.stringify({ ...JSON.parse(await readFile(join(dir, from), 'utf8')), held }))
+  await hold('species/beta/vi.json')
+  // alpha's Indonesian page is held, and asia is the only place it comes from.
+  const alpha = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8'))
+  await writeFile(join(dir, 'species/alpha/entity.json'), JSON.stringify({ ...alpha, places: ['asia'] }))
+  await hold('species/alpha/id.json', 'species/alpha/vi.json')
+  await mkdir(join(dir, 'places/asia'), { recursive: true })
+  await writeFile(join(dir, 'places/asia/entity.json'), JSON.stringify({ id: 'asia', kind: 'continent' }))
+  for (const l of ['vi', 'id']) await writeFile(join(dir, 'places/asia', `${l}.json`), JSON.stringify({ slug: 'asia', name: 'asia', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+
+  const site = (lang: 'vi' | 'id') => loadAll({ root: dir, lang, publicBuild: false, leaveOutHeld: true })
+  expect((await site('vi')).species.map(s => s.id)).toEqual(['alpha'])
+  const id = await site('id')
+  expect(id.species).toEqual([])
+  expect(id.places).toEqual([])
+  // The engine reads every page, the held ones too, to read them again and let them out.
+  const engine = await loadAll({ root: dir, lang: 'vi', publicBuild: false })
+  expect(engine.species.map(s => [s.id, s.t.held])).toEqual([['alpha', undefined], ['beta', held]])
+  expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).places.map(p => p.id)).toEqual(['asia'])
+})
+
 test('a translation whose entity was removed is no page, not a broken build', async () => {
   const { cp, mkdir, rm, writeFile } = await import('node:fs/promises')
   const dir = await mkdtemp(join(tmpdir(), 'aq-orphan-'))
@@ -253,5 +279,19 @@ test("the app's cards: those the gate holds back in a language are left out ther
   // Thai: held there; Indonesian: not written.
   expect((await loadAll({ root, lang: 'th', publicBuild: true })).cards).toEqual([])
   expect((await loadAll({ root, lang: 'id', publicBuild: true })).cards).toEqual([])
+})
+
+test("an event card in one of the readers' countries shows only in its language: a fair in Bangkok is Thai only, its Vietnamese card the translators' source", async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, dir, { recursive: true })
+  const file = join(dir, 'cards/betta-tet/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...e, event: { ...e.event, place: 'Bangkok', country: 'TH' } }))
+  await writeFile(join(dir, 'cards/betta-tet/th.json'), JSON.stringify({ eyebrow: 'งานประกวด', title: 'งานประกวดปลากัด', body: '<p>ที่กรุงเทพฯ</p>' }))
+  expect((await loadAll({ root: dir, lang: 'vi', publicBuild: true })).cards.map(c => c.id)).toEqual(['new-rasbora'])
+  expect((await loadAll({ root: dir, lang: 'th', publicBuild: true })).cards.map(c => c.id)).toEqual(['betta-tet'])
+  expect(cardShownIn({ event: { country: 'BN' } }, 'ms')).toBe(true)
+  expect(cardShownIn({ event: { country: 'JP' } }, 'vi')).toBe(true)
+  expect(cardShownIn({}, 'id')).toBe(true)
 })
 

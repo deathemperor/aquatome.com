@@ -1,0 +1,80 @@
+{
+  "id": "esomus-caudiocellatus",
+  "native": {
+    "input": "af1f82cc2c365aea",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Esomus caudiocellatus is a cyprinid from Myanmar, collected from the Salween river system in the east of the country and in northwestern Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Esomus caudiocellatus is a cyprinid from Myanmar, collected from the Salween river system in the east of the country and in northwestern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been collected from the Salween river system in eastern Myanmar and northwestern Thailand but may also occur elsewhere.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been collected from the Salween river system in eastern Myanmar and northwestern Thailand but may also occur elsewhere.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "It has been collected from the Salween river system in eastern Myanmar and northwestern Thailand but may also occur elsewhere.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Esomus caudiocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2364608,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        57
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

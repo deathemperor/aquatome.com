@@ -660,6 +660,93 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-hard-water-fish#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:17:18Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"Nuôi một đàn ít nhất sáu con thì chúng mới yên tâm ăn uống ở nhà mới\" is slightly colloquial. Consider \"thấy thoải mái, bạo dạn ăn uống\".",
+        "Minor: \"bệnh lắc mình (shimmying)\" leaves English in brackets. Acceptable, but \"bệnh run lắc (shimmy)\" is closer to hobby usage.",
+        "Minor: \"Nó nhiều cá tính và có cái miệng rất rộng\" is a bit informal for an encyclopedia. \"Cá có cá tính mạnh và miệng rộng\" reads more neutrally.",
+        "Minor: the Odessa barb sentence \"Ở đó, loài này quen được cả nước hơi mềm lẫn nước rất cứng\" is fine, but \"moderately soft\" could be \"khá mềm\" for consistency with \"khá cứng\" used elsewhere."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T07:17:18Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Platy: omitted 'For more details about their requirements, see our platy article' – this is a cross-reference/shop talk, acceptable; however the line 'Like many livebearers... great clean-up crew' is fine. No issue.",
+        "Pristella: 'bo bo' is used for daphnia – nonstandard/ambiguous; use 'trùng nước (daphnia)'. Also 'x-tray tetra' typo handled OK.",
+        "Pristella: omitted 'at least six or more so they will feed comfortable' fine, but 'Cá neon tia X' is a non-standard name; 'cá neon' is misleading for Congo tetra and Pristella.",
+        "Congo tetra: 'Cá neon Congo' is a non-standard common name (not a neon tetra); use 'cá tetra Congo'.",
+        "Odessa barb: '29-gallon' converted to 110 lít – 29 gal ≈ 110 L is correct; OK.",
+        "Molly: omitted 'Most pet stores sell...' fine, but 'range from 2–5 inches' → 'dài từ 5 đến 13 cm' OK; omitted 'For more info, read the full molly care article' acceptable.",
+        "Guppy: omitted 'We get so much enjoyment...' reworded OK; but 'Cá ăn gần như mọi thứ' fine. 'bệnh lắc mình (shimmying)' – ok.",
+        "Flagfish: 'Nếu muốn thử cho một loài thú vị đẻ' is awkward/unclear; rewrite as 'Nếu muốn thử nhân giống một loài thú vị'.",
+        "Flagfish: 'rêu chùm đen (BBA)' – black beard algae is usually 'rêu chổi đen/rêu râu đen'; 'rêu chùm' is non-standard.",
+        "Dwarf neon rainbow: 'Có thể bạn muốn thả toàn con đực cho rực rỡ. Thực ra...' slightly changes tone but meaning intact; 'See our complete care guide' dropped acceptably. Dropped 'Buy Live Fish' fine. Minor: Killifish 'Satiate their appetites' ok."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-balance-aquarium-lighting#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:19:02Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "\"trong vòng vài tháng\": the English says \"a couple of months\". Use \"chỉ sau vài tháng\" or \"khoảng hai tháng\" to keep the short timeframe.",
+        "\"đèn công nghiệp, đèn gara\": \"shop lights\" is rendered with a slightly added example. \"đèn xưởng\" or \"đèn chiếu sáng thông thường giá rẻ\" would be closer.",
+        "\"rêu\" is used for algae throughout. It is acceptable, but \"tảo\" or \"rêu hại\" is clearer for readers who might confuse it with moss.",
+        "\"Cây và rêu dùng chung những thứ như ánh sáng, dinh dưỡng và CO2\": the unit and meaning are fine. Writing \"khí CO2\" would make it more natural.",
+        "The Easy Plant LED product section was dropped as shop talk, which is correct. Nothing else is missing."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T07:19:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Product section omitted: the whole 'Easy Plant LED' passage is gone, which is shop talk and allowed. Nothing else is missing from it.",
+        "'within a couple of months' became 'chỉ vài tháng sau'. Use 'trong vòng vài tháng' or 'khoảng hai tháng'. 'a couple of' means about two.",
+        "'Timers... even if you leave the light on 24/7' is OK, but 'Có bật đèn 24/7' reads as a condition. Use 'Dù bật đèn 24/7'.",
+        "The sentence about the photo-period reminder 'Dùng hẹn giờ để đèn bật tắt...' is fine. However, the caption 'Aquarium lighting with different brightness levels and color modes' is dropped, which is a minor omission.",
+        "'Muốn có điều kiện tốt nhất để trồng' is clumsy. Use 'Để tạo môi trường lý tưởng cho khu vườn dưới nước'.",
+        "'set' and 'set kiểu bể' are slang. Use 'lên bể' or 'thiết lập'. 'low-tech' is left in English; use 'bể low-tech (ít công nghệ)'.",
+        "'Đổi đèn xong' changes the meaning of 'lighting changes'. Use 'Sau khi chỉnh ánh sáng'.",
+        "'bể lâu năm có thể có những cây rất to che hết phần còn lại' lacks 'mature tank'. Use 'bể đã ổn định lâu ngày'.",
+        "'Rêu' is used for algae. Hobby usage varies, but 'tảo' is more standard in an encyclopedia.",
+        "'đèn xưởng' for shop lights is unclear. Use 'đèn công nghiệp/đèn gara giá rẻ'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-money-saving-tips-for-aquariums#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:19:38Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Section 3: \"Khi set một bể khoảng 3.000 lít\" has no subject and uses the slang \"set\". Use \"Khi lắp đặt một bể khoảng 3.000 lít, người viết từng ghé…\" or similar neutral wording.",
+        "Section 3: \"once you weigh all the rocks\" is dropped. Add a short clause such as \"cân hết số đá rồi tính\" so the cost point is kept.",
+        "Section 5: \"cá cầu vồng bột\" is awkward. Use \"cá cầu vồng con (cá bột)\" or \"cá bột cầu vồng\".",
+        "Section 1: \"Một que thử dùng được hai lần\" is slightly off. The trick splits one strip in two, so \"Một que thử dùng được cho hai lần đo\" is clearer.",
+        "Section 1: \"đã có người làm ở tiệm cá cắt que như thế\" is clumsy. Rewrite as \"nhiều năm làm ở tiệm cá cũng đã cắt que thử theo cách này\".",
+        "Section 5: \"thì chỉ cần rắc thẳng một ít bột Repashy khô\" says \"khô\" for \"raw\". \"Bột Repashy chưa pha\" is more accurate.",
+        "Section 4: \"cá tỳ bà\" for pleco is acceptable but ambiguous. Consider \"cá tỳ bà (pleco)\" on first use."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-plants-for-breeding-fish#aquariumcoop": [
     {
       "at": "2026-11-07T02:46:22Z",
@@ -673,6 +760,24 @@
         "Item 9: 'baby tears' became 'cây trân châu (baby tears)', a name added; 'Pearl Weed' became 'cỏ ngọc trai' (acceptable naming).",
         "Item 10: 'một trong những loại được ưa chuộng nhất' became 'một loại rất được ưa chuộng', so the superlative is weakened.",
         "Item 4: added explanatory 'Cũng vì dễ gãy' (acceptable clarification)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-power-outage#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:20:53Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "Typo: \"mức nhiệt nhiệt đới của bể\" has a duplicated word; use \"mức nhiệt độ nhiệt đới\" or \"nhiệt độ nhiệt đới\".",
+        "\"Test amoniac và nitrit\": use \"Kiểm tra/đo amoniac và nitrit\" instead of the English \"Test\".",
+        "\"dễ khiến cá bị stress\": more natural as \"gây sốc/căng thẳng cho cá\" in an encyclopedia register. The same applies to \"heat pack\" in parentheses if it is not explained.",
+        "\"Pin rời dự phòng\" for \"Extra batteries\" is vague. Use \"Pin dự phòng (pin rời)\" or \"Pin AA/AAA dự phòng\".",
+        "\"80–120 lít\" for 20–30 gallons is slightly loose (about 75–115 L). Acceptable, but \"75–115 lít\" or \"80–115 lít\" is more exact.",
+        "\"Khó hơn nữa là thường chẳng ai biết...\" loosens the original \"unfortunately makes it harder\". Consider \"Thêm vào đó, thường không ai biết...\".",
+        "\"rồi cứ 8 giờ lại làm một lần\" is fine. \"bật dày hơn\" is awkward. Use \"bật sục khí thường xuyên hơn\"."
       ],
       "attempt": "first",
       "kept": true
@@ -693,6 +798,63 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-colorful-fish#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:21:50Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "Guppy section: \"gạc nai\" for water sprite is wrong. Gạc nai is a staghorn fern, so use a proper name for Ceratopteris such as \"dương xỉ nước\" or keep the Latin name.",
+        "Discus: \"280 lít\" for 75 gallons. By the stated rule (nearest 5 L) it should be about 285 lít.",
+        "Discus section: \"đĩa ăn bánh\" is an unnatural rendering of \"bread plate\". Use \"đĩa đựng bánh mì\" or \"đĩa nhỏ\".",
+        "Cherry barb: \"con cái màu đỏ ngả nâu nhạt\" is vague for \"tannish-red\". Consider \"đỏ pha nâu vàng nhạt\".",
+        "Discus and several other sections: \"turquoise rực rỡ\", \"pigeon blood\" and \"albino vàng\" stay in English or half-English. Add Vietnamese glosses or a consistent convention for strain names.",
+        "Jewel cichlid: \"Cá cichlid Jewel\" is a heading in half-translation. Consider \"cá cichlid ngọc\" or \"cichlid Jewel\" used consistently."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-fish-for-planted-tanks#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:24:50Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Omitted facts: Rummy-nose tetra 'Not only do their red faces...' fine, but 'Rosy barb... we personally prefer long-finned' is changed to a neutral suggestion; OK. However Congo tetra 'plecos' is rendered 'cá lau kiếng' (acceptable), yet 'pearl gouramis' as 'cá sặc ngọc trai' fine.",
+        "Cá mũi voi: 'Một phần vì nó có thể dài tới 23 cm' is incomplete/awkward; the reason (why it is not commonly kept) is lost and 'Part of the reason' becomes a fragment. Also 'bichirs' rendered 'cá khủng long' is fine.",
+        "Rummy-nose tetra: 'Hemigrammus bleheri' called 'tetra mũi đỏ' fine, but 'red faces' rendered 'mặt đỏ' ok. '55-gallon' converted to '210 lít' correct. The 'For more care instructions' omitted (shop talk, ok).",
+        "Siamese algae eater: 'cá bút chì' is not the standard name for SAE (usually 'cá ăn rêu Thái/cá chuột Thái'); 'cá bút chì' refers to pencilfish. Also the English term left in the heading '(Siamese algae eater, SAE)' is untranslated English.",
+        "Siamese algae eater: 'nhìn thì hơi nhạt' loses 'underwhelming'; 'tannish-silver' ok. 'Hard-working cleanup crew' fine.",
+        "Leopard bush fish: 'Cá Ctenopoma báo' / later 'Loài cá bụi đốm' — inconsistent naming for 'spotted bushfish'; 'cá lá Ctenopoma' keeps English genus. 'bloodworms, pellets, live foods' ok.",
+        "Platy: '20-gallon' → '75 lít' is right, and 29-gallon → '110 lít' is right. But 'water sprite' as 'dương xỉ nước' is fine. 'Sunset Variatus Platy' heading keeps English 'Sunset' untranslated, acceptable. 'would-be predators' → 'cá muốn ăn thịt' ok.",
+        "Hatchetfish: 'silver or common' fine; 'Cá rìu' is fine. Corydoras: 'plant-like' fine; 'cá chuột' for corydoras is ok. 'cá chuột lùn' ok.",
+        "Cherry shrimp: heading 'Tép cherry đỏ' adds 'đỏ' not in source; the 1.5-inch→4 cm is right. The opening intro has lost 'magically enhance' nuance and 'jungle' but acceptable; 'Plus' statements slightly compressed.",
+        "Overall: several sentences are choppy fragments ('Một phần vì nó có thể dài tới 23 cm.') and some fish names are non-standard; fix these for readability."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T07:24:50Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Siamese algae eater rendered as \"Cá bút chì\" — wrong common name (bút chì is pencilfish); use \"cá ăn rêu Thái/cá tai tượng Thái\" or \"cá Siamese algae eater\".",
+        "\"Cá sặc ngọc trai\" for pearl gourami OK, but \"cá khủng long\" for bichir is non-standard-ish; acceptable, check.",
+        "\"cá lau kiếng\" for plecos is fine, but \"cá chuột\" for corydoras is a nonstandard name (usually \"cá chuột/ cá corydoras\"); OK but check consistency.",
+        "Omitted: \"Not only ... also\" and \"mesmerizing\" fine, but omitted rummy-nose 'For more care instructions' and similar pointers (acceptable shop-talk), while omitted 'if you have...' fine.",
+        "Intro changed: \"some of the animals start to exhibit unique behaviors\" became \"Có những loài chỉ để lộ vài tập tính riêng\" and added unsupported claim \"Nuôi trong bể trống thì khó mà thấy được những tập tính đó\" (added fact, slightly changes meaning).",
+        "Rummy-nose: \"Tetra mũi đỏ\" ok, but 55-gallon → \"khoảng 210 lít\" is correct; \"Cá tetra mũi đỏ\" with \"red faces\" fine. Omitted 'common community fish of same size' nuance minimal.",
+        "Elephant nose: \"dài tới 23 cm\" loses 'grows up to'; reasoning 'Part of the reason' OK; but \"hay gây sự\" for territorial is loose, and adds 'sống hòa thuận' fine. \"cá mũi voi\" 'trunk-like appendage' translated as 'vòi' fine.",
+        "Platy: \"20-gallon\" → \"75 lít\" correct, 29-gallon → \"110 lít\" correct. But 'water sprite' = \"dương xỉ nước\" is acceptable; 'Plus... would-be predators' fine. Omitted 'hoover up' nuance minor.",
+        "Hatchetfish section reordered: lid advice moved to second paragraph and the 'jump out if given chance' fine; but 'ráy' for anubias is OK. \"Cá barb hồng\" should be consistent with 'rosy barb' (cá ba tụ hồng/ cá barb hồng) fine.",
+        "Cherry shrimp title \"Tép red cherry\" mixes English; use \"Tép cherry đỏ\". Also \"1.5-inch (4 cm)\" fine. Leopard bush fish: \"Cá Ctenopoma báo\" and 'spotted bushfish' dropped; \"mới thấy được\" additions; 'bloodworms' → \"trùn chỉ đỏ\" wrong (bloodworm = ấu trùng muỗi đỏ/giun huyết)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-rainbowfish#aquariumcoop": [
     {
       "at": "2026-11-07T02:47:09Z",
@@ -704,6 +866,65 @@
         "\"Dù vậy, bạn nên nuôi số cái nhiều hơn số đực thì cá đực mới khoe màu đẹp nhất\" is rephrased. It is still faithful.",
         "\"lộng lẫy ... lúc lên màu\" in \"Bù lại, lúc lên màu thì chúng lộng lẫy\" adds the idea of coloring up, which BEFORE did not state; it is a slight nuance shift.",
         "\"mà không gặp khó khăn gì\" for \"dễ dàng chịu được\" is equivalent."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-where-to-buy-pet-fish#aquariumcoop": [
+    {
+      "at": "2026-11-08T07:26:57Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Opening paragraph: 'Có những tiệm cá vẫn bán cá tại cửa hàng, nhưng hàng gửi qua mạng thì chỉ có đồ khô...' distorts the source. The original says the brick-and-mortar store sells fish but the website deliberately doesn't, and the shop's choice is the reason. Rewrite neutrally to keep that meaning.",
+        "Omitted: 'Our Aquarium Co-Op fish store in Edmonds, Washington specializes in community fish and aquarium plants' is dropped. This is shop talk, so dropping it is acceptable. Check that nothing else is lost.",
+        "Omitted: the 5% discount code 'aquariumcoop'. Dropping it is fine, but 'người lập danh sách nhận một khoản hoa hồng nhỏ' is kept. Make sure the affiliate disclosure stays neutral and consistent.",
+        "'Để lập danh sách cửa hàng online đáng tin, người ta đã làm thử nghiệm mù' is vague. The source says the list of preferred vendors was made with blind tests. Make clear that the list ('danh sách các cửa hàng được ưa chuộng') is the author's own, and add 'ưa chuộng/ưu tiên'.",
+        "'Hội cá cảnh là nguồn mua rất tốt' and 'Cá ở đây thường khỏe đẹp': 'khỏe đẹp' is an embellishment. The source says 'good quality'. Use 'chất lượng tốt'.",
+        "'Ở tiệm thường có cá do người trong vùng cho đẻ' overstates the source's 'Oftentimes, you may be able to score locally bred fish'. Use 'đôi khi có thể gặp cá do người trong vùng nhân giống'.",
+        "'Ngược lại, khi cho cá đẻ được thì nên đem bán cho tiệm...' changes the meaning. The source says the authors do this themselves ('we try to sell them to the local market and share them'), and it is not a recommendation to the reader. Also 'Ngược lại' is a poor connector for 'That's why'.",
+        "'cá platy teacup' and 'cá kiếm non': the founder Cory is omitted, which is acceptable. 'Cá kiếm lớn lên to hơn platy rất, rất nhiều' is clumsy. Say 'to hơn nhiều'. Also, the source frames swordtails as a different species, not as 'loài khác hẳn' of the same fish.",
+        "'seasoned tank' and 'DOA' are left in English in parentheses. Give a Vietnamese gloss for 'seasoned tank' (e.g. 'bể đã ổn định vi sinh') in place of the bare English. Also, 'cichlid châu Phi' could use the established 'cá hoàng đế/cichlid' form."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T07:26:57Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Omitted: the map of aquarium clubs and the request to register a missing club (\"Thử tìm xem gần nhà có hội nào không\" drops the 'worldwide map' fact).",
+        "Mistranslation: \"Cá cũng do chính bạn chở về, nên được thả vào bể mới càng sớm càng tốt\" loses the logic 'you drive them home yourself and make sure they get into the tank ASAP'.",
+        "Added fact: \"Có một cuộc thử nghiệm mù\" — the source says the team ran blind tests; the Vietnamese frames it as a separate, vague event (\"trong đợt đó\"), which is awkward and changes the meaning.",
+        "Omitted: the affiliation and commission disclosure is dropped. Dropping the discount code is fine, but the 'preferred vendors list' and the 'Buy Live Fish' closing are gone without a neutral substitute.",
+        "\"Hàng trên eBay rất nhiều, nhưng công ty thương mại đăng bán nhiều hơn\" is garbled. The source says there is plenty of choice but more commercial companies post there. Rephrase as 'nhiều công ty thương mại đăng bán hơn'.",
+        "\"Cứ coi eBay như đi chợ đồ cũ\" — the source says garage sales; \"chợ đồ cũ\" is acceptable but \"không biết sẽ gặp gì\" is fine. Keep.",
+        "\"Nó là một loài khác hẳn, và người mua bị lỗ tiền\" — the source says 'juvenile swordtails'; 'con non' is missing in \"nhận về lại là cá kiếm con\". 'Cá kiếm con' is ambiguous, so write 'cá kiếm non'.",
+        "\"Cá cũng do chính bạn chở về\" and the sentence 'Cũng vì thế, khi cho cá đẻ được' are slightly clumsy. Write 'tiệm gần nhà' in 'Có điều, tiệm này mỗi tiệm một khác' as 'chất lượng mỗi tiệm một khác'.",
+        "\"set một bể đã chạy ổn định\" — leaves English 'set' in place. Use 'lên/chuẩn bị một bể đã chạy ổn định (seasoned tank)'.",
+        "\"Nhiều người muốn biết nên mua cá cảnh ở đâu\" — the opening about the store not selling fish online is removed. Acceptable as shop talk, but 'dry goods and live plants' context is lost."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet#aquatome": [
+    {
+      "at": "2026-11-08T07:27:50Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Cá chuột (corydoras)\" -> \"cá chuột\" (parenthetical dropped, minor); \"guppy\" -> \"cá bảy màu\" is a fine Vietnamese term.",
+        "\"qua một kỳ nghỉ cuối tuần dài vẫn thoải mái\" -> \"vẫn khỏe re\": slightly stronger/more colloquial certainty.",
+        "\"Bể bị lỡ bữa\" / \"cá ăn thực vật\" -> \"cá ăn rau\": minor wording shift, acceptable.",
+        "\"thức ăn sống\" -> \"đồ tươi\": slight nuance change, 'live food' vs 'fresh food'; still mostly equivalent.",
+        "\"Bỏ thức ăn quá nhiều vào máy\" -> added \"quá nhiều\" for 'để lại' too: negligible.",
+        "\"Ở Singapore đây là kiểu hỏng hay gặp\" -> \"máy hay hỏng theo kiểu này\": equivalent.",
+        "\"Một nguồn / Nguồn khác\" -> \"Có người / Có nơi\": source attribution slightly changed from sources to people, harmless.",
+        "\"Chỉ số nào trên 0 ppm thì thay nước\": 'one of the two' preserved in meaning.",
+        "\"Bể phải ổn định rồi thì mới yên tâm bỏ đi được\": slight embellishment of 'Bể cần ổn định trước khi bạn vắng nhà'."
       ],
       "attempt": "first",
       "kept": true
@@ -743,6 +964,26 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc#aquatome": [
+    {
+      "at": "2026-11-08T07:29:04Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "BEFORE 'Mỗi lần làm khoảng 1 đến 0,1 m²' was reordered to 'khoảng 0,1 đến 1 m²'. This is a sensible fix and not an error.",
+        "'Thấy lưỡi bắt đầu kéo không còn trơn' became 'Thấy lưỡi kéo bắt đầu không còn trơn'. The word order shifts the meaning slightly.",
+        "'Bạn nên thường xuyên soi các mặt kính dưới ánh sáng tốt' became 'dưới chỗ đủ sáng'. 'Good light' weakened to 'sufficiently bright'. This is a minor nuance loss.",
+        "'Một nguồn... Nguồn này cũng nói các loại giấm khác' became 'Nguồn khác dặn... và cho biết'. The attribution is clear, and the content is kept.",
+        "'Rêu chấm xanh' became 'rêu đốm xanh'. This is acceptable.",
+        "'Nước máy có chloramine thì để lắng không làm mất được' became 'để lắng cũng không hết'. This slightly weakens it, from 'cannot remove' to 'does not fully remove'.",
+        "'Thông tin hiện có không cho biết' became 'Hiện chưa rõ'. The framing as a gap in the sources is weakened, but the caution is kept.",
+        "'Bể acrylic: ... kiểm tra sạn trên nam châm còn kỹ hơn bể kính' is kept. The 'Loại #2 và #3 nên thử' caution is kept.",
+        "'Đắp giấm... cạo bằng lưỡi dao' is kept. The point that the scraping applies only to glass tanks is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-astroblepus-from-peru-imported-en#glaser": [
     {
       "at": "2026-11-06T18:33:44Z",
@@ -771,6 +1012,60 @@
       "kept": true
     }
   ],
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-double-sword-guppys-en#glaser": [
+    {
+      "at": "2026-11-08T07:29:37Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Product item numbers (414643, 418883, etc.) were dropped; these are catalogue codes tied to shop talk, so dropping is acceptable, but confirm that is intended.",
+        "\"Please note that we exclusively supply the wholesale trade\" is omitted; this is shop talk, so the omission is fine.",
+        "\"Our Extra-Newsletter today shows you...\" became \"Dưới đây là...\"; this is acceptable, but the mention of showing 'currently most popular' forms is kept, so no change is needed.",
+        "\"Cá bảy màu có vô số dạng đột biến\": 'sports' means mutation/varieties; 'dạng biến dị' or 'dòng' would be a bit more natural than 'đột biến'.",
+        "\"đuôi kiếm đôi nhiều màu, màu nền vàng nhạt (blonde)\": 'blonde' is a guppy base-colour term; 'màu nền blonde' is better kept as the hobby term.",
+        "\"Lyretail\" and \"Scissortail\" are left as English in the list; this is OK as trade names, but you could add a gloss such as 'đuôi đàn lia' and 'đuôi kéo' on first use.",
+        "\"cho cá bảy màu đẻ\" is fine; \"Probably anyone who keeps ornamental fish\" is rendered with 'Có lẽ ai... cũng', which is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T07:29:37Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Product codes (414643, 418883, 418893, 418943, 419043) were dropped. They are shop catalogue numbers, so removing them is acceptable shop-talk removal. Keep them removed.",
+        "\"Please note that we exclusively supply the wholesale trade\" is shop talk and is correctly dropped.",
+        "\"Con cá nhanh nhẹn, lấp lánh đủ màu cầu vồng này\" is singular. The English is generic plural ('fish that shimmer'). Use \"Những chú cá ... này\" or \"Loài cá ...\".",
+        "\"Cá bảy màu có vô số dòng\" is acceptable for 'countless sports'. 'Sports' means mutations or varieties, so \"dạng đột biến/biến dị\" would be more precise.",
+        "\"Dưới đây là vài dòng đuôi kiếm đôi ... đang được nhiều người nuôi nhất hiện nay\" drops the newsletter framing. This is fine, but 'currently most popular' is rendered loosely. Prefer \"đang phổ biến nhất\".",
+        "\"Dòng bán với tên 'Calico Lyretail'\" is awkward. Use \"dòng có tên thương mại là ...\".",
+        "\"màu nền blonde\" leaves 'blonde' untranslated. Use \"màu nền vàng nhạt (blonde)\".",
+        "\"cá bán ngoài tiệm\" misstates the trade context. The English says 'in the trade', which means trade or commercial names. Use \"tên thương mại\".",
+        "The names in the list keep the English trade names with no gloss. Lyretail (đuôi đàn lia) and Scissortail (đuôi kéo) could be glossed, but keeping them is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en#glaser": [
+    {
+      "at": "2026-11-08T07:29:57Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Mà hễ về là hết rất nhanh\" is OK, but \"Ở tiệm cá, P. melanogaster cũng chỉ lâu lâu mới về\" is colloquial; use a more neutral phrase such as \"hiếm khi xuất hiện ở cửa hàng\".",
+        "\"Currently we have breathtaking animals in xxl size\" is omitted. Add that large specimens (xxl size) are sometimes available, or drop it only if it is treated as shop talk.",
+        "\"cá trại cho đẻ ở Đức\" is slightly awkward. Use \"cá sinh sản nhân tạo tại Đức\" or \"cá nhân giống ở Đức\".",
+        "\"hợp để nuôi chung với cá hiền\" changes \"community tanks\". Use \"bể cá cộng đồng\".",
+        "\"Initially it is found on Haiti\" means it is native to Haiti. \"Quê gốc\" is fine, but the \"already\" nuance in \"từ năm 1912\" is lost.",
+        "\"Chuyện này đủ thấy người chơi mê loài cá này đến mức nào\" is a bit free. It is acceptable, but a closer rendering would be \"cho thấy đây là loài cá cảnh được ưa chuộng\".",
+        "\"Rõ ràng thức ăn đó có những chất rất tốt\" lost \"obviously... nutrients\". Rephrase as \"có lẽ lớp rêu này chứa chất dinh dưỡng rất tốt cho cá\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-endler-sports-en#glaser": [
     {
       "at": "2026-11-07T06:42:56Z",
@@ -780,6 +1075,22 @@
         "\"vây lưng xòe như lá cờ\" → \"xòe rộng như lá cờ\": \"rộng\" added, small nuance",
         "\"phủ phần sau thân\" → \"phủ kín phần sau thân\": \"kín\" slightly strengthens coverage",
         "\"bơi dưới nước\" moved onto the fish; harmless but a minor restructure"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-nothos-en#glaser": [
+    {
+      "at": "2026-11-08T07:30:14Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"nhóm cá sống theo mùa rất đẹp\": the source says \"wonderful\" and means remarkable or fascinating, not \"beautiful\". Use \"đáng chú ý/kỳ thú\".",
+        "\"Dĩ nhiên, Nothobranchius bán trên thị trường đều là cá trại\": \"chỉ\" (only) is missing. Say \"chỉ được bán dưới dạng cá nhân giống\".",
+        "\"dạng đột biến màu xanh dương\": \"blue sport\" is a colour mutation, so this is acceptable. \"dòng Zanzibar\" is better written as \"cá từ Zanzibar\" or \"dạng Zanzibar\", because it is a locality form, not a strain.",
+        "\"ba dạng nữa\": \"three additional types\" is fine. \"Hiện có thêm một trại mới\" is shop talk reworded neutrally and is acceptable.",
+        "\"chờ đến khi mưa trở lại\": the translation drops the \"falling rain awakens new life\" imagery, but the meaning is intact."
       ],
       "attempt": "first",
       "kept": true

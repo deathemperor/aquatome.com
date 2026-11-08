@@ -1,0 +1,94 @@
+import type { UnitLang } from '@aq/schema'
+
+/**
+ * Litres that only a gallon conversion gives: a US 5, 10, 15, 20, 25, 30, 40, 50, 55, 75, 90, 100, 120, 125, 150, 180,
+ * 200 and 250-gallon tank, converted to the litre or to tens. The reader-fit rule finds them (fit.ts), and `roundConverted`
+ * rounds them.
+ */
+export const CONVERTED_LITRES: readonly number[] = [19, 38, 57, 76, 95, 113, 114, 151, 189, 208, 210, 284, 285, 341, 379, 380, 454, 473, 568, 681, 757, 946, 950]
+/** The tank sizes a keeper here names, in litres. */
+const TANK_LITRES = [20, 30, 40, 50, 60, 80, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 750, 800, 1000]
+/** A rounded figure stays within this of the source's: 110 litres is as far from 100 as from 120, and stays 110. */
+const WITHIN = 0.07
+/** A tank's side in cm that only an inch or foot conversion gives (13, 15, 16, 18, 20, 24, 30, 36, 48, 60, 72, 84, 96 in). */
+const INCH_SIDES = new Set([33, 38, 41, 46, 51, 61, 76, 91, 122, 152, 183, 213, 244])
+/** A tank's length in cm that only a foot conversion gives (2 to 8 ft): "bể dài 122 cm". */
+const FOOT_LENGTHS = new Set([61, 91, 122, 152, 183, 213, 244])
+
+const near = (n: number) => TANK_LITRES.reduce((b, x) => (Math.abs(x - n) < Math.abs(b - n) || (Math.abs(x - n) === Math.abs(b - n) && x > b) ? x : b))
+const litres = (n: number) => { const r = near(n); return CONVERTED_LITRES.includes(n) && Math.abs(r - n) / n <= WITHIN ? r : n }
+const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
+
+const L = String.raw`(?:lít|liter|litre|ลิตร|L|l)(?![\p{L}\p{N}])`
+const JOIN = String.raw`\s*(?:[–-]|hoặc|đến|tới|và|atau|hingga|sampai|dan|หรือ|ถึง|และ)\s*`
+/** A dose's volume ("1 gói cho mỗi 38 lít", "per 38 liter"): the label's own figure, which stays. */
+const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
+const TANK = /(?:bể|hồ|akuarium|tangki|ตู้)[^.;!?<>]{0,40}$/iu
+const LITRE_FIG = new RegExp(String.raw`(?<![\d.,])(\d{2,3})(?:(${JOIN})(\d{2,3}))?(\s*${L})`, 'gu')
+const SIDES = /(?<![\d.,])(\d{2,3})(\s*[×x]\s*)(\d{2,3})(?:(\s*[×x]\s*)(\d{2,3}))?(\s*(?:cm|ซม\.))/gu
+const LENGTH = /(?<![\d.,×x]\s?)(\d{2,3})(\s*(?:cm|ซม\.))(?!\s*[×x])/gu
+const fromF = (c: number) => { const f = c * 9 / 5 + 32; return Math.abs(f - Math.round(f)) < 0.1 }
+
+/**
+ * A text's metric figures that only a conversion gives, rounded to what a keeper here says. `toMetric` (@aq/schema)
+ * converts an imperial figure exactly ("bể 10 gallon" → "bể 38 lít"), and writers convert the same way; nobody here
+ * names a tank "38 lít", "183 × 61 cm" or a temperature "22,8 °C". This is the step after it:
+ * - litres in CONVERTED_LITRES, to the nearest tank size a keeper names, when that is within 7%: "38 lít" → "40 lít",
+ *   "681 lít" → "700 lít", "110 lít" stays. A range keeps both ends ("57–76 lít" → "60–80 lít"), and becomes one figure
+ *   only when both ends are one tank converted two ways ("208–210 lít" → "200 lít"); ends a real difference apart that
+ *   would meet are rounded to tens instead ("189–208 lít" → "190–210 lít").
+ * - a tank's sides, when one is an inch or foot figure: to 5 cm under a metre, 10 above ("183 × 61 cm" → "180 × 60 cm");
+ *   a tank's length in feet the same ("bể dài ít nhất 122 cm" → "120 cm")
+ * - °C that a whole °F gives, to whole degrees ("22,8 đến 27,8 °C", 73 to 82 °F, → "23 đến 28 °C"); a measured
+ *   "29,3 °C" stays, and so does a range whose ends would meet
+ * Left as written: a dose's volume ("1 gói cho mỗi 38 lít"), a length that isn't a tank's ("cá dài 61 cm"), HTML tags.
+ */
+export function roundConverted(text: string, lang: UnitLang): string {
+  const dec = lang === 'th' || lang === 'ms' ? '\\.' : ','
+  const D = String.raw`(\d{1,2})${dec}(\d)`
+  const TEMP = new RegExp(String.raw`(?<![\d.,])${D}(?:(${JOIN})(?:${D}|(\d{1,2})(?![\d.,])))?(\s*(?:°\s?C|độ C|độ))`, 'gu')
+  const round = (t: string) => t
+    .replace(LITRE_FIG, (all, a: string, j: string | undefined, b: string | undefined, u: string, at: number, s: string) => {
+      if (PER.test(s.slice(Math.max(0, at - 24), at))) return all
+      const x = Number(a)
+      if (!b) return `${litres(x)}${u}`
+      const y = Number(b)
+      let [rx, ry] = [litres(x), litres(y)]
+      if (rx === ry && x !== y) {
+        if (Math.abs(x - y) / Math.max(x, y) <= 0.05) return `${rx}${u}`
+        ;[rx, ry] = [Math.round(x / 10) * 10, Math.round(y / 10) * 10]
+        if (rx === ry) return all
+      }
+      return `${rx}${j}${ry}${u}`
+    })
+    .replace(SIDES, (all, a: string, x1: string, b: string, x2: string | undefined, c: string | undefined, u: string) => {
+      const ns = [a, b, c].filter((v): v is string => !!v).map(Number)
+      if (!ns.some(n => INCH_SIDES.has(n))) return all
+      const [ra, rb, rc] = ns.map(side)
+      return `${ra}${x1}${rb}${c ? `${x2}${rc}` : ''}${u}`
+    })
+    .replace(LENGTH, (all, a: string, u: string, at: number, s: string) =>
+      (FOOT_LENGTHS.has(Number(a)) && TANK.test(s.slice(Math.max(0, at - 48), at)) ? `${side(Number(a))}${u}` : all))
+    .replace(TEMP, (all, a1: string, a2: string, j: string | undefined, b1: string | undefined, b2: string | undefined, b3: string | undefined, u: string) => {
+      const num = (i: string, d: string) => Number(`${i}.${d}`)
+      if (a2 === '0' || a2 === '5' || !fromF(num(a1, a2)) || (b1 && (b2 === '5' || !fromF(num(b1, b2!))))) return all
+      const first = Math.round(num(a1, a2))
+      if (!j) return `${first}${u}`
+      const second = b1 ? Math.round(num(b1, b2!)) : Number(b3)
+      return first === second ? all : `${first}${j}${second}${u}`
+    })
+  return text.split(/(<[^>]+>)/).map((seg, i) => (i % 2 ? seg : round(seg))).join('')
+}
+
+type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+/** A page's text rounded (`roundConverted`): what `metricPage` (@aq/schema) reads, and reference lists stay as published. */
+export function roundPage<T extends Page>(page: T, lang: UnitLang): T {
+  const r = (s: string) => roundConverted(s, lang)
+  return {
+    ...page,
+    ...(page.sections ? { sections: Object.fromEntries(Object.entries(page.sections).map(([k, v]) => [k, k.startsWith('references:') ? v : r(v)])) } : {}),
+    ...(page.body !== undefined ? { body: r(page.body) } : {}),
+    ...(page.summary ? { summary: page.summary.map(r) } : {}),
+    ...(page.faq ? { faq: page.faq.map(f => ({ q: r(f.q), a: r(f.a) })) } : {}),
+  }
+}
