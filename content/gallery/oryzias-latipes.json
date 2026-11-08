@@ -11,7 +11,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_Male_by_Hino,_Tokyo.jpg",
       "caption": "Cá medaka đực vây vàng nhìn nghiêng",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/98cef341304a9f95.webp",
@@ -59,7 +64,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/394772870",
       "caption": "Cá medaka Nhật trong môi trường nước nông có rong tảo",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/394772870-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/631330028.webp",
@@ -71,7 +81,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/631330028",
       "caption": "Cá medaka Nhật trưởng thành trong hộp nhỏ có thước đo",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/631330028-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/7ae5ec939ef3c992.webp",
@@ -83,7 +98,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_female_by_Hino,_Tokyo.jpg",
       "caption": "Cá medaka đực nhìn nghiêng trên nền xanh tối",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7ae5ec939ef3c992-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/55e3563f1d4be67a.webp",
