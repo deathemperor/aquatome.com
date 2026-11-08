@@ -10,6 +10,16 @@ function commonsThumb(p: Photo) {
 /** Card/thumbnail source: our recorded 480px thumb, Wikimedia's 500px size, else the full photo. */
 export const smallSrc = (p: Photo) => (p.thumb !== p.url ? p.thumb : undefined) ?? (new URL(p.url).host.endsWith('wikimedia.org') ? thumbOf(p.url) ?? commonsThumb(p) : undefined) ?? p.url
 
-/** A photo's large copy for the app's large layouts, as the page format and the app index carry it, or nothing. */
-export const largeOf = (p: Photo | undefined): { large?: { url: string; width: number; height: number } } =>
-  p?.large ? { large: { url: p.large.url, width: Math.round(p.large.width), height: Math.round(p.large.height) } } : {}
+/** The least a large copy gives on its short side: the app's large layouts need about 1,200 px. */
+export const LARGE_SHORT_PX = 1200
+
+/**
+ * A photo's large copy for the app's large layouts, as the page format and the app index carry it, or nothing. A copy
+ * under 1,200 px on its short side (a small original, a panorama cut to 2,400 long) is left out, so the app gives that
+ * photo its smaller layout rather than stretching it.
+ */
+export const largeOf = (p: Photo | undefined): { large?: { url: string; width: number; height: number } } => {
+  if (!p?.large) return {}
+  const width = Math.round(p.large.width), height = Math.round(p.large.height)
+  return Math.min(width, height) >= LARGE_SHORT_PX ? { large: { url: p.large.url, width, height } } : {}
+}

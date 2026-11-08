@@ -63,6 +63,7 @@ private func json(_ i: PageDoc.Image) -> [String: Any] {
     j["authorUrl"] = c.authorUrl
     o["credit"] = j
   }
+  if let l = i.large { o["large"] = ["url": l.url, "width": l.width, "height": l.height] as [String: Any] }
   return o
 }
 private func json(_ b: PageDoc.Block) -> [String: Any] {

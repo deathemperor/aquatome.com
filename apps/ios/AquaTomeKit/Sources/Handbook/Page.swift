@@ -81,10 +81,26 @@ public struct PageDoc: Sendable {
     public let thumb: String?
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
     public let credit: Credit?
+    /// A larger copy, 1,200 px or more on its short side, for a large header or card; a photo without one gets the smaller
+    /// layout.
+    public let large: Large?
+
+    /// A photo's larger copy and its size.
+    public struct Large: Sendable {
+      public let url: String
+      public let width: Int
+      public let height: Int
+
+      init?(json v: Any?) {
+        guard let o = v as? [String: Any], let url = o["url"] as? String, let width = o["width"] as? Int, let height = o["height"] as? Int,
+          width > 0, height > 0 else { return nil }
+        self.url = url; self.width = width; self.height = height
+      }
+    }
 
     /// A photo the page doesn't carry (a reader's): `credit`, who took it.
-    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?) {
-      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit
+    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?, large: Large? = nil) {
+      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit; self.large = large
     }
 
     init?(json v: Any?) {
@@ -93,6 +109,7 @@ public struct PageDoc: Sendable {
       alt = o["alt"] as? String
       thumb = o["thumb"] as? String
       credit = Credit(json: o["credit"])
+      large = Large(json: o["large"])
     }
 
     /// A photo's credit: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. An Unsplash photo's line
