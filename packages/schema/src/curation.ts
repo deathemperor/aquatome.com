@@ -75,6 +75,9 @@ export const LoopSchema = z.object({
   author: z.string().min(1),
   /** The original's page, for the credit. */
   source: z.string().url(),
+  /** Set on a loop kept until better footage comes: what replaces it, and when. The media lead's to act on; the app
+   * shows the loop as any other. */
+  replace: z.string().min(1).optional(),
 })
 
 export const CurationSchema = z.object({

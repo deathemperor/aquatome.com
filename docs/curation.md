@@ -129,6 +129,12 @@ Short silent loops, real footage of the species: a fish swimming, or hovering wi
 - **Each clip** is checked: the right species, no people, hands, logos, watermarks or text, good enough for a large
   card. Its credit shows wherever it plays: the author, the licence linked to its own page (`licenceUrl`), and
   "cut and looped from" the original, linked. A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
+- **Uploading**: to `aquatome-media/loops/<id>-<n>.{mp4,-h264.mp4,webp}` with a year's immutable cache, never over a key
+  in use. Check that a key is free with a HEAD request, never a GET: media.aquatome.com caches a GET's 404 for four
+  hours, so the file can't be fetched there even once it's uploaded.
+- **A loop kept for now** (`replace`): one under the council's bar that the chief chose to ship, with what replaces it.
+  The koi (8/10, a bubble shows twice in the dissolve) waits for the owner's or a shop's footage, and goes back to the
+  photo if the owner dislikes the dissolve.
 
 ### Generated video
 

@@ -428,7 +428,34 @@
    "why": "Fish: Cá nóc xanh đốm, native to Vietnam."
   }
  ],
- "loops": {},
+ "loops": {
+  "koi": {
+   "src": "https://media.aquatome.com/loops/koi-2.mp4",
+   "h264": "https://media.aquatome.com/loops/koi-2-h264.mp4",
+   "poster": "https://media.aquatome.com/loops/koi-2.webp",
+   "w": 1080,
+   "h": 1080,
+   "seconds": 4.92,
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Mário J.R. Matos",
+   "source": "https://archive.org/details/4kfreestockfootagegiantcarpfishorangeblackwhite",
+   "replace": "Replace with the owner's or a Vietnamese shop's koi footage when it comes (council 8/10: a bubble shows twice in the dissolve). If the owner dislikes the dissolve, remove it so the card shows the photo (CoS, 2026-11-08)."
+  },
+  "cyprinus-rubrofuscus": {
+   "src": "https://media.aquatome.com/loops/koi-2.mp4",
+   "h264": "https://media.aquatome.com/loops/koi-2-h264.mp4",
+   "poster": "https://media.aquatome.com/loops/koi-2.webp",
+   "w": 1080,
+   "h": 1080,
+   "seconds": 4.92,
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Mário J.R. Matos",
+   "source": "https://archive.org/details/4kfreestockfootagegiantcarpfishorangeblackwhite",
+   "replace": "Replace with the owner's or a Vietnamese shop's koi footage when it comes (council 8/10: a bubble shows twice in the dissolve). If the owner dislikes the dissolve, remove it so the card shows the photo (CoS, 2026-11-08)."
+  }
+ },
  "avoid": {
   "https://media.aquatome.com/commons/d303bc24129e7273.webp": "betta: a dark tank where the fish is small; its caption says the fish is sick",
   "https://media.aquatome.com/aquariumcoop/f60636dca7caf019.webp": "a person",
