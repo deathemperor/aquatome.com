@@ -281,12 +281,13 @@ export function qualityBlocks(q: Quality | { failed: string } | undefined): Bloc
 /**
  * The lists for the writers' rewrite queue (agreed with them): each page once per list, by its engine key and path, with
  * its figures, the reader-fit checks it fails, the reader review's findings and its last review's score. Pages on hold
- * (fixed by hand, or lately rewritten) are left out.
+ * (fixed by hand, or lately rewritten) are left out, and so are pages with no engine key (the home page, a section's
+ * list), which the writers can't rewrite: the owner's lists keep them.
  */
 export const qualityJson = (q: Quality) => ({
   v: 1, days: q.days, ...(q.search ? { search: q.search } : {}),
-  pages: (['rewrite', 'decaying', 'worst', 'best'] as const).flatMap(list => q[list].filter(r => !r.hold).map((r, i) => ({
-    list, priority: i + 1, path: r.path, ...(r.key ? { key: r.key } : {}), title: r.title, score: r.score, why: r.why, figures: r.figures,
+  pages: (['rewrite', 'decaying', 'worst', 'best'] as const).flatMap(list => q[list].filter(r => !r.hold && r.key).map((r, i) => ({
+    list, priority: i + 1, path: r.path, key: r.key!, title: r.title, score: r.score, why: r.why, figures: r.figures,
     ...(r.quality !== undefined ? { quality: r.quality } : {}), ...(r.fit !== undefined ? { fit: r.fit } : {}), ...(r.reader !== undefined ? { reader: r.reader } : {}), ...(r.review !== undefined ? { review: r.review } : {}),
     ...(r.rewritten ? { rewritten: r.rewritten } : {}),
   }))),
