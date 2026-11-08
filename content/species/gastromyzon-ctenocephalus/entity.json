@@ -12,6 +12,68 @@
     "indonesia",
     "sambas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sarawak",
+        "Sambas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to western Borneo where it's known only from headwaters of the Sungai (river) Sarawak, Sarawak State, Malaysia and the Sungai Sambas in West Kalimantan Province, Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Sarawak",
+            "Sambas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358902,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          115.3125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,56 @@
     "papua-new-guinea",
     "lake-wanam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Lake Wanam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Lake Wanam rainbowfish, Glossolepis wanamensis, is a rainbowfish endemic to Lake Wanam in Papua New Guinea.",
+          "countries": [
+            "PG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Wanam, Papua New Guinea.",
+          "countries": [],
+          "regions": [
+            "Lake Wanam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5214488,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          146.25,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

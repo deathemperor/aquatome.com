@@ -1,28 +1,5 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/082-Barcelona-Museum-CosmoCaixa.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/082-Barcelona-Museum-CosmoCaixa.jpg/500px-082-Barcelona-Museum-CosmoCaixa.jpg",
-   "width": 2560,
-   "height": 1920,
-   "licence": "CC0",
-   "author": "MartinThoma",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:082-Barcelona-Museum-CosmoCaixa.jpg",
-   "caption": "Museum CosmoCaixa in Barcelona",
-   "key": "File:082-Barcelona-Museum-CosmoCaixa.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/083-Barcelona-Museum-CosmoCaixa.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/083-Barcelona-Museum-CosmoCaixa.jpg/500px-083-Barcelona-Museum-CosmoCaixa.jpg",
-   "width": 2560,
-   "height": 1920,
-   "licence": "CC0",
-   "author": "MartinThoma",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:083-Barcelona-Museum-CosmoCaixa.jpg",
-   "caption": "Museum CosmoCaixa in Barcelona",
-   "key": "File:083-Barcelona-Museum-CosmoCaixa.jpg"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Peixe009eue.jpg",
   "File:BlackTetraCloseUp.JPG",
@@ -100,7 +77,9 @@
   "inat:556431460",
   "inat:726148748",
   "inat:756088001",
-  "flickr:42803572965"
+  "flickr:42803572965",
+  "File:082-Barcelona-Museum-CosmoCaixa.jpg",
+  "File:083-Barcelona-Museum-CosmoCaixa.jpg"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/c8365fb29d328361.webp": "13181d1fbbc96024",
@@ -153,7 +132,9 @@
   "https://media.aquatome.com/inaturalist/309268462.webp": "4c860e0ea61636e6",
   "https://media.aquatome.com/inaturalist/234756799.webp": "5d5b579b86b6cfef",
   "https://media.aquatome.com/inaturalist/556431460.webp": "6cce1f1c388c6676",
-  "https://media.aquatome.com/flickr/42803572965.webp": "f5ddcd4ddd0d8ddd"
+  "https://media.aquatome.com/flickr/42803572965.webp": "f5ddcd4ddd0d8ddd",
+  "https://upload.wikimedia.org/wikipedia/commons/6/67/082-Barcelona-Museum-CosmoCaixa.jpg": "0f2c392d5d4e0e9d",
+  "https://upload.wikimedia.org/wikipedia/commons/9/9a/083-Barcelona-Museum-CosmoCaixa.jpg": "0785dc3c9083cab6"
  },
  "inat": {
   "taxon": 47384,
@@ -170,5 +151,6 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "exhausted": "2026-11-08"
 }

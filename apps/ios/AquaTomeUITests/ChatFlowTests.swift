@@ -195,7 +195,7 @@ final class ChatFlowTests: XCTestCase {
     box.tap()
     box.typeText(String(repeating: "a", count: 501))
     XCTAssertEqual(element(app, "chat-length").label, "501/500")
-    XCTAssertTrue(app.staticTexts["Câu hỏi tối đa 500 ký tự. Bạn rút gọn bớt rồi gửi nhé."].exists)
+    XCTAssertTrue(app.staticTexts["Câu hỏi đã quá 500 ký tự. Rút gọn rồi gửi nhé."].exists)
     XCTAssertFalse(app.buttons["chat-send"].isEnabled)
   }
 
@@ -209,9 +209,9 @@ final class ChatFlowTests: XCTestCase {
     box.tap()
     let words = String(repeating: "a", count: 1001)
     box.typeText(words)
-    XCTAssertFalse(app.staticTexts["Câu hỏi tối đa 1.500 ký tự. Bạn rút gọn bớt rồi gửi nhé."].exists, "said too long at the status's limit")
+    XCTAssertFalse(app.staticTexts["Câu hỏi đã quá 1.500 ký tự. Rút gọn rồi gửi nhé."].exists, "said too long at the status's limit")
     app.buttons["chat-send"].tap()
-    XCTAssertTrue(app.staticTexts["Câu hỏi tối đa 1.000 ký tự. Bạn rút gọn bớt rồi gửi nhé."].waitForExistence(timeout: 5),
+    XCTAssertTrue(app.staticTexts["Câu hỏi đã quá 1.000 ký tự. Rút gọn rồi gửi nhé."].waitForExistence(timeout: 5),
                   "the Worker's limit not said")
     XCTAssertEqual(box.value as? String, words, "the question didn't come back to the box")
     XCTAssertFalse(app.staticTexts["chat-question"].exists, "the refused question stayed as a bubble")

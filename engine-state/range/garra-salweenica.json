@@ -1,0 +1,77 @@
+{
+  "id": "garra-salweenica",
+  "native": {
+    "input": "d25558a3eced5edd",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Salween River system in Yunnan province, China, Myanmar, and western Thailand.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Salween River system in Yunnan province, China, Myanmar, and western Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Salween River system in Yunnan province, China, Myanmar, and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Salween River system in Yunnan province, China, Myanmar, and western Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra salweenica",
+    "status": "ACCEPTED",
+    "taxonKey": 2366779,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        54
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

@@ -82,6 +82,8 @@ private struct ChatThread: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .defaultScrollAnchor(.top)
+        // On the scroll view alone: around the composer too, it stood over the box's, send's and the line's own.
+        .accessibilityIdentifier("chat")
         .onChange(of: model.thread.last?.id) {
           guard let id = model.thread.last?.id else { return }
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
@@ -100,7 +102,6 @@ private struct ChatThread: View {
         }
       }
     }
-    .accessibilityIdentifier("chat")
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     // A light tap as a question goes; a soft one as its answer starts; a warning when one is stopped or fails.
     .sensoryFeedback(.impact(weight: .light), trigger: model.thread.count) { a, b in b > a }

@@ -32,7 +32,7 @@ export const PHOTO_CHECK_SCHEMA = {
   properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },
 }
 /** Verdicts that take a photo off its page. */
-const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
 /**
  * Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, a person or part
  * of one ("Photos never show people (hands count)", PRODUCT.md), or a logo.

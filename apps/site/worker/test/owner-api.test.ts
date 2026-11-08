@@ -33,7 +33,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
   'noi-dung': [
     ['sample', () => contentPage(S.CONTENT), () => contentSection(S.CONTENT)],
     ['failed', () => contentPage({ ...S.CONTENT, stats: F }), () => contentSection({ ...S.CONTENT, stats: F })],
-    ['parts failed', () => contentPage({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F }), () => contentSection({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F })],
+    ['parts failed', () => contentPage({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F, quality: F }), () => contentSection({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F, quality: F })],
     ...(() => {
       const c = { ...S.CONTENT, tz: 'America/New_York', snapshots: [S.SNAPSHOTS[0]!], stats: { ...S.STATS, engine: null, sources: {}, gaps: {} }, reads: { ...S.READS, byKind: [], top: [], unread: { n: 0, byKind: {}, pages: [] }, elsewhere: { views: 0, paths: 0 } } }
       return [['empty, elsewhere', () => contentPage(c), () => contentSection(c)] as [string, () => string, () => Section]]

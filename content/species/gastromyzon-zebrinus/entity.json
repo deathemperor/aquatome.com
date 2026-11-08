@@ -10,6 +10,61 @@
     "indonesia",
     "sambas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Sambas River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper Sambas River in Bengkayang regency, West Kalimantan province, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sambas River",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type series was purchased from aquarium collectors around 60 km from the border with Sarawak (Malaysia).",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358883,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -1.40625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

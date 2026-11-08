@@ -1,0 +1,64 @@
+{
+  "id": "gastromyzon-zebrinus",
+  "native": {
+    "input": "43a68e58bbea6d22",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Sambas River in Bengkayang regency, West Kalimantan province, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type series was purchased from aquarium collectors around 60 km from the border with Sarawak (Malaysia).",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sambas River",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Sambas River in Bengkayang regency, West Kalimantan province, Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Sambas River in Bengkayang regency, West Kalimantan province, Indonesian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "MY"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon zebrinus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358883,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

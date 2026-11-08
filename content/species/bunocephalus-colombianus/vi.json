@@ -3,21 +3,29 @@
   "name": "Cá trê banjo Colombia",
   "altNames": [
     "Cá banjo",
-    "Banjo Catfish"
+    "Banjo Catfish",
+    "Cá mèo banjo",
+    "Banjo Cat"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Bunocephalus colombianus Eigenmann, 1912</li><li>Tên thường gọi: Banjo Catfish (cá trê banjo)</li><li>Nơi thu mẫu chuẩn: Boca de Raspadura, Colombia.</li><li>Sinh sản: chưa có ghi nhận.</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Atrato và sông Magdalena, cùng các con sông đổ ra biển Caribe của Colombia.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Bunocephalus ghép từ hai chữ Hy Lạp là bounos (ngọn đồi) và kephale (cái đầu). Cái tên ám chỉ những cục u trên đầu cá, ở một số loài các cục u này nổi rất rõ. Trong Danh sách Đỏ IUCN, loài này thuộc nhóm Thiếu dữ liệu (lần đánh giá gần nhất là năm 2014).</p>",
-    "references:planetcatfish": "<p>Indiana University Studies No. 16 [sic No. 8], pp 10.</p>"
+    "references:planetcatfish": "<p>Indiana University Studies No. 16 [sic No. 8], pp 10.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá banjo (Banjo Cat)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Atrato và Magdalena, ngoài ra còn có ở các lưu vực Cauca, San Jorge, Sinu và Patía, Colombia. Nơi lấy mẫu chuẩn: Raspadura, Colombia.</p>",
+    "maintenance:scotcat": "<p>Nền cát là hợp nhất. Ban ngày chúng vùi mình trong cát gần như suốt, đến đêm mới chui ra và lăng xăng khắp đáy bể kiếm ăn. Loài này còn có cách bơi riêng: hút nước vào miệng rồi phụt mạnh ra đằng mang, thế là cả con vọt nhanh một đoạn sát mặt nền.</p>",
+    "diet:scotcat": "<p>Cá lớn đã quen bể thì không kén ăn. Có thể cho chúng ăn các loại giun như trùng huyết, trùng chỉ đông lạnh, kèm thức ăn viên thả vào lúc tắt đèn là đủ chất.</p>",
+    "notes:scotcat": "<p>Cá banjo trông thô kệch, mình đầy u cục, nói đẹp thì không đúng lắm. Nhưng giữa các loài cá da trơn, nó có cái duyên rất riêng. Đầu cá rộng và dẹt, mắt rất nhỏ, có 3 cặp râu. Cặp râu hàm trên dài tới khoảng một phần ba gai vây ngực, mà gai này cứng và có răng cưa.</p><p>Nguồn gốc tên gọi: tên chi Bunocephalus ghép từ buno- (gò, cục u) và cephalus (đầu), ý chỉ các mấu tròn, u nhỏ trên đầu cá. Tên loài colombianus nghĩa là \"từ Colombia\".</p><p>Danh sách Đỏ IUCN: Bunocephalus colombianus được xếp vào nhóm Thiếu dữ liệu (Data Deficient) vì đây là loài sống ẩn, rất hiếm khi bắt được. Do đó chưa có thông tin gì về số lượng quần thể, tình trạng hay các mối đe dọa với loài này, và đánh giá này cần được cập nhật (IUCN 2016).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Mesa-Salazar, L., Villa-Navarro, F. &amp; Sanchez-Duarte, P. 2016. Bunocephalus colombianus. The IUCN Red List of Threatened Species 2016.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.9
+    }
   }
 }

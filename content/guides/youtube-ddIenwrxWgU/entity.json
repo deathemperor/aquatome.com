@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "neocaridina-davidi",
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "marsilea-hirsuta"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "ddIenwrxWgU",
     "title": "EP:1 Complete Aquascaping Beginners Guide - Buying the essentials",
@@ -54,10 +55,10 @@
     },
     "taxa": [
       "Neocaridina davidi",
-      "Neocaridina sp.",
       "Caridina cantonensis",
-      "Bucephalandra sp.",
-      "Rasbora sp."
+      "Corydoras sp.",
+      "Melanotaenia sp.",
+      "Marsilea hirsuta"
     ],
     "gear": [
       {
@@ -65,7 +66,14 @@
         "type": "chuan",
         "brand": "Dennerle",
         "model": "Scaper's Tank 55L",
-        "t": 556
+        "t": 590
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "45B series",
+        "t": 905
       },
       {
         "category": "den",
@@ -73,13 +81,6 @@
         "brand": "Twinstar",
         "model": "450 E series IV",
         "t": 831
-      },
-      {
-        "category": "den",
-        "type": "diu",
-        "brand": "Chihiros",
-        "model": "45B series",
-        "t": 903
       },
       {
         "category": "loc",
@@ -92,7 +93,7 @@
         "category": "loc",
         "brand": "Superfish",
         "model": "Aquaflow 200",
-        "t": 674
+        "t": 671
       },
       {
         "category": "suoi",
@@ -104,48 +105,43 @@
       {
         "category": "co2",
         "type": "binh",
-        "t": 771
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 0
+        "t": 765
       }
     ],
     "figures": [
       {
-        "heading": "Kệ đặt bể cần lưu ý gì",
+        "heading": "Chọn tủ kê bể và đi điện",
         "moments": [
           {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t256-hd.webp",
+            "t": 250,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at250-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bên trong tủ IKEA có ổ cắm điện đặt gọn ở ngăn tủ."
+            "caption": "Ổ cắm điện nằm bên trong tủ kê bể, dây đi gọn phía sau."
           }
         ]
       },
       {
-        "heading": "Chọn bể cỡ nào, loại nào",
+        "heading": "Bể bao nhiêu lít, bể bộ hay bể rời",
         "moments": [
           {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t571-hd.webp",
+            "t": 570,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at570-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các bể nano và bộ bể trọn gói kèm nắp, đèn xếp trên kệ ở tiệm."
+            "caption": "Dãy bể nano và bể rời xếp trên kệ trong tiệm."
           },
           {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t590-hd.webp",
+            "t": 610,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at610-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nano không viền 55 lít trống, đặt trên kệ ở tiệm."
+            "caption": "Hai bể nano Dennerle 55 lít đặt trên kệ ở tiệm."
           }
         ]
       },
       {
-        "heading": "Đèn: dòng giá rẻ hay dòng cao cấp",
+        "heading": "Chọn đèn",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ddIenwrxWgU/p2-1bV9MaWdodC5qcGc.webp",
@@ -155,25 +151,25 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn LED gắn trên miệng bể, cây xanh mướt."
+          "caption": "Bể thủy sinh nano có đèn LED đặt ngay trên miệng bể."
         }
       },
       {
-        "heading": "Lọc nào hợp với bể nào",
+        "heading": "Chọn lọc",
         "moments": [
           {
             "t": 660,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t649-hd.webp",
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at660-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các hộp lọc Oase BioPlus xếp cạnh nhau trên kệ."
+            "caption": "Các hộp lọc thùng Oase BioPlus xếp trên kệ ở tiệm."
           },
           {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t679-hd.webp",
+            "t": 680,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at680-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các hộp lọc trong Superfish Aqua-Flow xếp trên kệ cửa hàng."
+            "caption": "Kệ bày nhiều mẫu lọc trong và lọc thùng giá rẻ ở tiệm."
           }
         ],
         "photo": {
@@ -184,11 +180,11 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ dưới bể, chỉ có ống nối lên bể."
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh xô nước dùng để vệ sinh."
         }
       },
       {
-        "heading": "Sưởi: chọn loại đơn giản",
+        "heading": "Chọn sưởi",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ddIenwrxWgU/p4-ha3dhcml1bS5qcGc.webp",
@@ -198,39 +194,56 @@
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Cục sưởi bể cá nhỏ gọn có giác hút, dây điện màu trắng."
+          "caption": "Cây sưởi bể cá thân nhỏ gọn, có giác hút và dây điện."
         }
       },
       {
-        "heading": "Bộ CO2 cho bể high-tech gồm những gì",
+        "heading": "Chọn bộ CO2 cho bể high-tech",
         "moments": [
           {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t748-hd.webp",
+            "t": 750,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at750-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ CO2 có bình và van chỉnh trưng bày ở tiệm."
+            "caption": "Các bộ CO2 Dennerle đủ bình và phụ kiện bày trên kệ ở tiệm."
+          },
+          {
+            "t": 760,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at760-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ CO2 có bình và van giảm áp trưng bày trong tiệm."
           }
         ]
       },
       {
-        "heading": "Những món lặt vặt nên mua ở tiệm kim khí",
+        "heading": "Mấy món lặt vặt ở tiệm kim khí",
         "moments": [
           {
-            "t": 960,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t944-hd.webp",
+            "t": 950,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at950-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các tuýp keo dán Bison treo bán ở tiệm kim khí."
+            "caption": "Các cuộn decal mờ dán kính xếp trên kệ ở tiệm kim khí."
           },
           {
-            "t": 980,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/t964-hd.webp",
+            "t": 970,
+            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at970-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dao rọc giấy các loại treo trên kệ ở tiệm kim khí."
+            "caption": "Keo dán 502 dạng gel treo trên kệ, dùng dán cây lên đá, lũa."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ddIenwrxWgU/p6-kzMDMyOTYpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ddIenwrxWgU/p6-kzMDMyOTYpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "Ben Sale from Stevenage, UK",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Super_super_Glue_(3329303296).jpg",
+          "caption": "Chai keo 502 dạng lỏng đặt trên khúc lũa, dùng gắn đá và lũa."
+        }
       }
     ]
   }

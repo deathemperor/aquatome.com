@@ -1,19 +1,18 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/253430565/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/253430565/medium.jpg",
-   "width": 2048,
-   "height": 1337,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/253430565",
-   "key": "inat:253430565"
-  }
+ "queue": [],
+ "judged": [
+  "inat:253430565"
  ],
- "judged": [],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/8966a8028c8a7349.webp": "303d3d160f4d6536"
  },
- "commons": "2026-11-07"
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 1508365,
+  "pass": "done",
+  "after": {
+   "research": 147295089,
+   "agree": 0
+  }
+ }
 }

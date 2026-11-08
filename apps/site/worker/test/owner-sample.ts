@@ -5,6 +5,7 @@ import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snaps
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
 import type { Excluded } from '../readers'
+import type { Quality } from '../admin/quality'
 import type { ReportsData } from '../daily/page'
 import type { Change } from '../daily/github'
 import { summariseScoreboard, type BeaconRow } from '../admin/scoreboard'
@@ -189,7 +190,19 @@ export const LOW: LowScores = {
     ...Array.from({ length: 30 }, (_, i) => ({ path: `/ca/ca-${String(i).padStart(2, '0')}/`, kind: 'fish' as const, score: 0.74 })),
   ],
 }
-export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS, low: LOW }
+/** The quality part (admin/quality.ts): a page each list, the gaps from Google and from readers. */
+const QFIG = { tabs: 40, half: 12, end: 6, s30: 14, next: 8, shop: 1, impressions: 900, clicks: 9, position: 4.2, impressionsBefore: 1400, clicksBefore: 30 }
+const qrow = (path: string, title: string, score: number, why: string) => ({ path, title, section: 'fish·vi', score, ranked: true, demand: 1300, figures: QFIG, why })
+export const QUALITY: Quality = {
+  days: 28, search: { at: '2026-11-08T23:30:00Z', from: '2026-10-10', to: '2026-11-06' }, scored: 120, ranked: 34,
+  best: [qrow('/ca/ca-neon-vua/', 'Cá neon vua', 81, '120 tabs: 70% read half, 62% stayed 30 s, 40% went on')],
+  worst: [qrow('/ca/ca-boraras-do/', 'Cá boraras đỏ', 28, '40 tabs: 30% read half, 35% stayed 30 s, 20% went on')],
+  rewrite: [qrow('/ca/ca-boraras-do/', 'Cá boraras đỏ', 28, 'Google: 900 impressions at position 4.2, 1% clicked (usual 5%): the title and description need work')],
+  decaying: [qrow('/ca/ca-boraras-do/', 'Cá boraras đỏ', 28, 'Google, the last 28 days against the 28 before: impressions 1,400 → 900, clicks 30 → 9')],
+  gaps: [{ source: 'search', name: 'cá betta ăn gì', demand: 340, path: '/ca/ca-betta/', why: 'Google showed us 340 times for it, at best at position 18.5: no page answers it' }, { source: 'wanted', name: 'Cá rồng', demand: 30, why: '3 readers looked for it (search, chat); no page yet' }],
+  totals: { rewrite: 1, decaying: 1, gaps: 2 },
+}
+export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS, low: LOW, quality: QUALITY }
 /** The sample's content with the build's titles for those pages, and readers for two of them. */
 export const LOW_CONTENT = {
   ...CONTENT, low: LOW,

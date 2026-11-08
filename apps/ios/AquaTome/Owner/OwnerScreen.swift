@@ -2,77 +2,95 @@ import AccountSync
 import Handbook
 import SwiftUI
 
-/// The overview ("") or a section, drawn block by block (OwnerBlocks.swift): the overview's to-dos, area cards, log and
-/// sections are blocks too. A section opens at the heading `anchor` names. A button sends its own request, asking first
-/// when it deletes something, then the section is read again; a switch reads it from its own address. Only the owner's
-/// account signed in now sees what was read: another account, a sign-out or a 401 drops it.
+/// The overview ("") or a section. The overview is drawn as its parts (OwnerOverview.swift), with a bell in the bar for
+/// the daily report's delivery; a section block by block (OwnerBlocks.swift), with its period menu in the bar when it
+/// has periods, and opens at the heading `anchor` names. A button sends its own request, asking first when it deletes
+/// something, then the section is read again; a switch or a comments filter reads it from its own address. Only the
+/// owner's account signed in now sees what was read: another account, a sign-out or a 401 drops it. The dashboard's own
+/// words are English.
 struct OwnerScreen: View {
   let key: String
   let anchor: String?
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
   @State private var section: Owner.Section?
-  /// The section's address as a switch last gave it (nil: its own).
+  /// The section's address as a switch or a filter last gave it (nil: its own).
   @State private var at: String?
+  /// The period chosen in the bar's menu (nil: the section's own first).
+  @State private var period: String?
   @State private var problem: String?
   /// What failed, to do again: offline, or the server's storage not answering just then.
   @State private var again: (@MainActor () async -> Void)?
   @State private var working = false
   @State private var asking: Owner.Action?
+  @State private var bell = false
   /// The read in flight: a newer one cancels it, so an older answer never lands last.
   @State private var reading: Task<Void, Never>?
 
   var body: some View {
     let owner = account.owner
     let shown = owner.isOwner == true && account.user != nil
-    let draw = OwnerDraw(working: working, run: run, send: send, open: { at = $0 }, item: { handbook.item(at: $0) ?? handbook.item(at: "/vi" + $0) },
-                         site: owner.page, tz: (key.isEmpty ? owner.dashboard?.tz : section?.tz) ?? "Asia/Ho_Chi_Minh")
-    let blocks = !shown ? nil : key.isEmpty ? overview(owner.dashboard) : section.map { $0.blocks.map { ($0, "") } }
+    let draw = OwnerDraw(key: key, period: section?.period, working: working, run: run, send: send, open: { at = $0 },
+                         item: { handbook.item(at: $0) ?? handbook.item(at: "/vi" + $0) }, site: owner.page)
     ScrollViewReader { proxy in
       ScrollView {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 10) {
           if let problem {
             Text(verbatim: problem).foregroundStyle(.red).accessibilityIdentifier("owner-message")
-            if let again { Button("Thử lại") { Task { await again() } }.buttonStyle(.bordered).accessibilityIdentifier("owner-again") }
+            if let again { Button { Task { await again() } } label: { Text(verbatim: "Try again") }.buttonStyle(.bordered).accessibilityIdentifier("owner-again") }
           }
-          // The overview: the daily report on this phone first.
-          if key.isEmpty && shown { OwnerPushRow() }
-          if let blocks {
-            ForEach(blocks.indices, id: \.self) { draw.block(blocks[$0].0, id: blocks[$0].1) }
-          } else if problem == nil && shown {
+          if shown, key.isEmpty, let d = owner.dashboard {
+            OwnerOverview(dashboard: d, draw: draw) { part in withAnimation { proxy.scrollTo(part, anchor: .top) } }
+          } else if shown, !key.isEmpty, let s = section {
+            ForEach(s.blocks.indices, id: \.self) { draw.block(s.blocks[$0]) }
+          } else if shown && problem == nil {
             ProgressView().frame(maxWidth: .infinity)
           }
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.bottom)
       }
+      .background(Color(uiColor: .systemGroupedBackground))
       // Read the first time: at the heading the link named.
       .onChange(of: section == nil) { if let anchor { proxy.scrollTo(anchor, anchor: .top) } }
     }
-    .navigationTitle(key.isEmpty ? String(localized: "Bảng điều khiển") : section?.title ?? owner.dashboard?.name(of: key) ?? "")
-    .navigationBarTitleDisplayMode(.inline)
+    .navigationTitle(Text(verbatim: key.isEmpty ? "Dashboard" : section?.title ?? owner.dashboard?.name(of: key) ?? ""))
+    .navigationBarTitleDisplayMode(.large)
+    .toolbar {
+      if key.isEmpty && shown {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button { bell = true } label: { Image(systemName: "bell.badge") }
+            .accessibilityLabel(Text(verbatim: "Daily report"))
+            .accessibilityIdentifier("owner-bell")
+        }
+      } else if let s = section, !s.periods.isEmpty {
+        ToolbarItem(placement: .topBarTrailing) {
+          Menu {
+            Picker(selection: Binding(get: { s.period ?? s.periods[0].key }, set: { period = $0 })) {
+              ForEach(s.periods.indices, id: \.self) { Text(verbatim: s.periods[$0].label).tag(s.periods[$0].key) }
+            } label: { Text(verbatim: "Period") }
+          } label: {
+            HStack(spacing: 4) {
+              Text(verbatim: s.periods.first { $0.key == s.period }?.label ?? s.periods[0].label)
+              Image(systemName: "chevron.up.chevron.down").font(.caption.weight(.semibold))
+            }
+          }
+          .disabled(working)
+          .accessibilityLabel(Text(verbatim: "Period"))
+          .accessibilityValue(Text(verbatim: s.periods.first { $0.key == s.period }?.label ?? ""))
+          .accessibilityIdentifier("owner-period")
+        }
+      }
+    }
+    .sheet(isPresented: $bell) { OwnerDelivery() }
     .refreshable { await load() }
-    .task(id: "\(at ?? "")|\(owner.era)|\(shown)") { await load() }
+    .task(id: "\(at ?? "")|\(period ?? "")|\(owner.era)|\(shown)") { await load() }
     // Another account, a sign-out, the session over: what this screen read goes with it.
     .onChange(of: owner.era) { section = nil }
-    .confirmationDialog(Text("Không hoàn tác được."), isPresented: Binding(get: { asking != nil }, set: { if !$0 { asking = nil } }), titleVisibility: .visible,
-                        presenting: asking) { a in
+    .confirmationDialog(Text(verbatim: "This can't be undone."), isPresented: Binding(get: { asking != nil }, set: { if !$0 { asking = nil } }),
+                        titleVisibility: .visible, presenting: asking) { a in
       Button(role: .destructive) { Task { _ = await send(a) } } label: { Text(verbatim: a.label) }
     }
-  }
-
-  /// The overview, as blocks (with the identifiers the UI tests find them by).
-  private func overview(_ d: Owner.Dashboard?) -> [(Owner.Block, String)]? {
-    guard let d else { return nil }
-    var out: [(Owner.Block, String)] = [(.heading(String(localized: "Cần bạn"), level: 2, anchor: nil), "")]
-    out += d.todos.isEmpty ? [(.note(String(localized: "Không có việc gì cần bạn lúc này."), .muted), "")] : d.todos.map { (.link($0), "owner-todo") }
-    out.append((.figures(d.areas), "owner-area"))
-    if let n = d.areasNote { out.append((.note(n, .muted), "")) }
-    if let log = d.log, !log.days.isEmpty {
-      out.append((.heading(log.title, level: 2, anchor: nil), ""))
-      for day in log.days { out += [(.heading(day.at, level: 3, anchor: nil), "")] + day.entries.map { (.link($0), "owner-log") } }
-    }
-    out.append((.heading(String(localized: "Các mục"), level: 2, anchor: nil), ""))
-    return out + d.sections.map { (.link($0), "owner-section") }
   }
 
   private func load() async {
@@ -88,7 +106,9 @@ struct OwnerScreen: View {
       if key.isEmpty {
         try await account.owner.overview()
       } else {
-        let s = try await account.owner.ask { [at, key] c in try await at == nil ? c.section(key) : c.section(at: at!) }
+        let s = try await account.owner.ask { [at, key, period] c in
+          if let at { try await c.section(at: at) } else { try await c.section(key, period: period) }
+        }
         try Task.checkCancellation()
         section = s
       }

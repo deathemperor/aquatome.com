@@ -10,6 +10,128 @@
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Xingú"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the rio Xingú river system in northeastern Brazil including its major tributary the rio Iriri with type locality given as 'rocky pool near cachoeira, Belo Monte, Rio Xingu drainage, Pará, Brazil'.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Xingú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208437,
+      "total": 53,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          53
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          26,
+          26
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

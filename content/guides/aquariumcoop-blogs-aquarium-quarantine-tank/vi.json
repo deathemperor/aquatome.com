@@ -11,5 +11,15 @@
       "aquariumcoop": 0.72
     },
     "reason": "score"
+  },
+  "held": {
+    "checks": [
+      "dose",
+      "elsewhere",
+      "harm",
+      "product",
+      "units"
+    ],
+    "at": "2026-11-08"
   }
 }

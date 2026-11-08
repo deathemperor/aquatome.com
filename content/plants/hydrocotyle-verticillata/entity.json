@@ -1,13 +1,16 @@
 {
   "id": "hydrocotyle-verticillata",
   "scientificName": "Hydrocotyle verticillata",
+  "synonyms": [
+    "Hydrocotyle vulgaris"
+  ],
   "difficulty": 2,
-  "light": "high",
+  "light": "medium",
   "co2": "optional",
   "growth": "medium",
   "placement": [
     "foreground",
-    "floating"
+    "midground"
   ],
   "sections": [
     {
@@ -17,38 +20,102 @@
       "html": "<ul><li>Type: Stem plant</li><li>Origin: South America</li><li>Growth rate: Medium</li><li>Height: 3 - 10+ cm</li><li>Light demand: High</li><li>CO2: Medium</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<ul><li>Common name: Whorled pennywort</li><li>Other names: Water pennywort, Whorled marsh pennywort, Shield pennywort</li><li>Scientific name: Hydrocotyle verticillata</li><li>Minimum tank size: 40 litres</li><li>Difficulty: Medium</li><li>Lighting: Moderate</li><li>Water hardness: soft to moderately hard (2–10 GH)</li><li>Substrate: Any</li><li>Can float: No</li><li>Can be grown emersed: Yes</li><li>Growth rate: slow to moderate (submersed), moderate to fast (emersed)</li><li>Placement: foreground / midground</li><li>Fertilizer: recommended</li><li>CO2: not needed but recommended when submersed</li><li>Propagation: lateral shoots (via runners)</li></ul><p>Whorled pennywort is also used as a primary medicine for human ailments. It has therapeutic properties and is commonly used for fevers, wounds, boils, abscesses, colds, coughs, hepatitis, influenza, sore throat, headaches and urinary tract problems.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Hydrocotyle verticillata is native to wet and boggy areas in the Americas (from the USA to Argentina and Chile) and tropical and subtropical Africa (from Somalia and Angola to South Africa). Nowadays it is widespread in Australia, China, the West Indies and even Europe.</p><p>It is often considered an undesirable weed outside of its native range.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>The plant grows in and around freshwater ponds, lakes, rivers, marshes, irrigation and drainage canals, forming thick mats with long, creeping green stems.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Whorled pennywort suits various tanks and may be grown in any aquarium not smaller than 40 litres.</p><p>For nano tanks, Water pennywort (Hydrocotyle vulgaris) is a better choice, as it grows smaller.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyleverticillata(039)/4457",
       "html": "<p>Optimum growth is only achieved in strong light and soft, slightly acidic water. It does not need to be rooted, but can be used as a floating plant.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Whorled pennywort can be grown emersed or submersed. Emersed in high humidity it grows fairly fast; submersed, growth is slow to moderate, and it grows a bit faster once established depending on CO2, nutrition and lighting.</p><p>Caring for it is not super easy, so it is not a top pick for beginners, unless kept in a paludarium with free excess CO2, where it is one of the hardiest plants.</p><p>It tends to spread once established and needs regular pruning every few weeks to remove overgrown stems, especially in the foreground. Pruning also helps it look dense.</p><p>Maintain good water quality with weekly partial water changes, test the water regularly (pH, KH, nutrients, etc.) and dose liquid fertilizers from time to time.</p><p>Planting: after proper disinfection, place small stems gently into the substrate. Its vine-like growth is excellent for accentuating décor such as driftwood.</p><p>Propagation: it spreads via runners. Cut off lateral shoots (with a leaf on them) and replant them in the substrate or leave them floating on the surface. When grown submersed, it recovers slowly after cutting and new runners may take some weeks to appear.</p><p>The dry start method is another way to grow it, providing unlimited CO2. In the emersed state it grows constantly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Temperature: it survives between 5 and 30 °C, but the ideal range is 20–28 °C. Despite its subtropical origin, it stays alive even in cold conditions; for example, it has a well-established population in Belgium, where the annual mean temperature is around 10 °C.</p><p>pH: the optimal range is 6.0–7.5. It prefers slightly acidic water.</p><p>Hardness: it does not like hard water and thrives in soft to moderately hard water, ideally 2–10 GH.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Lighting: the plant is quite demanding in terms of light, which affects its growth rate and size. Under low light it grows upright and more vertical, as if reaching for the surface; under high light it stays short, generally about 5–10 cm. Medium lighting is enough for it to thrive. Provide a photoperiod of 8–12 hours daily.</p><p>Substrate: it has a weak, small and delicate root system, and adventitious roots on the stem can grow even without contact with the substrate, since the plant absorbs nutrients directly from the water. A nutrient-rich substrate such as ADA Amazonia is not necessary, though beneficial; it can grow in sand and gravel if it has enough nutrients. Very fine sand is unsuitable, as it compacts and suffocates tiny roots.</p><p>CO2: supplementation is optional, but growth is very slow without CO2 in submerged conditions.</p><p>Fertilization: regular fertilizing is vital, especially when the water lacks nutrients. Dosing liquid fertilizers in the right amounts prevents problems caused by deficiencies. Root tabs are not good for this plant.</p><p>If you keep shrimp with it, note that high CO2 levels and copper (found in most fertilizers) are extremely dangerous to shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Compatible with a wide variety of aquarium animals:</p><ul><li>Fish: Bettas, swordtails, tetras, pearl gourami, honey gourami, harlequin rasbora, danios, cherry barbs, platies, guppies, Endlers, mollies, otocinclus, pygmy corydoras, etc.</li><li>Snails: Japanese trapdoor snails, ramshorn snails, nerite snails, Malaysian trumpet snails, black devil snails, Asolene spixi, rabbit snails, etc.</li><li>Dwarf shrimp: all Neocaridina varieties, Caridina species, Amano shrimp, ghost shrimp, bamboo shrimp, vampire shrimp, etc. Basically any shrimp species.</li></ul><p>Avoid goldfish, silver dollars, oscars, Jack Dempsey, koi and Buenos Aires tetra, which will devour the foliage. Large, aggressive fish such as cichlids can tear the plant, damage stems and dislodge roots.</p><p>Do not keep it with most crayfish or freshwater crabs, which will cut, eat and uproot it.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hydrocotyleverticillata(039)/4457",
       "html": "<p>Unlike other Hydrocotyle species, this plant retains its trailing growth form. Verticillata originates from America and becomes 3-7 cm tall. Hydrocotyle verticillata is definitely a foreground plant, but also suitable for garden ponds. If the soil is kept moist, you may even use it as an indoor plant.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "html": "<p>Description: a flowering plant with small (2 mm across) greenish to creamy white flowers in clusters of 6–12. The stems measure about 10–15 cm, with small, roundish, light green leaves (2–5 cm wide) that are pale beneath, resembling small lily pads or miniature mushrooms, arranged alternately along the stem. The creeping vine-like stems reach up to 25 cm, forming large mats on the water surface or along banks. It can be used as a foreground or midground plant, grown submerged or spread across the surface.</p><p>Difference from Water pennywort (Hydrocotyle vulgaris): the two are often confused. H. verticillata is much more vigorous, with 9–13 veins (7–9 in H. vulgaris), glabrous petioles (long patent hairs in H. vulgaris), inflorescences longer than the subtending leaf (shorter in H. vulgaris), and larger leaves and thicker stems.</p><p>Common problems:</p><ul><li>Sparse or leggy growth: caused by poor lighting. Trim the stems and increase light.</li><li>Stunted growth: caused by poor nutrients (too low nitrate), weak light or low CO2. Provide ample macro- and micronutrients, CO2 and more light.</li><li>Chlorosis: leaves turn yellow, especially at the edges, due to lack of iron. Supplement with chelated iron.</li><li>Melting: the emersed form in the trade (with white flowers) may die back before taking on a submersed form. It will grow back.</li></ul><p>Benefits: decorative for aquascapes (Takashi Amano used it as a foreground plant, notably in \"Grace of Angles\", AquaJournal Vol. 18, December 1995); can be grown emersed; removes excess nutrients such as nitrate, ammonia and phosphate; does not shed leaves; easy to move thanks to thin roots; provides cover and shade for shrimp and small fish; offers biofilm as a first food for fry and shrimplets; oxygenates the water.</p><p>Buying: widely available in local and online stores. Choose fresh, healthy-looking plants with fresh light green leaves, upright stems and abundant roots.</p><p>Overall, it is a good plant for beginners (if grown emersed) and other levels, ideal for fry and shrimp tanks, driftwood, paludariums and terrariums.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/9d7ec25446d2d975.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/9d7ec25446d2d975-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/whorled-pennywort-care-guide/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d2566b399ce7c811.webp",
+      "thumb": "https://media.aquatome.com/commons/d2566b399ce7c811-480.webp",
       "width": 960,
       "height": 1344,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocotyle_verticillata_kz01.jpg",
-      "caption": "Hydrocotyle verticillata in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/d2566b399ce7c811-480.webp"
+      "caption": "Hydrocotyle verticillata in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/96029aeaf5ba0663.webp",
+      "thumb": "https://media.aquatome.com/commons/96029aeaf5ba0663-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 3.0",
       "author": "Forest & Kim Starr",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr_980601-1501_Hydrocotyle_verticillata.jpg",
-      "caption": "Hydrocotyle verticillata (habit). Location: Maui, Kepaniwai",
-      "thumb": "https://media.aquatome.com/commons/96029aeaf5ba0663-480.webp"
+      "caption": "Hydrocotyle verticillata (habit). Location: Maui, Kepaniwai"
     }
   ],
   "productSlots": [
@@ -78,5 +145,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-08"
 }

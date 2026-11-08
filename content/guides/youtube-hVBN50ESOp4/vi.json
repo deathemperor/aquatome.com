@@ -36,5 +36,14 @@
     "bySource": {
       "youtube": 0.6
     }
+  },
+  "held": {
+    "checks": [
+      "dose",
+      "harm",
+      "price",
+      "source"
+    ],
+    "at": "2026-11-08"
   }
 }
