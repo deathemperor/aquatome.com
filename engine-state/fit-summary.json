@@ -12,30 +12,30 @@
  "langs": {
   "vi": {
    "pages": 2985,
-   "read": 2645,
-   "wrong": 1267,
-   "pct": 46,
-   "held": 20
+   "read": 2985,
+   "wrong": 1391,
+   "pct": 47,
+   "held": 21
   },
   "id": {
    "pages": 978,
-   "read": 848,
-   "wrong": 258,
-   "pct": 31,
+   "read": 978,
+   "wrong": 315,
+   "pct": 32,
    "held": 1
   },
   "th": {
    "pages": 971,
-   "read": 850,
-   "wrong": 244,
-   "pct": 29,
+   "read": 971,
+   "wrong": 300,
+   "pct": 31,
    "held": 1
   },
   "ms": {
    "pages": 127,
-   "read": 99,
-   "wrong": 39,
-   "pct": 42,
+   "read": 127,
+   "wrong": 51,
+   "pct": 40,
    "held": 1
   }
  },
@@ -77,31 +77,31 @@
    ]
   },
   {
+   "lang": "vi",
+   "path": "/vi/ca/ca-garra-hughi/",
+   "url": "https://aquatome.com/ca/ca-garra-hughi/",
+   "title": "Cá Garra hughi",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "thị trường cá cảnh"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    },
+    {
+     "check": "words",
+     "quote": "Lý tưởng"
+    }
+   ]
+  },
+  {
    "lang": "ms",
    "path": "/ms/ikan/ikan-toman/",
    "url": "https://aquatome.com/ms/ikan/ikan-toman/",
    "title": "Ikan toman",
    "wrong": []
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "url": "https://aquatome.com/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "title": "Uốn cong tấm mica acrylic bằng lò nướng để tự làm bể mặt cong",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "nhiều khả năng"
-    },
-    {
-     "check": "words",
-     "quote": "Dù vậy"
-    },
-    {
-     "check": "words",
-     "quote": "bắt buộc phải"
-    }
-   ]
   }
  ]
 }
