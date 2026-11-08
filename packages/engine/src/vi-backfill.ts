@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { reviewRewrite, reviewTranslation } from './quality'
+import { reviewRewrite, reviewTranslation, steadyRead } from './quality'
 import { lastKept, logReviews, TEXT_KINDS, type PageRef, type Review } from './review-log'
 import { METRIC_KINDS } from './metric'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
@@ -93,9 +93,10 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
       for (const g of job.groups) {
         const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
         const hasEn = g.parts.every(p => p.en)
-        const review = (m: Map<string, string>) => hasEn
+        // Near the bar, read three times and the median read counts (steadyRead).
+        const review = (m: Map<string, string>) => steadyRead(() => hasEn
           ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
-          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! })))
+          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! }))))
         // What the last review of this text on the site found, when it was under the bar, goes to the writer.
         const page = { id: job.id, lang: 'vi', ...(g.source ? { part: g.source } : {}) }
         const before = await lastKept(root, page, TEXT_KINDS)

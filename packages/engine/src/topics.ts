@@ -9,6 +9,7 @@ import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
 import { NAMES_TREATMENT } from './fit'
+import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
@@ -116,20 +117,15 @@ type Grounded = { score: number; notes: string[]; reads?: number[] }
  * A read this close to the bar is read twice more. One read of the same text varies by about ±0.06, and 4 guides in 20
  * landed on both sides of the bar on two reads; the median of three varies by about ±0.04 (9 Nov 2026).
  */
-export const NEAR_BAR = 0.2
 /**
- * A guide in `lang` (the language's English name) checked against the facts its writer had. A first read within NEAR_BAR
- * of the bar is read twice more, and the guide gets the median read, its notes with it.
+ * A guide in `lang` (the language's English name) checked against the facts its writer had. A first read near the bar is
+ * read twice more, and the guide gets the median read (steadyRead).
  */
 async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
-  const read = async (): Promise<Grounded> => {
+  return steadyRead(async (): Promise<Grounded> => {
     const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
-  const first = await read()
-  if (Math.abs(first.score - QUALITY_THRESHOLD) >= NEAR_BAR) return first
-  const reads = [first, ...await Promise.all([read(), read()])]
-  return { ...[...reads].sort((a, b) => a.score - b.score)[1]!, reads: reads.map(r => r.score) }
+  })
 }
 
 /**

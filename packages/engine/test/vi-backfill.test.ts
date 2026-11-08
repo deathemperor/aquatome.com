@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
+import { readReviews } from '../src/review-log'
 import { rewriteExisting } from '../src/vi-backfill'
 import { rewriteVi } from '../src/vi-rewrite'
 
@@ -85,10 +86,11 @@ test('a long source split into chunks scores as its weakest kept chunk, or its o
     await rewriteExisting(root, join(root, 's.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 5 })
     return read(root, 'species/x/vi.json')
   }
-  const both = await make([0.9, 0.7]) // both beat the old 0.6
+  // Each chunk's check is near the bar, so it's read three times.
+  const both = await make([0.9, 0.9, 0.9, 0.7, 0.7, 0.7]) // both beat the old 0.6
   expect(Object.values(both.sections)).toEqual(['<p>mới habitat:seriouslyfish</p>', '<p>mới diet:seriouslyfish</p>'])
   expect(both.quality).toEqual({ score: 0.7, indexable: false, bySource: { seriouslyfish: 0.7 }, reason: 'score' })
-  const one = await make([0.9, 0.5]) // the second chunk keeps its old text, so the source can't rise above the old 0.6
+  const one = await make([0.9, 0.9, 0.9, 0.5]) // the second chunk keeps its old text, so the source can't rise above the old 0.6
   expect(one.sections['diet:seriouslyfish']).toBe('<p>cũ</p>')
   expect(one.quality).toEqual({ score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 }, reason: 'score' })
 })
@@ -124,7 +126,7 @@ test('the source is named so its "we" is written neutrally; a page rejected unde
 test('a rewrite below the bar gets one more try with the reviewer notes; the better one counts', async () => {
   const root = await setup()
   const prompts: string[] = []
-  const scores = [0.6, 0.85]
+  const scores = [0.6, 0.6, 0.6, 0.85, 0.85, 0.85]
   const llm: Llm = async <T,>(a: { system: string; prompt: string }) => {
     if (a.system.includes('checking a rewrite')) return { score: scores.shift(), notes: ['"có thể giảm" became a certainty'] } as T
     prompts.push(a.prompt)
@@ -190,8 +192,24 @@ test("a translated guide's rewrite is checked against its kept English article, 
   const r = await rewriteExisting(root, join(root, '../s.json'), { llm: (async a => { prompts.push(a.prompt); return llm(a) }) as Llm, opts: { mode: 'fix' }, now }, { limit: 1, kinds: ['guides'] })
   expect(r.done).toEqual(['guides/aquariumcoop-g (1/1, 0.90)'])
   expect(prompts[0]).toContain('### body\nEN:\nMany beginners may not know this.\nVI:\n<p>cũ</p>')
-  expect(calls).toEqual(['rewrite', 'review'])
+  expect(calls).toEqual(['rewrite', 'review', 'review', 'review']) // 0.9 is near the bar: three reads
   expect((await read(root, 'guides/aquariumcoop-g/vi.json')).quality).toMatchObject({ score: 0.9, bySource: { aquariumcoop: 0.9 } })
+})
+
+test('a rewrite\'s check near the bar is read three times and the median read counts, in the review log too; one well clear takes one', async () => {
+  const root = await setup()
+  let scores = [0.7, 0.9, 0.8]
+  const llm: Llm = async <T,>(a: { system: string; prompt: string }) => {
+    if (a.system.includes('checking a rewrite')) { const s = scores.shift()!; return { score: s, notes: [`read ${s}`] } as T }
+    return { parts: [{ id: 'body', vi: '<p>mới</p>' }] } as T
+  }
+  const r = await rewriteExisting(root, join(root, 's.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 1, kinds: ['guides'] })
+  expect(r.done).toEqual(['guides/g (1/1, 0.80)'])
+  expect(scores).toEqual([])
+  expect((await readReviews(join(root, '..'), 'vi-rewrite'))['vi/guides/g#aquariumcoop']![0]).toMatchObject({ score: 0.8, notes: ['read 0.8'], reads: [0.7, 0.9, 0.8], kept: true })
+  scores = [0.97, 0.5]
+  await rewriteExisting(root, join(root, 's2.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 1, kinds: ['guides'] })
+  expect(scores).toEqual([0.5])
 })
 
 test('a dry run lists the pages a match takes up and how many parts each sends, calls no model and writes nothing', async () => {

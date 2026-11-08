@@ -57,7 +57,8 @@ test('makeBreed: researched facts → Vietnamese page checked against them; spec
   let checks = 0
   const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => {
     prompts.push(a.prompt)
-    if ('score' in ((a.schema as { properties: object }).properties)) return (++checks === 1 ? { score: 0.7, notes: ['"from 1800s" is not in the facts'] } : { score: 0.9, notes: [] }) as T
+    // The first write's three reads (it is near the bar) find the claim; the rewrite's don't.
+    if ('score' in ((a.schema as { properties: object }).properties)) return (++checks <= 3 ? { score: 0.7, notes: ['"from 1800s" is not in the facts'] } : { score: 0.9, notes: [] }) as T
     return { name: 'Cá vàng Ranchu', altNames: ['Ranchu'], summary: ['Dòng cá vàng không vây lưng.'], body: '<h3>Nguồn gốc</h3><p onclick="x">Từ Nhật.</p>', faq: [{ q: 'Khó nuôi không?', a: 'Hay bị bệnh bong bóng.' }] } as T
   }
   const out = await makeBreed(r, { research, llm, gallery: gallery(looks) }, { name: 'Ranchu goldfish', kind: 'variety' })
@@ -106,7 +107,7 @@ test('--redo keeps a name the owner fixed and the addresses the page had', async
   await makeBreed(r, d, { name: 'Ranchu goldfish' }, { reuse: true })
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ slug: 'ca-vang-lan-tho', name: 'Cá vàng Lan thọ (Ranchu)', nameFixed: true, redirectFrom: [{ slug: 'ca-vang-ranchu-dong' }] })
   // The text calls the fish by the fixed name too.
-  expect(prompts.at(-2)).toContain('Tên trang đã chốt: "Cá vàng Lan thọ (Ranchu)"')
+  expect(prompts.filter(p => !p.startsWith('Below are FACTS')).at(-1)).toContain('Tên trang đã chốt: "Cá vàng Lan thọ (Ranchu)"')
 })
 
 test('a page written again keeps the links it has: what it is a form of, and on a --redo its parents\'', async () => {

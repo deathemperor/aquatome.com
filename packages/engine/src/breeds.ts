@@ -13,6 +13,7 @@ import { breedKin, breedNames, cleanBreedAltNames } from './alt-names'
 import { isMarketplace } from './marketplaces'
 import { BOUNDS } from './process'
 import { VI_STYLE as STYLE } from './phrases'
+import { steadyRead } from './quality'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
@@ -209,10 +210,11 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     system: 'You write Vietnamese aquarium fish profiles from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
     prompt: `${WRITE}\n\n${STYLE}${fixed}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
-  const check = async (x: Written) => {
+  // Near the bar, read three times and the median read counts (steadyRead).
+  const check = (x: Written) => steadyRead(async () => {
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
+  })
   // A redo starts from what the last review of the page on the site found, as the rewrite below does.
   const before = kept ? await lastKept(root, { id: `breeds/${id}`, lang: 'vi' }, ['breed']) : undefined
   let w = await write(before?.notes)
@@ -295,10 +297,10 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   const forWriter = { name: facts.enNames[0] ?? id, kind: facts.kind, enNames: facts.enNames, basedOn: facts.basedOn, parents: facts.parents, origin: facts.origin, looks: facts.looks, lines: facts.lines, care: facts.care, keeping: facts.keeping, breeding: facts.breeding, health: facts.health, buying: facts.buying, controversy: facts.controversy }
   const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS ---\n${JSON.stringify(forWriter, null, 1)}`
   const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium fish profiles from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
-  const check = async (x: Written) => {
+  const check = (x: Written) => steadyRead(async () => {
     const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
+  })
   // A redo starts from what the last review of the page on the site found.
   const before = o.redo ? await lastKept(root, { id: `breeds/${id}`, lang }, ['breed']) : undefined
   let w = await write(before?.notes)
