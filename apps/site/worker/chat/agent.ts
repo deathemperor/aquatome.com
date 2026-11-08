@@ -204,6 +204,22 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void): 
   }
 }
 
+/**
+ * A title that names a fish fish ID only guessed (under "almost certain"), by any name the handbook has for a guess: it
+ * would put the guess on the row as fact. The prompt asks for none, and Haiku still wrote "Cá chuột đồng" for a 55%
+ * guess in 2 of 4 samples, so the title goes, and the list shows the reader's own first words.
+ */
+export function namesAGuess(title: string, start: Start, hb: Handbook): boolean {
+  const results = start.from === 'fish-id' ? start.identified?.results ?? [] : []
+  if (!results.length || (results[0]!.confidence ?? 0) >= FISH_ID_SURE) return false
+  const t = title.normalize('NFC').toLowerCase()
+  return results.some(r => {
+    const item = r.id ? hb.byId(r.id) : undefined
+    const names = item ? [item.name, ...item.name.split(/[()]/), ...(item.aka ?? [])] : []
+    return [r.scientificName, ...names].map(n => n.normalize('NFC').trim().toLowerCase()).some(n => n.length > 3 && t.includes(n))
+  })
+}
+
 /** One turn: Claude reads and answers, then the blocks it picked are filled from the handbook. */
 export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // What check_tank_mates answered: a tank-mates block goes out with the check Claude read (answer.ts `fill`).
@@ -227,7 +243,9 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   })
   // An off-topic question gets the Worker's own line in the reader's language, and nothing else Claude wrote.
   const read = run.message ? readAnswer(run.message, o.lang) : undefined
-  const answer = read?.offTopic ? { ...read, text: OFF_TOPIC[o.lang] } : read
+  const said = read?.offTopic ? { ...read, text: OFF_TOPIC[o.lang] } : read
+  // A title naming fish ID's unsure guess goes; the answer stays.
+  const answer = said?.title && namesAGuess(said.title, o.start, o.handbook) ? { ...said, title: undefined } : said
   const startedOn = o.start.from === 'species' ? o.start.about : undefined
   const filled = answer ? await fill(answer, o.handbook, checks, o.earlier.flatMap(t => t.blocks), startedOn) : { blocks: [], dropped: [] }
   return { ...run, ...(answer ? { answer } : {}), ...filled }

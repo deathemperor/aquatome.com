@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, TITLE_FORM, TITLE_RULE, unaccented, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, namesAGuess, SYSTEM, TITLE_FORM, TITLE_RULE, unaccented, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MAX_TITLE, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, TITLED_SCHEMA, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -902,4 +902,21 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   // Accented, one accent is enough; a word or two of English or a figure is no unaccented question; nor another language.
   for (const q of ['cá neon bị nấm trắng trên lưng', 'ca neon bi nấm trang', 'pH 7?', 'Neon']) expect(said('vi', q), q).not.toContain('without Vietnamese accents')
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
+})
+
+test('a title that names a fish fish ID only guessed is left out: the row would show the guess as fact', async () => {
+  const h = await hb()
+  const photo = (confidence: number): Start => ({ from: 'fish-id', about: 'paracheirodon-innesi', identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'paracheirodon-innesi', confidence }] } })
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', photo(0.55), h)).toBe(true)
+  expect(namesAGuess('paracheirodon innesi nuôi mấy con?', photo(0.55), h)).toBe(true)
+  // The group, or none, stays; so does the name when fish ID was almost certain, or the chat began on a species page.
+  expect(namesAGuess('Nuôi 2 con được không?', photo(0.55), h)).toBe(false)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', photo(0.8), h)).toBe(false)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', { from: 'species', about: 'paracheirodon-innesi' }, h)).toBe(false)
+  const out = await answerQuestion({
+    send: async () => ({ id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [{ type: 'text', text: JSON.stringify({ ...answer([], { text: 'Nuôi theo đàn từ 6 con.' }), title: 'Cá neon xanh nuôi mấy con?' }) }], stop_reason: 'end_turn', stop_sequence: null, usage: { input_tokens: 1, output_tokens: 1 } }) as unknown as Anthropic.Message,
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi mấy con?', earlier: [], start: photo(0.55), handbook: h, tanks: async () => [], title: true,
+  })
+  expect(out.answer?.text).toBe('Nuôi theo đàn từ 6 con.')
+  expect(out.answer?.title).toBeUndefined()
 })
