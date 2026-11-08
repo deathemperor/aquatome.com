@@ -656,7 +656,7 @@
           "maxChars": {
             "type": "integer",
             "minimum": 1,
-            "description": "The longest question, in characters (413 past it): long enough for a reader's whole forum post."
+            "description": "The longest question (413 past it): long enough for a reader's whole forum post. In characters as the reader sees them, as the report's reason counts its 140 (`x-maxCharacters`): Unicode grapheme clusters, after NFC, of the question trimmed (Swift's `count`, `Intl.Segmenter` with `granularity: grapheme`), so a Thai vowel or tone mark, or a Vietnamese tone mark kept apart, is part of its letter and a client's count matches the Worker's."
           }
         },
         "additionalProperties": false
@@ -676,7 +676,7 @@
           "question": {
             "type": "string",
             "minLength": 1,
-            "description": "What the reader asks, as typed or as the suggestion's words they tapped."
+            "description": "What the reader asks, as typed or as the suggestion's words they tapped: at most `maxChars` characters as the reader sees them."
           },
           "lang": {
             "type": "string",

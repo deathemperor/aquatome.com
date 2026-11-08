@@ -150,6 +150,24 @@ test('who may ask: an app session as a bearer, or a site session from the site\'
   expect(await status(ask({ cookie: `${COOKIE}=${web.token}`, origin: 'https://x.test' }))).toEqual([200, undefined])
 })
 
+test('a question is counted in characters as the reader sees them, as the app counts: Thai marks and tone marks typed apart are part of their letter', async () => {
+  const { e, db } = env()
+  const app = await signIn(db, 'app')
+  const c = claude(NEON)
+  const status = async (question: string, conversation: string) => {
+    const r = await run(ask(bearer(app.token), { question, conversation }), e, deps(c.fetch))
+    return [r.res.status, r.body.error]
+  }
+  // "ที่" is three code points and one character; "ệ" as older forums keep it (e, a dot below, a hat) is three as well.
+  const thai = 'ที่', vi = 'ệ'.normalize('NFD')
+  expect([[...thai].length, [...vi].length]).toEqual([3, 3])
+  expect(await status(thai.repeat(1500), '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e01')).toEqual([200, undefined])
+  expect(await status(vi.repeat(1500), '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e02')).toEqual([200, undefined])
+  expect(await status(thai.repeat(1501), '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e03')).toEqual([413, 'too long'])
+  // Spaces and line breaks around a pasted post aren't counted: they aren't asked.
+  expect(await status(`\n\n${vi.repeat(1500)}\n\n`, '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e04')).toEqual([200, undefined])
+})
+
 test('a question: Claude reads the handbook and answers; the blocks are filled from it, the conversation keeps the turn, chat\'s own day counts it', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)
