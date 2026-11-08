@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { CurationSchema, type Curation } from '@aq/schema'
+import { CardSchema, CurationSchema, type Curation } from '@aq/schema'
 import { appIndex } from '../src/lib/app-index'
 import { getContent } from '../src/lib/content'
 
@@ -78,4 +78,21 @@ test('a fish with a loop carries it in every language that lists it, without the
 test('without a calendar the index has none of it', async () => {
   const ix = appIndex('vi', await getContent('vi'))
   for (const k of ['days', 'week', 'hero', 'shelves'] as const) expect(ix.home[k]).toBeUndefined()
+})
+
+test('a day\'s card is in each index whose language it is written in, within its days, with its sources and the pages it is about', async () => {
+  const source = { url: 'https://example.org/paper', title: 'A paper', publisher: 'A journal', date: '2001-05-01', accessed: '2026-11-08' }
+  const entity = CardSchema.parse({ id: 'trivia-x', type: 'trivia', about: ['species/paracheirodon-axelrodi', 'species/no-such-fish'], sources: [source], show: { from: '2026-11-09', until: '2026-11-10' }, updatedAt: '2026-11-08' })
+  const t = { eyebrow: 'Có thể bạn chưa biết', title: 'Một điều về cá', body: '<p>Theo một bài báo năm 2001.</p>' }
+  const cal = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-10', card: 'cards/trivia-x' }, { date: '2026-11-11', card: 'cards/trivia-x' }] })
+  const vi = { ...(await getContent('vi')), cards: [{ ...entity, t }] }
+  const ix = appIndex('vi', vi, new Map(), vi.species, { calendar: cal, today: '2026-11-10' })
+  // 11 Nov is past its days: that day has nothing left, and isn't listed.
+  expect(ix.home.days).toEqual([{
+    date: '2026-11-10',
+    card: { id: 'trivia-x', type: 'trivia', ...t, sources: [{ title: 'A paper', publisher: 'A journal', date: '2001-05-01', url: 'https://example.org/paper' }], about: [pathOf(ix, 'paracheirodon-axelrodi')] },
+  }])
+  // A language it isn't written in (or where the gate holds it back, which the loader leaves out) has no card.
+  const ms = await getContent('ms')
+  expect(appIndex('ms', ms, new Map(), (await getContent('vi')).species, { calendar: cal, today: '2026-11-10' }).home.days).toBeUndefined()
 })

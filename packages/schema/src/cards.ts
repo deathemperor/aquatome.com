@@ -3,8 +3,8 @@ import { PhotoSchema } from './schemas'
 
 /**
  * Short cards for the app's Hôm nay (content/cards/<id>/entity.json and <lang>.json): trivia, a newly described species, a
- * trend, an event, a product. They have no page on the site. The editorial calendar names one as `cards/<id>` in a day's
- * story (docs/curation.md). Each cites dated sources and is written through the Writing Lead's writer and gate.
+ * trend, an event, a product. They have no page on the site. The editorial calendar names one as `cards/<id>`, a day's
+ * `card` (docs/curation.md). Each cites dated sources and is written through the Writing Lead's writer and gate.
  */
 export const CARD_TYPES = ['trivia', 'new-species', 'trend', 'event', 'product'] as const
 const Day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
@@ -35,9 +35,10 @@ export const CardSchema = z.object({
 
 /** Why the gate holds a card back in this language (gate.ts `Held`): the build leaves it out. */
 const Held = z.object({ checks: z.array(z.string()), at: z.string() })
+/** The eyebrow and title fit Hôm nay's card at the largest text size (v2 Lab, 2026-11-08); a tap opens the body. */
 export const CardTextSchema = z.object({
-  eyebrow: z.string().min(1).max(60),
-  title: z.string().min(1).max(140),
+  eyebrow: z.string().min(1).max(24),
+  title: z.string().min(1).max(70),
   /** HTML, about 80 words. */
   body: z.string().min(1).max(2000),
   held: Held.optional(),

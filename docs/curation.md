@@ -12,6 +12,7 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 | In the calendar | In the index | What the app does with it |
 | --- | --- | --- |
 | `days[]`: `date`, `fish`, `img`, `guide`, `guideImg`, `story`, `by.<lang>` | `home.days[]`, from yesterday on | shows the day matching the reader's date; a day the index doesn't have falls back to the app's own rotation, but a listed day without a fish shows no fish card, since nothing passed both checks that day |
+| `days[].card`: `cards/<id>`, in the story's place | `home.days[].card`: its type, eyebrow, title, body, sources, the pages it's `about`, its photo and event | Hôm nay shows the eyebrow, title and photo (without one, the photo of the one page it's about), and a tap opens the body with its sources; only in the languages it's written in that the gate lets out, and only within its `show` days |
 | `weeks[]`: `from`, `to`, `theme` | `home.week` | an eyebrow over the week's cards |
 | `weeks[].hero` | `home.hero` | Khám phá's top cards, in order |
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |
@@ -70,7 +71,11 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
 
 ## New kinds of Hôm nay card (owner, 2026-11-08)
 
-Each needs dated sources, and is written through the Writing Lead's writer and gate.
+Each needs dated sources, and is written through the Writing Lead's writer and gate. A card is
+`content/cards/<id>/entity.json` and a `<lang>.json` per language it's written in (`packages/schema/src/cards.ts`): the
+eyebrow at most 24 characters and the title 70, so they fit the card at the largest text size, and a body of about 80
+words. `pnpm engine gate` reads it before it's committed, and `pnpm engine curate --check` says when a day's card is
+missing, held back in every language, or outside its days.
 
 | Kind | Sources | Cadence | Rules |
 | --- | --- | --- | --- |

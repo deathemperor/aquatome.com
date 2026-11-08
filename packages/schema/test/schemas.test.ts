@@ -47,4 +47,16 @@ test("a card: an event names its event, a product card its product, and no windo
   expect(CardSchema.safeParse({ ...base, type: 'product', product: 'products/a-heater' }).success).toBe(true)
   const held = { checks: ['words'], at: '2026-11-08T00:00:00Z' }
   expect(CardTextSchema.parse({ eyebrow: 'e', title: 't', body: '<p>b</p>', held }).held).toEqual(held)
+  // The eyebrow and title fit Hôm nay's card at the largest text size.
+  expect(CardTextSchema.safeParse({ eyebrow: 'e'.repeat(24), title: 't'.repeat(70), body: '<p>b</p>' }).success).toBe(true)
+  expect(CardTextSchema.safeParse({ eyebrow: 'e'.repeat(25), title: 't', body: '<p>b</p>' }).success).toBe(false)
+  expect(CardTextSchema.safeParse({ eyebrow: 'e', title: 't'.repeat(71), body: '<p>b</p>' }).success).toBe(false)
+})
+
+test("the calendar names a card for a day in the story's place, never both", async () => {
+  const { CurationSchema } = await import('../src/index')
+  const cal = (day: object) => CurationSchema.safeParse({ version: 1, weeks: [], days: [{ date: '2026-11-10', ...day }] }).success
+  expect(cal({ card: 'cards/trivia-betta' })).toBe(true)
+  expect(cal({ card: 'guides/x' })).toBe(false)
+  expect(cal({ card: 'cards/trivia-betta', story: { page: 'guides/x' } })).toBe(false)
 })
