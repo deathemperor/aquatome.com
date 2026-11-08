@@ -78,8 +78,11 @@ Each needs dated sources, and is written through the Writing Lead's writer and g
 characters and the title 70, so they fit the card at the largest text size, and a body of about 80 words.
 - **The editor writes the Vietnamese only**, through the editors (bar 9) and `pnpm engine gate` before it's committed. Each
   cycle the engine translates it into the other served languages: a reviewer holds each translation to the Vietnamese, it's
-  kept only when it passes and fits the limits, and the gate reads it like any card. A changed Vietnamese card is
-  translated again; one the gate holds takes its translations down.
+  kept only when it passes and fits the limits, and the gate reads it like any card once the gate runs in the cycle
+  (#881; until then the reviewer is the check). A changed Vietnamese card is translated again, and one the gate holds
+  takes its translations down, at the next cycle's translation step: for up to a cycle (about 3 hours) the old
+  translations still show. Malay is translated in the cycle's "ahead" block, which a long cycle skips, so a Malay card
+  can come a cycle after the Indonesian and Thai.
 - **An event in a reader's country is shown only in that country's language** (`cardShownIn`): an event whose
   `event.country` is Vietnam shows in Vietnamese only; one in Indonesia, Thailand or Malaysia (or Brunei, for Malay) is
   still written in Vietnamese, as the translation's source, but never shown in Vietnamese and translated into that one
