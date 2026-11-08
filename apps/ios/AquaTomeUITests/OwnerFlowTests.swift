@@ -328,6 +328,75 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(button.waitForExistence(timeout: 10), "the button didn't come back")
   }
 
+  /// v2, the owner's default: the report names v2's tab, the page on it and its item, and its picture is what the screen
+  /// shows. A page left for another tab is no longer named.
+  func testTheReportNamesV2sScreenAndThePageOnIt() {
+    let app = launch(owner: "ui-apple", "-v2", "YES")
+    signIn(app)
+    app.closeAccount()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "v2 didn't open on Hôm nay")
+    let today = report(app)
+    XCTAssertTrue(today.hasPrefix("v2 today · "), today)
+
+    app.buttons["v2-fish-of-the-day"].tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the fish's page didn't open")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "settled")], timeout: 2)
+    let screen = XCUIScreen.main.screenshot().image
+    let fish = report(app) { picture in
+      let near = Self.difference(picture, screen)
+      XCTAssertLessThan(near, 0.08, "the picture isn't what the screen showed: \(near)")
+      XCTAssertGreaterThan(Self.spread(picture), 0.05, "the picture is one flat colour")
+    }
+    XCTAssertTrue(fish.hasPrefix("v2 today species · /"), fish)
+    XCTAssertTrue(fish.contains("/ca/"), fish)
+
+    app.openTab("Bể của tôi")
+    let tanks = report(app)
+    XCTAssertTrue(tanks.hasPrefix("v2 tanks · "), tanks)
+    XCTAssertFalse(tanks.contains("/ca/"), "the fish's page, left on Hôm nay, still named: \(tanks)")
+  }
+
+  /// The report's sheet from the button: what it says it sends with the words, after `look` at its picture; then closed.
+  private func report(_ app: XCUIApplication, look: ((UIImage) -> Void)? = nil, line: UInt = #line) -> String {
+    let button = app.buttons["owner-report"]
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button", line: line)
+    button.tap()
+    let sent = app.staticTexts["owner-report-where"]
+    XCTAssertTrue(sent.waitForExistence(timeout: 10), "no sheet", line: line)
+    let image = app.images["owner-report-image"]
+    XCTAssertTrue(image.exists, "no picture attached", line: line)
+    look?(image.screenshot().image)
+    let said = sent.label
+    app.buttons["owner-report-close"].tap()
+    XCTAssertTrue(sent.waitForNonExistence(timeout: 10), "the sheet didn't close", line: line)
+    return said
+  }
+
+  /// Two pictures as a small grid of greys, 0 to 1: how far apart, on average.
+  private static func difference(_ a: UIImage, _ b: UIImage) -> Double {
+    let (x, y) = (greys(a), greys(b))
+    return zip(x, y).map { abs($0 - $1) }.reduce(0, +) / Double(x.count)
+  }
+
+  /// How far a picture's greys stray from their mean: near 0 for one colour.
+  private static func spread(_ a: UIImage) -> Double {
+    let g = greys(a)
+    let mean = g.reduce(0, +) / Double(g.count)
+    return (g.map { ($0 - mean) * ($0 - mean) }.reduce(0, +) / Double(g.count)).squareRoot()
+  }
+
+  private static func greys(_ image: UIImage, columns: Int = 9, rows: Int = 19) -> [Double] {
+    var bytes = [UInt8](repeating: 0, count: columns * rows)
+    bytes.withUnsafeMutableBytes { buffer in
+      guard let cg = image.cgImage,
+            let context = CGContext(data: buffer.baseAddress, width: columns, height: rows, bitsPerComponent: 8, bytesPerRow: columns,
+                                    space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return }
+      context.interpolationQuality = .medium
+      context.draw(cg, in: CGRect(x: 0, y: 0, width: columns, height: rows))
+    }
+    return bytes.map { Double($0) / 255 }
+  }
+
   /// A normal iPhone screenshot offers a report, without getting in the way: nothing opens until it's tapped.
   func testAScreenshotOffersAReport() {
     let app = launch(owner: "ui-apple", "-owner-screenshot-after", "6")

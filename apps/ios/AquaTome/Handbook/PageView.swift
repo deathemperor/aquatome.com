@@ -106,8 +106,8 @@ struct PageView: View {
         }
         .background(.bar)
       }
-      .onAppear { handbook.read(item); handbook.showingPage = item.path }
-      .onDisappear { if handbook.showingPage == item.path { handbook.showingPage = nil } }
+      .onAppear { handbook.read(item) }
+      .ownerShows(item.path, as: "page")
       .sheet(isPresented: $putting, onDismiss: {
         if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
       }) {

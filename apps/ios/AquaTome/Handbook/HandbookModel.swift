@@ -249,9 +249,6 @@ final class HandbookModel {
   }
 
   /// A page opened (drawn by the app or as the web page): on the pages read last, and its view for the telemetry.
-  /// The page of the handbook on the screen now, for the owner's report; nil on a shelf, a tool or a web page.
-  @ObservationIgnored var showingPage: String?
-
   func read(_ item: HandbookIndex.Item) {
     paths.read(item)
     telemetry?.record(.view(path: item.path))

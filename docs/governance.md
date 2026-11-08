@@ -208,8 +208,7 @@ that would have caught it).
     `protocols/owner-feedback.openapi.json`. They feed the thread that runs the project, so: only the owner's signed-in
     account sends one (no session, an ended one, the owner bar's flag, the dashboard token or another account stores
     nothing), the owner's cookie only from the site's own pages, 30 an hour, and only the words are free text: each other
-    field passes its own check or is left out, an address only on this site, as a plain path and a query of short words
-    at most. The queue opens to the
+    field passes its own check or is left out, an address only on this site, as a plain path and a query of short words at most. The queue opens to the
     dashboard token alone, and a delivered report and its image are deleted (`worker/test/feedback.test.ts`). The Mac's job:
     an empty queue is one request, a failed send keeps the report, a run that died after sending doesn't send twice, the
     owner's words quoted apart from everything recorded with them, no report's words in its log
@@ -220,7 +219,8 @@ that would have caught it).
     can't be drawn is marked and counted, and the message says whether it's a drawing or the screenshot the owner picked.
     In the app (`AquaTomeUITests/OwnerFlowTests.swift`, `AccountSyncTests/OwnerReportTests.swift`): the button and a
     screenshot's offer for the owner's account alone, none for another and gone at signing out, and the report's form with
-    the session as a bearer and no cookie, saying whether its picture is the app's screen or one the owner picked.
+    the session as a bearer and no cookie, saying whether its picture is the app's screen or one the owner picked. In v2
+    it names v2's tab and the page on it with its item, not a page left on another tab, and its picture is the screen.
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,

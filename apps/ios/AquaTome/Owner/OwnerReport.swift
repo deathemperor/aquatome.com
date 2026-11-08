@@ -267,7 +267,9 @@ private struct OwnerReportSheet: View {
           }
         }
         Section {
-          LabeledContent { Text(verbatim: where_).font(.footnote).foregroundStyle(.secondary) } label: { Text(verbatim: "Gửi kèm") }
+          LabeledContent {
+            Text(verbatim: where_).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("owner-report-where")
+          } label: { Text(verbatim: "Gửi kèm") }
         }
         if let problem {
           Section { Text(verbatim: problem).foregroundStyle(.red).accessibilityIdentifier("owner-report-problem") }
@@ -347,10 +349,43 @@ private struct OwnerReportSheet: View {
   }
 }
 
-/// What's showing now, for a report: the app's start says the screen and the page, and the rest is the phone's.
+/// What a report names beyond the app's tab, from small hooks where it shows: v2's tab in front (V2Root), and the page on
+/// the screen with the view that draws it, "page" for v1's (PageView) and "species" for v2's fish page (SpeciesPage).
+@MainActor
+enum OwnerShowing {
+  struct Page: Equatable {
+    let path: String
+    let view: String
+  }
+
+  fileprivate static var v2Tab: String?
+  fileprivate static var page: Page?
+}
+
+extension View {
+  /// This page names itself in a report while it's on the screen. One pushed over it may have appeared first: it leaves
+  /// that one's name, even for the same item (v2's fish page under v1's whole page for it).
+  func ownerShows(_ path: String, as view: String) -> some View {
+    let page = OwnerShowing.Page(path: path, view: view)
+    return onAppear { OwnerShowing.page = page }
+      .onDisappear { if OwnerShowing.page == page { OwnerShowing.page = nil } }
+  }
+
+  /// v2's tab in front, by its name, for a report; nil once v1 is back.
+  func ownerShowsTab(_ tab: String) -> some View {
+    onChange(of: tab, initial: true) { OwnerShowing.v2Tab = tab }
+      .onDisappear { OwnerShowing.v2Tab = nil }
+  }
+}
+
+/// What's showing now, for a report: the app's start says its tab and whether the account sheet is up, the hooks above
+/// v2's tab and the page, and the rest is the phone's. The screen reads as "v2 today species", "handbook page", "account".
 @MainActor
 enum OwnerReportHere {
-  static func place(screen: String, path: String?, lang: String) -> OwnerReportPlace {
+  static func place(tab: String, account: Bool, lang: String) -> OwnerReportPlace {
+    let page = account ? nil : OwnerShowing.page
+    let screen = [OwnerShowing.v2Tab == nil ? nil : "v2", account ? "account" : OwnerShowing.v2Tab ?? tab, page?.view]
+      .compactMap { $0 }.joined(separator: " ")
     let info = Bundle.main.infoDictionary
     let version = [info?["CFBundleShortVersionString"] as? String, (info?["CFBundleVersion"] as? String).map { "(\($0))" }].compactMap { $0 }.joined(separator: " ")
     let window = OwnerShot.appWindow
@@ -358,7 +393,7 @@ enum OwnerReportHere {
     let scale = window?.traitCollection.displayScale ?? 0
     return OwnerReportPlace(
       screen: screen,
-      path: path,
+      path: page?.path,
       lang: lang,
       version: version.isEmpty ? nil : version,
       theme: window?.traitCollection.userInterfaceStyle == .dark ? "dark" : "light",
