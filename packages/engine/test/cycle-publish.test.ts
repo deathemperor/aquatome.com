@@ -14,6 +14,7 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify 'pnpm test'/)
+  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify 'pnpm test'/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -38,4 +39,15 @@ test("a video run's work is committed before its tests, so a run that fails them
   const cycle = script('video-cycle.sh')
   expect(cycle.indexOf('git commit -q -m "content: videos')).toBeGreaterThan(0)
   expect(cycle.indexOf('git commit -q -m "content: videos')).toBeLessThan(cycle.indexOf("verify 'pnpm test'"))
+})
+
+// The re-check of 2026-11-08: its tests failed on a defect the sweep fixes, and its work, tested before it was committed,
+// was left for the next run's reset to drop.
+test("a video re-check sweeps its work and commits it before its tests, as the video job does", () => {
+  const s = script('video-recheck.sh')
+  const sweep = s.indexOf('pnpm engine sweep')
+  const commit = s.indexOf('git commit -q -m "content: video guides checked again')
+  expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
+  expect(commit).toBeGreaterThan(sweep)
+  expect(commit).toBeLessThan(s.indexOf("verify 'pnpm test'"))
 })
