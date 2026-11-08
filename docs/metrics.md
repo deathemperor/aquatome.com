@@ -131,7 +131,8 @@ that fails while one is already open updates that issue, so this counts incident
 
 Not on the scoreboard: per page, on the content page (`/_ab/noi-dung/`, `worker/admin/quality.ts`), which states its own
 formula. Five lists come out of it: rewrite first, decaying, gaps, best and worst. Writing Lead's rewrite queue reads the
-same lists from `/_ab/noi-dung/quality.json`, and the daily report says how many each holds.
+same lists from `/_ab/noi-dung/quality.json`, less the pages it can't rewrite (no engine key: the home page, a section's
+list), and the daily report says how many each holds.
 
 - **Reading**, from the beacon's last 28 days, with our own tabs and likely automated ones left out, as on the readers page.
   It's the average of three shares of a page's tabs: those that scrolled half the page, stayed 30 s, or went on to another

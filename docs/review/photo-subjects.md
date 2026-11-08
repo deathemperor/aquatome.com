@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules: docs/governance.md, "Photos".
-4685 verdicts. Shows it: 3196; its habitat (asked again): 4; something else: 203; not a photo of it: 174; dead or as food: 232; a person in it: 66; a logo on it: 21; can't tell: 772.
+4587 verdicts. Shows it: 3177; its habitat (asked again): 25; something else: 199; not a photo of it: 131; dead or as food: 201; a person in it: 43; a logo on it: 20; can't tell: 767.
 
 ## Left with no photo (54)
 
@@ -60,7 +60,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (772)
+## Can't tell: still shown (767)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -113,16 +113,15 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/commons/f13a47373a975627.webp) | exposed lakeshore covered in low, fine turf mixed with other plants; possibly a hair grass lawn, but too distant to iden |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/161246957.webp) | dense fine-leaved clump without spikelets, hard to confirm |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/215552042.webp) | fine grass-like tuft with whitish star-like flower heads, possibly flowering spikerush |
-| species/gymnocorymbus-ternetzi | [photo](https://media.aquatome.com/inaturalist/552749101.webp) | pale barred tetras in a group, slender, blurry; species unclear |
-| plants/blyxa-japonica | [photo](https://media.aquatome.com/aquariumbreeder/1ef6ab49becf8b81.webp) | dense clump of very fine grass-like leaves in a tank; could be Blyxa but looks like Eleocharis/hairgrass |
-| species/xiphophorus-maculatus | [photo](https://media.aquatome.com/commons/08a2c431a9cfdaa8.webp) | yellow tuxedo livebearer, slender body; could be platy or a young swordtail/variatus |
-| species/xiphophorus-maculatus | [photo](https://media.aquatome.com/inaturalist/207091518.webp) | blurry yellowish livebearer in murky water |
-| species/hemigrammus-bleheri | [photo](https://media.aquatome.com/commons/61f277b28873fa96.webp) | rummynose with red only on head, could be H. rhodostomus or Petitella |
-| plants/hygrophila-polysperma | [photo](https://media.aquatome.com/inaturalist/188790731.webp) | blurry submerged stems in flowing water |
+| species/gymnocorymbus-ternetzi | [photo](https://media.aquatome.com/inaturalist/552749101.webp) | silvery tetras with shoulder bars and no black rear body, blurry; may not be black tetra |
+| plants/blyxa-japonica | [photo](https://media.aquatome.com/aquariumbreeder/1ef6ab49becf8b81.webp) | dense tuft of fine grass-like leaves in a tank; could be Eleocharis or a similar carpet plant rather than Blyxa |
+| species/xiphophorus-maculatus | [photo](https://media.aquatome.com/commons/9bff71904ab836d2.webp) | hi-fin sunset-type platy with black tail; could be X. variatus or a hybrid; neon tetras behind |
+| species/xiphophorus-maculatus | [photo](https://media.aquatome.com/inaturalist/207091518.webp) | blurry pale yellowish livebearer, can't be identified for sure |
+| plants/hygrophila-polysperma | [photo](https://media.aquatome.com/inaturalist/188790731.webp) | blurred plant in flowing water, hard to identify |
+| plants/hygrophila-polysperma | [photo](https://media.aquatome.com/inaturalist/38200939.webp) | emersed plants over water, likely Hygrophila but unclear |
 | plants/hygrophila-polysperma | [photo](https://media.aquatome.com/inaturalist/43720262.webp) | mixed wild shallow water plants; reddish lanceolate stems possibly hygrophila, not clearly seen |
-| plants/micranthemum-tweediei | [photo](https://media.aquatome.com/2hraquarist/815a2a0fce729f7f.webp) | planted tank with red Alternanthera and a small-leaved foreground carpet, possibly Monte Carlo but not the main subject |
-| species/hyphessobrycon-herbertaxelrodi | [photo](https://media.aquatome.com/inaturalist/552749112.webp) | blurry, purple-tinted tank with mixed pale fish; striped fish in foreground unclear |
-| plants/bolbitis-heudelotii | [photo](https://media.aquatome.com/aquatome/plants-bolbitis-heudelotii-plant_37.webp) | small crinkled fern clumps on substrate, top view; species unclear |
+| plants/bolbitis-heudelotii | [photo](https://media.aquatome.com/aquatome/plants-bolbitis-heudelotii-plant_37.webp) | Small, dense, frilly dark-green ferns planted in gravel, seen from above. Could be a compact Bolbitis or a Microsorum cu |
+| species/sahyadria-denisonii | [photo](https://media.aquatome.com/inaturalist/313654351.webp) | blurry single redline fish over stream bottom; poor view, possibly wild |
 | species/sahyadria-denisonii | [photo](https://media.aquatome.com/inaturalist/553210753.webp) | single small blurry fish in the wild, black stripe and red dorsal fin; red line not clearly visible |
 | plants/hydrocotyle-tripartita | [photo](https://media.aquatome.com/commons/14fde0c66e42c54f.webp) | close-up of one hairy, toothed three-lobed leaf; hard to confirm the species |
 | plants/hydrocotyle-tripartita | [photo](https://media.aquatome.com/inaturalist/124522488.webp) | large glossy deeply lobed leaves, close-up; Hydrocotyle likely but look-alike possible |
@@ -837,7 +836,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/2a6c6ba0df2ab10a.webp) | wild stream bottom, two small striped fish seen from above, too distant to confirm |
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/5cb4fe636c844fc7.webp) | wild stream bed, small distant slender fish among rocks, species unclear |
 
-## Removed (686)
+## Removed (592)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -894,14 +893,13 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/danio-rerio (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/1688a25bafe5d789.webp) | not leopard zebra danio: blue net-like spots and orange fins, likely Danio kyathit/similar spotted Danio |
 | species/danio-rerio (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/81b54d5a8bc4ebcf.webp) | likely spotted Danio kyathit, not leopard zebra danio: orange-red fins and a net of pale-ringed blue spots, where the le |
 | species/danio-rerio | [photo](https://media.aquatome.com/inaturalist/196904128.webp) | dead: two pale danios lying out of water on wet stone |
+| species/mikrogeophagus-ramirezi (a guide photo) | [photo](https://media.aquatome.com/video/AzntHqOzRXg/p6-JTIyX21hbGUuanBn.webp) | likely an Apistogramma-type dwarf cichlid, not a ram: no black side spot, no black eye bar, blue scaled body with red ch |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/commons/2dd2721ca073d2b8.webp) | white variegated Anubias cultivar ('White'/'Pinto') on a floating grid |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/commons/ea489a2bcab6f039.webp) | gloved hand planting with tweezers on driftwood; anubias leaves visible in the foreground |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/flickr/9968269326.webp) | Anubias barteri var. nana (labelled): small narrow leaves |
 | plants/microsorum-pteropus | [photo](https://media.aquatome.com/aquariumcoop/607c050cfb217739.webp) | Java fern 'Windelov' cultivar with forked lacy leaf tips |
-| species/xiphophorus-maculatus | [photo](https://media.aquatome.com/inaturalist/556401822.webp) | people: orange-red feral platy in a viewing tank; fingertip at bottom left |
-| plants/hygrophila-polysperma | [photo](https://media.aquatome.com/commons/1ace0f1f5e04f1da.webp) | variegated cultivar (Rosanervig/Sunset type) emersed in a paludarium |
-| plants/micranthemum-tweediei | [photo](https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp) | fertilizer bottle and box packshot (2Hr Aquarist APT) |
-| plants/micranthemum-tweediei | [photo](https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp) | fertilizer bottle packshot with red stem plants (APT 3) |
+| species/xiphophorus-maculatus | [photo](https://media.aquatome.com/inaturalist/556401822.webp) | people: feral-coloured platy in a viewing tank, fingertip bottom left |
+| plants/hygrophila-polysperma | [photo](https://media.aquatome.com/commons/1ace0f1f5e04f1da.webp) | variegated cultivar (Sunset/Rosanervig type) with pale-veined leaves in a tank |
 | plants/vesicularia-ferriei | [photo](https://media.aquatome.com/flickr/12444347285.webp) | logo: close-up of weeping moss fronds; caption text top |
 | plants/vesicularia-ferriei | [photo](https://media.aquatome.com/flickr/12444348805.webp) | logo: single emersed moss sprig with snail on stem; caption text top, vertical copyright right edge |
 | plants/vesicularia-ferriei | [photo](https://media.aquatome.com/flickr/12444479303.webp) | logo: moss growing emersed at waterline in small tank; caption text top |

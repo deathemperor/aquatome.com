@@ -44,6 +44,10 @@ report says so. Never fill a seat with another provider's model.
 | xAI | `cursor` | `grok-4.7` | `reasoning_effort: xhigh`, `fastMode: false` |
 | Muse | (to fill: `muse`, off on 2026-11-07) | | |
 
+**Until 16 Nov 2026, two seats** (the owner, 2026-11-08: no more spend on Cursor, and its limit isn't raised): Anthropic
+and xAI only. Each score is marked two-editor in the record and the PR. Anything that first ships on two-editor scores
+goes on `docs/review/editors.md`'s re-score list, and after 16 Nov all four seats read it again.
+
 Cursor lists most of its models only on a search, and each model names its options its own way: check a seat with
 `orchestrator_capabilities` (`search: "<model id>"`) before a round. GPT only through the owner's own plan (Cursor),
 never through Codex or a proxy (owner, 2026-11-07). With one seat seated, a score is one model's reading: say so in

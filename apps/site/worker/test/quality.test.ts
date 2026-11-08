@@ -110,6 +110,11 @@ test('on the content page and for the writers: the formula, the lists, Google\'s
   const j = qualityJson(q)
   expect(j.pages.find(p => p.list === 'rewrite')).toMatchObject({ priority: 1, path: GUIDE, key: 'vi/guides/aquariumcoop-thay-nuoc', fit: ['source', 'units'], review: 0.6 })
   expect(j.gaps[0]).toMatchObject({ priority: 1, source: 'search', name: 'monte carlo trải nền <b>' })
+  // A page with no engine key (the home page, a section's list, the fish here, which has no signals) is the owner's to
+  // judge: on the owner's lists, not in the writers' queue, which rewrites by key.
+  expect(q.best.map(r => r.path)).toContain(FISH)
+  expect(j.pages.map(p => p.path)).not.toContain(FISH)
+  expect(j.pages.every(p => p.key)).toBe(true)
 })
 
 test('the daily job\'s figures: only with the dashboard token, only in their shape, kept for the content page', async () => {
