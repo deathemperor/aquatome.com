@@ -10,6 +10,50 @@
     "myanmar",
     "thade"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blue moon 'danio', Devario xyrops, is a devario known only from small streams draining the western slope of the Rakhine Yoma in western Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361568,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          18.28125,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

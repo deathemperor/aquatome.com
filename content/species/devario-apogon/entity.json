@@ -13,6 +13,64 @@
     "irrawaddy",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Daying",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Jiucheng, Yunnan Province, China' which could refer to one of several places with the same name in southwestern Yunnan.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been collected in Tengchong and Lianghe districts, Yingjiang county, and all known localities are within the Daying river (Dayingjiang) watershed, a major tributary of the larger Irrawaddy/Ayeyarwady river system.",
+          "countries": [],
+          "regions": [
+            "Daying",
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361481,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          23.90625,
+          19,
+          19
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

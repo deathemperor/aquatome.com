@@ -10,6 +10,130 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Atrato",
+        "Magdalena"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Boca de Raspadura, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+          "countries": [],
+          "regions": [
+            "Atrato",
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340630,
+      "total": 76,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          76
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          7.03125,
+          18,
+          18
+        ],
+        [
+          -75.9375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          7.03125,
+          12,
+          12
+        ],
+        [
+          -74.53125,
+          8.4375,
+          16,
+          16
+        ],
+        [
+          -74.53125,
+          9.84375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

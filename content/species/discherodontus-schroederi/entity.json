@@ -10,6 +10,73 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Klong",
+        "Chao Phraya",
+        "Mae Ping"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Discherodontus schroederi is a cyprinid native to the Mae Klong and Chao Phraya river basins in Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mae Klong and Chao Phraya river basins in Thailand.",
+          "countries": [],
+          "regions": [
+            "Mae Klong",
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'the Mekang on Doi Angka, northern Thailand', which corresponds to what is now referred to as Doi Inthanon National Park in Chiang Mai province, and thus the Mae Ping river basin, an upper tributary within the Chao Phraya watershed.",
+          "countries": [],
+          "regions": [
+            "Mae Ping"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364557,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

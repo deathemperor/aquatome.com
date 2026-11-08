@@ -1,8 +1,8 @@
 {
   "id": "puntius-titteya",
   "native": {
-    "input": "085b03a4611e77c1",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "c56a72e90c7c196b",
+    "at": "2026-11-08T03:17:10.020Z",
     "claims": [
       {
         "code": "LK",
@@ -15,9 +15,33 @@
       {
         "code": "LK",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka.",
+        "source": "sprucepets",
+        "quote": "The Cherry Barb, native to Sri Lanka, inhabits the Kelani and Nilwala basins.",
         "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Puntius titteya is found in the rainforests of Sri Lanka, an island country off the southern tip of India.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "aquariumcoop",
+        "quote": "Puntius titteya is found in the rainforests of Sri Lanka, an island country off the southern tip of India.",
+        "words": "India",
         "ok": true
       }
     ],
@@ -25,13 +49,15 @@
       {
         "name": "Kelani",
         "source": "seriouslyfish",
-        "quote": "The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka.",
+        "quote": "Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
+        "country": "LK",
         "ok": true
       },
       {
         "name": "Nilwala",
         "source": "seriouslyfish",
-        "quote": "The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka.",
+        "quote": "Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
+        "country": "LK",
         "ok": true
       }
     ],

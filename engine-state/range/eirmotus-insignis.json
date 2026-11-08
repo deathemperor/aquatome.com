@@ -1,0 +1,62 @@
+{
+  "id": "eirmotus-insignis",
+  "native": {
+    "input": "5724178b382c3a58",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Belitung Island",
+        "source": "seriouslyfish",
+        "quote": "Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Eirmotus insignis",
+    "status": "ACCEPTED",
+    "taxonKey": 2359309,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

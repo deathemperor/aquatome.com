@@ -1,7 +1,17 @@
 {
+  "alternanthera-reineckii-mini": {
+    "at": "2026-11-08",
+    "score": 0.85,
+    "kept": true
+  },
   "anubias-barteri-nana": {
     "at": "2026-11-06",
     "score": 0.82,
+    "kept": true
+  },
+  "anubias-barteri-var-caladiifolia": {
+    "at": "2026-11-08",
+    "score": 0.88,
     "kept": true
   },
   "bucephalandra-diabolica": {
@@ -123,6 +133,10 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "lagenandra-meeboldii": {
+    "at": "2026-11-08",
+    "kept": false
+  },
   "ludwigia-glandulosa": {
     "at": "2026-11-07",
     "kept": false
@@ -135,6 +149,11 @@
   "micranthemum-tweediei-monte-carlo": {
     "at": "2026-11-07",
     "score": 0.88,
+    "kept": true
+  },
+  "microsorum-pteropus-narrow": {
+    "at": "2026-11-08",
+    "score": 0.8,
     "kept": true
   },
   "myriophyllum-mattogrossense": {

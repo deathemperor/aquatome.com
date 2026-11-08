@@ -10,6 +10,160 @@
     "brazil",
     "rio-tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós",
+        "Rio Maués",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The spadetailed checkerboard cichlid, Dicrossus maculatus, is a cichlid from the Rio Tapajós, Rio Maués and nearby areas of the Brazilian Amazon.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajós",
+            "Rio Maués",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208254,
+      "total": 67,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          66
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          -2.8125,
+          25,
+          25
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

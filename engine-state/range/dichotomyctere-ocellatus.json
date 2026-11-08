@@ -1,0 +1,62 @@
+{
+  "id": "dichotomyctere-ocellatus",
+  "native": {
+    "input": "2b5a06baad61e5f7",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The figure eight puffer, Dichotomyctere ocellatus, is a small puffer from Cambodia, Malaysia and Indonesia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The figure eight puffer, Dichotomyctere ocellatus, is a small puffer from Cambodia, Malaysia and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The figure eight puffer, Dichotomyctere ocellatus, is a small puffer from Cambodia, Malaysia and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dichotomyctere ocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 9634430,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "KH",
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}
