@@ -1,42 +1,24 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/312481964/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/312481964/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "dhfischer",
-   "sourceUrl": "https://www.inaturalist.org/photos/312481964",
-   "key": "inat:312481964"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/312481967/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/312481967/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "dhfischer",
-   "sourceUrl": "https://www.inaturalist.org/photos/312481967",
-   "key": "inat:312481967"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/342586710/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/342586710/medium.jpg",
-   "width": 2047,
-   "height": 1356,
-   "licence": "CC BY",
-   "author": "Jay Pruett",
-   "sourceUrl": "https://www.inaturalist.org/photos/342586710",
-   "key": "inat:342586710"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Channa andrao im Aquarium.jpg",
-  "File:Baram Snakehead, Gunung Mulu NP, Sarawak, Malaysia iNaturalist.jpg"
+  "File:Baram Snakehead, Gunung Mulu NP, Sarawak, Malaysia iNaturalist.jpg",
+  "inat:312481964",
+  "inat:312481967",
+  "inat:342586710"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/f1cf8895771162e6.webp": "6f5e3e3474393fb7"
+  "https://media.aquatome.com/commons/f1cf8895771162e6.webp": "6f5e3e3474393fb7",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/312481967/original.jpg": "64c9ec2692666ca0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/342586710/original.jpg": "675e262d3f9f9c2b"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 610080,
+  "pass": "done",
+  "after": {
+   "research": 194833361,
+   "agree": 0
+  }
+ }
 }

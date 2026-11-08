@@ -1,36 +1,5 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/245796580/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/245796580/medium.jpeg",
-   "width": 1600,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Sabarni Sarker",
-   "sourceUrl": "https://www.inaturalist.org/photos/245796580",
-   "key": "inat:245796580"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/52760917/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/52760917/medium.jpg",
-   "width": 2048,
-   "height": 1226,
-   "licence": "CC BY",
-   "author": "Ashwin Viswanathan",
-   "sourceUrl": "https://www.inaturalist.org/photos/52760917",
-   "key": "inat:52760917"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/540538204/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/540538204/medium.jpg",
-   "width": 618,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "BHUKYA SAIKUMAR",
-   "sourceUrl": "https://www.inaturalist.org/photos/540538204",
-   "key": "inat:540538204"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Chitala chitala Thomas.jpg",
   "File:Chitala ornata (Zoo Brno, Czech Republic).jpg",
@@ -60,7 +29,10 @@
   "File:Chitala Fish and Wallago attu Fish in a Bangladeshi market.jpg",
   "File:Chitala hypselonotus 263843390.jpg",
   "File:Chitala chitala in Dong Nai river, Vietnam.jpg",
-  "File:Chital (a type of Fish).jpg"
+  "File:Chital (a type of Fish).jpg",
+  "inat:245796580",
+  "inat:52760917",
+  "inat:540538204"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/66be7c0556572082.webp": "b8988ebf67f3e0e0",
@@ -74,5 +46,13 @@
   "https://media.aquatome.com/commons/44fd2dd118ae9262.webp": "e1e160c1a1a09081",
   "https://media.aquatome.com/commons/9015915f8118080d.webp": "2c6e0e1e0e3d2f4d"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 97543,
+  "pass": "done",
+  "after": {
+   "research": 300016764,
+   "agree": 0
+  }
+ }
 }
