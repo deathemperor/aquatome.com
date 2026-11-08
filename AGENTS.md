@@ -6,7 +6,7 @@ and the rules every change follows) before changing the site. Commands and layou
 ## Verify
 
 - Run the root `pnpm test`, not one package's: engine tests read the site's fixture content. Then `pnpm typecheck` and
-  `pnpm --filter site e2e`.
+  `pnpm --filter site e2e`. On this Mac, each in the checks queue ("This Mac").
 - Each checkout running browser checks needs its own `E2E_PORT`. A server already on the port is reused, so a shared port
   tests another checkout's build.
 - A bug fix comes with a check that fails without it. Lighthouse budgets (`apps/site/e2e/lighthouse.spec.ts`) only
@@ -17,8 +17,11 @@ and the rules every change follows) before changing the site. Commands and layou
 Leads, the engine and main's iOS runs share one Mac. A booted simulator is the heaviest thing on it.
 
 - Start a simulator test run as `apps/ios/scripts/sim-run.py xcodebuild test …`: one at a time, leads' and the runner's in
-  one queue, at most two copies of a simulator. A session's plain `xcodebuild test` is refused (`.claude/hooks/`). Tests
-  that aren't a simulator's take `~/.cache/aquatome/checks.lock` (`scripts/cycle-checks.sh`).
+  one queue, at most two copies of a simulator. A session's plain `xcodebuild test` is refused (`.claude/hooks/`).
+- Other heavy work takes the checks queue: Astro builds, test suites, e2e and xcodebuild builds, as
+  `lockf -k ~/.cache/aquatome/checks.lock nice -n 10 <command>` (`scripts/cycle-checks.sh`). A session's outside it is
+  refused, since side by side they took the Mac to heavy thermal pressure (2026-11-08). One test file needs no turn:
+  `pnpm exec vitest run <file>`.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - Remove your worktree when its PR merges (`git worktree remove <path>`).
 - Keep what's worth keeping (working folders, prototypes, eval caches, briefs, run progress) in `~/.cache/aquatome/<area>/`,

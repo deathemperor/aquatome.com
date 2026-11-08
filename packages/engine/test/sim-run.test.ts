@@ -85,10 +85,10 @@ test('a session starts a simulator run only through sim-run.py', () => {
   for (const c of [
     'apps/ios/scripts/sim-run.py xcodebuild test -project a',
     'nice -n 10 scripts/sim-run.py xcodebuild test -project a',
-    'xcodebuild build-for-testing -project a',
+    'lockf -k ~/.cache/aquatome/checks.lock xcodebuild build-for-testing -project a',
     'xcodebuild -list',
-    'xcodebuild -scheme test build',
-    'xcodebuild -list\npnpm test -- foo',
+    'lockf -k "$HOME/.cache/aquatome/checks.lock" xcodebuild -scheme test build',
+    'xcodebuild -list\npnpm exec vitest run test/foo.test.ts',
     'xcodebuild -version\nswift test --filter a',
     "cat > x.sh <<'EOF'\nxcodebuild test -project a\nEOF",
     "git commit -m \"$(cat <<'EOF'\nxcodebuild test\nEOF\n)\"",
@@ -101,4 +101,55 @@ test('a session starts a simulator run only through sim-run.py', () => {
   ]) expect(blocked(c), c).toBe(false)
   // Words elsewhere in the call don't count.
   expect(spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command: 'ls', description: '(xcodebuild test -project a)' } }), encoding: 'utf8' }).status).toBe(0)
+})
+
+// 2026-11-08: Astro builds, test suites, e2e and xcodebuild builds side by side took the Mac to heavy thermal pressure, and
+// a 0.4 s job took up to 54 s. A session's go through the checks queue; one test file needs no turn.
+test('a session runs heavy work only in the checks queue', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  const sentToQueue = (command: string) => { const r = hook(command); return r.status === 2 && r.stderr.includes('checks.lock') }
+  for (const c of [
+    'pnpm test',
+    'pnpm -r --no-bail --if-present test',
+    'cd apps/site && pnpm build',
+    'pnpm --filter site build',
+    'pnpm -C apps/site test',
+    'pnpm --filter site e2e',
+    'pnpm run e2e:live',
+    'npm test',
+    'corepack pnpm@12.4.1 test',
+    'CONTENT_ROOT=x pnpm exec astro build',
+    'npx astro build',
+    'node_modules/.bin/astro build',
+    'pnpm exec playwright test e2e/a.spec.ts',
+    'cd packages/engine && pnpm exec vitest run',
+    'nice -n 15 sh -c "pnpm typecheck; pnpm test"',
+    'xcodebuild build-for-testing -project a -scheme b',
+    'xcodebuild -project a -scheme b',
+    'xcodebuild archive -scheme b -archivePath x',
+    'lockf -k ~/.cache/aquatome/other.lock pnpm test',
+  ]) expect(sentToQueue(c), c).toBe(true)
+  for (const c of [
+    'lockf -k ~/.cache/aquatome/checks.lock pnpm test',
+    'lockf -k "$HOME/.cache/aquatome/checks.lock" nice -n 10 pnpm -r --if-present test',
+    'lockf -t 600 -k ~/.cache/aquatome/checks.lock pnpm --filter site build',
+    'lockf -k ~/.cache/aquatome/checks.lock nice -n 15 sh -c "pnpm typecheck > a.log; pnpm test > b.log"',
+    'lockf -k ~/.cache/aquatome/checks.lock nice -n 10 xcodebuild build-for-testing -project a',
+    'apps/ios/scripts/sim-run.py xcodebuild test -project a',
+    'pnpm exec vitest run test/sim-run.test.ts',
+    'pnpm --filter @aq/engine exec vitest run test/a.test.ts -t name',
+    'pnpm typecheck',
+    'pnpm install --frozen-lockfile',
+    'pnpm engine sweep',
+    'xcodebuild -list',
+    'xcodebuild -showBuildSettings -scheme b',
+    'xcodebuild clean -project a',
+    'swift test --filter ChatTests',
+    'git commit -m "pnpm test passes"',
+    'rg "pnpm build" AGENTS.md',
+    "cat > x.sh <<'EOF'\npnpm test\nEOF",
+    'gh pr create --body "ran (pnpm test)"',
+  ]) expect(hook(c).status, c).toBe(0)
+  // A simulator run in the checks queue is still the simulator queue's.
+  expect(hook('lockf -k ~/.cache/aquatome/checks.lock xcodebuild test').stderr).toContain('sim-run.py')
 })
