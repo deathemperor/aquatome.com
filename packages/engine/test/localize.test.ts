@@ -162,9 +162,13 @@ test('place names: every place named in the language; a name with Vietnamese let
     const ids = [...a.prompt.matchAll(/^### (\S+)/gm)].map(m => m[1]!)
     return { places: ids.map(i => ({ id: i, name: i === 'china' ? 'Trung Quốc' : i === 'peru' ? '' : `ประเทศ ${i}` })) } as T
   }
+  await mkdir(join(root, 'content/places/ma'), { recursive: true })
+  await writeFile(join(root, 'content/places/ma/entity.json'), JSON.stringify({ id: 'ma', kind: 'region', countries: ['VN', 'CN'] }))
+  await writeFile(join(root, 'content/places/ma/vi.json'), JSON.stringify({ name: 'Mã' }))
   const r = await localizePlaces(root, llm, 'th')
   expect(r.failed.sort()).toEqual(['china: no name', 'peru: no name'])
   expect(prompts[0]).toContain('### rio-negro (river, in brazil): Rio Negro')
+  expect(prompts[0]).toContain('### ma (region, in VN, CN): Mã')
   const t = JSON.parse(await readFile(join(root, 'content/places/brazil/th.json'), 'utf8'))
   expect(t).toMatchObject({ slug: 'brazil', name: 'ประเทศ brazil', quality: { score: 0.9, indexable: true } })
   // Done once: only the two left are asked again.

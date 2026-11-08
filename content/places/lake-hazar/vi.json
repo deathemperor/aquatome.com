@@ -1,10 +1,13 @@
 {
   "slug": "lake-hazar",
-  "name": "Lake Hazar",
-  "altNames": [],
+  "name": "hồ Hazar",
+  "altNames": [
+    "Lake Hazar"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

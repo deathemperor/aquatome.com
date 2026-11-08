@@ -1,10 +1,13 @@
 {
   "slug": "lake-inle",
-  "name": "Lake Inle",
-  "altNames": [],
+  "name": "hồ Inle",
+  "altNames": [
+    "Lake Inle"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

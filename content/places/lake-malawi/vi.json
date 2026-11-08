@@ -1,10 +1,13 @@
 {
   "slug": "lake-malawi",
-  "name": "Lake Malawi",
-  "altNames": [],
+  "name": "hồ Malawi",
+  "altNames": [
+    "Lake Malawi"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

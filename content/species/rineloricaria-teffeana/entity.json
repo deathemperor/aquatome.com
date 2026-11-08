@@ -1,0 +1,145 @@
+{
+  "id": "rineloricaria-teffeana",
+  "scientificName": "Rineloricaria teffeana",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Rineloricaria teffeana (Steindachner, 1879). Type locality: Amazon River near Teffé, Brazil. Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named after Tefé, its type locality. Size: 14 cm SL.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Fish sold under this name are often the black form of Loricaria simillima. Even as young fish, Loricaria have feathered barbels and longer points on the pelvic fins. This misidentification is not due to the two fish looking similar but rather the perpetuation of the wrong identification in various sources. In Germany it is mostly misidentified as Hemiloricaria fallax.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>South America: Amazon River basin (Tefé, Middle Amazon (Solimões), Madeira). IUCN Red List category: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>pH 4.0–6.5. Temperature 26–30°C. Typical tropical blackwater is recommended.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Provide half-pipe type refuges, which are often also used as spawning sites. Fine sand; tubes with a diameter of 3–4 cm, bamboo preferred.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Adaptable omnivores, these fish will eat most foods from cucumber or zucchini slices to frozen bloodworm or dry flake foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Peaceful and not territorial.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Males grow short spines on the top of the head and on the pectoral fins. These odontodes (spines) on the head stand in 2 rows and only appear during the breeding season (December until May/June). Outside this time, you have to look a little closer. Males have wider heads and pectoral fin rays; the posterior margin of the pectoral fin is more concave. Females have a narrower head.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Optimal temperature 27°C and pH 6.0–6.5. If the water is warmer or more acidic, almost all eggs die within 48 hours. Only one male per tank spawns, sometimes with two or three females at one time. He tends and hatches the green eggs (about 100 per female) for six days. After hatching, the yolk sac takes two days to be used up, then feed with artemia or cyclops. The fry grow fast: 4 cm in six weeks is no problem.</p><p>Breeding reports: there is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 16 (no. 4), pp 34.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/873ffc06757f55e7.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Diogo Luiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rineloricaria_teffeana.jpg",
+      "caption": "Rineloricaria teffeana",
+      "thumb": "https://media.aquatome.com/commons/873ffc06757f55e7-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "scbHcbQ1a7U",
+      "title": "Temático dos Ramirezi Simpáticos",
+      "durationSec": 71,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chổi",
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

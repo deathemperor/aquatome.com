@@ -1,10 +1,13 @@
 {
   "slug": "kottawa-forest",
-  "name": "Kottawa Forest",
-  "altNames": [],
+  "name": "rừng Kottawa",
+  "altNames": [
+    "Kottawa Forest"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

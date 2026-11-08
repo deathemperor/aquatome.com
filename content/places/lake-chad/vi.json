@@ -1,10 +1,13 @@
 {
   "slug": "lake-chad",
-  "name": "Lake Chad",
-  "altNames": [],
+  "name": "hồ Chad",
+  "altNames": [
+    "Lake Chad"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

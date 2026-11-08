@@ -1,0 +1,25 @@
+{
+  "slug": "ca-binh-tich-catemaco",
+  "name": "Cá bình tích Catemaco",
+  "altNames": [
+    "Cá platy Catemaco",
+    "Cá platy Miller",
+    "Catemaco platy",
+    "Miller's platy"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài cá đẻ con hoang dã. Con cái dài gần 4 cm. Chiều dài của nó gấp khoảng đôi con đực, còn cân nặng thì gấp hơn bốn lần, nên đứng cạnh con cái thì con đực trông gần như tí hon.</p>",
+    "distribution:glaser": "<p>Loài platy này đến từ Laguna Catemaco, một hồ nước ngọt ở Mexico. X. milleri chỉ sống trong đúng hồ này và là loài đặc hữu ở đó.</p>",
+    "habitat:glaser": "<p>Hồ này hình thành từ núi lửa. Nước trong hồ hầu như chưa bao giờ lạnh dưới 20°C.</p>",
+    "waterConditions:glaser": "<p>Nước ở hồ gốc hầu như không bao giờ xuống dưới 20°C. Dù vậy, thực tế cho thấy nuôi X. milleri ở nhiệt độ phòng, không gắn thêm sưởi, lại cho kết quả tốt. Nuôi ấm quá thì qua nhiều thế hệ cá sẽ yếu dần.</p>",
+    "dimorphism:glaser": "<p>Con cái dài gần 4 cm. Chiều dài của nó gấp khoảng đôi con đực, còn cân nặng thì gấp hơn bốn lần, nên đứng cạnh con cái thì con đực trông gần như tí hon.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

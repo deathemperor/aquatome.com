@@ -647,6 +647,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/bagridae/mystus_carcio.htm": {
+    "entityIds": [
+      "species/mystus-carcio"
+    ],
+    "updatedAt": "2026-11-07T23:38:14.583Z",
+    "hash": "0e67af6ead0e6a2fb2a47e1247acd6cf498f0c4eb0a303be1944409b93623bc2",
+    "processedHash": "0e67af6ead0e6a2fb2a47e1247acd6cf498f0c4eb0a303be1944409b93623bc2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/bagridae/mystus_gulio.htm": {
     "entityIds": [
       "species/mystus-gulio"
@@ -767,6 +777,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/clariidae/clarias_gariepinus.htm": {
+    "entityIds": [
+      "species/clarias-gariepinus"
+    ],
+    "updatedAt": "2026-11-07T01:23:23.680Z",
+    "hash": "7860132f8b75920fe7a6b7ac6090b32a67b540989c798ff43f89ebb647d7ef66",
+    "processedHash": "7860132f8b75920fe7a6b7ac6090b32a67b540989c798ff43f89ebb647d7ef66",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/clariidae/clarias_meladerma.htm": {
     "entityIds": [
       "species/clarias-meladerma"
@@ -837,6 +857,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/ossancora_punctata.htm": {
+    "entityIds": [
+      "species/ossancora-punctata"
+    ],
+    "updatedAt": "2026-11-07T23:42:44.750Z",
+    "hash": "535bba891fe16f438373dc580140a36f3a6a75c809300aa8e96de5f180ad290f",
+    "processedHash": "535bba891fe16f438373dc580140a36f3a6a75c809300aa8e96de5f180ad290f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm": {
     "entityIds": [
       "species/acentronichthys-leptos"
@@ -887,6 +917,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm": {
+    "entityIds": [
+      "species/pachypterus-atherinoides"
+    ],
+    "updatedAt": "2026-11-07T23:47:09.782Z",
+    "hash": "a53c8060a725e33d37185b804e62cd6f633d0384092d2f228ce777feefc6ca30",
+    "processedHash": "a53c8060a725e33d37185b804e62cd6f633d0384092d2f228ce777feefc6ca30",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm": {
     "entityIds": [
       "species/noturus-crypticus"
@@ -894,6 +934,16 @@
     "updatedAt": "2026-11-06T18:54:25.697Z",
     "hash": "82acc22f1920e5ac2758d55c2fa85e4b81bf7083d21d8d8e5d87aed6498e1948",
     "processedHash": "82acc22f1920e5ac2758d55c2fa85e4b81bf7083d21d8d8e5d87aed6498e1948",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_elegans.htm": {
+    "entityIds": [
+      "species/noturus-elegans"
+    ],
+    "updatedAt": "2026-11-07T23:41:09.566Z",
+    "hash": "6aceb9a23e48cd1e8574ffccfa2c68234186c22f1e36e62503d27095737b54f1",
+    "processedHash": "6aceb9a23e48cd1e8574ffccfa2c68234186c22f1e36e62503d27095737b54f1",
     "status": "processed",
     "attempts": 0
   },
@@ -947,6 +997,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm": {
+    "entityIds": [
+      "species/farlowella-amazonum"
+    ],
+    "updatedAt": "2026-11-07T01:25:44.207Z",
+    "hash": "c9f2b5101df4b6d59f929c6abe8cec76ee7ded5245fdfc63e1d717654732b22e",
+    "processedHash": "c9f2b5101df4b6d59f929c6abe8cec76ee7ded5245fdfc63e1d717654732b22e",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm": {
     "entityIds": [
       "species/farlowella-oxyrryncha"
@@ -984,6 +1044,16 @@
     "updatedAt": "2026-11-02T21:48:59.447Z",
     "hash": "028a936a1a4bfb620e573548f2d9c3fd7c14c025ba02c8dbe74e964733e0e65d",
     "processedHash": "028a936a1a4bfb620e573548f2d9c3fd7c14c025ba02c8dbe74e964733e0e65d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/harttia_surinamensis.htm": {
+    "entityIds": [
+      "species/harttia-surinamensis"
+    ],
+    "updatedAt": "2026-11-07T01:29:02.815Z",
+    "hash": "e6ebd17a073d603917b9a49120c5a9e19ec6bf147a24edc6d0363700749a01b1",
+    "processedHash": "e6ebd17a073d603917b9a49120c5a9e19ec6bf147a24edc6d0363700749a01b1",
     "status": "processed",
     "attempts": 0
   },
@@ -1117,6 +1187,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm": {
+    "entityIds": [
+      "species/loricaria-cataphracta"
+    ],
+    "updatedAt": "2026-11-07T01:31:25.457Z",
+    "hash": "f1c64c680b28777f2d1fb1bf0e7e3bd10676e761f3438dac5433a5c97da5cf34",
+    "processedHash": "f1c64c680b28777f2d1fb1bf0e7e3bd10676e761f3438dac5433a5c97da5cf34",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/loricaria_simillima.htm": {
     "entityIds": [
       "species/loricaria-simillima"
@@ -1154,6 +1234,16 @@
     "updatedAt": "2026-11-04T22:20:14.166Z",
     "hash": "4275e31d99e96bf30df5dcd64ecb9f46e114cfa3712db474e17f320a6a94f788",
     "processedHash": "4275e31d99e96bf30df5dcd64ecb9f46e114cfa3712db474e17f320a6a94f788",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm": {
+    "entityIds": [
+      "species/otocinclus-huaorani"
+    ],
+    "updatedAt": "2026-11-07T23:45:51.158Z",
+    "hash": "8ea0f15f3784b6028dfe06a59bce2d41ddc19f472cb76d9191904a9bc21fcab5",
+    "processedHash": "8ea0f15f3784b6028dfe06a59bce2d41ddc19f472cb76d9191904a9bc21fcab5",
     "status": "processed",
     "attempts": 0
   },
@@ -1212,6 +1302,16 @@
     "updatedAt": "2026-11-06T18:51:43.160Z",
     "hash": "519ca1e0976f2050f3c52b908c1820f4be9ce59909a4a6b58842e52b3be44cb7",
     "processedHash": "519ca1e0976f2050f3c52b908c1820f4be9ce59909a4a6b58842e52b3be44cb7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm": {
+    "entityIds": [
+      "species/malapterurus-oguensis"
+    ],
+    "updatedAt": "2026-11-07T01:33:24.291Z",
+    "hash": "acf7d804006cecf8e841cd46595d5ada70d23e47cf6dbf2868f6fb180b4b9c71",
+    "processedHash": "acf7d804006cecf8e841cd46595d5ada70d23e47cf6dbf2868f6fb180b4b9c71",
     "status": "processed",
     "attempts": 0
   },

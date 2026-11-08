@@ -327,17 +327,20 @@ final class LightFlowTests: XCTestCase {
   }
 
   func testDisconnectWhileReadingTheLightReportsNothing() {
-    let app = launch("-fake-slow") // the first status read takes seconds
+    // The first status read takes seconds. At -fake-slow's 1.5 s the card turned to the connected screen between the tap on
+    // Hủy being aimed and landing, so it hit nothing and the light stayed connected (main's run, 7 Nov).
+    let app = launch("-fake-slower")
     app.buttons["scan"].tap()
     let light = app.buttons["light"].firstMatch
     XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
     light.tap()
     XCTAssertTrue(app.buttons["disconnect"].waitForExistence(timeout: 5), "not connecting")
+    XCTAssertEqual(app.buttons["disconnect"].label, "Hủy", "already connected: not a disconnect while reading")
     app.buttons["disconnect"].tap()
     XCTAssertTrue(app.buttons["scan"].waitForExistence(timeout: 5))
-    // The read stops without an answer (timeout 2 s, after a 1.5 s frame): that is no error to the reader.
+    // The read stops without an answer (timeout 2 s, after a 4 s frame): that is no error to the reader.
     let notice = element(app, "notice")
-    let shown = XCTWaiter.wait(for: [expectation(for: NSPredicate(format: "exists == true"), evaluatedWith: notice)], timeout: 6)
+    let shown = XCTWaiter.wait(for: [expectation(for: NSPredicate(format: "exists == true"), evaluatedWith: notice)], timeout: 8)
     XCTAssertNotEqual(shown, .completed, "notice after a deliberate disconnect: “\(notice.label)”")
   }
 

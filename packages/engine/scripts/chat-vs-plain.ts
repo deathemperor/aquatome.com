@@ -17,6 +17,8 @@
  *   pnpm --filter @aq/engine exec tsx scripts/chat-vs-plain.ts                      # every question, both conditions
  *   … --only algae-01,sick-03 --conditions tank --concurrency 4 --judges 3   # pairs judged at once, two orders each
  *   … --retry-failed            # ask again where a cached answer failed (a timeout, no key), instead of keeping it
+ *   … --slow 1.75               # a slow hour on purpose: each of our calls takes 1.75 times as long (`slowed`)
+ *   … --answers-only            # ask and time, no judge: prints where the time went and what failed
  *   … --model claude-haiku-5-5 --judge claude-opus-5-5 --site https://aquatome.com --out <file>
  *   … --panel <dir>             # also one blind packet for other judges (panel.md, key.json); their replies,
  *                               # saved there as verdicts-<judge>.json, join the report on the next run
@@ -68,12 +70,18 @@ const { values: args } = parseArgs({
     out: { type: 'string', default: join(ROOT, 'docs/review/chat-vs-plain.md') },
     panel: { type: 'string' },
     'retry-failed': { type: 'boolean', default: false },
+    slow: { type: 'string', default: '1' },
+    'last-effort': { type: 'string' },
+    'answers-only': { type: 'boolean', default: false },
   },
 })
 const MODEL = args.model!
 /** The agent's limits for ours, over the Worker's own (CHAT_LIMITS), as JSON: to see what a looser budget would buy. */
 const LIMITS = args.limits ? (JSON.parse(args.limits) as Partial<Limits>) : undefined
 const JUDGE = args.judge!
+const LAST_EFFORT = args['last-effort'] as ChatOptions['lastEffort']
+const SLOW = Number(args.slow)
+if (!(SLOW >= 1)) throw new Error(`--slow is a factor of 1 or more, not "${args.slow}"`)
 const WANTED = args.conditions!.split(',').filter((c): c is Condition => (CONDITIONS as readonly string[]).includes(c))
 const hash = (...xs: unknown[]) => createHash('sha256').update(JSON.stringify(xs)).digest('hex').slice(0, 12)
 const git = (...a: string[]) => { try { return execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim() } catch { return '' } }
@@ -131,6 +139,39 @@ function sender(healthy: KeyEntry[], store: HealthStore): Send {
 }
 
 /**
+ * A slow hour, made on purpose (`--slow`): each call takes `f` times as long as it really did, and one that would take
+ * longer than its timeout fails when the timeout comes, with the SDK's own message, as a slow API's call would.
+ */
+function slowed(send: Send, f: number): Send {
+  if (f === 1) return send
+  return async (b, o) => {
+    const t = Date.now()
+    const m = await send(b, o)
+    const end = t + (Date.now() - t) * f
+    const limit = t + o.timeoutMs
+    await new Promise(r => setTimeout(r, Math.max(0, Math.min(end, limit) - Date.now())))
+    if (end > limit) throw new Error('Request timed out.')
+    return m
+  }
+}
+/** One of our calls: how long it took, the timeout it had, whether it was the forced last call, its tokens or its error. */
+type Call = { n: number; ms: number; limit: number; forced: boolean; out?: number; failed?: string }
+function timed(send: Send, calls: Call[]): Send {
+  return async (b, o) => {
+    const t = Date.now()
+    const base = { n: o.call, limit: o.timeoutMs, forced: b.tool_choice?.type === 'none' }
+    try {
+      const m = await send(b, o)
+      calls.push({ ...base, ms: Date.now() - t, out: m.usage.output_tokens })
+      return m
+    } catch (e) {
+      calls.push({ ...base, ms: Date.now() - t, failed: String((e as Error).message ?? e).slice(0, 80) })
+      throw e
+    }
+  }
+}
+
+/**
  * The questions kept out of tuning: three a problem, marked `holdout` in the questions' file (picked once at random). Changes to the brain are tried on the others
  * (`--split dev`); the holdout (`--split holdout`) is read only for a result, so the brain isn't fitted to it.
  */
@@ -139,7 +180,7 @@ const holdout = (qs: HardQuestion[]) => new Set(qs.filter(q => q.holdout).map(q 
 
 /** An answer as the judge reads it (`text`); ours keeps what Claude chose and the Worker filled (`turn`), so a change to
  * how a block is shown judges the same answers again. */
-type Answered = { text: string; usd: number; ms: number; failed?: string; read?: string[]; stopped?: string; turn?: { text: string; blocks: ChatBlock[]; suggestions: string[] } }
+type Answered = { text: string; usd: number; ms: number; failed?: string; read?: string[]; stopped?: string; turn?: { text: string; blocks: ChatBlock[]; suggestions: string[] }; calls?: Call[] }
 const asked = (q: HardQuestion, c: Condition) => (c === 'post' ? q.post : q.short)
 /** Our turn as the reader sees it now (chat-vs-plain-lib.ts `seenOurs`). */
 const seen = (a: Answered): Answered => (a.turn ? { ...a, text: seenOurs(a.turn.text, a.turn.blocks, a.turn.suggestions) } : a)
@@ -153,7 +194,9 @@ async function main() {
     .filter(q => (TOPICS as readonly string[]).includes(q.topic))
     .filter(q => args.split === 'all' || (args.split === 'holdout') === held.has(q.id))
   const indexText = await (await fetch(new URL('/app/vi.json', args.site))).text()
-  siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText)}`)
+  // The guides' topics and which are held change apart from the index, so the build's folder is named for both.
+  const topicsText = await (await fetch(new URL('/app/chat/vi.json', args.site))).text()
+  siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText, topicsText)}`)
   cacheDir = join(args.cache!, 'runs')
   await mkdir(siteDir, { recursive: true })
   await mkdir(cacheDir, { recursive: true })
@@ -167,17 +210,18 @@ async function main() {
   const gone = questions.flatMap(q => (q.tank?.fish ?? []).flatMap(f => (f.id && hb.byId(f.id)?.kind !== 'fish' ? [`${q.id}: ${f.id}`] : [])))
   if (gone.length) throw new Error(`Pinned fish the handbook doesn't have: ${gone.join(', ')}`)
 
-  const ours = async (q: HardQuestion, c: Condition) => seen(await cachedFile<Answered>(`ours-v2-${MODEL}-${brain}${LIMITS ? `-limits${hash(LIMITS)}` : ''}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
+  const ours = async (q: HardQuestion, c: Condition) => seen(await cachedFile<Answered>(`ours-v2-${MODEL}-${brain}${LIMITS ? `-limits${hash(LIMITS)}` : ''}${LAST_EFFORT ? `-last${LAST_EFFORT}` : ''}${SLOW === 1 ? '' : `-slow${SLOW}`}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
     const t = Date.now()
+    const calls: Call[] = []
     try {
       const tanks = c === 'tank' && q.tank ? [savedTank(q.tank)] : []
-      const run: ChatRun = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, tanks: async () => tanks, ...(LIMITS ? { limits: LIMITS } : {}) })
+      const run: ChatRun = await answerQuestion({ send: timed(slowed(sender(await healthyKeys(keys, store, Date.now()), store), SLOW), calls), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, tanks: async () => tanks, ...(LIMITS ? { limits: LIMITS } : {}), ...(LAST_EFFORT ? { lastEffort: LAST_EFFORT } : {}) })
       const read = run.steps.flatMap(s => (s.kind === 'read' ? [s.page.url] : []))
       const usd = costOf(MODEL, run.spent)
-      if (!run.answer) return { text: '', usd, ms: Date.now() - t, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, read, stopped: run.stopped }
-      return { text: '', turn: { text: run.answer.text, blocks: run.blocks, suggestions: run.answer.suggestions }, usd, ms: Date.now() - t, read, stopped: run.stopped }
+      if (!run.answer) return { text: '', usd, ms: Date.now() - t, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, read, stopped: run.stopped, calls }
+      return { text: '', turn: { text: run.answer.text, blocks: run.blocks, suggestions: run.answer.suggestions }, usd, ms: Date.now() - t, read, stopped: run.stopped, calls }
     } catch (e) {
-      return { text: '', usd: 0, ms: Date.now() - t, failed: String((e as Error).message ?? e).slice(0, 160) }
+      return { text: '', usd: 0, ms: Date.now() - t, failed: String((e as Error).message ?? e).slice(0, 160), calls }
     }
   }))
   const plain = (q: HardQuestion, c: Condition) => cachedFile<Answered>(`plain-${MODEL}-${c}-${q.id}-${hash(asked(q, c))}.json`, async () => {
@@ -199,6 +243,11 @@ async function main() {
     console.log(`answered ${q.id} ${c}: ours ${o.failed ? `FAILED ${o.failed}` : `${o.text.length} chars`} $${o.usd.toFixed(4)}, plain ${p.failed ? `FAILED ${p.failed}` : `${p.text.length} chars`}`)
     return { q, c, ours: o, plain: p }
   })), Number(args.concurrency))
+
+  if (args['answers-only']) {
+    console.log(['', ...timing(pairs)].join('\n'))
+    return
+  }
 
   // The judge: both orders, each cached under the rubric's version and what it read.
   const judgeOnce = (p: Pair, x: string, y: string) => {
@@ -262,6 +311,21 @@ async function panelOf(pairs: { q: HardQuestion; c: Condition; ours: Answered; p
 }
 type Panel = Awaited<ReturnType<typeof panelOf>>
 
+/** Where our time went, a line for each condition: the turn, the call that wrote the answer, a reading call, and what failed. */
+function timing(pairs: { c: Condition; ours: Answered }[]): string[] {
+  const at = (xs: number[], p: number) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.floor(p * (s.length - 1))]! : 0 }
+  const sec = (ms: number) => `${(ms / 1000).toFixed(1)} s`
+  return WANTED.map(c => {
+    const runs = pairs.filter(p => p.c === c).map(p => p.ours)
+    const failed = runs.filter(r => r.failed)
+    const calls = runs.flatMap(r => r.calls ?? [])
+    const wrote = runs.flatMap(r => { const l = r.calls?.at(-1); return !r.failed && l && !l.failed ? [l] : [] })
+    const reading = calls.filter(k => !k.forced && !k.failed && !wrote.includes(k))
+    const where = counts(failed.map(r => { const l = r.calls?.at(-1); return !l?.failed ? 'no call failed' : l.forced ? 'the forced last call' : `reading call ${l.n}` }))
+    return `- **${c}${SLOW === 1 ? '' : `, ${SLOW}× slower`}:** ${runs.length} turns, ${failed.length} failed${failed.length ? ` (on ${where})` : ''}. The turn: median ${sec(at(runs.filter(r => !r.failed).map(r => r.ms), 0.5))}, 90th percentile ${sec(at(runs.filter(r => !r.failed).map(r => r.ms), 0.9))}. The call that wrote the answer: median ${sec(at(wrote.map(k => k.ms), 0.5))} (90th ${sec(at(wrote.map(k => k.ms), 0.9))}), ${at(wrote.map(k => k.out ?? 0), 0.5)} tokens out, with ${sec(at(wrote.map(k => k.limit), 0.5))} left for it. A reading call: median ${sec(at(reading.map(k => k.ms), 0.5))} (90th ${sec(at(reading.map(k => k.ms), 0.9))}).`
+  })
+}
+
 const pct = (k: number, n: number) => (n ? `${k}/${n}` : '–')
 const avg = (xs: number[]) => (xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1) : '–')
 const cell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n+/g, ' ')
@@ -315,6 +379,10 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
       })),
       '',
     ] : []),
+    '## Time',
+    '',
+    ...timing(pairs),
+    '',
     '## By problem',
     '',
     head,

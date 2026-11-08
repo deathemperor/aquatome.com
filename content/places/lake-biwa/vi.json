@@ -1,10 +1,13 @@
 {
   "slug": "lake-biwa",
-  "name": "Lake Biwa",
-  "altNames": [],
+  "name": "hồ Biwa",
+  "altNames": [
+    "Lake Biwa"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -4,8 +4,9 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
 import { z } from 'zod'
-import { countryOf, mayPublish, namesCountry, placeCountry, RangeSchema, type SectionKey, type SourceId, type SpeciesEntity, type SpeciesRange } from '@aq/schema'
+import { countryOf, mayPublish, namesCountry, placeCountry, PlaceSchema, RangeSchema, TranslationSchema, type SectionKey, type SourceId, type SpeciesEntity, type SpeciesRange } from '@aq/schema'
 import type { Llm } from './claude'
+import { placeId, rangePlace } from './merge'
 import { gbifRecords, type Gbif, type RecordsAudit } from './range-records'
 import { SOURCES, type SourceConfig } from './sources'
 
@@ -293,5 +294,24 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
       report.records.requests += deps.gbif.requests() - before
     }
   }
+  await writeRangePlaces(root, ids)
   return report
+}
+
+/** A place for every river and region the ranges name and the site has none for: localize-places then names it in each language. */
+export async function writeRangePlaces(root: string, ids: string[]) {
+  const dir = join(root, 'content/places')
+  const known = new Set(await readdir(dir).catch(() => [] as string[]))
+  for (const id of ids) {
+    const native = (await readJson<SpeciesEntity>(join(root, 'content/species', id, 'entity.json')))?.range?.native
+    for (const name of native?.regions ?? []) {
+      if (known.has(placeId(name))) continue
+      const said = native!.quotes?.find(q => q.regions.includes(name))?.countries
+      const p = rangePlace(name, said?.length ? said : native!.countries)
+      known.add(p.entity.id)
+      await mkdir(join(dir, p.entity.id), { recursive: true })
+      await writeFile(join(dir, p.entity.id, 'entity.json'), `${JSON.stringify(PlaceSchema.parse(p.entity), null, 2)}\n`)
+      await writeFile(join(dir, p.entity.id, 'vi.json'), `${JSON.stringify(TranslationSchema.parse(p.vi), null, 2)}\n`)
+    }
+  }
 }

@@ -35,6 +35,7 @@ push() {
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
       if git pull -q --rebase -X theirs; then
+        sweep_merged
         verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
@@ -68,6 +69,10 @@ CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
   CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job. On
+# GitHub the run keeps it as an artifact (engine.yml).
+if [ -n "${GITHUB_ACTIONS:-}" ]; then COST_DIR=/tmp; else COST_DIR="$HOME/Library/Logs"; fi
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 
 # shellcheck disable=SC1091
 [ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node
@@ -220,6 +225,8 @@ if part rewrite; then
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
   for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
   for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
+  # Rivers and regions under the names Vietnamese readers use, before the other languages name them.
+  pnpm engine name-places-vi || log "name-places-vi: failed"
   # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions and buying guides in both: only what is new or whose source changed.
   for lang in id th; do
     pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
@@ -308,6 +315,7 @@ git commit -q -m "content: engine $PART $(date -u +%F)"
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails stays here unpushed, and the
 # next cycle drops it.
 catch_up
+sweep_merged
 if ! verify_cycle; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi

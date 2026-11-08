@@ -1,10 +1,13 @@
 {
   "slug": "lake-salda",
-  "name": "Lake Salda",
-  "altNames": [],
+  "name": "hồ Salda",
+  "altNames": [
+    "Lake Salda"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

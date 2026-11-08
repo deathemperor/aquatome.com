@@ -1,10 +1,13 @@
 {
   "slug": "mississippi-river",
-  "name": "Mississippi River",
-  "altNames": [],
+  "name": "sông Mississippi",
+  "altNames": [
+    "Mississippi River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

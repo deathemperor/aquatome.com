@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import { prefersMarkdown } from '../markdown'
@@ -495,7 +496,9 @@ test('owner: opening /_ab/ signed in sets the owner flag cookie; the taken-down 
   expect(dash.headers.getSetCookie()[0]).toMatch(/^aq_owner=1; Path=\/;.*SameSite=Strict/)
   const gone = await gonePage().text()
   expect(gone).toContain('data-gone="1"')
-  expect(gone).toContain('Hiện lại trang này')
+  // With the owner's flag it loads the bar, which offers "bring back" on a page marked gone (src/owner/bar.ts).
+  expect(gone).toContain('/_owner/bar.js')
+  expect(readFileSync(fileURLToPath(new URL('../../src/owner/bar.ts', import.meta.url).href), 'utf8')).toContain("gone ? 'Hiện lại trang này'")
 })
 
 test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>, its old /vi/ address too in one hop; unknown paths stay 404', async () => {

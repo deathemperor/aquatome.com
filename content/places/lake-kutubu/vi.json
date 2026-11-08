@@ -1,10 +1,13 @@
 {
   "slug": "lake-kutubu",
-  "name": "Lake Kutubu",
-  "altNames": [],
+  "name": "hồ Kutubu",
+  "altNames": [
+    "Lake Kutubu"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

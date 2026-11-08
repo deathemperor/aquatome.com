@@ -1,10 +1,13 @@
 {
   "slug": "catalonia",
-  "name": "Catalonia",
-  "altNames": [],
+  "name": "Catalunya",
+  "altNames": [
+    "Catalonia"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,0 +1,80 @@
+{
+  "id": "garra-qiaojiensis",
+  "scientificName": "Garra qiaojiensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Garra",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy",
+    "china"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-qiaojiensis-2/",
+      "html": "<p>Garra qiaojiensis occurs only very locally in the Irrawaddy system of China and Burma. The fish described here come from the Putao region in Burma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-qiaojiensis-2/",
+      "html": "<p>The two specimens are approximately 9 cm long. One specimen has a red spot on its shoulder, which the other does not; there are also differences in the coloration of the pelvic fins, and one fish appears to be slimmer than the other. Based on these characteristics, they are believed to be a pair.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/garra-qiaojiensis-2/",
+      "html": "<p>Many good aquarium fish have come from the extremely species-rich genus Garra, such as the doctor fish Garra rufa, Garra flavatra and Garra panitvongi. Garra qiaojiensis was received as two sample specimens with striking beauty. Only a small number of animals were available from the supplier.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "AkeJWQ_krb4",
+      "title": "「橋街墨頭魚」-外表看似溫泉魚,實際還真的跟溫泉魚有關係！《三和水族》",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DjaaKcqJwGQ",
+      "title": "【微泩记62】青虹舞袖：桥街墨头鱼",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "A2Zb7c8YjgY",
+      "title": "【熱帯魚紹介】レッドルビーガラの本性【パート⑤】#aquarium   #レッドルビーガラ  #アクアリウム",
+      "durationSec": 44,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

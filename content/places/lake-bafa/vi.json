@@ -1,10 +1,13 @@
 {
   "slug": "lake-bafa",
-  "name": "Lake Bafa",
-  "altNames": [],
+  "name": "hồ Bafa",
+  "altNames": [
+    "Lake Bafa"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -31,6 +31,8 @@ CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
   CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
 git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
@@ -41,14 +43,17 @@ log "video recheck start"
 # When the stricter reviewer went live. Every guide on the site then (496) was scored before it.
 VIDEO_RECHECK_SINCE=2026-11-07T12:00:00Z
 # Every guide with no review from then on, whatever its score, reviewed again against its transcript, nothing rewritten:
-# one model call each, VIDEO_PARALLEL at once, VIDEO_REREVIEW_LIMIT a run (engine-state/reviews/video-guide.json). 60 a
-# run: the 496 in about 9 runs. Then each has a review from after it, and the step finds none and calls nothing.
-pnpm engine review-backfill --kind video-guide --reviewed-before "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REREVIEW_LIMIT:-60}" --parallel "${VIDEO_PARALLEL:-4}" || log "review-backfill: failed"
+# one model call each, VIDEO_PARALLEL at once, VIDEO_REREVIEW_LIMIT a run (engine-state/reviews/video-guide.json). 30 a
+# run, paced on 2026-11-08 from 60 (the engine's first account would have run out days before its weekly reset): the
+# rest in about 13 runs. Then each has a review from after it, and the step finds none and calls nothing.
+pnpm engine review-backfill --kind video-guide --reviewed-before "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REREVIEW_LIMIT:-30}" --parallel "${VIDEO_PARALLEL:-4}" || log "review-backfill: failed"
 # The guides those rechecks left under the bar, written again from the transcript with the notes (videos --redo: 3 to 6
 # model calls each, Opus writing; then their section pictures again), VIDEO_PARALLEL at once, VIDEO_REDO_LIMIT a run.
 # Each once: after that its own review counts, under the bar or not; a skip leaves it as it is, and a failure goes to the
-# video job's retries. Once the rechecks have left none, it fetches nothing and calls nothing.
-pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-30}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
+# video job's retries. Once the rechecks have left none, it fetches nothing and calls nothing. 8 a run, paced on
+# 2026-11-08 from 30: nearly every guide rechecked falls under the bar, and 30 an hour (about 470 calls) was the account's
+# whole week in days. The riskiest still go first.
+pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-8}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
 if [ -z "$(git status --porcelain -- content engine-state)" ]; then log "no changes"; exit 0; fi
 if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 git add content engine-state

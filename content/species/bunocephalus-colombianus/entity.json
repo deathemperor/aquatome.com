@@ -1,0 +1,91 @@
+{
+  "id": "bunocephalus-colombianus",
+  "scientificName": "Bunocephalus colombianus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<ul><li>Scientific name: Bunocephalus colombianus Eigenmann, 1912</li><li>Common name: Banjo Catfish</li><li>Type locality: Boca de Raspadura, Colombia.</li><li>Breeding: unreported.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>Etymology: Bunocephalus comes from the Greek bounos, meaning hill, and kephale, meaning head, in reference to the bumps on the head of the fish, which is particularly marked in some species. IUCN Red List category: Data Deficient (last assessed 2014).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>Indiana University Studies No. 16 [sic No. 8], pp 10.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "YWLoJxp8KJ4",
+      "title": "Cuidados del pez gato banjo (Bunocephalus coracoideus)",
+      "durationSec": 436,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZDwiNrpCLVo",
+      "title": "El pez banjo catalina (Bunocephalus coracoideus) Ficha Técnica",
+      "durationSec": 281,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá đáy",
+        "cát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -135,14 +135,16 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
   // A person's title and a renamed guide's old addresses stay when the source is read again.
   const name = prev?.vi?.nameFixed ? prev.vi.name : page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
   // A guide that fixes a problem leads with the fix (guide-sections.ts).
-  // A body fixed by hand and a note for local readers stay too.
+  // A body fixed by hand, the pages it cites and a note for local readers stay too.
   const fixed = prev?.vi?.bodyFixed ? prev.vi.body : undefined
   return { entity, vi: {
     slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: fixed ?? fixFirst(name, page.guide.kind, page.guide.viBody), quality: ctx.quality ?? DEFAULT_QUALITY,
     ...(prev?.vi?.nameFixed ? { nameFixed: true } : {}), ...(prev?.vi?.redirectFrom ? { redirectFrom: prev.vi.redirectFrom } : {}),
-    ...(prev?.vi?.bodyFixed ? { bodyFixed: true } : {}), ...(prev?.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
+    ...(prev?.vi?.bodyFixed ? { bodyFixed: true, ...(prev.vi.refs ? { refs: prev.vi.refs } : {}) } : {}), ...(prev?.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
   } }
 }
+
+const regionKind = (name: string): PlaceEntity['kind'] => /\b(rio|river|río)\b/i.test(name) ? 'river' : 'region'
 
 /** Places the page mentions that don't exist yet, parents first. Names stay English until a translator pass names them. */
 export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<PlaceEntity>[] {
@@ -157,7 +159,13 @@ export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<Plac
   for (const p of places) {
     let parent = add(p.continent, 'continent')
     if (p.country) parent = add(p.country, 'country', parent)
-    if (usableRegion(p.region)) add(p.region, /\b(rio|river|río)\b/i.test(p.region) ? 'river' : 'region', parent)
+    if (usableRegion(p.region)) add(p.region, regionKind(p.region), parent)
   }
   return out
+}
+
+/** A river or region only a species' range names, so the translator pass names it and the page shows it in each language. */
+export function rangePlace(name: string, countries: string[] = []): Item<PlaceEntity> {
+  const id = placeId(name)
+  return { entity: { id, kind: regionKind(name), ...(countries.length ? { countries } : {}) }, vi: { slug: id, name, altNames: [], sections: {}, quality: DEFAULT_QUALITY } }
 }
