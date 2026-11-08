@@ -10,7 +10,7 @@ import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
 import { deleteUser, InUse, methodsOf, removeMethod, signInWith } from './users'
-import PICTURES from '../../../../protocols/profile-pictures.json'
+import PICTURES from '../../../../protocols/profile-pictures.json' with { type: 'json' }
 
 /**
  * /api/v1/*: optional accounts for "Bể của tôi" (sign in, sync saved tanks, export, delete). Contract:
