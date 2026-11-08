@@ -1,6 +1,6 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, CurationSchema, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
+import { addDays, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -290,11 +290,49 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
     if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
     out.set(date, d)
   }
-  return { calendar: { ...cur, days: [...out.values()].sort((a, b) => a.date.localeCompare(b.date)) }, report }
+  const sorted = [...out.values()].sort((a, b) => a.date.localeCompare(b.date))
+  return { calendar: { ...cur, days: sorted, off: offPages({ ...cur, days: sorted }, byRef, from) }, report }
 }
 
-/** Everything wrong with the calendar from `from` on: each pick that can't be featured, and each day of `days` with no pick. */
-export function checkCalendar(cur: Curation, cands: Candidate[], from: string, days: number): string[] {
+/** The pages the weeks' top cards and shelves and the days' stories name, from `from` on, that don't pass reader fit. */
+function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): Record<string, string> {
+  const refs = [
+    ...cur.weeks.filter(w => w.to >= from).flatMap(w => [...w.hero.map(h => h.page), ...w.shelves.flatMap(s => s.pages)]),
+    ...cur.days.filter(d => d.date >= from).flatMap(d => (d.story ? [d.story.page] : [])),
+  ]
+  const off: Record<string, string> = {}
+  for (const ref of [...new Set(refs)].sort()) {
+    const c = byRef.get(ref)
+    if (!c) off[ref] = 'no such page'
+    else if (!c.fit) off[ref] = `reader fit: ${c.fitWhy}`
+  }
+  return off
+}
+
+/** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
+ * it's written in that the gate doesn't hold back. */
+export type CardShow = { show: CardEntity['show']; langs: string[] }
+export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
+  const dir = join(root, 'content', 'cards')
+  const out = new Map<string, CardShow>()
+  for (const id of await readdir(dir).catch(() => [] as string[])) {
+    const e = await json<unknown>(join(dir, id, 'entity.json'), null)
+    if (!e) continue
+    const langs: string[] = []
+    for (const lang of LANGS) {
+      const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
+      if (t && !t.held) langs.push(lang)
+    }
+    out.set(`cards/${id}`, { show: CardSchema.parse(e).show, langs })
+  }
+  return out
+}
+
+/**
+ * Everything wrong with the calendar from `from` on: each pick that can't be featured, each day of `days` with no pick,
+ * and each card that isn't there to show that day. A page in `off` isn't one: the build leaves it out.
+ */
+export function checkCalendar(cur: Curation, cands: Candidate[], from: string, days: number, cards: Map<string, CardShow> = new Map()): string[] {
   const byRef = new Map(cands.map(c => [c.ref, c]))
   const out: string[] = []
   for (let i = 0; i < days; i++) {
@@ -308,17 +346,23 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && problem(byRef.get(d.guide), 'square', d.guideImg, { photo: false })
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
-    if (d.story) {
+    if (d.story && !cur.off[d.story.page]) {
       const st = problem(byRef.get(d.story.page), 'square', d.story.img, { photo: false })
       if (st) out.push(`${d.date} story ${d.story.page}: ${st}`)
     }
+    if (d.card) {
+      const c = cards.get(d.card)
+      const p = !c ? 'no such card' : !c.langs.length ? 'held back or unwritten in every language'
+        : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : undefined
+      if (p) out.push(`${d.date} card ${d.card}: ${p}`)
+    }
   }
   for (const w of cur.weeks.filter(x => x.to >= from)) {
-    for (const h of w.hero) {
+    for (const h of w.hero.filter(h => !cur.off[h.page])) {
       const p = problem(byRef.get(h.page), 'wide', h.img)
       if (p) out.push(`week ${w.from} hero ${h.page}: ${p}`)
     }
-    for (const s of w.shelves) for (const ref of s.pages) {
+    for (const s of w.shelves) for (const ref of s.pages.filter(r => !cur.off[r])) {
       const c = byRef.get(ref)
       if (!c) out.push(`week ${w.from} shelf ${s.id} ${ref}: no such page`)
       else if (!c.fit) out.push(`week ${w.from} shelf ${s.id} ${ref}: reader fit: ${c.fitWhy}`)

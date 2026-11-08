@@ -1,6 +1,6 @@
 {
   "id": "youtube-k3xDjE_A8t0",
-  "kind": "care",
+  "kind": "plantCare",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=k3xDjE_A8t0",
   "html": "",
@@ -14,9 +14,11 @@
     "bucephalandra-sp",
     "staurogyne-repens",
     "alternanthera-reineckii",
-    "pogostemon-stellatus"
+    "pogostemon-stellatus",
+    "eleocharis-parvula",
+    "eleocharis-acicularis"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "k3xDjE_A8t0",
     "title": "Hồ thuỷ sinh nature 1.2m hướng dẫn setup và chăm sóc toàn tập - Tập 3 - thuỷ sinh Quoidecor",
@@ -37,29 +39,26 @@
     "lang": "vi",
     "taxa": [
       "Hemianthus callitrichoides",
-      "Eleocharis sp.",
+      "Eleocharis parvula",
       "Rotala rotundifolia",
       "Rotala macrandra",
       "Rotala sp.",
       "Fissidens sp.",
-      "Poecilia reticulata",
-      "Nerita sp.",
+      "Neritina sp.",
       "Neocaridina davidi",
-      "Lagenandra meeboldii",
-      "Bucephalandra sp.",
       "Hydrocotyle sp.",
       "Staurogyne repens",
-      "Cryptocoryne sp.",
-      "Limnophila aromatica",
-      "Micranthemus sp.",
+      "Lagenandra meeboldii",
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Pogostemon sp.",
       "Ludwigia sp.",
-      "Alternanthera reineckii",
-      "Pogostemon stellatus"
+      "Eleocharis acicularis"
     ],
     "gear": [
       {
         "category": "be-ca",
-        "type": "lon",
+        "type": "chuan",
         "t": 0
       },
       {
@@ -72,6 +71,7 @@
       {
         "category": "phan-nen",
         "type": "phan",
+        "brand": "Master Soil",
         "t": 0
       },
       {
@@ -97,53 +97,42 @@
         "t": 570
       },
       {
-        "category": "loc",
+        "category": "co2",
+        "type": "binh",
         "t": 0
       },
       {
         "category": "co2",
-        "type": "binh",
-        "brand": "Ista",
-        "model": "Bình CO2 nhôm 3 lít",
-        "t": 1500
-      },
-      {
-        "category": "co2",
         "brand": "Mufan",
-        "model": "Van điện CO2",
-        "t": 1500
-      },
-      {
-        "category": "co2",
-        "brand": "Qanvee",
-        "model": "Trộn CO2 F16",
-        "t": 1500
+        "t": 0
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
         "model": "WRGB2 90CM",
-        "t": 330
+        "t": 0
       },
       {
         "category": "den",
         "type": "diu",
         "brand": "Xima",
-        "model": "Đèn rọi 3 chế độ",
-        "t": 1048
+        "t": 1047
+      },
+      {
+        "category": "suoi",
+        "t": 1530
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 0
       },
       {
         "category": "khac",
         "brand": "Seachem",
         "model": "Prime",
-        "t": 1180
-      },
-      {
-        "category": "khac",
-        "brand": "Multibio",
-        "model": "Vi sinh",
-        "t": 1140
+        "t": 0
       },
       {
         "category": "khac",
@@ -153,135 +142,188 @@
       },
       {
         "category": "khac",
-        "brand": "Olli",
-        "model": "Loa thông minh",
-        "t": 1048
+        "brand": "Multibio",
+        "t": 690
+      },
+      {
+        "category": "khac",
+        "brand": "Chihiros",
+        "model": "Fe+",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Tăng đèn thế nào trong ba tuần đầu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p0-cXVhc2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p0-cXVhc2NhcGUuanBn-480.webp",
-          "width": 960,
-          "height": 549,
-          "licence": "CC0",
-          "author": "Dileepkumardr",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_Aquarium_Aquascape.jpg",
-          "caption": "Hồ thủy sinh trồng nhiều cây, đèn sáng đều, cây lên màu đẹp."
-        }
-      },
-      {
-        "heading": "Lịch thay nước và cách thay cho sạch",
+        "heading": "Khi nào thả cá vào bể mới",
         "moments": [
           {
-            "t": 616,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t616.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lũa phủ rêu và cây thủy sinh cần soi kỹ trước khi thay nước."
+            "t": 20,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh ở ngày thứ 5, lúc mới thả cá."
+          },
+          {
+            "t": 1330,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bơi giữa cây thủy sinh và lũa đá trong bể."
           }
         ]
+      },
+      {
+        "heading": "Tăng đèn thế nào trong ba tuần đầu",
+        "moments": [
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thân cắt xanh tốt cạnh hòn đá ở ngày thứ 12."
+          },
+          {
+            "t": 1060,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1060-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh dưới đèn, có lũa và cây."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p1-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p1-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh mới set với đèn LED treo phía trên, cây xanh mướt."
+        }
       },
       {
         "heading": "CO2, lọc và nhiệt độ",
         "moments": [
           {
-            "t": 1292,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t1292.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh mọc giữa các tảng đá đỏ trong hồ mẫu."
+            "t": 1140,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh với đá, lũa và đèn phía trên."
           },
           {
-            "t": 1302,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t1302.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu Fissidens xanh buộc trên nhánh lũa, xung quanh là cây thân đỏ."
+            "t": 1150,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu Fissidens xanh bám trên lũa gần mặt nước, dưới ánh đèn mạnh."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p2-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p2-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Hồ thủy sinh cây cắm xanh tốt, có cá neon bơi giữa các bụi cây."
-        }
+        ]
       },
       {
-        "heading": "Cây úng, tịt ngọn thì xử lý ra sao",
+        "heading": "Thay nước bao nhiêu và làm thế nào",
         "moments": [
           {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng nhíp tỉa những cây sao nhỏ mới trồng trên nền đất đen."
+            "t": 550,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at550-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầm ống siphon thay nước cho bể thủy sinh có lũa và đá."
           },
           {
-            "t": 119,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t119.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đám sao nhỏ trên nền, có cây lên tốt, có cây còn yếu."
+            "t": 1210,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đưa ống hút dọn đáy bể, mực nước đã hạ xuống."
+          }
+        ]
+      },
+      {
+        "heading": "Xử lý cây úng, tịt ngọn và lá hư",
+        "moments": [
+          {
+            "t": 400,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngọn cây thân có màu cam bị tịt, đang được kiểm tra trong bể."
+          },
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với đá và lũa, cây đang lên ở ngày thứ 12."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p3-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p3-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p5-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p5-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
           "height": 1280,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi sao nhỏ đỏ mọc khỏe trong hồ thủy sinh, ngọn lên đều."
+          "caption": "Bụi cây thân đỏ mọc dày trong bể thủy sinh, ngọn lên khá tốt."
         }
       },
       {
-        "heading": "Lũa ra nhớt và rêu hại tháng đầu",
+        "heading": "Nhớt trên lũa xử lý ra sao",
         "moments": [
           {
-            "t": 139,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t139.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa mới thả vào hồ, cá mún bơi quanh để ăn nhớt."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá mún bơi quanh nhánh lũa mới thả trong bể."
           },
           {
-            "t": 1143,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t1143.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu hại bám xanh trên cành lũa sau hơn nửa tháng."
-          }
-        ]
-      },
-      {
-        "heading": "Thả cá, tép, ốc lúc nào và thả gì",
-        "moments": [
-          {
-            "t": 189,
-            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/t189.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá nhỏ bơi gần đá trong hồ sau khi thả."
+            "t": 150,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng bàn chải chà nhớt trên nhánh lũa trong bể."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p5-5femVicmEpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p5-5femVicmEpLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p6-aXNoYm93bC5qcGVn.webp",
+          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p6-aXNoYm93bC5qcGVn-480.webp",
           "width": 960,
-          "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Evan Baldonado",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Nerite_Snail_(Neritina_natalensis_sp._zebra).jpg",
-          "caption": "Ốc Nerita sọc bò trên nền cát trong hồ, bên cạnh cục rêu."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "User:Rijans007",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Driftwood_in_fishbowl.jpeg",
+          "caption": "Bể tròn có khúc lũa lớn và vài con cá nhỏ bơi quanh."
+        }
+      },
+      {
+        "heading": "Phát hiện rêu hại sớm",
+        "moments": [
+          {
+            "t": 1320,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm cây thủy sinh đỏ trong bể ngày thứ 18, cần soi kỹ mỗi ngày."
+          },
+          {
+            "t": 1340,
+            "url": "https://media.aquatome.com/video/k3xDjE_A8t0/at1340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu US Fissidens buộc trên lũa, chỗ rêu tóc hay mọc xen vào."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/k3xDjE_A8t0/p7-lyX0FsZ2FlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/k3xDjE_A8t0/p7-lyX0FsZ2FlLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "aquarist.me",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Crab_munching_on_Hair_Algae.jpg",
+          "caption": "Rêu hại dạng sợi xanh mọc xen trong đám rêu bám trên lũa."
         }
       }
     ]

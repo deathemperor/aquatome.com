@@ -1,17 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Geophagus_neambi%2C_RC_Albertson_et_al_2018.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Geophagus_neambi%2C_RC_Albertson_et_al_2018.jpg/500px-Geophagus_neambi%2C_RC_Albertson_et_al_2018.jpg",
-   "width": 3648,
-   "height": 2736,
-   "licence": "CC BY-SA 4.0",
-   "author": "MChGilbert",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_neambi,_RC_Albertson_et_al_2018.jpg",
-   "caption": "Geophagus neambi from Lago Tucuruí",
-   "key": "File:Geophagus neambi, RC Albertson et al 2018.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Geophagus neambi, RC Albertson et al 2018.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/9f4cdea2f4598772.webp": "00004d1e0f0f0c76",
+  "https://media.aquatome.com/seriouslyfish/0b38ad8217e476fe.webp": "8b1f1f3f0f1f1e4c",
+  "https://media.aquatome.com/seriouslyfish/97b5a3386104eb5a.webp": "000484cf93c62d1a"
+ },
+ "commons": "2026-11-08"
 }

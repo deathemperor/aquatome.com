@@ -16,6 +16,8 @@ const Ref = z.string().regex(/^(species|breeds|guides|plants)\/[A-Za-z0-9_-]+$/)
 /** A photo on our media host, at full size, to show in place of the page's own. */
 const Img = z.string().regex(/^https:\/\/(media\.aquatome\.com|images\.unsplash\.com)\//)
 const Day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
+/** One of the app's short cards (content/cards, cards.ts), which have no page on the site. */
+const CardRef = z.string().regex(/^cards\/[a-z0-9-]+$/)
 
 /** A story card: a page told in a few words. Without `img` it is drawn without a photo. */
 const Story = z.object({ page: Ref, img: Img.optional(), eyebrow: Copy.optional(), title: Copy.optional(), dek: Copy.optional() })
@@ -35,12 +37,14 @@ export const CurationDaySchema = z.object({
   /** The guide card's photo, when one is big enough for a large card; without it the card is drawn without a photo. */
   guideImg: Img.optional(),
   story: Story.optional(),
+  /** A short card in the story's place, shown in the languages it's written in, within its `show` days. */
+  card: CardRef.optional(),
   by: z.partialRecord(z.enum(LANGS), LangPicks).optional(),
   /** Why the planner picked these (the season, demand, what's new): for the owner's report, never shown in the app. */
   why: z.string().max(300).optional(),
   /** A person chose this day: the planner keeps it as long as its pages pass. */
   fixed: z.literal(true).optional(),
-})
+}).refine(d => !(d.story && d.card), { message: 'a day has a story or a card, not both' })
 
 export const CurationWeekSchema = z.object({
   from: Day,
@@ -88,6 +92,12 @@ export const CurationSchema = z.object({
   loops: z.record(z.string(), LoopSchema).default({}),
   /** Photos never to lead a card, with why (a sick fish, a dark tank where the fish is small). */
   avoid: z.record(z.string(), z.string()).default({}),
+  /**
+   * Pages the weeks' top cards, shelves or days' stories name that don't pass reader fit now, with why. The planner
+   * writes it afresh on each run and the build leaves them out, so the editor's picks come back once they pass. A day's
+   * fish and guide are replaced instead.
+   */
+  off: z.record(z.string(), z.string()).default({}),
 })
 
 export type Curation = z.infer<typeof CurationSchema>
