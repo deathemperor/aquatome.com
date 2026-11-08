@@ -161,6 +161,9 @@ REACH = {
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     # The photo picker both screens open (the flows hand them a photo, as picked).
     APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
+    # The waits a flow moves on itself (`-test-gates`): only the fish-ID flows open them (the page shots' fish-ID screens
+    # get the plain wait it replaced, as with FakeServer's).
+    APP + 'TestGate.swift': ['FishIdFlowTests'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     # Its flows, and a fish page's link that opens it.
     APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
@@ -229,8 +232,11 @@ REACH = {
     # sends its commands.
     KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
-    # The owner's dashboard's flows read it: the stand-in server serves its replies.
-    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests'] + shots('owner'), 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
+    # The owner's dashboard's flows read it: the stand-in server serves its replies, and the owner's row counts its to-dos.
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos']
+                                              + shots('owner'),
+    # The sample's waiting photos, which the stand-in server serves to the dashboard's flows.
+    'apps/site/e2e/photos/': ['OwnerFlowTests'] + shots('owner'), 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request that changes what it builds or checks.
     'apps/ios/scripts/check-strings.py': NONE,
@@ -312,9 +318,9 @@ def check(runs, left, reached):
     assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light'),
                                                           'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'}
     # The owner's dashboard: its flows and its page shots, and the tanks tab's with them where its row is; its vectors
-    # reach them too.
+    # reach them too, and the owner's row, which counts the overview's to-dos.
     assert reached([APP + 'Owner/OwnerBlocks.swift']) == {'OwnerFlowTests', *shots('owner')}
-    assert reached(['protocols/owner-dashboard-vectors.json']) == reached([APP + 'Owner/OwnerText.swift'])
+    assert reached(['protocols/owner-dashboard-vectors.json']) == reached([APP + 'Owner/OwnerText.swift']) | {'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'}
     # The tanks list takes the page shots; the Tài khoản sheet and its button, every flow that goes through the sheet and
     # the page shots too; the account's other files, its flows alone.
     assert set(shots('tanks')) <= reached([APP + 'Tanks/TanksView.swift'])
@@ -344,6 +350,7 @@ def check(runs, left, reached):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
+    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests'}
     # The chat's contract, before its screen: the kit's tests only.
     for p in (KIT + 'Sources/Handbook/Chat.swift', KIT + 'Sources/Handbook/ServerEvents.swift'):
         assert reached([p]) == set(), p

@@ -94,7 +94,7 @@ async function accounts(db = testD1()) {
 }
 
 /** The owner's dashboard itself, as opposed to the refusal or a public page. */
-const isDashboard = (html: string) => html.includes('Các mục quản trị')
+const isDashboard = (html: string) => html.includes('Dashboard pages')
 
 // ---- The token ----
 
@@ -499,12 +499,12 @@ test('the owner\'s forms work from the page itself, Origin: null as a no-referre
 
 test('the daily report\'s delivery from its page on this host: the form posts behind Access, from the page only, and comes back to /bao-cao/', async () => {
   const { e, store } = env()
-  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Tắt email</button><button name="push" value="1">Bật thông báo</button></form>')
+  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Turn off email</button><button name="push" value="1">Turn on notifications</button></form>')
   const press = (headers: Record<string, string>, token?: string | null, on: Env = e) => dash('/_ab/bao-cao/cai-dat', { method: 'POST', body: new URLSearchParams({ push: '1' }), token, headers: { 'content-type': 'application/x-www-form-urlencoded', ...headers } }, on)
   const ok = await press({ 'sec-fetch-site': 'same-origin', origin: 'null' })
   expect([ok.status, ok.headers.get('location'), ok.headers.get('x-robots-tag'), ok.headers.get('cache-control')]).toEqual([303, '/bao-cao/', 'noindex, nofollow', 'no-store'])
   expect(JSON.parse(store.get('report-settings')!)).toEqual({ email: true, push: true })
-  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<button name="push" value="0">Tắt thông báo</button>')
+  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<button name="push" value="0">Turn off notifications</button>')
   store.clear()
   // Not from the page, or not through Access: refused, nothing written.
   for (const headers of [{ 'sec-fetch-site': 'cross-site' }, { 'sec-fetch-site': 'same-site' }, { 'sec-fetch-site': 'none' }, {}] as Record<string, string>[]) {
