@@ -23,7 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/493931956",
       "caption": "Đàn cá ngựa vằn bơi trong bể nền sỏi xanh",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/493931956-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     },
     {
       "url": "https://media.aquatome.com/flickr/8843774696.webp",
@@ -79,7 +84,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Pogrebnoj-Alexandroff",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_rerio.JPG",
-      "caption": "Đàn cá ngựa vằn bơi gần kính trong bể nuôi"
+      "caption": "Đàn cá ngựa vằn bơi gần kính trong bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/cd70b220e48f0234-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d7f3d7c55b3c16c9.webp",

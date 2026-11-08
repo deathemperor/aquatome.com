@@ -23,6 +23,11 @@ export type Content = {
   guides: Localized<GuideEntity>[]
   glossary: Localized<GlossaryEntity>[]
   places: Localized<PlaceEntity>[]
+  /**
+   * Every place's name in this language by its id, those without a page here too: what a river or a region a fish's
+   * range names is called (the site's range lines). `places` keeps only those with a page in this language.
+   */
+  placeNames: Record<string, string>
   equipment: EquipmentGuide[]
   /** Photo galleries by species id (content/gallery): open licences, or a source's permission. */
   galleries: Record<string, Photo[]>
@@ -186,12 +191,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 
+  const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
   return {
     species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
-    places: (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
+    places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
+    placeNames: Object.fromEntries(allPlaces.map(p => [p.id, p.t.name])),
     sources,
     pictureHashes: (await exists(join(root, 'picture-hashes.json'))) ? await readJson(join(root, 'picture-hashes.json'), PictureHashesSchema) : {},
   }

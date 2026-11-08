@@ -521,7 +521,7 @@ final class LightsModel {
       self.show(snap)
       self.synced = true
       self.changeLight { $0.clockSyncedAt = Timestamp.string(Date()) }
-      self.notice = Notice(text: String(localized: "Đã chỉnh giờ đèn: \(Date().formatted(date: .omitted, time: .shortened))."))
+      self.notice = Notice(text: String(localized: "Đã chỉnh giờ đèn: \(Date().formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app)))."))
     }
   }
 

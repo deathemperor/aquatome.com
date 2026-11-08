@@ -127,7 +127,7 @@ private struct TankRow: View {
 /// The line under a tank's name: size, litres, substrate (what it has of them), as the site writes it.
 func facts(_ t: Tank) -> [String] {
   var out: [String] = []
-  let num = { (n: Double) in n.formatted(.number.rounded(rule: .toNearestOrAwayFromZero).precision(.fractionLength(0...1))) }
+  let num = { (n: Double) in n.formatted(.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero).precision(.fractionLength(0...1))) }
   if let d = t.dims { out.append("\(num(d.l)) × \(num(d.w)) × \(num(d.h)) cm") }
   if let l = t.totalLitres { out.append(litresText(l)) }
   if let s = t.substrate { out.append(Substrate.label(s)) }

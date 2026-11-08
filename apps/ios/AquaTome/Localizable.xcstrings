@@ -2267,6 +2267,28 @@
         }
       }
     },
+    "Bỏ ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus foto"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buang gambar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอารูปออก"
+          }
+        }
+      }
+    },
     "CO2": {
       "localizations": {
         "id": {
@@ -16849,6 +16871,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพจะผ่านการตรวจสอบก่อนแสดง รูปที่มีคน ไม่ตรงสายพันธุ์ หรือไม่เหมาะสมจะถูกตัดออก ตำแหน่ง GPS และข้อมูลกล้องในรูปจะถูกลบก่อนส่ง"
+          }
+        }
+      }
+    },
+    "Ảnh đại diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto profil"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar profil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปโปรไฟล์"
           }
         }
       }

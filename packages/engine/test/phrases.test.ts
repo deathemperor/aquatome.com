@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { checkPages, rulesReport, RULES } from '../src/content-rules'
+import { SWAPPED } from '../src/names'
 import type { Page } from '../src/pages'
 import { PHRASES, phraseMatch, phraseSlips, ticCount, ticSlips, VI_STYLE } from '../src/phrases'
 
@@ -68,4 +69,15 @@ test('the report counts each phrase\'s pages and times instead of listing every 
   const md = rulesReport([a, b], phrasing([a, b]), RULES.filter(r => r.id === 'phrasing'))
   expect(md).toContain('## Words hobbyists rarely write (2)')
   expect(md).toContain('- vi · "dù vậy" → "nhưng", "tuy nhiên": 2 pages, 3 times\n- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1 pages, 1 times')
+})
+
+test('every Vietnamese writer\'s style guide names each fish as the owner settled, and the name it no longer has', () => {
+  for (const r of SWAPPED) {
+    const line = VI_STYLE.split('\n').find(l => l.startsWith(`- ${r.fish.join(', ')}:`))
+    expect(line, r.fish[0]).toBeDefined()
+    for (const now of r.now.split(', ')) expect(line).toContain(`"${now}"`)
+    expect(line).toContain(`không gọi là "${r.was}"`)
+  }
+  // The guide writer reads the same style guide.
+  expect(VI_STYLE).toContain('"cá chì", không gọi là "cá bút chì" ("cá bút chì" là Crossocheilus')
 })

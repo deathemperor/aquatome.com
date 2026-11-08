@@ -207,7 +207,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => capitalized(x.t.name)) : []
     return { id: p.id, name: capitalized(p.t.name), kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
   })
-  const regionName = regionNames(c.places)
+  const regionName = regionNames(c.placeNames)
   const taxa = served(lang, '/vi/phan-loai/x/')
   if (served(lang, '/vi/ca/x/')) {
     // A group the site has no word for (a handful of fish) is "Loài khác", as the app shows it.

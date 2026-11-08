@@ -1,0 +1,58 @@
+{
+ "queue": [
+  {
+   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/328167400/original.jpg",
+   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/328167400/medium.jpg",
+   "width": 2048,
+   "height": 1536,
+   "licence": "CC BY",
+   "author": "John Witton",
+   "sourceUrl": "https://www.inaturalist.org/photos/328167400",
+   "key": "inat:328167400"
+  },
+  {
+   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/328167422/original.jpg",
+   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/328167422/medium.jpg",
+   "width": 2048,
+   "height": 1536,
+   "licence": "CC BY",
+   "author": "John Witton",
+   "sourceUrl": "https://www.inaturalist.org/photos/328167422",
+   "key": "inat:328167422"
+  },
+  {
+   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/176111270/original.jpg",
+   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/176111270/medium.jpg",
+   "width": 2048,
+   "height": 1365,
+   "licence": "CC BY",
+   "author": "Apichart Songsangchun",
+   "sourceUrl": "https://www.inaturalist.org/photos/176111270",
+   "key": "inat:176111270"
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Flying_fox.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flying_fox.jpg/500px-Flying_fox.jpg",
+   "width": 1024,
+   "height": 681,
+   "licence": "CC BY-SA 3.0",
+   "author": "Julian Matz (talk). Original uploader was Jmatz at en.wikipedia",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flying_fox.jpg",
+   "caption": "Flying fox Garra cambodgiensis alias Garra taeniata",
+   "key": "File:Flying fox.jpg"
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Crossocheilus_siamensis_pl.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Crossocheilus_siamensis_pl.jpg/500px-Crossocheilus_siamensis_pl.jpg",
+   "width": 1025,
+   "height": 612,
+   "licence": "CC BY-SA 3.0",
+   "author": "No machine-readable author provided. Rafikk~commonswiki assumed (based on copyri",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crossocheilus_siamensis_pl.jpg",
+   "caption": "Crossocheilus sp. Most likely not the siamensis algae eater Crossocheilus siamensis Definitely not C. siamensis; I kept these and they look very different (apar",
+   "key": "File:Crossocheilus siamensis pl.jpg"
+  }
+ ],
+ "judged": [],
+ "hashes": {}
+}

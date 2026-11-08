@@ -131,7 +131,11 @@ test('another language has only the places one of its fish comes from; Vietnames
     for (const l of ['vi', 'id']) await writeFile(join(dir, 'places', id, `${l}.json`), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
   }
   expect((await loadAll({ root: dir, lang: 'vi', publicBuild: false })).places.map(p => p.id).sort()).toEqual(['asia', 'europe'])
-  expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).places.map(p => p.id)).toEqual(['asia'])
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.places.map(p => p.id)).toEqual(['asia'])
+  // A place with no page in a language still has its name there: a fish's range names rivers no fish lists (a Thai
+  // page named four Vietnamese rivers in Vietnamese while their Thai names went unread, 2026-11-08).
+  expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
 })
 
 test('a translation whose entity was removed is no page, not a broken build', async () => {
@@ -250,3 +254,4 @@ test("the app's cards: those the gate holds back in a language are left out ther
   expect((await loadAll({ root, lang: 'th', publicBuild: true })).cards).toEqual([])
   expect((await loadAll({ root, lang: 'id', publicBuild: true })).cards).toEqual([])
 })
+
