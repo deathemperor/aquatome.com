@@ -9,7 +9,7 @@ public enum OwnerError: Error {
   /// such section or path. A 404 without that body (a page in front of the Worker, a path not deployed yet) is
   /// `refused("http_404")`, and says nothing about who is the owner.
   case notFound
-  /// Any other refusal, by its code (`http_<status>` without one), with the Vietnamese to show the owner when it has some.
+  /// Any other refusal, by its code (`http_<status>` without one), with the words to show the owner when it has some.
   case refused(String, message: String?)
   /// A reply that isn't what the contract says.
   case badReply
@@ -44,16 +44,43 @@ public struct OwnerClient: Sendable {
     Owner.Dashboard(try await call("GET", "/api/owner/dashboard"))
   }
 
-  /// One section, by a key the dashboard lists.
-  public func section(_ key: String) async throws -> Owner.Section {
+  /// One section, by a key the dashboard lists, for one of its periods (nil: its own first).
+  public func section(_ key: String, period: String? = nil) async throws -> Owner.Section {
     guard Owner.isKey(key) else { throw OwnerError.notFound }
-    return try await section(at: "/api/owner/sections/" + key)
+    return Owner.Section(try await call("GET", "/api/owner/sections/" + key, query: period.map { [URLQueryItem(name: "period", value: $0)] } ?? []))
+  }
+
+  /// A folded or long table's rows, 50 at a time: from its first (`cursor` nil) or after the page before, for the
+  /// section's period as it was read.
+  public func table(_ key: String, _ id: String, cursor: String?, period: String?) async throws -> Owner.Page<[Owner.Link]> {
+    guard Owner.isKey(key), Owner.isKey(id) else { throw OwnerError.notFound }
+    let query = [cursor.map { URLQueryItem(name: "cursor", value: $0) }, period.map { URLQueryItem(name: "period", value: $0) }].compactMap { $0 }
+    return Owner.Page(rows: try await call("GET", "/api/owner/sections/\(key)/tables/\(id)", query: query))
+  }
+
+  /// More comments in one state, after the page before (`cursor`: the comments block's `next`, or that page's).
+  public func comments(_ state: String, cursor: String) async throws -> Owner.Page<Owner.Comment> {
+    Owner.Page(comments: try await call("GET", "/api/owner/comments", query: [URLQueryItem(name: "state", value: state), URLQueryItem(name: "cursor", value: cursor)]))
   }
 
   /// A section by its address, as a switch gives it (with its query: "/api/owner/sections/ung-dung?test=1").
   public func section(at href: String) async throws -> Owner.Section {
     guard href.hasPrefix("/api/owner/sections/"), !href.contains("//"), !href.contains(".."), let c = URLComponents(string: href) else { throw OwnerError.notFound }
     return Owner.Section(try await call("GET", c.path, query: c.queryItems ?? []))
+  }
+
+  /// The daily report's delivery now: by email, and by notification to the owner's phones.
+  public func reportSettings() async throws -> (email: Bool, push: Bool) {
+    let o = try await call("GET", "/api/owner/report-settings")
+    guard let email = o["email"] as? Bool, let push = o["push"] as? Bool else { throw OwnerError.badReply }
+    return (email, push)
+  }
+
+  /// The daily report's email on or off: what it is now.
+  public func reportEmail(_ on: Bool) async throws -> Bool {
+    let o = try await call("POST", "/api/owner/report-settings", body: Owner.text(["email": on]))
+    guard let email = o["email"] as? Bool else { throw OwnerError.badReply }
+    return email
   }
 
   /// A button's request, sent exactly as it says. Done on 200; then read the section again.
