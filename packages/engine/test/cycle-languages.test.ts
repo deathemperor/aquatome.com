@@ -46,3 +46,10 @@ test('their UI text goes first in the block, 500 strings a cycle: it decides whe
   expect(ui).toBeGreaterThan(script.indexOf('ahead() {'))
   expect(ui).toBeLessThan(script.indexOf('for lang in ms; do'))
 })
+
+test("the photos part plans the app's calendar after its photo steps, and before the commit that publishes it", () => {
+  const curate = script.indexOf('pnpm engine curate || log "curate: failed"')
+  expect(curate).toBeGreaterThan(script.indexOf('pnpm engine sweep'))
+  expect(script.lastIndexOf('if part photos; then', curate)).toBeGreaterThan(script.indexOf('pnpm engine sweep'))
+  expect(curate).toBeLessThan(script.indexOf('git add content sources engine-state docs/review apps/site/src/i18n'))
+})

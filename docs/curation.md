@@ -61,7 +61,8 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
 
 ## Cadence
 
-- **Daily**: the planner fills and repairs the next 21 days.
+- **Daily**: the planner fills and repairs the next 21 days. The engine's photos part runs it every cycle, after its
+  photo checks (`scripts/engine-cycle.sh`); the file changes when a new day comes in or a pick fails.
 - **Weekly**: the next theme two to three weeks ahead, its lists, top cards, shelves and copy, through the editors, in a
   pull request. The owner's daily report gets a few lines on what's planned.
 - **When a page changes**: a pick that stops passing is replaced on the next daily run, so nothing held back is ever
