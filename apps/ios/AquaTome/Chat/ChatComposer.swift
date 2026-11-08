@@ -83,7 +83,7 @@ struct ChatComposer: View {
       } else if model.answering, model.thread.last?.reply.writing == false {
         Text("Thường dưới nửa phút.")
       } else if model.thread.isEmpty {
-        Text("Câu hỏi gửi tới Claude, lưu tới khi bạn xóa tài khoản.")
+        Text("Câu hỏi gửi tới Claude và được lưu đến khi bạn xóa tài khoản.")
       }
       Spacer(minLength: 0)
       if length >= model.maxChars - 50 {
