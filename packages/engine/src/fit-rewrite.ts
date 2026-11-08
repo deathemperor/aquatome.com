@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { FIT_TITLE, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
+import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
 import { loadPages, type Page } from './pages'
@@ -17,11 +17,14 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * Left to others: units, which the code rounds (round.ts), words, which the phrase list carries, a kit, which no rewording
  * fixes (the gate holds it), and the doses compared across pages, which a person settles. A title, a summary line or a
  * question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
- * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text.
+ * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
+ * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
  */
 const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
 export type Rewritten = Record<string, { at: string; hash: string }>
+/** Each page tried, by the hash of the text it read. */
+export type Tried = Record<string, { at: string; hash: string }>
 
 /** What a page's parts are wrong for: its current reading's findings this step mends, by the field each quotes. */
 export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
@@ -40,10 +43,13 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   return out
 }
 
-/** A page wrong for its reader on a check this step mends; a kit is the gate's to hold. */
+/**
+ * A page wrong for its reader on a check this step mends, by a reading of its current text with the current checklist (a
+ * guide read before the kit check could be a kit); a kit is the gate's to hold.
+ */
 export const rewriteDue = (p: Page, state: FitState) =>
-  p.lang === 'vi' && !fitFindings(p, state[fitKey(p)]).some(f => f.check === 'kit') &&
-  (p.kind === 'guides' ? fitFindings(p, state[fitKey(p)]).some(f => f.check !== 'words' && f.check !== 'units') && state[fitKey(p)]?.hash === fitText(p).hash : mendable(p, state).size > 0)
+  p.lang === 'vi' && !fitDue([p], state).length && !fitFindings(p, state[fitKey(p)]).some(f => f.check === 'kit') &&
+  (p.kind === 'guides' ? fitFindings(p, state[fitKey(p)]).some(f => f.check !== 'words' && f.check !== 'units') : mendable(p, state).size > 0)
 
 const asNote = (f: FitFinding): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
@@ -54,15 +60,21 @@ const asNote = (f: FitFinding): ReaderFinding => ({
 export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string }
 
 /**
- * Rewrites up to `limit` pages, in `pages`' order (the caller ranks them), each due (rewriteDue); stops on a model failure
- * (usage limit) with what it has written. Writes the content files and engine-state/rewritten.json.
+ * Rewrites up to `limit` pages, in `pages`' order (the caller ranks them), each due (rewriteDue) and not tried on this text
+ * unless `retry`; stops on a model failure (usage limit) with what it has written. Writes the content files, each part as it
+ * is kept, engine-state/rewritten.json and engine-state/_fit-rewrite.json.
  */
-export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number }): Promise<RewriteReport> {
+export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number; retry?: boolean }): Promise<RewriteReport> {
   const report: RewriteReport = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '' }
   const names = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name: string }>
+  const triedFile = join(root, 'engine-state', '_fit-rewrite.json')
+  const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Tried
   const done: Page[] = []
-  for (const p of pages.filter(p => rewriteDue(p, state)).slice(0, o.limit)) {
+  const at = d.now().toISOString()
+  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || tried[fitKey(p)]?.hash !== fitText(p).hash)).slice(0, o.limit)) {
     const key = fitKey(p)
+    tried[key] = { at, hash: fitText(p).hash }
+    let changed = 0
     try {
       if (p.kind === 'guides') {
         const r = await rewriteForReader(root, p.id, { llm: d.llm })
@@ -73,7 +85,6 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
       }
       const file = join(root, 'content', p.kind, p.id, 'vi.json')
       const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
-      let changed = 0
       for (const [field, fs] of mendable(p, state)) {
         const html = partOf(t, field)
         if (!html || (field === 'body' && t.bodyFixed)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
@@ -81,30 +92,32 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const r = await rewritePart(d.llm, html, fs.map(asNote), { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }
         if (r.score < QUALITY_THRESHOLD) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
+        if (r.html === html) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
         if (field === 'body') t.body = r.html
         else if (field === 'definition') t.definition = r.html
         else t.sections![field.replace(/^sections\./, '')] = r.html
+        // Each part as it's kept, so a later part's failure loses none. Fish, plant and breed pages are written in metric
+        // only, as by every other writer (metric.ts).
+        await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t, null, 2)}\n`)
         changed++
         report.rewritten.push(`${key} ${field} (${r.score.toFixed(2)})`)
       }
-      if (changed) {
-        // Fish, plant and breed pages are written in metric only, as by every other writer (metric.ts).
-        await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t, null, 2)}\n`)
-        done.push(p)
-      }
     } catch (e) {
-      if (e instanceof LlmError) { report.stopped = `${key}: ${e.message}`; break }
+      // Stopped part way (the accounts out): what it kept is kept, and the page isn't counted as tried.
+      if (e instanceof LlmError) { delete tried[key]; if (changed) done.push(p); report.stopped = `${key}: ${e.message}`; break }
       report.failed.push(`${key}: ${(e as Error).message.slice(0, 200)}`)
     }
+    if (changed) done.push(p)
   }
+  const sorted = (x: Record<string, unknown>) => `${JSON.stringify(Object.fromEntries(Object.entries(x).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`
+  if (Object.keys(tried).length) await writeFile(triedFile, sorted(tried))
   if (done.length) {
     // The hash of each page as a build reads it now, which is what the checker will read.
     const file = join(root, 'engine-state', 'rewritten.json')
     const rewritten = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Rewritten
     const keys = new Set(done.map(fitKey))
-    const at = d.now().toISOString()
     for (const p of (await loadPages(join(root, 'content'), ['vi'])).filter(p => keys.has(fitKey(p)))) rewritten[fitKey(p)] = { at, hash: fitText(p).hash }
-    await writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(rewritten).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
+    await writeFile(file, sorted(rewritten))
   }
   return report
 }

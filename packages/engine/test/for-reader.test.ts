@@ -104,3 +104,18 @@ test('a guide a person fixed stays unless forced; a kept rewrite replaces its te
   expect(out.bodyFixed).toBeUndefined()
   expect(out.localNote).toBeUndefined()
 })
+
+test('a title the owner fixed stays, and the writer is told to call the guide\'s subject by it', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'for-reader-'))
+  const id = 'aquariumcoop-blogs-aquarium-pencilfish'
+  const dir = join(root, 'content/guides', id)
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'sources/aquariumcoop'), { recursive: true })
+  await writeFile(join(root, 'sources/aquariumcoop/blogs-aquarium-pencilfish.md'), '---\nurl: u\n---\nThe article.')
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ id, kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/pencilfish', html: '', photos: [], mentions: [], updatedAt: '2026-11-01' }))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ slug: 'x', name: 'Hướng dẫn nuôi cá chì', nameFixed: true, altNames: [], sections: {}, body: '<p>Cũ.</p>' }))
+  const { llm, calls } = fake({ written: [good] })
+  expect(await rewriteForReader(root, id, { llm })).toMatchObject({ kept: true })
+  expect(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))).toMatchObject({ name: 'Hướng dẫn nuôi cá chì', nameFixed: true, body: good.body })
+  expect(calls.find(c => c.kind === 'write')!.prompt).toContain('Tiêu đề bài đã chốt: "Hướng dẫn nuôi cá chì"')
+})

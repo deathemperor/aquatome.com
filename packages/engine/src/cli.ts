@@ -489,14 +489,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'fit-rewrite') {
   // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written
   // again and kept only when their reviewers pass them; the most-read fish and plants first, then breeds, then guides.
-  // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order] [--kind species,guides]
+  // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order, tried before or not] [--kind species,guides]
   const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
   const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
   const popular = popularityOrder(await popularFirst(ROOT))
   const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
   const only = values.only?.split(',')
   const order = only ? only.flatMap(k => pages.filter(p => fitKey(p) === k)) : [...pages].sort((a, b) => rank(a) - rank(b))
-  const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10) })
+  const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only })
   for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
   console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'gate') {

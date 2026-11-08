@@ -916,7 +916,8 @@ The layers above still check the result.
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it. Units, words and a kit are left to the rounding,
-    the phrase list and the gate. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash
+    the phrase list and the gate. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
+    tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
