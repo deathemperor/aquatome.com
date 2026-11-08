@@ -5,6 +5,28 @@ naturalness findings, and how many the corpus check held (the phrase is far rare
 the site, and hobbyists use the replacement). A seat that judges a language well has most of its findings held over two
 rounds or more; the skill's "Weighing the seats" says what that changes.
 
+## The app's card copy (2026-11-08)
+
+Seven rounds on the calendar's themes, shelf titles and story cards (`content/curation.json`), with the Anthropic and
+xAI seats only; OpenAI and Google were out on the Cursor limit. These aren't in the tallies below, which count pages.
+- **Vietnamese, held by the references:**
+  - "trải nền cao dần về phía sau" for "dốc về sau" (Anthropic): 8 a million words in the video guides, against 0.
+  - "lưu thông tốt" for "nước chảy tốt" (Anthropic): in the forum and the videos, while the other is in neither.
+  - "bể thủy sinh" for "bể cây": 27.7 against 0.7.
+  - "người mới" for "bể đầu tiên": 66.6 against 0.7.
+  - Both seats, both rare: "đặt ở chỗ" for "đặt chỗ", and "phòng khi mất điện" for "phòng mất điện".
+- **Indonesian, Thai and Malay** have no hobbyist corpus yet. A finding held when both seats raised it, or when the
+  site's own pages bear it out:
+  - Thai: "ปลาพื้นเมือง"; "ปลาหมอไทย", the climbing perch page's other name; "ปลาช่อนและปลาชะโด", since the giant
+    snakehead's page never calls it ปลาช่อน.
+  - Malay: "berkumpulan", 627 a million words on the site's Malay pages against 19 for the Indonesian "berkelompok",
+    which round 4 had brought in.
+  - The beginners' shelf in two beats (xAI alone): "cocok untuk pemula" and "sesuai untuk pemula", both the site's own
+    words.
+- **Labels, not wording.** Most findings were labels that promised more than the pages say: goldfish on a cold shelf,
+  a Thai betta on a native one, a ram among small schooling fish. Each became a planner rule
+  (`packages/engine/src/curation.ts`), so they're not counted against the seats.
+
 ## Vietnamese
 
 Rounds 1 and 2 (2026-11-07) had the Anthropic seat alone, and weren't tallied.
