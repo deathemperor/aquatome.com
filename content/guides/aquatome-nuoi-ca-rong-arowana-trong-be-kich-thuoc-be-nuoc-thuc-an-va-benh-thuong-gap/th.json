@@ -64,5 +64,12 @@
   "quality": {
     "score": 0.85,
     "indexable": true
+  },
+  "held": {
+    "checks": [
+      "harm",
+      "units"
+    ],
+    "at": "2026-11-08"
   }
 }
