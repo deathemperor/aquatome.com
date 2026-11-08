@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { fitFindings, ownSource, productOf, readFit, type FitFinding } from './fit'
-import { hedged, hedgesLost } from './hedges'
+import { hedged, hedgesLost, text } from './hedges'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
@@ -68,7 +68,8 @@ export function amountsOutside(text: string, allowed: string): string[] {
   return [...new Set(amounts(text))].filter(a => { const [n, u] = a.split(' '); return !figures.has(n!) && !(u === 'l' && near(Number(n))) })
 }
 
-const plain = (w: Written) => [w.name, ...w.summary, w.body.replace(/<[^>]+>/g, ' '), ...w.faq.flatMap(f => [f.q, f.a])].join('\n')
+/** As the reviewer reads it: the body as hedgesLost reads it too, so a quote of it is found. */
+const plain = (w: Written) => [w.name, ...w.summary, text(w.body), ...w.faq.flatMap(f => [f.q, f.a])].join('\n')
 /** The same with the body's markup, for what reads its lists (hedgesLost). */
 const marked = (w: Written) => [w.name, ...w.summary, w.body, ...w.faq.flatMap(f => [f.q, f.a])].join('\n')
 const asPage = (id: string, w: Written): Page => ({

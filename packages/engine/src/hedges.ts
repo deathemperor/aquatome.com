@@ -27,15 +27,31 @@ const ENTITY: Record<string, string> = { lt: '<', gt: '>', amp: '&', nbsp: ' ', 
  * A text as a reviewer quotes it: no tags (an inline one, as in "<em>C. punctatus</em>,", leaves nothing; a block's end
  * leaves a space), entities read, no space before punctuation. Only a tag is a tag: "<40 ppm … >30 °C" stays.
  */
-const text = (s: string) => s
-  .replace(/<\/?(?:p|li|ul|ol|h[1-6]|tr|td|th|table|div|br)\b[^>]*>/gi, ' ').replace(/<\/?[a-z][^>]*>/gi, '')
+const BLOCK = 'p|li|ul|ol|h[1-6]|tr|td|th|table|div|br'
+export const text = (s: string) => s
+  .replace(new RegExp(`<\\/?(?:${BLOCK})\\b[^>]*>`, 'gi'), ' ').replace(/<\/?[a-z][^>]*>/gi, '')
   .replace(/&(lt|gt|amp|nbsp|quot|#39);/g, (_, e: string) => ENTITY[e]!)
   .replace(/\s+/g, ' ').replace(/ ([,.;:!?)])/g, '$1').trim()
 
-/** The items of each list whose lead-in hedges: "Nước có thể bị đọng trong mấy trường hợp sau:" hedges every one under it. */
-const underHedge = (html: string) => [...html.matchAll(/([^.!?:>]*):\s*(?:<\/p>\s*)?<(ul|ol)\b[^>]*>([\s\S]*?)<\/\2>/gi)]
-  .filter(m => HEDGE_VI.test(text(m[1]!)))
-  .flatMap(m => [...m[3]!.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(li => text(li[1]!)))
+/**
+ * The items of each list whose lead-in hedges, in its last clause: "Nước có thể bị đọng trong mấy trường hợp sau:" hedges
+ * every item under it, lists inside it too; "Nước có thể bẩn, nên làm các bước sau:" hedges none.
+ */
+function underHedge(html: string): string[] {
+  // Inline tags out, so a lead-in reads as one run of words: "Nước <strong>có thể</strong> bị đọng:".
+  const h = html.replace(new RegExp(`<\\/?(?!(?:${BLOCK})\\b)[a-z][^>]*>`, 'gi'), '')
+  const out: string[] = []
+  for (const m of h.matchAll(/([^.!?:>]*):\s*(?:<\/p>\s*)?<(?:ul|ol)\b[^>]*>/gi)) {
+    if (!HEDGE_VI.test(text(m[1]!.split(/[,;]/).pop()!))) continue
+    const start = m.index + m[0].length
+    const tags = /<(\/?)(?:ul|ol)\b[^>]*>/gi
+    tags.lastIndex = start
+    let depth = 1, end = h.length
+    for (let t = tags.exec(h); t; t = tags.exec(h)) { depth += t[1] ? -1 : 1; if (!depth) { end = t.index; break } }
+    out.push(...[...h.slice(start, end).matchAll(/<li\b[^>]*>([\s\S]*?)(?=<\/?(?:li|ul|ol)\b|$)/gi)].map(li => text(li[1]!)))
+  }
+  return out
+}
 
 /**
  * The pairs whose source sentence hedges and whose written sentence, there in the text, no longer does, by itself or by the
