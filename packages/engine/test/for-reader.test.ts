@@ -148,6 +148,8 @@ test('the hedge check holds the reviewer to the facts and the page', () => {
   ], facts, page)).toEqual([])
   expect(hedgesLost([{ fact: 'Fish can catch bacteria in shipping.', quote: 'Bình thường cá vẫn khỏe.' }], facts, page)).toHaveLength(1)
   expect(hedgesLost([{ fact: 'Fish can catch bacteria in shipping.', quote: 'Trên đường vận chuyển cá có thể nhiễm khuẩn.' }], facts, 'Trên đường vận chuyển cá có thể nhiễm khuẩn.')).toEqual([])
+  // "Hay" before a verb is "often".
+  expect(hedgesLost([{ fact: 'People often get hung up on it.', quote: 'Nhiều người hay vướng ở chỗ này.' }], ['People often get hung up on it.'], 'Nhiều người hay vướng ở chỗ này.')).toEqual([])
 })
 
 test('a medicine the source names reaches the writer with what it is mistaken for here', () => {

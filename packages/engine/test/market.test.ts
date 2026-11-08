@@ -66,3 +66,9 @@ test('a writer is told what each product is and what is on sale for the problem,
   expect(marketFor('vi', 'Hikari', [])).toContain('chưa ai kiểm tra')
   expect(marketFor('id', 'Ich-X', ['ich'])).not.toContain('muỗng canh')
 })
+
+test('how keepers here treat new fish that look healthy reaches the writer on new fish, as the table\'s own line', () => {
+  expect(marketFor('vi', 'Ich-X', ['quarantine'])).toMatch(/Người chơi ở đây làm thế này[^\n]*\n[^\n]*nhiều người chơi chỉ cách ly và theo dõi/)
+  expect(marketFor('vi', 'Hikari', ['cyanobacteria'])).not.toContain('chỉ cách ly')
+  expect(marketFor('id', 'Ich-X', ['quarantine'])).not.toContain('chỉ cách ly')
+})

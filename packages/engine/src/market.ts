@@ -257,6 +257,14 @@ const MARKET_LINE: Record<MarketStatus['status'], string> = {
  * What a writer needs to know of its market: each product the source names, then what's on sale here for the problems it's
  * about, with its doses and where they come from. A language with no market data says so: no product is known to be sold.
  */
+/**
+ * How keepers here go about a problem where a source abroad does it its own way: the house's line (the chief, 8 Nov 2026),
+ * not a sourced dose. In the table, so the writer writes it and the reviewer counts it as supported.
+ */
+const PRACTICE: Partial<Record<Lang, Partial<Record<ProblemId, string>>>> = { vi: {
+  quarantine: 'Cá mới trông khỏe: nhiều người chơi chỉ cách ly và theo dõi, cá có bệnh mới trị. Trị phòng cho cá khỏe là một cách khác, không phải việc phải làm. Ai trị phòng thì mỗi thuốc theo liều và lịch trên nhãn của nó.',
+} }
+
 export function marketFor(lang: Lang, source: string, problems: ProblemId[]): string {
   const named = PRODUCTS.filter(p => mentions(p, source))
   const lines = named.map(p => {
@@ -271,5 +279,10 @@ export function marketFor(lang: Lang, source: string, problems: ProblemId[]): st
     ...(r.how ? [r.how.text] : []),
     ...(r.risks ? [`Rủi ro: ${r.risks}`] : []),
   ].join('\n'))
-  return [...lines, unlisted, ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : [])].join('\n')
+  const practice = [...wanted].flatMap(p => PRACTICE[lang]?.[p] ?? [])
+  return [
+    ...lines, unlisted,
+    ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : []),
+    ...(practice.length ? ['', 'Người chơi ở đây làm thế này. Bài nói tới chuyện đó thì viết đúng ý này:', ...practice] : []),
+  ].join('\n')
 }
