@@ -1,4 +1,32 @@
 {
+  "vi/plants/alternanthera-reineckii-mini": [
+    {
+      "at": "2026-11-08T03:34:02Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Cây ở đây là cây nuôi cấy mô trong cốc kín\" – the phrase \"ở đây\" is awkward and sounds like it points to a shop or the page. \"Cây bán dạng nuôi cấy mô trong cốc kín\" would read better.",
+        "\"chậm hơn dòng Alternanthera thường\" – the page compares it to \"Alternanthera nổi tiếng này\", meaning A. reineckii. Saying \"thường\" is vaguer than the source.",
+        "The cutting method (\"tuốt vài lá ở đoạn dưới cùng…\") comes from the guide about the full-size A. reineckii as a background plant. It is a general stem-plant method, so it is acceptable here, but it is only loosely tied to this plant."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T03:34:02Z",
+      "model": "opus",
+      "score": 0.72,
+      "notes": [
+        "\"làm cây chính trong bể nhỏ\" goes beyond the page, which only says the plant suits small tanks. Nothing calls it the main plant.",
+        "\"có nhíp thì cắm dễ hơn hẳn\" comes from the stem-cutting guide, where it is about pushing cuttings in between dense clumps. Here it is applied to in vitro portions, which that guide doesn't cover.",
+        "\"Cây thường bán dạng in vitro\": the page says only that this product is a tissue-culture cup. \"thường\" (usually) generalises beyond that.",
+        "\"mọc gọn và thấp\": the page says compact growth (\"sinh trưởng gọn gàng\") and slower growth. \"thấp\" (low) is an inference.",
+        "\"Chia càng nhỏ thì cây trải càng rộng\" is linked to the 5–10 cm carpet, but the page says the carpet comes from careful trimming. The guide's point about dividing was about other foreground plants."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/anubias-barteri-nana": [
     {
       "at": "2026-11-06T15:33:22Z",
@@ -9,6 +37,20 @@
         "\"Bụi ráy to thường có rễ rất dài\" comes from the guide on tying a large Anubias clump onto big driftwood, not from information about nana specifically. It's general Anubias advice presented as nana advice.",
         "\"rồi cứ đổ nghiêng mãi\": the word 'mãi' adds emphasis the source doesn't have ('cây sẽ lỏng ra và cứ đổ nghiêng').",
         "The advice to split the clump to spread it across many spots applies to a large piece of driftwood in the source ('nếu lũa lớn'). The passage drops that condition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/anubias-barteri-var-caladiifolia": [
+    {
+      "at": "2026-11-08T03:33:21Z",
+      "model": "opus",
+      "score": 0.88,
+      "notes": [
+        "Slightly repetitive wording: \"rải ra nhiều chỗ, thay vì dồn cả bụi vào một chỗ\" uses \"chỗ\" twice in a short clause.",
+        "\"Nút buộc phải là nút kép, do nút đơn dễ tuột\" sounds a little stiff. \"nên thắt nút kép vì nút đơn dễ tuột\" would read more naturally.",
+        "The general Anubias claim \"Cũng như các loại ráy khác, người ta thường gắn cây lên lũa\" comes from the tying guide, not this plant's page. It is acceptable, but it extends the guide's general statement to this plant."
       ],
       "attempt": "first",
       "kept": true
@@ -208,6 +250,20 @@
         "'Nếu bên dưới đang ra nhiều chồi xanh mới thì cây không chết' turns the guide's 'không phải dấu hiệu cây chết' (not a sign of dying) into a flat claim that the plant isn't dying",
         "'Lá cũ ngả vàng' drops 'hơi' (slightly) from the guide's 'hơi ngả vàng'",
         "'nên chỗ của nó là tiền cảnh' says carpeting is the reason for foreground placement; the input gives foreground as the position but never states this causal link"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/microsorum-pteropus-narrow": [
+    {
+      "at": "2026-11-08T03:32:45Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"nó lên đẹp nhất khi bạn buộc lên\" overstates the guide, which only says the plant \"lên đẹp hơn\" when tied on.",
+        "\"Sau vài tuần rễ sẽ tự bám chặt vào lũa, đá, lúc đó bạn có thể gỡ dây ra\" comes right after the sentence on planting in the substrate, so it reads as if substrate-planted roots also grip the wood. The order is confusing.",
+        "The planting method comes from the general Java fern guide, not from this cultivar's page. It is still in the INPUT, but the passage never uses the plant's own page note \"Cây dễ bám vào rễ cây và đá\"."
       ],
       "attempt": "first",
       "kept": true

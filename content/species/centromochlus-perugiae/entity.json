@@ -10,6 +10,250 @@
     "peru",
     "ecuador"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "EC"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The oil catfish, Duringlanis perugiae, is a small auchenipterid catfish from Peru and Ecuador.",
+          "countries": [
+            "PE",
+            "EC"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344638,
+      "total": 72,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PE",
+          33
+        ],
+        [
+          "EC",
+          14
+        ],
+        [
+          "BR",
+          12
+        ],
+        [
+          "CO",
+          12
+        ],
+        [
+          "BO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -78.75,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -78.75,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          10,
+          0
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -92,7 +336,7 @@
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
-      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: Has been caught in water with wildly varying pH over a range of 4.9–8.0 in nature. In aquaria it's probably best to aim for somewhere around neutral, although clearly this is a very adaptable species.</li><li>Hardness: 1–25 dGH</li></ul>"
+      "html": "<p>Temperature: 24–30°C.</p><p>pH: Has been caught in water with wildly varying pH over a range of 4.9–8.0 in nature. In aquaria it's probably best to aim for somewhere around neutral, although clearly this is a very adaptable species.</p><p>Hardness: 1–25 dGH.</p>"
     },
     {
       "key": "diet",
@@ -125,18 +369,7 @@
       "html": "<p>A very cute little catfish, that unfortunately is rarely kept in ideal conditions. When it is maintained properly, it's a joy to watch as it feeds from close to the water surface, swimming frantically in the flow. It was reclassified, and placed in the genus Centromochlus in 1998. Calegari, Vari &amp; Reis (2019) then moved it to Duringlanis.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/244eac9920d713b9.webp",
-      "width": 960,
-      "height": 1508,
-      "licence": "CC BY 4.0",
-      "author": "Ronaldo Souza da Silva et. al.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_species_collected_from_sandy_beaches_of_the_Acre_river_Brazil_(4_of_5).png",
-      "caption": "Fish species collected on the beaches of Acre river, Acre, Brazil.40) Centromochlus perugiae;41) Tympanopleura piperata;42) Leptodoras acipenserinus;43) Nemadoras sp.;44) Oxydoras niger;45) Imparfinis",
-      "thumb": "https://media.aquatome.com/commons/244eac9920d713b9-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "zgoySTXawc4",
@@ -174,14 +407,19 @@
       "category": "loc",
       "keywords": [
         "máy lọc tạo dòng chảy mạnh",
-        "lọc bọt biển cho cá bột"
+        "lọc bọt biển cho cá bột",
+        "máy bơm tạo dòng",
+        "lọc bể cá dòng mạnh",
+        "lọc bọt biển"
       ]
     },
     {
       "category": "phan-nen",
       "keywords": [
         "cát nền hồ cá",
-        "cát thủy sinh mịn"
+        "cát thủy sinh mịn",
+        "cát nền bể cá",
+        "cát sông mịn"
       ]
     },
     {
@@ -189,6 +427,12 @@
       "keywords": [
         "trùng huyết đông lạnh",
         "thức ăn chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
       ]
     }
   ],

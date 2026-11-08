@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/microsynodontis-polli
 title: Microsynodontis polli (Pygmy Synodontis) · Seriously Fish
-fetchedAt: 2026-11-07T03:51:45.934Z
+fetchedAt: 2026-11-07T18:19:07.666Z
 hash: 3f1a69beb821d93e11237512c4f20d37d5e7801dc572f3e2b6aa11947368158a
 ---
 

@@ -7,6 +7,7 @@ import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
+import { PHRASES, phraseSlips } from './phrases'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
@@ -22,6 +23,11 @@ export type Rule = {
   /** What the rule looks for, for the report. */
   about: string
   check: (p: Page, ctx: Ctx) => string[]
+  /**
+   * The report counts each finding across pages instead of listing every page: a finding reads `"<words>" ×<n> → …`
+   * (×1 left out), and the report gives each one's pages and times, most pages first.
+   */
+  tally?: true
 }
 /** `genera`: every genus the site has a page in; `species`: every Latin name with a page, lower case. */
 export type Ctx = { genera: Set<string>; species: Set<string> }
@@ -595,7 +601,7 @@ export const RULES: Rule[] = [
   },
   {
     id: 'wording', title: 'Words Vietnamese readers write another way',
-    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể". The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, and in the fish summaries.',
+    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể", "và/hoặc" for "hoặc". The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, and in the fish summaries.',
     check: p => [...new Set([p.title, ...p.fields.map(f => f.html), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].flatMap(wordingSlips))],
   },
   {
@@ -607,6 +613,12 @@ export const RULES: Rule[] = [
     id: 'swapped-name', title: 'A fish called by the name it no longer has',
     about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. A sentence that also has the new name, or names the fish the old name is now ("cá bút chì (Crossocheilus)"), may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
     check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
+  },
+  {
+    id: 'phrasing', title: 'Words hobbyists rarely write',
+    about: 'Words and turns the engine writes far more often than the language\'s hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers\' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.',
+    tally: true,
+    check: p => (!PHRASES[p.lang]?.length ? [] : phraseSlips([p.title, ...prose(p).map(f => lines(f.html)), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].join('\n'), p.lang)),
   },
   {
     id: 'english', title: 'Sentences left in English',
@@ -787,6 +799,18 @@ export function checkPages(pages: Page[], rules: Rule[] = RULES): { findings: Fi
 
 const md = (s: string) => s.replace(/([[\]|*_`<>\\])/g, '\\$1')
 
+/** A tallied rule's findings, one line each, per language: on how many pages, how many times, most pages first. */
+function tallied(findings: Finding[]): string[] {
+  const by = new Map<string, { pages: number; times: number }>()
+  for (const f of findings) {
+    const m = /^(.*?) ×(\d+)( → .*)$/.exec(f.detail)
+    const key = `${f.page.lang} · ${m ? `${m[1]}${m[3]}` : f.detail}`
+    const e = by.get(key) ?? { pages: 0, times: 0 }
+    by.set(key, { pages: e.pages + 1, times: e.times + (m ? Number(m[2]) : 1) })
+  }
+  return [...by].sort((a, b) => b[1].pages - a[1].pages || a[0].localeCompare(b[0])).map(([k, n]) => `- ${md(k)}: ${n.pages} pages, ${n.times} times`)
+}
+
 /** docs/review/content-rules.md: one section per rule, each page once with what was found there, in a stable order. */
 export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: string[] }, rules: Rule[] = RULES): string {
   const per = (lang: Lang) => pages.filter(p => p.lang === lang).length
@@ -799,9 +823,9 @@ export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: str
       e.details.push(f.detail)
       byPage.set(f.page.path, e)
     }
-    const rows = [...byPage.values()].sort((a, b) => a.page.path.localeCompare(b.page.path))
+    const rows = rule.tally ? tallied(r.findings.filter(f => f.rule === rule.id)) : [...byPage.values()].sort((a, b) => a.page.path.localeCompare(b.page.path))
       .map(({ page, details }) => `- [${page.lang} · ${md(page.title)}](${pageUrl(page)}) — ${details.map(md).join('; ')}`)
-    return `## ${rule.title} (${rows.length})\n\n${rule.about}\n\n${rows.join('\n') || '- none'}\n`
+    return `## ${rule.title} (${byPage.size})\n\n${rule.about}\n\n${rows.join('\n') || '- none'}\n`
   })
   return `# Content rules
 

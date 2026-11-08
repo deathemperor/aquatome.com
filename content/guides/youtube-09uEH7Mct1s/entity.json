@@ -8,7 +8,7 @@
   "mentions": [
     "eleocharis-parvula"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "09uEH7Mct1s",
     "title": "my EASY planted aquarium has PROBLEMS",
@@ -47,6 +47,11 @@
         "t": 132
       },
       {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 132
+      },
+      {
         "category": "co2",
         "type": "binh",
         "t": 132
@@ -59,7 +64,7 @@
       {
         "category": "khac",
         "brand": "Fritz",
-        "t": 508
+        "t": 498
       },
       {
         "category": "phan-nen",
@@ -69,8 +74,42 @@
     ],
     "figures": [
       {
-        "heading": "Bể chưa có cá thì lọc chạy thế nào",
-        "moments": [],
+        "heading": "Cây về yếu thì chuyện gì đã xảy ra",
+        "moments": [
+          {
+            "t": 55,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at55-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cỏ xanh mọc dày, phủ kín nền giữa các thân lũa."
+          },
+          {
+            "t": 60,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cỏ non lan rộng, rễ bám khắp nền bể."
+          }
+        ]
+      },
+      {
+        "heading": "Bể gồm những thiết bị gì",
+        "moments": [
+          {
+            "t": 165,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 kèm van giảm áp và đồng hồ đặt trong tủ bể."
+          },
+          {
+            "t": 195,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bộ van giảm áp, đồng hồ và bộ đếm bọt CO2."
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/09uEH7Mct1s/p1-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/09uEH7Mct1s/p1-JfRmlsdGVyLmpwZw-480.webp",
@@ -79,37 +118,125 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ dưới bể, bên cạnh là xô và ống siphon."
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống nước."
         }
       },
       {
-        "heading": "Thảm cỏ mọc không đều",
+        "heading": "Bộ CO2 cần những gì",
         "moments": [
           {
-            "t": 554,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/t554.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cỏ xanh trong bể, giữa dày hơn còn mép ngoài thưa hơn."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ CO2 với van giảm áp, đồng hồ và bộ đếm bọt."
           },
           {
-            "t": 583,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/t583.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh thảm cỏ dày, mọc thẳng như bãi cỏ giữa các thân lũa."
+            "t": 215,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầm van một chiều nhỏ bằng kim loại cạnh bộ van CO2."
+          }
+        ]
+      },
+      {
+        "heading": "Chỉnh lượng CO2 bằng drop checker",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh drop checker treo trong bể, dung dịch màu vàng cam."
+          }
+        ]
+      },
+      {
+        "heading": "Đưa CO2 đi khắp bể lớn",
+        "moments": [
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máy tạo sóng với sủi thủy tinh hình vòng đặt ngay phía trên."
+          },
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh máy tạo sóng và sủi CO2 treo trong bể."
+          }
+        ]
+      },
+      {
+        "heading": "Rêu hại bùng lên và bể đục xanh sau một đêm",
+        "moments": [
+          {
+            "t": 410,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at410-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với lũa dựng đứng và thảm cỏ xanh phía dưới."
+          },
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những khúc lũa tối màu trong bể, thảm cỏ xanh mọc phía trước."
+          }
+        ]
+      },
+      {
+        "heading": "Xử lý nước xanh bằng thuốc diệt rêu",
+        "moments": [
+          {
+            "t": 445,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at445-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nước đục xanh trước khi xử lý bằng thuốc diệt rêu."
+          },
+          {
+            "t": 455,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nước trong vắt trở lại, thảm cỏ xanh mướt sau một đêm."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/09uEH7Mct1s/p6-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/09uEH7Mct1s/p6-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm cỏ trong bể thủy sinh còn thưa ở mép, chưa phủ kín đều."
+          "url": "https://media.aquatome.com/video/09uEH7Mct1s/p6-VyX2FsZ2FlLnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/09uEH7Mct1s/p6-VyX2FsZ2FlLnBuZw-480.webp",
+          "width": 858,
+          "height": 572,
+          "licence": "CC BY 3.0",
+          "author": "Russel Leidich/dangerousfishbowl",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_water_algae.png",
+          "caption": "Bể cá bị nước xanh đục do tảo nở hoa, cây thủy sinh mờ hẳn."
         }
+      },
+      {
+        "heading": "Chăm thảm cỏ trong giai đoạn chờ",
+        "moments": [
+          {
+            "t": 580,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at580-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cỏ dày xanh mướt, mọc thành từng búi như lông."
+          },
+          {
+            "t": 595,
+            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at595-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cỏ mọc kín gần khúc lũa ở rìa bể."
+          }
+        ]
       }
     ]
   }

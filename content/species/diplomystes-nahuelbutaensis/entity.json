@@ -10,6 +10,83 @@
     "chile",
     "bio-bio"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CL"
+      ],
+      "regions": [
+        "Bío-Bío",
+        "Loncomilla"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Cautín, Lautaro, Chile.",
+          "countries": [
+            "CL"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Chile, Bío-Bío River basin and Loncomilla River.",
+          "countries": [],
+          "regions": [
+            "Bío-Bío",
+            "Loncomilla"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341854,
+      "total": 18,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CL",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -37.96875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -39.375,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          -37.96875,
+          7,
+          7
+        ],
+        [
+          -73.125,
+          -36.5625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -39.375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -91,17 +168,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/ff260ad0a3aeef60.webp",
-      "thumb": "https://media.aquatome.com/scotcat/ff260ad0a3aeef60-480.webp",
-      "width": 500,
-      "height": 270,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/diplomystidae/diplomystes_nahuelbutaensis.htm",
-      "caption": "Diplomystes nahuelbutaensis: Juvenile-Collected in Laraquete",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/06f6d37e18ba1fed.webp",
       "thumb": "https://media.aquatome.com/scotcat/06f6d37e18ba1fed-480.webp",

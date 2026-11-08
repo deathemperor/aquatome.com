@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/epalzeorhynchos-kalopterum
 title: Epalzeorhynchos kalopterum (Flying Fox) · Seriously Fish
-fetchedAt: 2026-11-07T05:31:07.939Z
+fetchedAt: 2026-11-07T20:21:01.463Z
 hash: d073c2caecbeca62b247e5fd8044bc34342b6109411d40df840ea3f20065683c
 ---
 

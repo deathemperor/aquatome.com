@@ -8,8 +8,10 @@ import { isViPage } from '../worker/paths'
 import { prefixedLang } from '@aq/schema/langs'
 
 // The page checks read the content the build was made from: the fixture's for a local build, the checkout's (the live
-// version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST).
-const facts = loadFacts(resolve(process.env.CONTENT_ROOT ?? (LIVE ? '../../content' : 'test/fixture-content')))
+// version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST). Read once a worker, by its
+// first page check: every language's content, over 20 s with the live site's, so a worker with none doesn't read it.
+let facts: ReturnType<typeof loadFacts> | undefined
+const factsOnce = () => (facts ??= loadFacts(resolve(process.env.CONTENT_ROOT ?? (LIVE ? '../../content' : 'test/fixture-content'))))
 
 // What every page must do, on a phone and a computer, checked on a sample of each kind of page (pages.ts).
 const known = new Set(sourcePages())
@@ -83,8 +85,11 @@ for (const path of pages) {
 for (const path of pages) {
   test(`page checks ${path}`, { tag: '@page-checks' }, async ({ request }, info) => {
     test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
+    // The worker's first page check reads the content first, and a failed test starts a new worker that reads it again:
+    // on 8 November a page check after each failure ran out of the 30 s waiting for it.
+    test.setTimeout(120_000)
     const res = await request.get(path, { headers: { accept: 'text/html' } })
     expect(res.status(), 'status').toBe(200)
-    expect(checkPage(path, await res.text(), await facts)).toEqual([])
+    expect(checkPage(path, await res.text(), await factsOnce())).toEqual([])
   })
 }

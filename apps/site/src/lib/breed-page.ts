@@ -3,7 +3,7 @@ import { slugify } from '@aq/schema/slug'
 import { basedOn, breedGallery, breedsOf, careCard, type Breed } from './breeds'
 import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { isVietnamese, type Lang } from './i18n'
-import { guidesMentioning, linkTargets } from './mentions'
+import { guideImages, guidesMentioning, linkTargets } from './mentions'
 import { distinctPhotos, pagePictures, takeEach } from './pictures'
 
 /**
@@ -39,10 +39,12 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   // Its own text links the species, glossary terms and other pages it names, never itself.
   const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
   const mentioning = guidesMentioning(c, key)
+  // The video guides' cards last, as on the page: two of one channel can carry the same photo.
+  const videoGuides = mentioning.filter(g => g.video)
   return {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
     // Its gallery page, once there are enough photos for one.
     galleryPath: gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined,
-    lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
+    lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }

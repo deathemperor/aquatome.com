@@ -8,6 +8,7 @@
 # The thread's id stays in ~/.config/aquatome/, with the dashboard token the job reads the queue with. Sending signs in
 # anew each time and signs out after, so no key to the thread is kept (infinitus-send.mjs).
 set -euo pipefail
+source "$(dirname "$0")/launchd-agent.sh"
 LABEL=run.aquatome.owner-feedback
 HERE="$(cd "$(dirname "$0")" && pwd)"
 DIR="$HOME/.local/share/aquatome/owner-feedback"
@@ -32,11 +33,10 @@ cat > "$PLIST" <<PLIST
   <key>ProgramArguments</key><array><string>$NODE</string><string>$DIR/owner-feedback-deliver.mjs</string></array>
   <key>StartInterval</key><integer>30</integer>
   <key>RunAtLoad</key><true/>
-  <key>ProcessType</key><string>Background</string>
+  $AGENT_PRIORITY
   <key>StandardOutPath</key><string>$LOG</string>
   <key>StandardErrorPath</key><string>$LOG</string>
 </dict></plist>
 PLIST
-launchctl bootout "gui/$UID/$LABEL" 2>/dev/null || true
-launchctl bootstrap "gui/$UID" "$PLIST"
+load_agent "$LABEL" "$PLIST"
 echo "installed $LABEL → $DIR (every 30 s, log: $LOG)"

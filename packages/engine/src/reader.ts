@@ -12,6 +12,7 @@ import { LANG_NAME, pageUrl, type Page } from './pages'
 import { reviewRewrite, reviewTranslation } from './quality'
 import { snapshotName } from './snapshot'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
+import { VI_STYLE } from './phrases'
 
 /**
  * A reader's eye: each cycle the model reads a few published pages the way a careful reader would, against a rubric
@@ -23,7 +24,6 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
  */
 const RUBRIC = readFileSync(new URL('./prompts/reader.md', import.meta.url), 'utf8')
 /** How the site writes Vietnamese: what "natural" means on a Vietnamese page. */
-const VI_STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 export const FINDING_KINDS = ['structure', 'contradiction', 'numbers', 'language', 'caption', 'unsupported', 'other'] as const
 const SEVERITIES = ['high', 'medium', 'low'] as const
 const SCHEMA = {
@@ -61,12 +61,12 @@ const SOURCE_CHARS = 12_000
 
 export const pageKey = (p: Page) => `${p.lang}/${p.kind}/${p.id}`
 const range = (v: number | { min: number; max: number }) => (typeof v === 'number' ? `${v}` : `${v.min}–${v.max}`)
-const render = (html: string) => blocks(html).map(b => (b.tag === 'h3' ? `## ${b.text}` : b.tag === 'li' ? `- ${b.text}` : b.tag === 'td' || b.tag === 'th' ? `| ${b.text}` : b.text)).join('\n')
+export const render = (html: string) => blocks(html).map(b => (b.tag === 'h3' ? `## ${b.text}` : b.tag === 'li' ? `- ${b.text}` : b.tag === 'td' || b.tag === 'th' ? `| ${b.text}` : b.text)).join('\n')
 /** "sections.diet:seriouslyfish" → "diet, from seriouslyfish". */
-const label = (field: string) => field.replace(/^sections\.([^:]+):(.+)$/, '$1, from $2')
-const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim().toLowerCase()
+export const label = (field: string) => field.replace(/^sections\.([^:]+):(.+)$/, '$1, from $2')
+export const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim().toLowerCase()
 /** The page's own text without the sources' reference lists. */
-const readable = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
+export const readable = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
 
 /** The page as the reader gets it, in numbered parts (`parts`: id → where it is kept), and a hash of that text. */
 export function readerText(p: Page): { text: string; parts: Record<string, string>; hash: string } {
@@ -119,7 +119,7 @@ export function ruleFindings(p: Page, parts: Record<string, string>): ReaderEntr
 }
 
 /** A finding that takes itself back ("…, so it is not an error"). */
-const RETRACTED = /\b(not an error|not a problem|no error|so it is fine|which is fine|is fine;|low confidence|consistent with the source|matches the source)\b/i
+export const RETRACTED = /\b(not an error|not a problem|no error|so it is fine|which is fine|is fine;|low confidence|consistent with the source|matches the source)\b/i
 
 /** The model's findings that hold: a known kind, a part the page has, a quote that is on the page, and not taken back. */
 export function keepFindings(found: ReaderFinding[], text: string, parts: Record<string, string>): ReaderEntry['findings'] {

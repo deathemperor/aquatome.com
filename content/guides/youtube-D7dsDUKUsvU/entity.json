@@ -15,7 +15,7 @@
     "corydoras-pygmaeus",
     "neocaridina-davidi"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "D7dsDUKUsvU",
     "title": "The NEW Amazon RIVERBANK! Big Shallow 3.0 - Full Step By Step Aquascape Tutorial",
@@ -45,21 +45,25 @@
       "Helanthium bolivianum",
       "Paracheirodon simulans",
       "Nannostomus sp.",
-      "Corydoras pygmaeus",
-      "Neocaridina davidi"
+      "Corydoras pygmaeus"
     ],
     "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 95
+      },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Skylight",
         "model": "Hyperspot DL",
-        "t": 109
+        "t": 100
       },
       {
         "category": "loc",
         "type": "thung",
-        "t": 63
+        "t": 65
       },
       {
         "category": "phan-nen",
@@ -70,206 +74,181 @@
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 210
+        "t": 190
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 210
+        "t": 205
       },
       {
         "category": "khac",
         "brand": "Neptune Driftwood",
-        "t": 304
+        "t": 300
       },
       {
         "category": "khac",
-        "brand": "Terra tape",
-        "t": 884
+        "brand": "Solar Eclipse",
+        "t": 320
       },
       {
         "category": "suoi",
-        "t": 760
-      },
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 109
+        "t": 770
       }
     ],
     "figures": [
       {
-        "heading": "Làm sao thả cá lại ngay mà không cần chạy vi sinh",
+        "heading": "Làm sao set lại bể mà không phải chạy vi sinh từ đầu",
         "moments": [
+          {
+            "t": 50,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng nhựa tạm chứa cây thủy sinh và cá khi set lại bể."
+          },
           {
             "t": 80,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at80-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lọc thùng inox lớn đặt trong tủ bể, chứa đầy vi sinh có lợi."
-          },
-          {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at90-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống hút và ống xả của lọc thả vào can nước nhỏ."
+            "caption": "Lọc thùng ngoài bằng inox đặt trong tủ bể, ống dẫn nối vào."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/D7dsDUKUsvU/p0-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/D7dsDUKUsvU/p0-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng vẫn chạy, ống hút và ống xả thả trong xô nước nhỏ."
-        }
+        ]
       },
       {
         "heading": "Làm nền ba lớp thế nào",
         "moments": [
           {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at150-hd.webp",
+            "t": 200,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi phân nền đặt trong bể trống, chuẩn bị làm nền."
+            "caption": "Các túi lưới phân nền xếp thành hàng ở phía sau đáy bể."
           },
           {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at510-hd.webp",
+            "t": 210,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at210-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đang rải lớp nền vào bể đã bố trí lũa và đá."
+            "caption": "Túi cát màu vàng dùng làm lớp nền nhìn thấy của bể."
           }
         ]
       },
       {
-        "heading": "Dựng bố cục đá và lũa",
+        "heading": "Xếp đá và lũa sao cho giống bờ sông",
         "moments": [
           {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at370-hd.webp",
+            "t": 320,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at320-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhánh lũa chính đặt cùng các tảng đá trên nền bể."
+            "caption": "Cành lũa chính chạy dọc một bên bể, tựa lên kính."
           },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm lũa nhiều nhánh tựa lên các tảng đá, tạo thành một cành lớn."
-          }
-        ]
-      },
-      {
-        "heading": "Dán lũa cho khỏi nổi",
-        "moments": [
           {
             "t": 430,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at430-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cả cụm lũa đã ghép thành một khối trong bể trống."
-          },
+            "caption": "Đá và các mẩu lũa nhỏ xếp tựa vào cành chính như bờ sông."
+          }
+        ]
+      },
+      {
+        "heading": "Dán lũa để không bị nổi",
+        "moments": [
           {
             "t": 470,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at470-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các nhánh lũa đặt chồng lên nhau cạnh đá, chỗ cần dán."
+            "caption": "Các mẩu lũa đặt sát nhau trên đá, chuẩn bị dán lại thành cụm."
+          },
+          {
+            "t": 500,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm lũa đã ghép chắc chắn trong bể, không mẩu nào xê dịch."
           }
         ]
       },
       {
-        "heading": "Chọn và trồng cây",
+        "heading": "Trồng cây gì và trồng ở đâu",
+        "moments": [
+          {
+            "t": 660,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể hoàn thiện: cây hậu cảnh hai bên, Helanthium xen đá, giữa trống nhìn xuyên."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/D7dsDUKUsvU/p4-Nvc3RhdHVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/D7dsDUKUsvU/p4-Nvc3RhdHVzLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "Haplochromis",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinodorus_quadricostatus.jpg",
+          "caption": "Helanthium mọc trên nền cát mỏng, xen giữa các tảng đá trong bể."
+        }
+      },
+      {
+        "heading": "Nước cho bể mới",
         "moments": [
           {
             "t": 760,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at760-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các tảng đá và nhánh lũa, khoảng giữa để trống nhìn xuyên."
+            "caption": "Bể mới đã đổ đầy nước, lũa và đá bày gọn bên trong."
           },
           {
             "t": 770,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at770-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đã đặt lũa và đá, còn trống để trồng cây xen giữa."
+            "caption": "Nước trong bể mới đang đầy dần, thấy rõ lũa và đá."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/D7dsDUKUsvU/p4-sdW1fa3owMi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/D7dsDUKUsvU/p4-sdW1fa3owMi5qcGc-480.webp",
-          "width": 960,
-          "height": 686,
-          "licence": "CC BY-SA 4.0",
-          "author": "Krzysztof Ziarnek, Kenraiz",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helanthium_tenellum_kz02.jpg",
-          "caption": "Cây Helanthium bolivianum mọc xanh tốt thành thảm trong bể thủy sinh."
-        }
+        ]
       },
       {
-        "heading": "Pha nước cho hợp với cá cũ",
+        "heading": "Làm phần cây trên mặt nước",
         "moments": [
           {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at730-hd.webp",
+            "t": 850,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at850-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đang được bày lũa và đá trên nền cát, chưa đổ nước."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/D7dsDUKUsvU/p5-b3Ntb3Npcy5qcGVn.webp",
-          "thumb": "https://media.aquatome.com/video/D7dsDUKUsvU/p5-b3Ntb3Npcy5qcGVn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "Public domain",
-          "author": "Andy king50",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Auqa_osmosis.jpeg",
-          "caption": "Bộ lọc nước RO chuyên dùng cho hồ cá để pha nước đúng thông số."
-        }
-      },
-      {
-        "heading": "Trang trí phần lũa trên mặt nước",
-        "moments": [
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây dương xỉ được gỡ khỏi chậu, rễ còn bám đất cần rửa sạch."
+            "caption": "Cây dương xỉ đã gỡ khỏi chậu, rễ còn bám đất."
           },
           {
             "t": 870,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at870-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dương xỉ đặt trên đỉnh lũa nhô khỏi mặt nước trong bể."
+            "caption": "Dương xỉ gắn trên cành lũa nhô khỏi mặt nước của bể."
           }
         ]
       },
       {
-        "heading": "Thả cá và sau hai tuần",
+        "heading": "Thả cá và bể sau hai tuần",
         "moments": [
           {
-            "t": 1070,
-            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at1070-hd.webp",
+            "t": 1040,
+            "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at1040-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh lũa và đá trong bể, cây mới bắt đầu lên."
+            "caption": "Bể nhìn từ xa, dương xỉ trên lũa ra lá mới xanh."
           },
           {
             "t": 1080,
             "url": "https://media.aquatome.com/video/D7dsDUKUsvU/at1080-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể mới với lũa, đá và cây dương xỉ gắn trên lũa."
+            "caption": "Toàn cảnh bể với dương xỉ trên lũa và đá, cây còn thưa."
           }
         ],
         "photo": {
@@ -280,7 +259,7 @@
           "licence": "CC BY-SA 2.5",
           "author": "Sascha Biedermann",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_simulans.jpg",
-          "caption": "Một con neon xanh bơi cạnh lũa và cây thủy sinh trong bể."
+          "caption": "Một chú neon xanh bơi cạnh lũa và cây thủy sinh trong bể."
         }
       }
     ]

@@ -1,0 +1,52 @@
+{
+  "id": "devario-sondhii",
+  "native": {
+    "input": "94394b5d1ab5cc9e",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This beautiful danio comes from Burma.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Spring, about 15 3/4 miles east of Taunggyi and about 3 1/2 miles east of Hopong, southern Shan States, Myanmar', and this may also be the type locality of Danio margaritatus.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario sondhii",
+    "status": "ACCEPTED",
+    "taxonKey": 2361559,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

@@ -27,7 +27,8 @@
       "sources": [
         "bwaquatics",
         "seriouslyfish",
-        "glaser"
+        "glaser",
+        "aquariumcoop"
       ],
       "quotes": [
         {
@@ -148,6 +149,13 @@
           "min": 24,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -160,6 +168,13 @@
       },
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
         "value": {
           "min": 3,
           "max": 6.5
@@ -193,6 +208,10 @@
       },
       {
         "source": "glaser",
+        "value": 2.5
+      },
+      {
+        "source": "aquariumcoop",
         "value": 2.5
       }
     ],
@@ -229,6 +248,12 @@
       "html": "<p>The green neon is the smallest and tiniest species of neon tetra. The maximum length is around 2.5 cm. One should not confuse this species with the neon costello, Hemigrammus hyanuary, which is also called the “green neon” occasionally. This is the reason why some people call Paracheirodon simulans the “blue neon”, but in the international trade the name “green neon” is established for the species.</p><p>Despite this babylonic confusion one cannot confuse P. simulans with any other species. Only in this neon tetra the intensive shining neon band runs from the tip of the snout right through to the end of the caudal peduncle.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>Paracheirodon simulans is known as the false neon tetra, green neon tetra and blue neon tetra. It has an iridescent blue-green line along its side that changes hue with mood, environment and viewing angle. At night the stripe becomes darker but is still clearly visible as a glittery royal blue or indigo.</p><p>The cardinal tetra is the biggest, growing up to 5 cm, with a full red stripe from eye to tail. The neon tetra (3.8 cm) has a half red stripe starting in the middle of the body. The smallest is the green neon tetra (2.5 cm), with an iridescent turquoise stripe and only the faintest amount of red.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
@@ -247,6 +272,12 @@
       "html": "<p>They originate from Brazil and Colombia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>Found in the blackwater river basins of Brazil, Colombia and Venezuela.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
@@ -259,6 +290,12 @@
       "html": "<p>Unlike its congeners P. innesi and P. axelrodi this species is an exclusive inhabitant of blackwater environments and tends to be found only in the upper, terra firme, reaches of tributary drainages.</p><p>Such habitats typically contain slow to moderately-flowing water with thick, often overhanging, riparian vegetation and sandy substrates covered in fallen branches, tree roots and leaf litter.</p><p>The water is typically acidic, of negligible carbonate hardness and conductivity and stained brownish due to the presence of humic substances released by decomposing organic matter.</p><p>Although it occurs over a similar range to P. axelrodi the two are not found together and P. simulans also tends to occur in warmer waters.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>The natural habitat of this South American tetra is surrounded by shady trees and other vegetation, with lots of leaf litter, fallen branches and other rotting organic matter that release acids into the water. They can live in highly acidic water of pH 3.0–6.5 with very soft to moderately soft GH.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
@@ -269,6 +306,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
       "html": "<p>It is a good idea to stock a nano tank with these shimmering jewels.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>A small school fits in a planted nano aquarium, or a large swarm can fill a bigger tank. Keep at least 10 green neons in an aquarium of 40 litres or larger.</p>"
     },
     {
       "key": "maintenance",
@@ -289,6 +332,18 @@
       "html": "<ul><li>Temperature: 24–27°C; temperature in its natural habitats has been recorded to range between 24.6–35.2°C and it may have evolved a natural tolerance to high temperatures (Marshall et al., 2011)</li><li>pH: 3.0–6.5</li><li>Hardness: 1–8 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>Temperature: 23–28°C. pH 3.0–6.5 in nature, but they are fairly hardy and have been kept successfully at pH 7.0–8.0, so check with your local fish store which water parameters the fish are held in.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>Use an aquarium heater to keep them warm. Since they are used to slow flow, use a gentle sponge filter, or put a pre-filter sponge on a hang-on-back or canister filter to prevent them being sucked up.</p><p>Shy nano fish do best with dimmer lighting and lots of plants, especially floating ones, that offer shade and hiding spots. A darker background and substrate make their colours pop. For a blackwater biotope, cover the substrate with catappa leaves and driftwood that release tannins over time.</p>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
@@ -299,6 +354,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>An omnivore. In the wild they opportunistically eat tiny crustaceans, worms, insects, algae and various plankton. Feed a variety of small foods such as crumbled flakes, nano pellets and freeze-dried tubifex worms, plus live baby brine shrimp, frozen cyclops and daphnia.</p>"
     },
     {
       "key": "behaviour",
@@ -313,6 +374,12 @@
       "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and somewhat specialised requirements.</p><p>Ideally it should be maintained alone or at most with diminutive, non-aggressive characids and smaller callichthyid or loricariid catfishes.</p><p>It is gregarious and naturally forms schools meaning 8-10 specimens is the minimum recommended purchase since the fish will be less shy and display more interesting behaviour.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>With most schooling fish, a group of six or more of the same species is recommended, but they feel more comfortable in groups of at least 10. This peaceful nano fish can be kept with other friendly community species that are not big enough to eat them. They mainly swim in the midwater, so try mixing them with bottom dwellers such as corydoras catfish or a mild-mannered centrepiece fish like the honey gourami. They are usually safe with adult dwarf shrimp, but may snack on babies.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
@@ -323,6 +390,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "html": "<p>A challenging species to breed. Requires very soft, acidic water and dim conditions. Use a separate breeding tank with fine-leaved plants or spawning mops. Eggs are scattered among plants; remove adults afterward to prevent predation. Eggs hatch in 24–36 hours; fry are delicate and should be fed infusoria or green water until large enough for baby brine shrimp.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "html": "<p>Egg scatterer. Eggs are light-sensitive and must be kept in darkness. Set up a seasoned 40-litre blackwater aquarium with very low pH and GH, possibly using RO water with blackwater extract and catappa leaves. Cover the tank's footprint with a grid barrier (plastic craft mesh or egg crate wrapped with netting) on four PVC pipes about 7.5–10 cm tall so eggs fall to the bare bottom, with java moss on top as spawning sites.</p><p>Condition the adults in a separate tank with heavy live food feedings; separate males from females if needed. Once females are swollen with eggs, put at least one male and one female in the spawning tank in the evening without feeding. By the next day the eggs should be released and the adults can be removed. Keep the lights off for the first 5 days; then the fry are free-swimming and ready to feed. Offer tiny foods such as green water, infusoria and live vinegar eels several times a day, then switch to live baby brine shrimp.</p>"
     },
     {
       "key": "notes",
@@ -396,6 +469,39 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/9e08cc6eadef557d.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9e08cc6eadef557d-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "caption": "Care Guide for Green Neon Tetras — Perfect Nano Fish for Planted Tanks - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/a596c19905dfb430.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a596c19905dfb430-480.webp",
+      "width": 1000,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "caption": "green neon tetra in planted tank",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/b1114c3a1297c0d4.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/b1114c3a1297c0d4-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
+      "caption": "school of green neon tetras",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -455,5 +561,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-08"
 }

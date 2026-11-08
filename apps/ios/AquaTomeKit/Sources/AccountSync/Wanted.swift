@@ -8,8 +8,7 @@ import Tanks
 public struct Wanted: Sendable {
   let base: URL
   let send: Send
-  /// Whether this copy of the app is one of ours (`AccountsClient.ourCopy`), asked at each send: the app learns it
-  /// after launch.
+  /// Whether this copy of the app is one of ours (`AccountsClient.ourCopy`), asked at each send.
   let ours: @Sendable () -> Bool
 
   public init(base: URL = AccountsClient.site, send: @escaping Send = AccountsClient.urlSession(), ours: @escaping @Sendable () -> Bool = { false }) {

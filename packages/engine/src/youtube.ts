@@ -19,6 +19,7 @@ import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items
 import { setHold } from './video-hold'
 import { byRank } from './video-order'
 import { seconds } from './videos'
+import { VI_STYLE as STYLE } from './phrases'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
@@ -52,7 +53,6 @@ const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
 const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8')
 const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
 const str = { type: 'string' }

@@ -1,6 +1,6 @@
 {
   "id": "youtube-WMddjcmPwS4",
-  "kind": "setup",
+  "kind": "plantCare",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=WMddjcmPwS4",
   "html": "",
@@ -17,9 +17,10 @@
     "bucephalandra-sp",
     "neocaridina-davidi",
     "caridina-multidentata",
-    "poecilia-reticulata"
+    "poecilia-reticulata",
+    "micranthemum-tweediei"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "WMddjcmPwS4",
     "title": "AQUASOIL VS DIRT UPDATE AFTER 2 WEEKS! SMALL ISSUES AND BUYING NEW FISH!",
@@ -54,78 +55,108 @@
     ],
     "gear": [
       {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 0
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 60
-      },
-      {
-        "category": "loc",
-        "type": "treo",
-        "t": 100
-      },
-      {
-        "category": "co2",
-        "t": 100
+        "category": "be-ca",
+        "type": "nano",
+        "t": 680
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
-        "model": "A series",
-        "t": 120
+        "model": "A2 series",
+        "t": 101
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 70
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 34
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 34
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 66
       },
       {
         "category": "test-nuoc",
         "type": "test",
         "t": 0
-      },
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 680
       }
     ],
     "figures": [
       {
-        "heading": "Hai loại nền khác nhau ở đâu",
+        "heading": "Hai bể được set thế nào",
         "moments": [
           {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t39-hd.webp",
+            "t": 30,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at30-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ nền vào bể trống, lớp nền đen phủ dưới đáy bể."
+            "caption": "Hai bể cây nhỏ đặt cạnh nhau trên kệ, cùng bố cục."
           },
           {
             "t": 110,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t108-hd.webp",
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at110-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh đã lên cây xanh tốt trên nền, có lũa và đá."
+            "caption": "Bể thủy sinh 20 lít với lũa, rêu và cây thân đỏ lên đẹp."
           }
         ]
+      },
+      {
+        "heading": "Tăng cường độ đèn cho bể mới",
+        "moments": [
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mới trồng cây, đèn LED treo phía trên bể."
+          },
+          {
+            "t": 130,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có lũa và cây đỏ dưới ánh đèn LED."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/WMddjcmPwS4/p1-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/WMddjcmPwS4/p1-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn LED gắn phía trên, cây rêu xanh tốt."
+        }
       },
       {
         "heading": "Bể aquasoil sau 12 ngày",
         "moments": [
           {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t207-hd.webp",
+            "t": 200,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thảm Monte Carlo bò ra phủ xanh nền aquasoil bên cạnh đá."
+            "caption": "Toàn bể aquasoil với thảm Monte Carlo lan xanh dưới lũa và đá."
           },
           {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t276-hd.webp",
+            "t": 250,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at250-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể aquasoil với lũa, Rotala đỏ và thảm cỏ xanh."
+            "caption": "Rotala Orange Juice đỏ cam vươn cao bên cạnh lũa."
           }
         ]
       },
@@ -133,101 +164,67 @@
         "heading": "Bể nền đất sau 12 ngày",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t385-hd.webp",
+            "t": 400,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thảm Monte Carlo bò ra ở tiền cảnh bể nền đất."
+            "caption": "Bể nền đất với thảm Monte Carlo và đá, cây lên xanh tốt."
           },
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t434-hd.webp",
+            "t": 420,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at420-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể nền đất với cây thủy sinh và Monte Carlo đã phủ nền."
+            "caption": "Rotala đỏ và cây thân cao mọc mạnh quanh lũa trong bể nền đất."
           }
         ]
       },
       {
-        "heading": "Ngọn lá bạc màu ở bể nền đất nói lên điều gì",
+        "heading": "Ngọn lá bạc trắng: dấu hiệu thiếu dinh dưỡng",
         "moments": [
           {
             "t": 450,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t444-hd.webp",
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at450-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây xanh tươi, có lũa và đá, thảm cây phía trước."
+            "caption": "Bể thủy sinh với cây xanh tươi mọc dày quanh đá và lũa."
           },
           {
             "t": 470,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t463-hd.webp",
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at470-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Góc bể với đá, lũa và cây xanh tốt phủ kín nền."
+            "caption": "Góc bể có thảm cây xanh phủ quanh đá và lũa."
           }
         ]
       },
       {
-        "heading": "Thiếu chất ở bể nền đất: châm phân hay chờ",
+        "heading": "Thả tép, cá vào hai bể",
         "moments": [
           {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t532-hd.webp",
+            "t": 930,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at930-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh nền đất với lũa và cây thân đỏ, thảm cỏ xanh."
-          }
-        ]
-      },
-      {
-        "heading": "Tăng đèn cho bể mới thế nào",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t128-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhỏ dưới đèn LED, cây và lũa lên màu đẹp."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/WMddjcmPwS4/p5-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/WMddjcmPwS4/p5-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn LED phía trên, cây và rêu xanh mướt."
-        }
-      },
-      {
-        "heading": "Khi nào thả lại tép và cá dọn rêu",
-        "moments": [
-          {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t937-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả túi tép và cá vào bể thủy sinh có lũa và thảm cỏ."
+            "caption": "Túi cá được thả nổi trong bể để làm quen nước."
           },
           {
-            "t": 1020,
-            "url": "https://media.aquatome.com/video/WMddjcmPwS4/t1006-hd.webp",
+            "t": 950,
+            "url": "https://media.aquatome.com/video/WMddjcmPwS4/at950-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể 20 lít đã thả xong, lũa và cây xanh um tùm."
+            "caption": "Túi tép đỏ đang được thả vào bể thủy sinh nhỏ."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/WMddjcmPwS4/p6-dmVzdGl0dXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/WMddjcmPwS4/p6-dmVzdGl0dXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/WMddjcmPwS4/p6-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/WMddjcmPwS4/p6-mdHdvb2RfMy5qcGc-480.webp",
           "width": 960,
           "height": 540,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fremen",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
-          "caption": "Cá otocinclus nhìn ngang, thấy rõ sọc đen dọc thân đặc trưng."
+          "licence": "CC BY 4.0",
+          "author": "Evan Baldonado",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
+          "caption": "Cá chuột Otocinclus bám trên khúc lũa trong bể thủy sinh có rêu."
         }
       }
     ]

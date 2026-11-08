@@ -1,8 +1,8 @@
 {
   "id": "paracheirodon-simulans",
   "native": {
-    "input": "6470d3237e66ecb9",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "27b0c323adf099fb",
+    "at": "2026-11-08T03:17:10.020Z",
     "claims": [
       {
         "code": "BR",
@@ -42,6 +42,30 @@
         "source": "glaser",
         "quote": "They originate from Brazil and Colombia.",
         "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Found in the blackwater river basins of Brazil, Colombia and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Found in the blackwater river basins of Brazil, Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Found in the blackwater river basins of Brazil, Colombia and Venezuela.",
+        "words": "Venezuela",
         "ok": true
       }
     ],
