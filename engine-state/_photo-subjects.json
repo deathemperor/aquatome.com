@@ -498,6 +498,15 @@
       "note": "Mottled orange-brown dwarf crayfish (Cambarellus) on gravel among moss. It fits C. diminutus, but C. puer, C. shufeldtii"
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/db0ae8a2eb62661e.webp": {
+    "cherax-holthuisi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "orange apricot crayfish on gravel in aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1.webp": {
     "trichogaster-lalius": {
       "ok": "yes",
@@ -4144,6 +4153,14 @@
       "note": "red tetra with black dorsal and black-edged anal fin but almost no shoulder spot; could be a different Hyphessobrycon"
     }
   },
+  "https://media.aquatome.com/commons/11f5f2c0c6d43353.webp": {
+    "arnoldichthys-spilopterus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Phenacogrammus interruptus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/1204b2671f018d4e.webp": {
     "axelrodia-riesei": {
       "ok": "yes",
@@ -4709,9 +4726,10 @@
   },
   "https://media.aquatome.com/commons/1a940185230f27cb.webp": {
     "corydoras-trilineatus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Two adults on a rock in a planted tank; typical maze pattern"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Corydoras julii",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/1ab0c90acc68b962.webp": {
@@ -5041,9 +5059,10 @@
   },
   "https://media.aquatome.com/commons/1f843db94c2c4396.webp": {
     "cleithracara-maronii": {
-      "ok": "yes",
-      "typical": true,
-      "note": "clear side view of adult, yellow body, keyhole spot, eye bar"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Amphilophus citrinellus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/1f864e6bdd321dd8.webp": {
@@ -5197,9 +5216,10 @@
   },
   "https://media.aquatome.com/commons/230425642fcdc2de.webp": {
     "cleithracara-maronii": {
-      "ok": "yes",
-      "typical": true,
-      "note": "yellowish adult with keyhole spot and eye bar among plants"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Amphilophus citrinellus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/230f7a4652570148.webp": {
@@ -5576,6 +5596,12 @@
       "ok": "yes",
       "typical": true,
       "note": "silver arowana in full side view, blue lighting"
+    },
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/2a09f53cad9e8ad1.webp": {
@@ -5629,6 +5655,14 @@
       "ok": "unsure",
       "typical": false,
       "note": "pinkish-purple devario with blue lines and a dark bar behind the gill, look-alike can't be ruled out"
+    }
+  },
+  "https://media.aquatome.com/commons/2abf15ae3934d927.webp": {
+    "phractocephalus-hemioliopterus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Brachyplatystoma filamentosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/2ac1f6c3312ce664.webp": {
@@ -5866,6 +5900,14 @@
       "typical": true,
       "note": "male with red-black dorsal and black caudal spot, another fish behind",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/2ea1984d294916db.webp": {
+    "bedotia-geayi": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Bedotia madagascariensis",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/2ecfeee2987dc612.webp": {
@@ -6302,9 +6344,10 @@
   },
   "https://media.aquatome.com/commons/3648721bcece0c66.webp": {
     "datnioides-pulcher": {
-      "ok": "unsure",
-      "typical": true,
-      "note": "tiger perch with narrower bars; could be D. microlepis or another Datnioides"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Datnioides campbelli",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/3657ec5c87f20a04.webp": {
@@ -6312,6 +6355,18 @@
       "ok": "yes",
       "typical": true,
       "note": "adult side view in aquarium, blue-striped dorsal and anal fins, mottled brown body"
+    },
+    "channa-baramensis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa andrao",
+      "file": true
+    },
+    "channa-gachua": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa andrao",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/367c202bbe22612e.webp": {
@@ -6638,6 +6693,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "Dark, red-eyed snakehead guarding a swarm of fry underwater; murky view, can't confirm the species"
+    },
+    "channa-ornatipinnis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa marulius",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/3be87b1008e9fa09.webp": {
@@ -7038,6 +7099,14 @@
       "ok": "yes",
       "typical": true,
       "note": "green GloFish tetra in a planted tank, clear side view"
+    }
+  },
+  "https://media.aquatome.com/commons/42dfeafb914fffe5.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/43027cbb342dcc46.webp": {
@@ -7918,6 +7987,12 @@
       "typical": true,
       "note": "eyeless pinkish-silver blind cave tetra in aquarium, second fish behind",
       "logo": false
+    },
+    "astyanax-jordani": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Astyanax mexicanus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/52a6fc38ac730cdb.webp": {
@@ -8609,11 +8684,28 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/6000f48bfdcd4e6e.webp": {
+    "melanotaenia-splendida": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Melanotaenia fluviatilis",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/6039d660ca49cdcb.webp": {
     "cyrtocara-moorii": {
       "ok": "yes",
       "typical": false,
       "note": "close-up of an adult's head and hump, with grey blotchy patches"
+    }
+  },
+  "https://media.aquatome.com/commons/60597c317bf75be1.webp": {
+    "cherax-holthuisi": {
+      "ok": "other",
+      "typical": false,
+      "note": "brown crayfish with blue claws, likely Cherax quadricarinatus/destructor, not orange holthuisi",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/606d5d90c9a59424.webp": {
@@ -9332,6 +9424,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/6e34d0871b891148.webp": {
+    "gyrinocheilus-aymonieri": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Macrotocinclus affinis",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/6e3df286f3fccdab.webp": {
     "ranunculus-inundatus": {
       "ok": "yes",
@@ -9866,6 +9966,12 @@
       "ok": "yes",
       "typical": true,
       "note": "Male flaring, green iridescent scales and striped blue-green fins on dark background"
+    },
+    "betta-splendens": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Betta mahachaiensis",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/7836d3540215c861.webp": {
@@ -9967,6 +10073,14 @@
       "note": "Five-banded barb adult, five dark green-edged bars on orange body, a second one behind"
     }
   },
+  "https://media.aquatome.com/commons/797ee380743fcf6a.webp": {
+    "devario-devario": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Devario aequipinnatus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/79aabd1833a59d0b.webp": {
     "anubias-barteri": {
       "ok": "yes",
@@ -10002,6 +10116,14 @@
       "ok": "yes",
       "typical": true,
       "note": "single submerged plant on wood in tank, fish behind"
+    }
+  },
+  "https://media.aquatome.com/commons/7a99c198fd34875a.webp": {
+    "barbonymus-schwanefeldii": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Thorichthys meeki",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/7ae5ec939ef3c992.webp": {
@@ -10579,6 +10701,12 @@
       "ok": "yes",
       "typical": true,
       "note": "adult silver arowana, clear side view with barbels"
+    },
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/850ab388afd08a84.webp": {
@@ -10783,6 +10911,14 @@
       "ok": "yes",
       "typical": true,
       "note": "Endler male, black bars, orange patches, upper sword tail"
+    }
+  },
+  "https://media.aquatome.com/commons/88dde4c7b32997c5.webp": {
+    "trichopodus-trichopterus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Xiphophorus maculatus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/88ee2356ce454df0.webp": {
@@ -11547,6 +11683,14 @@
       "note": "Day's Fishes of India drawing of C. stewartii (fig. 3); an illustration, not a photo"
     }
   },
+  "https://media.aquatome.com/commons/987eb141b70ff0e1.webp": {
+    "dekeyseria-pulchra": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Dekeyseria picta",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/98a579d603697f0a.webp": {
     "pygocentrus-piraya": {
       "ok": "unsure",
@@ -11704,9 +11848,10 @@
   },
   "https://media.aquatome.com/commons/9ab00579dbdebd70.webp": {
     "chalceus-erythrurus": {
-      "ok": "yes",
+      "ok": "other",
       "typical": false,
-      "note": "close-up of head and front body; yellow ventral fins, red tail edge just visible"
+      "note": "its Commons file names Chalceus macrolepidotus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/9ace3df00d288eaf.webp": {
@@ -11729,6 +11874,14 @@
       "ok": "yes",
       "typical": true,
       "note": "paler adult krib with a pink belly, another fish blurred behind"
+    }
+  },
+  "https://media.aquatome.com/commons/9b7c606cb600d47f.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/9b9338f35b62109c.webp": {
@@ -12474,9 +12627,10 @@
   },
   "https://media.aquatome.com/commons/ace21161fbd77db5.webp": {
     "scleropages-jardinii": {
-      "ok": "unsure",
-      "typical": true,
-      "note": "Pale gold arowana in a dark tank; no scale spots visible, so it could be an Asian arowana"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Scleropages leichardti",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/aced773c6bfadb18.webp": {
@@ -12562,6 +12716,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/ae22f1199773dcc7.webp": {
+    "parachanna-obscura": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa asiatica",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/ae2a0e15faf3055a.webp": {
     "satanoperca-acuticeps": {
       "ok": "none",
@@ -12582,6 +12744,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "dark purplish fish with blue scale spots; looks more like a Badis species than Dario dario"
+    },
+    "badis-badis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Dario dario",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/ae82d8fafcd94209.webp": {
@@ -13485,6 +13653,14 @@
       "note": "Floating spurge leaves seen from above, green to pinkish"
     }
   },
+  "https://media.aquatome.com/commons/bd5f672e76319a4c.webp": {
+    "corydoras-metae": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Corydoras panda",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/bd62890f723261dd.webp": {
     "chaetostoma-fischeri": {
       "ok": "dead",
@@ -13598,9 +13774,10 @@
       "note": "black bristlenose with dense white spots on gravel, side view"
     },
     "ancistrus-triradiatus": {
-      "ok": "unsure",
-      "typical": true,
-      "note": "Dark Ancistrus with white spots on gravel; can't confirm species, could be another Ancistrus"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Ancistrus dolichopterus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/bfed6430f239c7f2.webp": {
@@ -13941,9 +14118,10 @@
       "note": "side view of male, female below"
     },
     "betta-bellica": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "brown betta pair with black, white-edged fins and no blue-green scale rows; looks more like the Betta picta group than B"
+      "note": "its Commons file names Betta albimarginata",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/c4c988facb31d8d4.webp": {
@@ -14341,6 +14519,12 @@
       "typical": true,
       "note": "green phantom pleco with yellow spots on sand, side view",
       "logo": false
+    },
+    "hemiancistrus-subviridis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Baryancistrus demantoides",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/cb6cc3983f3afa30.webp": {
@@ -14457,9 +14641,10 @@
   },
   "https://media.aquatome.com/commons/cdc824e83be01b1b.webp": {
     "desmopuntius-pentazona": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Five-banded barb adult on sand, dark bars and red fins"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Desmopuntius hexazona",
+      "file": true
     },
     "desmopuntius-hexazona": {
       "ok": "yes",
@@ -15204,11 +15389,27 @@
       "note": "dark juvenile with pale bands, side view"
     }
   },
+  "https://media.aquatome.com/commons/d9541e4f67808d63.webp": {
+    "bagarius-bagarius": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Bagarius rutilus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/d9581b9ac7c798c0.webp": {
     "alternanthera-reineckii": {
       "ok": "unsure",
       "typical": false,
       "note": "close-up of white flower heads on green emersed Alternanthera; species unclear"
+    }
+  },
+  "https://media.aquatome.com/commons/d967ceeac1094fe0.webp": {
+    "copella-carsevennensis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Copella arnoldi",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/d97f2b7a84039e76.webp": {
@@ -15399,6 +15600,14 @@
       "note": "Old museum plate (Characidae Plate 14) with drawings of three characins, not a photo"
     }
   },
+  "https://media.aquatome.com/commons/debcef84eaa72230.webp": {
+    "aphyosemion-bualanum": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Aphyosemion elberti",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/deee119c227bb1bf.webp": {
     "butterfly-koi": {
       "ok": "unsure",
@@ -15568,6 +15777,14 @@
       "ok": "yes",
       "typical": true,
       "note": "Group of adult males: silvery-grey body, orange-red blotches on rear half, orange fins; other rainbowfish in background"
+    }
+  },
+  "https://media.aquatome.com/commons/e22737f8a2707271.webp": {
+    "bedotia-madagascariensis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Bedotia geayi",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/e26e9f1200ba34f2.webp": {
@@ -16109,9 +16326,10 @@
   },
   "https://media.aquatome.com/commons/ee51a0296b067c20.webp": {
     "scleropages-jardinii": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "Close crop of a silvery arowana's head and front half; could be a silver arowana or a spotted saratoga"
+      "note": "its Commons file names Scleropages formosus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/eec740e6ef88efce.webp": {
@@ -16602,10 +16820,11 @@
   },
   "https://media.aquatome.com/commons/f7004f757d7c2757.webp": {
     "pseudotropheus-elongatus": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "plain brownish fish over sand, possibly female or juvenile, no clear marks to identify",
-      "logo": false
+      "note": "its Commons file names Aulonocara stuartgranti",
+      "logo": false,
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/f734a63a736586c1.webp": {
@@ -16711,6 +16930,14 @@
       "note": "blue adult beside plants, side view"
     }
   },
+  "https://media.aquatome.com/commons/f94f05478fb3c9a6.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/f951f81ed157dba7.webp": {
     "monodactylus-sebae": {
       "ok": "yes",
@@ -16746,6 +16973,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out"
+    },
+    "botia-lohachata": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Botia almorhae",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/fa3a993947d8a958.webp": {
@@ -16880,6 +17113,14 @@
       "typical": true,
       "note": "silvery adult with red eye over gravel",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/fdb933c97d6ae947.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/fdbdc89baf654198.webp": {
@@ -32300,6 +32541,14 @@
       "typical": false,
       "note": "same golden-orange discus, round high body, matches caption",
       "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden/yellow discus, same image as 1",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/video/7l1Ja0NL_UQ/p6-X3RpdHRleWEuanBn.webp": {
@@ -32985,6 +33234,14 @@
       "ok": "yes",
       "typical": false,
       "note": "healthy orange/golden captive-bred discus with whole fins and clear eyes in a planted tank",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden-orange bred discus, planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },

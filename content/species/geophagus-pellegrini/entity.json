@@ -1,0 +1,206 @@
+{
+  "id": "geophagus-pellegrini",
+  "scientificName": "Geophagus pellegrini",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Geophagus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "san-juan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<ul><li>Needs soft, acidic water kept steady; best kept in a pair; choose tankmates carefully; needs a well-established tank</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Needs a soft, sandy substrate: the most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>The yellowhump eartheater, Geophagus pellegrini, is a cichlid from the Chocó and Antioquia departments of northwestern Colombia. The species is rare in the hobby, and most fish traded under its name are forms of 'G.' steindachneri or occasionally 'G.' crassilabris. Its yellowish colour pattern separates it from those two, the other members of the 'G.' steindachneri group. It is an ovophilous, maternal mouthbrooder.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Type locality is the Río San Juan at Tado, Chocó Department, northwestern Colombia, and this species is endemic to that region plus the neighbouring Department of Antioquia.</p><p>It's also been recorded from the Río Atrato and Río Baudó drainages.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>This species appears to be a relative ecological generalist.</p><p>During a sampling trip in 1989 it was collected in various habitat types including a narrow (maximum width 3 m) stream containing shallow (maximum depth 1 m), transparent, moderate to fast-flowing water and substrate comprising gravel, mud, clay and organic debris including submerged logs.</p><p>Aquatic plants consisted of water lilies and marginal vegetation was dense, comprising various trees, shrubs, grasses and ferns.</p><p>At another locality it was again collected from a slightly wider (2–5 m) forest stream with moderate flow and clear water but in this case the substrate was a mixture of sand and gravel and surrounding vegetation secondary forest with a lower degree of marginal plant life and no aquatic species.</p><p>In another place the habitat consisted of a very shallow (~50 cm deep), narrow (2 m wide) stream forming a pool 20 m across with overhanging grasses, forest cover and no aquatic vegetation. The substrate was composed of sand and rocks.</p><p>Sympatric fishes across its range include Priapichthys nigroventralis, P. chocoensis, 'Cichlasoma' atromaculatum, Andinoacara latifrons, A. biseriatus, Lebiasina chocoensis, Nematobrycon palmeri, plus various other characids, gymnotids and loricariids.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Standard length: 15.5 cm SL.</p><p>Aquarium base: 120 × 45 cm. Volume: ~243 litres.</p><p>Minimum base dimensions of 120 × 45 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Coarser materials such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage or blockages.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>Leaf litter is a typical feature of the natural environment but not really recommended in aquaria because the feeding behaviour of Geophagus spp. tends to cause an excess of partially-decomposed material in suspension which not only looks unsightly but can block filter and pump mechanisms.</p><p>One or two flattish, water-worn rocks can also be included to provide potential spawning sites if you wish.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality and swings in chemical parameters so should never be introduced to a biologically immature aquarium.</p><p>The best way to achieve the desired stability is to over-filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50–70%.</p><p>If the maintenance regime is insufficient health issues such as head and lateral line erosion or stunted growth can occur.</p><p>Mechanical filtration should also be tailored to trap small particles stirred up by the fish as sand can cause blockages and wearing issues with filter mechanisms if allowed to continually run through the system.</p><p>High flow rates should be avoided so position filter returns accordingly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<ul><li>Temperature: 25–30°C</li><li>pH: 5.0–6.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>'Geophagus' steindachneri group spp. are benthophagous by nature and mostly employ a feeding strategy whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gills and mouth.</p><p>For this reason they're commonly termed 'eartheaters' and the provision of a suitable substrate is essential to their long-term well-being.</p><p>Once settled they readily rise into the water column when food is introduced but continue to browse normally at other times.</p><p>The stomach contents of wild specimens mostly comprise small aquatic and terrestrial invertebrates, plant material in the form of seeds, organic detritus and sediment.</p><p>Even as adults these cichlids seem unable to properly ingest larger food items meaning the diet should contain a variety of high quality, fine-grade prepared foods plus small live or frozen bloodworm, Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p><p>Rather than a single large meal offer 3–4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Unless breeding this species is surprisingly peaceful and will not predate on fishes larger than a few mm in length.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Adult males are larger in size and have longer unpaired fin lobes than females. Sexually mature males develop a nuchal hump which can be very pronounced in some individuals.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Ovophilous, maternal mouthbrooder forming weak pair bonds during the spawning process only.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<p>Etymology: pellegrini, named for French zoologist Jacques Pellegrin.</p><p>This species is rare in the hobby with the majority of fishes traded under the name forms of 'G.' steindachneri or, occasionally, 'G.' crassilabris but has become more readily available in recent years.</p><p>Alongside that pair 'G.' pellegrini is a member of the 'G.' steindachneri group of closely-related species with unresolved taxonomic placement and can be told apart from others in the group by its distinctive yellowish colour pattern.</p><p>The genus Geophagus was rediagnosed by Kullander (1986) who restricted it to include only those species with paired caudal extensions to the swimbladder lined by 6–12 epihemal 'ribs' plus a greater number of caudal than abdominal vertebrae.</p><p>Some former species were moved into the resurrected genus Satanoperca while others, such as the 'Geophagus' brasiliensis and 'G.' steindachneri groups represent distinct groupings still in need of definitive classification.</p><p>Geophagus and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported 'Satanoperca clade' comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a 'big clade' with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a 'crenicarine clade' with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "html": "<ul><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytrochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Regan, C. T. (1912). Descriptions of new cichlid fishes from South America in the British Museum. Annals and Magazine of Natural History (Series 8) v. 9 (no. 53), 505-507</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/16d7cca2a345dfd0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/16d7cca2a345dfd0-480.webp",
+      "width": 843,
+      "height": 564,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "caption": "Wild-collected adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d7d3831a8c7c42b4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d7d3831a8c7c42b4-480.webp",
+      "width": 800,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "caption": "Adult female collected from the Caño Ogodó, near Palo Blanco village, Antioquia Department, Colombia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/783c1e39d683ccaf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/783c1e39d683ccaf-480.webp",
+      "width": 800,
+      "height": 528,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
+      "caption": "Adult male from the Caño Ogodó...",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát sông mịn cho cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dạng bột mịn",
+        "thức ăn cá cichlid spirulina"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

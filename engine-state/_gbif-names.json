@@ -22369,5 +22369,33 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null
+  "Zwei neue": null,
+  "Hemibagrus macropterus": {
+    "canonicalName": "Hemibagrus macropterus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Hemibagrus",
+    "matchType": "EXACT"
+  },
+  "Inlecypris maetaengensis": {
+    "canonicalName": "Devario maetaengensis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Devario",
+    "matchType": "EXACT"
+  },
+  "Parioglossus multiradiatus": {
+    "canonicalName": "Parioglossus multiradiatus",
+    "order": "Perciformes",
+    "family": "Microdesmidae",
+    "genus": "Parioglossus",
+    "matchType": "EXACT"
+  },
+  "Scleromystax macropterus": {
+    "canonicalName": "Scleromystax macropterus",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Scleromystax",
+    "matchType": "EXACT"
+  }
 }

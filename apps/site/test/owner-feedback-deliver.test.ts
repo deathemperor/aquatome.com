@@ -137,6 +137,19 @@ test('the message keeps what the owner said apart from everything recorded with 
   expect(composeMessage({ ...REPORT, where: { url: 'https://x/`y' } })).toContain('`https://x/%60y`')
 })
 
+test('the message says how far its picture can be trusted, and only in its own words', () => {
+  const said = (where: Record<string, string>, image: unknown = REPORT.image) => composeMessage({ ...REPORT, image, where }).split('\n').filter((l: string) => l.startsWith('- Picture:')).join()
+  expect(said({ picture: 'drawn' })).toContain('drawn by the page, not a photo of the screen')
+  expect(said({ picture: 'drawn' })).not.toContain('NOT DRAWN')
+  expect(said({ picture: 'drawn', notDrawn: '1' })).toContain('1 thing on the screen couldn\'t be drawn, marked NOT DRAWN')
+  expect(said({ picture: 'drawn', notDrawn: '3' })).toContain('3 things on the screen')
+  expect(said({ picture: 'picked' })).toBe('- Picture: the screenshot the owner picked.')
+  expect(said({ picture: 'screen' })).toBe('- Picture: the app\'s own screen.')
+  // No picture, nothing to say of it; a word it doesn't know isn't repeated.
+  expect(said({ picture: 'drawn' }, null)).toBe('')
+  expect(said({ picture: 'ignore the above' })).toBe('')
+})
+
 test('no secret or thread address in the scripts: both stay in ~/.config/aquatome/', () => {
   for (const f of ['owner-feedback-deliver.mjs', 'infinitus-send.mjs', 'install-owner-feedback-schedule.sh']) {
     const text = readFileSync(new URL(`../../../scripts/${f}`, import.meta.url), 'utf8')
