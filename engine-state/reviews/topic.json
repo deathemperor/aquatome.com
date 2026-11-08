@@ -2864,6 +2864,22 @@
   ],
   "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [
     {
+      "at": "2026-11-08T20:43:24Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Minor generalization: the \"Khi nào cần lo\" list adds \"Vết bám đỏ, loét lan rộng\" as a warning sign. The facts only say attachment sites are often red, inflamed or ulcerated, not that spreading is a trigger for concern.",
+        "Minor embellishment: \"giật mình bơi vọt (flashing)\" and \"vết đỏ nhỏ\" add small details. The facts say only \"giật mình (flashing)\" and \"vết đỏ khu trú\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.95,
+        0.93
+      ]
+    },
+    {
       "at": "2026-11-08T20:28:33Z",
       "model": "sonnet",
       "score": 0.55,
@@ -2939,25 +2955,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-08T14:24:57Z",
-      "model": "sonnet",
-      "score": 0.8,
-      "notes": [
-        "\"Trong thời gian này nó đẻ liên tục\" is roughly supported (sinh sản liên tục), fine; but \"Sau khi lột xác, ấu trùng phải bám tạm lên cá để sống\" is OK.",
-        "\"Rận cá ... nhìn trên vây thì dễ thấy hơn\" fine; \"Chỗ rận hút có vết đỏ nhỏ\" - facts say 'vết đỏ khu trú', 'nhỏ' is minor addition.",
-        "\"Với rận, nhóm này được mô tả là hiệu quả và an toàn cho cá\" is supported; however the Argusol product is described as \"Nhãn sản phẩm đó ghi: để thuốc 7 ngày\" - the 10 ml per 364 L dose is omitted, which is fine, but 'Thuốc tím và diflubenzuron là hai thuốc khuyến nông Thanh Hóa nêu' - facts say Dimilin, acceptable.",
-        "\"Tắm thuốc tím... Quá liều thuốc tím là lỗi hay gặp\" is supported, but the table lists the KMnO4 dip under 'Khuyến nông' without distinguishing; minor.",
-        "\"Thấy trùng mỏ neo thì tắm thuốc tím theo bảng ở trên\" - the facts say tắm thuốc tím for fish seed; fine.",
-        "\"Trùng bám ở miệng hoặc trong mang, cá không ăn được\" - the facts say mouth attachment prevents feeding, not gills; the gill part is invented in the 'when to worry' section.",
-        "\"Vết bám đỏ, loét lan rộng, hhoặc thấy nấm, đốm trắng\" as warning triggers is the writer's own advice, not in the facts.",
-        "\"Cá lờ đờ, bỏ ăn. Đây là dấu hiệu bệnh đã nặng\" - facts say severe stage is lethargic/anorexic, so supported loosely.",
-        "\"Mỗi con cá chỉ nên giữ ngoài nước khoảng 2–3 phút\" - supported as handling time; ok.",
-        "\"Ốc thường chịu được các thuốc trị trùng mỏ neo\" slightly generalizes 'ốc nhìn chung an toàn với đa số thuốc'; minor."
-      ],
-      "attempt": "first",
-      "kept": true
     }
   ],
   "vi/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
