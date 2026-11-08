@@ -151,3 +151,15 @@ test('in Indonesian and Thai: every word translated, the countries named in that
     expect(words, lang).toContain(countryName('VE', lang))
   }
 })
+
+test("a source's sentence keeps its own words, and the Vietnamese names in it are marked Vietnamese", () => {
+  // The Thai page of Bagarius rutilus quoted Seriously Fish's "the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers" unmarked,
+  // and the live check found Vietnamese on a Thai page (2026-11-08).
+  const quote = 'Known from the Red River, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam.'
+  const r = { native: native({ countries: [], regions: ['Red River'], quotes: [{ source: 'seriouslyfish' as const, quote, countries: [], regions: ['Red River'] }] }) }
+  const html = rangeParts('th', c, { id: 'x', name: 'x', range: r }, marks(['seriouslyfish']))!.said!.html
+  expect(html).toContain('<span lang="vi">Sông Kỳ Cùng</span>')
+  // Outside the marked names, no letter only Vietnamese has (what the live check looks for, e2e/fixtures.ts).
+  expect(html.replace(/<span lang="vi">[^<]*<\/span>/g, '')).not.toMatch(/[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i)
+  expect(plain(html)).toContain(quote)
+})
