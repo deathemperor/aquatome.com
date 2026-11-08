@@ -147,12 +147,12 @@ test('a guide AquaTome wrote is checked again as it is, against the facts its wr
   await put(root, `content/guides/${g}/vi.json`, page('vi', 0.72))
   await put(root, `content/guides/${g}/id.json`, page('id', 0.9))
   const prompts: string[] = []
-  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return { score: 0.8, notes: [] } as T }
+  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return { score: 0.96, notes: [] } as T }
   const d = { root, llm, now: () => new Date('2026-11-09T10:00:00Z') }
 
   // Under the bar: the Vietnamese guide, not the Indonesian one.
   const r = await reviewBackfill(d, { kinds: ['topic'], limit: 5 })
-  expect(r.checked).toEqual([`topic vi/guides/${g}: 0.80 (was 0.72), 0 notes`])
+  expect(r.checked).toEqual([`topic vi/guides/${g}: 0.96 (was 0.72), 0 notes`])
   const facts = (p: string) => JSON.parse(p.split('FACTS:\n')[1]!.split('\n\nGUIDE:')[0]!)
   expect(facts(prompts[0]!)).toEqual({ topic: 'Thối vây vi', kind: 'disease', facts: [
     { section: 'treatment', fact: 'The society lists malachite green as effective in some cases.', source: 0 },
@@ -163,12 +163,33 @@ test('a guide AquaTome wrote is checked again as it is, against the facts its wr
   // Dosing by the label is the writers' rule, so the checker counts it as supported.
   expect(prompts[0]).toMatch(/by its label[^\n]*counts as supported[^\n]*never one of the notes/)
   const vi = JSON.parse(await readFile(join(root, `content/guides/${g}/vi.json`), 'utf8'))
-  expect(vi).toEqual({ ...page('vi', 0.8), quality: { score: 0.8, indexable: true } })
-  expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]).toEqual([{ at: '2026-11-09T10:00:00Z', model: 'sonnet', score: 0.8, notes: [], attempt: 'recheck', kept: true }])
+  expect(vi).toEqual({ ...page('vi', 0.96), quality: { score: 0.96, indexable: true } })
+  expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]).toEqual([{ at: '2026-11-09T10:00:00Z', model: 'sonnet', score: 0.96, notes: [], attempt: 'recheck', kept: true }])
 
   // Another language: its own facts, without Vietnam's, numbered by its references.
   await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`id/guides/${g}`] })
   expect(prompts[1]).toContain('Indonesian (Bahasa Indonesia) GUIDE')
   expect(facts(prompts[1]!)).toEqual({ topic: 'Thối vây vi', kind: 'disease', facts: [{ section: 'treatment', fact: 'The society lists malachite green as effective in some cases.', source: 0 }] })
-  expect(JSON.parse(await readFile(join(root, `content/guides/${g}/id.json`), 'utf8')).quality).toEqual({ score: 0.8, indexable: true })
+  expect(JSON.parse(await readFile(join(root, `content/guides/${g}/id.json`), 'utf8')).quality).toEqual({ score: 0.96, indexable: true })
+})
+
+test('a guide read near the bar is read twice more and gets the median read; one read well clear of it takes one', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  const g = 'aquatome-mang'
+  await put(root, `engine-state/topics/${g}.json`, { found: true, species: [], sources: [{ url: 'https://a.example/x', title: 'A' }], facts: [{ section: 'what', fact: 'A fact.', source: 0 }] })
+  await put(root, `content/guides/${g}/entity.json`, { id: g, kind: 'disease', source: 'aquatome', refs: [{ url: 'https://a.example/x', title: 'A' }] })
+  await put(root, `content/guides/${g}/vi.json`, { slug: 'mang', name: 'Mang', summary: [], body: '<p>Thân.</p>', faq: [], sections: {}, quality: { score: 0.5, indexable: false } })
+  let scores = [0.7, 0.9, 0.6]
+  const llm: Llm = async <T,>() => { const s = scores.shift()!; return { score: s, notes: [`read ${s}`] } as T }
+  const d = { root, llm, now: () => new Date('2026-11-09T10:00:00Z') }
+
+  await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`vi/guides/${g}`] })
+  expect(scores).toEqual([])
+  expect(JSON.parse(await readFile(join(root, `content/guides/${g}/vi.json`), 'utf8')).quality).toEqual({ score: 0.7, indexable: false })
+  expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]![0]).toMatchObject({ score: 0.7, notes: ['read 0.7'], reads: [0.7, 0.9, 0.6], kept: true })
+
+  scores = [0.97, 0.5]
+  await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`vi/guides/${g}`] })
+  expect(scores).toEqual([0.5])
+  expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]![0]).toEqual({ at: '2026-11-09T10:00:00Z', model: 'sonnet', score: 0.97, notes: ['read 0.97'], attempt: 'recheck', kept: true })
 })
