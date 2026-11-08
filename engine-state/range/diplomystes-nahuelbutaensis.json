@@ -1,0 +1,105 @@
+{
+  "id": "diplomystes-nahuelbutaensis",
+  "native": {
+    "input": "b2de65ce3f11ed56",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CL",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Cautín, Lautaro, Chile.",
+        "words": "Chile",
+        "ok": true
+      },
+      {
+        "code": "CL",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Chile, Bío-Bío River basin and Loncomilla River.",
+        "words": "Chile",
+        "ok": true
+      },
+      {
+        "code": "CL",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Bío-Bío River basin and Loncomilla River in Chile.",
+        "words": "Chile",
+        "ok": true
+      },
+      {
+        "code": "CL",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "D. nahuelbutaensis is an endemic species of Chile, with reduced abundance.",
+        "words": "Chile",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bío-Bío",
+        "source": "planetcatfish",
+        "quote": "South America: Chile, Bío-Bío River basin and Loncomilla River.",
+        "country": "CL",
+        "ok": true
+      },
+      {
+        "name": "Loncomilla",
+        "source": "planetcatfish",
+        "quote": "South America: Chile, Bío-Bío River basin and Loncomilla River.",
+        "country": "CL",
+        "ok": true
+      },
+      {
+        "name": "Bío-Bío",
+        "source": "scotcat",
+        "quote": "South America: Bío-Bío River basin and Loncomilla River in Chile.",
+        "country": "CL",
+        "ok": true
+      },
+      {
+        "name": "Loncomilla",
+        "source": "scotcat",
+        "quote": "South America: Bío-Bío River basin and Loncomilla River in Chile.",
+        "country": "CL",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Diplomystes nahuelbutaensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2341854,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ]
+    ],
+    "native": [
+      "CL"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

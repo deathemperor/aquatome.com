@@ -1,0 +1,19 @@
+{
+  "id": "periophthalmus-novemradiatus",
+  "input": "f42b60b0d73fa4d2",
+  "at": "2026-11-08T03:28:58.046Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "In practice, maintenance in brackish water (5-15 g sea salt/l) has proven best.",
+      "ok": true
+    },
+    {
+      "kind": "brackish",
+      "source": "seriouslyfish",
+      "quote": "Although the species has been recorded in both freshwater and full marine conditions in nature it is primarily a brackish animal.",
+      "ok": true
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/duringlanis-perugiae
 title: Duringlanis perugiae (Oil Catfish) · Seriously Fish
-fetchedAt: 2026-11-07T05:10:40.599Z
+fetchedAt: 2026-11-07T19:51:39.596Z
 hash: 22cc03cfd5b47b1c81640b51d0f22073e20d525d1df1d32243fa14b79c06ae49
 ---
 

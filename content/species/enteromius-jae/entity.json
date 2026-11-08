@@ -15,6 +15,264 @@
     "republic-of-the-congo",
     "democratic-republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "GQ",
+        "GA",
+        "CG",
+        "CD"
+      ],
+      "regions": [
+        "Dja",
+        "Nyong",
+        "Sanaga",
+        "Ntem"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It has been described from the river Dja in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Dja"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the West African countries of Cameroon, Equatorial Guinea, Gabon, the Republic of the Congo and the Democratic Republic of the Congo.",
+          "countries": [
+            "GQ",
+            "GA",
+            "CG",
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "For example male fish from the River Nyong basin close to Sombo in Cameroon turn a stunning uniform blood red colour when in spawning condition whereas those from around Awae (also in the Nyong but further upstream) only exhibit this on the rear half of the body.",
+          "countries": [],
+          "regions": [
+            "Nyong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Specimens from other localities within Cameroon such as the Sanaga, Ntem and Dja rivers exhibit similar, often subtle, differences.",
+          "countries": [],
+          "regions": [
+            "Sanaga",
+            "Ntem"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9280273,
+      "total": 298,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          223
+        ],
+        [
+          "GA",
+          36
+        ],
+        [
+          "CD",
+          31
+        ],
+        [
+          "CG",
+          5
+        ],
+        [
+          "GQ",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          0,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          11.25,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          11.25,
+          0,
+          12,
+          12
+        ],
+        [
+          11.25,
+          1.40625,
+          27,
+          27
+        ],
+        [
+          11.25,
+          2.8125,
+          90,
+          90
+        ],
+        [
+          11.25,
+          4.21875,
+          34,
+          34
+        ],
+        [
+          12.65625,
+          -1.40625,
+          12,
+          12
+        ],
+        [
+          12.65625,
+          0,
+          5,
+          5
+        ],
+        [
+          12.65625,
+          1.40625,
+          16,
+          16
+        ],
+        [
+          12.65625,
+          2.8125,
+          38,
+          38
+        ],
+        [
+          12.65625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          14.0625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          14.0625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          15.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          18,
+          18
+        ],
+        [
+          23.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          26.71875,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

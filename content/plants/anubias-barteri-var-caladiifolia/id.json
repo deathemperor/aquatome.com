@@ -1,20 +1,21 @@
 {
   "slug": "anubias-caladiifolia",
-  "name": "Anubias Caladiifolia",
+  "name": "Anubias barteri var. caladiifolia",
   "altNames": [
-    "Anubias barteri caladiifolia",
-    "Anubias Barteri Caladiifolia",
-    "Anubias Caladi"
+    "Anubias caladiifolia",
+    "Anubias barteri caladiifolia"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Tipe:</strong> Berrimpang</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Laju pertumbuhan:</strong> Lambat</li><li><strong>Tinggi:</strong> 10–15+ cm (tinggi rata-rata setelah dua bulan di akuarium)</li><li><strong>Kebutuhan cahaya:</strong> Rendah</li><li><strong>CO2:</strong> Rendah</li></ul>",
-    "notes:tropica": "<p>Tanaman induk berukuran besar, ditanam dalam pot persegi 9 cm. Anubias barteri var. caladiifolia berasal dari laboratorium kultur jaringan di Australia. Varietas ini sangat cantik dengan daun berbentuk hati. Daunnya bisa bertahan hidup selama beberapa tahun, sehingga meskipun pertumbuhannya lambat, Anubias barteri var. caladiifolia dapat dengan mudah membentuk rumpun yang besar. Rumpun Anubias barteri var. caladiifolia yang melebar hingga lebih dari 50 cm dalam beberapa tahun bukanlah hal yang aneh.</p>"
+    "quickFacts:tropica": "<ul><li><strong>Tipe:</strong> Berimpang (rhizoma)</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Kecepatan tumbuh:</strong> Lambat</li><li><strong>Tinggi:</strong> 10–15+ cm (rata-rata tinggi setelah dua bulan di akuarium)</li><li><strong>Kebutuhan cahaya:</strong> Rendah</li><li><strong>CO2:</strong> Rendah</li></ul>",
+    "maintenance:aquatome": "<p>Anubias barteri var. caladiifolia cocok untuk area tengah dan tumbuh menempel pada kayu atau batu. Sama seperti anubias lainnya, tanaman ini biasanya diikat ke kayu, bukan ditanam di substrat. Setiap daunnya bisa bertahan bertahun-tahun, jadi walaupun tumbuhnya lambat, satu rumpun yang lebarnya lebih dari 50 cm setelah beberapa tahun bukan hal yang aneh.</p><ul><li>Rumpun yang besar biasanya punya akar yang sangat panjang. Potong pendek akarnya supaya tanaman bisa menempel rapat ke kayu. Kalau kayunya besar, belah rumpun menjadi beberapa bagian untuk disebar di beberapa titik, jangan menumpuk seluruh rumpun di satu tempat.</li><li>Selama proses mengikat, tanaman cukup lama berada di luar air. Siapkan botol semprot dan semprot tanaman setiap kali mulai terlihat kering.</li><li>Coba letakkan tanaman di kayu sampai posisinya pas, baru diikat. Lilitkan senar pancing dengan sangat pelan, karena kalau ditarik terlalu kencang daunnya mudah patah. Gunakan simpul ganda, sebab simpul tunggal mudah lepas sehingga tanaman jadi longgar dan miring.</li><li>Di celah sempit yang tidak bisa dilewati senar, gunakan lem gel (superglue gel) untuk menempelkan tanaman.</li></ul>",
+    "notes:tropica": "<p>Tanaman induk berukuran besar, ditanam dalam pot kotak 9 cm. Anubias barteri var. caladiifolia berasal dari laboratorium kultur jaringan di Australia. Varietas ini sangat cantik dengan daun berbentuk hati. Daunnya bisa bertahan beberapa tahun, sehingga Anubias barteri var. caladiifolia mudah membentuk rumpun besar meskipun tumbuhnya lambat. Rumpun Anubias barteri var. caladiifolia yang lebarnya lebih dari 50 cm dalam beberapa tahun bukan hal yang aneh.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.92,
     "indexable": true,
     "bySource": {
-      "tropica": 0.8
+      "tropica": 0.92,
+      "aquatome": 0.92
     }
   }
 }

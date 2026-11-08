@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-chrysotaeniatus
 title: Devario chrysotaeniatus · Seriously Fish
-fetchedAt: 2026-11-07T04:28:24.070Z
+fetchedAt: 2026-11-07T19:07:16.417Z
 hash: 08b61be8643c1dda3b6ace4386abdc6adb76f08fa8accd0be6348bbb82a71d33
 ---
 

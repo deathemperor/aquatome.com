@@ -10,39 +10,65 @@ import UIKit
 /// 480 px, so a shelf's squares and tiles never fetch it.
 struct V2Photo: View {
   let src: String?
+  /// What its colour is known by, if not `src`: a fish's page looks it up by the index's photo, which a tank-mate's tile may
+  /// show in another size.
+  var colourKey: String?
+  /// The colour of the card or page around it, for its place when it doesn't come: that colour, not a grey band in it.
+  var ground: Color?
   var colour: ((Color) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
+  /// The address that didn't come (offline, not kept).
+  @State private var missing: String?
   @State private var pixels = CGSize.zero
   @Environment(\.displayScale) private var scale
+  @Environment(\.v2PhotoTries) private var tries
+
+  /// What this address shows: what was decoded here, or what's in memory at any size, the full photo first, so a page
+  /// zooming out of a card has it in its first frame.
+  private var image: UIImage? {
+    if let picture, picture.src == src { return picture.image }
+    return src.flatMap { PageImages.cached(V2Photo.full($0)) ?? PageImages.cached($0) }
+  }
 
   var body: some View {
     Rectangle().fill(.fill.tertiary)
       .overlay {
-        if let picture, picture.src == src {
-          Image(uiImage: picture.image).resizable().scaledToFill().transition(.opacity)
+        if let image {
+          Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
+        } else {
+          ZStack {
+            // No photo, or one that didn't come: in the colour around it, if any, not a grey band in it.
+            if src == nil || missing == src, let ground { ground }
+            // One that didn't come: a photo's place, not an empty box, as v1's pictures show it. Not read: what the photo
+            // was of is in the page's or the row's own words. None for no photo at all: a row has its own mark.
+            if let src, missing == src {
+              Image(systemName: "photo").font(.title2)
+                .foregroundStyle(ground == nil ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.white.opacity(0.4)))
+                .accessibilityIdentifier("v2-photo-missing").accessibilityHidden(true)
+            }
+          }
         }
       }
       .clipped()
       .onGeometryChange(for: CGSize.self) { $0.size } action: { pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
-      .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))") {
+      .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))|\(tries)") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
         let full = V2Photo.full(src)
-        var image: UIImage?
-        // A big frame: the full photo, the small copy shown meanwhile if it's in memory (a 480 px copy counts as large
-        // enough for any frame to the cache, which never decodes past a picture's own size).
-        if full != src, pixels.width > 600 || pixels.height > 600 {
-          if picture?.src != src, let quick = PageImages.cached(src) {
-            picture = (src, quick)
-            // Its colour now, not once the full photo has come.
-            if let colour { colour(await PhotoColour.of(quick, key: src)) }
-          }
-          image = await PageImages.image(full, size)
-        }
-        if image == nil { image = await PageImages.image(src, size) }
-        guard let image, !Task.isCancelled else { return }
-        withAnimation(.easeOut(duration: 0.2)) { picture = (src, image) }
-        if let colour { colour(await PhotoColour.of(image, key: src)) }
+        // Its colour now, not once the full photo has come. Asked before loading: the loader puts what it decodes in memory,
+        // where `image` finds it, so after it a first photo would look as if it had been there and pop in.
+        let shown = image
+        if let colour, let shown { colour(await PhotoColour.of(shown, key: colourKey ?? src)) }
+        var loaded: UIImage?
+        // A big frame: the full photo (a 480 px copy counts as large enough for any frame to the cache, which never decodes
+        // past a picture's own size).
+        if full != src, pixels.width > 600 || pixels.height > 600 { loaded = await PageImages.image(full, size) }
+        if loaded == nil { loaded = await PageImages.image(src, size) }
+        guard !Task.isCancelled else { return }
+        guard let loaded else { if shown == nil { missing = src }; return }
+        // Faded in as it comes; one in its place already, swapped.
+        withAnimation(shown == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
+        if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
       }
   }
 
@@ -70,7 +96,8 @@ enum PhotoColour {
   }
 
   /// The app's deep green, for a photo that gives no colour.
-  static let fallback = Color(red: 0.12, green: 0.27, blue: 0.21)
+  static let fallback = Color(red: fallbackRGB.r, green: fallbackRGB.g, blue: fallbackRGB.b)
+  fileprivate static let fallbackRGB = (r: 0.12, g: 0.27, b: 0.21)
 
   /// The photo at 24 × 24, its pixels in 4-bit buckets; the bucket that's both common and vivid, deepened until white
   /// reads on it.
@@ -96,13 +123,74 @@ enum PhotoColour {
       let fair = light < 0.15 || light > 0.9 ? 0.2 : 1
       return (v.count.squareRoot() * (0.1 + 2 * chroma) * fair, r, g, b)
     }
-    guard var c = scored.max(by: { $0.score < $1.score }) else { return nil }
-    // Deepened, its hue kept, until white at 75% on it has 4.5:1 whatever the hue (relative luminance at most 0.09).
+    let ranked = scored.sorted { $0.score > $1.score }
+    guard let top = ranked.first else { return nil }
+    // A yellow goes olive as it deepens: the photo's next vivid colour first, if it has enough of it.
+    let own = isYellow(top) ? ranked.first { !isYellow($0) && hsb($0).s >= 0.45 && hsb($0).v >= 0.3 && $0.score >= 0.3 * top.score } : nil
+    var c = calmed(own ?? top)
+    // Deepened until white at 75% on it has 4.5:1 whatever the hue (relative luminance at most 0.09).
     func lum(_ x: Double) -> Double { x <= 0.04045 ? x / 12.92 : pow((x + 0.055) / 1.055, 2.4) }
     for _ in 0..<40 where 0.2126 * lum(c.r) + 0.7152 * lum(c.g) + 0.0722 * lum(c.b) > 0.09 {
       c = (c.score, c.r * 0.92, c.g * 0.92, c.b * 0.92)
     }
     return (c.r, c.g, c.b)
+  }
+}
+
+private typealias Scored = (score: Double, r: Double, g: Double, b: Double)
+
+/// Its hue in degrees, saturation and brightness.
+private func hsb(_ c: Scored) -> (h: Double, s: Double, v: Double) {
+  var h: CGFloat = 0, s: CGFloat = 0, v: CGFloat = 0
+  UIColor(red: c.r, green: c.g, blue: c.b, alpha: 1).getHue(&h, saturation: &s, brightness: &v, alpha: nil)
+  return (h * 360, s, v)
+}
+
+private func isYellow(_ c: Scored) -> Bool {
+  let (h, s, _) = hsb(c)
+  return h >= 42 && h < 88 && s >= 0.1
+}
+
+/// A colour that holds up over a whole page, deepened. A near-grey's hue means nothing: the app's green. A sand goes to warm
+/// brown by degrees from amber, not the khaki it deepens to. A yellow left goes to amber or leaf green, nothing between: every
+/// hue between them deepens to olive. A vivid red reads as a warning, with "Tránh" red on the same page: its saturation is
+/// capped. Other hues stay as the photo has them.
+private func calmed(_ c: Scored) -> Scored {
+  var (h, s, v) = hsb(c)
+  if s < 0.1 { return (c.score, PhotoColour.fallbackRGB.r, PhotoColour.fallbackRGB.g, PhotoColour.fallbackRGB.b) }
+  if h >= 42 && h < 88 {
+    if s < 0.35 {
+      let by = min((h - 42) / 8, 1)
+      h = 42 - 14 * by
+      s = max(s, 0.4 * by)
+    } else {
+      h = h < 46 ? 40 : 88
+      s = min(s, 0.85)
+    }
+  }
+  if h < 25 || h >= 340 { s = min(s, 0.72) }
+  var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
+  UIColor(hue: h / 360, saturation: s, brightness: v, alpha: 1).getRed(&r, green: &g, blue: &b, alpha: nil)
+  return (c.score, r, g, b)
+}
+
+/// A scientific name. At the accessibility sizes a word a line, each made smaller if it must to fit its line: a genus too
+/// long for one broke into a line that read as another word ("Paracheirod", "on innesi").
+struct LatinName: View {
+  let text: String
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    if size.isAccessibilitySize {
+      VStack(alignment: .leading, spacing: 0) {
+        ForEach(Array(text.split(separator: " ").enumerated()), id: \.offset) { _, word in
+          Text(verbatim: String(word)).lineLimit(1).minimumScaleFactor(0.5)
+        }
+      }
+      .accessibilityElement(children: .combine)
+    } else {
+      Text(verbatim: text)
+    }
   }
 }
 
@@ -124,31 +212,49 @@ struct Lockup: View {
   @State private var putting = false
 
   var body: some View {
-    // At the accessibility sizes the button goes under the words, which get the row's whole width.
+    // At the accessibility sizes the button goes under the words, and the photo over them: the words get the row's whole
+    // width, where beside the photo a long name ran a word to a line.
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
     let side = min(thumb, 88)
     layout {
       NavigationLink(value: item) {
-        // Its photo level with the name when the words run to many lines.
-        HStack(alignment: size.isAccessibilitySize ? .top : .center, spacing: 12) {
+        layout {
           if icon {
-            V2Photo(src: item.img)
+            // A fish's colour worked out here too, so its page opens in it, not in green first.
+            V2Photo(src: item.img, colour: item.kind == .fish ? { _ in } : nil)
               .frame(width: side, height: side)
               .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
               .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary) } }
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
-            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).italic(title != nil && title == item.sub)
-              .lineLimit(size.isAccessibilitySize ? nil : 2)
-              .foregroundStyle(onDark ? .white : .primary)
-            if let line = line ?? Lockup.line(item) {
-              Text(verbatim: line).font(.subheadline).italic(line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
-                .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+            Group {
+              if scientific, let title, title == item.sub { LatinName(text: title) } else { Text(verbatim: title ?? item.name) }
+            }
+            .font(.body.weight(.semibold)).italic(scientific && title != nil && title == item.sub)
+            .lineLimit(size.isAccessibilitySize ? nil : 2)
+            .foregroundStyle(onDark ? .white : .primary)
+            if let line = line ?? Lockup.line(item), line != title {
+              Group {
+                if size.isAccessibilitySize, scientific, line == item.sub {
+                  LatinName(text: line)
+                } else if size.isAccessibilitySize {
+                  // A line of figures too long for one row goes a figure to a row, so no dot is left at a row's end or start.
+                  ViewThatFits(in: .horizontal) {
+                    Text(verbatim: line).lineLimit(1)
+                    Text(verbatim: line.replacingOccurrences(of: " · ", with: "\n"))
+                  }
+                } else {
+                  Text(verbatim: line).lineLimit(1)
+                }
+              }
+              .font(.subheadline).italic(scientific && line == item.sub)
+              .foregroundStyle(onDark ? Color.white.opacity(0.75) : .v2Faint)
             }
           }
-          Spacer(minLength: 0)
+          if !size.isAccessibilitySize { Spacer(minLength: 0) }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(.rect)
       }
       .buttonStyle(.plain)
@@ -174,10 +280,14 @@ struct Lockup: View {
     }
   }
 
-  /// The line under a page's name: a fish's scientific name, a plant's, a guide's kind; none for kit, under its own
-  /// heading.
+  /// `sub` is a scientific name, in italics, on these; a video series' is its channel.
+  private var scientific: Bool { item.kind == .fish || item.kind == .plant }
+
+  /// The line under a page's name: a fish's scientific name, a plant's, a video series' count, a guide's kind; none for
+  /// kit, under its own heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
-    item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
+    if item.kind == .video, let n = item.parts { return String(localized: "\(n) video") }
+    return item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
   }
 }
 
@@ -187,6 +297,7 @@ private extension Text {
     font(.subheadline.weight(.bold))
       .foregroundStyle(onDark ? Color.white : Color.accentColor)
       .padding(.horizontal, 16)
+      .padding(.vertical, 5)
       .frame(minWidth: 72, minHeight: 30)
       .background(Capsule().fill(onDark ? AnyShapeStyle(.white.opacity(0.15)) : AnyShapeStyle(.fill.tertiary)))
       .frame(minHeight: 44)
@@ -195,14 +306,19 @@ private extension Text {
 }
 
 /// A fish's figures across the page, a column each (its name, the figure, a word under it), as an app's page has its
-/// ratings, age and size: the temperature and pH drawn on their scales.
+/// ratings, age and size: the temperature and pH drawn on their scales. All of them in view, in rows: no figure to find
+/// by scrolling, none cut by the screen's edge.
 struct FactsStrip: View {
   let facts: HandbookIndex.Facts
   var onDark = false
+  /// Left out where the page's "Nuôi chung" says it.
+  var temperament = true
   @Environment(HandbookModel.self) private var handbook
   /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
   @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
+  @ScaledMetric(relativeTo: .title3) private var rule: CGFloat = 40
   @Environment(\.dynamicTypeSize) private var size
+  @State private var width: CGFloat = 393
 
   struct Column: Identifiable {
     let id: Int
@@ -216,7 +332,7 @@ struct FactsStrip: View {
   }
 
   var body: some View {
-    if size.isAccessibilitySize { list } else { strip }
+    if size.isAccessibilitySize { list } else { rows }
   }
 
   /// At the accessibility sizes, one figure a line down the page: across, a column takes the screen and cuts the next
@@ -226,7 +342,7 @@ struct FactsStrip: View {
       ForEach(columns) { c in
         VStack(alignment: .leading, spacing: 2) {
           Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil)
-            .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+            .foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
           Text(verbatim: c.caption.map { "\(c.value) (\($0))" } ?? c.value).font(.title3.weight(.bold))
             .foregroundStyle(onDark ? .white : .primary)
         }
@@ -237,45 +353,48 @@ struct FactsStrip: View {
     .padding(.horizontal, 20)
   }
 
-  private var strip: some View {
-    ScrollView(.horizontal, showsIndicators: false) {
-      HStack(alignment: .top, spacing: 0) {
-        ForEach(columns) { c in
-          VStack(spacing: 5) {
-            Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
-              .multilineTextAlignment(.center)
-              .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
-            Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
-              .foregroundStyle(onDark ? .white : .primary)
-            if let bar = c.bar {
-              Capsule().fill(onDark ? .white.opacity(0.22) : Color.primary.opacity(0.1))
-                .frame(width: 64, height: 4)
-                .overlay(alignment: .leading) {
-                  Capsule().fill(onDark ? .white : Color.accentColor)
-                    .frame(width: max(6, 64 * (bar.upperBound - bar.lowerBound)), height: 4)
-                    .offset(x: 64 * bar.lowerBound)
-                }
-                .padding(.top, 2)
-            } else if let caption = c.caption {
-              Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
-            }
-          }
-          // Four whole on a phone, the fifth fading out past them (never a stray digit): there's more to see.
-          .containerRelativeFrame(.horizontal) { w, _ in max((w - 44) / 4, column) }
+  private var rows: some View {
+    let all = columns, lone = all.count == 1
+    // As many across as fit, up to all of them, and rows as even as they go: a few share the width, six are three and three,
+    // not four and half a row empty.
+    let fit = max(1, min(all.count, Int((width - 24) / column))), lines = (all.count + fit - 1) / fit
+    let across = max(1, (all.count + lines - 1) / max(lines, 1))
+    return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0, alignment: .top), count: across), spacing: 14) {
+      ForEach(all) { c in
+        // One alone starts where the words above it do.
+        figure(c, alignment: lone ? .leading : .center)
+          .frame(maxWidth: .infinity, alignment: lone ? .leading : .center)
           .padding(.vertical, 4)
-          .overlay(alignment: .leading) {
-            if c.id > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
+          .overlay(alignment: .topLeading) {
+            // One height along a row, with a rule under a figure or not.
+            if c.id % across > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5, height: rule).padding(.top, 8) }
           }
           .accessibilityElement(children: .combine)
-        }
       }
-      .padding(.leading, 12)
     }
-    .contentMargins(.trailing, 28, for: .scrollContent)
-    .mask {
-      HStack(spacing: 0) {
-        Color.black
-        LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: 28)
+    .padding(.horizontal, lone ? 20 : 12)
+    .frame(maxWidth: .infinity)
+    .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
+  }
+
+  private func figure(_ c: Column, alignment: HorizontalAlignment) -> some View {
+    VStack(alignment: alignment, spacing: 5) {
+      Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
+        .multilineTextAlignment(alignment == .leading ? .leading : .center)
+        .foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
+      Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
+        .foregroundStyle(onDark ? .white : .primary)
+      if let bar = c.bar {
+        Capsule().fill(onDark ? .white.opacity(0.22) : Color.primary.opacity(0.1))
+          .frame(width: 64, height: 4)
+          .overlay(alignment: .leading) {
+            Capsule().fill(onDark ? .white : Color.accentColor)
+              .frame(width: max(6, 64 * (bar.upperBound - bar.lowerBound)), height: 4)
+              .offset(x: 64 * bar.lowerBound)
+          }
+          .padding(.top, 2)
+      } else if let caption = c.caption {
+        Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
       }
     }
   }
@@ -294,27 +413,13 @@ struct FactsStrip: View {
     if let r = facts.tempC { add("Nhiệt độ", "\(HandbookIndex.Facts.range(r, locale)) °C", bar: scale(r, 10, 35)) }
     if let v = facts.tankCm { add("Bể tối thiểu", "\(HandbookIndex.Facts.number(v, locale)) cm") }
     if let v = facts.sizeCm { add("Kích thước", "\(HandbookIndex.Facts.number(v, locale)) cm") }
-    if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8") }
+    // Its rule how far up the eight levels, as the others' say where they sit; the number, in the list at the largest text.
+    if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8", bar: 0...min(max(d / 8, 0), 1)) }
     if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
-    if let r = facts.gh { add("Độ cứng (dGH)", HandbookIndex.Facts.range(r, locale), upper: false) }
+    if let r = facts.gh { add("Độ cứng", "\(HandbookIndex.Facts.range(r, locale)) dGH") }
     if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
-    if let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
+    if temperament, let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
     return out
-  }
-}
-
-/// A video series' artwork, there being no thumbnails to show (the photo rules): a tick for each of its videos, as a
-/// strip of film.
-struct SeriesTicks: View {
-  let count: Int
-
-  var body: some View {
-    HStack(spacing: 3) {
-      ForEach(0..<min(count, 20), id: \.self) { _ in
-        RoundedRectangle(cornerRadius: 1.5).fill(.white.opacity(0.45)).frame(maxWidth: 12, minHeight: 18, maxHeight: 18)
-      }
-    }
-    .accessibilityHidden(true)
   }
 }
 
@@ -333,6 +438,107 @@ struct ShelfHeader<More: Hashable>: View {
     }
     .padding(.horizontal, 20)
   }
+}
+
+/// Words on a photo's colour, the photo in the space left in `height` and fading into them: opaque behind the words
+/// however long they run (4.5:1 on any photo), and the subject centred in what's left, not hidden by them.
+struct WordsOnPhoto<Words: View>: ViewModifier {
+  let colour: Color
+  let edge: VerticalEdge
+  let height: CGFloat
+  var fade: CGFloat = 56
+  @ViewBuilder let words: Words
+  @State private var wordsHeight: CGFloat = 0
+
+  func body(content: Content) -> some View {
+    VStack(spacing: 0) {
+      if edge == .top { colour.frame(height: wordsHeight) }
+      content.overlay(alignment: edge == .top ? .top : .bottom) {
+        LinearGradient(colors: [colour, colour.opacity(0)], startPoint: edge == .top ? .top : .bottom,
+                       endPoint: edge == .top ? .bottom : .top).frame(height: fade)
+      }
+      if edge == .bottom { colour.frame(height: wordsHeight) }
+    }
+    .frame(height: height)
+    .overlay(alignment: edge == .top ? .topLeading : .bottomLeading) {
+      words.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { wordsHeight = $0 }
+    }
+  }
+}
+
+/// A solid band behind the status bar and the bar, fading into the page below them, while `shown`: iOS's own edges leave a
+/// page's words legible through the glass, the hard one too. `ground`, the colour under it: the page's, where that isn't
+/// the screen's.
+struct ClearUnderTopBar: ViewModifier {
+  let shown: Bool
+  var ground = Color(.systemBackground)
+  /// Growing with the text: a line straddling the band's edge fades, not sliced.
+  @ScaledMetric(relativeTo: .body) private var fade: CGFloat = 16
+
+  func body(content: Content) -> some View {
+    edgeHidden(content)
+      .safeAreaInset(edge: .top, spacing: 0) {
+        Color.clear.frame(height: 0)
+          .background(ground.opacity(shown ? 1 : 0))
+          .overlay(alignment: .top) {
+            LinearGradient(colors: [ground, ground.opacity(0)], startPoint: .top, endPoint: .bottom)
+              .frame(height: fade).opacity(shown ? 1 : 0).allowsHitTesting(false)
+          }
+          // Not on `ground`: iOS turns the bar's words at once, and black on the colour for a moment reads badly.
+          .animation(.easeInOut(duration: 0.2), value: shown)
+      }
+  }
+
+  @ViewBuilder private func edgeHidden(_ content: Content) -> some View {
+    if #available(iOS 26, *) { content.scrollEdgeEffectHidden(true, for: .top) } else { content }
+  }
+}
+
+extension ShapeStyle where Self == Color {
+  /// A line under a page's name: the text's colour at 60%. The system's secondary measures 3.5:1 on white, under 4.5:1.
+  static var v2Faint: Color { .primary.opacity(0.6) }
+}
+
+extension View {
+  /// A shelf's far edge: its sliver of the next card stays a hint, its words too faint to read cut through.
+  @available(iOS 18, *)
+  func v2ShelfEdge() -> some View { modifier(ShelfEdge()) }
+}
+
+@available(iOS 18, *)
+private struct ShelfEdge: ViewModifier {
+  /// The shelf's last card, whole at its end.
+  @State private var atEnd = false
+
+  func body(content: Content) -> some View {
+    content
+      .onScrollGeometryChange(for: Bool.self) { $0.visibleRect.maxX >= $0.contentSize.width - 1 } action: { _, end in
+        withAnimation(.easeOut(duration: 0.15)) { atEnd = end }
+      }
+      .mask {
+        HStack(spacing: 0) {
+          Color.black
+          // From the gap before the sliver (`shelfCard`'s 36 points), so the sliver starts faint.
+          LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .black.opacity(0.4), location: 0.25), .init(color: .clear, location: 1)],
+                         startPoint: .leading, endPoint: .trailing)
+            .overlay { Color.black.opacity(atEnd ? 1 : 0) }
+            .frame(width: 48)
+        }
+      }
+  }
+}
+
+extension ToolbarContent {
+  /// A bar item with iOS 26's glass around it or not, where it stays either way: the bar doesn't move when it changes.
+  @ToolbarContentBuilder func v2Glass(_ on: Bool) -> some ToolbarContent {
+    if #available(iOS 26, *) { sharedBackgroundVisibility(on ? .visible : .hidden) } else { self }
+  }
+}
+
+/// How wide a card is on a shelf of `across` whole cards, then a sliver of the next, fading out (`v2ShelfEdge`). `w` is the
+/// shelf's width less its 20-point margins.
+func shelfCard(_ w: CGFloat, across: CGFloat, spacing: CGFloat) -> CGFloat {
+  (w + 20 - 36 - across * spacing) / across
 }
 
 /// A card pressed: it gives a little under the finger, as the App Store's do.

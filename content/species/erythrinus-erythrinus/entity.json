@@ -1,0 +1,211 @@
+{
+  "id": "erythrinus-erythrinus",
+  "scientificName": "Erythrinus erythrinus",
+  "order": "Characiformes",
+  "family": "Erythrinidae",
+  "genus": "Erythrinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "peru",
+    "french-guiana",
+    "venezuela",
+    "trinidad-and-tobago",
+    "brazil",
+    "guyana",
+    "suriname"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Make sure the cover is very tightly fitting as it can and will escape if given the opportunity.</li></ul><p>The red wolf fish, Erythrinus erythrinus, is a predatory erythrinid from Peru, French Guiana, Venezuela, Trinidad and Tobago and Brazil. Colour and pattern vary with collection locality, and genetic differences between populations suggest it is a species complex. A modified swim bladder lets it breathe in oxygen-deficient, stagnant water. It is very intolerant of conspecifics, often fighting them to the death, and will strike at nets and siphon tubes with its sharp teeth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Peru, French Guiana, Venezuela, Trinidad and Tobago and Brazil. Also recorded from Guyana and Suriname.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Small tributaries, swamps, marshes, pools, ditches and the margins of forest lakes. It is often found in very shallow water or lurking among surface vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Standard length: 20 cm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Ideally keep it in a heavily planted tank with plenty of floating vegetation, which will allow it to exhibit its natural behaviour. In a brightly lit or sparsely decorated tank, it tends to spend a lot of its time hidden away. It can be kept in unplanted tanks, but at the very least provide lots of hiding places and refuges. Make sure the cover is very tightly fitting as it can and will escape if given the opportunity.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: very adaptable and unfussy regarding water chemistry. Anywhere in the range 5.5–7.5 is OK.</li><li>Hardness: 2–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Feeds on both insects and fish in nature. In the aquarium its diet should consist of meaty fare such as earthworms, prawns, mussels and white fish such as lancefish. It usually refuses dried foods, although some specimens have been known to accept them over time. Many hobbyists feed predatory species such as this on large quantities of live 'feeder' fish, but there is no real benefit to this. Also, there is always the risk of introducing disease or parasites when feeding live fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Despite its fearsome appearance, it can be combined with other similarly-sized species in a large tank. In order to see it act naturally, though, it's much better off when kept alone as a single specimen. Smaller fish will be eaten and it's very intolerant of conspecifics, often fighting with them to the death.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Unknown. Mature females are likely to be rounder in the belly than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Has not been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>A species for the specialist, E. erythrinus is also known as the rainbow wolf fish or red hi-fin wolf fish. It is quite variable in colour and pattern depending on collection locality. There is a variant from Peru that has a bright orange belly. Recent studies have highlighted genetic differences in these different populations, suggesting that E. erythrinus is actually a species complex, rather than a single species. There is currently one other recognised species in the genus, E. kessleri, but it's virtually unheard of in the hobby.</p><p>All the variants have a modified swim bladder that acts as an accessory breathing organ, allowing the fish to survive in oxygen-deficient and stagnant waters. It's also been known to travel over land for short distances to new habitats when seasonal waters begin to dry up.</p><p>Interestingly, in French Guiana, juvenile specimens are known to mimic the colour pattern of the female of a particular species of Rivulus killifish, which shares its habitat. Male Rivulus are attracted to the mimic, only to meet with an untimely demise. As the Erythrinus grows it develops more colour and ceases this strategy.</p><p>Take care when performing tank maintenance of this species, as its mouth is filled with sharp teeth, and the fish show no fear, often striking at any new object placed in the tank, such as siphon tubes or nets.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d131ad97e8563e19.webp",
+      "width": 960,
+      "height": 611,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erythrinus_erythrinus.jpg",
+      "caption": "Erythrinus erythrinus",
+      "thumb": "https://media.aquatome.com/commons/d131ad97e8563e19-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5ab56ae9128e4b98.webp",
+      "width": 960,
+      "height": 978,
+      "licence": "CC BY-SA 4.0",
+      "author": "Didier Descouens",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carpodacus_erythrinus_erythrinus_MHNT.ZOO.2010.11_Vyborg.jpg",
+      "caption": "Egg of Common Rosefinch (Carpodacus erythrinus). Collection of Perrin de Brichambaut.",
+      "thumb": "https://media.aquatome.com/commons/5ab56ae9128e4b98-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "SUyWDLgY6Jc",
+      "title": "Erythrinus erythrinus PERU",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TsRj2RmS554",
+      "title": "1 year of Erythrinus Wolf fish growth in One Video!",
+      "durationSec": 607,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EQov3javjG0",
+      "title": "Red Wolf Fish Gets a New Home !",
+      "durationSec": 781,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qhPRuZ_DKiQ",
+      "title": "Erythrinus Erythrinus RED WOLF FISH",
+      "durationSec": 7,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy bơm lọc"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 150w",
+        "máy sưởi điều chỉnh nhiệt độ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá săn mồi",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

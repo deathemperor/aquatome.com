@@ -184,6 +184,22 @@ test('each bar\'s words for the app: an axis label, then its figure, its day and
   expect(barWords({ id: 'm', title: 'x', days: days(8), series: [{ label: 'x', values: Array(8).fill(1) }] }).labels[0]).toBe('26/10')
 })
 
+test('a last day kept by a nightly save, not by the clock: its own words, and no "today" or "yesterday" around it', () => {
+  const c = { id: 'n', title: 'Bài', days: days(3), partialLast: true, lastSays: 'chốt lúc 03:17', series: [{ label: 'Cá', values: [1, 2, 3] }] }
+  const html = dayChart(c)
+  expect(cols(html).map(x => x.d)).toEqual(['Thứ Bảy 31/10', 'Chủ nhật 01/11', 'Thứ Hai 02/11 · chốt lúc 03:17'])
+  expect(cols(html)[2]!.cls).toBe('today')
+  expect(html).toContain('<th>02/11 (chốt lúc 03:17)</th>')
+  expect(html).not.toContain('Hôm nay')
+  const words = barWords(c)
+  expect(words.labels[2]).toBe('T2')
+  expect(words.readouts[2]).toEqual({ title: '3 cá', detail: 'Thứ Hai 02/11 · chốt lúc 03:17' })
+  // Without it, the last day is today, as before.
+  const { lastSays: _, ...today } = c
+  expect(cols(dayChart(today))[2]!.d).toBe('Hôm nay 02/11 · chưa hết ngày')
+  expect(barWords(today).labels[2]).toBe('Hôm nay')
+})
+
 test('a change is coloured only past 5%', () => {
   expect(deltaOf({ now: 105, before: 100, vs: 'x', good: 'up' }).tone).toBe('flat')
   expect(deltaOf({ now: 106, before: 100, vs: 'x', good: 'up' }).tone).toBe('good')

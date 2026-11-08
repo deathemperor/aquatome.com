@@ -10,6 +10,70 @@
     "panama",
     "costa-rica"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA",
+        "CR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "B. roseni originates from brooks running through woodland in Panama and Costa Rica.",
+          "countries": [
+            "PA",
+            "CR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350304,
+      "total": 31,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          19
+        ],
+        [
+          "CR",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          8.4375,
+          11,
+          11
+        ],
+        [
+          -82.96875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          8.4375,
+          13,
+          13
+        ],
+        [
+          -81.5625,
+          7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

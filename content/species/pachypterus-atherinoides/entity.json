@@ -7,13 +7,38 @@
   "group": "catfish",
   "places": [
     "asia",
-    "india"
+    "india",
+    "bangladesh",
+    "nepal",
+    "pakistan"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 11.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -23,6 +48,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudeutropius_atherinoides_en/",
       "html": "<p>The charming Eutropius atherinoides grows rarely longer than 6-8 cm. It is quite cheap and available in greater numbers from India. It is a very peaceful inhabitant for every community tank.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "html": "<ul><li>Common name: Indian potasi</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -37,6 +68,18 @@
       "html": "<p>Origin: India.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "html": "<p>Asia: South central Asia: Bangladesh, India, Nepal and Pakistan. Type locality: Tranquebar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "html": "<p>Inhabits freshwater and tidal rivers, so it tolerates some brackish conditions.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudeutropius_atherinoides_en/",
@@ -47,10 +90,98 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudeutropius_atherinoides_en/",
       "html": "<p>Very peaceful. Plants will not be eaten or destroyed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "html": "<p>Oviparous; the eggs are unguarded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "html": "<p>Colouration: Silvery greenish along the back with three or four bands along the sides formed by black spots. A black spot on the occiput and another at the base of the dorsal fin.</p><p>Description: Pectoral fins long, extending beyond the pelvic fins. Anal fin with 33 to 41 rays.</p><p>Taxonomy: Tilak (1964) synonymised this genus under Pseudeutropius and proposed transfer of Pseudeutropius from Schilbidae to Bagridae. Mo (1991) confirmed Tilak's findings and, in the light of his revision of the Bagridae, included Neotropius in it. Two species previously described under Pseudeutropius have also been placed under this genus. The current status is valid as Pachypterus atherinoides, placed in the Horabagridae family. FishBase still lists it in the Schilbeidae, but Eschmeyer's Catalog of Fishes gives the family Horabagridae.</p><p>Etymology: Genus name: Pachys, thick; pterus, fin, allusion not explained, perhaps referring to the considerably more lengthened tail and/or long anal fin (often referred to as Neotropius Kulkarni 1952, a junior synonym). Specific name: –oides, having the form of silversides (Atherinidae: Atherina), probably referring to the silvery stripe on the sides.</p><p>IUCN Red List: Although there is no information on the population and its trends, it is still relatively abundant throughout the Indian subcontinent. Despite the lack of understanding of potential threats, it is assessed as Least Concern given its abundance. However, the taxonomy of this species is uncertain and what is now identified as P. atherinoides may consist of more than one species. If so, it will need to be reassessed.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2014). Jayaram, K.C. 2006, Catfishes of India. Narendera Publishing House. 383p. Ng, H.H. 2010. Neotropius atherinoides. The IUCN Red List of Threatened Species 2010. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4e70fcd43f993593.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4e70fcd43f993593-480.webp",
+      "width": 500,
+      "height": 252,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "caption": "Pachypterus atherinoides",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3b9e3dc940b2cf11.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3b9e3dc940b2cf11-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "caption": "Pachypterus atherinoides",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/18e17246ba6744d5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/18e17246ba6744d5-480.webp",
+      "width": 500,
+      "height": 204,
+      "licence": "dùng với sự cho phép",
+      "author": "Mostafa Hossain / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "caption": "Pachypterus atherinoides: Susong Durgapur, Netrokona, Mymensingh, Bangladesh",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ea31b95318964fee.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ea31b95318964fee-480.webp",
+      "width": 500,
+      "height": 193,
+      "licence": "dùng với sự cho phép",
+      "author": "Mostafa Hossain / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pachypterus_atherinoides.htm",
+      "caption": "Pachypterus atherinoides: Bangladesh",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "1MUNp3vQ73M",
+      "title": "Various Mystus cats and Pachypterus atherinoides",
+      "durationSec": 86,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XonoJS7imKI",
+      "title": "Pachypterus atherinoides and Mystus carcio",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lxQFF8DiJCg",
+      "title": "Indian potasi-(Pachypterus atherinoides)| Kulik Bird Sanctuary | 5-11-2021",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mYh3xvBic8w",
+      "title": "Neotropius atherinoides (First induced breeding technology developed by Floodplain substation BD)",
+      "durationSec": 151,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -74,5 +205,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-07"
 }

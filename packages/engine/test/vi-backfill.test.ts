@@ -165,3 +165,65 @@ test('--match re-edits only the pages containing it, video guides and their summ
   expect(prompts.some(p => p.includes('### faq:0:q'))).toBe(false)
   expect(vi.quality).toMatchObject({ bySource: { youtube: 0.6 }, chat: false })
 })
+
+test("a translated guide's rewrite is checked against its kept English article, and scores as a translation", async () => {
+  const root = await setup()
+  await mkdir(join(root, '../sources/aquariumcoop'), { recursive: true })
+  await writeFile(join(root, '../sources/aquariumcoop/g.md'), '---\nurl: https://x\n---\n\nMany beginners may not know this.')
+  // The guide's slug is "<source>-<article>", as on the site.
+  await put(root, 'guides/aquariumcoop-g/entity.json', { id: 'aquariumcoop-g', source: 'aquariumcoop', html: '' })
+  await put(root, 'guides/aquariumcoop-g/vi.json', { slug: 'g2', name: 'G2', body: '<p>cũ</p>', quality: { score: 0.85, indexable: true } })
+  const prompts: string[] = []
+  const calls: string[] = []
+  const llm = fake({ en: 0.9, vi: 0.9 }, calls)
+  const r = await rewriteExisting(root, join(root, '../s.json'), { llm: (async a => { prompts.push(a.prompt); return llm(a) }) as Llm, opts: { mode: 'fix' }, now }, { limit: 1, kinds: ['guides'] })
+  expect(r.done).toEqual(['guides/aquariumcoop-g (1/1, 0.90)'])
+  expect(prompts[0]).toContain('### body\nEN:\nMany beginners may not know this.\nVI:\n<p>cũ</p>')
+  expect(calls).toEqual(['rewrite', 'review'])
+  expect((await read(root, 'guides/aquariumcoop-g/vi.json')).quality).toMatchObject({ score: 0.9, bySource: { aquariumcoop: 0.9 } })
+})
+
+test('a dry run lists the pages a match takes up and how many parts each sends, calls no model and writes nothing', async () => {
+  const root = await setup()
+  const state = join(root, 'state.json')
+  const calls: string[] = []
+  const r = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }, calls), opts: { mode: 'fix' }, now }, { limit: 10, match: /cũ/, dry: true })
+  expect(r.done).toEqual(['guides/g (1 part)', 'species/x (2 parts)', 'glossary/t (1 part)'])
+  expect(calls).toEqual([])
+  expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>cũ</p>')
+  await expect(readFile(state, 'utf8')).rejects.toThrow()
+})
+
+test('a part the rewrite leaves with a tic is written once more too, told which', async () => {
+  const prompts: string[] = []
+  const replies = [
+    { parts: [{ id: 'a', vi: '<p>Hầu hết là do CO2. Đa số ca là vậy. Đa số cây không ưa nó.</p>' }] },
+    { parts: [{ id: 'a', vi: '<p>Rêu này thường là do CO2, và cây cũng không ưa nó.</p>' }] },
+  ]
+  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return replies[prompts.length - 1] as T }
+  const m = await rewriteVi(llm, [{ id: 'a', vi: '<p>cũ</p>' }], { mode: 'fix' })
+  expect(m.get('a')).toBe('<p>Rêu này thường là do CO2, và cây cũng không ưa nó.</p>')
+  expect(prompts[1]).toContain('- a: "phần lớn, hầu hết, đa số" ×3 → ')
+})
+
+test('a part the rewrite leaves with a listed phrase is written once more, told which, and the try with fewer is kept', async () => {
+  const prompts: string[] = []
+  const replies = [
+    { parts: [{ id: 'a', vi: '<p>Dù vậy, phần lớn cá ăn được.</p>' }, { id: 'b', vi: '<p>Cá ăn tốt.</p>' }] },
+    { parts: [{ id: 'a', vi: '<p>Nhưng hầu hết cá ăn được.</p>' }] },
+  ]
+  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return replies[prompts.length - 1] as T }
+  const m = await rewriteVi(llm, [{ id: 'a', en: '<p>Still, most fish eat it.</p>', vi: '<p>cũ</p>' }, { id: 'b', en: '<p>Fish eat well.</p>', vi: '<p>cũ</p>' }], { mode: 'fix' })
+  expect(m.get('a')).toBe('<p>Nhưng hầu hết cá ăn được.</p>')
+  expect(m.get('b')).toBe('<p>Cá ăn tốt.</p>')
+  expect(prompts).toHaveLength(2)
+  // The second try gets only the part with the phrases, its first rewrite as the Vietnamese, and which phrases.
+  expect(prompts[1]).toContain('### a\nEN:\n<p>Still, most fish eat it.</p>\nVI:\n<p>Dù vậy, phần lớn cá ăn được.</p>')
+  expect(prompts[1]).not.toContain('### b')
+  expect(prompts[1]).toContain('- a: "dù vậy" → ')
+  // A second try that is no better leaves the first.
+  const worse = [{ parts: [{ id: 'a', vi: '<p>Dù vậy, cá ăn được.</p>' }] }, { parts: [{ id: 'a', vi: '<p>Dù vậy, phần lớn cá ăn được.</p>' }] }]
+  let n = 0
+  const m2 = await rewriteVi((async () => worse[n++]) as Llm, [{ id: 'a', vi: '<p>cũ</p>' }], { mode: 'fix' })
+  expect(m2.get('a')).toBe('<p>Dù vậy, cá ăn được.</p>')
+})

@@ -26,7 +26,9 @@
     "benue",
     "senegal",
     "togo",
-    "mono"
+    "mono",
+    "cross-river",
+    "niger-delta"
   ],
   "dataCard": {
     "tempC": [
@@ -86,7 +88,7 @@
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
-      "html": "<p>A widespread species found throughout much of Western Africa in numerous river basins. Occurrences include the Cavalla River which runs through parts of Guinea, Liberia and The Ivory Coast; the Comoé river which originates in Burkina Faso and also runs through The Ivory Coast; the Bandama River which is the longest river in The Ivory Coast; the Volta River in Ghana; the Mono River in eastern Togo/Benin; the Ouémé River in Benin; the Benue River in Cameroon and Nigeria which is the major tributary of the Niger; the Niger Delta in Nigeria; the Cross River in Cameroon; the Mokoko River in Cameroon. It has also been recorded in Senegal, Mali and Niger.</p>"
+      "html": "<p>A widespread species found throughout much of Western Africa in numerous river basins. Occurrences include the Cavalla River which runs through parts of Guinea, Liberia and the Ivory Coast; the Comoé River which originates in Burkina Faso and also runs through the Ivory Coast; the Bandama River which is the longest river in the Ivory Coast; the Volta River in Ghana; the Mono River in eastern Togo/Benin; the Ouémé River in Benin; the Benue River in Cameroon and Nigeria which is the major tributary of the Niger; the Niger Delta in Nigeria; the Cross River in Cameroon; the Mokoko River in Cameroon. It has also been recorded in Senegal, Mali and Niger.</p>"
     },
     {
       "key": "habitat",
@@ -98,7 +100,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
-      "html": "<p>Base dimensions of at least 120 × 30 cm are recommended (about 108 litres).</p>"
+      "html": "<p>Standard length: 10 cm SL.</p><p>Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>Base dimensions of at least 120 × 30 cm are recommended.</p>"
     },
     {
       "key": "maintenance",
@@ -161,7 +163,32 @@
       "thumb": "https://media.aquatome.com/commons/8755302533559a16-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "8KAtjcIPB_I",
+      "title": "Enteromius c.f sublineatus",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "d1TNaJFB7JU",
+      "title": "Enteromius c.f. sublineatus",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NnQ-UxwP8yg",
+      "title": "A rescape of the big Africa tank",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sBgU7QeBLk8",
+      "title": "Africa tank",
+      "durationSec": 129,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -173,7 +200,8 @@
       "category": "loc",
       "keywords": [
         "lọc thùng bể 120cm",
-        "máy lọc tạo dòng chảy"
+        "máy lọc tạo dòng chảy",
+        "máy sục khí bể cá"
       ]
     },
     {
@@ -181,14 +209,16 @@
       "keywords": [
         "trùng huyết đông lạnh",
         "artemia đông lạnh",
-        "thức ăn cá nhỏ có rau"
+        "thức ăn cá nhỏ có rau",
+        "thức ăn cá nhỏ dạng khô"
       ]
     },
     {
       "category": "phan-nen",
       "keywords": [
         "nền cát sẫm màu",
-        "sỏi nền bể cá"
+        "sỏi nền bể cá",
+        "cát nền sẫm màu"
       ]
     }
   ],

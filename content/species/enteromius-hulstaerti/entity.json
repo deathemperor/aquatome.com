@@ -11,6 +11,112 @@
     "congo-basin",
     "democratic-republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo River",
+        "Momboyo River",
+        "Tshuapa River",
+        "Maringa River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: D. R. Congo",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Democratic Republic of Congo in central Africa where it has been recorded from central parts of the Congo River drainage within the great area of equatorial rainforest situated south and east of the main river channel.",
+          "countries": [],
+          "regions": [
+            "Congo River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Specific localities include the Momboyo River, the settlements of Bokuma and Bonguma, the town of Boende on the Tshuapa River, the Bowa River (a tributary of the Maringa River) and the Pimo River close to Opala.",
+          "countries": [],
+          "regions": [
+            "Momboyo River",
+            "Tshuapa River",
+            "Maringa River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9553669,
+      "total": 27,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          19.6875,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          21.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

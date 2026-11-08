@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/elopichthys-bambusa
 title: Elopichthys bambusa · Seriously Fish
-fetchedAt: 2026-11-07T05:14:00.421Z
+fetchedAt: 2026-11-07T19:54:33.497Z
 hash: d03180bc4f85438f2f962b5e58122c6a49768bf653aa8ff37f3e698ec9335cda
 ---
 
