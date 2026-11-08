@@ -140,27 +140,47 @@ Pages likely to be featured come first.
 
 ### Video loops
 
-Short silent loops, real footage of the species: a fish swimming, or hovering with its fins moving.
+Short silent loops, real footage of the species: a fish swimming, or hovering with its fins moving. A day with no good
+footage shows the still photo.
 - **Format**: HEVC (tagged `hvc1`), 1080×1080, the source's own frame rate up to 30 fps (25 fps footage stretched to 30
-  stutters), BT.709 SDR, no audio track, faststart, 5–8 s looping without a jump. 1 MB is the target and 1.5 MB the
+  stutters), BT.709 SDR, no audio track, faststart, 6–10 s looping without a jump. 1 MB is the target and 1.5 MB the
   most. There's an H.264 copy for browsers, and a WebP poster of a sharp frame with the fish in it, under 120 KB.
   `scripts/make-loop.sh` makes all three.
-- **Sources, in order**:
-  1. clips under a licence that allows it: Wikimedia Commons, Pexels, Pixabay, other CC0 or CC BY with credit shown;
-  2. permitted sources whose permission covers video (none does yet);
-  3. the owner's tanks;
-  4. Vietnamese shops, breeders and YouTubers, by permission.
+- **Sources** (owner, 2026-11-08), only what we may use freely:
+  1. open-licensed clips: Wikimedia Commons, the Internet Archive, other CC0, CC BY or CC BY-SA, credited as the
+     licence asks;
+  2. YouTube videos their uploader released under YouTube's Creative Commons licence (CC BY 3.0, "reuse allowed"),
+     under the rules below.
 
-  Never a cut from a YouTube video we may only embed.
+  A YouTube video under the standard licence is only ever embedded with YouTube's player, never cut. No shop, breeder or
+  channel is asked for footage.
+- **A YouTube clip**:
+  - Found with the Data API's `videoLicense=creativeCommon` filter, and the watch page must say "Creative Commons
+    Attribution license (reuse allowed)".
+  - Its uploader filmed it: the description and the channel's uploads show one person's or one shop's own filming. A
+    dealer's shop or a public aquarium is fine if the uploader shot it. Never a compilation, re-upload, TV or news clip,
+    footage with someone else's watermark, or a description that credits someone else or says "All Rights Reserved"
+    against the mark.
+  - Fish ID's prompt and model name the species on three frames of the cut, each at 0.75 or more, with its reason.
+    No clip where the ID is unsure.
+  - Downloaded slow and small: the clip only (`yt-dlp --download-sections`, rate-limited), at the lowest quality that
+    gives a clean 1080 crop. Never through the Data API key.
+  - Its record: the video's address, channel and title, the cut (`cut`, seconds), the day the licence was read
+    (`checkedAt`) and an Internet Archive copy of the page (`snapshot`). The schema refuses a YouTube loop without them.
+    The cut is all the footage used: `make-loop.sh` takes a second more than the loop for its crossfade, so an 8 s loop
+    from 266 s is cut 266–275, and for one that plays back and forth (`BOUNCE`) the cut is half the loop. The snapshot is
+    `https://web.archive.org/web/<yyyymmddhhmmss>/` and the video's own address. The schema holds both.
+    The saved page, the API's answer and Fish ID's frames are kept in the media lead's records.
 - **Each clip** is checked: the right species, no people, hands, logos, watermarks or text, good enough for a large
-  card. Its credit shows wherever it plays: the author, the licence linked to its own page (`licenceUrl`), and
-  "cut and looped from" the original, linked. A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
+  card. Its credit shows wherever it plays: the author, the original's title when it has one (`title`, which CC BY 3.0
+  asks for), linked to the original, the licence linked to its own page (`licenceUrl`), and that it was cut ("cắt
+  đoạn"). A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
 - **Uploading**: to `aquatome-media/loops/<id>-<n>.{mp4,-h264.mp4,webp}` with a year's immutable cache, never over a key
   in use. Check that a key is free with a HEAD request, never a GET: media.aquatome.com caches a GET's 404 for four
   hours, so the file can't be fetched there even once it's uploaded.
 - **A loop kept for now** (`replace`): one under the council's bar that the chief chose to ship, with what replaces it.
-  The koi (8/10, a bubble shows twice in the dissolve) waits for the owner's or a shop's footage, and goes back to the
-  photo if the owner dislikes the dissolve.
+  The koi (8/10, a bubble shows twice in the dissolve) is replaced when a better open-licensed or CC BY koi clip turns
+  up, and goes back to the photo if the owner dislikes the dissolve.
 
 ### Generated video
 

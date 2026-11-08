@@ -10,6 +10,62 @@
     "myanmar",
     "tenasserim"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Tenasserim River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Hemibagrus variegatus Ng & Ferraris, 2000. Type locality: Tenasserim River, Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: known only from the Tenasserim river drainage in southern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Tenasserim River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338192,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

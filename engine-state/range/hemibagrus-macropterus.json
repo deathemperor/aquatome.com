@@ -1,0 +1,94 @@
+{
+  "id": "hemibagrus-macropterus",
+  "native": {
+    "input": "0d773339b9c88b0f",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus macropterus is a bagrid catfish from the Zhujiang (Pearl River), Changjiang (Yangtze) and Qiantang Jiang in central and southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Zhujiang",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Changjiang",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Qiantang Jiang",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Zhujiang (Pearl River), Changjiang (Yangtze River) and Qiantang Jiang in central and southern China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus macropterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338237,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

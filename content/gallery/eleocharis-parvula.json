@@ -38,6 +38,18 @@
       "kind": "emersed"
     },
     {
+      "url": "https://media.aquatome.com/flickr/21025434875.webp",
+      "thumb": "https://media.aquatome.com/flickr/21025434875-480.webp",
+      "width": 784,
+      "height": 1024,
+      "licence": "CC BY 2.0",
+      "author": "AndreyZharkikh",
+      "sourceUrl": "https://www.flickr.com/photos/33497841@N02/21025434875",
+      "caption": "Cả cây Cỏ tóc tiên lùn với rễ và các thân mảnh",
+      "best": true,
+      "kind": "detail"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/537210972.webp",
       "thumb": "https://media.aquatome.com/inaturalist/537210972-480.webp",
       "width": 1024,
@@ -72,6 +84,30 @@
       "caption": "Cỏ tóc tiên lùn mọc dày, cận cảnh lá",
       "best": true,
       "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/20999143536.webp",
+      "thumb": "https://media.aquatome.com/flickr/20999143536-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY 2.0",
+      "author": "AndreyZharkikh",
+      "sourceUrl": "https://www.flickr.com/photos/33497841@N02/20999143536",
+      "caption": "Mảng Cỏ tóc tiên lùn mọc trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/21033000101.webp",
+      "thumb": "https://media.aquatome.com/flickr/21033000101-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY 2.0",
+      "author": "AndreyZharkikh",
+      "sourceUrl": "https://www.flickr.com/photos/33497841@N02/21033000101",
+      "caption": "Thảm Cỏ tóc tiên lùn mọc dày ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/359434721.webp",
@@ -170,6 +206,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/flickr/20838635689.webp",
+      "thumb": "https://media.aquatome.com/flickr/20838635689-480.webp",
+      "width": 778,
+      "height": 1024,
+      "licence": "CC BY 2.0",
+      "author": "AndreyZharkikh",
+      "sourceUrl": "https://www.flickr.com/photos/33497841@N02/20838635689",
+      "caption": "Cận cảnh bông hoa trên thân Cỏ tóc tiên lùn",
+      "best": false,
+      "kind": "flower"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/19098341.webp",
       "thumb": "https://media.aquatome.com/inaturalist/19098341-480.webp",
       "width": 1024,
@@ -180,9 +228,21 @@
       "caption": "Mảng Cỏ tóc tiên lùn mọc trên bùn ẩm",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/21244752176.webp",
+      "thumb": "https://media.aquatome.com/flickr/21244752176-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY 2.0",
+      "author": "AndreyZharkikh",
+      "sourceUrl": "https://www.flickr.com/photos/33497841@N02/21244752176",
+      "caption": "Cỏ tóc tiên lùn mọc xen trong bụi cỏ ven bờ",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 45,
+  "seen": 58,
   "updatedAt": "2026-11-08",
   "builtAt": "2026-11-08"
 }

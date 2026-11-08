@@ -1,0 +1,64 @@
+{
+  "id": "hemibagrus-punctatus",
+  "native": {
+    "input": "8cd8808904c0a230",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The porthole bagrid, Hemibagrus punctatus, is a catfish known only from the Cauvery (Kaveri) river system in southern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Cavery River and its principal tributaries, southern India', and this species is known only from the Cauvery (aka Kaveri) river system in southern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Cavery River and its principal tributaries, southern India', and this species is known only from the Cauvery (aka Kaveri) river system in southern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus punctatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338243,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

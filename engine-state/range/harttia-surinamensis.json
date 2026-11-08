@@ -1,0 +1,156 @@
+{
+  "id": "harttia-surinamensis",
+  "native": {
+    "input": "b036a11da563abe6",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas and Suriname coastal rivers.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas and Suriname coastal rivers.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: coastal rivers from the Suriname River east to the Approuague River.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "However, although its range may be impacted by mining activities, the species occupies a large distribution across Suriname and French Guiana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "However, although its range may be impacted by mining activities, the species occupies a large distribution across Suriname and French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Suriname River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Grandam, Gran Rio, upper Suriname River, Suriname.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Suriname River",
+        "source": "scotcat",
+        "quote": "South America: coastal rivers from the Suriname River east to the Approuague River.",
+        "ok": true
+      },
+      {
+        "name": "Approuague River",
+        "source": "scotcat",
+        "quote": "South America: coastal rivers from the Suriname River east to the Approuague River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "GY"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Harttia surinamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5202422,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        85
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        78
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        18
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        13
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

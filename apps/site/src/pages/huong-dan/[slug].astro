@@ -95,8 +95,8 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
       <section class="refs" id="nguon" aria-labelledby="ref-h" data-pagefind-ignore>
         <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
         <ol>
-          {v && <li class="video">{t('Video gốc:')} <a href={watchUrl(v.youtubeId)} rel="nofollow noopener" target="_blank">{v.title}</a>{t(', kênh')} <a href={v.channelUrl} rel="nofollow noopener" target="_blank">{v.channel}</a> · {clock(v.durationSec)}</li>}
-          {refs?.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}
+          {v && <li class="video">{t('Video gốc:')} <a href={watchUrl(v.youtubeId)} rel="nofollow noopener" target="_blank" data-ev="src">{v.title}</a>{t(', kênh')} <a href={v.channelUrl} rel="nofollow noopener" target="_blank">{v.channel}</a> · {clock(v.durationSec)}</li>}
+          {refs?.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" data-ev="src" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}
         </ol>
       </section>
     )}

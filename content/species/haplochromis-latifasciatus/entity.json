@@ -10,6 +10,64 @@
     "uganda",
     "lake-kyoga"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "UG"
+      ],
+      "regions": [
+        "Lake Kyoga",
+        "Lake Nawampasa"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found only in two lakes in Uganda, Lake Kyoga (although it is possibly extinct there) and the adjacent (and much smaller) Lake Nawampasa.",
+          "countries": [
+            "UG"
+          ],
+          "regions": [
+            "Lake Kyoga",
+            "Lake Nawampasa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373360,
+      "total": 57,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "UG",
+          57
+        ]
+      ],
+      "cells": [
+        [
+          32.34375,
+          0,
+          20,
+          20
+        ],
+        [
+          32.34375,
+          1.40625,
+          10,
+          10
+        ],
+        [
+          33.75,
+          1.40625,
+          27,
+          27
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
