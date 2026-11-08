@@ -1,0 +1,256 @@
+{
+  "id": "corydoras-copei",
+  "scientificName": "Corydoras copei",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "pastaza"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Pastaza",
+        "Río Marañón",
+        "Río Samiria"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma copei, long known as Corydoras copei, is an armoured catfish from Peru, apparently endemic to the Río Pastaza basin and possibly the lower Río Marañón.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Pastaza",
+            "Río Marañón"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Downstream of Río Huytoyacu, right tributary of Río Pastaza, about 40 kilometers north of Lago Rimachi, 4°13'S, 76°38'W, Peru', and this species appears to be endemic to the Pastaza basin and possibly the lower rio Marañón with a couple of records from the rio Samiria, a right bank tributary.",
+          "countries": [],
+          "regions": [
+            "Río Samiria"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342637,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Hoplisoma copei, long known as Corydoras copei, is an armoured catfish from Peru, apparently endemic to the Río Pastaza basin and possibly the lower Río Marañón. It is not well known and rarely traded. It looks very similar to several congeners, particularly H. acrense and H. cruziense, and little has been written about it since its description.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Type locality is 'Downstream of Río Huytoyacu, right tributary of Río Pastaza, about 40 kilometers north of Lago Rimachi, 4°13'S, 76°38'W, Peru', and this species appears to be endemic to the Pastaza basin and possibly the lower rio Marañón with a couple of records from the rio Samiria, a right bank tributary.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Minimum base dimensions of 80 × 30 cm are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs are normally deposited on the aquarium glass, but it's recommended to provide alternatives in the form of fine-leaved vegetation or fine spawning mops.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger.</p><p>The new container should contain the same water and be similarly well-oxygenated. Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<p>This species is not well known and rarely traded for the aquarium hobby.</p><p>Unfortunately diagnostic characters cannot be provided since we've been unable to obtain the type description, and little has been written about this species since it was published. It looks very similar to several congeners, particularly Hoplisoma acrense and H. cruziense.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "html": "<ul><li>Nijssen, H. and I. J. H. Isbrücker (1986). Cinq espèces nouvelles de poissons-chats cuirassés du genre Corydoras Lacepède, 1803, du Pérou et de l'Equateur (Pisces, Siluriformes, Callichthyidae). Revue française d'Aquariologie Herpétologie 12(3), 65-76</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/643892ab8bf53f0d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/643892ab8bf53f0d-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "caption": "This species is rare in the aquarium hobby.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e4adf0f243b3e268.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e4adf0f243b3e268-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/dc2011cc0c82ba26.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dc2011cc0c82ba26-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-copei",
+      "caption": "This species was first recorded from the rio Pastaza in Peru.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "fiBnDTedc28",
+      "title": "煙圈鼠 古畢豹鼠 紅頭皇冠豹鼠 Corydoras atropersonatus Corydoras copei C01",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rtRMT0Gg6vA",
+      "title": "Corydoras 鼠魚 煙圈鼠 古畢豹鼠 紅頭皇冠豹鼠 Corydoras atropersonatus Corydoras copei C01",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4PnQEa7XX7k",
+      "title": "コリドラス・コペイ（コロンビア産）／Corydoras Copei (Colombia)",
+      "durationSec": 310,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 80cm",
+        "máy sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

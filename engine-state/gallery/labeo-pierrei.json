@@ -1,17 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Diamantbarbe_Hypsibarbus_pierrei.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Diamantbarbe_Hypsibarbus_pierrei.jpg/500px-Diamantbarbe_Hypsibarbus_pierrei.jpg",
-   "width": 4288,
-   "height": 2848,
-   "licence": "CC BY 3.0",
-   "author": "Michael Gäbler",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamantbarbe_Hypsibarbus_pierrei.jpg",
-   "caption": "Hypsibarbus pierrei in Gondwanaland in the Leipzig Zoological Garden, Leipzig, Germany. Hypsibarbus pierrei is a species of ray-finned fish in the genus Hypsiba",
-   "key": "File:Diamantbarbe Hypsibarbus pierrei.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Diamantbarbe Hypsibarbus pierrei.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/2/23/Diamantbarbe_Hypsibarbus_pierrei.jpg": "10629d0f070fc934"
+ },
+ "commons": "2026-11-08"
 }

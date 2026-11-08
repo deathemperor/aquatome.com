@@ -68,12 +68,13 @@ struct OwnerTable: View {
   }
 }
 
-/// A folded table, opened: its name, and the period it's for.
+/// A folded table, opened: its name, its rows in all, and the period it's for.
 struct OwnerTableRoute: Hashable {
   let key: String
   let id: String
   let title: String
   let columns: [String]
+  let count: Int?
   let period: String?
 }
 
@@ -94,7 +95,7 @@ struct OwnerTableScreen: View {
         if let problem {
           Text(verbatim: problem).foregroundStyle(.red).accessibilityIdentifier("owner-message")
         } else if let first {
-          OwnerTable(columns: route.columns, rows: first.items, id: route.id, next: first.next, draw: draw)
+          OwnerTable(columns: route.columns, rows: first.items, id: route.id, count: route.count, next: first.next, draw: draw)
         } else {
           ProgressView().frame(maxWidth: .infinity)
         }

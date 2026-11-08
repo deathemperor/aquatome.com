@@ -1,0 +1,259 @@
+{
+  "id": "corydoras-brevirostris",
+  "scientificName": "Corydoras brevirostris",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "suriname",
+    "guyana",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "SR"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The spotted cory, Hoplisoma brevirostre, long known as Corydoras brevirostris, is an armoured catfish usually said to occur in the Orinoco system in Venezuela and coastal Suriname.",
+          "countries": [
+            "VE",
+            "SR"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342751,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GF",
+          11
+        ],
+        [
+          "GY",
+          6
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          2,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          11,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>The spotted cory, Hoplisoma brevirostre, long known as Corydoras brevirostris, is an armoured catfish usually said to occur in the Orinoco system in Venezuela and coastal Suriname. It was described from an aquarium specimen and its wider distribution is somewhat vague. It belongs to a group of similar congeners, including H. melanistium, Brochis delphax and B. ephippifera, that are widely misidentified, and is generally identified by a short, rounded snout and dark bars in the caudal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>Hoplisoma brevirostre was described from an aquarium specimen apparently exported from the Río Orinoco drainage in Venezuela, and its wider distribution is somewhat vague, usually being given as the Orinoco system plus unnamed coastal rivers in Suriname.</p><p>This represents a somewhat disjunct pattern of distribution and if correct the species is also likely to occur in Guyana.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<p>This species is one of a number of similar-looking congeners including Hoplisoma melanistium, Brochis delphax and B. ephippifera, all of which are tricky to tell apart from one another and have been widely misidentified in aquarium literature.</p><p>Generally-speaking H. brevirostre can be identified by a combination of relatively short, rounded snout and presence of dark bars in the caudal-fin.</p><p>C. wotroi Nijssen and Isbrücker, 1967 is sometimes considered a synonymous with H. brevirostre but recent authors (Reis et al., 2003; Ferraris, 2007) have placed it in synonymy with H. melanistium and that system is followed here.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Grant, S. (1998). Descriptions of two new species of Corydoras, Lacepede, 1803 (Pisces, Siluriformes, Callichthyidae). The Aquarist and Pondkeeper 62(10), 41-45</li><li>Fraser-Brunner, A. (1947). New fishes of the genus Corydoras. Proceedings of the Zoological Society of London 117(1), 241-246</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/898b0cb7d3568b5a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/898b0cb7d3568b5a-480.webp",
+      "width": 800,
+      "height": 568,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-brevirostre",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Aat1hdRxRXI",
+      "title": "Corydoras cf. brevirostris (CW 27 )",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DyMIky3pytY",
+      "title": "Corydoras cf brevirostris CW27",
+      "durationSec": 49,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "thức ăn viên chìm cá đáy"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

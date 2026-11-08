@@ -1,0 +1,63 @@
+{
+  "id": "hemimyzon-nanensis",
+  "native": {
+    "input": "dfc3fb63434ccf11",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Nam Nan",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemimyzon nanensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358777,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

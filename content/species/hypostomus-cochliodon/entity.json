@@ -1,0 +1,250 @@
+{
+  "id": "hypostomus-cochliodon",
+  "scientificName": "Hypostomus cochliodon",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "lNumber": "L050",
+  "places": [
+    "south-america",
+    "paraguay",
+    "brazil",
+    "cuiaba"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.3,
+          "max": 7.2
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.3,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 10,
+          "max": 18
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 23
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1324",
+      "html": "<ul><li>Scientific name: Hypostomus cochliodon Kner, 1854</li><li>Common names: LDA051, Cochliodon Pleco L310, Apricot Pleco, Abrikossugemalle (Denmark)</li><li>Type locality: Rio Cuiabá, Brazil</li><li>Pronunciation: hi POSS tow muss - cock LEE oh don</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1324",
+      "html": "<p>South America: Paraguay and middle Paraná River basins (La Plata, Paraná, Middle Paraná; La Plata, Paraná, Paraguay; Bermejo; Upper Paraguay, Cuiabá). IUCN Red List category: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1324",
+      "html": "<ul><li>pH: 6.3 - 7.2</li><li>Temperature: 21 - 24°C</li><li>Hardness: dH 10 - 18</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1324",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1324",
+      "html": "<p>Very similar to L137 from the Rio Tapajós and similar to L310 from Bahia, both in Brazil. Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus cochliodon group. All these species have higher backs than other conspecifics and spoon-shaped teeth (like Panaque).</p><p>Etymology: Greek hypo = under + Greek stoma = mouth. From the Latin coclea (coch-), for spoon, and the Greek odon, for tooth, in reference to the fact that the teeth are about half as spoon-shaped as those of wood-specializing members of the Hypostomus cochliodon group.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1324",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp 265 [15], Pl. 2 (fig. 1).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>The spotted cochliodon (L050), Hypostomus cf. cochliodon, is an undescribed suckermouth catfish of the Hypostomus cochliodon complex. Like other members of the group it develops a hump-backed profile and spoon-shaped teeth, and eats wood. Its exact distribution is unknown. It grows to around 230 mm SL and is non-territorial enough to keep in a group or with other peaceful loricariids.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>No exact details known.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>If other members of this group are anything to go by, it will be found living in and around pieces of driftwood in flowing parts of rivers and streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>Standard length: 230 mm SL. Aquarium base: 120 × 45 cm. Volume: ~243 litres (120 × 45 × 45 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>A spacious tank is required, preferably with a sandy substrate. Provide hiding places in the form of some big chunks of driftwood (which it also feeds on, see below), and preferably dim lighting. Aquatic plants are not a feature of its natural waters and would most likely be eaten anyway. Some surface vegetation, however, is not a bad idea. It also needs well-oxygenated water, ideally with a good amount of movement and flow.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<ul><li>Temperature: 21–24°C</li><li>pH: 6.3–7.2</li><li>Hardness: 5–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>Feeds mainly by rasping wood and will not do well without access to it. Studies of the Cochliodon group and of Panaque have found their guts full of wood particles, but the wood passes through in under four hours and little of it is digested. The fish live mainly on the decaying wood and the microbes that break it down. It also enjoys munching on greenery such as cucumber, courgette, blanched spinach etc. and will also accept sinking dried foods.[1][2]</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>An amicable species that can be kept with a variety of tankmates provided its oxygen requirements are met. Larger characins, cyprinids, peaceful cichlids and other catfish would all be suitable. It's surprisingly non-territorial and can be kept both in a species group or other peaceful Loricariids. Bear in mind that smaller species may be intimidated by its size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>Not known to have been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<p>This undescribed species is part of the Hypostomus cochliodon complex, all of which were previously included in the genus Cochliodon. This is now considered a synonym of Hypostomus. Members of this group can be distinguished from congeners by several differences in morphology, most notably the hump-backed profile of mature fish and spoon-shaped dentition. These features, along with the fishes tendency to eat wood, are shared with the Panaque genus of the Ancistrinae subfamily, but the two genera are known to have evolved convergently (independently) of one another. It's thought that the wood-eating behaviour of the fish has developed as they inhabit areas where fallen wood litters much of the substrate. Not much light penetrates the water to initiate algal growth, giving fish with the ability to use wood as a food source a competitive advantage. It's certainly an impressive specialisation, as these loricariids are the only fishes known to feed mainly on wood.</p><p>When buying Loricariids such as this, always check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens. Care should also be taken when netting the fish, as the pectoral odontotes of males can easily become caught in the mesh of aquarium nets.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-cf-cochliodon",
+      "html": "<ul><li>German, Donovan P. (2009). Inside the guts of wood-eating catfishes: can they digest wood? Journal of Comparative Physiology B 179(8), 1011-1023 doi.org/10.1007/s00360-009-0381-1</li><li>Lujan, Nathan K.; German, Donovan P.; Winemiller, Kirk O. (2011). Do wood‐grazing fishes partition their niche?: morphological and isotopic evidence for trophic segregation in Neotropical Loricariidae. Functional Ecology 25(6), 1327-1338 doi.org/10.1111/j.1365-2435.2011.01883.x</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3cdd9fb0e1a2f90d.webp",
+      "width": 960,
+      "height": 653,
+      "licence": "CC BY 4.0",
+      "author": "Douglas Lopes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypostomus_cochliodon.jpg",
+      "caption": "Hypostomus cochliodon",
+      "thumb": "https://media.aquatome.com/commons/3cdd9fb0e1a2f90d-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể 240 lít",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy làm mát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm ăn rong cho cá dọn bể",
+        "thức ăn chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lũa trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

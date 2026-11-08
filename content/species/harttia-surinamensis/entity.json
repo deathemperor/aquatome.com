@@ -12,6 +12,145 @@
     "french-guiana",
     "approuague"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Suriname River",
+        "Approuague River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Guyana waters, coastal rivers of the Guianas and Suriname coastal rivers.",
+          "countries": [
+            "GY",
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "However, although its range may be impacted by mining activities, the species occupies a large distribution across Suriname and French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Grandam, Gran Rio, upper Suriname River, Suriname.",
+          "countries": [],
+          "regions": [
+            "Suriname River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: coastal rivers from the Suriname River east to the Approuague River.",
+          "countries": [],
+          "regions": [
+            "Approuague River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202422,
+      "total": 222,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GF",
+          174
+        ],
+        [
+          "SR",
+          46
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          4.21875,
+          23,
+          23
+        ],
+        [
+          -54.84375,
+          2.8125,
+          33,
+          33
+        ],
+        [
+          -54.84375,
+          4.21875,
+          35,
+          35
+        ],
+        [
+          -54.84375,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          66,
+          66
+        ],
+        [
+          -53.4375,
+          4.21875,
+          39,
+          39
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

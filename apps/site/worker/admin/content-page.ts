@@ -6,24 +6,24 @@ import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, hourMinute, localDay, sameClock, timeTag } from './time'
 import { qualityBlocks, qualityHtml, type Quality } from './quality'
 
-/** The dashboard's Nội dung page: what the site holds (the build's content.json), how it grows, what the engine is doing, what's missing, and how readers use it. */
+/** The dashboard's content page: what the site holds (the build's content.json), how it grows, what the engine is doing, what's missing, and how readers use it. */
 
 export const KIND: Record<PageKind, string> = {
-  fish: 'Cá', breed: 'Giống cá', plant: 'Cây thủy sinh', guide: 'Bài viết', videoGuide: 'Bài từ video', series: 'Loạt video', glossary: 'Thuật ngữ',
-  equipment: 'Thiết bị', place: 'Địa điểm', product: 'Sản phẩm', gallery: 'Trang ảnh', taxon: 'Phân loại', group: 'Nhóm', tool: 'Công cụ', list: 'Danh sách', other: 'Trang khác',
+  fish: 'Fish', breed: 'Breeds', plant: 'Plants', guide: 'Guides', videoGuide: 'Video guides', series: 'Video series', glossary: 'Glossary',
+  equipment: 'Equipment', place: 'Places', product: 'Products', gallery: 'Galleries', taxon: 'Taxa', group: 'Groups', tool: 'Tools', list: 'Lists', other: 'Other pages',
 }
 const ENTITY: EntityKind[] = ['fish', 'plant', 'breed', 'guide', 'videoGuide', 'series', 'glossary', 'equipment', 'place', 'product']
 /** What the home page counts as the handbook's items: the pages a reader comes for. */
 export const MAIN: EntityKind[] = ['fish', 'plant', 'breed', 'guide', 'videoGuide']
 const OTHER: EntityKind[] = ['glossary', 'place', 'equipment', 'series', 'product']
 const GAP: Record<GapKey, string> = {
-  noPhoto: 'Chưa có ảnh', noViName: 'Tên tiếng Việt còn là tên khoa học', noSummary: 'Chưa có tóm tắt nhanh', noKeyFacts: 'Thiếu nhiệt độ, pH hoặc kích thước',
-  thin: 'Trang mỏng, ẩn khỏi tìm kiếm', oldVi: 'Tiếng Việt chưa viết lại', noId: 'Chưa có tiếng Indonesia', noTh: 'Chưa có tiếng Thái',
+  noPhoto: 'No photo', noViName: 'Vietnamese name is still the scientific one', noSummary: 'No quick summary', noKeyFacts: 'No temperature, pH or size',
+  thin: 'Thin, out of search', oldVi: 'Vietnamese not rewritten', noId: 'No Indonesian', noTh: 'No Thai',
 }
-const FACT: Record<string, string> = { tempC: 'nhiệt độ', ph: 'pH', sizeCm: 'kích thước' }
+const FACT: Record<string, string> = { tempC: 'temperature', ph: 'pH', sizeCm: 'size' }
 
-/** Each language as the dashboard names it: "tiếng Việt", and the others bare ("Có tiếng Indonesia", "Chọn Thái"). */
-export const LANG_VI: Record<Lang, string> = { vi: 'tiếng Việt', id: 'Indonesia', th: 'Thái', ms: 'Mã Lai' }
+/** Each language as the dashboard names it. */
+export const LANG_NAME: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai', ms: 'Malay' }
 
 /** Items of the main kinds in a day's totals, in one language. */
 export const inLang = (t: Totals, lang: Lang) => MAIN.reduce((s, k) => s + (t.kinds[k]?.[lang] ?? 0), 0)
@@ -49,7 +49,7 @@ export const SAVED = '20:17'
 const savedAt = (now: Date) => `${now.toISOString().slice(0, 10)}T${SAVED}:00Z`
 const savedNote = (now: Date, tz: string) => {
   const at = savedAt(now)
-  return `lúc ${hourMinute(at, tz)} ${localDay(at, tz) > now.toISOString().slice(0, 10) ? 'sáng hôm sau' : 'cùng ngày'}`
+  return `at ${hourMinute(at, tz)} ${localDay(at, tz) > now.toISOString().slice(0, 10) ? 'the next morning' : 'the same day'}`
 }
 /** The day the next save is kept under, the one still being counted: today's UTC day until the save, then tomorrow's. */
 export const openDay = (now: Date) => {
@@ -66,44 +66,44 @@ export type ContentPage = {
   /** The viewer's time zone (admin/time.ts). */ tz?: string
 }
 
-const JUMP = [['chat-luong', 'Quality'], ['tong', 'Tổng'], ['tang', 'Tăng thêm'], ['engine', 'Engine'], ['thieu', 'Còn thiếu'], ['anh', 'Ảnh'], ['doc', 'Người đọc'], ['binh-luan', 'Bình luận'], ['affiliate', 'Affiliate'], ['nguon', 'Nguồn']] as const
+const JUMP = [['chat-luong', 'Quality'], ['tong', 'Totals'], ['tang', 'Growth'], ['engine', 'Engine'], ['thieu', 'Missing'], ['anh', 'Photos'], ['doc', 'Readers'], ['binh-luan', 'Comments'], ['affiliate', 'Affiliate'], ['nguon', 'Sources']] as const
 const link = (path: string, title: string) => `<a href="${esc(path)}">${esc(title)}</a>`
 
-const contentLede = (s: ContentStats, now: Date, tz: string) => `Từ bản build lúc ${timeTag(s.builtAt, tz, now)}${s.publicBuild ? '' : ', không phải bản công khai'}. Engine cập nhật nội dung 3 giờ một lần; mỗi lần đăng, số liệu này đổi theo.`
-const NO_STATS = 'số liệu nội dung (content.json)'
+const contentLede = (s: ContentStats, now: Date, tz: string) => `From the build of ${timeTag(s.builtAt, tz, now)}${s.publicBuild ? '' : ', not the public one'}. The engine updates content every 3 hours, and these figures change with each push.`
+const NO_STATS = 'the content figures (content.json)'
 
 export function contentPage(c: ContentPage): string {
   const tz = c.tz ?? HOME_TZ
-  let body = `<h1>Nội dung</h1>`
-  if (isFailed(c.stats)) return page('/_ab/noi-dung/', 'Nội dung', `${body}${failedBox(NO_STATS, c.stats)}`, c.now, tz)
+  let body = `<h1>Content and engine</h1>`
+  if (isFailed(c.stats)) return page('/_ab/noi-dung/', 'Content and engine', `${body}${failedBox(NO_STATS, c.stats)}`, c.now, tz)
   const s = c.stats
   body += `<p class="lede">${contentLede(s, c.now, tz)}</p>
-<nav class="jump" aria-label="Các phần của trang"><ul>${JUMP.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul></nav>`
+<nav class="jump" aria-label="On this page"><ul>${JUMP.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul></nav>`
   body += qualityHtml(c.quality) + totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s, c.low, c.reads, tz) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
-  return page('/_ab/noi-dung/', 'Nội dung', body, c.now, tz)
+  return page('/_ab/noi-dung/', 'Content and engine', body, c.now, tz)
 }
 
 /** The page as blocks, part by part in the page's order (its jump links aside). */
 export function contentSection(c: ContentPage): Section {
   const tz = c.tz ?? HOME_TZ
-  if (isFailed(c.stats)) return { title: 'Nội dung', blocks: [failedNote(NO_STATS, c.stats)] }
+  if (isFailed(c.stats)) return { title: 'Content and engine', blocks: [failedNote(NO_STATS, c.stats)] }
   const s = c.stats
   return {
-    title: 'Nội dung',
+    title: 'Content and engine',
     blocks: [note(textOf(contentLede(s, c.now, tz))), ...qualityBlocks(c.quality), ...totalsBlocks(s), ...growthBlocks(c.now, s, c.snapshots, tz), ...engineBlocks(c.now, s, tz), ...gapsBlocks(s, c.low, c.reads, tz), ...photosBlocks(s), ...readsBlocks(c.reads), ...talkBlocks(c.talk), ...clicksBlocks(c.clicks, c.now, tz), ...sourcesBlocks(s)],
   }
 }
 
-const TOTALS_HEAD = ['Loại', 'Bài', ...OTHER_LANGS.map(l => `Có tiếng ${LANG_VI[l]}`)]
+const TOTALS_HEAD = ['Kind', 'Items', ...OTHER_LANGS.map(l => `In ${LANG_NAME[l]}`)]
 function totalsParts(s: ContentStats) {
   const main = MAIN.reduce((n, k) => n + (s.inventory[k]?.total ?? 0), 0)
   const built = s.built ? LANGS.reduce((a, l) => a + s.built!.total[l], 0) : null
   return {
     tiles: [
-      { label: 'Bài (cá, cây, giống, bài viết)', value: fmt(main) },
-      { label: 'Trang đã build', value: built === null ? '—' : fmt(built), sub: s.built ? LANGS.map(l => `${LANG_VI[l]} ${fmt(s.built!.total[l])}`).join(' · ') : undefined },
-      { label: 'Ảnh trên trang', value: fmt(s.photos.pages), sub: `${fmt(s.photos.gallery.photos)} ảnh ở ${fmt(s.photos.gallery.pages)} trang ảnh` },
-      { label: 'Mục khác', value: fmt(OTHER.reduce((n, k) => n + (s.inventory[k]?.total ?? 0), 0)), sub: OTHER.filter(k => s.inventory[k]?.total).map(k => `${KIND[k].toLowerCase()} ${fmt(s.inventory[k]!.total)}`).join(' · ') },
+      { label: 'Items (fish, plants, breeds, guides)', value: fmt(main) },
+      { label: 'Pages built', value: built === null ? '—' : fmt(built), sub: s.built ? LANGS.map(l => `${LANG_NAME[l]} ${fmt(s.built!.total[l])}`).join(' · ') : undefined },
+      { label: 'Photos on pages', value: fmt(s.photos.pages), sub: `${fmt(s.photos.gallery.photos)} on ${fmt(s.photos.gallery.pages)} galleries` },
+      { label: 'Other items', value: fmt(OTHER.reduce((n, k) => n + (s.inventory[k]?.total ?? 0), 0)), sub: OTHER.filter(k => s.inventory[k]?.total).map(k => `${KIND[k].toLowerCase()} ${fmt(s.inventory[k]!.total)}`).join(' · ') },
     ] as Tile[],
     rows: ENTITY.filter(k => s.inventory[k]?.total).map(k => {
       const inv = s.inventory[k]!
@@ -118,36 +118,36 @@ const cells = (rows: string[][]): Cell[][] => rows.map(r => r.map(c => cellOf(c)
 
 function totalsHtml(s: ContentStats): string {
   const p = totalsParts(s)
-  return `<section aria-labelledby="tong"><h2 id="tong">Tổng</h2>${tiles(p.tiles)}
+  return `<section aria-labelledby="tong"><h2 id="tong">Totals</h2>${tiles(p.tiles)}
 <div class="scroll"><table>${headHtml(TOTALS_HEAD)}<tbody>${p.rows.map(rowHtml).join('')}</tbody></table></div></section>`
 }
 function totalsBlocks(s: ContentStats): Block[] {
   const p = totalsParts(s)
-  return [heading('Tổng', 2, 'tong'), figures(p.tiles), table(TOTALS_HEAD, cells(p.rows))]
+  return [heading('Totals', 2, 'tong'), figures(p.tiles), table(TOTALS_HEAD, cells(p.rows))]
 }
 
-const GROWTH_NONE = 'Mỗi đêm lưu tổng số một lần; cần ít nhất hai ngày để thấy tăng thêm bao nhiêu.'
+const GROWTH_NONE = 'The totals are saved once a night; growth shows after two nights.'
 const signed = (n: number) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${fmt(Math.abs(n))}`
-const BY_SOURCE_HEAD = ['Nguồn', 'Bài thêm']
-/** What "Tăng thêm" draws once two nights are kept: two charts, what each source added, and the note on how it's kept. */
+const BY_SOURCE_HEAD = ['Source', 'Items added']
+/** What "Growth" draws once two nights are kept: two charts, what each source added, and the note on how it's kept. */
 function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) {
   const open = openDay(now)
   // From the first day with a save before it (earlier ones aren't days of this count) to the day the next save closes.
   const days = lastDays(new Date(`${open}T00:00:00Z`), 30).filter(d => d > snaps[0]!.day)
   // That day so far: the running build's totals, which are what the next save keeps, less the last save.
   const kept = snaps.some(x => x.day === open) ? snaps : [...snaps, { day: open, totals: s.totals }]
-  const closes = { partialLast: true, ...(open === localDay(now, tz) ? {} : { lastSays: `sẽ chốt lúc ${hourMinute(savedAt(now), tz)}` }) }
+  const closes = { partialLast: true, ...(open === localDay(now, tz) ? {} : { lastSays: `closes at ${hourMinute(savedAt(now), tz)}` }) }
   const v = (k: EntityKind) => (t: Totals) => t.kinds[k]?.vi ?? 0
-  const missing = 'chưa lưu số liệu ngày này'
+  const missing = 'not saved that day'
   // New translations come in bursts: columns per day, not lines drawn between days as if they flowed.
   const charts: DayChart[] = [{
-    id: 'n-added', title: 'Bài mới mỗi ngày (tiếng Việt)', days, ...closes, missing,
-    series: [{ label: 'Cá', values: perDay(kept, days, v('fish')) }, { label: 'Cây', values: perDay(kept, days, v('plant')) }, { label: 'Bài viết, bài từ video', values: perDay(kept, days, t => v('guide')(t) + v('videoGuide')(t)) }],
-    empty: 'Chưa có bài mới nào trong những ngày đã lưu.',
+    id: 'n-added', title: 'New items by day (Vietnamese)', days, ...closes, missing,
+    series: [{ label: 'Fish', values: perDay(kept, days, v('fish')) }, { label: 'Plants', values: perDay(kept, days, v('plant')) }, { label: 'Guides and video guides', values: perDay(kept, days, t => v('guide')(t) + v('videoGuide')(t)) }],
+    empty: 'No new items on the days saved.',
   }, {
-    id: 'n-langs', title: 'Bài dịch mới mỗi ngày', days, ...closes, missing,
-    series: OTHER_LANGS.map(l => ({ label: LANG_VI[l], values: perDay(kept, days, t => inLang(t, l)) })),
-    empty: 'Chưa có bài dịch mới nào trong những ngày đã lưu.',
+    id: 'n-langs', title: 'New translations by day', days, ...closes, missing,
+    series: OTHER_LANGS.map(l => ({ label: LANG_NAME[l], values: perDay(kept, days, t => inLang(t, l)) })),
+    empty: 'No new translations on the days saved.',
   }]
   // What each source added over the last 7 days kept (or since the first day kept).
   const last = snaps.at(-1)!
@@ -156,15 +156,15 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
   const bySource = Object.entries(last.totals.sources).map(([id, n]) => ({ id, n: n - (from.totals.sources[id] ?? 0) })).filter(x => x.n).sort((a, b) => b.n - a.n)
   return {
     charts,
-    sourceTitle: `Theo nguồn, từ ${esc(from.day.slice(8, 10))}/${esc(from.day.slice(5, 7))}`,
+    sourceTitle: `By source, since ${esc(dayLabel(from.day))}`,
     sources: bySource.map(x => ({ label: esc(s.sources[x.id]?.name ?? x.id), value: x.n })) as Ranked[],
-    note: `Mỗi đêm lưu tổng số một lần, ${savedNote(now, tz)} (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Cột cuối là phần thêm từ lần lưu trước tới giờ, theo bản đang chạy trên site. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.`,
+    note: `The totals are saved once a night, ${savedNote(now, tz)} (your time): a day’s column is what the 24 hours to that save added. The last column is what was added since the last save, from the build on the site. A night that didn’t save is carried by the next save; a day with no figures is hatched.`,
   }
 }
 
 function growthHtml(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: string): string {
-  let out = '<section aria-labelledby="tang"><h2 id="tang">Tăng thêm</h2>'
-  if (isFailed(snaps)) return `${out}${failedBox('số liệu từng ngày', snaps)}</section>`
+  let out = '<section aria-labelledby="tang"><h2 id="tang">Growth</h2>'
+  if (isFailed(snaps)) return `${out}${failedBox('the daily totals', snaps)}</section>`
   if (snaps.length < 2) return `${out}<p class="muted">${GROWTH_NONE}</p></section>`
   const p = growthParts(now, s, snaps, tz)
   out += `<div class="charts">${p.charts.map(dayChart).join('')}`
@@ -173,15 +173,15 @@ function growthHtml(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: str
   return out
 }
 function growthBlocks(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: string): Block[] {
-  const out = [heading('Tăng thêm', 2, 'tang')]
-  if (isFailed(snaps)) return [...out, failedNote('số liệu từng ngày', snaps)]
+  const out = [heading('Growth', 2, 'tang')]
+  if (isFailed(snaps)) return [...out, failedNote('the daily totals', snaps)]
   if (snaps.length < 2) return [...out, note(GROWTH_NONE, 'muted')]
   const p = growthParts(now, s, snaps, tz)
   return [...out, ...p.charts.map(c => chart(c)), heading(textOf(p.sourceTitle), 3), rankBlock(p.sources, BY_SOURCE_HEAD, signed), note(p.note)]
 }
 
-const NO_ENGINE = 'Bản build này không có engine-state.'
-const ENGINE_HEAD = ['Nguồn', 'Còn chờ', 'Lỗi 3 lần', 'Bị chặn', 'Đổi gần nhất', 'Địa chỉ đã gặp', 'Thành trang', 'Bỏ qua']
+const NO_ENGINE = 'This build has no engine-state.'
+const ENGINE_HEAD = ['Source', 'Waiting', 'Failed 3 times', 'Blocked', 'Last change', 'Addresses found', 'Made pages', 'Skipped']
 /** What "Engine" draws: the sources waiting on the owner, the video queue, the rewrite, each page source and the last run. */
 function engineParts(now: Date, e: NonNullable<ContentStats['engine']>, tz: string) {
   const name = (id: string) => e.sources.find(r => r.id === id)?.name ?? id
@@ -193,18 +193,18 @@ function engineParts(now: Date, e: NonNullable<ContentStats['engine']>, tz: stri
   // What's stuck first: a source waiting on the owner, then the most still to do.
   const sources = e.sources.slice().sort((a, b) => Number(human.has(b.id)) - Number(human.has(a.id)) || b.waiting - a.waiting || b.found - a.found)
   return {
-    human: e.needsHuman.length ? `Cần bạn qua kiểm tra trình duyệt (Cloudflare, Turnstile) trong hồ sơ Chrome của engine: ${e.needsHuman.map(n => `<b>${esc(name(n.source))}</b> từ ${timeTag(n.since, tz, now)}`).join(', ')}.` : '',
+    human: e.needsHuman.length ? `Needs you to pass a browser check (Cloudflare, Turnstile) in the engine’s Chrome profile: ${e.needsHuman.map(n => `<b>${esc(name(n.source))}</b> since ${timeTag(n.since, tz, now)}`).join(', ')}.` : '',
     videoTiles: [
-      { label: 'Video chờ viết', value: fmt(v.waiting), sub: `trong ${fmt(v.listed)} video đã xếp hàng` },
-      { label: 'Đã viết', value: fmt(v.written), sub: `${fmt(written7)} bài trong 7 ngày gần nhất` },
-      { label: 'Bỏ qua', value: fmt(v.skipped), sub: 'không phải bài hướng dẫn, quá ngắn, chỉ cho hội viên…' },
-      { label: 'Lỗi 3 lần', value: fmt(v.failed) },
+      { label: 'Videos to write', value: fmt(v.waiting), sub: `of ${fmt(v.listed)} queued` },
+      { label: 'Written', value: fmt(v.written), sub: `${fmt(written7)} in the last 7 days` },
+      { label: 'Skipped', value: fmt(v.skipped), sub: 'not a how-to, too short, members only…' },
+      { label: 'Failed 3 times', value: fmt(v.failed) },
     ] as Tile[],
-    chart: { id: 'n-videos', title: 'Bài từ video viết mỗi ngày · 30 ngày', days: days.slice(1), series: [{ label: 'Bài', values: written.slice(1) }], partialLast: true, empty: 'Chưa viết bài nào trong 30 ngày.' } as DayChart,
-    rewriteTiles: [{ label: 'Đã viết lại', value: fmt(e.rewrite.done), meter: rewriteShare(e.rewrite), sub: `${pct(e.rewrite.done, e.rewrite.done + e.rewrite.waiting + e.rewrite.failed)} số trang cần viết lại` }, { label: 'Còn chờ', value: fmt(e.rewrite.waiting), sub: `${fmt(e.rewrite.failed)} lỗi` }] as Tile[],
+    chart: { id: 'n-videos', title: 'Video guides written by day · 30 days', days: days.slice(1), series: [{ label: 'Guides', values: written.slice(1) }], partialLast: true, empty: 'None written in 30 days.' } as DayChart,
+    rewriteTiles: [{ label: 'Rewritten', value: fmt(e.rewrite.done), meter: rewriteShare(e.rewrite), sub: `${pct(e.rewrite.done, e.rewrite.done + e.rewrite.waiting + e.rewrite.failed)} of the pages to rewrite` }, { label: 'Waiting', value: fmt(e.rewrite.waiting), sub: `${fmt(e.rewrite.failed)} failed` }] as Tile[],
     // The source, marked when it waits on the owner; the rest of its row as the page writes it.
-    rows: sources.map(r => ({ source: { text: r.name, ...(human.has(r.id) ? { sub: 'cần bạn', tone: 'wait' as const } : {}) } as Cell, cells: [fmt(r.waiting), fmt(r.failed), fmt(r.blocked), r.lastAt ? timeTag(r.lastAt, tz, now) : '—', `${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}`, fmt(r.done), fmt(r.skipped)] })),
-    note: `Thành trang: viết thành trang, hoặc gộp vào một trang có sẵn. Bỏ qua: trang danh mục, trùng, không phải cá. Lỗi 3 lần: thôi thử cho tới khi trang nguồn đổi.${e.lastRun ? ` Lần chạy gần nhất trên máy build: ${timeTag(e.lastRun.startedAt, tz, now)}–${esc(hourMinute(e.lastRun.finishedAt, tz))}, đổi ${fmt(e.lastRun.changed)} mục, ${fmt(e.lastRun.errors)} lỗi.` : ''}`,
+    rows: sources.map(r => ({ source: { text: r.name, ...(human.has(r.id) ? { sub: 'needs you', tone: 'wait' as const } : {}) } as Cell, cells: [fmt(r.waiting), fmt(r.failed), fmt(r.blocked), r.lastAt ? timeTag(r.lastAt, tz, now) : '—', `${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}`, fmt(r.done), fmt(r.skipped)] })),
+    note: `Made pages: written as a page, or merged into one there is. Skipped: index pages, duplicates, not fish. Failed 3 times: not tried again until the source page changes.${e.lastRun ? ` Last run on the build machine: ${timeTag(e.lastRun.startedAt, tz, now)}–${esc(hourMinute(e.lastRun.finishedAt, tz))}, ${fmt(e.lastRun.changed)} items changed, ${fmt(e.lastRun.errors)} errors.` : ''}`,
   }
 }
 
@@ -214,10 +214,10 @@ function engineHtml(now: Date, s: ContentStats, tz: string): string {
   if (!e) return `${out}<p class="muted">${NO_ENGINE}</p></section>`
   const p = engineParts(now, e, tz)
   if (p.human) out += `<div class="failed" role="status">${p.human}</div>`
-  out += `<h3 class="sub-h">Bài từ video YouTube</h3>${tiles(p.videoTiles)}
+  out += `<h3 class="sub-h">Guides from YouTube videos</h3>${tiles(p.videoTiles)}
 <div class="charts">${dayChart(p.chart)}
-<figure class="chart" aria-labelledby="n-rw"><figcaption><h3 id="n-rw">Viết lại tiếng Việt cũ</h3></figcaption>${tiles(p.rewriteTiles)}</figure></div>`
-  out += `<h3 class="sub-h">Nguồn trang</h3><div class="scroll"><table class="wide">${headHtml(ENGINE_HEAD)}<tbody>${p.rows.map(r => rowHtml([`${esc(r.source.text)}${r.source.sub ? ` <span class="chip bad">${esc(r.source.sub)}</span>` : ''}`, ...r.cells])).join('') || '<tr><td colspan="8" class="none">Chưa có.</td></tr>'}</tbody></table></div>
+<figure class="chart" aria-labelledby="n-rw"><figcaption><h3 id="n-rw">Rewriting old Vietnamese</h3></figcaption>${tiles(p.rewriteTiles)}</figure></div>`
+  out += `<h3 class="sub-h">Page sources</h3><div class="scroll"><table class="wide">${headHtml(ENGINE_HEAD)}<tbody>${p.rows.map(r => rowHtml([`${esc(r.source.text)}${r.source.sub ? ` <span class="chip bad">${esc(r.source.sub)}</span>` : ''}`, ...r.cells])).join('') || '<tr><td colspan="8" class="none">None yet.</td></tr>'}</tbody></table></div>
 <p class="note">${p.note}</p></section>`
   return out
 }
@@ -228,8 +228,8 @@ function engineBlocks(now: Date, s: ContentStats, tz: string): Block[] {
   const p = engineParts(now, e, tz)
   if (p.human) out.push(note(textOf(p.human), 'wait'))
   const rows = p.rows.map(r => [r.source, ...r.cells.map(c => cellOf(c))])
-  return [...out, heading('Bài từ video YouTube', 3), figures(p.videoTiles), chart(p.chart), heading('Viết lại tiếng Việt cũ', 3), figures(p.rewriteTiles),
-    heading('Nguồn trang', 3), table(ENGINE_HEAD, rows, { empty: 'Chưa có.' }), note(textOf(p.note))]
+  return [...out, heading('Guides from YouTube videos', 3), figures(p.videoTiles), chart(p.chart), heading('Rewriting old Vietnamese', 3), figures(p.rewriteTiles),
+    heading('Page sources', 3), table(ENGINE_HEAD, rows, { empty: 'None yet.' }), note(textOf(p.note))]
 }
 
 /** Guides written on each of `days`, counted by the viewer's day. */
@@ -243,7 +243,7 @@ export const writtenPerDay = (at: string[], days: string[], tz: string) => {
 }
 const rewriteShare = (r: { done: number; waiting: number; failed: number }) => (r.done + r.waiting + r.failed ? r.done / (r.done + r.waiting + r.failed) : undefined)
 
-const GAPS_NOTE = 'Đếm trên những trang đang có. Danh sách xếp loài phổ biến và loài cơ bản lên trước.'
+const GAPS_NOTE = 'Counted over the pages there are. Lists put common and beginner species first.'
 /** Each kind with something missing: what's missing, how many and what share, and the first pages to fix. */
 function gapsParts(s: ContentStats) {
   const kinds = (Object.keys(s.gaps) as EntityKind[]).filter(k => Object.keys(s.gaps[k] ?? {}).length)
@@ -252,10 +252,10 @@ function gapsParts(s: ContentStats) {
     const gaps = (Object.entries(s.gaps[k]!) as [GapKey, NonNullable<ContentStats['gaps'][EntityKind]>[GapKey]][]).filter(([, g]) => g && g.n).map(([key, g]) => ({
       n: g!.n, label: esc(GAP[key] ?? key), share: pct(g!.n, total), meter: total ? g!.n / total : undefined,
       by: g!.by ? `(${Object.entries(g!.by).map(([f, n]) => `${FACT[f] ?? f} ${fmt(n)}`).join(' · ')})` : '',
-      summary: g!.top.length ? (g!.n > g!.top.length ? `${fmt(g!.top.length)} trang đầu` : 'Xem các trang') : '',
+      summary: g!.top.length ? (g!.n > g!.top.length ? `The first ${fmt(g!.top.length)} pages` : 'See the pages') : '',
       top: g!.top,
     }))
-    return { kind: k, total, title: `${esc(KIND[k])} <span class="muted">· ${fmt(total)} bài</span>`, gaps }
+    return { kind: k, total, title: `${esc(KIND[k])} <span class="muted">· ${fmt(total)} items</span>`, gaps }
   }).filter(x => x.gaps.length)
 }
 
@@ -268,35 +268,35 @@ function gapsHtml(s: ContentStats, low: ContentPage['low'], reads: Soft<ContentR
     }).join('')
     return `<section class="gap"><h3 class="sub-h">${x.title}</h3><ul class="gaps">${rows}</ul></section>`
   }
-  return `<section aria-labelledby="thieu"><h2 id="thieu">Còn thiếu</h2><p class="note">${GAPS_NOTE}</p><div class="split">${gapsParts(s).map(block).join('')}</div>${lowHtml(s, low, reads, tz)}</section>`
+  return `<section aria-labelledby="thieu"><h2 id="thieu">Missing</h2><p class="note">${GAPS_NOTE}</p><div class="split">${gapsParts(s).map(block).join('')}</div>${lowHtml(s, low, reads, tz)}</section>`
 }
 /** Each kind: its heading, then each gap as a figure and, folded under it, the first pages to fix. */
 function gapsBlocks(s: ContentStats, low: ContentPage['low'], reads: Soft<ContentReads>, tz: string): Block[] {
-  return [heading('Còn thiếu', 2, 'thieu'), note(GAPS_NOTE), ...gapsParts(s).flatMap(x => [
+  return [heading('Missing', 2, 'thieu'), note(GAPS_NOTE), ...gapsParts(s).flatMap(x => [
     heading(textOf(x.title), 3),
     ...x.gaps.flatMap(g => [
       figures([{ label: textOf(`${g.label}${g.by ? ` ${g.by}` : ''}`), value: fmt(g.n), sub: g.share, meter: g.meter }]),
-      ...(g.summary ? [table(['Trang'], g.top.map(([path, name]) => [{ text: name, href: path }]), { folded: g.summary })] : []),
+      ...(g.summary ? [table(['Page'], g.top.map(([path, name]) => [{ text: name, href: path }]), { folded: g.summary })] : []),
     ]),
   ]), ...lowBlocks(s, low, reads, tz)]
 }
 
 /** The pages out of search for their score listed, the rest counted. */
 const LOW_LIST = 30
-const LOW_TITLE = 'Ẩn khỏi tìm kiếm vì điểm thấp'
-const NO_LOW = 'danh sách trang điểm thấp (reviews.json)'
-const LOW_NONE = 'Không có trang nào.'
-const NO_REVIEW = 'Chưa lưu lần đánh giá nào.'
-const NO_NOTES = 'Không có nhận xét.'
+const LOW_TITLE = 'Out of search for a low score'
+const NO_LOW = 'the low-score list (reviews.json)'
+const LOW_NONE = 'None.'
+const NO_REVIEW = 'No review kept yet.'
+const NO_NOTES = 'No notes.'
 /** What each of the engine's reviews read (scripts/content-stats.ts SCORE_REVIEWS). */
 const REVIEWED: Record<string, string> = {
-  'video-guide': 'bài viết từ video', translation: 'bản dịch từ nguồn', 'vi-rewrite': 'bản viết lại tiếng Việt', breed: 'trang giống cá', topic: 'bài AquaTome',
-  product: 'trang sản phẩm', localize: 'bản dịch', glossary: 'bản dịch thuật ngữ', equipment: 'bản dịch hướng dẫn thiết bị',
+  'video-guide': 'video guide', translation: 'translation from the source', 'vi-rewrite': 'Vietnamese rewrite', breed: 'breed page', topic: 'AquaTome guide',
+  product: 'product page', localize: 'translation', glossary: 'glossary translation', equipment: 'equipment guide translation',
 }
-const langName = (l: Lang) => (l === 'vi' ? LANG_VI.vi : `tiếng ${LANG_VI[l]}`)
+const langName = (l: Lang) => LANG_NAME[l]
 
 /**
- * "Ẩn khỏi tìm kiếm vì điểm thấp": how many pages of each kind, then the first LOW_LIST, the most read first when the
+ * "Out of search for a low score": how many pages of each kind, then the first LOW_LIST, the most read first when the
  * readers loaded (else the lowest score), each with its kind and language, score, readers, and what its last review found.
  */
 function lowParts(s: ContentStats, low: LowScores, reads: Soft<ContentReads>, tz: string) {
@@ -312,16 +312,16 @@ function lowParts(s: ContentStats, low: LowScores, reads: Soft<ContentReads>, tz
   const count = (by: Partial<Record<Lang, number>>) => LANGS.reduce((n, l) => n + (by[l] ?? 0), 0)
   const read = (p: LowPage) => readers?.[p.path] ?? 0
   const pages = [...low.pages].sort((a, b) => read(b) - read(a) || a.score - b.score || a.path.localeCompare(b.path))
-  const meta = (r: LastReview, score: number) => `Đánh giá ${REVIEWED[r.kind] ?? r.kind}, ${dayLabel(localDay(r.at, tz))}${r.score !== score ? `, ${fmt(r.score, 2)} điểm` : ''}${r.notes.length > 1 ? ` · ${fmt(r.notes.length)} nhận xét` : ''}${r.kept ? '' : ' · bản này không được giữ'}`
+  const meta = (r: LastReview, score: number) => `Review of the ${REVIEWED[r.kind] ?? r.kind}, ${dayLabel(localDay(r.at, tz))}${r.score !== score ? `, scored ${fmt(r.score, 2)}` : ''}${r.notes.length > 1 ? ` · ${fmt(r.notes.length)} notes` : ''}${r.kept ? '' : ' · that version wasn’t kept'}`
   return {
-    note: `Lần đánh giá chất lượng cho dưới ${fmt(low.bar, 2)} điểm, nên trang không có trong Google và sitemap cho tới khi được viết lại đạt điểm. Nhận xét là của bước đánh giá tự động, bằng tiếng Anh. ${readers && !isFailed(reads) ? `Trang nhiều người đọc nhất trong ${reads.days} ngày lên trước, rồi điểm thấp nhất.` : 'Chưa có số người đọc: điểm thấp nhất lên trước.'}`,
-    tiles: [...kinds].sort((a, b) => count(b[1]) - count(a[1])).map(([kind, by]) => ({ label: KIND[kind], value: fmt(count(by)), sub: LANGS.filter(l => by[l]).map(l => `${LANG_VI[l]} ${fmt(by[l]!)}`).join(' · ') })) as Tile[],
-    head: ['Trang', 'Loại', 'Điểm', ...(readers ? ['Người đọc'] : []), 'Nhận xét gần nhất'],
+    note: `The quality review scored these under ${fmt(low.bar, 2)}, so they stay out of Google and the sitemap until a rewrite passes. The notes are the automatic review’s. ${readers && !isFailed(reads) ? `The most read in ${reads.days} days first, then the lowest score.` : 'No reader figures: the lowest score first.'}`,
+    tiles: [...kinds].sort((a, b) => count(b[1]) - count(a[1])).map(([kind, by]) => ({ label: KIND[kind], value: fmt(count(by)), sub: LANGS.filter(l => by[l]).map(l => `${LANG_NAME[l]} ${fmt(by[l]!)}`).join(' · ') })) as Tile[],
+    head: ['Page', 'Kind', 'Score', ...(readers ? ['Readers'] : []), 'Last review'],
     rows: pages.slice(0, LOW_LIST).map(p => ({
       path: p.path, title: title.get(p.path) ?? p.path, kind: KIND[p.kind], lang: langName(langOf(p)), score: fmt(p.score, 2),
       readers: readers ? fmt(read(p)) : undefined, notes: p.review?.notes, meta: p.review && meta(p.review, p.score),
     })),
-    rest: low.pages.length > LOW_LIST ? `Và ${fmt(low.pages.length - LOW_LIST)} trang khác.` : '',
+    rest: low.pages.length > LOW_LIST ? `And ${fmt(low.pages.length - LOW_LIST)} more.` : '',
   }
 }
 
@@ -331,7 +331,7 @@ function whyHtml(notes: string[] | undefined, meta: string | undefined): string 
   const [first, ...rest] = notes
   const body = !first ? `<p class="muted">${NO_NOTES}</p>`
     : !rest.length ? `<p>${esc(first)}</p>`
-    : `<details><summary data-more="Xem cả ${fmt(notes.length)} nhận xét"><span>${esc(first)}</span></summary>\n<ul>${rest.map(n => `<li>${esc(n)}</li>`).join('\n')}</ul></details>`
+    : `<details><summary data-more="See all ${fmt(notes.length)} notes"><span>${esc(first)}</span></summary>\n<ul>${rest.map(n => `<li>${esc(n)}</li>`).join('\n')}</ul></details>`
   return `<td class="why">${body}\n<small>${esc(meta)}</small></td>`
 }
 
@@ -358,113 +358,113 @@ function lowBlocks(s: ContentStats, low: ContentPage['low'], reads: Soft<Content
   return [...out, note(p.note), figures(p.tiles), table(p.head, rows), ...(p.rest ? [note(p.rest)] : [])]
 }
 
-const LICENCE_HEAD = ['Giấy phép', 'Ảnh']
-const ORIGIN_HEAD = ['Nơi lấy', 'Ảnh']
+const LICENCE_HEAD = ['Licence', 'Photos']
+const ORIGIN_HEAD = ['From', 'Photos']
 function photosParts(s: ContentStats) {
   const p = s.photos
-  const cov = (['fish', 'plant', 'breed'] as const).filter(k => p.covered[k]).map(k => ({ label: `${KIND[k]} có ảnh`, value: pct(p.covered[k]!.with, p.covered[k]!.of), meter: p.covered[k]!.of ? p.covered[k]!.with / p.covered[k]!.of : undefined, sub: `${fmt(p.covered[k]!.with)} trên ${fmt(p.covered[k]!.of)}` }))
+  const cov = (['fish', 'plant', 'breed'] as const).filter(k => p.covered[k]).map(k => ({ label: `${KIND[k]} with a photo`, value: pct(p.covered[k]!.with, p.covered[k]!.of), meter: p.covered[k]!.of ? p.covered[k]!.with / p.covered[k]!.of : undefined, sub: `${fmt(p.covered[k]!.with)} of ${fmt(p.covered[k]!.of)}` }))
   const rank = (m: Record<string, number>): Ranked[] => Object.entries(m).sort((a, b) => b[1] - a[1]).map(([label, value]) => ({ label: esc(label), value }))
-  return { tiles: [...cov, { label: 'Chờ sao chép về máy chủ ảnh', value: fmt(p.waitingMirror), sub: 'chưa hiện ở bản công khai' }] as Tile[], licences: rank(p.byLicence), origins: rank(p.byOrigin) }
+  return { tiles: [...cov, { label: 'Waiting to copy to the photo server', value: fmt(p.waitingMirror), sub: 'not on the public site yet' }] as Tile[], licences: rank(p.byLicence), origins: rank(p.byOrigin) }
 }
 function photosHtml(s: ContentStats): string {
   const p = photosParts(s)
-  return `<section aria-labelledby="anh"><h2 id="anh">Ảnh</h2>${tiles(p.tiles)}
-<div class="split"><section><h3 class="sub-h">Theo giấy phép</h3>${rankTable(p.licences, LICENCE_HEAD)}</section><section><h3 class="sub-h">Theo nơi lấy</h3>${rankTable(p.origins, ORIGIN_HEAD)}</section></div></section>`
+  return `<section aria-labelledby="anh"><h2 id="anh">Photos</h2>${tiles(p.tiles)}
+<div class="split"><section><h3 class="sub-h">By licence</h3>${rankTable(p.licences, LICENCE_HEAD)}</section><section><h3 class="sub-h">By origin</h3>${rankTable(p.origins, ORIGIN_HEAD)}</section></div></section>`
 }
 function photosBlocks(s: ContentStats): Block[] {
   const p = photosParts(s)
-  return [heading('Ảnh', 2, 'anh'), figures(p.tiles), heading('Theo giấy phép', 3), rankBlock(p.licences, LICENCE_HEAD), heading('Theo nơi lấy', 3), rankBlock(p.origins, ORIGIN_HEAD)]
+  return [heading('Photos', 2, 'anh'), figures(p.tiles), heading('By licence', 3), rankBlock(p.licences, LICENCE_HEAD), heading('By origin', 3), rankBlock(p.origins, ORIGIN_HEAD)]
 }
 
-const READS_HEAD = ['Loại', 'Trang', 'Có người đọc', 'Người đọc', 'Lượt xem']
-const READ_TOP_HEAD = ['Trang', 'Người đọc', 'Lượt xem']
+const READS_HEAD = ['Kind', 'Pages', 'Read', 'Readers', 'Views']
+const READ_TOP_HEAD = ['Page', 'Readers', 'Views']
 function readsParts(r: ContentReads) {
   return {
-    lede: `${r.days} ngày gần nhất · người đọc: phiên cuộn ≥ 50% hoặc ở lại ≥ 30 giây, như trang Người đọc.`,
+    lede: `The last ${r.days} days · a reader is a tab that scrolled half the page or stayed 30 s, as on Readers.`,
     // Pages with a reader, and their share under it.
     rows: r.byKind.map((k): Cell[] => [{ text: KIND[k.kind] }, { text: fmt(k.pages) }, { text: fmt(k.read), ...(k.read ? { sub: pct(k.read, k.pages) } : {}) }, { text: fmt(k.readers) }, { text: fmt(k.views) }]),
     top: r.top.map(x => ({ label: link(x.path, x.title), value: x.readers, cells: [fmt(x.views)] })) as Ranked[],
-    unreadTitle: `${fmt(r.unread.n)} trang chưa ai đọc trong ${r.days} ngày`,
+    unreadTitle: `${fmt(r.unread.n)} pages nobody read in ${r.days} days`,
     unread: Object.entries(r.unread.byKind).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${KIND[k as PageKind]} ${fmt(n)}`).join(' · '),
-    unreadSummary: `${fmt(r.unread.pages.length)} trang đầu`,
-    elsewhere: r.elsewhere.views ? `${fmt(r.elsewhere.views)} lượt xem ở ${fmt(r.elsewhere.paths)} địa chỉ bản build này không có (địa chỉ cũ, trang đã gỡ, gõ sai).` : '',
+    unreadSummary: `The first ${fmt(r.unread.pages.length)} pages`,
+    elsewhere: r.elsewhere.views ? `${fmt(r.elsewhere.views)} views at ${fmt(r.elsewhere.paths)} addresses this build doesn’t have (old addresses, removed pages, typos).` : '',
   }
 }
 function readsHtml(r: Soft<ContentReads>): string {
-  const out = '<section aria-labelledby="doc"><h2 id="doc">Người đọc theo loại trang</h2>'
-  if (isFailed(r)) return `${out}${failedBox('người đọc theo trang', r)}</section>`
+  const out = '<section aria-labelledby="doc"><h2 id="doc">Readers by kind of page</h2>'
+  if (isFailed(r)) return `${out}${failedBox('readers by page', r)}</section>`
   const p = readsParts(r)
   return `${out}<p class="lede">${p.lede}</p>
-<div class="scroll"><table>${headHtml(READS_HEAD)}<tbody>${p.rows.map(r => rowHtml(r.map(c => `${esc(c.text)}${c.sub ? ` <span class="muted">${esc(c.sub)}</span>` : ''}`))).join('') || '<tr><td colspan="5" class="none">Chưa có.</td></tr>'}</tbody></table></div>
-<div class="split"><section><h3 class="sub-h">Trang nhiều người đọc nhất</h3>${rankTable(p.top, READ_TOP_HEAD)}</section>
+<div class="scroll"><table>${headHtml(READS_HEAD)}<tbody>${p.rows.map(r => rowHtml(r.map(c => `${esc(c.text)}${c.sub ? ` <span class="muted">${esc(c.sub)}</span>` : ''}`))).join('') || '<tr><td colspan="5" class="none">None yet.</td></tr>'}</tbody></table></div>
+<div class="split"><section><h3 class="sub-h">Most read pages</h3>${rankTable(p.top, READ_TOP_HEAD)}</section>
 <section><h3 class="sub-h">${p.unreadTitle}</h3><p class="note">${esc(p.unread)}</p>${r.unread.pages.length ? `<details><summary>${p.unreadSummary}</summary><ol class="pages">${r.unread.pages.map(x => `<li>${link(x.path, x.title)}</li>`).join('')}</ol></details>` : ''}
 ${p.elsewhere ? `<p class="note">${p.elsewhere}</p>` : ''}</section></div></section>`
 }
 function readsBlocks(r: Soft<ContentReads>): Block[] {
-  const out = [heading('Người đọc theo loại trang', 2, 'doc')]
-  if (isFailed(r)) return [...out, failedNote('người đọc theo trang', r)]
+  const out = [heading('Readers by kind of page', 2, 'doc')]
+  if (isFailed(r)) return [...out, failedNote('readers by page', r)]
   const p = readsParts(r)
-  return [...out, note(p.lede), table(READS_HEAD, p.rows, { empty: 'Chưa có.' }), heading('Trang nhiều người đọc nhất', 3), rankBlock(p.top, READ_TOP_HEAD),
-    heading(p.unreadTitle, 3), note(p.unread), ...(r.unread.pages.length ? [table(['Trang'], r.unread.pages.map(x => [{ text: x.title, href: x.path }]), { folded: p.unreadSummary })] : []),
+  return [...out, note(p.lede), table(READS_HEAD, p.rows, { empty: 'None yet.' }), heading('Most read pages', 3), rankBlock(p.top, READ_TOP_HEAD),
+    heading(p.unreadTitle, 3), note(p.unread), ...(r.unread.pages.length ? [table(['Page'], r.unread.pages.map(x => [{ text: x.title, href: x.path }]), { folded: p.unreadSummary })] : []),
     ...(p.elsewhere ? [note(p.elsewhere)] : [])]
 }
 
-const TALK_KIND_HEAD = ['Loại', 'Bình luận', 'Ảnh']
-const TALK_TOP_HEAD = ['Trang', 'Bình luận', 'Ảnh']
+const TALK_KIND_HEAD = ['Kind', 'Comments', 'Photos']
+const TALK_TOP_HEAD = ['Page', 'Comments', 'Photos']
 function talkParts(t: Talk) {
   return {
-    lede: `Đang hiện: ${fmt(t.comments)} bình luận, ${fmt(t.photos)} ảnh bạn đọc${t.elsewhere.comments || t.elsewhere.photos ? ` · ${fmt(t.elsewhere.comments)} bình luận và ${fmt(t.elsewhere.photos)} ảnh ở mục không còn trang` : ''}.`,
+    lede: `On the site: ${fmt(t.comments)} comments, ${fmt(t.photos)} reader photos${t.elsewhere.comments || t.elsewhere.photos ? ` · ${fmt(t.elsewhere.comments)} comments and ${fmt(t.elsewhere.photos)} photos on items with no page now` : ''}.`,
     kinds: t.byKind.map(k => ({ label: esc(KIND[k.kind]), value: k.comments, cells: [fmt(k.photos)] })) as Ranked[],
     top: t.top.map(x => ({ label: link(x.path, x.title), value: x.comments, cells: [fmt(x.photos)] })) as Ranked[],
   }
 }
 function talkHtml(t: Soft<Talk>): string {
-  const out = '<section aria-labelledby="binh-luan"><h2 id="binh-luan">Bình luận và ảnh bạn đọc theo trang</h2>'
-  if (isFailed(t)) return `${out}${failedBox('bình luận theo trang', t)}</section>`
+  const out = '<section aria-labelledby="binh-luan"><h2 id="binh-luan">Comments and reader photos by page</h2>'
+  if (isFailed(t)) return `${out}${failedBox('comments by page', t)}</section>`
   const p = talkParts(t)
   return `${out}<p class="lede">${p.lede}</p>
-<div class="split"><section><h3 class="sub-h">Theo loại</h3>${rankTable(p.kinds, TALK_KIND_HEAD)}</section>
-<section><h3 class="sub-h">Trang nhiều nhất</h3>${rankTable(p.top, TALK_TOP_HEAD)}</section></div></section>`
+<div class="split"><section><h3 class="sub-h">By kind</h3>${rankTable(p.kinds, TALK_KIND_HEAD)}</section>
+<section><h3 class="sub-h">Pages with the most</h3>${rankTable(p.top, TALK_TOP_HEAD)}</section></div></section>`
 }
 function talkBlocks(t: Soft<Talk>): Block[] {
-  const out = [heading('Bình luận và ảnh bạn đọc theo trang', 2, 'binh-luan')]
-  if (isFailed(t)) return [...out, failedNote('bình luận theo trang', t)]
+  const out = [heading('Comments and reader photos by page', 2, 'binh-luan')]
+  if (isFailed(t)) return [...out, failedNote('comments by page', t)]
   const p = talkParts(t)
-  return [...out, note(p.lede), heading('Theo loại', 3), rankBlock(p.kinds, TALK_KIND_HEAD), heading('Trang nhiều nhất', 3), rankBlock(p.top, TALK_TOP_HEAD)]
+  return [...out, note(p.lede), heading('By kind', 3), rankBlock(p.kinds, TALK_KIND_HEAD), heading('Pages with the most', 3), rankBlock(p.top, TALK_TOP_HEAD)]
 }
 
-const CLICK_KIND_HEAD = ['Loại', 'Lượt bấm']
-const CLICK_TOP_HEAD = ['Trang', 'Lượt bấm']
+const CLICK_KIND_HEAD = ['Kind', 'Clicks']
+const CLICK_TOP_HEAD = ['Page', 'Clicks']
 function clicksParts(k: KindClicks, now: Date, tz: string) {
   return {
-    lede: `${fmt(k.clicks)} lượt bấm sang sàn trong ${k.days} ngày (từ ${esc(k.since.slice(8, 10))}/${esc(k.since.slice(5, 7))}${sameClock(tz, HOME_TZ, now) ? '' : ', ngày theo giờ Việt Nam'})${k.elsewhere ? ` · ${fmt(k.elsewhere)} từ liên kết không gắn trang` : ''}.`,
+    lede: `${fmt(k.clicks)} clicks to the shops in ${k.days} days (since ${esc(dayLabel(k.since))}${sameClock(tz, HOME_TZ, now) ? '' : ', Vietnam’s days'})${k.elsewhere ? ` · ${fmt(k.elsewhere)} from links on no page` : ''}.`,
     kinds: k.byKind.map(x => ({ label: esc(KIND[x.kind]), value: x.clicks })) as Ranked[],
     top: k.top.map(x => ({ label: link(x.path, x.title), value: x.clicks })) as Ranked[],
   }
 }
 function clicksHtml(k: Soft<KindClicks>, now: Date, tz: string): string {
-  const out = '<section aria-labelledby="affiliate"><h2 id="affiliate">Affiliate theo loại trang</h2>'
-  if (isFailed(k)) return `${out}${failedBox('lượt bấm theo trang', k)}</section>`
+  const out = '<section aria-labelledby="affiliate"><h2 id="affiliate">Affiliate by kind of page</h2>'
+  if (isFailed(k)) return `${out}${failedBox('clicks by page', k)}</section>`
   const p = clicksParts(k, now, tz)
   return `${out}<p class="lede">${p.lede}</p>
-<div class="split"><section><h3 class="sub-h">Theo loại</h3>${rankTable(p.kinds, CLICK_KIND_HEAD)}</section>
-<section><h3 class="sub-h">Trang dẫn nhiều nhất</h3>${rankTable(p.top, CLICK_TOP_HEAD)}</section></div></section>`
+<div class="split"><section><h3 class="sub-h">By kind</h3>${rankTable(p.kinds, CLICK_KIND_HEAD)}</section>
+<section><h3 class="sub-h">Pages that send the most</h3>${rankTable(p.top, CLICK_TOP_HEAD)}</section></div></section>`
 }
 function clicksBlocks(k: Soft<KindClicks>, now: Date, tz: string): Block[] {
-  const out = [heading('Affiliate theo loại trang', 2, 'affiliate')]
-  if (isFailed(k)) return [...out, failedNote('lượt bấm theo trang', k)]
+  const out = [heading('Affiliate by kind of page', 2, 'affiliate')]
+  if (isFailed(k)) return [...out, failedNote('clicks by page', k)]
   const p = clicksParts(k, now, tz)
-  return [...out, note(textOf(p.lede)), heading('Theo loại', 3), rankBlock(p.kinds, CLICK_KIND_HEAD), heading('Trang dẫn nhiều nhất', 3), rankBlock(p.top, CLICK_TOP_HEAD)]
+  return [...out, note(textOf(p.lede)), heading('By kind', 3), rankBlock(p.kinds, CLICK_KIND_HEAD), heading('Pages that send the most', 3), rankBlock(p.top, CLICK_TOP_HEAD)]
 }
 
-const SOURCES_HEAD = ['Nguồn', 'Cá', 'Cây', 'Bài viết']
-const SOURCES_NOTE = 'Bài có chữ từ mỗi nguồn, như bản build cho thấy; một bài hai nguồn tính cho cả hai.'
+const SOURCES_HEAD = ['Source', 'Fish', 'Plants', 'Guides']
+const SOURCES_NOTE = 'Items with words from each source, as the build shows; an item with two sources counts for both.'
 const sourceRows = (s: ContentStats) => Object.values(s.sources).filter(x => x.fish + x.plant + x.guide).sort((a, b) => b.fish + b.plant + b.guide - (a.fish + a.plant + a.guide))
   .map(x => [esc(x.name), fmt(x.fish), fmt(x.plant), fmt(x.guide)])
 function sourcesHtml(s: ContentStats): string {
-  return `<section aria-labelledby="nguon"><h2 id="nguon">Nguồn nội dung</h2><p class="note">${SOURCES_NOTE}</p>
-<div class="scroll"><table>${headHtml(SOURCES_HEAD)}<tbody>${sourceRows(s).map(rowHtml).join('') || '<tr><td colspan="4" class="none">Chưa có.</td></tr>'}</tbody></table></div></section>`
+  return `<section aria-labelledby="nguon"><h2 id="nguon">Content sources</h2><p class="note">${SOURCES_NOTE}</p>
+<div class="scroll"><table>${headHtml(SOURCES_HEAD)}<tbody>${sourceRows(s).map(rowHtml).join('') || '<tr><td colspan="4" class="none">None yet.</td></tr>'}</tbody></table></div></section>`
 }
 function sourcesBlocks(s: ContentStats): Block[] {
-  return [heading('Nguồn nội dung', 2, 'nguon'), note(SOURCES_NOTE), table(SOURCES_HEAD, cells(sourceRows(s)), { empty: 'Chưa có.' })]
+  return [heading('Content sources', 2, 'nguon'), note(SOURCES_NOTE), table(SOURCES_HEAD, cells(sourceRows(s)), { empty: 'None yet.' })]
 }

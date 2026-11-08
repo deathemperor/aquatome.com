@@ -131,9 +131,9 @@ struct OwnerOverview: View {
     .ownerCard(padded: false)
   }
 
-  /// One line each, the thing and its page, its icon by kind, the readers' photos waiting as thumbnails; its detail is on
-  /// the page (the Design Lead, 8 Nov). At the largest text the thing takes up to three lines, its page under it. Nothing:
-  /// one line that says so.
+  /// Its icon by kind, its title on one line (up to three at the largest text), the line under it (the pages, or the
+  /// source) and the readers' photos waiting as thumbnails, as the site draws them (the Design Lead, 9 Nov). Nothing: one
+  /// line that says so.
   @ViewBuilder private func needs(_ d: Owner.Dashboard) -> some View {
     if d.needs.isEmpty {
       Label { Text(verbatim: d.needsEmpty) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(.green) }
@@ -141,34 +141,25 @@ struct OwnerOverview: View {
         .accessibilityIdentifier("owner-needs-empty")
     } else {
       list(d.needs.map { n in
-        let page = Self.page(n.to, in: d)
-        return draw.go(n.to, AnyView(HStack(spacing: 12) {
+        draw.go(n.to, AnyView(HStack(spacing: 12) {
           Image(systemName: Self.icon(n.kind)).font(.title3).foregroundStyle(n.tone.color).frame(width: 28).accessibilityHidden(true)
-          if size.isAccessibilitySize {
-            VStack(alignment: .leading, spacing: 2) {
-              Text(verbatim: n.text).lineLimit(3)
-              if let page { Text(verbatim: page).font(.subheadline).foregroundStyle(.secondary) }
+          VStack(alignment: .leading, spacing: 2) {
+            Text(verbatim: n.text).lineLimit(size.isAccessibilitySize ? 3 : 1)
+            if let sub = n.sub { Text(verbatim: sub).font(.subheadline).foregroundStyle(.secondary) }
+            if !size.isAccessibilitySize, !n.photos.isEmpty {
+              HStack(spacing: 4) { ForEach(n.photos.prefix(2).indices, id: \.self) { OwnerImage(src: n.photos[$0]).frame(width: 36, height: 36) } }
+                .padding(.top, 4)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-          } else {
-            Text(verbatim: n.text).lineLimit(1).frame(maxWidth: .infinity, alignment: .leading)
-            ForEach(n.photos.prefix(2).indices, id: \.self) { OwnerImage(src: n.photos[$0]).frame(width: 32, height: 32) }
-            if let page { Text(verbatim: page).font(.subheadline).foregroundStyle(.secondary).lineLimit(1).fixedSize() }
           }
+          .frame(maxWidth: .infinity, alignment: .leading)
           if n.to != nil { OwnerRow.chevron }
         }
         .padding(.horizontal, 16).padding(.vertical, 11)
         .contentShape(.rect)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(verbatim: OwnerDraw.said(n.text, page, n.tone.said)))), "owner-need")
+        .accessibilityLabel(Text(verbatim: OwnerDraw.said(n.text, n.sub, n.tone.said)))), "owner-need")
       })
     }
-  }
-
-  /// The page a line goes to, by its name in "Every page"; nil for one that goes elsewhere.
-  static func page(_ to: Owner.Destination?, in d: Owner.Dashboard) -> String? {
-    guard case .section(let key, _)? = to else { return nil }
-    return d.name(of: key)
   }
 
   static func icon(_ kind: String) -> String {

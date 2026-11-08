@@ -1,0 +1,74 @@
+{
+  "id": "hampala-salweenensis",
+  "native": {
+    "input": "60110ffe4e6214c2",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mae Surin River, a branch of Mae Pai River, at Ban Huei Phan, Mae Hong Son, northwestern Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mae Pai is itself a tributary of the Salween that joins the main river channel in the border state of Kayah, Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the River Salween basin although the full extent of its distribution within the watershed is unclear.",
+        "ok": true
+      },
+      {
+        "name": "Mae Pai",
+        "source": "seriouslyfish",
+        "quote": "The Mae Pai is itself a tributary of the Salween that joins the main river channel in the border state of Kayah, Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Nam Pang",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from the Nam Pang river, another tributary of the Salween located much further north in Shan State, Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hampala salweenensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2367426,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

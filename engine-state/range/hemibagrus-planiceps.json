@@ -1,0 +1,107 @@
+{
+  "id": "hemibagrus-planiceps",
+  "native": {
+    "input": "cfa92572d5065585",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It has been confused in the past with H. gracilis, H. velox and H. bongan, and the population once thought to inhabit northwestern Peninsular Malaysia has been described as H. divaricatus.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Citarum",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Ciliwung",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Cimanuk",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Cidurian",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Cikeas",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus planiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 2338184,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

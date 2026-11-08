@@ -1,0 +1,268 @@
+{
+  "id": "corydoras-gossei",
+  "scientificName": "Corydoras gossei",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "mamore",
+    "bolivia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Mamoré",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The palespotted cory, Hoplisoma gossei, long known as Corydoras gossei, is an armoured catfish from the rio Mamoré watershed in Rondônia state, northwestern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality.",
+          "countries": [],
+          "regions": [
+            "Rio Mamoré"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Mamoré is a major affluent within the upper rio Madeira, itself an important Amazon tributary with its confluence east of Manaus.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342735,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -11.25,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>The palespotted cory, Hoplisoma gossei, long known as Corydoras gossei, is an armoured catfish from the rio Mamoré watershed in Rondônia state, northwestern Brazil. It is also likely to occur in northern Bolivia, since the Mamoré forms the border between the two countries at the type locality. Also known as 'smokey cory' and 'Gosse's cory', it shares its colour pattern with Brochis seussi from the same river, which has a noticeably prolonged snout. A form referred to as 'CW069' appears intermediate between the two.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality. The Mamoré is a major affluent within the upper rio Madeira, itself an important Amazon tributary with its confluence east of Manaus.</p><p>Type locality is 'creek near Guajará Mirim, 10°50'S, 65°21'W, rio Mamoré system, Rondônia State, Brazil.'</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Standard length: 55 mm SL. Minimum base dimensions of 90 × 30 cm are recommended (about 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Corydoras spp. are foraging omnivores, and most will accept sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably broader and deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of two or more males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<p>Hoplisoma gossei is also known as 'smokey cory' and 'Gosse's cory' in the aquarium hobby.</p><p>The congener Brochis seussi, which is also native to the rio Mamoré, has a similar colour pattern but its snout is noticeably prolonged compared with that of H. gossei, plus there are some subtle differences in pigmentation. There is a third variant which has been referred to as 'CW069' in the aquarium hobby and appears to be somewhat intermediate, with a short, rounded snout as in H. gossei but a colour pattern more reminiscent of B. seussi.</p><p>The existence of multiple, similarly-coloured species which coexist and form large mixed schools is relatively common in the genus. In some cases Corydoras colour patterns have even evolved in other taxa, such as certain members of the genera Otocinclus, Brachyrhamdia, and Serrapinus. The reason for the success of such patterns is thought to be protection from predators in that they feature cryptic or otherwise disruptive details such as stripes, reticulations, or strongly-coloured fin spines. Similarly-patterned species may therefore have evolved to take advantage of foraging in a larger group while simultaneously adapting to exploit contrasting ecological niches. In Corydoras, this is typically expressed via differences in snout length or mouth position, for example.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "html": "<ul><li>Nijssen, H. (1972). Records of the catfish genus Corydoras from Brazil and French Guiana with descriptions of eight new species (Pisces, Siluriformes, Callichthyidae). Netherlands Journal of Zoology 21(4), 412-433</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0d8a5c883a2c31ba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0d8a5c883a2c31ba-480.webp",
+      "width": 820,
+      "height": 547,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "caption": "This species has a short, rounded snout compared with the similar-looking C. seussi.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d22ce894a5f7dca2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d22ce894a5f7dca2-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gossei",
+      "caption": "Specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "_1NI1u42Gws",
+      "title": "Corydoras gossei wild and 🇩🇪 bred",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EkM-xrFPlrY",
+      "title": "Corydoras gossei wild",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JgCu2bXmJrU",
+      "title": "corydoras gossei finally spawned",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kbzWvqOjMYc",
+      "title": "Corydoras gossei",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

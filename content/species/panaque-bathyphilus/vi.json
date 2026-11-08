@@ -3,21 +3,30 @@
   "name": "Cá nhớt L90a",
   "altNames": [
     "L90a",
-    "L90"
+    "L90",
+    "Papa Panaque",
+    "L090"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Panaque bathyphilus là loài cá lớn và rất đẹp. Màu sắc của chúng biến đổi rất nhiều giữa các cá thể. Một con dài 16-20 cm mới lớn được khoảng một nửa, vì P. bathyphilus có thể đạt chiều dài tối đa khoảng 60 cm.</p>",
     "distribution:glaser": "<p>P. bathyphilus sống ở Peru, quanh khu vực Tingo Maria.</p>",
     "aquariumSize:glaser": "<p>Cá to cỡ này thì chỉ nên nuôi trong bể lớn, có lọc thật mạnh.</p>",
     "diet:glaser": "<p>Giống mọi loài Panaque khác, P. bathyphilus chủ yếu ăn gỗ. Gỗ là món ăn nghèo dinh dưỡng, nên cá phải ăn nhiều và thải ra một lượng phân rất lớn. Đây cũng là một lý do nữa khiến bạn cần bể lớn và lọc mạnh.</p>",
-    "behaviour:glaser": "<p>Các con Panaque nuôi chung với nhau không hẳn hiền lành. Chúng có thể gây gổ và đánh nhau khá dữ. Dù vậy, L90 được xem là một trong những loài dễ chịu hơn về khoản này.</p>"
+    "behaviour:glaser": "<p>Các con Panaque nuôi chung với nhau không hẳn hiền lành. Chúng có thể gây gổ và đánh nhau khá dữ. Dù vậy, L90 được xem là một trong những loài dễ chịu hơn về khoản này.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Papa Panaque, L090</li><li>Tên đồng nghĩa: không có</li></ul>",
+    "distribution:scotcat": "<p>Peru: sông Solimões (thuộc lưu vực sông Amazon).</p>",
+    "habitat:scotcat": "<p>Loài này sống ở lòng sông sâu, vì thế mắt nó không có nắp che mống mắt (iris operculum). Cá sống càng sâu thì thân càng ít sắc tố.</p>",
+    "maintenance:scotcat": "<p>Trong bể, loài này hơi to khỏe và mạnh bạo. Nó cần nhiều chỗ trốn và lọc mạnh. Vì nó ăn gỗ nên bể bẩn nhanh, phải thay nước nhiều. Bể nuôi phải rộng.</p>",
+    "diet:scotcat": "<p>Mọi loài Panaque và cả chi Panaqolus đều ăn gỗ, nên trong bể phải có lũa. Cho ăn thêm rau như dưa leo, bí ngòi, và thức ăn viên chìm.</p>",
+    "notes:scotcat": "<p>Loài này lần đầu xuất hiện trên tạp chí DATZ của Đức vào tháng 1 năm 1992, mang mã L 90.</p><p>Mô tả: Panaque khác Panaqolus ở chỗ miệng hình bầu dục, hàm có những răng hình thìa rất lớn, mỗi răng một mấu, xếp thành hình chữ V. Panaqolus thì chỉ có ít răng hình thìa và cũng là chi nhỏ hơn.</p><p>Màu sắc: Cá con P. bathyphilus có vây đuôi trắng. Khi cá lớn lên, phần sau của vây đuôi sẫm đi một chút.</p><p>Từ nguyên: Tên loài bathyphilus nghĩa là \"ưa chỗ sâu\", ghép từ bathýs (sâu) và phílos (bạn, hoặc ưa thích). Tên này chỉ nơi sống của nó ở lòng sông sâu.</p><p>Danh sách đỏ IUCN: Thông tin về loài này còn ít, nhưng nó không gặp mối đe dọa nào rõ ràng và có vùng phân bố rộng. Vì vậy loài được xếp vào mức Ít quan tâm (LC) (IUCN 2023).</p>",
+    "references:scotcat": "<p>Lujan, NK and CC Chamon (2008) Two new species of Loricariidae (Teleostei: Siluriformes) from main channels of the upper and middle Amazon Basin, with discussion of deep water specialization in loricariids. Ichthyological Exploration of Freshwaters 19: 271–282.</p><p>Salvador, G.N. 2023. Panaque bathyphilus. The IUCN Red List of Threatened Species 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.8
+    }
   }
 }

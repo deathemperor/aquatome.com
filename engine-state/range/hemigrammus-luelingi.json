@@ -1,0 +1,92 @@
+{
+  "id": "hemigrammus-luelingi",
+  "native": {
+    "input": "3644f06aa47506ab",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hemigrammus ocellifer is actually much more common and widespread than H. luelingi, which is a common species in western Amazon basin, especially Peru and Colombia, but not elsewhere.\"",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hemigrammus ocellifer is actually much more common and widespread than H. luelingi, which is a common species in western Amazon basin, especially Peru and Colombia, but not elsewhere.\"",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Hemigrammus ocellifer is actually much more common and widespread than H. luelingi, which is a common species in western Amazon basin, especially Peru and Colombia, but not elsewhere.\"",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus luelingi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354359,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        30
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        14
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

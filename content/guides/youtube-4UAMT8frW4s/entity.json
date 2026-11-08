@@ -9,7 +9,7 @@
     "bedotia-geayi",
     "melanotaenia-boesemani"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "4UAMT8frW4s",
     "title": "INTERMEDIATE FISH:  Madagascar Rainbowfish ( Bedotia geayi )",
@@ -33,38 +33,47 @@
     ],
     "gear": [
       {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 4
+      },
+      {
         "category": "be-ca",
         "type": "chuan",
         "t": 0
-      },
-      {
-        "category": "suoi",
-        "type": "chinh-nhiet",
-        "t": 3
-      },
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 4
       }
     ],
     "figures": [
       {
-        "heading": "Nhiệt độ nước và sưởi",
+        "heading": "Cá cầu vồng Madagascar trông thế nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p1-ha3dhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p1-ha3dhcml1bS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p0-X2dlYXlpXzEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p0-X2dlYXlpXzEuanBn-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Ewkaa",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Cây sưởi bể cá có giác hút, dùng để giữ nước ấm ổn định."
+          "licence": "CC BY-SA 4.0",
+          "author": "NasserHalaweh",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaeniidae_Bedotia_geayi_1.jpg",
+          "caption": "Cá cầu vồng Madagascar với đuôi đỏ đậm bơi trong bể cây xanh."
         }
       },
       {
-        "heading": "Bể cần to cỡ nào",
+        "heading": "Giá và chuyện tìm mua",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p1-hcmllbnNpcy5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p1-hcmllbnNpcy5wbmc-480.webp",
+          "width": 960,
+          "height": 439,
+          "licence": "CC BY 3.0",
+          "author": "Loiselle P. V., Rodriguez D.",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bedotia_madagascariensis.png",
+          "caption": "Hai con cá cầu vồng màu nổi bơi trong bể trồng cây, lót sỏi."
+        }
+      },
+      {
+        "heading": "Tính cách và nuôi chung",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/4UAMT8frW4s/p2-dfem9vKS0xLkpQRw.webp",
@@ -74,7 +83,35 @@
           "licence": "CC BY-SA 3.0",
           "author": "Guérin Nicolas (messages)",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bedotia_geayi_(Wroclaw_zoo)-1.JPG",
-          "caption": "Một đàn cá bơi cùng nhau trong bể, cần không gian rộng khi trưởng thành."
+          "caption": "Mấy con cá cùng bơi chung trong bể, trông khá hòa thuận."
+        }
+      },
+      {
+        "heading": "Nhiệt độ nước và sưởi",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p3-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p3-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Thanh sưởi bể cá có giác hút, dùng để giữ nước ấm ổn định."
+        }
+      },
+      {
+        "heading": "Bể cần rộng bao nhiêu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4UAMT8frW4s/p4-uazFsaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/4UAMT8frW4s/p4-uazFsaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 517,
+          "licence": "Public domain",
+          "author": "Johnskate17",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:40tank1light.jpg",
+          "caption": "Bể cá cảnh trồng cây với đàn cá nhỏ bơi lội."
         }
       }
     ]

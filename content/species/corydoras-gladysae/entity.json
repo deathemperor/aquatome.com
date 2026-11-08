@@ -1,0 +1,222 @@
+{
+  "id": "corydoras-gladysae",
+  "scientificName": "Corydoras gladysae",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "rio-calchaqui"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR"
+      ],
+      "regions": [
+        "Río Calchaquí",
+        "Río Paraná"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known only from two localities within the Río Calchaquí watershed in Salta province, northwestern Argentina.",
+          "countries": [
+            "AR"
+          ],
+          "regions": [
+            "Río Calchaquí"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Calchaquí is a tributary within the upper Río Paraná basin.",
+          "countries": [],
+          "regions": [
+            "Río Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961329,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 16
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>Hoplisoma gladysae, long known as Corydoras gladysae, is an armoured catfish known only from two localities in the Río Calchaquí watershed in Salta province, northwestern Argentina. The Calchaquí is a swift, snow-fed mountain river with hard water, and the species shows adaptations to life among rocks in flowing water, including a cryptic colour pattern, short fin spines and reduced body depth. It is unlikely to be collected for commercial purposes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>Currently known only from two localities within the Río Calchaquí watershed in Salta province, northwestern Argentina. The Calchaquí is a tributary within the upper Río Paraná basin.</p><p>Type locality is 'Calchaquí River, 25°02'59\"S, 66°06'25\" W, Payogasta, Cachi Department, Salta Province, Argentina, elevation 2430 meters'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>The Río Calchaquí rises at almost 6000 m AMSL and flows swiftly through a mountainous valley where it is largely fed by snow melt. The climate is semi-arid and cool with an air temperature of 12–18°C, while rainfall is largely concentrated during summer when the flow can be torrential. The water is hard and rich in salts, with pH measured at 8.04 during the month of August. Aquatic vegetation and filamentous algae grow around the margins and in tributaries.</p><p>Not many fishes have adapted to survive these conditions, but those that have are largely endemic and often restricted to particular stretches of the river. Species collected alongside Hoplisoma gladysae include Bryconamericus rubropictus, Ixinandria steinbachi, Heptapterus mustelinus, Jenynsia maculata and Trichomycterus spegazzinii, plus the introduced predator Onchorhyncus mykiss which may be pressurising communities of small, native species.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>Base dimensions of 60 × 30 cm or larger should be adequate (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security. In the case of Hoplisoma gladysae some water-worn rocks would seem appropriate.</p><p>A high level of oxygenation and close attention to water quality and temperature should be considered mandatory given its natural habitat.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<ul><li>Temperature: 8–16°C</li><li>pH: 7.5–8.5</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>Corydoras spp. are foraging omnivores, and most will accept sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<p>Hoplisoma gladysae is not currently present in the aquarium hobby, and unlikely to be collected for commercial purposes given its natural range and habitat.</p><p>The species can be distinguished from all congeners by the following combination of unique characters: ossified portion of dorsal spine very short, measuring 7.6–10.6% SL (mean 9.2%); pectoral-fin spines short, measuring 11.9–17.4% SL (mean 14.8%); caudal-fin slightly emarginate.</p><p>It also exhibits morphological adaptations to an existence among rocks in a flowing environment, such as a cryptic colour pattern, reduced spine length in the dorsal and pectoral fins, ventrally-oriented pectoral fins, slightly emarginate caudal-fin, and reduced body depth.</p><p>Reduced fin spines and body depth are typical features associated with the related genus Aspidoras, but the cranial morphology of H. gladysae is typical of Corydoras with no foramen in the supraoccipital, for example.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "html": "<ul><li>Calviño, P. A. and F. Alonso (2010). Two new species of the genus Corydoras (Ostariophysi: Siluriformes: Callichthyidae) from northwestern Argentina, and redescription of C. micracanthus Regan, 1912. Revista del Museo Argentino de Ciencias Naturales, n.s. 11(2), 199-214</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/735a3feacb21e792.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/735a3feacb21e792-480.webp",
+      "width": 820,
+      "height": 481,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "caption": "MACN 9232, live holotype, 35.0 mm SL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/563cb2849d831b29.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/563cb2849d831b29-480.webp",
+      "width": 820,
+      "height": 449,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "caption": "Detail of body and fins; note the short spinous dorsal and pectoral fin rays.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e2cf6025fc433d1a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e2cf6025fc433d1a-480.webp",
+      "width": 820,
+      "height": 615,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-gladysae",
+      "caption": "The Río Calchaquí at Cachi in Saltas province, Argentina; one of two known localities for this species.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy sục khí",
+        "lọc thùng bể 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}
