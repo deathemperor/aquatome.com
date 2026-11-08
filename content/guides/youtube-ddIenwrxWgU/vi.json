@@ -48,5 +48,13 @@
     "bySource": {
       "youtube": 0.85
     }
+  },
+  "held": {
+    "checks": [
+      "kit",
+      "price",
+      "source"
+    ],
+    "at": "2026-11-08"
   }
 }
