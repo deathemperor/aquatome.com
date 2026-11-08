@@ -76,6 +76,22 @@ test('readers count from the reset: every beacon query reads from then on, and t
   expect(readersSection(now, before, tz).blocks.find((b): b is ChartBlock => b.kind === 'chart')!.series[0]!.values.every(v => v !== null)).toBe(true)
 })
 
+test('our runs from before the network mark are left out of every reader query, and the readers page lists each with its tabs', async () => {
+  const { OUR_RUNS, SINCE_RESET, COUNTED } = await import('../admin/ae')
+  // 7–8 Nov 2026, from this Mac, before our network was marked: 56 and 23 tabs, every one inside its run.
+  expect(OUR_RUNS.map(r => [r.cc, r.from, r.to, r.tabs])).toEqual([['VN', '2026-11-07T20:40:00Z', '2026-11-07T21:24:00Z', 56], ['VN', '2026-11-08T00:28:00Z', '2026-11-08T00:44:00Z', 23]])
+  for (const q of [SINCE_RESET, COUNTED]) {
+    expect(q).toContain("NOT (blob6 = 'VN' AND timestamp >= toDateTime('2026-11-07 20:40:00') AND timestamp < toDateTime('2026-11-07 21:24:00'))")
+    expect(q).toContain("NOT (blob6 = 'VN' AND timestamp >= toDateTime('2026-11-08 00:28:00') AND timestamp < toDateTime('2026-11-08 00:44:00'))")
+  }
+  const r = summariseReaders([], [], 14)
+  const html = readersPage(new Date('2026-11-08T14:00:00Z'), r, 'UTC')
+  expect(html).toContain('Ours before our network was marked: VN')
+  expect(html).toMatch(/Ours before our network was marked: VN, [^<]*20:40[^<]* to [^<]*21:24<\/[^>]+>(?:<[^>]+>)*56\b/)
+  // Gone from the page once they're older than its days; the count leaves them out still.
+  expect(readersPage(new Date('2026-11-30T00:00:00Z'), r, 'UTC')).not.toContain('Ours before our network was marked')
+})
+
 test('Analytics Engine IF() needs one type: decimal columns default to 0.0 (an integer 0 is a 422)', async () => {
   const { readFileSync } = await import('node:fs')
   for (const f of ['../readers.ts', '../admin/fishid.ts', '../admin/content.ts']) {

@@ -49,6 +49,10 @@ clients with no `Accept-Language`, our own checks and the owner. It needs the pa
 blocker stops `/_e` isn't counted. On 4-5 November every Google visit Cloudflare Web Analytics saw was in the beacon too, 10
 of 10, so that loss looks small. Analytics Engine keeps about 3 months, enough for the 12 weeks.
 
+Two runs of our own checks from before our network was marked are left out by time, as the 5 November reset was
+(`OUR_RUNS`, `worker/admin/ae.ts`): tabs from Vietnam on 7 November, 20:40 to 21:24 UTC (56), and on 8 November, 00:28 to
+00:44 UTC (23). They were a third of the tabs counted until then, so the week's sessions dip; the readers page lists them.
+
 ## Act
 
 | Key | What it counts | Baseline |

@@ -5004,7 +5004,7 @@
           },
           {
             "kind": "note",
-            "text": "Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link), and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.",
+            "text": "Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link); two runs of ours from before our network was marked are left out by time; and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.",
             "tone": "plain"
           },
           {
@@ -5068,6 +5068,28 @@
                 },
                 {
                   "text": "6"
+                }
+              ],
+              [
+                {
+                  "text": "Ours before our network was marked: VN, 08/11 03:40 to 08/11 04:24"
+                },
+                {
+                  "text": "56"
+                },
+                {
+                  "text": "—"
+                }
+              ],
+              [
+                {
+                  "text": "Ours before our network was marked: VN, 08/11 07:28 to 08/11 07:44"
+                },
+                {
+                  "text": "23"
+                },
+                {
+                  "text": "—"
                 }
               ]
             ],
