@@ -4,7 +4,7 @@ import { basedOn, breedGallery, breedsOf, careCard, type Breed } from './breeds'
 import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { isVietnamese, type Lang } from './i18n'
 import { guidesMentioning, linkTargets } from './mentions'
-import { distinctPhotos, pagePictures, takeEach } from './pictures'
+import { distinctPhotos, pagePictures, takeEach, videoCovers } from './pictures'
 
 /**
  * A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. `vi`: that
@@ -17,7 +17,7 @@ export type BreedParent = { name: string; sci?: string; path?: string; certain: 
  * What a breed's page shows, put together once for the page (pages/ca/[breed].astro) and for the app's copy of it
  * (lib/app-page.ts): what it's a form of, a hybrid's parents, its data card, its gallery strip, its own text with the
  * pages it names linked, its lines and the guides that name it. Every picture once, in page order (lib/pictures.ts):
- * the photo, the gallery's first photos, the lines' cards.
+ * the photo, the gallery's first photos, the lines' cards, the video guides' cards.
  */
 export function breedParts(lang: Lang, c: Content, b: Breed) {
   const key = `breed:${b.id}`
@@ -39,10 +39,11 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   // Its own text links the species, glossary terms and other pages it names, never itself.
   const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
   const mentioning = guidesMentioning(c, key)
+  const videoGuides = mentioning.filter(g => g.video)
   return {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
     // Its gallery page, once there are enough photos for one.
     galleryPath: gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined,
-    lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
+    lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: videoCovers(c, pics, videoGuides),
   }
 }

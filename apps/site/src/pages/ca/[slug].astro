@@ -46,7 +46,7 @@ const jsonld = [
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
+const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides, videoPhotos } = await speciesParts(lang, c, s)
 // The shop's tank row says the minimum tank the data card gives.
 const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
@@ -107,7 +107,7 @@ const alternates = await alternatesOf('species', s.id)
   </>)}
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
-  <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
+  <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
 
   <VideoFacade videos={videos} />
   <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />
