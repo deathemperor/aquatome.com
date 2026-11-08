@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "tau-i3HxVFQ",
     "title": "[Vlog Thuỷ sinh] Đại chiến Rêu Hại (Phần 2): Cuộc chiến hóa học #Greenhappiness",
@@ -32,143 +32,147 @@
         "category": "khac",
         "brand": "Seachem",
         "model": "Excel",
-        "t": 66
-      },
-      {
-        "category": "khac",
-        "brand": "Seachem",
-        "model": "C-Chem",
-        "t": 66
+        "t": 61
       },
       {
         "category": "khac",
         "brand": "Ista",
         "model": "Algae Remove",
-        "t": 66
+        "t": 61
+      },
+      {
+        "category": "khac",
+        "brand": "C-Chem",
+        "t": 61
       }
     ],
     "figures": [
       {
-        "heading": "Nên dùng loại thuốc nào",
+        "heading": "Vì sao dùng thuốc trước khi thả cá tép ăn rêu",
+        "moments": [
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hồ thủy sinh nền cỏ xanh với đá, cây đỏ, sạch rêu hại."
+          },
+          {
+            "t": 34,
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at34.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh thảm cây xanh và cây đỏ khỏe mạnh, không có rêu hại."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/tau-i3HxVFQ/p0-0ZXJfRmlzaC5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/tau-i3HxVFQ/p0-0ZXJfRmlzaC5wbmc-480.webp",
+          "width": 940,
+          "height": 788,
+          "licence": "CC BY-SA 4.0",
+          "author": "Chamika Ranaweera",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_Algae_Eater_Fish.png",
+          "caption": "Đàn cá ăn rêu sọc đang bơi quanh khúc lũa phủ rêu trong hồ thủy sinh."
+        }
+      },
+      {
+        "heading": "Chọn loại thuốc nào",
         "moments": [
           {
             "t": 423,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t423.webp",
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at423.webp",
             "width": 160,
             "height": 90,
             "caption": "Chai Seachem Excel cầm trên tay, nhìn rõ nhãn thuốc."
           },
           {
             "t": 438,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t438.webp",
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at438.webp",
             "width": 160,
             "height": 90,
-            "caption": "Mặt sau chai thuốc với phần hướng dẫn liều dùng."
+            "caption": "Mặt sau chai thuốc với hướng dẫn liều dùng của nhà sản xuất."
           }
         ]
       },
       {
-        "heading": "Xịt cả bể khi rêu lan khắp nơi",
+        "heading": "Xử lý toàn bộ bể bằng bình xịt",
         "moments": [
           {
             "t": 216,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t216.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể rút cạn nước, cầm bình xịt phun lên phần cây lộ ra."
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at216-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Xịt thuốc bằng bình xịt lên cây thủy sinh khi đã rút nước bể."
           },
           {
             "t": 226,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t226.webp",
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at226.webp",
             "width": 160,
             "height": 90,
-            "caption": "Xịt thuốc lên cây và lũa phủ rêu hại khi bể đã rút nước."
+            "caption": "Cận cảnh xịt đều lên lũa phủ rêu hại và cây thủy sinh."
           }
         ]
       },
       {
-        "heading": "Bơm thuốc tại chỗ khi bể vẫn còn nước",
+        "heading": "Bơm thuốc trực tiếp vào vùng rêu, không cần rút nước",
         "moments": [
           {
             "t": 462,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t462.webp",
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at462.webp",
             "width": 160,
             "height": 90,
-            "caption": "Hút thuốc diệt rêu vào ống xi lanh nhỏ trước khi bơm."
+            "caption": "Xi lanh và các chai thuốc diệt rêu đặt trên bàn."
           },
           {
-            "t": 492,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t492.webp",
+            "t": 472,
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at472.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đầu xi lanh đưa sát đám rêu hại để bơm thuốc tại chỗ."
+            "caption": "Cận cảnh bụi cây thủy sinh xanh dày trong bể."
           }
         ]
       },
       {
-        "heading": "Dùng oxy già thế nào cho an toàn",
+        "heading": "Dùng oxy già 3% cho rêu trên đá và lũa",
         "moments": [
           {
             "t": 305,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t305.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa phủ rêu hại, xung quanh là thảm rêu thủy sinh cần tránh."
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khúc lũa phủ rêu sau khi chấm oxy già."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/tau-i3HxVFQ/p3-Blcm94aWRlLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/tau-i3HxVFQ/p3-Blcm94aWRlLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/tau-i3HxVFQ/p4-Blcm94aWRlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/tau-i3HxVFQ/p4-Blcm94aWRlLmpwZw-480.webp",
           "width": 960,
           "height": 1548,
           "licence": "Public domain",
           "author": "User:Yanachka",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrogen_peroxide.jpg",
-          "caption": "Chai oxy già 3% dùng để chấm diệt rêu hại bám trên đá và lũa."
+          "caption": "Chai oxy già (hydrogen peroxide) 3% dùng để chấm rêu hại trên đá và lũa."
         }
       },
       {
-        "heading": "Lịch xử lý mấy ngày liền",
+        "heading": "Một đợt điều trị diễn ra thế nào",
         "moments": [
           {
             "t": 531,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t531.webp",
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at531.webp",
             "width": 160,
             "height": 90,
-            "caption": "Rêu hại phủ dày trên lũa và cây trong bể thủy sinh."
+            "caption": "Rêu hại bám dày trên lũa và cây trong bể trước khi điều trị."
           },
           {
             "t": 556,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/t556.webp",
+            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at556.webp",
             "width": 160,
             "height": 90,
-            "caption": "Tép đỏ vẫn khỏe mạnh bên lũa và cỏ trong bể."
+            "caption": "Tép đỏ vẫn khỏe mạnh giữa rêu và cỏ trong bể sau điều trị."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/tau-i3HxVFQ/p4-JkX2FsZ2FlLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/tau-i3HxVFQ/p4-JkX2FsZ2FlLnBuZw-480.webp",
-          "width": 873,
-          "height": 556,
-          "licence": "CC BY 3.0",
-          "author": "Emboli",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu hại dạng chùm đen mọc bám trên lá cây thủy sinh trong bể."
-        }
-      },
-      {
-        "heading": "Sau khi rêu yếu đi thì làm gì tiếp",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/tau-i3HxVFQ/p5-pZXItMTkwNC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/tau-i3HxVFQ/p5-pZXItMTkwNC5qcGc-480.webp",
-          "width": 960,
-          "height": 609,
-          "licence": "CC BY-SA 3.0",
-          "author": "DirkBlankenhaus",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina-simoni-simoni-Bourvier-1904.jpg",
-          "caption": "Tép ăn rêu bò trên đám rêu xanh trong bể thủy sinh."
-        }
+        ]
       }
     ]
   }
