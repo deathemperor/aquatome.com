@@ -57,8 +57,8 @@ const alternates = await alternatesOf('species', s.id)
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>
   </nav>
   {/* Answer first, in reading order (a screen reader's too): the name and the four facts a reader decides by, the full
-      card folded under them on a phone, the summary, the photo; then the care text. A computer shows the photo column
-      beside them, the card open. */}
+      card folded under them on a phone, the summary, the photo and a row of the gallery's thumbnails; then the care
+      text. A computer shows the photo column beside them, the card open. */}
   <header class:list={['wrap top', s.photos.length === 0 && 'bare']}>
     <div class="id">
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
@@ -98,13 +98,9 @@ const alternates = await alternatesOf('species', s.id)
     {showMates ? <Companions slot="behaviour" {...mates} tool={tool} /> : <p slot="behaviour" class="srcline mates-tool"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
   </Sections>
   {kit && <div class="wrap"><ProductSlots slots={s.productSlots} heading={t('Chuẩn bị để nuôi {name}', { name: s.t.name })} entity={`species:${s.id}`} tankCm={typeof tank === 'number' ? tank : undefined} /></div>}
-  {/* The gallery's thumbnails, after the care text: a page with no photo of its own has them here; a phone gets the photo
-      column's here too (moved, so its reading order is the order it shows in). */}
+  {/* The gallery's thumbnails, after the care text, on a page with no photo of its own. A page with one has them under
+      its photo, on a phone too (a single row: GalleryStrip.astro). */}
   {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} readers />}
-  {s.photos.length > 0 && strip.some(Boolean) && (<>
-    <div class="wrap" id="anh-dien-thoai"></div>
-    <script is:inline>(function () { var home = document.getElementById('anh-dien-thoai'), strip = document.querySelector('header.top .side > .strip'), m = matchMedia('(max-width: 860px)'); if (!strip) return; var side = strip.parentNode; var place = function () { (m.matches ? home : side).append(strip) }; place(); m.addEventListener('change', place) })()</script>
-  </>)}
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
@@ -119,7 +115,7 @@ const alternates = await alternatesOf('species', s.id)
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
   .crumb a { color: var(--c-ink-soft); }
   /* Computer: the photo column on the left (the photo, then the gallery's thumbnails), name, card and summary on the right.
-     Phone: one column in reading order: name and key facts, the card folded, the summary, the photo. */
+     Phone: one column in reading order: name and key facts, the card folded, the summary, the photo and its thumbnails. */
   .top { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto auto 1fr; grid-template-areas: 'photo id' 'photo facts' 'photo qs'; column-gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
   .top.bare { grid-template-columns: minmax(0, 40rem); grid-template-areas: 'id' 'facts' 'qs'; }
   .id { grid-area: id; }

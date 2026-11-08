@@ -1,0 +1,56 @@
+{
+  "id": "glyptothorax-verrucosus",
+  "native": {
+    "input": "3a4f50b6c23c669f",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: India: Mizoram: Lawntlai District: Koladyne River at Kolchaw.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Presently only known from the Koladyne River in Mizoram, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Koladyne River",
+        "source": "planetcatfish",
+        "quote": "Presently only known from the Koladyne River in Mizoram, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptothorax verrucosus",
+    "status": "ACCEPTED",
+    "taxonKey": 8094975,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

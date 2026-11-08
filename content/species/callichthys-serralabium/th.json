@@ -1,0 +1,24 @@
+{
+  "slug": "callichthys-serralabium",
+  "name": "ซอว์ลิปแคทฟิช",
+  "altNames": [
+    "Sawlipped Catfish",
+    "Armoured Catfish",
+    "คาลลิคทิส"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Callichthys serralabium Lehmann A. &amp; Reis, 2004</li><li>ชื่อสามัญ: Sawlipped Catfish, Armoured Catfish</li><li>ลักษณะเด่น: เมื่อมองจากด้านล่าง ริมฝีปากล่างมีขอบขรุขระเป็นลอนคลื่น ปลาวัยอ่อนมีลวดลายแถบตั้งที่เด่นชัดกว่า</li><li>สถานภาพใน IUCN Red List: กังวลน้อยที่สุด (Least Concern) (ประเมินล่าสุดปี 2020)</li></ul>",
+    "distribution:planetcatfish": "<p>อเมริกาใต้: ลุ่มแม่น้ำโอรีโนโกตอนบนและลุ่มแม่น้ำเนโกรตอนล่างในระบบแม่น้ำแอมะซอน ในประเทศเวเนซุเอลาและบราซิล</p><p>แหล่งที่พบตัวอย่างต้นแบบ (type locality): Laguna Tonina ห่างจาก La Esmeralda ขึ้นไปทางต้นน้ำ 1 กิโลเมตร แม่น้ำโอรีโนโกตอนบน La Esmeralda รัฐอามาโซนัส ประเทศเวเนซุเอลา</p>",
+    "dimorphism:planetcatfish": "<p>ปลาตัวผู้จะมีก้านครีบแรกของครีบอกหนาขึ้นและเป็นสีส้มสด ส่วนตัวเมียมีก้านครีบแรกเรียวบาง นอกจากนี้ตัวผู้ที่โตเต็มวัยยังมีก้อนเนื้อไขมันหนาอยู่ที่ด้านล่างของครีบอก</p>",
+    "reproduction:planetcatfish": "<p>เป็นปลาที่วางไข่ในหวอด ยังไม่มีรายงานการเพาะพันธุ์</p>",
+    "notes:planetcatfish": "<p>ที่มาของชื่อ: Callichthys มาจากภาษากรีก kallos แปลว่า สวยงาม และ ichthys แปลว่า ปลา หมายถึงลวดลายสีของปลา ส่วนชื่อชนิด (specific epithet) มาจากภาษาละติน serra แปลว่า เลื่อย และ labium แปลว่า ริมฝีปาก หมายถึงขอบอิสระของริมฝีปากล่างที่หยักเป็นฟันเลื่อย</p>",
+    "references:planetcatfish": "<p>Copeia 2004 (no. 2), pp 339, Figs. 1, 2B, 3A.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.75
+    }
+  }
+}

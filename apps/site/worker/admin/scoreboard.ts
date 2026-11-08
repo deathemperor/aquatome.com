@@ -1,6 +1,7 @@
 import { LANG, LANGS, type Lang } from '@aq/schema/langs'
 import { automated, isOurs, isReader, isSearch } from '../readers'
 import { aeSql, EVENTS, num, READERS_FROM, SINCE_RESET, WHO_RANK } from './ae'
+import { VISITOR_STATS } from '../stats-switch'
 import { orNoTable } from './app'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
 import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type DayChart, type Tile } from './chart'
@@ -245,7 +246,8 @@ export const NOT_YET: Scoreboard['notYet'] = [
   { name: 'Doanh thu AdSense', needs: 'Chủ trang cấp quyền đọc báo cáo (AdSense Management API), hoặc gửi báo cáo xuất hằng tuần.' },
   { name: 'Hoa hồng affiliate', needs: 'Chủ trang có tài khoản mạng affiliate và báo cáo đơn hàng của mạng đó.' },
   { name: 'Lượt cài và người dùng ứng dụng mỗi tuần', needs: 'Sau khi ra mắt: quyền đọc App Store Connect. Telemetry của ứng dụng mỗi lần mở dùng một mã mới, nên không đếm được người.' },
-  { name: 'Người đọc quay lại', needs: 'Không đo, theo thiết kế: beacon không có mã khách, mỗi tab là một phiên.' },
+  // Measured with the visitor code (src/lib/beacon.ts), once its switch is on: the readers page's return visits.
+  ...(VISITOR_STATS ? [] : [{ name: 'Người đọc quay lại', needs: 'Chưa đo: mã khách đang chờ bật (trang Người đọc thật sẽ có lượt quay lại).' }]),
 ]
 
 export type ScoreboardInput = {

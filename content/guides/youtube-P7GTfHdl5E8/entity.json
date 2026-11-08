@@ -12,7 +12,7 @@
     "yunnanilus-cruciatus",
     "yasuhikotakia-morleti"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "P7GTfHdl5E8",
     "title": "How to Build a Planted Aquarium from Scratch with SerpaDesign",
@@ -27,18 +27,19 @@
       "height": 720
     },
     "taxa": [
-      "Physa acuta",
-      "Planorbella sp.",
       "Neocaridina davidi",
       "Caridina multidentata",
       "Boraras brigittae",
-      "Yasuhikotakia morleti"
+      "Yunnanilus cruciatus",
+      "Physa acuta",
+      "Planorbella sp.",
+      "Melanoides tuberculata"
     ],
     "gear": [
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 152
+        "t": 232
       },
       {
         "category": "phan-nen",
@@ -51,43 +52,70 @@
         "t": 232
       },
       {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 264
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "trong-nen",
-        "t": 264
-      },
-      {
         "category": "loc",
-        "type": "bot-bien",
-        "t": 400
+        "t": 410
       }
     ],
     "figures": [
       {
-        "heading": "Lấy ý tưởng và xếp phần cứng thế nào",
+        "heading": "Lấy cảm hứng từ đâu",
         "moments": [
           {
             "t": 40,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at40-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Sườn đồi đá phủ cây leo ngoài thiên nhiên, nguồn ý tưởng bố cục."
+            "caption": "Sườn đồi đá phân lớp ngoài thiên nhiên, có cây leo phủ."
           },
           {
             "t": 70,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lũa và đá đen xếp thử cùng nhau để dựng phần cứng cho bể."
+            "caption": "Bố cục hardscape dùng lũa kết hợp đá nham thạch đen."
           }
         ]
       },
       {
-        "heading": "Cố định lũa đá bằng keo và bông gòn",
+        "heading": "Vì sao lũa đá là phần quan trọng nhất",
+        "moments": [
+          {
+            "t": 75,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai khối lũa lớn với nhánh rễ xòe tự nhiên, chưa đặt vào bể."
+          },
+          {
+            "t": 100,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khối đá xốp đặt cạnh lũa, vân đá và gỗ hòa vào nhau."
+          }
+        ]
+      },
+      {
+        "heading": "Đặt điểm nhấn theo quy tắc một phần ba",
+        "moments": [
+          {
+            "t": 95,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lưới 3x3 phủ lên mặt kính, khúc lũa lớn đặt ở giao điểm."
+          },
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Xếp các khối đá nhỏ quanh và dưới khúc lũa chính."
+          }
+        ]
+      },
+      {
+        "heading": "Dán lũa đá cho chắc",
         "moments": [
           {
             "t": 165,
@@ -101,36 +129,26 @@
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at175-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhỏ keo dán nhanh vào mối nối giữa hai khúc lũa."
+            "caption": "Nhỏ keo vào mối nối giữa hai khúc lũa."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p1-kzMDMyOTYpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p1-kzMDMyOTYpLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 2.0",
-          "author": "Ben Sale from Stevenage, UK",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Super_super_Glue_(3329303296).jpg",
-          "caption": "Lọ keo dán nhanh (super glue) đặt trên mặt gỗ lũa."
-        }
+        ]
       },
       {
-        "heading": "Chi tiết nhỏ và tỉ lệ trong bể",
+        "heading": "Tạo cảm giác tỉ lệ và xử lý lũa",
         "moments": [
+          {
+            "t": 185,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những cành spider wood mảnh đặt cạnh lũa và đá lớn tạo cảm giác tỉ lệ."
+          },
           {
             "t": 190,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at190-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Luộc lũa spider wood trong nồi nước sôi trước khi cho vào bể."
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa spider wood với những cành mảnh làm bể có tỉ lệ rõ hơn."
+            "caption": "Luộc lũa trong nồi, nước ngả nâu vì nhả tannin."
           }
         ]
       },
@@ -142,108 +160,121 @@
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at250-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các túi lưới đựng hỗn hợp nền được đặt dưới lớp đá và lũa."
+            "caption": "Túi lưới chứa hỗn hợp nền đặt dưới đáy hồ, xen giữa các tảng đá."
+          },
+          {
+            "t": 255,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp cát phủ đen phủ lên nền, đặt đá và lũa lên trên."
           }
         ]
       },
       {
-        "heading": "Trồng cây bám, cây hoa thị và cây thân",
+        "heading": "Trồng cây: từng nhóm một",
         "moments": [
           {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at285-hd.webp",
+            "t": 265,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at265-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Buộc cây bám vào miếng lũa trước khi đặt vào bể."
+            "caption": "Nhét cây bám lũa vào khe rễ lũa trong bể."
           },
           {
             "t": 290,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at290-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây hoa thị lá xanh trồng cạnh đá trong bể thủy sinh."
+            "caption": "Cây dương xỉ lá dài bám vào đá và lũa, lá xòe tự nhiên."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p6-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p6-BcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
+          "caption": "Dùng nhíp gắp cây nhỏ nhét vào khe lũa trong bể."
+        }
       },
       {
-        "heading": "Rêu và cây trên cạn",
-        "moments": [
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét cây có lá đỏ vào phía sau bố cục gần khúc lũa."
-          },
-          {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at335-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây dương xỉ mọc xanh tốt trên phần lũa nhô khỏi mặt nước."
-          }
-        ]
-      },
-      {
-        "heading": "Chăm sóc bể sau khi trồng",
+        "heading": "Chăm bể sau khi trồng",
         "moments": [
           {
             "t": 340,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng vợt vớt xác lá và mảnh cây trôi nổi trên mặt nước."
+            "caption": "Vớt lá vụn nổi trên mặt nước trong bể."
           },
           {
             "t": 350,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at350-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng kéo tỉa lá hư trong bể thủy sinh đã trồng cây."
+            "caption": "Dùng kéo cắt tỉa lá cây trong bể thủy sinh."
           }
         ]
       },
       {
-        "heading": "Vì sao chưa được thả cá ngay",
+        "heading": "Khi nào thả cá: chu trình vi sinh",
         "moments": [
           {
             "t": 370,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at370-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới setup trông đẹp nhưng chưa có vi sinh."
+            "caption": "Bể thủy sinh đã bố cục xong, cây và lũa lên đẹp."
           },
           {
             "t": 390,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at390-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Vật liệu lọc sứ trong hộp lọc, nơi vi sinh nitrat hóa sinh sống."
+            "caption": "Vật liệu lọc sứ trong hộc lọc, nơi vi sinh bám sinh sống."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p7-Z2VuQ3ljbGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p7-Z2VuQ3ljbGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-Z2VuQ3ljbGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-Z2VuQ3ljbGUucG5n-480.webp",
           "width": 960,
           "height": 619,
           "licence": "CC BY 2.5",
           "author": "w:pl:Wikipedysta:Lukas3",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
-          "caption": "Sơ đồ chu trình nitơ trong bể: amoniac thành nitrit, rồi nitrat cho cây hấp thụ."
+          "caption": "Sơ đồ chu trình đạm: cá thải NH3, vi sinh chuyển thành NO2 rồi NO3 cho cây."
         }
       },
       {
-        "heading": "Ốc và tép: đội dọn bể",
-        "moments": [],
+        "heading": "Ốc và tép dọn bể",
+        "moments": [
+          {
+            "t": 405,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at405-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các loại ốc nhỏ như ốc bladder, ram's horn và ốc kèn."
+          },
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép cherry đỏ bám trên lũa, gặm rêu hại."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-YW4sMjAwNykuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-YW4sMjAwNykuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p9-YW4sMjAwNykuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p9-YW4sMjAwNykuanBn-480.webp",
           "width": 960,
           "height": 638,
           "licence": "CC BY-SA 3.0",
           "author": "Seotaro",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina_multidentata(Hamamatsu,Shizuoka,Japan,2007).jpg",
-          "caption": "Tép Yamato bò trên nền sỏi cạnh khúc lũa trong bể thủy sinh."
+          "caption": "Một con tép Amano đang bò trên nền sỏi trong bể thủy sinh."
         }
       }
     ]

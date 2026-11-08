@@ -10,6 +10,38 @@
     "indonesia",
     "belitung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Belitung Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Gymnochanda verae is a small glassfish known only from the Gantung area of Belitung Island, in Indonesia's Bangka-Belitung Islands province.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Belitung Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6168855,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

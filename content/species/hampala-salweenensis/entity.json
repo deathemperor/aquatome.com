@@ -11,6 +11,77 @@
     "salween",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM"
+      ],
+      "regions": [
+        "Salween",
+        "Mae Pai",
+        "Nam Pang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mae Surin River, a branch of Mae Pai River, at Ban Huei Phan, Mae Hong Son, northwestern Thailand'.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Mae Pai is itself a tributary of the Salween that joins the main river channel in the border state of Kayah, Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Mae Pai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the River Salween basin although the full extent of its distribution within the watershed is unclear.",
+          "countries": [],
+          "regions": [
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded from the Nam Pang river, another tributary of the Salween located much further north in Shan State, Myanmar.",
+          "countries": [],
+          "regions": [
+            "Nam Pang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367426,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
