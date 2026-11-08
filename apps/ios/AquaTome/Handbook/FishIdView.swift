@@ -325,7 +325,7 @@ struct FishIdView: View {
     defer { onSaid = said != nil }
     // Claude may take up to 25 s on the Worker, and the app waits 65: past the first seconds, the screen says so.
     let longer = Task {
-      try await Task.sleep(for: .seconds(10))
+      try await TestGate.wait("fish-id-longer", or: .seconds(10))
       guard !Task.isCancelled else { return }
       said = String(localized: "Vẫn đang nhận diện… có thể mất đến một phút.")
     }
