@@ -39,6 +39,7 @@ fi
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
 from_main "$@"
+cool
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
