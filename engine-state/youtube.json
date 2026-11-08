@@ -1523,12 +1523,11 @@
     "updatedAt": "2026-11-02T18:42:03.246Z"
   },
   "FCEKuUr_Z-U": {
-    "status": "processed",
-    "entityIds": [
-      "youtube-FCEKuUr_Z-U"
-    ],
+    "status": "skipped",
+    "entityIds": [],
+    "error": "harm: on the rejected list (engine-state/_video-rejected.json)",
     "attempts": 0,
-    "updatedAt": "2026-10-31T13:25:27.798Z"
+    "updatedAt": "2026-11-08T10:30:00.000Z"
   },
   "FG8c0evXqCE": {
     "status": "skipped",
