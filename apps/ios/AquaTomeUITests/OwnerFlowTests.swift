@@ -355,7 +355,12 @@ final class OwnerFlowTests: XCTestCase {
     let app = launch()
     signIn(app)
     XCTAssertTrue(app.buttons["owner-report"].waitForExistence(timeout: 10), "no report button")
-    open(app, "sign-out")
+    // At the sheet's foot: the list makes the row only once it scrolls into view, and not under the sheet's bar.
+    let out = app.descendants(matching: .any)["sign-out"].firstMatch
+    let bar = app.navigationBars["Tài khoản"]
+    repeatUntil(out.exists && out.isHittable && (!bar.exists || out.frame.minY >= bar.frame.maxY), times: 10) { app.swipeUp() }
+    XCTAssertTrue(out.isHittable, "no sign-out")
+    out.tap()
     XCTAssertTrue(app.buttons["owner-report"].waitForNonExistence(timeout: 10), "the report button stayed after signing out")
   }
 
