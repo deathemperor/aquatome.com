@@ -11,6 +11,152 @@
     "ghana",
     "liberia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GH",
+        "CI",
+        "LR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red-chinned panchax, Epiplatys dageti, is a killifish from coastal savanna in southwestern Ghana, southern Côte d'Ivoire and southern Liberia.",
+          "countries": [
+            "GH",
+            "CI",
+            "LR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4284376,
+      "total": 49,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CI",
+          20
+        ],
+        [
+          "LR",
+          17
+        ],
+        [
+          "GH",
+          7
+        ],
+        [
+          "GN",
+          2
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "GA",
+          1
+        ],
+        [
+          "TG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -11.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -9.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          7.03125,
+          16,
+          14
+        ],
+        [
+          -8.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -7.03125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -7.03125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -4.21875,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          -2.8125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -2.8125,
+          5.625,
+          5,
+          5
+        ],
+        [
+          0,
+          5.625,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

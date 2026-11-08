@@ -10,6 +10,7 @@ struct TodayView: View {
   @Binding var path: NavigationPath
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
+  @Environment(\.colorScheme) private var scheme
   @Namespace private var zoom
   /// The large title has gone up into the bar, as on Khám phá.
   @State private var titleGone = false
@@ -25,9 +26,7 @@ struct TodayView: View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
-          // In the app's language, as the words around it: on a phone set to a language the app doesn't have, iOS's locale can
-          // be another of the app's (Malay, on an English phone), and `Text(_:format:)` would put that one in.
-          Text(verbatim: today.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: handbook.lang))))
+          Text(verbatim: date)
             // Plain, not a second line of capitals over the first card's own.
             .font(.subheadline).foregroundStyle(.v2Faint)
             .padding(.horizontal, 20)
@@ -55,6 +54,9 @@ struct TodayView: View {
       .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
       .modifier(ClearUnderTopBar(shown: titleGone))
       .navigationTitle("Hôm nay")
+      // Its own, not one iOS picks from what passes under the bar: a dark card there turned the bar's words and the clock
+      // white on the white band. As a fish's page pins its own.
+      .toolbarColorScheme(scheme, for: .navigationBar)
       .profileButton()
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2ClearsFootGoingBack(path.count)
@@ -71,6 +73,15 @@ struct TodayView: View {
       today = .now
       heldBeginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
     }
+  }
+
+  /// In the app's language, as the words around it: on a phone set to a language the app doesn't have, iOS's locale can be
+  /// another of the app's (Malay, on an English phone), and `Text(_:format:)` would put that one in. The day and its month
+  /// kept on one line ("8 tháng 11", not "8 tháng" over "11"), in Thai too, which has no comma before them.
+  private var date: String {
+    let s = today.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: handbook.lang)))
+    guard let day = s.firstIndex(where: \.isNumber) else { return s }
+    return s[..<day] + s[day...].replacingOccurrences(of: " ", with: "\u{00A0}")
   }
 
   enum Card: Identifiable {
@@ -174,11 +185,12 @@ private struct FishOfTheDay: View {
   var body: some View {
     VStack(spacing: 0) {
       NavigationLink(value: item) {
-        // At the accessibility sizes a name over the photo would hide the fish: it goes above, on the photo's colour.
-        if size.isAccessibilitySize {
+        // At the accessibility sizes a name over the photo would hide the fish: it goes above, on the photo's colour. A fish
+        // with no photo has no photo's place: its name on the colour.
+        if size.isAccessibilitySize || item.img == nil {
           VStack(spacing: 0) {
             name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
-            V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260)
+            if item.img != nil { V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260) }
           }
         } else {
           V2Photo(src: item.img, ground: colour) { colour = $0 }
@@ -234,10 +246,11 @@ private struct GuideCard: View {
   var body: some View {
     NavigationLink(value: item) {
       Group {
-        // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour.
-        if size.isAccessibilitySize {
+        // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour. A guide with
+        // no photo has no photo's place.
+        if size.isAccessibilitySize || item.img == nil {
           VStack(spacing: 0) {
-            V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260)
+            if item.img != nil { V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260) }
             words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
           }
         } else {
@@ -304,6 +317,7 @@ private struct SeasonCard: View {
 private struct TankCard: View {
   let tank: Tank
   @Environment(\.openScreen) private var openScreen
+  @Environment(\.dynamicTypeSize) private var size
   private var empty: Bool { tank.species.isEmpty && tank.plants.isEmpty }
 
   var body: some View {
@@ -314,7 +328,9 @@ private struct TankCard: View {
         TankSketch(dims: tank.dims, fish: tank.species.reduce(0) { $0 + ($1.count ?? 1) }, plants: tank.plants.count)
           .frame(height: 140)
           .padding(.vertical, 12)
-        HStack(alignment: .bottom, spacing: 24) {
+        // Down the card at the accessibility sizes, not cut across it.
+        (size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12))
+                                  : AnyLayout(HStackLayout(alignment: .bottom, spacing: 24))) {
           if let l = tank.totalLitres {
             fact("Nước", litresText(l))
           }
@@ -450,7 +466,7 @@ private struct LatestCard: View {
       HStack(alignment: .firstTextBaseline) {
         Text("Mới cập nhật").font(.system(.title2, weight: .heavy))
         Spacer()
-        NavigationLink(value: Browse.latest) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
+        if !size.isAccessibilitySize { seeAll }
       }
       VStack(spacing: 0) {
         ForEach(rows) { row in
@@ -460,10 +476,16 @@ private struct LatestCard: View {
         }
       }
       .padding(.top, 10)
+      // At the accessibility sizes its header has no room for it: at the list's end, as Khám phá's.
+      if size.isAccessibilitySize { seeAll.font(.body.weight(.semibold)).padding(.top, 4) }
     }
     .padding(18)
     .background(Color(.tertiarySystemBackground))
     .v2Card()
     .padding(.horizontal, 20)
+  }
+
+  private var seeAll: some View {
+    NavigationLink(value: Browse.latest) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
   }
 }

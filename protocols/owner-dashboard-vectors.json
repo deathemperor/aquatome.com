@@ -4036,6 +4036,130 @@
               ]
             ],
             "empty": "Chưa có."
+          },
+          {
+            "kind": "heading",
+            "text": "Web and app",
+            "level": 2
+          },
+          {
+            "kind": "note",
+            "text": "A reader is a tab that scrolled half a page or stayed 30 s, in the browser or the app alike. Our own app sessions (TestFlight, simulators): 10, 4 of them would-be readers.",
+            "tone": "plain"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Where",
+              "Tabs",
+              "Readers"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Web (browsers)"
+                },
+                {
+                  "text": "1.240"
+                },
+                {
+                  "text": "610"
+                }
+              ],
+              [
+                {
+                  "text": "iOS app (not on the App Store yet: every copy is ours)"
+                },
+                {
+                  "text": "0"
+                },
+                {
+                  "text": "0"
+                }
+              ]
+            ],
+            "empty": "Chưa có."
+          },
+          {
+            "kind": "heading",
+            "text": "Left out of the count",
+            "level": 2
+          },
+          {
+            "kind": "note",
+            "text": "Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link), and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.",
+            "tone": "plain"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Left out",
+              "Tabs",
+              "Would-be readers"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "The owner’s browsers"
+                },
+                {
+                  "text": "12"
+                },
+                {
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "text": "Our marked browsers and test copies of the app"
+                },
+                {
+                  "text": "30"
+                },
+                {
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "text": "Our network (the agents’ Mac, its simulators and preview browser)"
+                },
+                {
+                  "text": "90"
+                },
+                {
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "text": "Web pages inside the iOS app (counted with app reads)"
+                },
+                {
+                  "text": "4"
+                },
+                {
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "text": "Likely automated: bursts of fresh tabs, one new page each"
+                },
+                {
+                  "text": "97"
+                },
+                {
+                  "text": "6"
+                }
+              ]
+            ],
+            "empty": "Chưa có."
+          },
+          {
+            "kind": "note",
+            "text": "ID: 97 tabs, 03/11 20:02 to 03/11 21:59",
+            "tone": "muted"
           }
         ]
       }

@@ -4,15 +4,16 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { amountsOutside, forWriter, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
+import { marketFor } from '../src/market'
 
 const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
 const good = { name: 'Tảo lam: làm gì trước', summary: ['Hút sạch rồi trị.'], body: '<h3>Trị</h3><p>Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước.</p>', faq: [{ q: 'Có hại cá không?', a: 'Quá liều thì hại.' }] }
-const fake = (answers: { written: object[]; score?: number; reviews?: { score: number; notes: string[] }[] }) => {
+const fake = (answers: { written: object[]; score?: number; reviews?: { score: number; notes: string[]; hedges?: { fact: string; quote: string }[]; unsafe?: number[] }[]; facts?: typeof FACTS }) => {
   const calls: { kind: string; prompt: string; model?: string }[] = []
   const left = [...answers.written]
   const llm = (async (a: Parameters<Llm>[0]) => {
     const props = (a.schema as { properties: Record<string, unknown> }).properties
-    if (props.problems) { calls.push({ kind: 'facts', prompt: a.prompt, model: a.model }); return FACTS }
+    if (props.problems) { calls.push({ kind: 'facts', prompt: a.prompt, model: a.model }); return answers.facts ?? FACTS }
     if (props.body) { calls.push({ kind: 'write', prompt: a.prompt, model: a.model }); return left.shift() }
     if (props.findings) { calls.push({ kind: 'fit', prompt: a.prompt, model: a.model }); return { findings: [], products: [], doses: [] } }
     calls.push({ kind: 'review', prompt: a.prompt, model: a.model })
@@ -103,4 +104,60 @@ test('a guide a person fixed stays unless forced; a kept rewrite replaces its te
   expect(out).toMatchObject({ slug: 'x', name: good.name })
   expect(out.bodyFixed).toBeUndefined()
   expect(out.localNote).toBeUndefined()
+})
+
+test('a title the owner fixed stays, and the writer is told to call the guide\'s subject by it', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'for-reader-'))
+  const id = 'aquariumcoop-blogs-aquarium-pencilfish'
+  const dir = join(root, 'content/guides', id)
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'sources/aquariumcoop'), { recursive: true })
+  await writeFile(join(root, 'sources/aquariumcoop/blogs-aquarium-pencilfish.md'), '---\nurl: u\n---\nThe article.')
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ id, kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/pencilfish', html: '', photos: [], mentions: [], updatedAt: '2026-11-01' }))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ slug: 'x', name: 'Hướng dẫn nuôi cá chì', nameFixed: true, altNames: [], sections: {}, body: '<p>Cũ.</p>' }))
+  const { llm, calls } = fake({ written: [good] })
+  expect(await rewriteForReader(root, id, { llm })).toMatchObject({ kept: true })
+  expect(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))).toMatchObject({ name: 'Hướng dẫn nuôi cá chì', nameFixed: true, body: good.body })
+  expect(calls.find(c => c.kind === 'write')!.prompt).toContain('Tiêu đề bài đã chốt: "Hướng dẫn nuôi cá chì"')
+})
+
+test('a fact the guide says more surely than the facts do goes back, and is not kept if it stays that way', async () => {
+  const fact = 'A lot of times a fungal infection means an open wound, and bacteria can follow.'
+  const facts = { ...FACTS, facts: [...FACTS.facts, { section: 'causes' as const, fact }] }
+  const sure = { ...good, body: `${good.body}<p>Nấm chỉ mọc trên vết thương hở, mà vết hở thì đã nhiễm khuẩn rồi.</p>` }
+  const kept = { ...good, body: `${good.body}<p>Cá bị nấm thì thường có vết thương hở, và vi khuẩn có thể nhiễm theo.</p>` }
+  const pair = (w: typeof good) => ({ fact, quote: w.body.match(/<p>([^<]*)<\/p>$/)![1]! })
+  const once = fake({ facts, written: [sure, kept], reviews: [{ score: 0.95, notes: [], hedges: [pair(sure)] }, { score: 0.95, notes: [], hedges: [pair(kept)] }] })
+  const r = await writeForReader({ llm: once.llm }, 'g', 'x')
+  expect(r).toMatchObject({ kept: true, tries: 2 })
+  expect(once.calls.filter(c => c.kind === 'write')[1]!.prompt).toContain('Nói chắc hơn dữ kiện: "Nấm chỉ mọc trên vết thương hở')
+  const twice = fake({ facts, written: [sure, sure], reviews: [{ score: 0.95, notes: [], hedges: [pair(sure)] }, { score: 0.95, notes: [], hedges: [pair(sure)] }] })
+  expect((await writeForReader({ llm: twice.llm }, 'g', 'x')).kept).toBe(false)
+  // The reviewer is handed the facts that hedge, and only those, to go through one by one.
+  const review = once.calls.find(c => c.kind === 'review')!.prompt
+  expect(review).toContain(`--- HEDGED FACTS ---\n- ${fact}\n`)
+  expect(review.split('--- HEDGED FACTS ---')[1]!.split('--- GUIDE ---')[0]).not.toContain('hydrogen peroxide')
+  // A list under a lead-in that hedges keeps the fact's hedge in each item.
+  const listed = { ...good, body: `${good.body}<p>Vết thương hở có thể do mấy thứ sau:</p><ul><li>Nấm mọc trên vết thương hở.</li></ul>` }
+  const ok = fake({ facts, written: [listed], reviews: [{ score: 0.95, notes: [], hedges: [{ fact, quote: 'Nấm mọc trên vết thương hở.' }] }] })
+  expect(await writeForReader({ llm: ok.llm }, 'g', 'x')).toMatchObject({ kept: true, tries: 1 })
+  // A sentence with a name in italics is found as the reviewer read it.
+  const italic = { ...good, body: `${good.body}<p>Nấm (<em>Saprolegnia</em>) chỉ mọc trên vết thương hở.</p>` }
+  const seen = fake({ facts, written: [italic, italic], reviews: [0, 1].map(() => ({ score: 0.95, notes: [], hedges: [{ fact, quote: 'Nấm (Saprolegnia) chỉ mọc trên vết thương hở.' }] })) })
+  expect((await writeForReader({ llm: seen.llm }, 'g', 'x')).kept).toBe(false)
+  expect(seen.calls.find(c => c.kind === 'review')!.prompt).toContain('Nấm (Saprolegnia) chỉ mọc')
+})
+
+test('a medicine the source names reaches the writer with what it is mistaken for here', () => {
+  expect(marketFor('vi', 'Maracyn', [])).toContain('đừng mua nhầm Maracyn Two')
+})
+
+test('a note a reader could harm fish by following holds the guide back, whatever its score', async () => {
+  const mix = 'Mixing any antibiotic, ich medicine and dewormer: FACTS give it only for the tested trio.'
+  const held = fake({ written: [good, good], reviews: [{ score: 0.9, notes: [mix], unsafe: [0] }, { score: 0.9, notes: [mix], unsafe: [0] }] })
+  expect(await writeForReader({ llm: held.llm }, 'g', 'Source.')).toMatchObject({ kept: false, tries: 2 })
+  expect(held.calls.filter(c => c.kind === 'write')[1]!.prompt).toContain(mix)
+  // Mended, it's kept; a number that names no note counts for nothing.
+  const mended = fake({ written: [good, good], reviews: [{ score: 0.9, notes: [mix], unsafe: [0] }, { score: 0.9, notes: [], unsafe: [3] }] })
+  expect(await writeForReader({ llm: mended.llm }, 'g', 'Source.')).toMatchObject({ kept: true, tries: 2 })
 })

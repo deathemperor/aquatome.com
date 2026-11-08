@@ -1,39 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Gasteropelecus_maculatus_%2816519765931%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Gasteropelecus_maculatus_%2816519765931%29.jpg/500px-Gasteropelecus_maculatus_%2816519765931%29.jpg",
-   "width": 2562,
-   "height": 1800,
-   "licence": "CC BY 2.0",
-   "author": "Ictiologia Universidad Católica de Oriente",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gasteropelecus_maculatus_(16519765931).jpg",
-   "caption": "Gasteropelecus maculatus",
-   "key": "File:Gasteropelecus maculatus (16519765931).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Gasteropelecus_maculatus_SI.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Gasteropelecus_maculatus_SI.jpg/500px-Gasteropelecus_maculatus_SI.jpg",
-   "width": 2975,
-   "height": 1609,
-   "licence": "Public domain",
-   "author": "Sandra Raredon/Smithsonian Institution",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gasteropelecus_maculatus_SI.jpg",
-   "caption": "Gasteropelecus maculatus",
-   "key": "File:Gasteropelecus maculatus SI.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Gasteropelecidae_Gasteropelecus_maculatus_1.2.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Gasteropelecidae_Gasteropelecus_maculatus_1.2.jpg/500px-Gasteropelecidae_Gasteropelecus_maculatus_1.2.jpg",
-   "width": 2147,
-   "height": 1610,
-   "licence": "CC BY-SA 4.0",
-   "author": "NasserHalaweh",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gasteropelecidae_Gasteropelecus_maculatus_1.2.jpg",
-   "caption": "Gasteropelecus maculatus. Cologne Zoological Garden.",
-   "key": "File:Gasteropelecidae Gasteropelecus maculatus 1.2.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Gasteropelecus maculatus SI.jpg",
+  "File:Gasteropelecus maculatus (16519765931).jpg",
+  "File:Gasteropelecidae Gasteropelecus maculatus 1.2.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Gasteropelecus_maculatus_%2816519765931%29.jpg/1280px-Gasteropelecus_maculatus_%2816519765931%29.jpg": "b9307963c48c1621",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Gasteropelecidae_Gasteropelecus_maculatus_1.2.jpg/1280px-Gasteropelecidae_Gasteropelecus_maculatus_1.2.jpg": "65c96f85b377edef"
+ },
+ "commons": "2026-11-08"
 }

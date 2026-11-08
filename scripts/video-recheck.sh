@@ -39,6 +39,7 @@ fi
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
 from_main "$@"
+cool
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
@@ -58,10 +59,14 @@ pnpm engine review-backfill --kind video-guide --reviewed-before "$VIDEO_RECHECK
 # 2026-11-08 from 30: nearly every guide rechecked falls under the bar, and 30 an hour (about 470 calls) was the account's
 # whole week in days. The riskiest still go first.
 pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-8}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
-if [ -z "$(git status --porcelain -- content engine-state)" ]; then log "no changes"; exit 0; fi
-if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
-git add content engine-state
+# The content rules' safe fixes, as in the video job: on 2026-11-08 a run's tests failed on a defect the sweep fixes.
+pnpm engine sweep || log "sweep: failed"
+if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
+# Committed before the tests, as video-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
+# stays in the reflog to publish by hand.
+git add content engine-state docs/review
 git commit -q -m "content: video guides checked again $(date -u +%F)"
+if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The video job and the GitHub engine push too; the files merge through their drivers. Lines both changed give way to
 # this run's, as video-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
@@ -69,6 +74,7 @@ for _ in 1 2 3; do
     log "another job changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
+      sweep_merged
       verify 'pnpm test' || { log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true

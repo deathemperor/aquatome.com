@@ -13,6 +13,8 @@ import Tanks
 public final class FakeOwner {
   /// The owner's accounts, by their key in FakeAccounts (an Apple sub, or `email:<address>`).
   public var owners: Set<String>
+  /// The reports sent, each as the form it came as.
+  public var reports: [Data] = []
   /// The next read of a section ends the owner's sessions first, so it answers 401: a session that ended while the
   /// dashboard was open (signed out elsewhere, or expired).
   public var sessionEndsAtNextSection = false
@@ -51,6 +53,13 @@ public final class FakeOwner {
     if path.hasPrefix("/_ab/") {
       let shown = account.map(owners.contains) == true && photos.contains { $0["src"]?.string == path }
       return shown ? (200, Self.picture, "image/png") : (404, Data("Not found".utf8), "text/plain")
+    }
+    // The owner's report (protocols/owner-feedback.openapi.json): kept here, as the site keeps it for the Mac.
+    if path == "/api/feedback", method == "POST" {
+      guard let account else { return try error(401, "signed_out") }
+      guard owners.contains(account) else { return try error(404, "not_found") }
+      reports.append(r.httpBody ?? Data())
+      return try json(201, .object(["id": .string("20261108014200000-00000000-0000-4000-8000-000000000001"), "waiting": .number(Double(reports.count))]))
     }
     guard path.hasPrefix("/api/owner/") else { return nil }
     guard let account else { return try error(401, "signed_out") }

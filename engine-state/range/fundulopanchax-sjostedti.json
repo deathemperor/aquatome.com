@@ -1,0 +1,53 @@
+{
+  "id": "fundulopanchax-sjostedti",
+  "native": {
+    "input": "03227abdc6e8d6dd",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria and Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nigeria and Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Fundulopanchax sjostedti",
+    "status": "ACCEPTED",
+    "taxonKey": 2348554,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ]
+    ],
+    "native": [
+      "NG",
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

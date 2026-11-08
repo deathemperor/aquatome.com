@@ -14,6 +14,19 @@
 # (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
 # behind it. The engine takes it only for its tests too (verify_cycle).
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
+# Engine work waits for cooler hours: under heavy thermal pressure (2 and up of 4) macOS ran work on 6-8 of its 16 cores
+# and every lead's work slowed, a 0.4 s job taking up to 54 s (2026-11-08). A run waits for it to ease, up to 2 h, then goes
+# ahead at its low priority. GitHub's runners, and anywhere without notifyutil, read 0.
+cool() {
+  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  local level
+  for _ in $(seq "${COOL_TRIES:-240}"); do
+    level=$(notifyutil -g com.apple.system.thermalpressurelevel 2>/dev/null | awk '{print $2}')
+    [ "${level:-0}" -lt 2 ] && return 0
+    sleep "${COOL_PAUSE:-30}"
+  done
+  log "still hot after the wait: going ahead"
+}
 # One step, under the lock on the Mac (GitHub: a runner of its own).
 checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
 # The checks, a step an argument, their output in $TEST_LOG. Tests that ran out of time ran on a Mac too busy for them,
@@ -52,6 +65,17 @@ sweep_merged() {
   pnpm engine sweep || log "sweep: failed"
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
+}
+# The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
+# line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
+# 2026-11-08, against an editor's re-plan): its tests failed and the part's photos waited a cycle. So when the calendar
+# is among the clashing files ($1), it is main's, planned again on this cycle's photos, as the curate step plans.
+replan_merged() {
+  [[ " $1 " == *" content/curation.json "* ]] || return 0
+  git show '@{u}:content/curation.json' > content/curation.json
+  pnpm engine curate || log "curate: failed"
+  git add content/curation.json
+  git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
 catch_up() {
   git pull -q --rebase && return 0

@@ -11,6 +11,68 @@
     "nam-mae-taeng",
     "mae-nam-ping"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mae Nam Ping",
+        "Nam Mae Taeng River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The small Danio D. maetaengensis originates from Thailand and was only scientifically described in 1997.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to northern Thailand where it's known only from parts of the Mae Nam Ping tributary drainage within the upper Chao Phraya river basin.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Mae Nam Ping"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "D. maetaengensis occurs exclusively in the drainage of the Nam Mae Taeng River in northern Thailand.",
+          "countries": [],
+          "regions": [
+            "Nam Mae Taeng River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361562,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -274,55 +336,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08",
-  "range": {
-    "native": {
-      "countries": [
-        "TH"
-      ],
-      "regions": [
-        "Nam Mae Taeng River"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "The small Danio D. maetaengensis originates from Thailand and was only scientifically described in 1997.",
-          "countries": [
-            "TH"
-          ],
-          "regions": []
-        },
-        {
-          "source": "glaser",
-          "quote": "D. maetaengensis occurs exclusively in the drainage of the Nam Mae Taeng River in northern Thailand.",
-          "countries": [],
-          "regions": [
-            "Nam Mae Taeng River"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2361562,
-      "total": 2,
-      "fetched": "2026-11-08",
-      "countries": [
-        [
-          "TH",
-          2
-        ]
-      ],
-      "cells": [
-        [
-          98.4375,
-          18.28125,
-          2,
-          2
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-08"
 }

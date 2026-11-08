@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (686)
+# Tóm tắt chờ duyệt (592)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -19,7 +19,7 @@ id: `aborichthys-elongatus`
 Hợp với người đã quen cá suối, có chỗ giữ nước mát 15–21 °C và chịu bố trí một bể riêng. Cần bể đáy từ 60 cm (khoảng 54 lít) cho cả nhóm từ sáu con trở lên, pH 6,5–7,5, độ cứng 5–12 dGH, nước thật sạch, nhiều oxy và dòng mạnh. Điểm khó nhất là giữ nước mát, sạch và chảy mạnh cùng lúc (độ khó 7/8). Cá cũng khá hiếm, nhiều con bán dưới tên này có thể là loài khác.
 
 - Nuôi chung với cá bơi chậm, vây dài hoặc Corydoras, Pangio thì cá kia bị cắn vây, bị lấn khi cho ăn; nên chọn Danio, Devario, Rasbora hoặc Garra.
-- Để nước tích chất hữu cơ và dòng yếu thì cá khó sống khỏe; nên dùng lọc ngoài mạnh và/hoặc một hai máy tạo dòng, giữ nước thật sạch.
+- Để nước tích chất hữu cơ và dòng yếu thì cá khó sống khỏe; nên dùng lọc ngoài mạnh hoặc một hai máy tạo dòng, giữ nước thật sạch.
 - Cho nền vào rồi mới đặt đá, lũa thì cá đào bới dễ làm đổ; nên đặt đồ trang trí trực tiếp lên đáy bể trước khi cho nền.
 
 ## Cá đầu chúi lưng cao (Abramites hypselonotus)
@@ -39,15 +39,6 @@ Cá lau kính đuôi đàn lia chấm bi (Acanthicus adonis) chỉ hợp ngườ
 - Mua cá con vì đốm đẹp: đốm mất dần khi lớn và cá ngày càng hung hăng, nên chỉ mua khi đã có bể rất lớn hoặc ao nuôi nhiệt đới.
 - Nuôi cá trưởng thành chung với loài sống đáy khác: nên nuôi riêng, nếu ghép thì chọn cá tầng giữa/tầng mặt to khỏe như Cichla hoặc Osteoglossum.
 - Làm lọc yếu và để oxy thấp: loài này không thở được khí trời, nên cần lọc khổng lồ, thay nước đều và giữ oxy hòa tan cao.
-
-## Cá lau kính đuôi đàn lia (Acanthicus hystrix)
-id: `acanthicus-hystrix`
-
-Cá lau kính đuôi đàn lia (Acanthicus hystrix) chỉ hợp với người có bể tư nhân cực lớn hoặc ao nhiệt đới. Cá trưởng thành cần đáy bể trên 600 × 200 cm (~24.000 lít), nước 23–30°C, pH 6,0–7,5, 2–12 dGH, lọc rất mạnh, thay nước đều và oxy hòa tan cao vì cá không thở được khí trời. Khó nhất là cá con bán nhiều nhưng lớn rất to, càng già càng hung hăng, nên phần lớn người nuôi không theo nổi.
-
-- Mua cá con vì màu đẹp rồi nuôi bể nhỏ: hồ sơ ghi cá trưởng thành cần đáy bể trên 600 × 200 cm, nên chỉ mua khi đã có sẵn bể hoặc ao đủ lớn.
-- Nuôi chung cá trưởng thành với các loài ở nền đáy khác: cá trở nên lãnh thổ và hung hăng, nên nuôi đơn độc hoặc chỉ ghép với cá lớn khỏe ở tầng nước mở như Cichla, Osteoglossum, Brycon.
-- Tưởng cá hít được khí trời như vài loài Loricariidae khác nên bỏ bê sục khí: loài này không thở khí quyển, nên phải giữ oxy hòa tan cao.
 
 ## Cá chạch zipper (Acanthocobitis botia)
 id: `acanthocobitis-botia`
@@ -93,15 +84,6 @@ Hợp với người có bể cộng đồng cỡ vừa đến lớn, nuôi cá 
 - Nuôi lẻ một con: loài này sống thành đàn, nên mua ít nhất 4 con.
 - Thả chung với cá rất nhỏ: cá trưởng thành có thể ăn chúng, nên chọn bạn cùng bể là characin hiền, cichlid hoặc cá nheo khác.
 - Để bể sáng và trống: cá hoạt động về đêm, nên dùng ánh sáng dịu, nền cát mềm và bố trí lũa, cây thủy sinh hoặc hang làm chỗ ẩn.
-
-## Cá chạch ngựa lùn molobrion (Acanthopsoides molobrion)
-id: `acanthopsoides-molobrion`
-
-Cá chạch ngựa lùn molobrion (Acanthopsoides molobrion) hợp với người muốn nuôi cá đáy nhỏ, hiền, độ khó 3/8, dài tới 5 cm. Cần bể từ 60 cm trở lên, nước 20–24 °C, pH 5,5–7, độ cứng 1–10 dGH, nuôi nhóm từ sáu con trở lên. Điểm khó nhất là nền cát mềm bắt buộc, vì cá hay vùi mình và đào, cộng thêm tật nhảy khỏi bể.
-
-- Dùng sỏi thô làm nền thì cá có thể bị stress hoặc tự làm mình bị thương khi đào, ăn uống cũng có thể bị ức chế; nên lót cát mềm.
-- Để bể hở hoặc không chắn miệng hút bộ lọc thì cá có thể nhảy ra ngoài hoặc chui vào miệng hút; nên đậy kín nắp và chắn miệng hút lọc.
-- Nuôi lẻ vài con trong khi loài này thích sống bầy đàn; nên nuôi nhóm từ sáu con trở lên, ghép với cá hiền ở tầng trên.
 
 ## Cá chạch mặt ngựa lùn (Acanthopsoides robertsi)
 id: `acanthopsoides-robertsi`
@@ -165,15 +147,6 @@ Cá cachorro mắt to (Acestrorhynchus falcirostris) hợp với người đã n
 - Để nắp bể hở; dùng nắp đậy thật khít vì cá nhảy rất mạnh.
 - Cho ăn tim bò, thịt gà hoặc cá mồi như cá đẻ con, cá vàng nhỏ; tập cá sang thức ăn chết phù hợp.
 
-## Cá tetra barracuda sọc (Acestrorhynchus isalineae)
-id: `acestrorhynchus-isalineae`
-
-Cá tetra barracuda sọc (Acestrorhynchus isalineae) hợp với người đã quen nuôi cá săn mồi, có bể đáy tối thiểu 120 × 45 cm (khoảng 243 lít) và lọc mạnh. Nước 24–28°C, pH 6,0–7,5, độ cứng 1–12 dGH, thay 30–50% mỗi tuần vì cá nhạy với chất hữu cơ và biến động chỉ số nước. Điểm khó nhất là cá chỉ ăn cá, hay nhảy và ăn thịt đồng loại, nên phải có nắp khít, nuôi đàn từ bốn con trở lên và chọn cá cùng cỡ.
-
-- Để bể hở hoặc nắp lỏng: cá nhảy rất mạnh, nên dùng nắp đậy thật khít.
-- Trộn cá lệch cỡ trong đàn: chúng ăn thịt đồng loại, nên mua hoặc thêm cá có kích cỡ tương đương nhau.
-- Thả cá vào bể chưa cycle xong: cá nhạy với chất ô nhiễm hữu cơ và dao động chỉ số nước, nên chỉ thả khi bể đã ổn định.
-
 ## Cá chó tetra (Acestrorhynchus microlepis)
 id: `acestrorhynchus-microlepis`
 
@@ -228,13 +201,6 @@ Hợp với người đã có bể lớn nuôi cá ưa nước mát, chảy mạ
 - Nuôi chung với cá nhỏ hoặc nhiều loài dễ gây căng thẳng: cá nhỏ sẽ bị ăn, còn cá bị căng thẳng có thể tiết chất độc, nên chọn đàn cá đủ lớn, hiền, ưa nước mát có dòng chảy như Devario.
 - Để cá nhịn vì không thấy nó đi kiếm ăn: cá ít di chuyển, cạnh tranh kém, nên thả ấu trùng muỗi lắc, Tubifex hoặc giun đất nhỏ ngay trước mặt cá.
 
-## Cá chát sọc Beijiang (Acrossocheilus beijiangensis)
-id: `acrossocheilus-beijiangensis`
-
-Cá chát sọc Beijiang (Acrossocheilus beijiangensis) hợp với người muốn nuôi một đàn cá hòa hợp với các loài khác, có năm sọc đứng sẫm màu trên mỗi bên thân. Cá lớn tới 13,1 cm, độ khó 3/8 (mức dễ). Hồ sơ không ghi thông số nước hay bể tối thiểu, và điều cần lưu ý nhất là loài này cần được nuôi theo nhóm.
-
-- Nuôi lẻ một con: loài này cần nuôi theo nhóm, nên nuôi cả nhóm ngay từ đầu.
-
 ## Cá Acrossocheilus monticola (Acrossocheilus monticola)
 id: `acrossocheilus-monticola`
 
@@ -252,14 +218,6 @@ Cá barb sọc Đài Loan (Acrossocheilus paradoxus) hợp với người đã c
 - Thả cá vào bể chưa ổn định vi sinh: chỉ thả khi bể đã hoàn tất chu trình nitrat hóa, và thuần cá với bể vài giờ.
 - Để chất thải hữu cơ tích tụ: thay 30–50% nước mỗi tuần như thói quen.
 - Nuôi trong nước tĩnh, ít oxy: tạo nước chuyển động vừa phải để oxy hòa tan luôn cao.
-
-## Cá Acrossocheilus parallens (Acrossocheilus parallens)
-id: `acrossocheilus-parallens`
-
-Cá Acrossocheilus parallens hợp với người đã có bể lớn và muốn nuôi một nhóm cá chép có vạch sẫm thẳng đứng, lớn tối đa khoảng 160 mm SL (6 in SL). Hồ sơ chỉ nói cần bể lớn và nên nuôi theo nhóm, không có thông số nước cụ thể. Điểm khó nhất là thiếu dữ liệu về nước và thức ăn trong bể, nên người mới sẽ khó chắc tay.
-
-- Nuôi lẻ một con trong bể nhỏ: nên chọn bể lớn và nuôi theo nhóm.
-- Chỉ cho ăn đồ rơi lên mặt nước: ngoài tự nhiên cá ăn động vật không xương sống nhỏ ở đáy và gặm màng sinh học trên đá, nên bể cần có đá và bề mặt cứng cho cá gặm.
 
 ## Cá rồng lửa yên ngựa (Aequidens tetramerus)
 id: `aequidens-tetramerus`
@@ -330,15 +288,6 @@ Cá trê suối nhỏ, lớn khoảng 5 cm, hợp với người đã có chút 
 - Để nước tù, thay nước thưa: thay 30–50% nước mỗi tuần, dùng bộ lọc xử lý hết lượng nước trong bể 8–12 lần mỗi giờ để có dòng chảy mạnh.
 - Chỉ cho ăn thức ăn khô: cho ăn thường xuyên Artemia, Daphnia, trùn chỉ hoặc glassworm sống hay đông lạnh, tốt nhất sau khi tắt đèn.
 
-## Cá trê suối Sittaung (Akysis longifilis)
-id: `akysis-longifilis`
-
-Hợp với người đã chơi cá tương đối vững, thích cá da trơn nhỏ sống ẩn, hay vùi cát và hoạt động về đêm. Cá lớn tới 5,3 cm, bể tối thiểu dài 45 cm, nước 18–23 °C, pH 6,7–7,2, độ cứng 2–12 dGH, độ khó 5/8. Cần nền cát mềm, nước thật sạch, có dòng chảy khá. Khó nhất là chuyện ăn: cá hơi kén và có thể không nhận thức ăn khô.
-
-- Trải nền thô hoặc không có cát: cá hay vùi mình, nên dùng nền cát mềm và thêm đá nhẵn, rễ, lũa cho cá chui.
-- Chỉ cho ăn thức ăn khô: cho ăn đều thức ăn sống hoặc đông lạnh cỡ nhỏ như Artemia, Daphnia, ấu trùng muỗi đỏ, tốt nhất sau khi tắt đèn.
-- Để nước tích chất bẩn hữu cơ, ít dòng chảy: thay nước hằng tuần 30–50% thể tích bể và giữ nước có dòng chảy khá, nhiều oxy.
-
 ## Cá Akysis maculipinnis (Akysis maculipinnis)
 id: `akysis-maculipinnis`
 
@@ -347,15 +296,6 @@ Cá trê suối nhỏ 3,5 cm này hợp với người đã có bể chạy ổn
 - Trải nền sỏi hay đá sắc: cá hay vùi mình, nên dùng nền cát mềm.
 - Chỉ cho ăn thức ăn khô: cá có thể bỏ đói, nên cho ăn đều Artemia, Daphnia, trùn chỉ hoặc ấu trùng muỗi thủy tinh, tốt nhất sau khi tối trời.
 - Để chất thải hữu cơ tích tụ: cá không chịu được nước bẩn, nên thay 30-50% nước mỗi tuần và giữ nước lưu chuyển tốt, nhiều oxy.
-
-## Cá Akysis portellus (Akysis portellus)
-id: `akysis-portellus`
-
-Cá da trơn nhỏ, lớn tối đa 4,3 cm, hợp người đã nuôi vững tay và thích loại cá ban ngày nằm im, tối mới ra ăn. Bể từ 45 cm (khoảng 41 lít), nền cát mềm, có hang và ống cho cá trú, nước 18–22 °C, pH 6,5–7,5, độ cứng 2–12 dGH; độ khó 5/8, mức vừa. Khó nhất là giữ nước thật sạch, nhiều oxy, có dòng chuyển động tốt, và cá hơi kén ăn, có thể không chịu thức ăn khô.
-
-- Lót nền thô cứng thì cá không vùi mình được; dùng cát mềm và thêm hang, ống hoặc đá để cá chui vào.
-- Để chất bẩn hữu cơ tích tụ, cá không chịu nổi; thay 30–50% thể tích nước mỗi tuần và giữ nước chuyển động tốt, nhiều oxy.
-- Chỉ cho thức ăn khô thì cá có thể bỏ ăn; cho đều Artemia, Daphnia, trùn chỉ hoặc ấu trùng muỗi thủy tinh sống hoặc đông lạnh, tốt nhất sau khi trời tối.
 
 ## Cá trê suối Indawgyi (Akysis prashadi)
 id: `akysis-prashadi`
@@ -402,15 +342,6 @@ Cá trê suối Akysis vespertinus hợp với người đã có kinh nghiệm c
 - Chỉ cho thức ăn khô thì cá có thể không chịu ăn; cho đều thức ăn sống hoặc đông lạnh cỡ nhỏ như Artemia, Daphnia, trùn chỉ, tốt nhất sau khi tối.
 - Để nước tích tụ chất bẩn hữu cơ và ít chuyển động thì cá yếu đi; thay 30–50% nước mỗi tuần và giữ nước có dòng, nhiều oxy.
 
-## Cá tetra cầu vồng châu Phi (Alestopetersius nigropterus)
-id: `alestopetersius-nigropterus`
-
-Cá tetra cầu vồng châu Phi hợp với người có bể cộng đồng lớn, tối thiểu 120 × 30 cm (khoảng 108 lít), đã chạy ổn định. Nước 22–26°C, pH 5,0–7,0, độ cứng 1–10 dGH, nuôi đàn ít nhất 8–10 con cả đực và cái. Khó nhất là giữ nước ổn định vì cá nhạy với chất thải hữu cơ dao động, kèm tên bán ngoài thị trường chưa chắc đúng loài.
-
-- Thả cá vào bể chưa trưởng thành về mặt sinh học thì cá dễ yếu; hãy cho bể chạy ổn định rồi mới thả.
-- Bỏ thay nước hoặc thay thất thường làm chất thải hữu cơ dao động; hãy thay đều 20–30% thể tích bể mỗi tuần.
-- Nuôi lẻ vài con khiến cá nhút nhát, khó khoe màu; hãy mua ít nhất 8–10 con cả đực và cái, thêm cá đàn khác cho cá thấy an toàn.
-
 ## Cá tetra kim cương xanh (Alestopetersius smykalai)
 id: `alestopetersius-smykalai`
 
@@ -453,15 +384,6 @@ Hợp với người đã nuôi cichlid Trung Mỹ và muốn một loài nhỏ,
 - Nuôi chung với cá bất kỳ trong bể nhỏ; chỉ ghép với cichlid Trung Mỹ khác trong bể đủ lớn, hoặc đàn cá hiền sống tầng giữa và tầng mặt.
 - Để bể trống, không có chỗ trú; dùng đá, gỗ và rễ cây dựng hang và chỗ ẩn, vì chúng đẻ trong hang.
 - Giữ nguyên cả nhóm khi đã hình thành cặp trong bể không lớn; chuẩn bị chuyển bớt cá dư, vì con đực không chấp nhận cá khác trong lãnh thổ.
-
-## Cá cichlid convict vàng (Amatitlania nanolutea)
-id: `amatitlania-nanolutea`
-
-Cichlid nhỏ, dài tối đa 6,5 cm, hợp người đã có chút kinh nghiệm muốn nuôi một cặp hoặc bể cichlid Trung Mỹ cỡ nhỏ. Cần bể dài từ 90 cm (khoảng 81 lít), nước 23–26 °C, pH 5–7,5, độ cứng 10–25 dGH, nhiều hang và chỗ tối; bể lớn hơn thì cá khỏe hơn. Khó nhất là giữ nước thật sạch và xử lý tính lãnh thổ khi cá lên cặp, độ khó 5/8.
-
-- Thả cá vào bể chưa cycle xong; chạy bể ổn định rồi mới thả, vì loài này đòi chất lượng nước rất cao.
-- Không chuẩn bị chỗ cho cá dư khi đã lên cặp; dùng bể lớn hoặc chuẩn bị sẵn nơi chuyển bớt cá, vì cá đực không chấp nhận cá khác trong lãnh thổ.
-- Cho ăn nhiều đồ giàu đạm; giảm lại và bổ sung thức ăn có Spirulina để cá có phần thực vật.
 
 ## Cá Convict (Amatitlania nigrofasciata)
 id: `amatitlania-nigrofasciata`
@@ -515,15 +437,6 @@ Cá midas hợp với người đã nuôi cichlid, muốn một con cá thông m
 
 - Trồng cây thật và trang trí nhẹ tay thì cá sẽ xới tung hết; nên dùng đá, lũa, chậu hoa đủ nặng để cá không xê dịch được.
 - Để máy sưởi và ống lọc trơ ra thì cá sẽ tấn công; nên lắp lồng bảo vệ chắc hoặc giấu sau cấu trúc đá không xê dịch được.
-
-## Cá red devil (Amphilophus labiatus)
-id: `amphilophus-labiatus`
-
-Cá red devil (Amphilophus labiatus) hợp với người đã có kinh nghiệm nuôi cichlid và sẵn sàng dành hẳn một bể lớn cho một con, độ khó 5/8. Cần bể dài tối thiểu 150 cm (đáy 150 cm x 45 cm), nước 22–28 °C, pH 6–8, độ cứng 5–25 dGH, cá lớn tới 35 cm. Khó nhất là tính hung dữ: nuôi chung dễ gặp rắc rối, bể phải rất lớn (trên 1000 lít), và cá phá nát trang trí lẫn thiết bị.
-
-- Để sưởi, đầu vào/ra bộ lọc không che chắn thì cá sẽ tấn công; nên lắp lồng bảo vệ chắc hoặc giấu sau cấu trúc đá không xê dịch được.
-- Làm bể thủy sinh hoặc dùng đồ trang trí nhẹ thì cá xới tung hết; nên dùng đá, lũa, chậu hoa đủ nặng để cá không di chuyển được.
-- Thả đực và cái trưởng thành chung bể để ghép cặp thì con đực thường giết con cái; nên mua tối thiểu sáu cá con nuôi lớn cùng nhau để cặp tự hình thành, rồi tách các con còn lại.
 
 ## Cá bốn mắt (Anableps anableps)
 id: `anableps-anableps`
@@ -657,22 +570,6 @@ Loài này hợp với người đã nuôi cá một thời gian (độ khó 4/8
 - Nuôi chung với cá vây dài như nhiều loài cichlid và anabantoid thì vây dễ bị cắn rỉa; nên chọn bạn cùng bể khỏe, bơi nhanh.
 - Nuôi lẻ hoặc đàn quá nhỏ; nên nuôi đàn ít nhất 6 con.
 
-## Cá killi đuôi đàn lia vàng (Aphyosemion australe)
-id: `aphyosemion-australe`
-
-Cá killi đuôi đàn lia vàng (Aphyosemion australe) hợp người mới chơi killi: đẹp, dễ đẻ, sống hơn 3 năm, độ khó 3/8. Cá lớn tới 6 cm, bể dài tối thiểu 45 cm (khoảng 28 lít) nuôi được một cặp hoặc nhóm ba con. Nước 21–32 °C, pH 5,5–7, độ cứng 1–10 dGH. Khó nhất là cá nhảy rất giỏi nên nắp phải thật khít, và cá nhút nhát nên dễ bị loài khỏe hơn lấn át.
-
-- Để nắp bể hở hoặc lỏng: cá nhảy rất giỏi nên dùng nắp thật khít.
-- Nuôi chung với loài khỏe, hung hơn: cá hiền và nhút nhát nên chọn bạn cùng bể như characin nhỏ, rasbora hoặc Corydoras spp.
-- Để một cặp đẻ liên tục quá lâu: chỉ cho đẻ khoảng một tuần rồi đưa về bể vỗ béo, vì cá, nhất là con cái, dễ kiệt sức.
-
-## Cá killi Aphyosemion bitaeniatum (Aphyosemion bitaeniatum)
-id: `aphyosemion-bitaeniatum`
-
-Cá killi Aphyosemion bitaeniatum hợp với người mới chơi, độ khó 3/8, nuôi được trong bể nhỏ. Cá trưởng thành 4,5 cm, nhiệt độ 24–30 °C, độ cứng 0–10 dGH. Hồ sơ nhấn mạnh loài này cần nước axit, pH 5–6,5.
-
-- Nuôi trong nước có pH ngoài khoảng 5–6,5 là không đúng với loài cần nước axit này; nên giữ pH trong khoảng 5–6,5.
-
 ## Cá killi Celia (Aphyosemion celiae)
 id: `aphyosemion-celiae`
 
@@ -724,14 +621,6 @@ id: `aphyosemion-loennbergii`
 
 Cá killi Lönnberg (Aphyosemion loennbergii) là cá nhỏ, lớn tối đa 5 cm, độ khó 3/8 nên thuộc nhóm dễ. Cần nước mát 20–24 °C, pH 6–7, độ cứng 1–5 dGH. Hồ sơ không nói rõ ai nên nuôi hay khâu nào khó nhất, chỉ cho các khoảng nước này.
 
-
-## Cá killi Aphyosemion mimbon (Aphyosemion mimbon)
-id: `aphyosemion-mimbon`
-
-Cá killi Aphyosemion mimbon nhỏ, trưởng thành 4,5 cm, độ khó 3/8 nên thuộc nhóm dễ. Cần nước mát, mềm và hơi chua: 18–22 °C, pH 5,5–6,5, độ cứng 0–5 dGH. Hồ sơ không nêu bể tối thiểu và không chỉ ra điểm khó riêng, nên cứ bám đúng thông số nước này.
-
-- Nuôi trong nước cứng hoặc nước kiềm là lệch thông số; nên giữ pH 5,5–6,5 và độ cứng 0–5 dGH.
-- Để bể ấm hơn mức cho phép là lệch thông số; nên giữ nhiệt độ trong khoảng 18–22 °C.
 
 ## Cá killi Aphyosemion ogoense (Aphyosemion ogoense)
 id: `aphyosemion-ogoense`
@@ -997,15 +886,6 @@ Hợp với người có chỗ đặt bể dài từ 120 cm và muốn nuôi ri�
 Kiểm tra:
 - "cá thường chỉ có qua nhà nhân giống chuyên biệt hoặc hiệp hội": the page only says they are hard to find in shops and "đôi khi có thể có qua" (sometimes available via) specialist breeders or societies. The summary turns that hedge into "usually only available through" them.
 
-## Cá răng Sahara (Apricaphanius saourensis)
-id: `apricaphanius-saourensis`
-
-Cá răng Sahara (Apricaphanius saourensis) hợp với người muốn làm dự án nhân giống lâu dài, nuôi riêng một loài. Cá dài 4,5 cm, bể tối thiểu 120 cm, nước pH 7,5–9, độ cứng 10–30 dGH và phải thêm muối biển tối thiểu 1–3 g/L; độ khó 3/8 (dễ). Khó nhất là đực hung hăng mùa sinh sản, cá thường ăn trứng, và loài này rất ít có ở cửa hàng.
-
-- Thả vào bể cộng đồng thì cá đực hung hăng và đòi nước đặc thù, nên nuôi riêng loài này theo nhóm, hai hoặc ba cái cho mỗi đực.
-- Bỏ qua giai đoạn mùa đông thì cá có thể giảm khả năng sinh sản và tuổi thọ ngắn lại, nên cho cá qua vài tháng ở nhiệt độ thấp.
-- Để trứng lại trong bể thì cá thường ăn trứng, nên kiểm tra giá thể hằng ngày và chuyển giá thể có trứng sang thùng riêng cùng nước giống bể cá lớn.
-
 ## Cá lông gà (Apteronotus albifrons)
 id: `apteronotus-albifrons`
 
@@ -1032,15 +912,6 @@ Cá chuột giáp Aspidoras pauciradiatus hợp với người đã có bể ch�
 - Thả cá vào bể chưa trưởng thành về mặt sinh học; hãy đợi bể chạy ổn định rồi mới thả.
 - Nuôi lẻ vài con; nên nuôi theo nhóm ít nhất 4–6 cá thể vì loài này sống bầy đàn.
 - Trông vào thức ăn thừa của cá khác để cá sống và dọn bể; hãy cho ăn riêng thức ăn khô chìm, xen trùn chỉ đỏ hoặc Tubifex.
-
-## Cá chuột giáp Aspidoras taurus (Aspidoras taurus)
-id: `aspidoras-taurus`
-
-Hợp với người đã có bể chạy ổn định và muốn nuôi một nhóm cá chuột nhỏ, hiền, lớn tới 5,5 cm. Cần bể dài từ 75 cm (khoảng 68 lít), nước 20–25 °C, pH 6–7,5, độ cứng 2–12 dGH, nền cát mịn và có chỗ ẩn. Độ khó 5/8 (mức vừa). Khó nhất là giữ nước sạch, ổn định và không thả cá vào bể chưa trưởng thành về sinh học.
-
-- Thả cá vào bể mới setup: chỉ thả khi bể đã trưởng thành về sinh học, nước sạch và ổn định.
-- Nuôi lẻ vài con: nuôi thành nhóm ít nhất 4–6 cá thể vì loài này sống bầy đàn.
-- Mong cá sống bằng thức ăn thừa hoặc dọn bể: cho ăn riêng thức ăn khô dạng chìm, xen bloodworm, Tubifex cho đa dạng.
 
 ## Cá trê nuốt (Gulper Catfish) (Asterophysus batrachus)
 id: `asterophysus-batrachus`
@@ -1165,15 +1036,6 @@ Loài này hợp với người đã có kinh nghiệm giữ nước ổn địn
 - Lót nền sỏi hay cuội nhỏ. Nên dùng cát mịn, vì nền thô làm cá khó ăn, tổn thương tơ mang và có thể nuốt phải sỏi.
 - Nuôi nhiều cá đực hoặc ghép với cá có kiểu màu giống đực. Nên nuôi một đực với 4–6 cái, chọn bạn cùng bể có kiểu màu khác và tránh các loài Aulonocara khác vì dễ lai.
 
-## Cá hoàng đế Grant (Aulonocara stuartgranti)
-id: `aulonocara-stuartgranti`
-
-Cá hoàng đế Grant (Aulonocara stuartgranti) có độ khó 5/8 (mức vừa), trưởng thành khoảng 13 cm. Cần bể dài tối thiểu 120 cm, nền cát mịn, vài cụm đá có chừa khoảng trống, nước 23–29 °C, pH 7,5–9, độ cứng 10–25 dGH. Khó nhất là giữ nước ổn định: cá rất nhạy khi nước xấu đi hoặc thông số dao động, nên cần lọc mạnh và thay nước mỗi tuần.
-
-- Thả cá vào bể chưa chạy vi sinh ổn định; hãy đợi vi sinh ổn định rồi mới thả.
-- Lót nền sỏi hay đá cuội nhỏ có thể làm cá khó ăn, tổn thương tơ mang hoặc nuốt phải sỏi; hãy dùng cát mịn.
-- Chọn bạn cùng bể không kỹ: cá đực hay gây hấn với con có kiểu màu giống nó và các Aulonocara khác dễ lai; hãy tránh Aulonocara khác, và trừ khi bể rất lớn thì chỉ nuôi một đực cùng 4–6 cái.
-
 ## Cá badis (Badis badis)
 id: `badis-badis`
 
@@ -1236,15 +1098,6 @@ Cá badis Siamensis (Badis siamensis) hợp với người đã có kinh nghiệ
 - Thả nhiều con đực vào bể nhỏ: chỉ nuôi một cặp, hoặc một đực với vài cái, và rải hang ra nhiều chỗ.
 - Cho ăn trùng huyết hoặc trùng chỉ thường xuyên: bỏ hai loại này, dùng Artemia, bo bo hoặc thức ăn sống, đông lạnh cỡ nhỏ khác.
 - Nuôi chung với các loài Badis khác hoặc cá to, hiếu động: nuôi riêng một loài, nếu ghép thì chọn cá họ chép hiền, bơi đàn hoặc gourami.
-
-## Cá badis Tuivai (Badis tuivaiei)
-id: `badis-tuivaiei`
-
-Cá badis Tuivai (Badis tuivaiei) hợp với người đã có kinh nghiệm, muốn nuôi riêng một cặp hoặc một đực với 2–4 cái trong bể đáy từ 60 × 30 cm (khoảng 54 lít), nước 20–24 °C, pH 6,5–7,5, độ cứng 5–10 dGH. Cá lớn khoảng 8,5 cm, độ khó 6/8. Điểm khó nhất là cá hơi kén ăn, có thể không chịu thức ăn khô, và các con đực đánh nhau dữ trong bể nhỏ.
-
-- Nuôi nhiều con đực trong bể nhỏ thì chúng đánh nhau dữ; chỉ nuôi một cặp hoặc một đực với vài cái, muốn nuôi nhiều đực thì dùng bể rộng hơn.
-- Chỉ cho ăn thức ăn khô thì cá có thể bỏ ăn; nên cho ăn đều Artemia, Daphnia hoặc bọ gậy thủy tinh sống hoặc đông lạnh.
-- Cho ăn trùng huyết hoặc trùng chỉ khiến cá dễ béo phì và dễ bệnh; bỏ hẳn hai món này khỏi thực đơn.
 
 ## Cá goonch (Bagarius bagarius)
 id: `bagarius-bagarius`
@@ -1316,24 +1169,6 @@ Barilius bakeri hợp với người có bể trưng bày lớn và muốn nuôi
 
 - Nuôi lẻ hoặc đàn ít con thì cá thường rất hung hăng, nên nuôi đàn từ 5 con trở lên.
 - Cho cá vào bể nhỏ dễ bị chật, vì cá dài tới 15 cm và hợp bể trưng bày lớn, nên chuẩn bị bể lớn.
-
-## Cá baril Hamilton (Barilius bendelisis)
-id: `barilius-bendelisis`
-
-Cá baril Hamilton (Barilius bendelisis) hợp với người đã có kinh nghiệm, muốn làm bể suối riêng cho cá bơi nhanh, cỡ 20 cm. Cần bể dài tối thiểu 180 cm, nước 18–26 °C, pH 6–8, độ cứng 2–15 dGH, sạch, nhiều oxy và có dòng chảy. Khó nhất (độ khó 6/8) là giữ nước luôn sạch trong bể đã chạy ổn định, đậy nắp thật kín vì cá nhảy giỏi, và không ghép được với cá nhỏ hay chậm chạp.
-
-- Nuôi chung với cá nhỏ hoặc cá bơi chậm, nhút nhát: cá ăn rất hăng và có thể ăn thịt cá nhỏ, nên ghép với cá họ chép khỏe, cỡ tương đương, bơi tầng nước mở.
-- Chỉ mua hai, ba con: con yếu thế bị bắt nạt không ngừng, nên nuôi từ năm con trở lên.
-- Thả cá vào bể chưa có hệ vi sinh ổn định hoặc để chất thải tích tụ: nên chạy bể ổn định trước, thay 30–50% nước mỗi tuần và dùng lọc ngoài, máy tạo dòng, sủi oxy khi cần.
-
-## Cá Opsarius canarensis (Barilius canarensis)
-id: `barilius-canarensis`
-
-Cá Opsarius canarensis hợp với người nuôi có kinh nghiệm, muốn dựng bể riêng kiểu suối chảy cho một đàn cá nhanh, khỏe, lớn 13 cm. Cần bể dài tối thiểu 150 cm (đáy 150 × 60 cm, khoảng 540 lít), nước 18–26 °C, pH 6–7,5, độ cứng 2–10 dGH, nhiều oxy, dòng chảy vừa phải và nước luôn sạch. Khó nhất là giữ nước sạch, ổn định và đậy nắp thật kín vì cá nhảy giỏi, nên độ khó là 6/8.
-
-- Thả cá vào bể mới set khi hệ vi sinh chưa chín; chỉ thả vào bể đã chạy ổn định lâu.
-- Nuôi hai ba con hoặc một con lẻ; nuôi từ năm con trở lên để con yếu không bị bắt nạt và cá không quay sang hung hăng với loài giống nó.
-- Nuôi chung với cá nhỏ, chậm chạp hoặc nhút nhát trong bể cộng đồng; chọn bạn cùng bể là cá chép tầng giữa khỏe, cỡ tương đương như Dawkinsia hay Devario.
 
 ## Cá baril Malabar (Barilius gatensis)
 id: `barilius-gatensis`
@@ -1459,15 +1294,6 @@ Hợp với người đã quen giữ nước sạch và có bể dài từ 120 c
 - Nuôi lẻ vài con thì cá nhát và kém màu; nên nuôi nhóm ít nhất 8–10 con.
 - Để nước tích chất thải hữu cơ; hãy thay 30–50% nước mỗi tuần và giữ nước giàu oxy.
 - Nuôi chung với các loài Bedotia khác dễ bị lai; đừng nuôi chung, chọn bạn cùng bể như cá cầu vồng Australasia cỡ tương đương hoặc cá barb.
-
-## Cá trê nanh hàm cong (Belodontichthys dinema)
-id: `belodontichthys-dinema`
-
-Loài này hợp với người đã có kinh nghiệm, có chỗ đặt bể rất lớn và chịu nuôi riêng một con. Cá trê nanh hàm cong (Belodontichthys dinema) ngoài tự nhiên dài tới 100 cm, cần nước 22–27 °C, pH 5,6–7, độ cứng 1–10 dGH, lọc mạnh và thay nước đều. Độ khó 6/8. Khó nhất là khâu cho ăn: là loài ăn cá bắt buộc, và theo những người đã nuôi thì chúng chỉ ăn cá sống, nên phải có nguồn cá mồi khỏe, ổn định và cách ly cá mồi trước khi cho ăn.
-
-- Thả chung với cá nhỏ lọt miệng thì sẽ bị ăn hết, nên nuôi riêng một con hoặc nuôi chung với loài khỏe, to đến mức cá không nuốt được.
-- Đậy nắp lỏng thì cá nhảy ra ngoài, nên dùng nắp nặng và khít.
-- Dùng lọc yếu và thay nước ít thì bể nhanh bẩn vì cá ăn bừa bãi và thải nhiều, nên lọc mạnh và thay nước nhiều, đều đặn.
 
 ## Cá combtail Java (Belontia hasselti)
 id: `belontia-hasselti`
@@ -1614,15 +1440,6 @@ Cá betta Hendra (Betta hendra) hợp với người đã có bể nước mềm
 - Mua cá khi bể chưa sẵn sàng: hãy chuẩn bị xong bể nước mềm, axit, ổn định rồi mới mua.
 - Nuôi cá trong bể sáng, trống, không chỗ trốn: hãy bố trí hang, rễ cây, cây rậm và lớp lá rụng để giảm hung hăng.
 - Ghép với cá không hợp: chỉ ghép cá nhỏ, rất hiền, sống nước mềm như Boraras hoặc Sundadanio, và phải có đủ chỗ ẩn nấp.
-
-## Cá betta ibanorum (Betta ibanorum)
-id: `betta-ibanorum`
-
-Cá betta ibanorum (Betta ibanorum) hợp với người chịu chỉnh nước mềm, axit và nuôi riêng một cặp hoặc nhóm nhỏ. Cá dài 8,5 cm, bể tối thiểu 80 cm (đáy 80 × 30 cm, khoảng 72 lít) là đủ cho một cặp hoặc nhóm nhỏ, nước 24–28 °C, pH 4–7, độ cứng 1–5 dGH, độ khó 5/8. Khó nhất là giữ nước mềm, gần như không có độ cứng carbonat (có thể phải dùng RO), đậy bể thật kín vì cá nhảy giỏi, và cá không hợp bể cộng đồng thông thường.
-
-- Thả chung vào bể cộng đồng thông thường: cá bị loài lớn hoặc hiếu động dọa nạt, nên nuôi riêng hoặc chỉ chung với loài thật hiền.
-- Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy rất giỏi, nên đậy bể thật kín và chừa khoảng không khí ẩm trên mặt nước.
-- Dùng nước cứng không xử lý: loài này cần nước axit, độ cứng thấp, nên dùng RO hoặc cách khác để có nước mềm.
 
 ## Cá betta Ideii (Betta ideii)
 id: `betta-ideii`
@@ -1777,15 +1594,6 @@ Cá betta smaragdina (Betta smaragdina) khá dễ nuôi, độ khó 2/8, hợp n
 - Thả hai cá đực chung bể thì sẽ đánh nhau; nuôi mỗi đực một bể, hoặc ghép với betta không phải cá đực.
 - Thấy cá chịu lạnh được là để nước nguội kéo dài; nên giữ nước trong khoảng 24–30 °C.
 
-## Cá betta stigmosa (Betta stigmosa)
-id: `betta-stigmosa`
-
-Cá betta stigmosa (Betta stigmosa) hợp với người muốn nuôi riêng một bể cá nhỏ hoặc chung với loài thật hiền, không hợp bể cộng đồng thông thường. Độ khó 5/8 (mức vừa), cá trưởng thành 5 cm, cần bể dài tối thiểu 60 cm (đáy 60 × 30 cm, khoảng 54 lít), nước 22–28 °C, pH 5–7, 0–5 dGH, ánh sáng khá tối, có lũa, lá khô và cây nổi. Chỗ khó nhất là đậy bể thật kín vì cá nhảy rất giỏi, và chọn bạn cùng bể thật hiền.
-
-- Nuôi chung với cá lớn hơn hẳn hoặc hiếu động thì cá dễ bị dọa và mất phần ăn; nên nuôi riêng hoặc chung với loài thật hiền.
-- Để bể hở hoặc đổ nước đầy tới miệng bể thì cá dễ nhảy ra và không có lớp không khí ẩm để thở; nên đậy kín và chừa khoảng trống phía trên mặt nước.
-- Cho ăn quá nhiều thì cá dễ béo phì; nên cho ăn vừa phải và thường xuyên xen thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết.
-
 ## Cá betta taeniata (Betta taeniata)
 id: `betta-taeniata`
 
@@ -1870,15 +1678,6 @@ Cá rasbora dâu tây (Boraras naevus) hợp với người thích bể nhỏ tr
 
 - Nuôi trong bể trống, nền sáng thì cá khó hợp; nên trồng dày cây và dùng nền màu tối.
 - Để nước cứng hoặc kiềm thì không đúng nhu cầu của cá; nên giữ nước mềm và hơi chua.
-
-## Cá chạch Bengal (Botia dario)
-id: `botia-dario`
-
-Cá chạch Bengal (Botia dario) hợp với người đã có bể chạy ổn định và đủ chỗ nuôi đàn, độ khó 5/8 (mức vừa). Cá dài tới 13 cm, cần bể tối thiểu 120 cm (đáy 120 × 45 cm, khoảng 243 lít), nước 23–26 °C, pH 6–7,5, độ cứng 1–10 dGH. Khó nhất là giữ nước thật sạch, giàu oxy và nuôi đủ đàn, vì cá không chịu được chất thải hữu cơ tích tụ và dễ bị con đầu đàn chèn ép khi nuôi ít con.
-
-- Mua chỉ hai hay ba con thì con đầu đàn có thể chèn ép đến mức các con còn lại bỏ ăn; nên nuôi ít nhất 5–6 con, tốt nhất từ 10 con trở lên.
-- Thả cá vào bể chưa ổn định vi sinh thì cá khó thích nghi; chỉ thả vào bể đã chạy lâu và thay 30–50% nước mỗi tuần.
-- Để bể hở hoặc nắp không khít thì cá nhảy ra ngoài; dùng nắp đậy khít và trám kín các khe hở nhỏ mà cá có thể chui vào rồi mắc kẹt.
 
 ## Cá heo Miến Điện (Botia histrionica)
 id: `botia-histrionica`
@@ -1988,14 +1787,6 @@ Loài này hợp với người đã có tay nghề, muốn nuôi một bể ri�
 - Nuôi ít con thì cá đực đuổi nhau liên tục, nên mua nhóm từ 6 con trở lên để sự hung hăng được chia ra.
 - Thả chung với cá khác trong bể cộng đồng thì không hợp, nên nuôi bể riêng cho loài và bố trí nhiều chỗ ẩn, vật che chắn.
 
-## Cá bống ong xanthozonus (Brachygobius xanthozonus)
-id: `brachygobius-xanthozonus`
-
-Cá bống ong xanthozonus (Brachygobius xanthozonus) trưởng thành 3,8 cm, độ khó 3/8 theo thẻ, nhưng hồ sơ chưa có thông tin nuôi nào: không có nhiệt độ, pH, độ cứng hay bể tối thiểu. Hồ sơ cho biết có vẻ không có cá sống nào được xác nhận trong nuôi cảnh, nên khó nói ai hợp với loài này. Điểm khó nhất là chính việc có mua được đúng loài hay không, vì cá dán nhãn tên này luôn là B. doriae hoặc B. sabanus.
-
-- Tin vào nhãn tên xanthozona khi mua cá: cá dán nhãn này luôn là B. doriae hoặc B. sabanus, nên cần đếm vạch sẫm (loài này có 4 vạch, hai loài kia có 3) trước khi tin.
-- Nhận diện chỉ dựa vào dáng cá: nên kiểm tra thêm vây hậu môn đen hoàn toàn và thân thon dài với khoảng 50 vảy đường bên.
-
 ## Cá trê khổng lồ Brachyplatystoma capapretum (Brachyplatystoma capapretum)
 id: `brachyplatystoma-capapretum`
 
@@ -2004,15 +1795,6 @@ Cá trê khổng lồ Brachyplatystoma capapretum chỉ hợp với thủy cung 
 - Thả chung với cá nhỏ thì cá bị săn; chỉ nuôi chung với loài đủ lớn để tránh bị ăn.
 - Cho cá trưởng thành ăn dày bữa; chỉ cho ăn tối đa một bữa mỗi tuần.
 - Lắp lọc vừa phải rồi lơ việc bảo dưỡng; hãy dùng hệ lọc khổng lồ, đáng tin cậy và bảo dưỡng nghiêm ngặt.
-
-## Cá trê khổng lồ Piraíba (Brachyplatystoma filamentosum)
-id: `brachyplatystoma-filamentosum`
-
-Cá trê khổng lồ Piraíba (Brachyplatystoma filamentosum) chỉ hợp với thủy cung công cộng và rất ít người nuôi tư nhân, vì cá trưởng thành đạt 250 cm. Nước cần 22–28 °C, pH 6–8, độ cứng 1–20 dGH, bể phải có lọc khổng lồ, đáng tin cậy và bảo dưỡng nghiêm ngặt; hồ sơ không đưa ra kích thước bể khuyến nghị. Điểm khó nhất là cỡ cá, độ khó 5/8, và chưa có ghi nhận sinh sản trong nuôi nhốt.
-
-- Nuôi chung với cá nhỏ thì cá sẽ bị săn, nên chỉ ghép với loài đủ lớn để không thành mồi.
-- Cho ăn quá dày: cá trưởng thành chỉ cần tối đa một bữa mỗi tuần, nên dùng thức ăn chết như tôm, trai, mực hoặc cá thịt trắng.
-- Coi nhẹ lọc và bảo dưỡng; nên đầu tư hệ thống lọc khổng lồ, đáng tin cậy và giữ lịch bảo dưỡng nghiêm ngặt.
 
 ## Cá trê vằn vàng (Brachyplatystoma juruense)
 id: `brachyplatystoma-juruense`
@@ -2055,15 +1837,6 @@ id: `brachyrhamdia-heteropleura`
 
 Cá trê Brachyrhamdia heteropleura nhỏ, trưởng thành chỉ 4,3 cm, hợp người muốn nuôi cá trê cỡ nhỏ. Loài này sống ở Nam Mỹ, vùng Guyana, Suriname và lưu vực Amazon. Hồ sơ không ghi nhiệt độ, pH hay bể tối thiểu, nên cần tìm thêm thông tin về nước và bể trước khi nuôi.
 
-
-## Cá nheo Brachyrhamdia meesi (Brachyrhamdia meesi)
-id: `brachyrhamdia-meesi`
-
-Cá nheo Brachyrhamdia meesi hợp với người đã nuôi vài bể và thích cá đáy hiền, ít gặp. Cá dài 6,1 cm khi trưởng thành, cần bể dài tối thiểu 80 cm (đáy 80 × 30 cm), nền cát mịn, có rễ hoặc lũa. Nước 24–28 °C, pH 6–7,5, độ cứng 1–10 dGH, độ khó 5/8. Khó nhất là giữ nước thật sạch, vì cá không chịu được chất thải hữu cơ tích tụ.
-
-- Để chất thải tích tụ trong bể: cá không chịu được, nên thay một phần nước hằng tuần và vệ sinh bể nghiêm ngặt.
-- Nuôi chung với cá quá nhỏ: cá nhỏ có thể bị ăn, nên chọn bạn cùng bể có cỡ đủ lớn.
-- Chỉ cho ăn khô: nên thường xuyên cho ăn Artemia, Daphnia hoặc trùng huyết sống hoặc đông lạnh, thức ăn khô dạng chìm chỉ bổ sung.
 
 ## Cá da trơn giả adolfoi (Brachyrhamdia rambarrani)
 id: `brachyrhamdia-rambarrani`
@@ -2110,24 +1883,6 @@ Cá tetra vây dài (Brycinus longipinnis) hợp với người đã có kinh ng
 - Để nitrat tích lại trong bể thì cá dễ bị sốc nước, nên chăm bể đều đặn và giữ nước sạch.
 - Thả chung với loài nhỏ hoặc bơi chậm thì chúng bị lấn át, nên chọn bể Tây Phi riêng hoặc bạn cùng bể có cỡ tương đương.
 
-## Cá tetra vây lông Boulenger (Bryconaethiops boulengeri)
-id: `bryconaethiops-boulengeri`
-
-Cá tetra vây lông Boulenger (Bryconaethiops boulengeri) hợp với người có bể lớn, muốn nuôi đàn cá cỡ to hiền lành trong bể cộng đồng toàn cá lớn. Cá dài tới 25 cm, cần bể tối thiểu 120 cm (120 × 45 × 45 cm, khoảng 243 lít), nước 22–26 °C, pH 6–8, độ cứng 3–20 dGH. Độ khó 5/8, khó nhất là chỗ bơi rộng, dòng chảy mạnh, nhiều oxy và việc loài này hiếm khi được nhập về.
-
-- Thả chung với cá nhỏ thì chúng bị coi là mồi, nên chọn bạn cùng bể cỡ tương đương như characin lớn, cichlid cứng cáp hay cá họ Loricariidae.
-- Nuôi lẻ một con thì không hợp tính cá đàn, nên nuôi cả nhóm nếu có điều kiện.
-- Bày bể dày đặc, dòng yếu thì cá bơi khỏe không có chỗ chạy, nên chừa nhiều khoảng trống và để lọc luân chuyển nước 8–12 lần mỗi giờ.
-
-## Cá trê lá khô banjo (Bunocephalus coracoideus)
-id: `bunocephalus-coracoideus`
-
-Hợp với người thích cá nằm im, ngụy trang giống lá khô và chỉ ra hoạt động khi tối, không hợp người muốn cá bơi lượn ban ngày. Bể dài tối thiểu 60 cm (60 × 38 × 30 cm, khoảng 68 lít là đủ), nước 20–27 °C nên giữ ở mức cao, pH 5,8–7,8, độ cứng 2–20 dGH, cá lớn tới 15 cm, độ khó 4/8. Khó nhất là bố trí nền, chỗ trốn và chọn bạn cùng bể cho hợp, vì cá ẩn kỹ và không tranh được ăn.
-
-- Thả vào bể cộng đồng thông thường rồi mong thấy cá bơi; nên nuôi trong bể biotope Nam Mỹ với tetra, cichlid lùn hoặc cá trê hiền như Corydoras sp.
-- Cho ăn lúc đèn sáng nên cá không giành được phần; nên cho ăn sau khi tắt đèn, ưu tiên thức ăn chìm, trùng huyết hoặc giun.
-- Để nền trống, không chỗ trốn; nên rải lớp cát dày để cá vùi mình, thêm đá, lũa, lá sồi hoặc lá dẻ gai khô và để ánh sáng dịu.
-
 ## Cá bống mắt tre đầu vịt (Butis butis)
 id: `butis-butis`
 
@@ -2139,51 +1894,6 @@ Cá bống mắt tre đầu vịt (Butis butis) hợp người nuôi đã có ki
 
 Kiểm tra:
 - Summary says "Cần ... nền cát" as a requirement, but the page only hedges: gravel is usable and sand is "có lẽ là lựa chọn tốt hơn" (probably better). The hedge became a certainty.
-
-## Cá cichlid sàng cát mắt to (Callochromis macrops)
-id: `callochromis-macrops`
-
-Loài này hợp với người đã có bể đáy cát rộng, thích xem cá sàng cát và muốn thử cho sinh sản. Cần bể dài tối thiểu 120 cm, nền cát, nước 24–27 °C, pH 7,8–9,5, độ cứng 10–30 dGH. Cá lớn tới 13,5 cm, độ khó 5/8. Khó nhất là cá đực đánh nhau rất dữ với đồng loại, nên bể nhỏ chỉ nuôi một đực với vài cái.
-
-- Thả nhiều đực vào bể chật. Bể nhỏ chỉ nên nuôi một đực với vài cái, muốn nuôi nhiều đực thì dùng bể lớn hơn nhiều và xếp đống đá chia lãnh thổ.
-- Trải cát mỏng, chất nhiều đá. Rải lớp cát khá dày, chừa nhiều mặt đáy trống, chỉ xếp vài đống đá ở góc sau cho cá cái có chỗ trốn.
-- Nuôi chung các dạng màu theo vùng địa lý. Các dạng này lai với nhau rất dễ, nên chỉ nuôi một dạng màu trong một bể.
-
-## Cá mormyrid hàm giun (Campylomormyrus tamandua)
-id: `campylomormyrus-tamandua`
-
-Cá mormyrid hàm giun (Campylomormyrus tamandua) hợp với người đã có kinh nghiệm, có chỗ đặt bể dài ít nhất 180 cm, dài 180 × 60 × 60 cm (khoảng 648 lít) cho một con trưởng thành dài tới 40 cm. Cá cần nước mềm, có tính axit, thật sạch (23–28 °C, pH 5–7, 0–10 dGH), nền cát và ánh sáng mờ. Khó nhất là cho ăn, vì cá thường không chịu ăn thức ăn thông thường và hiếm khi đụng tới thức ăn khô. Độ khó 3/8 nhưng hồ sơ ghi rõ đây không phải loài cho người mới chơi.
-
-- Đừng cho ăn thức ăn khô, vì cá hiếm khi đụng tới, thậm chí có con không bao giờ ăn; hãy cho ăn đồ đông lạnh hoặc sống như trùng huyết, Artemia, giun đất, trùng chỉ.
-- Đừng để bể sáng quá và hở nắp, vì cá giật mình và có thể nhảy ra ngoài; hãy đậy nắp thật khít, thả cây nổi, đá, rễ cây để làm bóng râm.
-- Đừng lót nền thô hay thả chung với mormyrid khác, kể cả đồng loại; hãy dùng nền cát để cá sục mõm tìm mồi và trong bể cộng đồng chỉ nuôi một con.
-
-## Cá nóc mắt đỏ Borneo (Carinotetraodon borneensis)
-id: `carinotetraodon-borneensis`
-
-Hợp với người đã nuôi vài bể, thích bể trồng cây rậm, rễ lũa, lá khô và chịu khó thay nước đều. Cá nóc mắt đỏ Borneo chỉ dài 4,5 cm, bể tối thiểu 60 cm, nước 20–28 °C, pH 6–7,5, độ cứng 2–12 dGH, độ khó 5/8. Điểm khó nhất là cá nhạy nước xuống cấp, lại cần cho ăn đồ có vỏ đều đặn để mòn răng, và cá đực hay giữ lãnh thổ.
-
-- Để dòng lọc mạnh thì cá khó chịu, nên chỉnh lọc cho dòng chảy yếu.
-- Cho ăn thức ăn khô làm món chính thì răng dễ mọc dài, nên cho ăn đều ốc, chân cua nhỏ, sò hoặc thịt động vật có vỏ cắt nhỏ.
-- Thả nhóm vào bể trống, ít chỗ trốn thì cá đực giành lãnh thổ, nên nuôi nhóm trong bể rộng, có nhiều cây và rễ lũa để cá trốn.
-
-## Cá nóc mắt đỏ đuôi đỏ (Carinotetraodon irrubesco)
-id: `carinotetraodon-irrubesco`
-
-Cá nóc mắt đỏ đuôi đỏ (Carinotetraodon irrubesco) hợp với người đã nuôi cá một thời gian và thích bể bày trí kỹ, độ khó 5/8 (mức vừa). Cá dài 4,5 cm, cần bể tối thiểu 60 cm (60 × 30 × 30 cm, khoảng 54 lít), nước 20–28 °C, pH 6–7,5, độ cứng 2–12 dGH, có rễ, cây thủy sinh và lá khô, dòng lọc yếu. Điểm khó nhất là cá nhạy khi nước xấu đi và cần cho ăn đồ có vỏ đều đặn để mài răng. Cá đực hay giữ lãnh thổ nên nuôi chung cần chọn bạn bể cẩn thận.
-
-- Đừng để nước xuống cấp hay thay nước một lần quá nhiều, vì loài này nhạy; nên thay nước ít một nhưng đều đặn.
-- Đừng cho ăn chủ yếu bằng thức ăn khô, vì răng cá mọc liên tục; nên cho ăn đều ốc, chân cua nhỏ, sò hoặc hải sản có vỏ cắt nhỏ.
-- Đừng thả chung với cá quá nhỏ hay quá lớn, hay loài hung; nên nuôi riêng hoặc nuôi chung với đàn cá họ chép hiền, bơi theo đàn, cỡ vừa phải.
-
-## Cá rìu lùn (Carnegiella myersi)
-id: `carnegiella-myersi`
-
-Cá rìu lùn (Carnegiella myersi) hợp với người đã có bể chạy lâu, thật ổn định và muốn nuôi một đàn cá hiền, nhỏ. Bể dài tối thiểu 50 cm (đáy 50 × 30 cm, khoảng 45 lít), nhiệt độ 23–26 °C, pH 4–7, độ cứng 1–6 dGH, dòng chảy yếu, có cây thả nổi. Khó nhất là cá rất hay nhảy nên nắp phải kín, và cá nhỏ, nhát nên không hợp bể cộng đồng thông thường; cá trưởng thành 2,5 cm, độ khó 3/8.
-
-- Để hở nắp bể, kể cả qua đêm hoặc lúc kéo nắp ra cho ăn: cá nhảy rất giỏi, nên đậy nắp thật kín.
-- Nuôi lẻ hoặc ít con: phải nuôi đàn tối thiểu sáu con, càng nhiều càng tốt.
-- Thả chung với cá hiếu động hoặc cho vào bể cộng đồng thông thường: nếu nuôi chung, tốt nhất chọn cá characid hiền cỡ tương đương và cá da trơn callichthyid hoặc loricariid cỡ nhỏ hơn.
 
 ## Cá rìu cẩm thạch (Carnegiella strigata)
 id: `carnegiella-strigata`
@@ -2236,15 +1946,6 @@ Cá chaca (Chaca chaca) hợp với người đã có kinh nghiệm, thích cá 
 - Cho rằng cá sẽ ăn thức ăn khô là sai với nhiều con, vì chúng chỉ chịu mồi sống; chuẩn bị sẵn cá nhỏ, tép sông, giun đất và tập ăn đồ đông lạnh khi cá còn nhỏ.
 - Nuôi trong bể chật mà ít kiểm tra nước thì pH có thể tụt; theo dõi chất lượng nước thật kỹ, bể càng nhỏ càng phải để ý.
 
-## Cá pleco bulldog sọc (Chaetostoma formosae)
-id: `chaetostoma-formosae`
-
-Loài này hợp với người đã nuôi cá một thời gian, chịu dành riêng một bể cho nó. Cá cần bể dài tối thiểu 120 cm (đáy 120 × 30 cm), nước 20–24 °C, pH 6,5–7,8, độ cứng 8–25 dGH, lọc mạnh và nhiều oxy. Độ khó 6/8: khó nhất là giữ nước luôn sạch, giàu oxy và có sẵn tảo cho cá ăn, vì cá bán ra hay bị gầy rộc, khá khó cứu.
-
-- Thả cá vào bể chưa chín; hãy chạy bể cho ổn định trước, vì loài này cần nước ổn định.
-- Cọ sạch tảo khắp bể; hãy để tảo mọc trên mọi bề mặt, chỉ chừa mặt kính dùng để ngắm.
-- Thay nước thưa hoặc ít; hãy thay 30–50% thể tích bể mỗi tuần để nước luôn sạch và giàu oxy.
-
 ## Cá chaetostoma hổ Magdalena (Chaetostoma leucomelas)
 id: `chaetostoma-leucomelas`
 
@@ -2254,33 +1955,6 @@ Cá chaetostoma hổ Magdalena (Chaetostoma leucomelas) lớn tới 14,3 cm, h�
 
 Kiểm tra:
 - "bể giống đáy sông có dòng chảy": the page only advises rounded stones to resemble a river bottom. It never says the tank should have a current. The fast current ("dòng nước chảy xiết") is mentioned only in the spawning context, so this is advice the page doesn't give.
-
-## Cá Chagunius baileyi (Chagunius baileyi)
-id: `chagunius-baileyi`
-
-Cá Chagunius baileyi hợp với người có chỗ đặt bể dài 180 cm trở lên, muốn làm bể mô phỏng sông và nuôi theo nhóm. Cá dài tới 20 cm, cần nước 18–25 °C, pH 6–7,5, độ cứng 5–20 dGH, sạch, giàu oxy và dòng chảy mạnh, độ khó 5/8. Khó nhất là bể quá lớn để nuôi nhóm lâu dài, cộng với việc cá hay nhảy và dễ hoảng.
-
-- Để bể hở hoặc đậy nắp nhẹ: cá nhảy rất mạnh, nên dùng nắp nặng và đậy thật kín.
-- Để chất thải hữu cơ tích tụ: cá gần như chắc chắn chịu không nổi, nên giữ nước thật sạch, giàu oxy và có dòng chảy khá mạnh.
-- Nuôi một hai con: cá dễ nhút nhát và hoảng, nên nuôi nhóm từ sáu con trở lên nếu đủ chỗ.
-
-## Cá chalceus đuôi hồng (Chalceus macrolepidotus)
-id: `chalceus-macrolepidotus`
-
-Cá chalceus đuôi hồng (Chalceus macrolepidotus) hợp với người có bể dài từ 120 cm trở lên, vì cá lớn đến 25 cm, bơi bứt tốc nhanh và sống được 15 năm. Nước 23–28 °C, pH 6–7,5, độ cứng 5–18 dGH, nên có chút dòng chảy. Độ khó 4/8. Khó nhất là cá hay nhảy khỏi bể, hay hoảng, và cá mới nhập về có thể yếu vì vảy to dễ rụng khi vận chuyển.
-
-- Để nắp bể hở hoặc hở khe: cá nổi tiếng hay nhảy, nên đậy nắp thật khít.
-- Nuôi đàn nhỏ vài con: chúng hay cắn nhau, nên nuôi một con hoặc đàn trên 6 con.
-- Cho ở chung với cá nhỏ hơn nhiều hoặc cá tầng mặt khác trong bể không thật lớn: cá nhỏ bị ăn thịt, nên tránh.
-
-## Cá lóc Amur (Channa argus)
-id: `channa-argus`
-
-Cá lóc Amur (Channa argus) lớn tới 85 cm, chỉ hợp bể trưng bày công cộng hoặc bể tư nhân loại lớn nhất, bể phải dài ít nhất 200 cm. Nước pH 6–8, độ cứng 5–25 dGH, cá dễ thích nghi, độ khó 5/8 (mức vừa). Khó nhất là chỗ nuôi đủ rộng, nắp thật khít vì cá hay nhảy, và giấy phép: ở Hoa Kỳ, Vương quốc Anh và một số nước, nhập hay giữ loài này là phạm pháp nếu không có giấy phép.
-
-- Đậy bể sơ sài vì cá giỏi trốn; nên dùng nắp thật khít, nhưng chừa khoảng trống giữa nắp và mặt nước để cá lấy không khí.
-- Cho ăn tim bò hoặc thịt gà; nên cho thịt cá cắt dải, tôm nguyên con, trai hay giun đất cỡ lớn, vì cá không chuyển hóa hết chất béo trong thịt gia súc, gia cầm.
-- Dùng cá vàng nhỏ hay cá đẻ con làm cá mồi; nên tránh, vì dễ mang ký sinh trùng, mầm bệnh vào bể và thường không bổ dưỡng.
 
 ## Cá lóc cam đốm (Channa aurantimaculata)
 id: `channa-aurantimaculata`
@@ -2316,15 +1990,6 @@ Kiểm tra:
 - "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference.
 - "hợp với người đã quen nuôi cá săn mồi": the page does not say the species suits experienced keepers of predatory fish. It only says the fish is an obligate predator and gives no audience advice.
 
-## Cá lóc Malabar (Channa diplogramma)
-id: `channa-diplogramma`
-
-Cá lóc Malabar (Channa diplogramma) lớn tới 48 cm, độ khó 6/8 nên chỉ hợp người nuôi có kinh nghiệm và có bể rất lớn, loại lớn nhất của nhà riêng hoặc bể trưng bày. Nước 22–32 °C, pH 6–8, độ cứng 2–20 dGH, khá dễ tính, thích có cây thả nổi hoặc cành cây che bớt mặt nước. Khó nhất là chỗ bơi rộng, nắp thật khít vì cá hay nhảy, và việc cá hung hăng khi đến tuổi sinh sản.
-
-- Đậy nắp sát mặt nước hoặc không khít: dùng nắp thật khít nhưng chừa khoảng hở giữa nắp và mặt nước để cá lên được lớp không khí ẩm.
-- Cho ăn thịt bò hay thịt gà như tim bò: chuyển sang thịt cá cắt dải, tôm nguyên con hoặc trai vì cá không chuyển hóa hết chất béo, dễ tích mỡ và thoái hóa nội tạng.
-- Nuôi ghép hoặc nuôi chung lâu dài: nuôi bể riêng vì cá hung hăng khi đến tuổi sinh sản.
-
 ## Cá lóc đốm (Channa maculata)
 id: `channa-maculata`
 
@@ -2342,11 +2007,14 @@ Kiểm tra:
 ## Cá lóc Sri Lanka (Channa orientalis)
 id: `channa-orientalis`
 
-Cá lóc Sri Lanka (Channa orientalis) hợp với người đã có kinh nghiệm, muốn nuôi cá lóc cỡ nhỏ (10 cm) và sẵn sàng cho cá sinh sản vì loài này có lẽ đang bị đe dọa ngoài tự nhiên. Cần bể dài tối thiểu 90 cm, nước 23–26 °C, pH 5–7,5, độ cứng 1–10 dGH, có cây nổi, rễ lũa và lá khô tạo chỗ râm. Độ khó 6/8: cá nhảy giỏi nên nắp phải thật khít, ăn mồi chết là chính, và khi đã thành cặp thì rất dữ với con cùng loài khác.
+Hợp với người đã quen cá săn mồi, muốn nuôi một loài lóc nhỏ chỉ 10 cm và thích thử cho cá sinh sản. Cần bể tối thiểu 90 cm (đáy 90 × 30 cm, khoảng 81 lít), nước 23–26 °C, pH 5–7,5, độ cứng 1–10 dGH, độ khó 4/8. Khó nhất là cá hay nhảy nên phải có nắp thật khít. Cá còn ăn mồi chết và trở nên hung hăng với nhau khi trưởng thành.
 
-- Đậy nắp hờ vì tưởng cá nhỏ không nhảy: loài này nổi tiếng giỏi trốn, nên dùng nắp thật khít và chỉ chừa khoảng trống nhỏ giữa nắp và mặt nước để cá hít khí ẩm.
-- Cho ăn tim bò, thịt gà hoặc cá mồi như cá đẻ con, cá vàng nhỏ: cá khó chuyển hóa chất béo của thịt động vật có vú và gia cầm, cá mồi dễ mang mầm bệnh, nên cho ăn trùng huyết, tôm băm, giun đất, tôm nguyên con.
-- Để chung nhiều con cùng loài sau khi đã có cặp: cặp đã thành đôi rất dữ với con khác, có thể làm chúng bị thương nặng hoặc chết, nên vớt những con còn lại ra.
+- Đậy nắp lỏng hoặc đậy kín sát mặt nước: dùng nắp thật khít nhưng chừa khoảng trống giữa nắp và mặt nước để cá hít khí ẩm.
+- Cho ăn tim bò, thịt gà hoặc cá mồi như cá đẻ con, cá vàng nhỏ: cho ăn trùng huyết, giun đất, tôm hoặc thịt cá cắt miếng, và không lấy thức ăn khô làm món chính.
+- Để nhiều con trưởng thành ở chung khi đã có cặp: bắt đầu với nhóm 6–8 con non, khi có một cặp thành đôi thì vớt những con còn lại ra vì cá lạ cùng loài có thể bị cắn nặng hoặc chết.
+
+Kiểm tra:
+- "Hợp với người đã quen cá săn mồi": the page never says the species suits keepers who already have experience with predatory fish. It only calls it an obligate predator, and the card rates difficulty as medium (4/8). This suitability claim is invented.
 
 ## Cá lóc Assam (Channa stewartii)
 id: `channa-stewartii`
@@ -2357,24 +2025,6 @@ Cá lóc Assam (Channa stewartii) hợp với người đã nuôi cá săn mồi
 - Đậy nắp lỏng thì cá chui ra qua khe hở; dùng nắp thật khít nhưng vẫn chừa khoảng trống giữa nắp và mặt nước để cá đớp khí.
 - Cho ăn thức ăn khô thì cá có thể bỏ ăn; cho giun đất, tôm hoặc cá cắt miếng, loại tươi sống hoặc đông lạnh.
 
-## Cá characodon cầu vồng (Characodon lateralis)
-id: `characodon-lateralis`
-
-Cá characodon cầu vồng (Characodon lateralis) hợp với người có bể đáy tối thiểu 120 × 30 cm (khoảng 108 lít) và chịu nuôi tách riêng từng quần thể. Cá trưởng thành 6,5 cm, cần nước mát 18–24 °C, pH 6–8, độ cứng 5–15 dGH, có dòng chảy nhẹ, chỗ ẩn nấp và thay nước một phần đều đặn. Độ khó 5/8 (mức vừa). Khó nhất là cá đực hay gây hấn giữ lãnh thổ, và là việc không được để lẫn dòng giữa các quần thể.
-
-- Bể ít chỗ ẩn thì cá đực dễ đánh nhau hơn; nên bố trí cây thủy sinh hoặc tảo sợi để chúng bớt đánh nhau và cá bột có chỗ trốn.
-- Nuôi lẫn các quần thể với nhau hoặc với dòng cá bể không rõ nguồn gốc; nên nuôi tách riêng từng quần thể.
-- Lấy thức ăn khô làm món chính; nên cho ăn thức ăn sống cỡ nhỏ như Daphnia, Artemia, thêm chút rau xanh như tảo sợi, Spirulina, và chỉ dùng thức ăn khô loại tốt làm phụ.
-
-## Cá chela neon (Chela cachius)
-id: `chela-cachius`
-
-Cá chela neon (Chela cachius) hợp với người muốn nuôi đàn cá nhỏ 5 cm, hiếu động, độ khó 3/8 nên khá dễ. Cần bể dài 90 cm (đáy 90 × 30 cm, khoảng 81 lít), nước 18–24 °C, pH 6–8, độ cứng 2–12 dGH, lọc không cần quá mạnh nhưng nên có chút dòng chảy. Khó nhất là nuôi đủ đàn 8–10 con, đậy nắp kín và chọn bạn cùng bể đủ khỏe.
-
-- Nuôi vài con lẻ thì cá nhát hơn; nuôi đàn ít nhất 8–10 con.
-- Để bể hở thì cá nhảy ra ngoài; đậy nắp kín.
-- Nuôi chung với loài bơi chậm hoặc nhút nhát thì bị tranh ăn và dọa; chọn cá khỏe, cỡ tương đương.
-
 ## Cá da trơn hút đá châu Phi (Chiloglanis polypogon)
 id: `chiloglanis-polypogon`
 
@@ -2383,15 +2033,6 @@ Loài này hợp với người có bể cộng đồng cá nhỏ đến vừa v
 - Để nước tĩnh hoặc chảy yếu: nên tạo dòng chảy mạnh trong bể, vì cá sống ở suối dốc chảy xiết.
 - Bày ít đá, bể trống trơn: nên xếp nhiều đá để cá có chỗ trốn và bám.
 - Chỉ cho ăn một kiểu thức ăn: nên cho ăn thức ăn chế biến sẵn hoặc đông lạnh, và thêm viên tảo.
-
-## Cá thát lát Ấn Độ (Chitala chitala)
-id: `chitala-chitala`
-
-Cá thát lát Ấn Độ (Chitala chitala) chỉ hợp với người có bể trưng bày rất lớn hoặc bể cá nhân làm chuyên biệt, vì cá lớn tới 122 cm. Nước 20–28 °C, pH 6–8, độ cứng 2–15 dGH, ánh sáng mờ, có lũa, đá lớn hoặc ống nhựa cho cá trốn, lọc lớn đã chín và nước giàu oxy. Độ khó 5/8; khó nhất là chỗ nuôi và lịch thay nước 50–70% mỗi tuần.
-
-- Cho ăn tim bò hay thịt gà thì cá tích mỡ, thoái hóa nội tạng; nên cho thịt cá cắt dải, tôm nguyên con hoặc trai.
-- Dùng cá đẻ con hay cá vàng nhỏ làm mồi dễ mang ký sinh trùng, mầm bệnh vào bể mà dinh dưỡng thấp; nên chọn mồi chết như tôm hay giun đất.
-- Nuôi chung nhiều con hoặc chung loài dáng giống trong bể chật sẽ sinh tranh lãnh thổ; nên để bể thật rộng và có nhiều chỗ trốn.
 
 ## Cá minnow bụng đỏ phương Nam (Chrosomus erythrogaster)
 id: `chrosomus-erythrogaster`
@@ -2455,11 +2096,15 @@ Cá nóc Nam Mỹ (Colomesus asellus) hợp với người đã có chút kinh n
 ## Cá hồng cầu đen (Colossoma macropomum)
 id: `colossoma-macropomum`
 
-Loài này chỉ hợp với người có chỗ đặt bể khổng lồ, dài tối thiểu 300 cm, vì cá trưởng thành dễ đạt 60 cm. Nước 22–28 °C, pH 5,5–7,5, độ cứng 1–15 dGH, độ khó 5/8. Cá thích nghi khá tốt, nên chỗ khó nhất là bể đủ rộng và bộ lọc sinh học thật mạnh, vì cá thải rất nhiều chất bẩn.
+Loài này chỉ hợp với người có chỗ đặt bể thật khổng lồ và chịu nuôi một con đến hết đời. Cá dài tới 60 cm, cần bể tối thiểu 300 cm (300 × 90 × 90 cm), nước 22–28 °C, pH 5,5–7,5, độ cứng 1–15 dGH, độ khó 6/8. Khó nhất là không gian và lọc: cá thải rất nhiều chất bẩn, lại hay được bán lúc còn bé nên dễ bị mua theo cảm tính.
 
-- Mua cá lúc còn bé rồi tin cá chỉ lớn vừa với bể: đây là lầm tưởng, nên chuẩn bị sẵn bể dài tối thiểu 300 cm ngay từ đầu.
-- Trồng cây thật trong bể: cá ăn sạch ngay, nên chỉ đặt đá cuội nhẵn và lũa lớn đủ nặng hoặc đã cố định chắc.
-- Để sưởi thủy tinh và nhiệt kế trong bể: cá lao đi dễ làm vỡ, nên dùng lọc sump để đặt phần lớn thiết bị ở ngoài bể.
+- Mua cá con lúc còn bé rồi tính bể sau: cá vẫn lớn tới khoảng 60 cm, nên chuẩn bị bể 300 × 90 × 90 cm trước khi mang cá về.
+- Trồng cây và để sưởi thủy tinh, nhiệt kế trong bể: cá ăn sạch cây và lao vỡ thiết bị, nên làm lọc sump để đặt thiết bị ngoài bể và chỉ bày đá, lũa nặng.
+- Thả chung với cá nhỏ: cá nhỏ nhiều khả năng bị ăn, nên chỉ ghép với loài lớn cỡ tương đương và chỉ khi bể đủ rộng.
+
+Kiểm tra:
+- Mistake 2: "cá ăn sạch cây và lao vỡ thiết bị" turns the page's hedge into a certainty. The page says a large fish "có thể dễ dàng làm vỡ" heaters and thermometers, not that it will break them.
+- Mistake 2: "nên làm lọc sump" drops the page's condition "Nếu được". The page gives sump as preferred if possible, and otherwise says to buy the biggest filter and change water often.
 
 ## Cá cichlid Congochromis dimidiatus (Congochromis dimidiatus)
 id: `congochromis-dimidiatus`
@@ -2479,33 +2124,6 @@ Hợp với người đã có kinh nghiệm cơ bản, muốn nuôi một cặp 
 - Bỏ qua độ cứng khi cho đẻ: cá lớn chịu được nước hơi cứng nhưng trứng và phôi thì không, nên cần hạ độ cứng xuống gần như đo không ra, nhiều khi phải dùng RO.
 - Nuôi chung nhiều con hoặc thả chung cá đáy lớn hay cichlid khác trong bể nhỏ; với đa số bể chỉ nên nuôi một cặp vì cá đực giữ lãnh thổ.
 
-## Cá Utaka azureus (Copadichromis azureus)
-id: `copadichromis-azureus`
-
-Cá Utaka azureus (Copadichromis azureus) hợp với người có bể dài từ 150 cm, trải nền cát và chịu được nước cứng, kiềm: 26–28 °C, pH 7,5–8,5, 10–25 dGH. Cá lớn tới 16 cm, hiền, bơi nhiều, độ khó 5/8. Chỗ khó nhất là chọn bạn cùng bể và giữ đúng tỷ lệ đực cái, vì loài này không hợp với Mbuna và có thể lai với Copadichromis khác.
-
-- Ghép chung với Mbuna thì cá sẽ sống không tốt; hãy chọn bạn cùng bể hiền như phần lớn các loài Aulonocara hoặc Cyrtocara moorii.
-- Thả chung các loài Copadichromis khác thì chúng có thể lai với nhau; mỗi bể chỉ nên nuôi một loài Copadichromis.
-- Nuôi đực với quá ít cái thì cái bị đực đeo bám; nên nuôi một đực với nhóm từ 3 con cái trở lên.
-
-## Cá Copadichromis borleyi (Copadichromis borleyi)
-id: `copadichromis-borleyi`
-
-Loài này hợp với người muốn một đàn cá hiền cho bể cộng đồng Malawi và có bể dài từ 150 cm (150 × 45 × 45 cm, khoảng 304 lít), nền cát, nhiều chỗ bơi. Nước cần 25–29 °C, pH 7,5–8,5, độ cứng 10–25 dGH. Cá lớn tới 20 cm, độ khó 5/8. Chỗ khó nhất là chọn bạn cùng bể và giữ tỷ lệ đực cái cho đúng.
-
-- Nuôi chung với Mbuna hoặc loài ồn ào, hung dữ thì cá sống không tốt; nên chọn bạn bể hiền như phần lớn các loài Aulonocara hay Cyrtocara moorii.
-- Thả chung với loài Copadichromis khác dễ bị lai; mỗi bể chỉ nên giữ một loài Copadichromis.
-- Nuôi một đực với quá ít cái thì đực dồn sự chú ý vào một con cái; nên nuôi một đực với nhóm từ 3 con cái trở lên.
-
-## Cá Copadichromis ilesi (Copadichromis ilesi)
-id: `copadichromis-ilesi`
-
-Hợp với người đã có bể Malawi hiền và muốn nuôi một đàn cá bơi ngoài vùng nước thoáng. Cần bể dài tối thiểu 150 cm (150 × 45 × 45 cm, khoảng 304 lít), nền cát, nước 25–29 °C, pH 7,5–8,5, độ cứng 10–25 dGH. Độ khó 5/8, chỗ khó nhất là chọn bạn cùng bể và giữ đủ cái cho mỗi con đực.
-
-- Thả chung với Mbuna thì cá hiền này sống không tốt; nên chọn các loài Aulonocara hoặc Hap hiền như Cyrtocara moorii.
-- Nuôi chung Copadichromis khác hoặc loài có màu na ná thì dễ bị lai hoặc đánh nhau; nên nuôi riêng và tránh các loài trông giống.
-- Nuôi đực với quá ít cái thì con cái bị đực bám riết; nên nuôi một đực với nhóm từ 3 con cái trở lên.
-
 ## Cá tetra phun nước (Copella arnoldi)
 id: `copella-arnoldi`
 
@@ -2524,24 +2142,6 @@ Cá tetra phun nước chấm đỏ (Copella meinkeni) hợp người đã nuôi
 - Cho vào bể cộng đồng thông thường. Nuôi chung với cá hiền cùng cỡ như characid, lebiasinid, cá da trơn nhỏ hoặc cichlid tí hon không săn mồi.
 - Để cá đực lại bể đẻ sau khi trứng nở. Vớt cá đực ra, vì nó có thể quay sang ăn cá bột.
 
-## Cá chuột Corydoras acutus (Corydoras acutus)
-id: `corydoras-acutus`
-
-Cá chuột Corydoras acutus hợp với người đã nuôi được vài bể, muốn một đàn cá đáy cỡ 7 cm. Cần nước 22–28 °C, pH 6–7,5, độ cứng 2–12 dGH, nền cát mịn và vài chỗ ẩn nấp. Độ khó 5/8 (mức vừa), khó nhất là nuôi theo đàn và cho ăn đủ, đúng kiểu cá đáy.
-
-- Nuôi lẻ vài con riêng rẽ thì cá không yên tâm; nên nuôi theo đàn.
-- Coi cá là đội dọn bể và để sống nhờ thức ăn thừa của cá khác; nên cho thức ăn chìm riêng, xen trùng huyết, trùng chỉ.
-- Bắt cá bằng tay trần vì gai vây ngực cứng có thể đâm thủng da và gây đau; nên bắt cẩn thận.
-
-## Cá chuột Brochis ambiacus (Corydoras ambiacus)
-id: `corydoras-ambiacus`
-
-Cá chuột Brochis ambiacus hiền, nhỏ (6,5 cm), độ khó 3/8 nên hợp người mới nuôi. Bể cần nước 21–27 °C, pH 6–8, độ cứng 2–12 dGH, nền cát mịn hoặc sỏi tròn cạnh giữ thật sạch, có vài chỗ ẩn nấp. Điểm khó nhất là phải nuôi đàn ít nhất 4–6 con và cho ăn đủ, đồng thời khó nhận dạng đúng loài vì hay bị gán nhầm với B. agassizii.
-
-- Nuôi lẻ một hai con thì cá không yên tâm; nên nuôi nhóm ít nhất 4–6 con.
-- Trông vào thức ăn thừa của cá khác hoặc nuôi để dọn bể thì cá thiếu ăn; nên cho ăn riêng thức ăn khô dạng chìm, xen trùng huyết, trùng chỉ.
-- Để nền bẩn, nhất là khi dùng sỏi tròn cạnh; nên giữ nền thật sạch, tốt nhất là cát mịn.
-
 ## Cá chuột skunk (Corydoras arcuatus)
 id: `corydoras-arcuatus`
 
@@ -2557,24 +2157,6 @@ id: `corydoras-armatus`
 Corydoras armatus (cá chuột armatus) dài tối đa 5 cm, hợp với người thích cá chuột nhỏ có nét riêng là chiếc gai vây lưng rất lớn. Cá vẫn hiếm trên thị trường, nên điểm khó nhất là tìm được cá đúng loài. Hồ sơ chưa có thông tin về cỡ bể, nước hay độ khó, nên chưa đủ cơ sở để nói cá hợp với bể nào.
 
 - Dễ mua nhầm dạng tương tự mà tưởng là armatus thật: cá có vạch đen vắt qua vai ngay dưới vây lưng là dạng C96, còn cá có đốm thân to hơn là CW86, nên xem kỹ các đặc điểm này trước khi mua.
-
-## Cá chuột Corydoras aurofrenatus (Corydoras aurofrenatus)
-id: `corydoras-aurofrenatus`
-
-Cá chuột Corydoras aurofrenatus hợp người mới đã nắm cơ bản, độ khó 5/8, cỡ trưởng thành 5,5 cm. Nước 22–26 °C, pH 6–8, độ cứng 2–15 dGH, nền cát mịn hoặc sỏi tròn cạnh giữ thật sạch, có chỗ ẩn nấp. Điểm khó nhất là cho ăn đúng: loài này không sống nhờ thức ăn thừa và không phải cá dọn bể.
-
-- Đừng trông cá sống nhờ thức ăn thừa của cá khác; hãy cho ăn thức ăn chìm riêng, xen trùng huyết, trùng chỉ cho đa dạng.
-- Đừng nuôi chúng như cá dọn bể; vẫn phải tự vệ sinh bể và giữ nền thật sạch.
-- Đừng lót nền sỏi sắc hoặc để bể trống trơn; dùng cát mịn hoặc sỏi tròn cạnh và chừa vài chỗ ẩn nấp.
-
-## Cá chuột Brochis britskii (Corydoras britskii)
-id: `corydoras-britskii`
-
-Cá chuột Britski (Corydoras britskii) là loài cá chuột to, tới 12 cm. Hồ sơ ghi nuôi hoàn toàn không khó, cá lên màu đẹp nhất ở 26–28 °C, còn bể tối thiểu và thông số nước khác thì hồ sơ không nêu. Điểm khó nhất là mua đúng loài: cá khó kiếm, giá khá đắt, lại dễ nhầm với B. cf. splendens CW 35.
-
-- Nhận loài chỉ nhờ vây và bụng ửng đỏ. Nên nhìn vây lưng: ở B. britskii, gai cứng và hai tia đầu tạo kiểu móc câu, phần sau như bị cắt. Muốn chắc thì đếm tia, B. britskii có 15–18 tia, còn CW 35 chỉ có 10–12.
-- Tin rằng cá nào màu giống là đúng B. britskii. Ở Mato Grosso còn một loài giống y màu, nên kiểm tra hình dạng vây lưng trước khi mua.
-- Nuôi nước mát hơn mức cần thiết. Muốn cá lên màu đẹp nhất, giữ nhiệt độ 26–28 °C.
 
 ## Cá chuột Hoplisoma duplicareum (Corydoras duplicareus)
 id: `corydoras-duplicareus`
@@ -2609,15 +2191,6 @@ Cá chuột Fowler (Corydoras fowleri) lớn tới 8 cm, gốc Peru, hợp ngư�
 
 - Đừng tính chuyện tự nhân giống ngay từ đầu, vì rất ít người cho loài này đẻ; nếu cần cá, hãy chọn cá đã được nhân giống sẵn, hồ sơ ghi là có cá nhân giống tại Đức.
 
-## Cá chuột Gomez (Corydoras gomezi)
-id: `corydoras-gomezi`
-
-Cá chuột Gomez (Corydoras gomezi) hợp với người muốn nuôi đàn cá đáy hiền, độ khó 3/8 nên khá dễ. Cần bể dài tối thiểu 90 cm (đáy 90 × 30 cm), nước 20–26 °C, pH 6–7,5, độ cứng 2–12 dGH, cá trưởng thành khoảng 6 cm. Khó nhất là phải nuôi đủ đàn ít nhất 4–6 con và cho ăn đàng hoàng, không coi chúng là cá dọn bể.
-
-- Nuôi lẻ một hai con thì cá không yên tâm; nên nuôi nhóm ít nhất 4–6 con.
-- Trông vào thức ăn thừa hoặc nuôi để cá dọn bể thì cá thiếu ăn; hãy cho thức ăn khô dạng chìm, xen trùng huyết hoặc trùng chỉ cho đa dạng.
-- Cầm cá tay không dễ bị gai vây ngực cứng đâm đau; cần cẩn thận khi bắt hoặc cầm cá.
-
 ## Cá chuột imitator (Corydoras imitator)
 id: `corydoras-imitator`
 
@@ -2635,14 +2208,6 @@ Hợp với người đã có bể cộng đồng hiền và muốn nuôi một 
 - Để nền bẩn hoặc dùng lọc đáy thì cá dễ rụng râu; hãy thay nước đều để cát sạch và không dùng lọc đáy.
 - Chỉ cho ăn thức ăn nổi rồi trông cá ăn đồ thừa thì cá không khỏe; hãy cho thức ăn chìm đủ để xuống tới đáy.
 - Nuôi lẻ vài con thì cá nhát và kém hoạt bát; hãy nuôi theo đàn, tốt nhất từ mười con trở lên.
-
-## Cá chuột loxozonum (Corydoras loxozonus)
-id: `corydoras-loxozonus`
-
-Cá chuột loxozonus (Corydoras loxozonus) hợp với người mới vào nghề, độ khó 2/8 và hồ sơ ghi là rất dễ nuôi. Loài này thích nước ấm, nên giữ nhiệt độ 25–30 °C. Điểm cần để ý là nhận diện: hoa văn trên lưng thay đổi nhiều, cá bắt tự nhiên hay bị nhầm với Corydoras evelynae.
-
-- Để nước xuống dưới 25 °C lâu ngày thì cá không hợp; nên giữ nước ấm trong khoảng 25–30 °C.
-- Thấy con có sọc lưng đứt khúc rồi vội cho là Corydoras evelynae; hoa văn của loài này đổi nhiều, nên đừng chỉ dựa vào sọc lưng để nhận diện.
 
 ## Cá chuột giả bandit (Corydoras melini)
 id: `corydoras-melini`
@@ -2662,15 +2227,6 @@ Cá chuột bandit (Corydoras metae) hiền, nhỏ (5 cm), thuộc nhóm dễ nu
 - Để cá sống nhờ thức ăn thừa của loài khác hoặc trông cá dọn bể, nên cho thức ăn chìm riêng và đổi món, như trùng huyết hay trùng chỉ.
 - Trải nền sỏi tròn mà để bẩn, nên dùng cát mịn hoặc giữ sỏi thật sạch.
 
-## Cá chuột ornata (Corydoras ornatus)
-id: `corydoras-ornatus`
-
-Cá chuột ornata (Corydoras ornatus) dài tới 7 cm, rất hiền, hợp bể cộng đồng toàn cá nhỏ và hiền, độ khó 3/8 nên người mới có chút kinh nghiệm vẫn nuôi được. Cần bể dài tối thiểu 60 cm, nền cát mịn, nhiều chỗ trú, nước giàu oxy, nhiệt độ 22–26 °C, pH 6–7,2, độ cứng 2–15 dGH. Khó nhất là giữ nền thật sạch và nuôi đủ đàn, ít nhất 6 con.
-
-- Nuôi lẻ hoặc đàn quá ít: nuôi đàn ít nhất 6 con để cá mạnh dạn và hoạt bát hơn.
-- Để nền bẩn hoặc dùng lọc đáy: dùng cát mịn, giữ nền thật sạch, không dùng lọc đáy, vì cá dễ bị mất râu.
-- Nuôi chung với cá quá lớn hoặc hung dữ: chọn bạn cùng bể hiền như characin nhỏ, cichlid lùn hay cá da trơn hiền, và ưu tiên loài chịu nhiệt hơi thấp.
-
 ## Cá chuột mõm dài đốm nhòe (Corydoras ourastigma)
 id: `corydoras-ourastigma`
 
@@ -2679,33 +2235,6 @@ Cá chuột mõm dài đốm nhòe (Corydoras ourastigma) rất hiền, hợp ng
 - Nuôi lẻ hoặc đàn quá nhỏ làm cá nhát và ít hoạt động; nên nuôi đàn ít nhất 6 con.
 - Để nền bẩn hoặc dùng lọc dưới nền dễ làm cá mất râu; nên dùng nền cát mịn, không lọc dưới nền và giữ nền thật sạch.
 - Nuôi chung với cá quá to hoặc hung dữ; nên chọn bạn cùng bể như characin nhỏ, cá họ chép nhỏ, cá mê cung, cichlid lùn hoặc cá da trơn hiền.
-
-## Cá chuột Pantanal (Corydoras pantanalensis)
-id: `corydoras-pantanalensis`
-
-Hợp với người đã có bể cộng đồng hiền và nuôi được nhóm ít nhất 6 con. Cần bể dài tối thiểu 75 cm, nước 22–26 °C, pH 6,5–7,5, độ cứng 5–12 dGH; cá lớn tới 8 cm, độ khó 5/8 (mức vừa). Khó nhất là giữ nền thật sạch, vì cá nhạy với nền bẩn và có thể bị mất râu.
-
-- Nuôi lẻ hoặc nhóm quá ít thì cá nhút nhát; nên nuôi nhóm ít nhất 6 con.
-- Dùng lọc đáy hoặc lười vệ sinh nền làm cá mất râu; bỏ lọc đáy và giữ nền thật sạch.
-- Thả chung với cá quá lớn hoặc hung dữ; chọn bạn cùng bể hiền như characin nhỏ, cichlid lùn hay các loài cá trê hiền khác.
-
-## Cá chuột rabauti (Corydoras rabauti)
-id: `corydoras-rabauti`
-
-Cá chuột rabauti (Corydoras rabauti) hợp người muốn nuôi cá đáy hiền, sống đàn, dài tới 6,5 cm. Cần bể dài tối thiểu 90 cm (đáy 90 × 30 cm, khoảng 81 lít), nước 20–27 °C, pH 5,5–7,2, độ cứng 1–12 dGH, độ khó 3/8. Nuôi giữ cá khá dễ, khó nhất là nền phải sạch và phải đủ đàn. Muốn cho đẻ thì còn phải ương cá bột, mà cá bột không dễ ương vì cần nước rất sạch.
-
-- Nuôi lẻ một hai con: cá thích sống đàn, nên nuôi nhóm ít nhất 4–6 con.
-- Trông vào thức ăn thừa của cá khác hoặc nuôi để dọn bể: cho ăn riêng thức ăn khô dạng chìm, xen trùng huyết, trùng chỉ cho đa dạng.
-- Để nền bẩn: dùng cát mịn là tốt nhất, nếu dùng sỏi tròn cạnh thì phải giữ nền thật sạch.
-
-## Cá chuột reticulata (Corydoras reticulatus)
-id: `corydoras-reticulatus`
-
-Cá chuột lưới (Corydoras reticulatus) hợp với người mới hay người đã có kinh nghiệm, vì loài này dễ nuôi và không đòi hỏi gì đặc biệt. Cá dài tối đa 7 cm, nhiệt độ 22–26 °C, thông số nước ở mức trung bình, nên lót nền cát và nuôi chung với đồng loại. Điểm khó nhất là gai vây lưng và vây ngực rất nhọn, nên khi bắt cá phải cẩn thận.
-
-- Dùng vợt để bắt cá thì cá dễ mắc gai vào lưới; nên bắt bằng một chiếc cốc lớn.
-- Tưởng vợt mắt thật mịn là hết mắc; vợt mịn chỉ giảm chứ không tránh được hẳn, vẫn nên dùng cốc lớn.
-- Nhầm với Corydoras sodalis khi mua; nhìn đốm đen đậm trên vây lưng, loài có đốm này mới là C. reticulatus.
 
 ## Cá chuột robusta (Corydoras robustus)
 id: `corydoras-robustus`
@@ -2721,24 +2250,6 @@ id: `corydoras-septentrionalis`
 Cá chuột Corydoras septentrionalis hợp với người thích cá đáy hiếm, muốn xem tập tính đực tranh nhau và tán tỉnh cái rất nhanh. Hồ sơ không ghi thông số nước hay bể tối thiểu, nên cần tự tìm thêm trước khi nuôi. Điểm khó nhất là cá khá hiếm và dễ nhầm với Corydoras ellisae ở Paraguay.
 
 - Dễ nhầm với Corydoras ellisae khi mua, nên nhìn mõm và vây: C. septentrionalis mõm dài hơn hẳn, vây không màu, còn C. ellisae vây lốm đốm.
-
-## Cá Corydoras sodalis (Corydoras sodalis)
-id: `corydoras-sodalis`
-
-Hợp với người muốn nuôi cá chuột dễ chăm, chịu được gần như mọi thứ nếu đáp ứng yêu cầu cơ bản: nền không có cạnh sắc (tốt nhất là cát sông mềm), nước sạch, nhiệt độ 22–28 °C. Hồ sơ nói pH và độ cứng không ảnh hưởng gì. Khó nhất là cho sinh sản, vì cá chỉ đẻ ban đêm lúc tối hoàn toàn và ăn trứng rất dữ. Cá bán ra gần như đều là cá hoang dã bắt từ Brazil và hay bị bán nhầm tên C. agassizii.
-
-- Rải nền có cạnh sắc thì dễ làm cá bị thương; nên dùng cát sông mềm.
-- Coi cá chuột là cá dọn rác rồi chờ chúng ăn thức ăn thừa; nên cho đúng loại thức ăn dành cho cá chuột.
-- Để nước bẩn, nhiều mầm bệnh; nên giữ nước sạch.
-
-## Cá chuột Millenium (Corydoras spectabilis)
-id: `corydoras-spectabilis`
-
-Cá chuột Millenium (Corydoras spectabilis) hợp người muốn nuôi đàn cá hiền cho bể cộng đồng, độ khó 5/8. Cần bể dài tối thiểu 60 cm, nước 23–27 °C, pH 6,5–7,2, độ cứng 5–12 dGH, nền cát mịn, nước giàu oxy, và phải nuôi đàn ít nhất 6 con. Khó nhất là giữ nền luôn sạch vì cá rất nhạy với nền bẩn, nuôi trong điều kiện kém có thể bị rụng râu.
-
-- Dùng lọc đáy hoặc để nền bẩn; đừng dùng lọc đáy và giữ nền luôn sạch.
-- Nuôi lẻ hoặc ít con thì cá kém mạnh dạn; nên nuôi đàn ít nhất 6 con.
-- Nuôi chung với cá quá to hoặc hung dữ; nên chọn bạn cùng bể hiền như characin nhỏ, cichlid lùn hay cá da trơn hiền.
 
 ## Cá chuột Brochis ngọc lục bảo (Corydoras splendens)
 id: `corydoras-splendens`
@@ -2756,15 +2267,6 @@ Cá chuột ba sọc (Corydoras trilineatus) hợp với người mới nuôi: �
 
 - Nuôi lẻ một con thì cá không hợp tập tính; nên nuôi thành đàn.
 - Chỉnh nước quá kỹ khi chỉ nuôi thường; dùng nước máy là được, chỉ chuyển sang nước mềm, có tính axit khi muốn cho sinh sản.
-
-## Cá pike cichlid sọc (Crenicichla strigata)
-id: `crenicichla-strigata`
-
-Loài này hợp với người có bể dài từ 180 cm và thích cá săn mồi cỡ lớn, vì cá lớn tới 40 cm. Nước giữ ở 23–27 °C, pH 6–7, độ cứng 0–20 dGH, nền cát, có hang đá cho cá lui vào. Độ khó 3/8, nhưng cá có thể hung dữ, nhất là với đồng loại, con nào đủ nhỏ để vừa miệng thì nhiều khả năng bị ăn, và loài này được ghi nhận dễ mắc bệnh lủng lỗ đầu.
-
-- Mua cá nhỏ về mà không tính cỡ trưởng thành: lo sẵn bể dài tối thiểu 180 cm ngay từ đầu.
-- Thả chung nhiều con cùng loài hoặc cá nhỏ vừa miệng: nuôi riêng một loài, hoặc chỉ ghép với cichlid lớn khác.
-- Trồng cây mềm, không bám chắc và không làm hang: dùng cây cứng trồng chậu hoặc buộc lên lũa, xếp đá thành hang cho cá trốn.
 
 ## Cá tetra vây buồm (Crenuchus spilurus)
 id: `crenuchus-spilurus`
@@ -2869,14 +2371,17 @@ Cá mập barb đỏ Borneo (Cyclocheilichthys janthochir) hợp với người 
 - Chọn bể theo cỡ cá lúc mới mua; hãy tính bể cho cá trưởng thành 20 cm, nên dùng bể cộng đồng lớn.
 - Thất vọng vì cá nhỏ trông gầy và vây chưa đỏ; cá lớn thêm thì vây mới đỏ dần, nên cho cá thời gian.
 
-## Cá Cyclocheilichthys lagleri (Cyclocheilichthys lagleri)
-id: `cyclocheilichthys-lagleri`
+## Cá Cyprichromis vảy nhỏ (Cyprichromis microlepidotus)
+id: `cyprichromis-microlepidotus`
 
-Hợp với người có bể lớn, đáy dài tối thiểu 180 cm, và nuôi được đàn ít nhất sáu con. Cá lớn 20 cm, cần nước 20–26 °C, pH 6–8, độ cứng 2–15 dGH, luôn thật sạch và nhiều oxy; độ khó 5/8. Khó nhất là tài liệu nuôi trong bể còn rất ít, và cá thường phải tìm trong các lô cá hoang dã nhập về.
+Loài này hợp với người đã có chút kinh nghiệm (độ khó 4/8), muốn nuôi một đàn cichlid Tanganyika bơi ở tầng nước mở. Bể dài tối thiểu 120 cm, nước 24–27 °C, pH 7,8–9, độ cứng 10–25 dGH, có nắp đậy kín, nửa trên để trống và đá xếp gọn ở nửa dưới. Khó nhất là phải mua đàn đông và không nuôi lẫn các dạng địa lý với nhau; cá lớn khoảng 11 cm, hiền, chỉ hợp bạn cùng bể hiền của Tanganyika.
 
-- Nuôi lẻ một vài con thì cá nhát và kém màu, nên nuôi đàn ít nhất sáu con.
-- Để nước bẩn hoặc thiếu oxy, nên giữ nước luôn thật sạch và nhiều oxy.
-- Nuôi chung với cá bơi chậm hoặc quá nhút nhát thì chúng dễ e dè khi cá lớn, nên chọn bạn cùng bể đủ khỏe như cá chạch, cichlid hay cá da trơn.
+- Mua dưới 8–10 con thì cá khó sống khỏe; nên mua từ 8–10 con trở lên, đàn càng đông càng tốt.
+- Nuôi lẫn các dạng địa lý khác nhau trong cùng bể sẽ ra cá lai không có giá trị; mỗi bể chỉ nuôi một dạng.
+- Bể không có nắp hoặc xếp đá đầy cả cột nước; cá hay nhảy khi bị kích động, nên đậy nắp kín và để trống nửa trên cho cá bơi.
+
+Kiểm tra:
+- "chỉ hợp bạn cùng bể hiền của Tanganyika": the page only says these tank mates are "hợp hơn" (better suited) and rules out Mbuna. It does not say that only gentle Tanganyika fish suit. The summary turns a comparison into an exclusive rule.
 
 ## Cá pupfish Potosí (Cyprinodon alvarezi)
 id: `cyprinodon-alvarezi`
@@ -2896,15 +2401,6 @@ Loài này hợp với người đã có bể cichlid Malawi cỡ lớn và mu�
 - Nuôi chung với mbuna hung hăng, hay quậy; nên chọn bạn cùng bể hiền như Frontosa, Hap lớn và hiền, hoặc Synodontis ở hồ Rift.
 - Chỉ cho ăn thức ăn khô; nên để phần lớn khẩu phần là thức ăn sống và đông lạnh như trùng huyết, Artemia, tôm.
 
-## Cá danio ria mép (Danio dangila)
-id: `danio-dangila`
-
-Cá danio ria mép (Danio dangila) hợp với người đã có bể dài, muốn nuôi một đàn cá khỏe, bơi suốt ngày; độ khó 5/8, mức vừa. Cần bể tối thiểu 120 cm (hồ sơ ghi 120 × 45 cm), nước mát 16–24 °C, pH 6,5–7,5, độ cứng 2–15 dGH, cá lớn tới 13 cm. Khó nhất là giữ nước thật sạch, giàu oxy và có dòng chảy kha khá, vì cá không chịu được chất bẩn hữu cơ tích tụ.
-
-- Nuôi lẻ hoặc vài con thì cá dễ hoảng và nhát; nên nuôi đàn ít nhất 8–10 con.
-- Thả chung với cá chậm chạp hoặc nhút nhát thì bị quấy và tranh ăn; chỉ nên nuôi chung với cá khỏe, cỡ tương đương trong bể lớn.
-- Lơ là thay nước làm chất bẩn hữu cơ tích tụ; nên coi việc thay 30–50% nước mỗi tuần là việc thường lệ và dùng lọc ngoài đủ lớn, thêm máy tạo dòng nếu cần.
-
 ## Cá danio ngọc lục bảo (Danio erythromicron)
 id: `danio-erythromicron`
 
@@ -2913,15 +2409,6 @@ Hợp với người đã nuôi cá nhỏ một thời gian (độ khó 5/8, m�
 - Nuôi vài con lẻ tẻ thì đực cắn nhau, cá nhút nhát; nên mua đàn đông, lý tưởng từ 20 con trở lên.
 - Cho nước axit hoặc thả lũa, lá khô vào bể; nên giữ nước pH 7–8 và bỏ lũa, lá khô, vì tanin không có trong nước tự nhiên của loài này.
 - Cho ăn toàn đồ khô hoặc thức ăn nổi; cá hiếm lên mặt nước, nên cho ăn hằng ngày Daphnia, Artemia sống hoặc đông lạnh.
-
-## Cá danio Yoma (Danio feegradei)
-id: `danio-feegradei`
-
-Hợp với người có bể dài từ 120 cm trở lên, muốn nuôi một nhóm cá nhỏ 6 cm bơi suốt ngày chung với các loài khỏe, cỡ tương đương. Nước 18–25 °C, pH 6,5–7,5, độ cứng 2–12 dGH, độ khó 5/8 (mức vừa). Khó nhất là tính hung của đàn: con đực hay gây gổ, con yếu có thể bị cắn rách vây, và cá nhảy giỏi nên bể phải có nắp thật khít.
-
-- Nuôi ít con trong bể nhỏ: nên nuôi từ 10 con trở lên trong bể lớn để những con yếu thế có lúc được yên thân.
-- Để nắp bể còn khe hở: cá nhảy rất giỏi và lọt qua khe nhỏ, nên nắp phải thật khít.
-- Ghép chung với cá bơi chậm hoặc nhút nhát: loài này bơi liên tục và tranh ăn hăng, nên chọn bạn cùng bể khỏe và cỡ tương đương.
 
 ## Cá danio vây cam (Danio kyathit)
 id: `danio-kyathit`
@@ -2940,24 +2427,6 @@ Hợp với người muốn nuôi riêng một đàn cá tí hon dài 1,7 cm và
 - Nuôi lẻ vài con: loài này sống theo đàn, nên mua đàn không dưới 12 con.
 - Thả chung với cá không hợp: nên nuôi riêng, nếu muốn nuôi chung thì chọn cá nhỏ cần điều kiện tương tự như Danio margaritatus, Microdevario hoặc Boraras.
 - Thả cá khi bể chưa ổn định: dùng lọc bông chạy bằng máy sủi khí và chạy lọc cho vi sinh ổn định rồi mới thả cá.
-
-## Cá cichlid đốm đỏ (Darienheros calobrensis)
-id: `darienheros-calobrensis`
-
-Loài này hợp với người đã có kinh nghiệm nuôi cichlid lớn và có chỗ cho bể dài tối thiểu 120 cm. Cá lớn tới 25 cm, cần nước 22–27 °C, pH 6,5–7,5, độ cứng 3–15 dGH và lọc thật mạnh vì ăn vung vãi, thải nhiều. Độ khó 6/8, khó nhất là tính hung hăng, giữ lãnh thổ: muốn nuôi chung thì bể phải trên 1000 lít, nên đa số người chơi chỉ nuôi riêng một con hoặc một cặp.
-
-- Thả chung với cá khác trong bể vừa: chỉ nuôi riêng, còn muốn nuôi chung với cichlid lớn thì phải có bể trên 1000 lít.
-- Thả đực và cái trưởng thành vào bể cùng lúc: đực hay giết cái, nên mua tối thiểu sáu cá con nuôi lớn cùng nhau và tách các con còn lại khi cặp đầu tiên hình thành.
-- Xếp đá lỏng lẻo, đặt sau khi cho nền và trồng cây: đặt đá xuống đáy trước khi cho nền, cố định chắc vì cá hay đào bới, và đừng trồng cây vì sẽ bị nhổ bật gốc.
-
-## Cá dario Daying (Dario dayingensis)
-id: `dario-dayingensis`
-
-Cá dario Daying (Dario dayingensis) hợp với người đã có kinh nghiệm, muốn nuôi riêng một loài và theo hướng cho sinh sản vì cá rất hiếm. Cần bể dài tối thiểu 45 cm (đáy 45 × 30 cm, khoảng 41 lít), nước 20–24 °C, pH 6–7,5, độ cứng 1–5 dGH, bố trí nhiều lớp và nhiều chỗ ẩn. Độ khó 6/8: khó ở chỗ cá ăn nhát, đực tranh giành hung hăng trong bể nhỏ, và cá bột cực kỳ nhỏ.
-
-- Thả nhiều con đực vào bể nhỏ thì chúng đánh nhau, nên chỉ mua một cặp hoặc một đực với vài cái.
-- Thả chung với cá to hoặc hiếu động thì cá sợ và bị tranh hết thức ăn, nên chọn bạn bể hiền, bơi giữa tầng nước như Microdevario, Boraras hay Rasbora cỡ nhỏ.
-- Cho ăn ấu trùng muỗi lắc (trùng huyết) hoặc trùng chỉ khiến cá dễ béo phì và dễ bệnh, nên bỏ hẳn hai loại này và cho ăn Artemia, bo bo hay giun micro.
 
 ## Cá Dario hysginon (Dario hysginon)
 id: `dario-hysginon`
@@ -3002,15 +2471,6 @@ Hợp với người đã quen giữ nước sạch, có bể dài từ 120 cm v
 - Để chất bẩn hữu cơ tích tụ trong bể; nên thay 30-50% nước mỗi tuần như việc thường lệ.
 - Nuôi chung với cá quá nhỏ hoặc quá nhát thì dễ bị coi là mồi hoặc bị lấn át; chọn loài hiền nhưng đủ lớn và đủ bạo dạn.
 
-## Cá barb sợi (Dawkinsia filamentosa)
-id: `dawkinsia-filamentosa`
-
-Loài này hợp với người đã có bể sông suối sạch và còn chỗ cho cả đàn. Bể tối thiểu dài 120 cm, nước 20–25 °C, pH 6–7, độ cứng 2–15 dGH, cá lớn tới 12 cm. Khó nhất là giữ nước gần như sạch tinh, vì cá không chịu được chất thải hữu cơ tích tụ. Độ khó 6/8.
-
-- Nuôi lẻ vài con thì cá nhát và kém đẹp. Nên mua 8–10 con để cá bớt nhát và đàn trông tự nhiên hơn.
-- Để chất thải hữu cơ tích tụ trong bể. Nên thay 30–50% nước mỗi tuần và giữ nước giàu oxy, có dòng chảy vừa phải.
-- Nhồi bể đầy cây thủy sinh. Nên bày kiểu suối với đá cuội, cát, sỏi mịn, lũa, và chỉ gắn Microsorum, Bolbitis hay Anubias lên đá hoặc lũa.
-
 ## Cá barb Dawkinsia rohani (Dawkinsia rohani)
 id: `dawkinsia-rohani`
 
@@ -3026,15 +2486,6 @@ Loài này hợp với người đã có bể chạy ổn định lâu, nuôi đ
 - Để chất bẩn hữu cơ tích tụ trong bể; hãy thay 30–50% nước mỗi tuần và giữ nước giàu oxy.
 - Chọn bạn cùng bể quá nhỏ hoặc quá nhát; hãy ghép với loài hiền, đủ lớn và đủ bạo dạn trước tính hiếu động của cá.
 
-## Cá lau kính bướm (Dekeyseria picta)
-id: `dekeyseria-picta`
-
-Cá lau kính bướm (Dekeyseria picta) hợp người đã có bể dài từ 120 cm, muốn nuôi một loài lau kính nhỏ, trưởng thành 14 cm, độ khó 3/8. Cần nước 25–28 °C, pH 5,6–7, độ cứng 2–12 dGH, giàu oxy và có dòng chảy mạnh, bể nhiều rễ, lũa làm chỗ trốn. Khó nhất là giữ nước đủ ấm, đủ oxy; bể cộng đồng thiếu sục khí thì cá không khỏe.
-
-- Thả cá vào bể cộng đồng nước lạnh hoặc ít oxy thì cá yếu đi; nên giữ nước 25–28 °C, sục khí đầy đủ và tạo dòng chảy mạnh.
-- Cho ăn chủ yếu đồ đạm như trùng huyết hay bo bo; nên để phần lớn khẩu phần là rau củ và tảo như dưa leo, rau chân vịt trụng, viên tảo, viên spirulina.
-- Vớt cá bằng vợt thiếu cẩn thận làm gai odontode ở mõm và gai vây ngực mắc vào lưới; nên vớt thật nhẹ tay và kiểm tra gai không bị vướng.
-
 ## Cá Denticetopsis praecox (Denticetopsis praecox)
 id: `denticetopsis-praecox`
 
@@ -3049,15 +2500,6 @@ Cá trê voi lùn đỏ (Denticetopsis seducta) là loài nhỏ, trưởng thàn
 
 - Đừng để nước vượt khoảng 22–27 °C hay pH 5–7; hãy giữ nước trong dải này, vì loài sống ở suối Amazon.
 - Đừng mua với ý định nhân giống, vì chưa có ghi nhận nào về việc cho sinh sản.
-
-## Cá barb Desmopuntius gemellus (Desmopuntius gemellus)
-id: `desmopuntius-gemellus`
-
-Cá barb Desmopuntius gemellus hợp với người đã có chút kinh nghiệm (độ khó 5/8), muốn bể cộng đồng hiền với cá Đông Nam Á hoặc bể biotope suối rừng. Cần bể dài tối thiểu 120 cm (đáy 120 × 45 cm, khoảng 243 lít), nước 22–25 °C, pH 4–7, độ cứng 1–10 dGH, cá trưởng thành khoảng 10 cm. Khó nhất là nuôi đủ đàn 8–10 con, vì cá sống theo đàn và bớt nhát khi đủ đông.
-
-- Nuôi lẻ vài con thì cá nhát và bể kém tự nhiên; nên nuôi ít nhất 8–10 con.
-- Để bể trống, đèn sáng gắt; nên làm nền mềm, ánh sáng yếu, thêm rễ, cành và lá khô rải đáy.
-- Nuôi chung với cá không hợp; nên chọn cá chép cỡ tương đương bơi tầng giữa hoặc các loài chạch nhỏ.
 
 ## Cá pentazona (Desmopuntius hexazona)
 id: `desmopuntius-hexazona`
@@ -3120,15 +2562,6 @@ Cá danio pathirana (Devario pathirana) hợp với người mới chơi, độ 
 
 - Nhồi bể quá chật hoặc bày quá nhiều đồ trang trí thì cá không có chỗ bơi; nên chừa khoảng trống rộng cho cá bơi.
 
-## Cá devario fireline (Devario sondhii)
-id: `devario-sondhii`
-
-Cá devario fireline (Devario sondhii) hợp với người đã có bể chạy ổn định và muốn nuôi một đàn cá nhỏ hiền, dài tới 4,5 cm, độ khó 5/8 (mức vừa). Cần bể dài tối thiểu 75 cm, trồng cây dày, nước 20–26 °C, pH 6,5–7,5, độ cứng 1–5 dGH, nuôi đàn ít nhất 8-10 con. Khó nhất là giữ nước gần như sạch hoàn toàn (thay 30-50% mỗi tuần) và chặn cá nhảy ra khỏi bể.
-
-- Để nắp bể hở hoặc có khe, trong khi cá nhảy rất giỏi và hay hoảng loạn bất chợt; nên đậy nắp thật khít.
-- Thả cá vào bể mới khi hệ vi sinh chưa ổn định; nên chờ bể chạy ổn định rồi mới thả.
-- Nuôi lẻ hoặc vài con thì cá nhút nhát; nên nuôi nhóm ít nhất 8-10 con.
-
 ## Cá chuột cờ đuôi (Dianema urostriatum)
 id: `dianema-urostriatum`
 
@@ -3137,15 +2570,6 @@ Cá chuột cũ cờ đuôi (Dianema urostriatum) hợp với người đã có 
 - Nuôi lẻ một con thì cá kém mạnh dạn, nên nuôi nhóm nhỏ 3–6 con.
 - Ghép với cá dữ hoặc cá lớn hơn nhiều thì cá dễ bị ăn hiếp, nên chọn bạn cùng bể hiền như tetra, cichlid hiền, Corydoras.
 - Để bể trống trải thì cá thiếu chỗ trú, nên xếp lũa, rễ cây hoặc trồng cây dày.
-
-## Cá Discherodontus ashmeadi (Discherodontus ashmeadi)
-id: `discherodontus-ashmeadi`
-
-Cá Discherodontus ashmeadi hợp với người đã có bể lớn chạy ổn định, muốn nuôi đàn ít nhất sáu con trong bể mô phỏng sông, đáy tối thiểu 120 cm, nước 23–26 °C, pH 6–7,5, độ cứng 2–12 dGH. Cá trưởng thành 13,5 cm, độ khó 5/8. Khó nhất là giữ nước thật sạch, giàu oxy, thay 30–50% nước mỗi tuần, và cá rất mỏng manh, dễ sốc, tróc vảy rồi nhiễm trùng khi bị nhấc khỏi nước.
-
-- Nuôi lẻ hoặc ít con thì cá nhát; nuôi nhóm ít nhất sáu con.
-- Thả cá vào bể chưa chạy vi sinh ổn định; chỉ thả khi bể đã ổn định và cho cá làm quen nước vài giờ.
-- Để chất thải hữu cơ tích tụ; thay 30–50% nước mỗi tuần và giữ nước giàu oxy.
 
 ## Cá distichodus bạc (Distichodus affinis)
 id: `distichodus-affinis`
@@ -3187,15 +2611,6 @@ Loài này hợp với người đã có kinh nghiệm, có bể ổn định v�
 - Thả cá vào bể chưa ổn định vi sinh: nên chạy bể ổn định xong mới thả, rồi thay nước ít một, đều đặn, mỗi lần khoảng 10%.
 - Nuôi chung với bạn cùng bể to hoặc hiếu động: chọn cá chép nhỏ, hiền như Trigonostigma hay Boraras để cá không bị dọa và không bị giành mất phần ăn.
 - Cho ăn toàn đồ khô: mỗi ngày cho thêm thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia. Giai đoạn đầu nên cho mồi sống cỡ nhỏ, rồi tập dần sang đồ khô.
-
-## Lươn điện (Electrophorus electricus)
-id: `electrophorus-electricus`
-
-Loài này chỉ hợp với người chơi thật sự chuyên sâu, dù thẻ ghi độ khó 4/8. Cá dài tới 250 cm, nuôi riêng một con trong bể rất lớn, nước 23–28 °C, pH 5,5–7, độ cứng 1–12 dGH, dòng chảy yếu, ánh sáng mờ, lọc thật mạnh. Khó nhất là chỗ nuôi đủ rộng và chuyện an toàn: cá phóng được hơn 600 volt, đủ làm người tê liệt.
-
-- Đậy nắp hờ hoặc để khe hở thì cá nhảy thoát ngay; dùng nắp thật khít, chắc đến mức cá không đẩy xê dịch được.
-- Đổ nước sát nắp thì cá không ngoi lên hớp khí được mà cá thì bắt buộc thở không khí; chừa khoảng trống giữa mặt nước và nắp.
-- Thò tay trần vào bể hoặc dùng vợt thường khi làm bể, bắt cá; đi giày đế cao su, đeo găng cao su và dùng vợt cán gỗ thật dài.
 
 ## Cá barb vằn châu Phi (Enteromius fasciolatus)
 id: `enteromius-fasciolatus`
@@ -3378,14 +2793,6 @@ Cá Garra Borneo (Garra borneensis) dài tới 11,5 cm, độ khó 3/8, thuộc 
 - Nuôi trong nước tĩnh, ít oxy: loài này sống ở suối chảy xiết, nên tạo dòng chảy mạnh và giữ nước trong, giàu oxy.
 - Để đáy trơn hoặc quá sạch: cá cạo thức ăn trên đá, nên bày sỏi, đá và để bề mặt đá có lớp màng sinh học.
 
-## Cá Garra dampaensis (Garra dampaensis)
-id: `garra-dampaensis`
-
-Garra dampaensis là cá nhỏ, trưởng thành 5,5 cm, độ khó 3/8 nên thuộc nhóm dễ. Loài này hợp người muốn dựng bể kiểu suối. Hồ sơ ghi cá sống ở suối nước trong, nông, chảy khá mạnh, nền chủ yếu là đá. Hồ sơ không nêu nhiệt độ, pH hay bể tối thiểu, nên khó nhất là tái hiện dòng chảy và nền đá cho đúng.
-
-- Để nước đứng hoặc chảy yếu: loài này sống ở suối chảy khá mạnh, nên tạo dòng chảy rõ trong bể.
-- Trải nền cát mịn hoặc để bể trống: ngoài tự nhiên nền chủ yếu là đá, nên dùng nền đá để cá bám và cạo thức ăn trên bề mặt.
-
 ## Cá Garra mirofrontis (Garra mirofrontis)
 id: `garra-mirofrontis`
 
@@ -3431,24 +2838,6 @@ Cá rìu thường (Gasteropelecus sternicla) hợp với người đã có kinh
 - Để hở nắp bể qua đêm: sáng ra có thể thấy cá nằm dưới sàn, nên đậy nắp thật khít.
 - Nuôi lẻ hoặc ít hơn 6 con: cá không thấy an toàn và không ổn định, nên mua ít nhất 6 con.
 - Nuôi chung với loài hiếu động, tranh ăn hăng: cá giành không lại, nên chọn cá nhỏ ở tầng khác như tetra, cichlid lùn hoặc Corydoras.
-
-## Cá tỳ bà bướm Borneo (Gastromyzon lepidogaster)
-id: `gastromyzon-lepidogaster`
-
-Hợp với người đã có bể chạy ổn định lâu ngày và muốn nuôi một đàn cá tỳ bà bướm hiền, độ khó 5/8. Cần bể dài tối thiểu 120 cm (đáy 120 × 30 cm, khoảng 108 lít), nước 18–24 °C, pH 6–8,5, độ cứng 2–12 dGH, sạch, giàu oxy và có dòng chảy mạnh. Khó nhất là giữ bể chín với nhiều đá phủ tảo cho cá gặm, vì cá hay bị bán trong tình trạng gầy và khó hồi phục.
-
-- Thả cá vào bể mới set khi hệ vi sinh chưa chín; hãy chờ bể chạy ổn định, có lớp màng sinh học trên đá rồi mới mua.
-- Đậy nắp không kín vì nghĩ cá chỉ bám đáy; loài này hay nhảy và còn bò lên mặt kính, nên nắp phải kín hoàn toàn.
-- Nuôi lẻ một hai con; nên mua nhóm từ 4 con trở lên để cá thể hiện tập tính tự nhiên.
-
-## Cá Geophagus abalios (Geophagus abalios)
-id: `geophagus-abalios`
-
-Hợp với người đã có bể lớn chạy ổn định, muốn nuôi đàn cichlid ăn đất hiền, dài tới 20 cm. Cần bể dài tối thiểu 180 cm (đáy 180 × 60 cm, khoảng 648 lít), nền cát mềm, nước 26–32 °C, pH 4–7, độ cứng 1–10 dGH. Điểm khó nhất là giữ nước sạch và ổn định (độ khó 5/8): cá rất nhạy nước xấu và thông số dao động, nên phải thay ít nhất 50–70% nước mỗi tuần.
-
-- Lót sỏi hoặc đá cuội nhỏ làm nền thì cá khó ăn, dễ hại mang và nuốt phải; hãy dùng cát mềm.
-- Thả cá vào bể chưa ổn định vi sinh; hãy để bể chạy ổn định trước và dùng lọc dư công suất như lọc thùng ngoài hoặc sump.
-- Nuôi lẻ vài con thì con yếu bị con đầu đàn ăn hiếp, cả nhóm dễ nhát và căng thẳng; hãy mua nhóm 5–8 con.
 
 ## Cá rô đất altifrons (Geophagus altifrons)
 id: `geophagus-altifrons`
@@ -3558,15 +2947,6 @@ Hợp với người muốn nuôi một đàn cá hiền, khỏe trong bể cộ
 - Thả chung với cá bảy màu, betta hay cá ông tiên vây dài thì vây bị rỉa, nên chọn tetra cùng cỡ, cá chuột Corydoras hoặc các loài Nam Mỹ hiền khác.
 - Chỉ cho ăn đạm thì cá quay sang rỉa cây lá mềm, nên cho thêm cám spirulina hoặc lá rau chân vịt trụng qua.
 
-## Cá hampala hai đốm (Hampala bimaculata)
-id: `hampala-bimaculata`
-
-Cá hampala hai đốm (Hampala bimaculata) chỉ hợp với người có chỗ cho bể cực lớn, vì cá lớn tới 50 cm và bể tối thiểu dài 200 cm. Hồ sơ ghi loài này gần như không thể nuôi trong bể cảnh thông thường. Độ khó 3/8, nhưng điểm khó nhất là kích thước bể và việc chọn cá nuôi chung. Cá sống ở sông nên cần nước chảy, trong và nhiều oxy.
-
-- Cho cá vào bể ngắn: dùng bể dài ít nhất 200 cm, vì cá trưởng thành tới 50 cm.
-- Nuôi lẻ một con: nuôi theo đàn, vì loài này cần tính xã hội.
-- Thả chung bừa với cá khác: chọn kỹ cá nuôi chung, và để cá có nước chảy, trong, nhiều oxy như ngoài sông.
-
 ## Cá hampala sabana (Hampala sabana)
 id: `hampala-sabana`
 
@@ -3626,15 +3006,6 @@ Tetra gốc đỏ (Hemigrammus stictus) hợp với người đã nuôi cá đư
 - Nuôi lẻ hoặc đàn quá nhỏ: mua ít nhất 6 con, tốt nhất từ 10 con trở lên để cá khỏe và lên dáng đẹp.
 - Ghép với cá quá hiếu động hoặc lớn hơn nhiều thì tetra bị lép vế: chọn bạn cùng bể hiền như Corydoras, Apistogramma hay các loài Hemigrammus, Hyphessobrycon khác.
 - Set bể chung chung cho cá đánh bắt tự nhiên: dùng nền cát, lũa, lá khô cho nước ngả màu trà, đèn tối, và vài tuần vớt lá cũ thay lá mới để lá không mục làm bẩn nước.
-
-## Cá tetra Hemigrammus vorderwinkleri (Hemigrammus vorderwinkleri)
-id: `hemigrammus-vorderwinkleri`
-
-Cá tetra Hemigrammus vorderwinkleri dài 4 cm, rất hiền, hợp người đã quen chăm bể nước đen hoặc bể trồng cây dày. Bể tối thiểu dài 60 cm, nước 23–27 °C, pH 5,5–7, độ cứng 1–12 dGH, độ khó 5/8. Khó nhất là loài này hiếm gặp và cá ngoài tiệm gần như chắc chắn là cá bắt tự nhiên, nên bể bố trí chung chung không hợp lắm.
-
-- Nuôi lẻ hoặc ít con thì cá yếu đi; nên mua ít nhất 6 con, tốt nhất từ 10 con trở lên.
-- Ghép với bạn cùng bể quá hiếu động hoặc to hơn nhiều thì cá tranh ăn không lại; nên chọn bạn hiền như các loài Hemigrammus, Hyphessobrycon khác, cá chì hoặc Corydoras.
-- Để lá khô trong bể quá lâu làm lá mục, bẩn nước; vài tuần nên vớt lá cũ ra và thay lá mới.
 
 ## Cá da trơn đuôi roi Pinocchio (Hemiodontichthys acipenserinus)
 id: `hemiodontichthys-acipenserinus`
@@ -3714,15 +3085,6 @@ id: `homaloptera-parclitella`
 Cá chạch suối Homaloptera parclitella trưởng thành khoảng 8 cm, độ khó 6/8 nên hợp với người đã có kinh nghiệm hơn là người mới. Loài này rất hiền, hay "đấu" vô hại với đồng loại. Chuyện khó nhất là giữ chất lượng nước hoàn hảo, nước kém là cá nhanh bệnh.
 
 - Đừng nuôi khi nước chưa ổn định, vì cá nhanh bị bệnh; hãy giữ chất lượng nước thật tốt trước khi thả cá.
-
-## Cá bám đá Homalopteroides stephensoni (Homalopteroides stephensoni)
-id: `homalopteroides-stephensoni`
-
-Cá bám đá Homalopteroides stephensoni hợp với người đã có kinh nghiệm, độ khó 6/8, và muốn một bể nước chảy xiết cho cá nhỏ dài 6,5 cm. Cần bể đáy 60 × 30 cm (khoảng 54 lít) trở lên, nước 20–25,5 °C, pH 6–7,5, độ cứng 1–12 dGH, lọc dư công suất, nhiều oxy, đáy sỏi đá cuội. Khó nhất là giữ nước sạch, ổn định và cho ăn đủ mồi nhỏ sống hoặc đông lạnh.
-
-- Thả cá vào bể chưa chín vi sinh; hãy chạy bể xong, hệ vi sinh trưởng thành rồi mới mua cá.
-- Chỉ cho ăn thức ăn khô chìm; hãy cho bo bo, Artemia, trùng huyết sống hoặc đông lạnh đều đặn.
-- Nuôi lẻ một con, một cặp hay ba con; nên nuôi đàn từ sáu con trở lên cho cá bạo dạn hơn.
 
 ## Cá chuột đốm Hoplosternum (Hoplosternum punctatum)
 id: `hoplosternum-punctatum`
@@ -3878,24 +3240,6 @@ Loài này hợp với người có chỗ đặt bể dài 240 cm (đáy 240 × 
 - Nuôi bể chật thì cá có thể hung dữ; dùng bể dài 240 cm để cá có chỗ bơi.
 - Thả chung với cá nhỏ, cá bơi chậm hoặc nhút nhát thì cá có thể bị ăn hoặc bị quấy; chọn bạn cùng bể bơi khỏe, cỡ lớn.
 - Để nước có chất thải hữu cơ tích tụ thì cá khó khỏe; giữ nước thật sạch và giàu oxy hòa tan.
-
-## Cá chạch Cobitis hugowolfeldi (Iksookimia hugowolfeldi)
-id: `iksookimia-hugowolfeldi`
-
-Cá chạch Cobitis hugowolfeldi hợp với người đã có kinh nghiệm, vì độ khó là 6/8. Cá cần bể dài tối thiểu 100 cm (đáy 100 × 30 cm, khoảng 90 lít), nước 20–24 °C, pH 7–8, độ cứng 5–15 dGH, có dòng chảy và giàu oxy. Cá lớn tới 16 cm. Khó nhất là giữ nước luôn sạch, mát và đủ oxy. Chưa ai cho loài này sinh sản được trong bể.
-
-- Thả cá vào bể chưa chạy chu trình xong: loài này cần nước ổn định, nên hãy chạy chu trình xong rồi mới thả.
-- Dùng lọc vừa đủ, thiếu dòng và thiếu oxy: hãy dùng lọc dư công suất, nếu chưa đủ thì gắn thêm máy tạo dòng hoặc sủi khí.
-- Nuôi lẻ một con: cá sống tốt nhất khi có đồng loại, nên nuôi nhóm từ 4 con trở lên.
-
-## Cá chạch Hàn Quốc (Iksookimia koreensis)
-id: `iksookimia-koreensis`
-
-Cá chạch Hàn Quốc (Iksookimia koreensis) hợp với người đã có kinh nghiệm, vì độ khó là 6/8. Cá lớn tới 13 cm, cần bể dài tối thiểu 100 cm, nước mát 20–24 °C, pH 7–8, độ cứng 5–15 dGH. Khó nhất là giữ nước thật sạch, giàu oxy, ổn định và có dòng chảy.
-
-- Thả cá vào bể chưa ổn định vi sinh: loài này cần nước ổn định, nên chỉ thả khi bể đã chạy ổn và thay nước một phần đều đặn.
-- Dùng lọc vừa đủ cho bể: chọn bộ lọc dư công suất, nếu dòng chảy và oxy chưa đủ thì gắn thêm máy tạo dòng hoặc sủi khí.
-- Nuôi lẻ một con: cá sống tốt nhất khi có đồng loại, nên nuôi nhóm từ 4 con trở lên.
 
 ## Cá gai giáp (Indostomus paradoxus)
 id: `indostomus-paradoxus`
@@ -4053,24 +3397,6 @@ Cá lamontichthys filamentosus (Lamontichthys filamentosus) dài khoảng 20 cm,
 - Để nước chỉ ở mức tạm được thì cá nhạy cảm này chịu không nổi; phải giữ nước ở điều kiện tốt nhất.
 - Gây xáo trộn trong bể khiến cá bỏ ăn; giữ bể yên ổn và hạn chế đụng chạm, thay đổi đột ngột.
 
-## Cá ocellatus vỏ ốc (Lamprologus ocellatus)
-id: `lamprologus-ocellatus`
-
-Cá ocellatus vỏ ốc (Lamprologus ocellatus) hợp người muốn nuôi cichlid nhỏ, dài 6 cm, có cá tính và đẻ trong vỏ ốc. Độ khó 3/8, nên khá dễ. Bể tối thiểu dài 45 cm, nước cứng và kiềm: 23–27 °C, pH 7,5–9, 10–25 dGH, nền cát có chỗ trống và nhiều vỏ ốc rỗng. Khó nhất là tính lãnh thổ: cá giữ vỏ rất hăng, nên ghép chung phải chọn loài sống ở khu vực khác trong bể.
-
-- Bỏ ít vỏ ốc: nên rải thật nhiều vỏ rỗng, số vỏ nhiều hơn số cá.
-- Nuôi bầy mà đực nhiều hơn cái hoặc thiếu vỏ: giữ số cá cái nhiều hơn cá đực và bỏ đủ vỏ, không thì cá đánh nhau đến mức không kiểm soát nổi.
-- Trải lớp nền mỏng: cá rất thích đào bới và vùi vỏ, nên lót nền cát dày.
-
-## Cá signatus (Lamprologus signatus)
-id: `lamprologus-signatus`
-
-Cá signatus (Lamprologus signatus) nhỏ, lớn tới 5,5 cm, hợp người đã có chút kinh nghiệm (độ khó 4/8) và thích cá đẻ trong vỏ ốc. Một cặp hoặc nhóm ba nuôi được trong bể dài tối thiểu 45 cm (45 cm x 30 cm x 30 cm, 40 lít), nền cát dày, nước cứng và kiềm: 23–27 °C, pH 7,5–9, 10–25 dGH. Khó nhất là giữ nước đúng cứng kiềm và kiểm soát con đực rất hung dữ với đồng loại.
-
-- Thả nhiều con đực vào bể nhỏ thì chúng đánh nhau; chỉ nuôi một con đực, trừ khi bể rộng.
-- Để nước mềm hoặc thiếu kiềm; giữ nước cứng và kiềm trong 10–25 dGH, pH 7,5–9.
-- Rải ít vỏ ốc và trải nền mỏng; để số vỏ nhiều hơn số cá, nền đủ dày cho cá đào bới, và chừa 4–5 vỏ cho mỗi con cái.
-
 ## Cá barb thủy tinh Ấn Độ (Laubuka laubuca)
 id: `laubuka-laubuca`
 
@@ -4187,6 +3513,15 @@ Cá chạch hoàng đế (Leptobotia elongata) hợp với người nuôi có đ
 Kiểm tra:
 - "nên ưu tiên cá sinh sản trong điều kiện nuôi nhốt": the page only says the species can be bred in captivity. It never advises choosing captive-bred fish, and it doesn't say such fish are available to buy. This fix is advice the page doesn't give.
 
+## Cá limia perugiae (Limia perugiae)
+id: `limia-perugiae`
+
+Cá limia perugiae (Limia perugiae) là cá đẻ con, sống ở Cộng hòa Dominica. Cá bán ra là cá sinh sản tại Đức, kích cỡ 4-5 cm, hàng về khá đều nhưng mỗi đợt thường chỉ có vài con. Hồ sơ chưa ghi bể tối thiểu, nhiệt độ hay thông số nước, nên cần tìm thêm thông tin chăm sóc trước khi quyết định nuôi.
+
+
+Kiểm tra:
+- "4-5 cm": the card gives no adult size
+
 ## Cá trê suối Thành Đô (Liobagrus chenghaiensis)
 id: `liobagrus-chenghaiensis`
 
@@ -4270,15 +3605,6 @@ id: `megalancistrus-parananus`
 Cá L234 Megalancistrus (Megalancistrus parananus) hợp với người có bể rất lớn, vì tên chi nghĩa là "Ancistrus khổng lồ". Hồ sơ ghi hai con nhập từ Paraguay, xuất xứ sông Rio Urguayo. Hồ sơ không nêu thông số nước, kích thước tối đa hay bể tối thiểu, nên điểm khó nhất là tự lo chỗ nuôi cho một con cá cỡ này.
 
 
-## Cá hoplo đuôi vằn (Megalechis picta)
-id: `megalechis-picta`
-
-Cá hoplo đuôi vằn (Megalechis picta) hiền, khỏe, chịu được nước thiếu oxy, hợp người có bể Nam Mỹ lớn nuôi chung với characid, cichlid, Loricariidae hoặc loài cùng cỡ hoặc lớn hơn. Cá lớn tới 12 cm, cần bể dài tối thiểu 120 cm (đáy 120 × 45 cm, khoảng 243 lít), nước 18–28 °C, pH 5–7,5, độ cứng 15–20 dGH; độ khó 3/8. Chỗ cần để ý nhất là chọn bạn cùng bể, vì cá hơi hiếu động với loài nhỏ hơn nhiều hoặc yếu hơn.
-
-- Thả chung với cá nhỏ hơn nhiều hoặc yếu hơn thì cá bị quấy; nên chọn bạn cùng cỡ hoặc lớn hơn.
-- Để cá sống nhờ đồ thừa của cá khác hoặc trông nó dọn bể; hãy cho ăn riêng thức ăn khô dạng chìm, trùng huyết, trùng chỉ.
-- Dùng sỏi tròn mà không giữ nền sạch; nên dùng cát mịn, nếu dùng sỏi thì giữ nền thật sạch.
-
 ## Cá mbuna vàng (Melanochromis auratus)
 id: `melanochromis-auratus`
 
@@ -4287,15 +3613,6 @@ Loài này hợp người đã có kinh nghiệm với mbuna Malawi, không hợ
 - Nuôi một đực với ít cái hoặc nuôi nhiều đực: mỗi đực nên đi kèm vài cái, và chỉ nuôi hơn một đực khi bể rất lớn.
 - Ghép với Melanochromis khác hoặc loài hiền như Peacock, Utaka: chỉ ghép với mbuna có hoa văn không giống nó.
 - Thả cá thưa và ít đá: thả dày, xếp đá thành hang và chừa chỗ trốn để cá khó chiếm lãnh thổ riêng.
-
-## Cá cầu vồng Úc (Melanotaenia fluviatilis)
-id: `melanotaenia-fluviatilis`
-
-Hợp với người có bể trồng cây rậm và muốn nuôi một đàn cá hiền, ăn dễ, cỡ trưởng thành 10 cm. Cần bể dài tối thiểu 90 cm, nước 20–25 °C, pH 6,5–8, độ cứng 8–20 dGH, lọc tốt; độ khó 3/8. Khó nhất là nuôi đủ đàn ít nhất 6–8 con mà vẫn đủ chỗ bơi, vì cá bơi nhanh và thân khá to.
-
-- Nuôi lẻ vài con thì cá nhát và đực ít lên màu; nuôi đàn ít nhất 6–8 con, càng đông càng tốt, và chọn bể đủ rộng.
-- Thấy cá chịu lạnh nên để nước nguội; giữ nước trong khoảng 20–25 °C, vì lạnh quá cá bơi lờ đờ và nhạt màu.
-- Thả chung với cá nhỏ hoặc bơi chậm vì cá hiền; cá bơi nhanh, thân to nên dễ làm phiền chúng, hãy chọn bạn cùng bể như cá cầu vồng cùng cỡ, danio, barb hoặc Corydoras.
 
 ## Cá cầu vồng hồ Tebera (Melanotaenia herbertaxelrodi)
 id: `melanotaenia-herbertaxelrodi`
@@ -4369,14 +3686,15 @@ Cá rasbora Kubotai (Microdevario kubotai) hợp người muốn nuôi cá nhỏ
 - Thả vào bể mới chưa ổn định thì cá dễ gặp chuyện vì mỏng manh; nên đợi bể ổn định rồi hãy thả.
 - Bể trống, ít chỗ trốn khiến cá kém thoải mái; nên trồng cây dày và bày đá, lũa.
 
-## Cá phượng hoàng Bolivia (Mikrogeophagus altispinosus)
-id: `mikrogeophagus-altispinosus`
+## Cá killi Moema hellneri (Moema hellneri)
+id: `moema-hellneri`
 
-Cá phượng hoàng Bolivia (Mikrogeophagus altispinosus) hợp với người đã giữ nước ổn định, vì độ khó 5/8, cá dài tối đa 8 cm và không hợp bể cộng đồng thông thường. Cần bể dài tối thiểu 90 cm (đáy 90 × 45 cm, khoảng 182 lít), nền cát mềm, nước 24–28 °C, pH 6–7,5, độ cứng 1–10 dGH. Khó nhất là giữ nước thật sạch và chọn bạn bể hiền, vì cá giành ăn rất kém.
+Cá killi Moema hellneri hợp với người đã quen killi đẻ nền và chấp nhận loài sống ngắn. Cá trưởng thành dài 12 cm, tuổi thọ 1,5 năm, cá đực có vây ngực rất lớn. Điểm khó nhất là vòng đời đẻ nền: cặp cá lặn xuống nền đẻ, trứng nằm trong nền và cần 5–10 tháng mới nở. Hồ sơ không ghi bể tối thiểu hay thông số nước nên không nêu ở đây.
 
-- Lót nền sỏi hay đá cuội nhỏ thì cá khó kiếm ăn, dễ tổn thương mang và có thể nuốt sỏi; nên dùng nền cát mềm.
-- Thả cá vào bể mới set hoặc hệ vi sinh chưa ổn định; nên chờ bể ổn định rồi mới thả, vì nước xấu dễ gây bệnh ăn mòn thịt quanh đầu.
-- Thay nhiều nước một lần hoặc để dòng chảy quá mạnh; nên thay đều đặn mỗi lần 10–15% và giữ lọc nhẹ.
+- Tin tên cũ trong tài liệu về Moema Peru: nhiều tài liệu ghi sai tên vì cá nhập thiếu nơi thu mẫu, nên cá gọi là M. cf. ortegai phải hiểu là M. hellneri.
+
+Kiểm tra:
+- "hợp với người đã quen killi đẻ nền": the page and card give no experience level or audience (no difficulty on the card), so this suitability claim is unsupported.
 
 ## Cá tetra mắt đỏ (Moenkhausia sanctaefilomenae)
 id: `moenkhausia-sanctaefilomenae`
@@ -4484,15 +3802,6 @@ Cá chì eques hợp người đã có kinh nghiệm, muốn một đàn cá nh�
 - Nuôi lẻ hoặc vài con thì cá nhát và ít bộc lộ tập tính; nên mua càng nhiều càng tốt, lý tưởng từ 10 con trở lên.
 - Thả chung với cá to hoặc hung hăng thì cá bị dọa; nên chọn characid hiền cỡ tương đương hoặc cá da trơn callichthyid, loricariid cỡ nhỏ hơn.
 - Chỉ cho ăn thức ăn khô thì cá thiếu đồ săn mồi; nên cho thêm mỗi ngày ấu trùng Artemia, Moina hoặc giun grindal.
-
-## Cá chì grandis (Nannostomus grandis)
-id: `nannostomus-grandis`
-
-Cá chì grandis hợp với người muốn nuôi một đàn cá nhỏ hiền trong bể trồng dày cây. Cá lớn tới 4,6 cm, bể tối thiểu dài 60 cm (khoảng 54 lít), nước 22–28 °C, pH 5–7, độ cứng 1–12 dGH, độ khó 3/8. Khó nhất là phải nuôi đàn đông cho cá bớt nhát, và hồ sơ gần như chưa có thông tin về môi trường sống tự nhiên hay cách cho sinh sản.
-
-- Nuôi lẻ vài con thì cá nhát và kém tự nhiên; nên mua càng nhiều càng tốt, lý tưởng từ 10 con trở lên.
-- Thả chung với cá sống tầng mặt chậm chạp như cá rìu, nhất là bể nhỏ; nên chọn characid hiền cùng cỡ hoặc cá da trơn nhỏ.
-- Để bể trống, ít chỗ trốn; nên trồng dày cây, dùng nền tối, thêm cây thả nổi, cành lũa và lá khô.
 
 ## Cá chì lùn (Nannostomus marginatus)
 id: `nannostomus-marginatus`
@@ -4604,15 +3913,6 @@ Hợp với người đã quen cá nước chảy, muốn nuôi một nhóm ch�
 - Để chất bẩn tích tụ trong bể: thay 30–50% nước mỗi tuần như việc thường lệ.
 - Cho ăn mỗi thức ăn khô: nên cho ăn hằng ngày thức ăn sống và đông lạnh cỡ nhỏ như Daphnia, Artemia, trùng huyết.
 
-## Cá chạch suối Nemacheilus spiniferus (Nemacheilus spiniferus)
-id: `nemacheilus-spiniferus`
-
-Cá chạch suối Nemacheilus spiniferus hợp người đã quen set bể mô phỏng suối, độ khó 5/8 (mức vừa). Cần bể dài từ 60 cm (đáy 60 × 30 cm, khoảng 54 lít), nước 23–26 °C, pH 5–7, độ cứng 0–8 dGH, có dòng chảy và nhiều oxy; cá trưởng thành khoảng 5,5 cm. Khó nhất là giữ nước thật sạch, vì loài này không chịu được chất thải hữu cơ tích tụ.
-
-- Để chất thải tích tụ trong bể; nên thay 30–50% nước mỗi tuần và giữ nước giàu oxy, có dòng chảy.
-- Nuôi lẻ một hai con; nên mua từ bốn con trở lên vì loài này thích sống theo nhóm.
-- Chỉ cho ăn đồ khô; nên cho thêm thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết mỗi ngày.
-
 ## Cá heo zodiac (Nemacheilus triangularis)
 id: `nemacheilus-triangularis`
 
@@ -4664,15 +3964,6 @@ Hợp với người muốn xem cá nuôi con theo kiểu cả gia đình, vì l
 - Nuôi chung với N. pulcher hay loài khác trong phức hợp brichardi thì chúng lai với nhau; nên nuôi riêng một loài.
 - Chỉ mua hai con rồi chờ chúng thành đôi thì dễ hụt, vì cá tự ghép cặp trong đàn; hãy bắt đầu với ít nhất sáu con non, có cặp rồi thì bắt bớt con dư.
 - Để cá bột ở lại khi bể đã hết chỗ thì bố mẹ đẻ ít đi hoặc ăn những con bột nhỏ nhất; hãy chuyển cá bột sang bể ương riêng.
-
-## Cá cichlid chanh (Neolamprologus leleupi)
-id: `neolamprologus-leleupi`
-
-Cichlid chanh (Neolamprologus leleupi) hợp với người đã có kinh nghiệm, độ khó 6/8, muốn nuôi một cặp cichlid Tanganyika trong bể dài tối thiểu 75 cm. Nước cần 23–27 °C, pH 7,5–9, độ cứng 8–25 dGH, nền cát và đá chất thành đống nhiều hang hốc. Khó nhất là cá rất hung với đồng loại, rất nhạy khi nước bẩn, và việc ghép được cặp cần kiên nhẫn, có khi mất một năm hoặc hơn.
-
-- Mua sẵn một đực một cái trưởng thành rồi thả chung thường làm cá cái bị rượt đến chết; nên mua một bầy cá con và để chúng tự bắt cặp.
-- Nuôi nhiều con trong bể nhỏ sẽ gây đánh nhau vì cá rất hung với đồng loại; chỉ nuôi một cặp, trừ khi bể thật lớn.
-- Nuôi chung với Mbuna hay các loài hiếu động, dữ dằn là sai; nên chọn cichlid Tanganyika cỡ nhỏ đến vừa ở tầng khác, như Cyprichromis sp.
 
 ## Cá cichlid vỏ ốc đa vạch (Neolamprologus multifasciatus)
 id: `neolamprologus-multifasciatus`
@@ -4727,15 +4018,6 @@ Hợp với người muốn nuôi một bể riêng chỉ có loài này, thả 
 - Thả chung vào bể cộng đồng thông thường; nên nuôi bể riêng chỉ có loài này.
 - Để nước nằm lâu sát 18 °C hoặc sát 30 °C làm cá dễ bệnh; nên giữ ở khoảng giữa, hơi mát thì cá có thể sống lâu hơn.
 - Nuôi trong nước không cứng vừa và hơi kiềm làm cá rất dễ nhiễm Piscinoodinium; nên chỉnh nước về đúng mức này.
-
-## Cá killi Nothobranchius rachovii (Nothobranchius rachovii)
-id: `nothobranchius-rachovii`
-
-Hợp với người đã nuôi cá được một thời gian, chịu được chuyện cá chỉ sống 0,5–1 năm. Cần bể dài từ 45 cm, nước mát 20–22 °C, pH 6–7, độ cứng 3–10 dGH, dòng yếu, nhiều chỗ trốn. Khó nhất là con đực nặng tính lãnh thổ và việc cho đẻ rắc rối, mất nhiều thời gian (độ khó 5/8).
-
-- Thả nhiều đực vào bể chật thì đực đầu đàn bắt nạt con yếu và cả con cái; nên nuôi mỗi đực với 2–3 cái và rải gáo dừa, cây, ống PVC làm chỗ trú.
-- Để nước ấm thì cá giảm thọ rõ rệt; nên giữ 20–22 °C.
-- Không đậy nắp bể thì cá nhảy ra ngoài vì loài này nhảy rất giỏi; nên đậy nắp, hạ mực nước và thả cây nổi.
 
 ## Cá hill trout sọc (Opsarius barna)
 id: `opsarius-barna`
@@ -4811,14 +4093,11 @@ Cá tai tượng (Osphronemus goramy) hợp với người có chỗ đặt bể
 - Dùng lọc vừa phải; cá xả thải cực kỳ nhiều nên phải lắp lọc thật mạnh và hiệu quả.
 - Nhốt chung với cá nhỏ hơn miệng cá hoặc nuôi bể chật; cá sẽ ăn cá nhỏ và có con trưởng thành trở nên rất dữ, nên nuôi bể rộng với cá lớn khác.
 
-## Cá Osteochilichthys nashii (Osteochilus nashii)
-id: `osteochilus-nashii`
+## Cá otocinclus Ecuador (Otocinclus huaorani)
+id: `otocinclus-huaorani`
 
-Cá Osteochilichthys nashii hợp với người đã quen bể nước chảy và có chỗ đặt bể dài từ 120 cm để nuôi cả đàn, cá lớn khoảng 18 cm, độ khó 5/8. Nước cần 22–25 °C, pH 6,5–7,5, độ cứng 5–12 dGH, phải thật sạch, nhiều oxy và chảy khá mạnh. Khó nhất là giữ nước sạch trong dòng chảy mạnh, và loài này rất hiếm ngoài thị trường nên khó tìm mua.
+Cá otocinclus Ecuador (Otocinclus huaorani) là cá rất nhỏ, trưởng thành chỉ 3,2 cm, cần nước ấm 26–30 °C. Hồ sơ không nêu bể tối thiểu, pH, độ cứng hay mức độ khó. Điểm khó nhất là thiếu dữ liệu: chưa có ghi nhận nào về sinh sản của loài này.
 
-- Nuôi một con lẻ hoặc chỉ hai, ba con thì con yếu bị bắt nạt, con lẻ còn hung hăng với cá giống mình; nên nuôi từ năm con trở lên.
-- Để chất thải hữu cơ tích lại trong bể thì cá chịu kém; giữ nước luôn thật sạch và lắp thêm một hoặc hai lọc ngoài công suất lớn.
-- Cho ăn một bữa lớn hoặc thức ăn nổi thì không hợp, vì cá gần như không lên mặt nước ăn; cho cám viên chìm hạt nhỏ, chia ít một nhiều lần.
 
 ## Cá oto đốm lớn (Otocinclus macrospilus)
 id: `otocinclus-macrospilus`
@@ -4875,15 +4154,6 @@ id: `panaqolus-albivermis`
 
 Cá L204 (Panaqolus albivermis) thuộc họ Loricariidae, trưởng thành khoảng 14 cm. Hồ sơ chưa nêu bể tối thiểu, nhiệt độ, pH hay độ khó, nên chưa đủ cơ sở để nói ai nên nuôi hay nước cần thế nào. Hoa văn mỗi con một khác, từ đốm nhỏ đến vằn đặc trưng của loài. Cá được bán ở đủ mọi cỡ, có cả cá trưởng thành.
 
-
-## Cá chạch lá malayana (Pangio malayana)
-id: `pangio-malayana`
-
-Cá chạch lá malayana (Pangio malayana) hợp với người muốn nuôi đàn cá nhỏ, hiền, thích đào bới trong bể thủy sinh nước mềm, ánh sáng dịu. Cần bể dài tối thiểu 45 cm, nền cát mềm, nhiều chỗ râm và lá khô, nước 21–26 °C, pH 3,5–7, độ cứng 0–8 dGH. Độ khó 5/8, khó nhất là nuôi đủ đàn 5–6 con và giữ cá không nhảy ra khỏi bể.
-
-- Bể hở hoặc nắp không khít thì cá dễ nhảy ra ngoài; hãy đậy kín bể, nhất là lúc mới thả cá.
-- Dùng sỏi to làm nền khiến cá stress, dễ bị thương và có thể không chịu kiếm ăn; hãy dùng cát mềm.
-- Chỉ nuôi lẻ vài con thì cá không có đàn để chen chúc nghỉ; hãy mua ít nhất 5–6 con.
 
 ## Cá kuhli đen (Pangio oblonga)
 id: `pangio-oblonga`
@@ -4963,15 +4233,6 @@ Cá neon xanh lục (Paracheirodon simulans) hợp người đã có hồ ổn �
 - Thả cá vào hồ mới setup: chỉ thả vào hồ đã trưởng thành, ổn định.
 - Nuôi lẻ hoặc vài con: nuôi thành đàn tối thiểu 8–10 con.
 - Ghép với cá lớn hoặc hung dữ: chọn bạn cùng bể nhỏ, hiền như Boraras hoặc Corydoras pygmaeus.
-
-## Cá cichlid Paracyprichromis nigripinnis (Paracyprichromis nigripinnis)
-id: `paracyprichromis-nigripinnis`
-
-Cá cichlid Paracyprichromis nigripinnis (độ khó 5/8) không hợp người mới và không hợp bể Tanganyika nuôi chung thông thường. Cá dài tới 11 cm, hiền và nhút nhát, cần bể dài tối thiểu 120 cm (bể 120 × 45 × 38 cm, khoảng 205 lít, đủ cho một đàn nhỏ). Nước 24–27 °C, pH 7,5–9, độ cứng 8–25 dGH, nuôi đàn ít nhất 8 con. Nước không khó hơn các loài Tanganyika khác, điểm khó nhất là bố trí bể: phải có mỏm đá nhô, ánh sáng dịu và bạn cùng bể hiền.
-
-- Nuôi chung với cá hiếu động như mbuna hoặc loài bơi cùng tầng như Cyprichromis thì cá mất màu và nhút nhát, nên nuôi bể riêng loài hoặc ghép với Julidochromis, Neolamprologus, Altolamprologus.
-- Để đèn sáng mạnh và không có chỗ trú thì cá nhanh mất màu đẹp nhất, nên dùng ánh sáng dịu và dựng tảng đá cao tạo mỏm nhô hoặc hang.
-- Nuôi chung các dạng màu với nhau thì chúng lai, nên chỉ giữ một dạng màu trong một bể.
 
 ## Cá thủy tinh Ấn Độ (Parambassis ranga)
 id: `parambassis-ranga`
@@ -5129,15 +4390,6 @@ Hồ sơ chưa nêu bể tối thiểu hay độ khó, nên chưa đủ cơ sở
 
 Kiểm tra:
 - "Đừng nuôi lẻ một con ... bố trí chỗ có bóng râm và nuôi theo nhóm": the page only says that by day the fish gather in shoals in shaded deep pools in the wild. It gives no tank-keeping advice about groups or shade. The summary turns a wild-habitat observation into a firm aquarium rule.
-
-## Cá pim đốm (Pimelodus maculatus)
-id: `pimelodus-maculatus`
-
-Cá pim đốm (Pimelodus maculatus) hợp với người đã có bể rộng, tối thiểu dài 120 cm, muốn nuôi đàn cá da trơn năng động cùng các loài khỏe. Cần nước 20–24 °C, pH 6,4–7,4, độ cứng 5–20 dGH, lọc mạnh, dòng chảy khá mạnh và nền cát mịn; cá dài tới 18 cm, độ khó 5/8. Khó nhất là giữ nước thật sạch vì cá rất nhạy khi nước xấu, lại nhạy thuốc và ăn được cá nhỏ.
-
-- Thả chung với cá nhỏ hoặc loài bơi chậm như nhiều loài cichlid thì cá sẽ ăn hoặc quấy rầy chúng; nên chọn bạn cùng bể khỏe, năng động như cá cầu vồng, characin cỡ vừa đến lớn hay họ Loricariidae.
-- Cho ăn quá tay vì cá ăn đến căng bụng; cá trưởng thành chỉ cần cho ăn vài ngày một lần.
-- Đổ thuốc theo liều thường vì da cá mỏng, không vảy và nhạy thuốc; nên đọc kỹ hướng dẫn và giảm một nửa liều nếu còn phân vân.
 
 ## Cá pictus (Pimelodus pictus)
 id: `pimelodus-pictus`
@@ -5457,15 +4709,6 @@ Cá rasbora Kottelat (Rasbora kottelati) hợp với người thích bể nướ
 - Để bể hở hoặc đậy nắp lỏng: cá nhảy giỏi, nên đậy nắp thật khít.
 - Nuôi ít con hoặc bể quá chật: cá đực có thể hung hăng với nhau, nên nuôi đàn ít nhất 8–10 con trong bể tối thiểu 120 cm.
 
-## Cá rasbora sông Hằng (Rasbora rasbora)
-id: `rasbora-rasbora`
-
-Hợp với người đã có bể chạy ổn định, muốn nuôi một đàn cá hiền, bơi nhiều và lớn đến 13 cm. Cần bể tối thiểu 120 × 45 × 45 cm (khoảng 243 lít), nước 20–25 °C, pH 6–7,5, độ cứng 2–12 dGH. Độ khó 6/8 (khó): khó nhất là giữ nước lúc nào cũng thật sạch, vì cá không chịu được chất thải hữu cơ tích tụ, và cá nhảy rất giỏi nên bể phải đậy kín.
-
-- Để nắp bể hở hoặc có khe, trong khi loài này nhảy rất giỏi và chui được qua khe nhỏ nhất; nên dùng nắp thật khít.
-- Nuôi lẻ hoặc vài con, khiến cá nhát và kém màu; nên nuôi đàn ít nhất sáu con.
-- Thả chung với cá bơi chậm hoặc nhút nhát, vì chỉ riêng kích thước của cá rasbora sông Hằng cũng làm chúng căng thẳng; nên chọn bạn cùng bể đủ bạo dạn.
-
 ## Cá rasbora Sarawak (Rasbora sarawakensis)
 id: `rasbora-sarawakensis`
 
@@ -5505,24 +4748,6 @@ id: `rasbosoma-spilocerca`
 
 Cá rasbora đuôi kéo lùn (Rasbosoma spilocerca) hợp với người mới: độ khó 1/8, dài khoảng 3 cm nên rất vừa bể nano. Nước dễ, hồ sơ ghi không kén hóa tính nước, nước máy là nuôi được, nhiệt độ 22–28 °C, độ cứng 4 dGH. Hồ sơ không nêu điểm khó nào đáng kể ở loài này.
 
-
-## Cá Retroculus acherontos (Retroculus acherontos)
-id: `retroculus-acherontos`
-
-Retroculus acherontos hợp với người có bể lớn và nuôi được theo nhóm. Cá dài tới 19,4 cm, độ khó 3/8 (mức dễ), nhưng cần chọn kỹ cá nuôi chung. Khó nhất là loài này chưa từng có trên thị trường cá cảnh.
-
-- Nuôi lẻ một con thì không hợp, loài này cần nuôi theo nhóm.
-- Nhét vào bể nhỏ là sai, cá lớn tới 19,4 cm nên cần bể lớn.
-- Thả chung bừa với cá khác dễ gặp rắc rối, hãy chọn kỹ cá nuôi cùng.
-
-## Cá bống suối Chiang Mai (Rhinogobius chiengmaiensis)
-id: `rhinogobius-chiengmaiensis`
-
-Hợp với người đã quen nuôi cá cần nước sạch, giàu oxy và muốn một nhóm bống nhỏ 5 cm. Bể tối thiểu dài 60 cm, nước 18–26 °C, pH 6–8, độ cứng 2–15 dGH; độ khó 5/8 (mức vừa). Khó nhất là giữ nước thật sạch, có dòng chảy và đủ hốc, khe để cá không nhìn thấy nhau suốt.
-
-- Nuôi lẻ một con thì cá dễ uể oải, ít hoạt động; nên mua ít nhất hai con đực, kèm số con cái bằng hoặc nhiều hơn.
-- Để chất thải hữu cơ tích tụ thì cá yếu đi; nên thay 30–50% nước mỗi tuần và dùng lọc máy, máy tạo dòng hoặc sủi khí cho nước giàu oxy.
-- Nuôi chung với các loài Rhinogobius khác thì chưa rõ có lai hay không; nên tránh, chọn bống suối chi khác hoặc cá hiền như Tanichthys, Danio.
 
 ## Cá chổi thường (Rineloricaria eigenmanni)
 id: `rineloricaria-eigenmanni`
@@ -5675,15 +4900,6 @@ Cá piranha serrulatus (Serrasalmus serrulatus) chỉ hợp người chơi chuy�
 - Thả chung với cá khác, hoặc nuôi hai con trở lên chung bể: cá đánh nhau đến khi chỉ còn một con, nên mỗi con một bể riêng.
 - Để bể trống trơn: cá dễ bồn chồn, hoảng, nên bày rễ cây, cành lũa, cây mọc cao, cây nổi và nền tối cho nhiều chỗ râm.
 - Để sưởi trong bể không che chắn: cá họ này từng cắn sưởi, nên đặt sưởi ngoài bể, hoặc ít nhất bọc lồng bảo vệ thật chắc.
-
-## Cá heo Sinibotia reevesae (Sinibotia reevesae)
-id: `sinibotia-reevesae`
-
-Hợp với người đã có kinh nghiệm nuôi cá heo, có bể chạy lâu năm và nuôi được đàn 3–4 con. Cần bể đáy 120 × 30 cm (khoảng 108 lít), nước 20–25,5 °C, pH 6,5–8, 2–15 dGH, giàu oxy, có dòng chảy vừa và nhiều chỗ trú. Khó nhất là giữ nước thật sạch vì cá không chịu được chất thải hữu cơ tích tụ. Độ khó 6/8, cá trưởng thành khoảng 9,5 cm.
-
-- Thả cá vào bể chưa ổn định vi sinh: nên cho vào bể đã chạy lâu và ổn định, vì đó là nơi chúng dễ thích nghi nhất.
-- Chỉ mua hai hoặc ba con: nên mua ít nhất 3–4 con, vì con đầu đàn có thể làm những con còn lại căng thẳng đến bỏ ăn.
-- Lơ là việc thay nước: thay 30–50% nước mỗi tuần đều đặn để chất thải hữu cơ không tích tụ.
 
 ## Cá chạch Kansu (Sinibotia robusta)
 id: `sinibotia-robusta`
@@ -5912,15 +5128,6 @@ Cá bitterling Hàn Quốc (Tanakia signifer) dài tối đa 7,5 cm, độ khó 
 - Để nước xuống cấp: chúng sống ở nước mát, sạch và trai thường cần nước tốt, nên giữ nước sạch ổn định.
 - Ghép bừa bạn cùng bể: hồ sơ ghi cần chọn kỹ bạn cùng bể, nên cân nhắc trước khi thả chung.
 
-## Cá bống rô Tanganyika (Tanganicodus irsacae)
-id: `tanganicodus-irsacae`
-
-Cá bống rô Tanganyika (Tanganicodus irsacae) hợp với người đã có kinh nghiệm, muốn làm bể Tanganyika chăm kỹ; độ khó 5/8, hồ sơ nói không hợp người mới. Cần bể dài tối thiểu 75 cm, nhiệt độ 24–28 °C, pH 8–9, độ cứng 8–25 dGH, nước sạch và giàu oxy, có đá sỏi tạo hang và để tảo mọc. Khó nhất là giữ cá khỏe vì chúng mỏng manh, đòi nước sạch, pH cao và thức ăn đặc thù, lại hung dữ với đồng loại.
-
-- Cho ăn đồ nhiều đạm như thịt, hải sản có vỏ hay giun; nên cho thức ăn chính là rau bina chần sơ hoặc cám vảy spirulina.
-- Nuôi chung với cá lớn hay cá hiếu động như mbuna; nên chọn bạn cùng bể ở tầng khác như Cyprichromis, Paracyprichromis hoặc cá ở vỏ ốc.
-- Nuôi nhiều con trong bể chật hoặc mua sẵn một đực một cái trưởng thành để ghép cặp; nên nuôi một con hoặc một cặp, hay mua nhóm cá non để chúng tự bắt cặp.
-
 ## Cá bống công (Tateurndina ocellicauda)
 id: `tateurndina-ocellicauda`
 
@@ -5977,15 +5184,6 @@ Cá mèo gỗ Flag (Trachelyopterus insignis) dài tới 20 cm, hợp người �
 Kiểm tra:
 - Third mistake: "Đừng chọn bể nhỏ theo cỡ cá con... cần tính bể cho kích thước trưởng thành" is tank-sizing advice the page doesn't give. The page has no tank information, and the summary itself says so. It also talks about juveniles, which the page doesn't mention.
 - "hợp người đã có bể đủ rộng và muốn nuôi cá mèo cỡ vừa" is weakly supported. The page says nothing about who the species suits or what tank it needs, so this is inferred from the 20 cm size alone.
-
-## Cá trachydoras steindachneri (Trachydoras steindachneri)
-id: `trachydoras-steindachneri`
-
-Cá trachydoras steindachneri (Trachydoras steindachneri) hợp với người muốn một bể cộng đồng hiền, nuôi chung tetra, barb, cichlid lùn hoặc gourami tính hiền. Cá dài tới 8,6 cm, cần bể tối thiểu 90 cm, nước 24–26 °C, pH 6–7, độ cứng 0–20 dGH, độ khó 3/8 nên khá dễ về nước. Điểm khó nhất là cá hiếm, ít khi có hàng, lại chủ yếu hoạt động về đêm nên cần bể nhiều chỗ trốn và cho ăn đúng lúc.
-
-- Bể trống trải, đèn gắt thì cá không yên tâm; nên trồng cây dày, thêm hang, lũa hoặc chậu đất nung và để đèn dịu.
-- Chỉ rải thức ăn nổi thì cá đáy khó có phần; nên cho thức ăn chìm như viên chìm cho cá da trơn, viên tảo, thức ăn hạt.
-- Cho ăn lúc đèn sáng thì cá hoạt động về đêm dễ bị giành mất phần; nên cho ăn ngay trước lúc tắt đèn.
 
 ## Cá thài lài mật (Trichogaster chuna)
 id: `trichogaster-chuna`
@@ -6110,33 +5308,6 @@ id: `yaoshania-pachychilus`
 
 Hồ sơ chưa nêu nhiệt độ, pH, độ cứng hay bể tối thiểu của cá chạch gấu trúc (Yaoshania pachychilus), nên chưa đủ cơ sở để nói bể và nước thế nào. Cá trưởng thành dài 7 cm, mất kiểu màu vòng đen trắng của cá non và chuyển sang nâu xám. Ai muốn nuôi vì vẻ ngoài gấu trúc cần biết màu này chỉ có ở cá non trong vài tuần mỗi năm.
 
-
-## Cá heo bạc (Yasuhikotakia lecontei)
-id: `yasuhikotakia-lecontei`
-
-Cá heo bạc (Yasuhikotakia lecontei) hợp với người đã có bể chạy lâu, ổn định và muốn nuôi một đàn chạch đáy hoạt động chủ yếu lúc chạng vạng và ban đêm. Cá dài 15 cm, bể tối thiểu dài 120 cm (đáy 120 × 45 cm, khoảng 243 lít), nước 23–28 °C, pH 6–8, độ cứng 2–12 dGH, nhiều chỗ nấp và đèn không cần mạnh. Độ khó 6/8 (khó): khó nhất là giữ nước thật sạch, giàu oxy và nuôi đủ đàn, ít nhất 5–6 con.
-
-- Thả cá vào bể mới set chưa chạy ổn định vi sinh. Nên chờ bể chạy lâu và ổn định, rồi thay 30–50% nước mỗi tuần.
-- Nuôi lẻ hoặc chỉ hai ba con, con đầu đàn có thể bắt nạt đến mức các con kia bỏ ăn. Nên nuôi ít nhất 5–6 con, tốt nhất từ 10 con trở lên.
-- Không đậy nắp bể hoặc đậy hờ, trong khi cá có tật nhảy. Nên dùng nắp đậy thật kín.
-
-## Cá chạch đuôi đỏ (Yasuhikotakia modesta)
-id: `yasuhikotakia-modesta`
-
-Loài này hợp với người đã có kinh nghiệm, độ khó 6/8, và có chỗ cho bể dài tối thiểu 150 cm vì cá lớn tới 25 cm. Nước 23–28 °C, pH 6–8, độ cứng 2–12 dGH, phải thật sạch, giàu oxy, bể đã chín vi sinh. Khó nhất là phải nuôi đàn đông, giữ nước sạch đều và chọn bạn cùng bể, vì cá có lúc hung hăng và rỉa vây dài của cá khác.
-
-- Chỉ mua hai hoặc ba con thì con đầu đàn có thể làm các con còn lại căng thẳng đến bỏ ăn; nên nuôi ít nhất 5–6 con, tốt nhất từ 10 con trở lên.
-- Thả vào bể chưa chín vi sinh hoặc để chất thải tích tụ thì cá khó sống; nên thả vào bể đã chín, ổn định và thay 30–50% nước mỗi tuần.
-- Nuôi chung với cá bơi chậm hoặc cá vây dài thì dễ bị rỉa vây; nên chọn cá họ chép hoạt bát, bơi tầng nước mở như Rasbora hoặc Devario.
-
-## Chạch skunk (Yasuhikotakia morleti)
-id: `yasuhikotakia-morleti`
-
-Chạch skunk hợp với người đã có bể cộng đồng lớn, nhiều chỗ trú, nuôi chung với các loài cá khỏe. Cá cần bể dài tối thiểu 120 cm, nước 23–28 °C, pH 6–7,5, độ cứng 2–12 dGH, bể đã chín và nước thật sạch. Độ khó 6/8: phải nuôi đàn đông, mà cá lại khá hung, hay cắn vây cá cùng bể.
-
-- Mua chỉ hai hoặc ba con thì con đầu đàn có thể bắt nạt các con còn lại đến mức chúng bỏ ăn; nên nuôi ít nhất 5–6 con, tốt nhất từ 10 con trở lên.
-- Thả cá vào bể chưa chín vi sinh; chỉ thả vào bể đã chín và ổn định, rồi thay 30–50% nước mỗi tuần.
-- Nuôi chung với cá bơi chậm, vây dài hoặc Corydoras spp.; nên chọn cá khỏe, hiếu động như Devario, Rasbora, Barilius.
 
 ## Cá heo splendida (Yasuhikotakia splendida)
 id: `yasuhikotakia-splendida`

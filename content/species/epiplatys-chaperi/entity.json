@@ -11,6 +11,120 @@
     "ivory-coast",
     "togo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CI",
+        "GH",
+        "TG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Epiplatys chaperi has a large distribution area in western Africa (Ivory Coast, Ghana and Togo), covering a good 600 km.",
+          "countries": [
+            "CI",
+            "GH",
+            "TG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348904,
+      "total": 135,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CI",
+          110
+        ],
+        [
+          "GH",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          -8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          4.21875,
+          12,
+          12
+        ],
+        [
+          -5.625,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -5.625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -4.21875,
+          4.21875,
+          52,
+          52
+        ],
+        [
+          -4.21875,
+          5.625,
+          32,
+          32
+        ],
+        [
+          -4.21875,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -2.8125,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          -2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -1.40625,
+          5.625,
+          5,
+          5
+        ],
+        [
+          0,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

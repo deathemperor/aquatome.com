@@ -1,5 +1,5 @@
 import { spawn, spawnSync } from 'node:child_process'
-import { existsSync, mkdtempSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -38,6 +38,71 @@ test("a job's stop reaches the command, and the turn passes on", async () => {
   expect(await new Promise(r => run.on('close', r))).toBe(7)
   expect(existsSync(`${dir}/stopped`)).toBe(true)
   expect(spawnSync(SIM_RUN, ['true'], { env }).status).toBe(0)
+}, 30_000)
+
+// The photos cycle of 2026-11-08, under load: the stop came while Popen was still returning, before this script knew its
+// command, so it ended alone (143) and left the command running with no parent. Here the stop comes at that moment on
+// purpose: Popen is wrapped so the signal lands after the command is up and before Popen has returned.
+test('a stop that comes while the command is starting still reaches it', () => {
+  const dir = home()
+  const harness = `
+import importlib.util, os, signal, subprocess, sys, time
+spec = importlib.util.spec_from_file_location("sim_run", ${JSON.stringify(SIM_RUN)})
+sim_run = importlib.util.module_from_spec(spec); spec.loader.exec_module(sim_run)
+real = subprocess.Popen
+def starting(argv, *a, **k):
+    p = real(argv, *a, **k)
+    open(${JSON.stringify(`${dir}/pid`)}, "w").write(str(p.pid))
+    while not os.path.exists(${JSON.stringify(`${dir}/up`)}): time.sleep(0.01)
+    os.kill(os.getpid(), signal.SIGTERM)
+    time.sleep(0.2)
+    return p
+sim_run.subprocess.Popen = starting
+sys.argv = ["sim-run.py", "sh", "-c", ${JSON.stringify(`trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`)}]
+sim_run.main()
+`
+  const r = spawnSync('python3', ['-I', '-c', harness], { env: { ...process.env, HOME: dir }, encoding: 'utf8', timeout: 20_000 })
+  const left = Number(readFileSync(`${dir}/pid`, 'utf8'))
+  const running = spawnSync('kill', ['-0', String(left)]).status === 0
+  if (running) spawnSync('kill', ['-9', String(left)])
+  expect(running).toBe(false)
+  expect(r.status, r.stderr).toBe(7)
+  expect(existsSync(`${dir}/stopped`)).toBe(true)
+}, 30_000)
+
+// A stand-in for macOS's notifyutil: the thermal pressure levels it reads out, one a call, the last one kept.
+const hot = (levels: number[]) => {
+  const dir = home()
+  writeFileSync(join(dir, 'levels'), levels.join('\n') + '\n')
+  writeFileSync(join(dir, 'notifyutil'), `#!/bin/sh
+n=$(cat "${dir}/calls" 2>/dev/null || echo 0); n=$((n + 1)); echo $n > "${dir}/calls"
+level=$(sed -n "\${n}p" "${dir}/levels"); [ -n "$level" ] || level=$(tail -1 "${dir}/levels")
+echo "com.apple.system.thermalpressurelevel $level"
+`)
+  chmodSync(join(dir, 'notifyutil'), 0o755)
+  const calls = () => (existsSync(join(dir, 'calls')) ? Number(readFileSync(join(dir, 'calls'), 'utf8')) : 0)
+  const run = (env: Record<string, string>) => spawnSync(SIM_RUN, ['true'], { env: { ...process.env, HOME: dir, PATH: `${dir}:${process.env.PATH}`, SIM_RUN_COOL_PAUSE: '0', ...env }, encoding: 'utf8' })
+  return { run, calls }
+}
+
+// Main's iOS runs back on this Mac (2026-11-08) wait while it's hot, as the engine's runs do. Leads' runs don't wait here,
+// nor do pull requests' jobs on GitHub's Macs, which run sim-run too.
+test("this Mac's runner's simulator run waits while the Mac is hot, and a lead's or GitHub's Macs' doesn't", () => {
+  const runner = hot([2, 3, 2, 1])
+  const r = runner.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted' })
+  expect(r.status).toBe(0)
+  expect(runner.calls()).toBe(4)
+  expect(r.stdout).toContain('the Mac is hot')
+  for (const env of [{ GITHUB_ACTIONS: '', RUNNER_ENVIRONMENT: '' }, { GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'github-hosted' }]) {
+    const other = hot([2])
+    expect(other.run({ ...env, SIM_RUN_COOL_MINUTES: '0.0001' }).status).toBe(0) // a short wait, should it wrongly wait
+    expect(other.calls()).toBe(0)
+  }
+  // Still hot at the end of the wait: it goes on.
+  const stuck = hot([2])
+  const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
+  expect(s.status).toBe(0)
+  expect(s.stdout).toContain('went on after')
 }, 30_000)
 
 test("the runner's second ask ends the command, so nothing is left running when the turn passes on", async () => {
@@ -152,4 +217,23 @@ test('a session runs heavy work only in the checks queue', () => {
   ]) expect(hook(c).status, c).toBe(0)
   // A simulator run in the checks queue is still the simulator queue's.
   expect(hook('lockf -k ~/.cache/aquatome/checks.lock xcodebuild test').stderr).toContain('sim-run.py')
+})
+
+// Simulator.app's window is WindowServer's to draw every frame, on top of the simulator's own rendering (2026-11-08: the
+// screen's compositing was a third of the GPU through a heavy thermal hour). Simulators run headless.
+test('a session boots simulators headless, never in Simulator.app', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  for (const c of [
+    'open -a Simulator',
+    'open -a Simulator.app',
+    'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app',
+    'xcrun simctl boot "iPhone 17" && open -a Simulator',
+  ]) {
+    const r = hook(c)
+    expect(r.status, c).toBe(2)
+    expect(r.stderr, c).toContain('headless')
+  }
+  for (const c of ['xcrun simctl boot "iPhone 17"', 'open https://aquatome.com', 'open -a Preview shot.png', 'rg "open -a Simulator" docs']) {
+    expect(hook(c).status, c).toBe(0)
+  }
 })

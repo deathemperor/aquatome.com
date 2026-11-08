@@ -2,6 +2,42 @@
   "id": "corydoras-panda",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/15439449509.webp",
+      "thumb": "https://media.aquatome.com/flickr/15439449509-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15439449509",
+      "caption": "Cá chuột panda nhìn nghiêng với đốm đen rõ nét trong bể trồng cây",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15395977000.webp",
+      "thumb": "https://media.aquatome.com/flickr/15395977000-480.webp",
+      "width": 1024,
+      "height": 671,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15395977000",
+      "caption": "Cá chuột panda trưởng thành bơi giữa cây thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15894924088.webp",
+      "thumb": "https://media.aquatome.com/flickr/15894924088-480.webp",
+      "width": 1024,
+      "height": 649,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15894924088",
+      "caption": "Cá chuột panda nhìn nghiêng trên nền sỏi trắng trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/ef5039a8a5a72a89.webp",
       "thumb": "https://media.aquatome.com/commons/ef5039a8a5a72a89-480.webp",
       "width": 1200,
@@ -120,9 +156,33 @@
       "author": "Juan R. Lascorz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:04.Corydoras_panda.JPG",
       "caption": "Cá chuột panda bơi giữa cây thủy sinh trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15788717909.webp",
+      "thumb": "https://media.aquatome.com/flickr/15788717909-480.webp",
+      "width": 1024,
+      "height": 652,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15788717909",
+      "caption": "Nhóm cá chuột panda kiếm ăn trên nền sỏi trong bể",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15787333638.webp",
+      "thumb": "https://media.aquatome.com/flickr/15787333638-480.webp",
+      "width": 1024,
+      "height": 818,
+      "licence": "CC BY 2.0",
+      "author": "Dornenwolf",
+      "sourceUrl": "https://www.flickr.com/photos/20051036@N00/15787333638",
+      "caption": "Cá chuột panda ẩn giữa cây thủy sinh xanh",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 22,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 30,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

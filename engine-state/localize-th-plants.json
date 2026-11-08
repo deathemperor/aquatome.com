@@ -1333,6 +1333,20 @@
       "Item 3: \"Submerged leaves formed at 23 °C were clearly narrower\" is translated acceptably. \"พึงระวัง\" is stiff for a handbook, so use \"ควรระวัง\"."
     ]
   },
+  "ludwigia-brevipes": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Ludwigia brevipes",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Section 2, Trimming: English says \"a few inches below the desired final height\"; Thai gives \"ประมาณ 5–10 ซม.\". A few inches is about 5–8 cm, so the 10 cm upper bound is a bit loose. Use \"ประมาณ 5–8 ซม.\" or a similar sensible rounding.",
+      "Section 2: \"ไม้น้ำ... ต้นจะผอมกว่ามาก\" and \"สีไม่ค่อยขึ้น\" are fine. But \"ต้นถึงจะได้ทรงและสีที่สวย\" is acceptable. Change \"จะเลื้อยไปทางด้านข้าง\" to \"จะแผ่/โน้มไปทางด้านข้าง\", because a stem plant that \"grows sideways\" does not creep.",
+      "Section 3: \"อัตราการเติบโตปานกลางกว่าเล็กน้อย\" is awkward and unclear. Rephrase as \"โตช้ากว่าเล็กน้อยเมื่อเทียบกับ...\" or \"โตปานกลาง ไม่เร็วเท่า...\".",
+      "Section 3: \"สเปกตรัมแสงสีแดง/น้ำเงินเข้มขึ้น\" is a vague rendering of \"Stronger red/blue light spectrum\". Say \"แสงสเปกตรัมสีแดง/น้ำเงินที่แรงขึ้น\".",
+      "Section 2: \"ใบอาจแดงได้มาก\" drops the sense of \"quite red\" and reads thin. This is minor."
+    ]
+  },
   "ludwigia-glandulosa": {
     "at": "2026-11-04",
     "from": "2026-10-30",
@@ -1462,6 +1476,18 @@
       "\"เบาะ\" for \"cushion\" is a bit literal; consider \"พุ่มหนาแน่นคล้ายเบาะ/หมอนนุ่ม\" or \"ก้อนกลมแน่น\""
     ]
   },
+  "micranthemum-tweediei": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "มอนติคาโล",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Name inconsistency: item 1 keeps \"Monte carlo\" in Latin letters, but item 2 uses \"มอนติคาโล\" throughout. Pick one form, or give the Thai with (Monte carlo) in brackets on first use.",
+      "\"ค่าน้ำคงที่\" in the last key-factor bullet narrows \"stable\" to water parameters. A plain \"ตู้ที่นิ่งและระบบชีวภาพเซ็ตตัวแล้ว\" is closer to the English.",
+      "\"บนหินหรือขอนไม้\" for \"hardscape\" is fine in meaning but narrower. Consider \"วัสดุตกแต่งตู้ (หิน/ไม้)\"."
+    ]
+  },
   "micranthemum-tweediei-monte-carlo": {
     "at": "2026-11-07",
     "from": "2026-11-07",
@@ -1502,13 +1528,17 @@
     ]
   },
   "microsorum-pteropus-narrow": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
-    "name": "เฟิร์นชวาใบแคบ",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "เฟิร์นชวา Narrow",
     "confidence": "medium",
-    "score": 0.92,
+    "score": 0.78,
     "notes": [
-      "\"สายพันธุ์ปลูก\" for \"cultivars\" is slightly unnatural; \"พันธุ์ปลูกเลี้ยง\" or \"คัลทิวาร์\" would read more naturally. Meaning is intact."
+      "Item 1: \"สายพันธุ์ปลูกเกิดขึ้นหรือได้มาจากการเพาะในแหล่งเพาะเลี้ยง\" is clumsy. Use something like \"สายพันธุ์ที่เกิดหรือถูกพัฒนาขึ้นจากการเพาะเลี้ยง (cultivar)\".",
+      "Item 3: \"เพาะได้สายพันธุ์ใหม่ขึ้นมาได้ง่าย\" is repetitive (\"ได้…ได้\"). \"เพาะ\" is also not the natural verb for plants. Use \"ปรับปรุง/พัฒนาสายพันธุ์ใหม่ได้ง่าย\".",
+      "Item 2: \"เหง้าต้องโดนน้ำทั่วถึง\" shifts the meaning of \"thông thoáng\" (kept open and airy, not buried). Use \"เหง้าต้องโล่ง ไม่ถูกกลบ\".",
+      "Item 2: \"เฟิร์นชวา Narrow\" leaves \"Narrow\" untranslated. Use \"เฟิร์นชวาใบแคบ\", with (Narrow) in brackets if wanted.",
+      "Item 2: \"แกะเชือกออก\" does not match the source, which names \"ด้าย/เอ็น\" (thread or fishing line). Use \"แกะด้ายหรือเอ็นออก\"."
     ]
   },
   "microsorum-pteropus-trident": {
@@ -1918,6 +1948,14 @@
     "name": "ซาจิทาเรีย ซูบูลาต้า",
     "confidence": "medium",
     "score": 0.95,
+    "notes": []
+  },
+  "salvinia-auriculata": {
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "จอกหูหนู",
+    "confidence": "medium",
+    "score": 0.9,
     "notes": []
   },
   "salvinia-minima": {

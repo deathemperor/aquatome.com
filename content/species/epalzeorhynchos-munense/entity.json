@@ -14,6 +14,86 @@
     "cambodia",
     "tonle-sap"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA"
+      ],
+      "regions": [
+        "Mekong",
+        "Mun"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Epalzeorhynchos munense is a cyprinid from the Mun river and other tributaries of the middle Mekong in Thailand and Laos.",
+          "countries": [
+            "TH",
+            "LA"
+          ],
+          "regions": [
+            "Mekong",
+            "Mun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360406,
+      "total": 10,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KH",
+          5
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          11.25,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

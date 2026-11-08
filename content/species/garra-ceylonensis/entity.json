@@ -9,6 +9,70 @@
     "asia",
     "sri-lanka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Garra ceylonensis is endemic to Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366889,
+      "total": 117,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "LK",
+          117
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          4,
+          4
+        ],
+        [
+          78.75,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          5.625,
+          61,
+          61
+        ],
+        [
+          80.15625,
+          7.03125,
+          40,
+          40
+        ],
+        [
+          80.15625,
+          8.4375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

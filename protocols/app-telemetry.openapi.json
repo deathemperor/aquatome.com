@@ -79,6 +79,7 @@
           "device": { "$ref": "#/components/schemas/Device" },
           "lang": { "type": "string", "enum": ["vi", "id", "th", "ms"], "description": "The handbook language the app shows." },
           "session": { "type": "string", "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$", "description": "A random UUID made anew at each launch and never reused for another launch. A batch waiting in the app's queue keeps its launch's id until it is sent." },
+          "install": { "type": "string", "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$", "description": "Optional. A random UUID the app makes on its first launch after install and keeps in its own storage (not the Keychain), so it goes when the app is deleted; replaced after 13 months, and deleted when the reader turns statistics off. Sent only in these batches, never with an account. It counts return visits. The Worker accepts it before it keeps it (apps/site/worker/stats-switch.ts APP_INSTALL_ID)." },
           "events": { "type": "array", "minItems": 1, "maxItems": 100, "items": { "$ref": "#/components/schemas/Event" } }
         },
         "additionalProperties": false
