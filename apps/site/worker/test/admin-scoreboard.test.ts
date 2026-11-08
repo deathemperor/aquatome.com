@@ -205,7 +205,7 @@ test('the page: Vietnamese, each metric this week against last with its 12 weeks
   expect(html).toContain('Cùng lúc tuần trước')
   expect(html).toContain('class="spark"')
   expect(html).toContain('Chưa đo được')
-  expect(html).toContain('Search Console')
+  expect(html).toContain('AdSense')
   expect(html).toContain('aria-current="page">Thành công<')
   // A chart over weeks says weeks.
   expect(html).toContain('12 tuần')

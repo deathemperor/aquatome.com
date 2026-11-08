@@ -1,26 +1,5 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/457267721/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/457267721/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Sylvain Eichhorn",
-   "sourceUrl": "https://www.inaturalist.org/photos/457267721",
-   "key": "inat:457267721"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205146696/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/205146696/medium.jpg",
-   "width": 2048,
-   "height": 1290,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/205146696",
-   "key": "inat:205146696"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Beilbauch Marmorierter Beilbauch Carnegiella strigata 060311.jpg",
   "File:Machadinha.JPG",
@@ -31,7 +10,9 @@
   "File:Beilbauchsalmler.jpg",
   "File:Carnegiella strigata lateral view.jpg",
   "File:Characiformes - Carnegiella strigata - 2.jpg",
-  "File:Characiformes - Carnegiella strigata - 1.jpg"
+  "File:Characiformes - Carnegiella strigata - 1.jpg",
+  "inat:457267721",
+  "inat:205146696"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/e51c1d39f737a5ff.webp": "333325b9c6ccc3c3",
@@ -43,5 +24,13 @@
   "https://media.aquatome.com/commons/2ad7dadb5c1e2987.webp": "989919242e471726",
   "https://media.aquatome.com/commons/e88351cb7240cb5a.webp": "1f0fe2d1e3c7670b"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 549774,
+  "pass": "done",
+  "after": {
+   "research": 255189271,
+   "agree": 177772238
+  }
+ }
 }

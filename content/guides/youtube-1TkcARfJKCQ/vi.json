@@ -38,5 +38,12 @@
       "youtube": 0.6
     },
     "chat": false
+  },
+  "held": {
+    "checks": [
+      "harm",
+      "source"
+    ],
+    "at": "2026-11-08"
   }
 }

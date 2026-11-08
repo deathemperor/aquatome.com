@@ -11,6 +11,7 @@ import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
 import { LANG, LANGS, OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
 import { langOf, toVi } from '../src/lib/i18n.ts'
+import { pageSignals } from './page-signals.ts'
 import { VI_SECTIONS, withoutVi } from '../worker/paths.ts'
 import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, LastReview, LowPage, LowScores, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
 
@@ -297,7 +298,7 @@ export function computeContentStats(o: StatsInput): ContentStats {
 }
 
 /** Each kind of page with a score of its own: where its item is in content/ (and in a review's key). */
-const SCORED: Partial<Record<PageKind, string>> = { fish: 'species', breed: 'breeds', plant: 'plants', guide: 'guides', videoGuide: 'guides', glossary: 'glossary', product: 'products', equipment: 'equipment' }
+export const SCORED: Partial<Record<PageKind, string>> = { fish: 'species', breed: 'breeds', plant: 'plants', guide: 'guides', videoGuide: 'guides', glossary: 'glossary', product: 'products', equipment: 'equipment' }
 
 /**
  * Whether a page is out of search for its score, as the build judges it (@aq/schema load.ts): a fish's or plant's score
@@ -330,12 +331,10 @@ export function lastReview(traces: LastReview[]): LastReview | undefined {
  * dist/_ab/reviews.json: every built page out of search for its score (outForScore), lowest first, each with its last
  * review (engine-state/reviews/<kind>.json, keyed "<lang>/<content path>", a part after "#"); none without engine state.
  */
-export function lowScores(o: { contentRoot: string; engineState?: string; publicBuild: boolean; pages: ContentStats['pages'] }): LowScores {
-  const root = o.contentRoot
-  const sourcesInfo = read(join(root, 'sources.json')) ?? {}
-  const textOk = (s: string) => !o.publicBuild || sourcesInfo[s]?.publish === true
+/** The editors' reviews that set a score (SCORE_REVIEWS), by "<lang>/<content path>"; none without engine state. */
+export function reviewTraces(engineState?: string): Map<string, LastReview[]> {
   const traces = new Map<string, LastReview[]>()
-  const dir = o.engineState && join(o.engineState, 'reviews')
+  const dir = engineState && join(engineState, 'reviews')
   if (dir && existsSync(dir)) {
     for (const kind of SCORE_REVIEWS) {
       for (const [key, ts] of Object.entries((read(join(dir, `${kind}.json`)) ?? {}) as Record<string, Json[]>)) {
@@ -346,6 +345,14 @@ export function lowScores(o: { contentRoot: string; engineState?: string; public
       }
     }
   }
+  return traces
+}
+
+export function lowScores(o: { contentRoot: string; engineState?: string; publicBuild: boolean; pages: ContentStats['pages'] }): LowScores {
+  const root = o.contentRoot
+  const sourcesInfo = read(join(root, 'sources.json')) ?? {}
+  const textOk = (s: string) => !o.publicBuild || sourcesInfo[s]?.publish === true
+  const traces = reviewTraces(o.engineState)
   const pages: LowPage[] = []
   for (const [kind, d] of Object.entries(SCORED) as [PageKind, string][]) {
     for (const [path, , id] of o.pages?.[kind] ?? []) {
@@ -440,6 +447,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   console.log(`content-stats: ${low.pages.length} pages out of search for their score, ${low.pages.filter(p => p.review).length} with a review, ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB`)
   // The same budget: about 2 KB of notes a page, it fits some 450 pages with a review.
   if (Buffer.byteLength(lowBody) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/reviews.json is ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB, over its 1 MB budget: keep fewer notes a page`)
+  // What the engine knows of each item page, for the content page's quality lists (scripts/page-signals.ts).
+  const signals = JSON.stringify(pageSignals({ contentRoot, engineState, pages: stats.pages }))
+  writeFileSync(join(dist, '_ab', 'page-signals.json'), signals)
+  console.log(`content-stats: page signals, ${Math.round(Buffer.byteLength(signals) / 1024)} KB`)
+  if (Buffer.byteLength(signals) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/page-signals.json is ${Math.round(Buffer.byteLength(signals) / 1024)} KB, over its 1 MB budget`)
   // A budget, not a limit (an asset may be 25 MiB): over it, a warning on the deploy's run rather than a failed deploy,
   // since the dashboard's file shouldn't hold back the site's content. At about 90 bytes a page, it fits some 10,000 pages.
   if (Buffer.byteLength(body) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/content.json is ${Math.round(Buffer.byteLength(body) / 1024)} KB, over its 1 MB budget: make the page index smaller`)

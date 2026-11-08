@@ -9,7 +9,9 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "orinoco",
+    "amazon"
   ],
   "range": {
     "native": {
@@ -268,6 +270,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -276,6 +285,13 @@
         "value": {
           "min": 5,
           "max": 7
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
         }
       }
     ],
@@ -292,6 +308,16 @@
       {
         "source": "planetcatfish",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 21
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 2
       }
     ]
   },
@@ -303,10 +329,28 @@
       "html": "<ul><li>Scientific name: Dekeyseria scaphirhynchus (Kner, 1854)</li><li>Common names: L151, Flat Head Pleco, L216</li><li>Type locality: Manaus, Brazil</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Common names: Flat Head Pleco, L151, L216. Family: Loricariidae. Synonyms: Ancistrus scaphirhynchus, Peckoltia scaphyrhyncha. Some authors (Seidel 2008) place the genus Dekeyseria as Zonancistrus and state these species as being in the Dekeyseria brachyura group. The genus Dekeyseria possesses broad and flattened heads.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
       "html": "<p>South America: Negro River basin. Also recorded from the Middle Amazon (Solimões), Negro and the Lower Amazon, Nhamundá.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>South America: Upper course of the Rio Orinoco and the middle to lower Rio Amazon.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Whatever their true placing, they are relatively easy to keep in the aquarium. If you keep them in soft acid water they will show their natural colours. If the water is too hard their colours will be somewhat muted and they will take on a fright pattern.</p>"
     },
     {
       "key": "waterConditions",
@@ -315,10 +359,28 @@
       "html": "<ul><li>pH: 5.0–7.0</li><li>Temperature: 22–26°C</li><li>Other parameters: dH 16</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Temperature: 22–25°C. pH: 6.5–7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Omnivorous: vegetable foods, tablet and fine frozen foods.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
       "html": "<p>Mature males have substantial odontodes both on the thick pectoral ray and the posterior part of the body. The male also has a broader head than the female.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Both sexes have odontodes on the pectoral and caudal spines, with those of the males being somewhat longer.</p>"
     },
     {
       "key": "reproduction",
@@ -327,16 +389,34 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Has been bred in the hobby; the female lays her eggs in pipework.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
       "html": "<p>Similar to Lasiancistrus but broader when viewed from above, especially in larger adults. Striped species of Dekeyseria were placed in Zonancistrus but because this was only based on colouration, they are more commonly placed with the non-striped species in Dekeyseria.</p><p>Individuals are able to change colour to suit surroundings or mood. This ranges from dark grey / black, through dark brown to light grey.</p><p>L151: DATZ 2/1994, pp 77-78; L216: DATZ 8/1996, pp 480-482. The L151 Aqualog matches DATZ and shows a range of colouration. The L216 Aqualog supplement is the DATZ picture.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Etymology: the genus name Dekeyseria honours French zoologist Pierre Louis Dekeyser (1914–1984), Universidade Federal da Paraíba (João Pessoa, Paraíba, Brazil). The specific name scaphirhyncha means shovel-nosed, from skaphís, shovel, and rhýnchos, snout, referring to its depressed head with a very broad snout, obtusely rounded in front. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
       "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp 280 [30], Pl. 3 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/dekeyseria_scaphirhyncha.htm",
+      "html": "<p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [

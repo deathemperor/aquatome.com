@@ -1,0 +1,55 @@
+{
+  "id": "gastromyzon-ocellatus",
+  "native": {
+    "input": "0c9f7602b38008f2",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai (river) Sarawak drainage in southern Sarawak state, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sungai Sarawak",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai (river) Sarawak drainage in southern Sarawak state, Malaysian Borneo.",
+        "country": "MY",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon ocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358888,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

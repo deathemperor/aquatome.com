@@ -1,0 +1,49 @@
+{
+  "id": "gastromyzon-viriosus",
+  "native": {
+    "input": "e32adfc3ae6ccfbf",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Tatau River drainage in central Sarawak state, Malaysian Borneo; type locality is the Sungai (river) Sawi, Tatau District, Bintulu Division.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tatau River",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Tatau River drainage in central Sarawak state, Malaysian Borneo; type locality is the Sungai (river) Sawi, Tatau District, Bintulu Division.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon viriosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358869,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

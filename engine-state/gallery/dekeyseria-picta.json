@@ -1,22 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/285741301/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/285741301/medium.jpeg",
-   "width": 1694,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Alberto Alcalá",
-   "sourceUrl": "https://www.inaturalist.org/photos/285741301",
-   "key": "inat:285741301"
-  }
+ "queue": [],
+ "judged": [
+  "inat:285741301"
  ],
- "judged": [],
  "hashes": {
   "https://media.aquatome.com/scotcat/ef3ac7c1bfd10852.webp": "6be3637339290f12",
   "https://media.aquatome.com/scotcat/1e6373fc9ba01b60.webp": "a29c90998cb49c14",
   "https://media.aquatome.com/scotcat/7452291e0efc0351.webp": "cd4b6fc3c1c3675e",
-  "https://media.aquatome.com/commons/987eb141b70ff0e1.webp": "52162515060aa2c0"
+  "https://media.aquatome.com/commons/987eb141b70ff0e1.webp": "52162515060aa2c0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/285741301/original.jpeg": "5a4637b3160b29c4"
  },
  "commons": "2026-11-08"
 }

@@ -231,6 +231,22 @@ test('built: deploys and the live version, content pushes with what they added, 
   expect(compose(input()).text).not.toContain('Added ')
 })
 
+test('content quality: how many pages each list holds, linked to the content page, and no page or name a reader typed', () => {
+  const row = { path: '/ca/x/', title: 'Cá x', section: 'fish·vi', score: 30, ranked: true, demand: 1, figures: {} as never, why: '' }
+  const quality = {
+    days: 28, scored: 40, ranked: 12, best: [], worst: [], rewrite: [row], decaying: [row],
+    gaps: [{ source: 'wanted' as const, name: 'Cá rồng đỏ', demand: 30, why: '' }], totals: { rewrite: 14, decaying: 3, gaps: 1 },
+  }
+  const { text, html } = compose(input({ quality }))
+  expect(text).toContain('Content quality: 14 pages to rewrite first, 3 decaying, 1 gap (asked for, not written).')
+  expect(html).toContain(`href="${dashboardUrl('/_ab/noi-dung/#chat-luong')}"`)
+  expect(text).not.toContain('Cá rồng đỏ')
+  expect(text).not.toContain('/ca/x/')
+  // Not loaded, or failed: no line (the content page says why).
+  expect(compose(input()).text).not.toContain('Content quality')
+  expect(compose(input({ quality: { failed: 'analytics engine sql 422' } })).text).not.toContain('Content quality')
+})
+
 test('what changed: the site\'s, the app\'s and the engine\'s lines, each newest first and once, then the change log; no PR number or link', () => {
   const changes = [
     { area: 'Engine', text: 'Guides keep their photos.', at: '2026-11-05T02:00:00Z' },

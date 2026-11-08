@@ -12,6 +12,48 @@
     "brunei",
     "temburong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Petagas",
+        "Padas",
+        "Mengalong River",
+        "Temburong River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+          "countries": [
+            "MY",
+            "BN"
+          ],
+          "regions": [
+            "Borneo",
+            "Petagas",
+            "Padas",
+            "Mengalong River",
+            "Temburong River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358885,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -33,5 +33,12 @@
   "quality": {
     "score": 0.8,
     "indexable": true
+  },
+  "held": {
+    "checks": [
+      "dose-caution",
+      "harm"
+    ],
+    "at": "2026-11-08"
   }
 }

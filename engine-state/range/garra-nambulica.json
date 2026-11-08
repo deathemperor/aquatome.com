@@ -1,0 +1,50 @@
+{
+  "id": "garra-nambulica",
+  "native": {
+    "input": "3e96301028811518",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributary streams of the Nambul River, Chindwin basin, in Manipur state, northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nambul River",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributary streams of the Nambul River, Chindwin basin, in Manipur state, northeastern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Chindwin",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributary streams of the Nambul River, Chindwin basin, in Manipur state, northeastern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra nambulica",
+    "status": "ACCEPTED",
+    "taxonKey": 2366842,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

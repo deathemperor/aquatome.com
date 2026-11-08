@@ -170,25 +170,34 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/solving-algae-issues-without-using-algicides": {
-    "entityIds": [],
-    "updatedAt": "2026-11-07T01:12:59.465Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-solving-algae-issues-without-using-algicides"
+    ],
+    "updatedAt": "2026-11-08T11:19:29.447Z",
+    "hash": "100d1074b7729407681f76d4f033f246d0dd39fc3233f137647128b4230f508a",
+    "processedHash": "100d1074b7729407681f76d4f033f246d0dd39fc3233f137647128b4230f508a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/tackle-algae-by-doing-nothing": {
-    "entityIds": [],
-    "updatedAt": "2026-11-07T01:13:04.754Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing"
+    ],
+    "updatedAt": "2026-11-08T11:28:18.823Z",
+    "hash": "d0906583853259b8250f9e6a70b52c72b465c567042dab6bb5daf3537254763c",
+    "processedHash": "d0906583853259b8250f9e6a70b52c72b465c567042dab6bb5daf3537254763c",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/this-wouldnt-work": {
-    "entityIds": [],
-    "updatedAt": "2026-11-07T01:13:10.896Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-this-wouldnt-work"
+    ],
+    "updatedAt": "2026-11-08T11:32:51.525Z",
+    "hash": "ff28dc65d1375d358e399e4cae2d2ab95a5b8d3ac821725be07fa46d7fa5ad7d",
+    "processedHash": "ff28dc65d1375d358e399e4cae2d2ab95a5b8d3ac821725be07fa46d7fa5ad7d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [

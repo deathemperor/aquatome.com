@@ -1,0 +1,85 @@
+{
+  "id": "gastromyzon-monticola",
+  "native": {
+    "input": "cdcafa9d3878ad6d",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from streams emptying into Marudu Bay, Kudat Division, Sabah, Malaysian Borneo and the Wariu River basin a little further west.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+        "ok": true
+      },
+      {
+        "name": "Marudu Bay",
+        "source": "seriouslyfish",
+        "quote": "Known only from streams emptying into Marudu Bay, Kudat Division, Sabah, Malaysian Borneo and the Wariu River basin a little further west.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Wariu River",
+        "source": "seriouslyfish",
+        "quote": "Known only from streams emptying into Marudu Bay, Kudat Division, Sabah, Malaysian Borneo and the Wariu River basin a little further west.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Mount Kinabalu",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected from 'Mount Kina-Balou, headwaters of Tampassuk River, Sabah, Borneo', and in fact all its native rivers drain Mount Kinabalu, one of the world's most important biological sites with incredibly high levels of local species endemism.",
+        "ok": true
+      },
+      {
+        "name": "Tampassuk River",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected from 'Mount Kina-Balou, headwaters of Tampassuk River, Sabah, Borneo', and in fact all its native rivers drain Mount Kinabalu, one of the world's most important biological sites with incredibly high levels of local species endemism.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon monticola",
+    "status": "ACCEPTED",
+    "taxonKey": 2358871,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

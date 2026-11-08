@@ -1,0 +1,59 @@
+{
+  "id": "garra-poecilura",
+  "native": {
+    "input": "64c3b4e235dd597f",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from its type locality, a minor tributary within the Irrawaddy River system draining the eastern slope of the Rakhine Yoma mountain range in western Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from its type locality, a minor tributary within the Irrawaddy River system draining the eastern slope of the Rakhine Yoma mountain range in western Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Rakhine Yoma",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from its type locality, a minor tributary within the Irrawaddy River system draining the eastern slope of the Rakhine Yoma mountain range in western Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra poecilura",
+    "status": "ACCEPTED",
+    "taxonKey": 2366750,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

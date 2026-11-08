@@ -1,0 +1,268 @@
+{
+  "id": "geophagus-brasiliensis",
+  "native": {
+    "input": "26263e4cab242aec",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild-caught specimens currently available come from Brazil, specifically the state of São Paulo, and were collected in the area around the city of Botucatu.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to river systems of eastern and southern Brazil and Uruguay draining into the Atlantic Ocean with type locality given as 'Rio de Janeiro Bay, Brazil'.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to river systems of eastern and southern Brazil and Uruguay draining into the Atlantic Ocean with type locality given as 'Rio de Janeiro Bay, Brazil'.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Non-native populations exist in several countries including the United States, Australia, Taiwan and the Philippines.",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Non-native populations exist in several countries including the United States, Australia, Taiwan and the Philippines.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Non-native populations exist in several countries including the United States, Australia, Taiwan and the Philippines.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Non-native populations exist in several countries including the United States, Australia, Taiwan and the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tietê",
+        "source": "glaser",
+        "quote": "Hydrologically, the area belongs to the Rio Tietê watershed.",
+        "ok": true
+      },
+      {
+        "name": "Río Uruguay",
+        "source": "seriouslyfish",
+        "quote": "In Brazil it's been recorded from various river drainages and lagoons in the states of Minas Gerais, Espírito Santo, Rio de Janeiro, São Paolo, Paraná, Santa Catarina and Rio Grande do Sol while in the Uruguay it occurs in the Río Uruguay and Río de la Plata drainages.",
+        "ok": true
+      },
+      {
+        "name": "Río de la Plata",
+        "source": "seriouslyfish",
+        "quote": "In Brazil it's been recorded from various river drainages and lagoons in the states of Minas Gerais, Espírito Santo, Rio de Janeiro, São Paolo, Paraná, Santa Catarina and Rio Grande do Sol while in the Uruguay it occurs in the Río Uruguay and Río de la Plata drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus brasiliensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7769592,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2477
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1013
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        723
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        418
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        266
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        234
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        213
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        173
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        153
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        79
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        49
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        43
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        31
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        18
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        18
+      ],
+      [
+        "ca5ece39-358c-4dcf-8bb8-fa28601f1be6",
+        18
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        14
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        13
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        7
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "360d2362-4ab5-4440-986d-7e6676db6c75",
+        1
+      ],
+      [
+        "55985e77-9fca-4d51-aa4d-5840e544652a",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        1
+      ],
+      [
+        "973cf830-0c98-4bd5-8717-7a2efe182d5b",
+        1
+      ],
+      [
+        "a386b330-40ce-4ae9-be09-4479ad3cf071",
+        1
+      ],
+      [
+        "afee1e5d-14d3-4328-8a27-69fe9848155e",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "UY"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}
