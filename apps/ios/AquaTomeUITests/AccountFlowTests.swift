@@ -36,7 +36,7 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể tép", first: true)
     signIn(app)
     tap(app, "sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(reached(app, "apple-sign-in").exists, "still signed in")
     XCTAssertTrue(element(app, "account-header").exists, "no account section on the Tài khoản sheet")
     XCTAssertEqual(message(app), "Đã đăng xuất. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(tankCount(app), 1)
@@ -46,7 +46,7 @@ final class AccountFlowTests: XCTestCase {
     let confirm = app.buttons["Xóa tài khoản vĩnh viễn"]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     confirm.tap()
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(reached(app, "apple-sign-in").exists, "still signed in")
     XCTAssertEqual(message(app), "Đã xóa tài khoản. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(tankCount(app), 1)
     app.terminate()
@@ -579,6 +579,9 @@ final class AccountFlowTests: XCTestCase {
   private func reached(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     let e = element(app, id)
     if !e.waitForExistence(timeout: 3) { repeatUntil(e.exists, times: 8) { app.swipeUp() } }
+    // Else back up it: signed out at the sheet's foot, its ways to sign in are at its top, which a sheet this long no
+    // longer draws from there.
+    repeatUntil(e.exists, times: 8) { drag(app, from: 0.35, to: 0.75) }
     return e
   }
 
