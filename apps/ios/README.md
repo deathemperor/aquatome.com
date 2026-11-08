@@ -160,7 +160,9 @@ each build by itself:
 
 Main's uploads run on the own Mac's upload runner, as AquaTome CI ("CI's own Mac"), while the repository variable
 `TESTFLIGHT_OWN_MAC` is on, and on GitHub's Macs otherwise; one that fails on the own Mac runs again on GitHub's by
-itself. Turn the variable off while that runner is down, or uploads wait for it.
+itself. There its build waits while macOS has taken cores away, then takes the checks queue: beside one simulator run
+at most, never beside another build or test suite. Turn the variable off while that runner is down, or uploads wait
+for it.
 
 Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret
 `APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):

@@ -118,7 +118,8 @@ jobs:
       needs.check.outputs.upload == 'yes' &&
       (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ${{ fromJSON(needs.check.outputs.runner) }}
-    timeout-minutes: 100
+    # The own Mac's upload can wait for cooler cores and its turn first (Archive).
+    timeout-minutes: ${{ contains(needs.check.outputs.runner, 'aquatome-upload') && 160 || 100 }}
     permissions:
       contents: read
       # The own Mac's failed upload asks for one on GitHub's Macs (the last step).
@@ -143,11 +144,18 @@ jobs:
       # runner has none, so automatic signing made a new Apple Development certificate on every run until Apple's cap
       # stopped the archive (2026-10-31). The export below signs for the App Store with Apple's cloud-managed
       # certificate. The app's entitlements go with it in an ad-hoc signature, which the export reads and keeps.
-      # On the own Mac, the build takes its turn with the other heavy work there (AGENTS.md, "This Mac").
+      # On the own Mac, as all heavy work there (AGENTS.md, "This Mac"): the build waits while macOS has taken cores away,
+      # up to 30 min (`cool`, scripts/cycle-checks.sh), then takes the checks queue. So it can run beside one simulator
+      # run, which has its own queue, but never beside another build or test suite.
       - name: Archive
         run: |
           queue=
-          [ "$RUNNER_ENVIRONMENT" = self-hosted ] && queue="lockf -k $HOME/.cache/aquatome/checks.lock nice -n 10"
+          if [ "$RUNNER_ENVIRONMENT" = self-hosted ]; then
+            log() { echo "$*"; }
+            source scripts/cycle-checks.sh
+            COOL_TRIES=60 cool
+            queue="lockf -k $HOME/.cache/aquatome/checks.lock nice -n 10"
+          fi
           # Empty on GitHub's Macs, a command and its arguments on the own Mac: split on purpose.
           # shellcheck disable=SC2086
           $queue xcodebuild archive -project apps/ios/AquaTome.xcodeproj -scheme AquaTome -configuration Release \
