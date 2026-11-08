@@ -112,8 +112,9 @@ test("this Mac's runner's simulator run waits while cores are taken away, and a 
 }, 30_000)
 
 // 2026-11-08: after main's simulator booted, its mediaanalysisd took 3.4 cores at normal priority for 8 min, and a 0.4 s job
-// on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it.
-test("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
+// on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it. macOS's
+// alone, as simulators and taskpolicy are (and nice goes to 20 there, 19 on Linux): CI's Linux skips it, the Mac's cycles run it.
+test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
   const dir = home()
   const daemon = (path: string) => {
     mkdirSync(dirname(join(dir, path)), { recursive: true })
