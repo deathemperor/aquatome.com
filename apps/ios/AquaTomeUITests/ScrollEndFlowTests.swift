@@ -112,14 +112,14 @@ final class ScrollEndFlowTests: XCTestCase {
   func testAFishsTitleReadsCleanlyAtTheLargestText() { pageTitleReads("a fish's page, the largest text", Self.largest) }
 
   func testTimsTitleReadsCleanlyAtTheLargestText() {
-    let app = launch(Self.largest)
+    let app = launch(["-v2", "NO"] + Self.largest)
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 10), "not Tìm's home")
     downAWay(app)
     app.titleReadsCleanly("Tìm's home, the largest text")
   }
 
   func testTheLightsTitleReadsCleanlyAtTheLargestText() {
-    let app = launch(Self.largest)
+    let app = launch(["-v2", "NO"] + Self.largest)
     app.openTab("Đèn")
     downAWay(app)
     app.titleReadsCleanly("Đèn, the largest text")
@@ -148,7 +148,7 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   private func pageTitleReads(_ screen: String, _ more: [String] = [], file: StaticString = #filePath, line: UInt = #line) {
-    let app = launch(more)
+    let app = launch(["-v2", "NO"] + more)
     open(app, "ca neon", "Cá neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 10), "\(screen) didn't open", file: file, line: line)
     downAWay(app)
