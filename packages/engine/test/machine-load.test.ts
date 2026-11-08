@@ -116,5 +116,5 @@ test('a reading of the Mac: the small job, the queues, and load only as backgrou
   // /usr/sbin's tools are the Mac's: elsewhere this script doesn't run.
   if (process.platform !== 'darwin') return
   expect(r.status, r.stderr).toBe(0)
-  expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number) })
+  expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number) })
 }, 60_000)
