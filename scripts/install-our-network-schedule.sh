@@ -10,6 +10,7 @@
 # The job reads the dashboard token from ~/.config/aquatome/ab-dash-token at each run; it isn't copied anywhere, and it
 # reaches curl on its standard input, never on a command line.
 set -euo pipefail
+source "$(dirname "$0")/launchd-agent.sh"
 LABEL=run.aquatome.our-network
 TOKEN="$HOME/.config/aquatome/ab-dash-token"
 LOG="$HOME/Library/Logs/aquatome-our-network.log"
@@ -27,11 +28,10 @@ cat > "$PLIST" <<PLIST
   <key>ProgramArguments</key><array><string>/bin/sh</string><string>-c</string><string>$(printf '%s' "$JOB" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')</string></array>
   <key>StartInterval</key><integer>600</integer>
   <key>RunAtLoad</key><true/>
-  <key>ProcessType</key><string>Background</string>
+  $AGENT_PRIORITY
   <key>StandardOutPath</key><string>$LOG</string>
   <key>StandardErrorPath</key><string>$LOG</string>
 </dict></plist>
 PLIST
-launchctl bootout "gui/$UID/$LABEL" 2>/dev/null || true
-launchctl bootstrap "gui/$UID" "$PLIST"
+load_agent "$LABEL" "$PLIST"
 echo "installed $LABEL (every 10 min, log: $LOG)"
