@@ -1,0 +1,86 @@
+{
+  "id": "gasteropelecus-levis",
+  "native": {
+    "input": "181d381995b0bd22",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The silver hatchetfish (Gasteropelecus levis) is a freshwater hatchetfish found only in the lower Amazon basin in the state of Pará, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs only in the lower Amazon river basin in the state of Pará, Brazil, including the lower portions of the rios Tocantins and Guamá.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Occurs only in the lower Amazon river basin in the state of Pará, Brazil, including the lower portions of the rios Tocantins and Guamá.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Occurs only in the lower Amazon river basin in the state of Pará, Brazil, including the lower portions of the rios Tocantins and Guamá.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Guamá",
+        "source": "seriouslyfish",
+        "quote": "Occurs only in the lower Amazon river basin in the state of Pará, Brazil, including the lower portions of the rios Tocantins and Guamá.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gasteropelecus levis",
+    "status": "ACCEPTED",
+    "taxonKey": 2355744,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

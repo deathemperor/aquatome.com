@@ -242,7 +242,6 @@ export type Scoreboard = {
 }
 
 export const NOT_YET: Scoreboard['notYet'] = [
-  { name: 'Google Search Console: lượt hiển thị, lượt bấm, vị trí', needs: 'Chủ trang xác minh aquatome.com trong Search Console và cấp quyền đọc qua API.' },
   { name: 'Doanh thu AdSense', needs: 'Chủ trang cấp quyền đọc báo cáo (AdSense Management API), hoặc gửi báo cáo xuất hằng tuần.' },
   { name: 'Hoa hồng affiliate', needs: 'Chủ trang có tài khoản mạng affiliate và báo cáo đơn hàng của mạng đó.' },
   { name: 'Lượt cài và người dùng ứng dụng mỗi tuần', needs: 'Sau khi ra mắt: quyền đọc App Store Connect. Telemetry của ứng dụng mỗi lần mở dùng một mã mới, nên không đếm được người.' },

@@ -1,20 +1,18 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Carnegiella_myersi.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Carnegiella_myersi.jpg/500px-Carnegiella_myersi.jpg",
-   "width": 798,
-   "height": 800,
-   "licence": "CC BY-SA 2.5",
-   "author": "opencage",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carnegiella_myersi.jpg",
-   "caption": "Glasbeilbauchfisch (Carnegiella myersi)",
-   "key": "File:Carnegiella myersi.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Carnegiella myersi.jpg"
  ],
- "judged": [],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/5c9dd3b53b4ed4ea.webp": "94269acc038687c6"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 614167,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

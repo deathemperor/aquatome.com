@@ -10,6 +10,84 @@
     "malaysia",
     "sabah"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Marudu Bay",
+        "Wariu River",
+        "Mount Kinabalu",
+        "Tampassuk River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from streams emptying into Marudu Bay, Kudat Division, Sabah, Malaysian Borneo and the Wariu River basin a little further west.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Marudu Bay",
+            "Wariu River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type series was collected from 'Mount Kina-Balou, headwaters of Tampassuk River, Sabah, Borneo', and in fact all its native rivers drain Mount Kinabalu, one of the world's most important biological sites with incredibly high levels of local species endemism.",
+          "countries": [],
+          "regions": [
+            "Mount Kinabalu",
+            "Tampassuk River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358871,
+      "total": 14,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          115.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          5.625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

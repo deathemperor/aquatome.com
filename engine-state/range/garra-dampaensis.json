@@ -1,0 +1,62 @@
+{
+  "id": "garra-dampaensis",
+  "native": {
+    "input": "df1c740a427a9659",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra dampaensis is a cyprinid known only from the Seling River in the Dampa tiger reserve, Mizoram, northeastern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Seling River within the boundaries of the Dampa tiger reserve in Mizoram state, northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Seling River",
+        "source": "seriouslyfish",
+        "quote": "Garra dampaensis is a cyprinid known only from the Seling River in the Dampa tiger reserve, Mizoram, northeastern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Karnaphuli",
+        "source": "seriouslyfish",
+        "quote": "The Seling is a tributary of the Khawthlang Tuipui within the Karnaphuli drainage which enters the Bay of Bengal between the Ganges-Brahmaputra and Kolodyne rivers.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra dampaensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7632179,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

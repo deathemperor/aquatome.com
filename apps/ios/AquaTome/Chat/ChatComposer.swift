@@ -93,7 +93,7 @@ struct ChatComposer: View {
   private var under: some View {
     HStack(alignment: .firstTextBaseline, spacing: 8) {
       if over {
-        Text("Câu hỏi tối đa \(model.maxChars.formatted(.number.locale(.app))) ký tự. Bạn rút gọn bớt rồi gửi nhé.")
+        Text("Câu hỏi đã quá \(model.maxChars.formatted(.number.locale(.app))) ký tự. Rút gọn rồi gửi nhé.")
           .foregroundStyle(.red)
       } else if model.stopped != nil {
         Text("Đã dừng. Câu này không bị tính.").accessibilityIdentifier("chat-stopped-note")

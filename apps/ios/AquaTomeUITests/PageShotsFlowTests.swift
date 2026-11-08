@@ -11,9 +11,10 @@ import XCTest
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
 /// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
-/// overview, a section with charts and tables, and the daily report's settings; the tab bar over what scrolls under
-/// it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the day's
-/// page and Khám phá, light, dark and at the largest text. Each checks only that its screen opened:
+/// overview (light, dark, at the largest text, and with nothing to do), its bell's sheet, a section with charts and tables
+/// and Comments (each light, dark and at the largest text), and the daily report's settings; the tab bar over what scrolls
+/// under it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the
+/// day's page and Khám phá, light, dark and at the largest text. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -32,8 +33,17 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
   func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
-  func testAnOwnersSection() { shootOwner("owner-section-light", section: "Nhận diện cá") }
-  func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Báo cáo hằng ngày", shows: "owner-action") }
+  func testTheOwnersDashboardInTheDark() { shootOwner("owner-dark", section: nil, dark: true) }
+  func testTheOwnersDashboardInTheLargestText() { shootOwner("owner-largest", section: nil, size: largest) }
+  func testTheOwnersDashboardWithNothingToDo() { shootOwner("owner-all-clear", section: nil, more: ["-owner-overview", "dashboard: nothing needs you"]) }
+  func testTheDailyReportsDelivery() { shootOwner("owner-bell-light", section: nil, bell: true) }
+  func testAnOwnersSection() { shootOwner("owner-section-light", section: "Calls and keys") }
+  func testAnOwnersSectionInTheDark() { shootOwner("owner-section-dark", section: "Calls and keys", dark: true) }
+  func testAnOwnersSectionInTheLargestText() { shootOwner("owner-section-largest", section: "Calls and keys", size: largest) }
+  func testTheOwnersComments() { shootOwner("owner-comments-light", section: "Comments", shows: "owner-comment-filter") }
+  func testTheOwnersCommentsInTheDark() { shootOwner("owner-comments-dark", section: "Comments", shows: "owner-comment-filter", dark: true) }
+  func testTheOwnersCommentsInTheLargestText() { shootOwner("owner-comments-largest", section: "Comments", shows: "owner-comment-filter", size: largest) }
+  func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Daily reports", shows: "owner-action") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
   func testSigningInInTheLargestText() { shootSignIn("sign-in-largest-light", size: largest) }
@@ -348,17 +358,23 @@ final class PageShotsFlowTests: XCTestCase {
 
   /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
   /// `shows`: what the section has once it's loaded.
-  private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart") {
-    let app = launch(dark: false, size: nil, XCUIApplication.standInOwner)
+  private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart", dark: Bool = false, size: String? = nil,
+                          more: [String] = [], bell: Bool = false) {
+    let app = launch(dark: dark, size: size, XCUIApplication.standInOwner + more)
     app.openAccount()
     app.signInWithStandInApple()
     app.scrollToAndTap("owner-dashboard")
-    XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
+    XCTAssertTrue(app.buttons["owner-tile-needs"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
     if let section {
       app.openOwnersSection(section)
       XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
     }
-    capture(app, name, dark: false, large: false, screens: 16)
+    if bell {
+      app.buttons["owner-bell"].tap()
+      XCTAssertTrue(app.switches["owner-email"].waitForExistence(timeout: 10), "the bell's sheet didn't open")
+    }
+    // The sheet: its one screen, no end to find.
+    capture(app, name, dark: dark, large: size != nil || bell, screens: bell ? 1 : size != nil ? 30 : 16)
   }
 
   /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.

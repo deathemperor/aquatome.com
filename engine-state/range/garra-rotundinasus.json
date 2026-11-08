@@ -1,0 +1,50 @@
+{
+  "id": "garra-rotundinasus",
+  "native": {
+    "input": "163d94133f310fd2",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Yiluowadi Jiang (upper Irrawaddy river system) in Yunnan province, southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yiluowadi Jiang",
+        "source": "seriouslyfish",
+        "quote": "Native to the Yiluowadi Jiang (upper Irrawaddy river system) in Yunnan province, southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Native to the Yiluowadi Jiang (upper Irrawaddy river system) in Yunnan province, southern China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra rotundinasus",
+    "status": "ACCEPTED",
+    "taxonKey": 2366834,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

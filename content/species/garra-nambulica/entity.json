@@ -10,6 +10,40 @@
     "india",
     "chindwin"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Nambul River",
+        "Chindwin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from tributary streams of the Nambul River, Chindwin basin, in Manipur state, northeastern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Nambul River",
+            "Chindwin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366842,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

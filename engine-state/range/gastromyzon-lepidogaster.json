@@ -1,0 +1,112 @@
+{
+  "id": "gastromyzon-lepidogaster",
+  "native": {
+    "input": "e5a13fbdb6026a46",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mengalong River, Beaufort District, Sabah, northern Borneo', but G. lepidogaster is the most widely-distributed member of the genus and in Sabah state (Malaysia) it's also known to occur in the rivers Padas, Kimanis, Petagas, Labuk, Kinabatangan, Segama, Kalabakan, plus all rivers draining into Wallace Bay.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Temburong River in Brunei Darussalam and the Sebuku, Sembakung and Sesayap drainages in East Kalimantan province, Indonesia.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Temburong River in Brunei Darussalam and the Sebuku, Sembakung and Sesayap drainages in East Kalimantan province, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+        "ok": true
+      },
+      {
+        "name": "Padas",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mengalong River, Beaufort District, Sabah, northern Borneo', but G. lepidogaster is the most widely-distributed member of the genus and in Sabah state (Malaysia) it's also known to occur in the rivers Padas, Kimanis, Petagas, Labuk, Kinabatangan, Segama, Kalabakan, plus all rivers draining into Wallace Bay.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Kinabatangan",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mengalong River, Beaufort District, Sabah, northern Borneo', but G. lepidogaster is the most widely-distributed member of the genus and in Sabah state (Malaysia) it's also known to occur in the rivers Padas, Kimanis, Petagas, Labuk, Kinabatangan, Segama, Kalabakan, plus all rivers draining into Wallace Bay.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Segama",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mengalong River, Beaufort District, Sabah, northern Borneo', but G. lepidogaster is the most widely-distributed member of the genus and in Sabah state (Malaysia) it's also known to occur in the rivers Padas, Kimanis, Petagas, Labuk, Kinabatangan, Segama, Kalabakan, plus all rivers draining into Wallace Bay.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Temburong",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Temburong River in Brunei Darussalam and the Sebuku, Sembakung and Sesayap drainages in East Kalimantan province, Indonesia.",
+        "country": "BN",
+        "ok": true
+      },
+      {
+        "name": "Belalong",
+        "source": "seriouslyfish",
+        "quote": "In the Batu Apoi Forest Reserve, Brunei, G. lepidogaster was found in small tributary streams of the Belalong River, comprising partially-shaded hill streams of 1-5 metres in width broken up by cascades ranging from 2-3 metres to 15 metres in height.",
+        "country": "BN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon lepidogaster",
+    "status": "ACCEPTED",
+    "taxonKey": 2358905,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        51
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "BN",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

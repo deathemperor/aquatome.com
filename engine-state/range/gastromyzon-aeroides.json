@@ -1,0 +1,79 @@
+{
+  "id": "gastromyzon-aeroides",
+  "native": {
+    "input": "0a8ae3e7d270165c",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "ok": true
+      },
+      {
+        "name": "Petagas",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Padas",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Mengalong River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Temburong River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern Borneo where it's been recorded from the Petagas, Padas and Mengalong River drainages in western Sabah Province (Malaysia) and the Temburong River basin, Temburong District, Brunei Darussalam.",
+        "country": "BN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon aeroides",
+    "status": "ACCEPTED",
+    "taxonKey": 2358885,
+    "datasets": [],
+    "native": [
+      "MY",
+      "BN"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

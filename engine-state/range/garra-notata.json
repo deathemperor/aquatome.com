@@ -1,0 +1,89 @@
+{
+  "id": "garra-notata",
+  "native": {
+    "input": "64a640e6dab8e254",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Salween river basin in Myanmar, southern China (Yunnan province) and western Thailand, plus the Tenasserim (Tanintharyi) drainage in southern Myanmar and western Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Salween river basin in Myanmar, southern China (Yunnan province) and western Thailand, plus the Tenasserim (Tanintharyi) drainage in southern Myanmar and western Thailand.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Salween river basin in Myanmar, southern China (Yunnan province) and western Thailand, plus the Tenasserim (Tanintharyi) drainage in southern Myanmar and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Western Ghats mountains of southern India are unlikely to be accurate, while a report from the upper Irrawaddy River is in need of confirmation.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Salween river basin in Myanmar, southern China (Yunnan province) and western Thailand, plus the Tenasserim (Tanintharyi) drainage in southern Myanmar and western Thailand.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Tenasserim",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Salween river basin in Myanmar, southern China (Yunnan province) and western Thailand, plus the Tenasserim (Tanintharyi) drainage in southern Myanmar and western Thailand.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra notata",
+    "status": "ACCEPTED",
+    "taxonKey": 2366869,
+    "datasets": [
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "CN",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

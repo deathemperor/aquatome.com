@@ -1,0 +1,124 @@
+{
+  "id": "geophagus-brachybranchus",
+  "native": {
+    "input": "c598c457e25014b0",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'above Blanche Marie Valen, Nickerie District, Suriname' in the Nickerie river drainage, northwestern Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Courantyne (aka Corantijn) system which forms the border between western Suriname and Guyana for much of its course.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "López-Fernández and Taphorn (2004) reported that its range extends right across Guyana and into Venezuela via the Rio Cuyuní system.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Courantyne",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Courantyne (aka Corantijn) system which forms the border between western Suriname and Guyana for much of its course.",
+        "ok": true
+      },
+      {
+        "name": "Nickerie",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'above Blanche Marie Valen, Nickerie District, Suriname' in the Nickerie river drainage, northwestern Suriname.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Kullander and Nijssen (1989) and Kullander (2003) suggest it probably occurs further west into Guyana because specimens collected from the Ríos Demerera and Essequibo by Eigenmann in 1912, originally identified as G. surinamensis, actually appear to represent G. brachybranchus.",
+        "ok": true
+      },
+      {
+        "name": "Cuyuní",
+        "source": "seriouslyfish",
+        "quote": "López-Fernández and Taphorn (2004) reported that its range extends right across Guyana and into Venezuela via the Rio Cuyuní system.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus brachybranchus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208438,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        19
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        13
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GY",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

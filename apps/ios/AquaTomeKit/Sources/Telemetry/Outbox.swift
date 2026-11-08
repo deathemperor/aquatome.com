@@ -68,11 +68,11 @@ actor Outbox {
   /// Events of one session, in batches of at most `Wire.batchSize` (which keeps a batch under `Wire.maxBatch`: the
   /// largest event the contract takes is under 650 bytes); then the cap.
   /// Not when a switch is off: what was taken before it went off and reaches the queue after is dropped, not kept.
-  func add(_ events: [Event], about: About, session: String) {
+  func add(_ events: [Event], about: About, session: String, install: String? = nil) {
     guard !events.isEmpty, allowed() else { return }
     load()
     for part in stride(from: 0, to: events.count, by: Wire.batchSize) {
-      state.batches.append(Queued(seq: state.next, batch: Batch(about, session: session, events: Array(events[part..<min(part + Wire.batchSize, events.count)]))))
+      state.batches.append(Queued(seq: state.next, batch: Batch(about, session: session, install: install, events: Array(events[part..<min(part + Wire.batchSize, events.count)]))))
       state.next += 1
     }
     var over = state.batches.reduce(0) { $0 + $1.batch.events.count } - Self.cap

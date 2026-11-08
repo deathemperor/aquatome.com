@@ -1,36 +1,34 @@
 ---
-url: https://www.planetcatfish.com/common/species.php?species_id=1301
-title: PlanetCatfish.com - Noturus leptacanthus (ICTALURIDAE) Cat-eLog
-fetchedAt: 2026-11-08T01:18:07.756Z
-capturedAt: 2026-02-10T02:19:24.000Z
-hash: 513567d05b1320c9df528232ceabfc3509f88cf14997862c275d4326ea3f1ea3
+url: https://www.planetcatfish.com/common/species.php?species_id=1311
+title: PlanetCatfish.com - Corydoras sp. (C127) (Callichthyidae) Cat-eLog
+fetchedAt: 2026-11-08T13:19:00.919Z
+capturedAt: 2024-11-07T00:34:53.000Z
+hash: 0fd1d7c95ca8741201bae1138d71d971ab48ceb31a81d5a583da360495a6c936
 ---
 
 | Cat-eLog Data Sheet |
-| Scientific Name | Noturus leptacanthus Jordan, 1877 |
-| Common Names | Speckled Madtom Småplettet Giftmalle (Denmark) |
-| Type Locality | Silver Creek, 1 mile above its junction with Etowah River, near Rome, Floyd County, Georgia, U.S.A. |
-| Synonym(s) | Schilbeodes leptacanthus |
-| Pronunciation | no two russ |
-| Etymology | From the Greek notos, meaning back and oura, meaning tail. In reference to the confluent adipose and caudal fins. |
+| Scientific Name | Corydoras sp. (C127) |
+| Common Names | C127, Ucayali Cory Ucayali Pansermalle (Denmark) |
+| Pronunciation | kor ee doh rass. |
+| Etymology | Cory = helmet, doras = skin. In this case it was incorrectly used to mean armour (cuirasse) instead of skin in allusion to the dual rows of plates that run along the flanks of this genus. |
 | Species Information |
-| Size | 94mm or 3.7" SL. Find near, nearer or same sized spp. |
+| Size | 65mm or 2.6" SL. Find near, nearer or same sized spp. |
+| Identification | Corydoras are identified by their twin rows of armour plates along the flanks and by having fewer than 10 dorsal fin rays. They are most commonly confused with the other genera in the sub-family, namely Brochis, Scleromystax and Aspidoras.<br/ ><br/ >Coloration is variable. Juveniles have and some adults can have distinct, obvious vertical bands on the tail and through the dorsal fin, whereas other adults lose the fin banding with age and can appear to have an almost hyaline tail. |
+| Sexing | Females grow larger and are more full-bodied, this is best observed from above the fish. Males will typically have more pointed as opposed to more rounded fin tips as they mature. |
 | Habitat Information |
-| Distribution | North America North American Atlantic Drainages, Florida waters (click on these areas to find other species found there) Gulf Coast Drainages (click on these areas to find other species found there) Login to view the map. |
-| IUCN Red List Category | Least Concern, a distribution map is available on the IUCN species page. Last assessed 2012. |
+| Distribution | Rio Ucayali, Peru. Amazon, Upper Amazon, Marañón, Ucayali (click on these areas to find other species found there) Login to view the map. |
 | Husbandry Information |
-| Breeding Reports | There is no breeding report. |
+| Feeding | Will readily accepted all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fishes for spawning. User data. |
+| Furniture | Ideally substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping over rough edged (chipped) gravel, this will increase this risk of damage the fishes barbels when it tries to dig. Substrate should be bordered with driftwood and aquatic plants leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, tall or floating plants are all that is required to settle these fishes. |
+| Compatibility | A peaceful, shoaling, community fish. |
+| Breeding | Whereas some lineage 1 corys have issues with intraspecific aggression between males, this species can be housed in groups and will spawn successfully. Eggs are laid singly, in pairs or rarely in groups of three in spawning mops and on tank surfaces (glass, filter tubes, etc.). Spawning mops appear to be preferred for egg laying. Eggs hatch after about 5 days. |
+| Breeding Reports | There is but a single breeding report, read it here. |
 | Further Information |
-| Reference | Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 352. |
-| Registered Keepers | There are 3 registered keepers, view all "my cats" data. |
+| Registered Keepers | There are 6 registered keepers, view all "my cats" data. |
 | Wishlists | Love this species? Click the heart to add it to your wish list. There is but a single wish to keep this species, see who wants what. |
-| Spotters | Spotted this species somewhere? Click the binoculars! There are 3 records of this fish being seen, view them all. |
-| More Resources |
+| Spotters | Spotted this species somewhere? Click the binoculars! There are 8 records of this fish being seen, view them all. |
 | Forum BBCode | |
-| | Search for N. leptacanthus |
-| | Look up N. leptacanthus on AquaticRepublic.com |
-| | Look up N. leptacanthus on Fishbase |
-| | Look up N. leptacanthus on Encyclopedia of Life |
-| | Look up N. leptacanthus on Global Biodiversity Information Facility |
-| | LFS label creator ARN ref:1.5.32.1301 |
-| Last Update | 01 Jan 1970, 01:00 (Species record created: 01 Jan 1970, 01:00) |
+| | Search for C. sp. (C127) |
+| | Look up C. sp. (C127) on AquaticRepublic.com |
+| | LFS label creator ARN ref:1.1.686.1311 |
+| Last Update | 2024 Aug 15 12:32 (species record created: 2004 Jul 18 00:00) |

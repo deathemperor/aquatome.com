@@ -2,6 +2,30 @@
   "id": "brochis-multiradiatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/18fbcd29fe9b7752.webp",
+      "thumb": "https://media.aquatome.com/commons/18fbcd29fe9b7752-480.webp",
+      "width": 1012,
+      "height": 692,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo_2.jpg",
+      "caption": "Cặp cá chuột Brochis mõm dài trên nền sỏi trong bể",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/245fb44fcadad96d.webp",
+      "thumb": "https://media.aquatome.com/commons/245fb44fcadad96d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "karsten_s",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_multiradiatus_246860237.jpg",
+      "caption": "Nhóm cá chuột Brochis mõm dài trong bể kính",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/73822b3a70ab21ef.webp",
       "thumb": "https://media.aquatome.com/commons/73822b3a70ab21ef-480.webp",
       "width": 1000,
@@ -14,7 +38,7 @@
       "kind": "other"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 3,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

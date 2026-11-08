@@ -10,6 +10,56 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Sungai (river) Sarawak drainage in southern Sarawak state, Malaysian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358888,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
