@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { PhotoSchema } from './schemas'
+import { HeldSchema, PhotoSchema } from './schemas'
 
 /**
  * Short cards for the app's Hôm nay (content/cards/<id>/entity.json and <lang>.json): trivia, a newly described species, a
@@ -35,15 +35,14 @@ export const CardSchema = z.object({
   if (c.type === 'product' && !c.product) say('a product card needs `product`')
 })
 
-/** Why the gate holds a card back in this language (gate.ts `Held`): the build leaves it out. */
-const Held = z.object({ checks: z.array(z.string()), at: z.string() })
 /** The eyebrow and title fit Hôm nay's card at the largest text size (v2 Lab, 2026-11-08); a tap opens the body. */
 export const CardTextSchema = z.object({
   eyebrow: z.string().min(1).max(24),
   title: z.string().min(1).max(70),
   /** HTML, about 80 words. */
   body: z.string().min(1).max(2000),
-  held: Held.optional(),
+  /** Why the gate holds the card back in this language: the build leaves it out. */
+  held: HeldSchema.optional(),
 })
 
 export type CardEntity = z.infer<typeof CardSchema>

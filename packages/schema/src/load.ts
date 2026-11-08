@@ -15,7 +15,11 @@ export const QUALITY_THRESHOLD = 0.75
 /** The market (prices, shops) each site language serves. */
 export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 'my' }
 
-export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean }
+/**
+ * `leaveOutHeld`: a page the reader-fit gate holds back in this language (its `held`) is no page here, as one without a
+ * translation. The site's build sets it; the engine reads every page, to read the held ones again and let them out.
+ */
+export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
   species: Localized<SpeciesEntity>[]
@@ -68,7 +72,7 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
 /** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
 export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
 
-async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang): Promise<Localized<z.infer<S>>[]> {
+async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang, leaveOutHeld = false): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
   const ids = await readdir(base).catch(() => [] as string[])
   const out: Localized<z.infer<S>>[] = []
@@ -78,13 +82,14 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
     if (!(await exists(tPath)) || !(await exists(join(base, id, 'entity.json')))) continue
     const entity = await readJson(join(base, id, 'entity.json'), schema)
     const t = withLocalNote(marked(lang, await readJson(tPath, TranslationSchema)))
+    if (leaveOutHeld && t.held) continue
     out.push({ ...(entity as object), t } as Localized<z.infer<S>>)
   }
   return out
 }
 
 export async function loadAll(opts: LoadOptions): Promise<Content> {
-  const { root, lang, publicBuild } = opts
+  const { root, lang, publicBuild, leaveOutHeld = false } = opts
   const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
   // Text, and everything written from it (sections, guides, card values, quality, changelog); photos have their own gate.
   const allowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'text')
@@ -124,13 +129,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
   }
 
-  const species = (await loadKind(root, 'species', SpeciesSchema, lang))
+  const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld))
     .map(s => judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }))
     .filter(s => s.sections.length > 0)
-  const plants = (await loadKind(root, 'plants', PlantSchema, lang))
+  const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld))
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
-  const guides = (await loadKind(root, 'guides', GuideSchema, lang))
+  const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
     .map(g => ({ ...g, photos: cleanPhotos(g.photos) }))
 
@@ -164,7 +169,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
   // A care figure the engine hid (out of bounds, a tank too short for the fish: `hidden`) stays off the page.
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
-  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang)).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
+  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
   const speciesSlugs = new Set(species.map(s => s.t.slug))
   const breedSlugs = new Set<string>()
   for (const b of breeds) {
