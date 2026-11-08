@@ -515,7 +515,11 @@ extension XCUIApplication {
   func openOwnersSection(_ name: String, file: StaticString = #filePath, line: UInt = #line) {
     XCTAssertTrue(buttons["owner-tile-needs"].waitForExistence(timeout: 10), "the overview didn't load", file: file, line: line)
     let row = buttons.matching(NSPredicate(format: "identifier == 'owner-page' AND label BEGINSWITH %@", name + ",")).firstMatch
-    repeatUntil(row.exists && row.isHittable, times: 10) { swipeUp() }
+    // Slowly, and back if it's gone by: a fling can carry the row past the screen, and at the largest text "Every page" is
+    // many screens down.
+    repeatUntil(row.exists && row.isHittable, times: 40) {
+      if row.exists, row.frame.maxY < frame.height * 0.2 { swipeDown(velocity: .slow) } else { swipeUp(velocity: .slow) }
+    }
     XCTAssertTrue(row.isHittable, "no section \(name)", file: file, line: line)
     row.tap()
   }
