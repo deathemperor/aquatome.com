@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Every string the app shows has an Indonesian and a Thai translation, with the same placeholders.
+"""Every string the app shows has an Indonesian, a Malay and a Thai translation, with the same placeholders.
 
 Usage: check-strings.py DERIVED_DATA. Reads the keys the compiler extracted from the app's Swift files (*.stringsdata,
 written by SWIFT_EMIT_LOC_STRINGS during a build) and checks them against AquaTome/Localizable.xcstrings. Vietnamese is
@@ -8,7 +8,7 @@ catalog entry no code uses any more.
 """
 import glob, json, os, re, sys
 
-LANGS = ('id', 'th')
+LANGS = ('id', 'ms', 'th')
 here = os.path.dirname(os.path.abspath(__file__))
 catalog = json.load(open(os.path.join(here, '..', 'AquaTome', 'Localizable.xcstrings')))['strings']
 

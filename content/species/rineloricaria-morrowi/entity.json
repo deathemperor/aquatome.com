@@ -18,12 +18,53 @@
           "min": 20,
           "max": 24
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 16.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -35,10 +76,46 @@
       "html": "<p>Rineloricaria morrowi Fowler, 1940. Type locality: Contamana, Río Ucayali basin, Peru. Size: 16.5 cm SL. Temperature: 20–24°C.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Rineloricaria morrowi is a loricariid catfish from the Ucayali River basin, Peru, found among leaf litter over sandy substrates. It is seen less often than some others in the genus. Briefly placed in the resurrected genus Hemiloricaria in 2002, it was returned to Rineloricaria within a year, but the old name is still used quite often.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1272",
       "html": "<p>South America: Ucayali River basin (Amazon, Upper Amazon, Marañón, Ucayali). IUCN Red List category: Least Concern (last assessed 2014).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Ucayali River basin, Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Usually found amongst leaf litter over sandy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Standard length: 130 mm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>Largely inactive and can be kept in a tank measuring 90 × 30 × 30 cm (~81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>A biotope setup can consist, very simply, of a layer of sand over which is scattered a layer of dried leaves (oak and beech are non-toxic and work particularly well), with perhaps some twisted branches (again, beech is good) and the occasional rounded stone for effect. Provide some rock or wood caves, or lengths of pvc piping to act as potential spawning sites. It's equally at home in a well-planted tank, although in either situation it won't appreciate very bright lighting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -53,10 +130,22 @@
       "html": "<p>Adaptable omnivores, these fish will eat most foods, from cucumber or zucchini slices to frozen bloodworm or dry flake foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Feeds on aufwuchs and small aquatic crustaceans in nature. In the aquarium it proves omnivorous and will accept both sinking dried foods, vegetable matter including blanched spinach, courgette, kale etc., and live and frozen stuff such as bloodworm or daphnia.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1272",
       "html": "<p>Peaceful and not territorial.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>One of the most peaceful catfish around, these can be combined with many other species. In a biotope setup good tankmates include small characins, Apistogramma, Corydoras and other quiet Loricariids, but it can be kept in most communities of peaceful fish. Don't keep it with anything too vigorous or aggressive as it will become very retiring, and will easily be out-competed for food. It's not territorial unless spawning, and is best kept in a small group.</p>"
     },
     {
       "key": "dimorphism",
@@ -65,10 +154,28 @@
       "html": "<p>Males grow short spines on the top of their heads and on the pectoral fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Mature males develop odontodes on the head and pectoral spines, which are lacking in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1272",
       "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>Breeds in a similar way to congeners, although the fry can be a little tricky to raise. Try starting with a group of 6 or more juvenile fish to give yourself the best chance of obtaining a pair. Set up the tank as suggested above, using lengths of pvc piping of less than 5 cm diameter to provide spawning caves. The water should be just on the acidic side of neutral and soft. Condition the fish on a diet of nutrient-rich greenstuffs, such as kale, spinach etc. and live and frozen bloodworm or similar. When in spawning condition, a male will select a particular cave and clean it carefully. A receptive female will visit this cave and deposit her eggs, which the male then fertilises. The female then plays no further part in broodcare, with responsibility for the guarding and tending of the eggs falling solely to the male. This he does diligently, guarding the cave against intruders whilst fanning the eggs with his fins. At this point you may wish to remove the other fish, or indeed the tube itself to a separate tank, in order to avoid predation of the fry. The eggs hatch in 4-5 days, and are free swimming 2 or 3 days later, and the male can now also be removed. They will browse on cucumber slices, spinach and other greens straight away, and will also take microworm and brine shrimp nauplii. The most important thing at this point is that the fry don't starve. They need constant access to a food source, and any vegetable matter must be of a consistency soft enough for them to digest. Try pre-softened leaves of kale and spinach (it's better to soften these by soaking them in water for a couple of days, as blanching in boiling water tends to strip many of the nutrients away), or algae grown on rocks in a sunlit tank. They are also sensitive to water quality, and small daily water changes are recommended. If you're having trouble spawning these, try conducting a large (50-70%) water change with cool water, simulating the influx of colder water the rainy season brings in nature. Repeat every few days and the fish will often spawn.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-morrowi",
+      "html": "<p>This species is not seen as often as some others in the genus. In 2002 it was briefly placed in the resurrected genus Hemiloricaria, but this lasted less than twelve months, after which it was transferred back to Rineloricaria. Currently only Rineloricaria is valid, but you'll still see it being referred to as Hemiloricaria quite often.</p>"
     },
     {
       "key": "references",
@@ -128,8 +235,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 90cm"
       ]
     },
     {
@@ -146,5 +252,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07"
 }

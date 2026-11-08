@@ -5,8 +5,10 @@
   "sourceUrl": "https://www.youtube.com/watch?v=LrRhfOYfXns",
   "html": "",
   "photos": [],
-  "mentions": [],
-  "updatedAt": "2026-11-06",
+  "mentions": [
+    "poecilia-reticulata"
+  ],
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "LrRhfOYfXns",
     "title": "The Best Way to Ensure Your Fish are Healthy",
@@ -57,7 +59,9 @@
       "width": 1280,
       "height": 720
     },
-    "taxa": [],
+    "taxa": [
+      "Poecilia reticulata"
+    ],
     "gear": [
       {
         "category": "khac",
@@ -89,17 +93,17 @@
         "moments": [
           {
             "t": 40,
-            "url": "https://media.aquatome.com/video/LrRhfOYfXns/t40-hd.webp",
+            "url": "https://media.aquatome.com/video/LrRhfOYfXns/at40-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Con cá sọc đen bơi trong nước, cá mới cần được cách ly."
+            "caption": "Một con cá có sọc vàng bơi trong nước tối."
           },
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/LrRhfOYfXns/t59-hd.webp",
+            "t": 60,
+            "url": "https://media.aquatome.com/video/LrRhfOYfXns/at60-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể chạy sẵn lọc sủi khí, có cá nhỏ bơi trong bể."
+            "caption": "Bể cá có lọc sủi và sợi khí, set đơn giản."
           }
         ],
         "photo": {
@@ -110,53 +114,39 @@
           "licence": "CC BY-SA 4.0",
           "author": "Coughdrop12",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scartella_cristata_Quarantine_2.jpg",
-          "caption": "Cá nhỏ trong bể trống, chỉ có ống PVC làm chỗ trú, đúng kiểu bể cách ly."
+          "caption": "Bể trơn không nền, chỉ có ống PVC và cây nhựa cho cá nhỏ trú ẩn."
         }
       },
       {
-        "heading": "Cá mới thường mắc những bệnh gì",
+        "heading": "Cá trông khỏe vẫn có thể mang bệnh",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/LrRhfOYfXns/p1-JvcGhpc2llLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/LrRhfOYfXns/p1-JvcGhpc2llLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/LrRhfOYfXns/p1-oaXJpYXNpcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/LrRhfOYfXns/p1-oaXJpYXNpcy5qcGc-480.webp",
           "width": 960,
-          "height": 711,
+          "height": 720,
           "licence": "Public domain",
-          "author": "Citron",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrophisie.jpg",
-          "caption": "Cá neon bệnh nằm nghiêng, mũi tên chỉ vị trí bất thường trên thân."
+          "author": "Djpalme",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyophthiriasis.jpg",
+          "caption": "Cá cichlid trông khỏe nhưng trên thân và vây có vài đốm trắng li ti."
         }
       },
       {
-        "heading": "Vì sao nên dùng cả ba thuốc",
+        "heading": "Trị khi cá đang có bệnh rõ ràng",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/LrRhfOYfXns/p2-0dGFfRmlzaC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/LrRhfOYfXns/p2-0dGFfRmlzaC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/LrRhfOYfXns/p4-0dGFfRmlzaC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/LrRhfOYfXns/p4-0dGFfRmlzaC5qcGc-480.webp",
           "width": 960,
           "height": 903,
           "licence": "CC BY-SA 4.0",
           "author": "Dizzy Respect",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fin_Rot_on_Betta_Fish.jpg",
-          "caption": "Cá betta bị tổn thương rách vây, vùng khoanh tròn dễ nhiễm khuẩn."
+          "caption": "Cá betta bị rữa vây, phần vây hỏng được khoanh tròn và chỉ rõ."
         }
       },
       {
-        "heading": "Khi cá đang có bệnh nhìn thấy được",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LrRhfOYfXns/p4-RpZmlsaWlzLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/LrRhfOYfXns/p4-RpZmlsaWlzLnBuZw-480.webp",
-          "width": 939,
-          "height": 748,
-          "licence": "CC BY-SA 4.0",
-          "author": "AquaTT",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trophonts_of_Ichthyophthirius_multifiliis.png",
-          "caption": "Hai ký sinh trùng đốm trắng (Ich) bám trên da cá, nhìn dưới kính hiển vi."
-        }
-      },
-      {
-        "heading": "Những điều bao bì thuốc không ghi",
+        "heading": "Tẩy sán phải làm lại sau 2–3 tuần",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LrRhfOYfXns/p6-F0dW1fZWdnLmpwZw.webp",
@@ -166,21 +156,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Stefan Walkowski",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diphyllobothrium_latum_egg.jpg",
-          "caption": "Trứng sán soi dưới kính hiển vi, lớp vỏ dày nên thuốc khó ngấm vào."
-        }
-      },
-      {
-        "heading": "Cá mua ở tiệm đã trị rồi có cần cách ly nữa không",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LrRhfOYfXns/p7-RTIlODAlOUQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/LrRhfOYfXns/p7-RTIlODAlOUQuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E2%80%9CPilot_fish%E2%80%9D.jpg",
-          "caption": "Cá được bày bán trong bể ở tiệm, cần cách ly trước khi thả bể chính."
+          "caption": "Trứng sán dây dưới kính hiển vi, vỏ dày nên thuốc tẩy khó ngấm vào."
         }
       }
     ]

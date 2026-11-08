@@ -12,13 +12,37 @@
     "nhamunda",
     "guyana",
     "suriname",
-    "marowijne"
+    "marowijne",
+    "amazon",
+    "french-guiana"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 29.5
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -30,10 +54,40 @@
       "html": "<ul><li>Scientific name: Loricaria cataphracta Linnaeus, 1758</li><li>Common names: L062, Cataphract Whiptail</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>Family: Loricariidae. Size: 20 cm. Temperature: 24–28°C. pH: 6.5–7.0. L-number: L062. IUCN: Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>Sensitive to poor water quality especially when first imported and should be acclimatised slowly for the home aquarium.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1267",
       "html": "<p>South America: Amazon River basin and coastal rivers of the Guianas, including the Lower Amazon (Nhamundá), Guyana, and Suriname coastal rivers (Marowijne). Type locality: mouth of the Marowijne River, near Galibi, Suriname.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>South America: Amazon River basin, and coastal rivers of the Guianas, Brazil, French Guiana, Guyana, Suriname. Type locality: In America meridionali.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>Carnivore, feed with tablets, pellets, insect larvae, zooplankton and shrimps. A varied diet is important to this species and genus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>Loricaria species can be differentiated from the similar Rineloricaria species by their feathered sucker-mouths, which the males use for carrying their eggs around after spawning; they are maternal mouthbrooders.</p>"
     },
     {
       "key": "reproduction",
@@ -48,13 +102,59 @@
       "html": "<p>When young, Loricaria spp. can be differentiated from the similar Rineloricaria spp. by their more feathered sucker-mouths. In adults this difference is considerably more evident.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>Not the easiest of genera to identify to species; the key for the Loricaria genus is teeth of the upper jaw about twice as long as those of the lower jaw. Abdomen ventrally completely covered by scutes.</p><p>Etymology: The specific name cataphracta is Latin for wearing coats of mail (armour), referring to bony plates on back and sides.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1267",
       "html": "<p>Systema Naturae, Ed. X v. 1, pp 307.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Salvador, G.N. 2023. Loricaria cataphracta. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/8d7bf2af205deae8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8d7bf2af205deae8-480.webp",
+      "width": 502,
+      "height": 324,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "caption": "Loricaria cataphracta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/fab23bd9cfb6f155.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fab23bd9cfb6f155-480.webp",
+      "width": 500,
+      "height": 344,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "caption": "Loricaria cataphracta",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3e1654ea5202076a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3e1654ea5202076a-480.webp",
+      "width": 500,
+      "height": 367,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_cataphracta.htm",
+      "caption": "Loricaria cataphracta: Head View",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -79,5 +179,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07"
 }

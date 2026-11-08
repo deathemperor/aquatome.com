@@ -62,9 +62,11 @@ pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
+# Committed before the tests, as engine-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
+# stays in the reflog to publish by hand (the run of 2026-11-07 lost its work to timeouts).
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
+if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
@@ -72,6 +74,7 @@ for _ in 1 2 3; do
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
+      sweep_merged
       verify 'pnpm test' || { log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true

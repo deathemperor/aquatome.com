@@ -1,9 +1,18 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:251680934"
+ ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/e3f33910717fbf0e.webp": "e4e098a4e0e0e066",
   "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39.webp": "4971e38c84f1434f"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 612556,
+  "pass": "done",
+  "after": {
+   "research": 146396016,
+   "agree": 0
+  }
+ }
 }

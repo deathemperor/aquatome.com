@@ -1,10 +1,13 @@
 {
   "slug": "san-salvador-island",
-  "name": "San Salvador Island",
-  "altNames": [],
+  "name": "đảo San Salvador",
+  "altNames": [
+    "San Salvador Island"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

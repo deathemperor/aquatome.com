@@ -1,10 +1,14 @@
 {
   "slug": "dong-nai",
-  "name": "Dong Nai",
-  "altNames": [],
+  "name": "sông Đồng Nai",
+  "altNames": [
+    "Dong Nai",
+    "Đồng Nai"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

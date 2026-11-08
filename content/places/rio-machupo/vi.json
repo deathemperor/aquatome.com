@@ -1,10 +1,13 @@
 {
   "slug": "rio-machupo",
-  "name": "Río Machupo",
-  "altNames": [],
+  "name": "sông Machupo",
+  "altNames": [
+    "Río Machupo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

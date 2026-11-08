@@ -1,10 +1,13 @@
 {
   "slug": "kalimantan-tengah",
-  "name": "Kalimantan Tengah",
-  "altNames": [],
+  "name": "Trung Kalimantan",
+  "altNames": [
+    "Kalimantan Tengah"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

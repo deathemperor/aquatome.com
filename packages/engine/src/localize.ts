@@ -312,9 +312,9 @@ const VIETNAMESE = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễ�
 
 /** A place's line for the writer and the reviewer: its id, kind, where it is and its Vietnamese name. */
 export async function placeLine(dir: string, id: string): Promise<{ id: string; line: string }> {
-  const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string; country?: string }
+  const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string; countries?: string[] }
   const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
-  const where = e.parent ?? e.country
+  const where = e.parent ?? e.countries?.join(', ')
   return { id, line: `### ${id} (${e.kind}${where ? `, in ${where}` : ''}): ${vi.name ?? id}` }
 }
 

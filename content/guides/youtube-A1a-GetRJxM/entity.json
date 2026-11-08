@@ -9,7 +9,7 @@
     "astronotus-ocellatus",
     "carassius-auratus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "A1a-GetRJxM",
     "title": "THE OSCAR AQUARIUM",
@@ -29,9 +29,9 @@
     },
     "taxa": [
       "Astronotus ocellatus",
-      "Pterygoplichthys sp.",
-      "Symphysodon sp.",
-      "Carassius auratus"
+      "Carassius auratus",
+      "Hypostomus sp.",
+      "Symphysodon sp."
     ],
     "gear": [
       {
@@ -51,209 +51,210 @@
         "t": 298
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 298
+        "category": "den",
+        "brand": "EcoTech Marine",
+        "t": 510
       },
       {
-        "category": "den",
-        "t": 512
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 268
       }
     ],
     "figures": [
       {
-        "heading": "Oscar lớn nhanh đến mức nào và sống bao lâu",
+        "heading": "Oscar lớn nhanh cỡ nào và sống bao lâu",
         "moments": [
           {
             "t": 15,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá lớn có cây thủy sinh và một con cá bơi phía trên."
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at15-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể lớn trồng cây, có một con cá bơi gần mặt nước."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p0-lX1pvb18wMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p0-lX1pvb18wMS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p0-lbGxhdHVzKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p0-lbGxhdHVzKS5qcGc-480.webp",
           "width": 960,
-          "height": 643,
-          "licence": "CC BY-SA 3.0",
-          "author": "H. Zell",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
-          "caption": "Oscar trưởng thành thân cao, dày, bơi trong bể trồng cây có lũa."
+          "height": 633,
+          "licence": "CC BY-SA 4.0",
+          "author": "Clément Bardot",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oscar_fish_(Astronotus_ocellatus).jpg",
+          "caption": "Oscar trưởng thành thân cao, dày, vằn đỏ đen rõ nét trong bể."
         }
       },
       {
-        "heading": "Bể bao nhiêu lít và lọc thế nào thì đủ",
+        "heading": "Bể và lọc cho Oscar",
         "moments": [
           {
-            "t": 263,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t263.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Oscar bơi trong bể dài có nhiều cây thủy sinh và gỗ lũa."
+            "t": 260,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con Oscar màu cam bơi trong bể dài, nền bày nhiều lũa."
           },
           {
-            "t": 337,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t337.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc nhìn khác của bể dài, có Oscar cam bơi giữa cây."
+            "t": 335,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể Oscar dài với lũa dày và con Oscar bơi bên phải."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p1-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p1-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p2-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p2-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng lớn đặt trong tủ bể, bên cạnh xô và ống siphon thay nước."
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống siphon để thay nước."
         }
       },
       {
-        "heading": "Trang trí bể Oscar ra sao",
+        "heading": "Trang trí bể thế nào",
         "moments": [
           {
             "t": 40,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t40.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mô hình con tàu được đặt trong bể Oscar."
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chiếc thuyền trang trí cỡ lớn có nhiều cột buồm và cạnh nhọn."
           },
           {
-            "t": 347,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t347.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Con Oscar to bơi trong bể, thân màu cam rất đẹp."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con Oscar bơi gần nền đá trang trí trong bể."
+          }
+        ]
+      },
+      {
+        "heading": "Nuôi chung Oscar với cá gì",
+        "moments": [
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Oscar bơi trong bể có đá và lũa, hình ảnh khá rõ nét."
+          },
+          {
+            "t": 465,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at465-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Oscar cam đen bơi trong bể, nhìn rõ cả thân hình."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p2-YXJkc2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p2-YXJkc2NhcGUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p4-YXF1YXJpdW0uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p4-YXF1YXJpdW0uanBn-480.webp",
           "width": 960,
-          "height": 638,
+          "height": 637,
           "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
-          "caption": "Bể nền cát với vài khúc lũa nhẵn, thoáng chỗ cho cá bơi."
+          "author": "Retro Lenses",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_oscar_fish_(Astronotus_ocellatus)_in_a_aquarium.jpg",
+          "caption": "Hai con cá Oscar nuôi chung trong bể có cây thủy sinh."
         }
-      },
-      {
-        "heading": "Nuôi chung Oscar với cá nào",
-        "moments": [
-          {
-            "t": 402,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t402.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá có lũa dày, cá cam bơi phía dưới."
-          },
-          {
-            "t": 417,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t417.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Con cá cam bơi gần mặt nước trong bể có nhiều lũa và đá."
-          }
-        ]
       },
       {
         "heading": "Cho Oscar ăn gì",
         "moments": [
           {
-            "t": 442,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t442.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Oscar bơi giữa bể có lũa và nền đá."
+            "t": 445,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at445-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Oscar bơi trong bể có lũa và đá trang trí."
           },
           {
-            "t": 462,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t462.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh con Oscar màu cam đen đang bơi trong bể."
+            "t": 460,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh một con Oscar cam đang bơi sát thân gỗ trong bể."
           }
         ]
       },
       {
-        "heading": "Nhiệt độ, pH và bệnh thủng đầu",
+        "heading": "Bệnh thủng đầu ở Oscar",
         "moments": [
           {
-            "t": 531,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t531.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Oscar bơi gần đáy bể, thân hình đầy đặn, màu sắc tươi."
+            "t": 535,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at535-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con Oscar bơi giữa hồ, thân màu cam nổi bật."
           },
           {
-            "t": 536,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t536.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá Oscar màu cam khỏe mạnh, bơi thoải mái trong bể."
+            "t": 540,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Oscar cam đen nhìn gần, thấy rõ phần đầu và gáy."
           }
         ]
       },
       {
-        "heading": "Những hành vi của Oscar làm người mới lo",
+        "heading": "Tính cách và những biểu hiện hay gặp",
         "moments": [
           {
-            "t": 194,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t194.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá Oscar màu cam đen bơi gần nền đá trong bể."
+            "t": 615,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at615-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Oscar bơi sát đáy bể, thân màu cam đen rõ nét."
           },
           {
-            "t": 620,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t620.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Oscar nhìn nghiêng rõ thân cam và vây sẫm màu."
+            "t": 625,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at625-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Oscar bơi chậm giữa lũa và đá trong bể."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p6-XzIwMTBfRzEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p6-XzIwMTBfRzEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p8-XzIwMTBfRzEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p8-XzIwMTBfRzEuanBn-480.webp",
           "width": 960,
           "height": 557,
           "licence": "Public domain",
           "author": "George Chernilevsky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_2010_G1.jpg",
-          "caption": "Cá Oscar nằm sát đáy bể trên lớp sỏi, màu nhạt đi."
+          "caption": "Cá Oscar nằm sát đáy bể, màu thân nhạt và loang."
         }
       },
       {
-        "heading": "Chọn dòng Oscar nào",
+        "heading": "Các dòng màu của Oscar",
         "moments": [
           {
-            "t": 457,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t457.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Oscar hoang dã bơi sát đá, thân nâu đen điểm màu cam đỏ."
+            "t": 480,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at480-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Oscar bơi trong hồ, thân nâu đen với các mảng cam đỏ."
           },
           {
-            "t": 496,
-            "url": "https://media.aquatome.com/video/A1a-GetRJxM/t496.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh Oscar hoang dã với thân nâu cam, ánh xanh rêu."
+            "t": 500,
+            "url": "https://media.aquatome.com/video/A1a-GetRJxM/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh Oscar màu cam vàng, nhìn rõ vảy và vây."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p7-lX1pvb18wMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p7-lX1pvb18wMS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/A1a-GetRJxM/p9-Y2FyVGlnZXIuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/A1a-GetRJxM/p9-Y2FyVGlnZXIuSlBH-480.webp",
           "width": 960,
-          "height": 643,
+          "height": 720,
           "licence": "CC BY-SA 3.0",
-          "author": "H. Zell",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
-          "caption": "Oscar hổ với các mảng đỏ cam nổi bật trên nền thân sẫm màu."
+          "author": "Mkmk, Original uploader was Mkmk at pl.wikipedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:RedOscarTiger.JPG",
+          "caption": "Cá Oscar tiger với các mảng cam đỏ trên nền đen trong bể nuôi."
         }
       }
     ]

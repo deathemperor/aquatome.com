@@ -3,12 +3,34 @@
  "judged": [
   "File:Betta anabatoides 456455993.jpg",
   "File:Betta anabatoides 457829799.jpg",
-  "File:Betta anabatoides 456455993 (cropped).jpg"
+  "File:Betta anabatoides 456455993 (cropped).jpg",
+  "inat:455875393",
+  "inat:455875399",
+  "inat:455875394",
+  "inat:456456038",
+  "inat:456455993",
+  "inat:456455998",
+  "inat:457829799",
+  "inat:457829754",
+  "inat:457829796"
  ],
  "hashes": {
   "https://media.aquatome.com/bwaquatics/ee2c04cb1a2140b8.webp": "078b071c98810387",
   "https://media.aquatome.com/commons/b5f932e2c73019a0.webp": "c68e9a9a1e3caf7f",
-  "https://media.aquatome.com/commons/3cda6b82dc278c89.webp": "1f7e761d173b973f"
+  "https://media.aquatome.com/commons/3cda6b82dc278c89.webp": "1f7e761d173b973f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/455875393/large.jpeg": "074731f0e02bc3fd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/455875399/large.jpeg": "c1c59fd1c0f18784",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/456456038/large.jpg": "1f1f7f2f17954787",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/457829754/large.jpg": "468cb4b43cdece37",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/457829796/large.jpg": "a68e929a1e3cee37"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 618845,
+  "pass": "done",
+  "after": {
+   "research": 255478873,
+   "agree": 0
+  }
+ }
 }

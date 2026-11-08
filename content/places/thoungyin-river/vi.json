@@ -1,10 +1,13 @@
 {
   "slug": "thoungyin-river",
-  "name": "Thoungyin River",
-  "altNames": [],
+  "name": "sông Thoungyin",
+  "altNames": [
+    "Thoungyin River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -169,7 +169,8 @@ that would have caught it).
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
-    bad zone cookie).
+    bad zone cookie). The nightly totals' charts (`dashboard.test.ts`) run from the day after the first save to the day
+    the next save closes, that day so far from the running build, so only a save really missed reads as not recorded.
   - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
     `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
     last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
@@ -407,8 +408,9 @@ The layers above still check the result.
     `scripts/video-recheck.sh` (its own clone, `install-video-recheck-schedule.sh`; the video job checks none again, so
     the two never check one guide at once). From `VIDEO_RECHECK_SINCE`: `review-backfill --kind video-guide
     --reviewed-before` rechecks every guide with no review from that time on, whatever its score (and the ones never
-    reviewed), `VIDEO_REREVIEW_LIMIT` a run (60); then `videos --redo --rechecked-since` writes again, from the
-    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (30). Both `VIDEO_PARALLEL` (4) at
+    reviewed), `VIDEO_REREVIEW_LIMIT` a run (30); then `videos --redo --rechecked-since` writes again, from the
+    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (8). Paced on 2026-11-08 from 60 and
+    30, when the engine's first account would have run out days before its weekly reset. Both `VIDEO_PARALLEL` (4) at
     once, on the engine's Claude accounts, stopping when every account is at its limit. The riskiest guides first:
     `RECHECK_FIRST` (a guide the chat quotes), then medicine, doses, chemicals and treatments, then water, then the rest,
     each the most read first (the guide's most popular species; `packages/engine/src/video-order.ts`). Each guide once:
@@ -689,6 +691,8 @@ The layers above still check the result.
     gives its pages names and its translation order; it joins the others' orders when served.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
+  Species, plants and places merge that way, and a fixed name (`nameFixed`) stays whichever job has it: a job that
+  started before the place-names step once wrote "Lam" over "sông Lam".
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
   its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm; The Spruce
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
@@ -793,6 +797,9 @@ The layers above still check the result.
       own check runs once, when it is written, and a card changes without its page changing. Found in a design lab
       (2026-11-07): Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C, as the card had taken Seriously
       Fish's range that day; 54 of 505 approved summaries were off their card. A real-content test holds them at zero
+    - a Vietnamese place name with River, Island, Lake, Basin, Province, Mountains, Peninsula or a leading Rio or Río left
+      in another language: `pnpm engine name-places-vi` gives rivers and regions the names readers use ("sông Hồng"),
+      reviewed, and the sweep puts the generic word in Vietnamese until it has. Found by a reader's page, held over all.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
@@ -887,6 +894,26 @@ The layers above still check the result.
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
 
+- **Written for the reader** (`packages/engine/src/fit.ts`, `gate.ts`). One fixed checklist (`prompts/fit.md`) reads
+  every served guide, species, plant and breed page for what shows it was written for a reader somewhere else: the
+  source's own talk, imperial or converted units, a foreign shop, price or product (the market table, `market.ts`, says
+  what's sold here, never the model), a dose tied to a product, a dose that doesn't say what it's for or lacks its
+  source's caution for shrimp and others, and a shop abroad's kit, which no rewording fixes. Rules run on every page;
+  Opus reads for the rest, and a finding counts only with a quote on the page. Reads are kept by page and text hash
+  (`engine-state/_fit.json`), so a page is read again only when its text changes (`pnpm engine fit`, in batches).
+  - Doses on different pages for the same treatment, strength, use and method at rates that can't both be right are
+    flagged, never averaged (`docs/review/fit.md`); a person settles which holds.
+  - The owner's number, pages wrong for the reader per language against the 8 Nov 2026 baseline, with the held pages
+    and three random pages a day, is `engine-state/fit-summary.json`, which the daily report shows.
+  - The gate (`pnpm engine gate`, last in a cycle) reads the pages the cycle changed: a new page that fails is held
+    (`held` in its language file, which the build leaves out), a live page whose new text fails a check its old text
+    passed gets its committed text back, a page built on a shop abroad's kit is held, and a held page that changes and
+    passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
+    its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
+    (`gate.test.ts`).
+  - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
+    product works like that nobody is able to check."
+
 ## Rules for every change (people and agents)
 
 1. **A page bug comes with a check that fails without the fix**, in the same PR: a journey, a page check or a vitest
@@ -896,9 +923,12 @@ The layers above still check the result.
 3. **Never weaken a check to get a green run.** Fix the page. A real exception is written into the check with its
    reason (as `VIETNAMESE_ALLOWED` does for decree numbers).
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
-5. **A Lighthouse budget only tightens.** A fix that lifts a page past its `KNOWN` entry removes the entry in the same
+5. **An owner's complaint about one page becomes a check over every page**, in the PR that answers it: a rule when words
+   can show it (`fitRules`, `content-rules.ts`), else a line in the reader-fit checklist (`prompts/fit.md`, with its
+   `FIT_TITLE`). The engine then mends every page the check finds, the one complained about among them.
+6. **A Lighthouse budget only tightens.** A fix that lifts a page past its `KNOWN` entry removes the entry in the same
    PR. Loosening one needs the reason written next to it.
-6. **A change to how a page looks shows it before and after.** On a PR that changes `apps/site/src`, ci.yml's job
+7. **A change to how a page looks shows it before and after.** On a PR that changes `apps/site/src`, ci.yml's job
    `shots` screenshots the same pages of the base's fixture build and the change's, at a phone's size (Pixel 7, 412 px)
    and a computer's (1280 px). It keeps the pairs that differ, side by side, as the `site-page-shots` artifact, and lists
    them in its run's summary. The PR links that artifact and names the pair that shows each improvement it claims. Its
@@ -949,7 +979,7 @@ fixed forward first, in a PR of its own. Android
 | **Telemetry** (`Telemetry`) against `FakeCollector`, the Worker's endpoints in process, and the contract `protocols/app-telemetry.openapi.json` (sample batches and reports checked against its schema, and the app's own rules for what it sends against what the schema takes) | an event, batch or report the Worker would drop or refuse (a field it doesn't list, a mark, path, code or link out of its patterns, an envelope out of range), the app and the contract disagreeing on what may be sent, a field the privacy policy doesn't list (the field audit), a message or name sent where a code goes (a kind outside the app's fixed list, a refusal code outside the site's), a search's words in a path, an iOS report carrying more than the policy names (the region, low power mode, free text such as an exception's message, network, location, display, GPU or disk measures, other diagnostics, a field MetricKit doesn't write at any depth, a field of another shape) or sent with nothing in it, anything sent or written before the site's flag or with the reader's switch off, a request sent after a switch went off (on then off at once, or off while the queue is being sent), a queue that outlives the switch going off, batches over 100 or a queue over 500 (the oldest not dropped first), a retry before its wait, a refused batch retried, a batch sent under another session's id | same |
 | **Pages on the phone** (`PageCache`, `KeptPictures`, `HandbookPaths`), with the site stood in for | a guide read once not opening offline, a kept copy shown without the newer one read for next time (or read more than once a run), a page newer than its kept shard opened on the web, a kept shard of another shard count or one this app can't read used, a shelf's guide listed as kept before it and its pictures are whole, a stop that lets a guide on the list or reads further shards, a removal that deletes a shard or picture a kept guide still needs, kept pictures that don't outlast the run, a page kept, saved or read under "/vi/" lost or not opening offline once the index has the Vietnamese pages at the root (or back), a move of the kept shards cut short losing a page or not tried again, a link in either form not opening the app's screen for it | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working, by flow class: "UI flows, by class" under this table | `xcodebuild test` (jobs `app`, `handbook` for the handbook's flows, the tank volume and tank-mates tools and a tank's fish, plants, guides and tank-mates check, and `lights` for the light flows, each in two halves, on runners side by side, one job at a time on the repository's own Mac, where `app` and `handbook` run three classes at once on copies of its simulator (apps/ios/README.md); a test that hangs is stopped after ten minutes; on a pull request, the smoke set (ten flows across the main journeys), the classes of the flow files it edits and the page shots when its change can reach the pages, as `apps/ios/scripts/flows-to-run.py` decides, packed into as few jobs as hold them in 25 minutes of tests each (the page shots in `handbook (1)`, which uploads them; the light flows in their halves), each job skipped when it has none, and the run's notice naming what each job ran; every flow on main after merges (a run that started is never cancelled; of those waiting, only the newest is kept, and it covers every merge since), every night on main, by hand, on a pull request labelled `ios-full`, and on one that changes `ios.yml`, the scripts that pick and run the flows or the flows' shared code); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
-| **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
+| **Translations**: every string in the code and Info.plist has Indonesian, Malay and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
 | **Performance budgets** (`apps/ios/perf-budgets.json`): launch to the first responsive screen, the CPU time and peak memory of flinging through 800 fish, the archived app's size; each test's median against its budget | the app getting slower, heavier or bigger without anyone deciding it should | `PerformanceTests` and `apps/ios/scripts/check-perf.py` (job `perf`, always on GitHub's Macs, on every ready PR and every push to main; not nightly, as each change was measured by its PR's run); on a PR, `--tightens-only` against main's budgets |
 | **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
 
@@ -975,7 +1005,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, the daily report's email turned off then on again, a session ending while it's open (sign in again, the row kept), the server's storage down (its message, then tried again), a long cell (a page's review notes) showing two lines until tapped open, then shut again, and the daily report's notifications turned on here once iOS allows them, kept on, then off.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet signed out and signed in as the owner (light, dark and the largest text), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet signed out and signed in as the owner (light, dark and the largest text), the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay, a fish's page and Khám phá, light, dark and at the largest text.
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
@@ -996,6 +1026,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
 
 - `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, from the Tài khoản sheet, with no tanks and signed out too.
+
+- `V2FlowTests`: the app's v2 behind the Tài khoản sheet's switch (debug and TestFlight builds): off by default, v1's three tabs; turned on, v2's tabs, and off again, v1's, with the same tanks (UIKit's animations on), and Tìm with the page Khám phá or Hôm nay had open; a tank card on Hôm nay opening the tank on Bể của tôi; the app's home from outside opening Hôm nay's top; a link from outside opening its fish's page; a page read on one shelf of Khám phá; the tab bar whole while Hôm nay and a fish's page scroll; nothing showing under the tab bar, and a tap there opening nothing.
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
@@ -1022,7 +1054,8 @@ Rules (as for the site):
    guide's video playing in its page), the fish-ID screen with its guesses, light and dark, Tìm's tools (light, dark and the largest text), the home's section for kit and
    a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the Tài khoản sheet
    signed out and signed in as the owner, light, dark and the largest text (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
-   the stand-in server (its overview, a section with charts and tables, and the daily report's settings). Job
+   the stand-in server (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay,
+   its suggested fish's page and Khám phá, light, dark and at the largest text. Job
    `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
    them (`apps/ios/scripts/shots.py`): on every run on main, and on a PR whose change can reach the pages, or one

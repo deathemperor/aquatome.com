@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
-  swappedNames, titleCount, vietnameseLeft, wrongFish, type Ctx,
+  renameStored, renameSwapped, swappedNames, titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
 
@@ -415,6 +415,91 @@ test('a fish given its old name beside its genus or English name is found; each 
   // Other fish whose names hold the words, and "cá bám đá" for the whole family.
   expect(swappedNames('Cá trê bút chì Pareiodon và Nannostomus khác nhau.')).toEqual([])
   expect(swappedNames('Nhiều loài cá bám đá thuộc họ Balitoridae, ví dụ các chi Gastromyzon, Pseudogastromyzon.')).toEqual([])
+})
+
+// 2026-11-08: a run with one old name in it failed its whole publish. The sweep now writes the name, from the fish the
+// sentence names; a sentence that doesn't say which fish stays for the rule to list, never renamed on a guess.
+test.each([
+  ['Cá bút chì nâu (Nannostomus eques) bơi nghiêng.', 'Cá chì nâu (Nannostomus eques) bơi nghiêng.'],
+  ['Có thể nuôi cùng cá bút chì (pencilfish).', 'Có thể nuôi cùng cá chì (pencilfish).'],
+  ['Nannostomus eques còn có tên là cá bút chì gậy hockey hay cá bút chì đuôi cúp.', 'Nannostomus eques còn có tên là cá chì gậy hockey hay cá chì đuôi cúp.'],
+  ['Cá bám đá lưới (Sewellia lineolata) ăn tảo.', 'Cá tỳ bà bướm lưới (Sewellia lineolata) ăn tảo.'],
+  ['Cá cờ Mỹ (American flagfish) có rỉa rêu.', 'Cá flagfish Mỹ (American flagfish) có rỉa rêu.'],
+  // The new name's last word once: the old name went with it.
+  ['Cá bám đá bướm (Beaufortia kweichowensis) sống ở suối.', 'Cá tỳ bà bướm (Beaufortia kweichowensis) sống ở suối.'],
+  ['Cá cờ Mesonauta insignis', 'Cá Mesonauta insignis'],
+  ['Cá cờ (Mesonauta festivus) hiền.', 'Cá Mesonauta (Mesonauta festivus) hiền.'],
+  ['Nuôi cùng cá cờ (Laetacara curviceps).', 'Nuôi cùng cá Laetacara (Laetacara curviceps).'],
+  ['Cá thiên đường (Macropodus opercularis) khỏe.', 'Cá cờ (Macropodus opercularis) khỏe.'],
+  // Tags between the name and the fish, and a sentence's end in the HTML.
+  ['<p>Cá bút chì (<em>Nannostomus</em>) đẹp.</p><p>Cá bút chì (Crossocheilus) ăn rêu.</p>', '<p>Cá chì (<em>Nannostomus</em>) đẹp.</p><p>Cá bút chì (Crossocheilus) ăn rêu.</p>'],
+  ['<li>Cá bám đá (<a href="https://x.y/a">Sewellia</a>)</li>', '<li>Cá tỳ bà bướm (<a href="https://x.y/a">Sewellia</a>)</li>'],
+  // Only the name with the flat genus in its brackets: the same words for the family stay.
+  ['Cá bám đá (Sewellia) khác các loài cá bám đá khác.', 'Cá tỳ bà bướm (Sewellia) khác các loài cá bám đá khác.'],
+  // Two old names, each with its own fish.
+  ['Cá bút chì (Nannostomus) và cá cờ (Mesonauta) đều hiền.', 'Cá chì (Nannostomus) và cá Mesonauta (Mesonauta) đều hiền.'],
+])('the sweep writes the fish\'s name: %s', (before, after) => {
+  expect(swappedNames(before.replace(/<[^>]+>/g, ' '))).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(swappedNames(after.replace(/<[^>]+>/g, ' '))).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // The sentence doesn't say which genus.
+  'Cá cờ lùn (dwarf flag cichlid) rất hiền.',
+  'Cá cờ (Mesonauta) khác cá cờ (Laetacara).',
+  'Cá cờ (Jordanella) khác cá cờ (Mesonauta).',
+])('the sweep leaves it for the rule to list: %s', text => {
+  expect(swappedNames(text)).not.toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+// The Writing Lead, 2026-11-08: a sentence that's right under the new names shouldn't stop a publish.
+test.each([
+  // The new name is there too, so the old one is another fish's.
+  'Cá chì (Nannostomus) sống hòa thuận với cá bút chì.',
+  'Cá flagfish (Jordanella floridae) nuôi được với cá cờ.',
+])('a sentence that also has the new name is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+test.each([
+  'Cá bút chì (Crossocheilus) ăn rêu, còn Nannostomus thì không.',
+  'Nuôi cá bút chì (Siamese algae eater) chung với pencilfish được.',
+  'Cá cờ (Macropodus opercularis) khác flagfish (Jordanella floridae).',
+  'Cá cờ (paradise fish) không hợp với Mesonauta.',
+])('a sentence that names the fish the old name is now is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+test('an old name with neither the new name nor its own fish in the sentence is still listed', () => {
+  expect(swappedNames('Cá bút chì (Nannostomus) sống hòa thuận với cá neon.')).toEqual(['should be "cá chì": Cá bút chì (Nannostomus) sống hòa thuận với cá neon.'])
+  expect(swappedNames('Cá cờ (Jordanella floridae) ăn rêu.')).toEqual(['should be "cá flagfish": Cá cờ (Jordanella floridae) ăn rêu.'])
+})
+test('the sweep leaves what the rule never lists, and text it has no name to change as it was written', () => {
+  const clean = 'Cá bút chì (Crossocheilus) ăn rêu. Cá chì (Nannostomus) bơi tầng mặt. Cá cờ (Macropodus) đẹp. Cá chình (Nannostomus) không phải cá chì.'
+  expect(renameSwapped(clean)).toBe(clean)
+  // "cá chì" isn't said in "cá chình".
+  expect(renameSwapped('Cá bút chì (Nannostomus) khác cá chình.')).toBe('Cá chì (Nannostomus) khác cá chình.')
+  // Decomposed marks stay as they are when there's no name to change.
+  const decomposed = 'Cá vàng đẹp.'.normalize('NFD')
+  expect(renameSwapped(decomposed)).toBe(decomposed)
+})
+test('a stored page: its name, text, summary, FAQ and reviews are renamed; its other names, references and a name a person fixed stay', () => {
+  const page = {
+    slug: 'ca-but-chi-nannostomus-eques', name: 'Cá bút chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
+    sections: { 'quickFacts:glaser': '<p>Cá bút chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
+    summary: ['Cá bút chì (pencilfish) hiền.'], faq: [{ q: 'Cá bút chì (pencilfish) ăn gì?', a: 'Cá cờ (Laetacara) ăn gì cũng được.' }],
+    reviews: { agree: [{ text: 'Hợp cá bút chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá cờ (Mesonauta).' }],
+  }
+  expect(renameStored(page)).toEqual({
+    slug: 'ca-but-chi-nannostomus-eques', name: 'Cá chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
+    sections: { 'quickFacts:glaser': '<p>Cá chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
+    summary: ['Cá chì (pencilfish) hiền.'], faq: [{ q: 'Cá chì (pencilfish) ăn gì?', a: 'Cá Laetacara (Laetacara) ăn gì cũng được.' }],
+    reviews: { agree: [{ text: 'Hợp cá chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá Mesonauta (Mesonauta).' }],
+  })
+  expect(renameStored({ ...page, nameFixed: true }).name).toBe(page.name)
+  const unchanged = { name: 'Cá vàng', sections: { 'quickFacts:glaser': '<p>Đẹp.</p>' } }
+  expect(renameStored(unchanged)).toBe(unchanged)
 })
 
 // 2026-11-07, a design lab: "que thử đa chỉtiêu" in the tank-cycling guide, a translation's typo. A Vietnamese word is one

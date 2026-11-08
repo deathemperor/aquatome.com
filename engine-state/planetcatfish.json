@@ -2768,5 +2768,86 @@
     "processedHash": "ceda40046f88fea2305df2e09a2b54a85b8808ca9ad80a16a52676984d421524",
     "status": "skipped",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1279": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T02:46:52.477Z",
+    "hash": "42db538fa6232524bfe4309bca6ac50cf623eee9a479268e8495aa11e228ff15",
+    "processedHash": "42db538fa6232524bfe4309bca6ac50cf623eee9a479268e8495aa11e228ff15",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=128": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T02:55:44.456Z",
+    "hash": "a801556220543abb9a7a403f45a706d7748c6f110dfc82267b6f0149fe047a5e",
+    "processedHash": "a801556220543abb9a7a403f45a706d7748c6f110dfc82267b6f0149fe047a5e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1280": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T02:56:53.624Z",
+    "hash": "73d21f3daa9d03103dcd0a8100dc99d721a55bc0d72f3ea6ca70a3a46033e99f",
+    "processedHash": "73d21f3daa9d03103dcd0a8100dc99d721a55bc0d72f3ea6ca70a3a46033e99f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1281": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T02:58:45.630Z",
+    "hash": "a5c1bca351a58238ee8493f39e440528f6a82f52f8f3ed8dabcc7de73cf1f3cb",
+    "processedHash": "a5c1bca351a58238ee8493f39e440528f6a82f52f8f3ed8dabcc7de73cf1f3cb",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1282": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T03:03:41.889Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "no archived copy (HTTP 500)"
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1283": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T03:03:45.743Z",
+    "hash": "9f6c63365ae30bf94579aa63e05b46ad4bebf5bb29e1c85b7f03777ee801032a",
+    "processedHash": "9f6c63365ae30bf94579aa63e05b46ad4bebf5bb29e1c85b7f03777ee801032a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1284": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T03:04:45.746Z",
+    "hash": "2bdd2207b2dc31a785f00654edcc87c089f6df3b5e6b0e76ea6a82bacf05d3d3",
+    "processedHash": "2bdd2207b2dc31a785f00654edcc87c089f6df3b5e6b0e76ea6a82bacf05d3d3",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1285": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T03:05:35.158Z",
+    "hash": "df082052e9f7e4ae9c5646efc094f50ea2898e6d11abc1fdb06ad559a6e69434",
+    "processedHash": "df082052e9f7e4ae9c5646efc094f50ea2898e6d11abc1fdb06ad559a6e69434",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1286": {
+    "entityIds": [],
+    "updatedAt": "2026-11-07T03:06:55.304Z",
+    "hash": "5727c4d0ad23f4a82173bd558e39ee65d4e99dc76958ce22afc39847bf96076e",
+    "processedHash": "5727c4d0ad23f4a82173bd558e39ee65d4e99dc76958ce22afc39847bf96076e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1287": {
+    "entityIds": [
+      "species/callichthys-serralabium"
+    ],
+    "updatedAt": "2026-11-07T03:07:42.317Z",
+    "hash": "1afed6e0e64d019bcaa0bc212a50642b443dc88f4b9a1e322e8560b652ffaff1",
+    "processedHash": "1afed6e0e64d019bcaa0bc212a50642b443dc88f4b9a1e322e8560b652ffaff1",
+    "status": "processed",
+    "attempts": 0
   }
 }

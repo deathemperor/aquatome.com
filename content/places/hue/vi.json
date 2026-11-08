@@ -1,10 +1,13 @@
 {
   "slug": "hue",
-  "name": "Hue",
-  "altNames": [],
+  "name": "Huế",
+  "altNames": [
+    "Hue"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -214,9 +214,11 @@ struct PutOnTank: View {
   let life: Life
   var tankId: String?
   var done: (() -> Void)?
+  /// Opens the tank it was put on. The sheet's owner does it, once the sheet has closed: changing the tab and its stack as a
+  /// sheet closes over them is a race (the owner saw a blank tank after it, 7 Nov; the tests couldn't reproduce it).
+  var open: ((String) -> Void)?
   @Environment(TanksModel.self) private var tanks
   @Environment(\.dismiss) private var dismiss
-  @Environment(\.openScreen) private var openScreen
   /// The tank picked; nil for a new one.
   @State private var target: String?
   @State private var name = ""
@@ -246,11 +248,8 @@ struct PutOnTank: View {
       if let saved {
         Section {
           Text("Đã lưu vào “\(saved.name)”.").accessibilityIdentifier("put-saved")
-          Button("Xem trong Bể của tôi →") {
-            dismiss()
-            openScreen(.tanks(saved.id))
-          }
-          .accessibilityIdentifier("put-open")
+          Button("Xem trong Bể của tôi →") { open?(saved.id) }
+            .accessibilityIdentifier("put-open")
         }
       }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }

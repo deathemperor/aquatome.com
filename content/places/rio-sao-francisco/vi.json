@@ -1,10 +1,13 @@
 {
   "slug": "rio-sao-francisco",
-  "name": "Rio São Francisco",
-  "altNames": [],
+  "name": "sông São Francisco",
+  "altNames": [
+    "Rio São Francisco"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

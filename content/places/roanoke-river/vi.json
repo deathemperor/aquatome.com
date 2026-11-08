@@ -1,10 +1,13 @@
 {
   "slug": "roanoke-river",
-  "name": "Roanoke River",
-  "altNames": [],
+  "name": "sông Roanoke",
+  "altNames": [
+    "Roanoke River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

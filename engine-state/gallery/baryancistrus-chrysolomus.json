@@ -6,7 +6,8 @@
   "File:Baryancistrus chrysolomus L- 047 ventral.jpg",
   "File:Baryancistrus chrysolomus L-047 (3).jpg",
   "File:Baryancistrus chrysolomus L- 047 mouth.jpg",
-  "File:Baryancistrus chrysolomus L-047, 4 of them.jpg"
+  "File:Baryancistrus chrysolomus L-047, 4 of them.jpg",
+  "inat:207343279"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/b397317a826fb517.webp": "9313398127654085",
@@ -19,5 +20,13 @@
   "https://media.aquatome.com/commons/7865ebf5c5fea92c.webp": "633b83838aded1a6",
   "https://media.aquatome.com/commons/64c3febbdfcd1382.webp": "9818391b0d28aa2e"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 616177,
+  "pass": "done",
+  "after": {
+   "research": 122461760,
+   "agree": 0
+  }
+ }
 }

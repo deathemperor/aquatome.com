@@ -1,10 +1,13 @@
 {
   "slug": "pool-malebo",
-  "name": "Pool Malebo",
-  "altNames": [],
+  "name": "hồ Malebo",
+  "altNames": [
+    "Pool Malebo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

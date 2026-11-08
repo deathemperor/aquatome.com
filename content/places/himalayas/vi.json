@@ -1,10 +1,13 @@
 {
   "slug": "himalayas",
-  "name": "Himalayas",
-  "altNames": [],
+  "name": "dãy Himalaya",
+  "altNames": [
+    "Himalayas"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

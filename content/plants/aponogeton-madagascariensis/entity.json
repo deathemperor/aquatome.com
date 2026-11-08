@@ -2,14 +2,15 @@
   "id": "aponogeton-madagascariensis",
   "scientificName": "Aponogeton madagascariensis",
   "synonyms": [
-    "Aponogeton fenestralis"
+    "Aponogeton fenestralis",
+    "Hydrogeton fenestralis"
   ],
   "difficulty": 3,
-  "light": "medium",
-  "co2": "optional",
-  "growth": "medium",
+  "light": "high",
+  "co2": "required",
+  "growth": "fast",
   "placement": [
-    "midground"
+    "background"
   ],
   "sections": [
     {
@@ -19,38 +20,96 @@
       "html": "<ul><li>Type: bulb</li><li>Origin: Africa</li><li>Growth rate: medium</li><li>Height: 20–30+ cm</li><li>Light demand: medium</li><li>CO2 demand: low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li><strong>Common name:</strong> Madagascar lace</li><li><strong>Other names:</strong> Lace Plant, Lattice Leaf</li><li><strong>Minimum tank size:</strong> 120 litres</li><li><strong>Lighting:</strong> Moderate to high</li><li><strong>Substrate:</strong> Needed (nutrient-rich)</li><li><strong>Can float:</strong> No</li><li><strong>Can be grown emersed:</strong> No</li><li><strong>Size:</strong> 60 cm and more</li><li><strong>Growth form:</strong> Bulb</li><li><strong>Growth rate:</strong> Very fast</li><li><strong>Placement in tank:</strong> Background</li><li><strong>Fertilizer:</strong> Needed</li><li><strong>CO2:</strong> Needed</li><li><strong>Propagation:</strong> Daughter plants via bulbs or seeds</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Madagascar lace is endemic to the Central, West, and East river systems in Madagascar and the Comoros Islands. Nowadays this plant is also naturalized in Mauritius.</p><p>This plant species was first described by French botanist Charles François Brisseau de Mirbel in 1802. After that, it was renamed multiple times, for example, Hydrogeton fenestralis (by C.H. Persoon in 1805), Aponogeton fenestralis (by J.D. Hooker in 1883) until it was finally classified as Aponogeton madagascariensis by H. Bruggen in 1968.</p><p>In science, the Aponogeton genus is poorly understood systematically because its taxonomic study has been hampered by the similar, often convergent vegetative morphology of most species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<p>In nature, this species can be found in a variety of freshwater environments ranging from stagnant ponds and marshes to turbulent rivers, on basalt or on calcareous rocks, generally between sea level and 1800 m altitude.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Aponogetonmadagascariensis(089KN)/4535",
       "html": "<p>The bulb can be covered with the bottom layer, as long as the sprout tip is at the soil surface. Aponogeton madagascariensis makes such high demands on water quality and the bottom that it can only be recommended as a solitary plant in large, specialised aquariums in which the water is replaced frequently. Nutrition capsules enhance the growth considerably.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Aponogeton madagascariensis is generally considered a difficult plant to keep alive for long periods. Aquarists complain that it dies within a year or so, and it was even suggested to treat it as an annual or seasonal plant.</p><p>The so-called dormancy period is often treated the wrong way. Some people recommend digging up the plant, drying the bulb and keeping it in a dark place within a humid substrate until it is ready to grow again. Do not do that: this is wrong and outdated information. Madagascar lace has specific requirements and can be challenging even for experienced aquarists, but if appropriately cared for it will live for many years.</p><h3>Main care rules</h3><ul><li><strong>Cleaning.</strong> The perforated leaves constantly catch dirt and algae. Clean the leaves at least once every 2 – 3 weeks by gently holding the leaf between your palms and rubbing it.</li><li><strong>Clean water.</strong> Keep detritus from floating in the water column, otherwise you will have to clean the leaves very often.</li><li><strong>Trimming.</strong> Remove old and damaged leaves at once; they use up the plant's resources and weaken it. All energy of the plant is concentrated in its bulb. When the dormancy period starts, remove almost all leaves, leaving 3 – 5 of the healthiest.</li><li><strong>Supplementation.</strong> Each week, add a little iron, 1 mg/L potassium dihydrogen phosphate (KH2PO4) and 10 mg/L potassium nitrate. Every few months push root tabs into the substrate under it. It is a large, fast-growing plant that requires a lot of nutrients.</li><li><strong>Water changes.</strong> Change 15 – 30 % of the water volume each week.</li></ul><h3>Cleaning the bulb</h3><p>Once a year, when growth stops (usually in summer because of high temperature) and dormancy starts, dig up the plant and inspect the bulb. In most cases the bulb starts rotting from the underside. Do not panic, this is OK. Rotting starts because of the huge roots; in aquariums it happens because substrates are not deep enough and tightly envelop the bulb. In nature, Madagascar lace is often secured in gravel at the bottom of rivers, but its extremely long roots reach nutrient-rich soil, which is hard to replicate in a tank.</p><p>Use a knife to remove all rotting parts until the bulb is absolutely clean. Crush activated carbon into powder, add some water and apply it to the treated surface. Let it dry for a few hours, then replant.</p><h3>Planting and propagation</h3><p>Madagascar lace is sold as bulbs with or without leaves. The bulbs should not be completely buried, to prevent rot; burying about 2/3 of the bulb is enough. Use small stones to keep it in place if needed. A thick root system develops under the substrate and growth continues.</p><ul><li><strong>Rare in aquariums:</strong> seeds produced after the flowers have wilted. The peduncles must reach the water surface to bloom. Cross-pollination is not needed; the plant is self-pollinating.</li><li><strong>Common in aquariums:</strong> separating the daughter plant from the bulb once the bulbs/shoots have fully developed and formed their own roots. The plant then detaches from the bulb or can be removed by hand and replanted.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Temperature:</strong> Madagascar lace grows best at 20 – 24 °C. In nature, it does not like very warm temperatures. When the water temperature gets closer to 26 °C the growth rate slows down significantly. Keeping it at 28 °C can lead to the destruction of the plant.</p><p><strong>pH:</strong> Madagascar lace prefers slightly acidic water. A pH of 5.5 – 7.5 is appropriate for this species. Be sure to monitor the pH of the aquarium water.</p><p><strong>Hardness:</strong> This plant can grow well in both hard and soft water. However, it is best to consider soft to moderately hard water in your aquarium.</p><p><strong>Tank size:</strong> This plant requires a lot of space because of its growth potential. The recommended tank size is a minimum of 120 litres. The bigger the better.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Lighting:</strong> Some aquarists say that in their tanks Madagascar lace grew even in low-tech tanks and required moderate lighting at best. However, to see the plant grow at its full potential, you need to provide a lot of light. For example, to propagate Madagascar lace, scientists used lighting that emitted 125 μmol/m2/s (PAR) on 12-hour light/dark cycles. This plant needs strong lighting and a long photoperiod.</p><p><strong>Substrate:</strong> Madagascar lace is a very heavy root feeder and requires a nutrient-rich substrate to grow optimally. The roots are huge and can easily reach 25 – 40 cm long, so the substrate should have a minimum depth of about 5 – 7 cm. Recommended soil substrates include:</p><ul><li>ADA Amazonia aqua soil</li><li>Carib Sea Eco-Complete</li><li>Seachem Fluorite</li></ul><p><strong>Flow:</strong> Flow is recommended but not strictly necessary. Positioning the plant near your filter flow will help it stay clean a little longer.</p><p><strong>CO2:</strong> CO2 supplementation is highly recommended; it is very difficult to grow Madagascar lace without CO2. High-light plants must be balanced in terms of CO2 and nutrients. Using strong lighting without CO2 injection is never recommended: you will have algae problems.</p><p><strong>Fertilization:</strong> Madagascar lace benefits from regular dosing of root tabs. This helps sustain healthy growth and keeps the plant's best coloration.</p><p>If you keep shrimp in the tank with Madagascar lace, note that a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Aponogetonmadagascariensis(089KN)/4535",
       "html": "<p>Aponogeton madagascariensis is a bulb plant from Madagascar and is a speciality in botanical gardens all over the world. There are several varieties, with different structures and leaf widths, and sizes from 25–50 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<p>An unusual form of leaf morphogenesis makes Aponogeton madagascariensis a unique plant: it is basically the only aquatic plant with perforated leaves, and it has been cultivated by aquarium enthusiasts for over 100 years. The perforations form through programmed cell death (PCD), a series of tightly controlled events leading to the demise of targeted cells. Small openings in young leaves later enlarge 10–20-fold to form holes in mature leaves. These holes form in highly predictable places with respect to the vein pattern. The leaves are connected by a network of longitudinal and transverse veinlets, enclosing segments (called areoles) that are roughly square. The first 1–3 emerging leaves grow without perforations, while subsequent leaves do form them.</p><p>The plant is also very diverse: leaves can be of different colours (from dark green to reddish) and shapes (oval, oblong, lanceolate, ovate or obovate), pointing up or along the substrate. Leaves can grow up to 60 cm or more, out of the apex of the corm. It is a very large plant and should be placed only in the background or used as a focal point in aquascaping. Where it grows above the surface in aquariums, it forms lovely white flowers and develops purple tints.</p><h3>Leaf theory</h3><p>Although the process is well documented, the purpose of perforation formation remains largely unknown. One theory is that the leaves developed this ability to let water flow through without being ripped from the plant. There are two main arguments against it: only one plant out of thousands of aquatic species evolved this way, and Madagascar lace also grows in stagnant waters where perforated leaves do not benefit the plant.</p><h3>Problems</h3><ul><li><strong>Rest (dormancy) periods:</strong> some leaves die and growth almost stops. Check the temperature first; enough nutrients and optimal water parameters shorten this period. Wait until the plant recovers.</li><li><strong>Outgrowth:</strong> it grows too large and too fast with plenty of light, CO2 and nutrients. Keep these factors balanced and trim leaves regularly.</li><li><strong>Bad bulbs:</strong> not all bulbs are good; some will never sprout. There is no solution.</li><li><strong>Relocation:</strong> the root system is enormous, so removing the plant pulls everything up.</li><li><strong>Algae:</strong> the plant is susceptible to algae, encouraged by the intense lighting and long photoperiods it requires. Clean regularly and/or keep a clean-up crew (shrimp, snails and some fish).</li><li><strong>Nutrient sensitive:</strong> it cannot survive without nutrition for long and dies down from lack of nutrients. Feed regularly.</li></ul><h3>Compatible tankmates</h3><p>Keep it with docile freshwater fish and invertebrates, especially species that rummage for tiny food particles, debris and algae films on the plant.</p><ul><li><strong>Fish:</strong> small, peaceful community fish such as neon tetras, killifish, swordtails, White Mountain minnows, zebra danios, cherry barbs, sunburst platies, Endlers, mollies, Otocinclus catfish and pygmy Corydoras.</li><li><strong>Shrimp:</strong> because the plant prefers slightly acidic water, choose species that prefer the same parameters, e.g. Crystal red shrimp, Blue bolt shrimp, Caridina cf. babaulti.</li><li><strong>Snails:</strong> ornamental snails should not be kept long in low-pH water, as it harms their shells. If your pH is close to 7.0, almost any snail or dwarf shrimp is possible, e.g. Japanese trapdoor snails, ramshorn snails, nerite snails, Malaysian trumpet snails, black devil snails, Asolene spixi, rabbit snails.</li></ul><h3>Avoid or be careful</h3><p>Avoid fish that may find the plant too palatable, e.g. silver dollars, Buenos Aires tetras, koi, goldfish, oscars, rainbowfish, Jack Dempsey, clown loaches and African cichlids. Most crayfish and freshwater crabs are also a poor combination, as they cut, eat and uproot everything in the tank.</p><p>Madagascar lace gets its common name from its unique lattice-like leaf pattern. It has been in cultivation since 1855 and remains among the most beautiful ornamental freshwater aquarium plants, but it cannot be recommended for beginners due to its specific requirements.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>van Bruggen, H. W. E. “Revision of the genus Aponogeton (Aponogetonaceae).” Blumea: Biodiversity, Evolution and Biogeography of Plants 16, no. 1 (1968): 243-265.</li><li>Denbigh, Georgia. “Investigating anthocyanin profile, localization, and transport in Aponogeton madagascariensis.” (2020).</li><li>Dauphinee AN, Wright H, Rantong G, Gunawardena AHLAN. 2012. The involvement of ethylene in programmed cell death and climacteric-like behaviour during the remodeling of lace plant (Aponogeton madagascariensis) leaves. Botany. 90(12):1237–1244. doi:10.1139/b2012-093</li></ul>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/9942693865856887.webp",
+      "thumb": "https://media.aquatome.com/commons/9942693865856887-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "Laila_",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aponogeton_madagascariensis_in_aquarium.jpg",
-      "caption": "Madagascar laceleaf (Aponogeton madagascariensis) in aquarium",
-      "thumb": "https://media.aquatome.com/commons/9942693865856887-480.webp"
+      "caption": "Madagascar laceleaf (Aponogeton madagascariensis) in aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/048815a1c1bad97f.webp",
+      "thumb": "https://media.aquatome.com/commons/048815a1c1bad97f-480.webp",
       "width": 960,
       "height": 1358,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aponogetonaceae_Aponogeton_madagascariensis_1.jpg",
-      "caption": "Aponogeton madagascariensis MADAGASCAR LACELEAF. Botanischer Garten der Christian-Albrechts-Universität zu Kiel.",
-      "thumb": "https://media.aquatome.com/commons/048815a1c1bad97f-480.webp"
+      "caption": "Aponogeton madagascariensis MADAGASCAR LACELEAF. Botanischer Garten der Christian-Albrechts-Universität zu Kiel."
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/6a9eabc2bb1b169c.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/6a9eabc2bb1b169c-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
     },
     {
       "url": "https://media.aquatome.com/aquatome/plants-aponogeton-madagascariensis-plant_56.webp",
@@ -85,5 +144,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-07"
 }
