@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "boraras-merah",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "microdevario-kubotai",
+    "juncus-repens"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "ohxFuNlRd2c",
     "title": "CAN'T GET RID OF ALGAE? TRY THIS!",
@@ -77,25 +79,31 @@
       "height": 720
     },
     "taxa": [
-      "Boraras maculatus",
       "Neocaridina davidi",
+      "Microdevario kubotai",
       "Anubias sp.",
       "Rotala sp.",
       "Blyxa sp.",
-      "Juncus repens"
+      "Juncus repens",
+      "Eleocharis sp."
     ],
     "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Twinstar",
+        "model": "B series",
+        "t": 295
+      },
       {
         "category": "phan-nen",
         "type": "phan",
         "t": 30
       },
       {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Twinstar",
-        "model": "B series",
-        "t": 290
+        "category": "loc",
+        "type": "thung",
+        "t": 423
       },
       {
         "category": "co2",
@@ -104,13 +112,8 @@
       },
       {
         "category": "loc",
-        "type": "thung",
-        "t": 423
-      },
-      {
-        "category": "loc",
         "type": "treo",
-        "t": 570
+        "t": 580
       },
       {
         "category": "test-nuoc",
@@ -120,58 +123,153 @@
     ],
     "figures": [
       {
-        "heading": "Cân bằng đèn, CO2 và dinh dưỡng nghĩa là gì",
+        "heading": "Cân bằng giữa đèn, CO2 và dinh dưỡng nghĩa là gì",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây xanh um dưới đèn, cây phát triển cân bằng."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây thủy sinh xanh khỏe, có cả cây lá đỏ."
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhỏ có đèn, cây xanh tốt và thảm cỏ phủ kín."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ohxFuNlRd2c/p0-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/ohxFuNlRd2c/p0-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây xanh um, rêu không phát, lũa và đá bố trí tự nhiên."
+        }
+      },
+      {
+        "heading": "Châm phân tối giản là gì",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây xanh tốt, sạch rêu hại, nền phủ cỏ dày."
           }
         ]
       },
       {
-        "heading": "Bể có CO2 cân bằng trông ra sao",
-        "moments": [],
+        "heading": "Bể không CO2 vẫn cân bằng được",
+        "moments": [
+          {
+            "t": 330,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nhỏ không CO2, cây xanh khỏe, nền phủ cỏ dày và gần như không có rêu hại."
+          }
+        ]
+      },
+      {
+        "heading": "\"Dinh dưỡng thấp\" đo ra là bao nhiêu",
+        "moments": [
+          {
+            "t": 390,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at390-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống test phosphat đậm màu được đặt cạnh bảng màu để so sánh."
+          },
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh ít thiết bị nhưng cây xanh tốt, sạch rêu hại."
+          }
+        ]
+      },
+      {
+        "heading": "Bể có CO2 cân bằng trông thế nào",
+        "moments": [
+          {
+            "t": 430,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at430-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với Rotala lên màu cam bên đá và thảm cỏ xanh."
+          },
+          {
+            "t": 490,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at490-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bố cục đá, Rotala cam đỏ và cây nền xanh khỏe."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/ohxFuNlRd2c/p3-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/ohxFuNlRd2c/p3-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/ohxFuNlRd2c/p4-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ohxFuNlRd2c/p4-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
           "height": 338,
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây dày, Rotala lên màu đỏ cam, cá neon bơi giữa cây."
+          "caption": "Bể thủy sinh cây xanh tốt, có Rotala lên màu đỏ cam và cá neon."
         }
       },
       {
-        "heading": "Rút CO2 khỏi bể đã lên đầy cây thì sao",
-        "moments": [],
+        "heading": "Bể mất cân bằng sau khi bỏ CO2",
+        "moments": [
+          {
+            "t": 620,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at620-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh cây phủ kín xanh mướt, có lũa ở giữa."
+          },
+          {
+            "t": 650,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at650-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh thảm cây và lũa trong bể, nơi rêu hại bắt đầu xuất hiện."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/ohxFuNlRd2c/p4-RIVS0zNjkpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/ohxFuNlRd2c/p4-RIVS0zNjkpLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/ohxFuNlRd2c/p6-RIVS0zNjkpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ohxFuNlRd2c/p6-RIVS0zNjkpLmpwZw-480.webp",
           "width": 960,
           "height": 674,
           "licence": "CC BY 4.0",
           "author": "Shing Hei Zhan, Tsai-Yin Hsieh, Lan-Wei Yeh, Ting-Chun Kuo, Shoichiro Suda, Shao-Lun Liu",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_red_macroalgae_a_(Compsopogon_coeruleus_THU-369).jpg",
-          "caption": "Rêu bám thành búi trên lá cây trong bể thủy sinh."
+          "caption": "Rêu mọc thành búi xơ trên lá cây trong bể thủy sinh."
         }
       },
       {
-        "heading": "Hai điều nên nhớ khi chỉnh bể",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/ohxFuNlRd2c/p6-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/ohxFuNlRd2c/p6-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt dưới đèn LED gắn phía trên bể."
-        }
+        "heading": "Bể có CO2 vẫn lên rêu vì đèn và dinh dưỡng quá nhiều",
+        "moments": [
+          {
+            "t": 850,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at850-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh đặt cạnh cửa sổ, cây xanh dày dưới đèn sáng."
+          },
+          {
+            "t": 880,
+            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at880-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cây rậm rạp, rèm bên cạnh để ánh sáng lọt vào nhiều."
+          }
+        ]
       }
     ]
   }

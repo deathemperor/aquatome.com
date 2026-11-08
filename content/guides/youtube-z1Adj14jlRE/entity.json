@@ -1,6 +1,6 @@
 {
   "id": "youtube-z1Adj14jlRE",
-  "kind": "plantCare",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=z1Adj14jlRE",
   "html": "",
@@ -16,7 +16,7 @@
     "eriocaulon-cinereum",
     "neocaridina-davidi"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "z1Adj14jlRE",
     "title": "IS RO BETTER THAN TAP IN A PLANTED TANK? MY EXPERIENCE AFTER 10 WEEKS",
@@ -53,119 +53,153 @@
         "t": 0
       },
       {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 0
-      },
-      {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
         "model": "A2 series",
-        "t": 0
+        "t": 15
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "Oase",
         "model": "FiltoSmart",
-        "t": 0
+        "t": 15
       },
       {
         "category": "co2",
         "type": "mini",
-        "t": 0
+        "t": 15
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 15
+      },
+      {
+        "category": "test-nuoc",
+        "type": "tds",
+        "t": 30
       }
     ],
     "figures": [
       {
-        "heading": "Chuyện rêu bụi xanh ở bể RO",
+        "heading": "Hai bể được set thế nào",
         "moments": [
           {
-            "t": 114,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t114.webp",
+            "t": 35,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây mới trồng trên nền đất bên cạnh khúc lũa."
+          },
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các hũ cây thủy sinh cấy mô chuẩn bị để trồng vào bể."
+          }
+        ]
+      },
+      {
+        "heading": "Rêu bụi xanh trong bể RO",
+        "moments": [
+          {
+            "t": 95,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể RO với lớp rêu hại xanh bám kính và nước đục."
+          },
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bể thủy sinh, kính phủ lớp rêu bụi xanh làm nước đục."
+          }
+        ]
+      },
+      {
+        "heading": "Kết quả sau 10 tuần",
+        "moments": [
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh sau 10 tuần, cây lên tốt và có tép cam."
+          },
+          {
+            "t": 180,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at180.webp",
             "width": 160,
             "height": 90,
-            "caption": "Bể thủy sinh có lũa và thảm cây, kính phủ lớp rêu hại xanh."
-          },
+            "caption": "Cận cảnh thảm Staurogyne repens trước hòn đá, cây mọc dày và xanh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/z1Adj14jlRE/p2-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/z1Adj14jlRE/p2-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây rậm rạp, lên tốt, có cây cắm mọc tràn và cá nhỏ."
+        }
+      },
+      {
+        "heading": "Thử thêm: tỉa sạch rồi xem bể nào lên lại nhanh hơn",
+        "moments": [
           {
-            "t": 129,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t129.webp",
+            "t": 265,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at265.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cận cảnh thảm cây và gốc lũa trong bể."
-          }
-        ]
-      },
-      {
-        "heading": "Sau 10 tuần, cây ở hai bể khác nhau ra sao",
-        "moments": [
-          {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t104-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bụi Staurogyne repens phía trước hòn đá."
+            "caption": "Đang vớt và tỉa cây thả nổi trên mặt bể."
           },
           {
-            "t": 158,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t158-hd.webp",
+            "t": 295,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at295-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể sau 10 tuần, cây mọc um tùm quanh hòn đá."
+            "caption": "Bể sau khi tỉa sạch, chỉ còn thảm cỏ và lũa."
           }
         ]
       },
       {
-        "heading": "Tỉa xong để mọc lại: bể nào lên nhanh hơn",
+        "heading": "Những khác biệt nhỏ còn lại",
         "moments": [
           {
-            "t": 267,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t267-hd.webp",
+            "t": 455,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at455-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tay đang tỉa cây thân mọc trên thảm gần khối đá."
+            "caption": "Cụm Myriophyllum phía sau và hòn đá trong bể thủy sinh."
           },
           {
-            "t": 292,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t292-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể sau khi tỉa, chỉ còn thảm cỏ xanh mướt quanh khối đá."
+            "t": 510,
+            "url": "https://media.aquatome.com/video/z1Adj14jlRE/at510.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Staurogyne repens mọc dày dưới hòn đá ở tiền cảnh."
           }
         ]
       },
       {
-        "heading": "Hai khác biệt nhỏ, và vì sao chưa nên tin quá",
-        "moments": [
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh với đám cây xanh tươi mọc rậm quanh hòn đá."
-          },
-          {
-            "t": 494,
-            "url": "https://media.aquatome.com/video/z1Adj14jlRE/t494-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thảm cây tiền cảnh dày và gọn quanh khối đá trong bể."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Vậy RO có tốt hơn nước máy không",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/z1Adj14jlRE/p6-IwMjAxMTAxLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/z1Adj14jlRE/p6-IwMjAxMTAxLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/z1Adj14jlRE/p5-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/z1Adj14jlRE/p5-hX3NocmltcC5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Solomon203",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yen_Sun_Technology_YS-8103RWT_20201101.jpg",
-          "caption": "Một máy lọc nước RO gia đình màu trắng, gọn gàng để bàn."
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây xanh um tùm với lũa và đá nền."
         }
       }
     ]
