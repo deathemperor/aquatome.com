@@ -220,11 +220,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
   // A fault no rewording fixes holds a page whether or not this cycle changed it, and harm in any language, with this
-  // run's reads, holds it in each.
+  // run's reads, holds it in each: a page read earlier in the run that passed too, as a new guide's Thai page that came
+  // with a harmful Vietnamese one.
   harmed = harmedPages()
   for (const p of all) {
     const f = fileOf(p), e = saved(p)
-    if (!changed.has(f) && (GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && (e || harmed.has(`${p.kind}/${p.id}`))) {
+    if ((GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && ((!changed.has(f) && e) || harmed.has(`${p.kind}/${p.id}`))) {
       const checks = [...checksOf(p, e)].sort()
       if (checks.some(c => HOLD_ALWAYS.includes(c))) await apply(f, { action: 'hold', checks })
     }

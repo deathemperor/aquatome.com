@@ -253,6 +253,18 @@ test('harm found in one language holds the page in every language, read there or
   expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
 })
 
+test('a new guide that comes in two languages, one harmful, is held in both, whichever is read first', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  await cp(join(root, dir), join(root, 'content/guides/new-two'), { recursive: true })
+  await edit(root, 'content/guides/new-two/entity.json', e => { e.id = 'new-two' })
+  await edit(root, 'content/guides/new-two/vi.json', t => { t.slug = 'new-two'; t.body = '<p>Muốn bắt cá thì tắt lọc cho cá ngáp.</p>' })
+  await writeFile(join(root, 'content/guides/new-two/th.json'), JSON.stringify({ ...(await readJson(root, 'content/guides/new-two/vi.json')), body: '<p>ปลาชอบน้ำสะอาด</p>' }))
+  await gate(root, { llm: reader(), now })
+  expect((await readJson(root, 'content/guides/new-two/vi.json')).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(root, 'content/guides/new-two/th.json')).held).toMatchObject({ checks: ['harm'] })
+})
+
 test('a text put back that no rewording fixes is held', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })
