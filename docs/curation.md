@@ -115,9 +115,10 @@ Pages likely to be featured come first.
 ### Video loops
 
 Short silent loops, real footage of the species: a fish swimming, or hovering with its fins moving.
-- **Format**: HEVC (tagged `hvc1`), 1080×1080, 30 fps, BT.709 SDR, no audio track, faststart, 5–8 s looping without a
-  jump. 1 MB is the target and 1.5 MB the most. There's an H.264 copy for browsers, and a WebP poster of the first frame
-  under 120 KB. `scripts/make-loop.sh` makes all three.
+- **Format**: HEVC (tagged `hvc1`), 1080×1080, the source's own frame rate up to 30 fps (25 fps footage stretched to 30
+  stutters), BT.709 SDR, no audio track, faststart, 5–8 s looping without a jump. 1 MB is the target and 1.5 MB the
+  most. There's an H.264 copy for browsers, and a WebP poster of a sharp frame with the fish in it, under 120 KB.
+  `scripts/make-loop.sh` makes all three.
 - **Sources, in order**:
   1. clips under a licence that allows it: Wikimedia Commons, Pexels, Pixabay, other CC0 or CC BY with credit shown;
   2. permitted sources whose permission covers video (none does yet);

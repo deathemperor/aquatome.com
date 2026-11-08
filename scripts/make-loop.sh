@@ -4,27 +4,32 @@
 #   scripts/make-loop.sh <input> <start s> <length s> <out dir/name> [crop centre x 0–1] [crop centre y 0–1] [deshake]
 #
 # Writes <name>.mp4 (HEVC, tagged hvc1), <name>-h264.mp4 (for browsers without HEVC) and <name>.webp (the first frame):
-# square 1080 px, 30 fps, BT.709, no audio track, the moov at the front. The last second fades into the first, so it
-# loops with no jump: pick a start whose first second looks like the second after the loop, or a fish shows twice
-# while it fades. FADE=0.5 shortens the fade for a shot too short for a whole second. BOUNCE=1 is for a fish that holds
-# still: the shot plays backward from its last frame and forward again, so the join needs no fade, and the poster is
-# the shot's last frame. POSTER=2.5 takes the poster from 2.5 s into the loop, for a loop that starts before its fish
-# swims in. It runs at the lowest priority: the Mac is shared (AGENTS.md, This Mac).
+# square 1080 px, the source's own frame rate up to 30 fps, BT.709, no audio track, the moov at the front. The last
+# second fades into the first, so it loops with no jump: pick a start whose first second looks like the second after
+# the loop, or a fish shows twice while it fades. FADE=0.5 shortens the fade for a shot too short for a whole second.
+# BOUNCE=1 is for a fish that holds still: the shot plays backward from its last frame and forward again, so the join
+# needs no fade, and the poster is the shot's last frame. POSTER=2.5 takes the poster from 2.5 s into the loop: a loop
+# that starts before its fish swims in, or a bounce's sharpest frame. It runs at the lowest priority: the Mac is shared
+# (AGENTS.md, This Mac).
 set -eu
 in=$1 start=$2 len=$3 out=$4 cx=${5:-0.5} cy=${6:-0.5} shake=${7:-}
 fade=${FADE:-1}
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 run() { nice -n 19 "$@"; }
+count() { ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$1"; }
 
-# The square crop around (cx, cy), kept inside the frame, scaled to 1080 at 30 fps.
-square="crop='min(iw,ih)':'min(iw,ih)':'max(0,min(iw-min(iw,ih),iw*$cx-min(iw,ih)/2))':'max(0,min(ih-min(iw,ih),ih*$cy-min(iw,ih)/2))',scale=1080:1080:flags=lanczos,fps=30,setsar=1"
+# The source's own frame rate, up to 30: 25 fps footage stretched to 30 repeats every sixth frame, which shows as a
+# stutter (council, 2026-11-08).
+rate=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of csv=p=0 "$in" | awk -F/ '{ r = $1 / ($2 ? $2 : 1); print (r > 30 ? 30 : r) }')
+# The square crop around (cx, cy), kept inside the frame, scaled to 1080.
+square="crop='min(iw,ih)':'min(iw,ih)':'max(0,min(iw-min(iw,ih),iw*$cx-min(iw,ih)/2))':'max(0,min(ih-min(iw,ih),ih*$cy-min(iw,ih)/2))',scale=1080:1080:flags=lanczos,fps=$rate,setsar=1"
 [ -n "$shake" ] && square="deshake,$square"
 
 if [ -n "${BOUNCE:-}" ]; then
-  # Backward, then forward without the two frames the turns would show twice.
+  # Backward, then forward without the two frames the turns would show twice, counted in the cut itself.
   run ffmpeg -nostdin -loglevel error -ss "$start" -t "$len" -i "$in" -an -vf "$square,format=yuv420p" -c:v libx264 -crf 12 -preset veryfast "$tmp/cut.mp4"
-  n=$(printf %.0f "$(echo "$len * 30" | bc)")
+  n=$(count "$tmp/cut.mp4")
   run ffmpeg -nostdin -loglevel error -i "$tmp/cut.mp4" -filter_complex \
     "[0:v]reverse,split[a][b];[b]reverse,trim=start_frame=1:end_frame=$((n - 1)),setpts=PTS-STARTPTS[c];[a]setpts=PTS-STARTPTS[a2];[a2][c]concat=n=2:v=1:a=0,format=yuv420p[v]" \
     -map '[v]' -c:v libx264 -crf 10 -preset veryfast "$tmp/loop.mp4"
