@@ -7,13 +7,38 @@
   "group": "catfish",
   "places": [
     "asia",
-    "india"
+    "india",
+    "brahmaputra",
+    "bangladesh",
+    "meghna"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -25,10 +50,34 @@
       "html": "<p>The smallest of the striped catfish species from India, all of which were formerly called \"Mystus vittatus\". For a long time the small species was called M. tengara, but currently most scientists believe that the correct name is M. carcio. It attains a maximum length of only 4-6 cm and is well suited for the home aquarium.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_carcio.htm",
+      "html": "<p>Family: Bagridae. Common name: Pyjama Cat. Synonym: Pimelodus batasio. Size: 4.0 cm. Temperature: 22-27°C. pH: 6.0-7.5.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_carcio.htm",
+      "html": "<p>Asia: The ponds of northern Bengal.</p><p>IUCN Red List: Mystus carcio is widely distributed in Brahmaputra and Meghna river drainages in northeastern India and Bangladesh. Although this species is among the most commonly harvested and traded fish in the region, there are no major threats identified. Hence the species is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_tengara_m_carcio__en/",
       "html": "<p>The name of this small species has been confused for a long time (M. tengara versus M. carcio).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_carcio.htm",
+      "html": "<p>Description: It can be differentiated from all others by its small adult size, very small adipose fin, a dark horizontal mark across the tympanum, greenish yellow colouration, large laterally placed eyes, and relatively long and wide fontanel which is distinctly split by a thick epiphyseal bar.</p><p>Etymology: The genus name Mystus: \"Mystax\" meaning whiskered (hair on the upper lip). Mystus was first used by Belon in 1553 to describe all fish with whiskers. The specific name carcio: presumably a local Bengali name for this species in India.</p><p>Remarks: Sometimes confused as representing M. vittatus (Grant, S. 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_carcio.htm",
+      "html": "<p>Grant, Steven. ScotCat Article: The striped catfishes of the genus Mystus Scopoli, 1777 (Siluriformes: Bagridae).</p><p>Grant, S., 2006. The striped catfishes of the genus Mystus Scopoli, 1777 (Siluriformes: Bagridae). Journal of the catfish study group (UK) 5 (2): 5-17 [updated version 13 pp.]. [Originally published in 2004 as above, updated version available from 22 Apr. 2006 at scotcat.com.].</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Vishwanath, W. 2010. Mystus carcio. The IUCN Red List of Threatened Species 2010.</p>"
     }
   ],
   "photos": [
@@ -77,7 +126,20 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "XonoJS7imKI",
+      "title": "Pachypterus atherinoides and Mystus carcio",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1MUNp3vQ73M",
+      "title": "Various Mystus cats and Pachypterus atherinoides",
+      "durationSec": 86,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -101,5 +163,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07"
 }

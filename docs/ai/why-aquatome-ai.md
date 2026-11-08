@@ -119,19 +119,23 @@ change to the chat's brain (`docs/review/chat-vs-plain.md`).
 | First run: handbook only, two or three sentences, size and fish only | 4–43 | 8–36 |
 | Expert answers with steps, the whole tank read | 8–38 | 23–21 |
 | General knowledge beside the handbook, fishkeeping only | 10–31 | 28–14 |
+| Answers in time when the model is slow | 12–33 | 32–14 |
 
-**Where that leaves us.** We now win when we know the reader's tank: 28 to 14, scores 6.2 and 5.0. By problem that's
-algae 9–1, stocking 7–3, sick fish 5–3, cycling 4–3, and setting up a tank 3–4, the one we still lose. Give both the whole
-post and plain Claude still wins 31 to 10, scores 6.6 and 5.8, with sick fish level at 4–4. The judge says we use less of
-what the post tells us (tank-fit 35 times) and are too thin (22), and it marks plain Claude too long 34 times but picks it
-anyway. On the grounded count we lead on both: 15–5 and 22–5.
+**Where that leaves us.** We win when we know the reader's tank: 32 to 14, scores 5.9 and 4.8. By problem that's algae
+10–2, stocking 9–1, cycling 5–3, sick fish 4–3, and setting up a tank 4–5, the one we still lose. Give both the whole post
+and plain Claude still wins 33 to 12, scores 6.4 and 5.6, and it takes every question about setting up a tank, 9 to 0.
+The judge says we use less of what the post tells us (tank-fit 35 times) and give fewer figures (30), and it marks plain
+Claude too long 34 times but picks it anyway. On the grounded count we lead on the tank, 16–11, and tie on the post,
+13–13. Two runs of the same code differ by a few wins, so a change has to beat that to count.
 
 **What still costs us.**
-- The budget. 77 of 96 answers stop at a limit rather than when the chat is done.
-- Time. The last row's first pass came out 8–35 and 23–19, because 24 of 96 ran out the 27 seconds and counted as losses.
-  They followed the clock, not the questions: over nine minutes the median answer went from 16 to 28 seconds. Asked
-  again, 23 of the 24 answered, and the row shows that; one still timed out. So when the model slows, readers get errors.
-  That's the next fix.
+- The budget. 72 of 96 answers stop at a limit rather than when the chat is done.
+- Time, now fixed. In a slow hour the call that writes the answer ran out of the 27 seconds. With every call taking 1.75
+  times as long, the slowdown we saw, made on purpose in the eval, 64 of 96 answers failed. The chat now keeps the
+  answer's time from its own pace: it answers sooner, at low effort when it must, and that call gets all the time left.
+  At 1.75 times slower 6 of 96 fail, at 2 times 11 of 96, and at normal speed none (2 before). The price is reading: a
+  median of 1 page at 1.75 times slower and none at 2 times, against 2 at normal speed. The eval stretches each call to
+  make the slow hour, so I'll check it against the next real one.
 - Some errors are our guides' own, such as "90% of hair algae is low CO₂". Those went to the writing lead, and the guides
   written from one video stay out of the chat until they are re-checked.
 
@@ -146,7 +150,8 @@ chat had read. The search looks for common units, so it could miss an odd wordin
 1. The eval: done, and it runs on every change.
 2. Close the gap it shows: expert answers with a plan, the whole tank read, the name search fixed ("cá vàng" found a
    shrimp before the goldfish) and general knowledge are all done. Loosening the reading budget didn't change wins, so I
-   dropped it. Next is the answers that time out.
+   dropped it. Answers in a slow hour are done too. Next is the whole forum post, where plain Claude still wins:
+   answer every point the reader raises, with the figures and names they ask for.
 3. The stop button and past conversations, which the owner approved. The contract is written and its table is live.
    The server is next.
 4. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.

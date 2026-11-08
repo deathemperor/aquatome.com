@@ -1,0 +1,117 @@
+{
+  "id": "dekeyseria-scaphirhyncha",
+  "scientificName": "Dekeyseria scaphirhyncha",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Dekeyseria",
+  "group": "catfish",
+  "lNumber": "L151",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 16,
+          "max": 16
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<ul><li>Scientific name: Dekeyseria scaphirhynchus (Kner, 1854)</li><li>Common names: L151, Flat Head Pleco, L216</li><li>Type locality: Manaus, Brazil</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<p>South America: Negro River basin. Also recorded from the Middle Amazon (Solimões), Negro and the Lower Amazon, Nhamundá.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<ul><li>pH: 5.0–7.0</li><li>Temperature: 22–26°C</li><li>Other parameters: dH 16</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<p>Mature males have substantial odontodes both on the thick pectoral ray and the posterior part of the body. The male also has a broader head than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<p>Similar to Lasiancistrus but broader when viewed from above, especially in larger adults. Striped species of Dekeyseria were placed in Zonancistrus but because this was only based on colouration, they are more commonly placed with the non-striped species in Dekeyseria.</p><p>Individuals are able to change colour to suit surroundings or mood. This ranges from dark grey / black, through dark brown to light grey.</p><p>L151: DATZ 2/1994, pp 77-78; L216: DATZ 8/1996, pp 480-482. The L151 Aqualog matches DATZ and shows a range of colouration. The L216 Aqualog supplement is the DATZ picture.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=130",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp 280 [30], Pl. 3 (fig. 2).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lau kính",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 26 độ"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

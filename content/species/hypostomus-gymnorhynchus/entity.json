@@ -1,0 +1,87 @@
+{
+  "id": "hypostomus-gymnorhynchus",
+  "scientificName": "Hypostomus gymnorhynchus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "oyapock",
+    "suriname",
+    "marowijne"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<ul><li>Scientific name: Hypostomus gymnorhynchus (Norman, 1926)</li><li>Synonym: Plecostomus gymnorhynchus</li><li>Type locality: Iponcin Creek, into Approuague R., French Guiana.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>South America: Guianan coastal drainages, from the Oyapock westward to the Maroni basin. Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet refers to its bare (gymnos = bare, nude) snout (rhynkus = snout, nose).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>Annals and Magazine of Natural History (Series 9) v. 18 (no. 103), pp 95.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Znfp4ixozGM",
+      "title": "Hypostomus gymnorhynchus in a tributary of Maroni river, French Guiana",
+      "durationSec": 97,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GqFbD3jULLA",
+      "title": "Hypostomus gymnorynchus, Comté river, French Guiana",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -101,9 +101,9 @@ jobs:
       # Macs to themselves. A job can't take whichever Mac is free: runs-on names one kind. The Mac runs one job at a time
       # (aquatome-mac-1). Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of
       # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
-      # There, jobs `app` and `handbook` run their classes on three copies of the runner's simulator at once (`parallel`):
-      # Xcode hands each copy a class at a time. Three, not more: the Mac is also someone's working machine. GitHub's
-      # Macs (three cores) keep one. Job `lights` keeps one too: there it runs the light flows alone (flows-to-run.py
+      # There, jobs `app` and `handbook` run their classes on two copies of the runner's simulator at once (`parallel`):
+      # Xcode hands each copy a class at a time. Two, the most sim-run.py allows: the Mac is also someone's working
+      # machine, where three made a short job take ten times as long (2026-11-08). GitHub's Macs (three cores) keep one. Job `lights` keeps one too: there it runs the light flows alone (flows-to-run.py
       # `--own-mac`); on GitHub's Macs a full run puts other classes beside them (WITH_LIGHTS).
       - id: where
         env:
@@ -113,7 +113,7 @@ jobs:
         run: |
           if [ "$LOCAL" = true ]; then
             echo 'runner=["self-hosted","macOS","aquatome"]'
-            echo 'parallel=-parallel-testing-enabled YES -parallel-testing-worker-count 3'
+            echo 'parallel=-parallel-testing-enabled YES -parallel-testing-worker-count 2'
           else
             echo 'runner="macos-26"'
           fi | tee -a "$GITHUB_OUTPUT"
@@ -140,7 +140,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.app != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 75
+    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 75 }}
     strategy:
       fail-fast: false
       matrix:
@@ -165,13 +165,15 @@ jobs:
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
-      # `exec`: xcodebuild takes the step's place, so a cancelled job's stop signals reach it. Run under the step's
+      # sim-run.py: one simulator run at a time on the own Mac, leads' too. Its wait counts towards the job's time limit,
+      # hence the longer limit there (job `lights` has no copies, but the same turn: `parallel` only says where).
+      # `exec`: sim-run.py takes the step's place and passes on a cancelled job's stop signals, so they reach xcodebuild. Run under the step's
       # shell, it was left running with no parent when that shell died, still driving the simulator and writing its
       # result bundle into the next job's checkout (2026-11-04, the runner's log; wait-for-simulator.sh).
       - env:
           TESTS: ${{ needs.changes.outputs[format('app_{0}', matrix.half)] }}
         run: >-
-          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec apps/ios/scripts/sim-run.py xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -263,7 +265,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.handbook != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 75
+    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 75 }}
     strategy:
       fail-fast: false
       matrix:
@@ -287,7 +289,7 @@ jobs:
           TESTS: ${{ needs.changes.outputs[format('handbook_{0}', matrix.half)] }}
         # `exec`, as in job `app`.
         run: >-
-          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec apps/ios/scripts/sim-run.py xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -336,7 +338,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.lights != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 75
+    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 75 }}
     strategy:
       fail-fast: false
       matrix:
@@ -351,7 +353,7 @@ jobs:
           TESTS: ${{ needs.changes.outputs[format('lights_{0}', matrix.half)] }}
         # `exec`, as in job `app`.
         run: >-
-          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec apps/ios/scripts/sim-run.py xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/lights.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600

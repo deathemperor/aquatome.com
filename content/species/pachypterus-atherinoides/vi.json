@@ -2,21 +2,28 @@
   "slug": "ca-mini-pangasius",
   "name": "Cá mini pangasius",
   "altNames": [
-    "Cá da trơn mini"
+    "Cá da trơn mini",
+    "Indian potasi"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Eutropius atherinoides là loài cá nhỏ dễ thương, hiếm khi dài quá 6-8 cm. Cá khá rẻ và được nhập từ Ấn Độ với số lượng tương đối nhiều. Tính cá rất hiền nên thả bể cộng đồng nào cũng hợp.</p>",
     "beforeYouBuy:glaser": "<p>Các loài \"cá mập da trơn\" thuộc giống Pangasius được nhiều người săn tìm làm cá cảnh, vì dáng bơi của chúng trông giống cá mập. Tiếc là loài nào trong giống này cũng lớn rất nhanh. Không loài nào dừng lại dưới 50 cm, có loài còn đạt 150 cm hoặc hơn. Từ một thời gian nay, trên thị trường bắt đầu xuất hiện những loài gọi là \"mini-pangasius\". Eutropius atherinoides là một trong số đó. Xét về phân loại học, các loài này không phải họ hàng gần của Pangasius.</p>",
     "distribution:glaser": "<p>Nguồn gốc: Ấn Độ.</p>",
     "diet:glaser": "<p>Cá dễ ăn và nhận hết các loại thức ăn thông thường dành cho cá cảnh.</p>",
-    "behaviour:glaser": "<p>Cá rất hiền. Cá không ăn cây và cũng không phá cây.</p>"
+    "behaviour:glaser": "<p>Cá rất hiền. Cá không ăn cây và cũng không phá cây.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Indian potasi</li></ul>",
+    "distribution:scotcat": "<p>Loài này phân bố ở châu Á, thuộc vùng Nam Trung Á, gồm Bangladesh, Ấn Độ, Nepal và Pakistan. Mẫu chuẩn được thu ở Tranquebar.</p>",
+    "habitat:scotcat": "<p>Cá sống ở sông nước ngọt và cả những đoạn sông chịu ảnh hưởng của thủy triều. Vì vậy chúng chịu được nước hơi lợ ở một mức nhất định.</p>",
+    "reproduction:scotcat": "<p>Cá đẻ trứng. Cá bố mẹ không canh giữ trứng.</p>",
+    "notes:scotcat": "<p>Màu sắc: Phần lưng có màu xanh lục ánh bạc. Hai bên thân có ba hoặc bốn dải do các đốm đen xếp nối nhau tạo thành. Cá có một đốm đen ở vùng chẩm và một đốm đen nữa ở gốc vây lưng.</p><p>Mô tả: Vây ngực dài, vươn quá vây bụng. Vây hậu môn có từ 33 đến 41 tia.</p><p>Phân loại: Năm 1964, Tilak gộp giống này vào Pseudeutropius. Ông cũng đề xuất chuyển Pseudeutropius từ họ Schilbidae sang họ Bagridae. Năm 1991, Mo xác nhận kết luận của Tilak. Dựa trên bản rà soát họ Bagridae của mình, Mo xếp Neotropius vào họ này. Hai loài trước đây mô tả dưới giống Pseudeutropius cũng đã chuyển sang giống này. Hiện nay tên hợp lệ của loài là Pachypterus atherinoides, thuộc họ Horabagridae. FishBase vẫn xếp loài vào họ Schilbeidae, còn Catalog of Fishes của Eschmeyer ghi họ Horabagridae.</p><p>Từ nguyên: Tên giống ghép từ Pachys nghĩa là dày và pterus nghĩa là vây. Người đặt tên không giải thích ý nghĩa. Có thể tên này ám chỉ phần đuôi dài hơn hẳn, hoặc vây hậu môn dài, hoặc cả hai. Giống này hay bị gọi là Neotropius Kulkarni 1952, nhưng đó là tên đồng nghĩa muộn. Tên loài có hậu tố –oides, nghĩa là có hình dạng giống cá suốt (Atherinidae: Atherina). Nhiều khả năng tên này ám chỉ dải bạc chạy dọc hai bên thân.</p><p>Danh sách Đỏ IUCN: Hiện chưa có thông tin về quần thể và xu hướng biến động của loài. Dù vậy, cá vẫn khá phổ biến khắp tiểu lục địa Ấn Độ. Các mối đe dọa có thể có vẫn chưa rõ, nhưng vì số lượng còn nhiều nên loài được xếp mức Ít quan tâm (Least Concern). Có điều, phân loại của loài này chưa chắc chắn. Những cá thể đang được định danh là P. atherinoides có thể thuộc về hơn một loài. Nếu đúng vậy thì sẽ phải đánh giá lại.</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2014). Jayaram, K.C. 2006, Catfishes of India. Narendera Publishing House. 383p. Ng, H.H. 2010. Neotropius atherinoides. The IUCN Red List of Threatened Species 2010. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.88
-    },
-    "reason": "thin"
+      "glaser": 0.88,
+      "scotcat": 0.95
+    }
   }
 }

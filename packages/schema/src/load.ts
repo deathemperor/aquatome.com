@@ -2,6 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { shownCard } from './card-facts'
+import { CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
@@ -35,6 +36,8 @@ export type Content = {
   changelog: ChangelogEntry[]
   /** Each photo's image hash by its address (content/picture-hashes.json): a page never shows one picture twice (pictures.ts). */
   pictureHashes: PictureHashes
+  /** The app's short cards (content/cards, cards.ts) in this language, those the gate holds back left out. No page of their own. */
+  cards: Card[]
 }
 
 async function readJson<S extends z.ZodType>(path: string, schema: S): Promise<z.infer<S>> {
@@ -170,8 +173,21 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     products.push(await exists(file) ? { ...p, market: await readJson(file, MarketSchema) } : p)
   }
 
+  // A card in this language, unless the gate holds it back there; a photo this build may not show is dropped, not the card.
+  const cards: Card[] = []
+  const cardsDir = join(root, 'cards')
+  for (const id of (await readdir(cardsDir).catch(() => [] as string[])).sort()) {
+    const tPath = join(cardsDir, id, `${lang}.json`)
+    if (!(await exists(tPath)) || !(await exists(join(cardsDir, id, 'entity.json')))) continue
+    const t = await readJson(tPath, CardTextSchema)
+    if (t.held) continue
+    const { photo, ...card } = await readJson(join(cardsDir, id, 'entity.json'), CardSchema)
+    const shown = photo && cleanPhotos([photo])[0]
+    cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
+  }
+
   return {
-    species, plants, guides, changelog, equipment, series, galleries, products, breeds,
+    species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.

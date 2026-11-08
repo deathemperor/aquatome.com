@@ -211,8 +211,10 @@
   "https://images.unsplash.com/photo-1706479980895-9674f2be25ad?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8Q2hlcnJ5JTIwYmFyYnxlbnwxfHx8fDE3OTMzNzk5MjV8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
     "puntius-titteya": {
       "ok": "yes",
-      "typical": false,
-      "note": "female cherry barb small in a planted tank, distant view"
+      "typical": true,
+      "note": "female cherry barb in planted tank, smallish",
+      "logo": false,
+      "person": false
     }
   },
   "https://images.unsplash.com/photo-1706479981052-bebbfc32d2fe?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8Q2hlcnJ5JTIwYmFyYnxlbnwxfHx8fDE3OTMzNzk5MjV8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
@@ -408,6 +410,15 @@
       "note": "dense green submersed stand of lanceolate opposite leaves, aquarium"
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7.webp": {
+    "danio-rerio": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single striped zebra danio, side view",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumbreeder/564d939ab019f4eb.webp": {
     "shinnersia-rivularis": {
       "ok": "unsure",
@@ -487,6 +498,15 @@
       "note": "Mottled orange-brown dwarf crayfish (Cambarellus) on gravel among moss. It fits C. diminutus, but C. puer, C. shufeldtii"
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/db0ae8a2eb62661e.webp": {
+    "cherax-holthuisi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "orange apricot crayfish on gravel in aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1.webp": {
     "trichogaster-lalius": {
       "ok": "yes",
@@ -563,7 +583,28 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "Red male and brownish female cherry barb, side view",
+      "note": "red male and female cherry barb",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/0382269cd8fc8570.webp": {
+    "puntius-titteya": {
+      "ok": "yes",
+      "typical": true,
+      "note": "cherry barb male in planted tank, neon tetras in background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/03f54adfcb7e7add.webp": {
+    "neocaridina-davidi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of fire red cherry shrimp on gravel",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -619,7 +660,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult striped angelfish, near wild-type barring with a few dark spots, among grass-like plants",
+      "note": "striped silver angelfish among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -627,8 +670,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": false,
-      "note": "two orange/albino-type oscars in a small decorated tank",
-      "logo": false
+      "note": "two albino/red oscars in a decorated home tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/0f4b8fbc48350d98.webp": {
@@ -660,8 +704,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "cherry barb male (red) and female, with a rosy barb blurred behind",
+      "note": "female and male cherry barbs, blurred fish behind",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -791,6 +836,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/aquariumcoop/1c083de6c087c697.webp": {
+    "puntius-titteya": {
+      "ok": "yes",
+      "typical": true,
+      "note": "bright red cherry barb male",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/1cf2374d80bdd9e7.webp": {
     "hyphessobrycon-herbertaxelrodi": {
       "ok": "yes",
@@ -819,7 +873,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": false,
-      "note": "tweezers planting small hair grass tufts into dark aqua soil substrate in a planted tank",
+      "note": "hair grass plantlets put into aquasoil with tweezers",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1153,7 +1209,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult ram, side view: black bar through red eye, yellow head, blue-spangled body",
+      "note": "German blue ram as captioned, side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1203,8 +1261,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "red male and paler female cherry barb in a planted tank",
+      "note": "male and female cherry barbs",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1212,7 +1271,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "school of harlequin rasboras with black triangle patch, planted tank",
+      "note": "school of harlequin rasboras with black wedge in planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1228,7 +1289,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": false,
-      "note": "mixed-colour Neocaridina (red, orange, black, clear) on a leaf; skittles colony matches caption",
+      "note": "group of mixed colour Neocaridina on a leaf",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1256,6 +1319,15 @@
       "typical": true,
       "note": "same male rosy barb image as photo 1",
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/4f7c3344040c33ac.webp": {
+    "neocaridina-davidi": {
+      "ok": "other",
+      "typical": false,
+      "note": "neon tetra is the main subject; small cherry shrimp at top",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/51e82010e33a67fe.webp": {
@@ -1294,7 +1366,8 @@
       "ok": "yes",
       "typical": false,
       "note": "red tiger oscar close-up, bred colour form",
-      "logo": false
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/54c668e6b938ba1a.webp": {
@@ -1316,7 +1389,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult red cherry shrimp on a plant leaf, clear side view",
+      "note": "red cherry shrimp on plant leaves",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1417,6 +1492,15 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/aquariumcoop/607c050cfb217739.webp": {
+    "microsorum-pteropus": {
+      "ok": "other",
+      "typical": false,
+      "note": "Java fern 'Windelov' cultivar with forked lacy leaf tips",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/63591d36e9b10a59.webp": {
     "tanichthys-albonubes": {
       "ok": "yes",
@@ -1438,6 +1522,15 @@
       "typical": true,
       "note": "wild-type adult white cloud, side view with red-edged tail and dark spot",
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f.webp": {
+    "microsorum-pteropus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Java fern leaves underwater in aquarium, small snail on leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/664e9ab65339c046.webp": {
@@ -1484,7 +1577,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "cherry barb pair: red male, paler striped female; blurred rosy barb behind",
+      "note": "male and female cherry barbs, blurred other barb behind",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1534,7 +1629,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": false,
-      "note": "Windelov cultivar with forked leaf tips, potted plant shown like a product",
+      "note": "Windelov java fern in a pot, product shot",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1573,7 +1670,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": false,
-      "note": "group of Neocaridina colour forms: red, yellow and blue shrimp on driftwood",
+      "note": "mixed colour Neocaridina (red, yellow, blue) on driftwood",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1622,7 +1721,9 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": false,
-      "note": "longfin zebra danio: blue and gold horizontal stripes, long striped fins",
+      "note": "longfin zebra danio, matches caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1710,7 +1811,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "close view of standard Java fern leaves",
+      "note": "java fern leaves in aquarium",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1781,8 +1884,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile albino oscar with orange marks",
-      "logo": false
+      "note": "albino juvenile oscar, red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/8c361dc00e47991a.webp": {
@@ -1892,6 +1996,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/aquariumcoop/966485ec23c313f3.webp": {
+    "neocaridina-davidi": {
+      "ok": "none",
+      "typical": false,
+      "note": "empty shed moult (exoskeleton) on moss",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/9803add674a22519.webp": {
     "sewellia-lineolata": {
       "ok": "yes",
@@ -1920,6 +2033,15 @@
       "ok": "yes",
       "typical": true,
       "note": "adult on a rock, side view; reticulated head and lined body, colour looks warm/reddish, probably from the lighting"
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/9aa09f390ce54b81.webp": {
+    "neocaridina-davidi": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two orange colour-form Neocaridina on driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/9b4a3e1632703a82.webp": {
@@ -1974,7 +2096,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": true,
-      "note": "Angelfish with dark vertical bars, close to the wild type, among grassy plants",
+      "note": "striped angelfish in planted aquarium, matches caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2057,8 +2181,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult tiger oscar, dark with orange markings and tail ocellus",
-      "logo": false
+      "note": "adult oscar with orange marbling and tail eyespot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/a7417bddcbc3ea8a.webp": {
@@ -2098,7 +2223,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "clear close view of java fern leaves underwater; one leaf turning brown, small snail on a leaf",
+      "note": "close-up of java fern leaves underwater, small snail on leaf",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2171,7 +2298,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": false,
-      "note": "red, yellow and blue Neocaridina colour forms on driftwood, matching the caption",
+      "note": "red, yellow and blue Neocaridina colour forms on driftwood",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2213,7 +2342,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult assassin snail with yellow and dark-brown banded conical shell, crawling on gravel",
+      "note": "assassin snail crawling on pebbles, clear side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2287,7 +2418,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": false,
-      "note": "two angelfish in front, with java fern-like leaves blurred in the background",
+      "note": "two angelfish in front of java fern plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2315,11 +2448,22 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/aquariumcoop/bfcb2c5a349c774a.webp": {
+    "neocaridina-davidi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "red cherry shrimp on moss, clear side view",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/bfcd350d13afa7fc.webp": {
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "harlequin rasbora group, clear black wedge marks",
+      "note": "school of harlequin rasboras, near-duplicate shot",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2336,7 +2480,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult red cherry shrimp on moss, clear side view",
+      "note": "red cherry shrimp on moss",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2429,7 +2575,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "java fern, clear view of lance-shaped leaves underwater",
+      "note": "java fern plant against dark background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2446,7 +2594,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": false,
-      "note": "cultivars: narrow-leaf form and lacy 'Windeløv' java fern",
+      "note": "two-panel: narrow/needle and lacy (Windelov) java fern cultivars",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2468,6 +2618,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/aquariumcoop/d29406f15faeec5e.webp": {
+    "neocaridina-davidi": {
+      "ok": "none",
+      "typical": false,
+      "note": "product packshot of shrimp food jar",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/d2d398988f790fa2.webp": {
     "cryptocoryne-wendtii": {
       "ok": "yes",
@@ -2480,7 +2639,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "Assassin snail with yellow and dark brown banded conical shell, crawling on gravel",
+      "note": "assassin snail crawling on pebbles, clear side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2505,7 +2666,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "red male and patterned female cherry barb pair",
+      "note": "male and female cherry barbs",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2528,8 +2691,19 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": true,
-      "note": "group of wild-type striped zebra danios among plants",
+      "note": "group of zebra danios among plants",
+      "logo": false,
+      "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/da3c0b3cdba01b45.webp": {
+    "puntius-titteya": {
+      "ok": "yes",
+      "typical": true,
+      "note": "red male cherry barb close-up",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/da780f074a7a5914.webp": {
@@ -2568,7 +2742,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": false,
-      "note": "planted tank with driftwood and dense narrow java fern-like leaves, seen from a distance",
+      "note": "planted tank with driftwood, plants seen only from a distance",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2586,6 +2762,15 @@
       "note": "red male and paler female, matches caption",
       "logo": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/e67c0f0c600dc50f.webp": {
+    "puntius-titteya": {
+      "ok": "yes",
+      "typical": true,
+      "note": "cherry barb pair, blurred fish behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/e6dbb87efecdf666.webp": {
@@ -2800,9 +2985,11 @@
   },
   "https://media.aquatome.com/aquariumcoop/ffe9a37b6b858876.webp": {
     "neocaridina-davidi": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "blue Neocaridina colour form on a snail (tank mate) on a plant",
+      "note": "snail with blue shrimp on plant; tank-mates caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2886,6 +3073,15 @@
       "ok": "yes",
       "typical": false,
       "note": "Two brown mouthbrooding bettas with blue-green gill-cover scales, seen at an angle, possibly a spawning pair"
+    }
+  },
+  "https://media.aquatome.com/bwaquatics/d2cb7c7fc9ac9de2.webp": {
+    "betta-patoti": {
+      "ok": "yes",
+      "typical": false,
+      "note": "reddish Betta patoti with green gill cover, held out of water on a wet palm",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/bwaquatics/d8bb54c7027125d7.webp": {
@@ -3393,7 +3589,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "assassin snail attacking another snail on gravel among plants"
+      "note": "assassin snail eating a golden snail on substrate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/07e3872f4877fb53.webp": {
@@ -3616,7 +3814,9 @@
     "halfmoon-betta": {
       "ok": "yes",
       "typical": true,
-      "note": "white halfmoon male, tail flared to a full D shape"
+      "note": "white platinum halfmoon betta, tail flared to about 180° in a tank",
+      "logo": false,
+      "person": false
     },
     "betta-splendens": {
       "ok": "yes",
@@ -3655,8 +3855,10 @@
   "https://media.aquatome.com/commons/0c21cb038569ae13.webp": {
     "pterophyllum-scalare": {
       "ok": "yes",
-      "typical": true,
-      "note": "Adult silver angelfish with dark vertical bars; looks like the wild type, though the fins have a strong blue tint"
+      "typical": false,
+      "note": "blue-tinted striped angelfish colour form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0c5670f2f7a40286.webp": {
@@ -3951,6 +4153,14 @@
       "note": "red tetra with black dorsal and black-edged anal fin but almost no shoulder spot; could be a different Hyphessobrycon"
     }
   },
+  "https://media.aquatome.com/commons/11f5f2c0c6d43353.webp": {
+    "arnoldichthys-spilopterus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Phenacogrammus interruptus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/1204b2671f018d4e.webp": {
     "axelrodia-riesei": {
       "ok": "yes",
@@ -4175,8 +4385,9 @@
     "dichotomyctere-nigroviridis": {
       "ok": "yes",
       "typical": false,
-      "note": "small inflated green spotted puffers just caught in a hand net",
-      "logo": false
+      "note": "small green spotted puffers, inflated, caught in a hand net; thumb visible",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/159217261e9b469f.webp": {
@@ -4235,7 +4446,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "vivid pink cultivated discus in planted tank, colour possibly enhanced"
+      "note": "pink-red bred discus in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/165c288aa6acfdf0.webp": {
@@ -4483,9 +4696,11 @@
   },
   "https://media.aquatome.com/commons/1a3e6c2d93ba96b0.webp": {
     "nymphoides-hydrophylla": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "close-up of white crinkled flower with yellow centre held in fingers"
+      "note": "white Nymphoides-type flower with yellow centre held in fingers; species can't be confirmed from the flower alone",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/1a64512fbba99da7.webp": {
@@ -4511,9 +4726,10 @@
   },
   "https://media.aquatome.com/commons/1a940185230f27cb.webp": {
     "corydoras-trilineatus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Two adults on a rock in a planted tank; typical maze pattern"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Corydoras julii",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/1ab0c90acc68b962.webp": {
@@ -4617,7 +4833,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": false,
-      "note": "albino/red oscar, a captive-bred colour form"
+      "note": "albino/red oscar colour form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1bbf62e761baf6e5.webp": {
@@ -4841,9 +5059,10 @@
   },
   "https://media.aquatome.com/commons/1f843db94c2c4396.webp": {
     "cleithracara-maronii": {
-      "ok": "yes",
-      "typical": true,
-      "note": "clear side view of adult, yellow body, keyhole spot, eye bar"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Amphilophus citrinellus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/1f864e6bdd321dd8.webp": {
@@ -4997,9 +5216,10 @@
   },
   "https://media.aquatome.com/commons/230425642fcdc2de.webp": {
     "cleithracara-maronii": {
-      "ok": "yes",
-      "typical": true,
-      "note": "yellowish adult with keyhole spot and eye bar among plants"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Amphilophus citrinellus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/230f7a4652570148.webp": {
@@ -5013,7 +5233,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": true,
-      "note": "red cherry shrimp adult, side view on moss"
+      "note": "bright red cherry shrimp on moss, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/233a97be869da0b6.webp": {
@@ -5374,6 +5596,12 @@
       "ok": "yes",
       "typical": true,
       "note": "silver arowana in full side view, blue lighting"
+    },
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/2a09f53cad9e8ad1.webp": {
@@ -5429,6 +5657,14 @@
       "note": "pinkish-purple devario with blue lines and a dark bar behind the gill, look-alike can't be ruled out"
     }
   },
+  "https://media.aquatome.com/commons/2abf15ae3934d927.webp": {
+    "phractocephalus-hemioliopterus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Brachyplatystoma filamentosum",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/2ac1f6c3312ce664.webp": {
     "halfmoon-betta": {
       "ok": "yes",
@@ -5457,7 +5693,9 @@
     "halfmoon-betta": {
       "ok": "unsure",
       "typical": false,
-      "note": "blue long-finned male at surface, angled view, spread unclear"
+      "note": "blue long-finned betta at the surface, fins not spread so the tail spread can't be judged",
+      "logo": false,
+      "person": false
     },
     "betta-splendens": {
       "ok": "yes",
@@ -5575,7 +5813,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "red/white snakeskin-pattern cultivated discus"
+      "note": "red pigeon/snakeskin-type bred discus, white background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2d57b8c7b49c12c7.webp": {
@@ -5617,9 +5857,11 @@
   },
   "https://media.aquatome.com/commons/2dd2721ca073d2b8.webp": {
     "anubias-barteri": {
-      "ok": "yes",
+      "ok": "other",
       "typical": false,
-      "note": "white-variegated Anubias barteri cultivar (Pinto/White type) grown emersed on a grid"
+      "note": "white variegated Anubias cultivar ('White'/'Pinto') on a floating grid",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2dfeb92a314aaaa4.webp": {
@@ -5633,7 +5875,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult oscar with dark body and gold-flecked flank, on a black background"
+      "note": "adult oscar with gold scaled flank on dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2e3623660bd7d8f9.webp": {
@@ -5656,6 +5900,14 @@
       "typical": true,
       "note": "male with red-black dorsal and black caudal spot, another fish behind",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/2ea1984d294916db.webp": {
+    "bedotia-geayi": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Bedotia madagascariensis",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/2ecfeee2987dc612.webp": {
@@ -5716,7 +5968,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "female cherry barb: dark side stripe with gold line above, red-tinged fins"
+      "note": "female cherry barb with dark lateral stripe, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2fbadc543ab05a5b.webp": {
@@ -5744,7 +5998,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "dense emersed Anubias barteri leaves, close-up"
+      "note": "dense emersed Anubias barteri leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/300eebe4d0e0f664.webp": {
@@ -5822,7 +6078,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "gold-head white angelfish colour form with long fins"
+      "note": "yellow-headed veil angelfish colour form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/31c602b01a1dcfdf.webp": {
@@ -5922,9 +6180,11 @@
   },
   "https://media.aquatome.com/commons/32dab8303dcedaa8.webp": {
     "astronotus-ocellatus": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "oscar-like tiger pattern but unnatural blue fins and serrated dorsal; may be edited or digital art"
+      "ok": "yes",
+      "typical": true,
+      "note": "tiger oscar side view on black background; small logo bottom right",
+      "logo": true,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/32ea6cc6a9e7c883.webp": {
@@ -6084,9 +6344,10 @@
   },
   "https://media.aquatome.com/commons/3648721bcece0c66.webp": {
     "datnioides-pulcher": {
-      "ok": "unsure",
-      "typical": true,
-      "note": "tiger perch with narrower bars; could be D. microlepis or another Datnioides"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Datnioides campbelli",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/3657ec5c87f20a04.webp": {
@@ -6094,6 +6355,18 @@
       "ok": "yes",
       "typical": true,
       "note": "adult side view in aquarium, blue-striped dorsal and anal fins, mottled brown body"
+    },
+    "channa-baramensis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa andrao",
+      "file": true
+    },
+    "channa-gachua": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa andrao",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/367c202bbe22612e.webp": {
@@ -6375,7 +6648,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": true,
-      "note": "red cherry shrimp adult, side view on moss"
+      "note": "red cherry shrimp on algae, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3b4c80f10e3591dc.webp": {
@@ -6418,6 +6693,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "Dark, red-eyed snakehead guarding a swarm of fry underwater; murky view, can't confirm the species"
+    },
+    "channa-ornatipinnis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa marulius",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/3be87b1008e9fa09.webp": {
@@ -6445,7 +6726,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "Gold marble angelfish, a colour form"
+      "note": "marbled/koi-type angelfish colour form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3c736744cee17c47.webp": {
@@ -6464,7 +6747,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult ram in side view with blue-spangled yellow body and black spot, possibly a female"
+      "note": "adult ram, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3c88b7bf8822768b.webp": {
@@ -6782,7 +7067,9 @@
     "macrognathus-siamensis": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in clear tank, row of eyespots along the dorsal-fin base, held by a stick"
+      "note": "live peacock spiny eel in a photo tank, eyespots along the rear dorsal fin base, held in place with a stick",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/429f471201151ee0.webp": {
@@ -6812,6 +7099,14 @@
       "ok": "yes",
       "typical": true,
       "note": "green GloFish tetra in a planted tank, clear side view"
+    }
+  },
+  "https://media.aquatome.com/commons/42dfeafb914fffe5.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/43027cbb342dcc46.webp": {
@@ -6993,8 +7288,10 @@
   "https://media.aquatome.com/commons/45fccde9d99b3154.webp": {
     "pterophyllum-scalare": {
       "ok": "yes",
-      "typical": false,
-      "note": "zebra-type angelfish with extra dark bars, over mossy driftwood"
+      "typical": true,
+      "note": "striped wild-type angelfish among mossy wood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/45fd89c099bfebce.webp": {
@@ -7390,7 +7687,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": false,
-      "note": "pale, washed-out grey oscar with faint orange marbling, possibly stressed"
+      "note": "pale grey oscar resting on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4d73e35179349960.webp": {
@@ -7688,6 +7987,12 @@
       "typical": true,
       "note": "eyeless pinkish-silver blind cave tetra in aquarium, second fish behind",
       "logo": false
+    },
+    "astyanax-jordani": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Astyanax mexicanus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/52a6fc38ac730cdb.webp": {
@@ -7722,7 +8027,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "assassin snail crawling on moss, siphon and tentacles visible"
+      "note": "assassin snail on moss, body and siphon extended",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/531acc4070a8c211.webp": {
@@ -7783,7 +8090,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": false,
-      "note": "Anubias barteri flower spathe and spadix underwater"
+      "note": "Anubias flower spathe close-up in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/53d0770694fcd048.webp": {
@@ -7961,6 +8270,15 @@
       "note": "Likely Campylomormyrus: brown, slender, long down-curved tubular snout"
     }
   },
+  "https://media.aquatome.com/commons/56adb8ce0fdcecaf.webp": {
+    "anentome-helena": {
+      "ok": "yes",
+      "typical": true,
+      "note": "assassin snail crawling on driftwood, siphon raised",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/573f01e5b2d9fcec.webp": {
     "polypterus-senegalus": {
       "ok": "yes",
@@ -8094,8 +8412,10 @@
   "https://media.aquatome.com/commons/5af8f8a2a7be7155.webp": {
     "astronotus-ocellatus": {
       "ok": "yes",
-      "typical": true,
-      "note": "adult oscar, dark with red-orange bands, resting on gravel"
+      "typical": false,
+      "note": "red tiger oscar variety on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5ba21324557c8f31.webp": {
@@ -8364,11 +8684,28 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/6000f48bfdcd4e6e.webp": {
+    "melanotaenia-splendida": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Melanotaenia fluviatilis",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/6039d660ca49cdcb.webp": {
     "cyrtocara-moorii": {
       "ok": "yes",
       "typical": false,
       "note": "close-up of an adult's head and hump, with grey blotchy patches"
+    }
+  },
+  "https://media.aquatome.com/commons/60597c317bf75be1.webp": {
+    "cherax-holthuisi": {
+      "ok": "other",
+      "typical": false,
+      "note": "brown crayfish with blue claws, likely Cherax quadricarinatus/destructor, not orange holthuisi",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/606d5d90c9a59424.webp": {
@@ -8528,7 +8865,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult male ram in side view: black lateral blotch, red eye, extended first dorsal rays"
+      "note": "adult ram over gravel, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/63d594abd592bc43.webp": {
@@ -8802,7 +9141,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "brown barred discus viewed obliquely from behind, hazy"
+      "note": "discus from behind at an angle, hazy view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/695b9499c977215b.webp": {
@@ -9010,7 +9351,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult oscar, grey with orange flank blotches, close to the wild type"
+      "note": "adult oscar with orange flank, front view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6d4034e2e085bf7d.webp": {
@@ -9039,7 +9382,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "Anubias barteri, rounded leaves, attached to driftwood, out of water"
+      "note": "Anubias with roundish leaves on driftwood, out of water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6d9fac2a4db28895.webp": {
@@ -9079,6 +9424,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/6e34d0871b891148.webp": {
+    "gyrinocheilus-aymonieri": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Macrotocinclus affinis",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/6e3df286f3fccdab.webp": {
     "ranunculus-inundatus": {
       "ok": "yes",
@@ -9114,7 +9467,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": false,
-      "note": "hand holding a sprig of finely divided emersed leaves"
+      "note": "pulled plant with dissected leaves held in hand against sky",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/6ea89d67b8bf76c4.webp": {
@@ -9199,7 +9554,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "adult harlequin rasbora, clear side view"
+      "note": "adult harlequin rasbora close side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/70a54177599dce86.webp": {
@@ -9251,7 +9608,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "Platinum/pearl angelfish with long fins"
+      "note": "white/platinum angelfish with long fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/71be289cdae71b35.webp": {
@@ -9419,7 +9778,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "turquoise-striped cultivated discus among plants"
+      "note": "turquoise-striped bred discus among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/75acb112a03093c0.webp": {
@@ -9565,7 +9926,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult ram, clear side view"
+      "note": "adult ramirezi side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/780d7b800fed985f.webp": {
@@ -9603,6 +9966,12 @@
       "ok": "yes",
       "typical": true,
       "note": "Male flaring, green iridescent scales and striped blue-green fins on dark background"
+    },
+    "betta-splendens": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Betta mahachaiensis",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/7836d3540215c861.webp": {
@@ -9704,11 +10073,21 @@
       "note": "Five-banded barb adult, five dark green-edged bars on orange body, a second one behind"
     }
   },
+  "https://media.aquatome.com/commons/797ee380743fcf6a.webp": {
+    "devario-devario": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Devario aequipinnatus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/79aabd1833a59d0b.webp": {
     "anubias-barteri": {
       "ok": "yes",
       "typical": false,
-      "note": "Anubias barteri in a tank; several leaves covered in spot algae"
+      "note": "Anubias in gravel, some leaves heavily spotted with algae or variegation",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/79b3bc5a3f73a720.webp": {
@@ -9739,6 +10118,14 @@
       "note": "single submerged plant on wood in tank, fish behind"
     }
   },
+  "https://media.aquatome.com/commons/7a99c198fd34875a.webp": {
+    "barbonymus-schwanefeldii": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Thorichthys meeki",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/7ae5ec939ef3c992.webp": {
     "oryzias-latipes": {
       "ok": "yes",
@@ -9750,7 +10137,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male ram, tall black front dorsal rays"
+      "note": "adult ram, pale body, side view among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7b261cfe784ccd9e.webp": {
@@ -9890,7 +10279,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "discus seen head-on among plants, barred pale fish"
+      "note": "discus seen head-on among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7e4cd7861ebcf411.webp": {
@@ -9926,9 +10317,11 @@
   },
   "https://media.aquatome.com/commons/7ec95bdb8fa4e868.webp": {
     "ranunculus-inundatus": {
-      "ok": "habitat",
+      "ok": "yes",
       "typical": false,
-      "note": "wet roadside ditch by a fence, carpeted with flowering plants"
+      "note": "carpet of flowering plants in a damp roadside drain, distant view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7ed9ce5886839426.webp": {
@@ -10053,7 +10446,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "Two pale silver/platinum angelfish under bluish light"
+      "note": "two silver/platinum angelfish under blue light",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/80b38cf4cd7e9c78.webp": {
@@ -10084,7 +10479,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "marble angelfish colour form among plants"
+      "note": "marble angelfish colour form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/812004a48f81c4cf.webp": {
@@ -10204,7 +10601,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "ram with blue spangles and yellow head, over gravel"
+      "note": "ramirezi over pebbles",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/83182ba265a6240d.webp": {
@@ -10302,6 +10701,12 @@
       "ok": "yes",
       "typical": true,
       "note": "adult silver arowana, clear side view with barbels"
+    },
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/850ab388afd08a84.webp": {
@@ -10508,6 +10913,14 @@
       "note": "Endler male, black bars, orange patches, upper sword tail"
     }
   },
+  "https://media.aquatome.com/commons/88dde4c7b32997c5.webp": {
+    "trichopodus-trichopterus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Xiphophorus maculatus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/88ee2356ce454df0.webp": {
     "anostomus-anostomus": {
       "ok": "none",
@@ -10623,7 +11036,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "dense Java fern bush in aquarium under light"
+      "note": "dense java fern clump in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8c57b7592dc27df0.webp": {
@@ -10895,7 +11310,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "gold/platinum angelfish colour form among plants"
+      "note": "gold-head silver angelfish colour form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/92b97a86c4af3399.webp": {
@@ -10958,7 +11375,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male in deep red breeding colour among plants"
+      "note": "red male cherry barb among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9336e5106379c7cb.webp": {
@@ -11264,6 +11683,14 @@
       "note": "Day's Fishes of India drawing of C. stewartii (fig. 3); an illustration, not a photo"
     }
   },
+  "https://media.aquatome.com/commons/987eb141b70ff0e1.webp": {
+    "dekeyseria-pulchra": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Dekeyseria picta",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/98a579d603697f0a.webp": {
     "pygocentrus-piraya": {
       "ok": "unsure",
@@ -11285,7 +11712,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "whole Anubias barteri with rhizome and roots, shown out of water on a white background"
+      "note": "uprooted Anubias barteri plant with roots on a white background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/98c216e399d7a428.webp": {
@@ -11419,9 +11848,10 @@
   },
   "https://media.aquatome.com/commons/9ab00579dbdebd70.webp": {
     "chalceus-erythrurus": {
-      "ok": "yes",
+      "ok": "other",
       "typical": false,
-      "note": "close-up of head and front body; yellow ventral fins, red tail edge just visible"
+      "note": "its Commons file names Chalceus macrolepidotus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/9ace3df00d288eaf.webp": {
@@ -11444,6 +11874,14 @@
       "ok": "yes",
       "typical": true,
       "note": "paler adult krib with a pink belly, another fish blurred behind"
+    }
+  },
+  "https://media.aquatome.com/commons/9b7c606cb600d47f.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/9b9338f35b62109c.webp": {
@@ -11485,9 +11923,11 @@
   },
   "https://media.aquatome.com/commons/9cc5ed5206aa5f3e.webp": {
     "pogostemon-deccanensis": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "small flowering plant at rocky stream edge"
+      "ok": "yes",
+      "typical": true,
+      "note": "flowering emersed plant with whorled narrow leaves and purple flower spikes at a stream edge in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9cd9bc717dcab482.webp": {
@@ -11686,7 +12126,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of a palmately divided leaf held in hand"
+      "note": "palmately divided leaf held on fingers",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/a2a02bae78c6f35a.webp": {
@@ -11777,7 +12219,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "dense mat of fine needle-like leaves, grown emersed"
+      "note": "dense mat of fine needle-like leaves among other plants in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a45202582c706b11.webp": {
@@ -11898,9 +12342,11 @@
   },
   "https://media.aquatome.com/commons/a6e1a857982ec1a4.webp": {
     "aphanotorulus-unicolor": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult spotted Aphanotorulus plec held in hand above river water; dark spots on body and fins, spiny caudal peduncle"
+      "ok": "dead",
+      "typical": false,
+      "note": "caught pleco held up in a hand over river water",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/a6e25aaa7d8407e0.webp": {
@@ -12138,7 +12584,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "brown discus with blue turquoise lines, cultivated form"
+      "note": "blue-striped bred discus in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ac554b22cc78e160.webp": {
@@ -12179,9 +12627,10 @@
   },
   "https://media.aquatome.com/commons/ace21161fbd77db5.webp": {
     "scleropages-jardinii": {
-      "ok": "unsure",
-      "typical": true,
-      "note": "Pale gold arowana in a dark tank; no scale spots visible, so it could be an Asian arowana"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Scleropages leichardti",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/aced773c6bfadb18.webp": {
@@ -12267,6 +12716,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/ae22f1199773dcc7.webp": {
+    "parachanna-obscura": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Channa asiatica",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/ae2a0e15faf3055a.webp": {
     "satanoperca-acuticeps": {
       "ok": "none",
@@ -12287,6 +12744,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "dark purplish fish with blue scale spots; looks more like a Badis species than Dario dario"
+    },
+    "badis-badis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Dario dario",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/ae82d8fafcd94209.webp": {
@@ -12352,7 +12815,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed tufts with small terminal spikelets on a sandy shore"
+      "note": "emersed tuft with small spikelets on damp soil",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/afd2857116f9b194.webp": {
@@ -12475,7 +12940,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Java fern clump in aquarium, side view"
+      "note": "Java fern clump in aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b24a0ffaa21602fc.webp": {
@@ -13186,11 +13653,21 @@
       "note": "Floating spurge leaves seen from above, green to pinkish"
     }
   },
+  "https://media.aquatome.com/commons/bd5f672e76319a4c.webp": {
+    "corydoras-metae": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Corydoras panda",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/bd62890f723261dd.webp": {
     "chaetostoma-fischeri": {
-      "ok": "yes",
-      "typical": true,
-      "note": "live adult held in hand by a rocky river, grey with dark spots"
+      "ok": "dead",
+      "typical": false,
+      "note": "caught loricariid (looks like Chaetostoma) held up in a hand beside a river",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/bd6432c483538954.webp": {
@@ -13244,7 +13721,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "adult harlequin rasbora, side view, black triangular wedge"
+      "note": "single harlequin rasbora side view, black wedge patch",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bee1857a1659f116.webp": {
@@ -13264,8 +13743,10 @@
   "https://media.aquatome.com/commons/bf655bdb41817002.webp": {
     "astronotus-ocellatus": {
       "ok": "yes",
-      "typical": true,
-      "note": "close-up of head of oscar with dark body and orange marbling"
+      "typical": false,
+      "note": "close-up of oscar head and front body, cropped",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bf71c7e751807fff.webp": {
@@ -13293,9 +13774,10 @@
       "note": "black bristlenose with dense white spots on gravel, side view"
     },
     "ancistrus-triradiatus": {
-      "ok": "unsure",
-      "typical": true,
-      "note": "Dark Ancistrus with white spots on gravel; can't confirm species, could be another Ancistrus"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Ancistrus dolichopterus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/bfed6430f239c7f2.webp": {
@@ -13367,8 +13849,10 @@
   "https://media.aquatome.com/commons/c0df0147758d39eb.webp": {
     "ranunculus-inundatus": {
       "ok": "yes",
-      "typical": false,
-      "note": "close-up of a single yellow flower held in fingers"
+      "typical": true,
+      "note": "yellow multi-petalled flower held between fingers",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/c10308c782320004.webp": {
@@ -13408,7 +13892,9 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": false,
-      "note": "long-finned zebra danio, side view, with others blurred"
+      "note": "longfin zebra danio with other fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c19ee70cc676308c.webp": {
@@ -13632,9 +14118,10 @@
       "note": "side view of male, female below"
     },
     "betta-bellica": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "brown betta pair with black, white-edged fins and no blue-green scale rows; looks more like the Betta picta group than B"
+      "note": "its Commons file names Betta albimarginata",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/c4c988facb31d8d4.webp": {
@@ -13773,7 +14260,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": false,
-      "note": "strongly coloured blue/gold harlequin, colours look enhanced or a line-bred form"
+      "note": "blue and gold harlequin colour form, purplish body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c7a40a57f4c45b58.webp": {
@@ -13860,8 +14349,9 @@
     "corydoras-reticulatus": {
       "ok": "yes",
       "typical": true,
-      "note": "two reticulated corydoras close-up, soft focus, net-like pattern",
-      "logo": false
+      "note": "two reticulated corys with network pattern and black dorsal blotch, green-tinted tank shot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c836d47f858a56f6.webp": {
@@ -14029,6 +14519,12 @@
       "typical": true,
       "note": "green phantom pleco with yellow spots on sand, side view",
       "logo": false
+    },
+    "hemiancistrus-subviridis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Baryancistrus demantoides",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/cb6cc3983f3afa30.webp": {
@@ -14071,7 +14567,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of a single flowering spikelet on a thin stem"
+      "note": "close-up of a single flowering spikelet",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ccf1cdcebfa7ed51.webp": {
@@ -14106,7 +14604,9 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": true,
-      "note": "group of short-finned wild-type zebra danios near surface"
+      "note": "group of zebra danios at the surface; mirrored text in the scene",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cd737f1927b0f68b.webp": {
@@ -14123,6 +14623,15 @@
       "note": "deep-bodied red male with shiny scales, blue rainbowfish behind"
     }
   },
+  "https://media.aquatome.com/commons/cd90e3d3ce36517f.webp": {
+    "acheilognathus-macropterus": {
+      "ok": "dead",
+      "typical": false,
+      "note": "caught bitterling held up in a hand",
+      "logo": false,
+      "person": true
+    }
+  },
   "https://media.aquatome.com/commons/cda7a23bd35d58fe.webp": {
     "acrossocheilus-paradoxus": {
       "ok": "yes",
@@ -14132,9 +14641,10 @@
   },
   "https://media.aquatome.com/commons/cdc824e83be01b1b.webp": {
     "desmopuntius-pentazona": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Five-banded barb adult on sand, dark bars and red fins"
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Desmopuntius hexazona",
+      "file": true
     },
     "desmopuntius-hexazona": {
       "ok": "yes",
@@ -14167,7 +14677,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of harlequin rasbora, wedge and copper body"
+      "note": "close-up of adult harlequin rasbora",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ce8bc8e63f8d4fd7.webp": {
@@ -14449,6 +14961,15 @@
       "note": "emersed lanceolate-leaved Ludwigia-like plant at a muddy water edge; can't confirm species"
     }
   },
+  "https://media.aquatome.com/commons/d2f59cc46f061f4f.webp": {
+    "proserpinaca-palustris": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mermaid weed growing wild in shallow water, comb-like underwater leaves and reddish emersed shoots",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/d303bc24129e7273.webp": {
     "betta-splendens": {
       "ok": "yes",
@@ -14630,7 +15151,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "Anubias barteri clump with a flower spathe, small tetras swimming past"
+      "note": "Anubias barteri flowering in a tank, with glowlight tetras",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d623ab5dbd13500b.webp": {
@@ -14866,11 +15389,27 @@
       "note": "dark juvenile with pale bands, side view"
     }
   },
+  "https://media.aquatome.com/commons/d9541e4f67808d63.webp": {
+    "bagarius-bagarius": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Bagarius rutilus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/d9581b9ac7c798c0.webp": {
     "alternanthera-reineckii": {
       "ok": "unsure",
       "typical": false,
       "note": "close-up of white flower heads on green emersed Alternanthera; species unclear"
+    }
+  },
+  "https://media.aquatome.com/commons/d967ceeac1094fe0.webp": {
+    "copella-carsevennensis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Copella arnoldi",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/d97f2b7a84039e76.webp": {
@@ -14900,7 +15439,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "Anubias barteri with broad heart-shaped leaves on gravel in a tank"
+      "note": "Anubias barteri planted in pebble gravel in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/da2099bb8e6ddf2e.webp": {
@@ -14914,7 +15455,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult ram, front-side view"
+      "note": "ramirezi close-up in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/da91c1572f8c2738.webp": {
@@ -15057,6 +15600,14 @@
       "note": "Old museum plate (Characidae Plate 14) with drawings of three characins, not a photo"
     }
   },
+  "https://media.aquatome.com/commons/debcef84eaa72230.webp": {
+    "aphyosemion-bualanum": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Aphyosemion elberti",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/deee119c227bb1bf.webp": {
     "butterfly-koi": {
       "ok": "unsure",
@@ -15151,14 +15702,18 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "gold/pearlscale veil angelfish, close side view"
+      "note": "gold angelfish colour form, close-up",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e0ebc052f8ef035c.webp": {
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed Anubias barteri leaves, some yellowing tips"
+      "note": "emersed Anubias barteri leaves, some yellowing",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e11320c804299570.webp": {
@@ -15187,7 +15742,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "white-bodied cultivated discus with blue fins, orange face"
+      "note": "pale white-bodied cultivated discus with blue fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e182266a53838490.webp": {
@@ -15210,7 +15767,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "small group of harlequin rasboras over gravel"
+      "note": "several harlequins over white and black substrate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e21efd5ada54a064.webp": {
@@ -15218,6 +15777,14 @@
       "ok": "yes",
       "typical": true,
       "note": "Group of adult males: silvery-grey body, orange-red blotches on rear half, orange fins; other rainbowfish in background"
+    }
+  },
+  "https://media.aquatome.com/commons/e22737f8a2707271.webp": {
+    "bedotia-madagascariensis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Bedotia geayi",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/e26e9f1200ba34f2.webp": {
@@ -15291,7 +15858,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "Black angelfish guarding eggs laid on a leaf"
+      "note": "black angelfish guarding eggs on a leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e4df35632b195a8e.webp": {
@@ -15359,7 +15928,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "turquoise cultivated discus, side view"
+      "note": "turquoise cultivated discus, side view",
+      "logo": false,
+      "person": false
     },
     "symphysodon-discus": {
       "ok": "other",
@@ -15561,7 +16132,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "red-brown discus with blue striping, cultivated turquoise form"
+      "note": "turquoise-striped bred discus, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/eb72d93a287f310c.webp": {
@@ -15694,7 +16267,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "assassin snail close-up, yellow and dark-brown banded shell, siphon out"
+      "note": "close-up of assassin snail on gravel, small snail nearby",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ed6068590085248a.webp": {
@@ -15751,9 +16326,10 @@
   },
   "https://media.aquatome.com/commons/ee51a0296b067c20.webp": {
     "scleropages-jardinii": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "Close crop of a silvery arowana's head and front half; could be a silver arowana or a spotted saratoga"
+      "note": "its Commons file names Scleropages formosus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/eec740e6ef88efce.webp": {
@@ -15911,7 +16487,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Java fern leaves in aquarium, close view"
+      "note": "Java fern leaves close-up in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f25c69e355e0c3e6.webp": {
@@ -16179,9 +16757,18 @@
   },
   "https://media.aquatome.com/commons/f60b7dede2a00e08.webp": {
     "halfmoon-betta": {
-      "ok": "unsure",
+      "ok": "yes",
+      "typical": true,
+      "note": "blue halfmoon betta male, side view with a broad D-shaped tail",
+      "logo": false,
+      "person": false
+    },
+    "betta-splendens": {
+      "ok": "yes",
       "typical": false,
-      "note": "blue long-finned male, fins folded, so the 180° spread can't be checked"
+      "note": "blue halfmoon male betta, a long-finned bred form rather than the wild type",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f663ae1ccccc968d.webp": {
@@ -16233,10 +16820,11 @@
   },
   "https://media.aquatome.com/commons/f7004f757d7c2757.webp": {
     "pseudotropheus-elongatus": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "plain brownish fish over sand, possibly female or juvenile, no clear marks to identify",
-      "logo": false
+      "note": "its Commons file names Aulonocara stuartgranti",
+      "logo": false,
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/f734a63a736586c1.webp": {
@@ -16267,7 +16855,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": true,
-      "note": "silver barred angelfish with spotting, near wild type, close view"
+      "note": "striped wild-type angelfish in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f7bd5d2c20d9a00b.webp": {
@@ -16305,7 +16895,9 @@
     "astronotus-ocellatus": {
       "ok": "yes",
       "typical": false,
-      "note": "tiger oscar, captive-bred colour form with black and yellow-orange marbling and a tail ocellus"
+      "note": "yellow-black tiger oscar variety",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f84ce69285f4c902.webp": {
@@ -16336,6 +16928,14 @@
       "ok": "yes",
       "typical": true,
       "note": "blue adult beside plants, side view"
+    }
+  },
+  "https://media.aquatome.com/commons/f94f05478fb3c9a6.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/f951f81ed157dba7.webp": {
@@ -16373,6 +16973,12 @@
       "ok": "unsure",
       "typical": false,
       "note": "small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out"
+    },
+    "botia-lohachata": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Botia almorhae",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/fa3a993947d8a958.webp": {
@@ -16453,7 +17059,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "male, pinkish-red with dark side stripe, clear side view"
+      "note": "cherry barb with dark lateral stripe, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fc467aa2fef340c2.webp": {
@@ -16507,6 +17115,14 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/fdb933c97d6ae947.webp": {
+    "scleropages-formosus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Osteoglossum bicirrhosum",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/fdbdc89baf654198.webp": {
     "carinotetraodon-travancoricus": {
       "ok": "yes",
@@ -16516,9 +17132,11 @@
   },
   "https://media.aquatome.com/commons/fde5b46b5460a750.webp": {
     "anubias-barteri": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "Rooted cuttings with pointed heart-shaped leaves on a white surface; looks more like pothos than round-leaved coin leaf "
+      "ok": "yes",
+      "typical": true,
+      "note": "bare-root Anubias plant on a white surface",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fde8393ae740af89.webp": {
@@ -16970,7 +17588,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult ram in dark planted tank"
+      "note": "ramirezi among plants, dark tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/2709294861.webp": {
@@ -16985,7 +17605,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Java fern attached to driftwood in aquarium"
+      "note": "java fern attached to driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/31547548236.webp": {
@@ -16999,7 +17621,9 @@
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
-      "note": "Anubias barteri broad heart-shaped leaves submerged in planted tank"
+      "note": "Anubias with round coin-shaped leaves among grass-like plants in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/32202370784.webp": {
@@ -17024,7 +17648,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": true,
-      "note": "wild-type brown discus with dark vertical bars"
+      "note": "wild-type barred discus among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/4126097617.webp": {
@@ -17193,7 +17819,9 @@
     "symphysodon-aequifasciatus": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of head of red-spotted cultivated discus"
+      "note": "close-up of head of orange checkerboard cultivated discus",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/7363087118.webp": {
@@ -17233,42 +17861,54 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": false,
-      "note": "long-finned leopard danio, a spotted colour form of zebrafish"
+      "note": "long-finned leopard danio form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/8843774696.webp": {
     "danio-rerio": {
       "ok": "yes",
       "typical": false,
-      "note": "long-finned leopard danio form"
+      "note": "longfin leopard danio, a spotted form of zebra danio",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/8916686041.webp": {
     "danio-rerio": {
       "ok": "yes",
       "typical": false,
-      "note": "long-finned zebra danio among plants, small and distant"
+      "note": "longfin zebra danio near a plant",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/8916721517.webp": {
     "danio-rerio": {
       "ok": "yes",
       "typical": true,
-      "note": "striped zebra danio in planted tank, side view"
+      "note": "striped zebra danio in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/8916958624.webp": {
     "puntius-titteya": {
       "ok": "yes",
-      "typical": false,
-      "note": "red male cherry barb, small and distant above a rock"
+      "typical": true,
+      "note": "red male cherry barb over rock, somewhat distant",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/8917047324.webp": {
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "two female cherry barbs with brown lateral stripe"
+      "note": "two cherry barbs, females/young males, among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/9111155798.webp": {
@@ -17685,14 +18325,18 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Java fern growing emersed among rocks and dead leaves"
+      "note": "Java fern growing on rocks among dead leaves, emersed",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/112527368.webp": {
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Java fern growing emersed on mossy ground with Selaginella"
+      "note": "Java fern growing emersed among moss and wood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/112785149.webp": {
@@ -17963,9 +18607,11 @@
   },
   "https://media.aquatome.com/inaturalist/142834341.webp": {
     "herichthys-carpintis": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "wild clear river with several Herichthys cichlids"
+      "ok": "yes",
+      "typical": true,
+      "note": "three spotted cichlids in a clear stream, one with orange-black breeding colours",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/142984934.webp": {
@@ -17991,9 +18637,11 @@
   },
   "https://media.aquatome.com/inaturalist/144263586.webp": {
     "herichthys-carpintis": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "clear wild stream with leaf litter, two barred cichlids"
+      "ok": "yes",
+      "typical": true,
+      "note": "two pearl-spotted cichlids among leaf litter in a clear stream, wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/14433524.webp": {
@@ -18177,7 +18825,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "tuft of thin stems with brown terminal spikelets, seen from above"
+      "note": "tangled clump of thin stems with spikelets, top view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/16011938.webp": {
@@ -18189,9 +18839,11 @@
   },
   "https://media.aquatome.com/inaturalist/161246957.webp": {
     "eleocharis-acicularis": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": true,
-      "note": "dense emersed tuft of hair-like stems"
+      "note": "dense fine-leaved clump without spikelets, hard to confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/162234037.webp": {
@@ -18588,9 +19240,11 @@
   },
   "https://media.aquatome.com/inaturalist/196904128.webp": {
     "danio-rerio": {
-      "ok": "yes",
+      "ok": "dead",
       "typical": false,
-      "note": "two pale golden zebra danios with faint stripes, poor view"
+      "note": "two pale danios lying out of water on wet stone",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/198782077.webp": {
@@ -18690,7 +19344,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "dense emersed carpet with brown spikelets"
+      "note": "dense emersed lawn with brown spikelets",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/21395055.webp": {
@@ -18703,8 +19359,10 @@
   "https://media.aquatome.com/inaturalist/215552042.webp": {
     "eleocharis-acicularis": {
       "ok": "unsure",
-      "typical": false,
-      "note": "fine-stemmed sedge with white flowering spikelets among other plants; can't confirm species"
+      "typical": true,
+      "note": "fine grass-like tuft with whitish star-like flower heads, possibly flowering spikerush",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/216090026.webp": {
@@ -19024,7 +19682,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of flowering spikelets on stem tips"
+      "note": "close-up of flowering spikelets against sky",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/245837533.webp": {
@@ -19278,9 +19938,11 @@
   },
   "https://media.aquatome.com/inaturalist/254555011.webp": {
     "danio-albolineatus": {
-      "ok": "habitat",
+      "ok": "unsure",
       "typical": false,
-      "note": "underwater shot of a wild stream with a few small danios over the rocks"
+      "note": "small group of slender fish over rocks in a stream, too small and distant to confirm species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/254555018.webp": {
@@ -19420,7 +20082,9 @@
     "neocaridina-davidi": {
       "ok": "unsure",
       "typical": false,
-      "note": "two brownish mottled shrimps on gravel; maybe wild-type Neocaridina, could be another dwarf shrimp"
+      "note": "two brownish wild-coloured shrimp on gravel; could be wild-type Neocaridina, Caridina not ruled out",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/259005268.webp": {
@@ -19937,8 +20601,9 @@
     "heterandria-formosa": {
       "ok": "yes",
       "typical": true,
-      "note": "live adult female least killifish lying on a dip net in someone's hand; shows the dark side stripe and bars",
-      "logo": false
+      "note": "gravid female with dark lateral stripe and bars, live in a fine net that seems to be held over a hand (skin visible thro",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/31201835.webp": {
@@ -20189,8 +20854,10 @@
   "https://media.aquatome.com/inaturalist/324636830.webp": {
     "anentome-helena": {
       "ok": "yes",
-      "typical": false,
-      "note": "small assassin snail on gravel, blue colour cast, distant view"
+      "typical": true,
+      "note": "small assassin snail on blue-grey gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/325090316.webp": {
@@ -20247,7 +20914,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": false,
-      "note": "assassin snail on gravel, heavy yellow-green colour cast"
+      "note": "assassin snail attacking another snail, strong yellow-green colour cast",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/327646525.webp": {
@@ -20652,9 +21321,11 @@
   },
   "https://media.aquatome.com/inaturalist/352914420.webp": {
     "lagenandra-meeboldii": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "wild stream bank with green Lagenandra-like plants among ferns"
+      "ok": "yes",
+      "typical": true,
+      "note": "green-leaved Lagenandra plants growing wild by a forest stream among ferns",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/35296314.webp": {
@@ -20666,9 +21337,11 @@
   },
   "https://media.aquatome.com/inaturalist/353160567.webp": {
     "lagenandra-meeboldii": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "Wild stream bank with gravel and leaf litter. The green-leaved aroid plants might be Lagenandra but can't be confirmed, "
+      "ok": "yes",
+      "typical": true,
+      "note": "wild Lagenandra clumps with ovate green leaves on a gravelly stream bank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/353977218.webp": {
@@ -21190,7 +21863,9 @@
     "neocaridina-davidi": {
       "ok": "unsure",
       "typical": false,
-      "note": "translucent greenish shrimp with brown saddle in a container; possibly wild-type Neocaridina, can't confirm"
+      "note": "translucent brownish shrimp in a plastic container; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/417855996.webp": {
@@ -21323,9 +21998,11 @@
   },
   "https://media.aquatome.com/inaturalist/427013945.webp": {
     "maylandia-estherae": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "orange mbuna over rocks in the wild, Lake Malawi-type rocky habitat; distant view"
+      "ok": "yes",
+      "typical": true,
+      "note": "orange female red zebra swimming over rocks in the wild, Lake Malawi",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/427013951.webp": {
@@ -21507,9 +22184,11 @@
   },
   "https://media.aquatome.com/inaturalist/450098951.webp": {
     "haludaria-fasciata": {
-      "ok": "habitat",
+      "ok": "unsure",
       "typical": false,
-      "note": "pebbly stream bed with small banded fish barely visible"
+      "note": "small banded fish among pebbles in stream, distant and blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/45037000.webp": {
@@ -21719,9 +22398,11 @@
   },
   "https://media.aquatome.com/inaturalist/467341034.webp": {
     "devario-malabaricus": {
-      "ok": "habitat",
+      "ok": "yes",
       "typical": false,
-      "note": "murky underwater shot from the wild stream with several fish; a reddish danio-like fish with a dark stripe may be it, bu"
+      "note": "wild underwater shot in murky water; giant danio with a dark side stripe and bars toward the front, small rasboras aroun",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/467762980.webp": {
@@ -21910,7 +22591,9 @@
     "trigonostigma-heteromorpha": {
       "ok": "yes",
       "typical": true,
-      "note": "small group in tank, distant view"
+      "note": "small group of harlequin rasboras in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/486540220.webp": {
@@ -21970,7 +22653,9 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": true,
-      "note": "school of wild-type striped zebra danios"
+      "note": "shoal of zebra danios over blue gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/494650720.webp": {
@@ -21998,7 +22683,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "dense emersed stand with spikelets"
+      "note": "stand of fine stems with spikelets in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/501110.webp": {
@@ -22377,7 +23064,9 @@
     "mikrogeophagus-ramirezi": {
       "ok": "yes",
       "typical": false,
-      "note": "ram with pale, washed-out colours, bluish cast"
+      "note": "pale, washed-out ramirezi in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/54937528.webp": {
@@ -22556,7 +23245,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": false,
-      "note": "red shrimp over green background, motion blurred"
+      "note": "blurry red cherry shrimp seen from above on green background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/565684230.webp": {
@@ -22743,9 +23434,11 @@
   },
   "https://media.aquatome.com/inaturalist/585193241.webp": {
     "haludaria-fasciata": {
-      "ok": "habitat",
-      "typical": false,
-      "note": "underwater view of a rocky stream; two small barred barbs, likely this species, seen from far away"
+      "ok": "yes",
+      "typical": true,
+      "note": "two orange fish with black bands in a wild stream over rocks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/586219175.webp": {
@@ -22758,9 +23451,11 @@
   },
   "https://media.aquatome.com/inaturalist/58825741.webp": {
     "puntius-titteya": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "blurry female-type cherry barb among leaf litter and wood"
+      "note": "murky blurry view of small barb-like fish, cannot confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/58825752.webp": {
@@ -22914,14 +23609,18 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": false,
-      "note": "red cherry shrimp from above, murky blurry view"
+      "note": "red cherry shrimp in murky water, poor view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/603056309.webp": {
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": false,
-      "note": "red cherry shrimp from above, hazy blurry view"
+      "note": "red shrimp on sandy bottom, murky and blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/604051014.webp": {
@@ -23976,7 +24675,9 @@
     "neocaridina-davidi": {
       "ok": "yes",
       "typical": true,
-      "note": "deep red cherry shrimp on white sand, clear view"
+      "note": "small red cherry shrimp on white sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/76086652.webp": {
@@ -24103,7 +24804,9 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "assassin snail with banded shell on gravel among plants"
+      "note": "assassin snail on dark substrate among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/86335683.webp": {
@@ -24164,9 +24867,11 @@
   },
   "https://media.aquatome.com/inaturalist/89276688.webp": {
     "eleocharis-acicularis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "close-up of fine stems with pale flowering spikelets; could be another small sedge"
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of flowering needle-like stems with spikelets",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/8935602.webp": {
@@ -24187,7 +24892,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "small emersed tuft of needle-like stems on mud"
+      "note": "emersed clump of needle spikerush with small spikelets on mud",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/90477891.webp": {
@@ -24264,14 +24971,18 @@
     "anentome-helena": {
       "ok": "yes",
       "typical": true,
-      "note": "assassin snail with yellow and brown banded shell on blue gravel, a bit blurry"
+      "note": "assassin snail on blue gravel, slightly blurry through glass",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/98492050.webp": {
     "anentome-helena": {
       "ok": "yes",
       "typical": false,
-      "note": "assassin snail, blurry and partly hidden behind blue gravel"
+      "note": "assassin snail on gravel, blurry and partly hidden",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/98568921.webp": {
@@ -24386,9 +25097,11 @@
   },
   "https://media.aquatome.com/panitvong/inat-553519898.webp": {
     "channa-micropeltes": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "pond/river surface with ripples, maybe a fry swarm at the surface; no fish can be made out"
+      "note": "water surface with ripples, possibly a fry ball; no fish can be picked out",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/panitvong/inat-707077438.webp": {
@@ -24477,9 +25190,11 @@
   },
   "https://media.aquatome.com/scotcat/0c47e60d0f78ba34.webp": {
     "hypancistrus-inspector": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "dark spotted pleco held in hand; small dense spots, could be L201 or similar"
+      "note": "live snowball pleco (L201) held out of water in fingers, dorsal fin erect",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/0d8131e7911dd795.webp": {
@@ -24499,9 +25214,11 @@
   },
   "https://media.aquatome.com/scotcat/10cac58c446e6b0c.webp": {
     "batrochoglanis-villosus": {
-      "ok": "unsure",
+      "ok": "dead",
       "typical": false,
-      "note": "dark catfish held in hand over river, poor view, species unclear"
+      "note": "dark catfish catch held in a hand over a river; can't tell if it is alive",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/10d2bb2003034a55.webp": {
@@ -24695,6 +25412,15 @@
       "typical": false,
       "note": "small silvery juvenile catfish in a tank; can't confirm it is Rita kuturnee",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/227dd83b837b7404.webp": {
+    "aphanotorulus-unicolor": {
+      "ok": "dead",
+      "typical": false,
+      "note": "caught spotted pleco held up on an open palm",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/2347ca5a43988d44.webp": {
@@ -25296,9 +26022,11 @@
   },
   "https://media.aquatome.com/scotcat/61e13c1eba3c259d.webp": {
     "farlowella-platorynchus": {
-      "ok": "unsure",
+      "ok": "dead",
       "typical": false,
-      "note": "Farlowella twig catfish lying on a palm, seen from above; can't confirm the species from this view, and the snout doesn'"
+      "note": "twig catfish lying out of water on an open palm, can't tell if alive",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/61fbb00da2e20825.webp": {
@@ -25612,9 +26340,11 @@
   },
   "https://media.aquatome.com/scotcat/840aa3a98d672b59.webp": {
     "centromochlus-heckelii": {
-      "ok": "unsure",
+      "ok": "dead",
       "typical": false,
-      "note": "dark driftwood catfish held in hand; eye and markings unclear, can't confirm species"
+      "note": "caught dark catfish held up in a hand, likely landed catch",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/858ab9554b8c260e.webp": {
@@ -25683,9 +26413,11 @@
   },
   "https://media.aquatome.com/scotcat/8cc93a19c06dcc34.webp": {
     "centromochlus-heckelii": {
-      "ok": "yes",
-      "typical": true,
-      "note": "live fish in hand: silvery body, dark back, large eye, long dorsal spine"
+      "ok": "dead",
+      "typical": false,
+      "note": "caught driftwood catfish held up in palm of a hand",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/8d333d6a5b78c6be.webp": {
@@ -25838,7 +26570,9 @@
     "denticetopsis-praecox": {
       "ok": "unsure",
       "typical": false,
-      "note": "front view of a small catfish's head and mouth held in fingers; species can't be confirmed"
+      "note": "head-on close-up of a small catfish's mouth held between fingers",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/a4bbc8a5b2174b2a.webp": {
@@ -25852,14 +26586,18 @@
     "denticetopsis-praecox": {
       "ok": "unsure",
       "typical": false,
-      "note": "speckled whale-catfish-like fish held in hand; can't confirm Denticetopsis vs other cetopsids"
+      "note": "small speckled whale-catfish-like fish held on a palm; species can't be confirmed",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/a51ae50024d9ad8c.webp": {
     "hypancistrus-inspector": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "dark spotted pleco held in hand; fine spots, look-alike Hypancistrus not ruled out"
+      "note": "live snowball pleco held in fingers in front of a tank, fins spread",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/a60a7a7ba53092da.webp": {
@@ -26008,10 +26746,11 @@
   },
   "https://media.aquatome.com/scotcat/b28e625d01d88835.webp": {
     "megalancistrus-parananus": {
-      "ok": "unsure",
+      "ok": "dead",
       "typical": false,
-      "note": "spotted juvenile pleco held in hand; could be a Pterygoplichthys",
-      "logo": false
+      "note": "spotted pleco, likely L113, held up out of water in a hand",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/b2c1cd03b4b9ad26.webp": {
@@ -26041,6 +26780,15 @@
       "ok": "yes",
       "typical": true,
       "note": "side view: dark body with white spots, tall spotted dorsal"
+    }
+  },
+  "https://media.aquatome.com/scotcat/b8d6e6ce4b9d2606.webp": {
+    "hemiancistrus-medians": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark spotted pleco with large sail-like dorsal, possibly Pterygoplichthys; held by a hand in a bucket",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/bc3a3bc540bf777c.webp": {
@@ -26181,9 +26929,11 @@
   },
   "https://media.aquatome.com/scotcat/cb7df4b00a22b004.webp": {
     "acentronichthys-leptos": {
-      "ok": "unsure",
+      "ok": "dead",
       "typical": false,
-      "note": "brownish slender catfish held in a hand; darker than A. leptos and can't be confirmed"
+      "note": "small slender catfish caught and lying in the palm of a hand; can't tell if it's alive",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/cb95afdf78fce497.webp": {
@@ -26522,6 +27272,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/scotcat/f21fddb9e255a4b2.webp": {
+    "hemiancistrus-medians": {
+      "ok": "other",
+      "typical": false,
+      "note": "likely Pterygoplichthys sailfin pleco: long many-rayed dorsal fin; held in a gloved hand",
+      "logo": false,
+      "person": true
+    }
+  },
   "https://media.aquatome.com/scotcat/f52afa197f153ec5.webp": {
     "hoplosternum-punctatum": {
       "ok": "yes",
@@ -26532,10 +27291,11 @@
   },
   "https://media.aquatome.com/scotcat/f690de04b4e46df6.webp": {
     "farlowella-oxyrryncha": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "Farlowella stuck to the glass, seen from below with its sucker mouth showing; a hand behind the box",
-      "logo": false
+      "note": "live Farlowella seen from below in a clear viewing box, with a hand behind it; tail cut off, and the species can't be co",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/f715ef527dedcf8c.webp": {
@@ -26574,6 +27334,15 @@
       "ok": "yes",
       "typical": false,
       "note": "young sailfin pleco with pale spots and banded tail"
+    }
+  },
+  "https://media.aquatome.com/scotcat/fb6ab6fc7691fa7a.webp": {
+    "aphanotorulus-unicolor": {
+      "ok": "dead",
+      "typical": false,
+      "note": "caught spotted pleco held up in two hands",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/fbf09a9fba1b7539.webp": {
@@ -26620,6 +27389,15 @@
       "typical": true,
       "note": "side view of mottled whiptail catfish on tank bottom",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/ff260ad0a3aeef60.webp": {
+    "diplomystes-nahuelbutaensis": {
+      "ok": "dead",
+      "typical": false,
+      "note": "small brownish catfish lying in an open palm, possibly a catch; can't tell whether it is alive",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/ffba96049085669e.webp": {
@@ -26769,9 +27547,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/081a24acda117a64.webp": {
     "betta-macrostoma": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "rainforest stream/pool in Borneo, no fish visible"
+      "note": "rainforest stream habitat, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/090d43a1e50206c1.webp": {
@@ -26919,9 +27699,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/1117972ff81e9387.webp": {
     "hyphessobrycon-vilmae": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "Wide Amazonian clearwater river with forested banks"
+      "note": "river landscape with forest, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/11754bae2dbfb786.webp": {
@@ -27544,6 +28326,15 @@
       "note": "Adult banded Acrossocheilus, side view in tank; dark vertical bars on olive-gold body"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/352a0d2ef4bf6907.webp": {
+    "akysis-hendricksoni": {
+      "ok": "none",
+      "typical": false,
+      "note": "forest stream habitat, no fish visible",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/363884a2cb6d3626.webp": {
     "rocio-octofasciata": {
       "ok": "yes",
@@ -27614,8 +28405,9 @@
     "akysis-prashadi": {
       "ok": "unsure",
       "typical": false,
-      "note": "live mottled catfish seen from above in a net; flattened body, can't confirm Akysis prashadi",
-      "logo": false
+      "note": "live Akysis-type catfish seen from above in a net; the species can't be confirmed from this view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/3b7d4a4882d0c911.webp": {
@@ -27711,6 +28503,15 @@
       "ok": "yes",
       "typical": false,
       "note": "barred loach held in hands, out of water"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/3f28df94d5975f39.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "young oscar with dark marbled pattern by a rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/3f55c462221406fb.webp": {
@@ -27847,9 +28648,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/472a198bf2a15cd0.webp": {
     "hyphessobrycon-agulha": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "aerial view of a broad muddy Amazonian river with forest"
+      "note": "aerial view of a wide muddy river through rainforest, no fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/472c2d2313f5c341.webp": {
@@ -28028,9 +28831,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/501bf0b149934e2b.webp": {
     "corydoras-atropersonatus": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "Amazonian river with sandy banks and forest"
+      "note": "tropical river landscape with sandy banks, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/508d120a1e202fd6.webp": {
@@ -28225,6 +29030,15 @@
       "note": "adult tiger barb, deep body, black bands with green sheen"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/5aea43ac1ade225b.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "young oscar near rocks, dim light",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/5c4ad5d8a22b0270.webp": {
     "hypselobarbus-jerdoni": {
       "ok": "unsure",
@@ -28338,9 +29152,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/64779ad6dbacb742.webp": {
     "corydoras-imitator": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "Flooded forest with shallow blackwater pools"
+      "note": "flooded forest habitat, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/65217713769e7c48.webp": {
@@ -28390,7 +29206,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "male cherry barb, side view among plants"
+      "note": "cherry barb with dark lateral stripe among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/67de2da4efb648bc.webp": {
@@ -28798,7 +29616,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "two cherry barbs, brownish with dark stripe and blotches"
+      "note": "two cherry barb females, gold and dark stripes",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/8749659a95ebf533.webp": {
@@ -29281,7 +30101,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "female cherry barb, gold line above dark stripe"
+      "note": "cherry barb female side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a492277a91ea54ef.webp": {
@@ -29304,6 +30126,15 @@
       "typical": false,
       "note": "shallow lake margin with aquatic plants and morning-glory flowers, no fish visible",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/a5d2711d9349d433.webp": {
+    "mikrogeophagus-ramirezi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pair of ramirezi over sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a5d5d7ac2df82e19.webp": {
@@ -29396,6 +30227,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/ab08fd880a5eb9ab.webp": {
+    "botia-kubotai": {
+      "ok": "none",
+      "typical": false,
+      "note": "underwater river habitat with logs and distant small fish; subject not identifiable",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/abfbe7c7ace162ce.webp": {
     "betta-splendens": {
       "ok": "yes",
@@ -29463,9 +30303,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/af087a9caa0bcb3a.webp": {
     "hyphessobrycon-heterorhabdus": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "Amazonian rainforest stream with tea-coloured water; no fish visible"
+      "note": "rainforest stream habitat, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/af6f883652343a23.webp": {
@@ -29566,6 +30408,15 @@
       "note": "akysid catfish, side view, dark brown body with pale saddles, on tank floor"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/b73c3c0c01544115.webp": {
+    "haludaria-fasciata": {
+      "ok": "none",
+      "typical": false,
+      "note": "stream habitat with aroid plants, no fish visible",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10.webp": {
     "betta-smaragdina": {
       "ok": "unsure",
@@ -29577,8 +30428,9 @@
     "baryancistrus-demantoides": {
       "ok": "yes",
       "typical": true,
-      "note": "live green phantom pleco held in hand, yellow spots, tall dorsal fin",
-      "logo": false
+      "note": "green spotted L200 pleco held in a hand out of water, side view",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/seriouslyfish/b826386ee16932ab.webp": {
@@ -29788,9 +30640,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp": {
     "akysis-vespa": {
-      "ok": "habitat",
+      "ok": "none",
       "typical": false,
-      "note": "forest stream with riffles over rocks; no fish visible"
+      "note": "forest stream habitat with small rapids, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/c437f16eabe41536.webp": {
@@ -30711,6 +31565,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588.webp": {
+    "danio-rerio": {
+      "ok": "yes",
+      "typical": false,
+      "note": "leopard danio colour form of zebra danio",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/fbdf329b08ced52b.webp": {
     "cleithracara-maronii": {
       "ok": "yes",
@@ -30927,7 +31790,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "female-type cherry barb with checkered pattern, red fins",
+      "note": "female cherry barb in planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -30942,7 +31807,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "red male cherry barb over gravel",
+      "note": "male cherry barb over gravel",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31013,11 +31880,22 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/sprucepets/56d5b06420073d26.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult oscar with orange bars and tail ocellus in tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/sprucepets/5815ce71455d45c3.webp": {
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "Gold-head silver angelfish with plants behind",
+      "note": "gold-headed pale angelfish colour form",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31057,7 +31935,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "male cherry barb, blotched pattern, red fins"
+      "note": "cherry barb male colouring up",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/sprucepets/6236bc81fc7bc03b.webp": {
@@ -31152,7 +32032,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "deep red male cherry barb among plants",
+      "note": "bright red male cherry barb among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31176,7 +32058,9 @@
     "pterophyllum-scalare": {
       "ok": "yes",
       "typical": false,
-      "note": "Koi angelfish: white body, orange head, black spots",
+      "note": "koi angelfish colour form",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31193,6 +32077,15 @@
       "typical": true,
       "note": "Two adult Congo tetras with iridescent orange-gold and blue sheen and frilled fins, in a planted tank",
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/sprucepets/9de74927ec87b9fc.webp": {
+    "danio-rerio": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of striped zebra danios in tank, one other tetra among them",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/sprucepets/a01314e2df858b49.webp": {
@@ -31215,7 +32108,9 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": true,
-      "note": "female and male zebra danio, horizontal stripes",
+      "note": "female and male zebra danio on a blue background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31320,7 +32215,9 @@
     "danio-rerio": {
       "ok": "yes",
       "typical": true,
-      "note": "adult zebra danio, clear side view of blue-gold stripes",
+      "note": "single adult zebra danio, side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31363,7 +32260,9 @@
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "cherry barb side view with dark scale markings",
+      "note": "female cherry barb, clear side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31495,6 +32394,26 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/025oy0MtL-s/p1-lbGxhdHVzKS5qcGc.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "full side view of tiger oscar, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/0KkgA9W52kQ/p0-ZvY19wYXJrLmpwZw.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "public tank labelled Red Oscar with gravel, round stones and plants; red oscars, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/0KkgA9W52kQ/p5-YWlreW9rYW4uanBn.webp": {
     "tetraodon-lineatus": {
       "ok": "yes",
@@ -31508,7 +32427,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Wild clump of Java fern with lance-shaped leaves on a stream bank, matches the caption",
+      "note": "java fern clump growing wild at stream edge",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31516,7 +32437,9 @@
     "eleocharis-acicularis": {
       "ok": "yes",
       "typical": true,
-      "note": "Dense dwarf hair grass carpet in aquarium foreground, matches caption",
+      "note": "dense hair grass carpet in aquarium foreground, driftwood and shrimp",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31533,6 +32456,14 @@
       "ok": "unsure",
       "typical": false,
       "note": "raw beef heart on cutting board (food prep), no fish",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "dead",
+      "typical": false,
+      "note": "raw whole beef heart on cutting board, food for discus as captioned",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31556,7 +32487,9 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "healthy java fern in a small pot, set on artificial grass",
+      "note": "java fern in small net pot against white wall",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31565,6 +32498,24 @@
       "ok": "yes",
       "typical": false,
       "note": "golden/orange cultivated discus in planted tank, matches caption",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden/yellow cultivated discus in planted tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/7ZVrhWkpFDE/p2-NfUGxhbnRzLmpwZw.webp": {
+    "symphysodon-aequifasciatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "aquascape with driftwood and mermaid statue, no discus visible",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31590,14 +32541,23 @@
       "typical": false,
       "note": "same golden-orange discus, round high body, matches caption",
       "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden/yellow discus, same image as 1",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/video/7l1Ja0NL_UQ/p6-X3RpdHRleWEuanBn.webp": {
     "puntius-titteya": {
       "ok": "yes",
       "typical": true,
-      "note": "bright red male cherry barb among aquarium plants",
+      "note": "red male cherry barb swimming among aquarium plants",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31641,6 +32601,14 @@
       "typical": false,
       "note": "orange-yellow captive-bred discus in planted tank",
       "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden cultivated discus in planted tank, same image as 1",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/video/9Ve-eoniVlw/p5-lX1pvb18wNC5qcGc.webp": {
@@ -31648,6 +32616,14 @@
       "ok": "yes",
       "typical": false,
       "note": "adult orange-red captive-bred discus in planted tank",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "orange-red cultivated discus in planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31660,11 +32636,81 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/9o5lEWqK1pU/p5-YXF1YXJpdW0uanBn.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two golden oscars by green plants, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/9o5lEWqK1pU/p6-lX1pvb18wMS5qcGc.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult wild-type oscar swimming among driftwood and plants",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/A1a-GetRJxM/p4-YXF1YXJpdW0uanBn.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two golden/orange oscars by aquatic plants",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/A1a-GetRJxM/p8-XzIwMTBfRzEuanBn.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale, washed-out oscar resting near gravel bottom",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/A1a-GetRJxM/p9-Y2FyVGlnZXIuSlBH.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "tiger oscar, orange markings on dark body, in tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/A7UY_Sa4t7s/p0-U3X25ldml0LmpwZw.webp": {
     "poecilia-reticulata": {
       "ok": "yes",
       "typical": false,
       "note": "tiny guppy fry near a clay pot, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/AqBogTwt6c4/p5-lX1pvb18wMS5qcGc.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult oscar side view, same image as photo 1",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/BeaiD0fbdlA/p5-NlbGxhdHVzLmpwZw.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of oscar's head and front against a black background",
       "logo": false,
       "person": false,
       "guide": true
@@ -31683,7 +32729,19 @@
     "microsorum-pteropus": {
       "ok": "yes",
       "typical": true,
-      "note": "Java fern in a small net pot, long green lance-shaped leaves; matches the caption",
+      "note": "java fern in small net pot, same image as photo 5",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/DZ0JTLYiawU/p8-hc2NpYXR1cy5qcGc.webp": {
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden cultivated discus side view, same image as 1",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31692,6 +32750,14 @@
       "ok": "yes",
       "typical": false,
       "note": "several captive-bred discus colour forms (golden, white-pigeon, red-white) in a bare tank with an airline bubbling in th",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "several cultivated discus (yellow, snakeskin, red-white) in bare tank with airstone",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31741,6 +32807,16 @@
       "ok": "yes",
       "typical": true,
       "note": "Black ghost knifefish swimming head-down over driftwood and moss, white-banded tail visible; matches caption",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/FwandSa_Hrg/p1-lX1pvb18wMS5qcGc.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "tiger oscar, orange and black marbling, side view in planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -32016,6 +33092,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/SVD46Uvw66A/p2-lX1pvb18wMS5qcGc.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same tiger oscar shown whole from the side",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/TEZjYpuJFsU/p1-hZV90ZXRyYS5KUEc.webp": {
     "trigonostigma-heteromorpha": {
       "ok": "other",
@@ -32055,6 +33141,24 @@
       "ok": "yes",
       "typical": false,
       "note": "orange-red bred discus (red melon type), clear side view in a planted tank",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "orange-red discus colour strain in planted tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/WVCXRvyshIA/p3-XzIwMTBfRzEuanBn.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pale, faded oscar lying on the gravel near the bottom, tilted to one side",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -32131,6 +33235,24 @@
       "typical": false,
       "note": "healthy orange/golden captive-bred discus with whole fins and clear eyes in a planted tank",
       "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden-orange bred discus, planted tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/_AfM2Mwdig4/p6-hc2NpYXR1cy5qcGc.webp": {
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden-orange red-eyed discus strain, some fine dark peppering",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/video/_ZxeBxNRdPU/p3-YW4sMjAwNykuanBn.webp": {
@@ -32182,6 +33304,14 @@
       "typical": false,
       "note": "Red-patterned discus (bred colour strain) with a clear pattern against a dark background; matches the caption",
       "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "red-patterned white discus strain on dark background",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/video/bYlprFFLsEE/p2-k4NTQyNDMpLmpwZw.webp": {
@@ -32189,6 +33319,14 @@
       "ok": "yes",
       "typical": false,
       "note": "Same image as photo 1: red-patterned discus in a planted tank with soft light; matches the caption",
+      "guide": true
+    },
+    "symphysodon-aequifasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "same red-patterned discus image as photo 3, planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -32322,6 +33460,16 @@
       "ok": "yes",
       "typical": false,
       "note": "Same scene: goldfish swimming over gravel bottom; matches caption",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/qslR6wr0Rhk/p4-YXF1YXJpdW0uanBn.webp": {
+    "astronotus-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "orange (golden/red) oscar bred form by plants, with a second fish behind",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },

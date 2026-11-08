@@ -1,0 +1,186 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-store"
+  },
+  "body": {
+    "id": "6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913",
+    "from": "fish-id",
+    "about": {
+      "id": "paracheirodon-innesi",
+      "kind": "species",
+      "name": "Cá neon xanh",
+      "sci": "Paracheirodon innesi",
+      "url": "/vi/ca/ca-neon-xanh/",
+      "img": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79-480.webp"
+    },
+    "identified": {
+      "verdict": "fish",
+      "results": [
+        {
+          "scientificName": "Paracheirodon innesi",
+          "id": "paracheirodon-innesi",
+          "confidence": 0.86
+        }
+      ]
+    },
+    "started": "2026-11-05T13:02:11Z",
+    "last": "2026-11-05T13:06:40Z",
+    "open": false,
+    "turns": [
+      {
+        "question": "Nuôi cá này thế nào?",
+        "asked": "2026-11-05T13:02:11Z",
+        "turn": {
+          "conversation": "6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913",
+          "n": 1,
+          "text": "Cá neon xanh dễ nuôi nếu được sống thành đàn, trong bể có nhiều cây để trú. Nếu bể đã có cá khác, hãy kiểm tra xem chúng có nuôi chung được không trước khi thả.",
+          "blocks": [
+            {
+              "t": "species",
+              "page": {
+                "id": "paracheirodon-innesi",
+                "kind": "species",
+                "name": "Cá neon xanh",
+                "sci": "Paracheirodon innesi",
+                "url": "/vi/ca/ca-neon-xanh/",
+                "img": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79-480.webp"
+              },
+              "facts": {
+                "tempC": {
+                  "min": 21,
+                  "max": 25
+                },
+                "ph": {
+                  "min": 5,
+                  "max": 7
+                },
+                "gh": {
+                  "min": 1,
+                  "max": 10
+                },
+                "sizeCm": 3,
+                "tankCm": 60,
+                "temperament": "peaceful",
+                "schoolMin": 6,
+                "difficulty": 3,
+                "lifeYears": {
+                  "min": 5,
+                  "max": 10
+                }
+              }
+            },
+            {
+              "t": "section",
+              "page": {
+                "kind": "guide",
+                "title": "Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới",
+                "url": "/vi/huong-dan/huong-dan-nuoi-ca-neon-xanh-va-ca-neon-vua-ca-dan-de-nuoi/"
+              },
+              "heading": {
+                "text": "Cá neon xanh (Paracheirodon innesi)",
+                "id": "ca-neon-xanh-paracheirodon-innesi"
+              },
+              "blocks": [
+                {
+                  "t": "p",
+                  "c": [
+                    "Cá neon xanh khác cá neon vua ở một vài điểm, dù ngoại hình hai loài khá giống nhau. Cá neon xanh nhỏ con hơn cá neon vua, và màu xanh với màu đỏ không chạy suốt chiều dài thân. Thường thì phần đầu của neon xanh có màu xanh, còn phần đuôi màu đỏ. Màu của chúng không rực bằng neon vua nhưng vẫn rất nổi."
+                  ]
+                },
+                {
+                  "t": "figure",
+                  "img": {
+                    "src": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79.webp",
+                    "w": 640,
+                    "h": 402,
+                    "alt": "Cá neon xanh",
+                    "credit": {
+                      "text": "Ảnh: Seriously Fish",
+                      "licence": "",
+                      "url": "https://www.seriouslyfish.com/species/paracheirodon-innesi"
+                    }
+                  },
+                  "caption": [
+                    {
+                      "text": "Cá neon xanh",
+                      "href": "/vi/ca/ca-neon-xanh/"
+                    }
+                  ],
+                  "href": "/vi/ca/ca-neon-xanh/"
+                },
+                {
+                  "t": "p",
+                  "c": [
+                    "Phần lớn cá neon xanh cũng là cá nhân giống trong bể nuôi. Vì không phải bắt từ tự nhiên nên chúng dễ tìm hơn, và giá cũng rẻ hơn cá neon vua."
+                  ]
+                }
+              ]
+            },
+            {
+              "t": "tool",
+              "tool": "tank-mates",
+              "name": "Nuôi chung",
+              "url": "/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6"
+            }
+          ],
+          "suggestions": [
+            "Nuôi chung với cá betta được không?",
+            "Thả bao nhiêu con thì vừa bể của tôi?",
+            "Cá neon vua khác gì cá neon xanh?"
+          ],
+          "covered": true,
+          "model": "claude-opus-5-5",
+          "steps": [
+            {
+              "kind": "read",
+              "page": {
+                "kind": "fish",
+                "title": "Cá neon xanh",
+                "url": "/vi/ca/ca-neon-xanh/"
+              }
+            },
+            {
+              "kind": "search",
+              "query": "cá neon nuôi đàn"
+            },
+            {
+              "kind": "read",
+              "page": {
+                "kind": "guide",
+                "title": "Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới",
+                "url": "/vi/huong-dan/huong-dan-nuoi-ca-neon-xanh-va-ca-neon-vua-ca-dan-de-nuoi/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "question": "Cá neon ăn gì?",
+        "asked": "2026-11-05T13:06:40Z",
+        "turn": {
+          "conversation": "6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913",
+          "n": 2,
+          "text": "Cá neon xanh ăn tạp: cám nhỏ hạt, và thức ăn đông lạnh như artemia hay trùn chỉ. Cho ăn ít, vừa hết trong vài phút, ngày một đến hai lần.",
+          "blocks": [],
+          "suggestions": [
+            "Nuôi chung với cá gì được?"
+          ],
+          "covered": true,
+          "model": "claude-opus-5-5",
+          "steps": [
+            {
+              "kind": "read",
+              "page": {
+                "kind": "fish",
+                "title": "Cá neon xanh",
+                "url": "/vi/ca/ca-neon-xanh/"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

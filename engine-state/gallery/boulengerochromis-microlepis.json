@@ -4,13 +4,27 @@
   "File:Boulengerochromis microlepis.jpg",
   "File:DKoehl Boulengerochromis microlepis.jpg",
   "File:LPJ Boulengerochromis microlepis.jpg",
-  "File:Curious young cichlids.jpg"
+  "File:Curious young cichlids.jpg",
+  "inat:528059475",
+  "inat:528472614",
+  "inat:689258916",
+  "inat:689257900",
+  "inat:689257899"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/23f20bb4eccb58d7.webp": "1f27270f03362c4f",
   "https://media.aquatome.com/seriouslyfish/acf9d99eb87bfccc.webp": "9cfbfbfd8f2e39c1",
   "https://media.aquatome.com/seriouslyfish/045b2f82d7de7d86.webp": "3f6f9f2776634767",
-  "https://media.aquatome.com/commons/d5e62a76f97c4a79.webp": "797b6bd3934a5632"
+  "https://media.aquatome.com/commons/d5e62a76f97c4a79.webp": "797b6bd3934a5632",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/689258916/large.jpg": "1a1b332332716d65"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 95952,
+  "pass": "done",
+  "after": {
+   "research": 376957348,
+   "agree": 0
+  }
+ }
 }
