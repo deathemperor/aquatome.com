@@ -7,6 +7,8 @@ import { DIST, page } from './dist'
 const facts = await loadFacts(process.env.CONTENT_ROOT!)
 
 // Every page of the fixture build passes every check. A real exception goes into the check, with its reason.
+// 2026-11-08, the check on aquatome.com (/cay/duong-xi-microsorum/): two video guides naming a plant used one photo in
+// two files, and the page's video cards showed it twice. The fixture's two videos naming the red cherry shrimp do too.
 test('no built page shows a picture twice, a wrong fish, a wrong link, a fish without its photo, wrong contents or an empty section', () => {
   expect(checkDist(DIST, facts)).toEqual([])
 })

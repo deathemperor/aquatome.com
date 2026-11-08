@@ -1,5 +1,6 @@
-import { PictureSet, type Content, type Photo } from '@aq/schema'
+import { PictureSet, type Content, type GuideEntity, type Localized, type Photo } from '@aq/schema'
 import { cleanPhoto } from './home'
+import { guideImages } from './mentions'
 
 /**
  * The pictures one page shows, so it never shows one twice (the same photo in two files counts: PictureSet). The page
@@ -49,6 +50,9 @@ export function morePhotos(pics: PictureSet, gallery: Photo[], strip: (Photo | n
   }
   return more
 }
+
+/** Video guides' card pictures (VideoGuideGrid), in order, none the page shows already nor twice. */
+export const videoCovers = (c: Content, pics: PictureSet, guides: Localized<GuideEntity>[]) => takeEach(pics, guides, g => guideImages(c, g))
 
 /** A grid of fish cards' pictures, none twice (a fish and its colour form often share a photo): what SpeciesGrid shows. */
 export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => photosOf(s.photos))
