@@ -168,8 +168,17 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['Emamectin 0.05 ppm, keep oxygen high', 1],
     ['Use half a teaspoon of Epsom salt per 5 gallons', 1],
     ['A 1:2000 formalin bath for 30 minutes', 1],
+    // A mineral with its compound is a treatment; a measure in words; grams per volume beside a water level.
+    ['Magnesium sulfate at 1,000 ppm for dropsy.', 1],
+    ['Calcium hypochlorite at 5 ppm to disinfect.', 1],
+    ['Use 1 g per 10 litres; nitrate stays under 20 ppm.', 1],
+    ['Larutkan 2 sudu besar garam dalam 1 liter air untuk rendaman.', 1],
+    ['1 kapsul untuk setiap 20 liter.', 1],
+    ['Half a capful per 40 litres.', 1],
+    ['One tablet per 20 litres.', 1],
+    ['Oxygen above 5 ppm with treatment at 25 ppm.', 1],
   ] as const) expect(usable(fact, source), fact).toBe(false)
-  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms']) expect(usable(fact), fact).toBe(true)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.']) expect(usable(fact), fact).toBe(true)
   expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
   // Another page of the same forum is no second source: its addresses can't tell a thread's pages from its posts.
   const second = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
@@ -180,7 +189,15 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['https://forum.example/index.php?topic=12.0', 'https://forum.example/index.php?topic=12.15'],
     ['https://www.reddit.com/r/Aquariums/comments/abc/ich/', 'https://old.reddit.com/r/Aquariums/comments/abc/ich/def456/'],
     ['https://m.forum.example/t/ich/123', 'https://forum.example/t/ich/123/45'],
+    ['https://www.reddit.com/r/Aquariums/comments/abc/x/', 'https://redd.it/abc'],
+    ['https://www.reddit.com/r/Aquariums/comments/abc/x/', 'https://np.reddit.com/r/Aquariums/comments/abc/x/'],
+    ['https://www.facebook.com/groups/1/posts/2', 'https://vi-vn.facebook.com/groups/1/posts/2'],
+    ['https://www.facebook.com/groups/1/posts/2', 'https://fb.com/groups/1/posts/2'],
+    ['https://diendan.cacanh.vn/t/1', 'https://cacanh.vn/x'],
+    ['https://forum.example.com.vn/t/1', 'https://example.com.vn/bai-viet'],
+    ['https://www.fishforum.com./t/1', 'https://fishforum.com/t/2'],
   ]) expect(second(a!, b!), b).toBe(false)
+  expect(second('https://forum.a.com.vn/t/1', 'https://b.com.vn/x')).toBe(true)
   expect(second('https://forum.example/viewtopic.php?t=1', 'https://other.example/threads/ich.5/')).toBe(true)
 })
 
