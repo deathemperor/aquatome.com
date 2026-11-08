@@ -26,7 +26,7 @@ const { p } = Astro.props as { p: Localized<PlantEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // What the page shows, chosen in page order (lib/plant-page.ts, which the app's copy reads too).
-const { gallery, galleryPath, strip, figures, guides, videoGuides } = plantParts(lang, c, p)
+const { gallery, galleryPath, strip, figures, guides, videoGuides, videoPhotos } = plantParts(lang, c, p)
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -57,7 +57,7 @@ const alternates = await alternatesOf('plants', p.id)
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} refs={p.refs} />
   {/* The guides that say more about it, then the shops (Vietnam's, Shopee/Lazada links: Vietnamese pages only). */}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />
-  <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
+  <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
   {lang === 'vi' && <div class="wrap"><ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} /></div>}
   <div class="wrap"><Comments entity={`plant:${p.id}`} /></div>
   <BackToTop />
