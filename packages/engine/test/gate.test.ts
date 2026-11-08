@@ -265,6 +265,111 @@ test('a new guide that comes in two languages, one harmful, is held in both, whi
   expect((await readJson(root, 'content/guides/new-two/th.json')).held).toMatchObject({ checks: ['harm'] })
 })
 
+test('a dose the rules call harmful holds a page with no read, in every language; a text put back is held for its own, not for the one it replaced', async () => {
+  const commit = (root: string) => { git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x') }
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  const overdose = (t: Record<string, unknown>) => { t.body = `${t.body as string}<p>Kanamycin ngâm: 2–5 g/L.</p>` }
+  // Live, never read, the cycle didn't touch it: held with no call, and its Thai page with it.
+  const root = await repo()
+  await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+  await edit(root, GUIDE, overdose)
+  commit(root)
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toEqual([])
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+
+  // A cycle brings it: the old text comes back, not held, nor is its Thai page; read, or with the accounts out.
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  for (const llm of [reader(), none]) {
+    const brought = await repo()
+    await writeFile(join(brought, th), await readFile(join(brought, GUIDE), 'utf8'))
+    commit(brought)
+    const before = await readFile(join(brought, GUIDE), 'utf8')
+    await edit(brought, GUIDE, overdose)
+    await gate(brought, { llm, now })
+    expect(await readFile(join(brought, GUIDE), 'utf8')).toBe(before)
+    expect((await readJson(brought, th)).held).toBeUndefined()
+  }
+
+  // The committed text has it and the change can't be read: put back, and held for its own.
+  const had = await repo()
+  await edit(had, GUIDE, overdose)
+  commit(had)
+  const committed = await readFile(join(had, GUIDE), 'utf8')
+  await edit(had, GUIDE, t => { t.body = (t.body as string).replace('<p>Kanamycin ngâm: 2–5 g/L.</p>', '<p>Thay nước mỗi tuần.</p>') })
+  await gate(had, { llm: none, now })
+  expect(JSON.parse(await readFile(join(had, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(committed), held: { checks: ['harm'], at: '2026-11-09' } })
+})
+
+test('harm is counted from the text each language ends with: a rejected text holds no other page, a text put back holds them all, and the rules\' harm costs no read', async () => {
+  const commitAll = (root: string) => { git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x') }
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  const overdose = (t: Record<string, unknown>) => { t.body = `${t.body as string}<p>Kanamycin ngâm: 2–5 g/L.</p>` }
+  const harmless = (t: Record<string, unknown>) => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` }
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  // Both languages changed, one new text harmful: it is put back and the other keeps its new text, unheld, whichever is
+  // harmful, read or with the accounts out. The harmful text is never read.
+  for (const [bad, good] of [[GUIDE, th], [th, GUIDE]] as const) {
+    for (const llm of [reader, () => none]) {
+      const root = await repo()
+      await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+      commitAll(root)
+      const committed = await readFile(join(root, bad), 'utf8')
+      await edit(root, bad, overdose)
+      await edit(root, good, harmless)
+      const changedGood = await readFile(join(root, good), 'utf8')
+      const calls: string[] = []
+      await gate(root, { llm: llm === reader ? reader(calls) : none, now })
+      expect(await readFile(join(root, bad), 'utf8')).toBe(committed)
+      expect(calls.some(c => c.includes('Kanamycin'))).toBe(false)
+      if (llm === reader) expect(await readFile(join(root, good), 'utf8')).toBe(changedGood)
+      expect((await readJson(root, good)).held).toBeUndefined()
+      expect((await readJson(root, bad)).held).toBeUndefined()
+    }
+  }
+  // The committed text has the harm and its change, which can't be read, is put back: the page is held in every language
+  // in that run.
+  const had = await repo()
+  await writeFile(join(had, th), await readFile(join(had, GUIDE), 'utf8'))
+  await edit(had, GUIDE, overdose)
+  commitAll(had)
+  await edit(had, GUIDE, t => { t.body = (t.body as string).replace('<p>Kanamycin ngâm: 2–5 g/L.</p>', '<p>Thay nước mỗi tuần.</p>') })
+  await gate(had, { llm: none, now })
+  expect((await readJson(had, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(had, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+})
+
+test('a text put back for harm that only its older read found holds its other languages; a harmful text changed and still harmful stays, held in each', async () => {
+  const commitAll = (root: string) => { git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x') }
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  const harm = { checks: ['harm'], at: '2026-11-09' }
+  for (const jobs of [1, 3]) {
+    const root = await repo()
+    await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+    commitAll(root)
+    // The committed text's saved read found harm; read again it finds none, and the new text brings a kit.
+    const vi = (await loadPages(join(root, 'content'))).find(p => p.lang === 'vi' && p.id === 'youtube-r53ZQW0m8VM')!
+    const state: FitState = { [fitKey(vi)]: { at: '2026-11-01', hash: fitText(vi).hash, model: 'm', findings: [{ check: 'harm', part: 'P1', quote: 'x', why: 'fish suffocate', by: 'model' }], products: [], checklist: 3 } as never }
+    await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify(state))
+    await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })
+    await gate(root, { llm: reader(), now, jobs })
+    expect((await readJson(root, GUIDE)).held, `jobs ${jobs}`).toEqual(harm)
+    expect((await readJson(root, th)).held, `jobs ${jobs}`).toEqual(harm)
+  }
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  const had = await repo()
+  await writeFile(join(had, th), await readFile(join(had, GUIDE), 'utf8'))
+  await edit(had, GUIDE, t => { t.body = `${t.body as string}<p>Kanamycin ngâm: 2–5 g/L.</p>` })
+  commitAll(had)
+  await edit(had, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+  const changed = await readFile(join(had, GUIDE), 'utf8')
+  await gate(had, { llm: none, now })
+  expect(await readJson(had, GUIDE)).toEqual({ ...JSON.parse(changed), held: harm })
+  expect((await readJson(had, th)).held).toEqual(harm)
+})
+
 test('a text put back that no rewording fixes is held', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })
