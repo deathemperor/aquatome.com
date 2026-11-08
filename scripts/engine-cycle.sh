@@ -295,8 +295,9 @@ pnpm engine metric || log "metric: failed"
 pnpm engine sweep || log "sweep: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
-# and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run.
-pnpm engine gate || { log "gate: crashed, not publishing"; exit 1; }
+# and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
+# and keeps its work on a branch (gate_or_keep).
+gate_or_keep "content: engine $PART" content sources engine-state docs/review apps/site/src/i18n || exit 1
 if part photos; then
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
