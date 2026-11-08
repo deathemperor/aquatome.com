@@ -61,6 +61,8 @@ export function guideList() {
     for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === kind))
     // The beginner row is for the whole list: a reader who picked a subject goes straight to it.
     if (start) start.hidden = kind !== ''
+    // Until its guides come, the cards there wait unseen (render() shows them again): they're the whole list's, not the subject's.
+    if (kind && !items) list.setAttribute('aria-busy', 'true')
     if (kind && !items && !(await load())) return failed()
     render()
   }

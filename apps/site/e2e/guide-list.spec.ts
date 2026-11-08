@@ -30,7 +30,16 @@ for (const [path, lang] of [['/huong-dan/', 'vi'], ['/id/panduan/', 'id'], ['/th
 
     // The smallest subject: only its guides, each labelled with it; the beginner row steps aside.
     const pick = kinds.reduce((a, b) => (b.n < a.n ? b : a))
+    // While its guides are on their way (the data file, held here), no other subject's card shows as if it were one of
+    // them: on aquatome.com a subject has more than a page of guides, and the whole list's first page has as many cards.
+    const src = (await page.locator('#guide-list').getAttribute('data-src'))!
+    let release!: () => void
+    const held = new Promise<void>(r => (release = r))
+    await page.route(`**${src}`, async route => { await held; await route.continue() })
     await pick.chip.click()
+    const pickKind = (await pick.chip.getAttribute('data-kind'))!
+    await expect(page.locator(`#guide-list > [data-kind]:not([data-kind="${pickKind}"]):visible`)).toHaveCount(0)
+    release()
     await expect(page).toHaveURL(/\?kind=\w+$/)
     await expect(pick.chip).toHaveAttribute('aria-pressed', 'true')
     await expect(everything!.chip).toHaveAttribute('aria-pressed', 'false')
