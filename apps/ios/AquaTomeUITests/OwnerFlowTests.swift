@@ -335,6 +335,7 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     app.closeAccount()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "v2 didn't open on Hôm nay")
+    let home = XCUIScreen.main.screenshot().image
     let today = report(app)
     XCTAssertTrue(today.hasPrefix("v2 today · "), today)
 
@@ -343,9 +344,12 @@ final class OwnerFlowTests: XCTestCase {
     _ = XCTWaiter.wait(for: [XCTestExpectation(description: "settled")], timeout: 2)
     let screen = XCUIScreen.main.screenshot().image
     let fish = report(app) { picture in
-      let near = Self.difference(picture, screen)
+      // Near the screen it was taken from, and nearer it than Hôm nay's: a check that any picture would pass can't.
+      let (near, other, spread) = (Self.difference(picture, screen), Self.difference(picture, home), Self.spread(picture))
+      print("owner report picture: \(near) from the screen, \(other) from Hôm nay's, spread \(spread)")
       XCTAssertLessThan(near, 0.08, "the picture isn't what the screen showed: \(near)")
-      XCTAssertGreaterThan(Self.spread(picture), 0.05, "the picture is one flat colour")
+      XCTAssertLessThan(near * 2, other, "the picture is as near another screen as its own: \(near) against \(other)")
+      XCTAssertGreaterThan(spread, 0.05, "the picture is one flat colour")
     }
     XCTAssertTrue(fish.hasPrefix("v2 today species · /"), fish)
     XCTAssertTrue(fish.contains("/ca/"), fish)
