@@ -63,8 +63,9 @@ pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VI
 pnpm engine sweep || log "sweep: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
-# and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run.
-pnpm engine gate || { log "gate: crashed, not publishing"; exit 1; }
+# and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
+# and keeps its work on a branch (gate_or_keep).
+gate_or_keep "content: video guides checked again" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 # Committed before the tests, as video-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
 # stays in the reflog to publish by hand.
