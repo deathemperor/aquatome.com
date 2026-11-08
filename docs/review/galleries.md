@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
-| shop | 60 | 131 | 77 | 24 | 30 | 202 |
+| shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 19 | 0 | 0 | 1 | 18 |
-| covered | 30 | 406 | 14 | 9 | 13 | 416 |
-| rest | 20 | 1130 | 84 | 0 | 9 | 1205 |
+| covered | 30 | 419 | 17 | 9 | 13 | 432 |
+| rest | 20 | 1182 | 83 | 0 | 12 | 1253 |
 
-## Short of target: every source read (113)
+## Short of target: every source read (119)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -32,12 +32,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gymnocorymbus-ternetzi | shop | 48 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
 | breeds/oranda-goldfish | shop | 29 | 60 |
-| species/xiphophorus-maculatus | shop | 45 | 60 |
+| species/xiphophorus-maculatus | shop | 44 | 60 |
 | plants/pogostemon-helferi | shop | 4 | 60 |
 | breeds/ranchu-goldfish | shop | 3 | 60 |
 | species/hemigrammus-bleheri | shop | 9 | 60 |
-| plants/hygrophila-polysperma | shop | 42 | 60 |
+| plants/hygrophila-polysperma | shop | 41 | 60 |
 | breeds/ryukin-goldfish | shop | 3 | 60 |
+| plants/micranthemum-tweediei | shop | 1 | 60 |
 | breeds/lionhead-goldfish | shop | 0 | 60 |
 | species/hyphessobrycon-herbertaxelrodi | shop | 11 | 60 |
 | breeds/pearlscale-goldfish | shop | 4 | 60 |
@@ -115,17 +116,22 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/melanotaenia-praecox | shop | 5 | 60 |
 | plants/ludwigia-glandulosa | shop | 9 | 60 |
 | species/dario-dario | shop | 1 | 60 |
+| plants/limnophila-aromatica | shop | 18 | 60 |
 | plants/utricularia-graminifolia | shop | 10 | 60 |
 | species/poropanchax-normani | shop | 6 | 60 |
 | species/hasemania-nana | shop | 1 | 60 |
 | plants/marsilea-hirsuta | shop | 12 | 60 |
-| species/gyrinocheilus-aymonieri | shop | 15 | 60 |
+| species/gyrinocheilus-aymonieri | shop | 14 | 60 |
 | species/erpetoichthys-calabaricus | shop | 3 | 60 |
 | plants/sagittaria-subulata | shop | 9 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 6 | 60 |
-| species/boraras-urophthalmoides | shop | 5 | 60 |
-| species/scleropages-jardinii | shop | 8 | 60 |
+| species/boraras-urophthalmoides | shop | 4 | 60 |
+| plants/taxiphyllum-alternans | shop | 3 | 60 |
+| plants/fissidens-fontanus | shop | 18 | 60 |
+| species/poecilia-sphenops | shop | 18 | 60 |
+| plants/cryptocoryne-beckettii | shop | 0 | 60 |
+| species/scleropages-jardinii | shop | 6 | 60 |
 | species/channa-asiatica | shop | 5 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

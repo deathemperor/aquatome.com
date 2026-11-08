@@ -75,6 +75,9 @@ export function needsCare({ now, overview: o, app, gh, scoreboard }: ComposeInpu
     if (crashes) out.push({ title: `App: ${plural(crashes, 'crash', 'crashes')} in the last 24 hours`, text: app.versions.filter(v => v.crashes).map(v => `${v.version}: ${fmt(v.crashes)}`).join(', '), href: '/_ab/ung-dung/' })
   }
   if (!scoreOf(scoreboard)) out.push({ title: 'Could not load the week\'s success numbers', href: SCOREBOARD_PATH })
+  // A burst of fresh tabs sweeping the pages (readers.ts BURST) yesterday: left out of the readers, and worth a look.
+  const auto = isFailed(o.readers) ? 0 : o.readers.find(d => d.day === lastDays(now, 2, HOME_TZ)[0])?.automated ?? 0
+  if (auto) out.push({ title: `Likely automated visits yesterday: ${plural(auto, 'fresh tab')}`, text: 'A burst of new tabs from one country, each opening a different page. Left out of the readers.', href: '/_ab/doc-gia/' })
   return out
 }
 

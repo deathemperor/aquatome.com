@@ -1,28 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Geophagus_proximus.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Geophagus_proximus.jpg/500px-Geophagus_proximus.jpg",
-   "width": 1656,
-   "height": 1103,
-   "licence": "Public domain",
-   "author": "François-Louis Laporte, comte de Castelnau",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_proximus.jpg",
-   "caption": "Geophagus proximus",
-   "key": "File:Geophagus proximus.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Geophagus_proximus_A.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Geophagus_proximus_A.jpg/500px-Geophagus_proximus_A.jpg",
-   "width": 1600,
-   "height": 1068,
-   "licence": "CC BY-SA 4.0",
-   "author": "Klaus Rudloff",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_proximus_A.jpg",
-   "caption": "Geophagus proximus",
-   "key": "File:Geophagus proximus A.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Geophagus proximus.jpg",
+  "File:Geophagus proximus A.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/fb1fbdd724fa4fc9.webp": "78981b160e18e317",
+  "https://media.aquatome.com/seriouslyfish/be93ab3b1bc9a961.webp": "4181070f0767a55a",
+  "https://media.aquatome.com/seriouslyfish/66918ca6c4cbadc9.webp": "1f1ff5771f1f2f9f",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Geophagus_proximus_A.jpg/1280px-Geophagus_proximus_A.jpg": "a3311c040f6fcdc6"
+ },
+ "commons": "2026-11-08"
 }

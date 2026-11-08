@@ -16,6 +16,8 @@ public final class FakeOwner {
   /// The overview's reply, by its vector's name: "dashboard", "dashboard: nothing needs you" or "dashboard: the readers'
   /// beacon down".
   public var overview = "dashboard"
+  /// The reports sent, each as the form it came as.
+  public var reports: [Data] = []
   /// The next read of a section ends the owner's sessions first, so it answers 401: a session that ended while the
   /// dashboard was open (signed out elsewhere, or expired).
   public var sessionEndsAtNextSection = false
@@ -78,6 +80,13 @@ public final class FakeOwner {
       // One a section shows, or a waiting one the overview lists.
       let shown = account.map(owners.contains) == true && !removed.contains(path) && (photos.contains { $0["src"]?.string == path } || waiting.contains(path))
       return shown ? (200, Self.picture, "image/png") : (404, Data("Not found".utf8), "text/plain")
+    }
+    // The owner's report (protocols/owner-feedback.openapi.json): kept here, as the site keeps it for the Mac.
+    if path == "/api/feedback", method == "POST" {
+      guard let account else { return try error(401, "signed_out") }
+      guard owners.contains(account) else { return try error(404, "not_found") }
+      reports.append(r.httpBody ?? Data())
+      return try json(201, .object(["id": .string("20261108014200000-00000000-0000-4000-8000-000000000001"), "waiting": .number(Double(reports.count))]))
     }
     guard path.hasPrefix("/api/owner/") else { return nil }
     guard let account else { return try error(401, "signed_out") }

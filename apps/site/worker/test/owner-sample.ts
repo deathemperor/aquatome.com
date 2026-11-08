@@ -4,6 +4,7 @@ import { cursorOf, type CommentRow, type CommentState, type CommentWeek } from '
 import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
+import type { Excluded } from '../readers'
 import type { ReportsData } from '../daily/page'
 import type { Change } from '../daily/github'
 import { summariseScoreboard, type BeaconRow } from '../admin/scoreboard'
@@ -29,6 +30,10 @@ export const READERS = {
   pages: [{ path: '/ca/ca-neon-vua/', views: 320 }, { path: '/huong-dan/thay-nuoc/', views: 140 }, { path: '//other.site/x', views: 2 }],
   sources: [{ source: 'Google', sessions: 800, readers: 420 }, { source: '(trực tiếp)', sessions: 300, readers: 120 }],
   countries: [{ cc: 'VN', readers: 540 }, { cc: 'ID', readers: 40 }],
+  // What the count left out (worker/us.ts) and the app beside the web (readers.ts).
+  excluded: [{ who: 'owner', sessions: 12, readers: 9 }, { who: 'team', sessions: 30, readers: 6 }, { who: 'net', sessions: 90, readers: 10 }, { who: 'app', sessions: 4, readers: 2 }] as Excluded[],
+  automated: { sessions: 97, readers: 6, bursts: [{ cc: 'ID', from: '2026-11-03 13:02:00', to: '2026-11-03 14:59:00', sessions: 97 }] },
+  app: { onStore: false, sessions: 0, readers: 0, ours: { sessions: 10, readers: 4 } },
 }
 
 const APP_ROWS: AppRows = {

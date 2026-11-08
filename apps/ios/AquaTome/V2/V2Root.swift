@@ -71,6 +71,7 @@ struct V2Root: View {
       }
     }
     .onAppear { follow(tab) }
+    .ownerShowsTab("\(selection)")
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
     // Khám phá, what Hôm nay had open, or else the search tab (which pushes only v1's own screens).
     .onDisappear {

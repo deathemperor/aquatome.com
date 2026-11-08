@@ -194,6 +194,7 @@ struct SpeciesPage: View {
       if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
     }
     .accessibilityIdentifier("v2-species")
+    .ownerShows(item.path, as: "species")
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)

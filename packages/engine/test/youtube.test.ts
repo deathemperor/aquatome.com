@@ -1,6 +1,8 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { logReviews, readReviews } from '../src/review-log'
@@ -89,6 +91,24 @@ test('skips videos that cannot be embedded, are too short or are not guides', as
   const r = await videoGuides(deps(root2, { relevant: false }).d, { playlists: ['PL1'] })
   expect(r.skipped).toEqual(['a1: not a guide'])
   expect((await read(root2, 'engine-state/youtube.json')).a1.status).toBe('skipped')
+})
+
+test('a video on the rejected list is never made a guide, nor written again by a redo', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root, { videos: { a1: {}, a2: {} } })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_video-rejected.json'), JSON.stringify({ a1: 'harm: tells the reader to suffocate the fish' }))
+  expect((await videoGuides(d, { playlists: ['PL1'] })).written).toEqual(['youtube-a2 (0.90)'])
+  expect(existsSync(join(root, 'content/guides/youtube-a1'))).toBe(false)
+  await writeFile(join(root, 'engine-state/_video-rejected.json'), JSON.stringify({ a2: 'harm: the same' }))
+  expect((await videoGuides(d, { playlists: ['PL1'], redo: true })).written).toEqual([])
+})
+
+test('no guide on the site is made from a rejected video', async () => {
+  const repo = fileURLToPath(new URL('../../..', import.meta.url))
+  const rejected = JSON.parse(await readFile(join(repo, 'engine-state/_video-rejected.json'), 'utf8')) as Record<string, string>
+  const guides = new Set(await readdir(join(repo, 'content/guides')))
+  expect(Object.keys(rejected).filter(id => guides.has(`youtube-${id}`))).toEqual([])
 })
 
 test('a model failure stops the run and leaves the video for next time', async () => {
