@@ -27,7 +27,7 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 export const REPEAT_DAYS = 28
 
 /** Each tag as the owner's daily report says it, in the day's `why`. */
-const TAG_WORDS: Record<string, string> = { cold: 'takes cool water', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small fish for a small tank', local: 'native to Vietnam' }
+const TAG_WORDS: Record<string, string> = { cold: 'takes cool water', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small schooling fish for a small tank', local: 'native to Vietnam' }
 
 /** What a week can ask its fish to be (a week's `tags`): how the planner reads each from a page's figures. */
 export const TAGS: Record<string, (f: Facts) => boolean> = {
@@ -37,14 +37,15 @@ export const TAGS: Record<string, (f: Facts) => boolean> = {
   /** Needs a heater when the north turns cold. */
   heater: f => f.tempMin !== undefined && f.tempMin >= 24,
   beginner: f => f.difficulty !== undefined && f.difficulty <= 3,
-  /** A fish (not a snail or shrimp) of 4 cm at most, whose page asks for a tank of 60 cm at most. */
-  nano: f => !f.invert && f.sizeMax !== undefined && f.sizeMax <= 4 && (f.tankCm ?? 0) <= 60,
+  /** A fish (not a snail or shrimp) of 4 cm at most, kept in a group of 5 or more, whose page asks for a tank of 60 cm at
+   * most: the small-tank week is "small schooling fish" (a ram, small but no schooler, had filled one of its days). */
+  nano: f => !f.invert && f.sizeMax !== undefined && f.sizeMax <= 4 && (f.schoolMin ?? 0) >= 5 && (f.tankCm ?? 0) <= 60,
   /** Native to Vietnam by the page's native range; by where it's recorded only when the page has no native range
    * (editors, 2026-11-08: Betta splendens is recorded in Vietnam, but its page says native to Thailand only). */
   local: f => (f.native ? f.native.includes('VN') : f.places.includes('vietnam')),
 }
 
-export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; tankCm?: number; places: string[]; native?: string[]; coldwater: boolean; invert?: boolean }
+export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; tankCm?: number; schoolMin?: number; places: string[]; native?: string[]; coldwater: boolean; invert?: boolean }
 export type Candidate = {
   kind: 'species' | 'breeds' | 'guides'
   id: string
@@ -168,12 +169,14 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const size = resolveDataCard(s.dataCard.sizeCm ?? [], 'sizeCm')?.value
     const diff = resolveDataCard(s.dataCard.difficulty ?? [], 'difficulty')?.value
     const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
+    // The group size the page asks for, as read from its text for the tank-mates checker (traits.ts).
+    const school = (await json<{ schoolMin?: number | null }>(join(content, 'traits', `${s.id}.json`), {})).schoolMin ?? undefined
     out.push({
       kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok),
       ...(await fitOf('species', s.id)), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
-        difficulty: typeof diff === 'number' ? diff : diff?.max, tankCm: typeof tank === 'number' ? tank : tank?.min, places: s.places,
+        difficulty: typeof diff === 'number' ? diff : diff?.max, tankCm: typeof tank === 'number' ? tank : tank?.min, schoolMin: school, places: s.places,
         native: s.range?.native?.countries,
         coldwater: COLDWATER_OF.includes(s.id), invert: s.group === 'snails' || s.group === 'shrimp',
       },

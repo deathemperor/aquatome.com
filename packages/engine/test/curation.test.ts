@@ -85,7 +85,7 @@ test('the calendar in the repository parses, and names no page twice on Hôm nay
 })
 
 test('a week with tags takes only fish that match one, or that are on its own list', () => {
-  const nano = (id: string) => fish(id, { facts: { places: [], coldwater: false, sizeMax: 3 } })
+  const nano = (id: string) => fish(id, { facts: { places: [], coldwater: false, sizeMax: 3, schoolMin: 6 } })
   const cands = [nano('a'), fish('big', { facts: { places: [], coldwater: false, sizeMax: 30 } }), fish('listed', { facts: { places: [], coldwater: false, sizeMax: 40 } }), guide('g1'), guide('g2'), guide('g3')]
   const cur = CurationSchema.parse({ version: 1, weeks: [{ from: '2026-11-16', to: '2026-11-22', theme: { vi: 'Bể nhỏ' }, tags: ['nano'], fish: ['species/listed'] }], days: [] })
   const { calendar, report } = plan(cur, cands, '2026-11-16', 3)
@@ -99,14 +99,16 @@ test('a week with tags takes only fish that match one, or that are on its own li
   expect(plan(chosen, cands, '2026-11-16', 1).calendar.days[0]!.fish).toBe('species/big')
 })
 
-test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no cold fish, nor a 90 cm tank\'s tetra a small one', () => {
+test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no cold fish, nor a 90 cm tank\'s tetra or a lone ram a small schooling one', () => {
   const f = { places: [], coldwater: false }
   expect(TAGS.cold!({ ...f, coldwater: true, tempMin: 20 })).toBe(false)
   expect(TAGS.cold!({ ...f, coldwater: true })).toBe(true)
   expect(TAGS.cold!({ ...f, tempMin: 16 })).toBe(true)
-  expect(TAGS.nano!({ ...f, sizeMax: 3, tankCm: 45 })).toBe(true)
-  expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 90 })).toBe(false)
-  expect(TAGS.nano!({ ...f, sizeMax: 1.5, invert: true })).toBe(false)
+  expect(TAGS.nano!({ ...f, sizeMax: 3, tankCm: 45, schoolMin: 6 })).toBe(true)
+  expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 90, schoolMin: 6 })).toBe(false)
+  expect(TAGS.nano!({ ...f, sizeMax: 1.5, invert: true, schoolMin: 10 })).toBe(false)
+  // Small, but kept alone or in pairs: no fish for a week of small schooling fish.
+  expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 60 })).toBe(false)
   // Native by the page's native range, not by where it was recorded.
   expect(TAGS.local!({ ...f, places: ['vietnam', 'thailand'], native: ['TH'] })).toBe(false)
   expect(TAGS.local!({ ...f, places: ['vietnam'] })).toBe(true)
