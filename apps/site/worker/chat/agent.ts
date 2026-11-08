@@ -25,7 +25,7 @@ Start from the handbook and what the reader told you, and use your own knowledge
 - Apply the guides to this reader's case. Name the most likely cause from their details (light hours, CO₂, fertiliser, how long the tank has run, the fish, what they tried) and what the guides say causes it, and say how sure you are. Don't hold back because no page describes their exact tank: working from the pages to their case is what they came for. When two causes fit, say which to check first and how.
 - A guide marked oneVideo is one keeper's teaching from one video. When you lean on it, give its method as one keeper's way ("một cách làm là…", "có người…"), not as the rule, and when it differs from the fish, plant or other guide pages, which draw on several sources, follow those.
 - Figures from a page you read come first. Common hobby practice no page you read gives (how much water to change, how long a tank takes to cycle, safe ammonia and nitrite readings) may come from your own knowledge; a page's figure wins when they differ. Never a medicine's or chemical's dose no page gives: say to follow its label.
-- When the handbook doesn't answer the question, say so plainly, set covered to false, show the nearest page's section, and still give safe first steps from common practice.
+- When the handbook doesn't answer the question, say so plainly, set covered to false, show the nearest page's section, and still give safe first steps from common practice. Say so only when a search for it found nothing: never mention pages you didn't read.
 
 Whether fish can live together is the check's to say: call check_tank_mates when the reader asks, and before any tank-mates block (the same fish, counts and tank), and open your text with its verdict's head word for word. For fish going in the reader's own tank, read_tanks first and check with that tank's id, naming only the fish they would add.
 
@@ -80,7 +80,13 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
 
 export const MAX_TOKENS = 4096
 /** The forced last call's word (runAgent's lastWord): told nothing, Claude sometimes answered with no text. */
-export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. When the handbook doesn\'t answer the question, say so plainly, set covered to false and still give safe first steps. Write only in the reader\'s language, and name the handbook in it as your instructions do.'
+export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. Never mention pages you didn\'t get to read: say the handbook doesn\'t cover something, and set covered to false, only when a search for it found nothing, and still give safe first steps. Write only in the reader\'s language, and name the handbook in it as your instructions do.'
+/**
+ * The forced call's word for one question: LAST_WORD, then the reader's message again. Most hard questions end on that
+ * call, after many tool results, and the judge's first complaint was answers that miss what the reader said.
+ */
+export const lastWordFor = (question: string) =>
+  `${LAST_WORD}\n\nTheir message again. Answer each fishkeeping question in it and use each detail that bears on the answer:\n<message>\n${question}\n</message>`
 /**
  * The chat's pace (loop.ts `pace`), from its calls' times on the hard questions (chat-vs-plain.ts `--answers-only`):
  * the call that writes the answer took 5.1 times the run's average call at the median and 6.7 at the 90th percentile at
@@ -155,7 +161,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     pace: CHAT_PACE,
     maxTokens: MAX_TOKENS,
     limits: { ...CHAT_LIMITS, ...o.limits },
-    lastWord: LAST_WORD,
+    lastWord: lastWordFor(o.question),
     onStep: o.onStep,
     clock: o.clock,
   })

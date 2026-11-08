@@ -578,10 +578,12 @@ test('the chat\'s forced last call is told to answer from what it read and its o
   expect(out.stopped).toBe('calls')
   expect(bodies[0]!.tool_choice).toEqual({ type: 'none' })
   expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain(JSON.stringify(LAST_WORD).slice(1, -1))
-  // Most hard questions end on this call: it must not take back the general knowledge the owner allowed.
+  // Most hard questions end on this call: it must not take back the general knowledge the owner allowed, and it carries
+  // the reader's message again, so the answer uses what they said.
   expect(LAST_WORD).toContain('your own knowledge of fishkeeping')
   // Written at low effort when time is short, it slipped Vietnamese's "cẩm nang" into Malay answers without this.
   expect(LAST_WORD).toContain('only in the reader\'s language')
+  expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain('<message>\\nNuôi cá neon thế nào?\\n</message>')
 })
 
 test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time from its own pace', async () => {
