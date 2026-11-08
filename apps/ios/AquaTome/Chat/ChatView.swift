@@ -159,9 +159,9 @@ private struct ChatThread: View {
       .accessibilityAddTraits(.isHeader)
       Group {
         if s.fromPhoto {
-          Text("Claude, mô hình AI của Anthropic, trả lời chỉ từ cẩm nang AquaTome. Ảnh không được gửi.")
+          Text("Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá. Ảnh của bạn không gửi kèm câu hỏi.")
         } else {
-          Text("Claude, mô hình AI của Anthropic, trả lời chỉ từ cẩm nang AquaTome.")
+          Text("Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá.")
         }
       }
       .foregroundStyle(.secondary)

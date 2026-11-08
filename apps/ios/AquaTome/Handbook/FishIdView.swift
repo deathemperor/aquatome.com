@@ -238,7 +238,7 @@ struct FishIdView: View {
         }
         .accessibilityIdentifier("chat-entry")
       } footer: {
-        Text("Trả lời từ cẩm nang AquaTome")
+        Text("Trả lời dựa trên cẩm nang AquaTome")
       }
     }
   }
