@@ -219,3 +219,16 @@ test('a caution the source gives and the page leaves out is flagged; one on the 
   await readFit(none, p, 'm', new Date('2026-11-08'), source)
   expect(calls).toBe(1)
 })
+
+test("a card's checklist: its dated sources are expected, and its own check is read on cards only", async () => {
+  expect(fitPrompt('vi', 'cards')).toContain('- card: this one is a short card')
+  expect(fitPrompt('vi', 'cards')).toContain('theo …, 2026')
+  for (const kind of [undefined, 'guides'] as const) {
+    expect(fitPrompt('vi', kind)).not.toContain('- card:')
+    expect(fitPrompt('vi', kind)).not.toContain('{{CARD_NOTE}}')
+  }
+  const llm = (async () => ({ findings: [{ check: 'card', part: 'P1', quote: 'phát hiện', why: 'described, not discovered', fix: '', product: '' }], products: [] })) as Llm
+  const card = { ...page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), kind: 'cards' as const }
+  expect((await readFit(llm, card, 'm', new Date('2026-11-08'))).findings.map(f => f.check)).toEqual(['card'])
+  expect((await readFit(llm, page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), 'm', new Date('2026-11-08'))).findings).toEqual([])
+})

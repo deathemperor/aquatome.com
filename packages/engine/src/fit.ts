@@ -18,7 +18,7 @@ import { snapshotName } from './snapshot'
  * (prompts/fit.md). A model's finding counts only with a quote that is on the page. Whether a product is sold in a market
  * is never the model's call: it names the products, and the market table (market.ts) says.
  */
-export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
+export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'card', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
 export type FitCheck = (typeof FIT_CHECKS)[number]
 /** What each check came from, so a new complaint about one page has a place to go: a check run over all of them. */
 export const FIT_TITLE: Record<FitCheck, string> = {
@@ -31,6 +31,7 @@ export const FIT_TITLE: Record<FitCheck, string> = {
   words: 'Words keepers here don\'t use',
   elsewhere: 'Written for a reader who lives elsewhere',
   kit: 'A shop abroad\'s kit or catalogue, which no rewording fixes',
+  card: 'A card that says a newly described species was discovered or gives no date for its paper, or a trend without its figures or where they come from',
   'dose-purpose': 'A dose that doesn\'t say what it\'s for',
   'dose-conflict': 'The same treatment, for the same thing, dosed differently on another page',
   'dose-caution': 'A dose without the caution its source gives for shrimp or other sensitive animals',
@@ -46,6 +47,7 @@ export const FIT_LABEL_VI: Record<FitCheck, string> = {
   words: 'Chữ người chơi ở đây không dùng',
   elsewhere: 'Viết cho người đọc ở nước khác',
   kit: 'Bộ đồ hay danh mục của tiệm nước ngoài',
+  card: 'Thẻ ghi loài mới là "phát hiện" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn',
   'dose-purpose': 'Liều không nói để trị gì',
   'dose-conflict': 'Cùng một cách trị mà trang này liều khác trang kia',
   'dose-caution': 'Liều thiếu lời dặn cho tép và con vật nhạy',
@@ -66,7 +68,14 @@ export type FitState = Record<string, FitEntry>
 
 const COUNTRY: Record<Lang, string> = { vi: 'Vietnam', id: 'Indonesia', th: 'Thailand', ms: 'Malaysia' }
 const TEMPLATE = readFileSync(new URL('./prompts/fit.md', import.meta.url), 'utf8')
-export const fitPrompt = (lang: Lang) => TEMPLATE
+/**
+ * The app's short cards cite dated sources by design, so naming one isn't the source talking; they have checks of their
+ * own, which the Curation Lead asked for: a new species is described, with its paper's date, and a trend shows its figures.
+ */
+const CARD_NOTE = `
+- card: this one is a short card for the app's home screen, not a page, and it names its dated sources by design: a paper, a publisher or the source of a count named as the authority for a claim ("theo …, 2026") is expected here, not \`source\`. Report instead: a newly described species called discovered ("phát hiện", "ditemukan", "ditemui", "ค้นพบ") when it was described; a new species without the year or date of the paper that described it; a trend without its figures (views, searches, upvotes) or without where they come from.`
+export const fitPrompt = (lang: Lang, kind?: PageKind) => TEMPLATE
+  .replace('{{CARD_NOTE}}', kind === 'cards' ? CARD_NOTE : '')
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
   .replace('{{PRICE_NOTE}}', lang === 'vi' ? '' : ' Vietnamese đồng counts too.')
@@ -206,9 +215,9 @@ export function keepCautions(found: { doseQuote: string; sourceQuote: string; an
 /** One model reads one page against the checklist; when the page has doses, against what the page was written from too. */
 export async function readFit(llm: Llm, p: Page, model: string | undefined, now: Date, source?: string): Promise<FitEntry> {
   const { text, hash } = fitText(p)
-  const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
+  const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang, p.kind), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
   const doses = keepDoses(r.doses ?? [], text)
-  const entry: FitEntry = { at: now.toISOString().slice(0, 10), hash, model: model ?? 'default', checklist: CHECKLIST, findings: keepFit(r.findings ?? [], text, p.lang), products: [...new Set((r.products ?? []).map(x => x.trim()).filter(Boolean))], ...(doses.length ? { doses } : {}) }
+  const entry: FitEntry = { at: now.toISOString().slice(0, 10), hash, model: model ?? 'default', checklist: CHECKLIST, findings: keepFit((r.findings ?? []).filter(f => f.check !== 'card' || p.kind === 'cards'), text, p.lang), products: [...new Set((r.products ?? []).map(x => x.trim()).filter(Boolean))], ...(doses.length ? { doses } : {}) }
   if (!doses.length) return entry
   if (!source?.trim()) return { ...entry, sourceRead: false }
   const c = await llm<{ cautions: Parameters<typeof keepCautions>[0] }>({

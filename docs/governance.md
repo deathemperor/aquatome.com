@@ -913,6 +913,11 @@ The layers above still check the result.
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
     its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
     (`gate.test.ts`).
+  - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
+    dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
+    the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
+    gate sees it again each run. The job that writes cards runs `pnpm engine gate` before it commits one. Cards don't
+    count in the owner's number.
   - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
     product works like that nobody is able to check."
 
