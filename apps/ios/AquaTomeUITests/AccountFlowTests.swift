@@ -201,7 +201,8 @@ final class AccountFlowTests: XCTestCase {
   /// "Ngôn ngữ": a language chosen in the sheet opens the app in it from the next launch, as iOS's Settings → AquaTome →
   /// Language would (both keep the app's AppleLanguages), with a line in that language saying so until then, and none for
   /// the language it's in; "Theo máy" gives it back to the phone, which has none of the three (Vietnamese). The relaunches
-  /// leave out -AppleLanguages, which would stand over the kept choice.
+  /// leave out -AppleLanguages, which would stand over the kept choice. The language is read off "Bể của tôi", a tab both
+  /// looks have (v2's search tab has no title).
   func testALanguageChosenInTheSheetOpensTheAppInItNextTime() {
     var app = launch()
     XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row")
@@ -212,14 +213,14 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "language-note").waitForNonExistence(timeout: 5), "a note for the language it's in")
     pickLanguage(app, "ภาษาไทย")
     app = relaunchKeepingLanguage(app)
-    XCTAssertTrue(app.tabBars.buttons["ค้นหา"].waitForExistence(timeout: 10), "not in Thai after the relaunch")
+    XCTAssertTrue(app.tabBars.buttons["ตู้ของฉัน"].waitForExistence(timeout: 10), "not in Thai after the relaunch")
     app.openAccount()
     XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row in Thai")
     XCTAssertFalse(element(app, "language-note").exists, "the note outlived the relaunch")
     pickLanguage(app, "ตามเครื่อง")
     XCTAssertEqual(reached(app, "language-note").label, "Ứng dụng sẽ dùng Tiếng Việt từ lần mở sau.")
     app = relaunchKeepingLanguage(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "not back in the phone's language")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].waitForExistence(timeout: 10), "not back in the phone's language")
   }
 
   /// A sync the server can't take offers only the button that helps: "Cập nhật ứng dụng" for an account's store from a
