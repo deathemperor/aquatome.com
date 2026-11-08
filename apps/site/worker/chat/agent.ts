@@ -83,10 +83,12 @@ export const MAX_TOKENS = 4096
 export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. Never mention pages you didn\'t get to read: say the handbook doesn\'t cover something, and set covered to false, only when a search for it found nothing, and still give safe first steps. Write only in the reader\'s language, and name the handbook in it as your instructions do.'
 /**
  * The forced call's word for one question: LAST_WORD, then the reader's message again. Most hard questions end on that
- * call, after many tool results, and the judge's first complaint was answers that miss what the reader said.
+ * call, after many tool results, and the judge's first complaint was answers that miss what the reader said. When the
+ * time forced it (a slow hour, mostly), a short answer: at 1.75 times slower a full one took longer than the 20 s left,
+ * and 25 of 96 failed.
  */
-export const lastWordFor = (question: string) =>
-  `${LAST_WORD}\n\nTheir message again. Answer each fishkeeping question in it and use each detail that bears on the answer:\n<message>\n${question}\n</message>`
+export const lastWordFor = (question: string, short = false) =>
+  `${LAST_WORD}\n\nTheir message again. ${short ? 'Time is short: answer what matters most in it in about 120 words, the likely cause and the first steps, and leave the rest for their next question' : 'Answer each fishkeeping question in it and use each detail that bears on the answer'}:\n<message>\n${question}\n</message>`
 /**
  * The chat's pace (loop.ts `pace`), from its calls' times on the hard questions (chat-vs-plain.ts `--answers-only`):
  * the call that writes the answer took 5.1 times the run's average call at the median and 6.7 at the 90th percentile at
@@ -163,7 +165,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     pace: CHAT_PACE,
     maxTokens: MAX_TOKENS,
     limits: { ...CHAT_LIMITS, ...o.limits },
-    lastWord: lastWordFor(o.question),
+    lastWord: why => lastWordFor(o.question, why === 'time'),
     onStep: o.onStep,
     clock: o.clock,
   })

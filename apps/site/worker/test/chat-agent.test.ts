@@ -578,6 +578,8 @@ test('the chat\'s forced last call is told to answer from what it read and its o
   expect(out.stopped).toBe('calls')
   expect(bodies[0]!.tool_choice).toEqual({ type: 'none' })
   expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain(JSON.stringify(LAST_WORD).slice(1, -1))
+  // Forced by the call limit, not the time: the whole message answered, point by point.
+  expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain('Answer each fishkeeping question in it')
   // Most hard questions end on this call: it must not take back the general knowledge the owner allowed, and it carries
   // the reader's message again, so the answer uses what they said.
   expect(LAST_WORD).toContain('your own knowledge of fishkeeping')
@@ -606,6 +608,8 @@ test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time
     })
     expect(out.stopped, `${ms} ms`).toBe('time')
     expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort]), `${ms} ms`).toEqual([['auto', 'medium'], ['auto', 'medium'], ['none', 'low']])
+    // Forced by the time: a short answer, or it takes longer than the time left.
+    expect(JSON.stringify(bodies.at(-1)!.messages.at(-1)!.content), `${ms} ms`).toContain('Time is short')
   }
 })
 
