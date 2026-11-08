@@ -1,8 +1,9 @@
 import XCTest
 
 /// The account's picture (ProfilePictures): chosen from the Tài khoản sheet's "Ảnh đại diện" row, shown on the profile
-/// button, cleared with "Bỏ ảnh", dropped on signing out; the set the app offers is `protocols/profile-pictures.json`'s,
-/// and each fish has its name in another language than Vietnamese too. Against the app's stand-in server (FakeServer).
+/// button, cleared with "Bỏ ảnh", dropped on signing out, kept by the account; the set the app offers is
+/// `protocols/profile-pictures.json`'s, and each fish has its name in another language than Vietnamese too. Against the
+/// app's stand-in server (FakeServer).
 final class ProfilePictureFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -38,11 +39,27 @@ final class ProfilePictureFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "account-picture").exists, "the picture's row signed out")
     app.closeAccount()
     XCTAssertFalse(redOnButton(app), "the fish on the button signed out")
-    // The same account again: the phone kept nothing of it.
+  }
+
+  /// The account keeps its fish: signed out and in again, the phone having dropped it, it comes back from the account,
+  /// as on the reader's other phones; "Bỏ ảnh" takes it off the account too.
+  func testTheAccountKeepsItsFishAndBoAnhTakesItOffThere() {
+    let app = launch()
+    signIn(app)
+    choose(app, "halfmoon-betta")
+    signOutAndIn(app)
+    XCTAssertFalse((row(app).value as? String ?? "").isEmpty, "the account's fish didn't come back")
+    app.closeAccount()
+    XCTAssertTrue(redOnButton(app), "the account's fish isn't on the profile button")
+
     app.openAccount()
-    tapScrolling(app, "apple-sign-in")
-    XCTAssertTrue(row(app).waitForExistence(timeout: 5), "no picture row signed in")
-    XCTAssertEqual(row(app).value as? String, "", "the fish came back after signing out")
+    row(app).tap()
+    let none = app.buttons["profile-picture-none"]
+    XCTAssertTrue(none.waitForExistence(timeout: 5), "no Bỏ ảnh with the account's fish")
+    none.tap()
+    back(app)
+    signOutAndIn(app)
+    XCTAssertEqual(row(app).value as? String, "", "the account kept the fish after Bỏ ảnh")
   }
 
   func testTheSetIsTheProtocolsAndNamedInIndonesian() throws {
@@ -84,6 +101,14 @@ final class ProfilePictureFlowTests: XCTestCase {
   }
 
   private func row(_ app: XCUIApplication) -> XCUIElement { app.buttons["account-picture"] }
+
+  /// Signed out from the sheet, then in again to the same account (the stand-in Apple's).
+  private func signOutAndIn(_ app: XCUIApplication) {
+    tapScrolling(app, "sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    tapScrolling(app, "apple-sign-in")
+    XCTAssertTrue(row(app).waitForExistence(timeout: 10), "no picture row signed in again")
+  }
 
   /// The fish chosen in the set, then back on the sheet.
   private func choose(_ app: XCUIApplication, _ id: String) {

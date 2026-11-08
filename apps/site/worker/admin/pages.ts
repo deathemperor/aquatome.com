@@ -521,6 +521,23 @@ function leftOutParts(r: Readers, tz: string, now: Date) {
   }
 }
 
+const BACK_TITLE = 'Return visits'
+const BACK_HEAD = ['Page they first landed on', 'Visitors who came back']
+/** Return visits (readers.ts revisitsOf), from the visitor code, once there is one. */
+function backParts(r: Readers) {
+  const b = r.revisits
+  if (!b) return undefined
+  return {
+    lede: `Within the ${r.days} days, among the counted tabs. A visitor is a browser that kept its random visitor code: a reader on a phone and a computer is two. Tabs without a code (Global Privacy Control or Do Not Track on, storage blocked): ${fmtEn(b.noCode)}.`,
+    tiles: [
+      { label: 'Visitors', value: fmtEn(b.visitors) },
+      { label: 'Came back another day', value: fmtEn(b.returning), meter: b.visitors ? b.returning / b.visitors : undefined, sub: `${fmtEn(b.visitors ? (100 * b.returning) / b.visitors : 0, 1)}% of visitors` },
+      { label: 'Days to the next visit', value: b.gapDays === null ? '—' : fmtEn(b.gapDays), sub: 'the middle returning visitor' },
+    ] as Tile[],
+    pages: b.pages.map(x => ({ label: pageLink(x.path), value: x.visitors })) as Ranked[],
+  }
+}
+
 /** What the readers page draws: its line, its tiles, its chart and its three rankings. */
 function readersParts(now: Date, r: Readers, tz: string) {
   const days = lastDays(now, r.days, tz)
@@ -558,6 +575,8 @@ ${tiles(p.tiles)}
 <figure class="chart" aria-labelledby="r-src"><figcaption><h3 id="r-src">Nguồn truy cập</h3></figcaption>${rankTable(p.sources, SOURCE_HEAD, undefined, { part: 'Người đọc' })}</figure></div>
 <div class="split"><section><h2>Trang người đọc xem nhiều nhất</h2>${rankTable(p.pages, PAGE_VIEWS_HEAD)}</section>
 <section><h2>Quốc gia (người đọc)</h2>${rankTable(p.countries, COUNTRY_HEAD)}</section></div>`
+    const back = backParts(r)
+    if (back) body += `<h2>${BACK_TITLE}</h2><p class="lede">${back.lede}</p>${tiles(back.tiles)}${rankTable(back.pages, BACK_HEAD)}`
     const o = leftOutParts(r, tz, now)
     body += `<h2>${SIDE_TITLE}</h2><p class="lede">${o.sideNote}</p>${rankTable(o.side, SIDE_HEAD)}
 <h2>${LEFT_OUT_TITLE}</h2><p class="lede">${o.lede}</p>${rankTable(o.rows, LEFT_OUT_HEAD)}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
@@ -578,6 +597,8 @@ export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOM
     const p = readersParts(now, r, tz)
     blocks.push(note(textOf(p.lede)), figures(p.tiles), heading('Theo ngày và nguồn'), chart(p.chart), heading('Nguồn truy cập', 3), rankBlock(p.sources, SOURCE_HEAD),
       heading('Trang người đọc xem nhiều nhất'), rankBlock(p.pages, PAGE_VIEWS_HEAD), heading('Quốc gia (người đọc)'), rankBlock(p.countries, COUNTRY_HEAD))
+    const back = backParts(r)
+    if (back) blocks.push(heading(BACK_TITLE), note(back.lede), figures(back.tiles, 'en'), rankBlock(back.pages, BACK_HEAD))
     const o = leftOutParts(r, tz, now)
     blocks.push(heading(SIDE_TITLE), note(o.sideNote), rankBlock(o.side, SIDE_HEAD), heading(LEFT_OUT_TITLE), note(o.lede), rankBlock(o.rows, LEFT_OUT_HEAD), ...o.bursts.map(b => note(textOf(b), 'muted')))
   }

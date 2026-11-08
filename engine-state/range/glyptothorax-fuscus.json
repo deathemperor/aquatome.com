@@ -1,0 +1,81 @@
+{
+  "id": "glyptothorax-fuscus",
+  "native": {
+    "input": "fc6752a53f007fa3",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Glyptothorax fuscus Fowler, 1934. Type locality: Chantaburi, southeastern Thailand. Size: 121 mm SL. A stout-bodied species with a relatively slender caudal peduncle and a fairly uniformly coloured, rusty brown body with a few scattered darker spots.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "planetcatfish",
+        "quote": "Asia: Chao Phraya and Mekong basins, and the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Asia: Chao Phraya and Mekong basins, and the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "planetcatfish",
+        "quote": "Asia: Chao Phraya and Mekong basins, and the Malay Peninsula.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptothorax fuscus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341313,
+    "datasets": [
+      [
+        "03a7cb89-747a-411a-855c-f46ad7df47b8",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "hara-horai",
+  "native": {
+    "input": "48a9b52acc607b64",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: northern Bengal in India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Also recorded from Indian waters (West Bengal, Assam, Arunachal Pradesh) and Bangladesh (Rajshahi Division).",
+        "words": "Indian",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Also recorded from Indian waters (West Bengal, Assam, Arunachal Pradesh) and Bangladesh (Rajshahi Division).",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hara horai",
+    "status": "ACCEPTED",
+    "taxonKey": 2341509,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

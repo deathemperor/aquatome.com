@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, unaccented, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -830,4 +830,14 @@ test('without onText a run is as before: no call is asked to stream, and a tool 
   })
   expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'call'], ['timeoutMs', 'call']])
   expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
+})
+
+test('Vietnamese typed without accents is read as a keeper means it: the first message says so, and only then', async () => {
+  const h = await hb()
+  const said = (lang: 'vi' | 'id', q: string) => JSON.stringify(firstMessage(lang, q, [], {}, h).content)
+  expect(unaccented('ca neon bi nam trang tren lung, chua sao a')).toBe(true)
+  expect(said('vi', 'ca neon bi nam trang tren lung, chua sao a')).toContain('They type without Vietnamese accents')
+  // Accented, one accent is enough; a word or two of English or a figure is no unaccented question; nor another language.
+  for (const q of ['cá neon bị nấm trắng trên lưng', 'ca neon bi nấm trang', 'pH 7?', 'Neon']) expect(said('vi', q), q).not.toContain('without Vietnamese accents')
+  expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
 })

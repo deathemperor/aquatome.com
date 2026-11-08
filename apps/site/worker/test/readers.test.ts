@@ -142,3 +142,26 @@ test('the app beside the web: before the App Store, every app session is ours', 
   expect(html).toContain('Web and app')
   expect(html).toContain('not on the App Store yet')
 })
+
+test('return visits, by the visitor code: browsers back on another day, how soon, and the pages that brought them back', () => {
+  const tab = (sid: string, u: string, first: string, land: string, o: Partial<Session> = {}): Session => ({ sid, first, pages: 1, t: 40, scroll: 0, land, ref: 'www.google.com', cc: 'VN', who: 0, u, ...o })
+  const sessions = [
+    tab('a1', 'aaaa1111', '2026-11-01 02:00:00', '/vi/ca/ca-betta/'), tab('a2', 'aaaa1111', '2026-11-04 02:00:00', '/ca/ca-neon-vua/'), // back after 3 days
+    tab('b1', 'bbbb2222', '2026-11-02 01:00:00', '/ca/ca-betta/'), tab('b2', 'bbbb2222', '2026-11-03 01:00:00', '/'), tab('b3', 'bbbb2222', '2026-11-09 01:00:00', '/'), // after 1 day
+    tab('c1', 'cccc3333', '2026-11-02 03:00:00', '/cay/x/'), tab('c2', 'cccc3333', '2026-11-02 09:00:00', '/cay/y/'), // twice on one day: not back
+    tab('d1', '', '2026-11-02 03:00:00', '/cay/x/'), // no code (GPC, DNT, storage blocked)
+    tab('o1', 'cccc3333', '2026-11-05 03:00:00', '/cay/x/', { who: 3 }), // ours: counts nowhere
+  ]
+  const r = summariseReaders(sessions, [], 14)
+  expect(r.revisits).toEqual({ visitors: 3, returning: 2, gapDays: 1, noCode: 1, pages: [{ path: '/ca/ca-betta/', visitors: 2 }] })
+  // A day is the viewer's: 23:30 and 00:30 in Vietnam are two days there, one in UTC.
+  const late = [tab('x1', 'xxxx9999', '2026-11-01 16:30:00', '/'), tab('x2', 'xxxx9999', '2026-11-01 17:30:00', '/')]
+  expect(summariseReaders(late, [], 14, 'UTC').revisits!.returning).toBe(0)
+  expect(summariseReaders(late, [], 14, 'Asia/Ho_Chi_Minh').revisits!.returning).toBe(1)
+  // Shown once there is a code; not before (the visitor switch off).
+  expect(readersPage(new Date('2026-11-09T12:00:00Z'), r)).toContain('Return visits')
+  expect(readersSection(new Date('2026-11-09T12:00:00Z'), r).blocks.some(b => b.kind === 'heading' && b.text === 'Return visits')).toBe(true)
+  const none = summariseReaders(sessions.map(s => ({ ...s, u: '' })), [], 14)
+  expect(none.revisits).toBeUndefined()
+  expect(readersPage(new Date('2026-11-09T12:00:00Z'), none)).not.toContain('Return visits')
+})

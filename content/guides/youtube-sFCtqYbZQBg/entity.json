@@ -8,7 +8,7 @@
   "mentions": [
     "chromobotia-macracanthus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "sFCtqYbZQBg",
     "title": "THIS aquarium has me EXCITED!",
@@ -37,95 +37,200 @@
       {
         "category": "be-ca",
         "type": "lon",
-        "t": 165
+        "t": 172
       },
       {
-        "category": "phan-nen",
-        "type": "cat",
-        "t": 610
+        "category": "loc",
+        "type": "tao-dong",
+        "brand": "EcoTech Marine"
+      },
+      {
+        "category": "den",
+        "brand": "EcoTech Marine"
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 610
+        "t": 601
       },
       {
-        "category": "khac",
-        "brand": "EcoTech Marine",
-        "t": 0
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 601
       }
     ],
     "figures": [
       {
-        "heading": "Có những loài Vieja nào hay gặp",
+        "heading": "Một số loài Vieja",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Một con cá Vieja thân bạc có sọc đen dọc thân bơi giữa lũa."
+            "t": 65,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at65-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh một con cichlid Vieja thân bạc có đốm đen."
           },
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai con cá Vieja bơi gần nhau trong hồ trồng lũa."
+            "t": 175,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at175-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Vieja màu sắc rực rỡ bơi gần lũa trong bể lớn."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p0-JUMzJUE5ZSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p0-JUMzJUE5ZSkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p0-lX1pvb18wMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p0-lX1pvb18wMi5qcGc-480.webp",
           "width": 960,
-          "height": 640,
+          "height": 602,
           "licence": "CC BY-SA 3.0",
-          "author": "This illustration was made by Citron You must credit this : Citron / CC-BY-SA-3.0",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paraneetroplus_argenteus_(Aquarium%E2%80%93Palais_de_la_Porte_Dor%C3%A9e).jpg",
-          "caption": "Cá Vieja trưởng thành thân đốm đen, nhìn rõ đầu và vây, bơi giữa lũa."
+          "author": "H. Zell",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vieja_melanura_-_Karlsruhe_Zoo_02.jpg",
+          "caption": "Cá Vieja synspila đực với đầu đỏ và vảy loang lổ màu tối đặc trưng."
         }
       },
       {
-        "heading": "Cần bể to cỡ nào",
+        "heading": "Vì sao nên nuôi Vieja hartwegi",
         "moments": [
           {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t5.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá đông đúc bơi trong bể lớn có lũa và cát."
+            "t": 40,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá cichlid bơi quanh lũa trong bể nền cát."
           },
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/t20.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể lớn nuôi đàn nhiều loài cá rô phi cảnh, đáy cát và lũa."
+            "t": 135,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at135-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá lớn với lũa và nhiều cá cảnh đang bơi."
+          }
+        ]
+      },
+      {
+        "heading": "Bể cần bao lớn",
+        "moments": [
+          {
+            "t": 185,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá lớn có lũa, sỏi và nhiều cá cichlid bơi chung."
+          },
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Vieja bạc và đàn cá khác trong bể rộng bày lũa, đá."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p1-I4MjY3NDApLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p1-I4MjY3NDApLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p2-I4MjY3NDApLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p2-I4MjY3NDApLmpwZw-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY 2.0",
           "author": "Cliff from Arlington, Virginia, USA",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Texas_Cichlid_(Herichthys_cyanoguttatus)_(3152826740).jpg",
-          "caption": "Một chú cá cichlid nằm nép bên lũa và sỏi trong bể nuôi."
+          "caption": "Một con cá hoa văn chấm trong bể có lũa, sỏi và cây xanh."
         }
       },
       {
-        "heading": "Nuôi chung với cá gì",
-        "moments": [],
+        "heading": "Nước và thức ăn",
+        "moments": [
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Vieja trưởng thành màu bạc đốm đen, bơi trên nền cát."
+          },
+          {
+            "t": 345,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at345-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nuôi Vieja có lũa, nền sỏi và nhiều cá bơi."
+          }
+        ]
+      },
+      {
+        "heading": "Phân biệt đực cái",
+        "moments": [
+          {
+            "t": 210,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con argentea trong bể, con đực đang bơi giữa lũa."
+          },
+          {
+            "t": 215,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Vieja argentea nhìn nghiêng rõ dáng thân và vây lưng."
+          }
+        ]
+      },
+      {
+        "heading": "Trang trí bể",
+        "moments": [
+          {
+            "t": 605,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at605-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có lũa nhẵn, đá lớn bo tròn, nền cát sỏi và cá."
+          },
+          {
+            "t": 625,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at625-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nền trộn cát với sỏi thô nhìn cận cảnh."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p6-d25fbG9hY2guanBn.webp",
-          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p6-d25fbG9hY2guanBn-480.webp",
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p6-YXJpdW1fMDEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p6-YXJpdW1fMDEuanBn-480.webp",
           "width": 960,
-          "height": 672,
-          "licence": "CC BY-SA 4.0",
-          "author": "Andrej Jakubík",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus_(Bleeker,_1852)_Clown_loach.jpg",
-          "caption": "Một đàn cá heo (clown loach) bơi quây quần bên nhau."
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Jesaya Li",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
+          "caption": "Bể trang trí đá lớn bo tròn và sỏi nhẵn, không có cạnh sắc."
+        }
+      },
+      {
+        "heading": "Cá nuôi chung",
+        "moments": [
+          {
+            "t": 630,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá heo màu cam bơi gần lũa, cạnh cichlid lớn trong hồ."
+          },
+          {
+            "t": 640,
+            "url": "https://media.aquatome.com/video/sFCtqYbZQBg/at640-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá heo cam bơi chung với đàn Vieja trong hồ có lũa và đá."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/sFCtqYbZQBg/p7-hY2FudGh1cy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/sFCtqYbZQBg/p7-hY2FudGh1cy5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "Vlad Butsky from San Jose, CA, USA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus.jpg",
+          "caption": "Cá heo (clown loach) màu sắc rõ nét bơi sát đáy bể có đá và lũa."
         }
       }
     ]

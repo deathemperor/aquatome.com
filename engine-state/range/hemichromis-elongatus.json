@@ -1,0 +1,168 @@
+{
+  "id": "hemichromis-elongatus",
+  "native": {
+    "input": "5987156bce1f1922",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
+        "words": "Namibia",
+        "ok": true
+      },
+      {
+        "code": "BW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
+        "words": "Botswana",
+        "ok": true
+      },
+      {
+        "code": "ZW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
+        "words": "Zimbabwe",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CF",
+        "CD",
+        "GQ",
+        "GA",
+        "CG",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemichromis elongatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2371378,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        400
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        161
+      ],
+      [
+        "6f1d3840-55dc-49d5-a4be-263e6299cc79",
+        126
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        47
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        46
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        37
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        36
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        27
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        14
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        12
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        11
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        9
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        9
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        7
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "77929c0a-7506-4b2d-a49d-10fc3312d50d",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ]
+    ],
+    "native": [
+      "GN",
+      "CM",
+      "AO",
+      "NA",
+      "BW",
+      "ZW"
+    ],
+    "requests": 14,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

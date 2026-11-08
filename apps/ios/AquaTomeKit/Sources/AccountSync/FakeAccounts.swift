@@ -62,7 +62,7 @@ public final class FakeAccounts {
   /// The answer an identification gets, given the photo's width × height ("1024×768"): `fishIdGuesses` unless set.
   public var fishIdAnswer: (_ photo: String) -> [String: JSON] = FakeAccounts.fishIdGuesses(photo:)
 
-  struct Account { let id: String; var kind = "apple"; var store = TankStore() }
+  struct Account { let id: String; var kind = "apple"; var store = TankStore(); var picture: String? }
   private var accounts: [String: Account] = [:] // by Apple sub, `google:<sub>` or `email:<address>`
   private var tokens: [String: String] = [:] // token → its account's key
   private var nonces: Set<String> = []
@@ -81,7 +81,7 @@ public final class FakeAccounts {
   /// a second phone signs in to the account the first one made).
   public var snapshot: JSON {
     .object([
-      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "kind": .string($0.kind), "store": $0.store.value]) }),
+      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "kind": .string($0.kind), "store": $0.store.value, "picture": $0.picture.map(JSON.string) ?? .null]) }),
       "tokens": .object(tokens.mapValues(JSON.string)),
       "passkeys": .object(passkeys.mapValues(JSON.string)),
       "issued": .number(Double(issued)),
@@ -93,7 +93,7 @@ public final class FakeAccounts {
     let o = snapshot.object ?? [:]
     for (sub, a) in o["accounts"]?.object ?? [:] {
       guard let id = a.object?["id"]?.string, let store = a.object?["store"].flatMap({ try? TankStore($0) }) else { continue }
-      accounts[sub] = Account(id: id, kind: a.object?["kind"]?.string ?? "apple", store: store)
+      accounts[sub] = Account(id: id, kind: a.object?["kind"]?.string ?? "apple", store: store, picture: a.object?["picture"]?.string)
     }
     for (token, sub) in o["tokens"]?.object ?? [:] { if let sub = sub.string, accounts[sub] != nil { tokens[token] = sub } }
     for (id, sub) in o["passkeys"]?.object ?? [:] { if let sub = sub.string, accounts[sub] != nil { passkeys[id] = sub } }
@@ -372,6 +372,15 @@ public final class FakeAccounts {
       else { return try fail(401, "bad_passkey") }
       if let handle = r["userHandle"]?.string, handle != Base64URL.encode(Data(account.id.utf8)) { return try fail(401, "bad_passkey") }
       return try reply(200, signedIn(key, account.kind, bearer: bearer))
+    case ("POST", "/api/v1/account/picture"):
+      // As aquatome.com takes it: an id of the set (here any id shaped as one), or null for none.
+      guard let s = sub else { return try fail(401, "signed_out") }
+      switch body?["picture"] {
+      case .null?: accounts[s]!.picture = nil
+      case .string(let id)? where id.wholeMatch(of: #/[a-z0-9]+(-[a-z0-9]+)*/#) != nil: accounts[s]!.picture = id
+      default: return try fail(400, "bad_picture")
+      }
+      return try reply(200, ["user": user(accounts[s]!, s)])
     case ("POST", "/api/v1/account/passkey/options"), ("POST", "/api/v1/account/passkey"):
       guard let s = sub else { return try fail(401, "signed_out") }
       guard passkeysOn else { return try fail(503, "provider_off") }
@@ -457,7 +466,7 @@ public final class FakeAccounts {
 
   private func user(_ a: Account, _ key: String) -> JSON {
     .object([
-      "id": .string(a.id), "createdAt": .string("2026-11-01T00:00:00.000Z"),
+      "id": .string(a.id), "createdAt": .string("2026-11-01T00:00:00.000Z"), "picture": a.picture.map(JSON.string) ?? .null,
       "methods": .array([.object(["id": .string("m-\(key)"), "kind": .string(a.kind), "createdAt": .string("2026-11-01T00:00:00.000Z"), "lastUsedAt": .null])]
         + passkeys.filter { $0.value == key }.keys.sorted().map { .object(["id": .string("pk-\($0)"), "kind": .string("passkey"), "createdAt": .string("2026-11-01T00:00:00.000Z"), "lastUsedAt": .null]) }),
     ])
