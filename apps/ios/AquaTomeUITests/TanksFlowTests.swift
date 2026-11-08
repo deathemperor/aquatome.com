@@ -103,8 +103,9 @@ final class TanksFlowTests: XCTestCase {
   // A phone in a language the app doesn't have (English): the app's words are Vietnamese, and so are its numbers. Once the
   // app had Malay, iOS made its locale Malay's (8 Nov): a decimal took Malay's point (64.8 lít), and the words looked up
   // through a LocalizedStringResource (a field's prompt, Đèn's presets) came in Malay.
-  func testAPhoneInEnglishGetsTheAppsWordsAndDecimals() { phoneInEnglish() }
-  /// v2, the app's look (the owner, 8 Nov), whose tabs hold the same screens.
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimals() { phoneInEnglish(["-v2", Look.old.rawValue]) }
+  /// v2, the app's look (the owner, 8 Nov), whose tabs hold the same screens; the one above, the old look, which a
+  /// reader can still switch on.
   func testAPhoneInEnglishGetsTheAppsWordsAndDecimalsInV2() { phoneInEnglish(["-v2", "YES"]) }
 
   private func phoneInEnglish(_ more: [String] = []) {

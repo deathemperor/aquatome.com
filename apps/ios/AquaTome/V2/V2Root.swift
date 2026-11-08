@@ -105,16 +105,6 @@ enum V2Switch {
   /// The UserDefaults key, and its value where the reader never set it.
   static let key = "v2"
   static let byDefault = true
-
-  /// Whether this build is a debug or TestFlight one, not the App Store's: once what offered v2's switch, now read for
-  /// other checks of the build.
-  static var offered: Bool {
-    #if DEBUG
-    true
-    #else
-    Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-    #endif
-  }
 }
 
 @available(iOS 18, *)
