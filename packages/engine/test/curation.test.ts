@@ -104,4 +104,7 @@ test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no 
   expect(TAGS.nano!({ ...f, sizeMax: 3, tankCm: 45 })).toBe(true)
   expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 90 })).toBe(false)
   expect(TAGS.nano!({ ...f, sizeMax: 1.5, invert: true })).toBe(false)
+  // Native by the page's native range, not by where it was recorded.
+  expect(TAGS.local!({ ...f, places: ['vietnam', 'thailand'], native: ['TH'] })).toBe(false)
+  expect(TAGS.local!({ ...f, places: ['vietnam'] })).toBe(true)
 })

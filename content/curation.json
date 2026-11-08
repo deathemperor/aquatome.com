@@ -60,9 +60,7 @@
       "th": "ปลาชอบน้ำเย็น"
      },
      "pages": [
-      "breeds/oranda-goldfish",
       "breeds/ranchu-goldfish",
-      "breeds/ryukin-goldfish",
       "breeds/black-moor-goldfish",
       "breeds/bubble-eye-goldfish",
       "species/oryzias-latipes",
@@ -97,7 +95,7 @@
     "vi": "Bể nhỏ, cá đàn nhỏ",
     "id": "Akuarium kecil, ikan kecil bergerombol",
     "th": "ตู้เล็ก ปลาฝูงตัวเล็ก",
-    "ms": "Akuarium kecil, ikan kecil berkumpulan"
+    "ms": "Akuarium kecil, ikan kecil berkelompok"
    },
    "tags": [
     "nano"
@@ -145,7 +143,7 @@
       "vi": "Cá đàn nhỏ cho bể thủy sinh",
       "id": "Ikan kecil bergerombol untuk aquascape",
       "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
-      "ms": "Ikan kecil berkumpulan untuk aquascape"
+      "ms": "Ikan kecil berkelompok untuk aquascape"
      },
      "pages": [
       "species/paracheirodon-axelrodi",
@@ -181,21 +179,20 @@
    "theme": {
     "vi": "Cá bản địa Việt Nam",
     "id": "Ikan asli Asia Tenggara",
-    "th": "ปลาพื้นถิ่นเอเชียตะวันออกเฉียงใต้",
+    "th": "ปลาท้องถิ่นอาเซียน",
     "ms": "Ikan asli Asia Tenggara"
    },
    "tags": [
     "local"
    ],
    "fish": [
-    "species/betta-splendens",
     "species/macropodus-opercularis",
     "species/channa-micropeltes",
     "species/trichopodus-trichopterus",
     "species/anabas-testudineus",
     "species/mastacembelus-erythrotaenia",
-    "species/oryzias-latipes",
-    "species/datnioides-pulcher"
+    "species/datnioides-pulcher",
+    "species/betta-siamorientalis"
    ],
    "guides": [
     "guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens",
@@ -210,36 +207,33 @@
       "vi": "Cá lóc",
       "id": "Ikan channa",
       "th": "ปลาช่อน",
-      "ms": "Ikan haruan"
+      "ms": "Ikan channa"
      },
      "pages": [
       "species/channa-asiatica",
       "species/channa-micropeltes",
       "species/channa-gachua",
       "species/channa-lucius",
-      "species/channa-marulius",
       "species/channa-maculata"
      ]
     },
     {
-     "id": "ban-dia-be-nho",
+     "id": "ro-sac-co",
      "title": {
-      "vi": "Cá bản địa cho bể nhỏ",
-      "id": "Ikan asli untuk akuarium kecil",
-      "th": "ปลาพื้นถิ่นสำหรับตู้เล็ก",
-      "ms": "Ikan asli untuk akuarium kecil"
+      "vi": "Cá rô, cá sặc, cá cờ",
+      "id": "Betok, sepat dan ikan paradise",
+      "th": "ปลาหมอ ปลากระดี่ และปลาพาราไดซ์",
+      "ms": "Puyu, sepat dan ikan paradise"
      },
      "pages": [
-      "species/betta-splendens",
-      "species/betta-imbellis",
-      "species/betta-siamorientalis",
-      "species/oryzias-latipes",
-      "species/boraras-urophthalmoides",
-      "species/dermogenys-pusilla"
+      "species/anabas-testudineus",
+      "species/trichopodus-trichopterus",
+      "species/macropodus-opercularis",
+      "species/trichopsis-vittata"
      ]
     }
    ],
-   "why": "Fish native to Vietnam and its region, led by snakeheads, the fish readers find the site through most in search."
+   "why": "Fish native to Vietnam by their pages, led by snakeheads, the fish readers find the site through most in search."
   }
  ],
  "days": [
@@ -257,7 +251,7 @@
      "vi": "Trời lạnh, bể cá cần gì"
     },
     "dek": {
-     "vi": "Chọn sưởi đủ công suất, đặt đúng chỗ, ốp xốp giữ nhiệt và xử lý khi mất điện"
+     "vi": "Sưởi khoảng 1 W mỗi lít, đặt chỗ nước chảy, ốp xốp quanh bể và chuẩn bị sẵn cho lúc mất điện"
     }
    },
    "why": "Fish: Cá vàng Lưu kim (Ryukin), on this week's list, tolerates cold, well known. Guide: Cách chọn máy sưởi hồ cá phù hợp, on this week's list, 3 search impressions."

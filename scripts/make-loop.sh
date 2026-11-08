@@ -5,10 +5,12 @@
 #
 # Writes <name>.mp4 (HEVC, tagged hvc1), <name>-h264.mp4 (for browsers without HEVC) and <name>.webp (the first frame):
 # square 1080 px, 30 fps, BT.709, no audio track, the moov at the front. The last second fades into the first, so it
-# loops with no jump. It runs at the lowest priority: the Mac is shared (AGENTS.md, This Mac).
+# loops with no jump: pick a start whose first second looks like the second after the loop, or a fish shows twice
+# while it fades. FADE=0.5 shortens the fade for a shot too short for a whole second. It runs at the lowest priority:
+# the Mac is shared (AGENTS.md, This Mac).
 set -eu
 in=$1 start=$2 len=$3 out=$4 cx=${5:-0.5} cy=${6:-0.5} shake=${7:-}
-fade=1
+fade=${FADE:-1}
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 run() { nice -n 19 "$@"; }

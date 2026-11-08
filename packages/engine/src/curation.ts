@@ -39,10 +39,12 @@ export const TAGS: Record<string, (f: Facts) => boolean> = {
   beginner: f => f.difficulty !== undefined && f.difficulty <= 3,
   /** A fish (not a snail or shrimp) of 4 cm at most, whose page asks for a tank of 60 cm at most. */
   nano: f => !f.invert && f.sizeMax !== undefined && f.sizeMax <= 4 && (f.tankCm ?? 0) <= 60,
-  local: f => f.places.includes('vietnam'),
+  /** Native to Vietnam by the page's native range; by where it's recorded only when the page has no native range
+   * (editors, 2026-11-08: Betta splendens is recorded in Vietnam, but its page says native to Thailand only). */
+  local: f => (f.native ? f.native.includes('VN') : f.places.includes('vietnam')),
 }
 
-export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; tankCm?: number; places: string[]; coldwater: boolean; invert?: boolean }
+export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; tankCm?: number; places: string[]; native?: string[]; coldwater: boolean; invert?: boolean }
 export type Candidate = {
   kind: 'species' | 'breeds' | 'guides'
   id: string
@@ -172,6 +174,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
         difficulty: typeof diff === 'number' ? diff : diff?.max, tankCm: typeof tank === 'number' ? tank : tank?.min, places: s.places,
+        native: s.range?.native?.countries,
         coldwater: COLDWATER_OF.includes(s.id), invert: s.group === 'snails' || s.group === 'shrimp',
       },
       known: known.includes(s.id) ? known.indexOf(s.id) : undefined, demand: demandOf('species', s.id),
