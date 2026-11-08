@@ -16,7 +16,7 @@ test('gate truth table', () => {
 test('reviewTranslation clamps the score and passes both texts', async () => {
   let prompt = ''
   const llm = async <T,>(a: { prompt: string }) => { prompt = a.prompt; return { score: 1.4, notes: ['ok'] } as T }
-  expect(await reviewTranslation(llm, [{ en: '<p>Streams</p>', vi: '<p>Suối</p>' }])).toEqual({ score: 1, notes: ['ok'] })
+  expect(await reviewTranslation(llm, [{ en: '<p>Streams</p>', vi: '<p>Suối</p>' }])).toEqual({ score: 1, notes: ['ok'], lost: [] })
   expect(prompt).toContain('Streams')
   expect(prompt).toContain('Suối')
 })

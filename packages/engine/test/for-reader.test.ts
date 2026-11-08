@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { amountsOutside, forWriter, hedgesLost, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
+import { amountsOutside, forWriter, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
 import { marketFor } from '../src/market'
 
 const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
@@ -133,29 +133,6 @@ test('a fact the guide says more surely than the facts do goes back, and is not 
   expect(once.calls.filter(c => c.kind === 'write')[1]!.prompt).toContain('Nói chắc hơn dữ kiện: "Nấm chỉ mọc trên vết thương hở')
   const twice = fake({ facts, written: [sure, sure], reviews: [{ score: 0.95, notes: [], hedges: [pair(sure)] }, { score: 0.95, notes: [], hedges: [pair(sure)] }] })
   expect((await writeForReader({ llm: twice.llm }, 'g', 'x')).kept).toBe(false)
-})
-
-test('the hedge check holds the reviewer to the facts and the page', () => {
-  const facts = ['Fish can catch bacteria in shipping.', 'Use 3 ml per 4 litres.']
-  const page = 'Trên đường vận chuyển cá nào cũng nhiễm khuẩn. Bình thường cá vẫn khỏe. Dùng 3 ml cho 4 lít.'
-  expect(hedgesLost([{ fact: 'Fish can catch bacteria in shipping.', quote: 'Trên đường vận chuyển cá nào cũng nhiễm khuẩn.' }], facts, page)).toHaveLength(1)
-  // Not a fact it was given, not a sentence on the page, a fact with no hedge, or "bình thường" taken for "thường": nothing.
-  expect(hedgesLost([
-    { fact: 'Fish may catch bacteria at home.', quote: 'Trên đường vận chuyển cá nào cũng nhiễm khuẩn.' },
-    { fact: 'Fish can catch bacteria in shipping.', quote: 'Cá nào cũng bệnh.' },
-    { fact: 'Use 3 ml per 4 litres.', quote: 'Dùng 3 ml cho 4 lít.' },
-    { fact: 'Fish can catch bacteria in shipping.', quote: '' },
-  ], facts, page)).toEqual([])
-  expect(hedgesLost([{ fact: 'Fish can catch bacteria in shipping.', quote: 'Bình thường cá vẫn khỏe.' }], facts, page)).toHaveLength(1)
-  expect(hedgesLost([{ fact: 'Fish can catch bacteria in shipping.', quote: 'Trên đường vận chuyển cá có thể nhiễm khuẩn.' }], facts, 'Trên đường vận chuyển cá có thể nhiễm khuẩn.')).toEqual([])
-  // "Bất thường" is "abnormal", not "often"; "đôi lúc" is "sometimes".
-  expect(hedgesLost([{ fact: 'Infected fish may swim erratically.', quote: 'Cá nhiễm bệnh bơi bất thường.' }], ['Infected fish may swim erratically.'], 'Cá nhiễm bệnh bơi bất thường.')).toHaveLength(1)
-  expect(hedgesLost([{ fact: 'Fungus can come back.', quote: 'Đôi lúc nấm quay lại.' }], ['Fungus can come back.'], 'Đôi lúc nấm quay lại.')).toEqual([])
-  // A fact said twice, hedged in the body and hardened in the summary: the summary's sentence is found.
-  const twice = 'Cá bị nấm thì thường có vết thương hở. Nấm chỉ mọc trên vết thương hở.'
-  expect(hedgesLost([{ fact: 'A lot of times fungus means an open wound.', quote: 'Cá bị nấm thì thường có vết thương hở.' }, { fact: 'A lot of times fungus means an open wound.', quote: 'Nấm chỉ mọc trên vết thương hở.' }], ['A lot of times fungus means an open wound.'], twice)).toEqual([{ fact: 'A lot of times fungus means an open wound.', quote: 'Nấm chỉ mọc trên vết thương hở.' }])
-  // "Hay" before a verb is "often".
-  expect(hedgesLost([{ fact: 'People often get hung up on it.', quote: 'Nhiều người hay vướng ở chỗ này.' }], ['People often get hung up on it.'], 'Nhiều người hay vướng ở chỗ này.')).toEqual([])
 })
 
 test('a medicine the source names reaches the writer with what it is mistaken for here', () => {

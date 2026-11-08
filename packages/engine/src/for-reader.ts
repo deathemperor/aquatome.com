@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { fitFindings, ownSource, productOf, readFit, type FitFinding } from './fit'
+import { hedgesLost } from './hedges'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
@@ -47,22 +48,6 @@ const REVIEW_SCHEMA = {
     score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } }, unsafe: { type: 'array', items: { type: 'integer' } },
     hedges: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['fact', 'quote'], properties: { fact: { type: 'string' }, quote: { type: 'string' } } } },
   },
-}
-
-/** How often and how sure, as the facts say it in English (guide-facts.md keeps it word for word)… */
-const HEDGE_EN = /\b(?:may|might|can|could|often|usually|typically|generally|sometimes|occasionally|a lot of times|many times|most of the time|in some cases|likely|probably|possibly|tends? to|i think|seems?)\b/i
-/** …and as a Vietnamese sentence carries it. "Thường" in "bình thường", "bất thường", "khác thường" isn't "often", and "dễ" alone is "easy"; "hay" before a word is "often" ("hay vướng") as well as "or", and counts. */
-const HEDGE_VI = /(?<!\p{L})(?:có thể|(?<!(?:bình|bất|khác|coi|bồi|phi|tầm|dị|thất|lạ) )thường|đôi khi|đôi lúc|nhiều khi|nhiều lúc|có khi|có lúc|lắm lúc|có khả năng|(?:một số|vài) trường hợp|thỉnh thoảng|có lẽ|chắc là|hình như|nghe nói|dễ (?:bị|nhiễm|chết|lây|mắc)|hay(?= \p{L})|tùy|tuỳ|chưa chắc|không phải lúc nào|phần lớn|đa số|hầu hết)(?!\p{L})/iu
-const squash = (s: string) => s.replace(/\s+/g, ' ').trim()
-/**
- * Facts the guide says more surely than they do: "a lot of times a fungal infection means an open wound" written "nấm chỉ
- * mọc trên vết thương hở". The reviewer pairs each hedged fact with the guide's sentence for it; the code holds the pair to
- * the facts and the page (a fact it didn't copy, or a sentence that isn't there, counts for nothing) and decides whether
- * the sentence still says how often or how sure.
- */
-export function hedgesLost(pairs: { fact: string; quote: string }[], facts: string[], page: string): { fact: string; quote: string }[] {
-  const known = new Set(facts.map(squash)), text = squash(page)
-  return pairs.filter(x => x.quote.trim() && known.has(squash(x.fact)) && HEDGE_EN.test(x.fact) && text.includes(squash(x.quote)) && !HEDGE_VI.test(x.quote))
 }
 
 /** The amounts in a text, as numbers with their units: what a guide may not make up. */
@@ -121,14 +106,14 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     const outside = amountsOutside(plain(clean), input)
     const r = await d.llm<{ score: number; notes: string[]; hedges?: { fact: string; quote: string }[]; unsafe?: number[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
     const score = Math.min(1, Math.max(0, Number(r.score) || 0))
-    const lost = hedgesLost(r.hedges ?? [], facts.facts.map(f => f.fact), plain(clean))
+    const lost = hedgesLost((r.hedges ?? []).map(h => ({ from: h.fact, to: h.quote })), facts.facts.map(f => f.fact).join('\n'), plain(clean))
     // A note a reader could harm fish by following holds the guide back, whatever its score.
     const unsafe = (r.unsafe ?? []).filter(i => r.notes?.[i])
     const notes = [
       ...wrong.map(f => `${f.check}: "${f.quote}": ${f.why}`),
       ...findings.filter(f => f.check === 'words').map(f => `Chữ người chơi ít dùng: "${f.quote}"${f.fix ? ` (${f.fix})` : ''}`),
       ...outside.map(a => `Con số không có trong dữ kiện: ${a}`),
-      ...lost.map(h => `Nói chắc hơn dữ kiện: "${h.quote}" (dữ kiện: "${h.fact}"). Giữ đúng mức như dữ kiện: "có thể", "thường", "nhiều khi"…`),
+      ...lost.map(h => `Nói chắc hơn dữ kiện: "${h.to}" (dữ kiện: "${h.from}"). Giữ đúng mức như dữ kiện: "có thể", "thường", "nhiều khi"…`),
       ...(r.notes ?? []),
     ]
     return { written: clean, findings, score, notes, ok: !wrong.length && !outside.length && !lost.length && !unsafe.length && score >= QUALITY_THRESHOLD }
