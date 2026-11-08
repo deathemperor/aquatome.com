@@ -27,20 +27,22 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 export const REPEAT_DAYS = 28
 
 /** Each tag as the owner's daily report says it, in the day's `why`. */
-const TAG_WORDS: Record<string, string> = { cold: 'tolerates cold', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'small', local: 'native to Vietnam' }
+const TAG_WORDS: Record<string, string> = { cold: 'tolerates cold', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small fish for a small tank', local: 'native to Vietnam' }
 
 /** What a week can ask its fish to be (a week's `tags`): how the planner reads each from a page's figures. */
 export const TAGS: Record<string, (f: Facts) => boolean> = {
-  /** Fine without a heater in a northern Vietnamese winter. */
-  cold: f => f.coldwater || (f.tempMin !== undefined && f.tempMin <= 18),
+  /** Takes cooler water than tropical fish: by the page's own lowest temperature, and by its kind only when the page
+   * gives none (editors, 2026-11-08: a koi whose page says 20–27 °C was on the cold shelf). */
+  cold: f => (f.tempMin !== undefined ? f.tempMin <= 18 : f.coldwater),
   /** Needs a heater when the north turns cold. */
   heater: f => f.tempMin !== undefined && f.tempMin >= 24,
   beginner: f => f.difficulty !== undefined && f.difficulty <= 3,
-  nano: f => f.sizeMax !== undefined && f.sizeMax <= 4,
+  /** A fish (not a snail or shrimp) of 4 cm at most, whose page asks for a tank of 60 cm at most. */
+  nano: f => !f.invert && f.sizeMax !== undefined && f.sizeMax <= 4 && (f.tankCm ?? 0) <= 60,
   local: f => f.places.includes('vietnam'),
 }
 
-export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; places: string[]; coldwater: boolean }
+export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; tankCm?: number; places: string[]; coldwater: boolean; invert?: boolean }
 export type Candidate = {
   kind: 'species' | 'breeds' | 'guides'
   id: string
@@ -163,12 +165,14 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const t = resolveDataCard(s.dataCard.tempC ?? [], 'tempC')?.value
     const size = resolveDataCard(s.dataCard.sizeCm ?? [], 'sizeCm')?.value
     const diff = resolveDataCard(s.dataCard.difficulty ?? [], 'difficulty')?.value
+    const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
     out.push({
       kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok),
       ...(await fitOf('species', s.id)), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
-        difficulty: typeof diff === 'number' ? diff : diff?.max, places: s.places, coldwater: COLDWATER_OF.includes(s.id),
+        difficulty: typeof diff === 'number' ? diff : diff?.max, tankCm: typeof tank === 'number' ? tank : tank?.min, places: s.places,
+        coldwater: COLDWATER_OF.includes(s.id), invert: s.group === 'snails' || s.group === 'shrimp',
       },
       known: known.includes(s.id) ? known.indexOf(s.id) : undefined, demand: demandOf('species', s.id),
     })

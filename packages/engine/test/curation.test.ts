@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { CurationSchema, type Curation } from '@aq/schema'
-import { across, cardWorthy, checkCalendar, LARGE_PX, plan, problem, type Candidate } from '../src/curation'
+import { across, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -88,4 +88,14 @@ test('a week with tags takes only fish that match one, or that are on its own li
   const { calendar, report } = plan(cur, cands, '2026-11-16', 3)
   expect(calendar.days.map(d => d.fish)).toEqual(['species/listed', 'species/a', undefined])
   expect(report.empty).toContain('2026-11-18 fish')
+})
+
+test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no cold fish, nor a 90 cm tank\'s tetra a small one', () => {
+  const f = { places: [], coldwater: false }
+  expect(TAGS.cold!({ ...f, coldwater: true, tempMin: 20 })).toBe(false)
+  expect(TAGS.cold!({ ...f, coldwater: true })).toBe(true)
+  expect(TAGS.cold!({ ...f, tempMin: 16 })).toBe(true)
+  expect(TAGS.nano!({ ...f, sizeMax: 3, tankCm: 45 })).toBe(true)
+  expect(TAGS.nano!({ ...f, sizeMax: 4, tankCm: 90 })).toBe(false)
+  expect(TAGS.nano!({ ...f, sizeMax: 1.5, invert: true })).toBe(false)
 })
