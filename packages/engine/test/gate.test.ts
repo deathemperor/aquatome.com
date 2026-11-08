@@ -298,9 +298,47 @@ test('a dose the rules call harmful holds a page with no read, in every language
   await edit(had, GUIDE, overdose)
   commit(had)
   const committed = await readFile(join(had, GUIDE), 'utf8')
-  await edit(had, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+  await edit(had, GUIDE, t => { t.body = (t.body as string).replace('<p>Kanamycin ngâm: 2–5 g/L.</p>', '<p>Thay nước mỗi tuần.</p>') })
   await gate(had, { llm: none, now })
   expect(JSON.parse(await readFile(join(had, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(committed), held: { checks: ['harm'], at: '2026-11-09' } })
+})
+
+test('harm is counted from the text each language ends with: a rejected text holds no other page, a text put back holds them all, and the rules\' harm costs no read', async () => {
+  const commitAll = (root: string) => { git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'x') }
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  const overdose = (t: Record<string, unknown>) => { t.body = `${t.body as string}<p>Kanamycin ngâm: 2–5 g/L.</p>` }
+  const harmless = (t: Record<string, unknown>) => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` }
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  // Both languages changed, one new text harmful: it is put back and the other keeps its new text, unheld, whichever is
+  // harmful, read or with the accounts out. The harmful text is never read.
+  for (const [bad, good] of [[GUIDE, th], [th, GUIDE]] as const) {
+    for (const llm of [reader, () => none]) {
+      const root = await repo()
+      await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+      commitAll(root)
+      const committed = await readFile(join(root, bad), 'utf8')
+      await edit(root, bad, overdose)
+      await edit(root, good, harmless)
+      const changedGood = await readFile(join(root, good), 'utf8')
+      const calls: string[] = []
+      await gate(root, { llm: llm === reader ? reader(calls) : none, now })
+      expect(await readFile(join(root, bad), 'utf8')).toBe(committed)
+      expect(calls.some(c => c.includes('Kanamycin'))).toBe(false)
+      if (llm === reader) expect(await readFile(join(root, good), 'utf8')).toBe(changedGood)
+      expect((await readJson(root, good)).held).toBeUndefined()
+      expect((await readJson(root, bad)).held).toBeUndefined()
+    }
+  }
+  // The committed text has the harm and its change, which can't be read, is put back: the page is held in every language
+  // in that run.
+  const had = await repo()
+  await writeFile(join(had, th), await readFile(join(had, GUIDE), 'utf8'))
+  await edit(had, GUIDE, overdose)
+  commitAll(had)
+  await edit(had, GUIDE, t => { t.body = (t.body as string).replace('<p>Kanamycin ngâm: 2–5 g/L.</p>', '<p>Thay nước mỗi tuần.</p>') })
+  await gate(had, { llm: none, now })
+  expect((await readJson(had, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(had, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
 })
 
 test('a text put back that no rewording fixes is held', async () => {

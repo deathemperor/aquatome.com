@@ -7,7 +7,7 @@ Write:
 - slug: 2–6 lowercase English words joined by hyphens, naming the topic (for the page address), e.g. "fish-popeye-causes-treatment".
 - summary: 2–3 sentences answering the main question directly: what it is, what to do first.
 - body: HTML with h3 sections. Pick sections to fit the topic, skip any with no facts. For a disease: signs, causes, what to do now, treatment, prevention, when to worry. For care and technique: what it is and why, the steps in order (ol), common mistakes, checking afterwards.
-- Doses, temperatures and times: exactly the numbers and units in the facts, saying which source says what when sources differ. Never change a dose.
+- Doses, temperatures and times: exactly the numbers and units in the facts. When sources differ, name each by its kind (a vet, a university study, one keeper, a fishkeeping guide): the reader never sees the facts' source numbers. Never change a dose.
 - faq: 3–5 questions hobbyists ask about this, answered briefly from the facts.
 
 Rules:
