@@ -7,8 +7,8 @@
  *   their guide ("this siphon", "the video") are left out. The guide is the expected page; another may answer as well.
  * - start: written here, asked from a fish's page or from fish ID, or naming fish or a tank: the page it should read and
  *   the blocks it should show (a card, a comparison, a tool).
- * - outside: written here, what the handbook doesn't answer (it should say so: covered false) or isn't about aquariums
- *   (no blocks either).
+ * - outside: written here, what the handbook doesn't answer (it should say so: covered false) or isn't about keeping
+ *   fish (the off-topic line; chat-offtopic.ts holds that rule on its own, far harder, set).
  *
  * Graded by the script, no judge:
  * - Found (faq): the guide read or shown, and answered from / another page shown, covered / not covered. A page counts
@@ -78,9 +78,10 @@ type Want = {
   read?: string[]
   /** Any of these shown: `species:<id>`, `compare:<id>+<id>` (both in one comparison), `tool:<name>`, `section:<path>`. */
   show?: string[]
-  /** The handbook doesn't answer it: covered false; `none`: nor is it about aquariums, so no blocks either. */
+  /** The handbook doesn't answer it: covered false. */
   covered?: false
-  none?: true
+  /** It isn't about keeping fish: the off-topic line. */
+  offTopic?: true
 }
 /** `tanks`: the reader's saved tanks, as read_tanks would read them (none when missing). */
 type Question = { set: 'faq' | 'start' | 'outside'; q: string; start: Start; want: Want; tanks?: Tank[] }
@@ -105,9 +106,9 @@ const WRITTEN: Question[] = [
   },
   { set: 'start', q: 'Bể của tôi dài 60, rộng 30, cao 36 cm thì chứa được bao nhiêu lít nước?', start: {}, want: { show: ['tool:tank-volume'] } },
   { set: 'start', q: 'Thả 5 con thì cần bể lớn cỡ nào?', start: { from: 'species', about: 'symphysodon-aequifasciatus' }, want: { read: ['/vi/ca/ca-dia-nau/'], show: ['species:symphysodon-aequifasciatus', 'tool:tank-mates', 'tool:tank-volume'] } },
-  { set: 'outside', q: 'Thời tiết Hà Nội ngày mai thế nào?', start: {}, want: { covered: false, none: true } },
-  { set: 'outside', q: 'Cách nấu canh chua cá lóc ngon?', start: {}, want: { covered: false, none: true } },
-  { set: 'outside', q: 'Người bị nấm da chân thì bôi thuốc gì, ngày mấy lần?', start: {}, want: { covered: false, none: true } },
+  { set: 'outside', q: 'Thời tiết Hà Nội ngày mai thế nào?', start: {}, want: { offTopic: true } },
+  { set: 'outside', q: 'Cách nấu canh chua cá lóc ngon?', start: {}, want: { offTopic: true } },
+  { set: 'outside', q: 'Người bị nấm da chân thì bôi thuốc gì, ngày mấy lần?', start: {}, want: { offTopic: true } },
   { set: 'outside', q: 'Đặt bể cá theo phong thủy thì nên quay hướng nào cho hợp tuổi?', start: {}, want: { covered: false } },
   { set: 'outside', q: 'Nuôi cá mập trắng trong bể kính ở nhà cần những gì?', start: {}, want: { covered: false } },
 ]
@@ -260,7 +261,7 @@ function grade(model: string, question: Question, run: ChatRun | undefined, fail
   if (failed) found = 'failed'
   else if (question.set === 'faq') found = faqFound(touched(w.read!), covered, pagesOf(blocks).length)
   else if (question.set === 'start') found = (!w.read || touched(w.read)) && (w.show ?? []).some(s => shows(blocks, s)) ? 'ok' : 'not'
-  else found = covered === false && (!w.none || blocks.length === 0) ? 'ok' : 'not'
+  else found = (w.offTopic ? run?.answer?.offTopic === true : covered === false) ? 'ok' : 'not'
   // What it could have read its figures in: what it was sent (the question, its start, the searches' results, the parts
   // of pages it opened), not the whole of a page it saw only the outline of.
   const known = new Set(numbersIn([question.q, JSON.stringify(question.start.identified ?? {}), sent].join('\n')))
@@ -359,11 +360,11 @@ function report(rows: Row[]): string {
     '',
     `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}, commit \`${commit()}\`. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`) at that commit, over ${args.site}'s handbook (the build whose app index hashes to \`${build}\`; the guides' headings and FAQ questions ${topicsFrom === 'site' ? 'as the site serves them' : 'worked out from its page copies, as the build does'}), in Vietnamese, no saved tanks but a question's own.`,
     '',
-    `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about aquariums.`,
+    `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about keeping fish.`,
     '',
     '- **FAQ:** the guide the question came from was read or shown, and answered from (not as not covered) / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page shown. A page counts as read once it loaded. Another guide may answer as well. A run with no answer is counted as failed, not in these. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
-    '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
+    '- **Outside:** answered as not covered, or, when not about keeping fish, with the off-topic line.',
     '- **Tank-mates: checked · opens with it:** tank-mates blocks picked whose fish, counts and tank Claude checked first (check_tank_mates; the Worker shows no other) · answers with a verdict shown whose text opens with its head, word for word. The check\'s verdict is listed under each answer.',
     '- **Points to blocks:** answers whose text refers to its blocks ("xem thẻ bên dưới", "bảng dưới đây"), which the reader sees under it anyway; the prompt says never to. The words are listed by each answer: a flag for a look, not a count (other wordings aren\'t caught, and "below" as a place ending a clause can be).',
     '- **Figures not in a page:** answers whose text has a number that nothing Claude was sent has: the question, the searches\' results, the parts of pages it opened (listed below). A small number (a list\'s 2 or 3) may be in what it read by chance, so this is a floor.',

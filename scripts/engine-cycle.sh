@@ -69,6 +69,10 @@ CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
   CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job. On
+# GitHub the run keeps it as an artifact (engine.yml).
+if [ -n "${GITHUB_ACTIONS:-}" ]; then COST_DIR=/tmp; else COST_DIR="$HOME/Library/Logs"; fi
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 
 # shellcheck disable=SC1091
 [ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node

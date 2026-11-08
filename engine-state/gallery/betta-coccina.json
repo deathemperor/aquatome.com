@@ -1,7 +1,8 @@
 {
  "queue": [],
  "judged": [
-  "File:Betta coccina \"Jambi-Sumatra\".JPG"
+  "File:Betta coccina \"Jambi-Sumatra\".JPG",
+  "inat:251431788"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/8023e1042e00c427.webp": "3d1abecedb7f767f",
@@ -10,5 +11,13 @@
   "https://media.aquatome.com/seriouslyfish/a5bda85c1965f4f3.webp": "0f2f6f1f1f3edf9b",
   "https://media.aquatome.com/commons/2e119d3457cf768f.webp": "4cced1adfdfcd479"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 618852,
+  "pass": "done",
+  "after": {
+   "research": 146267257,
+   "agree": 0
+  }
+ }
 }

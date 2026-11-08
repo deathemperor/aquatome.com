@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "c86hMeJfPms",
     "title": "ALGAE - 6 Reasons Why You Have It & HOW TO FIX IT",
@@ -32,6 +32,11 @@
         "t": 125
       },
       {
+        "category": "co2",
+        "type": "binh",
+        "t": 315
+      },
+      {
         "category": "cay-thuy-sinh",
         "type": "noi",
         "t": 468
@@ -40,15 +45,11 @@
         "category": "phan-nen",
         "type": "phan",
         "t": 279
-      },
-      {
-        "category": "co2",
-        "t": 311
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao cây yếu thì rêu hại thắng",
+        "heading": "Cây yếu thì rêu thắng",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/c86hMeJfPms/p0-FzY2FwaW5nLmpwZw.webp",
@@ -58,39 +59,11 @@
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây khỏe, mọc đều và xanh tốt, gần như không có rêu hại."
+          "caption": "Bể thủy sinh cây khỏe, lá tươi, lên màu đẹp nên rêu khó phát triển."
         }
       },
       {
-        "heading": "Chất thải hữu cơ: lọc, thay nước và dọn rác cắt tỉa",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/c86hMeJfPms/p1-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/c86hMeJfPms/p1-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng dưới tủ bể và xô có ống siphon để thay nước."
-        }
-      },
-      {
-        "heading": "Bể mới lên rêu có đáng lo không",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/c86hMeJfPms/p4-AxOF9hXzAyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/c86hMeJfPms/p4-AxOF9hXzAyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lamiot",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flore_subaquatique_d%27une_mare_citerne_en_vall%C3%A9e_de_l%27Esteron_fin_avril_2018_a_02.jpg",
-          "caption": "Bể thủy sinh cây xanh mọc dày, đã khá ổn định."
-        }
-      },
-      {
-        "heading": "Đèn quá nhiều thì xử lý thế nào",
+        "heading": "Thừa ánh sáng",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/c86hMeJfPms/p5-9zdXJmYWNlLmpwZw.webp",
@@ -100,7 +73,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Mechsnipe",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocotyle_Leucocephala_floating_in_water_surface.jpg",
-          "caption": "Cây nổi phủ kín mặt nước, chắn bớt ánh sáng đèn cho bể."
+          "caption": "Cây nổi với lá và rễ xòe dưới mặt nước, giúp hút bớt dinh dưỡng."
         }
       }
     ]

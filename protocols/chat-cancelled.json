@@ -1,0 +1,10 @@
+{
+  "status": 410,
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-store"
+  },
+  "body": {
+    "error": "cancelled"
+  }
+}

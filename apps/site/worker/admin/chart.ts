@@ -59,6 +59,8 @@ export type DayChart = {
   unit?: 'usd'
   /** The last day is today and not over yet: drawn lighter, said in its readout. */
   partialLast?: boolean
+  /** With partialLast, when the last day closes at a set time and isn't today by the viewer's clock: said of it in place of "today" and "not over yet". */
+  lastSays?: string
   /** Today's bar when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). */
   today?: number
   /** 'week': each of `days` is a week's Monday, and the chart says so. */
@@ -107,11 +109,12 @@ export function dayChart(c: DayChart): string {
 
   const last = n - 1
   const dm = (i: number) => dayLabel(c.days[i]!)
+  const lastIsToday = c.partialLast && !c.lastSays
   const dayName = (i: number) =>
     weekly ? `Tuần ${dm(i)}`
-      : c.partialLast && i === last ? `Hôm nay ${dm(i)}` : c.partialLast && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
+      : lastIsToday && i === last ? `Hôm nay ${dm(i)}` : lastIsToday && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
   const unrecorded = (i: number) => all.every(s => at(s, i) === null)
-  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ` · chưa hết ${per}` : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
+  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ` · ${c.lastSays ?? `chưa hết ${per}`}` : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
   const shown = (v: number | null) => (v === null ? '—' : format(v))
 
   const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
@@ -163,7 +166,7 @@ export function dayChart(c: DayChart): string {
   const desc = `${n} ${per}, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ${per} ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per} không có số liệu.` : ''} Phím mũi tên đọc từng ${per}.`
   const plot = `<div class="plot" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
 
-  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? (weekly ? ' (tuần này)' : ' (hôm nay)') : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
+  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (tuần này)' : ' (hôm nay)') : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
   const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Tuần' : 'Ngày'}</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
   return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
 }
@@ -194,8 +197,8 @@ export function barWords(c: DayChart, lang: DashLang = 'vi', also: Series[] = []
   const today = todayOf(c)
   const all = [...c.series.slice(0, 3), ...(c.whole ? [c.whole] : []), ...also]
   const date = (d: string) => (en ? dayMonthEn(d) : dayLabel(d))
-  const label = (d: string, i: number) => (i === today && !weekly ? (en ? 'Today' : 'Hôm nay') : weekly || c.days.length > 7 ? date(d) : SHORT_DAY[lang][weekdayOf(d)]!)
-  const so = (i: number) => (i === today ? (en ? ', so far' : weekly ? ' · chưa hết tuần' : ' · chưa hết ngày') : '')
+  const label = (d: string, i: number) => (i === today && !weekly && !c.lastSays ? (en ? 'Today' : 'Hôm nay') : weekly || c.days.length > 7 ? date(d) : SHORT_DAY[lang][weekdayOf(d)]!)
+  const so = (i: number) => (i === today ? (c.lastSays ? ` · ${c.lastSays}` : en ? ', so far' : weekly ? ' · chưa hết tuần' : ' · chưa hết ngày') : '')
   const day = (d: string, i: number) => (weekly ? `${en ? 'Week of' : 'Tuần'} ${date(d)}` : en ? `${SHORT_DAY.en[weekdayOf(d)]} ${date(d)}` : `${WEEKDAY[weekdayOf(d)]} ${date(d)}`) + so(i)
   const missing = c.missing ?? (en ? 'not recorded' : 'không có số liệu')
   // English counts one of a thing as one: "1 shop click".
