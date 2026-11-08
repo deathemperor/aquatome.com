@@ -70,7 +70,8 @@ struct AccountPictureMark<Symbol: View>: View {
         symbol
       }
     }
-    .onChange(of: account.state == .signedOut) { _, out in if out { stored = "" } }
+    // From the start too: a session that had ended before the app opened.
+    .onChange(of: account.state == .signedOut, initial: true) { _, out in if out { stored = "" } }
   }
 }
 
