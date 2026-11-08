@@ -51,8 +51,8 @@ chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện ch�
 - A stopped question's log is kept, the owner's ruling.
 - The Worker serves "Báo sai" (`POST /api/chat/conversations/{id}/report`) and the stop limit (`counted`, `freeLeft`;
   `freeStops` in the status). A report is kept in R2 under the account, as its conversations are, so it needs no
-  migration, and deleting the account deletes it. The chat's evals read reports there, by reference, and never copy one into the repository
-  (it is public, and its history can't be deleted): results there name a report by an id that doesn't name the account,
-  never its words, the Mac's eval caches drop a report's answers once the report is gone, and a report's question goes to
-  Claude only through the chat's API key, never a person's Claude login. So deleting the account takes it out of the
-  evals too, the chief's condition.
+  migration, and deleting the account deletes it. The chat's evals read reports there, by reference, and never copy one
+  into the repository (it is public, and its history can't be deleted): results there name a report by an id that
+  doesn't name the account, never its words, the Mac's eval caches drop a report's answers once the report is gone, and
+  a report's question goes to Claude only through the chat's API key, never a person's Claude login. So deleting the
+  account takes it out of the evals too, the chief's condition.
