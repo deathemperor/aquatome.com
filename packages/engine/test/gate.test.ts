@@ -24,13 +24,14 @@ const readJson = async (root: string, f: string) => JSON.parse(await readFile(jo
 const edit = async (root: string, f: string, change: (t: Record<string, unknown>) => void) => {
   const t = await readJson(root, f); change(t); await writeFile(join(root, f), `${JSON.stringify(t, null, 2)}\n`)
 }
-/** A reader that finds a foreign shop wherever "Petco" is, and a shop's kit wherever "Aqueon" is. */
+/** A reader that finds a foreign shop wherever "Petco" is, a shop's kit wherever "Aqueon" is, and harm wherever "tắt lọc" is. */
 const reader = (calls: string[] = []): Llm => (async ({ prompt }: { prompt: string }) => {
   calls.push(prompt)
   return {
     findings: [
       ...(prompt.includes('Petco') ? [{ check: 'shop', part: 'P1', quote: 'Petco', why: 'a US shop', fix: '', product: '' }] : []),
       ...(prompt.includes('Aqueon') ? [{ check: 'kit', part: 'P1', quote: 'Aqueon', why: 'one shop\'s kit', fix: '', product: '' }] : []),
+      ...(prompt.includes('tắt lọc') ? [{ check: 'harm', part: 'P1', quote: 'tắt lọc', why: 'fish suffocate', fix: '', product: '' }] : []),
     ],
     products: [], doses: [],
   }
@@ -46,6 +47,11 @@ test('what the gate does with a page, from its checks now and before', () => {
   expect(gateCall(s(), { isNew: false, wasHeld: true }).action).toBe('release')
   expect(gateCall(s('units'), { isNew: false, wasHeld: true }).action).toBe('hold')
   expect(gateCall(s('kit'), { isNew: false, wasHeld: false, before: s('kit') })).toEqual({ action: 'hold', checks: ['kit'] })
+  // Advice that would hurt holds a page as a kit does; a live page whose new text brought it gets its old text back.
+  expect(gateCall(s('harm'), { isNew: true, wasHeld: false })).toEqual({ action: 'hold', checks: ['harm'] })
+  expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s('harm') })).toEqual({ action: 'hold', checks: ['harm'] })
+  expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s() })).toEqual({ action: 'revert', checks: ['harm'] })
+  expect(gateCall(s('harm', 'kit'), { isNew: false, wasHeld: false, before: s('kit') })).toEqual({ action: 'revert', checks: ['harm'] })
 })
 
 test('a new page that fails is held, and one that passes goes out', async () => {
@@ -198,6 +204,67 @@ test('a held page a batch read has since passed is let out, with no call; one st
   expect(r.report.hold).toEqual([])
 })
 
+test('a live page that harm was found on is held, changed or not; one a cycle made harmful gets its old text back', async () => {
+  const root = await repo()
+  const page = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(page)]: { at: '2026-11-09', hash: fitText(page).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  await gate(root, { llm: reader(), now })
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+
+  const fresh = await repo()
+  const before = await readFile(join(fresh, GUIDE), 'utf8')
+  await edit(fresh, GUIDE, t => { t.body = `${t.body as string}<p>Muốn bắt cá thì tắt lọc cho cá ngáp.</p>` })
+  const r = await gate(fresh, { llm: reader(), now })
+  expect(r.report.revert).toHaveLength(1)
+  expect(await readFile(join(fresh, GUIDE), 'utf8')).toBe(before)
+  expect((await readJson(fresh, GUIDE)).held).toBeUndefined()
+
+  // With the accounts out, a changed page is put back, and held when its old text was read as harmful.
+  const out = await repo()
+  const committed = (await loadPages(join(out, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(out, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(committed)]: { at: '2026-11-09', hash: fitText(committed).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  const text = await readFile(join(out, GUIDE), 'utf8')
+  await edit(out, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  const o = await gate(out, { llm: none, now })
+  expect(o.report.unread).toHaveLength(1)
+  expect(JSON.parse(await readFile(join(out, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(text), held: { checks: ['harm'], at: '2026-11-09' } })
+})
+
+test('harm found in one language holds the page in every language, read there or not, and once held it stays held as it was', async () => {
+  const root = await repo()
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+  git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'th')
+  const vi = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(vi)]: { at: '2026-11-09', hash: fitText(vi).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  // The Thai page read since and passing: held still, while the Vietnamese one has it, from its first day.
+  const thPage = (await loadPages(join(root, 'content'), ['th'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  const state = await readJson(root, 'engine-state/_fit.json') as FitState
+  state[fitKey(thPage)] = { at: '2026-11-10', hash: fitText(thPage).hash, model: 'opus', checklist: 3, findings: [], products: [] }
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify(state))
+  const r = await gate(root, { llm: reader(), now: () => new Date('2026-11-10T00:00:00Z') })
+  expect(r.report.release).toEqual([])
+  expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+})
+
+test('a new guide that comes in two languages, one harmful, is held in both, whichever is read first', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  await cp(join(root, dir), join(root, 'content/guides/new-two'), { recursive: true })
+  await edit(root, 'content/guides/new-two/entity.json', e => { e.id = 'new-two' })
+  await edit(root, 'content/guides/new-two/vi.json', t => { t.slug = 'new-two'; t.body = '<p>Muốn bắt cá thì tắt lọc cho cá ngáp.</p>' })
+  await writeFile(join(root, 'content/guides/new-two/th.json'), JSON.stringify({ ...(await readJson(root, 'content/guides/new-two/vi.json')), body: '<p>ปลาชอบน้ำสะอาด</p>' }))
+  await gate(root, { llm: reader(), now })
+  expect((await readJson(root, 'content/guides/new-two/vi.json')).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(root, 'content/guides/new-two/th.json')).held).toMatchObject({ checks: ['harm'] })
+})
+
 test('a text put back that no rewording fixes is held', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })
@@ -236,4 +303,34 @@ test('the owner\'s number: pages wrong for the reader, scaled kind by kind from 
   expect(s.sample).toHaveLength(3)
   expect(s.labels.kit).toBeTruthy()
   expect(fitSummary(pages, state, new Map(), '2026-11-09').sample).toEqual(s.sample)
+})
+
+/** A card in the repository's working tree: its entity and one language's text. */
+async function card(root: string, id: string, text: Record<string, unknown>, lang = 'vi') {
+  await mkdir(join(root, 'content/cards', id), { recursive: true })
+  const entity = { id, type: 'trivia', about: [], sources: [{ url: 'https://example.org/a', title: 'A', publisher: 'P', date: '2026-11-01', accessed: '2026-11-08' }], show: { from: '2026-11-10', until: '2026-12-01' }, updatedAt: '2026-11-08' }
+  await writeFile(join(root, 'content/cards', id, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
+  await writeFile(join(root, 'content/cards', id, `${lang}.json`), `${JSON.stringify({ eyebrow: 'Có thể bạn chưa biết', title: 'Cá betta thở bằng mê lộ', ...text }, null, 2)}\n`)
+}
+
+test("a card is read and held like a page; the report and the owner's number leave it out", async () => {
+  const root = await repo()
+  await card(root, 'card-bad', { body: '<p>Mua ở Petco.</p>' })
+  await card(root, 'card-good', { body: '<p>Cá betta lên mặt nước đớp khí.</p>' })
+  expect(changedFiles(root)).toEqual(expect.arrayContaining(['content/cards/card-bad/vi.json', 'content/cards/card-good/vi.json']))
+  const r = await gate(root, { llm: reader(), now })
+  expect((await readJson(root, 'content/cards/card-bad/vi.json')).held).toEqual({ checks: ['shop'], at: '2026-11-09' })
+  expect((await readJson(root, 'content/cards/card-good/vi.json')).held).toBeUndefined()
+  expect(r.report.hold).toEqual(['/vi/cards/card-bad/ (shop)'])
+  expect(r.pages.some(p => p.kind === 'cards')).toBe(false)
+  expect(fitSummary(r.pages, r.state, r.held, '2026-11-09').langs.vi?.held).toBe(0)
+})
+
+test('a held card that passes now is let out: the gate sees held cards, which the build leaves out', async () => {
+  const root = await repo()
+  await card(root, 'card-held', { body: '<p>Cá betta lên mặt nước đớp khí.</p>', held: { checks: ['shop'], at: '2026-11-08' } })
+  git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'a held card')
+  const r = await gate(root, { llm: reader(), now })
+  expect((await readJson(root, 'content/cards/card-held/vi.json')).held).toBeUndefined()
+  expect(r.report.release).toEqual(['/vi/cards/card-held/'])
 })

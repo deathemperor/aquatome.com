@@ -1,0 +1,179 @@
+{
+  "id": "gymnothorax-tile",
+  "scientificName": "Gymnothorax tile",
+  "order": "Anguilliformes",
+  "family": "Muraenidae",
+  "genus": "Gymnothorax",
+  "group": "other",
+  "places": [
+    "asia",
+    "india",
+    "ganges",
+    "indonesia",
+    "sumatra",
+    "malaysia",
+    "borneo",
+    "myanmar",
+    "bago",
+    "philippines",
+    "thailand"
+  ],
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "This species is not a true freshwater fish and should be maintained in brackish conditions."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>This species is not a true freshwater fish and should be maintained in brackish conditions.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The 'freshwater' moray eel, Gymnothorax tile, is a moray from coastal regions of the Indo-West Pacific, from eastern India to the Philippines. Although typically sold as a freshwater fish, this is not strictly the case, and a marine salt mix should be considered mandatory. It has small pale spots on a darker head and body, whereas the congener G. polyuranodon has much larger dark spots on a paler background. Highly piscivorous, it is best kept alone in all but the very largest aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>Widespread throughout coastal regions of the Indo-West Pacific from eastern India to the Philippines and southward to Indonesia.</p><p>Type locality is 'Ganges River estuaries near Calcutta, India'.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>An aquarium with base dimensions of 120 × 60 cm should be the smallest considered for an individual maintained alone, with larger quarters necessary for a group or community arrangement.</p><p>Volume: ~432 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>Although typically sold as a freshwater fish this is not strictly the case, thus the addition of a marine salt mix should be considered mandatory. Aim for around 15 g/l although it is not essential to be exact.</p><p>In terms of décor this species is relatively unfussy although it is essential to provide plenty of cover in the form of rock piles, lengths of pvc piping, etc.</p><p>A high proportion of dissolved oxygen and moderate degree of water movement is recommended, although a protein skimmer is not required.</p><p>G. tile is sensitive to poor water quality and should never be added to biologically-immature aquaria, while weekly water changes of 30-50% aquarium volume should be considered mandatory.</p><p>A tightly-fitting cover is also required since Gymnothorax spp. are prodigious escape artists.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>An obligate predator feeding on smaller fishes, crustaceans and suchlike in nature.</p><p>Newly-imported specimens often refuse to accept anything but live fishes but most can be weaned onto dead alternatives once recognised as edible.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat like beef heart or chicken, and similarly there is no benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction, and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>Highly piscivorous and will even strike at much larger fishes on occasion so best-maintained alone in all but the very largest aquaria.</p><p>It can be maintained in a group provided the tank is sufficiently large and arranged in such a way that each individual has its own refuge.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<p>This species is also known as 'freshwater snowflake eel', 'Indian mud moray', and 'gold-spotted moray', and is among the more commonly-seen muraenids in the aquarium trade.</p><p>It exhibits differences in colour pattern both between and within populations and this has led to occasional confusion with the congener G. polyuranodon, which is also known to enter freshwater habitats. In reality the two are easy to distinguish from one another since G. tile typically possesses small pale spots on the darker head and body, whereas G. polyuranodon is characterised by much larger, dark spots and blotches on a paler background.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
+      "html": "<ul><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Smith, D. G. (2012). A checklist of the moray eels of the world (Teleostei: Anguilliformes: Muraenidae). Zootaxa 3474, 1-64</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Randall, J. E. and K. K. P. Lim (2000). A checklist of the fishes of the South China Sea. The Raffles Bulletin of Zoology Supplement 8, 569-667</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Ebner, B. C., B. Kroll, Paul Godfrey, P. A. Thuesen, T. Vallance, B. Pusey, G. R. Allen, T. S. Rayner, and C. N. Perna (2011). Is the elusive Gymnothorax polyuranodon really a freshwater moray? Journal of Fish Biology 79(1), 70-79</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 300w"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "muối biển pha nước lợ",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

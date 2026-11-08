@@ -1,4 +1,37 @@
 {
+  "id/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
+    {
+      "at": "2026-11-08T08:50:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Title and text say \"Mudik Lebaran\" while the facts are about Tet (Lunar New Year) travel; this holiday framing is not in the facts.",
+        "\"Apa pun pilihannya, risiko terbesar justru pakan berlebih\": the facts name sitter overfeeding as the main risk, not overfeeding in general for every option.",
+        "\"Orang yang belum kenal akuarium memang sering kebanyakan memberi pakan\": this is supported, but the guide presents it as a general claim.",
+        "\"Kalau bisa, minta seseorang mengecek feeder setiap beberapa hari\": this is supported, but the guide places it in the feeder steps in a slightly different way.",
+        "\"Tetra, rasbora, guppy, dan corydoras\": \"Tetra\" is read as the fish group, but the facts also name Tetra the brand elsewhere. This is only a minor ambiguity.",
+        "The guide adds the \"Ganti air dan bersihkan filter\" step as a grouped item and tells the reader to \"Buang daun tanaman yang mati\". The facts support this."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T08:50:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Untuk lebih dari seminggu, semua sepakat ikan jangan dibiarkan tanpa pakan\" - overstated consensus; only one source says not to leave unfed on trips over a week.",
+        "\"Takar pakan per hari di kotak obat mingguan\" - facts say only a pill box with pre-measured daily food; \"weekly\" is added.",
+        "\"Pakan beku lebih cocok diberikan oleh orang yang dititipi, ditakar per kubus\" - the facts only say frozen cubes are cleaner and easier to portion; this is partly an inference.",
+        "\"Namanya mesin, bisa saja macet\" - the facts only say test it because it is a machine; \"jam\" is an added claim.",
+        "\"Pakan berlebih jauh lebih berbahaya daripada ikan yang terlewat makan\" - the facts say overfeeding by helpers kills more fish, which the guide generalises to all overfeeding.",
+        "\"Nyalakan lagi filter ... cek sekali lagi bahwa filternya benar-benar jalan\" - the facts do not say to double-check this.",
+        "\"Kalau tetap ingin memakainya, uji dulu seminggu sebelum berangkat\" - the facts support testing about 1 week before leaving, but only as a general step."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
     {
       "at": "2026-11-07T07:59:11Z",
@@ -53,6 +86,41 @@
         "\"Inilah bedanya dengan alga yang tumbuh di permukaan\" – this contrast is a mild elaboration beyond the facts.",
         "\"Tanda alga mati massal\" for the sudden colour change – the facts only say the colour usually changes after a die-off, not that it is a warning sign. This is minor.",
         "\"menjelang pagi\" for the oxygen low – the facts say overnight, so this is a slight specification."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
+    {
+      "at": "2026-11-08T08:52:32Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Bilas sampai tidak ada sisa cuka sama sekali\" is supported, but the guide's first vinegar step says to remove fish first only in the limescale section; this is fine.",
+        "\"Goresan paling sering muncul karena kerikil...\" – facts say \"common causes\", not \"most often\"; small overstatement.",
+        "\"Bersihkan lumut dengan pembersih magnet atau pengerik yang cocok untuk kaca atau akrilik, lunakkan kerak kapur dengan cuka putih\" – the summary is a generalization not directly in the facts.",
+        "\"Cara umum: amplas dulu, lalu pakai cairan poles plastik\" – facts say sand then plastic polish; ok.",
+        "\"Silet yang tumpul justru menggores kaca. Ganti bilahnya begitu terasa mulai tersendat\" – matches the facts.",
+        "Vinegar-strength note: the guide frames it as a source disagreement; reasonable but the claim that \"keduanya sepakat\" is the guide's own inference.",
+        "FAQ: \"Pembuat Micro-Mesh ... tetap menyarankan keduanya dikeluarkan\" is fine, but \"Ada juga sumber yang menyarankan goresan dalam dibiarkan saja\" – facts say a scratch on the inside, not specifically a deep one; slight distortion.",
+        "\"Pakai pengerik plastik, kartu kredit...\" in the FAQ is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T08:52:32Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"usapkan kuku melintang di atas goresan\" - the facts only say the fingernail test; the 'across the scratch' detail is unsupported.",
+        "\"Pakai pembersih magnet... Pertama, cek dulu panel Anda kaca atau akrilik\" - generic advice; the facts do not say to check this first.",
+        "\"untuk kerak kapur pakai cuka putih dengan hati-hati di sisi luar\" - the facts do not say to use vinegar only on the outside.",
+        "\"Kalau akan membersihkan kerak kapur dengan cuka di bagian yang terkena air, keluarkan dulu ikannya\" - this adds the condition 'on parts that touch water'. The facts just say to take the fish out first.",
+        "\"Mulai dari yang paling ringan dan masih efektif\" and the numbered polish are fine. However, \"Pengerik berbilah stainless steel dan silet khusus kaca tidak cocok\" merges the Tetra and ADA facts without naming them; this is a minor point.",
+        "\"Kalau air keran Anda mengandung kloramin...\" - the chloramine point is not tied to cleaning glass in the facts; it is off-topic padding.",
+        "\"Kerak putih di garis air itu apa, dan berbahaya tidak?\" - the facts never say whether limescale is dangerous. The answer implies it is harmless or not, with no support."
       ],
       "attempt": "first",
       "kept": true
@@ -335,6 +403,108 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-ca-chet-hang-loat-trong-be-lam-gi-ngay-va-tim-nguyen-nhan-the-nao": [
+    {
+      "at": "2026-11-08T12:49:17Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Insang dan darah bertukar warna coklat gelap seperti coklat\" - facts say chocolate-brown; minor wording, fine.",
+        "\"(lebih kurang 0.95 liter)\" - the litre conversion for one quart is not in the facts (small added detail, correct but unsupported).",
+        "\"Ikan keli saluran\" for channel catfish - translation addition, harmless.",
+        "\"Kedua-dua keadaan ini memerlukan ikan dipindahkan, bukan sekadar tukar air\" - the facts give this for old tank syndrome and for ammonia >5 mg/L with pH <7, but the 'not just water change' wording for the second condition is an extrapolation.",
+        "\"Ikan yang keracunan nitrit ... Ikan berkumpul dekat saluran udara\" listed as a worry sign - fine.",
+        "\"pemanas cepat menghabiskan bateri\" - facts say it drains the battery; 'cepat' is a small embellishment.",
+        "\"Pertimbangkan diagnosis makmal ... Punca tidak dapat dikenal pasti\" - 'when to worry more' advice is not in the facts, but is a reasonable generality.",
+        "\"Ikan yang hampir mati ... patut dimatikan\" - supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T12:49:17Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"tidak lebih daripada kira-kira 0.5 °C sejam\" contradicts the facts: the limit is 1°F (about 1°C) per hour.",
+        "\"kira-kira 1 liter air tangki\" is a conversion/change: the facts say about one quart (roughly 0.95 L), so it is approximately fine but not exact.",
+        "\"Insang dan darah bertukar warna coklat seperti coklat masakan\" is a odd rewording of chocolate-brown; minor.",
+        "\"Ikan keli saluran\" etc. is supported; \"Kalau pH naik lebih daripada 1 unit\" is supported.",
+        "\"kerana paras oksigen paling rendah pada waktu pagi\" is supported.",
+        "\"Pam udara berbateri\" is supported.",
+        "\"Kematian berterusan walaupun parameter air sudah baik\" in the worry section is not in the facts (invented trigger).",
+        "\"pH jatuh di bawah 6.0 dalam tangki yang lama tidak dibuang airnya\" is supported only loosely.",
+        "The opening line \"kuatkan pengudaraan ... uji air\" as the first step is a general recommendation not directly in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": [
+    {
+      "at": "2026-11-08T12:51:41Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Metronidazole ialah ubat yang paling kerap disebut\" is a mild unsupported generalisation; the facts only list it as the treatment.",
+        "\"Pilih satu kaedah sahaja dan ikut dengan tepat\" is advice not stated in the facts, though it is consistent with the warnings against overdosing.",
+        "\"kepala dan perut yang kelihatan cengkung\" is acceptable (sunken head and belly), but the \"Rawat jika ikan enggan makan lebih daripada tiga hari\" step is placed under first aid without a source ordering. This is minor.",
+        "\"Metronidazole disenaraikan ... hanya untuk ikan yang bukan ikan makanan\" is supported.",
+        "The table labels the 1 g per 20 gallons dose as \"Dalam tangki\" and the Vietnamese method as \"Rendaman\". The \"rendaman\" label for the Vietnamese method is an interpretation of \"2-day soak\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T12:51:41Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"lebih kurang 75 liter\" for 20 gallons is an added conversion not in the facts (roughly correct).",
+        "\"lebih kurang 30–31 °C\" and \"lebih kurang 35.5 °C\" are conversions not in the facts. The facts only imply Fahrenheit for 86–88.",
+        "\"Hexamita memang punca yang paling terkenal\" is supported, but \"selalunya dikaitkan dengan Hexamita\" in the intro is a mild generalisation.",
+        "\"Perut membengkak; dalam kes lain kepala dan perut kelihatan cengkung\" merges separate keeper accounts. It is acceptable but loosely framed.",
+        "\"Seorang penternak mencadangkan makanan berubat untuk dua atau tiga kali pemberian setiap tiga bulan\" is supported. \"Penternak berpengalaman\" as the source label for the 1 g/20 gal dose is not in the facts.",
+        "\"rawat dalam tangki berasingan\" in the shrimp/snail FAQ answer is an inference. The facts only say metronidazole is toxic to shrimp and snails.",
+        "\"Jangkitan pada ikan yang baru dihantar boleh membawa maut dalam masa seminggu\" generalises the angelfish shipping finding to discus.",
+        "The moderator's \"digantikan dengan ubat campuran untuk parasit dalaman\" paraphrases API General Cure with extra description."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "th/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
+    {
+      "at": "2026-11-08T08:59:52Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"แพะ (corydoras)\" - corydoras is rendered oddly as 'แพะ' (goat); a translation error, not in the facts.",
+        "\"อาหารแช่แข็งแบบก้อนเหมาะกับการฝากคนมาให้มากกว่า\" - the facts only say frozen cubes are cleaner and easier to portion for sitters; the comparison 'more suitable' is a mild generalisation.",
+        "\"บอกไว้ว่าถ้าวันไหนมาไม่ได้ ให้ข้ามมื้อนั้นไปเลย\" - the facts say to skip a missed day; the guide frames it as an instruction to the sitter, which is a reasonable reading.",
+        "\"ตรวจให้แน่ใจว่าเปิดระบบกรองกลับแล้ว\" is placed as a preparation step; the facts list it only as a common mistake, which is a minor reframing.",
+        "\"ซึ่งทำให้ปลาตายมากกว่าการอดอาหารไปบางมื้อ\" - this is supported by one source, but the guide states it in the intro as a general fact.",
+        "\"ถ้าเลี้ยงปลาที่เลือกกิน หรือต้องไปนานกว่า 1 สัปดาห์\" - supported by the facts (picky eaters or trips over a week)."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T08:59:52Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"หนอนแดง ไรทะเล\" – frozen food examples (bloodworms, brine shrimp) are not in the facts; the facts only say frozen cubes are cleaner and easier to portion.",
+        "\"ไรแดง\" for daphnia – a loose translation; daphnia is a water flea, not exactly 'ไรแดง'. This is a minor wording issue.",
+        "\"ควรมีคนแวะมาดูเครื่องทุก 2–3 วัน\" – the facts say 'check every few days' for the feeder. The 2–3 day interval is specific to sitter visits, so this is a slight specification.",
+        "\"ถ้าไม่อยู่นานกว่า 1 สัปดาห์ก็ไม่ควรปล่อยให้อดเช่นกัน\" is placed right after the large/carnivorous/older fish sentence. The facts do support it as a general rule, so the placement is slightly misleading.",
+        "\"ภายใน 2–3 วันหลังกลับมา\" – the facts say 'within a few days'. The 2–3 figure is a slight specification.",
+        "\"ที่ทำให้ปลาตายบ่อยที่สุดคือการให้อาหารมากเกินไป\" – the facts say overfeeding by helpers kills more fish than missed meals. The intro generalises this to all overfeeding."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "th/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
     {
       "at": "2026-11-07T08:03:59Z",
@@ -395,6 +565,41 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "th/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
+    {
+      "at": "2026-11-08T09:02:32Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"ส่วนใหญ่เกิดจากเม็ดทรายที่ติดแผ่นแม่เหล็ก ... \" – the facts list several common causes with no ranking; 'mostly' sand in the pad is not supported. The FAQ repeats it as \"ส่วนใหญ่เป็นเพราะมีทรายหรือเศษกรวดติดอยู่\".",
+        "\"ส่องดูกระจกทุกด้าน\" – the facts say check the panels regularly under good light. 'Every side' is a mild embellishment.",
+        "\"ปล่อยไว้แล้วหมุนตู้ ... จะดีกว่าการขัด\" is framed as 'some sources'; the facts attribute it to one source (WikiHow).",
+        "\"ส่วนด้านนอกใช้ได้\" – outside use of glass cleaner is supported only if sprayed on a cloth, which the guide states; fine.",
+        "\"ใช้ใบมีดโลหะ... ที่ขูดที่ใช้ใบมีดสแตนเลสและมีดโกนขูดตู้\" – the Tetra GS 45 and ADA Pro Razor product names are dropped and generalised; this is acceptable but not exact.",
+        "\"เม็ดทรายที่ติดแผ่นแม่เหล็ก ... อุปกรณ์ขัดที่หยาบเกินไป\" – 'abrasive tools too coarse' is a loose generalisation of metal scrubbers.",
+        "\"ขูดตะไคร่ด้านในก่อนเปลี่ยนน้ำ ... ใช้น้ำส้มสายชูขาวกับคราบหินปูนโดยไม่ให้หยดลงตู้ที่มีน้ำ\" – the intro is consistent with the facts.",
+        "\"แหล่งข้อมูลพูดถึงความเข้มข้นไม่ตรงกัน ... ทั้งสองแหล่งตรงกันว่าควรเป็นน้ำส้มสายชูขาว\" – the facts only say undiluted white vinegar for stains and diluted white vinegar for cleaning the tank. They don't say both sources agree. The guide infers this."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T09:02:32Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"หลังขัดด้วยกระดาษทรายแล้ว ให้ขัดเงาต่อด้วยน้ำยาขัดพลาสติก\" - the facts say sand then use plastic polish, but only in the context of acrylic tanks; the Micro-Mesh step list itself does not include it. This is a mild stretch.",
+        "\"ถ้าใช้แม่เหล็กสำหรับกระจกบางกับกระจกหนา แรงดูดจะไม่พอและแม่เหล็กจะหลุดง่าย\" - the facts say it grips poorly and slips, which matches closely. This is fine.",
+        "\"ตรวจกระจกทุกด้านเป็นประจำ\" and the \"ตรวจหลังทำความสะอาด\" section - the post-cleaning checklist (re-check with a fingernail, look for new faint scratches) is the guide's own addition. The facts do not give it as a post-cleaning procedure.",
+        "\"ถ้ายังสะดุดอยู่แสดงว่ารอยยังลึก\" - the fingernail test is applied to a scratch after polishing, which the facts do not say.",
+        "\"ย้ายปลากลับ\" and \"ล้างน้ำส้มสายชูออกให้หมดทุกจุดก่อนเติมน้ำ\" - the checklist and the general advice to rinse are loosely supported. The extension to polish residue is not in the facts.",
+        "\"รอยตื้น: ... ถูน้ำยาขัดเบา ๆ เป็นวงกลม\" - this matches the facts for glass, so it is fine.",
+        "The chloramine bullet in the prevention section is placed there as advice, and the facts do not tie it to cleaning. It is a fact about tap water that has little to do with the topic, so it is tangential but not wrong."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [

@@ -11,12 +11,14 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 
 | In the calendar | In the index | What the app does with it |
 | --- | --- | --- |
-| `days[]`: `date`, `fish`, `img`, `guide`, `guideImg`, `story`, `by.<lang>` | `home.days[]`, from yesterday on | shows the day matching the reader's date; a missing day or slot falls back to its own rotation |
+| `days[]`: `date`, `fish`, `img`, `guide`, `guideImg`, `story`, `by.<lang>` | `home.days[]`, from yesterday on | shows the day matching the reader's date; a day the index doesn't have falls back to the app's own rotation, but a listed day without a fish shows no fish card, since nothing passed both checks that day |
+| `days[].card`: `cards/<id>`, in the story's place | `home.days[].card`: its type, eyebrow, title, body, sources, the pages it's `about`, its photo and event | Hôm nay shows the eyebrow, title and photo (without one, the photo of the one page it's about), and a tap opens the body with its sources; only in the languages it's written in that the gate lets out, and only within its `show` days |
 | `weeks[]`: `from`, `to`, `theme` | `home.week` | an eyebrow over the week's cards |
 | `weeks[].hero` | `home.hero` | Khám phá's top cards, in order |
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |
 | `loops.<id>` | `items[].loop` | a fish's short silent loop, wherever its card is |
 | `avoid` | none | photos that never lead a card, with the reason |
+| `off` | none: the build leaves these pages out | the pages the top cards, shelves and stories name that don't pass reader fit now, with why; the planner writes it afresh each run, so a page comes back once it passes |
 
 - **Pages are named by content id** (`species/<id>`, `breeds/<id>`, `guides/<id>`), so one pick serves every language.
   The build drops a pick that a language has no page for. `by.<lang>` gives that language its own fish or guide.
@@ -33,8 +35,14 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 2. **A checked photo big enough for its card.**
    - "Checked" means judged the right subject and typical, with no person, logo, face or watermark (the engine's photo
      checks), and not on the `avoid` list.
-   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's cards are about 400×420 pt, and
-     Khám phá's top cards are wider than tall.
+   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's fish card is about 400×420 pt, its
+     guide and story cards a 16:9 photo (400×225 pt at the widest, which a 1280×720 video still fills), and Khám phá's
+     top cards are wider than tall. A guide without one is still picked, and drawn without a photo; the planner gives
+     a kept guide or story a photo when its page gets one.
+   - A guide's photo has passed only the face and watermark checks, so the editor looks at each before the week goes
+     out, and puts a diagram, a photo with words on it or two photos joined in `avoid`.
+3. **Variety.** No fish or guide comes back within four weeks, and no two days running show the same group of fish, or
+   guides of the same kind or from the same source.
 
 Among the pages that pass, it scores:
 - the week's own lists first, in their order;
@@ -65,12 +73,30 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
   photo checks (`scripts/engine-cycle.sh`); the file changes when a new day comes in or a pick fails.
 - **Weekly**: the next theme two to three weeks ahead, its lists, top cards, shelves and copy, through the editors, in a
   pull request. The owner's daily report gets a few lines on what's planned.
-- **When a page changes**: a pick that stops passing is replaced on the next daily run, so nothing held back is ever
-  featured.
+- **When a page changes**: a day's fish or guide that stops passing is replaced on the next daily run, and a top card,
+  shelf page or story that stops passing goes in `off` until it passes again, so nothing failing reader fit is ever
+  featured. A shelf left with under three pages isn't shown; the editor tops it up from pages that pass.
 
 ## New kinds of Hôm nay card (owner, 2026-11-08)
 
-Each needs dated sources, and is written through the Writing Lead's writer and gate.
+Each needs dated sources, and is written through the Writing Lead's writer and gate. A card is
+`content/cards/<id>/entity.json` and a `<lang>.json` per language (`packages/schema/src/cards.ts`): the eyebrow at most 24
+characters and the title 70, so they fit the card at the largest text size, and a body of about 80 words.
+- **The editor writes the Vietnamese only**, through the editors (bar 9) and `pnpm engine gate` before it's committed. Each
+  cycle the engine translates it into the other served languages: a reviewer holds each translation to the Vietnamese, it's
+  kept only when it passes and fits the limits, and the gate reads it like any card once the gate runs in the cycle
+  (#881; until then the reviewer is the check). A changed Vietnamese card is translated again, and one the gate holds
+  takes its translations down, at the next cycle's translation step: for up to a cycle (about 3 hours) the old
+  translations still show. Malay is translated in the cycle's "ahead" block, which a long cycle skips, so a Malay card
+  can come a cycle after the Indonesian and Thai.
+- **An event in a reader's country is shown only in that country's language** (`cardShownIn`): an event whose
+  `event.country` is Vietnam shows in Vietnamese only; one in Indonesia, Thailand or Malaysia (or Brunei, for Malay) is
+  still written in Vietnamese, as the translation's source, but never shown in Vietnamese and translated into that one
+  language. An event anyone can enter from anywhere (IAPLC, entries online) is translated into all of them. Never use
+  `held` to keep a card out of a language: the gate lets a held card out once it passes. A Vietnamese source the gate
+  holds makes no translation until it passes, which the gate run before the commit shows.
+- `pnpm engine curate --check` says when a day's card is missing, its files don't parse, it's held back or unwritten in
+  every language it's shown in, or it's outside its days.
 
 | Kind | Sources | Cadence | Rules |
 | --- | --- | --- | --- |
@@ -115,9 +141,10 @@ Pages likely to be featured come first.
 ### Video loops
 
 Short silent loops, real footage of the species: a fish swimming, or hovering with its fins moving.
-- **Format**: HEVC (tagged `hvc1`), 1080×1080, 30 fps, BT.709 SDR, no audio track, faststart, 5–8 s looping without a
-  jump. 1 MB is the target and 1.5 MB the most. There's an H.264 copy for browsers, and a WebP poster of the first frame
-  under 120 KB. `scripts/make-loop.sh` makes all three.
+- **Format**: HEVC (tagged `hvc1`), 1080×1080, the source's own frame rate up to 30 fps (25 fps footage stretched to 30
+  stutters), BT.709 SDR, no audio track, faststart, 5–8 s looping without a jump. 1 MB is the target and 1.5 MB the
+  most. There's an H.264 copy for browsers, and a WebP poster of a sharp frame with the fish in it, under 120 KB.
+  `scripts/make-loop.sh` makes all three.
 - **Sources, in order**:
   1. clips under a licence that allows it: Wikimedia Commons, Pexels, Pixabay, other CC0 or CC BY with credit shown;
   2. permitted sources whose permission covers video (none does yet);
@@ -126,7 +153,14 @@ Short silent loops, real footage of the species: a fish swimming, or hovering wi
 
   Never a cut from a YouTube video we may only embed.
 - **Each clip** is checked: the right species, no people, hands, logos, watermarks or text, good enough for a large
-  card. Its credit shows on the species page.
+  card. Its credit shows wherever it plays: the author, the licence linked to its own page (`licenceUrl`), and
+  "cut and looped from" the original, linked. A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
+- **Uploading**: to `aquatome-media/loops/<id>-<n>.{mp4,-h264.mp4,webp}` with a year's immutable cache, never over a key
+  in use. Check that a key is free with a HEAD request, never a GET: media.aquatome.com caches a GET's 404 for four
+  hours, so the file can't be fetched there even once it's uploaded.
+- **A loop kept for now** (`replace`): one under the council's bar that the chief chose to ship, with what replaces it.
+  The koi (8/10, a bubble shows twice in the dissolve) waits for the owner's or a shop's footage, and goes back to the
+  photo if the owner dislikes the dissolve.
 
 ### Generated video
 

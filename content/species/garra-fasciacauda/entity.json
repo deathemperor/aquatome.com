@@ -14,6 +14,137 @@
     "cambodia",
     "tonle-sap"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap",
+        "Khone Falls"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mekong river system in Thailand, Laos, Vietnam, and Cambodia, including the Tonlé Sap basin.",
+          "countries": [
+            "TH",
+            "LA",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Tonlé Sap"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is migratory on a seasonal basis, with many individuals moving from the Tonlé Sap system to the Khone Falls in southern Laos during the dry season.",
+          "countries": [],
+          "regions": [
+            "Khone Falls"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366857,
+      "total": 19,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          6
+        ],
+        [
+          "KH",
+          5
+        ],
+        [
+          "LA",
+          4
+        ],
+        [
+          "US",
+          3
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -82.96875,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

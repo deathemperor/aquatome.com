@@ -6,7 +6,7 @@ and the rules every change follows) before changing the site. Commands and layou
 ## Verify
 
 - Run the root `pnpm test`, not one package's: engine tests read the site's fixture content. Then `pnpm typecheck` and
-  `pnpm --filter site e2e`.
+  `pnpm --filter site e2e`. On this Mac, each in the checks queue ("This Mac").
 - Each checkout running browser checks needs its own `E2E_PORT`. A server already on the port is reused, so a shared port
   tests another checkout's build.
 - A bug fix comes with a check that fails without it. Lighthouse budgets (`apps/site/e2e/lighthouse.spec.ts`) only
@@ -17,15 +17,29 @@ and the rules every change follows) before changing the site. Commands and layou
 Leads, the engine and main's iOS runs share one Mac. A booted simulator is the heaviest thing on it.
 
 - Start a simulator test run as `apps/ios/scripts/sim-run.py xcodebuild test …`: one at a time, leads' and the runner's in
-  one queue, at most two copies of a simulator. A session's plain `xcodebuild test` is refused (`.claude/hooks/`). Tests
-  that aren't a simulator's take `~/.cache/aquatome/checks.lock` (`scripts/cycle-checks.sh`).
+  one queue, at most two copies of a simulator. A session's plain `xcodebuild test` is refused (`.claude/hooks/`).
+- Other heavy work takes the checks queue: Astro builds, test suites, e2e and xcodebuild builds, as
+  `lockf -k ~/.cache/aquatome/checks.lock nice -n 10 <command>` (`scripts/cycle-checks.sh`). A session's outside it is
+  refused, since side by side they took the Mac to heavy thermal pressure (2026-11-08). One test file needs no turn:
+  `pnpm exec vitest run <file>`.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
+- What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
+  2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
+  one in the Device panel only while you need to. Close the preview tabs and browser windows you open, run browsers
+  headless for automated work, and stop a log stream (`log stream`, `simctl spawn … log stream`) when you've read it.
+- Engine and video runs, and the runner's simulator runs, wait for cooler hours: while macOS has taken cores away from
+  work (it does under heat), a run waits before it starts, up to 2 h (`cool`, `scripts/cycle-checks.sh`) or 30 min
+  (`apps/ios/scripts/sim-run.py`).
 - Remove your worktree when its PR merges (`git worktree remove <path>`).
+- Keep what's worth keeping (working folders, prototypes, eval caches, briefs, run progress) in `~/.cache/aquatome/<area>/`,
+  never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
+  another's eval caches. A worktree goes in `~/.infinitus/worktrees/aquatome.com/`. The sweep leaves `~/.cache/aquatome`
+  alone, but for its archive's copies past 30 days.
 - `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, and
   nightly the worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
   `~/.cache/aquatome/worktree-archive/` (30 days, never pushed).
-- How the Mac is doing is `~/.cache/aquatome/machine-metrics.jsonl`: a small job's time, the jobs waiting and how long.
-  Load is background only: one booted simulator reads about 65, and past about 1,000 the counter wraps.
+- How the Mac is doing is `~/.cache/aquatome/machine-metrics.jsonl`: a small job's time, the jobs waiting and how long,
+  and heat. Load is background only: one booted simulator reads about 65, and past about 1,000 the counter wraps.
 
 ## Checks also run on aquatome.com
 

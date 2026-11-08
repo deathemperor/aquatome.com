@@ -34,8 +34,11 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
-        if (!vi.bodyFixed && (match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body }] })
-        const lines = !match ? [] : [
+        // A translated guide's English article is kept (sources/<source>/<slug>.md): the rewrite is checked against it, as a
+        // species page's is against its sections, so a recast can't drift from what the article says.
+        const en = e.source && e.source !== 'youtube' ? await readFile(join(dirname(contentRoot), 'sources', e.source, `${slug.slice(e.source.length + 1)}.md`), 'utf8').then(t => t.replace(/^---\n[\s\S]*?\n---\n/, '').trim()).catch(() => '') : ''
+        if (!vi.bodyFixed && (match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body, ...(en ? { en } : {}) }] })
+        const lines = !match || vi.bodyFixed ? [] : [
           ...(vi.summary ?? []).map((s, i) => ({ id: `summary:${i}`, vi: s })),
           ...(vi.faq ?? []).flatMap((f, i) => [{ id: `faq:${i}:q`, vi: f.q }, { id: `faq:${i}:a`, vi: f.a }]),
         ].filter(p => match.test(p.vi))
@@ -65,7 +68,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
  * reviewer passes it: against the English (≥ threshold, or better than before), or, with no English, as keeping the
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
-export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp }) {
+export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean }) {
   const root = dirname(contentRoot)
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
@@ -74,6 +77,7 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
   // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
   for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id]))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
+    if (o.dry) { report.done.push(`${job.id} (${job.groups.length} part${job.groups.length > 1 ? 's' : ''})`); continue }
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')
     const vi = await json<Vi>(file)
     const scores: number[] = []
@@ -148,6 +152,6 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   }
-  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  if (!o.dry) await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   return report
 }

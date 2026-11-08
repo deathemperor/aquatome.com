@@ -19,7 +19,6 @@
   "inat:637699918"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/ddad73f9a1015901.webp": "c6c6cbf33356d9d1",
   "https://media.aquatome.com/commons/015bedeb7d93d7f3.webp": "d4c6cc98caf39290",
   "https://media.aquatome.com/commons/aa0220c87b8ca157.webp": "5653f2c60f871d55",
   "https://media.aquatome.com/inaturalist/642209373.webp": "262954a5f3311930"
@@ -32,5 +31,9 @@
    "research": 349566948,
    "agree": 403954910
   }
+ },
+ "gbif": {
+  "key": 2355545,
+  "next": null
  }
 }

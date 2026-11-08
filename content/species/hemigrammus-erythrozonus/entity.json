@@ -274,7 +274,12 @@
       "author": "Gonzalo Valenzuela",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetra_Glowlight.jpg",
       "caption": "Tetra Glowlight Hemigrammus erythrozonus",
-      "thumb": "https://media.aquatome.com/commons/be6a8a30f186dd02-480.webp"
+      "thumb": "https://media.aquatome.com/commons/be6a8a30f186dd02-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/be6a8a30f186dd02-large.webp",
+        "width": 1024,
+        "height": 768
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/68b815e9cd1c9746.webp",

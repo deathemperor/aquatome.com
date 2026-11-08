@@ -2,6 +2,18 @@
   "id": "colomesus-psittacus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/714708171.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/714708171-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "B. Phalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/714708171",
+      "caption": "Cá nóc vằn non có sọc đen vàng bơi trên cát trong tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6e3bf91357d80665.webp",
       "thumb": "https://media.aquatome.com/commons/6e3bf91357d80665-480.webp",
       "width": 1200,
@@ -12,9 +24,21 @@
       "caption": "Cá nóc vằn với thân phồng, sọc vàng nâu trên nền trắng",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/714708164.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/714708164-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "B. Phalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/714708164",
+      "caption": "Cá nóc vằn non bơi trên nền cát ở vùng nước nông tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-07",
-  "builtAt": "2026-11-07"
+  "seen": 11,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/319811024",
       "caption": "Hai cá heo hề trong bể có lũa và sỏi",
       "best": true,
-      "kind": "pair"
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/319811024-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/339892448.webp",
@@ -23,19 +28,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/339892448",
       "caption": "Cá heo hề bơi trên nền cát trong bể lớn",
       "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/339892454.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/339892454-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Alex Sosnovshchenko",
-      "sourceUrl": "https://www.inaturalist.org/photos/339892454",
-      "caption": "Hai cá heo hề bơi trên nền cát trong bể lớn",
-      "best": true,
-      "kind": "pair"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/339892448-large.webp",
+        "width": 1200,
+        "height": 1600
+      }
     },
     {
       "url": "https://media.aquatome.com/flickr/5110296885.webp",
@@ -57,7 +55,12 @@
       "licence": "CC BY 2.0",
       "author": "Vlad Butsky from San Jose, CA, USA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromobotia_macracanthus.jpg",
-      "caption": "Cá heo hề thân cam sọc đen trong bể đáy sỏi"
+      "caption": "Cá heo hề thân cam sọc đen trong bể đáy sỏi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8d89111af94c9833-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/401f80ff45d105d5.webp",
@@ -97,7 +100,12 @@
       "licence": "CC0",
       "author": "Dennis White",
       "sourceUrl": "https://www.inaturalist.org/photos/31271818",
-      "caption": "Cá heo hề vây đuôi đỏ rực bơi giữa cây thủy sinh"
+      "caption": "Cá heo hề vây đuôi đỏ rực bơi giữa cây thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/31271818-large.webp",
+        "width": 1802,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/323652454.webp",

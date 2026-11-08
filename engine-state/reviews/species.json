@@ -177,6 +177,78 @@
       "kept": false
     }
   ],
+  "vi/species/poecilia-reticulata#-Ws7RudcQ4U": [
+    {
+      "at": "2026-11-08T13:44:19Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Một người cho bảy màu đẻ lâu năm không khuyên người mới...\" invents a long-time keeper; the video's narrator just says he wouldn't recommend albino for beginners, so this misattributes and embellishes.",
+        "\"Dòng này hiền, bơi nhiều, hợp với bể nhỏ hoặc nuôi chung với cá hiền\": the video says 'activity, peaceful nature... smaller aquariums or community tanks'; 'nuôi chung với cá hiền' narrows it, and the page already covers peaceful community behaviour.",
+        "\"Cá bạch tạng yếu hơn và khó giữ dòng hơn hẳn cá thường\": the video says albino strains are weaker and harder to maintain, but 'hẳn' overstates it.",
+        "\"Lúc chọn cá đực, nên lấy con khỏe và hoạt bát\" is placed in beforeYouBuy, but the video frames it as a judging criterion, not buying advice.",
+        "\"blond (vàng rất nhạt)\" is a gloss the video doesn't give, and the English word \"blond\" left in reads like translation.",
+        "\"Người Nhật gọi kiểu đốm này là kuchi beni... cá chép koi có hoa văn tương tự cũng mang tên đó\": the video says the red nose is a female trait and that koi fish with this pattern share the name. This matches, but the 'cá cái các dòng koi' framing is fine.",
+        "\"Chuẩn chấm cho cá đuôi ngắn\" and the show-judging list sit under [reproduction], which doesn't fit the heading.",
+        "\"Dòng này gần với dòng bảy màu full red\" is fine, but \"chỉ biết nhiều khả năng dòng này được lai ở Nhật\" is slightly stronger than the video's 'we can assume... most likely'."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:44:19Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Cá phải khỏe, bơi nhanh nhẹn\" - video says vital and active; \"bơi nhanh nhẹn\" slightly embellished but acceptable.",
+        "\"Con đực dài 1,8 cm\" - video says 18 mm; fine, but it presents a show-standard figure as the pair's rule without saying it is a judging standard for short-tail fish; mostly OK.",
+        "\"Người mới tập cho cá đẻ thì không nên bắt đầu bằng dòng này\" - video says it is not recommended for beginning breeders; fine, but it is written as a general rule rather than the presenter's advice.",
+        "\"thân lại ngả vàng nhạt\" - video says \"blond\"; \"vàng nhạt\" is a reasonable but interpretive rendering, and it is used repeatedly.",
+        "\"Con đực đẹp nhất thì gần như cả thân vàng nhạt\" - video says ideal male has \"most of the body blond\"; \"gần như cả thân\" is slightly stronger.",
+        "\"Theo chuẩn thi cho dòng kohaku koi đuôi ngắn\" - the video's \"short tail fish\" refers to the male; acceptable.",
+        "\"Bảy màu koi ... Đây là dòng khá mới\" - fine; \"Tiệm cá cũng hay bán\" is fine.",
+        "The female description \"thường chỉ có màu ở vây đuôi\" is accurate, but the \"Dòng koi giờ có mặt ở hầu hết các cuộc thi\" statement is a slight generalization of \"majority of guppy or live bearer show\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/poecilia-wingei#-OXAqK-7E74": [
+    {
+      "at": "2026-11-08T13:35:20Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "\"Toàn bộ Blue Star đang nuôi khắp thế giới đều sinh ra từ cặp cá đó\" - video says the strain spread from the single pair, but \"toàn bộ ... đang nuôi\" is a stronger claim.",
+        "\"Không chỉ ở Laguna de Patos, cả vùng sống tự nhiên ... đang hẹp dần qua từng năm\" - the video only says the native range is shrinking; the Laguna de Patos link is added and is already on the page.",
+        "\"muộn hơn nhiều so với lần John Endler tìm thấy ... năm 1975\" - comparison is not in the video; the 1975 fact is already on the page.",
+        "\"các trại và bể nuôi tại châu Âu\" - the video says only bred mostly in Europe, America and Asia; \"trại\" is added.",
+        "\"Một người nuôi Endler tin rằng ... Người này còn hy vọng\" - the video's narrator opinions are fine as one keeper's view, but \"nhờ các đàn cá trong bể ... sẽ không bị mất đi\" is stated as a near-certain claim and is the narrator's own view.",
+        "\"Cá Endler phản ứng nhanh với ánh sáng\" and the lights-off sinking behaviour are generalised to all Endlers; the video says it about this Blue Star strain.",
+        "\"Cá nhạy với ánh sáng, nên giữ ... sáng và tối thay nhau đều đặn\" - repeats the behaviour fact in a second section.",
+        "\"Ở dòng Blue Star, nước càng ấm thì cá lớn càng nhanh\" - the video says warm and hard water preference and faster growth, but the hard-water point is left out; the page already has warm water ranges."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:35:20Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "[beforeYouBuy] \"Chúng được cho đẻ chủ yếu ở châu Âu, châu Mỹ và châu Á\" - the video says the strain is bred mostly there, but this is not buying advice and sits oddly under this heading; the wording \"được cho đẻ\" is also awkward.",
+        "[habitat] \"Người ta ngày càng lo vùng sống tự nhiên của cá Endler đang thu hẹp\" - the page already says the species is thought extinct at Laguna de Patos and may still exist in the wild; the new text doesn't say how the video differs from that.",
+        "[habitat] \"những đàn cá trong bể của người chơi có thể giúp giữ lại loài này\" - the video's call to buy Blue Star to help the species survive is presented as a general fact. It is one person's view and is not attributed to a keeper.",
+        "[habitat] \"Có người còn hy vọng một ngày nào đó nơi sống của chúng được làm sạch\" - the video says this as the maker's own hope (\"who knows\"). Writing it as \"có người\" is vague.",
+        "[waterConditions] \"Cá Endler thích nước cứng và ấm\" - the page already says they prefer medium-hard water and the table gives 24–30°C. This repeats the page, and the video says it about the Blue Star strain.",
+        "[waterConditions] \"Nước càng ấm thì cá càng lớn nhanh\" - stated as a general rule for the species, but the video says it about Blue Star only.",
+        "[maintenance] \"Cần giữ cho bể sáng tối đều đặn theo giờ cố định\" - \"theo giờ cố định\" (fixed hours) is not in the video, which only says regular changing of light and darkness. \"Cần\" turns that into a rule.",
+        "[notes] \"Năm 2011... Toàn bộ Blue Star đang nuôi khắp thế giới\" - this is accurate. The notes section does not say it differs from the page, which says the Endler was found in 1975 at Laguna de Patos, while Campoma is a different, later discovery."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/sawbwa-resplendens#8D2Wn53DSsg": [
     {
       "at": "2026-11-06T16:41:58Z",

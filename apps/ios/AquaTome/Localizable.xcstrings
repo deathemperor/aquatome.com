@@ -221,28 +221,6 @@
         }
       }
     },
-    "%@ đến %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ sampai %2$@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ hingga %2$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ ถึง %2$@"
-          }
-        }
-      }
-    },
     "%@, %@ lít": {
       "localizations": {
         "id": {
@@ -283,28 +261,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
-          }
-        }
-      }
-    },
-    "%@: mới nhất %@, thấp nhất %@, cao nhất %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: terbaru %2$@, terendah %3$@, tertinggi %4$@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: terkini %2$@, terendah %3$@, tertinggi %4$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: ล่าสุด %2$@, ต่ำสุด %3$@, สูงสุด %4$@"
           }
         }
       }
@@ -2285,6 +2241,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลิกบันทึก"
+          }
+        }
+      }
+    },
+    "Bỏ ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus foto"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buang gambar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอารูปออก"
           }
         }
       }
@@ -4401,28 +4379,6 @@
         }
       }
     },
-    "Các mục": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bagian"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bahagian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หมวด"
-          }
-        }
-      }
-    },
     "Các thay đổi vẫn lưu trên máy này": {
       "localizations": {
         "id": {
@@ -4925,28 +4881,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ด้านที่ชิดผนัง"
-          }
-        }
-      }
-    },
-    "Cần bạn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perlu Anda"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perlu tindakan"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รอคุณจัดการ"
           }
         }
       }
@@ -5765,28 +5699,6 @@
         }
       }
     },
-    "Giới thiệu": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tentang"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perihal"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เกี่ยวกับ"
-          }
-        }
-      }
-    },
     "Giờ bật": {
       "localizations": {
         "id": {
@@ -6139,24 +6051,24 @@
         }
       }
     },
-    "Gửi thống kê ẩn danh": {
+    "Gửi thống kê": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kirim statistik anonim"
+            "value": "Kirim statistik"
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hantar statistik tanpa nama"
+            "value": "Hantar statistik"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ส่งสถิติแบบไม่ระบุตัวตน"
+            "value": "ส่งสถิติ"
           }
         }
       }
@@ -6821,28 +6733,6 @@
         }
       }
     },
-    "Không có việc gì cần bạn lúc này.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak ada yang perlu Anda tangani saat ini."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tiada apa-apa yang perlu anda uruskan buat masa ini."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตอนนี้ไม่มีอะไรรอคุณจัดการ"
-          }
-        }
-      }
-    },
     "Không cần châm": {
       "localizations": {
         "id": {
@@ -6949,28 +6839,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปไม่สำเร็จ โปรดลองอีกครั้ง"
-          }
-        }
-      }
-    },
-    "Không hoàn tác được.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak bisa dibatalkan."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak boleh dibuat asal."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ย้อนกลับไม่ได้"
           }
         }
       }
@@ -8845,6 +8713,28 @@
         }
       }
     },
+    "Nguồn gốc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asal"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asal usul"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถิ่นกำเนิด"
+          }
+        }
+      }
+    },
     "Mực nước (không bắt buộc)": {
       "localizations": {
         "id": {
@@ -8885,28 +8775,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ระดับน้ำต้องมากกว่า 0 และไม่สูงกว่าตู้"
-          }
-        }
-      }
-    },
-    "Nguồn gốc": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Asal"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Asal usul"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ถิ่นกำเนิด"
           }
         }
       }
@@ -9061,28 +8929,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ระบุชนิด"
-          }
-        }
-      }
-    },
-    "Nhận thông báo báo cáo trên máy này": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terima notifikasi laporan di perangkat ini"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terima pemberitahuan laporan pada peranti ini"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รับการแจ้งเตือนรายงานบนเครื่องนี้"
           }
         }
       }
@@ -10275,28 +10121,6 @@
         }
       }
     },
-    "Thu gọn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ciutkan"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tunjuk kurang"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แสดงน้อยลง"
-          }
-        }
-      }
-    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -10667,28 +10491,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลิกทดสอบ กลับไปทำงานตามตารางเวลา"
-          }
-        }
-      }
-    },
-    "Thông báo của AquaTome đang tắt trong Cài đặt.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notifikasi AquaTome dimatikan di Pengaturan."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pemberitahuan AquaTome dimatikan dalam Seting."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "การแจ้งเตือนของ AquaTome ปิดอยู่ในการตั้งค่า"
           }
         }
       }
@@ -12519,28 +12321,6 @@
         }
       }
     },
-    "Về AquaTome": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tentang AquaTome"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perihal AquaTome"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เกี่ยวกับ AquaTome"
-          }
-        }
-      }
-    },
     "Vị trí": {
       "localizations": {
         "id": {
@@ -13487,28 +13267,6 @@
         }
       }
     },
-    "chưa hết ngày": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "hari belum selesai"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "hari belum tamat"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ยังไม่หมดวัน"
-          }
-        }
-      }
-    },
     "chậm": {
       "localizations": {
         "id": {
@@ -13575,50 +13333,6 @@
         }
       }
     },
-    "cần chú ý": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu perhatian"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu perhatian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ต้องให้ความสนใจ"
-          }
-        }
-      }
-    },
-    "cần đăng nhập lại": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu masuk lagi"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu log masuk semula"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ต้องเข้าสู่ระบบอีกครั้ง"
-          }
-        }
-      }
-    },
     "dài nhánh 1": {
       "localizations": {
         "id": {
@@ -13663,24 +13377,24 @@
         }
       }
     },
-    "https://aquatome.com/chinh-sach-bao-mat/": {
+    "cần đăng nhập lại": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "https://aquatome.com/id/kebijakan-privasi/"
+            "value": "perlu masuk lagi"
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "https://aquatome.com/ms/dasar-privasi/"
+            "value": "perlu log masuk semula"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "https://aquatome.com/th/privacy/"
+            "value": "ต้องเข้าสู่ระบบอีกครั้ง"
           }
         }
       }
@@ -13703,28 +13417,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/#tai-khoan"
-          }
-        }
-      }
-    },
-    "https://aquatome.com/gioi-thieu/": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "https://aquatome.com/id/tentang/"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "https://aquatome.com/ms/tentang/"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "https://aquatome.com/th/about/"
           }
         }
       }
@@ -13883,28 +13575,6 @@
         }
       }
     },
-    "so với %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "dibandingkan %@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "berbanding %@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เทียบกับ %@"
-          }
-        }
-      }
-    },
     "sáng %lld%%": {
       "localizations": {
         "id": {
@@ -13993,28 +13663,6 @@
         }
       }
     },
-    "tốt": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "baik"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "baik"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ดี"
-          }
-        }
-      }
-    },
     "Ánh sáng": {
       "localizations": {
         "id": {
@@ -14059,6 +13707,28 @@
         }
       }
     },
+    "Đang chuẩn bị ảnh…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menyiapkan foto…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menyediakan foto…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังเตรียมภาพ…"
+          }
+        }
+      }
+    },
     "Áp máy sát kính sạch cho bớt lóa và vết bẩn.": {
       "localizations": {
         "id": {
@@ -14099,28 +13769,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่น่าจะใช่"
-          }
-        }
-      }
-    },
-    "Đang chuẩn bị ảnh…": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Menyiapkan foto…"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Menyediakan foto…"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "กำลังเตรียมภาพ…"
           }
         }
       }
@@ -14499,28 +14147,6 @@
         }
       }
     },
-    "Đang ở bể “%@”": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ada di akuarium “%@”"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Berada di tangki “%@”"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "อยู่บนตู้ “%@”"
-          }
-        }
-      }
-    },
     "Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng %@ thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.": {
       "localizations": {
         "id": {
@@ -14539,6 +14165,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "วัดขนาดภายในตู้ (หักความหนากระจกออก) ปริมาณน้ำจริงคิดเป็น %@ ของปริมาตร หลังปูพื้น วางหินและขอนไม้ และเว้นขอบด้านบน ความหนากระจกคำนวณสำหรับกระจกธรรมดา (กระจกโฟลต ไม่ใช่กระจกเทมเปอร์) ค่าความปลอดภัย 3.8 ใช้กับตู้ทรงสี่เหลี่ยมเท่านั้น ตู้สั่งทำควรปรึกษาช่างเพิ่มเติม"
+          }
+        }
+      }
+    },
+    "Đang ở bể “%@”": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ada di akuarium “%@”"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berada di tangki “%@”"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยู่บนตู้ “%@”"
           }
         }
       }
@@ -14939,6 +14587,28 @@
         }
       }
     },
+    "Đã mở rộng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diluaskan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikembangkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขยายแล้ว"
+          }
+        }
+      }
+    },
     "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.": {
       "localizations": {
         "id": {
@@ -14979,6 +14649,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลบโคมไฟออกจากเครื่องนี้แล้ว"
+          }
+        }
+      }
+    },
+    "Đã thu gọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diciutkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikuncupkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยุบแล้ว"
           }
         }
       }
@@ -16083,28 +15775,6 @@
         }
       }
     },
-    "Đăng nhập tài khoản aquatome.com để nhận diện cá qua ảnh.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Masuk ke akun aquatome.com untuk mengenali ikan dari foto."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Log masuk ke akaun aquatome.com untuk mengecam ikan daripada foto."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เข้าสู่ระบบบัญชี aquatome.com เพื่อระบุชนิดปลาจากรูปภาพ"
-          }
-        }
-      }
-    },
     "Đăng nhập để giữ cả trên aquatome.com": {
       "localizations": {
         "id": {
@@ -16167,6 +15837,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "โพสต์ในชื่อ %@"
+          }
+        }
+      }
+    },
+    "Đăng nhập tài khoản aquatome.com để nhận diện cá qua ảnh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk ke akun aquatome.com untuk mengenali ikan dari foto."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log masuk ke akaun aquatome.com untuk mengecam ikan daripada foto."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบบัญชี aquatome.com เพื่อระบุชนิดปลาจากรูปภาพ"
           }
         }
       }
@@ -17139,6 +16831,28 @@
         }
       }
     },
+    "Ảnh đại diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto profil"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar profil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปโปรไฟล์"
+          }
+        }
+      }
+    },
     "Ấm, dịu mắt": {
       "localizations": {
         "id": {
@@ -17381,6 +17095,28 @@
         }
       }
     },
+    "“%@” có kết quả trong %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” punya hasil di %2$@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” ada hasil dalam %2$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” มีผลลัพธ์ใน %2$@"
+          }
+        }
+      }
+    },
     "Ứng dụng": {
       "localizations": {
         "id": {
@@ -17403,24 +17139,90 @@
         }
       }
     },
-    "“%@” có kết quả trong %@.": {
+    "Về AquaTome": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "“%1$@” punya hasil di %2$@."
+            "value": "Tentang AquaTome"
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "“%1$@” ada hasil dalam %2$@."
+            "value": "Perihal AquaTome"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "“%1$@” มีผลลัพธ์ใน %2$@"
+            "value": "เกี่ยวกับ AquaTome"
+          }
+        }
+      }
+    },
+    "Giới thiệu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentang"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perihal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เกี่ยวกับ"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/gioi-thieu/": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/tentang/"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/ms/tentang/"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/about/"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/chinh-sach-bao-mat/": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/ms/dasar-privasi/"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/"
           }
         }
       }

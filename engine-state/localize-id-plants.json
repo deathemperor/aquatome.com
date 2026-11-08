@@ -1365,6 +1365,23 @@
       "Item 2: \"sekitar 5–10 cm\" renders \"a few inches\" a little loosely. \"sekitar 5–8 cm\" is closer."
     ]
   },
+  "ludwigia-brevipes": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Ludwigia brevipes",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"a few inches below\" became \"beberapa sentimeter\" – vague but acceptable; better give an approximate figure, e.g. \"sekitar 5–8 cm\".",
+      "\"Pemangkasan sebaiknya dibuat miring, makin rendah ke arah depan\" adds detail not in source (\"sloped to the front\"); rephrase more literally, e.g. \"miring ke arah depan\".",
+      "\"dengan percabangan dan warna yang lebih sedikit\": coloration is lessened, not fewer; use \"percabangan lebih jarang dan warna lebih pudar\".",
+      "\"Laju pertumbuhannya sedikit lebih sedang dibanding tanaman yang tumbuh lebih cepat\" is awkward; use \"laju pertumbuhannya sedang, sedikit lebih lambat dibanding...\".",
+      "\"kontras dengan baik terhadap\" is unnatural; use \"berkontras indah dengan\".",
+      "\"tanaman ini juga cukup tahan ditanam terlalu rapat\" is awkward; use \"cukup toleran terhadap tanaman yang terlalu rapat\".",
+      "\"rumpun yang lebih rimbun\" and \"lebih kurus\" for \"thinner\" – use \"lebih jarang/ramping\"; \"defisiensi\" should be \"kekurangan nutrisi\".",
+      "\"Tanaman batang\" for stem plant is fine, but \"air sadah\" for hard water is OK; \"tangguh\" for hardier – prefer \"lebih mudah dirawat/tahan\"."
+    ]
+  },
   "ludwigia-glandulosa": {
     "at": "2026-11-04",
     "from": "2026-10-30",
@@ -1487,6 +1504,20 @@
       "\"Asal\" in the spec list is slightly terse; \"Asal daerah\" or \"Asal negara/benua\" reads more naturally; minor."
     ]
   },
+  "micranthemum-tweediei": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Micranthemum tweediei",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Aquarist punya dua pilihan\" leaves 'Aquarist' in English; use \"Penghobi akuarium\" or \"Aquascaper\".",
+      "\"pearling\" is left untranslated; add the local term, e.g. \"mengeluarkan gelembung oksigen (pearling)\".",
+      "\"per helai\" / \"Helaiannya\" for 'strands' is slightly awkward; \"batang\" or \"stek\" is more natural for stem plants.",
+      "\"menarik alga\" (attract algae) is a little literal; \"mengundang alga\" is more natural.",
+      "\"tahan air sadah\" is fine, but \"Tanam dalam rumpun sekecil yang bisa Anda tangani\" is slightly stiff; \"sekecil yang masih nyaman Anda tanam\" reads better."
+    ]
+  },
   "micranthemum-tweediei-monte-carlo": {
     "at": "2026-11-07",
     "from": "2026-11-07",
@@ -1529,16 +1560,20 @@
     ]
   },
   "microsorum-pteropus-narrow": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Java Fern Narrow",
-    "confidence": "high",
-    "score": 0.85,
+    "confidence": "medium",
+    "score": 0.3,
     "notes": [
-      "\"berimpang (rizoma)\": \"berimpang\" is awkward; use \"Berrimpang (rizoma)\" or simply \"Rizoma\" (e.g. \"Tipe: rizomatosa/berrizoma\").",
-      "\"dibiakkan di penangkaran\": \"penangkaran\" is used for animals; for plants use \"dibudidayakan\" or \"dalam budidaya\".",
-      "\"dari batangnya\": the source says stem, but the plant has a rhizome and leaf stalks; consider \"dari tangkai/rimpang\" (minor).",
-      "\"Tanaman hias yang juga cocok...\": sentence fragment, better \"Tanaman hias ini juga cocok untuk akuarium kecil\"; \"rimpangnya 10–15 cm\" lacks \"panjang\" (minor)."
+      "Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error.",
+      "Item 1: 'berrimpang (rhizome)' is not standard. Use 'berimpang (rhizoma)' or 'berrimpang' consistently with 'rimpang' in the other items. 'Jenis' for 'Type' (growth type) is acceptable, but 'Tipe' is clearer.",
+      "Item 2: 'Java Fern Narrow' is left in English with a wrong word order. Use 'Paku Jawa (Java Fern) Narrow' or 'Microsorum pteropus Narrow'.",
+      "Item 2: 'midground' is left untranslated. Use 'tanaman area tengah (midground)'.",
+      "Item 2: 'ikat pelan-pelan' loses the meaning of 'lightly'. Use 'ikat longgar' or 'ikat dengan lembut'.",
+      "Item 2: 'rimpang mudah membusuk perlahan' adds 'perlahan', which the source only implies. Use 'mudah membusuk'.",
+      "Item 3: 'varietas baru mudah dibiakkan' is fine, but 'sudut yang tidak selancip' is awkward. Use 'sudut yang kurang tajam'.",
+      "Item 3: 'Daunnya bisa mencapai 10–20 cm dan rimpangnya 10–15 cm' is fine, but the final sentence fragment 'Tanaman yang dekoratif dan juga cocok...' is better as 'Tanaman hias yang juga cocok untuk akuarium yang lebih kecil.'"
     ]
   },
   "microsorum-pteropus-trident": {
@@ -1937,6 +1972,21 @@
       "\"Runner (geragih)\" in item 2 but plain \"runner\" in item 3: keep the term consistent. \"stolon\" is a common alternative.",
       "\"tidak rewel\" is slightly colloquial. \"mudah dirawat\" would be more standard in a handbook.",
       "\"cup tertutup\" leaves \"cup\" in English. \"wadah/cup tertutup\" or \"kemasan cup tertutup\" would read more naturally."
+    ]
+  },
+  "salvinia-auriculata": {
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "Kiambang",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 5: \"Pecah dan disinfeksi dengan benar tanaman yang baru dibeli\" is awkward; better \"Pisahkan tanaman yang baru dibeli, lalu desinfeksi dengan benar\".",
+      "Item 3: \"tahan terhadap kondisi iklim sedang yang tidak terlalu dingin\" adds \"tidak terlalu dingin\" and is clumsy; use \"iklim sedang yang ringan (mild temperate)\".",
+      "Item 4: \"cenderung makan banyak tempat\" is colloquial; use \"memakan banyak ruang\" or \"cenderung memenuhi banyak ruang\".",
+      "Item 5: \"Tanaman ini bisa membuat akuarium terlalu teduh\" mistranslates 'cast too much shade' mildly; better \"menimbulkan bayangan terlalu banyak\".",
+      "Item 8: \"burayak\" for fry is rarely used by hobbyists; \"anakan ikan\" is more common. \"Ikan mas koki\" should be \"ikan mas koki/goldfish\" (fine), but \"Penyaring cahaya ... lampu jadi lebih tersebar\" is a loose rendering of 'diffusing'.",
+      "Item 8: \"tertukar\" for 'confused with' is slightly off; use \"sering disalahartikan/dikira sama dengan\". \"Rootstock\" as \"batang bawah\" is unclear."
     ]
   },
   "salvinia-minima": {

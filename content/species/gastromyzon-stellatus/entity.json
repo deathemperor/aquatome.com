@@ -10,6 +10,54 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sadong",
+        "Lupar",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Sarawak, Sadong and Lupar River drainages in southern Sarawak state, Malaysian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sadong",
+            "Lupar",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358903,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

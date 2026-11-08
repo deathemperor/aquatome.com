@@ -1,0 +1,181 @@
+{
+  "id": "cirrhinus-caudimaculatus",
+  "scientificName": "Cirrhinus caudimaculatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Cirrhinus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "mekong",
+    "laos",
+    "thailand",
+    "chao-phraya",
+    "cambodia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+          "countries": [
+            "CN",
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5206468,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          4
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/henicorhynchus-caudimaculatus",
+      "html": "<p>Henicorhynchus caudimaculatus is a riverine cyprinid from the middle to lower Mekong basin and the Chao Phraya, in China, Laos, Thailand and Cambodia. It is most often collected in mid-to-large channels, although in the Mekong basin it also enters smaller tributaries and inundated fields. It has a pair of small maxillary barbels and 5-6 faint, thin stripes along each flank, and has also been placed in Cirrhinus, Bangana, Labeo and Gymnostomus in the last few decades.</p><ul><li>Needs a large tank</li><li>Needs to be kept in a group</li><li>Fine with other fish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/henicorhynchus-caudimaculatus",
+      "html": "<p>Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.</p><p>Type locality is 'Thailand: Lam Ton Lang, a tributary of Menam Sak [Mae Nam Pa Sak; Ban Lam Thong Lang, village northwest of Pakjong'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/henicorhynchus-caudimaculatus",
+      "html": "<p>A riverine species most often collected in mid-to-large sized channels, although in the Mekong basin it is also known to enter smaller tributaries and inundated fields.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/henicorhynchus-caudimaculatus",
+      "html": "<p>H. caudimaculatus can be distinguished from congeners by the following combination of characters: presence of a pair of small maxillary barbels, rostral barbels absent; 5-6 faint, thin, lateral stripes along each flank; body depth fits 3.5-3.8 times in SL; 34-35 lateral line scales.</p><p>Roberts (1997) placed Henicorhynchus species in Cirrhinus, and Kottelat (2001) treated Henicorhynchus as a valid genus again. Kottelat (2013) then made it a synonym of Gymnostomus and moved its species into that genus. Later authors have not followed him, and these species are placed in Henicorhynchus. Gymnostomus now holds only the Indian species G. ariza, G. fulungee and G. horai.</p><p>Henicorhynchus is a member of the tribe Labeonini within the putative cyprinid subfamily Cyprininae, or simply the subfamily Labeoninae (name varies with author). Yang et al. (2012) divide this grouping into four subtribes: Labeoina, Garraina, Osteochilina and Semilabeoina. Henicorhynchus is in the Osteochilina and the Indian species of Gymnostomus are in the Labeoina, so the two genera are not closely related.</p><p>Some Henicorhynchus species are common in mainstream rivers at certain times of year and extremely important in local fisheries during these periods.</p><p>Etymology: caudimaculatus is from the Latin cauda, meaning 'tail', and maculatus, meaning 'spotted'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/henicorhynchus-caudimaculatus",
+      "html": "<ul><li>Smith, H. M. (1945). The Fresh-Water Fishes of Siam, Or Thailand. Bulletin of the United States National Museum 188, i-xi + 1-622</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2003). Nomenclatural status of Crossocheilus burmanicus, C. horai and C. multirastellatus (Osteichthyes: Cyprinidae). Raffles Bulletin of Zoology 51(2), 399-401</li><li>Roberts, T. R. (1997). Systematic revision of the tropical Asian labeoin cyprinid fish genus Cirrhinus, with descriptions of new species and biological observations on C. lobatus. Natural History Bulletin of the Siam Society 45(2), 171-203</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "ftpv3WRnxO4",
+      "title": "Albino Cirrhinus caudimaculatus",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ivV8TtxcViw",
+      "title": "MVI 2307",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AInJorUiE0U",
+      "title": "ปลาสร้อยน้ำเงินเผือกตาเเดง 6 นิ้ว 0869980562",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m6EjgIrPIUY",
+      "title": "ปลาสร้อยน้ำเงินเผือก",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá dài 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể lớn",
+        "máy tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

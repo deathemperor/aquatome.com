@@ -17,8 +17,10 @@ import type { Finder } from './video-discovery'
 import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
 import { setHold } from './video-hold'
+import { readVideoRejected } from './videos'
 import { byRank } from './video-order'
 import { seconds } from './videos'
+import { VI_STYLE as STYLE } from './phrases'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
@@ -52,7 +54,6 @@ const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
 const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8')
 const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
@@ -465,9 +466,12 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   const redone = new Set<string>()
   const picked = opts.rechecked ? (await recheckedGuides(root, opts.rechecked, opts.rank)).slice(0, opts.limit) : undefined
   const only = picked?.map(g => g.id) ?? opts.only
+  // A video on the rejected list (engine-state/_video-rejected.json) is never a guide, nor written again by a redo: a guide
+  // that taught catching fish by raising CO₂ until they gasp was taken down by hand (2026-11-08).
+  const rejected = await readVideoRejected(root)
   /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
   const due = (id: string, playlist?: string) => {
-    if (only && !only.includes(id)) return false
+    if (rejected[id] || (only && !only.includes(id))) return false
     if (opts.redo) return written.has(id) && !redone.has(id) && written.get(id) === playlist
     const s = state[id]
     return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)

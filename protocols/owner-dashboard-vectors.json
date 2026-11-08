@@ -3724,11 +3724,6 @@
           },
           {
             "kind": "note",
-            "text": "Google Search Console: lượt hiển thị, lượt bấm, vị trí. Chủ trang xác minh aquatome.com trong Search Console và cấp quyền đọc qua API.",
-            "tone": "plain"
-          },
-          {
-            "kind": "note",
             "text": "Doanh thu AdSense. Chủ trang cấp quyền đọc báo cáo (AdSense Management API), hoặc gửi báo cáo xuất hằng tuần.",
             "tone": "plain"
           },
@@ -4036,6 +4031,130 @@
               ]
             ],
             "empty": "Chưa có."
+          },
+          {
+            "kind": "heading",
+            "text": "Web and app",
+            "level": 2
+          },
+          {
+            "kind": "note",
+            "text": "A reader is a tab that scrolled half a page or stayed 30 s, in the browser or the app alike. Our own app sessions (TestFlight, simulators): 10, 4 of them would-be readers.",
+            "tone": "plain"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Where",
+              "Tabs",
+              "Readers"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Web (browsers)"
+                },
+                {
+                  "text": "1.240"
+                },
+                {
+                  "text": "610"
+                }
+              ],
+              [
+                {
+                  "text": "iOS app (not on the App Store yet: every copy is ours)"
+                },
+                {
+                  "text": "0"
+                },
+                {
+                  "text": "0"
+                }
+              ]
+            ],
+            "empty": "Chưa có."
+          },
+          {
+            "kind": "heading",
+            "text": "Left out of the count",
+            "level": 2
+          },
+          {
+            "kind": "note",
+            "text": "Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link), and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.",
+            "tone": "plain"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Left out",
+              "Tabs",
+              "Would-be readers"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "The owner’s browsers"
+                },
+                {
+                  "text": "12"
+                },
+                {
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "text": "Our marked browsers and test copies of the app"
+                },
+                {
+                  "text": "30"
+                },
+                {
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "text": "Our network (the agents’ Mac, its simulators and preview browser)"
+                },
+                {
+                  "text": "90"
+                },
+                {
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "text": "Web pages inside the iOS app (counted with app reads)"
+                },
+                {
+                  "text": "4"
+                },
+                {
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "text": "Likely automated: bursts of fresh tabs, one new page each"
+                },
+                {
+                  "text": "97"
+                },
+                {
+                  "text": "6"
+                }
+              ]
+            ],
+            "empty": "Chưa có."
+          },
+          {
+            "kind": "note",
+            "text": "ID: 97 tabs, 03/11 20:02 to 03/11 21:59",
+            "tone": "muted"
           }
         ]
       }
@@ -4375,6 +4494,210 @@
             "kind": "note",
             "text": "Từ bản build lúc 04/11 13:00. Engine cập nhật nội dung 3 giờ một lần; mỗi lần đăng, số liệu này đổi theo.",
             "tone": "plain"
+          },
+          {
+            "kind": "heading",
+            "text": "Quality",
+            "level": 2,
+            "anchor": "chat-luong"
+          },
+          {
+            "kind": "note",
+            "text": "Score, 0 to 100. Reading, from our readers (our own visits and automated bursts left out): the average of three shares of a page’s tabs, those that scrolled half the page, stayed 30 s, and went on to another page. Search, from Google Search Console: the page’s click rate against what its position usually gets (position 1 about 28%, 3 about 10%, 10 about 2%), at most 1. Until there is enough data, reading is pulled towards its section’s average as if it had 20 more tabs, and search towards one half as if it had 100 more impressions. Score = 100 × (2 × reading + search) ÷ 3, or the one there is. A page is ranked once it has 20 tabs or 100 impressions in 28 days.",
+            "tone": "plain"
+          },
+          {
+            "kind": "figures",
+            "items": [
+              {
+                "label": "Pages with data",
+                "value": "120"
+              },
+              {
+                "label": "Ranked",
+                "value": "34",
+                "sub": "20+ tabs or 100+ impressions in 28 days"
+              },
+              {
+                "label": "Search Console",
+                "value": "2026-10-10 to 2026-11-06"
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Rewrite first",
+            "level": 3
+          },
+          {
+            "kind": "note",
+            "text": "Demand but weak reading, or a good Google position few click",
+            "tone": "muted"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Score",
+              "Why"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá boraras đỏ",
+                  "href": "/ca/ca-boraras-do/"
+                },
+                {
+                  "text": "28"
+                },
+                {
+                  "text": "Google: 900 impressions at position 4.2, 1% clicked (usual 5%): the title and description need work"
+                }
+              ]
+            ],
+            "empty": "No page has enough data yet."
+          },
+          {
+            "kind": "heading",
+            "text": "Decaying",
+            "level": 3
+          },
+          {
+            "kind": "note",
+            "text": "Google impressions or clicks down 30% or more against the 28 days before",
+            "tone": "muted"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Score",
+              "Why"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá boraras đỏ",
+                  "href": "/ca/ca-boraras-do/"
+                },
+                {
+                  "text": "28"
+                },
+                {
+                  "text": "Google, the last 28 days against the 28 before: impressions 1,400 → 900, clicks 30 → 9"
+                }
+              ]
+            ],
+            "empty": "No page has enough data yet."
+          },
+          {
+            "kind": "heading",
+            "text": "Gaps: asked for, not written",
+            "level": 3
+          },
+          {
+            "kind": "note",
+            "text": "What Google shows us for without an answer, and names readers looked for",
+            "tone": "muted"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Asked for",
+              "From",
+              "Why"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "cá betta ăn gì"
+                },
+                {
+                  "text": "Google"
+                },
+                {
+                  "text": "Google showed us 340 times for it, at best at position 18.5: no page answers it"
+                }
+              ],
+              [
+                {
+                  "text": "Cá rồng"
+                },
+                {
+                  "text": "readers"
+                },
+                {
+                  "text": "3 readers looked for it (search, chat); no page yet"
+                }
+              ]
+            ],
+            "empty": "No gap with enough demand yet."
+          },
+          {
+            "kind": "heading",
+            "text": "Best pages",
+            "level": 3
+          },
+          {
+            "kind": "note",
+            "text": "The highest scores among ranked pages",
+            "tone": "muted"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Score",
+              "Why"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá neon vua",
+                  "href": "/ca/ca-neon-vua/"
+                },
+                {
+                  "text": "81"
+                },
+                {
+                  "text": "120 tabs: 70% read half, 62% stayed 30 s, 40% went on"
+                }
+              ]
+            ],
+            "empty": "No page has enough data yet."
+          },
+          {
+            "kind": "heading",
+            "text": "Worst pages",
+            "level": 3
+          },
+          {
+            "kind": "note",
+            "text": "The lowest scores among ranked pages",
+            "tone": "muted"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Score",
+              "Why"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá boraras đỏ",
+                  "href": "/ca/ca-boraras-do/"
+                },
+                {
+                  "text": "28"
+                },
+                {
+                  "text": "40 tabs: 30% read half, 35% stayed 30 s, 20% went on"
+                }
+              ]
+            ],
+            "empty": "No page has enough data yet."
           },
           {
             "kind": "heading",
@@ -5228,7 +5551,7 @@
             ],
             "rows": [],
             "folded": "2 trang đầu",
-            "id": "t4",
+            "id": "t9",
             "count": 2
           },
           {
@@ -5265,7 +5588,7 @@
             ],
             "rows": [],
             "folded": "1 trang đầu",
-            "id": "t5",
+            "id": "t10",
             "count": 1
           },
           {
@@ -6018,7 +6341,7 @@
             ],
             "rows": [],
             "folded": "1 trang đầu",
-            "id": "t11",
+            "id": "t16",
             "count": 1
           },
           {

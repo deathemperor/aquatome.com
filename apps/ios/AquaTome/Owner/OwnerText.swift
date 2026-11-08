@@ -2,17 +2,18 @@ import AccountSync
 import Handbook
 import SwiftUI
 
-/// The app's side of the owner's dashboard (its rules are AccountSync's OwnerAccess): what a failure says, and the photos.
+/// The app's side of the owner's dashboard (its rules are AccountSync's OwnerAccess): what a failure says, in English as
+/// the dashboard's words are, and the photos.
 extension OwnerAccess {
   /// What a failure says to the owner, once `failed` has applied what it means; nil for a read a newer one replaced.
   func say(_ e: Error, overview: Bool) async -> String? {
     if e is CancellationError { return nil }
     await failed(e, overview: overview)
     switch e as? OwnerError {
-    case .signedOut?: return String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.")
-    case .offline?: return String(localized: "Không có mạng: thử lại khi có mạng.")
+    case .signedOut?: return "Your session has ended: sign in again to see the dashboard."
+    case .offline?: return "No connection: try again once you're online."
     case .refused(_, let message?)?: return message
-    default: return String(localized: "Có lỗi, chưa làm được: thử lại.")
+    default: return "Something went wrong and it wasn't done: try again."
     }
   }
 
@@ -35,6 +36,7 @@ extension Owner.Tone {
     case .plain: .primary
     case .muted: .secondary
     case .good: .green
+    case .wait: .orange
     case .bad: .red
     }
   }
@@ -42,8 +44,9 @@ extension Owner.Tone {
   /// The tone in words, for VoiceOver, which can't see the colour.
   var said: String? {
     switch self {
-    case .bad: String(localized: "cần chú ý")
-    case .good: String(localized: "tốt")
+    case .bad: "needs fixing"
+    case .wait: "waiting for you"
+    case .good: "good"
     default: nil
     }
   }

@@ -1,0 +1,346 @@
+{
+  "id": "chihiros-universal-wrgb",
+  "brand": "Chihiros",
+  "model": "Universal WRGB",
+  "category": "den",
+  "type": "thuy-sinh",
+  "specs": [
+    {
+      "key": "LED type",
+      "value": "RGB LEDs plus white LEDs (full spectrum)",
+      "source": 1
+    },
+    {
+      "key": "Colour temperature",
+      "value": "3,000–15,000 K, adjustable",
+      "source": 1
+    },
+    {
+      "key": "Power range across the line",
+      "value": "28–100 W",
+      "source": 1
+    },
+    {
+      "key": "Waterproof rating",
+      "value": "IP67; can go 1 m under water for up to 30 minutes",
+      "source": 0
+    },
+    {
+      "key": "Body thickness",
+      "value": "19 mm",
+      "source": 3
+    },
+    {
+      "key": "LED lifespan",
+      "value": "40,000 hours",
+      "source": 3
+    },
+    {
+      "key": "Control",
+      "value": "Bluetooth controller with the MyChihiros app (sunrise/sunset, schedules, presets)",
+      "source": 0
+    },
+    {
+      "key": "Cable length",
+      "value": "3.5 m",
+      "source": 1
+    },
+    {
+      "key": "Mounting",
+      "value": "Four ways to mount: extendable stainless-steel legs, holding rods, a hanging rope kit and plastic trim pieces",
+      "source": 1
+    },
+    {
+      "key": "In the box",
+      "value": "Adapter, Bluetooth controller, hanging kit, clips",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Vietnam)",
+      "value": "6 months from delivery (Shrimp Home); 6 months for manufacturing defects, power supply not covered (Vũ Aqua)",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "Universal WRGB 550",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "28 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,123 lm",
+          "source": 1
+        },
+        {
+          "key": "Length",
+          "value": "461 mm",
+          "source": 1
+        },
+        {
+          "key": "Tank length",
+          "value": "450–600 mm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 600",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "29 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,245 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "20 RGB + 20 white",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "520 × 88 × 19 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank length",
+          "value": "550–650 mm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 700",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "33 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,613 lm",
+          "source": 1
+        },
+        {
+          "key": "Length",
+          "value": "620 mm",
+          "source": 1
+        },
+        {
+          "key": "Tank length",
+          "value": "650–750 mm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 800",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "36 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2,789 lm",
+          "source": 1
+        },
+        {
+          "key": "Length",
+          "value": "720 mm",
+          "source": 1
+        },
+        {
+          "key": "Tank length",
+          "value": "750–850 mm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 920 (sold as 90cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "55 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3,848 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40 RGB + 20 white",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "830 × 88 × 19 mm",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "870–970 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 1000",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "59 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "4,246 lm",
+          "source": 1
+        },
+        {
+          "key": "Tank length",
+          "value": "950–1,050 mm (Aquasabi gives two different figures)",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 1200",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "91 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "6,251 lm",
+          "source": 1
+        },
+        {
+          "key": "Length",
+          "value": "1,119 mm",
+          "source": 1
+        },
+        {
+          "key": "Tank length",
+          "value": "1,150–1,250 mm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Universal WRGB 1500",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "100 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "7,358 lm",
+          "source": 1
+        },
+        {
+          "key": "Length",
+          "value": "1,419 mm",
+          "source": 1
+        },
+        {
+          "key": "Tank length",
+          "value": "1,450–1,550 mm",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.shaquarium.com/san-pham/%C4%91%C3%A8n-chihiros-universal-wrgb-90cm-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc,-%C4%91i%E1%BB%81u-khi%E1%BB%83n-b%E1%BA%B1ng-%C4%91i%E1%BB%87n-tho%E1%BA%A1i,-d%C3%A0nh-cho-b%E1%BB%83-th%E1%BB%A7y-sinh,-b%E1%BB%83-c%C3%A1-c%E1%BA%A3nh.html",
+      "title": "Shaquarium – Đèn Chihiros Universal WRGB 90cm",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-Universal-WRGB_1",
+      "title": "Aquasabi – Chihiros LED-System Universal WRGB",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://vuaqua.vn/chihiros/den-chihiros-universal-wrgb-600-60cm/",
+      "title": "Vũ Aqua – Đèn Chihiros Universal WRGB 600 (60cm)",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-chihiros-universal-wrgb-led-light-600-800-920-1200-1500",
+      "title": "Shrimp Home – Đèn led Chihiros Universal WRGB 600–1500",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://shaquarium.com/san-pham/%C4%91%C3%A8n-chihiros-universal-wrgb-60cm-ch%E1%BB%91ng-n%C6%B0%E1%BB%9Bc,-%C4%91i%E1%BB%81u-khi%E1%BB%83n-b%E1%BA%B1ng-%C4%91i%E1%BB%87n-tho%E1%BA%A1i,-d%C3%A0nh-cho-b%E1%BB%83-th%E1%BB%A7y-sinh,-b%E1%BB%83-c%C3%A1-c%E1%BA%A3nh.html",
+      "title": "Shaquarium – Đèn Chihiros Universal WRGB 60cm",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://jungleaquatics.com/products/chihiros-universal-wrgb-with-controller",
+      "title": "Jungle Aquatics – Chihiros Universal WRGB with Controller",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://www.natureaquariums.com.au/products/chihiros-wrgb-universal-1200-115-125cm-91w-led",
+      "title": "Nature Aquariums – Chihiros WRGB Universal 1200",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://www.aquasabi.com/Chihiros-Bluetooth-Controller-LED-System-Universal-WRGB-1500",
+      "title": "Aquasabi – Chihiros Bluetooth Controller Universal WRGB",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://thuysinh365.com/products/den-chihiros-wrgb-2-cho-ho-thuy-sinh",
+      "title": "Thủy Sinh 365 – Đèn Chihiros WRGB 2",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "title": "Thủy Sinh Tím – Chihiros WRGB 2 Pro",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://thuysinh365.com/products/den-led-thuy-sinh-chihiros-wrgb-dieu-chinh-bang-bluetooth",
+      "title": "Thủy Sinh 365 – Đèn led Chihiros WRGB Bluetooth",
+      "kind": "shop",
+      "at": "2026-11-08"
+    },
+    {
+      "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31",
+      "title": "Ghi chép thử nghiệm của AquaTome: điều khiển đèn thủy sinh qua Bluetooth (31/10/2026)",
+      "kind": "test",
+      "at": "2026-11-08"
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

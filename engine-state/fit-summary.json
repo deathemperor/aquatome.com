@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 2840,
-   "read": 595,
-   "wrong": 327,
-   "pct": 50,
-   "held": 0
+   "pages": 2985,
+   "read": 2645,
+   "wrong": 1272,
+   "pct": 46,
+   "held": 22
   },
   "id": {
-   "pages": 940,
-   "read": 221,
-   "wrong": 91,
-   "pct": 37,
-   "held": 0
+   "pages": 978,
+   "read": 848,
+   "wrong": 260,
+   "pct": 31,
+   "held": 3
   },
   "th": {
-   "pages": 933,
-   "read": 207,
-   "wrong": 75,
-   "pct": 31,
-   "held": 0
+   "pages": 971,
+   "read": 850,
+   "wrong": 250,
+   "pct": 30,
+   "held": 5
   },
   "ms": {
    "pages": 127,
-   "read": 127,
-   "wrong": 65,
-   "pct": 51,
-   "held": 0
+   "read": 99,
+   "wrong": 39,
+   "pct": 42,
+   "held": 1
   }
  },
  "labels": {
@@ -49,11 +49,33 @@
   "words": "Chữ người chơi ở đây không dùng",
   "elsewhere": "Viết cho người đọc ở nước khác",
   "kit": "Bộ đồ hay danh mục của tiệm nước ngoài",
+  "harm": "Lời khuyên làm theo thì hại cá, con vật khác, cây hay người nuôi",
+  "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
   "dose-purpose": "Liều không nói để trị gì",
   "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",
   "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy"
  },
  "sample": [
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-ty-ba-buom-myersi/",
+   "url": "https://aquatome.com/ca/ca-ty-ba-buom-myersi/",
+   "title": "Cá tỳ bà bướm myersi",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    },
+    {
+     "check": "words",
+     "quote": "giới chơi"
+    },
+    {
+     "check": "words",
+     "quote": "thị trường cá cảnh"
+    }
+   ]
+  },
   {
    "lang": "ms",
    "path": "/ms/ikan/ikan-toman/",
@@ -62,26 +84,22 @@
    "wrong": []
   },
   {
-   "lang": "ms",
-   "path": "/ms/ikan/black-moor/",
-   "url": "https://aquatome.com/ms/ikan/black-moor/",
-   "title": "Black Moor",
+   "lang": "vi",
+   "path": "/vi/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
+   "url": "https://aquatome.com/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
+   "title": "Uốn cong tấm mica acrylic bằng lò nướng để tự làm bể mặt cong",
    "wrong": [
     {
      "check": "words",
-     "quote": "berasal daripada barisan ikan emas bermata teleskop"
-    }
-   ]
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/medaka/",
-   "url": "https://aquatome.com/id/ikan/medaka/",
-   "title": "Medaka",
-   "wrong": [
+     "quote": "nhiều khả năng"
+    },
     {
-     "check": "elsewhere",
-     "quote": "Di banyak negara atau di rumah yang insulasinya baik, ikan ini paling baik dipelihara tanpa pemanas sepanjang tahun."
+     "check": "words",
+     "quote": "Dù vậy"
+    },
+    {
+     "check": "words",
+     "quote": "bắt buộc phải"
     }
    ]
   }

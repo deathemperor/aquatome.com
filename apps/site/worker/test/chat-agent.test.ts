@@ -2,8 +2,9 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
+import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -367,6 +368,33 @@ test('a section is every block under its heading, to the next heading, however m
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
 })
 
+test('a page the site leaves out (held by the reader-fit gate, or removed) is no page to the chat, of any kind, in any language', async () => {
+  // The site's build leaves a held or removed page out of its app index (apps/site/test/held.test.ts), and the chat's
+  // handbook is that index: a page not in it is never found, read, carded or shown, even with its copy still in a shard.
+  const all = (await source.index('vi'))!
+  const kinds = [...new Set(all.items.map(i => i.kind))].filter(k => k !== 'tool').sort()
+  expect(kinds).toEqual(['equipment', 'fish', 'glossary', 'guide', 'plant', 'video'])
+  for (const lang of LANGS) {
+    for (const kind of kinds) {
+      const gone = all.items.find(i => i.kind === kind)!
+      const left = { ...all, items: all.items.filter(i => i !== gone) }
+      // The same pages under each language: the handbook's code is the same for all of them.
+      const h = (await handbookOf({ ...source, index: async () => left, shard: (_l, k, n) => source.shard('vi', k, n) }, lang))!
+      const at = `${lang} ${kind} ${gone.path}`
+      expect(Object.values((await source.shard('vi', kind as PageDoc['kind'], 0))?.pages ?? {}).length, at).toBeGreaterThan(0)
+      expect(h.byPath(gone.path), at).toBeUndefined()
+      if (gone.id) expect(h.byId(gone.id), at).toBeUndefined()
+      expect(await h.page(gone.path), at).toBeUndefined()
+      const out = (await run('search_handbook', { query: gone.name, kind: null }, h)).out as string
+      expect(out.startsWith('No page') ? [] : JSON.parse(out).map((x: { path: string }) => x.path), at).not.toContain(gone.path)
+      await expect(run('read_page', { path: gone.path, heading: null }, h), at).rejects.toThrow(/No page at/)
+      const picks = [pick({ t: 'section', path: gone.path }), ...(gone.id ? [pick({ t: 'species', ids: [gone.id] })] : [])]
+      const { blocks } = await fill(answer(picks), h)
+      expect(blocks, at).toEqual([])
+    }
+  }
+})
+
 test('a guide held out of the chat (a video guide being checked again) is never found, read or shown; the others are', async () => {
   const algae = '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'
   // The build lists a guide marked quality.chat: false, by its path in the language, and leaves out its topics.
@@ -580,25 +608,31 @@ test('the chat\'s forced last call is told to answer from what it read and its o
   expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain(JSON.stringify(LAST_WORD).slice(1, -1))
   // Most hard questions end on this call: it must not take back the general knowledge the owner allowed.
   expect(LAST_WORD).toContain('your own knowledge of fishkeeping')
+  // Written at low effort when time is short, it slipped Vietnamese's "cẩm nang" into Malay answers without this.
+  expect(LAST_WORD).toContain('only in the reader\'s language')
 })
 
 test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time from its own pace', async () => {
-  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
-  let now = 0
-  const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
-  const out = await answerQuestion({
-    send: async body => {
-      bodies.push(body)
-      now += 4_000
-      return bodies.length < 3
-        ? message([{ type: 'tool_use', id: `t${bodies.length}`, name: 'search_handbook', input: { query: 'neon' } }], 'tool_use')
-        : message([{ type: 'text', text: JSON.stringify(final) }])
-    },
-    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => now,
-  })
-  // Calls of 4 s: after one, another would leave 27 - 4 - 4 = 19 s, under 5.5 × 4 = 22 s.
-  expect(out.stopped).toBe('time')
-  expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort])).toEqual([['auto', 'medium'], ['none', 'low']])
+  // Calls of 4 s: after one, another leaves 27 - 4 - 4 = 19 s, over 4 × 4 = 16 s, so the second reads; after two, 15 s,
+  // under 6.5 × 4 = 26 s, so the third answers, at low: 19 s is under 7 × 4 = 28 s. Calls of 3.1 s: after two, another
+  // leaves 17.7 s, under 6.5 × 3.1 = 20.15 s (over 5.5 × 3.1, which read on), and 20.8 s is under 7 × 3.1 = 21.7 s.
+  for (const ms of [4_000, 3_100]) {
+    const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+    let now = 0
+    const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
+    const out = await answerQuestion({
+      send: async body => {
+        bodies.push(body)
+        now += ms
+        return bodies.length < 3
+          ? message([{ type: 'tool_use', id: `t${bodies.length}`, name: 'search_handbook', input: { query: 'neon' } }], 'tool_use')
+          : message([{ type: 'text', text: JSON.stringify(final) }])
+      },
+      model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => now,
+    })
+    expect(out.stopped, `${ms} ms`).toBe('time')
+    expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort]), `${ms} ms`).toEqual([['auto', 'medium'], ['auto', 'medium'], ['none', 'low']])
+  }
 })
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
@@ -652,8 +686,12 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   expect(out.blocks.map(b => b.t)).toEqual(['species'])
   expect(out.dropped).toEqual(['species: no fish or plant "nope"'])
   expect(bodies[0]!.system).toBe(SYSTEM)
-  // The handbook by the site's own word for it in each language (its title: "Cẩm nang cá cảnh & thủy sinh").
-  for (const word of ['cẩm nang', 'panduan', 'คู่มือ']) expect(SYSTEM).toContain(word)
+  // The handbook by the site's own word for it, the reader's language's only: the prompt shared by every language has none.
+  for (const word of Object.values(HANDBOOK)) expect(SYSTEM).not.toContain(word)
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    const said = JSON.stringify(firstMessage(lang, 'x', [], {}, h).content)
+    for (const word of Object.values(HANDBOOK)) expect(said.includes(word), `${lang}: ${word}`).toBe(HANDBOOK[lang].includes(word))
+  }
   expect(bodies[0]!.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: ANSWER_SCHEMA } })
   expect(bodies[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'check_tank_mates', 'read_tanks'])
   // A refusal, or an answer cut short, is no answer: no blocks.

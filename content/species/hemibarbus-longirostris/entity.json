@@ -1,0 +1,142 @@
+{
+  "id": "hemibarbus-longirostris",
+  "scientificName": "Hemibarbus longirostris",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Hemibarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "russia",
+    "south-korea",
+    "north-korea",
+    "japan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "html": "<ul><li>Needs a very large tank</li><li>Social: needs to be in a group</li><li>Compatibility: fine with others</li></ul><p>Hemibarbus longirostris is a cyprinid native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula and Japan. A predominantly riverine fish, it lives in clear, well-oxygenated running water over sand, gravel, rock or mud, and adults tend to form schools just above the substrate in slower-moving sections.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "html": "<p>Native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula, and Japan.</p><p>Type locality is 'Chong-ju, South Korea'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "html": "<p>A predominantly riverine fish preferring clear, well-oxygenated, running waters with substrates of sand, gravel, rock or mud, where adults tend to form schools just above the substrate in slower-moving sections.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "html": "<p>Wild individuals are known to feed on benthic crustaceans, insects, molluscs, and other macroinvertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "html": "<p>Etymology</p><p>Hemibarbus: from the Ancient Greek ἡμι- (hēmi-), meaning 'half', and the generic name Barbus, to which members appear similar.</p><p>longirostris: from the Latin longus, meaning 'long', and rostrum, meaning 'snout', in allusion to this species' extended snout.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "html": "<ul><li>Regan, C. T. (1908). The Duke of Bedford's Zoological Exploration in eastern Asia - VIII. A collection of freshwater fishes from Corea. Proceedings of the Zoological Society of London 1908 (pt 1), 59-63</li><li>Jang, M.-H., M. C. Lucas and G.-J. Joo (2003). The fish fauna of mountain streams in South Korean national parks and its significance to conservation of regional freshwater fish biodiversity. Biological Conservation 114, 115-126</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f758b3a61007b650.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f758b3a61007b650-480.webp",
+      "width": 800,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "caption": "Juvenile specimens in their natural habitat, Japan.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3e173435d00dce31.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3e173435d00dce31-480.webp",
+      "width": 800,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-longirostris",
+      "caption": "More juveniles in their natural habitat, Japan. The fish to the top right of the image is Nipponocypris temminckii.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "toj2gEgMzD4",
+      "title": "やっとのズナガニゴイ（Hemibarbus longirostris）",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7A2xNiUhjFw",
+      "title": "수족관의 참마자",
+      "durationSec": 66,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ko0Bhldgfns",
+      "title": "#참마자 #longnosed barbel #물고기 #fish",
+      "durationSec": 5,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mEuNWVu_oLI",
+      "title": "참마자 잡기",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông nuôi cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

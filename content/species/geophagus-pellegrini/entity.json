@@ -10,6 +10,101 @@
     "colombia",
     "san-juan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río San Juan",
+        "Río Atrato",
+        "Río Baudó"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the Río San Juan at Tado, Chocó Department, northwestern Colombia, and this species is endemic to that region plus the neighbouring Department of Antioquia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río San Juan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded from the Río Atrato and Río Baudó drainages.",
+          "countries": [],
+          "regions": [
+            "Río Atrato",
+            "Río Baudó"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208424,
+      "total": 73,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          71
+        ],
+        [
+          "PA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -77.34375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          4.21875,
+          38,
+          38
+        ],
+        [
+          -77.34375,
+          5.625,
+          27,
+          27
+        ],
+        [
+          -77.34375,
+          7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

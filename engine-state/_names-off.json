@@ -331,6 +331,9 @@
     "Vagra baril": "its name, 2026-11-07",
     "Barilius vagra": "its scientific name, 2026-11-07"
   },
+  "id/bathyclarias-nyasensis": {
+    "Bathyclarias nyasensis": "its scientific name, 2026-11-08"
+  },
   "id/beaufortia-szechuanensis": {
     "Beaufortia szechuanensis": "its scientific name, 2026-11-07"
   },
@@ -378,6 +381,33 @@
   },
   "id/botia-almorhae": {
     "Botia almorhae": "its scientific name, 2026-11-04"
+  },
+  "id/botia-histrionica": {
+    "Botia histrionica": "its scientific name, 2026-11-08"
+  },
+  "id/botia-striata": {
+    "Botia striata": "its scientific name, 2026-11-08"
+  },
+  "id/botia-udomritthiruji": {
+    "Botia udomritthiruji": "its scientific name, 2026-11-08"
+  },
+  "id/brachygobius-aggregatus": {
+    "bumblebee": "written twice: \"ikan bumblebee\", 2026-11-08"
+  },
+  "id/brachyplatystoma-filamentosum": {
+    "Piraíba": "its name, 2026-11-08"
+  },
+  "id/brevimyrus-niger": {
+    "Brevimyrus niger": "its scientific name, 2026-11-08"
+  },
+  "id/brochis-multiradiatus": {
+    "Brochis multiradiatus": "its scientific name, 2026-11-08"
+  },
+  "id/bryconops-caudomaculatus": {
+    "Bryconops caudomaculatus": "its scientific name, 2026-11-08"
+  },
+  "id/buccochromis-nototaenia": {
+    "Buccochromis nototaenia": "its scientific name, 2026-11-08"
   },
   "id/carassius-auratus": {
     "Koki": "written twice: \"Ikan koki\", 2026-11-04"
@@ -459,14 +489,23 @@
   "id/gymnarchus-niloticus": {
     "Aba-aba": "its name, 2026-11-04"
   },
+  "id/gymnochanda-verae": {
+    "Gymnochanda verae": "its scientific name, 2026-11-08"
+  },
   "id/hampala-dispar": {
     "Hampala dispar": "its scientific name, 2026-11-04"
   },
   "id/hampala-salweenensis": {
     "Hampala salweenensis": "its scientific name, 2026-11-04"
   },
+  "id/hemibagrus-planiceps": {
+    "Ikan baung": "its name, 2026-11-08"
+  },
   "id/hemirhamphodon-phaiosoma": {
     "Ikan julung-julung": "written twice: \"Julung-julung\", 2026-11-04"
+  },
+  "id/hemisilurus-heterorhynchus": {
+    "Lais": "written twice: \"Ikan lais\", 2026-11-08"
   },
   "id/hemisilurus-moolenburghi": {
     "Ikan lais": "its name, 2026-11-04"
@@ -532,6 +571,9 @@
   },
   "id/netuma-thalassina": {
     "Manyung": "its name, 2026-11-06"
+  },
+  "id/ompok-bimaculatus": {
+    "Lais": "written twice: \"Ikan lais\", 2026-11-08"
   },
   "id/oryzias-latipes": {
     "Ikan Medaka": "its name, 2026-11-04"
@@ -672,6 +714,9 @@
   "id/xiphophorus-maculatus": {
     "Ikan platy": "its name, 2026-11-04"
   },
+  "ms/aborichthys-elongatus": {
+    "Aborichthys elongatus": "its scientific name, 2026-11-08"
+  },
   "ms/astronotus-ocellatus": {
     "Ikan Oscar": "its name, 2026-11-06"
   },
@@ -710,6 +755,9 @@
   },
   "ms/monodactylus-argenteus": {
     "Mono": "its name, 2026-11-07"
+  },
+  "ms/neocaridina-davidi": {
+    "Neocaridina": "written twice: \"Udang Neocaridina\", 2026-11-08"
   },
   "ms/oryzias-latipes": {
     "Ikan medaka": "its name, 2026-11-07"
@@ -1076,6 +1124,9 @@
   "th/bagrus-filamentosus": {
     "Bagrus filamentosus": "its scientific name, 2026-11-07"
   },
+  "th/bangana-ariza": {
+    "Bangana ariza": "its scientific name, 2026-11-08"
+  },
   "th/bangana-devdevi": {
     "Bangana devdevi": "its scientific name, 2026-11-04"
   },
@@ -1326,11 +1377,44 @@
   "th/botia-kubotai": {
     "Botia kubotai": "its scientific name, 2026-11-04"
   },
+  "th/botia-lohachata": {
+    "หมูโยโย่": "written twice: \"ปลาหมูโยโย่\", 2026-11-08"
+  },
+  "th/botia-rostrata": {
+    "หมูแลดเดอร์": "its name, 2026-11-08"
+  },
+  "th/boulengerella-cuvieri": {
+    "ไพค์คาราซิน": "written twice: \"ปลาไพค์คาราซิน\", 2026-11-08"
+  },
+  "th/boulengerella-lucius": {
+    "ไพค์คาราซิน": "its name, 2026-11-08"
+  },
+  "th/boulengerella-maculata": {
+    "Spotted Pike Characin (Boulengerella maculata)": "written twice: \"Spotted Pike Characin / Boulengerella maculata\", 2026-11-08"
+  },
   "th/brachygobius-mekongensis": {
     "บู่บัมเบิ้ลบีแม่น้ำโขง": "its name, 2026-11-04"
   },
+  "th/brachygobius-nunus": {
+    "บู่ผึ้ง": "written twice: \"ปลาบู่ผึ้ง\", 2026-11-08"
+  },
   "th/brachygobius-xanthomelas": {
     "บู่ผึ้ง": "written twice: \"ปลาบู่ผึ้ง\", 2026-11-04"
+  },
+  "th/brachyplatystoma-capapretum": {
+    "Brachyplatystoma capapretum": "its scientific name, 2026-11-08"
+  },
+  "th/brachyrhamdia-heteropleura": {
+    "Brachyrhamdia heteropleura": "its scientific name, 2026-11-08"
+  },
+  "th/brachyrhamdia-meesi": {
+    "Brachyrhamdia meesi": "its scientific name, 2026-11-08"
+  },
+  "th/brachyrhamdia-rambarrani": {
+    "Brachyrhamdia rambarrani": "its scientific name, 2026-11-08"
+  },
+  "th/brachyrhaphis-roseni": {
+    "Brachyrhaphis roseni": "its scientific name, 2026-11-08"
   },
   "th/breitensteinia-cessator": {
     "Breitensteinia cessator": "its scientific name, 2026-11-04"
@@ -1450,6 +1534,9 @@
   "th/garra-flavatra": {
     "ปลาการ์ร่าแพนด้า": "its name, 2026-11-04"
   },
+  "th/gymnochanda-verae": {
+    "Gymnochanda verae": "its scientific name, 2026-11-08"
+  },
   "th/hampala-bimaculata": {
     "Hampala bimaculata": "its scientific name, 2026-11-06"
   },
@@ -1459,8 +1546,17 @@
   "th/hampala-salweenensis": {
     "กระสูบสาละวิน": "its name, 2026-11-04"
   },
+  "th/hasemania-nana": {
+    "ซิลเวอร์ทิป เตตร้า": "its name, 2026-11-08"
+  },
+  "th/hemibagrus-planiceps": {
+    "Hemibagrus planiceps": "its scientific name, 2026-11-08"
+  },
   "th/hemirhamphodon-phaiosoma": {
     "Hemirhamphodon phaiosoma": "its scientific name, 2026-11-04"
+  },
+  "th/hemisilurus-heterorhynchus": {
+    "Hemisilurus heterorhynchus": "its scientific name, 2026-11-08"
   },
   "th/hemisilurus-moolenburghi": {
     "Hemisilurus moolenburghi": "its scientific name, 2026-11-04"
@@ -1478,6 +1574,9 @@
   },
   "th/hyphessobrycon-rosaceus": {
     "ปลาโรซี่เตตร้า": "its name, 2026-11-04"
+  },
+  "th/hypseleotris-compressa": {
+    "เอ็มไพร์ กัดเจียน": "its name, 2026-11-08"
   },
   "th/labidochromis-caeruleus": {
     "Labidochromis caeruleus": "its scientific name, 2026-11-04"
@@ -1499,6 +1598,9 @@
   },
   "th/melanotaenia-boesemani": {
     "เรนโบว์บอสมานี": "its name, 2026-11-06"
+  },
+  "th/melanotaenia-rubrostriata": {
+    "Melanotaenia rubrostriata": "its scientific name, 2026-11-08"
   },
   "th/microdevario-kubotai": {
     "ปลาซิวคูโบไต": "its name, 2026-11-04"
@@ -1524,6 +1626,9 @@
   "th/nemacheilus-spiniferus": {
     "Nemacheilus spiniferus": "its scientific name, 2026-11-04"
   },
+  "th/nematabramis-borneensis": {
+    "Nematabramis borneensis": "its scientific name, 2026-11-08"
+  },
   "th/nematabramis-everetti": {
     "Nematabramis everetti": "its scientific name, 2026-11-05"
   },
@@ -1532,6 +1637,9 @@
   },
   "th/osteoglossum-bicirrhosum": {
     "อะโรวาน่าเงิน": "its name, 2026-11-04"
+  },
+  "th/pangasius-nasutus": {
+    "Pangasius nasutus": "its scientific name, 2026-11-08"
   },
   "th/pangio-oblonga": {
     "ปลาคูลี่ดำ": "its name, 2026-11-05"
@@ -3015,38 +3123,5 @@
   },
   "vi/yasuhikotakia-morleti": {
     "Skunk Loach": "written twice: \"Skunk loach\", 2026-11-04"
-  },
-  "id/bathyclarias-nyasensis": {
-    "Bathyclarias nyasensis": "its scientific name, 2026-11-08"
-  },
-  "id/botia-histrionica": {
-    "Botia histrionica": "its scientific name, 2026-11-08"
-  },
-  "id/botia-striata": {
-    "Botia striata": "its scientific name, 2026-11-08"
-  },
-  "id/hemisilurus-heterorhynchus": {
-    "Lais": "written twice: \"Ikan lais\", 2026-11-08"
-  },
-  "id/ompok-bimaculatus": {
-    "Lais": "written twice: \"Ikan lais\", 2026-11-08"
-  },
-  "th/botia-lohachata": {
-    "หมูโยโย่": "written twice: \"ปลาหมูโยโย่\", 2026-11-08"
-  },
-  "th/botia-rostrata": {
-    "หมูแลดเดอร์": "its name, 2026-11-08"
-  },
-  "th/hasemania-nana": {
-    "ซิลเวอร์ทิป เตตร้า": "its name, 2026-11-08"
-  },
-  "th/hemisilurus-heterorhynchus": {
-    "Hemisilurus heterorhynchus": "its scientific name, 2026-11-08"
-  },
-  "th/melanotaenia-rubrostriata": {
-    "Melanotaenia rubrostriata": "its scientific name, 2026-11-08"
-  },
-  "th/pangasius-nasutus": {
-    "Pangasius nasutus": "its scientific name, 2026-11-08"
   }
 }

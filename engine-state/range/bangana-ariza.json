@@ -1,0 +1,132 @@
+{
+  "id": "bangana-ariza",
+  "native": {
+    "input": "d499a68c38d147b0",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Gymnostomus ariza is a cyprinid widely distributed from the Indus basin in Pakistan through India, Bangladesh and Myanmar.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Gymnostomus ariza is a cyprinid widely distributed from the Indus basin in Pakistan through India, Bangladesh and Myanmar.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Gymnostomus ariza is a cyprinid widely distributed from the Indus basin in Pakistan through India, Bangladesh and Myanmar.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Gymnostomus ariza is a cyprinid widely distributed from the Indus basin in Pakistan through India, Bangladesh and Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Indus",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.",
+        "country": "PK",
+        "ok": true
+      },
+      {
+        "name": "Ganges-Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Barak",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Mahanadi",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed from the Indus basin in Pakistan, through Bangladesh, Myanmar, and much of India including the Ganges-Brahmaputra, Barak, Mahanadi, Krishna, and Cauvery drainages as well as a number of smaller river basins.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bangana ariza",
+    "status": "ACCEPTED",
+    "taxonKey": 2361308,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        32
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "IN",
+      "BD",
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

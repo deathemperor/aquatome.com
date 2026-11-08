@@ -1,0 +1,36 @@
+{
+ "queue": [
+  {
+   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/509544338/original.jpg",
+   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/509544338/medium.jpg",
+   "width": 1536,
+   "height": 2048,
+   "licence": "CC BY",
+   "author": "John Witton",
+   "sourceUrl": "https://www.inaturalist.org/photos/509544338",
+   "key": "inat:509544338"
+  },
+  {
+   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/509544356/original.jpg",
+   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/509544356/medium.jpg",
+   "width": 1536,
+   "height": 2048,
+   "licence": "CC BY",
+   "author": "John Witton",
+   "sourceUrl": "https://www.inaturalist.org/photos/509544356",
+   "key": "inat:509544356"
+  },
+  {
+   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/509544447/original.jpg",
+   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/509544447/medium.jpg",
+   "width": 2048,
+   "height": 1536,
+   "licence": "CC BY",
+   "author": "John Witton",
+   "sourceUrl": "https://www.inaturalist.org/photos/509544447",
+   "key": "inat:509544447"
+  }
+ ],
+ "judged": [],
+ "hashes": {}
+}

@@ -1,0 +1,88 @@
+{
+  "id": "eutropiichthys-burmannicus",
+  "native": {
+    "input": "33703a704a522a21",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Irrawaddy, lower Salween and smaller intervening rivers: Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species is known from the Irrawaddy River drainage in Myanmar eastwards to the Salween River drainage in western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "The species is known from the Irrawaddy River drainage in Myanmar eastwards to the Salween River drainage in western Thailand.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "scotcat",
+        "quote": "The species is known from the Irrawaddy River drainage in Myanmar eastwards to the Salween River drainage in western Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Eutropiichthys burmannicus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341574,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

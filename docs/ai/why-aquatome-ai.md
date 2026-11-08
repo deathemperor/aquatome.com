@@ -133,9 +133,10 @@ Claude too long 34 times but picks it anyway. On the grounded count we lead on t
 - Time, now fixed. In a slow hour the call that writes the answer ran out of the 27 seconds. With every call taking 1.75
   times as long, the slowdown we saw, made on purpose in the eval, 64 of 96 answers failed. The chat now keeps the
   answer's time from its own pace: it answers sooner, at low effort when it must, and that call gets all the time left.
-  At 1.75 times slower 6 of 96 fail, at 2 times 11 of 96, and at normal speed none (2 before). The price is reading: a
-  median of 1 page at 1.75 times slower and none at 2 times, against 2 at normal speed. The eval stretches each call to
-  make the slow hour, so I'll check it against the next real one.
+  At 1.75 times slower 6 of 96 failed, at 2 times 11 of 96. The price was reading: half the slow-hour answers read no
+  page, and at normal speed one slow first call did the same to 16 of 96. Now one slow call isn't taken for a slow hour,
+  and a long answer gets more room: at 1.75 times slower 7 of 96 fail and 17 read no page; at normal speed none fail
+  and 4 read no page. The eval stretches each call to make the slow hour, so I'll check it against the next real one.
 - Some errors are our guides' own, such as "90% of hair algae is low CO₂". Those went to the writing lead, and the guides
   written from one video stay out of the chat until they are re-checked.
 

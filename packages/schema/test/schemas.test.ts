@@ -45,6 +45,21 @@ test("a card: an event names its event, a product card its product, and no windo
   expect(CardSchema.safeParse(base).success).toBe(true)
   for (const bad of [{ type: 'event' }, { type: 'product' }, { show: { from: '2026-11-10', until: '2026-11-01' } }, { sources: [] }, { type: 'quiz' }, { about: ['places/hanoi'] }, { event: { start: '2026-11-16', end: '2026-11-15', place: 'x', country: 'VN', organiser: 'y' } }]) expect(CardSchema.safeParse({ ...base, ...bad }).success, JSON.stringify(bad)).toBe(false)
   expect(CardSchema.safeParse({ ...base, type: 'product', product: 'products/a-heater' }).success).toBe(true)
+  // A source is dated as precisely as it is: a paper often only by its year.
+  for (const date of ['1998', '2024-06', '2025-07-23']) expect(CardSchema.safeParse({ ...base, sources: [{ ...base.sources[0], date }] }).success, date).toBe(true)
+  for (const date of ['98', '2024-6', 'n.d.']) expect(CardSchema.safeParse({ ...base, sources: [{ ...base.sources[0], date }] }).success, date).toBe(false)
   const held = { checks: ['words'], at: '2026-11-08T00:00:00Z' }
   expect(CardTextSchema.parse({ eyebrow: 'e', title: 't', body: '<p>b</p>', held }).held).toEqual(held)
+  // The eyebrow and title fit Hôm nay's card at the largest text size.
+  expect(CardTextSchema.safeParse({ eyebrow: 'e'.repeat(24), title: 't'.repeat(70), body: '<p>b</p>' }).success).toBe(true)
+  expect(CardTextSchema.safeParse({ eyebrow: 'e'.repeat(25), title: 't', body: '<p>b</p>' }).success).toBe(false)
+  expect(CardTextSchema.safeParse({ eyebrow: 'e', title: 't'.repeat(71), body: '<p>b</p>' }).success).toBe(false)
+})
+
+test("the calendar names a card for a day in the story's place, never both", async () => {
+  const { CurationSchema } = await import('../src/index')
+  const cal = (day: object) => CurationSchema.safeParse({ version: 1, weeks: [], days: [{ date: '2026-11-10', ...day }] }).success
+  expect(cal({ card: 'cards/trivia-betta' })).toBe(true)
+  expect(cal({ card: 'guides/x' })).toBe(false)
+  expect(cal({ card: 'cards/trivia-betta', story: { page: 'guides/x' } })).toBe(false)
 })

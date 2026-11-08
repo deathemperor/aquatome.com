@@ -10,6 +10,52 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Rakhine Yoma"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known only from its type locality, a minor tributary within the Irrawaddy River system draining the eastern slope of the Rakhine Yoma mountain range in western Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Rakhine Yoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366750,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          16.875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

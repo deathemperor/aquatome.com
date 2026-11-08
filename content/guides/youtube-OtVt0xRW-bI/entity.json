@@ -8,7 +8,7 @@
   "mentions": [
     "symphysodon-aequifasciatus"
   ],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "OtVt0xRW-bI",
     "title": "UARUJOEY'S Big tank update",
@@ -54,24 +54,72 @@
       },
       {
         "category": "khac",
+        "brand": "K1 Kaldnes",
+        "t": 294
+      },
+      {
+        "category": "khac",
         "brand": "Pond Armor",
-        "t": 150
+        "t": 120
       }
     ],
     "figures": [
       {
-        "heading": "Tính trước kích thước cá khi chọn bể",
+        "heading": "Vì sao bể hở mặt phải làm nắp",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/OtVt0xRW-bI/p6-4NjgyMTIyKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/OtVt0xRW-bI/p6-4NjgyMTIyKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/OtVt0xRW-bI/p0-JhcGVyXzA1LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/OtVt0xRW-bI/p0-JhcGVyXzA1LmpwZw-480.webp",
           "width": 960,
-          "height": 636,
-          "licence": "CC BY 2.0",
-          "author": "shankar s. from Dubai, United Arab Emirates",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
-          "caption": "Cá đuối nước ngọt lớn nằm cạnh con nhỏ, thấy rõ chênh lệch kích thước."
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "MBH",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Restaurant_at_the_top_of_Vysotsky_skyscraper_05.jpg",
+          "caption": "Bể cá kính đặt trên tủ trắng trong nhà, mặt bể phía trên có thể đậy nắp."
         }
+      },
+      {
+        "heading": "Chọn vật liệu làm nắp",
+        "moments": [
+          {
+            "t": 235,
+            "url": "https://media.aquatome.com/video/OtVt0xRW-bI/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh tấm lợp nhà kính có rãnh đặt trên bể."
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/OtVt0xRW-bI/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mép tấm lợp nhà kính đặt lên miệng bể, nhìn rõ các rãnh."
+          }
+        ]
+      },
+      {
+        "heading": "Ống tràn và bơm",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/OtVt0xRW-bI/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các ống tràn PVC gắn ở thành bể."
+          }
+        ]
+      },
+      {
+        "heading": "Hệ thống nhỏ giọt thay cho thay nước",
+        "moments": [
+          {
+            "t": 425,
+            "url": "https://media.aquatome.com/video/OtVt0xRW-bI/at425-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dòng nước chảy đều vào bể, cá đuối bơi dưới đáy."
+          }
+        ]
       }
     ]
   }

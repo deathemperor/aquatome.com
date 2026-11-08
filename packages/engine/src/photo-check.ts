@@ -32,7 +32,7 @@ export const PHOTO_CHECK_SCHEMA = {
   properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },
 }
 /** Verdicts that take a photo off its page. */
-const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
 /**
  * Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, a person or part
  * of one ("Photos never show people (hands count)", PRODUCT.md), or a logo.
@@ -313,11 +313,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
+  // `only`: one page id, or several, comma-separated.
+  const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const queue = (want: (x: Shown) => boolean) => {
     const from = sheets.length
     for (const later of [false, true]) for (const s of all) {
       if (sheets.length >= o.limit) break
-      if (o.only && s.id !== o.only) continue
+      if (only && !only.has(s.id)) continue
       const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
       for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })

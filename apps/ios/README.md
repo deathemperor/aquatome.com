@@ -187,14 +187,20 @@ categories, a free price in every territory, the content rights, the age rating 
 The script never submits the app for review, attaches a build or releases it: its requests for those are refused before
 they're sent. The App Review contact is entered on the App Store Connect website, never here.
 
-## Anonymous telemetry
+Before the first submission (the owner's to approve), by hand in App Store Connect: the App Privacy answers match
+`AquaTome/PrivacyInfo.xcprivacy` and the telemetry below, the install id among them: a Device ID, not linked to the
+reader, for analytics.
+
+## Telemetry
 
 What the privacy policy lists, to aquatome.com's own Worker, nothing to anyone else (`AquaTomeKit/Sources/Telemetry`,
 to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the requests):
 
 - **Events**, in batches of up to 100 with the app's version, iOS's version, the phone's model (`iPhone17,3`), the
-  language and a session id made anew at each launch and never reused for another launch (a batch waiting in the queue
-  keeps its launch's): `view` (a page opened, drawn by the app or as
+  language, a session id made anew at each launch and never reused for another launch (a batch waiting in the queue
+  keeps its launch's), and this install's id (`Install`: random, made at the first batch, kept in UserDefaults so it
+  goes with the app, made anew after 13 months, deleted when the reader turns telemetry off; in no other request, never
+  beside the account): `view` (a page opened, drawn by the app or as
   the web page, by its path; a tab, a tank's screen, a shelf), and on a page the app draws, `scroll` (50 and 90%) and
   `time` (30, 60 and 180 s on the screen with the app in front), the site beacon's marks, and `aff` (a shop link
   tapped); and `action` (`light.connect`, `light.write`, `plug.switch`, `tank.add`, `post.comment`, `post.photo`, and
@@ -211,10 +217,11 @@ to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the r
 - **When**: every 30 s and when the app goes to the background, off the main thread. They wait in a file in the caches
   folder (500 events at most, the oldest dropped; 8 reports). After a failure the next try waits 30 s, doubling up to 30
   minutes; a batch refused as it is, or for too many this hour (429), is dropped. Our own copies are marked as their
-  page views are (`OwnCopy`), and the Worker stores theirs as tests.
+  page views are (`OwnCopy`), and the Worker stores theirs as tests. The site's pages they open in Safari carry
+  `aqcheck=1` (`SiteMark`), every link, so the site leaves that tab's views out of its readers'.
 - **Off** until the site's index, read fresh at this launch, says `telemetry: true` (`HandbookIndex.telemetry`; the
   copy kept from an earlier launch doesn't count; absent or false, the app drops what waits and records nothing), and
-  whenever the reader turns off "Gửi thống kê ẩn danh" (in the Tài khoản sheet). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
+  whenever the reader turns off "Gửi thống kê" (in the Tài khoản sheet). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
   what waits is dropped.
 
 On the simulator the requests go to a stand-in Worker (`FakeCollector`), shown to the UI tests as `telemetry-received`

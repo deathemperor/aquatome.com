@@ -24,6 +24,38 @@ extension XCUIApplication {
     XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar", file: file, line: line)
   }
 
+  /// Whether what scrolls under the title stays out of sight behind it, the clock and the title.
+  func titleReadsCleanly(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
+    let seen = sharpBehindTheTitle()
+    print("behind the title, \(screen): \(seen)")
+    XCTAssertLessThan(seen, 50, "\(screen): words that scroll under the title show behind it", file: file, line: line)
+  }
+
+  /// How many side-by-side or stacked pixel pairs, in the clear band between the status bar's clock and its icons above the
+  /// title's row, are 2 or more grey levels apart: the edges of words. iOS's hard edge leaves at most a faint blur there; CI's
+  /// 154 page shots with it read 0 to 5 (8 Nov). Its soft edge leaves words: those with words behind read 134 (a guide) to
+  /// 18,421 (Tìm's tools at the largest text). A blurred shape, a card or a photo, has no such edges either way.
+  private func sharpBehindTheTitle() -> Int {
+    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return .max }
+    let scale = CGFloat(shot.width) / frame.width
+    let band = CGRect(x: frame.width * 0.3 * scale, y: 22 * scale, width: frame.width * 0.4 * scale, height: 32 * scale).integral
+    guard let box = shot.cropping(to: band) else { return .max }
+    let w = box.width, h = box.height
+    var px = [UInt8](repeating: 0, count: w * h)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w,
+                              space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return .max }
+    ctx.draw(box, in: CGRect(x: 0, y: 0, width: w, height: h))
+    var sharp = 0
+    for y in 0..<h {
+      for x in 0..<w {
+        let v = Int(px[y * w + x])
+        if x + 1 < w, abs(v - Int(px[y * w + x + 1])) >= 2 { sharp += 1 }
+        if y + 1 < h, abs(v - Int(px[(y + 1) * w + x])) >= 2 { sharp += 1 }
+      }
+    }
+    return sharp
+  }
+
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
   /// text (a fish's page has hundreds, and the screen may change between two).
   private func lowestWords() -> CGFloat {

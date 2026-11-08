@@ -1,0 +1,51 @@
+{
+  "id": "garra-mirofrontis",
+  "native": {
+    "input": "4468265502cd49a7",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra mirofrontis is a cyprinid native to the upper Mekong (Lancangjiang) basin in Yunnan province, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Mekong (Lancangjiang) river basin in Yunnan province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Mekong (Lancangjiang) river basin in Yunnan province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra mirofrontis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366925,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

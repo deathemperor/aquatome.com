@@ -327,6 +327,27 @@ final class V2FlowTests: XCTestCase {
     XCTAssertGreaterThan(mark, 25, "an empty box where the neon's photo didn't come")
   }
 
+  /// The same fish's page opened over itself (a link to it from outside, the page open): its colour stays under the tab bar,
+  /// not cleared by the one under it going.
+  func testAFishsPageOpenedOverItselfKeepsItsColourUnderTheTabBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    let neon = URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!
+    follow(app, neon)
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "the neon's page didn't come")
+    Thread.sleep(forTimeInterval: 1)
+    let foot = { Pixels(XCUIScreen.main.screenshot()).at(6, app.frame.maxY - 6) }
+    let colour = foot()
+    XCTAssertGreaterThan(colour.distance(to: Pixels.RGB(r: 255, g: 255, b: 255)), 60, "the neon's page isn't on its colour under the tab bar: \(colour)")
+    follow(app, neon)
+    // Its zoom in, and the page under it gone from view.
+    Thread.sleep(forTimeInterval: 2)
+    XCTAssertTrue(app.links["John Roe"].exists, "the neon's page didn't come again")
+    let after = foot()
+    XCTAssertLessThan(colour.distance(to: after), 40, "the neon's colour gone from under the tab bar: \(colour) before, \(after) after")
+  }
+
   /// Back from a fish's page to the fish's page under it: that page's colour under the tab bar again, not white.
   func testBackToAFishsPageKeepsItsColourUnderTheTabBar() {
     let app = launch("-v2", "YES")
@@ -395,6 +416,9 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame
     XCTAssertEqual(onColour.midX, app.frame.midX, accuracy: 2, "the bar's name isn't in its middle")
+    // Between the buttons, not under them.
+    XCTAssertGreaterThanOrEqual(onColour.minX, back.frame.maxX, "the bar's name runs under the back button")
+    XCTAssertLessThanOrEqual(onColour.maxX, app.buttons["save-for-later"].frame.minX, "the bar's name runs under the save button")
     func reads(_ what: String) {
       let shot = Pixels(XCUIScreen.main.screenshot()), f = title.frame, ground = shot.at(f.minX - 6, f.midY)
       let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
@@ -407,6 +431,32 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(bar().contrastWithWhite, 1.1, "the page's colour never went")
     XCTAssertEqual(title.frame.midX, onColour.midX, accuracy: 1, "the bar's name moved as the colour went")
     reads("after the colour")
+  }
+
+  /// Hôm nay's bar keeps its own words, the clock's too, while a dark card passes under its band: iOS picked white for them
+  /// from the card, white on the white band.
+  func testHomNaysBarReadsWhileACardPassesUnderIt() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    let bar = app.navigationBars["Hôm nay"]
+    func step() {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.62)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    }
+    repeatUntil(fish.frame.minY < bar.frame.maxY - 30, times: 10) { step() }
+    XCTAssertLessThan(fish.frame.minY, bar.frame.maxY - 30, "the card never went under the bar")
+    XCTAssertGreaterThan(fish.frame.maxY, bar.frame.maxY + 40, "the card went past the bar")
+    let title = bar.staticTexts["Hôm nay"]
+    XCTAssertTrue(title.waitForExistence(timeout: 2), "no title in the bar once the large one has gone")
+    let shot = Pixels(XCUIScreen.main.screenshot()), ground = shot.at(4, title.frame.midY)
+    func strongest(_ f: CGRect) -> Double {
+      stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
+    }
+    XCTAssertGreaterThan(strongest(title.frame), 120, "the bar's title doesn't read on its band")
+    // The clock, left of the island.
+    XCTAssertGreaterThan(strongest(CGRect(x: 20, y: 8, width: 90, height: 34)), 120, "the clock doesn't read on the band")
   }
 
   /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.

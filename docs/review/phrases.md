@@ -1,0 +1,140 @@
+# Words hobbyists rarely write
+
+The engine's writers lean on some words and turns far more than people do. This is how the lists in
+`packages/engine/src/phrases.ts` were found, and the counts behind each entry. The editors
+(`.claude/skills/editors/SKILL.md`) check every wording finding the same way before it changes a prompt.
+
+## Method
+
+1. **The site's text**, per language: every page's prose (references left out), from `content/*/*/<lang>.json`.
+2. **A reference of real hobbyist writing** in the same language, kept on the owner's machine and never committed
+   (`~/.cache/aquatome/corpus/<lang>/`, its licence is its authors'): forum threads first, hobbyists' blogs, the
+   transcripts of hobbyists' own videos, and the language's Wikipedia as a general baseline. Fetched plainly: a site
+   that answers with a challenge page or wants a login is skipped. Shop and SEO blogs are tagged apart: they are often
+   machine-written themselves.
+3. **Rates per million words** (per million characters for Thai and Chinese, written without spaces), for every
+   phrase of one to five words: on the site, and in each reference. A phrase is a candidate when the site uses it at
+   least ten times as often as the forum and the videos alike, on many pages (a few, marked, less: the
+   bar is a guide, the reading below decides).
+4. **A person reads the candidates.** Most are the subject, not the style: species pages talk about river basins and
+   type localities, and a forum about one person's fish doesn't. What stays is register: hedges, connectives, calques
+   of English, and words where hobbyists have their own. Each gets the words hobbyists use for the same thing, checked
+   in the same references (`node .claude/skills/editors/phrase-check.mjs "<phrase>"`).
+5. **One word for one word, right in every sentence**, goes in the sweep (`sanitize.ts` WORDING), which fixes every
+   page each cycle. Anything that needs its sentence rewritten goes in the list: the writers' prompts carry it, the
+   `phrasing` content rule counts it (docs/review/content-rules.md), and the style rewrite takes the pages up a batch
+   at a time (`pnpm engine rewrite-vi --phrases`).
+
+## Vietnamese, 2026-11-07
+
+References: a Vietnamese fish-keeping forum (1.5M words, posts from 2007 to 2020, before AI writing tools), the transcripts of 176 Vietnamese planted-tank
+videos (0.27M words), and the shop blogs (0.13M words) and Vietnamese Wikipedia (0.3M words) kept apart. The site: 3.3M words on 2,824 pages.
+
+Per million words, site | forum | videos:
+
+| On the site | site | forum | videos | Hobbyists write |
+|---|---|---|---|---|
+| nhiều khả năng | 473 | 5 | 0 | chắc là (149, 122), có lẽ (202, 181) |
+| dù vậy, tuy vậy | 568, 560 | 5, 3 | 0, 26 | nhưng, tuy nhiên (236, 650) |
+| phần lớn | 1,100 | 25 | 15 | thường, chủ yếu (146, 96), or nothing; hầu hết (91, 111) and đa số (88, 33) once, not everywhere |
+| nhìn chung | 167 | 14 | 15 | thường, or nothing; nói chung (161, 137) once |
+| nhờ vậy, nhờ đó | 169 | 12 | 0 | thế là (144, 336), or the next sentence alone |
+| lý do là | 153 | 6 | 19 | là do (235, 159), vì |
+| thủ phạm | 70 | 6 | 0 | nguyên nhân (203, 159) |
+| lý tưởng | 230 | 34 | 15 | hợp nhất, tốt nhất, or the figure itself |
+| khuyến nghị | 43 | 0 | 0 | nên, khuyên |
+| bắt buộc phải | 103 | 7 | 37 | phải |
+| tốt nhất bạn nên | 41 | 3 | 0 | nên, tốt nhất là |
+| bạn nên, bạn cần | 848, 366 | 187, 51 | 240, 137 | nên, cần, or the step itself |
+| hung hăng | 189 | 9 | 0 | dữ (244 in the forum) |
+| bạn cùng bể | 222 | 0 | 0 | nuôi chung với… |
+| giới chơi | 220 | 4 | 0 | người chơi (128, 144), or nothing |
+| thị trường cá cảnh | 126 | 2 | 0 | tiệm cá (84 in the forum), trên thị trường |
+| thức ăn sống, mồi sống | 427 | 9 | 0 | thức ăn tươi sống, đồ tươi |
+| giữ lãnh thổ | 124 | 0 | 0 | hay đuổi cá khác khỏi chỗ của nó |
+| chỗ trú | 107 | 0 | 0 | chỗ trốn (3, 22) |
+| keo siêu dính | 5 | 0 | 0 | keo 502 (30 in the videos) |
+| một cách + adjective | 9 pages | | | the adjective alone; vi-style.md already bans it |
+| rất nên | 41 | 0 | 0 | nên, tốt nhất là |
+| loricariid | 48 | 0 | 0 | tỳ bà (30 in the forum), lau kiếng (26), pleco (11 in the videos) |
+| muối bể cá | 4 | 0 | 0 | muối hột (63 in the forum) |
+| dân chơi | 170 | 24 | 7 | usually nothing ("gọi là…"); người chơi when it matters who. The list used to offer it for "giới chơi" |
+| được chuộng | 20 | 0 | 0 | nhiều người nuôi, dễ kiếm, or why |
+| cây thân đứng, cây có thân | 20 | 0 | 0 | cây cắt cắm (59 in the videos). The rewrite swapped the first for the second |
+| lọc sponge | 10 | 0 | 0 | lọc mút, lọc bio (22 in the videos) |
+| sản xuất hàng loạt | 3 | 0 | 0 | nuôi đại trà, nuôi hàng loạt |
+| lọc bọt biển, lọc mút xốp | guides 142 | 0.7 | 0 | lọc mút (15 in the forum), lọc bio. The rewrite glossed a page's "lọc mút" with it |
+| bể cộng đồng, cá cộng đồng | species 521, guides 226 | 4 | 15 | nuôi chung (86 in the forum), thả chung (25) |
+| được xem là | species 184, guides 44 | 7 | 4 | the plain verb; not "được coi là" |
+| ghi nhận | species 1,021, guides 104 | 12 | 4 | có ở, gặp ở, thấy ở |
+| không xương sống | species 242, guides 176 | 0.7 | 0 | the animals' names: tép, ốc |
+| cá mê cung | species 263, guides 37 | 0.7 | 0 | the fish's names: cá sặc, cá betta |
+| bơi tự do | species 194, guides 59 | 7 | 0 | tự bơi được |
+| khẩu phần | species 153, guides 117 | 14 | 0 | thức ăn, cho ăn |
+| cột nước | guides 23 | 0.7 | 0 | trong nước |
+| dưới đèn | guides 42 | 0 | 4 | đèn mạnh thì…, đèn yếu thì… |
+| thành phần thực vật | species 38 | 0 | 0 | có rau, có tảo |
+| nuôi thương mại | species 15 | 0 | 0 | cá nuôi, cá trại |
+| nhắm tới | guides 22 | 3 | 0 | để…, dành cho… (seven times the forum's) |
+| cá ram | guides 57 | 0 | 0 | cá phượng hoàng (23 in the forum), the ram's own page's name |
+| quả sủi | guides 24, video guides 98 | 2.6 | 3.7 | cục sủi (18 in the forum) |
+| nền trồng cây | guides 16 | 0 | 0 | phân nền (24 in the forum, 255 in the videos) |
+| bể trồng cây, đèn trồng cây | species 84, guides 75 | 0.7 | 3.7 | bể thủy sinh (28 in the forum, 841 in the videos), đèn thủy sinh |
+| dựng bể | video guides 39, guides 9 | 0 | 0 | set bể (30 in the videos) |
+| xao động | guides 17 | 0.7 | 0 | làm mặt nước gợn |
+| trị rộng, trị diện rộng | 0 | 0.7 | 0 | what it treats: trị luôn cả ba thứ (both editors, rounds 9 and 10) |
+| chỗ bắt đầu | 1.6 | 0 | 0 | để tham khảo (192 in the forum) |
+| được cho là | species 147, guides 30 | 3.3 | 0 | the source's own certainty: say it plainly, or có lẽ, nghe nói when the source doubts |
+| gần như không | species 168, guides 142 | 4 | 15 | hầu như không (18.5), ít khi (28), or say it plainly |
+| việc đầu tiên là | guides 42 | 0 | 3.7 | đầu tiên là (129 in the videos), trước tiên, or do it |
+| dây hơi | guides 11 | 0 | 0 | dây oxy (7.9, 3.7) |
+| gầy rộc | species 14, guides 3.3 | 0 | 0 | gầy (37 in the forum), gầy đi |
+| người cho đẻ | species 8.6 | 0 | 0 | trại, người ép đẻ (30 in the forum) |
+
+In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
+
+**Tics.** The editors' third round found the rewrite swapping a listed word for its neighbour everywhere: "phần lớn"
+became "hầu hết", then "đa số", five times on one page, and "nên" piled up ("Thế nên nên mua"). Each of these words is
+fine once. So the hints point at recasting ("thường", "chủ yếu", or nothing) rather than a twin, and the style
+rewrite's second pass also takes up a part that uses one kind three times or more (phần lớn / hầu hết / đa số; dù vậy /
+tuy vậy / tuy nhiên; nhìn chung / nói chung; vì vậy / thế nên / nhờ vậy / do đó / thế là), or two "nên" a word apart
+(`TICS` in phrases.ts). Before the rewrite, 1,165 of the site's 3,269 Vietnamese parts had one.
+
+The style guide itself taught three of them: it told the writers to write "likely" as "nhiều khả năng", to name a
+cause with "thủ phạm thường là", and gave "Nhờ vậy…" as its model of natural Vietnamese (vi-style.md, vi-rewrite.md,
+changed with this list).
+
+In the style guide instead: algae in a tank is **"rêu"** (rêu hại, rêu tóc, cá ăn rêu). The site writes "tảo" 735 times a
+million words, the forum 129 and the videos 155, while the videos say "rêu" 1,734. "Tảo" stays for diatoms, blue-green
+algae, spirulina and algae in the wild, so no list entry can tell the two apart.
+
+Names and units the translator's prompt (process.md) now gives, from the editors' third and fourth rounds, each
+checked here: the white cloud is "cá kim tơ", the name the owner locked; flat hillstream loaches "cá tỳ bà bướm" (12.5 in the
+forum, against 0 for "cá bám đá"); plecos "cá lau kiếng" or "cá tỳ bà"; betta
+"cá xiêm" or "cá chọi" (99 and 119 in the forum); crayfish "tôm hùm đất", since "tôm càng" is Macrobrachium. A tank of 5
+gallons or more rounds to the nearest 5 litres in the prose: the site wrote "38 lít" 218 times and "19 lít" 85, which no
+reference writes, where hobbyists say 40 and 20. Data cards and the tank-volume tool keep their exact figures.
+
+The owner renamed three groups of pages on this evidence (2026-11-07). Hobbyists call the Siamese algae eater "cá bút
+chì" (42 uses in the references, none of them Nannostomus), so that name moved to it from the site's pencilfish, which
+became "cá chì" (0 uses, so it is no other fish; the references never mention Nannostomus or "pencil", so no hobby name
+exists to take). "Cá tỳ bà bướm" has 26 uses and names no genus: it goes to the genera the sources call butterfly-shaped
+or describe with fused pelvic fins, and the rest stay "cá bám đá". "Cá cờ" (48 uses) never means a flagfish, so Jordanella
+became "cá flagfish". The owner then settled the rest: "cá cờ" is the paradise fish (Macropodus opercularis), and the flag
+cichlids go by their genus ("Cá Mesonauta", "Cá Laetacara").
+
+The editors' fifth round (rows from "lọc bọt biển" on) added to the style guide: one name for one thing, the hobbyists',
+with no dictionary name in brackets; the names cá otto (Otocinclus; 47 in the shop blogs, 0 for "otocinclus"), cá killi
+(4 in the forum, 0 for "killifish"), cá hường (kissing gourami), bo bo (Daphnia; 345 in the forum, "bobo" included),
+bình CO2 (125 in the videos), cây cắt cắm; no pointer to the source's own chart, link or product; and one hedge a clause
+("thường nên", "có thể hay"). Checked and dropped: "trùn huyết" or "sâu đỏ" for "trùng huyết" (the forum writes all three
+about as often), "cá hồng đào" for the cherry barb (1.3 in the forum), "cây đứng" for a plant that stops growing (0),
+"yếm khí", "bị ảnh hưởng", "tác dụng phụ" and "vì vậy nên" (the references write them as often as the site).
+
+Left out on purpose:
+- Topic words the references don't cover (lưu vực, mẫu chuẩn, quần thể, thông số nước): a species profile needs them.
+- Words the site overuses only two or three times over (vì vậy, khá, ngoài ra, cân nhắc): the style guide's "one idea
+  per sentence" covers them better than a ban.
+- Regional words: forum writers in the south say "hồ" where the site says "bể"; both are right.
+- Words one model flagged but neither reference settles (gai sinh dục for gonopodium, nước chua, đánh muối): they wait
+  for a second member or a larger reference.

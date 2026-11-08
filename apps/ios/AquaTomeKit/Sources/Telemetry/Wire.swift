@@ -12,7 +12,7 @@ public enum Wire {
   /// The most bytes a report's request carries, the wrapper included.
   public static let maxReport = 1024 * 1024
 
-  /// A batch's body: `{app, os, device, lang, session, events}`.
+  /// A batch's body: `{app, os, device, lang, session, install, events}`.
   static func body(_ b: Batch) -> Data { json(b.json) }
 
   /// A diagnostics report's body: `{kind, app, os, device, payload}`, the payload (`Diagnostic.kept`) written in as it
@@ -78,25 +78,33 @@ struct Batch: Sendable {
   /// Random, made anew at each launch and never reused for another launch. A batch waiting in the queue keeps its
   /// launch's until it is sent.
   let session: String
+  /// This install's (`Install`), when the app sends one; a batch waiting in the queue keeps the one it was made with.
+  let install: String?
   var events: [Event]
 
-  init(_ about: About, session: String, events: [Event]) {
+  init(_ about: About, session: String, install: String? = nil, events: [Event]) {
     app = about.app
     os = about.os
     device = about.device
     lang = about.lang
     self.session = session
+    self.install = install
     self.events = events
   }
 
   /// As it's sent, and kept in the queue's file.
-  var json: [String: Any] { ["app": app, "os": os, "device": device, "lang": lang, "session": session, "events": events.map(\.json)] }
+  var json: [String: Any] {
+    var o: [String: Any] = ["app": app, "os": os, "device": device, "lang": lang, "session": session, "events": events.map(\.json)]
+    if let install { o["install"] = install }
+    return o
+  }
 
   /// One read back from the queue's file.
   init?(json: Any) {
     guard let o = json as? [String: Any], let app = o["app"] as? String, let os = o["os"] as? String, let device = o["device"] as? String,
           let lang = o["lang"] as? String, let session = o["session"] as? String, let events = o["events"] as? [Any] else { return nil }
-    self.init(About(app: app, os: os, device: device, lang: lang), session: session, events: events.compactMap(Event.init(json:)))
+    self.init(About(app: app, os: os, device: device, lang: lang), session: session, install: o["install"] as? String,
+              events: events.compactMap(Event.init(json:)))
   }
 }
 

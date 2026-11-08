@@ -214,6 +214,16 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(!ShopLink.is(URL(string: "https://shopee.vn/go/x")!, site: site))
 }
 
+@Test("Our copies' links to the site's pages in the browser carry the mark; other sites' don't")
+func siteLinksForTheBrowserAreMarked() {
+  let site = URL(string: "https://aquatome.com")!
+  func marked(_ s: String) -> String { SiteMark.marked(URL(string: s)!, site: site).absoluteString }
+  #expect(marked("https://aquatome.com/gioi-thieu/") == "https://aquatome.com/gioi-thieu/?aqcheck=1")
+  #expect(marked("https://www.aquatome.com/vi/ca/ca-neon/?tab=2#nuoc") == "https://www.aquatome.com/vi/ca/ca-neon/?tab=2&aqcheck=1#nuoc")
+  #expect(marked("https://platform.tuya.com") == "https://platform.tuya.com")
+  #expect(marked("mailto:hi@example.com") == "mailto:hi@example.com")
+}
+
 // Our copies' taps: the site's redirect is read, not followed, under the mark it leaves out of its click counts.
 @Test func aShopLinksShopIsAskedOfTheSiteUnderTheGivenName() async {
   let link = URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!

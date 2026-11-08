@@ -20,32 +20,44 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/ccontrol-algae-excess-nutrients": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T13:29:21.025Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients"
+    ],
+    "updatedAt": "2026-11-08T08:19:19.268Z",
+    "hash": "dbd28d9418124762778338df5be10538f7376c141ca5a4bdd60f910784bc1724",
+    "processedHash": "dbd28d9418124762778338df5be10538f7376c141ca5a4bdd60f910784bc1724",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/control-green-water-algae": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:39:14.896Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-control-green-water-algae"
+    ],
+    "updatedAt": "2026-11-08T08:24:27.040Z",
+    "hash": "bdc0846142bfba18fcbba0bba8beb656462cf3b69e51d3bdd846ee8718d8bb6a",
+    "processedHash": "bdc0846142bfba18fcbba0bba8beb656462cf3b69e51d3bdd846ee8718d8bb6a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/green-dust-algae-gda-a-focused-study": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:40:21.285Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-green-dust-algae-gda-a-focused-study"
+    ],
+    "updatedAt": "2026-11-08T08:26:36.359Z",
+    "hash": "c5104231497b6c22fea429a90684bbf6daada9e9b963a55b36db5ea6fae874ea",
+    "processedHash": "c5104231497b6c22fea429a90684bbf6daada9e9b963a55b36db5ea6fae874ea",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/how-do-you-control-algae-naturally": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:41:29.627Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-do-you-control-algae-naturally"
+    ],
+    "updatedAt": "2026-11-08T08:31:28.762Z",
+    "hash": "1bfa5cceb286233237159711c74b4fdfb0f095abee6bfc8fd396d82360cf94c3",
+    "processedHash": "1bfa5cceb286233237159711c74b4fdfb0f095abee6bfc8fd396d82360cf94c3",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/how-to-control-bba": {
     "entityIds": [
@@ -158,25 +170,34 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/solving-algae-issues-without-using-algicides": {
-    "entityIds": [],
-    "updatedAt": "2026-11-07T01:12:59.465Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-solving-algae-issues-without-using-algicides"
+    ],
+    "updatedAt": "2026-11-08T11:19:29.447Z",
+    "hash": "100d1074b7729407681f76d4f033f246d0dd39fc3233f137647128b4230f508a",
+    "processedHash": "100d1074b7729407681f76d4f033f246d0dd39fc3233f137647128b4230f508a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/tackle-algae-by-doing-nothing": {
-    "entityIds": [],
-    "updatedAt": "2026-11-07T01:13:04.754Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing"
+    ],
+    "updatedAt": "2026-11-08T11:28:18.823Z",
+    "hash": "d0906583853259b8250f9e6a70b52c72b465c567042dab6bb5daf3537254763c",
+    "processedHash": "d0906583853259b8250f9e6a70b52c72b465c567042dab6bb5daf3537254763c",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/this-wouldnt-work": {
-    "entityIds": [],
-    "updatedAt": "2026-11-07T01:13:10.896Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-this-wouldnt-work"
+    ],
+    "updatedAt": "2026-11-08T11:32:51.525Z",
+    "hash": "ff28dc65d1375d358e399e4cae2d2ab95a5b8d3ac821725be07fa46d7fa5ad7d",
+    "processedHash": "ff28dc65d1375d358e399e4cae2d2ab95a5b8d3ac821725be07fa46d7fa5ad7d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [

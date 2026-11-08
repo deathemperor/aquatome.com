@@ -121,16 +121,23 @@
     "reason": "pest control how-to"
   },
   "-OXAqK-7E74": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Endler's Livebearer (Campoma no. 47 BLUE STAR)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia wingei",
+    "page": "species/poecilia-wingei",
+    "done": "low",
+    "score": 0.62,
+    "reason": "[beforeYouBuy] \"Chúng được cho đẻ chủ yếu ở châu Âu, châu Mỹ và châu Á\" - the video says the strain is bred mostly there, but this is not buying advice and sits oddly under this heading; the wording \"được cho đẻ\" is also awkward.; [habitat] \"Người ta ngày càng lo vùng sống tự nhiên của cá Endler đang thu hẹp\" - the page already says the species is thought extinct at Laguna de Patos and may still exist in the wild; the new text doesn't say how the video differs from that."
   },
   "-R_HBM9tPqY": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Cherry barb (Puntius titteya ) species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "yt-dlp: Command failed: yt-dlp --no-warnings --cookies-from-browser chrome:Profile 6 --skip-download --write-subs --write-auto-subs --sub-langs en,en-orig,en-US,en-GB --sub-format json3 -o %(id)s.%(ex"
   },
   "-srSSUg9mQQ": {
     "at": "2026-11-07",
@@ -141,10 +148,14 @@
     "reason": "several species"
   },
   "-Ws7RudcQ4U": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Fancy Guppy Strains (Albino Kohaku Koi)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia reticulata",
+    "page": "species/poecilia-reticulata",
+    "done": "added",
+    "score": 0.82
   },
   "-YPAteuPl1o": {
     "at": "2026-11-07",

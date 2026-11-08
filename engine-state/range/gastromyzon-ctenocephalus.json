@@ -1,0 +1,74 @@
+{
+  "id": "gastromyzon-ctenocephalus",
+  "native": {
+    "input": "1f02e502db6cbd6a",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Borneo where it's known only from headwaters of the Sungai (river) Sarawak, Sarawak State, Malaysia and the Sungai Sambas in West Kalimantan Province, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Borneo where it's known only from headwaters of the Sungai (river) Sarawak, Sarawak State, Malaysia and the Sungai Sambas in West Kalimantan Province, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Borneo where it's known only from headwaters of the Sungai (river) Sarawak, Sarawak State, Malaysia and the Sungai Sambas in West Kalimantan Province, Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Sarawak",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Borneo where it's known only from headwaters of the Sungai (river) Sarawak, Sarawak State, Malaysia and the Sungai Sambas in West Kalimantan Province, Indonesia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sambas",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Borneo where it's known only from headwaters of the Sungai (river) Sarawak, Sarawak State, Malaysia and the Sungai Sambas in West Kalimantan Province, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon ctenocephalus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358902,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

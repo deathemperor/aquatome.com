@@ -10,6 +10,83 @@
     "brazil",
     "iguazu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Iguaçú",
+        "La Plata"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Iguaçú, Porto União da Victoria, Paraná, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Iguaçú"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Iguassu River. La Plata, Paraná, Iguazu.",
+          "countries": [],
+          "regions": [
+            "La Plata"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344598,
+      "total": 64,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          64
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -26.71875,
+          11,
+          11
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          46,
+          46
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -23.90625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

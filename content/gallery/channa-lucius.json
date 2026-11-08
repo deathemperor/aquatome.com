@@ -2,6 +2,18 @@
   "id": "channa-lucius",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/3216473.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/3216473-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/3216473",
+      "caption": "Cá lóc rừng bơi dưới nước giữa lá mục trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/e238e20b63a5ca46.webp",
       "thumb": "https://media.aquatome.com/commons/e238e20b63a5ca46-480.webp",
       "width": 1200,
@@ -26,7 +38,7 @@
       "kind": "other"
     }
   ],
-  "seen": 11,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 28,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

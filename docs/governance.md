@@ -217,6 +217,10 @@ that would have caught it).
     bar and may not grow (`worker/test/owner.test.ts`). The picture, in iPhone WebKit (`e2e/owner-capture.spec.ts`): a
     drawing has to show what's on the screen or say it doesn't, so a large photo is in it, a soft shadow paints no block, what
     can't be drawn is marked and counted, and the message says whether it's a drawing or the screenshot the owner picked.
+    In the app (`AquaTomeUITests/OwnerFlowTests.swift`, `AccountSyncTests/OwnerReportTests.swift`): the button and a
+    screenshot's offer for the owner's account alone, none for another and gone at signing out, and the report's form with
+    the session as a bearer and no cookie, saying whether its picture is the app's screen or one the owner picked. In v2
+    it names v2's tab and the page on it with its item, not a page left on another tab, and its picture is the screen.
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
@@ -760,6 +764,8 @@ The layers above still check the result.
     in a design lab (2026-11-07): that word in the tank-cycling guide, a translation's typo, and the least killifish's
     list of traits run together ("Sống bầy đàn: cóMức độ hoạt động…"), the only section in the content stored with no
     tags.
+    Words the language's hobbyists rarely write are counted (`phrases.ts`: per phrase, never held, since only a model can
+    mend one in its sentence; how the list is found: docs/review/phrases.md).
   - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
     `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
     becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its
@@ -898,7 +904,9 @@ The layers above still check the result.
   every served guide, species, plant and breed page for what shows it was written for a reader somewhere else: the
   source's own talk, imperial or converted units, a foreign shop, price or product (the market table, `market.ts`, says
   what's sold here, never the model), a dose tied to a product, a dose that doesn't say what it's for or lacks its
-  source's caution for shrimp and others, and a shop abroad's kit, which no rewording fixes. Rules run on every page;
+  source's caution for shrimp and others, a shop abroad's kit, which no rewording fixes, and advice that, followed as
+  written, would hurt the fish, other animals, plants or the keeper (a video guide's catching fish by raising CO₂ and
+  switching the filter off). Rules run on every page;
   Opus reads for the rest, and a finding counts only with a quote on the page. Reads are kept by page and text hash
   (`engine-state/_fit.json`), so a page is read again only when its text changes (`pnpm engine fit`, in batches).
   - Doses on different pages for the same treatment, strength, use and method at rates that can't both be right are
@@ -907,10 +915,30 @@ The layers above still check the result.
     and three random pages a day, is `engine-state/fit-summary.json`, which the daily report shows.
   - The gate (`pnpm engine gate`, last in a cycle) reads the pages the cycle changed: a new page that fails is held
     (`held` in its language file, which the build leaves out), a live page whose new text fails a check its old text
-    passed gets its committed text back, a page built on a shop abroad's kit is held, and a held page that changes and
+    passed gets its committed text back, a page built on a shop abroad's kit or giving advice that would hurt is held
+    (changed or not; a live page whose new text brought it gets its old text back; harm found in one language holds the
+    page in every language, written as they are from the same facts), and a held page that changes and
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
     its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
     (`gate.test.ts`).
+  - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
+    page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
+    each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was
+    written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
+    the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
+    tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
+    (`fit-rewrite.test.ts`).
+  - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
+    dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
+    the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
+    gate sees it again each run. The job that writes cards runs `pnpm engine gate` before it commits one. Cards don't
+    count in the owner's number. Indonesian, Thai and Malay cards are translated from the Vietnamese one each cycle
+    (`pnpm engine localize-cards`, `cards-intl.ts`), kept only when a reviewer holding them to it passes them and they
+    fit the card. Each is made again when its Vietnamese card changes (`engine-state/_cards-intl.json` has the text it
+    came from), and taken down if the new one isn't kept or the Vietnamese card is held back (`cards-intl.test.ts`).
+    An event in one of the readers' countries shows only in that country's language, and is translated only into it: a
+    betta show in Hà Nội is Vietnamese only, and a fair in Bangkok Thai only, its Vietnamese card the translators'
+    source (`cardShownIn`, `packages/schema/src/cards.ts`; the build, the calendar check and the translator read it).
   - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
     product works like that nobody is able to check."
 

@@ -1,0 +1,115 @@
+{
+  "id": "geophagus-proximus",
+  "native": {
+    "input": "5d7ee234231e3a44",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is well-dispersed and has been recorded throughout much of the rio Amazonas (Amazon River) system in Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is well-dispersed and has been recorded throughout much of the rio Amazonas (Amazon River) system in Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species is well-dispersed and has been recorded throughout much of the rio Amazonas (Amazon River) system in Peru and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Río Ucayali",
+        "source": "seriouslyfish",
+        "quote": "It was described from 'Río Ucayali, Mission Saraycu, Peru' and has since been recorded along the Solimões-Amazon mainstream as far as the rio Trombetas near Santarém including the lower reaches of most tributary systems within that range.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "seriouslyfish",
+        "quote": "It was described from 'Río Ucayali, Mission Saraycu, Peru' and has since been recorded along the Solimões-Amazon mainstream as far as the rio Trombetas near Santarém including the lower reaches of most tributary systems within that range.",
+        "ok": true
+      },
+      {
+        "name": "rio Trombetas",
+        "source": "seriouslyfish",
+        "quote": "It was described from 'Río Ucayali, Mission Saraycu, Peru' and has since been recorded along the Solimões-Amazon mainstream as far as the rio Trombetas near Santarém including the lower reaches of most tributary systems within that range.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus proximus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208426,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        177
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        21
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

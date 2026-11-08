@@ -69,6 +69,42 @@
       "kept": false
     }
   ],
+  "vi/products/chihiros-universal-wrgb": [
+    {
+      "at": "2026-11-08T13:53:10Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Nó hợp với bể thủy sinh ít tiền và không có nắp\" – facts say budget planted tanks without a hood; roughly supported, fine.",
+        "\"dành cho bể layout chạy đủ đèn mạnh và CO2\" – facts only say high-tech aquascapes; CO2 detail is a mild extrapolation.",
+        "\"Mỗi bản ghi một khoảng chiều dài bể phù hợp\" – generic but supported.",
+        "\"Hãng bán riêng linh kiện thay thế\" – facts say spare parts are sold separately but don't say the manufacturer sells them.",
+        "\"Đèn gác lên viền bể bằng các chân thép\" – facts say steel brackets sit it on the rim; page says legs (extendable stainless-steel legs), a slight mix-up.",
+        "\"Có một trường hợp bể 130 × 60 cm\" – framed as an actual case; facts only say support suggested two 700s for such a tank.",
+        "\"Bể trồng cây khó có châm CO2 thì nên xem dòng kia\" and the FAQ – supported by the WRGB II alternative entry.",
+        "\"Con số lumen của hãng đo trong phòng thí nghiệm\" – facts say the lumen figures are lab measurements, not that the manufacturer measured them."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:53:10Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Đèn gác lên viền bể bằng chân thép đi kèm\" - facts say steel brackets are used, and legs are extendable stainless-steel; 'đi kèm' (included) is not clearly supported.",
+        "\"Các khoảng này chồng lên nhau... bể 60 cm nằm trong khoảng ghi cho cả bản 550 lẫn bản 600\" - the 550 range is 450–600 and 600 is 550–650, so this is derivable, but it is the page's own inference, not stated in the facts.",
+        "\"đối chiếu với bảng phiên bản ở trên\" - refers to a table that does not exist in the page.",
+        "\"Bể trồng cây khó có châm CO2 thì WRGB II hợp hơn\" - the facts say WRGB II is better for demanding plants with CO2; 'bể trồng cây khó' is a slight paraphrase, which is acceptable.",
+        "\"Nó hợp với bể thủy sinh ít tiền và không có nắp\" - the facts say budget planted tanks without a hood; this is supported.",
+        "\"Độ sáng ... ở mức vừa\" attributed generally; the facts attribute this to Vũ Aqua, but it is not a major distortion.",
+        "\"Aquasabi gợi ý hai đèn 700\" - the facts say 'support suggested', which is slightly attributed to Aquasabi support; this is acceptable since the source is Aquasabi.",
+        "\"Một số nơi ... từ chối đèn bị trầy, hỏng do nước hay bị cháy\" - the facts say some warranties exclude them, which is supported, but the FAQ's \"có nơi không bảo hành đèn bị hỏng do nước\" is a fair restatement."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-wrgb-ii-pro": [
     {
       "at": "2026-11-06T21:03:59Z",
@@ -132,6 +168,40 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/products/chihiros-wrgb-vivid-iii": [
+    {
+      "at": "2026-11-08T08:43:51Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Quạt của Vivid III là loại tự bật ở 38 °C và tự tắt ở 33 °C\" is supported, but placing it under the previous generation's fan issues implies it resolves them. The facts don't say that.",
+        "\"xem bảng giá phía trên\" and \"bảng thông số trên trang này\" refer to a price table and spec table that aren't in the page text. The prices (8,200,000₫ and 7,585,000₫) are never stated.",
+        "\"Chọn cỡ nào\" section: the product has no size options, only colour variants. \"Bể dài hơn 90 cm ... dùng hai đèn ghép lại\" generalises the 180 cm example to any tank over 90 cm.",
+        "\"Đèn ... ánh sáng rất gắt\" (very harsh light): the facts only say the light is very intense. \"Gắt\" (harsh) is an embellishment.",
+        "\"Các shop ở Việt Nam bán chân đỡ riêng, không kèm trong hộp\": \"not included in the box\" is a slight extrapolation. The facts say only that the stand is sold separately.",
+        "\"Con số này khác với mức tối thiểu 60 mm ... đừng nhầm\" is added commentary. It is mild and consistent with the facts.",
+        "\"rẻ hơn nhiều\" and \"Đèn này hợp với bể cây low-tech hơn\" are supported. \"lựa chọn tiết kiệm\" is also supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T08:43:51Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Chihiros khuyên treo cách mặt nước 15–30 cm\": facts give 15–30 cm as a recommended distance with no attribution to Chihiros, and it is presented in the FAQ as if it is the same as the 60 mm minimum.",
+        "\"Từ tháng thứ hai trở đi, số tiền hoàn lại giảm dần\": facts say the refund value drops each month after the first, so this is roughly OK but slightly reworded.",
+        "\"Bản Black và bản White ... chỉ khác màu vỏ\": facts list the two variants with different prices (8,200,000₫ vs 7,585,000₫), not just a colour difference. The page says nothing about the price gap, and 'only the housing colour differs' is not stated.",
+        "\"Vivid III chỉ có một cỡ ... không có cỡ lớn hơn để chọn\": facts list only the 60–90 cm variants, but they don't say no larger size exists.",
+        "\"Đó là chuyện của đời cũ, dữ kiện chưa nói Vivid III có bị như vậy hay không\": this is a meta comment inside the page. It is not a product claim, but it reads awkwardly.",
+        "\"có người thấy khó chịu vì chuyện này\": facts only say it can bother people in living-room setups, so this is a mild overstatement.",
+        "\"Chihiros khuyên ... Bể đã ổn định thì chọn một chế độ cài sẵn\": the facts say Chihiros staff advise this, which is supported."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ]
 }

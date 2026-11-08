@@ -10,6 +10,76 @@
     "iran",
     "karun"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IR"
+      ],
+      "regions": [
+        "Karun",
+        "Zagros",
+        "Khersan",
+        "Marun"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Zagros toothcarp, Esmaeilius vladykovi, is restricted to a small area of the Zagros mountains in Chahārmahāl o Bakhtiyārī province, Iran.",
+          "countries": [
+            "IR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is close to the town of Boldaji in the upper Karun River basin and it has been recorded from nearby wetlands at Chagha Khur and Gandoman plus a few other localities in the region.",
+          "countries": [],
+          "regions": [
+            "Karun"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Restricted to a small area of the Zagros mountain range in Chahārmahāl o Bakhtiyārī province, Iran.",
+          "countries": [],
+          "regions": [
+            "Zagros"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Some aspects of its distribution remain unclear but it is thought to occur in the upper Khersan River within the Karun drainage as well as the upper Marun River, a tributary of the Karun that also arises in the Zagros.",
+          "countries": [],
+          "regions": [
+            "Khersan",
+            "Marun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11473103,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          50.625,
+          30.9375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

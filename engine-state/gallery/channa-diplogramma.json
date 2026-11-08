@@ -2,7 +2,8 @@
  "queue": [],
  "judged": [
   "File:Channa diplogramma.png",
-  "File:Channa Diplogramma angler.jpg"
+  "File:Channa Diplogramma angler.jpg",
+  "inat:47417084"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/21fda032cc1bb694.webp": "03030733cf738e06",
@@ -10,5 +11,13 @@
   "https://media.aquatome.com/seriouslyfish/1b68dcfd943b26ab.webp": "0f1f3f9b436316cb",
   "https://media.aquatome.com/seriouslyfish/e24a3967f89d5850.webp": "0063f89eaeceea59"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 610082,
+  "pass": "done",
+  "after": {
+   "research": 152715279,
+   "agree": 0
+  }
+ }
 }

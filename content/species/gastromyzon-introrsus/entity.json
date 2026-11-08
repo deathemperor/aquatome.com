@@ -10,6 +10,62 @@
     "malaysia",
     "padas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Padas",
+        "Labuk",
+        "Crocker Mountain Range",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Padas and Labuk river basins which drain the eastern slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Padas",
+            "Labuk",
+            "Crocker Mountain Range",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358884,
+      "total": 15,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          115.3125,
+          5.625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -138,17 +194,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/322c9131aae866f8.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/322c9131aae866f8-480.webp",
-      "width": 600,
-      "height": 243,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/gastromyzon-introrsus",
-      "caption": "Ventral view.",
-      "source": "seriouslyfish"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/ad7e0c3d2c01ffcc.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/ad7e0c3d2c01ffcc-480.webp",
