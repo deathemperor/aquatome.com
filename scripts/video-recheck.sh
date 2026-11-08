@@ -28,9 +28,12 @@ COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 [ -s "$COOKIES" ] && { YT_COOKIES_FROM="$(cat "$COOKIES")"; export YT_COOKIES_FROM; }
 # Claude: the engine's accounts, one token a line, each used up before the next (as engine-cycle.sh), not the owner's own
 # login. With every account at its usage limit, both steps stop and what they did is published.
+# Token 2 first here, then token 1: token 1 also carries the Mac's other jobs, and on 2026-11-08 it ran behind its week's
+# pace with this re-check ($6-8 an hour) most of what it spent, while token 2 had room. awk, so a file whose last line has
+# no newline still gives one token a line.
 CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
-  CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
+  CLAUDE_CODE_OAUTH_TOKENS="$(awk 'NR == 1 { first = $0; next } { print } END { print first }' "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
 # A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
