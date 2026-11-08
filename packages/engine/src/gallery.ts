@@ -8,6 +8,7 @@ import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
 import { gbifMediaPage, gbifUsageKey } from './gbif'
 import { inatPage, inatTaxon, newInatCursor, type InatCursor } from './inat'
 import { openversePage } from './openverse'
+import { OFF, type PhotoVerdict } from './photo-check'
 import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
@@ -279,6 +280,12 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
   const rejectedPhoto = isRejected(rejected)
+  // A photo the photo check took off a page (another fish, none, dead), by its address in our bucket: never back in that
+  // page's gallery, from a search or from the queue. A hand seed (gallery-seed.ts) queued a bred discus the owner had
+  // judged off Heckel's discus by eye, and the gallery's own screening put it back (2026-11-08).
+  const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
+  const offBy = new Map<string, Record<string, string>>()
+  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const left: SourceBudget & { sheets: number } = { inat: 150, gbif: 60, openverse: 20, ...o.budget, sheets: o.sheets }
   // Openverse is slow (20 s or more a query) and sometimes stalls: after 3 failures it rests until the next run.
@@ -348,7 +355,9 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       const names = line ? [sci] : [sci, sci.replace(/\s(?:var|subsp|ssp|f)\.\s/, ' '), gbifNames[sci]?.canonicalName ?? '']
       const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
-      const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
+      const offHere = isRejected(offBy.get(t.id) ?? {})
+      st.queue = st.queue.filter(c => !offHere(c.url))
+      const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !offHere(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
         if (!st.hashes[p.url]) st.hashes[p.url] = await d.get(p.thumb ?? p.url).then(dhash).catch(() => '')
       }
