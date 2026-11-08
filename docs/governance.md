@@ -931,7 +931,10 @@ The layers above still check the result.
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
     gate sees it again each run. The job that writes cards runs `pnpm engine gate` before it commits one. Cards don't
-    count in the owner's number.
+    count in the owner's number. Indonesian, Thai and Malay cards are translated from the Vietnamese one each cycle
+    (`pnpm engine localize-cards`, `cards-intl.ts`), kept only when a reviewer holding them to it passes them and they
+    fit the card. Each is made again when its Vietnamese card changes (`engine-state/_cards-intl.json` has the text it
+    came from), and taken down if the new one isn't kept or the Vietnamese card is held back (`cards-intl.test.ts`).
   - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
     product works like that nobody is able to check."
 
