@@ -741,3 +741,70 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   else { Issue.record("the card went"); return }
   #expect(c.page.path == "/ca/ca-neon/")
 }
+
+// MARK: A stop's count, reporting a wrong answer, general knowledge
+
+@Test func aStopThatCameInTimeSaysWhatItCostWhereverItsTold() async throws {
+  let (cancel, status) = try answer("chat-cancel-cancelled.json")
+  #expect(Chat.stopped(cancel, status: status) == .cancelled)
+  #expect(Chat.stopCount(cancel) == Chat.StopCount(counted: false, freeLeft: 9))
+  let (gone, _) = try answer("chat-cancelled.json")
+  #expect(Chat.stopCount(gone) == Chat.StopCount(counted: true, freeLeft: 0))
+  let error = try #require(try await ServerEvents.events(in: recorded("chat-stream-cancelled.sse")).last { $0.name == "error" })
+  #expect(Chat.stopCount(Data(error.data.utf8)) == Chat.StopCount(counted: false, freeLeft: 9))
+  // Nothing to show: a stop too late, and a Worker from before the stop limit.
+  let (late, _) = try answer("chat-cancel-late.json")
+  #expect(Chat.stopCount(late) == nil)
+  #expect(Chat.stopCount(Data(#"{"result":"cancelled"}"#.utf8)) == nil)
+}
+
+@Test func onlyTheDaysLastFreeStopWarns() {
+  #expect(Chat.StopCount(counted: false, freeLeft: 0).lastFree)
+  #expect(!Chat.StopCount(counted: false, freeLeft: 9).lastFree)
+  #expect(!Chat.StopCount(counted: true, freeLeft: 0).lastFree)
+}
+
+@Test func aReportSendsItsTurnAndTheTrimmedReasonAsTheContractSays() throws {
+  let id = try #require(UUID(uuidString: "6F1C2A52-8D3E-4B7A-9C41-2E5D7F80B913"))
+  let r = Chat.report(id, turn: 2, reason: "  sai liều thuốc \n", site: site, token: "t", version: "1.0", ownCopy: nil)
+  #expect(r.httpMethod == "POST")
+  #expect(r.url?.path() == "/api/chat/conversations/6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913/report")
+  #expect(r.value(forHTTPHeaderField: "Authorization") == "Bearer t")
+  let sent = try #require(r.httpBody)
+  let body = try #require(JSONSerialization.jsonObject(with: sent) as? [String: Any])
+  #expect(body["turn"] as? Int == 2 && body["reason"] as? String == "sai liều thuốc")
+  // No reason, or only spaces: none sent.
+  for typed in [nil, "   "] as [String?] {
+    let blank = try #require(Chat.report(id, turn: 1, reason: typed, site: site, token: "t", version: "1.0", ownCopy: nil).httpBody)
+    #expect(try #require(JSONSerialization.jsonObject(with: blank) as? [String: Any]).keys.sorted() == ["turn"])
+  }
+}
+
+@Test func aReasonIsOneLineOfAtMost140CharactersAsTheReaderSeesThem() {
+  #expect(Chat.reasonFits(String(repeating: "a", count: 140)))
+  #expect(!Chat.reasonFits(String(repeating: "a", count: 141)))
+  // A family emoji is one character to the reader, however many code points it takes.
+  #expect(Chat.reasonFits(String(repeating: "👨‍👩‍👧", count: 140)))
+  #expect(Chat.reasonFits("  " + String(repeating: "á", count: 140) + "  "))
+  #expect(!Chat.reasonFits("dòng một\ndòng hai"))
+  #expect(Chat.reasonFits(""))
+}
+
+@Test func aReportsAnswerSaysWhetherItWasKeptNowOrBefore() throws {
+  let (saved, s1) = try answer("chat-report-saved.json")
+  #expect(Chat.reported(saved, status: s1) == .saved)
+  let (already, s2) = try answer("chat-report-already.json")
+  #expect(Chat.reported(already, status: s2) == .already)
+  #expect(Chat.reported(Data(#"{"error":"unknown"}"#.utf8), status: 404) == nil)
+}
+
+@Test func aTurnSaysWhetherPartOfItIsGeneralKnowledgeOnlyWhenTheWorkerSays() throws {
+  func turn(_ general: String) throws -> Chat.Turn {
+    let data = #"{"conversation":"6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913","n":1,"text":"x","covered":true"# + general + "}"
+    guard case .done(let t)? = Chat.event(ServerEvent(name: "done", data: data)) else { throw CancellationError() }
+    return t
+  }
+  #expect(try turn(#","general":true"#).general == true)
+  #expect(try turn(#","general":false"#).general == false)
+  #expect(try turn("").general == nil)
+}

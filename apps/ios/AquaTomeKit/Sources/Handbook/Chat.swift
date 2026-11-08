@@ -179,6 +179,9 @@ public enum Chat {
     /// false: the handbook doesn't cover the question; the text says so, the blocks hold the nearest page.
     public let covered: Bool
     public let steps: [Step]
+    /// true: part of the answer is Claude's general fishkeeping knowledge, not a page or tool the run read; false: none of
+    /// it is; nil: the Worker didn't say, and the screen shows nothing.
+    public let general: Bool?
   }
 
   /// A stream's event, by its name.
@@ -285,7 +288,7 @@ public enum Chat {
           let covered = o["covered"] as? Bool else { return nil }
     return Turn(conversation: c, n: n, text: text, blocks: (o["blocks"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(block) },
                 suggestions: (o["suggestions"] as? [Any] ?? []).compactMap { $0 as? String }.prefix(3).map { $0 }, covered: covered,
-                steps: (o["steps"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(step) })
+                steps: (o["steps"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(step) }, general: o["general"] as? Bool)
   }
 
   private static func step(_ o: [String: Any]) -> Step? {

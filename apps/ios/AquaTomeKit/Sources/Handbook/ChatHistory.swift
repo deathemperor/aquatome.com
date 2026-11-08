@@ -27,6 +27,68 @@ extension Chat {
     }
   }
 
+  /// What a stop that came in time cost, as the Worker counted it when the question was stopped.
+  public struct StopCount: Sendable, Equatable {
+    /// The stop counted toward the reader's day (the 11th of the day and after).
+    public let counted: Bool
+    /// Free stops left after this one.
+    public let freeLeft: Int
+    /// This was the day's last free stop: the next one counts. The one time the screen warns.
+    public var lastFree: Bool { !counted && freeLeft == 0 }
+  }
+
+  /// The count a `cancelled` carries: the cancel's answer, the stopped question's own 410, or the stream's error's data.
+  /// A retry's 410 repeats the figures from when the question was stopped, so the screen takes them from the first two.
+  /// Nil without them (a Worker from before the stop limit).
+  public static func stopCount(_ data: Data) -> StopCount? {
+    guard let o = object(data), (o["result"] ?? o["error"]) as? String == "cancelled", let counted = o["counted"] as? Bool,
+          let left = o["freeLeft"] as? Int, left >= 0 else { return nil }
+    return StopCount(counted: counted, freeLeft: left)
+  }
+
+  // MARK: Reporting a wrong answer (Báo sai)
+
+  /// A report's answer: kept now, or kept before (a turn's first report stands).
+  public enum Reported: Sendable, Equatable { case saved, already }
+
+  /// The longest reason, in characters as the reader sees them.
+  public static let reasonLimit = 140
+
+  /// A reason as it's sent: trimmed; nil when nothing's left of it.
+  public static func reason(_ typed: String) -> String? {
+    let t = typed.trimmingCharacters(in: .whitespacesAndNewlines)
+    return t.isEmpty ? nil : t
+  }
+
+  /// The contract takes it: one line of at most `reasonLimit` characters, once trimmed. No reason fits too.
+  public static func reasonFits(_ typed: String) -> Bool {
+    guard let r = reason(typed) else { return true }
+    return r.count <= reasonLimit && !r.contains(where: \.isNewline)
+  }
+
+  /// POST /api/chat/conversations/{id}/report: the conversation's answer `turn` reported as wrong, with the reader's reason
+  /// when they gave one.
+  public static func report(_ id: UUID, turn: Int, reason typed: String?, site: URL, token: String, version: String,
+                            ownCopy: String?) -> URLRequest {
+    var r = signed("api/chat/conversations/\(id.uuidString.lowercased())/report", method: "POST", site: site, token: token,
+                   version: version, ownCopy: ownCopy)
+    r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    var body: [String: Any] = ["turn": turn]
+    if let reason = typed.flatMap(reason) { body["reason"] = reason }
+    r.httpBody = try? JSONSerialization.data(withJSONObject: body)
+    return r
+  }
+
+  /// A report's answer, or nil for one that isn't the contract's (not kept).
+  public static func reported(_ data: Data, status: Int) -> Reported? {
+    guard status == 200 else { return nil }
+    return switch object(data)?["result"] as? String {
+    case "saved": .saved
+    case "already": .already
+    default: nil
+    }
+  }
+
   // MARK: Past conversations
 
   /// A conversation in the list.
