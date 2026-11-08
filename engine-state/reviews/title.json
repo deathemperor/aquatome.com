@@ -1,6 +1,17 @@
 {
   "vi/guides/youtube-vl1Lx9iWDYU": [
     {
+      "at": "2026-11-08T08:46:16Z",
+      "model": "opus",
+      "score": 0.95,
+      "notes": [
+        "Dropping the number fixes the overpromise: the text has about 25 bold-lead tips (4+2+4+6+4+2+3), not 28.",
+        "A specific count such as '25 mẹo' would also have fit, but leaving the number out is safer because the first section has no bullets."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-08T06:07:55Z",
       "model": "opus",
       "score": 0.95,
