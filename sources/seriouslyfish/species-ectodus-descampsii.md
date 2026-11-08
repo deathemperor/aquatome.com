@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/ectodus-descampsii
 title: Ectodus descampsii (Descamp's Strange-Tooth Cichlid) · Seriously Fish
-fetchedAt: 2026-11-07T05:12:51.842Z
+fetchedAt: 2026-11-07T19:53:20.431Z
 hash: 3a66cae16f7699fca94c2ea77ea19dd61d43eaba3abeabd81bc7fed42be80225
 ---
 

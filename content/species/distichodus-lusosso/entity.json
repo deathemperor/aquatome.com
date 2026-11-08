@@ -71,7 +71,7 @@
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
-      "html": "<p>Cameroon, Republic of Congo, Democratic Republic of Congo.</p>"
+      "html": "<p>Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.</p>"
     },
     {
       "key": "habitat",
@@ -83,7 +83,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
-      "html": "<p>A single specimen would need a tank measuring at least 150 x 45 x 45 cm, about 275 litres.</p>"
+      "html": "<p>A single specimen would need a tank measuring at least 150 cm x 45 cm x 45 cm - 275 litres.</p>"
     },
     {
       "key": "maintenance",
@@ -150,7 +150,32 @@
       "thumb": "https://media.aquatome.com/commons/ec9b00a6d88c3c60-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ZxdX8gXm0A4",
+      "title": "Lusy the Distichodus lusosso 2.5ft/75cm 8yo sucking pellets & destroying herring with tank mates",
+      "durationSec": 1105,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kqBkFavkX2U",
+      "title": "Two Distichodus lusosso, ~15\", ~2 years old, in 4500 gal, Dec 2016",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ba8CrhvtFsg",
+      "title": "Predator penghuni -+6000 liter WITH tankmate Distichodus Lusosso 41 cm",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uIDdVLnzbYo",
+      "title": "Distichodus lusosso, the champion jerk of our collection, 1.5', 3 years old, 240 gal, 12-21-2017",
+      "durationSec": 115,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -162,7 +187,9 @@
       "category": "loc",
       "keywords": [
         "lọc thùng cho bể lớn",
-        "máy lọc nước bể cá lớn"
+        "máy lọc nước bể cá lớn",
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
       ]
     },
     {
@@ -175,7 +202,16 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn spirulina cho cá",
-        "thức ăn viên cá lớn"
+        "thức ăn viên cá lớn",
+        "thức ăn cá ăn tạp",
+        "thức ăn spirulina dạng vảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nền bể cá"
       ]
     }
   ],

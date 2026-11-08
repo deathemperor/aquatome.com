@@ -2,10 +2,56 @@
  "queue": [],
  "judged": [
   "File:Belontia signata.jpg",
-  "File:Belontia signata - Wilhelma 01.jpg"
+  "File:Belontia signata - Wilhelma 01.jpg",
+  "inat:33442638",
+  "inat:58713735",
+  "inat:58713751",
+  "inat:58713771",
+  "inat:58714732",
+  "inat:58714726",
+  "inat:58715116",
+  "inat:58715101",
+  "inat:58769200",
+  "inat:104005992",
+  "inat:113164684",
+  "inat:347121014",
+  "inat:347121030",
+  "inat:347121032",
+  "inat:347121132",
+  "inat:347121167",
+  "inat:347121151",
+  "inat:383258612",
+  "inat:457466967",
+  "inat:457466979",
+  "inat:457466992",
+  "inat:469009083",
+  "inat:612365509",
+  "inat:612365513",
+  "inat:612365524",
+  "inat:612365696",
+  "inat:612387802",
+  "inat:614307629",
+  "inat:616626828",
+  "inat:692585430"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/145e79618bc06f2f.webp": "dd41ce870bce79c9"
+  "https://media.aquatome.com/commons/145e79618bc06f2f.webp": "dd41ce870bce79c9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/58713735/large.jpg": "082006830c522109",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/58713751/large.jpg": "2ead97c68a48599b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/58713771/large.jpg": "2637070b5d521606",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/58714732/large.jpg": "0303190513093316",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/612365509/large.jpg": "608288f49c0e868d",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/612365524/large.jpg": "36796561cd8d8d09",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/614307629/large.jpg": "e4a63c9cccf0e8e4",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/616626828/large.jpg": "a6d071334986ac1c"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 95706,
+  "pass": "done",
+  "after": {
+   "research": 378669660,
+   "agree": 342432767
+  }
+ }
 }

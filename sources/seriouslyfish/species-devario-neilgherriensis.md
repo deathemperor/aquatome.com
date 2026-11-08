@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-neilgherriensis
 title: Devario neilgherriensis (Peninsular 'Danio') · Seriously Fish
-fetchedAt: 2026-11-07T04:39:23.423Z
+fetchedAt: 2026-11-07T19:18:41.945Z
 hash: bcaff5afc354106b2bfdbc80ad8d098d2b1d1829e34169b3ee27c8b47c6c016d
 ---
 

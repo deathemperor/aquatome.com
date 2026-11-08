@@ -72,7 +72,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-longibarbis",
-      "html": "<p>The porthole catfish, Dianema longibarbis, is a peaceful callichthyid catfish from the Amazon basin in Peru and Brazil. It is named for the row of spots running along the lateral line. All specimens in the trade are wild-caught and new imports tend to be delicate and susceptible to disease, but once acclimatised it usually proves very hardy and can live for over 10 years.</p>"
+      "html": "<p>Porthole catfish, Dianema longibarbis, is a peaceful callichthyid catfish from the Amazon basin in Peru and Brazil. It is named for the row of spots running along the lateral line. All specimens in the trade are wild-caught and new imports tend to be delicate and susceptible to disease, but once acclimatised it usually proves very hardy and can live for over 10 years.</p>"
     },
     {
       "key": "distribution",
@@ -108,7 +108,7 @@
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-longibarbis",
-      "html": "<p>An unfussy feeder. Offer a varied diet consisting of dried sinking pellets and small live and frozen foods such as bloodworm, brineshrimp and chopped earthworms. Once settled, it will often feed from the surface.</p>"
+      "html": "<p>An unfussy feeder. Offer a varied diet consisting of dried sinking pellets and small live and frozen foods such as bloodworm, brine shrimp and chopped earthworms. Once settled, it will often feed from the surface.</p>"
     },
     {
       "key": "behaviour",
@@ -137,6 +137,50 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/2ebf4e1149891ca2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2ebf4e1149891ca2-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/dianema_longibarbis.htm",
+      "caption": "Dianema longibarbis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8fc6bbc53547a613.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8fc6bbc53547a613-480.webp",
+      "width": 500,
+      "height": 279,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Duffill / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/dianema_longibarbis.htm",
+      "caption": "Dianema longibarbis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/adeed8a97bd94631.webp",
+      "thumb": "https://media.aquatome.com/scotcat/adeed8a97bd94631-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/dianema_longibarbis.htm",
+      "caption": "Dianema longibarbis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cc90daf4efe440cd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cc90daf4efe440cd-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/dianema_longibarbis.htm",
+      "caption": "Dianema longibarbis",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/08f75cd3f04f3ab3.webp",
       "width": 960,
       "height": 640,
@@ -157,7 +201,32 @@
       "thumb": "https://media.aquatome.com/commons/573d75fde6ac3454-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "TCvsyiszInE",
+      "title": "This is my Dianema longibarbis.It is 15 years old.4k video#357L",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AS-XOjfY-jE",
+      "title": "Catfish: Porthole Catfish (Dianema longibarbis)",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "itSnx_Ki2Ts",
+      "title": "Dianema Longibarbis",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pU20CR2dmwo",
+      "title": "Dianema Longibarbis.",
+      "durationSec": 1091,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -169,7 +238,8 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn viên chìm cho cá chuột",
-        "trùng huyết đông lạnh"
+        "trùng huyết đông lạnh",
+        "thức ăn cá chuột viên chìm"
       ]
     },
     {
@@ -183,7 +253,15 @@
       "category": "suoi",
       "keywords": [
         "sưởi bể cá 100 lít",
-        "máy sưởi điều chỉnh nhiệt"
+        "máy sưởi điều chỉnh nhiệt",
+        "sưởi bể cá 100w"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "lọc treo"
       ]
     }
   ],

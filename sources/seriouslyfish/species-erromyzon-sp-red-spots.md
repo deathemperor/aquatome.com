@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/erromyzon-sp-red-spots
 title: Erromyzon sp. 'ER02' · Seriously Fish
-fetchedAt: 2026-11-07T06:26:40.611Z
+fetchedAt: 2026-11-07T20:45:46.479Z
 hash: 8389a5e0eab44165b953cc8d9ed2397c166ad6af5b8fdca27634d427c1cd737e
 ---
 

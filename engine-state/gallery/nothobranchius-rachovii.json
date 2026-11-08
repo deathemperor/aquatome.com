@@ -4,13 +4,15 @@
   "File:Nothobranchius rachovii.png",
   "File:Nothobranchius rachovii Lower Shire River MZMW 09-04 pair.png",
   "File:Nothobranchius rachovii Lower Shire River MZMW 09-04 light background.png",
-  "File:Nothobranchius rachovii Lower Shire River MZMW 09-04 dark background.png"
+  "File:Nothobranchius rachovii Lower Shire River MZMW 09-04 dark background.png",
+  "gbif:1265259131:a3d4ada2185a871b"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/3350ab9a0c6df644.webp": "00901c4747178478",
   "https://media.aquatome.com/commons/8024b632755a53b3.webp": "f0f87ce0e1a13383",
   "https://media.aquatome.com/commons/0b04785b07ff6f3b.webp": "0c1a0f237234962e",
-  "https://media.aquatome.com/commons/74a951c88518258c.webp": "478e4e0c1c7c9c10"
+  "https://media.aquatome.com/commons/74a951c88518258c.webp": "478e4e0c1c7c9c10",
+  "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/1265259131/media/ba59b0712c421419a3d4ada2185a871b": "0103c9d8181a1000"
  },
  "inat": {
   "taxon": 107142,
@@ -20,5 +22,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "gbif": {
+  "key": 2348625,
+  "next": null
+ }
 }

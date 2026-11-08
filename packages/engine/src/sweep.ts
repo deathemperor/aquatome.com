@@ -4,7 +4,7 @@ import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tan
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -50,6 +50,8 @@ import { readVideoRejected } from './videos'
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
+ * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
+ *   it is (content-rules.ts renameSwapped). A rename can't stop a publish that way, and what it leaves the tests list.
  * - a species', plant's or breed's Vietnamese name as hobbyists write it (alt-names.ts tidyName): a place keeps its capital
  *   ("Rêu Java"), a plant's name has no "Cây thủy sinh" before it. A name a person fixed (`nameFixed`) stays; the address
  *   stays.
@@ -67,7 +69,7 @@ import { readVideoRejected } from './videos'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name, renamed (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -183,8 +185,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         const before = JSON.parse(raw) as Stored
         const swept = sweepTranslation(before)
         // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
-        const t = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
-        const fixed = t === swept.t ? swept.fixed : [...swept.fixed, 'name']
+        const named = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
+        const t = lang === 'vi' ? renameStored(named) : named
+        const fixed = [...swept.fixed, ...(named === swept.t ? [] : ['name']), ...(t === named ? [] : ['renamed'])]
         if (fixed.length) {
           await write(file, raw, t)
           changed(`${kind}/${id}/${lang}.json`)
@@ -196,12 +199,24 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     }
   }
 
+  // A buying guide isn't in SWEPT_KINDS, and the rule reads it: Vietnamese is at the top of the folder.
+  for (const f of (await readdir(join(content, 'equipment')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const file = join(content, 'equipment', f)
+    const raw = await readFile(file, 'utf8')
+    const guide = JSON.parse(raw) as unknown
+    const next = renameSwappedIn(guide)
+    if (JSON.stringify(next) === JSON.stringify(guide)) continue
+    await write(file, raw, next)
+    changed(`equipment/${f}`)
+    ;(report.text.renamed ??= []).push(`equipment/${f.replace(/\.json$/, '')}`)
+  }
+
   // A fish's summary, written from its page: the words Vietnamese readers write another way, written their way, as on the page.
   for (const f of (await readdir(join(content, 'summaries')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
     const file = join(content, 'summaries', f)
     const raw = await readFile(file, 'utf8')
     const s = JSON.parse(raw) as { summary: string; mistakes: string[] }
-    const next = { ...s, summary: viWording(s.summary), mistakes: s.mistakes.map(viWording) }
+    const next = { ...s, summary: renameSwapped(viWording(s.summary)), mistakes: s.mistakes.map(m => renameSwapped(viWording(m))) }
     if (JSON.stringify(next) === JSON.stringify(s)) continue
     await write(file, raw, next)
     changed(`summaries/${f}`)
