@@ -69,6 +69,11 @@ test('the five lists: best and worst halves, rewrite first, decaying, and the ga
   expect(q.rewrite.map(r => [r.path, r.why])).toEqual([[GUIDE, 'Google: 200 impressions at position 2, 1% clicked (usual 15%): the title and description need work']])
   expect(q.decaying.map(r => r.path)).toEqual([GUIDE])
   expect(q.decaying[0]!.why).toContain('impressions 500 → 200')
+  // A page Google stopped showing altogether, with no tab: first on the list, with nothing to score, and no rank.
+  const gone = summariseQuality(STATS, tabs, sessions, { ...gsc, pages: { ...gsc.pages, '/cay/monte-carlo/': [0, 0, 0, 800, 12] } }, signals, wanted)
+  expect(gone.decaying.map(r => [r.path, r.score, r.ranked])).toEqual([[PLANT, null, false], [GUIDE, 7, true]])
+  expect([gone.scored, gone.totals.decaying]).toEqual([2, 2])
+  expect(qualityHtml(gone)).toContain('<td>—</td>')
   // A search Google shows us for only far down, by its best page; then the names readers looked for. Too few impressions: none.
   expect(q.gaps.map(g => [g.source, g.name, g.demand, g.path])).toEqual([['search', 'monte carlo trải nền <b>', 45, GUIDE], ['wanted', 'Cá rồng', 30, undefined]])
   // Without Search Console (the job hasn't run), the beacon alone: no search part, no decaying, no search gap.
@@ -118,6 +123,7 @@ test('the daily job\'s figures: only with the dashboard token, only in their sha
   expect((await post(JSON.stringify({ ...gsc, v: 2 }))).status).toBe(400)
   expect((await post(JSON.stringify({ ...gsc, pages: { [FISH]: [1, 2, 'x', 4, 5] } }))).status).toBe(400)
   expect((await post(JSON.stringify({ ...gsc, queries: [[1, FISH, 1, 1, 1]] }))).status).toBe(400)
+  expect((await post(JSON.stringify({ ...gsc, queries: [['x', FISH, null, 1, 1]] }))).status).toBe(400)
   expect((await post(JSON.stringify({ ...gsc, queries: Array.from({ length: 40_000 }, () => ['x'.repeat(40), FISH, 1, 1, 1]) }))).status).toBe(413)
   expect(store.size).toBe(0)
   const r = await post(good)

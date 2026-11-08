@@ -52,7 +52,8 @@ FROM ${table} WHERE blob2 IN ('view', 'scroll', 'time', 'aff') AND timestamp > N
 export type Figures = { tabs: number; half: number; end: number; s30: number; next: number; shop: number; impressions: number; clicks: number; position: number; impressionsBefore: number; clicksBefore: number }
 export type QualityRow = {
   path: string; title: string; section: string; key?: string
-  score: number; ranked: boolean; reading?: number; search?: number; demand: number
+  /** null for a page with figures from before the window only: on the decaying list, with nothing to score. */
+  score: number | null; ranked: boolean; reading?: number; search?: number; demand: number
   figures: Figures; quality?: number; fit?: string[]; reader?: number; review?: number
   /** `rewritten`: when the writers last rewrote it. `hold`: fixed by hand (the engine won't rewrite it), or rewritten too
    * lately (within SCORE.days) for its figures to say how the new text reads: on no list to rewrite, nor in the writers' feed. */
@@ -127,13 +128,15 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
 
   const rows: QualityRow[] = []
   for (const [path, f] of figs) {
-    if (!f.tabs && !f.impressions) continue
+    // A page Google stopped showing still has its figures from before: the decaying list's worst case.
+    if (!f.tabs && !f.impressions && !f.impressionsBefore && !f.clicksBefore) continue
     const p = index.get(path)!
     const section = sectionOf(p)
     const reading = f.tabs ? (f.tabs * rawReading(f) + SCORE.kReading * sectionMean(section)) / (f.tabs + SCORE.kReading) : undefined
     const ratio = f.impressions ? Math.min(1, f.clicks / f.impressions / expectedCtr(f.position)) : undefined
     const search = ratio === undefined ? undefined : (f.impressions * ratio + SCORE.kSearch * 0.5) / (f.impressions + SCORE.kSearch)
-    const score = Math.round(100 * (reading !== undefined && search !== undefined ? (2 * reading + search) / 3 : (reading ?? search)!))
+    const part = reading !== undefined && search !== undefined ? (2 * reading + search) / 3 : (reading ?? search)
+    const score = part === undefined ? null : Math.round(100 * part)
     const s = signals?.pages[path]
     rows.push({
       path, title: p.title, section, ...(s ? { key: s[0] } : {}),
@@ -150,13 +153,15 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
   const seen = (r: QualityRow) => r.figures.impressions ? `Google: ${fmtEn(r.figures.impressions)} impressions at position ${posText(r.figures.position)}, ${pct(r.figures.clicks / r.figures.impressions)} clicked (usual ${pct(expectedCtr(r.figures.position))})` : ''
   const both = (r: QualityRow) => [read(r), seen(r)].filter(Boolean).join('; ')
   const titleFix = (r: QualityRow) => r.figures.impressions >= SCORE.minImpressions && r.figures.position <= 10 && r.figures.clicks / r.figures.impressions < expectedCtr(r.figures.position) / 2
-  const ranked = rows.filter(r => r.ranked).sort((a, b) => b.score - a.score || b.demand - a.demand || a.path.localeCompare(b.path))
+  // A ranked page has tabs or impressions, so a score.
+  const sc = (r: QualityRow) => r.score ?? 0
+  const ranked = rows.filter(r => r.ranked).sort((a, b) => sc(b) - sc(a) || b.demand - a.demand || a.path.localeCompare(b.path))
   const half = Math.ceil(ranked.length / 2)
   const best = ranked.slice(0, Math.min(LIST, half)).map(r => ({ ...r, why: both(r) }))
   const worst = ranked.slice(half).reverse().slice(0, LIST).map(r => ({ ...r, why: both(r) }))
-  const toRewrite = rows.filter(r => !r.hold && ((r.ranked && r.score < 50) || titleFix(r)))
+  const toRewrite = rows.filter(r => !r.hold && ((r.ranked && sc(r) < 50) || titleFix(r)))
   const rewrite = toRewrite
-    .sort((a, b) => b.demand - a.demand || a.score - b.score)
+    .sort((a, b) => b.demand - a.demand || sc(a) - sc(b))
     .slice(0, LIST)
     .map(r => ({ ...r, why: titleFix(r) ? `${seen(r)}: the title and description need work` : `Read by few of the people who come. ${both(r)}` }))
   const drop = (r: QualityRow) => Math.max(
@@ -182,7 +187,7 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
 
   return {
     days: SCORE.days, ...(gsc ? { search: { at: gsc.at, from: gsc.from, to: gsc.to } } : {}),
-    scored: rows.length, ranked: ranked.length, best, worst, rewrite, decaying, gaps,
+    scored: rows.filter(r => r.score !== null).length, ranked: ranked.length, best, worst, rewrite, decaying, gaps,
     totals: { rewrite: toRewrite.length, decaying: decayed.length, gaps: allGaps.length },
   }
 }
@@ -215,7 +220,7 @@ export async function searchConsoleRoute(req: Request, kv: KVNamespace | undefin
   try { g = JSON.parse(text) } catch { return Response.json({ error: 'bad_request' }, { status: 400 }) }
   const ok = g?.v === 1 && [g.at, g.from, g.to, g.prevFrom, g.prevTo].every(x => typeof x === 'string')
     && g.pages && typeof g.pages === 'object' && Object.values(g.pages).every(r => isRow(r, 5) && r.every(Number.isFinite))
-    && Array.isArray(g.queries) && g.queries.every(r => isRow(r, 5) && typeof r[0] === 'string' && typeof r[1] === 'string')
+    && Array.isArray(g.queries) && g.queries.every(r => isRow(r, 5) && typeof r[0] === 'string' && typeof r[1] === 'string' && r.slice(2).every(Number.isFinite))
   if (!ok) return Response.json({ error: 'bad_request' }, { status: 400 })
   await kv.put(GSC_KEY, text)
   return Response.json({ stored: true, pages: Object.keys(g.pages).length, queries: g.queries.length }, { headers: { 'cache-control': 'no-store' } })
@@ -244,7 +249,7 @@ function parts(q: Quality) {
   ]
   return { tilesOf }
 }
-const rowsOf = (xs: QualityRow[]) => xs.map(r => [link(r.path, r.title), fmtEn(r.score), esc(r.why)])
+const rowsOf = (xs: QualityRow[]) => xs.map(r => [link(r.path, r.title), r.score === null ? '—' : fmtEn(r.score), esc(r.why)])
 const gapRows = (xs: QualityGap[]) => xs.map(g => [esc(g.name), g.source === 'search' ? 'Google' : 'readers', esc(g.why)])
 const empty = (id: string) => (id === 'gaps' ? 'No gap with enough demand yet.' : 'No page has enough data yet.')
 
