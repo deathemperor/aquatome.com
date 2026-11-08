@@ -215,7 +215,7 @@ async function main() {
     const calls: Call[] = []
     try {
       const tanks = c === 'tank' && q.tank ? [savedTank(q.tank)] : []
-      const run: ChatRun = await answerQuestion({ send: timed(slowed(sender(await healthyKeys(keys, store, Date.now()), store), SLOW), calls), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, tanks: async () => tanks, ...(LIMITS ? { limits: LIMITS } : {}), ...(LAST_EFFORT ? { lastEffort: LAST_EFFORT } : {}) })
+      const run: ChatRun = await answerQuestion({ send: timed(slowed(sender(await healthyKeys(keys, store, Date.now()), store), SLOW), calls), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, title: true, tanks: async () => tanks, ...(LIMITS ? { limits: LIMITS } : {}), ...(LAST_EFFORT ? { lastEffort: LAST_EFFORT } : {}) })
       const read = run.steps.flatMap(s => (s.kind === 'read' ? [s.page.url] : []))
       const usd = costOf(MODEL, run.spent)
       if (!run.answer) return { text: '', usd, ms: Date.now() - t, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, read, stopped: run.stopped, calls }

@@ -323,7 +323,7 @@ async function main() {
       let run: ChatRun | undefined
       let failed: string | undefined
       try {
-        run = await answerQuestion({ send, model, lang: 'vi', question: question.q, earlier: [], start: question.start, handbook: await asked(question), tanks: async () => question.tanks ?? [] })
+        run = await answerQuestion({ send, model, lang: 'vi', question: question.q, earlier: [], start: question.start, handbook: await asked(question), title: true, tanks: async () => question.tanks ?? [] })
         if (!run.answer) failed = run.error ? String((run.error as Error).message ?? run.error).slice(0, 120) : `no answer (stopped: ${run.stopped})`
       } catch (e) {
         failed = String((e as Error).message ?? e).slice(0, 120)

@@ -151,7 +151,7 @@ async function main() {
     const t = Date.now()
     let run: ChatRun | undefined
     try {
-      run = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: q.lang, question: q.q, earlier: q.earlier ?? [], start: q.start ?? {}, handbook: handbooks.get(q.lang)!, tanks: async () => (q.tank ? [q.tank] : []) })
+      run = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: q.lang, question: q.q, earlier: q.earlier ?? [], start: q.start ?? {}, handbook: handbooks.get(q.lang)!, title: !q.earlier?.length, tanks: async () => (q.tank ? [q.tank] : []) })
     } catch (e) {
       return { question: q, failed: String((e as Error).message ?? e).slice(0, 160), pass: false, why: 'failed', usd: 0, ms: Date.now() - t }
     }
