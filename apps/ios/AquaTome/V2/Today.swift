@@ -268,8 +268,9 @@ private struct FishOfTheDay: View {
   }
 }
 
-/// A guide as a story's cover: its photo, and its title at the foot over the photo's colour. A story, the editors' page
-/// told in a few words, is drawn the same, with their eyebrow, title and line under it where they wrote them.
+/// A guide as a story's cover: its photo, 16:9, as a guide's photos mostly are (video stills, banners), and its title under
+/// it on the photo's colour; the editors pick its photo for that shape (docs/curation.md). A story, the editors' page told
+/// in a few words, is drawn the same, with their eyebrow, title and line under it where they wrote them.
 @available(iOS 18, *)
 private struct GuideCard: View {
   let item: HandbookIndex.Item
@@ -289,21 +290,35 @@ private struct GuideCard: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
-  @ScaledMetric(relativeTo: .title) private var height: CGFloat = 420
 
   var body: some View {
     NavigationLink(value: item) {
       Group {
-        // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour. A guide with
-        // no photo has no photo's place.
-        if size.isAccessibilitySize || img == nil {
+        if img != nil {
           VStack(spacing: 0) {
-            if img != nil { V2Photo(src: img, ground: colour) { colour = $0 }.frame(height: 260) }
-            cover.frame(maxWidth: .infinity, alignment: .leading).background(colour)
+            V2Photo(src: img, ground: colour) { colour = $0 }
+              .aspectRatio(16 / 9, contentMode: .fit)
+              .overlay(alignment: .bottom) {
+                LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 40)
+              }
+            cover.padding(20).frame(maxWidth: .infinity, alignment: .leading).background(colour)
           }
         } else {
-          V2Photo(src: img, ground: colour) { colour = $0 }
-            .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height) { cover })
+          // No photo: its words on a ground of its own, not the tank card's green, under a mark of what it is, as the video
+          // card's play button: a card to open, not a heading over the next. A story's ground is its own too, so a guide and
+          // a story both without one aren't one card twice.
+          VStack(alignment: .leading, spacing: 14) {
+            Image(systemName: item.kind == .plant ? "leaf.fill" : item.kind == .guide ? "book.pages.fill" : "fish.fill")
+              .font(.title3).frame(width: 48, height: 48).background(Circle().fill(.white.opacity(0.18)))
+              .accessibilityHidden(true)
+            cover
+          }
+          .foregroundStyle(.white)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .padding(20)
+          .background(LinearGradient(colors: words == nil ? [Color(red: 0.48, green: 0.23, blue: 0.13), Color(red: 0.3, green: 0.13, blue: 0.08)]
+                                       : [Color(red: 0.36, green: 0.17, blue: 0.33), Color(red: 0.22, green: 0.1, blue: 0.21)],
+                                     startPoint: .topLeading, endPoint: .bottomTrailing))
         }
       }
       .animation(.easeInOut(duration: 0.4), value: colour)
@@ -326,12 +341,12 @@ private struct GuideCard: View {
       Text(verbatim: words?.title ?? item.name).font(.system(.title, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 8 : 4)
         .multilineTextAlignment(.leading)
       if let dek = words?.dek {
-        Text(verbatim: dek).font(.subheadline).opacity(0.9).lineLimit(size.isAccessibilitySize ? 8 : 3)
-          .multilineTextAlignment(.leading)
+        // Whole: the editors' sentence, never cut mid-advice.
+        Text(verbatim: dek).font(.subheadline).opacity(0.9).multilineTextAlignment(.leading)
+          .fixedSize(horizontal: false, vertical: true)
       }
     }
     .foregroundStyle(.white)
-    .padding(20)
   }
 }
 

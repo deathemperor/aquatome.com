@@ -413,15 +413,18 @@ final class HandbookModel {
 
 #if DEBUG
 extension HandbookIndex {
-  /// UI tests' calendar (`-plan`): 13 November planned whole, its fish one Hôm nay's own picks never are, with its photo,
-  /// and a guide without one; the 14th a guide and no fish; the 15th not planned. The 13th's story tells the guide the
-  /// app's own picks lead with, in the editors' words.
+  /// UI tests' calendar (`-plan`): 13 November planned whole, its fish one Hôm nay's own picks never are, each card with
+  /// its photo; the 14th as most planned days are so far, no fish, and a guide and a story without a photo, the story's
+  /// line as long as the editors write them; the 15th not planned. The 13th's story tells the guide the app's own picks
+  /// lead with, in the editors' words.
   static let fixtureDays: [Home.Day] = [
     .init(date: "2026-11-13", fish: "/vi/ca/ca-ngua-van/", img: "https://media.aquatome.com/a/danio-large.webp",
-          guide: "/vi/huong-dan/cach-han-che-reu-hai/",
+          guide: "/vi/huong-dan/cach-han-che-reu-hai/", guideImg: "https://media.aquatome.com/a/reu-hai-large.webp",
           story: .init(path: "/vi/huong-dan/nuoi-ca-neon/", img: "https://media.aquatome.com/a/neon-large.webp", eyebrow: "Cho người mới",
                        title: "Đàn neon đầu tiên", dek: "Sáu con trở lên, nước mềm, thả khi bể đã chạy ổn định")),
-    .init(date: "2026-11-14", guide: "/vi/huong-dan/nuoi-ca-neon/"),
+    .init(date: "2026-11-14", guide: "/vi/huong-dan/nuoi-ca-neon/",
+          story: .init(path: "/vi/huong-dan/cach-han-che-reu-hai/", eyebrow: "Mẹo chăm bể", title: "Ít rêu hơn khi bể đủ cây",
+                       dek: "Đèn bật 6 đến 8 tiếng, trồng dày cây mọc nhanh ngay từ đầu, thay nước đều mỗi tuần và cho ăn vừa đủ cá ăn hết")),
   ]
 
   /// UI tests' index: a few pages of each kind, as the site writes them.
