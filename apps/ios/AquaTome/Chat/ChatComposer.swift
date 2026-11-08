@@ -174,7 +174,7 @@ struct AskEntry: View {
         Image(systemName: "bubble.left.and.text.bubble.right.fill").font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
         VStack(alignment: .leading, spacing: 2) {
           Text("Hỏi về \(ChatNames.inSentence(route.subject.name))").font(.body.weight(.semibold)).foregroundStyle(.tint)
-          Text("Trả lời từ cẩm nang AquaTome").font(.footnote).foregroundStyle(.secondary)
+          Text("Trả lời dựa trên cẩm nang AquaTome").font(.footnote).foregroundStyle(.secondary)
         }
         Spacer(minLength: 0)
         Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)

@@ -10913,6 +10913,28 @@
         }
       }
     },
+    "Trả lời dựa trên cẩm nang AquaTome": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dijawab berdasarkan panduan AquaTome"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dijawab berdasarkan buku panduan AquaTome"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอบโดยอิงจากคู่มือ AquaTome"
+          }
+        }
+      }
+    },
     "Trả lời hay": {
       "localizations": {
         "id": {
@@ -17799,50 +17821,6 @@
         }
       }
     },
-    "Claude, mô hình AI của Anthropic, trả lời chỉ từ cẩm nang AquaTome. Ảnh không được gửi.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI dari Anthropic, menjawab hanya dari panduan AquaTome. Foto tidak dikirim."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI daripada Anthropic, menjawab hanya berdasarkan buku panduan AquaTome. Foto tidak dihantar."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude โมเดล AI ของ Anthropic ตอบจากคู่มือ AquaTome เท่านั้น ไม่มีการส่งรูป"
-          }
-        }
-      }
-    },
-    "Claude, mô hình AI của Anthropic, trả lời chỉ từ cẩm nang AquaTome.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI dari Anthropic, menjawab hanya dari panduan AquaTome."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI daripada Anthropic, menjawab hanya berdasarkan buku panduan AquaTome."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude โมเดล AI ของ Anthropic ตอบจากคู่มือ AquaTome เท่านั้น"
-          }
-        }
-      }
-    },
     "Có cần CO₂ không?": {
       "localizations": {
         "id": {
@@ -18323,6 +18301,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Claude จำคำถามด้านบนไม่ได้"
+          }
+        }
+      }
+    },
+    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude, model AI dari Anthropic, menjawab berdasarkan panduan AquaTome. Untuk hal yang belum ada di panduan, Claude memakai pengetahuan umum tentang memelihara ikan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude, model AI daripada Anthropic, menjawab berdasarkan buku panduan AquaTome. Bagi perkara yang belum ada dalam buku panduan, Claude menggunakan pengetahuan am tentang memelihara ikan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude โมเดล AI ของ Anthropic ตอบโดยอิงจากคู่มือ AquaTome ส่วนที่คู่มือยังไม่มี Claude จะใช้ความรู้ทั่วไปเรื่องการเลี้ยงปลา"
+          }
+        }
+      }
+    },
+    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá. Ảnh của bạn không gửi kèm câu hỏi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude, model AI dari Anthropic, menjawab berdasarkan panduan AquaTome. Untuk hal yang belum ada di panduan, Claude memakai pengetahuan umum tentang memelihara ikan. Foto Anda tidak dikirim bersama pertanyaan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude, model AI daripada Anthropic, menjawab berdasarkan buku panduan AquaTome. Bagi perkara yang belum ada dalam buku panduan, Claude menggunakan pengetahuan am tentang memelihara ikan. Foto anda tidak dihantar bersama soalan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude โมเดล AI ของ Anthropic ตอบโดยอิงจากคู่มือ AquaTome ส่วนที่คู่มือยังไม่มี Claude จะใช้ความรู้ทั่วไปเรื่องการเลี้ยงปลา รูปของคุณจะไม่ถูกส่งไปพร้อมกับคำถาม"
           }
         }
       }
@@ -19093,28 +19115,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ถามเกี่ยวกับ%@"
-          }
-        }
-      }
-    },
-    "Trả lời từ cẩm nang AquaTome": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dijawab dari panduan AquaTome"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dijawab daripada buku panduan AquaTome"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตอบจากคู่มือ AquaTome"
           }
         }
       }
