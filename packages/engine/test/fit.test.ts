@@ -55,9 +55,7 @@ test('harmful doses as other pages write them; and what is not one: a water chan
     ['<p>Rendam garam 3% (30 g/L) selama 20 menit.</p>', 'id'],
     ['<p>แช่เกลือ 3% (30 กรัมต่อลิตร) นาน 20 นาที</p>', 'th'],
     ['<p>Tambahkan garam hingga 3%, rendam 30 menit.</p>', 'id'],
-    // A dip for days or overnight; a medicine a word after its unit; "vào", "ในน้ำ"; other spellings.
-    ['<p>Ngâm cá trong nước muối 3% qua đêm.</p>', 'vi'],
-    ['<p>Tắm muối 2% trong 2 ngày.</p>', 'vi'],
+    // A medicine a word after its unit; "vào", "ในน้ำ"; other spellings.
     ['<p>Pha 2 g/lít xanh methylen để ngâm cá.</p>', 'vi'],
     ['<p>Hòa 1 g kanamycin vào 1 lít nước.</p>', 'vi'],
     ['<p>ละลายควินิน 1 กรัมในน้ำ 1 ลิตร</p>', 'th'],
@@ -111,6 +109,13 @@ test('harmful doses as other pages write them; and what is not one: a water chan
     // A table row's first cell names its copper's type for the whole row.
     ['<table><tr><td>Kuprum terkelat (chelated copper)</td><td>Ikut label produk yang dibeli. Penternak itu menyasarkan kira-kira 1.5–2.0 ppm kuprum.</td></tr></table>', 'ms'],
   ] as const) expect(harm(html, lang), html).toEqual([])
+})
+
+test('three reviews\' sentences, in four languages: each harmful dose is found, and none of the rest', async () => {
+  // Days and overnight are no dip's time: a marine tank's salt left to mix, gravel soaked, would be held.
+  const cases: { harm: boolean; lang: Page['lang']; html: string }[] = JSON.parse(await readFile(new URL('./harm-cases.json', import.meta.url), 'utf8'))
+  expect(cases.length).toBeGreaterThan(300)
+  for (const c of cases) expect(found('harm', c.html, { lang: c.lang }).length > 0, `${c.lang} ${c.html}`).toBe(c.harm)
 })
 
 test('a fact\'s source number copied into the text is found; a count of sources or a table of them is not', () => {
