@@ -1,4 +1,8 @@
-import { readFileSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
+import { mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
 import { composeMessage, deliverAll } from '../../../scripts/owner-feedback-deliver.mjs'
 
@@ -163,4 +167,30 @@ test('the job\'s log carries ids and failures, never a report\'s words', async (
   await deliverAll({ site: 'https://aquatome.test', token: 'dash', threadId: 't', http: s.http, send: async () => ({}), log: (m: string) => lines.push(m), ...ledger() })
   expect(lines.join('\n')).toContain(REPORT.id)
   expect(lines.join('\n')).not.toContain('lệch')
+})
+
+const SCRIPTS = fileURLToPath(new URL('../../../scripts/', import.meta.url))
+
+/**
+ * Not ProcessType Background (launchd-agent.sh): on a busy Mac it held the sign-in's t3 CLI past its minute, every run,
+ * and nothing went (8 Nov, after a restart). The installer on a home of its own, with launchctl stood in for.
+ */
+test("the Mac's job gives way as the other agents do, so a busy Mac still delivers", () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-feedback-'))
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/launchctl'), '#!/bin/sh\n[ "$1" = print ] && exit 1\nexit 0\n', { mode: 0o755 })
+  mkdirSync(join(dir, '.config/aquatome'), { recursive: true })
+  writeFileSync(join(dir, '.config/aquatome/ab-dash-token'), 'stand-in')
+  const r = spawnSync('bash', [join(SCRIPTS, 'install-owner-feedback-schedule.sh'), 'stand-in-thread'], { env: { ...process.env, HOME: dir, PATH: `${dir}/bin:${process.env.PATH}` }, encoding: 'utf8' })
+  expect(r.status, r.stderr).toBe(0)
+  const plist = readFileSync(join(dir, 'Library/LaunchAgents/run.aquatome.owner-feedback.plist'), 'utf8')
+  expect(plist).toContain('<key>Nice</key><integer>10</integer>')
+  expect(plist).toContain('<key>StartInterval</key><integer>30</integer>')
+  expect(spawnSync('plutil', ['-lint', '-'], { input: plist }).status ?? 0).toBe(0)
+})
+
+test('no agent the scripts install runs as Background', () => {
+  for (const f of readdirSync(SCRIPTS).filter(f => /^install-.*\.sh$/.test(f))) {
+    expect(readFileSync(join(SCRIPTS, f), 'utf8'), f).not.toMatch(/ProcessType/)
+  }
 })
