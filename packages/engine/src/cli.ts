@@ -24,7 +24,7 @@ import { loadPages } from './pages'
 import { FIT_KINDS, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
 import { fitRewrite } from './fit-rewrite'
-import { candidates, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
@@ -521,8 +521,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const cur = await readCalendar(ROOT)
   const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
   const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  const cards = await cardsOf(ROOT)
   if (values.check) {
-    const wrong = checkCalendar(cur, cands, today, days)
+    const wrong = checkCalendar(cur, cands, today, days, cards)
     for (const x of wrong) console.log(`  ${x}`)
     console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
     if (wrong.length) process.exitCode = 1
@@ -532,7 +533,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
     for (const x of r.filled) console.log(`  filled ${x}`)
     for (const x of r.empty) console.log(`  empty ${x}`)
-    const left = checkCalendar(calendar, cands, today, days)
+    const left = checkCalendar(calendar, cands, today, days, cards)
     for (const x of left) console.log(`  still wrong: ${x}`)
     console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty; ${left.length} problems`)
   }

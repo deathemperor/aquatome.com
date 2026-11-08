@@ -12,11 +12,13 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 | In the calendar | In the index | What the app does with it |
 | --- | --- | --- |
 | `days[]`: `date`, `fish`, `img`, `guide`, `guideImg`, `story`, `by.<lang>` | `home.days[]`, from yesterday on | shows the day matching the reader's date; a day the index doesn't have falls back to the app's own rotation, but a listed day without a fish shows no fish card, since nothing passed both checks that day |
+| `days[].card`: `cards/<id>`, in the story's place | `home.days[].card`: its type, eyebrow, title, body, sources, the pages it's `about`, its photo and event | Hôm nay shows the eyebrow, title and photo (without one, the photo of the one page it's about), and a tap opens the body with its sources; only in the languages it's written in that the gate lets out, and only within its `show` days |
 | `weeks[]`: `from`, `to`, `theme` | `home.week` | an eyebrow over the week's cards |
 | `weeks[].hero` | `home.hero` | Khám phá's top cards, in order |
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |
 | `loops.<id>` | `items[].loop` | a fish's short silent loop, wherever its card is |
 | `avoid` | none | photos that never lead a card, with the reason |
+| `off` | none: the build leaves these pages out | the pages the top cards, shelves and stories name that don't pass reader fit now, with why; the planner writes it afresh each run, so a page comes back once it passes |
 
 - **Pages are named by content id** (`species/<id>`, `breeds/<id>`, `guides/<id>`), so one pick serves every language.
   The build drops a pick that a language has no page for. `by.<lang>` gives that language its own fish or guide.
@@ -65,12 +67,17 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
   photo checks (`scripts/engine-cycle.sh`); the file changes when a new day comes in or a pick fails.
 - **Weekly**: the next theme two to three weeks ahead, its lists, top cards, shelves and copy, through the editors, in a
   pull request. The owner's daily report gets a few lines on what's planned.
-- **When a page changes**: a pick that stops passing is replaced on the next daily run, so nothing held back is ever
-  featured.
+- **When a page changes**: a day's fish or guide that stops passing is replaced on the next daily run, and a top card,
+  shelf page or story that stops passing goes in `off` until it passes again, so nothing failing reader fit is ever
+  featured. A shelf left with under three pages isn't shown; the editor tops it up from pages that pass.
 
 ## New kinds of Hôm nay card (owner, 2026-11-08)
 
-Each needs dated sources, and is written through the Writing Lead's writer and gate.
+Each needs dated sources, and is written through the Writing Lead's writer and gate. A card is
+`content/cards/<id>/entity.json` and a `<lang>.json` per language it's written in (`packages/schema/src/cards.ts`): the
+eyebrow at most 24 characters and the title 70, so they fit the card at the largest text size, and a body of about 80
+words. `pnpm engine gate` reads it before it's committed, and `pnpm engine curate --check` says when a day's card is
+missing, held back in every language, or outside its days.
 
 | Kind | Sources | Cadence | Rules |
 | --- | --- | --- | --- |

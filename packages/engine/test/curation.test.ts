@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, type Curation } from '@aq/schema'
-import { across, candidates, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
+import { across, candidates, cardsOf, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -74,6 +74,42 @@ test('a chosen day is kept while it passes; a pick that stops passing is replace
   expect(calendar.days[0]).toMatchObject({ fish: 'species/b', guide: 'guides/g1' })
   expect(calendar.days[0]!.fixed).toBeUndefined()
   expect(checkCalendar(cur, held, '2026-11-09', 1)).toEqual(['2026-11-09 fish species/a: reader fit: held: price'])
+})
+
+test('a day\'s card is there to show: written in a language the gate lets out, within its days; the planner leaves it be', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'curation-cards-'))
+  const card = (id: string, langs: Record<string, object>) => Promise.all([
+    mkdir(join(root, 'content', 'cards', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'cards', id, 'entity.json'), JSON.stringify({
+      id, type: 'trivia', sources: [{ url: 'https://example.org/a', title: 'A', publisher: 'P', date: '2026-11-01', accessed: '2026-11-08' }], show: { from: '2026-11-10', until: '2026-11-11' }, updatedAt: '2026-11-08',
+    }))).then(() => Promise.all(Object.entries(langs).map(([lang, t]) => writeFile(join(root, 'content', 'cards', id, `${lang}.json`), JSON.stringify({ eyebrow: 'e', title: 't', body: '<p>b</p>', ...t }))))),
+  ])
+  await card('ok', { vi: {}, th: { held: { checks: ['elsewhere'], at: '2026-11-08' } } })
+  await card('held', { vi: { held: { checks: ['source'], at: '2026-11-08' } } })
+  const cards = await cardsOf(root)
+  expect(cards.get('cards/ok')).toEqual({ show: { from: '2026-11-10', until: '2026-11-11' }, langs: ['vi'] })
+  const cands = [fish('a'), guide('g')]
+  const day = (date: string, card: string) => ({ date, fish: 'species/a', img: cands[0]!.photo.square!.url, guide: 'guides/g', card })
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none')] })
+  // 10 Nov's card passes; the others don't.
+  expect(checkCalendar(cur, cands, '2026-11-10', 1, cards)).toEqual([
+    '2026-11-12 card cards/ok: outside its days, 2026-11-10 to 2026-11-11',
+    '2026-11-13 card cards/held: held back or unwritten in every language',
+    '2026-11-14 card cards/none: no such card',
+  ])
+  expect(plan(cur, cands, '2026-11-10', 1).calendar.days[0]!.card).toBe('cards/ok')
+})
+
+test('a page the top cards, shelves or a story name that fails reader fit is listed off, and comes back once it passes', () => {
+  const cands = [fish('a'), fish('b'), fish('c'), fish('bad', { fit: false, fitWhy: 'units' }), guide('g1'), guide('g2', { fit: false, fitWhy: 'source' })]
+  const week = { from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, hero: [{ page: 'species/a' }, { page: 'species/bad' }], shelves: [{ id: 's', title: { vi: 'y' }, pages: ['species/a', 'species/b', 'species/bad', 'species/gone'] }] }
+  const old = { from: '2026-11-02', to: '2026-11-08', theme: { vi: 'z' }, hero: [{ page: 'species/bad' }] }
+  const cur = CurationSchema.parse({ version: 1, weeks: [old, week], days: [{ date: '2026-11-09', story: { page: 'guides/g2' } }] })
+  const { calendar } = plan(cur, cands, '2026-11-09', 1)
+  // A past week's picks aren't read.
+  expect(calendar.off).toEqual({ 'guides/g2': 'reader fit: source', 'species/bad': 'reader fit: units', 'species/gone': 'no such page' })
+  expect(checkCalendar(calendar, cands, '2026-11-09', 1).filter(x => !x.includes(': no '))).toEqual([])
+  const fixed = cands.map(c => (c.fit ? c : { ...c, fit: true, fitWhy: undefined }))
+  expect(plan(calendar, fixed, '2026-11-09', 1).calendar.off).toEqual({ 'species/gone': 'no such page' })
 })
 
 test('the calendar in the repository parses, and names no page twice on Hôm nay within four weeks', () => {
