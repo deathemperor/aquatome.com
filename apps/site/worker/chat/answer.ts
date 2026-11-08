@@ -93,7 +93,10 @@ export const OFF_TOPIC: Record<Lang, string> = {
   ms: 'Saya hanya boleh membantu tentang penjagaan ikan: ikan, udang, siput, tumbuhan akuatik, tangki, kolam, air dan peralatannya. Tanyalah tentang tangki anda, ya!',
 }
 
-/** Characters as the reader sees them (Swift's `count`): a Thai vowel or tone mark is part of its letter. */
+/**
+ * Characters as the reader sees them, as the app counts (Swift's `count`): a Thai vowel or tone mark, or a Vietnamese
+ * tone mark kept apart as older forums keep it, is part of its letter. The question's limit and a title's are counted so.
+ */
 const graphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
 export const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))].length
 /** The longest title kept: six words in any of the languages, with room. Longer, it is no title, and the list shows the first question's first words. */

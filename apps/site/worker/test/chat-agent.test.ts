@@ -857,7 +857,8 @@ test('a conversation\'s first answer brings its title, in the same call: the tit
   expect(titled.out.answer?.title).toBe('Cá betta bỏ ăn')
   // Fish ID unsure: beside its guesses, the title names their group; sure, or with no title asked, nothing.
   const told = (results: { scientificName: string; confidence: number }[], title = true) => JSON.stringify(firstMessage('vi', 'Nuôi mấy con?', [], { from: 'fish-id', identified: { verdict: 'fish', results } }, h, title).content)
-  expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.55 }, { scientificName: 'Corydoras paleatus', confidence: 0.3 }])).toContain('Fish ID is unsure')
+  expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.55 }, { scientificName: 'Corydoras paleatus', confidence: 0.3 }])).toContain('Fish ID is unsure of it: every guess is a Corydoras.')
+  expect(told([{ scientificName: 'Danio margaritatus', confidence: 0.55 }, { scientificName: 'Boraras brigittae', confidence: 0.3 }])).toContain('as the reader does, or by the group its guesses share')
   expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.6 }])).toContain('Fish ID is unsure')
   expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.91 }])).not.toContain('Fish ID is unsure')
   expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.55 }], false)).not.toContain('Fish ID is unsure')

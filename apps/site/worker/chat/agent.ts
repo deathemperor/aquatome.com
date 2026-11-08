@@ -77,7 +77,7 @@ export const TITLE_RULE = (lang: Lang) => {
   const f = TITLE_FORM[lang]
   return [
     `This question starts the conversation: give it a title too (title), for the reader's list of past chats, in ${LANGS[lang]}: one line on a phone, at most about 36 characters.`,
-    '- Their own words for the fish and the problem, and the detail the answer depends on: the tank\'s size, how many fish, no filter or no CO₂, the change they\'re weighing.',
+    '- Their own words for the fish and the problem, and the detail the answer depends on: the tank\'s size, how many fish, no filter or no CO₂, the change they\'re weighing. The fish the problem is about now, not one they had before.',
     '- Nothing they didn\'t say, and what they said as they said it ("a little", "even though", "must"). Fish and plants as keepers name them, never a piece of a name (not "Java" for Java fern) and without the handbook\'s variety tags.',
     '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics.',
     `- When they ask yes or no, the title asks it, ${f.asks}. One question at most.`,
@@ -95,7 +95,11 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
     const guesses = start.identified.results.map(r => `${r.scientificName}${r.id ? ` (id ${r.id})` : ''}, ${Math.round(r.confidence * 100)}%`).join('; ')
     parts.push(`They come from AquaTome's fish ID, which named their photo (${start.identified.verdict}): ${guesses || 'nothing it could name'}.`)
     // Beside the guesses, where Claude reads them: in the title's rule, far from them, half the titles named the first guess.
-    if (title && unsure(start.identified)) parts.push('Fish ID is unsure of it: the title names the group its guesses share (their genus, or what keepers call them all), not one of them.')
+    if (title && unsure(start.identified)) {
+      const genera = new Set(start.identified.results.map(r => r.scientificName.split(' ')[0]))
+      const genus = genera.size === 1 ? [...genera][0] : undefined
+      parts.push(`Fish ID is unsure of it${genus ? `: every guess is a ${genus}` : ''}. Unless the reader names it, the title calls it ${genus ? `what keepers call any ${genus} in ${LANGS[lang]}` : 'as the reader does, or by the group its guesses share'}, never by one guess's own name.`)
+    }
   }
   if (about) parts.push(`The chat is about ${about.name}${about.sub ? ` (${about.sub})` : ''}, id ${about.id}, page ${about.path}.${start.from === 'species' ? ' They opened it from that page, so they have seen its card: it counts as shown.' : ''}`)
   if (earlier.length) {

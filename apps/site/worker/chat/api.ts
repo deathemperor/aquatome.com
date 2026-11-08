@@ -10,7 +10,7 @@ import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
-import type { ChatBlock } from './answer'
+import { charsOf, type ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey } from './store'
 import type { Step, Tank, TankLight } from './tools'
@@ -65,10 +65,6 @@ const PER_DAY = 1000
 const MAX_TURNS = 20
 /** The longest question: a reader's whole forum post, as they paste it (14 of 30 real ones were over 500; the longest, 1,414). The chief of staff's call. */
 const MAX_CHARS = 1500
-/** Characters as the reader sees them, as the app counts (Swift's `count`): a Thai vowel or tone mark, or a Vietnamese
- * tone mark kept apart as older forums keep it, is part of its letter, so a post the app shows as 1,500 is 1,500 here. */
-const graphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
-const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))].length
 const CONVERSATION_MS = 24 * 3600_000
 /** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
  * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
