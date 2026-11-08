@@ -15,7 +15,8 @@ import { ourNetworkRoute, usLinkRoute, whoIs, type Who } from './us'
 import { APP_STORE_FROM } from './readers'
 import { searchConsoleRoute } from './admin/quality'
 import { recordSnapshot } from './admin/content'
-import { ownReferrer, parseEvent, toDataPoint } from './events'
+import { ownReferrer, parseEvent, toDataPoint, visitorOf } from './events'
+import { VISITOR_STATS } from './stats-switch'
 import { redirectFor } from './redirects'
 import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
 import { appPageClosed } from './app-switch'
@@ -90,7 +91,7 @@ async function events(req: Request, url: URL, env: FullEnv): Promise<Response> {
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e) return new Response(null, { status: 400 })
-  env.EVENTS?.writeDataPoint(toDataPoint(ownReferrer(e, url.hostname), String((req as { cf?: { country?: string } }).cf?.country ?? ''), await whoIs(req, env)))
+  env.EVENTS?.writeDataPoint(toDataPoint(visitorOf(ownReferrer(e, url.hostname), req, VISITOR_STATS), String((req as { cf?: { country?: string } }).cf?.country ?? ''), await whoIs(req, env)))
   return new Response(null, { status: 204 })
 }
 

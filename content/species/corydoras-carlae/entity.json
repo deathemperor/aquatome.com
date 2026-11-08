@@ -94,6 +94,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -103,12 +110,38 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 4.2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -120,16 +153,46 @@
       "html": "<ul><li><strong>Scientific name:</strong> Hoplisoma carlae (Nijssen &amp; Isbrücker, 1983)</li><li><strong>Common names:</strong> Carla's Cory</li><li><strong>Size:</strong> 42 mm (1.7\") SL</li><li><strong>Etymology:</strong> Named to honour Mrs. Carla Lindenaar-Sparrius.</li><li><strong>IUCN Red List:</strong> Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Hoplisoma carlae, long known as Corydoras carlae, is an armoured catfish endemic to the lower Río Iguazu in Misiones province, northern Argentina. It appears restricted to small tributaries above the Iguazu Falls with clear, fast-flowing, shallow water, and needs stable, clean conditions. Two large, indistinct dark blotches on each flank separate it from most similar congeners, and it was introduced to the hobby by Hans-Georg Evers in 2010.</p><ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
       "html": "<p>South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Endemic to the lower Río Iguazu in Misiones province, northern Argentina.</p><p>Type locality is 'Small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Apparently restricted to smaller tributary drainages above the famous Iguazu Falls, with images depicting relatively clear, fast-flowing, shallow river with thick riparian vegetation and patches of submerged Echinodorus uruguayensis.</p><p>Such habitats in Argentina are typically subject to significant seasonal variations in water volume, flow, turbidity, chemistry and temperature.</p><p>The Arroyo Tirica is type locality of the loricariid Hisonotus hungy in Misiones province, and Hoplisoma carlae has been recorded there alongside Astyanax eigenmanniorum, A. cf. fasciatus, A. cf. troya, Australoheros tembe, Bryconamericus iheringii, Characidium sp., Gymnogeophagus che, Heptapterus mustelinus, Oligosarcus jenynsii, O. paranensis and Schizodon nasutus.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p><p>Given it inhabits pristine environments with flowing water this species requires stable, clean water conditions and should never be added to a biologically immature set-up.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
       "html": "<ul><li>pH: 6.0 - 8.0</li><li>Temperature: 22.0-26.0°C (71.6-78.8°F)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<ul><li>Temperature: 15–22°C</li><li>pH: 6.5–8.0</li><li>Hardness: 3–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -144,10 +207,22 @@
       "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fishes for spawning.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
       "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
       "key": "dimorphism",
@@ -156,20 +231,97 @@
       "html": "<p>Females grow larger and are more full-bodied, this is best observed from above the fish. Males will typically have more pointed as opposed to more rounded fin tips as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
       "html": "<p>Unreported.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<p>This species is not available on a commercial basis but was collected and introduced to the aquarium hobby by Hans-Georg Evers in 2010.</p><p>It's similar in appearance to a number of congeners including Hoplisoma diphyes, H. ehrhardti, Brochis garbei, H. paleatum and H. steindachneri but can be told apart from most of them by possession of two large, indistinct, dark blotches in the middle of each flank.</p><p>H. ehrhardti also has two midlateral blotches but they are more well-defined.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1065",
       "html": "<p>Revue française d'Aquariologie Herpétologie v. 10 (no. 3), pp 76, Figs. 5, 10c.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Azpelicueta, M. de las M., A. E. Almirón, J. R. Casciotta and S. Körber (2007). Hisonotus hungy sp. n. (Siluriformes, Loricariidae) a new species from arroyo Tirica, Misiones, Argentina. Revue Suisse de Zoologie 114(3), 591-598</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Axenrot, T. E. and S. O. Kullander (2003). Corydoras diphyes (Siluriformes: Callichthyidae) and Otocinclus mimulus (Siluriformes: Loricariidae), two new species of catfishes from Paraguay, a case of minetic association. Ichthyological Exploration of Freshwaters 14(3), 249-272</li><li>Evers, H-G. (2010). Shane's World: In search of Corydoras carlae. World Wide Web electronic publication, www.planetcatfish.com, Accessed on 13.02.06</li><li>Nijssen, H. and I. J. H. Isbrücker (1983). Sept espèces nouvelles de poissons-chats cuirassés du genre Corydoras Lacepède, 1803, de Guyane française, de Bolivie, d'Argentine, du Surinam et du Brésil (Pisces, Siluriformes, Callichthyidae). Revue Française d'Aquariologie Herpétologie 10(3), 73-84</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fc15253493902081.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fc15253493902081-480.webp",
+      "width": 721,
+      "height": 481,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "caption": "Young, captive-bred adult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ef740edce32cd855.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ef740edce32cd855-480.webp",
+      "width": 799,
+      "height": 599,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "caption": "The main Iguazu channel above the falls, close to the type locality of C carlae.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/27d1afcff43737bb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/27d1afcff43737bb-480.webp",
+      "width": 799,
+      "height": 599,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-carlae",
+      "caption": "This species inhabits tributaries close to the awe-inspiring Iguazu Falls on the Río Iguazu, Argentina.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "S9NbQmGNG9E",
+      "title": "CORYDORAS CARLAE",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FIfQjeuf0Pw",
+      "title": "CORYDORAS CARLAE",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1fD9uS1y6VQ",
+      "title": "Corydoras carlae",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AD2D5NB6wfM",
+      "title": "Corydoras carlae",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -192,5 +344,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-08"
 }

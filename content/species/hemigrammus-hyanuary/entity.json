@@ -11,6 +11,295 @@
     "brazil",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Lake Hyanuary"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Otherwise the comparison with the neon or cardinal tetra can hardly be explained, because H. hyanuary – which by the way is named after Lake Hyanuary in Brazil – is really nicely colored, but it has little in common with a neon fish.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The January tetra, Hemigrammus hyanuary, is a small characin from the Amazon basin in Peru and Brazil.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimen was collected from Lake Hyanuary, near the Brazilian city of Manaus.",
+          "countries": [],
+          "regions": [
+            "Lake Hyanuary"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354340,
+      "total": 105,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          65
+        ],
+        [
+          "PE",
+          28
+        ],
+        [
+          "BO",
+          5
+        ],
+        [
+          "VE",
+          5
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          26,
+          26
+        ],
+        [
+          -73.125,
+          -8.4375,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          2,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

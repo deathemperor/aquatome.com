@@ -5,8 +5,9 @@ import { LIVE, sourcePages } from './pages'
 // Answer first on a phone (PRODUCT.md). The design critique of 2026-11-06 measured, at 390 × 844, a fish page's summary
 // 2.7–2.9 screens down and its first care question at 5.3–6.1: before them the key facts, the photo, the whole data card
 // repeating the same figures, tank mates, the climate box and the gallery. The page now reads: name and key facts, the
-// card folded under them, the summary, the photo, then the care text ("Thông tin nhanh" folded too) with tank mates and
-// the climate after the questions they answer, the gallery after that, and a screen reader meets them in that order.
+// card folded under them, the summary, the photo and one row of the gallery's thumbnails (the owner wanted the gallery
+// there, 8 November), then the care text ("Thông tin nhanh" folded too) with tank mates and the climate after the
+// questions they answer, and a screen reader meets them in that order.
 // Fish both builds have, with a summary: Cá neon vua on the fixture; Cá neon xanh and Cá betta on aquatome.com (betta's
 // first care question was 2.9 screens down on 2026-11-06).
 const FISH = LIVE ? ['/ca/ca-neon-xanh/', '/ca/ca-betta/'] : ['/ca/ca-neon-vua/', '/ca/ca-neon-xanh/']
@@ -22,6 +23,7 @@ test('a fish page on a phone: the summary within 1.5 screens, the first care que
     await page.goto(path)
     if (await page.locator('.qs').count()) expect(await screens(page, '.qs'), `${path}: the summary`).toBeLessThanOrEqual(1.5)
     if (await page.locator(CARE).count()) expect(await screens(page, CARE), `${path}: the first care question`).toBeLessThanOrEqual(3)
+    if (await page.locator('main section.strip').count()) expect(await screens(page, 'main section.strip'), `${path}: the gallery, before the care text`).toBeLessThan(await screens(page, CARE))
     // "Thông tin nhanh", which the key facts and summary mostly repeat, is a row to open.
     const quick = page.locator('#muc-quickFacts details.fold')
     if (await quick.count()) await expect(quick).not.toHaveAttribute('open')

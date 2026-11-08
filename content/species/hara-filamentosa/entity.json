@@ -11,6 +11,108 @@
     "salween",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Ataran",
+        "Sittang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Erethistes filamentosus is a small erethistid catfish from the Ataran, Salween and Sittang river drainages of Myanmar and Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween",
+            "Ataran",
+            "Sittang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341515,
+      "total": 19,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          10
+        ],
+        [
+          "MM",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          15.46875,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

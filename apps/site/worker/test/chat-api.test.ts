@@ -114,7 +114,7 @@ test('GET: off without the flag or what it needs; on, its limits; through the Wo
     expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: false })
   }
   const { e } = env()
-  expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 500 })
+  expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 1500 })
   const viaWorker = await handle(new Request('https://x.test/api/chat'), e as never)
   expect(await viaWorker.json()).toMatchObject({ on: true })
   const off = await run(ask({}), env({ CHAT: undefined }).e, {})
@@ -143,9 +143,29 @@ test('who may ask: an app session as a bearer, or a site session from the site\'
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [], photo: 'x' } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
-  expect(await status(ask(bearer(app.token), { question: 'á'.repeat(501) }))).toEqual([413, 'too long'])
+  // One character past the limit (a whole forum post fits: maxChars) is refused, saying the limit, so the client keeps the text and says it.
+  expect(await status(ask(bearer(app.token), { question: 'á'.repeat(1501) }))).toEqual([413, 'too long'])
+  expect((await run(ask(bearer(app.token), { question: 'á'.repeat(1501) }), e, deps(c.fetch))).body).toEqual({ error: 'too long', limit: 1500 })
   expect(c.bodies).toHaveLength(0)
   expect(await status(ask({ cookie: `${COOKIE}=${web.token}`, origin: 'https://x.test' }))).toEqual([200, undefined])
+})
+
+test('a question is counted in characters as the reader sees them, as the app counts: Thai marks and tone marks typed apart are part of their letter', async () => {
+  const { e, db } = env()
+  const app = await signIn(db, 'app')
+  const c = claude(NEON)
+  const status = async (question: string, conversation: string) => {
+    const r = await run(ask(bearer(app.token), { question, conversation }), e, deps(c.fetch))
+    return [r.res.status, r.body.error]
+  }
+  // "ที่" is three code points and one character; "ệ" as older forums keep it (e, a dot below, a hat) is three as well.
+  const thai = 'ที่', vi = 'ệ'.normalize('NFD')
+  expect([[...thai].length, [...vi].length]).toEqual([3, 3])
+  expect(await status(thai.repeat(1500), '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e01')).toEqual([200, undefined])
+  expect(await status(vi.repeat(1500), '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e02')).toEqual([200, undefined])
+  expect(await status(thai.repeat(1501), '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e03')).toEqual([413, 'too long'])
+  // Spaces and line breaks around a pasted post aren't counted: they aren't asked.
+  expect(await status(`\n\n${vi.repeat(1500)}\n\n`, '7c0e8d1a-5b6f-4c2d-9e3a-1f4b5c6d7e04')).toEqual([200, undefined])
 })
 
 test('a question: Claude reads the handbook and answers; the blocks are filled from it, the conversation keeps the turn, chat\'s own day counts it', async () => {
