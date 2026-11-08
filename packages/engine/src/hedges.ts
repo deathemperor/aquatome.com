@@ -19,7 +19,7 @@ export const HEDGE_VI = /(?<!\p{L})(?:có thể|(?<!(?:bình|bất|khác|coi|b�
  */
 const HEDGE_VI_FROM = new RegExp(HEDGE_VI.source.replace('hay(?= \\p{L})', 'hay (?:bị|gặp|có|mọc|bùng|làm|thấy|ăn|đẻ|chết|cắn|đuổi|nhảy|trốn|vướng)'), 'iu')
 /** In its own language: "can thiệp" and "may mắn" are Vietnamese, not "can" and "may". */
-const hedged = (s: string) => (/\p{M}/u.test(s.normalize('NFD')) ? HEDGE_VI_FROM : HEDGE_EN).test(s)
+export const hedged = (s: string) => (/\p{M}/u.test(s.normalize('NFD')) ? HEDGE_VI_FROM : HEDGE_EN).test(s)
 
 export type HedgePair = { from: string; to: string }
 const ENTITY: Record<string, string> = { lt: '<', gt: '>', amp: '&', nbsp: ' ', quot: '"', '#39': "'" }
@@ -27,15 +27,39 @@ const ENTITY: Record<string, string> = { lt: '<', gt: '>', amp: '&', nbsp: ' ', 
  * A text as a reviewer quotes it: no tags (an inline one, as in "<em>C. punctatus</em>,", leaves nothing; a block's end
  * leaves a space), entities read, no space before punctuation. Only a tag is a tag: "<40 ppm … >30 °C" stays.
  */
-const text = (s: string) => s
-  .replace(/<\/?(?:p|li|ul|ol|h[1-6]|tr|td|th|table|div|br)\b[^>]*>/gi, ' ').replace(/<\/?[a-z][^>]*>/gi, '')
+const BLOCK = 'p|li|ul|ol|h[1-6]|tr|td|th|table|div|br'
+export const text = (s: string) => s
+  .replace(new RegExp(`<\\/?(?:${BLOCK})\\b[^>]*>`, 'gi'), ' ').replace(/<\/?[a-z][^>]*>/gi, '')
   .replace(/&(lt|gt|amp|nbsp|quot|#39);/g, (_, e: string) => ENTITY[e]!)
   .replace(/\s+/g, ' ').replace(/ ([,.;:!?)])/g, '$1').trim()
 
-/** The pairs whose source sentence hedges and whose written sentence, there in the text, no longer does. */
+/**
+ * The items of each list whose lead-in hedges, in its last clause: "Nước có thể bị đọng trong mấy trường hợp sau:" hedges
+ * every item under it, lists inside it too; "Nước có thể bẩn, nên làm các bước sau:" hedges none.
+ */
+function underHedge(html: string): string[] {
+  // Inline tags out, so a lead-in reads as one run of words: "Nước <strong>có thể</strong> bị đọng:".
+  const h = html.replace(new RegExp(`<\\/?(?!(?:${BLOCK})\\b)[a-z][^>]*>`, 'gi'), '')
+  const out: string[] = []
+  for (const m of h.matchAll(/([^.!?:>]*):\s*(?:<\/p>\s*)?<(?:ul|ol)\b[^>]*>/gi)) {
+    if (!HEDGE_VI.test(text(m[1]!.split(/[,;]/).pop()!))) continue
+    const start = m.index + m[0].length
+    const tags = /<(\/?)(?:ul|ol)\b[^>]*>/gi
+    tags.lastIndex = start
+    let depth = 1, end = h.length
+    for (let t = tags.exec(h); t; t = tags.exec(h)) { depth += t[1] ? -1 : 1; if (!depth) { end = t.index; break } }
+    out.push(...[...h.slice(start, end).matchAll(/<li\b[^>]*>([\s\S]*?)(?=<\/?(?:li|ul|ol)\b|$)/gi)].map(li => text(li[1]!)))
+  }
+  return out
+}
+
+/**
+ * The pairs whose source sentence hedges and whose written sentence, there in the text, no longer does, by itself or by the
+ * lead-in of the list it's in. `to` in its markup, for the lists.
+ */
 export function hedgesLost(pairs: HedgePair[], from: string, to: string): HedgePair[] {
-  const a = text(from), b = text(to)
-  return pairs.filter(x => x.to.trim() && a.includes(text(x.from)) && hedged(text(x.from)) && b.includes(text(x.to)) && !HEDGE_VI.test(text(x.to)))
+  const a = text(from), b = text(to), listed = underHedge(to)
+  return pairs.filter(x => x.to.trim() && a.includes(text(x.from)) && hedged(text(x.from)) && b.includes(text(x.to)) && !HEDGE_VI.test(text(x.to)) && !listed.some(li => li.includes(text(x.to))))
 }
 
 /** What a reviewer is asked for, naming its two texts as its prompt does ("EN" and "VI", "BEFORE" and "AFTER"). */
