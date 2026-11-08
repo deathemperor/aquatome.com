@@ -1,7 +1,7 @@
 import { spawn, spawnSync } from 'node:child_process'
-import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 
@@ -51,6 +51,8 @@ spec = importlib.util.spec_from_file_location("sim_run", ${JSON.stringify(SIM_RU
 sim_run = importlib.util.module_from_spec(spec); spec.loader.exec_module(sim_run)
 real = subprocess.Popen
 def starting(argv, *a, **k):
+    if argv[:1] != ["sh"]:  # sim-run's own calls (ps), not the command
+        return real(argv, *a, **k)
     p = real(argv, *a, **k)
     open(${JSON.stringify(`${dir}/pid`)}, "w").write(str(p.pid))
     while not os.path.exists(${JSON.stringify(`${dir}/up`)}): time.sleep(0.01)
@@ -103,6 +105,31 @@ test("this Mac's runner's simulator run waits while the Mac is hot, and a lead's
   const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
   expect(s.status).toBe(0)
   expect(s.stdout).toContain('went on after')
+}, 30_000)
+
+// 2026-11-08: after main's simulator booted, its mediaanalysisd took 3.4 cores at normal priority for 8 min, and a 0.4 s job
+// on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it.
+test("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
+  const dir = home()
+  const daemon = (path: string) => {
+    mkdirSync(dirname(join(dir, path)), { recursive: true })
+    symlinkSync('/bin/sleep', join(dir, path))
+    return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
+  }
+  const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
+  const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
+  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+  try {
+    await wait(200)
+    const before = nice(mac.pid)
+    expect(nice(sim.pid)).toBe(before)
+    expect(spawnSync(SIM_RUN, ['sleep', '1'], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+    expect(nice(sim.pid)).toBe(20)
+    expect(nice(mac.pid)).toBe(before)
+  } finally {
+    sim.kill()
+    mac.kill()
+  }
 }, 30_000)
 
 test("the runner's second ask ends the command, so nothing is left running when the turn passes on", async () => {

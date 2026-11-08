@@ -4,7 +4,8 @@
 Leads' runs and the runner's jobs share one queue (~/.cache/aquatome/sim.lock), separate from the checks lock, so vitest
 doesn't wait behind an hour of flows. A job's stop reaches the command, as `exec` does in ios.yml: lockf(1) wouldn't pass
 it on, which left xcodebuild running with no parent on 2026-11-04. Copies of the simulator are capped at MAX_COPIES. The
-runner's jobs on this Mac wait while it's hot before they take their turn (cool).
+runner's jobs on this Mac wait while it's hot before they take their turn (cool). While a run has its turn, its
+simulator's photo and media analysis runs in the background (quiet).
 """
 import fcntl
 import os
@@ -12,6 +13,7 @@ import re
 import signal
 import subprocess
 import sys
+import threading
 import time
 
 LOCK = os.path.expanduser("~/.cache/aquatome/sim.lock")
@@ -21,6 +23,9 @@ MAX_COPIES = 2
 HOT = 2
 COOL_MINUTES = float(os.environ.get("SIM_RUN_COOL_MINUTES", 30))
 COOL_PAUSE = float(os.environ.get("SIM_RUN_COOL_PAUSE", 30))
+# A simulator's own analysis daemons, never the Mac's: their path is inside a simulator runtime's RuntimeRoot.
+ANALYSIS = re.compile(r"/CoreSimulator/.*/RuntimeRoot/System/Library/PrivateFrameworks/(MediaAnalysis|PhotoAnalysis)\.framework/")
+QUIET_PAUSE = float(os.environ.get("SIM_RUN_QUIET_PAUSE", 20))
 
 
 def capped(argv):
@@ -56,6 +61,29 @@ def cool():
         waited += max(COOL_PAUSE, 0.001)
     if waited:
         print(f"sim-run: went on after {waited / 60:.0f} min", flush=True)
+
+
+def quiet():
+    """A simulator's photo and media analysis (mediaanalysisd, photoanalysisd) runs at background priority while a run
+    has its turn. On 2026-11-08, after main's simulator booted, mediaanalysisd took 3.4 cores at normal priority for 8 min,
+    for nothing the tests read, and a 0.4 s job on the Mac took up to 23 s. It still runs, on what's left over."""
+    done = set()
+    while True:
+        try:
+            out = subprocess.run(["ps", "-A", "-ww", "-o", "pid=,args="], capture_output=True, text=True, timeout=10).stdout
+        except (OSError, subprocess.SubprocessError):
+            out = ""
+        for line in out.splitlines():
+            pid, _, args = line.strip().partition(" ")
+            if pid in done or not ANALYSIS.search(args):
+                continue
+            done.add(pid)
+            try:
+                os.setpriority(os.PRIO_PROCESS, int(pid), 20)
+                subprocess.run(["taskpolicy", "-b", "-p", pid], capture_output=True, timeout=10)
+            except (OSError, ValueError, subprocess.SubprocessError):
+                pass
+        time.sleep(QUIET_PAUSE)
 
 
 def main():
@@ -101,6 +129,7 @@ def main():
     child = subprocess.Popen(argv)
     for signum in pending:
         forward(signum, None)
+    threading.Thread(target=quiet, daemon=True).start()
     code = child.wait()
     sys.exit(128 - code if code < 0 else code)
 
