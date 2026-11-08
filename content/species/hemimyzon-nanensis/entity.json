@@ -10,6 +10,52 @@
     "thailand",
     "nan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Nam Nan",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper Mae Nam Nan river basin, itself a tributary of the upper Chao Phraya system in Nan province, northern Thailand, making it the first member of the genus to be recorded outside China and Taiwan.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mae Nam Nan",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358777,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

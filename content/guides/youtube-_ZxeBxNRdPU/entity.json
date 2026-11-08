@@ -6,9 +6,11 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "caridina-multidentata",
+    "rotala-rotundifolia"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "_ZxeBxNRdPU",
     "title": "5 MISTAKES I've made as a BEGINNER AQUASCAPER",
@@ -29,10 +31,9 @@
     "taxa": [
       "Caridina multidentata",
       "Neritina natalensis",
-      "Rotala rotundifolia",
-      "Limnophila sp.",
       "Anubias sp.",
-      "Bucephalandra sp."
+      "Rotala rotundifolia",
+      "Limnophila sp."
     ],
     "gear": [
       {
@@ -40,62 +41,45 @@
         "t": 0
       },
       {
-        "category": "co2",
-        "type": "mini",
-        "t": 65
-      },
-      {
         "category": "phan-nen",
         "type": "phan",
         "t": 137
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 104
       }
     ],
     "figures": [
       {
-        "heading": "Sai lầm 1: Nghĩ rằng cây chỉ cần phân nước, không cần CO2",
+        "heading": "Không châm CO2 thì cây có lên được không",
         "moments": [
           {
             "t": 36,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t36.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây xanh dày trong bể thủy sinh có thiết bị CO2."
+            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/at36-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây xanh mướt phủ nền bên cạnh hòn đá trong bể."
           },
           {
-            "t": 101,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t101.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh xanh tươi cạnh cụm cây đỏ cam rực rỡ."
+            "t": 100,
+            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bụi cây thủy sinh xanh và đỏ rực, lá dày khỏe."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/p0-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/_ZxeBxNRdPU/p0-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây dày với nhiều cây thân đỏ cam và đàn cá neon."
-        }
+        ]
       },
       {
-        "heading": "Sai lầm 2: Trồng quá ít cây lúc mới set bể",
+        "heading": "Vì sao nên trồng nhiều cây ngay từ đầu",
         "moments": [
           {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t140.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây mới trồng thưa thớt trên nền đất đen, còn nhiều chỗ trống."
-          },
-          {
-            "t": 144,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t144.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh vài bụi cây con trồng cách xa nhau trên phân nền."
+            "t": 146,
+            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/at146-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây mới trồng thưa thớt trên nền đất đen."
           }
         ],
         "photo": {
@@ -106,23 +90,30 @@
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh trồng dày kín cây, nhiều loại cây thân và thảm phủ."
+          "caption": "Bể thủy sinh trồng dày nhiều loại cây, rêu hại khó có chỗ mọc."
         }
       },
       {
-        "heading": "Sai lầm 3: Dùng cát hoặc sỏi trang trí thay vì phân nền",
+        "heading": "Cát, sỏi trang trí hay phân nền",
         "moments": [
           {
+            "t": 142,
+            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/at142-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây mọc xanh tốt trên lớp phân nền aqua soil màu đen."
+          },
+          {
             "t": 180,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t180.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây xanh mướt mọc dày trên lớp phân nền đen."
+            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/at180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây lùn lên dày trên nền phân nền trong bể thủy sinh."
           }
         ]
       },
       {
-        "heading": "Sai lầm 4: Không nuôi đội dọn rêu",
+        "heading": "Thả cá, tép, ốc ăn rêu",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/p3-YW4sMjAwNykuanBn.webp",
@@ -132,25 +123,18 @@
           "licence": "CC BY-SA 3.0",
           "author": "Seotaro",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina_multidentata(Hamamatsu,Shizuoka,Japan,2007).jpg",
-          "caption": "Tép Amano bò trên nền sỏi cạnh khúc lũa trong bể thủy sinh."
+          "caption": "Tép Amano trong bể thủy sinh, bò trên nền sỏi gần lũa."
         }
       },
       {
-        "heading": "Sai lầm 5: Chỉ trồng cây mọc chậm",
+        "heading": "Vì sao cần có cây mọc nhanh",
         "moments": [
           {
-            "t": 216,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t216.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thân đỏ mọc nhanh cạnh lũa và đá trong bể thủy sinh."
-          },
-          {
             "t": 220,
-            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/t220.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cụm cây mọc nhanh xen lẫn rêu phủ đá và lũa."
+            "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây rotala đỏ mọc rậm trong bể thủy sinh."
           }
         ],
         "photo": {
@@ -161,21 +145,7 @@
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi Rotala mọc nhanh, lên màu hồng đỏ đẹp trong bể thủy sinh."
-        }
-      },
-      {
-        "heading": "Điểm chung của năm sai lầm",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_ZxeBxNRdPU/p5-0ZXJfRmlzaC5wbmc.webp",
-          "thumb": "https://media.aquatome.com/video/_ZxeBxNRdPU/p5-0ZXJfRmlzaC5wbmc-480.webp",
-          "width": 940,
-          "height": 788,
-          "licence": "CC BY-SA 4.0",
-          "author": "Chamika Ranaweera",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_Algae_Eater_Fish.png",
-          "caption": "Đàn cá dọn rêu bơi quanh khúc lũa phủ cây thủy sinh xanh tốt."
+          "caption": "Bụi rotala mọc nhanh, dày và lên màu đỏ đẹp trong bể thủy sinh."
         }
       }
     ]

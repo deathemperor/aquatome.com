@@ -180,8 +180,10 @@ REACH = {
     # sends its commands.
     KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
-    # The owner's dashboard's flows read it: the stand-in server serves its replies.
-    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests'],
+    # The owner's dashboard's flows read it: the stand-in server serves its replies, and the owner's row counts its to-dos.
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'],
+    # The sample's waiting photos, which the stand-in server serves to the dashboard's flows.
+    'apps/site/e2e/photos/': ['OwnerFlowTests', 'PageShotsFlowTests'],
     # The stand-in chat streams the chat's recorded answers.
     'protocols/chat-stream-': ['ChatFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
@@ -253,9 +255,9 @@ def check(runs, left, reached):
     assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests',
                                                           'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'}
     # The owner's dashboard: its flows and its page shots, and the tanks tab's with them where its row is; its vectors
-    # reach them too.
+    # reach them too, and the owner's row, which counts the overview's to-dos.
     assert reached([APP + 'Owner/OwnerBlocks.swift']) == {'OwnerFlowTests', 'PageShotsFlowTests'}
-    assert reached(['protocols/owner-dashboard-vectors.json']) == reached([APP + 'Owner/OwnerText.swift'])
+    assert reached(['protocols/owner-dashboard-vectors.json']) == reached([APP + 'Owner/OwnerText.swift']) | {'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'}
     # The tanks list takes the page shots; the Tài khoản sheet and its button, every flow that goes through the sheet and
     # the page shots too; the account's other files, its flows alone.
     assert 'PageShotsFlowTests' in reached([APP + 'Tanks/TanksView.swift'])

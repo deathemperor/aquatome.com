@@ -5,11 +5,12 @@
     "Pogostemon erectus"
   ],
   "difficulty": 2,
-  "light": "medium",
+  "light": "high",
   "co2": "optional",
   "growth": "medium",
   "placement": [
-    "background"
+    "background",
+    "midground"
   ],
   "sections": [
     {
@@ -19,52 +20,100 @@
       "html": "<ul><li><strong>Type:</strong> Stem plant</li><li><strong>Origin:</strong> Asia</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 15–30+ cm</li><li><strong>Light demand:</strong> Medium</li><li><strong>CO2:</strong> Medium (6–14 mg/L)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "2hraquarist",
+      "sourceUrl": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus",
+      "html": "<p>Pogostemon deccanensis was previously named Pogostemon erectus. It is native to India. It is a green stem plant with a tinge of yellow at the needle-thin leaf tips when grown in higher light with sufficient nutrients available. It grows vertically in a neat upright fashion with a relatively compact habit. Its green needle leaves contrast well with coloured plants.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "2hraquarist",
+      "sourceUrl": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus",
+      "html": "<p>It is generally not a difficult plant to grow. It will often stunt if grown in a combination of hard water and heavy water column nutrient dosing. In hard water tanks, root feeding and keeping the water column dosage low will prevent stunting.</p><h3>Key success factors</h3><ul><li>Strong lighting gives yellow tinge to the tops</li><li>CO2 injection must be sufficient, though it is tolerant of low levels</li><li>Soft water (low KH &lt;3 dKH) makes it easier to grow this plant</li><li>Can be grown in hard water if it is mainly root-fed rather than water column fed nutrients</li><li>If tips are stunted, reduce water column dosing and switch to root feeding instead</li></ul>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemondeccanensis(053FTC)/4497",
       "html": "<p>The Indian Pogostemon deccanensis (formerly known as Pogostemon erectus) forms compact groups of bright green, conifer-like stems, 15-40 cm tall and 1-3 cm wide. Pogostemon erectus is suitable as a background plant and creates a wonderful focal point in both smaller and larger groups. Intense light helps the plant to stay compact for a longer period. Moderate growth and vigorous roots. Plants will need frequent pruning, and cut off shoots will easily start growing when planted.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "2hraquarist",
+      "sourceUrl": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus",
+      "html": "<p>Its neat growth habit makes it an effective background plant for larger aquascapes where the alignment of the tops of the plants is important for aquascaping purposes. Cutting off the tops allows the lower part of the plant to branch out several times - this also allows the tops to be aligned in height at the same time. Its moderate growth rate compared to faster growing stem plants means that this plant can also be used in the middle of the aquarium.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp",
+      "thumb": "https://media.aquatome.com/2hraquarist/23c32762f38f1076-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "2Hr Aquarist",
+      "sourceUrl": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus",
+      "source": "2hraquarist"
+    },
+    {
+      "url": "https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp",
+      "thumb": "https://media.aquatome.com/2hraquarist/370f9f563d36df11-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "2Hr Aquarist",
+      "sourceUrl": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus",
+      "source": "2hraquarist"
+    },
+    {
+      "url": "https://media.aquatome.com/2hraquarist/881912be3f678bf6.webp",
+      "thumb": "https://media.aquatome.com/2hraquarist/881912be3f678bf6-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "2Hr Aquarist",
+      "sourceUrl": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus",
+      "source": "2hraquarist"
+    },
+    {
       "url": "https://media.aquatome.com/commons/5c6614eacd1e3e46.webp",
+      "thumb": "https://media.aquatome.com/commons/5c6614eacd1e3e46-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 2.0",
       "author": "Dinesh Valke from Thane, India",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_deccanensis_(Panigrahi)_Press_(6230292509).jpg",
-      "caption": "Lamiaceae (mint family) » Pogostemon deccanensis po-go-STEM-on -- from the Greek pogon (beard) and stemon (thread, stamen) day-kahn-NEN-sis -- of or from Deccan peninsula, India commonly known as: Dec",
-      "thumb": "https://media.aquatome.com/commons/5c6614eacd1e3e46-480.webp"
+      "caption": "Lamiaceae (mint family) » Pogostemon deccanensis po-go-STEM-on -- from the Greek pogon (beard) and stemon (thread, stamen) day-kahn-NEN-sis -- of or from Deccan peninsula, India commonly known as: Dec"
     },
     {
       "url": "https://media.aquatome.com/commons/f81ac9bca4356df4.webp",
+      "thumb": "https://media.aquatome.com/commons/f81ac9bca4356df4-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Swapnil Kumbhar",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_deccanensis_Kaas_Plateau.jpg",
-      "caption": "The Kaas Plateau also known as the \"Kaas Pathar\" is a plateau situated 25 kilometres from Satara in Maharashtra, India.It falls under the Sahyadri Sub Cluster of the Western Ghats which is now a UNESC",
-      "thumb": "https://media.aquatome.com/commons/f81ac9bca4356df4-480.webp"
+      "caption": "The Kaas Plateau also known as the \"Kaas Pathar\" is a plateau situated 25 kilometres from Satara in Maharashtra, India.It falls under the Sahyadri Sub Cluster of the Western Ghats which is now a UNESC"
     },
     {
       "url": "https://media.aquatome.com/commons/d11030dc5c5018d5.webp",
+      "thumb": "https://media.aquatome.com/commons/d11030dc5c5018d5-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 2.0",
       "author": "Dinesh Valke from Thane, India",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_deccanensis_(5287524469).jpg",
-      "caption": "Lamiaceae (mint family) » Pogostemon deccanensis po-go-STEM-on -- from the Greek pogon (beard) and stemon (thread, stamen) day-kahn-NEN-sis -- of or from Deccan peninsula, India commonly known as: Dec",
-      "thumb": "https://media.aquatome.com/commons/d11030dc5c5018d5-480.webp"
+      "caption": "Lamiaceae (mint family) » Pogostemon deccanensis po-go-STEM-on -- from the Greek pogon (beard) and stemon (thread, stamen) day-kahn-NEN-sis -- of or from Deccan peninsula, India commonly known as: Dec"
     },
     {
       "url": "https://media.aquatome.com/commons/370f8bd580b63fc0.webp",
+      "thumb": "https://media.aquatome.com/commons/370f8bd580b63fc0-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 2.0",
       "author": "Dinesh Valke from Thane, India",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Deccan_Pogostemon_(2898709241).jpg",
-      "caption": "Lamiaceae (mint family) » Pogostemon deccanensis po-go-STEM-on -- from the Greek pogon (beard) and stemon (thread, stamen) day-kahn-NEN-sis -- of or from Deccan peninsula, India commonly known as: Dec",
-      "thumb": "https://media.aquatome.com/commons/370f8bd580b63fc0-480.webp"
+      "caption": "Lamiaceae (mint family) » Pogostemon deccanensis po-go-STEM-on -- from the Greek pogon (beard) and stemon (thread, stamen) day-kahn-NEN-sis -- of or from Deccan peninsula, India commonly known as: Dec"
     }
   ],
   "productSlots": [
@@ -94,5 +143,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-08"
 }

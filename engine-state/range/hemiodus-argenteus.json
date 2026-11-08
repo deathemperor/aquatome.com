@@ -1,0 +1,171 @@
+{
+  "id": "hemiodus-argenteus",
+  "native": {
+    "input": "775caa9ee9660bb8",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus argenteus is a shoaling hemiodontid characin from Venezuela, Guyana, Suriname and Brazil, where it inhabits floodplain rivers and lakes.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus argenteus is a shoaling hemiodontid characin from Venezuela, Guyana, Suriname and Brazil, where it inhabits floodplain rivers and lakes.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus argenteus is a shoaling hemiodontid characin from Venezuela, Guyana, Suriname and Brazil, where it inhabits floodplain rivers and lakes.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus argenteus is a shoaling hemiodontid characin from Venezuela, Guyana, Suriname and Brazil, where it inhabits floodplain rivers and lakes.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiodus argenteus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354901,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        43
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        41
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        38
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        28
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        17
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        16
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        8
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY",
+      "SR",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}
