@@ -69,6 +69,9 @@ export const LoopSchema = z.object({
   h: z.number().int().positive(),
   seconds: z.number().positive().max(10),
   licence: z.string().min(1),
+  /** The licence's own page (for Creative Commons, its deed), which the credit links. Every loop is cut from a longer
+   * clip and looped, and the credit says so: CC BY and BY-SA ask that a change be noted (council, 2026-11-08). */
+  licenceUrl: z.string().url(),
   author: z.string().min(1),
   /** The original's page, for the credit. */
   source: z.string().url(),

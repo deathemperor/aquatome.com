@@ -126,7 +126,8 @@ Short silent loops, real footage of the species: a fish swimming, or hovering wi
 
   Never a cut from a YouTube video we may only embed.
 - **Each clip** is checked: the right species, no people, hands, logos, watermarks or text, good enough for a large
-  card. Its credit shows on the species page.
+  card. Its credit shows wherever it plays: the author, the licence linked to its own page (`licenceUrl`), and
+  "cut and looped from" the original, linked. A CC BY-SA loop is itself CC BY-SA, with nothing added that restricts it.
 
 ### Generated video
 

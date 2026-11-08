@@ -8,7 +8,7 @@ import { getContent } from '../src/lib/content'
 const IMG = 'https://media.aquatome.com/commons/0000000000000001.webp'
 const LOOP = {
   src: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.mp4', poster: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.webp',
-  w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
+  w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
 }
 const calendar: Curation = CurationSchema.parse({
   version: 1,
