@@ -16,9 +16,10 @@
     "phyllanthus-fluitans",
     "cyperus-helferi",
     "poecilia-reticulata",
-    "dario-dario"
+    "dario-dario",
+    "micranthemum-tweediei"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "Yvw0qjsNVQc",
     "title": "CHEAP DIRT vs EXPENSIVE AQUASOIL: THE FINAL VERDICT!",
@@ -45,8 +46,8 @@
       "Rotala rotundifolia",
       "Ludwigia repens",
       "Phyllanthus fluitans",
-      "Cyperus helferi",
       "Poecilia reticulata",
+      "Cyperus helferi",
       "Dario dario"
     ],
     "gear": [
@@ -58,168 +59,97 @@
       {
         "category": "co2",
         "type": "binh",
-        "t": 120
+        "t": 135
       },
       {
-        "category": "phan-nen",
-        "type": "soi",
+        "category": "loc",
+        "type": "thung",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 0
+      },
+      {
+        "category": "be-ca",
         "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Hai bể được so sánh thế nào",
+        "heading": "Bài học lớn nhất: bể high-tech cần phân nước",
         "moments": [
           {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t5-hd.webp",
+            "t": 60,
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at60-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh high tech cây thân rậm rạp, thảm tiền cảnh xanh mướt."
+            "caption": "Hai bể high-tech cạnh nhau trên kệ, cây xanh tốt và đỏ rực."
+          },
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây rậm rạp, lên rất mạnh nhờ châm phân nước."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/p0-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/Yvw0qjsNVQc/p0-cXVhc2NhcGUucG5n-480.webp",
-          "width": 960,
-          "height": 447,
-          "licence": "CC BY-SA 4.0",
-          "author": "Duc Viet Bui",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh high tech với lũa phủ rêu, cây thân hậu cảnh và thảm tiền cảnh."
-        }
+        ]
       },
       {
-        "heading": "Vì sao nền nào cũng cần châm phân nước",
+        "heading": "Bể aquasoil sau 3 tháng",
         "moments": [
           {
             "t": 100,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t99-hd.webp",
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at100-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây rậm, xanh tốt, có cây đỏ nổi bật phía trên."
+            "caption": "Toàn cảnh bể aquasoil sau 3 tháng, cây lên màu đỏ xanh đẹp."
           },
           {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t253-hd.webp",
+            "t": 130,
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at130-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cây lên mạnh, thảm cỏ dày và cây đỏ rực sau khi châm phân."
+            "caption": "Bể phủ kín cây, thảm tiền cảnh dày và rêu phủ lũa."
           }
         ]
       },
       {
-        "heading": "Kết quả từng bể sau 3 tháng",
+        "heading": "Bể nền đất sau 3 tháng",
         "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t104-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh rậm cây thân đỏ xanh, thảm tiền cảnh phủ dày."
-          },
           {
             "t": 240,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t238-hd.webp",
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thân mọc vượt mặt nước, thảm cỏ phủ kín nền bể."
-          }
-        ]
-      },
-      {
-        "heading": "Những lỗi hay gặp khi set nền đất",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t258-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nền đất với thảm cỏ và cây thân rậm phía sau."
+            "caption": "Bể nền đất phủ kín cây, rotala đỏ rực vươn lên mặt nước."
           },
           {
             "t": 265,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t262-hd.webp",
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at265-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thảm Monte Carlo gần kín nền, lớp đất sát mặt kính bị cạo bớt."
+            "caption": "Thảm Monte Carlo gần kín nền bể, lũa có chút rêu chổi đen."
           }
         ]
       },
       {
-        "heading": "Rêu râu đen trên lũa: có cần lo không",
+        "heading": "Sai lầm khi set bể nền đất",
         "moments": [
           {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t129-hd.webp",
+            "t": 255,
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at255-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây xanh tốt, lũa ở giữa bể gần như sạch rêu hại."
+            "caption": "Toàn cảnh bể nền đất với thảm cỏ xanh và cây thân đỏ."
           },
           {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t287-hd.webp",
+            "t": 270,
+            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at270-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể cây lên đẹp, cây đỏ nổi bật, không bị rêu hại làm hỏng."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/p4-JkX2FsZ2FlLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/Yvw0qjsNVQc/p4-JkX2FsZ2FlLnBuZw-480.webp",
-          "width": 873,
-          "height": 556,
-          "licence": "CC BY 3.0",
-          "author": "Emboli",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu râu đen bám thành chùm xám đen quanh lá cây trong bể."
-        }
-      },
-      {
-        "heading": "Lưu ý khi dỡ bể nền đất",
-        "moments": [
-          {
-            "t": 535,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhổ bụi cây có rễ lên, kéo theo cả đất nền."
-          },
-          {
-            "t": 545,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước bể đục ngầu sau khi đất nền bị xới lên."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/p6-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/Yvw0qjsNVQc/p6-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh nền đất trồng dày cây, có cá neon và cá chuột."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t223-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh cây lên dày, thảm tiền cảnh xanh mướt."
-          },
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/t233-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể mới set với lớp nền đất sáng màu trong lòng bể."
+            "caption": "Thảm Monte Carlo trên nền đất, sát mặt kính phía trước bể."
           }
         ]
       }

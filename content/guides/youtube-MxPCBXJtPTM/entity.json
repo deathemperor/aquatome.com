@@ -23,9 +23,13 @@
     "helanthium-tenellum",
     "mayaca-fluviatilis",
     "bolbitis-heudelotii",
-    "sagittaria-subulata"
+    "sagittaria-subulata",
+    "melanotaenia-praecox",
+    "paracheirodon-simulans",
+    "microdevario-kubotai",
+    "staurogyne-repens"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "MxPCBXJtPTM",
     "title": "Aquascape Tutorial: HONEY GOURAMI Community Aquarium (How To: Step By Step Planted Tank Build Guide)",
@@ -45,31 +49,32 @@
     },
     "taxa": [
       "Trichopsis pumila",
-      "Trichogaster chuna",
+      "Colisa chuna",
       "Hyphessobrycon amandae",
-      "Danio choprae",
-      "Boraras brigittae",
+      "Melanotaenia praecox",
+      "Paracheirodon simulans",
+      "Microdevario kubotai",
       "Poecilia reticulata",
-      "Rotala rotundifolia",
+      "Rotala sp.",
       "Microsorum pteropus",
+      "Nymphaea sp.",
       "Cyperus helferi",
-      "Nymphaea lotus",
-      "Cryptocoryne wendtii",
-      "Cryptocoryne parva",
-      "Cryptocoryne lutea",
-      "Cryptocoryne walkeri",
+      "Ludwigia sp.",
+      "Staurogyne repens",
+      "Mayaca fluviatilis",
+      "Hemianthus callitrichoides",
       "Eleocharis parvula",
       "Eleocharis vivipara",
       "Riccardia sp.",
       "Juncus repens",
-      "Helanthium tenellum",
-      "Mayaca fluviatilis",
-      "Ludwigia sp.",
+      "Cryptocoryne parva",
+      "Cryptocoryne lutea",
+      "Cryptocoryne walkeri",
+      "Cryptocoryne wendtii",
       "Anubias sp.",
       "Bolbitis heudelotii",
       "Salvinia sp.",
-      "Sagittaria subulata",
-      "Nymphaea sp."
+      "Apistogramma sp."
     ],
     "gear": [
       {
@@ -90,14 +95,14 @@
         "category": "co2",
         "type": "binh",
         "brand": "CO2Art",
-        "model": "Pro-Se",
+        "model": "Pro-SE",
         "t": 0
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "Oase",
-        "model": "Filtosmart 300",
+        "model": "FiltoSmart 300",
         "t": 0
       },
       {
@@ -112,12 +117,12 @@
         "type": "soi",
         "brand": "ADA",
         "model": "Yamaya Stone",
-        "t": 460
+        "t": 0
       },
       {
         "category": "khac",
         "brand": "Aquario",
-        "model": "Neo diffuser",
+        "model": "Neo Diffuser",
         "t": 0
       },
       {
@@ -126,181 +131,171 @@
         "brand": "ADA",
         "model": "Aqua Gravel",
         "t": 498
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 498
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao không cần cycle lại từ đầu",
-        "moments": [
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã dỡ cây, giữ nguyên lớp nền cũ trong bể."
-          }
-        ],
+        "heading": "Kế hoạch rescape khi bể đang có cá",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/MxPCBXJtPTM/p0-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/MxPCBXJtPTM/p0-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/MxPCBXJtPTM/p0-cXVhc2NhcGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/MxPCBXJtPTM/p0-cXVhc2NhcGUucG5n-480.webp",
           "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, nền ổn định với đàn cá nhỏ bơi lội."
+          "height": 447,
+          "licence": "CC BY-SA 4.0",
+          "author": "Duc Viet Bui",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
+          "caption": "Bể thủy sinh bố cục lũa và cây thủy sinh sau khi rescape xong."
         }
       },
       {
-        "heading": "Chuẩn bị và rút nước",
+        "heading": "Chuẩn bị và tháo bể",
         "moments": [
           {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at80.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng ống rút nước từ bể ra xô."
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at100-hd.webp",
+            "t": 50,
+            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at50-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khăn và các xô, thùng chuẩn bị sẵn để chứa nước và cá."
+            "caption": "Bể thủy sinh cây xanh um trước khi tháo dỡ để rescape."
           }
         ]
       },
       {
-        "heading": "Dỡ cây trước rồi mới bắt cá",
+        "heading": "Vì sao nên gỡ cây trước rồi mới bắt cá",
         "moments": [
           {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at160-hd.webp",
+            "t": 240,
+            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tay nhấc chậu rotala đỏ ra khỏi bể trước khi bắt cá."
+            "caption": "Nước trong hồ đục ngầu sau khi nhổ hết cây."
           },
           {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at170-hd.webp",
+            "t": 260,
+            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cụm cây rậm được nhấc ra khỏi bể thủy sinh."
+            "caption": "Rút bớt nước ra can cho mực nước hồ xuống thấp."
           }
         ]
       },
       {
-        "heading": "Vệ sinh kính và nền",
+        "heading": "Dọn kính và làm sạch nền",
         "moments": [
           {
             "t": 280,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at280-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đã đổ nước, nền bẩn và ống hút đặt sẵn trong bể."
+            "caption": "Bể đã bỏ thảm cây, lớp nền đầy cặn bẩn và ống hút."
           },
           {
             "t": 300,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at300.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dùng ống hút nước bẩn ra khỏi bể sau khi quơ nền."
+            "caption": "Nước bể đục ngầu sau khi quạt nền, ống hút đặt sẵn để hút cặn."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/MxPCBXJtPTM/p3-9ycGhhXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/MxPCBXJtPTM/p3-9ycGhhXzAxLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.5",
+          "author": "Tucsouffle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:20061213210458_trigonostigma-heteromorpha_01.jpg",
+          "caption": "Bể cây thủy sinh nước đục xanh do rêu hại, cá rasbora bơi lội."
+        }
       },
       {
-        "heading": "Tận dụng lũa và cây cũ",
+        "heading": "Tận dụng lũa cũ để dựng bố cục mới",
         "moments": [
           {
             "t": 340,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khúc lũa phủ đầy moss và dương xỉ đang được dọn lại."
+            "caption": "Cầm khúc lũa phủ đầy rêu và dương xỉ Java để dọn dẹp."
           },
           {
             "t": 430,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at430-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khúc lũa dương xỉ Java được đặt vào bể để sắp xếp lại."
+            "caption": "Đặt khúc lũa phủ dương xỉ Java vào hồ để dựng bố cục mới."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/MxPCBXJtPTM/p4-aGVfd2lsZC4uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/MxPCBXJtPTM/p4-aGVfd2lsZC4uanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Fhurzan",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Java_Fern_(Microsorum_pteropus)_growing_in_the_wild..jpg",
-          "caption": "Cụm dương xỉ Bolbitis mọc tự nhiên sát mép nước, lá xanh khỏe."
-        }
+        ]
       },
       {
-        "heading": "Dựng bố cục mới cho thoáng",
+        "heading": "Đá, sỏi và cách kê lũa cao lên",
         "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai đảo lũa với khoảng trống ở giữa làm lối bơi cho cá."
-          },
           {
             "t": 500,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at500-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai khúc lũa phủ dương xỉ tạo một đảo lớn, một đảo nhỏ, đá chắn phía trước."
+            "caption": "Hai khúc lũa kê cao trên đá nham thạch, phía trước còn trống."
+          },
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đá và sỏi xếp thành đường chắn ở tiền cảnh, không trồng thảm."
           }
         ]
       },
       {
-        "heading": "Trồng cây",
+        "heading": "Trồng cây: dùng lại cây cũ và bổ sung cây dư",
         "moments": [
           {
             "t": 530,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at530-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các loại cây chuẩn bị trồng: Cyperus, Rotala đỏ và cây lấy từ bể cũ."
+            "caption": "Cây lấy từ bể cũ: Cyperus helferi, Rotala và các loại Crypt."
           },
           {
             "t": 600,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at600-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhìn từ trên xuống: cây đã trồng quanh cụm dương xỉ, Cyperus ở giữa."
+            "caption": "Cây đã trồng lại: Cyperus lá dài ló ra sau khối dương xỉ."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/MxPCBXJtPTM/p6-QMTA3MDk1OS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/MxPCBXJtPTM/p6-QMTA3MDk1OS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/MxPCBXJtPTM/p6-QMTA3MDk2MC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/MxPCBXJtPTM/p6-QMTA3MDk2MC5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "John Robert McPherson",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1070959.jpg",
-          "caption": "Cryptocoryne mới trồng trong bể cạn nền sỏi, thấy rõ cả bể."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1070960.jpg",
+          "caption": "Cryptocoryne nhỏ được trồng sát nền sỏi, lá xanh khỏe dù chỗ ít sáng."
         }
       },
       {
-        "heading": "Thả cặp honey gourami",
+        "heading": "Thả honey gourami làm cá điểm nhấn",
         "moments": [
           {
             "t": 870,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at870-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi cá treo trong bể để thuần cá trước khi thả."
+            "caption": "Túi cá honey gourami đang được thả vào bể để thuần nước."
           },
           {
-            "t": 1000,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at1000-hd.webp",
+            "t": 970,
+            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at970-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Con cá màu cam nhỏ bơi giữa đám rêu và cây thủy sinh."
+            "caption": "Cá honey gourami màu cam bơi giữa bể thủy sinh nhiều rêu và lũa."
           }
         ],
         "photo": {
@@ -311,7 +306,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Antoondommerholt at Dutch Wikipedia",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisasota_male.jpg",
-          "caption": "Cá honey gourami đực màu cam rực bơi giữa bể cây thủy sinh."
+          "caption": "Cá sặc mật đực màu cam rực bơi giữa đám cây thủy sinh."
         }
       }
     ]

@@ -2,7 +2,7 @@
  * Which way of translating pages reads most like a Vietnamese hobbyist wrote them? A sample of species, plant, guide and
  * glossary pages: the Vietnamese on the site now (A) against fresh translations from the English with the style guide on
  * Sonnet (B) and Opus (C), and Opus fixing the current Vietnamese against the English (D). Blind pairwise judge (Opus,
- * both orders) on naturalness; accuracy from the usual translation reviewer. Output: /tmp/aqeval-tr/report.md.
+ * both orders) on naturalness; accuracy from the usual translation reviewer. Output: ~/.cache/aquatome/eval-translate/report.md.
  *
  *   pnpm --filter @aq/engine exec tsx scripts/eval-translate.ts
  */
@@ -11,9 +11,9 @@ import { join } from 'node:path'
 import { claudeCli } from '../src/claude'
 import { reviewRewrite, reviewTranslation } from '../src/quality'
 import { rewriteVi, type Part, type RewriteOpts } from '../src/vi-rewrite'
-import { cachedIn, mean, pairs, pool, retry, tally, verdictSchema, type Verdict } from './eval-lib'
+import { cachedIn, evalDir, mean, pairs, pool, retry, tally, verdictSchema, type Verdict } from './eval-lib'
 
-const OUT = '/tmp/aqeval-tr'
+const OUT = evalDir('eval-translate')
 const CONTENT = join(import.meta.dirname, '../../../content')
 const VARIANTS: Record<string, RewriteOpts | null> = { A: null, B: { mode: 'fresh', model: 'sonnet' }, C: { mode: 'fresh', model: 'opus' }, D: { mode: 'fix', model: 'opus' } }
 const BUDGET = 6000 // English characters per sample page: enough to judge the voice, cheap enough to run

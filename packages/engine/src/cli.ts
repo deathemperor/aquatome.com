@@ -5,7 +5,7 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { loadAll, SOURCE_IDS, type SourceId } from '@aq/schema'
+import { loadAll, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
@@ -23,6 +23,8 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { FIT_KINDS, fitReport, runFit } from './fit'
 import { gate, writeFitSummary } from './gate'
+import { candidates, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
@@ -122,7 +124,7 @@ const readersWanted = (() => {
   }
 })()
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, phrases: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -463,6 +465,30 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const a of ['hold', 'release', 'revert', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
   console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'curate') {
+  // The editorial calendar (curation.ts, content/curation.json): fill Hôm nay's next days and replace any pick that stopped
+  // passing (reader fit, a checked photo big enough for its card). --check only lists what's wrong and exits 1 if anything is.
+  // pnpm engine curate [--days 21] [--from YYYY-MM-DD] [--check] [--gsc <Search Console pages export>]
+  const days = Number(values.days ?? 21)
+  const today = values.from ?? vnDate(new Date())
+  const cur = await readCalendar(ROOT)
+  const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
+  const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  if (values.check) {
+    const wrong = checkCalendar(cur, cands, today, days)
+    for (const x of wrong) console.log(`  ${x}`)
+    console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
+    if (wrong.length) process.exitCode = 1
+  } else {
+    const { calendar, report: r } = plan(cur, cands, today, days)
+    await writeCalendar(ROOT, calendar)
+    for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
+    for (const x of r.filled) console.log(`  filled ${x}`)
+    for (const x of r.empty) console.log(`  empty ${x}`)
+    const left = checkCalendar(calendar, cands, today, days)
+    for (const x of left) console.log(`  still wrong: ${x}`)
+    console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty; ${left.length} problems`)
+  }
 } else if (cmd === 'traits') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.
@@ -746,10 +772,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'rewrite-vi') {
   // Existing Vietnamese rewritten in the site's style, worst-read kinds first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
+  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(values.match ? { match: new RegExp(values.match, 'i') } : {}) })
-  console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of r.done) console.log(`rewritten: ${x}`)
+  const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'] })
+  if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
+  else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)
   for (const x of r.kept) console.log(`kept: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'discover-videos') {

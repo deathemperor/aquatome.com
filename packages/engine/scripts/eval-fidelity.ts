@@ -5,8 +5,8 @@
  *   edit     with --site-edit: the guide on the site, edited with those notes (the retry alone), then reviewed
  *   redo     what `videos --redo --only <id>` does: a fresh draft given those notes, its review, and under the bar one
  *            edit with the new notes and its review
- * then one blind call sorts every note (the stored ones too) by kind. Every call is cached in /tmp/aqfid; content/ and
- * engine-state/ are only read. Output: /tmp/aqfid/report.md.
+ * then one blind call sorts every note (the stored ones too) by kind. Every call is cached in
+ * ~/.cache/aquatome/eval-fidelity; content/ and engine-state/ are only read. Output: its report.md there.
  *
  *   pnpm --filter @aq/engine exec tsx scripts/eval-fidelity.ts [videoId,videoId] [--site-edit] [--rows-only: no sorting of the notes]
  */
@@ -17,8 +17,9 @@ import { QUALITY_THRESHOLD, type GuideEntity, type Translation } from '@aq/schem
 import { claudeCli, LlmError } from '../src/claude'
 import { lastKept, readReviews } from '../src/review-log'
 import { fixDraft, reviewDraft, writeDraft, ytDlp, type Draft, type VideoMeta } from '../src/youtube'
+import { evalDir } from './eval-lib'
 
-const OUT = '/tmp/aqfid'
+const OUT = evalDir('eval-fidelity')
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const WRITE = { style: true, model: process.env.VIDEO_MODEL ?? 'opus' }
 

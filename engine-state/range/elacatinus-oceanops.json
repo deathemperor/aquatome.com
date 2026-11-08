@@ -1,0 +1,277 @@
+{
+  "id": "elacatinus-oceanops",
+  "native": {
+    "input": "a11ee362c7e36931",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The Neon Goby can be found throughout the Caribbean, from southern Florida and Texas all the way down to Belize.",
+        "words": "Belize",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Caribbean",
+        "source": "sprucepets",
+        "quote": "The Neon Goby can be found throughout the Caribbean, from southern Florida and Texas all the way down to Belize.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Elacatinus oceanops",
+    "status": "ACCEPTED",
+    "taxonKey": 2376717,
+    "datasets": [
+      [
+        "3063fd20-83ba-4716-9a5e-07fcea584f06",
+        1000
+      ],
+      [
+        "f31212ae-87f5-45e3-8c03-87a0cc5cb86f",
+        824
+      ],
+      [
+        "2501caa2-803b-4f6b-9e36-f9f5c72c0666",
+        795
+      ],
+      [
+        "20e8d7fb-9b3b-43c6-a81d-8ebcd6c0ab11",
+        772
+      ],
+      [
+        "29f71768-50ac-4a9d-8985-86638b0b30e4",
+        514
+      ],
+      [
+        "b9d90a50-3138-4837-b4b1-775f3526889c",
+        473
+      ],
+      [
+        "1ea1cb01-e168-4236-be23-8c86ec51fc3f",
+        399
+      ],
+      [
+        "7c1373e6-36e2-486f-9e09-ef36cd12c6ed",
+        384
+      ],
+      [
+        "dfde3cb2-99a6-40a3-a333-900ddcb17807",
+        378
+      ],
+      [
+        "40bfac0e-a1b5-4c9e-862e-64327195f210",
+        369
+      ],
+      [
+        "076bbcbe-6c76-4c7c-8835-6dd346ef387a",
+        367
+      ],
+      [
+        "70f49e1a-f362-45be-9b6b-c45658d0efbf",
+        363
+      ],
+      [
+        "b3614f42-8f96-49b5-9659-4c421a983f02",
+        314
+      ],
+      [
+        "9a71aa12-7636-4381-9986-d8f03240b277",
+        298
+      ],
+      [
+        "ccddb599-33cb-4206-bbb9-d8dc641c70cd",
+        284
+      ],
+      [
+        "60b463ce-d58e-4982-b772-ae8fc9a6f1ef",
+        274
+      ],
+      [
+        "e6712257-e922-4bc3-8b5e-e567a0458ad2",
+        255
+      ],
+      [
+        "2f1f9ef5-07bf-4ddb-931a-930f251de793",
+        246
+      ],
+      [
+        "1840aafc-6446-450e-9d7d-483790b20f6a",
+        238
+      ],
+      [
+        "0c9234fb-f87c-4608-8ec8-0cc8a1f93079",
+        199
+      ],
+      [
+        "5c02bff2-9680-4df7-b543-3682b60e6b76",
+        190
+      ],
+      [
+        "fa90f202-2921-4dea-a16c-ba9f602e8ffd",
+        179
+      ],
+      [
+        "04257f52-91ed-4851-905d-d5887465d363",
+        162
+      ],
+      [
+        "03837eb5-6905-420d-b3c6-95938753ace7",
+        116
+      ],
+      [
+        "ce696ea3-4862-4649-a0a7-02fb416bcbab",
+        111
+      ],
+      [
+        "e62db8c8-4ae7-4bbb-9401-97b279cbf126",
+        105
+      ],
+      [
+        "2d633622-d522-4c0d-93ae-a3940df3bbe7",
+        102
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        101
+      ],
+      [
+        "2a97ee62-de89-4c4e-8151-0cb2ec98ae3c",
+        67
+      ],
+      [
+        "c67df85a-9a3d-4b93-9625-d1f4b1e2d6f2",
+        62
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        31
+      ],
+      [
+        "7606f22a-2121-4853-b3ab-2e693c6790dd",
+        29
+      ],
+      [
+        "54ecad6c-0ffe-436b-948b-fbd922c338c7",
+        28
+      ],
+      [
+        "9afc91df-a756-4a22-a8cc-672d0be762c0",
+        23
+      ],
+      [
+        "ce3fdfbf-4571-4e98-af3c-b9cafb08b589",
+        15
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        8
+      ],
+      [
+        "fdf166f4-f045-476e-8b16-529b83ced33a",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        5
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        3
+      ],
+      [
+        "6555005d-4594-4a3e-be33-c70e587b63d7",
+        3
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "3fd08e44-6c9a-43e7-98d0-d3fc0e41d478",
+        1
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        1
+      ],
+      [
+        "8743becd-77f2-4982-a115-02f167f52cae",
+        1
+      ],
+      [
+        "a050fb15-1ab6-4d29-b444-b7b8ae576499",
+        1
+      ],
+      [
+        "f959a912-e5b3-49b5-b770-bb05f2dac252",
+        1
+      ]
+    ],
+    "native": [
+      "BZ"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

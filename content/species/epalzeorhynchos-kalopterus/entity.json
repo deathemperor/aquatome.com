@@ -17,24 +17,60 @@
   "range": {
     "native": {
       "countries": [
-        "ID",
+        "TH",
         "MY",
-        "TH"
+        "ID"
       ],
-      "regions": [],
+      "regions": [
+        "Borneo",
+        "Barito",
+        "Kapuas",
+        "Kahajan",
+        "Sumatra",
+        "Java"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "The Flying Fox, Epalzeorhynchos kalopterum, originates from Indonesia, Malaysia and Thailand, where it is a resident of flowing waters that carry deep dark brown black water.",
+          "source": "seriouslyfish",
+          "quote": "The flying fox, Epalzeorhynchos kalopterum, is a cyprinid from southern Thailand, Peninsular Malaysia and the Greater Sunda Islands.",
           "countries": [
-            "ID",
-            "MY",
-            "TH"
+            "TH",
+            "MY"
           ],
           "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo where it's known from the Kahajan and Barito river basins, plus the Kapuas drainage in Kalimantan Barat (West Kalimantan).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Barito",
+            "Kapuas",
+            "Kahajan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it's been collected from the Indragiri, Batang Hari and Palembang/Musi rivers and in Thailand from the southern provinces of Surat Thani and Yala.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently restricted to southern Thailand, Peninsular Malaysia and the Greater Sunda Islands of Borneo, Sumatra and Java although recent occurence records are rather scarce.",
+          "countries": [],
+          "regions": [
+            "Java"
+          ]
         }
       ]
     },

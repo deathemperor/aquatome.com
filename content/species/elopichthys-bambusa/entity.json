@@ -111,12 +111,6 @@
       "title": "Elopichthys Bambusa 6-7-2026",
       "durationSec": 182,
       "lang": "en"
-    },
-    {
-      "youtubeId": "BpcTwPQPe-U",
-      "title": "Elopichthys Bambusa, Ikan MONSTER dengan Growth Rate Gila!!! Tiba-tiba sudah GEDE!!!",
-      "durationSec": 253,
-      "lang": "en"
     }
   ],
   "productSlots": [
@@ -144,5 +138,124 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-07",
+  "range": {
+    "native": {
+      "countries": [
+        "RU",
+        "VN",
+        "CN"
+      ],
+      "regions": [
+        "Amur River",
+        "Lam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam.",
+          "countries": [
+            "RU",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Amur River",
+            "Lam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362832,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          18
+        ],
+        [
+          "RU",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          6,
+          6
+        ],
+        [
+          111.09375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          112.5,
+          22.5,
+          6,
+          6
+        ],
+        [
+          116.71875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          135,
+          47.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

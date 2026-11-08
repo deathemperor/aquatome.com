@@ -31,13 +31,13 @@
       "height": 720
     },
     "taxa": [
-      "Hemigrammus amandae",
       "Fissidens sp.",
+      "Cryptocoryne sp.",
       "Bucephalandra sp.",
       "Anubias sp.",
-      "Cryptocoryne sp.",
       "Eleocharis parvula",
       "Helanthium tenellum",
+      "Hyphessobrycon amandae",
       "Neocaridina davidi"
     ],
     "gear": [
@@ -46,7 +46,7 @@
         "type": "nano",
         "brand": "Dennerle",
         "model": "Nano Cube",
-        "t": 188
+        "t": 181
       },
       {
         "category": "den",
@@ -58,7 +58,7 @@
         "category": "loc",
         "brand": "Dennerle",
         "model": "Nano Eckfilter",
-        "t": 188
+        "t": 184
       },
       {
         "category": "phan-nen",
@@ -67,162 +67,187 @@
       },
       {
         "category": "phan-nen",
-        "type": "cat",
+        "type": "soi",
         "brand": "Dennerle",
-        "model": "Nano Garnelenkies Sulawesi Black"
+        "model": "Nano Garnelenkies (Sulawesi Black)"
       },
       {
         "category": "phan-nen",
         "type": "soi",
         "t": 122
-      },
-      {
-        "category": "co2",
-        "t": 54
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao phải tháo bể ra set lại",
+        "heading": "Vì sao bố cục cũ trở nên khó chăm",
         "moments": [
-          {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at10-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa và đá phủ rêu được tháo ra, đặt trong bể trống."
-          },
           {
             "t": 15,
             "url": "https://media.aquatome.com/video/srVrKlaur70/at15-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rêu bám trên các hòn đá, chỗ nằm hờ chỗ bám lỏng lẻo."
-          }
-        ]
-      },
-      {
-        "heading": "Những gì có thể dùng lại",
-        "moments": [
-          {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp nền aquasoil cũ đã được cho vào bể để dùng lại."
+            "caption": "Đá nham thạch phủ rêu và cây thủy sinh trong bể cũ."
           },
           {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at145-hd.webp",
+            "t": 25,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at25-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khúc lũa phủ rêu và các bụi cây được bày sẵn để dùng lại."
+            "caption": "Bể cũ rêu và cây mọc um tùm phủ kín hardscape."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/srVrKlaur70/p1-0aWNvMTUwMC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p1-0aWNvMTUwMC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/srVrKlaur70/p0-1NSlfOTE1My5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p0-1NSlfOTE1My5KUEc-480.webp",
           "width": 960,
-          "height": 740,
-          "licence": "CC BY-SA 3.0",
-          "author": "Xema Romero",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jardinacuatico1500.jpg",
-          "caption": "Bể thủy sinh có lũa phủ rêu, crypt, anubias và thảm cỏ phía trước."
+          "height": 640,
+          "licence": "CC0",
+          "author": "HermannSchachner",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fissidens_osmundoides_(a,_140317-471455)_9153.JPG",
+          "caption": "Cận cảnh tảng rêu Fissidens xanh mướt, dày và mọc sát nhau."
         }
       },
       {
-        "heading": "Giữ vi sinh trong lúc set lại",
+        "heading": "Những gì có thể giữ lại để dùng tiếp",
         "moments": [
           {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at170-hd.webp",
+            "t": 130,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at130-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể trống đã có nền, lọc gắn bên trong chờ set tiếp."
+            "caption": "Đá nham thạch, lũa và các loại cây cũ bày sẵn trên bàn."
           },
           {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at185-hd.webp",
+            "t": 150,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at150-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ đang set lại, bên cạnh là bể đang chạy ổn định."
+            "caption": "Khúc lũa phủ cây bám lũa, cận cảnh cùng các bụi cây khác."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/srVrKlaur70/p1-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p1-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_lucens-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Bụi Cryptocoryne xanh tốt trên nền aquasoil tối màu, hoàn toàn có thể dùng lại."
+        }
+      },
+      {
+        "heading": "Thay nền dán đen phía sau",
+        "moments": [
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang dán tấm decal đen lên mặt sau của bể."
+          },
+          {
+            "t": 305,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Decal đen mới dán sau bể nano cube, còn hơi loang vì ẩm."
           }
         ]
       },
       {
-        "heading": "Buộc rêu thay vì dán keo",
+        "heading": "Buộc rêu bằng chỉ thay vì dán keo",
         "moments": [
+          {
+            "t": 335,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khúc lũa đang được buộc rêu, bên cạnh là các khay rêu."
+          },
           {
             "t": 375,
             "url": "https://media.aquatome.com/video/srVrKlaur70/at375-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những viên đá lava đã được bọc rêu phủ kín xếp trên khay."
-          },
+            "caption": "Các viên đá nham thạch đã được quấn rêu phủ kín xanh dày."
+          }
+        ]
+      },
+      {
+        "heading": "Xếp bố cục và trồng cây",
+        "moments": [
           {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at405-hd.webp",
+            "t": 430,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at430-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khúc lũa bọc rêu được đặt vào bể để xếp bố cục."
+            "caption": "Đá và lũa quấn rêu được xếp thành khung chính trong bể."
+          },
+          {
+            "t": 545,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at545-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã lên cây, cỏ nền xanh mọc quanh đá lũa phủ rêu."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/srVrKlaur70/p3-zMilfMTM3OS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p3-zMilfMTM3OS5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/srVrKlaur70/p4-BcXVhcml1bS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p4-BcXVhcml1bS5KUEc-480.webp",
           "width": 960,
-          "height": 640,
+          "height": 720,
           "licence": "CC0",
-          "author": "HermannSchachner",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fissidens_osmundoides_(b,_133024-473132)_1379.JPG",
-          "caption": "Thảm rêu xanh dày, khỏe, nhìn gần từng nhánh lá."
+          "author": "Tdwittt",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
+          "caption": "Bể mới setup với lũa đặt trên nền đen và vài cây Anubias."
         }
       },
       {
-        "heading": "Cho bể lên rồi chuyển sang low-tech",
+        "heading": "Chuyển bể sang chế độ low-tech",
         "moments": [
           {
             "t": 615,
             "url": "https://media.aquatome.com/video/srVrKlaur70/at615-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể phủ rêu xanh đẹp và thảm cỏ tóc mọc dày bên dưới."
+            "caption": "Bể phủ đầy cỏ tóc xanh và rêu trên lũa đá."
           },
           {
             "t": 620,
             "url": "https://media.aquatome.com/video/srVrKlaur70/at620-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhìn từ trên xuống: cây nổi phủ mặt nước, đèn treo phía trên bể."
+            "caption": "Cây nổi thả trên mặt bể để giảm bớt ánh sáng."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/srVrKlaur70/p4-yLXNha3VyYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p4-yLXNha3VyYS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/srVrKlaur70/p5-pdGhfZWdncy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/srVrKlaur70/p5-pdGhfZWdncy5qcGc-480.webp",
           "width": 960,
-          "height": 653,
-          "licence": "CC BY-SA 3.0",
-          "author": "DirkBlankenhaus",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina-heteropoda-var-sakura.jpg",
-          "caption": "Tép Neocaridina đỏ bò trên thảm rêu xanh dày trong bể."
+          "height": 687,
+          "licence": "CC BY-SA 4.0",
+          "author": "TonyZimbinski",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Neocaridina_davidi_shrimp_with_eggs.jpg",
+          "caption": "Tép Neocaridina xanh bò trên lũa, bên cạnh đám rêu xanh mướt."
         }
       },
       {
-        "heading": "Đóng gói bể để chuyển đi",
+        "heading": "Cách chuyển một bể đã set sang chỗ khác",
         "moments": [
           {
             "t": 650,
             "url": "https://media.aquatome.com/video/srVrKlaur70/at650-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rút bớt nước khỏi bể thủy sinh bằng ống trước khi chuyển."
+            "caption": "Bể thủy sinh đã set đang được rút nước bằng ống dẫn."
           },
           {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/srVrKlaur70/at660-hd.webp",
+            "t": 655,
+            "url": "https://media.aquatome.com/video/srVrKlaur70/at655-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bọc kín bể bằng màng bọc thực phẩm để chuẩn bị di chuyển."
+            "caption": "Đang phủ và bọc kín bể bằng màng để chuẩn bị di chuyển."
           }
         ]
       }

@@ -15,6 +15,49 @@
       {
         "source": "glaser",
         "value": 11
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -36,9 +79,86 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-australis-2/",
       "html": "<p>M. australis is distributed in northern Australia. It was considered a subspecies of M. splendida for a long time. The variety with pretty red fins that is common in the hobby currently looks most similar to the form from the Sale River in the Kimberley region, state of Western Australia.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>The western rainbowfish, Melanotaenia australis, is a rainbowfish from Australia and probably the commonest rainbowfish species there. Once classified in the M. splendida complex, it has since proved genetically distinct from that group, with two clear lineages within it. Colour and patterning vary widely by locality, and the different morphs should not be mixed in the aquarium because they hybridise freely. Juveniles are much drabber than adults, and full colour can take over 12 months to develop.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>Found across a variety of habitats, including swamps, lagoons, lakes and rivers, although it's most commonly seen in streams and tributaries. Most of these biotopes are subject to seasonal changes in temperature, water level and dissolved sediment. The fish are typically found under cover of aquatic vegetation or other debris, such as submerged logs.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>An active species, requiring an aquarium measuring at least 120 × 30 × 30 cm - ~108 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>This species, like most rainbows, looks most at home in a planted aquarium. Provide areas of dense vegetation, along with some open areas for swimming. Water movement can be slow to moderate, although live plants usually prefer little to none.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.5–8.0 in nature. Somewhere around neutral should suit it in the aquarium.</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>Unfussy and will accept most dried, frozen and live foods. Regular feedings of the latter will ensure the best colouration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>Very peaceful but can disturb smaller or slow-moving fish with its rapid movements and relatively large size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, freshwater gobies and catfish such as Corydoras. This rainbowfish can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics. Obviously a suitably-sized aquarium would be required for a very large group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a much deeper body than females as they grow, and develop longer dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer. The fry, however, can prove somewhat tricky to raise. The breeding aquarium should be at least 75 cm long, and contain slightly hard, alkaline water with a pH of around 7.0 and a temperature of 24–26.5°C. A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary. The adult fish are best conditioned as a group in a separate aquarium with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for breeding and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread. The adults tend to eat the spawn, and it's easier to raise the fry in a separate aquarium. We recommend checking the plants or mops regularly and removing any eggs you find to a raising tank containing water from the spawning tank. The eggs hatch in 7-10 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-australis",
+      "html": "<p>This species was formerly classified as part of the Melanotaenia splendida complex, but more recent research into the genetics of the species has shown that not only is M. australis genetically dissimilar to the splendida group, but also that there are 2 clear lineages within australis. This may yet result in another official member of the genus. M. australis exhibits a wide variation in colour and patterning depending on locality, and is probably the commonest rainbowfish species in Australia. It's very important that the different morphs are not mixed in the aquarium, as they will hybridise freely. As with many other rainbowfish, adult specimens are rarely seen for sale and it's the much drabber juvenile fish that are almost always offered in dealers tanks. However, exercise some patience (even on a good diet, full colour development can take over 12 months) and you will be rewarded with a truly gorgeous adult fish.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/180151452e0d32c3.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "laurent MARSOL - Aussie Oc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:300_Melanotaenia_australis_Western_rainbowfish_Mitchell_River_NP_VIII-2013.jpg",
+      "caption": "Western rainbowfish (Melanotaenia australis) Mitchell River NP VIII-2013; Location: Mitchell River National Park, Mitchell Falls",
+      "thumb": "https://media.aquatome.com/commons/180151452e0d32c3-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "Zs8ZCD0IJDo",
@@ -69,22 +189,31 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cầu vồng"
+        "bể cá 120cm"
       ]
     },
     {
       "category": "loc",
       "keywords": [
         "lọc thùng bể cá",
-        "máy sục khí"
+        "máy sục khí",
+        "lọc thùng bể 120cm",
+        "máy sủi khí bể cá"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá cầu vồng",
-        "thức ăn cá nhỏ dạng hạt"
+        "thức ăn cá nhỏ dạng hạt",
+        "artemia nở"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh dễ trồng"
       ]
     }
   ],

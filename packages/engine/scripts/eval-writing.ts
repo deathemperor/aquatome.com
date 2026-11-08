@@ -1,7 +1,7 @@
 /**
  * Which way of writing video guides reads most like a person wrote it? Writes each sample video with every variant,
  * checks accuracy with the usual reviewer, then a blind pairwise judge (another model, both orders) picks the more
- * natural Vietnamese and quotes the least natural sentences. Output: /tmp/aqeval/report.md (never touches content/).
+ * natural Vietnamese and quotes the least natural sentences. Output: ~/.cache/aquatome/eval-writing/report.md (never touches content/).
  *
  *   pnpm --filter @aq/engine exec tsx scripts/eval-writing.ts [videoId,videoId]
  */
@@ -9,8 +9,9 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { claudeCli, LlmError } from '../src/claude'
 import { reviewDraft, writeDraft, ytDlp, type Draft, type VideoMeta, type WriteOpts } from '../src/youtube'
+import { evalDir } from './eval-lib'
 
-const OUT = '/tmp/aqeval'
+const OUT = evalDir('eval-writing')
 const VIDEOS = process.argv[2]?.split(',') ?? ['J_PR999bgtw', 'YXhZnSTaUW0', 'PfHZZ1Yecqo']
 const VARIANTS: Record<string, WriteOpts> = {
   A: {}, // current prompt

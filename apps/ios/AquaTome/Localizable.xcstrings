@@ -1013,6 +1013,28 @@
         }
       }
     },
+    "AquaTome tóm tắt từ các nguồn được liệt kê trên trang đầy đủ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome merangkum dari sumber yang tercantum di halaman lengkap."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome meringkaskan daripada sumber yang disenaraikan di halaman penuh."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome สรุปจากแหล่งข้อมูลที่ระบุไว้ในหน้าเต็ม"
+          }
+        }
+      }
+    },
     "Biểu tượng ứng dụng": {
       "localizations": {
         "id": {
@@ -7103,6 +7125,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "โหลดคู่มือไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต แล้วดึงลงเพื่อลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không tải được trang. Kiểm tra kết nối mạng rồi thử lại, hoặc xem trang đầy đủ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuat. Periksa koneksi lalu coba lagi, atau lihat halaman lengkap."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuatkan. Semak sambungan internet dan cuba lagi, atau lihat halaman penuh."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดหน้านี้ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง หรือดูหน้าเต็ม"
           }
         }
       }
@@ -16237,6 +16281,28 @@
         }
       }
     },
+    "Độ cứng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kesadahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kekerasan air"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกระด้าง"
+          }
+        }
+      }
+    },
     "Độ cứng (dGH)": {
       "localizations": {
         "id": {
@@ -16717,6 +16783,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปในบทความจะถูกดาวน์โหลดด้วย อาจใช้หลายสิบ MB"
+          }
+        }
+      }
+    },
+    "Ảnh và giấy phép": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dan lisensi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dan lesen"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปภาพและสัญญาอนุญาต"
           }
         }
       }

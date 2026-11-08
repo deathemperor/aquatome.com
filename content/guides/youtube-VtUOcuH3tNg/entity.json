@@ -8,9 +8,10 @@
   "mentions": [
     "poecilia-wingei",
     "vesicularia-montagnei",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "poecilia-reticulata"
   ],
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "VtUOcuH3tNg",
     "title": "DIY PATIO POND FOR RARE GUPPIES! (NO FILTER & LOW BUDGET)",
@@ -29,166 +30,155 @@
       "height": 720
     },
     "taxa": [
-      "Poecilia wingei",
+      "Poecilia reticulata",
       "Pontederia cordata",
       "Nymphaea pygmaea",
-      "Vesicularia montagnei",
-      "Neocaridina davidi"
+      "Imperata cylindrica",
+      "Vesicularia montagnei"
     ],
     "gear": [
       {
         "category": "khac",
         "brand": "Coospider",
-        "model": "UVC Filter",
         "t": 0
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 284
+        "t": 263
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 284
+        "t": 263
       },
       {
         "category": "be-ca",
-        "t": 95
+        "t": 112
       }
     ],
     "figures": [
       {
-        "heading": "Làm nền cho hồ",
+        "heading": "Chọn thùng làm hồ",
         "moments": [
           {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at290-hd.webp",
+            "t": 110,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at110-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ phân nền từ bao vào chậu để làm lớp nền đáy."
+            "caption": "Thùng nhựa đen ở cửa hàng cây cảnh, đáy liền không thủng lỗ."
           },
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at310-hd.webp",
+            "t": 340,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rải đều lớp phân nền mỏng xuống đáy chậu."
+            "caption": "Thùng được kê cao, xung quanh dùng đá và lũa che gọn góc hồ."
           }
         ]
       },
       {
-        "heading": "Chọn cây cho hồ",
+        "heading": "Làm nền cho hồ",
         "moments": [
           {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at345-hd.webp",
+            "t": 295,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at295-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khu bán cây thủy sinh trong chậu nhỏ ở cửa hàng."
+            "caption": "Lớp phân nền mỏng được rải dưới đáy chậu."
           },
           {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at350-hd.webp",
+            "t": 320,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at320-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các cây thủy sinh mới mua: cây lớn, cây nhỏ và củ súng."
+            "caption": "Phủ lớp sỏi lên trên lớp phân nền."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/VtUOcuH3tNg/p2-EaXN0cmljdC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/VtUOcuH3tNg/p2-EaXN0cmljdC5qcGc-480.webp",
-          "width": 960,
-          "height": 697,
-          "licence": "CC BY-SA 2.5 ca",
-          "author": "СССР",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pontederia_cordata_Parry_Sound_District.jpg",
-          "caption": "Cây Pontederia cordata với những bông hoa tím nở rộ bên mép nước."
-        }
+        ]
       },
       {
-        "heading": "Chuẩn bị giỏ cây sao cho không gây rêu hại",
+        "heading": "Chuẩn bị giỏ trồng cây sao cho không làm bẩn nước",
         "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Giỏ trồng cây bằng nhựa có lỗ, đặt cạnh cây còn nguyên bầu đất."
-          },
           {
             "t": 420,
             "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at420-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tấm bông lọc trắng dùng để lót trong giỏ giữ đất không lọt ra."
+            "caption": "Tấm bông lọc trắng dùng để lót vào giỏ lưới."
+          },
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đặt cây vào giỏ đã lót bông lọc trắng."
           }
         ]
       },
       {
-        "heading": "Kê giỏ cây lên mặt nước mà không tốn chỗ",
+        "heading": "Kê giỏ cây ngang mặt nước mà không tốn chỗ",
         "moments": [
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at505-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khúc lũa spiderwood ghép thành khung trong chậu."
-          },
           {
             "t": 520,
             "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at520-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Chậu đặt trên khung lũa và đá cạnh hồ, cây mọc xung quanh."
+            "caption": "Chậu đặt trên khung lũa spiderwood, cây mọc xanh bên cạnh."
+          },
+          {
+            "t": 525,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at525-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Giỏ cây được kê trên khung lũa, phía dưới vẫn còn khoảng trống."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/VtUOcuH3tNg/p4-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/VtUOcuH3tNg/p4-NfUGxhbnRzLmpwZw-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Những khúc lũa ghép lại trong hồ, cây xanh bên dưới và còn nhiều chỗ cho cá bơi."
-        }
+        ]
       },
       {
-        "heading": "Trồng súng mini ở đúng độ sâu",
+        "heading": "Trồng súng lùn đúng độ sâu",
         "moments": [
+          {
+            "t": 330,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đặt giỏ trồng có lỗ vào chậu lớn có lớp sỏi ở đáy."
+          },
           {
             "t": 570,
             "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at570-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đặt giỏ nhỏ trồng súng xuống dưới khung lũa trong chậu."
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung lũa và lớp sỏi, đất trồng nhìn từ trên xuống."
+            "caption": "Đặt giỏ nhỏ có củ súng vào chậu ở độ sâu phù hợp."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/VtUOcuH3tNg/p4-cl9saWxpZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/VtUOcuH3tNg/p4-cl9saWxpZXMuanBn-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC BY 2.0",
+          "author": "coniferconifer from japan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_coniferconifer_-_Now_is_the_time_to_see_Water_lilies.jpg",
+          "caption": "Hoa súng lùn Nymphaea pygmaea 'Helvola' màu vàng nhạt nở trên mặt nước."
+        }
       },
       {
         "heading": "Thả cá vào hồ",
         "moments": [
           {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at690-hd.webp",
+            "t": 680,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at680-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá nhỏ đang ở tạm trong hộp nhựa trước khi chuyển ra hồ mới."
+            "caption": "Hồ ngoài trời phủ đầy bèo, nơi cá sẽ được thả vào."
           },
           {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at730-hd.webp",
+            "t": 695,
+            "url": "https://media.aquatome.com/video/VtUOcuH3tNg/at695-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Người nuôi nghiêng hộp để thả cá vào hồ mới có nhiều cây thủy sinh."
+            "caption": "Cá nhỏ trong hộp nhựa, chuẩn bị cân bằng nhiệt trước khi thả vào hồ."
           }
         ]
       }

@@ -225,7 +225,8 @@ that would have caught it).
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
     what GitHub won't give named rather than counted as none, the retries, a merged PR's product changes and no number,
-    title or link of its own, and a body the Worker reads (`apps/site/test/daily-report.test.ts`). A PR's changes are
+    title or link of its own, the app's next 7 days from the editorial calendar (`content/curation.json`), and a body the
+    Worker reads (`apps/site/test/daily-report.test.ts`). A PR's changes are
     its body's `## Changelog` lines (several, `none`, odd spacing, an example in a code block not one), else its title
     for a `feat` or `fix` outside the ci, test, docs and chore scopes and not the engine's content, labelled by its files:
     any in `apps/ios/` App, else any in `packages/engine/` Engine, else Site (`changelog.test.ts`). The composer: the
@@ -763,6 +764,8 @@ The layers above still check the result.
     in a design lab (2026-11-07): that word in the tank-cycling guide, a translation's typo, and the least killifish's
     list of traits run together ("Sống bầy đàn: cóMức độ hoạt động…"), the only section in the content stored with no
     tags.
+    Words the language's hobbyists rarely write are counted (`phrases.ts`: per phrase, never held, since only a model can
+    mend one in its sentence; how the list is found: docs/review/phrases.md).
   - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
     `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
     becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its

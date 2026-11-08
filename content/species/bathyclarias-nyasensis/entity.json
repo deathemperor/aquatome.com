@@ -10,6 +10,54 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342479,
+      "total": 1122,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MZ",
+          1121
+        ],
+        [
+          "MW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          830
+        ],
+        [
+          33.75,
+          -12.65625,
+          292
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
