@@ -107,6 +107,7 @@ struct AquaTomeApp: App {
       // The tab bar stays whole and where it is on every screen, as the App Store's does, with iOS's own glass and the soft
       // fade of what scrolls under it (the owner, 7 Nov).
       .tabBarNeverMinimizes()
+      .titleOverWhatScrolls()
       #if DEBUG
       // Whatever tab or page is showing, for the video tests: the pages' players still alive.
       .background { PlayerCount() }
@@ -300,6 +301,12 @@ struct AquaTomeApp: App {
 private extension View {
   @ViewBuilder func tabBarNeverMinimizes() -> some View {
     if #available(iOS 26.0, *) { tabBarMinimizeBehavior(.never) } else { self }
+  }
+
+  /// What scrolls under a screen's title is cut off there. iOS's soft edge leaves it readable behind the clock and title,
+  /// the larger the text the more so (8 Nov). The bottom stays soft, under the tab bar.
+  @ViewBuilder func titleOverWhatScrolls() -> some View {
+    if #available(iOS 26.0, *) { scrollEdgeEffectStyle(.hard, for: .top) } else { self }
   }
 }
 
