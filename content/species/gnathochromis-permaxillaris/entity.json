@@ -13,6 +13,114 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373885,
+      "total": 21,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ZM",
+          7
+        ],
+        [
+          "CD",
+          5
+        ],
+        [
+          "TZ",
+          5
+        ],
+        [
+          "BI",
+          3
+        ],
+        [
+          "UG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          29.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

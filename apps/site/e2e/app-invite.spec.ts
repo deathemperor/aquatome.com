@@ -4,6 +4,8 @@ import { devices, type Page } from '@playwright/test'
 import { expect, test, VIETNAMESE } from './fixtures'
 import { LIVE } from './pages'
 import { APP_SWITCH } from '../worker/app-switch'
+import { VISITOR_STATS } from '../worker/stats-switch'
+import { VID } from '../src/lib/beacon'
 
 // The app's invitations (lib/app.ts; the switch, worker/app-switch.ts), in the two states that show anything. The on
 // state's pages come from dist-app-on, the build `pnpm test` leaves beside dist: the browser's requests for this site are
@@ -162,9 +164,10 @@ test.describe('owner', () => {
           expect((await open.boundingBox())!.height).toBeGreaterThanOrEqual(44)
         }
         expect(errors).toEqual([])
-        // Nothing kept beyond what the site keeps anyway: the beacon's visit id and the light tool's plan.
+        // Nothing kept beyond what the site keeps anyway: the beacon's visit id (and its visitor code, with that switch on)
+        // and the light tool's plan.
         const kept = await page.evaluate(() => [...Object.keys(localStorage), ...Object.keys(sessionStorage), ...document.cookie.split('; ').filter(Boolean).map(c => c.split('=')[0])])
-        expect(kept.filter(k => !['aq.light.draft', 'ts_sid', 'aq_owner'].includes(k))).toEqual([])
+        expect(kept.filter(k => ![...['aq.light.draft', 'ts_sid', 'aq_owner'], ...(VISITOR_STATS ? [VID] : [])].includes(k))).toEqual([])
       })
       if (sees) test('the button hands the app the page\'s whole address on aquatome.com, as of the tap, from this local copy too', async ({ page, baseURL }) => {
         expect(new URL(baseURL!).host).not.toBe('aquatome.com')

@@ -1,0 +1,121 @@
+{
+  "id": "hemibagrus-microphthalmus",
+  "native": {
+    "input": "995a30ae9dc2d156",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus microphthalmus is a very large bagrid catfish from the Salween, Irrawaddy and Sittaung systems of Myanmar and western Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus microphthalmus is a very large bagrid catfish from the Salween, Irrawaddy and Sittaung systems of Myanmar and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Manipur River drainage in northeastern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Irrawaddy River valley, Myanmar', and this species is currently known from the Salween, Irrawaddy (aka Ayeyarwady) and Sittaung (aka Sittang) river systems in Myanmar and western Thailand, plus the Manipur River drainage in northeastern India.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Irrawaddy River valley, Myanmar', and this species is currently known from the Salween, Irrawaddy (aka Ayeyarwady) and Sittaung (aka Sittang) river systems in Myanmar and western Thailand, plus the Manipur River drainage in northeastern India.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Irrawaddy River valley, Myanmar', and this species is currently known from the Salween, Irrawaddy (aka Ayeyarwady) and Sittaung (aka Sittang) river systems in Myanmar and western Thailand, plus the Manipur River drainage in northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus microphthalmus is a very large bagrid catfish from the Salween, Irrawaddy and Sittaung systems of Myanmar and western Thailand.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus microphthalmus is a very large bagrid catfish from the Salween, Irrawaddy and Sittaung systems of Myanmar and western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus microphthalmus is a very large bagrid catfish from the Salween, Irrawaddy and Sittaung systems of Myanmar and western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Manipur River",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Manipur River drainage in northeastern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus microphthalmus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338231,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

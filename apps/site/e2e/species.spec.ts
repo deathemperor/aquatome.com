@@ -173,10 +173,11 @@ async function speciesWithGallery(page: Page) {
 }
 
 // On a computer the photo column used to end under the photo while the facts beside it ran on, a screen and more (the
-// owner's screenshot of Cá neon vua), with the thumbnails below both. They now fill the column under the photo; on a phone
-// they come after the care text (its first screens are the answer: design critique, 2026-11-06), and are read there too.
+// owner's screenshot of Cá neon vua), with the thumbnails below both. They now fill the column under the photo. On a phone
+// they had gone after the care text, and the owner asked twice why the gallery was at the bottom (4 and 8 November): they
+// are under the photo there too, one row of them, before the first care section, on the screen and in reading order.
 // One strip either way, each thumbnail once. Read from the page, so it holds on aquatome.com.
-test('species page: the gallery\'s thumbnails sit under the photo beside the facts on a computer, after the care text on a phone, once', async ({ page, errors }, info) => {
+test('species page: the gallery\'s thumbnails sit under the photo, beside the facts on a computer, before the care text on a phone, once', async ({ page, errors }, info) => {
   test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
   const strip = page.locator('main section.strip')
   await expect(strip).toHaveCount(1)
@@ -191,9 +192,13 @@ test('species page: the gallery\'s thumbnails sit under the photo beside the fac
 
   const [photo, facts, box] = [(await page.locator('header.top .photo').boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!, (await strip.boundingBox())!]
   if (info.project.name === 'phone') {
-    const text = (await page.locator('.body > section[data-section]').last().boundingBox())!
-    expect(box.y, 'below the care text').toBeGreaterThanOrEqual(text.y + text.height)
-    expect(await strip.evaluate(s => !!(s.compareDocumentPosition(document.querySelector('.body')!) & Node.DOCUMENT_POSITION_PRECEDING)), 'after the text in reading order').toBe(true)
+    const care = page.locator('.body > section[data-section]').first()
+    const text = (await care.boundingBox())!
+    expect(box.y, 'under the photo').toBeGreaterThanOrEqual(photo.y + photo.height)
+    expect(box.y + box.height, 'above the first care section').toBeLessThanOrEqual(text.y)
+    expect(await strip.evaluate((s, c) => !!(s.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING), await care.elementHandle()), 'before the care text in reading order').toBe(true)
+    const thumb = (await strip.locator('li').first().boundingBox())!
+    expect(box.height, 'one row of thumbnails').toBeLessThan(2 * thumb.height)
     expect(facts.y, 'the facts above').toBeLessThan(photo.y)
   } else {
     expect(Math.abs(box.x - photo.x), 'in the photo column').toBeLessThanOrEqual(1)
@@ -251,7 +256,7 @@ async function speciesWithBigGallery(page: Page) {
   for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p)).slice(0, 20)) {
     const path = gallery.replace(/anh\/$/, '')
     await page.goto(path)
-    const all = page.locator('main section.strip .head a') // in the photo column; on a phone, after the care text
+    const all = page.locator('main section.strip .head a') // in the photo column (on a phone, for screen readers only)
     if (await page.locator('header.top > .facts').count() && await all.count() && Number(/\d+/.exec((await all.textContent())!)![0]) >= 40) return path
   }
   return undefined
@@ -274,7 +279,7 @@ async function photoColumn(page: Page, path: string, width: number, height: numb
   await page.waitForLoadState('networkidle')
   page.off('request', log)
   const col = await page.locator('header.top').evaluate(top => {
-    // In the photo column; on a phone, after the care text.
+    // In the photo column; on a phone, a row under the photo.
     const strip = document.querySelector('main section.strip')!
     const list = strip.querySelector('ul')!.getBoundingClientRect()
     const thumbs = [...strip.querySelectorAll('li')].map(li => {
@@ -321,17 +326,23 @@ test('species page on a computer: the photo column fills its room with whole row
   for (const t of thumbs) expect(pictures.filter(p => p === pictureOf(t.src)), `#a${t.n}: ${pictureOf(t.src)} once on the page`).toHaveLength(1)
 })
 
-// On a phone the strip is as before: its 8 thumbnails, 6 on a screen under 640 px, after the care text; the gallery's
-// further photos are neither shown nor downloaded.
-test('species page on a phone: the strip\'s 8 thumbnails, 6 on a narrow screen, nothing more', async ({ page }, info) => {
+// On a phone the strip is its 8 thumbnails in one row under the photo, which swipes sideways, and the gallery's link at
+// its end, on the screen; the gallery's further photos are neither shown nor downloaded.
+test('species page on a phone: the strip\'s 8 thumbnails in one swiping row, the gallery\'s link beside it, nothing more', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'the phone layout')
   const path = await speciesWithBigGallery(page)
   test.skip(!path, 'no fish page with 40 photos in its gallery')
-  for (const [width, height, most] of [[412, 915, 6], [800, 1000, 8]] as const) {
+  for (const [width, height] of [[360, 800], [412, 915], [800, 1000]] as const) {
     const { thumbs } = await photoColumn(page, path!, width, height)
     const own = thumbs.filter(t => t.n <= 8)
-    expect(thumbs.filter(t => t.shown).map(t => t.n), `${width} px`).toEqual(own.slice(0, most).map(t => t.n))
+    expect(thumbs.filter(t => t.shown).map(t => t.n), `${width} px`).toEqual(own.map(t => t.n))
+    expect(new Set(own.map(t => Math.round(t.top))).size, `${width} px: one row`).toBe(1)
     for (const t of thumbs.filter(t => !t.shown)) expect(t.downloaded, `${width} px: #a${t.n}, not shown, not downloaded`).toBe(false)
+    const row = page.locator('main section.strip ul')
+    expect(await row.evaluate(u => u.scrollWidth > u.clientWidth), `${width} px: the row swipes`).toBe(true)
+    const all = (await page.locator('main section.strip a.all').boundingBox())!
+    expect(all.x + all.width, `${width} px: the gallery's link on the screen, at the row's end`).toBeLessThanOrEqual(width)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${width} px: sideways scroll`).toBeLessThanOrEqual(0)
   }
 })
 
