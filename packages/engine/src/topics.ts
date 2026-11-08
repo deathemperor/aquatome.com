@@ -55,15 +55,17 @@ Rules: facts in your own words, short, one claim each. Keep numbers and units as
  */
 const AMOUNT = /\d\s*(?:(?:mg|mcg|µg|μg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|ppm|ppt|percent|phần trăm|persen|packets?|bungkus|sachets?|tetes|sendok)(?![\p{L}])|‰|%|ซอง|หยด|เม็ด|ช้อน|กรัม|มล)/iu
 /** Something measured out, never a fish's weight: a spoon, a cap, a drop, a packet, a ratio (1:2000). */
-const MEASURE = /(?<![\d.,])1\s*:\s*\d{2,}(?![\d.,])|(?:half|nửa|setengah)\s+(?:a\s+)?(?:teaspoon|tablespoon|thìa|muỗng|sendok)|\d\s*(?:(?:ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|sachets?|packets?|bungkus|tetes|sendok|sdt|sdm)(?![\p{L}])|ซอง|หยด|เม็ด|ช้อน|มล)/iu
+const MEASURE = /(?<![\d.,])1\s*:\s*\d{2,}(?![\d.,])|(?<![\p{L}])(?:half(?:\s+a)?|a|one|nửa|một|setengah|satu|se)\s+(?:teaspoons?|tablespoons?|thìa|muỗng|sendok|sudu|capfuls?|caps?|tablets?|capsules?|kapsul|scoops?|measures?|packets?|sachets?|cups?|pinch|nhúm|viên|gói|nắp|bungkus)(?![\p{L}])|\d\s*(?:(?:sudu|kapsul|cups?|chén|pinch|nhúm|jumput|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|sachets?|packets?|bungkus|tetes|sendok|sdt|sdm)(?![\p{L}])|ซอง|หยด|เม็ด|ช้อน|มล)/iu
 /** A level in the water. */
-const LEVEL = /\d[\d.,]*\s*(?:ppm|ppt|mg\s*\/\s*l(?:ít|iters?|itres?)?)(?![\p{L}])|\d[\d.,]*\s*‰/giu
+const LEVEL = /\d[\d.,]*(?:\s*[–-]\s*\d[\d.,]*)?\s*(?:(?:ppm|ppt|mg\s*\/\s*l(?:ít|iters?|itres?)?)(?![\p{L}])|‰)/giu
 /** So much in so much water, food or fish: "per 40 litres", "/L", "mỗi m³", "per kg of food". */
-const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ(?:น้ำ)?)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?|ลิตร)(?![\p{L}])/iu
+const PER = /(?<!mg\s*)(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ(?:น้ำ)?)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?|ลิตร)(?![\p{L}])/iu
 /** The water's own levels, named just before a level's figure: that figure is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
-const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?:\s+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*$/iu
+const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|(?:calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?!\s*(?:\(?\s*(?:II|III)\s*\)?\s*)?(?:sul|sun|hypo|chlor|clor|perman|oxid|carbon|citr|glucon|EDTA|iodid)))(?:\s+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*$/iu
 /** A treatment the rules have no name for: a dose, a bath, a medicine by its kind. */
 const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|emamectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา(?!ว)|รักษา|แช่/iu
+/** A fish's weight: "fish weigh 20 g per litre of tank". */
+const WEIGHT = /(?<![\p{L}])(?:weigh\p{L}*|nặng|berat|bobot)(?![\p{L}])|หนัก/iu
 /** A level whose figure isn't the water's own. */
 const treatmentLevel = (fact: string) => [...fact.matchAll(LEVEL)].some(m => !WATER.test(fact.slice(Math.max(0, m.index - 40), m.index)))
 /**
@@ -71,18 +73,22 @@ const treatmentLevel = (fact: string) => [...fact.matchAll(LEVEL)].some(m => !WA
  * fish; a percentage of a bath or a solution. A fish's weight or a water change is not one.
  */
 const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fact) || TREATING.test(fact)))
-  || treatmentLevel(fact) || MEASURE.test(fact) || (AMOUNT.test(fact) && PER.test(fact) && ![...fact.matchAll(LEVEL)].length)
+  || treatmentLevel(fact) || MEASURE.test(fact) || (AMOUNT.test(fact) && PER.test(fact) && !WEIGHT.test(fact))
 /**
  * A site, as one source: another page of the same thread is the same one, and so is another thread of the same forum,
  * whose members repeat each other's advice. Addresses can't tell a thread's pages from its posts (phpBB's "?p=", SMF's
- * "topic=12.15", Reddit's comment links), so a second source must be another site.
+ * "topic=12.15", Reddit's comment links), so a second source must be another site: another registered domain, with a
+ * site's short links (redd.it, fb.com) as the site.
  */
+const SHORT: Record<string, string> = { 'redd.it': 'reddit.com', 'fb.com': 'facebook.com', 'fb.me': 'facebook.com', 'youtu.be': 'youtube.com' }
 const siteOf = (url: string) => {
-  try {
-    return new URL(url).hostname.toLowerCase().replace(/^(?:www|m|old|mobile)\./, '')
-  } catch {
-    return url.replace(/^\w+:\/\//, '').replace(/[/?#].*$/, '').toLowerCase().replace(/^(?:www|m|old|mobile)\./, '')
-  }
+  let host: string
+  try { host = new URL(url).hostname } catch { host = url.replace(/^\w+:\/\//, '').replace(/[/?#:].*$/, '') }
+  const labels = host.toLowerCase().replace(/\.$/, '').split('.')
+  // A country's second level (example.com.vn, example.co.th) keeps one more label.
+  const keep = labels.length > 2 && /^[a-z]{2}$/.test(labels.at(-1)!) && /^(?:com|co|net|org|gov|edu|ac|or|in|go|my|biz|info)$/.test(labels.at(-2)!) ? 3 : 2
+  const site = labels.slice(-keep).join('.')
+  return SHORT[site] ?? site
 }
 /** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
 export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {

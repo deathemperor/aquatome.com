@@ -155,11 +155,11 @@ const MEDICINE = re(`${WORD(MED)}|${MED_TH}`)
 /** A medicine named right after a figure's unit ("2–5 g/L kanamycin"). */
 const MEDICINE_NEXT = new RegExp(`^\\s*(?:${WORD(MED)}|${MED_TH})`, 'iu')
 /** Salt put in the water, and the water's own saltiness, which is a tank's level unless a bath is named. */
-const ADDED_SALT = `${WORD('muối|salt|saline|NaCl|garam')}|เกลือ`
-const SALINITY = re(`${WORD('độ mặn|salinity|salinitas|kemasinan|ppt')}|ความเค็ม|‰`)
+const ADDED_SALT = `(?:${WORD('muối|salt|saline|NaCl|garam')}|เกลือ)(?!\\s*(?:biển|laut|sea|marine|ทะเล)(?!\\p{L}))`
+const SALINITY = re(`${WORD('độ mặn|salinity|salinitas|bersalinitas|kemasinan|ppt|muối biển|nước biển|garam laut|air laut|sea salt|marine salt|seawater|sea water')}|ความเค็ม|เกลือทะเล|น้ำทะเล|‰`)
 const SALT = re(`${ADDED_SALT}|${SALINITY.source}`)
 /** A fish put in the bath. */
-const BATH = re(`${WORD('tắm|ngâm|bath\\p{L}*|dip\\p{L}*|soak\\p{L}*|rendam\\p{L}*|perendaman|celup\\p{L}*|mandi|cho cá vào|thả cá vào|để cá trong|pindahkan ikan|masukkan ikan|move the fish|transfer the fish')}|แช่|จุ่ม|อาบ|ย้ายปลา|ใส่ปลา`)
+const BATH = re(`${WORD('tắm|ngâm|bath\\p{L}*|dip\\p{L}*|soak\\p{L}*|rendam\\p{L}*|perendaman|celup\\p{L}*|mandi|cho cá vào|chuyển cá|đưa cá vào|để cá trong|pindahkan|masukkan ikan|move the fish|transfer the fish')}|แช่|จุ่ม|อาบ|ย้ายปลา|ใส่ปลา|นำปลา`)
 const GRAMS = '(?:g|gm|gr|gam|gram|grams|ก\\.|กรัม)\\.?'
 const PER_L = '(?:\\/|per|mỗi|trên|cho(?:\\s+mỗi)?|trong|vào|in(?:\\s+every)?|setiap|bagi(?:\\s+setiap)?|dalam|untuk|ต่อ(?:น้ำ)?|ใน(?:น้ำ)?)\\s*(?:1\\s*)?(?:l|lít|lit|liter|litre|liters|litres|ลิตร)(?!\\p{L})'
 const G_PER_L = re(`(?<![\\d.,])(${NUM})\\s*${GRAMS}\\s*((?:\\p{L}+\\s+){0,2}?)${PER_L}`)
@@ -171,7 +171,9 @@ const STOCK = new RegExp(`(?:${WORD('dung dịch gốc|dung dịch mẹ|pha sẵ
  * litres (or a stock named) after.
  */
 const DISSOLVE = new RegExp(`(?:${WORD('hòa|hoà|pha|larutkan|campur\\p{L}*|dissolve|mix')}|ละลาย|ผสม)`, 'iu')
-const STOCK_AFTER = new RegExp(`${WORD('dung dịch gốc|dung dịch mẹ|stock|larutan induk|larutan stok')}|สารละลายเข้มข้น|(?:${WORD('lấy|dùng|cho|đổ|ambil|gunakan|pakai|tuang|masukkan|campurkan|take|use|add|pour')}|ตวง|ใช้|เติม|ใส่)\\s*(?:ra\\s+)?(?:\\d[\\d.,]*\\s*(?:ml|cc|mililít\\p{L}*|มล\\.?)|\\d+\\s*\\/\\s*\\d+)(?:(?!\\p{N})[^!?\\n]){0,25}?\\d+\\s*(?:l|lít|liter|litre|ลิตร)(?!\\p{L})`, 'iu')
+const STOCK_AFTER = new RegExp(`${WORD('dung dịch gốc|dung dịch mẹ|stock|larutan induk|larutan stok')}|สารละลายเข้มข้น|(?:${WORD('lấy|dùng|cho|đổ|ambil|gunakan|pakai|tuang|masukkan|campurkan|take|use|add|pour')}|ตวง|ใช้|เติม|ใส่)\\s*(?:ra\\s+)?(?:\\d[\\d.,]*\\s*(?:ml|cc|mililít\\p{L}*|มล\\.?)|\\d+\\s*\\/\\s*\\d+(?!\\s*(?:viên|gói|tablets?|sachets?|ซอง|เม็ด)))(?:(?!\\p{N})[^!?\\n]){0,25}?\\d+\\s*(?:l|lít|liter|litre|ลิตร)(?!\\p{L})`, 'iu')
+/** A figure dissolved in a litre, as a stock is made: "1 g … trong 1 lít", not "1 g/L". */
+const IN_A_LITRE = /(?:trong|vào|dalam|ใน(?:น้ำ)?|in)\s*1\s*\S+$/iu
 /** A sentence's end, but not the full stop of "มล.". */
 const SENTENCE_END = /(?<!มล)[.!?](?=\s|$)|\n/
 /** A salt's strength: a percentage (not a share of the water or of the fish's weight), per mille, or grams per litre. */
@@ -182,10 +184,14 @@ const SAME_STRENGTH = /^\s*[(–—-]?\s*(?:khoảng|sekitar|kira-kira|about|app
 const CHANGE = new RegExp(`(?:${WORD('thay|ganti|diganti|tukar|tukarkan|menukar|change\\p{L}*|replac\\p{L}*|bỏ đi|diệt|giảm|kill\\p{L}*|reduc\\p{L}*|bunuh|membunuh|kurangi|mengurangi|mengurangkan|menurunkan|turunkan')}|เปลี่ยน|ถ่าย|ฆ่า|ลด)(?:\\s*(?:nước(?:\\s+cũ)?|lượng nước|air|น้ำ|ออก))?\\s*(?:khoảng|sekitar|kira-kira|about|ประมาณ)?\\s*$`, 'iu')
 const TIME = re(`(?<![\\d.,])(${NUM})\\s*(?:(?:phút|p|minit|minutes?|mins?|menit)(?!\\p{L})|'|นาที|((?:giờ|tiếng|h|hours?|hrs?|jam)(?!\\p{L})|ชั่วโมง|ชม\\.?))|${WORD('nửa (?:giờ|tiếng)|half an hour|setengah jam')}|ครึ่งชั่วโมง`)
 /**
- * Before a time, something else's hours: an interval right before its figure ("mỗi 24 giờ", "ทุก 24 ชั่วโมง"), or, a
- * word or two before, a repeat, a fast, a rest, the light's hours or watching the fish.
+ * Before a time, something else's: an interval right before its figure ("mỗi 24 giờ", "ทุก 24 ชั่วโมง"), stirring; or,
+ * a word or two before, hours of a repeat, a fast, a rest, watching the fish, the light, aeration or acclimatising.
+ * Minutes after "watch" or "rest" are the dip's own ("theo dõi trong 15 phút").
  */
-const NOT_DIP = new RegExp(`(?:(?:${WORD('mỗi|every|each|setiap|tiap|cách')}|ทุก)\\s*|(?:${WORD('lặp lại|làm lại|ulangi|ulang|repeat\\p{L}*|theo dõi|quan sát|monitor\\p{L}*|observ\\p{L}*|watch|amati|pantau|perhatikan|nhịn ăn|nhịn|fast\\p{L}*|puasa\\p{L}*|nghỉ|rest|chiếu sáng|light\\p{L}*|lampu|biarkan|để yên')}|ทำซ้ำ|สังเกต|อดอาหาร|งดอาหาร|เปิดไฟ|ทิ้งไว้)(?:\\s+\\p{L}+){0,2}\\s*)(?:khoảng|about|sekitar|ประมาณ)?\\s*$`, 'iu')
+const NOT_DIP = new RegExp(`(?:(?:${WORD('mỗi|cứ|every|each|setiap|tiap|cách')}|ทุก)\\s*|(?:${WORD('khuấy|stir\\p{L}*|aduk|mengaduk')})(?:\\s+\\p{L}+){0,2}\\s*)(?:khoảng|about|sekitar|ประมาณ)?\\s*$`, 'iu')
+const NOT_DIP_HOURS = new RegExp(`(?:${WORD('lặp lại|làm lại|ulangi|ulang|repeat\\p{L}*|theo dõi|quan sát|monitor\\p{L}*|observ\\p{L}*|watch|amati|pantau|perhatikan|nhịn ăn|nhịn|fast\\p{L}*|puasa\\p{L}*|nghỉ|rest|chiếu sáng|light\\p{L}*|lampu|sục khí|aerat\\p{L}*|aerasi|thuần|acclimat\\p{L}*|aklimatisasi')}|ทำซ้ำ|สังเกต|อดอาหาร|งดอาหาร|เปิดไฟ|เปิดปั๊มลม|เปิดลม)(?:\\s+\\p{L}+){0,2}\\s*(?:khoảng|about|sekitar|ประมาณ)?\\s*$`, 'iu')
+/** Where one step of a sequence ends: "ngâm túi 15 phút, rồi tắm…". */
+const STEP = re(`,\\s|${WORD('rồi|sau đó|then|lalu|kemudian|lepas itu')}|แล้ว`)
 /** Salt water for something other than a fish: decor, nets, brine shrimp eggs; a plant, stones or a bag soaked. */
 const DECOR = re(`${WORD('đồ trang trí|ngâm đồ|đồ vật|dụng cụ|vợt|dekorasi|hiasan|peralatan|decor\\p{L}*|ornaments?|equipment|nets?|artemia|brine shrimp|kista|cysts?|naupli\\p{L}*|penetasan|menetas\\p{L}*|hatch\\p{L}*|ấp trứng|ủ trứng|trứng artemia|trứng bọ biển')}|ของตกแต่ง|อุปกรณ์|อาร์ทีเมีย|ไรทะเล|ฟัก|ใส่ไข่`)
 const SOAKED = re(`(?:${WORD('tắm|ngâm|rendam|celup|soak|dip')}|แช่)\\s*(?:${WORD('rau|rêu|cây thủy sinh|cây|sỏi|đá|lũa|gỗ|túi|giun|trùn|tanaman|batu|kayu|kantong|plants?|gravel|rocks?|driftwood|bag|worms?|vegetables?')}|ต้นไม้|ไม้น้ำ|ถุง|หิน)`)
@@ -198,15 +204,17 @@ const BOUND = new RegExp(`${WORD('dưới|tối đa|không quá|under|below|less
  */
 const DONG = `đồng(?=\\s+(?:\\p{L}+\\s+){0,2}\\(?(?:sunfat|sulfat|sunphat|sulphat|chelat|kelat))|(?<!(?:cộng|rô|cá|ruộng|nghìn|ngàn|triệu|trăm|chục|tỷ|tỉ|vạn|\\d)\\s*)đồng(?!\\s*(?:thời|ý|hồ|bằng|đều|loạt|nghĩa|nhất|dạng|bộ|lòng|tiền|minh|hành|cỡ|loại|ruộng|lúa|cỏ|quê|bào|chí|hương|nghiệp|tâm|cảm|tình|phục|đẳng|âm|vị|giá|tháp|nai|xoài|hới|văn)(?!\\p{L}))`
 const CU_WORD = `(?<![\\p{L}\\p{N}])(?:ion\\s+)?(?:CuSO[4₄]|(?:sunphat|sunfat|sulfat)\\s+đồng|${DONG}|copper|tembaga|kuprum|(?-i:Cu|CU))(?!\\p{L})|ทองแดง|คอปเปอร์|จุนสี`
-const CU_UNIT = '(?:(?:ppm|mg\\s*\\/\\s*(?:l|lít|liter|litre))(?!\\p{L})|มก\\.?\\s*\\/\\s*(?:ลิตร|ล\\.?))'
+const CU_UNIT = '(?:(?:ppm|mg\\s*\\/\\s*(?:l|lít|liter|litre)|(?:mg|miligram|milligrams?)\\s*(?:per|mỗi|trên)\\s*(?:l|lít|liter|litre))(?!\\p{L})|มก\\.?\\s*\\/\\s*(?:ลิตร|ล\\.?)|มิลลิกรัม\\s*(?:ต่อ|\\/)\\s*ลิตร)'
 const CU_AFTER = re(`(?<![\\d.,])(${NUM})\\s*${CU_UNIT}\\s*(?:${CU_WORD})`)
 /** Thai has no full stops: a space before Thai words ends a phrase; ", " ends one too, unless a dose word follows. */
-const CU_BEFORE = re(`(?:${CU_WORD})((?:(?!\\s[\\u0E00-\\u0E7F]|,\\s(?!(?:liều|nồng độ|dosis|dose|kadar|ขนาด)(?!\\p{L})))[^.!?;\\n]){0,60}?)(?<![\\d.,])(${NUM})\\s*${CU_UNIT}`)
+const CU_BEFORE = re(`(?:${CU_WORD})((?:(?!\\s[\\u0E00-\\u0E7F]|,\\s(?!(?:liều|nồng độ|dùng|dosis|dos|dose|kadar|gunakan|pakai|ขนาด|ใช้)(?!\\p{L})))[^.!?;\\n]){0,60}?)(?<![\\d.,])(${NUM})\\s*${CU_UNIT}`)
 /** Another of the water's levels named between a copper word and a figure, whose figure it is. */
 const OTHER_LEVEL = re(`${WORD('kiềm|độ cứng|alkalin\\p{L}*|kesadahan|KH|GH|TDS|nitrat\\p{L}*|nitrit\\p{L}*|amoni\\p{L}*|ammonia|NO3|NO2|NH3|canxi|calcium|kalsium|magie|magnesium|sắt|iron|besi|phosphat\\p{L}*|fosfat')}|ความเป็นด่าง|ความกระด้าง|อัลคาลินิตี|ไนเตรต|ไนไตรต์|แอมโมเนีย|แคลเซียม`)
+/** Oxygen named right before a figure ("giữ oxy trên 5 ppm"): the figure is the oxygen's. */
+const OXYGEN_FIGURE = new RegExp(`${WORD('oxy(?:\\s+hòa tan)?|oxygen|oksigen|DO')}\\s*(?:\\p{L}+\\s+)?(?:trên|dưới|tối thiểu|ít nhất|above|below|over|under|at least|di atas|minimal|>|≥|<|ở mức)\\s*$|ออกซิเจน\\S*\\s*$`, 'iu')
 const NAMED_COPPER = re(`${WORD('coppersafe|cupramine|chelat\\p{L}*|kelat|terkelat|nhãn|label')}|คีเลต|ฉลาก`)
 /** Another treatment offered beside a figure: what is named after it isn't the figure's. */
-const OR_ELSE = /,?\s(?:hoặc|hay là|or|atau|atawa)\s|หรือ/iu
+const OR_ELSE = /(?:^|[\s(,])(?:hoặc|hay là|hay|or|atau|atawa)(?=\s)|\s\/\s(?=\p{L})|หรือ/iu
 /** Where the last match of `r` in `s` ends, or -1. */
 const endOf = (r: RegExp, s: string) => { let at = -1; for (const m of s.matchAll(r)) at = m.index + m[0].length; return at }
 /** Where a clause ends: a sentence's end, a semicolon or a line (a list item, a table row). */
@@ -222,12 +230,12 @@ export const rowsOf = (html: string) => parse(html).querySelectorAll('h3, p, li,
   .filter(t => t.replace(/^[-|]\s*/, ''))
   .join('\n')
 
-/** A dip's minutes: the longest of its own times after it, else the last of its own before it. */
+/** A dip's minutes: the longest of its own times after it and before it in the same step, else the last before it. */
 const dipMinutes = (before: string, after: string) => {
-  const own = (s: string) => [...s.matchAll(TIME)].filter(t => !NOT_DIP.test(s.slice(0, t.index)))
+  const own = (s: string) => [...s.matchAll(TIME)].filter(t => !NOT_DIP.test(s.slice(0, t.index)) && !(t[2] && NOT_DIP_HOURS.test(s.slice(0, t.index))))
     .map(t => (t[1] ? top(t[1]) * (t[2] ? 60 : 1) : 30))
-  const later = own(after)
-  return later.length ? Math.max(...later) : own(before).at(-1) ?? 0
+  const times = [...own(after), ...own(before.slice(Math.max(0, endOf(STEP, before))))]
+  return times.length ? Math.max(...times) : own(before).at(-1) ?? 0
 }
 
 /** What these find in one part's text: the words, and why. */
@@ -241,7 +249,7 @@ export function harmfulDoses(text: string): { quote: string; why: string }[] {
   for (const m of text.matchAll(G_PER_L)) {
     const before = lead(m.index, 120), at = m.index + m[0].length
     const rest = text.slice(at, at + 150), sentence = rest.slice(0, Math.max(0, rest.search(SENTENCE_END)) || rest.length)
-    if (STOCK.test(before) || (DISSOLVE.test(before) && STOCK_AFTER.test(sentence))) continue
+    if (STOCK.test(before) || (DISSOLVE.test(before) && IN_A_LITRE.test(m[0]) && STOCK_AFTER.test(sentence))) continue
     // A salt's figure ("3 g/L muối"), not a medicine's.
     if (re(`^\\s*(?:${ADDED_SALT})`).test(text.slice(at))) continue
     // The figure is a medicine's when one is named between it and its unit, right after the unit, or after any salt before it.
@@ -263,11 +271,14 @@ export function harmfulDoses(text: string): { quote: string; why: string }[] {
     const start = group[0]!.index, last = group.at(-1)!, end = last.index + last[0].length
     const prev = strengths[i - 1]?.at(-1), next = strengths[i + 1]?.[0]
     const before = lead(start, 80), after = tail(end, 80)
-    const added = endOf(re(ADDED_SALT), before), salt = Math.max(added, endOf(SALINITY, before)), permille = group.some(m => m[3])
+    const saltAfter = re(`^\\s*(?:${ADDED_SALT})`).test(text.slice(end))
+    const added = saltAfter ? before.length : endOf(re(ADDED_SALT), before), salt = Math.max(added, endOf(SALINITY, before)), permille = group.some(m => m[3])
     if ((salt < 0 || /\d/.test(before.slice(salt))) && !permille) return
     if (CHANGE.test(before)) return
-    if (added < 0 && endOf(BATH, `${before}${after}`) < 0) return
-    if (BOUND.test(before) || endOf(DECOR, `${before}${after}`) >= 0 || endOf(SOAKED, `${before}${after}`) >= 0) return
+    // A bag floated or a plant soaked is no fish's bath; one in the dip's own step means the dip isn't a fish's.
+    const clause = `${before}${after}`, soaked = [...clause.matchAll(SOAKED)].map(x => x.index)
+    if (added < 0 && ![...clause.matchAll(BATH)].some(b => !soaked.includes(b.index))) return
+    if (BOUND.test(before) || endOf(DECOR, clause) >= 0 || endOf(SOAKED, before.slice(Math.max(0, endOf(STEP, before)))) >= 0) return
     const ownBefore = prev && prev.index + prev[0].length > start - before.length ? text.slice(prev.index + prev[0].length, start) : before
     const ownAfter = next && next.index < end + after.length ? text.slice(end, next.index) : after
     if (dipMinutes(ownBefore, ownAfter) > 10) say(`${before}${text.slice(start, end)}${after}`, 'a salt dip of 2% or more held over 10 minutes, where a vet\'s dip is 30 g/L for at most 10')
@@ -296,7 +307,7 @@ export function harmfulDoses(text: string): { quote: string; why: string }[] {
     say(quote, 'copper at 1 ppm or more with no product, type or label beside it: copper sulphate at that level kills fish')
   }
   for (const m of text.matchAll(CU_AFTER)) copper(m.index, m[1]!, `${lead(m.index, 60)}${m[0]}`)
-  for (const m of text.matchAll(CU_BEFORE)) if (endOf(OTHER_LEVEL, m[1]!) < 0 && endOf(MEDICINE, m[1]!) < 0) copper(m.index + m[0].lastIndexOf(m[2]!), m[2]!, m[0])
+  for (const m of text.matchAll(CU_BEFORE)) if (endOf(OTHER_LEVEL, m[1]!) < 0 && endOf(MEDICINE, m[1]!) < 0 && !OXYGEN_FIGURE.test(m[1]!)) copper(m.index + m[0].lastIndexOf(m[2]!), m[2]!, m[0])
   return out
 }
 
