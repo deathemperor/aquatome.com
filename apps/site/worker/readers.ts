@@ -10,9 +10,9 @@ import { withoutVi } from './paths'
  */
 /**
  * `land`, `ref`, `cc`: its first event's page, referrer ('=' one of our own pages, events.ts) and country. `who`: its
- * mark (ae.ts WHO's index), 0 or missing for a reader's.
+ * mark (ae.ts WHO's index), 0 or missing for a reader's. `u`: its browser's visitor code (src/lib/beacon.ts), '' without.
  */
-export type Session = { sid: string; first: string; pages: number | string; t: number | string; scroll: number | string; land?: string; ref?: string; cc?: string; who?: number | string }
+export type Session = { sid: string; first: string; pages: number | string; t: number | string; scroll: number | string; land?: string; ref?: string; cc?: string; who?: number | string; u?: string }
 export { WHO }
 export type Excluded = { who: Exclude<(typeof WHO)[number], ''>; sessions: number; readers: number }
 export type Burst = { cc: string; from: string; to: string; sessions: number }
@@ -30,6 +30,8 @@ export type Readers = {
   automated?: { sessions: number; readers: number; bursts: Burst[] }
   /** Reads in the iOS app (its own telemetry, worker/telemetry), beside the web's; missing when that can't be read. */
   app?: AppReads
+  /** Return visits, from the visitor code: missing while no counted tab has one (the visitor switch off). */
+  revisits?: Revisits
   /** When the count starts (ae.ts READERS_FROM): days before it weren't counted. */
   from?: string
 }
@@ -111,6 +113,50 @@ export function summariseAppReads(rows: AppSession[], storeFrom = APP_STORE_FROM
   return { onStore: Boolean(storeFrom), sessions: theirs.length, readers: theirs.filter(isReader).length, ours: { sessions: mine.length, readers: mine.filter(isReader).length } }
 }
 
+/**
+ * Return visits among the counted tabs, by their browser's visitor code (src/lib/beacon.ts): within the window, in `tz`'s
+ * days. A visitor is a browser, not a person: a reader on a phone and a computer is two, and one who cleared their
+ * browser's storage starts again.
+ */
+export type Revisits = {
+  /** Browsers with a code. */
+  visitors: number
+  /** Of them, those with a tab on two days or more. */
+  returning: number
+  /** Days from a returning visitor's first day to its next: the middle one. */
+  gapDays: number | null
+  /** Counted tabs without a code: Global Privacy Control or Do Not Track on, storage blocked, a page from before the code. */
+  noCode: number
+  /** The pages returning visitors first landed on: what brings people back. */
+  pages: { path: string; visitors: number }[]
+}
+export function revisitsOf(sessions: Session[], tz = 'UTC'): Revisits | undefined {
+  const by = new Map<string, Session[]>()
+  for (const s of sessions) {
+    if (!s.u) continue
+    const list = by.get(s.u)
+    if (list) list.push(s)
+    else by.set(s.u, [s])
+  }
+  if (!by.size) return undefined
+  let returning = 0
+  const gaps: number[] = []
+  const pages = new Map<string, number>()
+  for (const list of by.values()) {
+    const days = [...new Set(list.map(s => localDay(s.first, tz)))].sort()
+    if (days.length < 2) continue
+    returning++
+    gaps.push(Math.round((Date.parse(days[1]!) - Date.parse(days[0]!)) / 86_400_000))
+    const first = list.reduce((a, b) => (at(b.first) < at(a.first) ? b : a))
+    if (first.land) { const p = withoutVi(first.land); pages.set(p, (pages.get(p) ?? 0) + 1) }
+  }
+  gaps.sort((a, b) => a - b)
+  return {
+    visitors: by.size, returning, gapDays: gaps.length ? gaps[Math.floor((gaps.length - 1) / 2)]! : null,
+    noCode: sessions.filter(s => !s.u).length, pages: top(pages, x => x, 10).map(([path, visitors]) => ({ path, visitors })),
+  }
+}
+
 /** A tab with a mark (us.ts): ours. */
 export const isOurs = (s: Pick<Session, 'who'>) => num(s.who ?? 0) > 0
 /** The tabs a reader count reads: none of ours, none likely automated. */
@@ -155,6 +201,7 @@ export function summariseReaders(all: Session[], views: View[], days: number, tz
   }
   const ours = all.filter(isOurs)
   const autoTabs = theirs.filter(s => auto.has(s.sid))
+  const revisits = revisitsOf(sessions, tz)
   return {
     days, sessions: sessions.length, readers: readerSids.size,
     daily: [...daily.values()].sort((a, b) => b.day.localeCompare(a.day)),
@@ -166,13 +213,14 @@ export function summariseReaders(all: Session[], views: View[], days: number, tz
       return { who, sessions: mine.length, readers: mine.filter(isReader).length } as Excluded
     }).reverse(),
     automated: { sessions: auto.size, readers: autoTabs.filter(isReader).length, bursts: bursts(autoTabs) },
+    ...(revisits ? { revisits } : {}),
   }
 }
 
 /** Every tab, ours too, with its mark (`who`): summariseReaders and countedSessions sort them. */
 export const SESSIONS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, min(timestamp) AS first,
   SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll,
-  argMin(blob3, timestamp) AS land, argMin(blob5, timestamp) AS ref, argMin(blob6, timestamp) AS cc, ${WHO_RANK}
+  argMin(blob3, timestamp) AS land, argMin(blob5, timestamp) AS ref, argMin(blob6, timestamp) AS cc, argMin(blob7, timestamp) AS u, ${WHO_RANK}
 FROM ${table} WHERE blob2 != 'lang' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${SINCE_RESET} GROUP BY sid FORMAT JSON`
 export const VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, SUM(_sample_interval) AS views
 FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p FORMAT JSON`

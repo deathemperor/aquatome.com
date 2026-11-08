@@ -1,0 +1,68 @@
+{
+  "id": "hampala-sabana",
+  "native": {
+    "input": "83837f2fa3c4868a",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Malaysian state of Sabah, northern Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Malaysian state of Sabah, northern Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kinabatangan River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Kinabatangan River near Deramakot, Malaysia, Borneo'.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Segama",
+        "source": "seriouslyfish",
+        "quote": "Sympatric fish species in the Segama river system include Luciosoma pellegrini, Nematabramis everetti, Garra borneensis, Gastromyzon lepidogaster, Mystus sabanus, and Pangasius tubbi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hampala sabana",
+    "status": "ACCEPTED",
+    "taxonKey": 2367435,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        16
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

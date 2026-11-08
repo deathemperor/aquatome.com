@@ -1,0 +1,98 @@
+{
+  "id": "hemidoras-stenopeltis",
+  "native": {
+    "input": "c02e9cb2c18f524c",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Hemidoras stenopeltis (Kner, 1855), the Mouse Catfish. Size: 12.5 cm SL. Type locality: Rio Negro, Amazon system, Brazil. Synonym: Doras stenopeltis.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "planetcatfish",
+        "quote": "Hemidoras stenopeltis (Kner, 1855), the Mouse Catfish. Size: 12.5 cm SL. Type locality: Rio Negro, Amazon system, Brazil. Synonym: Doras stenopeltis.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemidoras stenopeltis",
+    "status": "ACCEPTED",
+    "taxonKey": 2343936,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        61
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        45
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        38
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        33
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}
