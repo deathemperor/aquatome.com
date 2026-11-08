@@ -105,7 +105,9 @@ async function main() {
   const results = await pool(questions.map(q => async (): Promise<Result> => {
     const t = Date.now()
     try {
-      const run = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: q.lang, question: q.q, earlier: [], start: q.start ?? {}, handbook: handbooks.get(q.lang)!, tanks: async () => [], title: true })
+      const ask = async () => answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: q.lang, question: q.q, earlier: [], start: q.start ?? {}, handbook: handbooks.get(q.lang)!, tanks: async () => [], title: true })
+      // Once more after an error on our side (the network dropped): the sample is of titles, not of the Mac's connection.
+      const run = await ask().catch(() => ask())
       const usd = costOf(MODEL, run.spent)
       if (!run.answer) return { id: q.id, lang: q.lang, kind: q.kind, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, leaks: [], usd, ms: Date.now() - t }
       const title = run.answer.title

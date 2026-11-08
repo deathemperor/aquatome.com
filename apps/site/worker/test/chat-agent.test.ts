@@ -859,6 +859,8 @@ test('a title as the list shows it: one line, no quotes or stop; one that isn\'t
   const said = (title: unknown, offTopic = false) => readAnswer(message([{ type: 'text', text: JSON.stringify({ offTopic, text: 'Cá betta bỏ ăn thường do nước lạnh.', covered: true, blocks: [], suggestions: [], title }) }]))
   expect(said(' "Cá betta bỏ ăn,\n nằm đáy." ')?.title).toBe('Cá betta bỏ ăn, nằm đáy')
   expect(said('«Rêu tóc trong bể mới»')?.title).toBe('Rêu tóc trong bể mới')
+  // A question keeps its mark: without it, Indonesian and Malay read as a statement.
+  expect(said('Akuarium 4 liter, 7-8 ikan aman?')?.title).toBe('Akuarium 4 liter, 7-8 ikan aman?')
   // Counted as the reader sees it: "กิ่" is three code points and one character, so 60 of them are a title, 61 none.
   expect([...'กิ่'].length).toBe(3)
   expect(said('กิ่'.repeat(MAX_TITLE))?.title).toBe('กิ่'.repeat(MAX_TITLE))

@@ -99,11 +99,12 @@ export const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))]
 /** The longest title kept: six words in any of the languages, with room. Longer, it is no title, and the list shows the first question's first words. */
 export const MAX_TITLE = 60
 /**
- * The title Claude wrote, as the list shows it: on one line, without quotes around it or a stop at its end. None when
- * it's empty or longer than a title (`MAX_TITLE`).
+ * The title Claude wrote, as the list shows it: on one line, without quotes around it or a stop at its end. A question
+ * mark stays: "aman?" or "ke?" asks, and without it reads as a statement. None when it's empty or longer than a title
+ * (`MAX_TITLE`).
  */
 export function titleOf(raw: string): string | undefined {
-  const t = raw.normalize('NFC').replace(/\s+/g, ' ').trim().replace(/^["'“”«»]+|["'“”«»]+$/g, '').replace(/[.,;:!?…。]+$/, '').trim()
+  const t = raw.normalize('NFC').replace(/\s+/g, ' ').trim().replace(/^["'“”«»]+|["'“”«»]+$/g, '').replace(/[.,;:!…。]+$/, '').trim()
   return t && charsOf(t) <= MAX_TITLE ? t : undefined
 }
 
