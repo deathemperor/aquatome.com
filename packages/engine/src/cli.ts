@@ -397,7 +397,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const added = await ownPhotos(ROOT, resolve(process.env.INIT_CWD ?? process.cwd(), list), media())
   console.log(`own-photos: ${added.length} added\n${added.join('\n')}`)
 } else if (cmd === 'metric') {
-  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or gallons.
+  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or
+  // gallons, and a figure only a conversion gives rounded to what a keeper here says (round.ts).
   const changed = await metricPages(join(ROOT, 'content'), ROOT)
   console.log(`metric: ${changed.length} pages${changed.length ? `: ${changed.slice(0, 20).join(', ')}${changed.length > 20 ? ', …' : ''}` : ''}`)
 } else if (cmd === 'sweep') {
