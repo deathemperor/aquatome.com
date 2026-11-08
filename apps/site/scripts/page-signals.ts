@@ -10,7 +10,8 @@ import { lastReview, reviewTraces, SCORED } from './content-stats.ts'
  * lists (worker/admin/quality.ts): the page's own quality score (content/<dir>/<id>/<lang>.json), the reader-fit checks
  * it fails (engine-state/_fit.json, "words" aside: a wording fault the gate lets through), the reader review's findings
  * (engine-state/_reader.json), its last review's score (engine-state/reviews), whether a person fixed its text by hand
- * (bodyFixed: the engine won't rewrite it), and when the writers last rewrote it (engine-state/rewritten.json). Each is
+ * (bodyFixed: the engine won't rewrite it), and when the writers last rewrote it (engine-state/rewritten.json), while its
+ * text is still that rewrite's: the reader-fit checker's hash of the text (_fit.json) is the rewrite's. Each is
  * null where the page has none. The state files key a page "<lang>/<dir>/<id>". A page the gate holds back isn't built,
  * so it isn't here.
  */
@@ -38,7 +39,9 @@ export function pageSignals(o: { contentRoot: string; engineState?: string; page
       const t = kind === 'equipment' ? (lang === 'vi' ? undefined : read(join(o.contentRoot, dir, lang, `${id}.json`))) : read(join(o.contentRoot, dir, id, `${lang}.json`))
       const q = Number(t?.quality?.score)
       const ed = lastReview(traces.get(key) ?? [])
-      const at = rewritten?.[key]?.at
+      // A text changed since its rewrite (the checker read a new one) is judged afresh: no rewrite date.
+      const rw = rewritten?.[key]
+      const at = rw && (!fit?.[key]?.hash || fit[key].hash === rw.hash) ? rw.at : undefined
       pages[path] = [key, Number.isFinite(q) ? q : null, failed(findings(fit, key)), findings(reader, key)?.length ?? null, ed ? ed.score : null, t?.bodyFixed === true, typeof at === 'string' ? at : null]
     }
   }

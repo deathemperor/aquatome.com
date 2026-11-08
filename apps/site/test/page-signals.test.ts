@@ -18,13 +18,15 @@ test('page signals: each item page\'s engine key, its own score, the checkers\' 
   cpSync(ENGINE, engine, { recursive: true })
   writeFileSync(join(engine, '_fit.json'), JSON.stringify({ 'vi/species/boraras-brigittae': { hash: 'a1', findings: [{ check: 'units' }, { check: 'words' }, { check: 'source' }, { check: 'units' }] } }))
   writeFileSync(join(engine, '_reader.json'), JSON.stringify({ 'vi/species/boraras-brigittae': { findings: [] }, 'vi/guides/aquariumcoop-thay-nuoc': { findings: [{ k: 'c' }] } }))
-  writeFileSync(join(engine, 'rewritten.json'), JSON.stringify({ 'vi/guides/aquariumcoop-thay-nuoc': { at: '2026-11-01T00:00:00Z', hash: 'b2' } }))
+  writeFileSync(join(engine, 'rewritten.json'), JSON.stringify({ 'vi/guides/aquariumcoop-thay-nuoc': { at: '2026-11-01T00:00:00Z', hash: 'b2' }, 'vi/species/boraras-brigittae': { at: '2026-11-02T00:00:00Z', hash: 'old' } }))
   const s = pageSignals({ contentRoot: CONTENT, engineState: engine, pages: stats.pages })
   expect(s.v).toBe(1)
   // [key, its quality score, the reader-fit checks it fails ("words" aside), reader-review findings, its last review's score
   // (the part that says why), fixed by hand, last rewritten]
   expect(s.pages['/ca/ca-boraras-do/']).toEqual(['vi/species/boraras-brigittae', 0.61, ['source', 'units'], 0, 0.61, false, null])
   expect(s.pages['/huong-dan/thay-nuoc-dung-cach/']).toEqual(['vi/guides/aquariumcoop-thay-nuoc', 0.6, null, 1, 0.6, false, '2026-11-01T00:00:00Z'])
+  // Boraras was rewritten, but the checker has read a newer text since (its hash isn't the rewrite's): no rewrite date,
+  // so it's judged afresh. The guide's text is still the rewrite's (no newer reading): it keeps its date.
   // A page no checker has looked at: nulls, not zeros.
   const plain = Object.values(s.pages).find(([k]) => k === 'vi/species/danio-margaritatus')!
   expect(plain.slice(2)).toEqual([null, null, null, false, null])
