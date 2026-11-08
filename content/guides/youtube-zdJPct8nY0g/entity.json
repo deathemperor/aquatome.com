@@ -30,233 +30,95 @@
     },
     "taxa": [
       "Daphnia sp.",
-      "Pethia conchonius",
-      "Oryzias sp.",
-      "Tanichthys albonubes"
+      "Pethia conchonius"
     ],
     "gear": [
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 1
+        "t": 60
       },
       {
         "category": "loc",
         "type": "bot-bien",
-        "t": 533
+        "t": 503
+      },
+      {
+        "category": "khac",
+        "brand": "Gemco",
+        "t": 315
       }
     ],
     "figures": [
       {
-        "heading": "Vỏ ngoài và cách nhiệt cho chậu",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at40.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dãy chậu đặt sát tường, vỏ ngoài ốp ngói gỗ nhìn như một phần ngôi nhà."
-          },
-          {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at69.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh lòng chậu lót màng đen và khung gỗ viền bên trên."
-          }
-        ],
+        "heading": "Chọn máy sủi và đá sủi thế nào",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p0-LVNULUFQLTEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p0-LVNULUFQLTEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p0-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p0-uZF9zdG9uZS5qcGc-480.webp",
           "width": 960,
-          "height": 643,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Shadowmeld Photography",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asphalt_Shingles_Texture_DTXR-ST-AP-1.jpg",
-          "caption": "Cận cảnh lớp ngói bitum (shingle) dùng lợp bên ngoài vỏ chậu."
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sủi khí nhỏ kèm dây khí và đá sủi hình trụ."
         }
       },
       {
-        "heading": "Đặt khí và nước ở đâu trong chậu",
-        "moments": [
-          {
-            "t": 595,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at595.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Góc chậu đen sát tường, nơi đặt đường khí và nước."
-          },
-          {
-            "t": 615,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at615.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống khí xuyên qua lỗ nhỏ trên tường ngay sát góc chậu."
-          }
-        ]
-      },
-      {
-        "heading": "Đi đường khí bằng ống dây mềm và tê nối nhanh",
-        "moments": [
-          {
-            "t": 684,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at684.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cuộn ống dây mềm đặt trên thành bể gỗ để kéo đường khí."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn bơm khí: một bơm lớn hay vài bơm nhỏ",
-        "moments": [
-          {
-            "t": 297,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at297.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bơm khí lớn màu trắng đặt trên kệ trong phòng cá."
-          }
-        ]
-      },
-      {
-        "heading": "Uốn ống cứng bằng máy khò nhiệt",
-        "moments": [
-          {
-            "t": 823,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at823.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Máy khò nhiệt có đầu chụp đặt sẵn trên bàn làm việc."
-          },
-          {
-            "t": 843,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at843.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Máy khò nhiệt gắn đầu chụp đặt trên bàn, đang đưa ống vào hơ."
-          }
-        ],
+        "heading": "Uốn ống vinyl bằng nhiệt",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p4-fZ3VuXygxKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p4-fZ3VuXygxKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p2-fZ3VuXygxKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p2-fZ3VuXygxKS5qcGc-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "Suyash Dwivedi",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hot_air_gun_(1).jpg",
-          "caption": "Máy khò nhiệt cầm tay màu xanh lá, dùng để uốn ống cứng."
+          "caption": "Máy khò nhiệt màu xanh lá, dùng để hơ nóng và uốn ống vinyl."
         }
       },
       {
-        "heading": "Đi đường nước lạnh và thay nước tự động",
-        "moments": [
-          {
-            "t": 1775,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at1775.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các khớp nối nhanh bằng nhựa đã được cắm vào đường ống nước."
-          },
-          {
-            "t": 1824,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at1824.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay đang lắp khớp nối nhanh vào đường ống nước lạnh."
-          }
-        ]
-      },
-      {
-        "heading": "Khi nước vào các chậu không đều",
-        "moments": [
-          {
-            "t": 1963,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at1963.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chậu nuôi ngoài trời lót bạt đen, khung gỗ bao quanh."
-          },
-          {
-            "t": 2013,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at2013.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bên trong chậu nhìn rõ đường ống nước và đáy chậu."
-          }
-        ],
+        "heading": "Vì sao chậu cuối nhận ít nước hơn và cách chỉnh",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p6-91c2Vob2xkLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p6-91c2Vob2xkLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p4-91c2Vob2xkLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p4-91c2Vob2xkLmpwZw-480.webp",
           "width": 960,
           "height": 1280,
           "licence": "CC BY-SA 4.0",
           "author": "NVgt156",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ball_valve_in_household.jpg",
-          "caption": "Van bi tay gạt gắn trên đường ống nước, dùng chỉnh dòng nước vào từng chậu."
+          "caption": "Hai van bi tay gạt gắn trên đường ống nước, dùng để chỉnh lưu lượng từng nhánh."
         }
       },
       {
-        "heading": "Ống tràn cho Daphnia và cá con",
-        "moments": [
-          {
-            "t": 2062,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at2062.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể chứa ngoài trời với ống tràn gắn ở thành bể."
-          },
-          {
-            "t": 2082,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at2082.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay cầm đầu lọc có khe thưa đặt vào góc bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p7-cGhuaWEuc3AuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p7-cGhuaWEuc3AuanBn-480.webp",
-          "width": 960,
-          "height": 1440,
-          "licence": "CC BY 4.0",
-          "author": "Janek Lass",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daphnia.sp.jpg",
-          "caption": "Daphnia mang trứng soi dưới kính hiển vi, thấy rõ kích thước nhỏ xíu."
-        }
-      },
-      {
-        "heading": "Thả gì, đặt ở đâu và chuyện ánh sáng",
+        "heading": "Ống tràn cho chậu nuôi Daphnia và cá con",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p8-sMjAwNyktMi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p8-sMjAwNyktMi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p5-MlQkN0c2lrLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p5-MlQkN0c2lrLmpwZw-480.webp",
+          "width": 960,
+          "height": 1200,
+          "licence": "CC BY 4.0",
+          "author": "Janek Lass",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%BCtsik.jpg",
+          "caption": "Con Daphnia (bọ nước) nhìn rõ toàn thân dưới kính hiển vi."
+        }
+      },
+      {
+        "heading": "Có thể nuôi gì trong dãy chậu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/zdJPct8nY0g/p7-sMjAwNyktMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/zdJPct8nY0g/p7-sMjAwNyktMi5qcGc-480.webp",
           "width": 960,
           "height": 638,
           "licence": "CC BY-SA 3.0",
           "author": "Seotaro",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oryzias_latipes(Hamamatsu,Shizuoka,Japan,2007)-2.jpg",
-          "caption": "Đàn cá medaka bơi cùng nhau trong bể nuôi."
+          "caption": "Một đàn cá medaka nhỏ bơi cùng nhau trong bể nuôi."
         }
-      },
-      {
-        "heading": "Nắp chậu và giữ nhiệt mùa lạnh",
-        "moments": [
-          {
-            "t": 1566,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at1566.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chậu ngoài trời mở nắp, thấy rõ khung gỗ và mép chậu cần che."
-          },
-          {
-            "t": 1596,
-            "url": "https://media.aquatome.com/video/zdJPct8nY0g/at1596.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dãy chậu ngoài trời xếp dọc tường, chưa có nắp đậy."
-          }
-        ]
       }
     ]
   }
