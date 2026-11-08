@@ -12,7 +12,7 @@ const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candida
   const px = o.px ?? 1200
   return {
     kind: 'species', id, ref: `species/${id}`, path: `/vi/ca/${id}/`, name: id, fit: true, indexable: true, demand: 0,
-    facts: { places: [], coldwater: false }, photo: { square: { url, px }, wide: { url, px } }, checked: { [url]: { square: px, wide: px } }, ...o,
+    facts: { places: [], coldwater: false }, photo: { square: { url, px }, guide: { url, px }, wide: { url, px } }, checked: { [url]: { square: px, guide: px, wide: px } }, ...o,
   }
 }
 const guide = (id: string, o: Partial<Candidate> = {}): Candidate => ({ ...fish(id, { px: 600 }), kind: 'guides', ref: `guides/${id}`, path: `/vi/huong-dan/${id}/`, ...o })
@@ -22,6 +22,38 @@ test('a photo fills a card by its pixels across once cropped to the card\'s shap
   expect(across({ width: 1200, height: 800 }, 'square')).toBe(762)
   expect(across({ width: 1200, height: 800 }, 'wide')).toBe(1200)
   expect(across({ width: 1200, height: 1280 }, 'square')).toBe(1200)
+})
+
+test('a guide or story card takes a 16:9 photo: a video still fills it that a fish card would crop to half', async () => {
+  const still = { width: 1280, height: 720 }
+  expect(across(still, 'guide')).toBe(1280)
+  expect(across(still, 'square')).toBe(686)
+  const { photosFor } = await import('../src/curation')
+  const ph = (n: number) => ({ url: big(n), ...still, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'https://example.org' })
+  const g = { ...guide('g1'), ...photosFor([ph(7)], () => true) }
+  const small = { ...guide('g2'), ...photosFor([{ ...ph(8), width: 640, height: 360 }], () => true) }
+  // A guide kept from an earlier plan gets its photo; one whose photos are all too small is kept, without one.
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [
+    { date: '2026-11-09', guide: 'guides/g1', story: { page: 'guides/g1' } },
+    { date: '2026-11-10', guide: 'guides/g2', guideImg: big(8) },
+  ] })
+  const { calendar, report } = plan(cur, [fish('a'), fish('b'), g, small], '2026-11-09', 2)
+  expect(report.replaced).toEqual([])
+  expect(calendar.days[0]).toMatchObject({ guide: 'guides/g1', guideImg: big(7), story: { page: 'guides/g1', img: big(7) } })
+  expect(calendar.days[1]!.guide).toBe('guides/g2')
+  expect(calendar.days[1]!.guideImg).toBeUndefined()
+  expect(checkCalendar(calendar, [fish('a'), fish('b'), g, small], '2026-11-09', 2)).toEqual([])
+})
+
+test('two guides of the same kind or source never run on consecutive days', () => {
+  const g = (id: string, group: string) => guide(id, { group })
+  const cands = [fish('a'), fish('b'), fish('c'), g('d1', 'disease'), g('d2', 'disease'), g('s1', 'setup')]
+  const { calendar } = plan(empty, cands, '2026-11-09', 3)
+  const kinds = calendar.days.map(d => cands.find(c => c.ref === d.guide)?.group)
+  expect(kinds).toEqual(['disease', 'setup', 'disease'])
+  // Nor two from one source, whatever their kinds.
+  const blog = [fish('a'), fish('b'), guide('b1', { group: 'care', source: 'blog' }), guide('b2', { group: 'setup', source: 'blog' }), guide('v1', { group: 'disease', source: 'video' })]
+  expect(plan(empty, blog, '2026-11-09', 2).calendar.days.map(d => d.guide)).toEqual(['guides/b1', 'guides/v1'])
 })
 
 test('a page is featured only if it passes reader fit and has a checked photo big enough for the card', () => {
