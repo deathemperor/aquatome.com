@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     market: { vi: hard({ ingredient: 'formaldehyde và xanh malachite (malachite green chloride)', says: 'Ich-X có hoạt chất là formaldehyde và xanh malachite (malachite green chloride).' }) } },
   { name: 'Maracyn', match: /\bmaracyn(?![\s-]*(?:2|two|ii)\b)/i, kind: 'treatment', problems: ['fungus', 'finRot', 'cyanobacteria', 'quarantine'],
     ingredient: { en: 'erythromycin', ref: MARACYN_LABEL },
-    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Maracyn là kháng sinh erythromycin. Maracyn Two là thuốc khác, hoạt chất là minocycline, và có bán ở đây: ai cần erythromycin thì đừng mua nhầm Maracyn Two.' }) } },
+    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Thuốc tên gần giống là Maracyn Two, hoạt chất minocycline, khác hẳn, và có bán ở đây: ai cần erythromycin thì đừng mua nhầm Maracyn Two.' }) } },
   { name: 'ParaCleanse', match: /\bpara[\s-]?cleanse\b/i, kind: 'treatment', problems: ['parasites'],
     ingredient: { en: 'praziquantel and metronidazole; amounts per packet not read', ref: PARASITES_ARTICLE },
     market: { vi: hard({ ingredient: 'praziquantel và metronidazole', says: 'ParaCleanse có praziquantel để trị giun sán và metronidazole để diệt một số vi khuẩn và đơn bào.' }) } },
