@@ -1,0 +1,65 @@
+{
+  "id": "pterolebias-longipinnis",
+  "scientificName": "Pterolebias longipinnis",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Pterolebias",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pterolebias_longipinnis_en/",
+      "html": "<p>This killifish was imported again from Paraguay. The fish grow fast and reach a maximum length of about 12 cm.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pterolebias_longipinnis_en/",
+      "html": "<p>In the natural habitat it lives only a few months. Then the water dries away and only the eggs survive in the bottom of the former ditch until the next rainy season starts.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pterolebias_longipinnis_en/",
+      "html": "<p>The fish are peaceful.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pterolebias_longipinnis_en/",
+      "html": "<p>Under aquarium conditions, the fish can live more than one year.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -6,9 +6,10 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "neolamprologus-multifasciatus"
+    "neolamprologus-multifasciatus",
+    "neolamprologus-similis"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "hQgZb6U3iPw",
     "title": "SHELL DWELLING AQUARIUM FISH!",
@@ -34,36 +35,31 @@
       {
         "category": "thuc-an",
         "type": "kho",
-        "t": 253
+        "t": 243
       },
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 50
-      },
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 0
+        "t": 65
       }
     ],
     "figures": [
       {
-        "heading": "Cá sống ở đâu ngoài tự nhiên",
+        "heading": "Similis đến từ đâu",
         "moments": [
           {
-            "t": 44,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t44.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nền cát trắng rải đầy vỏ ốc, giống vùng ven bờ Tanganyika."
+            "t": 50,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá similis bơi trên nền cát trắng rải đầy vỏ ốc."
           },
           {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t54.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn similis bơi phía trên lớp cát và vỏ ốc."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn similis và vỏ ốc trên cát, giống vùng ven bờ Tanganyika."
           }
         ],
         "photo": {
@@ -74,25 +70,18 @@
           "licence": "CC BY-SA 3.0",
           "author": "Orrling",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Tanganyika.jpg",
-          "caption": "Toàn cảnh hồ Tanganyika nhìn từ vùng ven bờ, nơi cá sinh sống."
+          "caption": "Toàn cảnh hồ Tanganyika nhìn từ bờ, với núi xa và cây xanh ven hồ."
         }
       },
       {
         "heading": "Phân biệt similis với multifasciatus",
         "moments": [
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t94.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá multifasciatus có sọc dừng lại ở nắp mang, không lên đầu."
-          },
-          {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t104.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá similis với sọc chạy qua nắp mang và kéo lên đầu."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá có sọc rõ trên thân, nhìn nghiêng để so sánh sọc ở nắp mang."
           }
         ],
         "photo": {
@@ -103,25 +92,25 @@
           "licence": "CC BY-SA 3.0",
           "author": "Richard A. Ingebrigtsen",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_multifasciatus_male.JPG",
-          "caption": "Cá có sọc rõ nét kéo dài qua nắp mang lên đầu, đúng đặc điểm similis."
+          "caption": "Cá multi sọc ngang rõ nét, nhìn nghiêng để so sọc ở nắp mang."
         }
       },
       {
-        "heading": "Làm sao biết đực hay cái",
+        "heading": "Phân biệt đực cái",
         "moments": [
           {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t128.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Một con Similis bơi trên nền cát, cho thấy kích thước rất nhỏ."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con Similis bơi phía trên đồi cát, nhìn bên ngoài khó phân biệt đực cái."
           },
           {
-            "t": 158,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t158.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá Similis nhỏ bơi giữa đám vỏ ốc trên nền cát trắng."
+            "t": 160,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Similis bơi giữa những vỏ ốc trên nền cát trắng."
           }
         ],
         "photo": {
@@ -132,97 +121,147 @@
           "licence": "CC BY-SA 3.0",
           "author": "berzentei, Yvonne Turkans",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_similis2.jpg",
-          "caption": "Cá similis nhỏ xíu bơi cạnh vỏ ốc trên nền cát trong bể."
+          "caption": "Cá Similis nhỏ bé bơi cạnh những chiếc vỏ ốc trên nền cát."
         }
       },
       {
-        "heading": "Chọn bể và tính mật độ",
+        "heading": "Bể cần bao lớn và thả bao nhiêu con",
         "moments": [
           {
-            "t": 163,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t163.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nền cát trắng với nhiều vỏ ốc và cá similis bơi sát đáy."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn similis sát nền cát, quanh là nhiều vỏ ốc làm hang."
           },
           {
-            "t": 168,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t168.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vài con similis bơi quanh các vỏ ốc trên nền cát."
+            "t": 170,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vài con similis bơi sát đáy giữa các vỏ ốc."
           }
         ]
       },
       {
-        "heading": "Vỏ ốc và bố cục",
+        "heading": "Chọn vỏ ốc",
         "moments": [
           {
-            "t": 336,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t336.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nhiều vỏ ốc sên vằn rải trên nền cát trắng trong bể."
+            "t": 340,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhiều vỏ ốc đủ cỡ rải trên nền cát trong bể."
           },
           {
-            "t": 341,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t341.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các khớp nối ống PVC trắng dùng thay vỏ ốc làm nhà cho cá."
+            "t": 345,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at345-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống, cút nhựa PVC trắng dùng làm nhà thay vỏ ốc."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/hQgZb6U3iPw/p4-lbGVuYV8wMS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/hQgZb6U3iPw/p4-lbGVuYV8wMS5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/hQgZb6U3iPw/p4-NuYWlsXzExLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/hQgZb6U3iPw/p4-NuYWlsXzExLmpwZw-480.webp",
           "width": 960,
-          "height": 821,
-          "licence": "CC BY-SA 3.0",
-          "author": "H. Zell",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_helena_01.JPG",
-          "caption": "Vỏ ốc nhiều góc nhìn, loại vỏ cá có thể dùng làm nhà."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Almostway2004",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snail_11.jpg",
+          "caption": "Vỏ ốc tròn nằm trên nền cát, giống cách cá vùi vỏ làm nhà."
         }
       },
       {
-        "heading": "Cho cá đẻ và nuôi cá con",
+        "heading": "Nước, nhiệt độ và thức ăn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/hQgZb6U3iPw/p5-aXNoX1RhbmsuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/hQgZb6U3iPw/p5-aXNoX1RhbmsuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "LizWinfreyV",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_Cichlid_Fish_Tank.jpg",
+          "caption": "Bể cá cichlid châu Phi nuôi tại nhà, có cây, đá và ống trú ẩn."
+        }
+      },
+      {
+        "heading": "Nuôi cá con sống sót",
         "moments": [
           {
-            "t": 291,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t291.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá con bơi gần nền cát, bên cạnh vỏ ốc lớn."
+            "t": 295,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá con tụ gần vỏ ốc trên nền cát, nhìn cận cảnh."
           },
           {
-            "t": 311,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t311.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá con bơi lơ lửng phía trên nền cát có nhiều vỏ ốc."
+            "t": 305,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá con bơi trên nền cát trắng có nhiều vỏ ốc."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/hQgZb6U3iPw/p6-pZF9GcnlfMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/hQgZb6U3iPw/p6-pZF9GcnlfMS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/hQgZb6U3iPw/p6-pZF9GcnlfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/hQgZb6U3iPw/p6-pZF9GcnlfMy5qcGc-480.webp",
+          "width": 960,
+          "height": 773,
+          "licence": "CC BY-SA 3.0",
+          "author": "Deanpemberton",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Convict_Cichlid_Fry_3.jpg",
+          "caption": "Cá con mới nở bơi gần bề mặt có rêu bám trong bể."
+        }
+      },
+      {
+        "heading": "Dọn bể mà không phá chỗ ở của cá",
+        "moments": [
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nền cát gợn sóng với nhiều vỏ ốc rải khắp đáy bể."
+          },
+          {
+            "t": 385,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vỏ ốc nằm trên nền cát trắng, được cá tự sắp xếp và vùi."
+          }
+        ]
+      },
+      {
+        "heading": "Similis sống thế nào trong bể",
+        "moments": [
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cát bị đào xới, vỏ ốc nằm rải rác khắp mặt bể."
+          },
+          {
+            "t": 430,
+            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/at430-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con similis bơi trên nền cát trắng giữa các vỏ ốc."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/hQgZb6U3iPw/p8-NpbWlsaXMyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/hQgZb6U3iPw/p8-NpbWlsaXMyLmpwZw-480.webp",
           "width": 960,
           "height": 638,
-          "licence": "CC BY-SA 2.5",
-          "author": "Deanpemberton",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Convict_Cichlid_Fry_1.jpg",
-          "caption": "Đàn cá con mới nở tụ lại gần đá trong bể."
+          "licence": "CC BY-SA 3.0",
+          "author": "berzentei, Yvonne Turkans",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_similis2.jpg",
+          "caption": "Cá similis nhỏ bơi cạnh những vỏ ốc trên nền cát trong bể."
         }
-      },
-      {
-        "heading": "Vệ sinh bể mà không phá nhà của cá",
-        "moments": [
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/hQgZb6U3iPw/t380.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá similis ở trong các vỏ ốc trên nền cát trắng, nền được cá tự sắp."
-          }
-        ]
       }
     ]
   }

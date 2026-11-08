@@ -10,6 +10,87 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Río Parguaza"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Slate cory, Hoplisoma concolor, long known as Corydoras concolor, is an armoured catfish restricted to parts of the Orinoco river system in western Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Restricted to parts of the Orinoco river system in western Venezuela.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Las Mangas, in a tributary of Río Parguaza, western Bolivar State, Venezuela, 6°20'N, 67°10'W.'",
+          "countries": [],
+          "regions": [
+            "Río Parguaza"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342681,
+      "total": 11,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          8
+        ],
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          5.625,
+          2,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          7,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

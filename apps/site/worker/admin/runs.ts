@@ -12,34 +12,34 @@ export const runPath = (day: string, id: string) => `${RUNS_PATH}${day}/${id}/`
 export const runsJsonPath = (day: string) => `${RUNS_PATH}${day}.json`
 const SECTION = '/_ab/nhan-dien-ca/'
 
-const OUTCOME: Record<string, string> = { ok: 'có kết quả', refused: 'Claude từ chối', unreadable: 'câu trả lời đọc không được', request: 'API từ chối yêu cầu', unavailable: 'API lỗi tạm thời', resting: 'mọi key đang nghỉ', error: 'lỗi máy chủ' }
-const STOPPED: Record<string, string> = { answer: 'tự trả lời', calls: 'hết lượt gọi', tools: 'hết lượt công cụ', time: 'hết giờ', tokens: 'hết token', fallback: 'quay về một lần gọi', error: 'lỗi' }
-const LEDE = 'Mỗi lượt nhận diện đã gọi Claude, giữ 365 ngày: Claude nghĩ gì (bản tóm tắt), tra gì trong cẩm nang, công cụ trả lời gì và người đọc nhận được gì. Không có ảnh của người đọc, địa chỉ IP hay tài khoản.'
+const OUTCOME: Record<string, string> = { ok: 'answered', refused: 'Claude refused', unreadable: 'answer unreadable', request: 'API refused the request', unavailable: 'API down for a moment', resting: 'every key resting', error: 'server error' }
+const STOPPED: Record<string, string> = { answer: 'answered', calls: 'out of calls', tools: 'out of tool calls', time: 'out of time', tokens: 'out of tokens', fallback: 'fell back to one call', error: 'error' }
+const LEDE = 'Every fish ID request that called Claude, kept 365 days: what Claude thought (a summary), what it looked up in the handbook, what the tools answered and what the reader got. No reader photos, IP addresses or accounts.'
 const shift = (day: string, by: number) => new Date(Date.parse(`${day}T00:00:00Z`) + by * 86_400_000).toISOString().slice(0, 10)
 
 /** A day's runs (UTC days, as they are kept), newest first. */
 export function runsPage(day: string, rows: Soft<RunRow[]>, now = new Date(), tz = HOME_TZ): string {
   const today = now.toISOString().slice(0, 10)
-  const days = `<p><a href="${SECTION}">← Nhận diện cá</a> · <a href="${RUNS_PATH}?ngay=${shift(day, -1)}">← ${shift(day, -1)}</a>${day < today ? ` · <a href="${RUNS_PATH}?ngay=${shift(day, 1)}">${shift(day, 1)} →</a>` : ''} · <a href="${runsJsonPath(day)}">JSON</a></p>`
-  let body = `<h1>Lượt nhận diện ngày ${esc(day)}</h1><p class="lede">${LEDE}</p>${days}`
-  if (isFailed(rows)) body += failedBox('lượt nhận diện', rows)
+  const days = `<p><a href="${SECTION}">← Fish ID</a> · <a href="${RUNS_PATH}?ngay=${shift(day, -1)}">← ${shift(day, -1)}</a>${day < today ? ` · <a href="${RUNS_PATH}?ngay=${shift(day, 1)}">${shift(day, 1)} →</a>` : ''} · <a href="${runsJsonPath(day)}">JSON</a></p>`
+  let body = `<h1>Fish ID requests on ${esc(day)}</h1><p class="lede">${LEDE}</p>${days}`
+  if (isFailed(rows)) body += failedBox('the requests', rows)
   else {
-    const tr = rows.map(r => `<tr><th><a href="${runPath(r.day, r.id)}">${timeTag(r.at, tz, now)}</a></th><td class="l">${esc(OUTCOME[r.outcome] ?? r.outcome)}</td><td class="l">${r.top ? `<i class="sci">${esc(r.top)}</i>` : '—'}</td><td>${r.conf === null ? '—' : `${fmt(r.conf * 100)}%`}</td><td>${fmt(r.calls)}</td><td class="l">${esc(STOPPED[r.stopped] ?? (r.stopped || '—'))}${r.rechecked ? ' · xem lại một lần' : ''}</td><td>${esc(r.lang)}</td></tr>`).join('')
-    body += `<div class="scroll"><table class="wide"><thead><tr><th>Lúc</th><th>Kết quả</th><th>Đoán nhiều nhất</th><th>Chắc</th><th>Lượt Claude</th><th>Dừng vì</th><th>Ngôn ngữ</th></tr></thead><tbody>${tr || '<tr><td colspan="7" class="none">Ngày này chưa có lượt nào được ghi.</td></tr>'}</tbody></table></div>`
+    const tr = rows.map(r => `<tr><th><a href="${runPath(r.day, r.id)}">${timeTag(r.at, tz, now)}</a></th><td class="l">${esc(OUTCOME[r.outcome] ?? r.outcome)}</td><td class="l">${r.top ? `<i class="sci">${esc(r.top)}</i>` : '—'}</td><td>${r.conf === null ? '—' : `${fmt(r.conf * 100)}%`}</td><td>${fmt(r.calls)}</td><td class="l">${esc(STOPPED[r.stopped] ?? (r.stopped || '—'))}${r.rechecked ? ' · checked again once' : ''}</td><td>${esc(r.lang)}</td></tr>`).join('')
+    body += `<div class="scroll"><table class="wide"><thead><tr><th>When</th><th>Outcome</th><th>Top guess</th><th>Sure</th><th>Claude calls</th><th>Stopped</th><th>Language</th></tr></thead><tbody>${tr || '<tr><td colspan="7" class="none">No requests kept for this day.</td></tr>'}</tbody></table></div>`
   }
-  return page(SECTION, `Lượt nhận diện ${day}`, body, now, tz)
+  return page(SECTION, `Fish ID requests ${day}`, body, now, tz)
 }
 
 const pre = (s: string) => `<pre style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(s)}</pre>`
 function turnHtml(t: Turn, n: number): string {
-  const parts = [`<h3>Lượt gọi ${n}</h3>`]
-  if (t.thinking) parts.push(`<details><summary>Claude nghĩ (tóm tắt)</summary>${pre(t.thinking)}</details>`)
-  if (t.text) parts.push(`<p>Claude viết:</p>${pre(t.text)}`)
+  const parts = [`<h3>Call ${n}</h3>`]
+  if (t.thinking) parts.push(`<details><summary>Claude’s thinking (summary)</summary>${pre(t.thinking)}</details>`)
+  if (t.text) parts.push(`<p>Claude wrote:</p>${pre(t.text)}`)
   for (const c of t.tools ?? []) {
     const photos = (c.photos ?? []).map(src => `<a href="${esc(src)}"><img class="thumb" src="${esc(src)}" alt="" width="96" loading="lazy"></a>`).join(' ')
-    parts.push(`<p><code>${esc(c.name)}</code> ${esc(JSON.stringify(c.input))}${c.error ? ' <span class="failed">lỗi</span>' : ''}</p>${c.result === undefined ? '' : `<details><summary>Công cụ trả lời</summary>${pre(c.result)}</details>`}${photos ? `<p>${photos}</p>` : ''}`)
+    parts.push(`<p><code>${esc(c.name)}</code> ${esc(JSON.stringify(c.input))}${c.error ? ' <span class="failed">error</span>' : ''}</p>${c.result === undefined ? '' : `<details><summary>The tool answered</summary>${pre(c.result)}</details>`}${photos ? `<p>${photos}</p>` : ''}`)
   }
-  if (t.sent) parts.push(`<p>Gửi lại cho Claude:</p>${pre(t.sent)}`)
+  if (t.sent) parts.push(`<p>Sent back to Claude:</p>${pre(t.sent)}`)
   return `<section>${parts.join('')}</section>`
 }
 
@@ -47,12 +47,12 @@ function turnHtml(t: Turn, n: number): string {
 export function runPage(day: string, r: RunRecord, now = new Date(), tz = HOME_TZ): string {
   const a = r.agent
   const facts = [
-    `${timeTag(r.at, tz, now)}`, esc(OUTCOME[r.outcome] ?? r.outcome), esc(r.model), esc(r.lang), `${fmt(r.ms)} ms`, `$${r.cost.toFixed(4)}`, `${fmt(r.tokens.input)} token vào · ${fmt(r.tokens.output)} ra`,
-    a ? `agent: ${fmt(a.calls)} lượt Claude · ${fmt(a.tools)} công cụ · ${fmt(a.photos)} ảnh mẫu · ${esc(STOPPED[a.stopped] ?? a.stopped)}${a.rechecked ? ' · xem lại một lần' : ''}` : 'một lần gọi',
+    `${timeTag(r.at, tz, now)}`, esc(OUTCOME[r.outcome] ?? r.outcome), esc(r.model), esc(r.lang), `${fmt(r.ms)} ms`, `$${r.cost.toFixed(4)}`, `${fmt(r.tokens.input)} tokens in · ${fmt(r.tokens.output)} out`,
+    a ? `agent: ${fmt(a.calls)} Claude calls · ${fmt(a.tools)} tool calls · ${fmt(a.photos)} reference photos · ${esc(STOPPED[a.stopped] ?? a.stopped)}${a.rechecked ? ' · checked again once' : ''}` : 'one call',
   ].join(' · ')
   const results = (r.results ?? []).map(g => `<li><i class="sci">${esc(g.scientificName)}</i>${g.commonName ? ` (${esc(g.commonName)})` : ''} ${fmt(g.confidence * 100)}%${g.page ? ` · <code>${esc(g.page)}</code>` : ''}<br><span class="muted">${esc(g.reason)}</span></li>`).join('')
-  const body = `<p><a href="${RUNS_PATH}?ngay=${esc(day)}">← Lượt ngày ${esc(day)}</a></p><h1>Lượt nhận diện</h1><p>${facts}</p>`
-    + `<h2>Người đọc nhận được</h2>${r.verdict ? `<p>${esc(r.verdict)}</p>` : ''}${results ? `<ol>${results}</ol>` : '<p class="muted">Không có kết quả.</p>'}`
-    + `<h2>Các lượt gọi Claude</h2>${r.turns.map((t, i) => turnHtml(t, i + 1)).join('') || '<p class="muted">Không có.</p>'}`
-  return page(SECTION, 'Lượt nhận diện', body, now, tz)
+  const body = `<p><a href="${RUNS_PATH}?ngay=${esc(day)}">← Requests on ${esc(day)}</a></p><h1>Fish ID request</h1><p>${facts}</p>`
+    + `<h2>What the reader got</h2>${r.verdict ? `<p>${esc(r.verdict)}</p>` : ''}${results ? `<ol>${results}</ol>` : '<p class="muted">No answer.</p>'}`
+    + `<h2>The calls to Claude</h2>${r.turns.map((t, i) => turnHtml(t, i + 1)).join('') || '<p class="muted">None.</p>'}`
+  return page(SECTION, 'Fish ID request', body, now, tz)
 }

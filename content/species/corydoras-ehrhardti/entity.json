@@ -11,6 +11,128 @@
     "paranapanema",
     "argentina"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Paranapanema",
+        "Ribeira de Iguape"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from southern Sao Paulo to northern Santa Catarina states in eastern Brazil, including the rios Jaraguá, Iguaçu, Tejuco, Ribeira de Iguape, Guabiroba, Tibagi, Capivari, Lindo, Itapocu, São Pedro, and upper Rio Paranapanema.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Paranapanema",
+            "Ribeira de Iguape"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342790,
+      "total": 140,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          139
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -26.71875,
+          6,
+          5
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          10,
+          10
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          15,
+          15
+        ],
+        [
+          -52.03125,
+          -25.3125,
+          8,
+          8
+        ],
+        [
+          -50.625,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -26.71875,
+          19,
+          19
+        ],
+        [
+          -50.625,
+          -25.3125,
+          42,
+          42
+        ],
+        [
+          -49.21875,
+          -28.125,
+          11,
+          11
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          19,
+          19
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

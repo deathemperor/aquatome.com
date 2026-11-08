@@ -1,0 +1,79 @@
+{
+  "id": "hypostomus-pagei",
+  "scientificName": "Hypostomus pagei",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "yaracuy"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1328",
+      "html": "<ul><li><strong>IUCN Red List category:</strong> Vulnerable. Last assessed 2021.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1328",
+      "html": "<p>South America: Venezuela in the Rio Aroa, Rio Tocuyo and Rio Yaracuy basins.</p><p>Type locality: About 12 kilometers north of Aroa on highway 3, 10°30'31\"N, 68°52'55\"W, Río Arao drainage, Río Tupe, Yaracuy, Venezuela.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1328",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1328",
+      "html": "<p><strong>Identification:</strong> Light, gray brown color with the spots considerably faded or absent. Juveniles have caudal fin darkest along both spines and at the base, clear medially, a color pattern not found in any other members of the Hypostomus cochliodon group. Most similar to H. hondae and H. plecostomoides but differs by the general absence of spots on the caudal fin and/or caudal-fin spines (H. pagei may have very faint spots on the caudal-fin spines; some H. plecostomoides lack spots on the caudal-fin spines, but the spines are almost black instead of light gray-brown) and by having shorter pectoral-fin spine (reaching 0-1 plates beyond pelvic fin when depressed below the pelvic fin vs. 2-3 plates with the exception of one specimen of H. pagei that has pectoral-fin spines reaching two plates beyond the pelvic fin and the one specimen of H. plecostomoides examined from the Lago Valencia drainage that has pectoral-fin spines that do not reach beyond the pelvic fin).</p><p><strong>Pronunciation:</strong> hi POSS tow muss - page eye.</p><p><strong>Etymology:</strong> Greek, hypo = under + Greek, stoma = mouth (genus name). The species is named for Dr. Lawrence M. Page, not least because he helped to collect the majority of the specimens of this species that led to its description.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1328",
+      "html": "<p>Zootaxa No. 249, pp 39.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

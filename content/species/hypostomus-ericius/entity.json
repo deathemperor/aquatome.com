@@ -1,0 +1,85 @@
+{
+  "id": "hypostomus-ericius",
+  "scientificName": "Hypostomus ericius",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "maranon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1323",
+      "html": "<ul><li>Scientific name: Hypostomus ericius Armbruster, 2003</li><li>Common name: Beige Cochliodon</li><li>Type locality: 1 kilometre upstream from Caterpiza, River Marañon, Amazonas, Peru.</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet is from the Latin ericius, meaning hedgehog, in reference to the many sharp odontodes on the keels.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1323",
+      "html": "<p>South America: Upper Rio Amazonas drainage in Peru.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1323",
+      "html": "<p>As this is a fish in the Cochliodon group, it requires a certain amount of wood in its diet.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1323",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1323",
+      "html": "<p>Diagnosed from all other members of the Hypostomus cochliodon group by its coloration: light tan-gray with well-separated spots and no stripes. It differs from H. hemicochliodon by lacking a buccal papilla, and from H. pyrineusi by the presence of strong, sharp keels on the lateral plates. It is most similar to H. oculeus, from which it differs mainly in coloration and morphometrics.</p><p>IUCN Red List category: Least Concern (last assessed 2014).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1323",
+      "html": "<p>Zootaxa No. 249, pp 25, Fig. 9.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

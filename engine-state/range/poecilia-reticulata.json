@@ -1,8 +1,8 @@
 {
   "id": "poecilia-reticulata",
   "native": {
-    "input": "fca04dfcdd4ba442",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "b514dc191b83ea70",
+    "at": "2026-11-08T18:57:48.756Z",
     "claims": [
       {
         "code": "VE",
@@ -11,15 +11,6 @@
         "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
         "words": "Venezuela",
         "ok": true
-      },
-      {
-        "code": "TT",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
-        "words": "Trinidad",
-        "ok": false,
-        "why": "\"Trinidad\" is not TT"
       },
       {
         "code": "VE",
@@ -62,12 +53,13 @@
         "ok": true
       },
       {
-        "code": "VE",
+        "code": "TT",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
-        "words": "Venezuela",
-        "ok": true
+        "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
+        "words": "Trinidad",
+        "ok": false,
+        "why": "\"Trinidad\" is not TT"
       },
       {
         "code": "GY",
@@ -94,14 +86,6 @@
         "ok": true
       },
       {
-        "code": "TT",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
-        "words": "Trinidad and Tobago",
-        "ok": true
-      },
-      {
         "code": "BB",
         "status": "native",
         "source": "seriouslyfish",
@@ -118,14 +102,6 @@
         "ok": true
       },
       {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Guayre River, Caracas, Venezuela'.",
-        "words": "Venezuela",
-        "ok": true
-      },
-      {
         "code": "GB",
         "status": "introduced",
         "source": "seriouslyfish",
@@ -136,13 +112,6 @@
     ],
     "regions": [
       {
-        "name": "Guayre River",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Guayre River, Caracas, Venezuela'.",
-        "country": "VE",
-        "ok": true
-      },
-      {
         "name": "Trinidad",
         "source": "sprucepets",
         "quote": "They are named for Robert John Lechmere Guppy who collected these fish on the island of Trinidad in 1866.",
@@ -150,9 +119,17 @@
       }
     ],
     "disputed": [],
-    "outranked": [],
+    "outranked": [
+      {
+        "code": "TT",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago."
+      }
+    ],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "TT"
+      ],
       "sourcesOnly": []
     }
   },
@@ -251,7 +228,7 @@
       ],
       [
         "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
-        67
+        66
       ],
       [
         "83cbdde7-998f-4354-95de-72d885cc5863",
@@ -727,11 +704,10 @@
       "GY",
       "SR",
       "GF",
-      "TT",
       "BB",
       "AG"
     ],
     "requests": 18,
-    "at": "2026-11-04T21:41:08.860Z"
+    "at": "2026-11-08T18:57:48.756Z"
   }
 }
