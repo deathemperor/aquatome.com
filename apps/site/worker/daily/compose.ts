@@ -6,6 +6,7 @@ import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
 import { KEY_NAMES_EN, scoreboardBlock, type BlockWords, type Scoreboard } from '../admin/scoreboard'
+import { QUALITY_PATH, type Quality } from '../admin/quality'
 import { CHANGELOG_PATH, isFailed, REPORT_PATH, SCOREBOARD_PATH, type Soft } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { clock, HOME_TZ } from '../admin/time'
@@ -45,8 +46,8 @@ type Line = { text: string; href?: string }
 type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number; groups?: { label: string; lines: string[] }[]; link?: Line }
 type Table = { head: string[]; rows: string[][] }
 
-/** `scoreboard`: undefined when it couldn't load (a loaded one names in its own `failed` the parts that didn't). */
-export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide; scoreboard: Scoreboard | undefined }
+/** `scoreboard`: undefined when it couldn't load (a loaded one names in its own `failed` the parts that didn't). `quality`: the content page's lists. */
+export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide; scoreboard: Scoreboard | undefined; quality?: Soft<Quality> }
 /** `first`: the first thing that needs care, for the phone's notification. */
 export type Composed = { subject: string; text: string; html: string; care: number; first?: string }
 
@@ -180,7 +181,14 @@ function whatChanged(gh: GitHubSide): Built {
 
 const itemLines = (l: Listed, n: number): Pick<Built, 'lines' | 'more'> => ({ lines: l.items.slice(0, n).map((i: Item) => ({ text: `#${i.number} ${i.title}`, href: i.url })), more: Math.max(0, l.total - Math.min(n, l.items.length)) })
 
-function built({ now, overview: o, gh }: ComposeInput): Built[] {
+/** The content page's quality lists (admin/quality.ts) in one line: how many pages each holds, no page or name, as no reader's words go in the report. */
+function qualityLine(q: Soft<Quality> | undefined): Built[] {
+  if (!q || isFailed(q)) return []
+  const t = q.totals
+  return [{ label: 'Content quality', text: `${plural(t.rewrite, 'page')} to rewrite first, ${fmt(t.decaying)} decaying, ${plural(t.gaps, 'gap')} (asked for, not written).`, href: QUALITY_PATH }]
+}
+
+function built({ now, overview: o, gh, quality }: ComposeInput): Built[] {
   const live = gh.deploys.live
   const madeAt = !isFailed(o.content) && o.content.builtAt ? ` Build made ${when(o.content.builtAt, now)}.` : ''
   const parts = gh.commits.parts.map(p => `${p.name} ${fmt(p.n)}`).join(', ')
@@ -190,6 +198,7 @@ function built({ now, overview: o, gh }: ComposeInput): Built[] {
     whatChanged(gh),
     { label: 'Deploys', text: `${runsText(gh.deploys)}.${live ? ` Live: ${live.sha}, deployed ${when(live.at, now)}.` : ''}${madeAt}`, ...(live ? { href: live.url } : {}) },
     { label: 'Content pushes', text: `Engine: ${plural(gh.engine.runs, 'cycle')}, ${fmt(gh.engine.failed)} failed. ${plural(gh.commits.total, 'content commit')}${parts ? ` (${parts})` : ''}.`, lines: addedText ? [{ text: addedText }] : [] },
+    ...qualityLine(quality),
     { label: 'App builds', text: `ios.yml: ${runsText(gh.ios)}. TestFlight: ${tf.uploads.length ? `${plural(tf.uploads.length, 'upload')} (build ${tf.uploads.map(u => u.build).join(', ')})` : 'no upload'}${tf.failed ? `, ${fmt(tf.failed)} failed` : ''}. App Store: ${runsText(gh.appStore)}.`, ...(tf.uploads[0] ? { href: tf.uploads[0].url } : {}) },
     { label: 'Live checks', text: `${runsText(gh.watch)}.${gh.notes ? ` ${plural(gh.notes, 'review note')} open.` : ''}` },
     { label: 'Open PRs', text: `${fmt(gh.prs.ready.total)} ready, ${fmt(gh.prs.draft.total)} draft.`, ...itemLines(gh.prs.ready, PRS_SHOWN) },
