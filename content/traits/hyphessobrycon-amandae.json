@@ -2,7 +2,12 @@
   "id": "hyphessobrycon-amandae",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 8,
+  "schoolMin": 5,
   "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-06T21:16:23.669Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T09:04:55.854Z"
 }

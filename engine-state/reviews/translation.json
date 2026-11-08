@@ -10138,5 +10138,71 @@
       "attempt": "recheck",
       "kept": true
     }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients#2hraquarist": [
+    {
+      "at": "2026-11-08T08:24:26Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "Mistranslated/too casual: \"người trồng cây thủy sinh thường không cãi nhau\" – use something like \"hầu như không có tranh cãi/bất đồng giữa những người chơi thủy sinh\".",
+        "Non-standard term: \"bể trồng dày cây cắt cắm\" for 'stem plants' – use \"cây thân\" (bể trồng dày cây thân).",
+        "Omitted sentence: \"What to dose more of, and what to dose less of is covered in the nutrient dosing section…\" – add a neutral equivalent or consciously treat it as a cross-reference.",
+        "Heading lost 'planted tank': \"Dư dinh dưỡng có làm rêu bùng lên không?\" – the page title says 'in a planted tank' (bể thủy sinh); the main title is not rendered at all.",
+        "\"Chẳng hạn, rêu bụi xanh (GDA...) rất hay gặp\" – 'for example' sits at the end of the English sentence and refers to the previous claim; make the link clearer, e.g. \"Ví dụ, GDA rất hay gặp ở bể EI nếu bể chưa đủ ổn định…\".",
+        "\"Rêu nhỏ li ti\" is a bit colloquial for an encyclopedia; prefer \"Rêu có kích thước hiển vi\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-control-green-water-algae#2hraquarist": [
+    {
+      "at": "2026-11-08T08:26:36Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Replace the slangy \"bể mới set\" with \"bể mới lập\" or \"bể mới chạy\".",
+        "\"Kiểu rêu này\" and \"nước xanh\": consider naming the condition once as \"tảo nước xanh\" (green water algae), then use \"nước xanh\" for short.",
+        "\"Hay gặp nhất\" appears twice. The English says \"particularly\" for new tanks, so use \"đặc biệt hay gặp\" or \"thường gặp\" there.",
+        "\"Phải có một nguồn chất thải sinh học thì nước mới xanh\" is slightly loose. Use \"Cần có nguồn chất thải hữu cơ làm tác nhân kích hoạt\".",
+        "\"Đèn UV diệt khuẩn\" for UV steriliser is fine. \"Trị dứt điểm 100%\" could be \"loại bỏ hoàn toàn (100%)\" to sound more encyclopedic."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-green-dust-algae-gda-a-focused-study#2hraquarist": [
+    {
+      "at": "2026-11-08T08:31:28Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"hardscape\" is rendered as \"đá lũa\" (e.g. \"kính và đá lũa\", \"bể thiên về đá lũa\", \"đá lũa trắng sạch\"). Hardscape means rock and wood together, and \"lũa\" is driftwood, so \"đá lũa\" is inaccurate, especially for Iwagumi, which uses stones. Use \"hardscape\" or \"đá và lũa\" / \"đá, gỗ lũa\".",
+        "\"Các loại rêu trồng\" for \"Mosses\" is awkward. Use \"Các loại rêu (moss)\" or \"rêu thủy sinh\" so it isn't confused with algae, which is also \"rêu\".",
+        "\"bể mới set\" leaves English slang in place. Use \"bể mới lập\" or \"bể mới setup\".",
+        "\"trên 75% mặt nền có cây\" changes \"75%+\" (75% or more). Use \"từ 75% trở lên\".",
+        "\"stress\" is left in English (\"cây bị stress\"). Prefer \"cây bị căng thẳng/suy yếu\", or keep \"stress\" only if it is the house style.",
+        "\"Đèn mạnh mà ít cây là kiểu bể khó chăm\" is fine. \"Hiểu lầm thứ nhất... thêm cây\" slightly loosens \"adjusting plant mass\" (chỉnh lượng cây). Keep the \"adjusting\" sense."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-do-you-control-algae-naturally#2hraquarist": [
+    {
+      "at": "2026-11-08T08:36:51Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Bể thủy sinh thay đổi nhiều\" and \"Ngay khi bể ngập nước\": fine, but \"submergence\" could be clearer, e.g. \"khi bắt đầu ngập nước\".",
+        "\"Rêu\" is used for algae in general, while diatoms and BGA are \"tảo nâu\" and \"tảo lam\". It is understandable, but \"rêu hại\" or \"tảo\" would be more consistent.",
+        "\"Lá già hoặc lá yếu hút rêu\": \"thu hút rêu\" or \"dễ bị rêu bám\" is more natural.",
+        "\"Thả thêm cá tép\" for \"more animals\": \"thêm cá và tép\" is clearer.",
+        "\"Chỉ dẫn tới thảm họa\": \"dễ dẫn tới thảm họa\" is closer to \"recipe for disaster\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

@@ -2,7 +2,12 @@
   "id": "danio-rerio",
   "temperament": "peaceful",
   "finNipper": true,
-  "schoolMin": 8,
+  "schoolMin": 5,
   "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-02T14:42:54.200Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T08:57:33.711Z"
 }
