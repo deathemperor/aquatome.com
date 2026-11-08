@@ -13,8 +13,12 @@ struct ProfilePicture: Identifiable, Hashable {
 
   var image: Image { Image("profile-\(id)") }
 
-  /// Its fish's name in the reader's language.
-  @MainActor func name(_ handbook: HandbookModel) -> String { handbook.page(id)?.name ?? fallback }
+  /// Its fish's name in the reader's language, without the English the page adds in brackets ("Cá betta Halfmoon", not
+  /// "… (Halfmoon betta)"): under a small photo it doubled the lines.
+  @MainActor func name(_ handbook: HandbookModel) -> String {
+    let name = handbook.page(id)?.name ?? fallback
+    return name.replacing(#/\s*\([^)]*\)$/#, with: "")
+  }
 
   static let all: [ProfilePicture] = [
     .init(id: "halfmoon-betta", fallback: "Betta splendens"),
@@ -55,9 +59,10 @@ enum AccountPicture {
   static func stored(_ picture: ProfilePicture, by user: AccountUser) -> String { "\(user.id) \(picture.id)" }
 }
 
-/// The profile button's picture (ProfileButton): the account's fish once one's chosen, else `symbol`. Signing out drops
-/// the choice, so the next reader on the phone doesn't get it.
+/// The account's picture where the account shows (ProfileButton, at 32 points; the Tài khoản sheet's card): its fish once
+/// one's chosen, else `symbol`. Signing out drops the choice, so the next reader on the phone doesn't get it.
 struct AccountPictureMark<Symbol: View>: View {
+  var size: CGFloat = 32
   @ViewBuilder let symbol: Symbol
   @Environment(AccountModel.self) private var account
   @AppStorage(AccountPicture.key) private var stored = ""
@@ -65,7 +70,7 @@ struct AccountPictureMark<Symbol: View>: View {
   var body: some View {
     Group {
       if let picture = AccountPicture.chosen(stored, by: account.user) {
-        picture.image.resizable().scaledToFill().frame(width: 32, height: 32).clipShape(.circle)
+        picture.image.resizable().scaledToFill().frame(width: size, height: size).clipShape(.circle)
       } else {
         symbol
       }
@@ -75,28 +80,17 @@ struct AccountPictureMark<Symbol: View>: View {
   }
 }
 
-/// "Ảnh đại diện", in the account's section of the Tài khoản sheet (AccountSection): the chosen fish beside it, or a
-/// tile, and the set to choose from.
+/// "Ảnh đại diện", in the account's section of the Tài khoản sheet (AccountSection), and the set to choose from. Its icon
+/// is a tile either way: the card above it shows the fish chosen.
 struct AccountPictureRow: View {
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
   @AppStorage(AccountPicture.key) private var stored = ""
-  /// As the sheet's tiles (Tile), growing with the text up to half again.
-  @ScaledMetric(relativeTo: .body) private var scaled: CGFloat = 29
 
   var body: some View {
     let picture = AccountPicture.chosen(stored, by: account.user)
     NavigationLink { ProfilePicturePicker() } label: {
-      Label {
-        Text("Ảnh đại diện")
-      } icon: {
-        if let picture {
-          picture.image.resizable().scaledToFill().frame(width: min(scaled, 44), height: min(scaled, 44)).clipShape(.circle)
-            .accessibilityHidden(true)
-        } else {
-          Tile(symbol: "fish.fill", color: Tile.green)
-        }
-      }
+      Label { Text("Ảnh đại diện") } icon: { Tile(symbol: "fish.fill", color: Tile.green) }
     }
     .accessibilityValue(Text(verbatim: picture?.name(handbook) ?? ""))
     .accessibilityIdentifier("account-picture")

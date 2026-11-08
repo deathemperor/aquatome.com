@@ -105,15 +105,18 @@ private struct Who: View {
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 14))
     let side = min(circle, 84)
     layout {
-      // The person in the app's green, half the circle's height, on a pale wash of it: it reads on the card in light
-      // and dark (a grey circle was the dark card's own colour).
-      Image(systemName: "person.fill")
-        .resizable()
-        .scaledToFit()
-        .frame(width: side / 2, height: side / 2)
-        .foregroundStyle(.tint)
-        .frame(width: side, height: side)
-        .background(Color.accentColor.opacity(0.15), in: .circle)
+      // The account's fish once one's chosen (ProfilePictures), as on the profile button. Else the person in the app's
+      // green, half the circle's height, on a pale wash of it: it reads on the card in light and dark (a grey circle was
+      // the dark card's own colour).
+      AccountPictureMark(size: side) {
+        Image(systemName: "person.fill")
+          .resizable()
+          .scaledToFit()
+          .frame(width: side / 2, height: side / 2)
+          .foregroundStyle(.tint)
+          .frame(width: side, height: side)
+          .background(Color.accentColor.opacity(0.15), in: .circle)
+      }
         .accessibilityHidden(true)
       VStack(alignment: .leading, spacing: 2) {
         Text("Đã đăng nhập").font(.title3.weight(.semibold))
