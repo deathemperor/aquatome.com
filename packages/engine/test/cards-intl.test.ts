@@ -7,11 +7,12 @@ import { cardHash, localizeCard, localizeCards } from '../src/cards-intl'
 
 const VI = { eyebrow: 'Chuyện ít ai biết', title: 'Cá medaka Nhật từng giao phối ngoài không gian', body: '<p>Năm 1994, bốn con cá medaka (<em>Oryzias latipes</em>) bay 15 ngày trên quỹ đạo.</p>' }
 const ID = { eyebrow: 'Fakta unik', title: 'Ikan medaka pernah kawin di luar angkasa', body: '<p>Pada 1994, empat ekor medaka (<em>Oryzias latipes</em>) terbang 15 hari di orbit.</p>' }
-async function root(vi: object = VI) {
+async function root(vi: object = VI, entity: object = {}) {
   const r = await mkdtemp(join(tmpdir(), 'cards-intl-'))
   await mkdir(join(r, 'content/cards/medaka'), { recursive: true })
   await mkdir(join(r, 'engine-state'))
   await writeFile(join(r, 'content/cards/medaka/vi.json'), JSON.stringify(vi))
+  await writeFile(join(r, 'content/cards/medaka/entity.json'), JSON.stringify({ id: 'medaka', type: 'trivia', ...entity }))
   return r
 }
 /** The translator gives `written` in turn; the reviewer, `scores` in turn (a score, or a score with notes). */
@@ -100,7 +101,20 @@ test('a card that fails is reported and the others go on; a folder with no Vietn
   const r = await root()
   await mkdir(join(r, 'content/cards/aaa-broken'))
   await writeFile(join(r, 'content/cards/aaa-broken/vi.json'), JSON.stringify({ title: 'Không có dòng nhỏ' }))
+  await writeFile(join(r, 'content/cards/aaa-broken/entity.json'), '{}')
   await mkdir(join(r, 'content/cards/empty'))
   const out = await localizeCards(r, fake([ID], [0.95]).llm, 'id')
   expect(out.map(x => [x.id, x.skipped?.slice(0, 7) ?? x.kept])).toEqual([['aaa-broken', 'failed:'], ['medaka', true]])
+})
+
+test('an event in a reader\'s country is translated only into its language; one anywhere else, into all', async () => {
+  const event = (country: string) => ({ type: 'event', event: { start: '2026-12-01', end: '2026-12-02', place: 'x', country, organiser: 'y' } })
+  const hanoi = await root(VI, event('VN'))
+  const none = fake([], [])
+  expect((await localizeCard(hanoi, none.llm, 'medaka', 'id')).skipped).toContain('an event in VN')
+  expect(none.calls).toEqual([])
+  const bangkok = await root(VI, event('TH'))
+  expect((await localizeCard(bangkok, fake([], []).llm, 'medaka', 'id')).skipped).toContain('an event in TH')
+  expect(await localizeCard(bangkok, fake([ID], [0.95]).llm, 'medaka', 'th')).toMatchObject({ kept: true })
+  expect(await localizeCard(await root(VI, event('JP')), fake([ID], [0.95]).llm, 'medaka', 'id')).toMatchObject({ kept: true })
 })

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { LANG, LANGS, type Lang } from './langs'
 import { HeldSchema, PhotoSchema } from './schemas'
 
 /**
@@ -46,5 +47,16 @@ export const CardTextSchema = z.object({
 })
 
 export type CardEntity = z.infer<typeof CardSchema>
+
+/**
+ * Whether a card shows in a language: an event in one of the readers' countries (langs.ts) only in that country's
+ * language, so a betta show in Hà Nội is Vietnamese only and a fair in Bangkok Thai only, its Vietnamese card then the
+ * translators' source alone; an event anywhere else, and any other card, in every language it's written in.
+ */
+export function cardShownIn(card: { event?: { country: string } }, lang: Lang): boolean {
+  const country = card.event?.country
+  const home = country ? LANGS.filter(l => (LANG[l].countries as readonly string[]).includes(country)) : []
+  return !home.length || home.includes(lang)
+}
 export type CardText = z.infer<typeof CardTextSchema>
 export type Card = CardEntity & { t: CardText }
