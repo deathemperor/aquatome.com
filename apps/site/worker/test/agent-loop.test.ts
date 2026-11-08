@@ -79,6 +79,22 @@ test('the 4th call is the last: forced to answer with tool_choice none, the tool
   expect(c.calls[3]!.body.tools).toHaveLength(3)
 })
 
+test('a last word given as a function hears why the call was forced: time whenever the time was short, even when the tools ran out too', async () => {
+  const reads = () => [() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()]
+  const lastWord = (why: string) => `forced: ${why}`
+  const said = (c: ReturnType<typeof script>) => (c.calls.at(-1)!.body.messages.at(-1)!.content as Anthropic.ContentBlockParam[]).filter(b => b.type === 'text').map(b => (b as Anthropic.TextBlockParam).text)
+  // The call limit at normal speed: calls.
+  const fast = script(reads(), { now: 0, per: [1_000, 1_000, 5_000] })
+  await runAgent(input(fast.send, { lastWord, limits: { calls: 3 } }))
+  expect(said(fast)).toEqual(['forced: calls'])
+  // The tool limit, with the time short as well (calls of 4 s with the chat's pace): time.
+  const clock = { now: 0, per: [4_000, 4_000, 8_000] }
+  const slow = script(reads(), clock)
+  await runAgent(input(slow.send, { clock: () => clock.now, lastWord, pace: { answer: 11, quick: 6.5, first: 4 }, limits: { tools: 2 } }))
+  expect(slow.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'auto', 'none'])
+  expect(said(slow)).toEqual(['forced: time'])
+})
+
 test('a last word, when given, follows the last message on the forced call only; the history is left as it was', async () => {
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()])
   await runAgent(input(c.send, { lastWord: 'No more reading: answer now.' }))

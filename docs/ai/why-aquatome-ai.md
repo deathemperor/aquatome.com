@@ -120,13 +120,17 @@ change to the chat's brain (`docs/review/chat-vs-plain.md`).
 | Expert answers with steps, the whole tank read | 8–38 | 23–21 |
 | General knowledge beside the handbook, fishkeeping only | 10–31 | 28–14 |
 | Answers in time when the model is slow | 12–33 | 32–14 |
+| Every point of a long post answered, with its figures | 16–21 | 30–11 |
 
-**Where that leaves us.** We win when we know the reader's tank: 32 to 14, scores 5.9 and 4.8. By problem that's algae
-10–2, stocking 9–1, cycling 5–3, sick fish 4–3, and setting up a tank 4–5, the one we still lose. Give both the whole post
-and plain Claude still wins 33 to 12, scores 6.4 and 5.6, and it takes every question about setting up a tank, 9 to 0.
-The judge says we use less of what the post tells us (tank-fit 35 times) and give fewer figures (30), and it marks plain
-Claude too long 34 times but picks it anyway. On the grounded count we lead on the tank, 16–11, and tie on the post,
-13–13. Two runs of the same code differ by a few wins, so a change has to beat that to count.
+**Where that leaves us.** We win when we know the reader's tank: 30 to 11, algae 10–2, stocking 7–1, cycling 4–1, sick
+fish 5–4 and setting up a tank 4–3. Give both the whole post and it is about even now: 16 to 21, and plain Claude's lead
+on the paired score went from 0.91 (± 0.62) to 0.16 (± 0.65). The gain came on the tuning questions, where we had lost
+27 of 33; on the 15 held out, where we already led, nothing moved. Answers too thin went from 16 complaints to 9.
+Setting up a tank is still plain Claude's on the post, 5 to 2: we told a reader who has a tank to buy a new one, got a
+beginner's heater wrong, and misread a 120 cm tank; in an earlier run we borrowed a guide's 15-million budget for a
+reader with 3 to 4 million. The judge still says we use less
+of what the post tells us (tank-fit 29) and give fewer figures (21). Two runs of the same code differ by a few wins, so
+a change has to beat that to count.
 
 **What still costs us.**
 - The budget. 72 of 96 answers stop at a limit rather than when the chat is done.
@@ -135,8 +139,11 @@ Claude too long 34 times but picks it anyway. On the grounded count we lead on t
   answer's time from its own pace: it answers sooner, at low effort when it must, and that call gets all the time left.
   At 1.75 times slower 6 of 96 failed, at 2 times 11 of 96. The price was reading: half the slow-hour answers read no
   page, and at normal speed one slow first call did the same to 16 of 96. Now one slow call isn't taken for a slow hour,
-  and a long answer gets more room: at 1.75 times slower 7 of 96 fail and 17 read no page; at normal speed none fail
-  and 4 read no page. The eval stretches each call to make the slow hour, so I'll check it against the next real one.
+  and a long answer gets more room: at 1.75 times slower 7 of 96 failed and 17 read no page; at normal speed none failed
+  and 4 read no page. The fuller answers to a forum post (below) then took longer to write than a slow hour leaves, 25
+  of 96 failed, so when time forces the answer it is now short: the likely cause and the first steps in about 120
+  words. At 1.75 times slower 3 of 96 fail; at normal speed 1 of 96, a long post main's code fails too. The eval
+  stretches each call to make the slow hour, so I'll check it against the next real one.
 - Some errors are our guides' own, such as "90% of hair algae is low CO₂". Those went to the writing lead, and the guides
   written from one video stay out of the chat until they are re-checked.
 
@@ -151,8 +158,9 @@ chat had read. The search looks for common units, so it could miss an odd wordin
 1. The eval: done, and it runs on every change.
 2. Close the gap it shows: expert answers with a plan, the whole tank read, the name search fixed ("cá vàng" found a
    shrimp before the goldfish) and general knowledge are all done. Loosening the reading budget didn't change wins, so I
-   dropped it. Answers in a slow hour are done too. Next is the whole forum post, where plain Claude still wins:
-   answer every point the reader raises, with the figures and names they ask for.
+   dropped it. Answers in a slow hour are done too, and the whole forum post is about even. Next is setting up a tank:
+   build on the kit the reader already has, a page's figures only where they fit the reader's tank and budget, the
+   nitrogen cycle always for a new tank, and fish suggested only when they fit the tank.
 3. The stop button and past conversations, which the owner approved. The contract is written and its table is live.
    The server is next.
 4. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.

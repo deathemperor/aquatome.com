@@ -61,7 +61,7 @@ const { values: args } = parseArgs({
     concurrency: { type: 'string', default: '4' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     site: { type: 'string', default: 'https://aquatome.com' },
-    cache: { type: 'string', default: '/tmp/chat-eval-cache' },
+    cache: { type: 'string', default: join(homedir(), '.cache/aquatome/chat-eval') },
     out: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
     only: { type: 'string' },
