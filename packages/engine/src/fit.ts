@@ -149,30 +149,50 @@ export const hasDose = (p: Page) => { PER_VOLUME.lastIndex = 0; return PER_VOLUM
  */
 const NUM = '\\d+(?:[.,]\\d+)?(?:\\s*[–-]\\s*\\d+(?:[.,]\\d+)?)?'
 const top = (s: string) => Number(s.split(/\s*[–-]\s*/).at(-1)!.replace(',', '.'))
-const MED = 'kanamycin|kanamisin|quinin\\p{L}*|kina|ký ninh|metronidazol\\p{L}*|praziquantel|levamisol\\p{L}*|erythromycin|eritromisin|oxytetracyclin\\p{L}*|oksitetrasiklin|tetracyclin\\p{L}*|tetrasiklin|doxycyclin\\p{L}*|nitrofura\\p{L}*|furazolidon\\p{L}*|malachit\\p{L}*|methylen\\p{L}*|metilen\\p{L}*|formalin|formaldehyd\\p{L}*|permanganat\\p{L}*|thuốc tím|acriflavin\\p{L}*|ampicillin|amoxicillin|enrofloxacin|ciprofloxacin|trimethoprim|fenbendazol\\p{L}*|flubendazol\\p{L}*|trichlorfon|dipterex|chloroquin\\p{L}*|kháng sinh|antibiotik\\p{L}*|antibiotics?'
-const MED_TH = 'ควินิน|คานามัยซิน|เมโทรนิดาโซล|ฟอร์มาลิน|เมทิลีน|มาลาไคต์|ด่างทับทิม|ยาปฏิชีวนะ'
+const MED = 'kanamycin|kanamisin|quinin\\p{L}*|kina|ký ninh|metronidazol\\p{L}*|praziquantel|levamisol\\p{L}*|erythromycin|eritromisin|oxytetracyclin\\p{L}*|oksitetrasiklin|tetracyclin\\p{L}*|tetrasiklin|doxycyclin\\p{L}*|nitrofura\\p{L}*|furazolidon\\p{L}*|xanh malachit\\p{L}*|malachit\\p{L}*|xanh methylen\\p{L}*|methylen\\p{L}*|metilen\\p{L}*|formalin|formol|formaldehyd\\p{L}*|permanganat\\p{L}*|thuốc tím|acriflavin\\p{L}*|ampicillin|amoxicillin|enrofloxacin|ciprofloxacin|trimethoprim|fenbendazol\\p{L}*|flubendazol\\p{L}*|trichlorfon|dipterex|chloroquin\\p{L}*|kháng sinh|antibiotik\\p{L}*|antibiotics?'
+const MED_TH = 'ควินิน|คานามัยซิน|เมโทรนิดาโซล|ฟอร์มาลิน|ฟอร์มาลีน|เมทิลีน|มาลาไคต์|มาลาไคท์|ด่างทับทิม|ยาปฏิชีวนะ'
 const MEDICINE = re(`${WORD(MED)}|${MED_TH}`)
 /** A medicine named right after a figure's unit ("2–5 g/L kanamycin"). */
 const MEDICINE_NEXT = new RegExp(`^\\s*(?:${WORD(MED)}|${MED_TH})`, 'iu')
-const SALT = re(`${WORD('muối|độ mặn|salt|salinity|saline|NaCl|garam|kemasinan|ppt')}|เกลือ|ความเค็ม|‰`)
+/** Salt put in the water, and the water's own saltiness, which is a tank's level unless a bath is named. */
+const ADDED_SALT = `${WORD('muối|salt|saline|NaCl|garam')}|เกลือ`
+const SALINITY = re(`${WORD('độ mặn|salinity|kemasinan|ppt')}|ความเค็ม|‰`)
+const SALT = re(`${ADDED_SALT}|${SALINITY.source}`)
+const BATH = re(`${WORD('tắm|ngâm|bath\\p{L}*|dip\\p{L}*|soak\\p{L}*|rendam\\p{L}*|perendaman|celup\\p{L}*|mandi')}|แช่|จุ่ม|อาบ`)
 const GRAMS = '(?:g|gm|gr|gam|gram|grams|ก\\.|กรัม)\\.?'
-const PER_L = '(?:\\/|per|mỗi|trên|cho(?:\\s+mỗi)?|trong|in(?:\\s+every)?|setiap|bagi(?:\\s+setiap)?|dalam|untuk|ต่อ(?:น้ำ)?)\\s*(?:1\\s*)?(?:l|lít|lit|liter|litre|liters|litres|ลิตร)(?!\\p{L})'
+const PER_L = '(?:\\/|per|mỗi|trên|cho(?:\\s+mỗi)?|trong|vào|in(?:\\s+every)?|setiap|bagi(?:\\s+setiap)?|dalam|untuk|ต่อ(?:น้ำ)?|ใน(?:น้ำ)?)\\s*(?:1\\s*)?(?:l|lít|lit|liter|litre|liters|litres|ลิตร)(?!\\p{L})'
 const G_PER_L = re(`(?<![\\d.,])(${NUM})\\s*${GRAMS}\\s*((?:\\p{L}+\\s+){0,2}?)${PER_L}`)
 /** A stock solution's strength, not a dose: "dung dịch gốc 10 g/L", "37% (khoảng 370 g/L)". */
 const STOCK = new RegExp(`(?:${WORD('dung dịch gốc|dung dịch mẹ|pha sẵn|stock|larutan induk|larutan stok')}|สารละลายเข้มข้น|%\\s*\\(\\s*(?:khoảng|sekitar|kira-kira|about|ประมาณ)?\\s*)[^.!?\\n]{0,25}$`, 'iu')
-/** A salt's strength: a percentage, per mille, or grams per litre. */
-const CONC = re(`(?<![\\d.,])(${NUM})\\s*(?:(%)(?!\\s*(?:nước|air|น้ำ|of)(?!\\p{L}))|(‰|ppt(?!\\p{L}))|${GRAMS}\\s*${PER_L})`)
-const TIME = re(`(?<![\\d.,])(${NUM})\\s*(?:(?:phút|minit|minutes?|mins?|menit)(?!\\p{L})|นาที|((?:giờ|tiếng|hours?|hrs?|jam)(?!\\p{L})|ชั่วโมง|ชม\\.?))`)
+/** A stock solution named after its strength: "…, rồi lấy 10 ml cho mỗi 40 lít", "sebagai larutan stok". */
+const STOCK_AFTER = new RegExp(`${WORD('dung dịch gốc|dung dịch mẹ|stock|larutan induk|larutan stok')}|สารละลายเข้มข้น|(?:${WORD('lấy|dùng|ambil|gunakan|pakai|take|use|add')}|ใช้|นำ)\\s*(?:\\p{L}+\\s+){0,2}?\\d[\\d.,]*\\s*(?:ml|cc|mililit\\p{L}*|มล)`, 'iu')
+/** A salt's strength: a percentage (not a share of the water), per mille, or grams per litre. */
+const CONC = re(`(?<![\\d.,])(${NUM})\\s*(?:(%)(?!\\s*(?:nước|lượng|thể tích|air|volume|of|น้ำ|ปริมาณ)(?!\\p{L}))|(‰|ppt(?!\\p{L}))|${GRAMS}\\s*${PER_L})`)
+/** The same strength in the other unit, in brackets after it: "3% (khoảng 30 g/L)". */
+const SAME_STRENGTH = /^\s*\(\s*(?:khoảng|sekitar|kira-kira|about|approximately|ประมาณ|~|≈)?\s*$/iu
+/** Between a salt word and a figure: a water change, or a share of the parasites, not the salt's strength. */
+const CHANGE = re(`${WORD('thay|ganti|tukar|change\\p{L}*|replac\\p{L}*|diệt|giảm|tăng|kill\\p{L}*|reduc\\p{L}*|bunuh|membunuh|kurangi')}|เปลี่ยน|ฆ่า|ลด`)
+const TIME = re(`(?<![\\d.,])(${NUM})\\s*(?:(?:phút|minit|minutes?|mins?|menit)(?!\\p{L})|นาที|((?:giờ|tiếng|hours?|hrs?|jam)(?!\\p{L})|ชั่วโมง|ชม\\.?)|((?:ngày|days?|hari)(?!\\p{L})|วัน))|${WORD('qua đêm|overnight|semalam(?:an)?')}|ข้ามคืน`)
+/** Before a time: a wait between dips, a repeat, or something else's hours (a fast, the light, watching the fish). */
+const NOT_DIP = new RegExp(`(?:${WORD('sau|after|setelah|selepas|mỗi|every|each|setiap|tiap|cách|lặp lại|ulangi|repeat\\p{L}*|theo dõi|monitor\\p{L}*|observ\\p{L}*|watch|amati|pantau|perhatikan|nhịn ăn|nhịn|fast\\p{L}*|puasa|chiếu sáng|đèn|light\\p{L}*|lampu|sục khí|aerat\\p{L}*|diaerasi')}|หลัง(?:จาก)?|ทุก|สังเกต|อดอาหาร|เปิดไฟ|ไฟ|เปิดลม)\\s*(?:khoảng|about|sekitar|ประมาณ)?\\s*$`, 'iu')
+/** Where one step of a sequence ends, before a dip: "nhịn ăn 24 giờ, rồi tắm…". */
+const STEP = re(`,\\s|${WORD('rồi|sau đó|then|lalu|kemudian|lepas itu')}|แล้ว`)
 /** Salt water for something other than a fish: decor, nets, brine shrimp eggs. */
 const DECOR = re(`${WORD('đồ trang trí|ngâm đồ|đồ vật|dụng cụ|vợt|dekorasi|hiasan|peralatan|decor\\p{L}*|ornaments?|equipment|nets?|artemia|brine shrimp|kista|cysts?|naupli\\p{L}*|penetasan|menetas\\p{L}*|hatch\\p{L}*|ấp trứng|trứng artemia')}|ของตกแต่ง|อุปกรณ์|อาร์ทีเมีย|ไรทะเล|ฟัก|ใส่ไข่`)
-/** A bound, not a dose: "dưới 100 g/L", "up to 17 g/L". */
-const BOUND = new RegExp(`${WORD('dưới|tối đa|under|below|less than|up to|di bawah|kurang dari|sampai|hingga')}\\s*$|(?:น้อยกว่า|ต่ำกว่า|ไม่เกิน)\\s*$`, 'iu')
-const CU_WORD = `(?<![\\p{L}\\p{N}])(?:ion\\s+)?(?:CuSO[4₄]|(?:sunphat|sunfat|sulfat)\\s+đồng|đồng(?!\\s*(?:thời|ý|hồ|bằng|đều|loạt|nghĩa|nhất|dạng|bộ|lòng|tiền|minh|hành|cỡ)(?!\\p{L}))|copper|tembaga|kuprum|Cu)(?!\\p{L})|ทองแดง|คอปเปอร์|จุนสี`
+/** A bound, not a dose: "dưới 100 g/L", "up to 17 g/L". ("Hingga 3%" brings the water to a strength.) */
+const BOUND = new RegExp(`${WORD('dưới|tối đa|không quá|under|below|less than|up to|at most|di bawah|kurang dari|maksimal|maksimum')}\\s*$|(?:น้อยกว่า|ต่ำกว่า|ไม่เกิน)\\s*$`, 'iu')
+/**
+ * Copper's names. "Đồng" is also together (cộng đồng, đồng loại), a field (cá rô đồng), the currency (nghìn đồng) and a
+ * province (Đồng Tháp), so it counts only with no such word beside it; "Cu" only as the symbol is written.
+ */
+const DONG = `(?<!(?:cộng|rô|cá|ruộng|nghìn|ngàn|triệu|trăm|chục|tỷ|tỉ|vạn|\\d)\\s*)đồng(?!\\s*(?:thời|ý|hồ|bằng|đều|loạt|nghĩa|nhất|dạng|bộ|lòng|tiền|minh|hành|cỡ|loại|ruộng|lúa|cỏ|quê|bào|chí|hương|nghiệp|tâm|cảm|tình|phục|đẳng|âm|vị|giá|tháp|nai|xoài|hới|văn)(?!\\p{L}))`
+const CU_WORD = `(?<![\\p{L}\\p{N}])(?:ion\\s+)?(?:CuSO[4₄]|(?:sunphat|sunfat|sulfat)\\s+đồng|${DONG}|copper|tembaga|kuprum|(?-i:Cu))(?!\\p{L})|ทองแดง|คอปเปอร์|จุนสี`
 const CU_UNIT = '(?:ppm|mg\\s*\\/\\s*(?:l|lít|liter|litre))(?!\\p{L})'
 const CU_AFTER = re(`(?<![\\d.,])(${NUM})\\s*${CU_UNIT}\\s*(?:${CU_WORD})`)
 /** Thai has no full stops: a space before Thai words ends a phrase; ", " ends one too. */
 const CU_BEFORE = re(`(?:${CU_WORD})((?:(?!\\s[\\u0E00-\\u0E7F]|,\\s)[^.!?;\\n]){0,60}?)(?<![\\d.,])(${NUM})\\s*${CU_UNIT}`)
-const ALKALINITY = re(`${WORD('kiềm|độ cứng|alkalin\\p{L}*|kesadahan|KH|GH')}|ความเป็นด่าง|ความกระด้าง|อัลคาลินิตี`)
+/** Another of the water's levels named between a copper word and a figure, whose figure it is. */
+const OTHER_LEVEL = re(`${WORD('kiềm|độ cứng|alkalin\\p{L}*|kesadahan|KH|GH|TDS|nitrat\\p{L}*|nitrit\\p{L}*|amoni\\p{L}*|ammonia|NO3|NO2|NH3|oxy|oxygen|oksigen')}|ความเป็นด่าง|ความกระด้าง|อัลคาลินิตี|ไนเตรต|ไนไตรต์|แอมโมเนีย`)
 const NAMED_COPPER = re(`${WORD('coppersafe|cupramine|chelat\\p{L}*|kelat|terkelat|nhãn|label')}|คีเลต|ฉลาก`)
 /** Where the last match of `r` in `s` ends, or -1. */
 const endOf = (r: RegExp, s: string) => { let at = -1; for (const m of s.matchAll(r)) at = m.index + m[0].length; return at }
@@ -189,6 +209,13 @@ export const rowsOf = (html: string) => parse(html).querySelectorAll('h3, p, li,
   .filter(t => t.replace(/^[-|]\s*/, ''))
   .join('\n')
 
+/** A dip's minutes from the times beside it: the first after it that is its own, else the last before it. */
+const dipMinutes = (before: string, after: string) => {
+  const own = (s: string) => [...s.matchAll(TIME)].filter(t => !NOT_DIP.test(s.slice(0, t.index)))
+    .map(t => (t[1] ? top(t[1]) * (t[3] ? 1440 : t[2] ? 60 : 1) : 600))
+  return own(after)[0] ?? own(before.slice(Math.max(0, endOf(STEP, before)))).at(-1) ?? 0
+}
+
 /** What these find in one part's text: the words, and why. */
 export function harmfulDoses(text: string): { quote: string; why: string }[] {
   const out: { quote: string; why: string }[] = []
@@ -199,34 +226,50 @@ export function harmfulDoses(text: string): { quote: string; why: string }[] {
   const tail = (i: number, n = 60) => { const s = text.slice(i, i + n); const end = s.search(/[.!?](?=\s|$)|[;\n]/); return end < 0 ? s : s.slice(0, end) }
   for (const m of text.matchAll(G_PER_L)) {
     const before = lead(m.index, 120)
-    if (STOCK.test(before)) continue
+    if (STOCK.test(before) || STOCK_AFTER.test(text.slice(m.index + m[0].length, m.index + m[0].length + 100))) continue
     // The figure is a medicine's when one is named between it and its unit, right after the unit, or after any salt before it.
     if (endOf(MEDICINE, m[2]!) >= 0 || MEDICINE_NEXT.test(text.slice(m.index + m[0].length)) || endOf(MEDICINE, before) > endOf(SALT, before)) say(`${before}${m[0]}`, 'a medicine in grams per litre, where medicines are dosed in milligrams')
   }
-  const strengths = [...text.matchAll(CONC)]
-  strengths.forEach((m, i) => {
-    // A salt's own strength (a salt word just before it, with no other figure between, or per mille), 2% or more: a
-    // percentage over 10 is something else's. Its time is in the same clause, before or after, and not past another
-    // strength, whose time it would be.
-    const pct = m[2] ? top(m[1]!) : top(m[1]!) / 10
-    if (pct < 2 || (m[2] && pct > 10)) return
-    const end = m.index + m[0].length, prev = strengths[i - 1], next = strengths[i + 1]
-    const before = lead(m.index, 80), after = tail(end, 80), salt = endOf(SALT, before)
-    if (!m[3] && (salt < 0 || /\d/.test(before.slice(salt)))) return
+  // A strength and the same in the other unit, in brackets after it, are one.
+  const strengths: RegExpExecArray[][] = []
+  for (const m of text.matchAll(CONC)) {
+    const last = strengths.at(-1)?.at(-1)
+    if (last && SAME_STRENGTH.test(text.slice(last.index + last[0].length, m.index))) strengths.at(-1)!.push(m as RegExpExecArray)
+    else strengths.push([m as RegExpExecArray])
+  }
+  strengths.forEach((group, i) => {
+    // A salt's own strength, 2% or more (a percentage over 10 is something else's): a salt word just before it, with no
+    // other figure, water change or share between; per mille, or the water's saltiness, only with a bath named. Its time
+    // is its own: after it, up to the next strength, or before it in the same step.
+    const pct = Math.max(...group.map(m => (m[2] ? (top(m[1]!) <= 10 ? top(m[1]!) : 0) : top(m[1]!) / 10)))
+    if (pct < 2) return
+    const start = group[0]!.index, last = group.at(-1)!, end = last.index + last[0].length
+    const prev = strengths[i - 1]?.at(-1), next = strengths[i + 1]?.[0]
+    const before = lead(start, 80), after = tail(end, 80)
+    const added = endOf(re(ADDED_SALT), before), salt = Math.max(added, endOf(SALINITY, before))
+    const gap = salt < 0 ? '' : before.slice(salt), permille = group.some(m => m[3])
+    if ((salt < 0 || /\d/.test(gap)) && !permille) return
+    if (endOf(CHANGE, gap) >= 0) return
+    if ((added < 0 || permille) && endOf(BATH, `${before}${after}`) < 0) return
     if (BOUND.test(before) || endOf(DECOR, `${before}${after}`) >= 0) return
-    const own = `${prev && prev.index + prev[0].length > m.index - before.length ? text.slice(prev.index + prev[0].length, m.index) : before} ${next && next.index < end + after.length ? text.slice(end, next.index) : after}`
-    const minutes = Math.max(0, ...[...own.matchAll(TIME)].map(t => top(t[1]!) * (t[2] ? 60 : 1)))
-    if (minutes > 10) say(`${before}${m[0]}${after}`, 'a salt dip of 2% or more held over 10 minutes, where a vet\'s dip is 30 g/L for at most 10')
+    const ownBefore = prev && prev.index + prev[0].length > start - before.length ? text.slice(prev.index + prev[0].length, start) : before
+    const ownAfter = next && next.index < end + after.length ? text.slice(end, next.index) : after
+    if (dipMinutes(ownBefore, ownAfter) > 10) say(`${before}${text.slice(start, end)}${after}`, 'a salt dip of 2% or more held over 10 minutes, where a vet\'s dip is 30 g/L for at most 10')
   })
   // One finding a figure, found with its copper word after it or before.
   const seen = new Set<number>()
+  // A product, type or label in the figure's own clause, or in its table row, whose first cell names the row's method.
+  const near = (at: number) => {
+    const row = text.slice(text.lastIndexOf('\n', at - 1) + 1, text.indexOf('\n', at) < 0 ? undefined : text.indexOf('\n', at))
+    return row.startsWith('| ') ? row : `${lead(at, 120)}${tail(at)}`
+  }
   const copper = (at: number, figure: string, quote: string) => {
-    if (seen.has(at) || top(figure) < 1 || endOf(NAMED_COPPER, `${lead(at, 120)}${tail(at)}`) >= 0) return
+    if (seen.has(at) || top(figure) < 1 || endOf(NAMED_COPPER, near(at)) >= 0) return
     seen.add(at)
     say(quote, 'copper at 1 ppm or more with no product, type or label beside it: copper sulphate at that level kills fish')
   }
   for (const m of text.matchAll(CU_AFTER)) copper(m.index, m[1]!, `${lead(m.index, 60)}${m[0]}`)
-  for (const m of text.matchAll(CU_BEFORE)) if (endOf(ALKALINITY, m[1]!) < 0 && endOf(MEDICINE, m[1]!) < 0) copper(m.index + m[0].lastIndexOf(m[2]!), m[2]!, m[0])
+  for (const m of text.matchAll(CU_BEFORE)) if (endOf(OTHER_LEVEL, m[1]!) < 0 && endOf(MEDICINE, m[1]!) < 0) copper(m.index + m[0].lastIndexOf(m[2]!), m[2]!, m[0])
   return out
 }
 

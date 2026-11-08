@@ -152,7 +152,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   const finalOf = (p: Page) => (reverts.includes(fileOf(p)) ? head.pages.get(fitKey(p)) : p)
   const harmFiles = () => {
     const out = new Map<string, Set<string>>()
-    for (const p of all) { const q = finalOf(p); if (q && gateChecks(q, saved(q)).has('harm')) out.set(`${p.kind}/${p.id}`, (out.get(`${p.kind}/${p.id}`) ?? new Set()).add(fileOf(p))) }
+    // A text put back keeps the harm any of its reads found, the older one too (holdAfter).
+    const backHarm = new Set(holdAfter.filter(([, c]) => c.includes('harm')).map(([f]) => f))
+    for (const p of all) { const q = finalOf(p); if (q && (backHarm.has(fileOf(p)) || gateChecks(q, saved(q)).has('harm'))) out.set(`${p.kind}/${p.id}`, (out.get(`${p.kind}/${p.id}`) ?? new Set()).add(fileOf(p))) }
     return out
   }
   let harmed = new Map<string, Set<string>>()
