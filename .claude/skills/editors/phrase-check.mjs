@@ -3,7 +3,7 @@
 // characters for languages written without spaces: Thai, Chinese), with examples.
 // usage: node .claude/skills/editors/phrase-check.mjs [--lang vi] [--examples 3] "phrase" ["phrase"…]
 // A phrase may be a regular expression ("một cách (hiệu quả|dễ dàng)"). The reference corpus is local, never committed:
-// ~/.cache/aquatome/corpus/<lang>/ (manifest.jsonl: one line per file, {file, url, site, type: forum|blog|shop-blog|wiki,
+// ~/.cache/aquatome/corpus/<lang>/ (manifest*.jsonl: one line per file, {file, url, site, type: forum|blog|video|shop-blog|wiki,
 // year, words}), or CORPUS=<dir>.
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { homedir } from 'node:os'
@@ -45,9 +45,10 @@ function site() {
 
 /** The reference corpus, one document a file, grouped by the manifest's type. */
 function reference() {
-  const m = join(CORPUS, 'manifest.jsonl')
-  if (!existsSync(m)) return []
-  return readFileSync(m, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)).flatMap(e => {
+  if (!existsSync(CORPUS)) return []
+  // manifest.jsonl, and any manifest-<part>.jsonl beside it (a crawl's, the video transcripts').
+  const manifests = readdirSync(CORPUS).filter(f => /^manifest(-[\w-]+)?\.jsonl$/.test(f)).map(f => join(CORPUS, f))
+  return manifests.flatMap(m => readFileSync(m, 'utf8').split('\n').filter(Boolean)).map(l => JSON.parse(l)).flatMap(e => {
     const f = join(CORPUS, e.file.replace(/^.*\/(?:vi-corpus|corpus\/[^/]+)\//, ''))
     return existsSync(f) ? [{ group: `ref:${e.type}`, id: e.url ?? e.file, text: readFileSync(f, 'utf8').normalize('NFC') }] : []
   })

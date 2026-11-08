@@ -189,6 +189,14 @@ test('the betta guide\'s "Cách setup bể cá betta đẹp" is found, and fixTr
   expect(found(page({ title: out.name, fields: [{ field: 'body', html: out.body }] }), 'wording')).toEqual([])
 })
 
+test('"và/hoặc" (English\'s "and/or", which neither hobbyists\' forum nor their videos write) is found, and fixTranslation writes "hoặc"', () => {
+  const t = { name: 'Cây ven bờ', sections: { 'habitat:sf': '<p>Nước mềm và/hoặc nước có tính axit. Cây ven bờ và / hoặc cây thủy sinh.</p>' } }
+  expect(found(page({ kind: 'species', title: t.name, fields: [{ field: 'sections.habitat:sf', html: t.sections['habitat:sf'] }] }), 'wording')).toEqual(['"và/hoặc" → "hoặc"', '"và / hoặc" → "hoặc"'])
+  const out = fixTranslation(t) as typeof t
+  expect(out.sections['habitat:sf']).toBe('<p>Nước mềm hoặc nước có tính axit. Cây ven bờ hoặc cây thủy sinh.</p>')
+  expect(fixTranslation(out)).toEqual(out)
+})
+
 test('a title\'s count held by numbered labels or as many bold leads; else the number dropped from the title', () => {
   // "13 mẹo…": Mẹo 1 to Mẹo 13 as bold leads under 8 headings; "10 sai lầm…" numbered out of order; "7 nguyên nhân" as 7 bold leads.
   const tips = `<h3>A</h3>${Array.from({ length: 13 }, (_, i) => `<p><strong>Mẹo ${i + 1}: x.</strong> y</p>`).join('')}`
