@@ -1,0 +1,161 @@
+{
+  "id": "hypostomus-mutucae",
+  "scientificName": "Hypostomus mutucae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "lNumber": "LDA10",
+  "places": [
+    "south-america",
+    "brazil",
+    "mato-grosso"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.2,
+          "max": 7.6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>LDA10, Hypostomus mutucae, is a small suckermouth catfish from Mato Grosso, Brazil, with its type specimen collected in the Rio Mutuca. It grows to around 75 mm and is peaceful, and it inhabits flowing, highly oxygenated water over sand scattered with rocks. It is often confused with LDA09 but has smaller spots on the head, where LDA09 has larger spots of uniform size all over.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>Mato Grosso, Brazil. The type specimen was collected in the Rio Mutuca, hence the species name.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>It inhabits flowing, highly oxygenated waters running over sandy substrates that are scattered with rocks and stones.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>Standard length: 75 mm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>A biotope setup would consist of a sandy substrate over which is scattered lots of smooth pebbles and rocks of varying sizes. A few driftwood branches would add to the effect, and a powerhead or two at one end of the tank would provide the necessary water movement and oxygenation. Plants don't tend to do so well under these conditions, but you could try the hardier species such as Anubias and java fern, and these may survive for a while. Soft-leaved varieties would probably be eaten.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 6.2–7.6</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>Primarily vegetarian, so the bulk of the diet should be composed of fruit and vegetable matter in both fresh (cucumber slices, blanched spinach, tomato etc.) and dried (algae wafers, spirulina tablets etc.) forms. Small live and frozen foods such as bloodworm or daphnia can be offered occasionally.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>Peaceful and due to its small size, is suitable for most communities of peaceful species. Ideal tankmates include characins, peaceful South American cichlids and catfish such as Corydoras. It's surprisingly non-territorial and can be kept both in a species group or other peaceful Loricariids. In a biotope setup good tankmates include characins such as Anostomus, Hemiodus, Semaprochilodus and Metynnis species, reophilic cichlids such as Retroculus and other Loricariids requiring similar conditions. It also makes a good companion for African cihlids of the genus Steatocranus.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>Basically unsexable by external means. The genital papilla of males is pointed, and in females is rounded, but it's very difficult to examine these in such a small fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>Not thought to have been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypostomus-mutucae",
+      "html": "<p>It's suprising that this relatively unknown species is not more popular in the hobby, given its small adult size and peaceable nature. It's often confused with LDA09, but can be distinguished by the pattern of small spots on its head, as in LDA09 the spots are larger and uniform in size over the whole body.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên tảo cho cá lau kiếng",
+        "spirulina viên"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi đá bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -10,6 +10,58 @@
     "brazil",
     "ivai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "rio Ivaí",
+        "rio Paraná"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the rio Ivaí basin, a tributary of the rio Paraná in Paraná state, southern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "rio Ivaí",
+            "rio Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8161736,
+      "total": 18,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -25.3125,
+          17,
+          17
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

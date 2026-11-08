@@ -1,0 +1,84 @@
+{
+  "id": "iguanodectes-variatus",
+  "scientificName": "Iguanodectes variatus",
+  "order": "Characiformes",
+  "family": "Iguanodectidae",
+  "genus": "Iguanodectes",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "madeira"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10.3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-variatus",
+      "html": "<p>Iguanodectes variatus is a characin from Brazil, recorded from the Guaporé, Madeira, Branco, Trombetas and Urubu river systems in the Amazon basin. It belongs to a small genus of elongate fishes in the family Iguanodectidae and grows to around 103 mm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-variatus",
+      "html": "<p>This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.</p><p>Type locality is 'Igarapé Jatuarana, 5 kilometers above Samuel, Rio Guaporé, Rondonia, Brazil'.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-variatus",
+      "html": "<p>Iguanodectes is a relatively small genus with less than ten member species and no additions since the early 1990s.</p><p>It is included in the family Iguanodectidae alongside the related genus Piabucus which is separated from Iguanodectes by possession of enlarged pectoral fins and a prominent pectoral keel.</p><p>This grouping was considered to represent a subfamily, Iguanodectinae, prior to phylogenetic analyses (Moreira, 2002; Mirande, 2010) although its monophyly was evidenced much earlier based on characters of the swim bladder (Vari, 1977).</p><p>All iguanodectids possess the following characters: body elongate; teeth basally-contracted and multicuspid; gill membranes united and free from the isthmus; posterior end of maxilla not extending to eye; dorsal-fin origin normally positioned posterior to midbody (except in Iguanodectes geisleri in which it is at midbody); anal-fin long (except in I. geisleri).</p><p>In addition there is a process on the internal face of the dentary, the first proximal anal-fin pterygiophore is expanded and recurved posteriorly (except in I. geisleri), and the anterior portion of the posterior swimbladder chamber is thinner than the posterior portion (Moreira in Reis et al. 2003).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-variatus",
+      "html": "<ul><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Cope, E. D. (1872). On the fishes of the Ambyiacu River. Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, 250-294</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Géry, J. (1993). Description de trois espèces nouvelles du genre Iguanodectes (Pisces, Characiformes, Characidae), avec quelques données récentes sur les autres espèces. Revue française d'Aquariologie Herpétologie 19(4) [for 1992], 97-106</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4a19cc321996f975.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4a19cc321996f975-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-variatus",
+      "caption": "Specimen collected from the rio Aripuanã (rio Madeira basin), Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh dài"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

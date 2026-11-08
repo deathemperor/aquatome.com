@@ -1,0 +1,63 @@
+{
+  "id": "corydoras-petracinii",
+  "native": {
+    "input": "a9c3761732686b03",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma petracinii, long known as Corydoras petracinii, is an armoured catfish known only from one ephemeral stream in the Río San Lorenzo watershed of Salta province, Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a single locality in the Lomas de Medeiros hills, Río San Lorenzo watershed, Salta province, northwestern Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río San Lorenzo",
+        "source": "seriouslyfish",
+        "quote": "Known only from a single locality in the Lomas de Medeiros hills, Río San Lorenzo watershed, Salta province, northwestern Argentina.",
+        "country": "AR",
+        "ok": true
+      },
+      {
+        "name": "Río Juramento",
+        "source": "seriouslyfish",
+        "quote": "The San Lorenzo is a tributary within the Río Juramento system, itself an affluent of the upper Río Paraná basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraná",
+        "source": "seriouslyfish",
+        "quote": "The San Lorenzo is a tributary within the Río Juramento system, itself an affluent of the upper Río Paraná basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras petracinii",
+    "status": "ACCEPTED",
+    "taxonKey": 5961330,
+    "datasets": [],
+    "native": [
+      "AR"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

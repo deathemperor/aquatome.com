@@ -40,7 +40,7 @@ async function google(page: Page, sub: string) {
 }
 
 /** The dashboard's list of its pages (hidden on a phone's overview, where its areas list them instead). */
-const rail = (page: Page) => page.locator('nav[aria-label="Các mục quản trị"]')
+const rail = (page: Page) => page.locator('nav[aria-label="Dashboard pages"]')
 
 test.beforeEach(async ({ request }) => {
   test.skip(LIVE && (await request.get(PAGE, { maxRedirects: 0 })).status() === 301, 'the dashboard is behind Access, on its own host')

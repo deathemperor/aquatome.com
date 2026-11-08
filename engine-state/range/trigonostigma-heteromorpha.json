@@ -1,65 +1,83 @@
 {
   "id": "trigonostigma-heteromorpha",
   "native": {
-    "input": "8bd907c35d54ddf7",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "1b6175f900fa6e39",
+    "at": "2026-11-08T18:57:48.756Z",
     "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
       {
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra.",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
         "words": "Thailand",
         "ok": true
       },
       {
         "code": "MY",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra.",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found in Malaysia, Singapore and Thailand.",
         "words": "Malaysia",
         "ok": true
       },
       {
         "code": "SG",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra.",
-        "words": "Singapore",
-        "ok": true
-      },
-      {
-        "code": "MY",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
-        "words": "Malaysia",
-        "ok": true
-      },
-      {
-        "code": "SG",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found in Malaysia, Singapore and Thailand.",
         "words": "Singapore",
         "ok": true
       },
       {
         "code": "TH",
         "status": "native",
-        "source": "sprucepets",
-        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found in Malaysia, Singapore and Thailand.",
         "words": "Thailand",
         "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "Sumatra",
-        "source": "sprucepets",
-        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
-        "ok": true
-      },
       {
         "name": "Sumatra",
         "source": "seriouslyfish",
@@ -73,9 +91,9 @@
         "ok": true
       },
       {
-        "name": "Bintan",
-        "source": "seriouslyfish",
-        "quote": "While it certainly occurs on the island of Bintan in Riau Islands province, Sumatra, definitive information regarding the mainland is lacking other than a vague reference to the city of Medan in the north (the species is said to range throughout northern Sumatra).",
+        "name": "Sumatra",
+        "source": "sprucepets",
+        "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
         "ok": true
       }
     ],

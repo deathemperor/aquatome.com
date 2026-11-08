@@ -1,8 +1,8 @@
 {
   "id": "corydoras-carlae",
   "native": {
-    "input": "d4930bc12273fafc",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "c405ecff1c97b16e",
+    "at": "2026-11-08T18:57:48.756Z",
     "claims": [
       {
         "code": "AR",
@@ -11,19 +11,36 @@
         "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
         "words": "Argentina",
         "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the lower Río Iguazu in Misiones province, northern Argentina.",
+        "words": "Argentina",
+        "ok": true
       }
     ],
     "regions": [
       {
+        "name": "Río Iguazu",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the lower Río Iguazu in Misiones province, northern Argentina.",
+        "country": "AR",
+        "ok": true
+      },
+      {
         "name": "Iguazu",
         "source": "planetcatfish",
         "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+        "country": "AR",
         "ok": true
       },
       {
         "name": "Paraná",
         "source": "planetcatfish",
         "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+        "country": "AR",
         "ok": true
       },
       {

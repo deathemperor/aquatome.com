@@ -1,8 +1,8 @@
 {
   "id": "bunocephalus-colombianus",
   "native": {
-    "input": "349e419c4eb3d83f",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "f0c304fc277ee87f",
+    "at": "2026-11-08T18:57:48.756Z",
     "claims": [
       {
         "code": "CO",
@@ -19,6 +19,14 @@
         "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
         "words": "Colombia",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
@@ -26,12 +34,42 @@
         "name": "Atrato",
         "source": "planetcatfish",
         "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+        "country": "CO",
         "ok": true
       },
       {
         "name": "Magdalena",
         "source": "planetcatfish",
         "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "scotcat",
+        "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "San Jorge",
+        "source": "scotcat",
+        "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Sinu",
+        "source": "scotcat",
+        "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Patía",
+        "source": "scotcat",
+        "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+        "country": "CO",
         "ok": true
       }
     ],
