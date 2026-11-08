@@ -3,11 +3,11 @@ import { fileURLToPath } from 'node:url'
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
 import { contentPage } from '../worker/admin/content-page'
-import { accountsPage, fishIdPage, photosPage } from '../worker/admin/pages'
+import { accountsPage, fishIdPage, NEED_TITLE_MAX, photosPage } from '../worker/admin/pages'
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
 import { todayJson, todayPage } from '../worker/admin/today'
-import { FISH, LOW_CONTENT, PHOTO_APPROVED, PHOTO_WAITING, SPENDING, TODAY } from '../worker/test/owner-sample'
+import { FISH, LOW_CONTENT, PHOTO_APPROVED, PHOTO_WAITING, SPENDING, STATS, TODAY } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -108,22 +108,54 @@ test('a tap on any small column, on the overview and the scoreboard, shows its d
   expect(errors).toEqual([])
 })
 
-test('what needs you: each title on one line on a 390 px phone, its detail under it', async ({ page, errors }) => {
+test('what needs you: each title on one line on a 390 px phone, on any font; a name too long is cut, whole in the line under it', async ({ page, errors }) => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
   // The Design Lead (2026-11-08): a need's title is the thing, on one line at regular size; its detail goes under it.
-  // The web's button beside the title wrapped "2Hr Aquarist needs a browser check" on a phone.
+  // A title can carry a source's name, and systems set the same face differently: GitHub's Linux runner set the titles
+  // about 3% wider than a Mac and wrapped "2Hr Aquarist needs a browser check" (2026-11-09). So a title never wraps: a
+  // name too long is cut ("…") and the line under it names it whole; our own wording fits whole with room to spare.
   const failed = { failed: 'down' }
-  const all = [TODAY, SPENDING, { ...TODAY, beacon: failed, held: failed, waitingPhotos: failed, readers: failed, fish: failed, content: failed, accounts: failed }]
-  expect(Math.max(...all.flatMap(t => todayJson(t).needs.map(x => x.text.length)))).toBeGreaterThanOrEqual(34)
+  const content = TODAY.content as typeof STATS
+  // A source's name as wide as a title allows (NEED_TITLE_MAX): too wide for a phone on any font.
+  const wide = { ...TODAY, content: { ...content, engine: { ...content.engine!, sources: content.engine!.sources.map(x => ({ ...x, name: 'W'.repeat(14) })) } } }
+  const late = { ...TODAY, waiting: { comments: 2, photos: 1, oldest: '2026-11-02T20:00:00.000Z' } }
+  const two = { ...TODAY, content: { ...content, engine: { ...content.engine!, needsHuman: [...content.engine!.needsHuman, { source: 'x', since: '2026-11-03T22:00:00.000Z' }] } } }
+  const all = [TODAY, SPENDING, wide, late, two, { ...TODAY, keys: failed }, { ...TODAY, keys: undefined },
+    { ...TODAY, beacon: failed, held: failed, waitingPhotos: failed, kept: failed, crashes: failed, lastReport: failed, changes: failed, fish: failed, readers: failed, clicks: failed, photos: failed, waiting: failed, wanted: failed, accounts: failed, hidden: failed, content: failed, snapshots: failed }]
+  expect(todayJson(wide).needs.find(x => x.kind === 'engine')!.text).toHaveLength(NEED_TITLE_MAX)
   await page.setViewportSize({ width: 390, height: 844 })
   for (const [i, t] of all.entries()) {
     await serve(page, `/_ab/${i}/`, () => todayPage(t))
     await page.goto(`/_ab/${i}/`)
-    const titles = page.locator('ul.todo b')
-    expect(await titles.count()).toBe(todayJson(t).needs.length)
-    for (const b of await titles.all()) {
-      const [height, line] = await b.evaluate(e => [e.getBoundingClientRect().height, parseFloat(getComputedStyle(e).lineHeight) || 1.5 * parseFloat(getComputedStyle(e).fontSize)])
-      expect(height, await b.innerText()).toBeLessThan(1.5 * line)
+    await page.evaluate(() => document.fonts.ready)
+    const needs = todayJson(t).needs
+    const rows = page.locator('ul.todo > li')
+    await expect(rows).toHaveCount(needs.length)
+    for (const [k, row] of (await rows.all()).entries()) {
+      const x = needs[k]!
+      const m = await row.locator('b').evaluate(b => {
+        const cs = getComputedStyle(b)
+        const r = document.createRange()
+        r.selectNodeContents(b)
+        return {
+          height: b.getBoundingClientRect().height, line: parseFloat(cs.lineHeight) || 1.5 * parseFloat(cs.fontSize),
+          // The text's own width, cut or not, and the line's.
+          text: r.getBoundingClientRect().width, room: b.clientWidth, ellipsis: cs.textOverflow === 'ellipsis' && cs.overflowX === 'hidden',
+          // Measured in the dashboard's face at the title's weight, not a system font standing in while it loads.
+          face: [...document.fonts].some(f => f.family.replace(/["']/g, '') === 'Be Vietnam Pro' && f.weight === cs.fontWeight && f.status === 'loaded'),
+        }
+      })
+      expect(m.face, x.text).toBe(true)
+      expect(m.height, x.text).toBeLessThan(1.5 * m.line)
+      const name = x.kind === 'engine' ? /^(.+) needs a browser check$/.exec(x.text)?.[1] : undefined
+      if (name) {
+        // A source's name: whole in the line under the title, cut in the title or not.
+        await expect(row.locator('.sub')).toContainText(name)
+        if (t === wide) expect([m.text > m.room, m.ellipsis], x.text).toEqual([true, true])
+      } else {
+        // Our own wording: whole, with a twentieth of the line to spare.
+        expect(m.text, x.text).toBeLessThanOrEqual(0.95 * m.room)
+      }
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
   }

@@ -432,7 +432,7 @@ test('what needs you is one card: each row its kind\'s icon (the triangle only f
   expect(page.querySelectorAll('ul.todo')).toHaveLength(1)
   expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.ic')!.getAttribute('data-i'), li.querySelector('.sub')?.text ?? ''])).toEqual([
     ['Fish ID and chat are down', 'bad', 'alert', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
-    ['2Hr Aquarist needs a browser check', 'bad', 'alert', 'Stopped Wed 4 Nov, 5:00.'],
+    ['2Hr Aquarist needs a browser check', 'bad', 'alert', '2Hr Aquarist since Wed 4 Nov, 5:00'],
     ['5 comments held for review', 'wait', 'comment', 'Cá neon vua · Cá betta (cá xiêm)'],
     ['2 reader photos to approve', 'wait', 'photo', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
@@ -550,7 +550,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
   expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
   expect(t.needs.map(x => [x.text, x.sub])).toEqual([
-    ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', 'Stopped Wed 4 Nov, 5:00.'],
+    ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', '2Hr Aquarist since Wed 4 Nov, 5:00'],
     ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
   // A day's AI spend near its cap waits on the owner: to review, not a fault.

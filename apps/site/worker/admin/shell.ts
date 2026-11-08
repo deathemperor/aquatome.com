@@ -130,7 +130,8 @@ section>h2:first-child{margin-top:28px}
 .todo .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;align-self:start;background:color-mix(in srgb,var(--ink) 7%,var(--plate));color:var(--ink-2)}
 .todo .bad .ic{background:var(--rust-wash);color:var(--rust)}
 .todo .tx{min-width:0}
-.todo b{display:block;font-size:14.5px;font-weight:600}
+/* A title is one line on any font: a source's name too long for the screen is cut ("…"), whole in the line under it. */
+.todo b{display:block;font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .todo .sub{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
 .todo .act{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid var(--rule);border-radius:9px;background:var(--mat);color:var(--ink);font-size:13.5px;font-weight:600;white-space:nowrap}
 .todo .wait .act{background:var(--moss);border-color:var(--moss);color:var(--paper)}

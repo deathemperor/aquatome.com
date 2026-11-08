@@ -165,8 +165,8 @@ test('needs care: the overview\'s to-dos, each of them, in English with the page
   }
   expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual(['Fish ID and chat are down', '2Hr Aquarist needs a browser check'])
   expect(titles({ now: S.NOW, overview: failed, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual([
-    'Can’t read the keys’ state', 'Readers didn’t load', 'Shop clicks didn’t load', 'The fish ID log didn’t load', 'Comments and accounts didn’t load',
-    'The moderation queues didn’t load', 'Reader photos didn’t load', 'Wanted names didn’t load', 'Hidden pages didn’t load', 'Content totals didn’t load', 'Daily content totals didn’t load',
+    'Can’t read the keys’ state', 'Readers didn’t load', 'Shop clicks didn’t load', 'The fish ID log didn’t load', 'Accounts didn’t load',
+    'Moderation queues didn’t load', 'Reader photos didn’t load', 'Wanted names didn’t load', 'Hidden pages didn’t load', 'Content totals didn’t load', 'Daily content totals didn’t load',
   ])
 })
 

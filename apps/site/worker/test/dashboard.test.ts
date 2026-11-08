@@ -79,7 +79,8 @@ test('overview: a day whose AI spend passed 80% of its cap is the owner\'s to ra
 
 test('overview: a source behind a browser check is the owner\'s to pass; the content and engine rows count the items and the video queue', () => {
   const o = { ...well(), content: stats([{ source: '2hraquarist', since: '2026-11-02T04:00:00.000Z' }]) }
-  expect(todos(o)).toEqual([expect.objectContaining({ title: '2Hr Aquarist needs a browser check', text: 'Stopped Mon 2 Nov, 11:00.', href: '/_ab/noi-dung/#engine' })])
+  // The line under the title names the source in full too: a narrow screen may cut the title's name short (2026-11-09).
+  expect(todos(o)).toEqual([expect.objectContaining({ title: '2Hr Aquarist needs a browser check', text: '2Hr Aquarist since Mon 2 Nov, 11:00', href: '/_ab/noi-dung/#engine' })])
   // A name too long for the line: the title says a source, the line under it names it.
   const long = { ...o, content: { ...o.content, engine: { ...(o.content as ContentStats).engine!, sources: [{ id: '2hraquarist', name: 'The Planted Tank Forum Archive' }] } } as unknown as ContentStats }
   expect(todos(long)[0]).toMatchObject({ title: 'A source needs a browser check', text: 'The Planted Tank Forum Archive since Mon 2 Nov, 11:00' })

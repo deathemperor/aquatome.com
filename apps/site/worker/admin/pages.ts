@@ -79,7 +79,7 @@ export const NEED_TITLE_MAX = 36
 /** Each part of the overview, by what it is to the owner (a need's title when it fails) and where its page is. */
 const parts = (o: Overview): [string, Soft<unknown>, string][] => [
   ['Readers', o.readers, '/_ab/doc-gia/'], ['Shop clicks', o.clicks, '/_ab/affiliate/'], ['The fish ID log', o.fish, '/_ab/nhan-dien-ca/'],
-  ['Comments and accounts', o.accounts, '/_ab/tai-khoan/'], ['The moderation queues', o.waiting, '/_ab/binh-luan/'], ['Reader photos', o.photos, '/_ab/anh-ban-doc/'],
+  ['Accounts', o.accounts, '/_ab/tai-khoan/'], ['Moderation queues', o.waiting, '/_ab/binh-luan/'], ['Reader photos', o.photos, '/_ab/anh-ban-doc/'],
   ['Wanted names', o.wanted, '/_ab/muon-co/'], ['Hidden pages', o.hidden, '/_ab/an-trang/'],
   ['Content totals', o.content, '/_ab/noi-dung/'], ['Daily content totals', o.snapshots, '/_ab/noi-dung/'],
 ]
@@ -128,12 +128,13 @@ export function todos(o: Overview): Todo[] {
   if (human.length) {
     const name = (id: string) => engine!.sources.find(r => r.id === id)?.name ?? id
     const one = human.length === 1 ? `${name(human[0]!.source)} needs a browser check` : ''
-    // The title names the source when it fits a line; the line under it says since when, naming it when the title doesn't.
+    // The title names the source when it fits NEED_TITLE_MAX; a screen narrower than the name cuts it short ("…"). The line
+    // under it always names each source in full, and since when.
     const named = Boolean(one) && one.length <= NEED_TITLE_MAX
     out.push({
       kind: 'engine', href: '/_ab/noi-dung/#engine', action: 'See engine',
       title: named ? one : human.length === 1 ? 'A source needs a browser check' : `${fmt(human.length)} sources need a browser check`,
-      text: named ? `Stopped ${when(human[0]!.since)}.` : human.map(h => `${name(h.source)} since ${when(h.since)}`).join(' · '),
+      text: human.map(h => `${name(h.source)} since ${when(h.since)}`).join(' · '),
     })
   }
   for (const [what, part, href] of parts(o)) if (isFailed(part)) out.push({ kind: 'failed', title: didntLoad(what), text: 'Its page has the error.', href, action: 'Open' })
