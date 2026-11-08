@@ -2,6 +2,18 @@
   "id": "chalceus-macrolepidotus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/589718941.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/589718941-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/589718941",
+      "caption": "Hai cá chalceus đuôi hồng bơi trong bể cá",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/38a115b2433c65a4.webp",
       "thumb": "https://media.aquatome.com/commons/38a115b2433c65a4-480.webp",
       "width": 1200,
@@ -26,7 +38,7 @@
       "kind": "other"
     }
   ],
-  "seen": 5,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 6,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

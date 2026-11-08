@@ -10,6 +10,40 @@
     "malaysia",
     "sadong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sadong River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Restricted to tributaries of the Sadong River basin in southern Sarawak state, Malaysian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sadong River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358877,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

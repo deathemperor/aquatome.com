@@ -35,8 +35,14 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 2. **A checked photo big enough for its card.**
    - "Checked" means judged the right subject and typical, with no person, logo, face or watermark (the engine's photo
      checks), and not on the `avoid` list.
-   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's cards are about 400×420 pt, and
-     Khám phá's top cards are wider than tall.
+   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's fish card is about 400×420 pt, its
+     guide and story cards a 16:9 photo (400×225 pt at the widest, which a 1280×720 video still fills), and Khám phá's
+     top cards are wider than tall. A guide without one is still picked, and drawn without a photo; the planner gives
+     a kept guide or story a photo when its page gets one.
+   - A guide's photo has passed only the face and watermark checks, so the editor looks at each before the week goes
+     out, and puts a diagram, a photo with words on it or two photos joined in `avoid`.
+3. **Variety.** No fish or guide comes back within four weeks, and no two days running show the same group of fish, or
+   guides of the same kind or from the same source.
 
 Among the pages that pass, it scores:
 - the week's own lists first, in their order;
@@ -74,10 +80,23 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
 ## New kinds of Hôm nay card (owner, 2026-11-08)
 
 Each needs dated sources, and is written through the Writing Lead's writer and gate. A card is
-`content/cards/<id>/entity.json` and a `<lang>.json` per language it's written in (`packages/schema/src/cards.ts`): the
-eyebrow at most 24 characters and the title 70, so they fit the card at the largest text size, and a body of about 80
-words. `pnpm engine gate` reads it before it's committed, and `pnpm engine curate --check` says when a day's card is
-missing, held back in every language, or outside its days.
+`content/cards/<id>/entity.json` and a `<lang>.json` per language (`packages/schema/src/cards.ts`): the eyebrow at most 24
+characters and the title 70, so they fit the card at the largest text size, and a body of about 80 words.
+- **The editor writes the Vietnamese only**, through the editors (bar 9) and `pnpm engine gate` before it's committed. Each
+  cycle the engine translates it into the other served languages: a reviewer holds each translation to the Vietnamese, it's
+  kept only when it passes and fits the limits, and the gate reads it like any card once the gate runs in the cycle
+  (#881; until then the reviewer is the check). A changed Vietnamese card is translated again, and one the gate holds
+  takes its translations down, at the next cycle's translation step: for up to a cycle (about 3 hours) the old
+  translations still show. Malay is translated in the cycle's "ahead" block, which a long cycle skips, so a Malay card
+  can come a cycle after the Indonesian and Thai.
+- **An event in a reader's country is shown only in that country's language** (`cardShownIn`): an event whose
+  `event.country` is Vietnam shows in Vietnamese only; one in Indonesia, Thailand or Malaysia (or Brunei, for Malay) is
+  still written in Vietnamese, as the translation's source, but never shown in Vietnamese and translated into that one
+  language. An event anyone can enter from anywhere (IAPLC, entries online) is translated into all of them. Never use
+  `held` to keep a card out of a language: the gate lets a held card out once it passes. A Vietnamese source the gate
+  holds makes no translation until it passes, which the gate run before the commit shows.
+- `pnpm engine curate --check` says when a day's card is missing, its files don't parse, it's held back or unwritten in
+  every language it's shown in, or it's outside its days.
 
 | Kind | Sources | Cadence | Rules |
 | --- | --- | --- | --- |

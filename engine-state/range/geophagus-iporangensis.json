@@ -1,0 +1,88 @@
+{
+  "id": "geophagus-iporangensis",
+  "native": {
+    "input": "6d8d97de2442737e",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Ribeira de Iguapé drainage basin which lies within the Vale do Ribeira, a coastal valley formed by the river straddling the border region between the states of São Paulo and Paraná, southern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Mountain streams of Rio Ribeira de Iguapé, Iporanga, Brazil'.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Ribeira de Iguapé",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Ribeira de Iguapé drainage basin which lies within the Vale do Ribeira, a coastal valley formed by the river straddling the border region between the states of São Paulo and Paraná, southern Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus iporangensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208421,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        75
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        20
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        18
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        16
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

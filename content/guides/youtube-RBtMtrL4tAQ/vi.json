@@ -41,5 +41,12 @@
     "bySource": {
       "youtube": 0.6
     }
+  },
+  "held": {
+    "checks": [
+      "harm",
+      "source"
+    ],
+    "at": "2026-11-08"
   }
 }

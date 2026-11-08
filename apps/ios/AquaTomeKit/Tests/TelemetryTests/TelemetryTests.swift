@@ -18,9 +18,9 @@ private final class Clock: Sendable {
 }
 
 private func telemetry(_ fake: FakeCollector, file: URL? = nil, clock: Clock = Clock(), site on: Bool? = true, reader: Bool = true,
-                       ours: Bool = false) async -> Telemetry {
+                       ours: Bool = false, install: Install? = nil) async -> Telemetry {
   let t = Telemetry(about: about, readerAllows: reader, file: file, site: site, send: { try await fake.send($0) },
-                    userAgent: { ours ? "AquaTome-iOS AquaTomeCheck/1" : nil }, now: { clock.now })
+                    userAgent: { ours ? "AquaTome-iOS AquaTomeCheck/1" : nil }, install: install, now: { clock.now })
   if let on { await t.siteAllows(on)?.value }
   return t
 }
@@ -381,4 +381,70 @@ func dropsWhatReachesTheQueueAfterASwitchWentOff() async throws {
   switches.set(true)
   await outbox.flush()
   #expect(fake.received.isEmpty, "sent when on again: \(fake.received.map(\.path))")
+}
+
+/// UserDefaults of the test's own.
+private func defaults() -> UserDefaults { UserDefaults(suiteName: "telemetry-\(UUID().uuidString)")! }
+private func installOf(_ r: FakeCollector.Received) -> String? { json(r.body)["install"] as? String }
+/// A lowercase UUID v4.
+private func isUUIDv4(_ s: String) -> Bool { s.wholeMatch(of: #/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/#) != nil }
+
+@Test("The install id: a lowercase UUID v4 made at the first batch, the same in every batch after and at a later launch, made anew 13 months on; never in a report")
+func anInstallIdLastsThirteenMonths() async throws {
+  let fake = FakeCollector()
+  let d = defaults()
+  let day = OSAllocatedUnfairLock(initialState: Date(timeIntervalSince1970: 1_800_000_000))
+  let install = Install(defaults: d, today: { day.withLock { $0 } })
+  var t = await telemetry(fake, install: install)
+  t.diagnostic(.metric, json: metricSample)
+  await t.flush()
+  #expect(d.string(forKey: Install.idKey) == nil, "made with nothing to send")
+  t.record(.view(.tanks))
+  t.diagnostic(.metric, json: metricSample)
+  await t.flush()
+  t.record(.view(.lights))
+  await t.flush()
+  #expect(fake.received.map(\.path) == ["/api/v1/app/diagnostics", "/api/v1/app/events", "/api/v1/app/diagnostics", "/api/v1/app/events"])
+  #expect(installOf(fake.received[0]) == nil && installOf(fake.received[2]) == nil, "an install id in a report")
+  let first = try #require(installOf(fake.received[1]))
+  #expect(isUUIDv4(first), "\(first)")
+  #expect(installOf(fake.received[3]) == first)
+
+  // A later launch, 12 months on: the same.
+  day.withLock { $0 = Calendar(identifier: .gregorian).date(byAdding: .month, value: 12, to: $0)! }
+  t = await telemetry(fake, install: install)
+  t.record(.view(.tanks))
+  await t.flush()
+  #expect(installOf(fake.received[4]) == first)
+  // 13 months on: a new one.
+  day.withLock { $0 = Calendar(identifier: .gregorian).date(byAdding: .month, value: 1, to: $0)! }
+  t.record(.view(.tanks))
+  await t.flush()
+  let renewed = try #require(installOf(fake.received[5]))
+  #expect(renewed != first && isUUIDv4(renewed))
+}
+
+@Test("The reader's switch off deletes the install id and none is made while it's off; on again, a new one; a launch with it off deletes one left")
+func theReadersSwitchOffDeletesTheInstallId() async throws {
+  let fake = FakeCollector()
+  let d = defaults()
+  let t = await telemetry(fake, install: Install(defaults: d))
+  t.record(.view(.tanks))
+  await t.flush()
+  let first = try #require(installOf(fake.received[0]))
+
+  await t.readerAllows(false)?.value
+  #expect(d.string(forKey: Install.idKey) == nil && d.object(forKey: Install.madeKey) == nil)
+  t.record(.view(.tanks))
+  await t.flush()
+  #expect(d.string(forKey: Install.idKey) == nil && fake.received.count == 1)
+
+  t.readerAllows(true)
+  t.record(.view(.lights))
+  await t.flush()
+  let second = try #require(installOf(fake.received[1]))
+  #expect(second != first)
+
+  _ = await telemetry(fake, reader: false, install: Install(defaults: d))
+  #expect(d.string(forKey: Install.idKey) == nil)
 }

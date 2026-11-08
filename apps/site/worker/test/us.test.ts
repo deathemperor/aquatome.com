@@ -144,7 +144,7 @@ test("every reader count reads only unmarked events, or each tab's mark to leave
   // A query over the beacon's dataset written anywhere in the Worker reads COUNTED or returns the tab's mark (the tests
   // above hold what reads it to leaving the tab out).
   const dir = fileURLToPath(new URL('..', import.meta.url).href)
-  for (const f of ['readers.ts', 'lang-ask.ts', 'admin/content.ts', 'admin/scoreboard.ts']) {
+  for (const f of ['readers.ts', 'lang-ask.ts', 'admin/content.ts', 'admin/scoreboard.ts', 'admin/quality.ts']) {
     const src = readFileSync(`${dir}${f}`, 'utf8')
     const queries = [...src.matchAll(/`SELECT[^`]*FROM \$\{(?:table|EVENTS)\}[^`]*`/g)].map(m => m[0])
     expect(queries.length, f).toBeGreaterThan(0)

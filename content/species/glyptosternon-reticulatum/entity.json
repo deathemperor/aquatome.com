@@ -14,6 +14,167 @@
     "tibet",
     "kyrgyzstan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AF",
+        "PK",
+        "IN",
+        "KG"
+      ],
+      "regions": [
+        "Kabul River",
+        "Fergana mountain range",
+        "Kyzylungugir River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Afghanistan, Pakistan, India and Tibet.",
+          "countries": [
+            "AF",
+            "PK",
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "The habitat pictures were taken at approximately 1800 m above sea level in the Fergana mountain range in southern Kyrgyzstan in April 2009.",
+          "countries": [
+            "KG"
+          ],
+          "regions": [
+            "Fergana mountain range"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Glyptosternon reticulatum McClelland, 1842. Common name: Turkestan Catfish. Type locality: Sir-i-Chusma, source of the Kabul River, Afghanistan. Size: 24 cm SL. Identification: depressed head and body, enlarged paired fins without an ossified first pectoral-fin element (pectoral spine). Gill openings are relatively wide and extend to the ventral surface of the head.",
+          "countries": [],
+          "regions": [
+            "Kabul River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "The name of the river isn't recorded, but it is a tributary of the Kyzylungugir River.",
+          "countries": [],
+          "regions": [
+            "Kyzylungugir River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341221,
+      "total": 29,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          15
+        ],
+        [
+          "TJ",
+          4
+        ],
+        [
+          "AF",
+          3
+        ],
+        [
+          "KG",
+          3
+        ],
+        [
+          "UZ",
+          3
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          67.5,
+          37.96875,
+          2,
+          0
+        ],
+        [
+          68.90625,
+          33.75,
+          2,
+          2
+        ],
+        [
+          68.90625,
+          37.96875,
+          2,
+          0
+        ],
+        [
+          68.90625,
+          40.78125,
+          1,
+          0
+        ],
+        [
+          70.3125,
+          40.78125,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          39.375,
+          1,
+          1
+        ],
+        [
+          71.71875,
+          40.78125,
+          2,
+          1
+        ],
+        [
+          73.125,
+          33.75,
+          14,
+          14
+        ],
+        [
+          73.125,
+          40.78125,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          33.75,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

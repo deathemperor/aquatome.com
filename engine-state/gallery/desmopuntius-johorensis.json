@@ -1,39 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548582/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548582/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/250548582",
-   "key": "inat:250548582"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548974/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548974/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/250548974",
-   "key": "inat:250548974"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250555946/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/250555946/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/250555946",
-   "key": "inat:250555946"
-  }
+ "queue": [],
+ "judged": [
+  "inat:250548582",
+  "inat:250548974",
+  "inat:250555946"
  ],
- "judged": [],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/6f8739bb17226e41.webp": "8cfb2c068fe6be34"
+  "https://media.aquatome.com/seriouslyfish/6f8739bb17226e41.webp": "8cfb2c068fe6be34",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/250548582/original.jpg": "c66e23ba1c2e7fe6"
  },
  "commons": "2026-11-08"
 }

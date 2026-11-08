@@ -1,146 +1,5 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32203392/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/32203392/medium.jpeg",
-   "width": 1920,
-   "height": 1440,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/32203392",
-   "key": "inat:32203392"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31613599/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/31613599/medium.jpeg",
-   "width": 1920,
-   "height": 1440,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/31613599",
-   "key": "inat:31613599"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28971832/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/28971832/medium.jpeg",
-   "width": 2048,
-   "height": 1367,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/28971832",
-   "key": "inat:28971832"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28971815/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/28971815/medium.jpeg",
-   "width": 2048,
-   "height": 1367,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/28971815",
-   "key": "inat:28971815"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28971800/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/28971800/medium.jpeg",
-   "width": 2048,
-   "height": 1367,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/28971800",
-   "key": "inat:28971800"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14308844/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/14308844/medium.jpeg",
-   "width": 2048,
-   "height": 1367,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/14308844",
-   "key": "inat:14308844"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14208709/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/14208709/medium.jpeg",
-   "width": 2048,
-   "height": 1367,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/14208709",
-   "key": "inat:14208709"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14060021/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/14060021/medium.jpeg",
-   "width": 2048,
-   "height": 1364,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/14060021",
-   "key": "inat:14060021"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/25407235/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/25407235/medium.jpeg",
-   "width": 2048,
-   "height": 1364,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/25407235",
-   "key": "inat:25407235"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/25407251/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/25407251/medium.jpeg",
-   "width": 2048,
-   "height": 1364,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/25407251",
-   "key": "inat:25407251"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376663094/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/376663094/medium.jpeg",
-   "width": 2048,
-   "height": 1152,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/376663094",
-   "key": "inat:376663094"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376663095/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/376663095/medium.jpeg",
-   "width": 2048,
-   "height": 1152,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/376663095",
-   "key": "inat:376663095"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376663091/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/376663091/medium.jpeg",
-   "width": 1881,
-   "height": 1058,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/376663091",
-   "key": "inat:376663091"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14308845/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/14308845/medium.jpg",
-   "width": 1280,
-   "height": 720,
-   "licence": "CC BY",
-   "author": "coenobita",
-   "sourceUrl": "https://www.inaturalist.org/photos/14308845",
-   "key": "inat:14308845"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Crazy fish, Butis butis (Hamilton, 1822) by M. L. Nievera (colored).png",
   "File:Crazy fish (Butis butis).png",
@@ -161,12 +20,29 @@
   "inat:32203392",
   "inat:376663091",
   "inat:376663094",
-  "inat:376663095"
+  "inat:376663095",
+  "inat:32203392",
+  "inat:31613599",
+  "inat:28971832",
+  "inat:28971815",
+  "inat:28971800",
+  "inat:14308844",
+  "inat:14208709",
+  "inat:14060021",
+  "inat:25407235",
+  "inat:25407251",
+  "inat:376663094",
+  "inat:376663095",
+  "inat:376663091",
+  "inat:14308845"
  ],
  "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/14308845/large.jpg": "131101c4ccc68480",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/28971815/large.jpeg": "1b3f2f2f3f3f3f1f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/376663091/large.jpeg": "244640e061300001"
+  "https://media.aquatome.com/inaturalist/28971815.webp": "1f3b2f3f3f3f3f1f",
+  "https://media.aquatome.com/inaturalist/376663091.webp": "2442402060300001",
+  "https://media.aquatome.com/inaturalist/14308845.webp": "1311114494c48480",
+  "https://media.aquatome.com/inaturalist/14060021.webp": "95d26eb692595569",
+  "https://media.aquatome.com/inaturalist/25407251.webp": "0f070f3f1b770f03",
+  "https://media.aquatome.com/inaturalist/376663094.webp": "4442402060000202"
  },
  "commons": "2026-11-06",
  "inat": {

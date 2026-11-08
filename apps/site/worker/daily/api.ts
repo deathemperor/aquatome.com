@@ -1,9 +1,9 @@
 import type { EmailBinding } from '../accounts/mailer'
 import { queryAppDay } from '../admin/app'
-import { soft, unset } from '../admin/shell'
+import { isFailed, soft, unset } from '../admin/shell'
 import { HOME_TZ } from '../admin/time'
 import { readCapped } from '../comments/api'
-import { ae, bearerOk, liveOwnerApps, loadOverview, loadScoreboard, type AdminEnv } from '../dashboard'
+import { ae, bearerOk, liveOwnerApps, loadOverview, loadQuality, loadScoreboard, type AdminEnv } from '../dashboard'
 import { addChanges } from './changelog'
 import { compose, type Composed } from './compose'
 import { parseGitHubSide, type GitHubSide } from './github'
@@ -70,7 +70,8 @@ async function composeNow(env: DailyEnv, url: URL, now: Date, gh: GitHubSide): P
     // Its parts fail on their own, as on its page; a Scoreboard has a `failed` of its own, so a load that throws is undefined, not soft()'s.
     loadScoreboard(env, url, now).catch((e: unknown) => { console.error('admin scoreboard:', e); return undefined }),
   ])
-  return compose({ now, overview, app, gh, scoreboard })
+  const quality = a && !isFailed(overview.content) ? await soft('quality', loadQuality(env, url.origin, a, overview.content)) : undefined
+  return compose({ now, overview, app, gh, scoreboard, quality })
 }
 
 /** Not sent, as asked or for want of somewhere to send it: a day's report kept, not a failure. */

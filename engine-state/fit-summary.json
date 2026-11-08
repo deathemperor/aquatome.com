@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 2940,
-   "read": 2705,
-   "wrong": 1335,
-   "pct": 50,
-   "held": 0
+   "pages": 2985,
+   "read": 2645,
+   "wrong": 1272,
+   "pct": 46,
+   "held": 22
   },
   "id": {
-   "pages": 953,
-   "read": 929,
-   "wrong": 335,
-   "pct": 36,
-   "held": 0
+   "pages": 978,
+   "read": 848,
+   "wrong": 260,
+   "pct": 31,
+   "held": 3
   },
   "th": {
-   "pages": 946,
-   "read": 922,
-   "wrong": 312,
-   "pct": 34,
-   "held": 0
+   "pages": 971,
+   "read": 850,
+   "wrong": 250,
+   "pct": 30,
+   "held": 5
   },
   "ms": {
    "pages": 127,
-   "read": 127,
-   "wrong": 64,
-   "pct": 50,
-   "held": 0
+   "read": 99,
+   "wrong": 39,
+   "pct": 42,
+   "held": 1
   }
  },
  "labels": {
@@ -49,6 +49,7 @@
   "words": "Chữ người chơi ở đây không dùng",
   "elsewhere": "Viết cho người đọc ở nước khác",
   "kit": "Bộ đồ hay danh mục của tiệm nước ngoài",
+  "harm": "Lời khuyên làm theo thì hại cá, con vật khác, cây hay người nuôi",
   "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
   "dose-purpose": "Liều không nói để trị gì",
   "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",

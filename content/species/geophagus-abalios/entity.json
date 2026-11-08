@@ -12,6 +12,239 @@
     "brazil",
     "casiquiare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Apure",
+        "Cinaruco",
+        "Río Caura",
+        "Río Casiquiare",
+        "Llanos"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco",
+            "Apure",
+            "Cinaruco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Río Casiquiare"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Llanos"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the río Caura on the Guyana Shield plus the Ventuari and Mavaca drainages in the middle and upper Orinoco where it's also known from some white water, referring to turbidity rather than turbulence, habitats.",
+          "countries": [],
+          "regions": [
+            "Río Caura"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208435,
+      "total": 272,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          256
+        ],
+        [
+          "CO",
+          15
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -70.3125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -70.3125,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          4.21875,
+          13,
+          13
+        ],
+        [
+          -68.90625,
+          5.625,
+          41,
+          41
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          2.8125,
+          29,
+          29
+        ],
+        [
+          -67.5,
+          4.21875,
+          19,
+          19
+        ],
+        [
+          -67.5,
+          5.625,
+          46,
+          46
+        ],
+        [
+          -67.5,
+          7.03125,
+          14,
+          14
+        ],
+        [
+          -67.5,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -64.6875,
+          7.03125,
+          49,
+          49
+        ],
+        [
+          -63.28125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -61.875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -149,17 +382,6 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-abalios",
       "caption": "The diagnostic vertically-split flank bars are visible here. Also note the lack of preopercular marking.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/2e2ebb2014745f11.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/2e2ebb2014745f11-480.webp",
-      "width": 870,
-      "height": 653,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-abalios",
-      "caption": "Another view of the Río Cinaruco.",
       "source": "seriouslyfish"
     }
   ],

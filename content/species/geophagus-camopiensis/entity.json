@@ -12,6 +12,103 @@
     "french-guiana",
     "approuague"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GF"
+      ],
+      "regions": [
+        "Oyapock",
+        "Approuage",
+        "Camopi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Oyapock (aka Oiapoque) river basin which forms much of the border between Amapá state, Brazil and eastern French Guiana, plus the Approuage system in French Guiana.",
+          "countries": [
+            "BR",
+            "GF"
+          ],
+          "regions": [
+            "Oyapock",
+            "Approuage"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Camopi River, Oyapock basin, French Guiana'.",
+          "countries": [],
+          "regions": [
+            "Camopi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208436,
+      "total": 172,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GF",
+          112
+        ],
+        [
+          "BR",
+          60
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          0,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          1.40625,
+          29,
+          29
+        ],
+        [
+          -53.4375,
+          2.8125,
+          123,
+          123
+        ],
+        [
+          -53.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          2.8125,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

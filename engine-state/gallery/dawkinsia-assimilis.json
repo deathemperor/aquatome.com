@@ -1,28 +1,9 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654653/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654653/medium.jpeg",
-   "width": 1285,
-   "height": 1290,
-   "licence": "CC BY",
-   "author": "Afsar Nayakkan",
-   "sourceUrl": "https://www.inaturalist.org/photos/313654653",
-   "key": "inat:313654653"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654661/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/313654661/medium.jpeg",
-   "width": 1265,
-   "height": 1274,
-   "licence": "CC BY",
-   "author": "Afsar Nayakkan",
-   "sourceUrl": "https://www.inaturalist.org/photos/313654661",
-   "key": "inat:313654661"
-  }
- ],
+ "queue": [],
  "judged": [
-  "File:D assimilis - Rahul Gautam.jpg"
+  "File:D assimilis - Rahul Gautam.jpg",
+  "inat:313654653",
+  "inat:313654661"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/fe9534234d29e9f0.webp": "00040d8f0f1f1200",

@@ -1,0 +1,87 @@
+{
+  "id": "garra-hughi",
+  "native": {
+    "input": "c87d1f231222f370",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Pambar",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Neyyar",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kallada",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Vamanapuram",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the Anamalai, Cardamom, Palani and Ashambu Hills of the Western Ghats mountain range, southern India, where it is known from the Pambar, Periyar, Neyyar, Kallada, and Vamanapuram river systems, plus tributary drainages within the Indira Gandhi Wildlife Sanctuary.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra hughi",
+    "status": "ACCEPTED",
+    "taxonKey": 2366937,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

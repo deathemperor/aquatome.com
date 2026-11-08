@@ -10,6 +10,76 @@
     "democratic-republic-of-the-congo",
     "pool-malebo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "Congo River",
+        "Pool Malebo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from \"Stanley Pool\", now known as Pool Malebo, a lake-like widening of the Congo River in western-central Africa on the border of the Democratic Republic of the Congo (formerly Zaire) and the Republic of the Congo between their respective capital cities of Kinshasa and Brazzaville.",
+          "countries": [
+            "CD",
+            "CG"
+          ],
+          "regions": [
+            "Congo River",
+            "Pool Malebo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369770,
+      "total": 89,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          65
+        ],
+        [
+          "CG",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          58,
+          58
+        ],
+        [
+          14.0625,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          15.46875,
+          -5.625,
+          15,
+          15
+        ],
+        [
+          15.46875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,47 @@
     "malaysia",
     "tatau"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Tatau River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Tatau River drainage in central Sarawak state, Malaysian Borneo; type locality is the Sungai (river) Sawi, Tatau District, Bintulu Division.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Tatau River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358869,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

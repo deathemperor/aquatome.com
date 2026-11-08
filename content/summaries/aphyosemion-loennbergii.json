@@ -1,8 +1,11 @@
 {
   "id": "aphyosemion-loennbergii",
-  "summary": "Cá killi Lönnberg (Aphyosemion loennbergii) là cá nhỏ, lớn tối đa 5 cm, độ khó 3/8 nên thuộc nhóm dễ. Cần nước mát 20–24 °C, pH 6–7, độ cứng 1–5 dGH. Hồ sơ không nói rõ ai nên nuôi hay khâu nào khó nhất, chỉ cho các khoảng nước này.",
-  "mistakes": [],
+  "summary": "Cá killi Lönnberg (Aphyosemion loennbergii) là cá nhỏ, lớn tối đa 5 cm, độ khó 4/8 nên hợp với người đã nuôi cá vài bể, không phải người mới hoàn toàn. Cần nước mát 20–24 °C, hơi chua đến trung tính (pH 6–7) và rất mềm (1–5 dGH). Điểm khó nhất là giữ đúng bộ thông số này, nhất là nhiệt độ mát và nước mềm. Hồ sơ không nêu bể tối thiểu.",
+  "mistakes": [
+    "Để bể ấm hơn 24 °C là sai; giữ nhiệt độ trong khoảng 20–24 °C.",
+    "Dùng nước cứng là sai; giữ độ cứng trong khoảng 1–5 dGH và pH 6–7."
+  ],
   "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-31T16:22:07.450Z",
-  "review": "pending"
+  "generatedAt": "2026-11-08T14:35:55.357Z",
+  "review": "approved"
 }
