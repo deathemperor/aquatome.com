@@ -109,6 +109,8 @@ struct NativePage: View {
         .frame(maxWidth: .infinity, alignment: .leading)
       }
       .scrollIndicators(navigator?.railOn == true ? .hidden : .automatic)
+      // Named before the rail goes over it: a name given to the whole would replace the rail's own.
+      .accessibilityIdentifier("native-page")
       .overlay { if let navigator, navigator.railOn { PageRail(navigator: navigator) } }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
@@ -119,7 +121,6 @@ struct NativePage: View {
       .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
     .environment(player)
-    .accessibilityIdentifier("native-page")
     .onAppear {
       if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
       reading?.shown(true)

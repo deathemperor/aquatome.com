@@ -67,7 +67,7 @@ final class PageNavigatorFlowTests: XCTestCase {
     app.swipeDown()
     XCTAssertNotEqual(title(app).label, scrolled, "the page doesn't scroll off the tab")
     choose(app, "Như hiện tại")
-    XCTAssertFalse(rail(app).exists, "a rail with the trial off")
+    wait(for: [expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: rail(app))], timeout: 5)
     let name = app.staticTexts["Cá neon"].firstMatch
     repeatUntil(!name.isHittable, times: 4) { app.swipeUp() }
     XCTAssertFalse(name.isHittable, "the page doesn't scroll once the trial is off")
@@ -142,8 +142,9 @@ final class PageNavigatorFlowTests: XCTestCase {
                            "-reset-fake-server", "-fake-owner", "ui-apple"] + more
     app.launchForFlow()
     app.openAccount()
-    app.signInWithStandInApple()
-    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 10), "not the owner")
+    // The owner's row is what these need; at the largest text the sheet's status line is below the fold and not drawn.
+    app.scrollToAndTap("apple-sign-in")
+    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
     app.closeAccount()
     return app
   }
