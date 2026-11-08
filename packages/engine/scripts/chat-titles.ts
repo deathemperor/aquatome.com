@@ -47,7 +47,8 @@ const { values: args } = parseArgs({
 const MODEL = args.model!
 
 type Question = { id: string; lang: Lang; kind: 'post' | 'fish-id' | 'short' | 'species'; q: string; start?: Start; private?: string[] }
-type Result = { id: string; lang: Lang; kind: Question['kind']; title?: string; offTopic?: boolean; failed?: string; leaks: string[]; usd: number; ms: number }
+/** `text`: the answer the title came with, to check the title read the message as the answer did. */
+type Result = { id: string; lang: Lang; kind: Question['kind']; title?: string; text?: string; offTopic?: boolean; failed?: string; leaks: string[]; usd: number; ms: number }
 
 const hash = (...parts: string[]) => createHash('sha256').update(parts.join('\n')).digest('hex').slice(0, 12)
 let siteDir = ''
@@ -113,7 +114,7 @@ async function main() {
       if (!run.answer) return { id: q.id, lang: q.lang, kind: q.kind, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, leaks: [], usd, ms: Date.now() - t }
       const title = run.answer.title
       console.log(`${q.id}: ${title ?? (run.answer.offTopic ? '(off topic)' : '(none)')}`)
-      return { id: q.id, lang: q.lang, kind: q.kind, ...(title ? { title } : {}), ...(run.answer.offTopic ? { offTopic: true } : {}), leaks: title ? leaksIn(title, q) : [], usd, ms: Date.now() - t }
+      return { id: q.id, lang: q.lang, kind: q.kind, ...(title ? { title } : {}), text: run.answer.text, ...(run.answer.offTopic ? { offTopic: true } : {}), leaks: title ? leaksIn(title, q) : [], usd, ms: Date.now() - t }
     } catch (e) {
       return { id: q.id, lang: q.lang, kind: q.kind, failed: String((e as Error).message ?? e).slice(0, 160), leaks: [], usd: 0, ms: Date.now() - t }
     }
