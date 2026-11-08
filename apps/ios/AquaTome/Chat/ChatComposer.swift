@@ -79,7 +79,8 @@ struct ChatComposer: View {
   private var under: some View {
     HStack(alignment: .firstTextBaseline, spacing: 8) {
       if over {
-        Text("Câu hỏi dài quá: rút gọn để gửi.").foregroundStyle(.red)
+        Text("Câu hỏi tối đa \(model.maxChars.formatted(.number.locale(.app))) ký tự. Bạn rút gọn bớt rồi gửi lại nhé.")
+          .foregroundStyle(.red)
       } else if model.answering, model.thread.last?.reply.writing == false {
         Text("Thường dưới nửa phút.")
       } else if model.thread.isEmpty {
