@@ -8,6 +8,7 @@ import { LlmError, type Llm } from './claude'
 import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
 import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
+import { norm } from './reader'
 import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
 
 /**
@@ -21,8 +22,9 @@ import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
  *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
- * "Passed before" counts the old text's saved read and, when the new text looks worse, a fresh one: a model reading the
- * same text twice doesn't always find the same things, and a page isn't put back for that.
+ * "Passed before" counts the old text's saved read, a fault whose quoted words the old text has too, and, when the new
+ * text still looks worse, a fresh read of the old one: a model reading the same text twice doesn't always find the same
+ * things, and a page isn't put back for that. So a change that only takes words out is never put back.
  */
 export const GATE_KINDS = ['guides', 'species', 'plants', 'breeds'] as const
 /** What the gate reads: those, and the app's short cards (content/cards), which the owner's number and the report don't count. */
@@ -50,7 +52,10 @@ const marketKnown = (lang: Lang) => PRODUCTS.some(x => x.market[lang])
  * Indonesia, Thailand and Malaysia have no market table yet, so there every product is "market unknown": counted, never
  * held for.
  */
-export const gateChecks = (p: Page, e?: FitEntry) => new Set(fitFindings(p, e).filter(f => f.check !== 'words' && !((f.check === 'product' || f.check === 'dose') && (!marketKnown(p.lang) || productOf(f.product ?? f.quote, p.lang)?.status === 'no data'))).map(f => f.check))
+const gateFindings = (p: Page, e?: FitEntry) => fitFindings(p, e).filter(f => f.check !== 'words' && !((f.check === 'product' || f.check === 'dose') && (!marketKnown(p.lang) || productOf(f.product ?? f.quote, p.lang)?.status === 'no data')))
+export const gateChecks = (p: Page, e?: FitEntry) => new Set(gateFindings(p, e).map(f => f.check))
+/** The new text's faults whose quoted words the old text has too: the change didn't bring them, whether a read of the old text found them or not. */
+const carried = (p: Page, e: FitEntry | undefined, old: Page) => { const was = norm(fitText(old).text); return gateFindings(p, e).filter(f => was.includes(norm(f.quote))).map(f => f.check) }
 
 /** What the gate does with one changed page, from its checks now and, for a live page, its old text's. */
 export function gateCall(now: Set<FitCheck>, o: { isNew: boolean; wasHeld: boolean; before?: Set<FitCheck> }): GateCall {
@@ -203,7 +208,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         }
         if (entry) state[fitKey(p)] = entry
         const nowChecks = gateChecks(p, entry)
-        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: gateChecks(old, oldSaved) } : {}) })
+        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: new Set([...gateChecks(old, oldSaved), ...carried(p, entry, old)]) } : {}) })
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
@@ -214,7 +219,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             unread(f, p, false)
             continue
           }
-          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)])
+          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh), ...carried(p, entry, old)])
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
             state[fitKey(p)] = fresh

@@ -120,6 +120,21 @@ test('a fault the old text had too, found again on a fresh read, is not worse', 
   expect(await readFile(join(root, GUIDE), 'utf8')).toContain('Thay nước mỗi tuần')
 })
 
+test('a change that only takes words out is never put back: a fault whose words the old text has is the old text\'s', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `<p>Ngâm cá trong nước biển.</p>${t.body as string}` })
+  git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'seawater')
+  await edit(root, GUIDE, t => { t.body = (t.body as string).replace('<p>Ngâm cá trong nước biển.</p>', '') })
+  // Its first read, the new text's, finds a fault in words both texts have; a read of the old text misses it, as a
+  // second read can.
+  const calls: string[] = []
+  const llm = (async (a: { prompt: string }) => { calls.push(a.prompt); return { findings: calls.length === 1 ? [{ ...ELSEWHERE, fix: '', product: '' }] : [], products: [], doses: [] } }) as Llm
+  const r = await gate(root, { llm, now })
+  expect(r.report.pass).toHaveLength(1)
+  expect(calls).toHaveLength(1)
+  expect(await readFile(join(root, GUIDE), 'utf8')).not.toContain('nước biển')
+})
+
 test('a held page that changed and passes is let out; a kit holds a page the cycle didn\'t touch', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.held = { checks: ['shop'], at: '2026-11-08' } })
