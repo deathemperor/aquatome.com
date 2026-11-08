@@ -8,7 +8,8 @@
 # loops with no jump: pick a start whose first second looks like the second after the loop, or a fish shows twice
 # while it fades. FADE=0.5 shortens the fade for a shot too short for a whole second. BOUNCE=1 is for a fish that holds
 # still: the shot plays backward from its last frame and forward again, so the join needs no fade, and the poster is
-# the shot's last frame. It runs at the lowest priority: the Mac is shared (AGENTS.md, This Mac).
+# the shot's last frame. POSTER=2.5 takes the poster from 2.5 s into the loop, for a loop that starts before its fish
+# swims in. It runs at the lowest priority: the Mac is shared (AGENTS.md, This Mac).
 set -eu
 in=$1 start=$2 len=$3 out=$4 cx=${5:-0.5} cy=${6:-0.5} shake=${7:-}
 fade=${FADE:-1}
@@ -41,6 +42,6 @@ run ffmpeg -nostdin -loglevel error -y -i "$tmp/loop.mp4" -an -c:v libx265 -pres
   -x265-params "log-level=error:keyint=60:min-keyint=60:colorprim=bt709:transfer=bt709:colormatrix=bt709" -tag:v hvc1 -pix_fmt yuv420p $tags -movflags +faststart "$out.mp4"
 run ffmpeg -nostdin -loglevel error -y -i "$tmp/loop.mp4" -an -c:v libx264 -preset slow -profile:v high -b:v 1400k -maxrate 1800k -bufsize 3600k \
   -x264-params "colorprim=bt709:transfer=bt709:colormatrix=bt709" -g 60 -pix_fmt yuv420p $tags -movflags +faststart "$out-h264.mp4"
-run ffmpeg -nostdin -loglevel error -y -i "$out.mp4" -frames:v 1 "$tmp/poster.png"
+run ffmpeg -nostdin -loglevel error -y -ss "${POSTER:-0}" -i "$out.mp4" -frames:v 1 "$tmp/poster.png"
 run magick "$tmp/poster.png" -quality 78 "$out.webp"
 ls -l "$out.mp4" "$out-h264.mp4" "$out.webp" | awk '{print $5, $9}'
