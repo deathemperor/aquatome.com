@@ -473,6 +473,73 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": [
+    {
+      "at": "2026-11-08T15:50:25Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Jangan tunggu dulu.\" is an unsupported filler instruction, though it is close to the 'don't wait' advice.",
+        "\"Ikan masih tercungap-cungap ... Syaki penyakit insang\" is a typo and only a weak issue.",
+        "The table row \"Mulut terbuka-tutup di permukaan\" adds the detail of an open-and-closing mouth. The facts only say piping.",
+        "\"Tercungap-cungap paling teruk awal pagi\" and \"Itu tanda oksigen habis pada waktu malam\" in the FAQ state the cause too definitely. The facts only say it 'points to' it.",
+        "\"Kit ujian menunjukkan ada nitrit ... ikan boleh mati dalam beberapa jam\" is an overgeneralisation. The facts say death within hours only if the cause is nitrite poisoning or zero oxygen.",
+        "\"Practical Fishkeeping ... dengan air paip yang sudah dinyahklorin\" in the FAQ merges the 50% recommendation with the dechlorinated-water advice. This is a small blend of the two facts.",
+        "\"Jika elektrik terputus lebih 8 jam, hidupkan batu udara\" is a slight simplification of the fact 'after 8+ hours'."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:50:25Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Kebanyakan ikan boleh bertahan kira-kira seminggu tanpa makanan, jadi tidak mengapa\" is in the facts, but it's generalised to all fish. The facts only support it for outage context, and it is a questionable claim.",
+        "\"Ada gelembung halus pada kaca akuarium\" is listed under \"Bila perlu risau\" as a worry sign. The facts only say fine bubbles may appear on the glass with supersaturation. They do not say this is an urgent sign.",
+        "\"Ikan terus tercungap-cungap ... kemungkinan besar ia penyakit insang\" in the FAQ is stronger than the facts. The facts say only to suspect gill disease.",
+        "\"Tetapi jika ada tanda lain seperti lesu, insang berubah warna atau tidak makan, uji air\" in the betta FAQ is an invented recommendation. The facts do not mention it for bettas.",
+        "\"Jangan beri makan selama 24 jam ... Selepas elektrik pulih, bersihkan penapis\" is in the FAQ. The facts only give the cleaning step for post-outage canister filters, so this is a slight overgeneralisation.",
+        "\"Satu rujukan veterinar\" is a source attribution that the facts support only as Merck. This is minor.",
+        "\"Sebelum tukar air, semak air baharu\" is plausibly supported. \"Ikan besar lebih teruk terjejas\" is supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-nuoi-chung-va-cach-tranh-ca-danh-nhau": [
+    {
+      "at": "2026-11-08T15:52:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Intro and FAQ say to first let fish settle the pecking order, then isolate the bully \"kemudian susun semula hiasan dan tambah tempat bersembunyi\". This sequence is not in the facts; the rearranging is a separate prevention step.",
+        "\"biasanya dijamin berkelakuan baik\" is a mistranslation. The facts say \"usually guarantees good behaviour\" and attribute it to Chewy's editors. The guide says \"satu sumber\" and keeps the odd guarantee wording.",
+        "\"Tiger barb ... Mereka akan mengejar dan menggigit\" and \"ikan berkumpulan yang suka menggigit\" are okay. \"tumbuhan akuatik hidup\" and \"batu kelikir\" are acceptable translations.",
+        "\"Pemeriksaan selepas itu\" section: \"tangki yang aman hari ini masih perlu diperhatikan\" and the advice to keep watching after adding fish or rearranging decorations are not in the facts. They are generalised advice.",
+        "\"Dalam kajian yang sama\" for the temperature fact: the guide presents the 6 °C drop as a fish-keeping point without saying it is about bettas in a study. It does mention the study, so this is minor.",
+        "Salt \"satu sudu teh setiap gelen\", iodine/mercurochrome and antibiotics are attributed to \"satu sumber\" and not to Chewy's editors. This is accurate in substance, but presenting them as treatments without a caveat is a mild overreach."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T15:52:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Opening claims \"Biasanya puncanya ialah spesies yang tidak serasi, kumpulan yang terlalu kecil, tangki yang sempit atau ikan yang baru matang\" is a generalised summary not stated in the facts.",
+        "\"kira-kira 19 atau 38 liter\" and \"kira-kira 3.8 liter\" are added conversions not in the facts (the 19 L figure for 5 gallons is also wrong; 5 gal ≈ 19 L is right, 10 gal ≈ 38 L is right, so only unsupported additions).",
+        "\"Ikan yang dicampurkan ... sesuai dengan keadaan air yang sama\" narrows 'same kind of environment' to water conditions.",
+        "\"Selepas menyusun semula tangki atau memulangkan pembuli, terus perhatikan tanda-tanda gaduh\" – returning the bully is not in the facts.",
+        "\"Biasanya ada juga tanda lain seperti calar, sisik tercabut...\" in the FAQ is presented as a way to tell fighting from fin rot; the facts do not say this.",
+        "\"tumbuhan akuatik hidup\" and \"batu kelikir\" are fine, but 'Perapi lapisan lendir' described as usable is OK; 'Ikan laga ... di rumah' fine.",
+        "The temperature study is presented as 'satu kajian lain' although facts say 'the same study'; also the temperature fact is placed without noting it applies to bettas."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:59:52Z",

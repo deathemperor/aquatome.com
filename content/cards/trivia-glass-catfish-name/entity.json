@@ -1,0 +1,30 @@
+{
+  "id": "trivia-glass-catfish-name",
+  "type": "trivia",
+  "about": [
+    "species/kryptopterus-vitreolus"
+  ],
+  "sources": [
+    {
+      "url": "https://doi.org/10.11646/zootaxa.3630.2.6",
+      "title": "After eighty years of misidentification, a name for the glass catfish (Teleostei: Siluridae)",
+      "publisher": "Zootaxa",
+      "date": "2013-03-20",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "show": {
+    "from": "2026-11-09",
+    "until": "2027-11-08"
+  },
+  "photo": {
+    "url": "https://media.aquatome.com/commons/782b9a10cb8a923d-large.webp",
+    "width": 1890,
+    "height": 1200,
+    "licence": "CC0",
+    "author": "Vassil",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus_(Cologne_Zoo)_2.jpg"
+  },
+  "rotate": 180,
+  "updatedAt": "2026-11-08"
+}

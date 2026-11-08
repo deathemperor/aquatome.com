@@ -14,7 +14,7 @@ UI = 'AquaTomeUITests'
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
             'TankMatesFlowTests', 'VideoFlowTests',
-            'TelemetryFlowTests']
+            'TelemetryFlowTests', 'PageNavigatorFlowTests']
 
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
 # (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
@@ -75,8 +75,9 @@ def shots(*screens):
 # The handbook's screens' shots: those a change to its model, or to one of its files with no rule of its own, reaches.
 HANDBOOK_SHOTS = shots('pages', 'video', 'viewer', 'search', 'tools', 'home', 'tab-bar', 'fish-id')
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
-HANDBOOK_FLOWS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-                  'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests']
+HANDBOOK_FLOWS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'PageNavigatorFlowTests',
+                  'OfflineFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
+                  'VideoFlowTests']
 HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 # The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
@@ -85,7 +86,7 @@ HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
                                      'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
-PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
+PAGES = ['NativePageFlowTests', 'PageNavigatorFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests',
          'TelemetryFlowTests'] + shots('pages', 'video', 'viewer', 'home', 'tab-bar')
@@ -152,6 +153,7 @@ REACH = {
     APP + 'Handbook/PagePlayer.swift': HANDBOOK_FLOWS + shots('video'),
     APP + 'Handbook/FishIdView.swift': HANDBOOK_FLOWS + shots('fish-id'),
     APP + 'Handbook/PageView.swift': PAGES,
+    APP + 'Handbook/PageNavigator.swift': ['PageNavigatorFlowTests'],
     # Its pictures are kept for offline too (PageImages).
     APP + 'Handbook/NativePage.swift': PAGES + ['OfflineFlowTests'],
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests'] + shots('pages'),
@@ -186,7 +188,7 @@ REACH = {
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests'],
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
     # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it; its card's
     # Apple and Google buttons too.
@@ -218,7 +220,7 @@ REACH = {
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank',
                              'TankVolumeFlowTests', 'TankMatesFlowTests'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
-                                   'OwnerFlowTests'],
+                                   'OwnerFlowTests', 'ProfilePictureFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).

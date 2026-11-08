@@ -10,6 +10,12 @@ const LOOP = {
   src: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.mp4', poster: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.webp',
   w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
 }
+const YT_LOOP = {
+  src: 'https://media.aquatome.com/loops/paracheirodon-axelrodi-1.mp4', poster: 'https://media.aquatome.com/loops/paracheirodon-axelrodi-1.webp',
+  w: 1080, h: 1080, seconds: 8, licence: 'CC BY 3.0', licenceUrl: 'https://creativecommons.org/licenses/by/3.0/', author: 'A channel',
+  source: 'https://www.youtube.com/watch?v=XeeAEokdrR0', title: 'A title',
+}
+const YT_RECORD = { cut: { from: 266, to: 275 }, checkedAt: '2026-11-08', snapshot: 'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0' }
 const calendar: Curation = CurationSchema.parse({
   version: 1,
   weeks: [
@@ -28,7 +34,7 @@ const calendar: Curation = CurationSchema.parse({
     { date: '2026-11-09', fish: 'species/paracheirodon-axelrodi', img: IMG, guide: 'guides/aquariumcoop-blogs-aquarium-5-gallon-fish', by: { ms: { fish: 'species/apistogramma-cacatuoides', img: IMG } } },
     { date: '2026-11-10', fish: 'breeds/flowerhorn-cichlid', img: IMG, guide: 'guides/setup-be-dau-tien', story: { page: 'guides/setup-be-dau-tien', eyebrow: { vi: 'Bể đầu tiên' }, title: { vi: 'Set bể từ đầu' } } },
   ],
-  loops: { 'apistogramma-cacatuoides': { ...LOOP, replace: 'when better footage comes' } },
+  loops: { 'apistogramma-cacatuoides': { ...LOOP, replace: 'when better footage comes' }, 'paracheirodon-axelrodi': { ...YT_LOOP, ...YT_RECORD } },
 })
 const index = async (lang: 'vi' | 'ms', today = '2026-11-10') => appIndex(lang, await getContent(lang), new Map(), (await getContent('vi')).species, { calendar, today })
 const pathOf = (ix: Awaited<ReturnType<typeof index>>, id: string) => ix.items.find(i => i.id === id)?.path
@@ -72,7 +78,11 @@ test('Khám phá gets this week\'s theme, top cards and shelves, in its language
 
 test('a fish with a loop carries it in every language that lists it, without the media lead\'s note on replacing it', async () => {
   for (const lang of ['vi', 'ms'] as const) expect((await index(lang)).items.find(i => i.id === 'apistogramma-cacatuoides')?.loop, lang).toEqual(LOOP)
-  expect((await index('vi')).items.filter(i => i.loop).length).toBe(1)
+  expect((await index('vi')).items.filter(i => i.loop).length).toBe(2)
+})
+
+test("a loop cut from YouTube reaches the app with its title for the credit, and without the licence record", async () => {
+  expect((await index('vi')).items.find(i => i.id === 'paracheirodon-axelrodi')?.loop).toEqual(YT_LOOP)
 })
 
 test('without a calendar the index has none of it', async () => {

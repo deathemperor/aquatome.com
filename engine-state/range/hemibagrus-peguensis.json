@@ -1,0 +1,102 @@
+{
+  "id": "hemibagrus-peguensis",
+  "native": {
+    "input": "42f41441c98090f5",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus peguensis is a bagrid catfish from the Irrawaddy, Bago and Sittaung drainages of Myanmar and the Chindwin basin in northeastern India.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus peguensis is a bagrid catfish from the Irrawaddy, Bago and Sittaung drainages of Myanmar and the Chindwin basin in northeastern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of Myanmar in the Irrawaddy (aka Ayeyarwady), Bago and Sittaung (aka Sittang) river drainages plus the Chindwin basin, Manipur state, northeastern India.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of Myanmar in the Irrawaddy (aka Ayeyarwady), Bago and Sittaung (aka Sittang) river drainages plus the Chindwin basin, Manipur state, northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus peguensis is a bagrid catfish from the Irrawaddy, Bago and Sittaung drainages of Myanmar and the Chindwin basin in northeastern India.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus peguensis is a bagrid catfish from the Irrawaddy, Bago and Sittaung drainages of Myanmar and the Chindwin basin in northeastern India.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Bago",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus peguensis is a bagrid catfish from the Irrawaddy, Bago and Sittaung drainages of Myanmar and the Chindwin basin in northeastern India.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Chindwin",
+        "source": "seriouslyfish",
+        "quote": "Hemibagrus peguensis is a bagrid catfish from the Irrawaddy, Bago and Sittaung drainages of Myanmar and the Chindwin basin in northeastern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus peguensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2338207,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}
