@@ -167,6 +167,9 @@ footage shows the still photo.
     gives a clean 1080 crop. Never through the Data API key.
   - Its record: the video's address, channel and title, the cut (`cut`, seconds), the day the licence was read
     (`checkedAt`) and an Internet Archive copy of the page (`snapshot`). The schema refuses a YouTube loop without them.
+    The cut is all the footage used: `make-loop.sh` takes a second more than the loop for its crossfade, so an 8 s loop
+    from 266 s is cut 266–275, and for one that plays back and forth (`BOUNCE`) the cut is half the loop. The snapshot is
+    `https://web.archive.org/web/<yyyymmddhhmmss>/` and the video's own address. The schema holds both.
     The saved page, the API's answer and Fish ID's frames are kept in the media lead's records.
 - **Each clip** is checked: the right species, no people, hands, logos, watermarks or text, good enough for a large
   card. Its credit shows wherever it plays: the author, the original's title when it has one (`title`, which CC BY 3.0
