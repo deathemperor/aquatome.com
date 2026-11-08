@@ -8,8 +8,8 @@ import Tanks
 /// otherwise); `-reset-fake-server` starts with no accounts; `-seed-passkey` adds `FakePasskeySignIn`'s passkey to the
 /// Apple user `ui-apple`'s account, as "Thêm passkey" on aquatome.com would. It stands in for the fish-ID tool too
 /// (`/api/fish-id`): `-fish-id-used N` gives each account N identifications made today already, `-fish-id-busy` uses up
-/// the site's day, `-fish-id-slow` keeps an identification waiting 40 s, then fails it as a request's time running out
-/// does, and `-fish-id-session-refused` refuses it the account's session (401 `session`) while the session itself holds.
+/// the site's day, `-fish-id-slow` keeps an identification waiting 40 s (with `-test-gates`, until the test opens
+/// `fish-id-answer`), then fails it as a request's time running out does, and `-fish-id-session-refused` refuses it the account's session (401 `session`) while the session itself holds.
 /// `-server-offline`: it can't be reached, as with no network. `-slow-session`: who is signed in is answered after 15 s,
 /// as on a slow network, so a test can close the Tài khoản sheet while it's asked. `-session-fails`: who is signed in is
 /// answered 500, as a server fault. `-sync-busy N`: the next N syncs answer 409 busy (the app
@@ -83,7 +83,7 @@ final class FakeServer {
     if Task.isCancelled { throw URLError(.cancelled) }
     if r.httpMethod == "POST", r.url?.path == "/api/fish-id" {
       if slowFishId {
-        try await Task.sleep(for: .seconds(40))
+        try await TestGate.wait("fish-id-answer", or: .seconds(40))
         throw URLError(.timedOut)
       }
       if fishIdRefusesSession {
