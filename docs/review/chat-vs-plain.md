@@ -1,729 +1,746 @@
 # The chat against plain Claude, on hard problems
 
-2026-11-07, `packages/engine/scripts/chat-vs-plain.ts`. 48 questions (all of them) from public Vietnamese hobby forums, reworded with no names (`packages/engine/scripts/hard-questions.vi.json`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and limits at commit `07bc80d04`, claude-haiku-5-5, over https://aquatome.com's handbook. Plain: claude-haiku-5-5, the same effort, no system prompt, no tools, no handbook. Judge: claude-opus-5-5 through the Claude CLI, rubric version 2 (`chat-vs-plain-lib.ts`).
+2026-11-08, `packages/engine/scripts/chat-vs-plain.ts`. 48 questions (all of them) from public Vietnamese hobby forums, reworded with no names (`packages/engine/scripts/hard-questions.vi.json`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and limits at commit `d247e3daf`, claude-haiku-5-5, over https://aquatome.com's handbook. Plain: claude-haiku-5-5, the same effort, no system prompt, no tools, no handbook. Judge: claude-opus-5-5 through the Claude CLI, rubric version 2 (`chat-vs-plain-lib.ts`).
 
 - **post:** both answer the whole forum post. **tank:** both get a short question. The eval saves the post's tank for the reader (size, fish, plants, substrate, age; the light, CO₂ and fertiliser as the tank's notes), and ours sees only what the chat's code reads of a saved tank; plain Claude sees only the question. The judge is told everything the post said about the tank.
 - **Blind, as far as it goes:** the judge isn't told which answer is ours, and both lose the site's name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.
 - **Both orders:** each pair is judged twice, the answers swapped. A side wins only when both orders pick it; a split counts as a tie. The same for each count.
 - **Failed:** when one side failed (ours: the limits ran out, a call timed out) and the other answered, that reader got an error: the other side wins it on every count, with no score. A failed answer is kept in the cache, so a rerun is the same run; `--retry-failed` asks again.
 - **Counts** (ours–plain wins): correct (right and safe), fits (uses this tank), actionable (what to do now, in order), grounded (no made-up precision), local (Vietnamese and Vietnam).
-- **Cost** per question, at list price: ours $0.0039, plain $0.0012. The judge runs on the owner's Claude accounts.
+- **Cost** per question, at list price: ours $0.0041, plain $0.0012. The judge runs on the owner's Claude accounts.
 
 | | Ours / plain / tie or split | Score: ours · plain | correct | fits | actionable | grounded | local | Orders agree | Ours stopped: answered / at a limit / failed |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| post | 10 / 31 / 7 of 48, ours failed 1 | 5.8 · 6.6 | 13–19 | 5–29 | 11–30 | 15–5 | 15–14 | 40/47 | 5 / 42 / 1 |
-| tank | 28 / 14 / 6 of 48 | 6.2 · 5.0 | 27–8 | 28–4 | 29–14 | 22–5 | 30–5 | 42/48 | 13 / 35 / 0 |
+| post | 12 / 33 / 3 of 48 | 5.6 · 6.4 | 14–23 | 11–25 | 9–30 | 13–13 | 14–13 | 45/48 | 9 / 39 / 0 |
+| tank | 32 / 14 / 2 of 48 | 5.9 · 4.8 | 25–11 | 29–2 | 34–12 | 16–11 | 23–6 | 46/48 | 15 / 33 / 0 |
+
+## Time
+
+- **post:** 48 turns, 0 failed. The turn: median 17.5 s, 90th percentile 21.0 s. The call that wrote the answer: median 10.5 s (90th 14.8 s), 2138 tokens out, with 20.1 s left for it. A reading call: median 2.0 s (90th 3.0 s).
+- **tank:** 48 turns, 0 failed. The turn: median 15.8 s, 90th percentile 18.5 s. The call that wrote the answer: median 8.9 s (90th 12.0 s), 1807 tokens out, with 20.0 s left for it. A reading call: median 1.8 s (90th 2.6 s).
 
 ## By problem
 
 | | Ours / plain / tie or split | Score: ours · plain | correct | fits | actionable | grounded | local | Orders agree | Ours stopped: answered / at a limit / failed |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| post · algae | 2 / 8 / 2 of 12 | 5.8 · 6.7 | 3–6 | 2–7 | 3–6 | 6–2 | 5–1 | 10/12 | 0 / 12 / 0 |
-| post · setup | 1 / 8 / 0 of 9, ours failed 1 | 5.1 · 7.1 | 1–5 | 0–8 | 0–9 | 2–1 | 0–6 | 8/8 | 0 / 8 / 1 |
-| post · cycling | 1 / 5 / 2 of 8 | 5.8 · 6.6 | 3–2 | 0–6 | 2–5 | 4–0 | 3–2 | 6/8 | 0 / 8 / 0 |
-| post · sick | 4 / 4 / 1 of 9 | 6.4 · 6.3 | 4–3 | 2–4 | 3–4 | 1–0 | 4–3 | 8/9 | 2 / 7 / 0 |
-| post · stocking | 2 / 6 / 2 of 10 | 6.0 · 6.4 | 2–3 | 1–4 | 3–6 | 2–2 | 3–2 | 8/10 | 3 / 7 / 0 |
-| tank · algae | 9 / 1 / 2 of 12 | 6.6 · 4.9 | 9–1 | 8–1 | 10–0 | 7–2 | 9–0 | 10/12 | 4 / 8 / 0 |
-| tank · setup | 3 / 4 / 2 of 9 | 5.6 · 4.8 | 4–0 | 3–3 | 3–5 | 5–0 | 5–2 | 7/9 | 1 / 8 / 0 |
-| tank · cycling | 4 / 3 / 1 of 8 | 5.9 · 5.4 | 3–2 | 2–0 | 3–3 | 3–1 | 4–1 | 7/8 | 2 / 6 / 0 |
-| tank · sick | 5 / 3 / 1 of 9 | 6.6 · 5.4 | 4–3 | 6–0 | 7–2 | 1–0 | 7–1 | 8/9 | 3 / 6 / 0 |
-| tank · stocking | 7 / 3 / 0 of 10 | 6.0 · 4.6 | 7–2 | 9–0 | 6–4 | 6–2 | 5–1 | 10/10 | 3 / 7 / 0 |
+| post · algae | 4 / 7 / 1 of 12 | 6.0 · 6.3 | 5–4 | 4–6 | 3–7 | 6–2 | 4–2 | 11/12 | 1 / 11 / 0 |
+| post · setup | 0 / 9 / 0 of 9 | 4.6 · 7.2 | 1–5 | 0–9 | 0–9 | 0–3 | 1–4 | 9/9 | 1 / 8 / 0 |
+| post · cycling | 2 / 5 / 1 of 8 | 5.8 · 6.3 | 2–3 | 1–4 | 1–3 | 2–1 | 3–2 | 7/8 | 3 / 5 / 0 |
+| post · sick | 3 / 5 / 1 of 9 | 6.0 · 6.3 | 3–4 | 3–2 | 2–5 | 3–1 | 3–2 | 8/9 | 1 / 8 / 0 |
+| post · stocking | 3 / 7 / 0 of 10 | 5.3 · 6.2 | 3–7 | 3–4 | 3–6 | 2–6 | 3–3 | 10/10 | 3 / 7 / 0 |
+| tank · algae | 10 / 2 / 0 of 12 | 6.1 · 4.7 | 6–2 | 8–0 | 9–3 | 6–1 | 9–0 | 12/12 | 4 / 8 / 0 |
+| tank · setup | 4 / 5 / 0 of 9 | 5.4 · 4.6 | 4–4 | 4–2 | 4–4 | 3–3 | 3–1 | 9/9 | 0 / 9 / 0 |
+| tank · cycling | 5 / 3 / 0 of 8 | 5.6 · 5.1 | 4–2 | 4–0 | 5–3 | 1–2 | 3–2 | 8/8 | 4 / 4 / 0 |
+| tank · sick | 4 / 3 / 2 of 9 | 6.1 · 5.4 | 3–2 | 3–0 | 7–1 | 1–3 | 4–1 | 7/9 | 3 / 6 / 0 |
+| tank · stocking | 9 / 1 / 0 of 10 | 6.2 · 4.3 | 8–1 | 10–0 | 9–1 | 5–2 | 4–2 | 10/10 | 4 / 6 / 0 |
 
 ## What each lacks, as the judge tagged it
 
 | | Ours | Plain |
 | --- | --- | --- |
-| post | tank-fit 35, figures 31, too-thin 22, plan 14, diagnosis 11, follow-up 9, local 8, wrong 2, unsafe 1, asks-only 1 | too-long 34, follow-up 21, plan 13, tank-fit 11, local 11, wrong 8, diagnosis 6, figures 3, asks-only 1, unsafe 1 |
-| tank | tank-fit 33, figures 32, diagnosis 12, too-thin 10, plan 10, follow-up 8, local 4, wrong 2, unsafe 2, asks-only 1 | tank-fit 47, too-long 29, follow-up 23, plan 21, diagnosis 10, local 9, asks-only 7, wrong 3, figures 2, unsafe 1, off-topic 1 |
+| post | tank-fit 35, figures 30, diagnosis 18, too-thin 13, wrong 11, local 10, plan 9, follow-up 7, off-topic 1 | too-long 34, tank-fit 15, wrong 13, local 12, follow-up 9, diagnosis 8, figures 4, asks-only 1, plan 1 |
+| tank | figures 35, tank-fit 31, diagnosis 21, local 8, plan 7, wrong 6, too-thin 5, follow-up 3, off-topic 1 | tank-fit 47, too-long 32, diagnosis 14, follow-up 11, plan 11, asks-only 11, local 10, wrong 7, unsafe 1, figures 1, off-topic 1 |
 
 Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, asks-only, wrong, unsafe, off-topic.
 
 ## Errors the judge found
 
-- ours, algae-01 post: "tổng khoảng 8 đến 10 tiếng mỗi ngày": raises total light above the current 7 hours while the tank has hair algae, and never mentions lowering intensity or the 20cm hanging height.
-- ours, algae-01 post: "cách 3 ngày, thay vì 30% cách 2 ngày... để kéo dinh dưỡng dư xuống": changing water less often does not pull excess nutrients down better, so the reason given is weak for a 2-week-old tank.
-- ours, algae-01 post: "tổng khoảng 8 đến 10 tiếng mỗi ngày": người chơi đang 7 tiếng và đã có rêu mà lại tăng tổng giờ đèn, dễ làm rêu nặng hơn.
-- ours, algae-01 post: "thay 30 đến 50% cách 3 ngày, thay vì 30% cách 2 ngày": bể mới 2 tuần đang có rêu mà lại giãn lịch thay nước, không có lý do rõ ràng, trong khi nói là để kéo dinh dưỡng dư xuống.
-- ours, algae-01 post: Xem NMC như chưa rõ là cây gì và không chẩn đoán lá trắng, bỏ ngỏ đúng phần người hỏi đang lo.
-- plain, algae-01 post: "Siamese algae eater... từ khoảng 60 lít trở lên": this fish grows to about 15cm and is active, so 60 litres is on the tight side.
-- plain, algae-01 post: "bàn chải đánh răng cũ gỡ rêu trên lá Bucephalandra": brushing can damage the leaves, though the answer does say to be gentle.
-- plain, algae-01 post: Coi việc chia đèn "4 tiếng sáng + 2 tiếng chiều" là cách giảm rêu: lợi ích không rõ và không cần thiết, nhưng không gây hại đáng kể.
-- ours, algae-01 tank: "Chia đèn tổng 8–10 tiếng mỗi ngày": blames too-long light, yet this is more than the 7h this tank already runs, so following it adds light to a tank with hair algae and slow-growing bucep and NMC.
-- ours, algae-01 tank: "mỗi đợt bật không quá 4 tiếng": a split photoperiod stated as a rule with no reason given; it is not a reliable fix for hair algae.
-- ours, algae-01 tank: "Hai nguyên nhân này khá chắc chắn": overconfident, because this keeper already changes 30% every 2 days and lights 7h, so the prescribed fixes change little or make things worse.
-- ours, algae-01 tank: "Chia đèn tổng 8–10 tiếng mỗi ngày": is more light than the hobbyist's current 7h, which is too long for a new tank with hair algae and shade plants like bucep.
-- ours, algae-01 tank: "khi hết rêu chúng sẽ ăn cây": is overstated, since Amano shrimp do not normally eat healthy plants, so removing them is unnecessary.
-- ours, algae-01 tank: "Hai nguyên nhân này khá chắc chắn": is overconfident given that it knows nothing about this tank's light or dosing.
-- plain, algae-01 tank: "Cá rìu/cá Siamese algae eater": 'cá rìu' is not the usual Vietnamese name for Crossocheilus oblongus and could lead the buyer to the wrong fish.
-- plain, algae-01 tank: "Thay 30–50% nước mỗi tuần": a generic schedule, less frequent than this keeper's current changes and looser than ideal for a two-week-old tank with algae.
-- plain, algae-01 tank: "rau muống nước": an odd choice to suggest as a nutrient-competing plant for a planted aquarium, and it adds little.
-- plain, algae-01 tank: "Cá rìu/cá Siamese algae eater": cá rìu is not the common Vietnamese name for the Siamese algae eater, so the hobbyist could buy the wrong fish.
-- plain, algae-01 tank: "nhỏ H₂O₂... liều thấp": gives no actual dose, which leaves a risky step on already stressed bucep and ngưu mao chiên to guesswork.
-- plain, algae-01 tank: "Thay 30–50% nước mỗi tuần": is a weaker schedule than a new tank at this stage needs, and less than the hobbyist already does.
-- plain, algae-02 post: "Dòng A361 có cường độ thấp hơn A601 Plus": A361 is a roughly 36 cm light, too short to cover a 70 cm tank evenly, so it is a poor suggestion here.
-- plain, algae-02 post: "cây nổi như bèo hoa dâu hoặc rau ngổ": rau ngổ is not a typical floating plant for shading, so this example is questionable.
-- plain, algae-02 post: "Dòng A361": đèn 36cm quá ngắn cho hồ dài 70cm, chiếu không đều hai đầu hồ.
-- plain, algae-02 post: "cây nổi như... rau ngổ": rau ngổ không phải cây nổi điển hình để che sáng như bèo.
-- ours, algae-02 tank: "BBA có thể mất 6 đến 8 tháng mới bám chắc": con số đáng ngờ và gây hiểu nhầm, vì BBA có thể bám và lan trong vài tuần.
-- ours, algae-02 tank: "Bạn không châm phân nên không phải do phân": kết luận quá chắc, vì dinh dưỡng vẫn đến từ chất thải và nước máy, còn thiếu phân có thể làm cây yếu.
-- ours, algae-02 tank: "không châm phân nên không phải do phân": kết luận quá chắc, vì thiếu dinh dưỡng làm cây yếu cũng có thể góp phần gây BBA.
-- ours, algae-02 tank: "BBA có thể mất 6 đến 8 tháng mới bám chắc": con số khó kiểm chứng và lạc ý, không giúp được người đang có BBA, dù có dẫn cẩm nang.
-- plain, algae-02 tank: "cá Siamese (cá cày Xiêm)": tên gọi lạ, người chơi Việt Nam thường gọi là cá bút chì nên khó tìm mua đúng loài.
-- plain, algae-02 tank: "Thêm cây mọc nhanh (như rong đuôi chó, cây thủy sinh dễ trồng)": "cây thủy sinh dễ trồng" không phải tên một loại cây, nên ví dụ này không giúp được gì.
-- plain, algae-02 tank: "cá Siamese (cá cày Xiêm)": tên gọi không chuẩn, người chơi Việt Nam thường gọi là cá bút chì, nên khó tìm mua đúng loài.
-- plain, algae-03 post: "nếu đây là đèn UV... bật đủ 2 bóng và chạy liên tục": Odyssea dual trên hồ thủy sinh là đèn chiếu sáng, không phải UV; nếu làm theo mà bật đèn liên tục thì tảo càng nở mạnh.
-- plain, algae-03 post: "Giảm xuống 4 tiếng và bỏ 1 bóng làm tảo dễ quay lại": sai với đèn chiếu sáng, phủ nhận bước giảm sáng đúng mà người chơi vừa làm.
-- plain, algae-03 post: "'Trân châu ngọc trai' là cây thủy sinh hay loài nào cụ thể?" và phần giả định thức ăn thừa: không nhận ra đây là cây trải nền quen thuộc, hồ mới có thể chưa có cá.
-- plain, algae-03 post: "đừng tắt hẳn đèn, nhất là nếu đây là đèn UV" và "bật đủ 2 bóng và chạy liên tục": Odyssea dual là đèn chiếu sáng cho hồ, không phải UV. Lời khuyên này đi ngược việc giảm sáng và nếu làm theo sẽ khiến tảo nặng thêm.
-- plain, algae-03 post: "Giảm xuống 4 tiếng và bỏ 1 bóng làm tảo dễ quay lại": sai với đèn chiếu sáng, vì giảm sáng là bước đúng để hạn chế tảo.
-- plain, algae-03 post: "Thường nước sẽ trong sau khoảng 3-7 ngày" gắn với kịch bản UV không áp dụng cho đèn này, nên tạo kỳ vọng sai.
-- ours, algae-03 tank: "bật đèn lại khoảng 6–8 giờ mỗi ngày": dễ gây tái phát với bể mới vài ngày; nên tăng dần từ mức thấp, đặc biệt khi chủ bể đang để 4h/ngày.
-- ours, algae-03 tank: "chuyển cá, tép sang bể tạm... vì cây cũng sẽ yếu đi": lý do không ăn nhập; cây yếu không phải lý do để chuyển cá.
-- ours, algae-03 tank: "bật đèn lại khoảng 6–8 giờ mỗi ngày": người hỏi đang để 4 giờ, nên mức này nhảy lên quá nhanh; nên tăng dần sau khi hết xanh.
-- plain, algae-03 tank: "Đây là cách hiệu quả và không hại gì cho bể": nói quá; che tối làm cây yếu và tảo chết có thể làm tăng amoniac.
-- plain, algae-03 tank: "Thức ăn thừa là nguồn dinh dưỡng chính cho tảo": giả định bể đã có cá và cho ăn; bể mới vài ngày thường do nền mới và ánh sáng.
-- plain, algae-03 tank: "Sau khi hết xanh, chỉ bật 6-8 tiếng/ngày": dễ gây tái phát với bể mới, và cao hơn mức 4h chủ bể đang để.
-- plain, algae-03 tank: "không hại gì cho bể": blackout nhiều ngày làm cây yếu, nhất là trân châu mới trồng, và tảo chết có thể làm tăng amoniac.
-- plain, algae-03 tank: "Thức ăn thừa là nguồn dinh dưỡng chính cho tảo": ở bể mới vài ngày, nguồn chính thường là nền mới và cây đang bén rễ; lời khuyên này chưa đúng trọng tâm.
-- plain, algae-03 tank: "chỉ bật 6-8 tiếng/ngày": người hỏi đã giảm còn 4 giờ, nên đây là tăng đèn cho bể vừa bị tảo.
-- ours, algae-04 post: "hai đèn trắng 60cm": the hobbyist has one 60cm light and one 45cm light.
-- ours, algae-04 post: "đèn 'dư sáng' là khá chắc chắn": this is overconfident, as the answer admits it has no PAR reading, and diatoms in a 7-day-old tank are not mainly caused by excess light.
-- ours, algae-04 post: "Tạm ngưng phân đạm và phốt phát": cutting N and P entirely can starve newly planted Dutch-style stems, and the cut is not tied to any test.
-- ours, algae-04 post: "hai đèn trắng 60cm": misreads the tank; the hobbyist has one 60cm and one 45cm light.
-- ours, algae-04 post: "đèn 'dư sáng' là khá chắc chắn": a firm verdict, then it admits it has no PAR figure for this tank.
-- plain, algae-04 post: "Thay nước 30% mỗi ngày... hệ vi sinh chưa kịp ổn định": beneficial bacteria live mostly in the filter and substrate, so water changes do not significantly stop them establishing.
-- plain, algae-04 post: "Nhiệt độ thấp cũng làm tảo silic dễ phát triển hơn": this does not help in Vietnam's warm climate and has no bearing on this tank as described.
-- plain, algae-04 post: "nước máy ở Việt Nam thường có hàm lượng silicate khá cao": this is a broad claim with no source, and it is called the possible main cause without considering new substrate or stones.
-- plain, algae-04 post: "Thay nước 30% mỗi ngày là hơi nhiều": overstated; frequent changes are normal in a new planted tank, and they do not much slow the bacteria, which live in the filter and substrate.
-- plain, algae-04 post: "nước máy ở Việt Nam thường có hàm lượng silicate khá cao": a sweeping claim with no source, then named as the likely main cause.
-- plain, algae-04 post: "Nhiệt độ thấp cũng làm tảo silic dễ phát triển hơn": rarely relevant in Vietnam's heat.
-- plain, algae-04 tank: "bộ lọc than hoạt tính... khử silicat": activated carbon does not remove silicate; only the resin does.
-- plain, algae-04 tank: "Cá chuột Otocinclus": in Vietnam, cá chuột usually means corydoras, while Otocinclus is called cá otto, so this may lead to buying the wrong fish.
-- plain, algae-04 tank: "ốc Malaysia" listed as an algae eater: Malaysian trumpet snails mainly burrow and eat detritus, so they will not clear diatoms from glass and rock.
-- plain, algae-04 tank: "bộ lọc than hoạt tính hoặc resin khử silicat": than hoạt tính không khử được silicat, chỉ resin chuyên dụng mới có tác dụng.
-- plain, algae-04 tank: "Ốc Trochus hoặc ốc Malaysia": Trochus là ốc biển, không hợp bể nước ngọt; ốc Malaysia chủ yếu ăn cặn và đào nền, không phải loài diệt tảo nâu hiệu quả.
-- ours, algae-05 post: "Tảo nhớt xanh thường đi kèm đèn chạy dài và dinh dưỡng dư": sai trọng tâm, vì nhớt xanh là vi khuẩn lam, thường gắn với dòng chảy yếu và mùn tích tụ ở đáy; thêm nữa, câu trả lời không nêu cách xử lý trực tiếp như hút nhớt, tắt đèn vài ngày hay tăng dòng chảy.
-- ours, algae-05 post: "Tảo nhớt xanh thường đi kèm đèn chạy dài và dinh dưỡng dư": bỏ qua các yếu tố hay gặp là dòng chảy yếu, mùn đọng ở đáy và có thể thiếu nitrat, nên dễ xử lý sai hướng.
-- ours, algae-05 post: "nếu đang cao thì bớt bón phân" kết hợp "giảm đèn thêm" cho tảo nhớt xanh: chưa phải cách xử lý trực tiếp, vì không hút bỏ lớp nhớt, không tăng dòng chảy và không tắt đèn vài ngày.
-- plain, algae-05 post: "Rau thơm trồng trong nền có thể làm dinh dưỡng dư thừa": khó đúng, vì cây đang lớn tốt thì chủ yếu hấp thụ dinh dưỡng; lý do này dễ làm người nuôi lo sai chỗ.
-- plain, algae-05 post: "Cho ăn quá nhiều là nguyên nhân phổ biến nhất": khẳng định quá chắc khi người hỏi không hề nhắc đến cá hay việc cho ăn.
-- plain, algae-05 post: "Rau thơm trồng trong nền có thể làm dinh dưỡng dư thừa": cây đang sống và phát triển tốt hút dinh dưỡng, không phải nguồn gây dư.
-- plain, algae-05 post: "Cho ăn quá nhiều là nguyên nhân phổ biến nhất": khẳng định quá chắc, người hỏi không hề nhắc đến việc cho ăn; ở đây dòng chảy yếu và mùn đáy sát kính cũng đáng nghi không kém.
-- plain, algae-05 post: "tắt đèn phòng khi bể đang bật đèn": không khớp câu hỏi, vì đèn bể tắt lúc 18h còn đèn phòng hắt vào buổi tối, tức là sau khi đèn bể đã tắt.
-- ours, algae-05 tank: "đèn mạnh đi kèm dinh dưỡng cao": tảo cát ở bể non chủ yếu do bể chưa ổn định sinh học, nguyên nhân đèn mạnh và dinh dưỡng cao nêu ra chưa sát.
-- plain, algae-05 tank: "cá tỳ hưu (Otocinclus)": tên gọi không khớp, Otocinclus ở Việt Nam thường gọi là cá otto.
-- plain, algae-05 tank: "cá chùy (cá ăn tảo Siamese với tảo râu đen)": tên có vẻ tự đặt, và loài này không liên quan đến hai loại tảo đang hỏi.
-- plain, algae-05 tank: "Thay nước khoảng 25–40% và lặp lại vài lần trong tuần đầu": người nuôi đã thay nước 2 ngày/lần, nên thay nhiều hơn không giải quyết gốc vấn đề; bể 4 tuần chủ yếu cần ổn định và tăng lưu thông.
-- plain, algae-05 tank: "cá tỳ hưu (Otocinclus)": tên gọi không khớp với cách gọi Otocinclus quen thuộc trong giới chơi, người đọc dễ mua nhầm cá.
-- plain, algae-05 tank: "cá chùy (cá ăn tảo Siamese với tảo râu đen)": câu lẫn lộn và tên gọi lạ; loài này cũng không xử lý tảo nâu hay nhớt xanh, nên gợi ý lạc đề.
-- plain, algae-05 tank: "ốc táo" được gợi ý như sinh vật ăn tảo: không phải giải pháp đáng tin cho vấn đề này, và có nguy cơ ăn cây.
-- plain, algae-05 tank: "H₂O₂ nhỏ giọt" không có liều lượng: thiếu liều là không an toàn, nhất là với bể có ốc nerita và tép/cá nhạy cảm.
-- ours, algae-06 post: "chỗ đặt van ở đầu in lọc": what sits at the filter intake is the diffuser/CO2 injection point, not the solenoid valve, so the wording is confused.
-- ours, algae-06 post: "đèn dài cộng CO2 dư là cách rêu tóc bùng lên nhanh": excess CO2 is not a recognised cause of hair algae, and this sits awkwardly beside its own statement that hair algae mostly comes from too little CO2.
-- ours, algae-06 post: "chỗ đặt van ở đầu in lọc": nhầm, thứ đặt ở đầu in là sủi CO2 chứ không phải van.
-- ours, algae-06 post: "đang châm CO2 quá tay" đi liền với "phần lớn rêu tóc là do thiếu CO2": hai ý chưa được nối lại cho rõ, người đọc không biết nên giảm hay giữ CO2.
-- ours, algae-06 post: "đèn dài cộng CO2 dư là cách rêu tóc bùng lên nhanh": CO2 dư không phải nguyên nhân gây rêu tóc đã được công nhận; thường là CO2 thiếu hoặc dao động.
-- plain, algae-06 post: "Đặt diffuser ở vị trí cách đầu hút lọc chính khoảng 5-10 cm": bubbles this close still get sucked into the filter, which contradicts its advice to move injection away from the intake.
-- plain, algae-06 post: "Gỡ tay rêu sợi, rêu sừng hươu và rêu lông tơ thường kém bền khi bị loại bỏ thủ công": the sentence is garbled and gives no clear instruction.
-- plain, algae-06 post: "Phosphat cao thường đi kèm rêu": this is a dated oversimplification that can send the keeper chasing the wrong cause.
-- plain, algae-06 post: "sau đó mới tính tới CO2": this downplays CO2, a major factor in the hair algae and BBA this tank has.
-- plain, algae-06 post: "Vàng-xanh lá nhẹ là khoảng 20-30 mg/L": the 'yellow-green' reading is imprecise, and the ppm limits look more exact than a drop checker can show.
-- plain, algae-06 post: "Đặt diffuser ở vị trí cách đầu hút lọc chính khoảng 5-10 cm": gần như vậy đầu hút vẫn dễ hút bọt vào lọc, không giải quyết được tiếng xọc; khoảng cách này cũng không có căn cứ rõ.
-- plain, algae-06 post: "rêu sừng hươu và rêu lông tơ thường kém bền khi bị loại bỏ thủ công": câu lủng củng, ý không rõ và không cho thấy cách xử lý thực tế; rêu sừng hươu thường khó gỡ tay, hay phải cắt lá hoặc chấm thuốc.
-- plain, algae-06 post: "Tăng dần, mỗi lần khoảng 1 giọt" ngay sau khi khuyên giảm về 1-2 giọt/giây: mức 1-2 giọt nêu như mức phù hợp chung, trong khi hiệu suất hòa tan của từng cách trộn khác nhau nên con số này chỉ mang tính tham khảo.
-- ours, algae-06 tank: "chỗ nước ra của lọc treo": their tank runs a Sunsun 702B canister plus a 603 auxiliary filter, not a hang-on filter, so the description does not match their setup.
-- ours, algae-06 tank: "Nếu đang châm CO2 mà checker vẫn vàng thì tăng thêm từ từ": this is reversed. Yellow means too much CO₂, so raising it further risks killing the fish and shrimp; blue is the colour that calls for more.
-- ours, algae-06 tank: "khoảng 90% trường hợp rêu tóc là do thiếu CO2": a precise figure with only the guide behind it, and it looks overstated.
-- plain, algae-06 tank: "pH giảm khoảng 0,2–0,3": this drop is far too small; about 30 ppm CO₂ needs a drop of roughly 1 pH unit, so following it leaves the tank short of CO₂.
-- plain, algae-06 tank: "dinh dưỡng (đặc biệt là phosphate và nitrate) dư thừa" and "Nếu phosphate cao, rêu sẽ rất khó kiểm soát": this is the old myth; high PO₄/NO₃ alone does not cause these algae, and it steers the keeper away from the CO₂/flow/light causes.
-- plain, algae-06 tank: "khuấy nước tốt để CO₂ hòa tan và không thoát ra ngoài": muddled, because surface agitation drives CO₂ off rather than keeping it in.
-- plain, algae-06 tank: "cá tỳ bà (ăn rêu lông tơ và rêu tóc)": overstated; pleco-type fish are not reliable eaters of these algae, and it adds a large fish that does not suit a 60 cm tank well.
-- plain, algae-06 tank: "pH giảm khoảng 0,2–0,3": the usual target for about 30 ppm CO₂ is a drop of about 1 pH unit, so this would badly under-dose CO₂.
-- plain, algae-06 tank: "cá tỳ bà (ăn rêu lông tơ và rêu tóc)": plecos mainly graze soft film and diatoms, not these algae, and many grow too large for a 60 cm tank.
-- plain, algae-06 tank: "Nếu phosphate cao, rêu sẽ rất khó kiểm soát": high phosphate alone does not drive algae; this is an old myth.
-- plain, algae-06 tank: "rau muống nước": an odd suggestion as a fast-growing plant for a submerged planted tank.
-- ours, algae-07 post: "thiếu dinh dưỡng và thiếu nitrat": xoắn, trắng và teo ngọn thường liên quan đến vi lượng hoặc Ca/độ cứng, không phải thiếu nitrat; đặt nitrat làm trọng tâm dễ lệch hướng xử lý.
-- ours, algae-07 post: "vài tháng đến một năm": mức tuổi thọ này khá ngắn với nền công nghiệp có cốt nền và lại nêu theo phỏng đoán; có thể khiến người mới lo quá mức.
-- ours, algae-07 post: "thiếu dinh dưỡng và thiếu nitrat": nitrate shortage mainly causes pale or yellow older leaves. It does not typically explain twisted, white, deformed tips, which point to calcium, GH or micronutrient problems.
-- ours, algae-07 post: "Mua bộ test nitrat và phosphat, đo để biết bể đang thiếu chất nào": these tests cannot detect the deficiencies most likely behind the tip symptoms, and GH and KH are left out.
-- plain, algae-07 post: "Nền trơ như Seachem Flourite, Fluval Stratum": Fluval Stratum là nền đất nung có một ít dinh dưỡng, không hẳn là nền trơ.
-- plain, algae-07 post: "ADA Amazonia, Tropica, Aqua Soil": liệt kê Aqua Soil như một loại riêng là không chính xác, vì Amazonia thuộc dòng Aqua Soil của ADA.
-- plain, algae-07 post: "Fluval Stratum... không có dinh dưỡng": Stratum is a volcanic soil substrate, not a truly inert gravel like Flourite or plain sand, so grouping it this way is inaccurate.
-- plain, algae-07 post: "không bón phân đều": treats lack of regular dosing as fact, though the hobbyist never described their fertilizer routine.
-- plain, algae-07 post: Links the twisted, white tips to micronutrients but never names low calcium or GH, or boron, which are key suspects for these symptoms.
-- ours, algae-07 tank: "nếu chúng tụt về 0 thì rêu sẽ được nuôi dưỡng": loosely worded. Zero nutrients do not directly feed algae; they weaken the plants so algae gains the advantage. The fix given (dose more evenly) is still right.
-- plain, algae-07 tank: "Nitrat và photphat cao: là 'thức ăn' của rêu": outdated view; high NO3/PO4 alone does not cause algae, and limiting them can worsen stunted tips in a CO2 tank.
-- plain, algae-07 tank: "thiếu sắt hoặc vi lượng" as the main cause of twisted tips: iron shortage mainly yellows or pales new leaves; twisted new growth points first to calcium or water hardness.
-- plain, algae-07 tank: "Ốc táo" and "cá tỳ bà" as algae control: weak or risky suggestions for a Dutch-style planted tank, since apple snails may eat soft plants and plecos grow large and can damage leaves.
-- plain, algae-07 tank: "bèo tây" as a floating plant: water hyacinth is unsuitable for an indoor planted tank, and shading would hurt the stem plants underneath.
-- plain, algae-07 tank: "thiếu sắt hoặc vi lượng" as the main cause: twisted, white new growth points more to low Ca/GH or boron; pale iron chlorosis does not usually twist tips, so adding iron can miss the problem and may feed algae.
-- plain, algae-07 tank: "Nitrat và photphat cao: là 'thức ăn' của rêu": an outdated view. In a CO₂ planted tank, keeping NO₃/PO₄ too low often worsens algae and stunts plants.
-- plain, algae-07 tank: "Ốc nerite, ốc táo" and "bèo tây": apple snails can eat soft plants, and water hyacinth is unsuitable for this kind of indoor planted tank, especially for stem plants needing light.
-- plain, algae-07 tank: "Cá tỳ bà": sold as an algae eater but grows large, produces heavy waste and is a poor fit for a Dutch-style tank.
-- ours, algae-08 post: "khoảng 26 con": số cá hiện tại là 10 + 9 + 5 = 24 con; sai lệch nhỏ, không đổi lời khuyên.
-- ours, algae-08 post: "chưa chạy xong chu trình nitơ, cần chờ và hạn chế cho ăn": waiting alone is weak advice when ammonia or nitrite is above 0, because water changes are needed to protect the fish.
-- plain, algae-08 post: "Bể xi măng non thường làm pH tăng": bể đúc ở đây là bể kính đúc liền khối, không phải bể xi măng, nên đây là nguyên nhân sai.
-- plain, algae-08 post: "khoảng 26 con (10 bảy màu, 9 sọc ngựa, 9 mún, 5 mún đỏ)": các số liệt kê cộng ra 33 và tính nhầm cả 9 mún ban đầu; hiện tại chỉ có 24 con.
-- plain, algae-08 post: "rau muống, bèo tây, rêu java": bèo tây quá to cho bể 50cm, còn rêu java mọc chậm, không phải cây hút dinh dưỡng nhanh.
-- plain, algae-08 post: "Bạn cho mình biết thêm... thời gian bể đã chạy cá": hỏi lại điều người chơi đã nói (hơn 3 tuần, và diễn biến sau đó).
-- plain, algae-08 post: "Bể xi măng non": "bể đúc" here most likely means a one-piece moulded glass tank, so the cement cause is a misreading.
-- plain, algae-08 post: "khoảng 26 con (10 bảy màu, 9 sọc ngựa, 9 mún, 5 mún đỏ)": the listed numbers add up to 33, and the 9 mún were from the original stock, not the current one.
-- plain, algae-08 post: "Đây là lỗi lớn nhất": this calls the on-off filter the biggest fault, while the heading names overstocking, food and light as the main cause.
-- plain, algae-08 post: "bèo tây": water hyacinth is a poor fit for a 50cm tank because it grows too large.
-- plain, algae-08 tank: "nếu nước máy có nitrate/phosphate cao, hãy để nước lắng": để lắng không làm giảm nitrate hay phosphate.
-- plain, algae-08 tank: "cỏ đuôi chồn (Hornwort), rong đuôi chó": liệt kê như hai loại khác nhau trong khi Hornwort thường chính là rong đuôi chó/đuôi chồn, gây rối.
-- plain, algae-08 tank: "để nước lắng" to deal with high nitrate/phosphate in tap water: letting water stand does not remove either one.
-- plain, algae-08 tank: "cỏ đuôi chồn (Hornwort), rong đuôi chó" listed as two separate plants, though both names are commonly used for hornwort.
-- plain, algae-08 tank: "ốc nhồi" recommended as an algae eater: it is a poor choice for grazing diatoms from glass, and adding clean-up animals adds bioload to an already crowded tank.
-- ours, algae-09 post: "Dời bể ra chỗ không có nắng chiếu": a large cast tank is hardly movable, and the hobbyist put it on the balcony because of its size.
-- ours, algae-09 post: "Tắt đèn bể": the hobbyist never mentioned a light, and a balcony tank gets its light from the sun, so this step is generic.
-- ours, algae-09 post: "nếu có số đo cao, thay khoảng 30% nước": this makes the emergency water change depend on a test the hobbyist may not own, even though fish are already dying.
-- ours, algae-09 post: "Dời bể ra chỗ không có nắng chiếu": impractical for a large cast tank that the hobbyist had to put on the balcony.
-- ours, algae-09 post: "Tắt đèn bể": generic step, as this outdoor tank is lit by the sun and no lamp is mentioned.
-- plain, algae-09 post: "Bể ngoài trời, đáy trống, có nhiều cá, cho ăn đều": the hobbyist never said the tank is heavily stocked or how often they feed, so this is an assumption.
-- plain, algae-09 post: "vật liệu vi sinh, bông lọc, sứ lọc" under biological filtration: filter wool is mainly mechanical, a minor imprecision.
-- plain, algae-09 post: "mất điện là cá chết ngay": overstated, since fish do not always die immediately, though the backup-aerator advice is sound.
-- plain, algae-09 post: "Bèo tây, bèo cái, lục bình": bèo tây and lục bình are the same plant, so the list is redundant.
-- ours, algae-09 tank: "Bật sủi" ngay and "bật sủi khí liên tục": minor, the tank already runs aeration and the answer does not acknowledge it.
-- ours, algae-09 tank: "Mỗi lần thay nước lại đưa thêm chất dinh dưỡng vào": stated as the cause without testing the tap water; plausible but only a guess, though it is flagged as one.
-- ours, algae-09 tank: "Mỗi lần thay nước lại đưa thêm chất dinh dưỡng vào": nêu chắc như nguyên nhân chính trong khi chưa đo nước máy; thức ăn và chất thải cá thường là nguồn dinh dưỡng lớn hơn.
-- plain, algae-09 tank: "tảo bùng lên khi hệ vi sinh tái lập": a shaky mechanism; it blames a broken nitrogen cycle and misses direct balcony sun as the main driver.
-- plain, algae-09 tank: "bể đặt gần cửa sổ hoặc đèn bật quá 8 giờ/ngày": wrong for this tank, which sits outdoors in natural sun, so cutting light hours does not apply.
-- plain, algae-09 tank: "ốc nerite, cá otto": algae grazers do not eat free-floating green-water algae, and otto do poorly in this outdoor setting.
-- plain, algae-09 tank: "dương xỉ java" as a fast-growing nutrient competitor: java fern grows slowly and does little to take up nutrients.
-- plain, algae-09 tank: "cân nhắc RO": impractical for a large concrete outdoor tank.
-- plain, algae-09 tank: "chu trình nitơ bị phá vỡ" là nguyên nhân chính, "tảo bùng lên khi hệ vi sinh tái lập": chẩn đoán lệch, nguyên nhân rõ nhất là nắng ban công và bể không cây; thay nước không làm mất vi khuẩn có lợi vì vi khuẩn chủ yếu ở lọc.
-- plain, algae-09 tank: "cá otto", "ốc nerite": ăn tảo bám chứ không xử lý được tảo phù du làm nước xanh, nên gợi ý này vô tác dụng.
-- plain, algae-09 tank: "Che tối bể 3–5 ngày" nêu mà không cảnh báo tảo chết hàng loạt gây tụt oxy, tăng amoniac, và không dặn thay nước sau khi che.
-- ours, algae-10 post: "Nếu nước máy nhà bạn nhiều silicate thì nên dùng thêm nước lọc RO": this is costly and rarely needed for a brown-algae problem, though it is hedged as general experience.
-- ours, algae-10 post: "Chà kính, đá và lũa": the scrubbing targets hard surfaces, while the algae and stuck dirt are on the leaves. This is misdirected rather than false.
-- ours, algae-10 post: "chỉ thả khi thần tiên đã lớn": larger angelfish hunt shrimp more easily, so waiting until they grow makes things worse.
-- ours, algae-10 post: "Nếu bể mới set khoảng 3–4 tuần... tự hết": the hobbyist never said the tank is new, and a tank stocked with many angelfish may well be established, so this step may not apply.
-- plain, algae-10 post: "Ốc nerite (ốc núi, ốc táo)": ốc táo is the apple snail, not nerite, so the buyer may get the wrong snail.
-- plain, algae-10 post: "rêu hornwort": hornwort is a stem plant, not a moss, and rau muống is an odd suggestion for a typical planted tank.
-- plain, algae-10 post: "Cá nhớt Siamese (cá chét đuôi đỏ)": this does not look like a real Vietnamese name for the Siamese algae eater, so it is confusing when buying the fish.
-- plain, algae-10 post: "Rêu nâu dạng sợi thường do ánh sáng, dinh dưỡng và cân bằng CO2": the cause is generic and stated too confidently, with no check against the tank's actual conditions.
-- plain, algae-10 post: "Ốc nerite (ốc núi, ốc táo)": ốc táo is the apple snail, a different animal from nerite, and it can eat soft plants, so the buyer could get the wrong snail.
-- plain, algae-10 post: "rêu hornwort": hornwort (rong đuôi chồn) is a stem plant, not a moss.
-- plain, algae-10 post: "Cá nhớt Siamese (cá chét đuôi đỏ...)": this is not a recognised Vietnamese name for the Siamese algae eater and could lead to buying the wrong fish.
-- plain, algae-10 post: "Rêu nâu dạng sợi thường do ánh sáng, dinh dưỡng và cân bằng CO2": too generic; it names no algae type, and the tank's CO₂ is unknown.
-- ours, algae-10 tank: "loài này hiền và không đụng tới ông tiên": this looks at the wrong risk. A grown angelfish can eat or harass small otos, so they need to be sized up against the angel, and no warning is given.
-- ours, algae-10 tank: "đang có một con ông tiên": the tank data lists angelfish but not that there is only one, so the count is assumed.
-- ours, algae-10 tank: "đừng đổi nước": telling a new tank to skip water changes is poor advice, because routine changes do not hurt and help a new tank.
-- ours, algae-10 tank: "đang có một con ông tiên": số lượng "một con" không có trong dữ liệu.
-- ours, algae-10 tank: Coi rêu sợi là tảo silic làm chẩn đoán chính và khuyên "đừng đổi nước" khi bể mới: không khớp với mô tả rêu sợi, tuổi bể chưa biết, và không có hướng xử lý nếu đúng là rêu sợi.
-- ours, algae-10 tank: Khuyên thả otto "hiền và không đụng tới ông tiên": bỏ qua việc otto nhỏ có thể bị thần tiên lớn đớp, và thẻ loài ghi 21–26 °C, dễ khó sống trong nhiệt độ nóng ở Việt Nam.
-- plain, algae-10 tank: "Cá tỳ bà/cá Otocinclus": this treats the two as the same. Common tỳ bà grow large and are poor algae eaters for a planted tank.
-- plain, algae-10 tank: "H₂O₂... liều thấp": it suggests spot-treating with hydrogen peroxide but gives no actual dose, which is risky for the fish and soft plants.
-- plain, algae-10 tank: "Tránh cá rồng, cichlid lớn, betta..." and "cá thái": the list never names angelfish, and "cá thái" is too vague to act on as a shrimp-safe fish.
-- plain, algae-10 tank: "Cá tỳ bà/cá Otocinclus": gộp hai nhóm cá khác nhau; cá tỳ bà thường lớn rất to, không tương đương otto.
-- plain, algae-10 tank: "nhiều loại không đẻ trứng trong nước ngọt": ốc Nerite vẫn đẻ trứng trong nước ngọt, chỉ là trứng không nở.
-- plain, algae-10 tank: "cá neon" được nêu là lựa chọn cá hiền để nuôi tép mà không cảnh báo rằng neon cũng dễ bị thần tiên ăn; chi tiết này lạc khỏi bể của họ.
-- plain, algae-11 post: "chọn chất khử ghi rõ 'khử chloramine', ví dụ sản phẩm có chứa sodium thiosulfate": thiosulfate alone breaks the chlorine-ammonia bond but leaves ammonia behind, so it is a poor example of a chloramine treatment.
-- plain, algae-11 post: "Nhiều nơi dùng chloramine thay vì clo": this is given prominence without evidence for Vietnam, where tap water is usually treated with chlorine, so it may send the reader down the wrong path.
-- plain, algae-11 post: "lấy một ít vật liệu lọc hoặc nước từ bể cũ": old tank water carries very little of the useful bacteria, which live mainly on filter media and surfaces.
-- plain, algae-11 post: "chọn chất khử ghi rõ 'khử chloramine', ví dụ sản phẩm có chứa sodium thiosulfate": thiosulfate alone removes chlorine but leaves the ammonia released from chloramine, so it is a poor example of a chloramine treatment.
-- plain, algae-11 post: "Nhiều nơi dùng chloramine thay vì clo": stated generally and given prominence, although Vietnamese tap water is typically chlorinated, so it may send the hobbyist after an unlikely cause.
-- plain, algae-11 tank: "để bể chạy 3–6 tuần với lượng cá rất ít hoặc không cá": a tank with no fish and no ammonia source does not build up bacteria, and cycling with a few fish still exposes them to ammonia.
-- ours, setup-01 post: "Sưởi... không cần 24/24": gây hiểu nhầm, vì sưởi có bộ điều nhiệt nên cần cắm liên tục, nhất là mùa lạnh Hà Nội; rút điện khiến nhiệt dao động.
-- ours, setup-01 post: "Sưởi... không cần 24/24 nếu nhiệt ổn định": giữa mùa lạnh Hà Nội, sưởi có bộ điều nhiệt nên để cắm liên tục; câu này gây hiểu nhầm và có thể khiến nhiệt độ dao động, sốc cá.
-- ours, setup-01 post: "Chờ đủ 7 ngày rồi mới thả 1–2 con": mốc 7 ngày cố định chưa chắc lọc đã đủ vi sinh, nhất là khi lọc sinh học yếu và không có bước test amoniac/nitrit.
-- plain, setup-01 post: "Không thay nhiều, vì làm mất vi sinh vật có lợi": vi sinh chủ yếu bám ở vật liệu lọc và nền, không ở nước; bể thủy sinh mới thường cần thay nước thường xuyên để giảm amoniac và rêu.
-- plain, setup-01 post: "Không thay nhiều, vì làm mất vi sinh vật có lợi": vi sinh chủ yếu bám ở vật liệu lọc và nền, không nằm trong nước, nên thay nước không làm mất nhiều; bể cây mới set thường còn cần thay nước khá đều để hạn chế rêu.
-- plain, setup-01 post: "Cả hai cách trên mạng đều có cơ sở": không bác rõ việc bật đèn liên tục 3 ngày của bên setup, trong khi cách này dễ gây rêu và không cần thiết.
-- ours, setup-01 tank: "cycling có cá" được nêu ngang hàng với các cách khác mà không cảnh báo: cách này gây hại cho cá và không nên gợi ý cho người mới.
-- ours, setup-01 tank: "cycling có cá" được liệt kê ngang hàng mà không cảnh báo rủi ro: cá dễ bị ngộ độc amoniac/nitrit nếu người mới làm theo.
-- plain, setup-01 tank: "Dấu hiệu thiếu CO2: ... lá vàng": lá vàng thường do thiếu dinh dưỡng hoặc thiếu sáng, nên đây không phải dấu hiệu đặc trưng của thiếu CO2.
-- plain, setup-01 tank: "không có bọt khí nhỏ bám trên lá khi có đủ ánh sáng" nêu như dấu hiệu thiếu CO2: không đáng tin, cây vẫn có thể sủi bọt hoặc không tùy điều kiện, dễ gây chẩn đoán sai.
-- plain, setup-01 tank: "betta và nhiều loài cá cảnh phổ biến ở khoảng 24–27°C": ví dụ betta không hợp cho bể 1m và không liên quan đến người hỏi; chỉ là chi tiết lạc đề, không gây hại lớn.
-- ours, setup-02 post: "Nếu la hán là cá la hán": in a planted bonsai list, la hán is most likely a plant, so the fish warning is probably off-target, though it is hedged.
-- ours, setup-02 post: "bật khoảng 8 tiếng" cho bể mới: trái với đoạn trích ngay bên dưới, vốn khuyên bể mới set bắt đầu 6 tiếng.
-- ours, setup-02 post: "ưu tiên loại RGB" không kèm lý do, không phải yêu cầu thiết yếu với nhóm cây này.
-- plain, setup-02 post: "Sunsun HW-304B hoặc HW-302" after advising 400–600 L/h: these canister filters are rated far above that flow, so the pick contradicts its own figure and needs heavy throttling.
-- plain, setup-02 post: "Twinstar hoặc Ista nếu muốn giá mềm hơn": Twinstar is not a cheaper alternative to Chihiros.
-- plain, setup-02 post: "Nicrew hoặc Jebao" and "Chihiros C60": these light suggestions look loosely recalled; Jebao is known mainly for pumps, and the C60 model name is doubtful.
-- plain, setup-02 post: "cá la hán (cichlid)": treats la hán as a possible fish in what is most likely a plant list, though only conditionally.
-- plain, setup-02 post: "Sunsun HW-304B hoặc HW-302" kèm mức 400–600 lít/giờ: hai máy này có lưu lượng danh định khoảng 1000–1400 L/h, vượt xa con số nó vừa khuyên và cần khóa bớt dòng.
-- plain, setup-02 post: "Twinstar hoặc Ista nếu muốn giá mềm hơn": Twinstar thường là dòng đèn cao cấp, không phải lựa chọn rẻ hơn Chihiros.
-- plain, setup-02 post: "Chihiros C series (ví dụ C 60)": tên model này khó xác minh, người đọc có thể khó tìm đúng sản phẩm.
-- plain, setup-02 post: "low-tech, không cần CO2" áp cho cả trân châu: nhóm cây thảm này khó dày đẹp nếu không có CO₂, nên lời khuyên quá lạc quan.
-- ours, setup-02 tank: "Lọc treo với hộp lõi nhỏ thường không đủ cho phần lớn bể": nói quá chung, vì lọc treo vẫn dùng được cho bể nhỏ hoặc nuôi ít cá nếu có đủ vật liệu.
-- ours, setup-02 tank: "Lọc treo với hộp lõi nhỏ thường không đủ cho phần lớn bể": this is overstated, since such filters can be enough for small or lightly stocked tanks.
-- plain, setup-02 tank: "Bể 30–100 lít: lọc treo sau": bể 60×40×40 khoảng 96 lít sẽ rơi vào nhóm này, trong khi bể bố cục bonsai cỡ đó thường hợp lọc thùng hơn vì nhiều vật liệu, gọn và dễ giấu thiết bị.
-- plain, setup-02 tank: "Bể 30–100 lít: lọc treo sau": a 96 L planted bonsai tank falls in this band, and a hang-on-back is a weak choice for it. A canister suits it better, because it holds more media and keeps the tank tidier.
-- ours, setup-03 post: "lọc trong khoảng 400 lít/giờ cho bể 35–55 lít": this flow is too strong for the tiny schooling fish the hobbyist wants, and no gentler option is offered.
-- ours, setup-03 post: "sưởi cố định khoảng 50 W giữ 25°C": presents a heater as a main purchase, though it is unnecessary for much of the year in most of Vietnam.
-- ours, setup-03 post: "sưởi cố định khoảng 50 W giữ 25°C": coi sưởi là khoản mua bắt buộc và tốn nhiều tiền, trong khi phần lớn Việt Nam không cần, nhất là miền Nam; đây là tiền phí trong ngân sách 3-4 triệu.
-- ours, setup-03 post: "làm một bể low-tech cỡ 35–55 lít, không viền": bạn này đã có sẵn bể, nên chọn cỡ và kiểu bể mới là lệch với tình huống.
-- plain, setup-03 post: "Tổng cộng khoảng 2.5-3.5 triệu": the table actually adds up to about 2.3-3.3 million, a minor arithmetic slip.
-- plain, setup-03 post: "Rotala" under "Cây dễ sống", with Otocinclus suggested for a new tank: Rotala is less forgiving in low-tech setups, and Otocinclus does poorly in tanks that have not matured.
-- plain, setup-03 post: "Cá ngọc trai (Celestial pearl danio), Galaxy rasbora": liệt kê như hai loài, nhưng đây là cùng một loài cá (Danio margaritatus).
-- plain, setup-03 post: "Harlequin": được xếp chung vào nhóm cá nhỏ, nhưng loài này lớn hơn hẳn và không thuộc kiểu cá "nhỏ tí ti" mà bạn này thích.
-- ours, setup-03 tank: "chi phần lớn cho đèn, lọc và sưởi": treats the heater as a core expense, though it is often unnecessary in much of Vietnam, especially the South.
-- ours, setup-03 tank: "bắt đầu bằng bể 35-55 lít không viền": irrelevant because the hobbyist already owns a tank, and it steers them toward a tank style they need not buy.
-- ours, setup-03 tank: "chi phần lớn cho đèn, lọc và sưởi": sưởi không phải khoản quyết định ở miền Nam hay vùng ấm, nhưng câu này nêu chung như bắt buộc cho mọi nơi tại Việt Nam.
-- plain, setup-03 tank: "Trân châu" is listed as an easy plant, but this carpet plant is usually difficult without CO₂ and strong light.
-- plain, setup-03 tank: "Thủy tùng (Anubias)": the common hobby name for Anubias in Vietnam is "ráy", so this name is misleading when shopping.
-- plain, setup-03 tank: "crystal red" is suggested as an easy cleanup shrimp, but it is sensitive to warm water and poor conditions, making it unsuitable for a beginner in Vietnam's heat.
-- plain, setup-03 tank: "Lọc treo thành bể hoặc lọc hộp kiểu HOB": this muddles hang-on-back and canister filters, which are different types.
-- plain, setup-03 tank: "Trân châu" được xếp vào cây dễ sống cho người mới: trân châu thường khó hơn, cần đèn mạnh và thường cần CO₂ để trải thảm đẹp.
-- plain, setup-03 tank: "Cá bảy màu" được nêu trong nhóm loài đi đàn: bảy màu không phải cá đi đàn thực sự.
-- plain, setup-03 tank: "crystal red" được gợi ý cho bể người mới: tép này nhạy với chất lượng nước, không dễ nuôi trong bể mới bằng nước máy.
-- plain, setup-03 tank: "Thủy tùng (Anubias)": giới chơi Việt Nam thường gọi Anubias là ráy, nên tên này dễ gây nhầm khi mua.
-- ours, setup-04 post: "dùng aquasoil hoặc đất nền... dày khoảng 4-5 cm": mặc định nền dinh dưỡng dày dù hầu hết cây trong bố cục bám đá và không cần nền, nên dễ tốn tiền và thêm tải cho kệ tivi.
-- ours, setup-04 post: "hướng vòi nước lên mặt nước": khó áp dụng với lọc thác, vì nước chảy tràn từ miệng thác chứ thường không có vòi để chỉnh hướng.
-- ours, setup-04 tank: "Rong La Hán thì lên chậm": unverified and doubtful if it is a stem plant, which usually grows faster than the moss, anubias and fern in this tank; the watch-it advice is still harmless.
-- plain, setup-04 tank: "Cây có rễ (Anubias...) hợp với nền giàu dinh dưỡng": ráy (Anubias) chủ yếu gắn đá/lũa, không cần nền giàu và vùi thân rễ xuống nền dễ thối.
-- ours, setup-05 post: "nền nhả chậm là đủ, không cần thêm nền trộn phức tạp": đúng với rêu, ráy (vốn buộc lũa đá) nhưng bỏ qua nhóm cây đỏ cắt cắm mà chủ hồ đã nêu, nhóm này cần nền giàu dinh dưỡng.
-- ours, setup-05 post: "nếu 3 bóng 10k và 6k5 là T5HO": người hỏi đã nói rõ dùng T5HO; câu trả lời vẫn đặt điều kiện và bắt họ tự cộng W, không đưa ra kết luận cho dàn 4 bóng.
-- ours, setup-05 post: "nền nhả chậm là đủ": chỉ đúng với rêu, ráy, trong khi hồ này còn có cây cắt cắm lá đỏ cần nền và dinh dưỡng tốt hơn; câu trả lời không xử lý rõ phần này.
-- plain, setup-05 post: "1 bóng hồng... rất có lợi": nói hơi quá, bóng hồng chủ yếu làm màu lên đẹp hơn trong mắt người xem, còn màu đỏ thật của cây phụ thuộc nhiều vào cường độ sáng, CO₂ và dinh dưỡng.
-- plain, setup-05 post: "đất sét nung" được xếp vào nền dinh dưỡng rẻ: đất sét nung thường nghèo dinh dưỡng nếu không bổ sung phân.
-- plain, setup-05 post: "1 bóng hồng... rất có lợi": nói quá, bóng hồng chủ yếu làm màu đỏ lên đẹp hơn khi nhìn và chỉ hỗ trợ phần nào, không tự làm cây đỏ nếu thiếu CO₂ và dinh dưỡng.
-- plain, setup-05 tank: "nền dinh dưỡng lót 3 cm + sỏi 2 cm... 3-4 kg sỏi": with its own formula, 60×30×2 cm at 1.5 kg/L is about 5.4 kg of gravel, so the example contradicts itself.
-- plain, setup-05 tank: "40-60 µmol/m²/s trở lên" at the bottom is on the low side for holding good red colour, so it may mislead the reader about how much light is enough.
-- plain, setup-05 tank: "nền dinh dưỡng lót 3 cm + sỏi 2 cm... 3-4 kg sỏi": bể 60×30 với 2 cm sỏi là 3,6 lít, khoảng 5 kg theo chính tỷ trọng 1,5 kg/lít mà câu trả lời đưa ra, nên ví dụ tự mâu thuẫn.
-- ours, setup-06 post: "phủ ở mặt tiền một lớp sạn hoặc cát... để nền dinh dưỡng ít bị trôi": treats the sand as a cap on the soil, though the soil is walled off by pebbles and the front is the empty area.
-- ours, setup-06 post: "Đừng trải quá dày, vì cây thấp sẽ khó bám rễ": the hobbyist's front area is left unplanted, so this concern does not apply.
-- ours, setup-06 post: "bucep và hồng thái dương cần sáng mạnh hơn": bucep is a low-to-moderate light plant and should not be grouped with a red stem plant that needs strong light.
-- ours, setup-06 post: "phủ... để nền dinh dưỡng ít bị trôi": assumes soil lies under the front, although the hobbyist's pebble wall is meant to contain it.
-- ours, setup-06 post: "Đừng trải quá dày, vì cây thấp sẽ khó bám rễ": the front is meant to be empty, so this reason does not fit the hobbyist's layout.
-- plain, setup-06 post: "Hồ sâu 30 cm nên ánh sáng bị giảm nhiều khi xuống đáy": 30 cm is the front-to-back width; the height that matters for light is 36 cm.
-- plain, setup-06 post: "Phủ cát lên Aquafor khoảng 1–2 cm": misreads the layout and conflicts with its own advice to use the pebble edge to separate sand from soil.
-- plain, setup-06 post: "Với 2 bóng thường chỉ xanh hoặc nhạt màu": stated flatly without knowing the Odyssea model's type or wattage.
-- plain, setup-06 post: "Hồ sâu 30 cm nên ánh sáng bị giảm nhiều": the tank is 36 cm tall and 30 cm is its front-to-back depth, so the wrong dimension is used for light penetration.
-- plain, setup-06 post: "Phủ cát lên Aquafor khoảng 1–2 cm": the hobbyist walls the soil in with pebbles to leave the front empty, so there may be no Aquafor there to cover. The sand can go directly on the glass.
-- plain, setup-06 post: "Với 2 bóng thường chỉ xanh hoặc nhạt màu": stated flatly without knowing whether the lamps are T5 or LED, or their wattage.
-- ours, setup-06 tank: "bể rộng khoảng 60 cm trở xuống thường dùng một máng": dùng chữ "rộng" dễ gây nhầm vì 60 cm thường là chiều dài bể, và ý này không trả lời được nên chọn máng 2 hay 4 bóng.
-- plain, setup-06 tank: "phủ một lớp lưới hoặc giấy ngăn": giấy sẽ mục trong nước và không ngăn sạn bền; nên dùng lưới hoặc quây đá như hobbyist đang làm.
-- plain, setup-06 tank: "cá đào bới (cichlid, cá hoàng kim...)": ví dụ cá hoàng kim không rõ ràng và không liên quan tới bể này.
-- plain, setup-06 tank: "phủ một lớp lưới hoặc giấy ngăn": giấy sẽ mủn trong nước nên không ngăn được lâu dài; lưới mới là vật liệu phù hợp.
-- plain, setup-06 tank: "cá hoàng kim" được xếp vào nhóm cá đào bới: ví dụ này không chính xác và cũng không liên quan đến bể của họ.
-- ours, setup-07 tank: "Đặt bể tránh nắng trực tiếp qua hốc cửa sổ": bể đã âm cố định vào hốc cửa sổ nên không thể đặt lại; lẽ ra phải khuyên che rèm hoặc dán phim chắn nắng.
-- ours, setup-07 tank: "Bật đèn 90 cm khoảng 8 đến 10 giờ mỗi ngày": hơi dài với bể sát cửa sổ đã nhận thêm ánh sáng tự nhiên, dễ gây tảo.
-- ours, setup-07 tank: "có vẻ còn yếu": judges the filter weak from wattage alone, without knowing its flow; a 8W hang-on filter plus an air-driven bio filter is usually adequate for 10 guppies in 72 L.
-- ours, setup-07 tank: "Đặt bể tránh nắng trực tiếp qua hốc cửa sổ": the tank is built into the window niche, so it cannot simply be placed elsewhere; it needed shading advice such as a film or curtain.
-- plain, setup-07 tank: "cá khoang, cá bống, cá vàng... sẽ phá cây": gộp chung quá rộng, nhiều loại bống nhỏ dọn bể không phá cây.
-- ours, setup-08 post: "chưa ghi con số an toàn": the attached glass guide excerpt has a minimum-thickness section, so X dodges the main question instead of using it.
-- ours, setup-08 post: "cần bể từ khoảng 208 lít trở lên": the figure is stated too precisely and categorically; angelfish do need a larger tank, but this looks like a converted 55 gal rather than a firm limit.
-- ours, setup-08 post: "Cá thần tiên... cần bể từ khoảng 208 lít trở lên": con số quá chính xác và khắt khe, bể 120 lít cao 45 cm vẫn nuôi được vài con hoặc một cặp cá thần tiên.
-- plain, setup-08 post: "Kính 5 ly là ổn... đủ an toàn": 5 mm is thin for a tank 45 cm high and 45 cm deep; 6–8 mm is the usual choice, especially with a heavy planted-tank load, so this is false reassurance.
-- plain, setup-08 post: "Lia thia (betta)... một cặp nếu bể đủ rộng": keeping a betta pair in a community tank risks fighting and injury.
-- plain, setup-08 post: "Cá sóc (corydoras)": corydoras are usually called cá chuột in Vietnam, so this name could send the buyer to the wrong fish.
-- plain, setup-08 post: "Đèn và đá trang trí có thể mua sau": light cannot wait in a planted tank, which is the setup the hobbyist asked about.
-- plain, setup-08 post: "Kính 5 ly là ổn... đủ an toàn": bể cao 45 cm, khoảng 120 lít, thường nên dùng kính dày hơn (khoảng 8 ly), nhất là bể có nền và đá nặng, nên khẳng định này có nguy cơ gây phình hoặc bục bể.
-- plain, setup-08 post: "Cá sóc (corydoras)": gọi sai tên, corydoras ở Việt Nam là cá chuột.
-- plain, setup-08 post: "Cá kim/neon": gộp hai loại cá khác nhau, cá kim không phải neon tetra.
-- plain, setup-08 post: "Lia thia (betta)... một cặp nếu bể đủ rộng": nuôi cặp betta chung trong bể cộng đồng dễ cắn nhau, trống có thể đánh mái.
-- plain, setup-08 post: Liệt kê "trạch" là cây dễ trồng: tên cây không rõ ràng, nghe như nhầm tên.
-- ours, setup-08 tank: "lọc trong khoảng 400 lít/giờ... sưởi 50 W": sized for 35–55 L, while the real tank is about 120 L, so a buyer following this gets gear too small.
-- ours, setup-08 tank: "dùng bể không viền": the hobbyist already owns a tank, so this tip does not apply.
-- ours, setup-08 tank: "Theo dõi... trong tuần đầu": omits the nitrogen cycle and when to add fish, a major risk for a new tank.
-- ours, setup-08 tank: "Lọc trong khoảng 400 lít/giờ... sưởi 50 W" tính cho bể 35–55 lít: bể thật khoảng 120 lít nên cấu hình này thiếu, nhất là sưởi.
-- ours, setup-08 tank: "Dùng bể không viền" là cách tiết kiệm: người hỏi đã có sẵn bể nên ý này vô ích.
-- ours, setup-08 tank: "Superfish AquaFlow 200": gợi ý theo cẩm nang nước ngoài, không phải loại lọc rẻ phổ biến ở VN, không chắc dễ mua.
-- ours, setup-08 tank: "Chịu được nhiệt 24–26°C" và cố định 25°C: mức nhiệt khó giữ trong khí hậu nóng ở VN nếu không có làm mát.
-- plain, setup-08 tank: "Trân châu... Cỏ nhung, Rotala" under plants tolerating low light and no CO₂: carpet and stem plants like these usually struggle in a cheap no-CO₂ setup.
-- plain, setup-08 tank: "Ốc Nerite (... không đẻ trứng trong nước ngọt)": they do lay eggs in fresh water; the eggs just do not hatch.
-- plain, setup-08 tank: "Lọc hang (lọc thác)": treats two different filter types as one.
-- plain, setup-08 tank: "sưởi 25–300W tùy kích thước bể": the range is too wide to guide a purchase, and heaters are not always essential in much of Vietnam.
-- plain, setup-08 tank: "Trân châu" được xếp vào nhóm cây chịu thiếu sáng và thiếu CO2: trải thảm trân châu thường cần sáng mạnh và CO2, khó hợp bể tiết kiệm.
-- plain, setup-08 tank: "Cỏ nhung, Rotala, Bucephalandra" được liệt kê như cây dễ rẻ: Bucephalandra thường không rẻ, Rotala cần sáng khá hơn.
-- plain, setup-08 tank: "Sưởi 25–300W": khoảng quá rộng nên không giúp chọn mua, và ghi là thiết yếu dù kinh phí ít, trong khi nhiều vùng ở VN ít cần sưởi trừ mùa lạnh.
-- plain, setup-08 tank: "Lọc hang (lọc thác)": gộp hai loại lọc khác nhau.
-- ours, setup-09 post: "máy ghi khoảng 400 lít trở lên là thoải mái": with its own halving rule, that is about 200 L/h, too weak to move water along a 170 cm tank.
-- ours, setup-09 post: "thường từ khoảng 8 mm": this is on the thin side for a 170 cm tank, although it does tell the reader to check with the glass shop.
-- plain, setup-09 post: "Lỗ hút nên gần đáy bể, cách đáy khoảng 2–3 cm": với nền cát, lỗ này nằm ngang hoặc dưới lớp nền nên dễ hút cát vào lọc; lỗ khoan thấp cũng có nguy cơ xả cạn bể nếu rò.
-- plain, setup-09 post: "bể dài và sâu nên cần lưu lượng lớn": bể chỉ cao 35 cm, không sâu; lý do chọn lọc thùng này không chuẩn.
-- plain, setup-09 post: "Lỗ hút... cách đáy khoảng 2–3 cm": with a sand and gravel bed this inlet would be buried or suck up sand, and a hole that low risks draining the tank if it leaks.
-- plain, setup-09 post: "công tắc hoặc timer để bật tắt đèn và lọc": a canister filter should run continuously; putting it on a timer harms the bacteria and the water.
-- plain, setup-09 post: "cá đuôi kiếm nhỏ": swordtails are not really small fish and do not suit a nano-fish shoal suggestion.
-- plain, setup-09 post: "bể dài và sâu": at 35 cm high and 30 cm wide, this tank is long but shallow, so the reason given is partly wrong.
-- ours, setup-09 tank: "Thay than hoạt tính khi đã dùng quá khoảng 30 ngày": than hoạt tính không cần thiết cho một bể chạy thường xuyên, nên việc này chỉ thêm công cho người muốn ít chăm.
-- ours, setup-09 tank: "Thay than hoạt tính khi đã dùng quá khoảng 30 ngày": than hoạt tính không bắt buộc trong bể cá thông thường, nên bước này thêm việc và chi phí cho người muốn ít chăm.
-- plain, setup-09 tank: "Cá tỳ bà/Otocinclus" được xếp vào nhóm ít chăm: Otocinclus khá nhạy với bể mới và dễ hao, không thật sự dễ nuôi; tên tỳ bà ở Việt Nam cũng thường chỉ pleco lớn.
-- plain, setup-09 tank: "Khoảng 1 cm cá trên 1 lít nước là mức an toàn": quy tắc thô, không tính đến kích thước, độ thải của từng loài và cách bố trí bể.
-- plain, setup-09 tank: "Bảy màu... sinh sản nhanh" nêu như ưu điểm cho người ít chăm: đàn đông nhanh làm tăng tải bể và thêm việc phải xử lý.
-- plain, setup-09 tank: "Hạc đỏ/Platy": platy thường được gọi là cá hạc đỉnh, nên tên này dễ làm người đọc nhầm khi đi mua.
-- plain, setup-09 tank: "cá chép mini (rasbora)": đây không phải tên gọi quen thuộc của rasbora trong giới chơi cá Việt Nam.
-- plain, setup-09 tank: "Cá tỳ bà/Otocinclus": ở Việt Nam, tỳ bà thường chỉ nhóm pleco lớn hơn nhiều, nên gộp tên với Otocinclus dễ dẫn đến mua nhầm.
-- plain, setup-09 tank: "Thay nước định kỳ: Khoảng 20-30% mỗi tuần": đây là mức tiêu chuẩn chung, không bám theo mong muốn ít thay nước của chủ bể và cũng không nói cách giảm nhu cầu thay nước.
-- ours, cycling-01 post: "chỉ thay khoảng 20 đến 30% mỗi tuần": giảm quá mạnh với bể nền dinh dưỡng mới đang nhả amoniac; tuần đầu vẫn nên thay nhiều và thường xuyên.
-- ours, cycling-01 post: "nước thay liên tục kéo theo vi khuẩn": vi khuẩn có lợi chủ yếu nằm ở vật liệu lọc và nền, không trôi đi nhiều theo nước thay.
-- ours, cycling-01 post: "thay khoảng 20 đến 30% mỗi tuần nếu nước không có mùi lạ": giảm quá mạnh với nền nhiều chất mới đang nhả amoniac, và mùi không phải cách đánh giá; nên dựa vào số đo.
-- ours, cycling-01 post: "nước thay liên tục kéo theo vi khuẩn": vi sinh chủ yếu bám ở lọc và nền, không trôi đáng kể theo nước thay.
-- ours, cycling-01 post: "cả hai đều về 0 trong vài tuần liên tiếp": yêu cầu chờ dài hơn mức cần thiết; ổn định khoảng một tuần là đủ để thả cá.
-- plain, cycling-01 post: "thả 2-3 con ... tép hoặc vài con cá bảy màu" để thử: dùng sinh vật sống thử bể chưa cycle là gây hại, và tép lại rất nhạy với amoniac.
-- plain, cycling-01 post: "loại "neon 7 màu" cụ thể": đọc nhầm neon và 7 màu (guppy) thành một loài.
-- plain, cycling-01 post: Máy sục mini dự phòng "khi cắt điện": máy chạy điện lưới không hoạt động khi mất điện, phải là loại có pin/tích điện.
-- plain, cycling-01 post: "thả 2-3 con cá cảnh chịu đựng tốt (như tép hoặc vài con cá bảy màu)": dùng sinh vật sống để thử bể đang có nền mới nhả amoniac là gây hại cho chúng, và tép rất nhạy, không phải loài chịu đựng tốt.
-- plain, cycling-01 post: "Thay 50% nước mỗi ngày... loại bỏ amoniac và vi khuẩn": vi sinh chủ yếu bám ở lọc và nền, nên thay nước không làm mất đáng kể; với nền nhiều chất mới, thay nước nhiều những tuần đầu vẫn có ích.
-- plain, cycling-01 post: "loại 'neon 7 màu' cụ thể": người hỏi nói hai loài là neon và cá 7 màu (guppy), hỏi lại như một loài là đọc sai.
-- ours, cycling-01 tank: "thả trước vài con bảy màu khỏe để bể có cá mà vẫn an toàn": thả cá khi bể chưa xong chu trình vẫn có rủi ro ngộ độc amoniac/nitrit, và điều này mâu thuẫn với lời khuyên chờ xong chu trình ngay trước đó.
-- ours, cycling-01 tank: "thả trước vài con bảy màu khỏe để bể có cá mà vẫn an toàn": bể 1,5 tuần với nền nhiều dưỡng vẫn có thể còn amoniac/nitrit, nên nói "an toàn" là quá lời và mâu thuẫn với lời khuyên chờ xong chu trình.
-- plain, cycling-01 tank: "vài giọt nước rửa chén không có chất tẩy mạnh" làm nguồn amoniac: nước rửa chén là chất hoạt động bề mặt, không phải nguồn amoniac đáng tin, và có thể gây hại cho cá và vi sinh. Lời khuyên này sai và không an toàn.
-- plain, cycling-01 tank: "vài giọt nước rửa chén không có chất tẩy mạnh" làm nguồn amoniac: nước rửa chén là chất hoạt động bề mặt, không phải nguồn amoniac an toàn, có thể hại vi sinh, cá và cây; ở đây lại không cần vì nền nhiều dưỡng đã nhả amoniac.
-- plain, cycling-02 post: "Cá kiếm (platy)": sai tên, ở Việt Nam cá kiếm là swordtail, còn platy thường gọi là cá hột lựu, dễ mua nhầm.
-- plain, cycling-02 post: "Neon và cá vàng đều thải nhiều chất bẩn": neon nhỏ và thải ít, chỉ cá vàng mới là loài thải nhiều.
-- plain, cycling-02 post: "Mua máy sưởi nếu nuôi cá nhiệt đới" và betta "cần sưởi": đặt thành yêu cầu chung là không sát Việt Nam, vì miền Nam gần như không cần sưởi, chủ yếu chỉ miền Bắc mùa đông mới cần.
-- plain, cycling-02 post: "Cá sọc ngựa 18-24°C": dải nhiệt nêu thấp hơn nhiệt độ bể thường gặp ở Việt Nam, dù loài này vẫn sống khỏe ở nhiệt độ cao hơn, nên con số dễ gây hiểu lầm.
-- plain, cycling-02 post: "Cá kiếm (platy)": ở Việt Nam cá kiếm là swordtail, không phải platy, nên người mới dễ mua nhầm.
-- plain, cycling-02 post: "Neon và cá vàng đều thải nhiều chất bẩn": neon rất nhỏ và thải ít, chỉ cá vàng mới thải nhiều.
-- plain, cycling-02 post: "Mua máy sưởi nếu nuôi cá nhiệt đới": ở khí hậu Việt Nam, nhất là miền Nam, thường không cần; đây là khoản chi và rủi ro thừa, trừ mùa đông miền Bắc.
-- plain, cycling-02 post: "Chạy bể trước 3-4 tuần (không thả cá)": mâu thuẫn với việc còn 3 con cá vàng trong bể mà không nói rõ cách xử lý.
-- plain, cycling-02 tank: "dùng nguồn amoniac như vi sinh/ amoniac tinh khiết": vi sinh is bacteria, not an ammonia source, so this confuses the cycling method.
-- plain, cycling-02 tank: "bể đầy ... làm oxy hòa tan thấp": a full tank is not in itself a cause of low oxygen; this is a dubious cause.
-- plain, cycling-02 tank: "dùng nguồn amoniac như vi sinh": vi sinh là vi khuẩn, không phải nguồn amoniac để nuôi chu trình.
-- plain, cycling-02 tank: "bể đầy" được nêu là nguyên nhân thiếu oxy: bể đầy nước không tự nó làm thiếu oxy, nhất là khi có lọc thác khuấy mặt nước.
-- plain, cycling-03 post: "Trân châu là sỏi trơ, không giữ dinh dưỡng": trân châu ngọc trai lùn ở đây là cây trải nền, không phải sỏi, nên cả mục về nền đã đọc sai tình huống.
-- plain, cycling-03 post: "vớt cây lùn ra khỏi nền, rửa sạch cây và nền rồi cho lại vào": lời khuyên dựa trên việc hiểu sai, nhổ và trồng lại thảm cây đang thối thì làm xáo nền và không cứu được cây.
-- plain, cycling-03 post: "Nền đá đen cũng dễ vệ sinh hơn trân châu": so sánh hai loại nền trong khi trân châu là cây, không phải vật liệu nền.
-- plain, cycling-03 post: "Trân châu là sỏi trơ, không giữ dinh dưỡng": trân châu ngọc trai lùn ở đây là cây trải nền, không phải sỏi, nên cả phần phân tích nền đều sai.
-- plain, cycling-03 post: "các kẽ trân châu dễ đọng xác bã" và "Nền đá đen cũng dễ vệ sinh hơn trân châu": lập luận dựa trên việc hiểu nhầm cây thành sỏi.
-- plain, cycling-03 post: "Tỳ bà bướm... có thể ăn cây non": nhóm cá này chủ yếu cạo màng rêu bám, nên đây là cảnh báo thiếu cơ sở.
-- ours, cycling-03 tank: "Lật bể làm mất hết vi khuẩn": overstated, since a filter and substrate kept wet would retain much of the bacteria, though the advice not to strip the tank is sound.
-- plain, cycling-03 tank: "vi khuẩn bùng phát do dư dinh dưỡng và ánh sáng nhiều": bacterial film is driven by excess organics and a new tank, not by light.
-- plain, cycling-03 tank: "chuyển cá sang một thùng nước tạm": an unfiltered, uncycled bucket adds stress and its own ammonia build-up for already weak fish, and no daily water-change warning is given.
-- plain, cycling-03 tank: "trồng cây thủy sinh nếu có thể": generic advice that ignores the rotting trân châu already in the tank, which should be removed rather than added to.
-- plain, cycling-03 tank: "không nguy hiểm trực tiếp": dismisses the white growth without knowing the tank; here it is rotting the trân châu, and rotting plant matter adds to ammonia.
-- plain, cycling-03 tank: "Chỉ nên lật bể làm lại khi... Sau 2-3 tuần xử lý, amoniac/nitrit vẫn không giảm" and when fish are sick: stripping the tank fixes neither persistent ammonia nor disease, and restarts the cycle.
-- plain, cycling-03 tank: "Chuyển cá sang một thùng nước tạm có sục khí": offered with no warning that an unfiltered bucket builds ammonia fast and needs frequent water changes.
-- ours, cycling-04 post: "không thay theo lịch cố định": it gives this without any routine for after the cycle, so the hobbyist has no long-term water-change plan.
-- ours, cycling-04 post: "cần bác sĩ thú y": vets for aquarium fish are rarely a practical option in Vietnam, so this step is not much use.
-- ours, cycling-04 post: "không thay theo lịch cố định": chỉ đúng trong giai đoạn chạy bể, nhưng câu trả lời không nói lịch thay nước sau khi hồ đã ổn định.
-- ours, cycling-04 post: "cần bác sĩ thú y": lời khuyên khó thực hiện với cá cảnh ở Việt Nam.
-- plain, cycling-04 post: "neon, guppy, betta thì khoảng 5–8 con": lumping betta in with schooling fish is misleading, because a betta is usually kept alone or with care in a 36-litre tank.
-- plain, cycling-04 post: "neon, guppy, betta thì khoảng 5–8 con": gộp cả betta vào mức 5–8 con là sai, vì betta thường nuôi đơn, nhất là con trống.
-- plain, cycling-04 post: Không nhắc men vi sinh hay mượn vật liệu lọc đã chạy, hai cách thực tế nhất để tạo vi sinh cho hồ mới.
-- ours, cycling-04 tank: "nếu trên 0,2 ppm thì thay một phần nước": ngưỡng không nêu lý do và không có % thay; cá vừa chết mà có amoniac/nitrit dưới mức này vẫn nên thay nước.
-- ours, cycling-04 tank: "Giữ lọc và sục khí chạy liên tục": hiểu như bể đã có sủi, trong khi bể chỉ chạy lọc, nên không chỉ ra việc cần thêm oxy.
-- ours, cycling-05 post: "cho ăn dè" while also saying no fish yet: the step is confusing, and it never explains that an empty tank needs an ammonia source to feed the bacteria.
-- ours, cycling-05 post: Omits dechlorinating the water before dosing live bacteria, a key step with Vietnamese tap water, so the bacteria may be killed.
-- ours, cycling-05 post: "cho ăn dè" ở bước chưa thả cá: gây rối vì hồ chưa có cá để cho ăn, và câu này không giải thích đó là việc cấp nguồn amoniac cho vi sinh.
-- plain, cycling-05 post: "Tetra Nitrivec" looks like a doubtful product name in the list of brands.
-- plain, cycling-05 post: "Ngâm lũa trước" comes as step 2, though the hobbyist's tank is already filled and running, so the order doesn't match their stage.
-- plain, cycling-05 post: "Dùng nước đã để qua đêm" only removes chlorine and may not handle chloramine, though it does also offer a dechlorinator.
-- plain, cycling-05 post: "Dùng nước đã để qua đêm": để qua đêm chỉ giúp bay clo, không xử lý được cloramin; câu này chưa nêu rõ giới hạn đó ngay tại bước khử clo.
-- plain, cycling-05 post: "Ngâm lũa trước": hồ đã châm đầy nước và đã đặt lũa nên bước này không còn đúng giai đoạn, lại không nói cách xử lý khi lũa đã nằm trong hồ.
-- plain, cycling-05 tank: "cá khỏe, chịu được biến động như... cá lia thìa hoặc cá neon": neon khá nhạy với bể mới, không phải cá chịu biến động; lia thìa đực lại đánh nhau nên không hợp gợi ý thả nhóm 3-5 con.
-- plain, cycling-05 tank: "chịu được biến động như cá bảy màu, cá lia thìa hoặc cá neon": cá neon khá nhạy với bể mới và biến động nước, không phải loại nên thả đầu tiên.
-- ours, cycling-06 post: "bật đèn khoảng 8–12 tiếng mỗi ngày": 12 tiếng là quá dài cho bể lowtech mới set, dễ gây tảo.
-- ours, cycling-06 post: "bật đèn khoảng 8–12 tiếng mỗi ngày": 12 hours is long for a low-tech 20 cm cube and invites algae in a new tank.
-- plain, cycling-06 post: "ánh sáng nuôi tảo và vi khuẩn": vi khuẩn gây đục sống nhờ chất hữu cơ, không nhờ ánh sáng, nên giảm đèn không xử lý được nguyên nhân.
-- plain, cycling-06 post: "Thùng xốp ít dinh dưỡng nên nước trong": suy đoán thiếu căn cứ, vì thùng có cá và ít hút cặn thì không hẳn ít dinh dưỡng.
-- plain, cycling-06 post: "ánh sáng nuôi tảo và vi khuẩn": light does not feed the heterotrophic bacteria behind a bloom, so cutting it to 4-6 hours will not clear this haze.
-- plain, cycling-06 post: "Lấy vật liệu lọc... từ thùng xốp": a styrofoam tub kept with only occasional siphoning and top-ups often has no filter media, so this may not apply unless taken from the tub's substrate or another tank.
-- ours, cycling-06 tank: "Ngưng cho ăn khoảng 7 ngày" is stated with no caveat: it is longer than most new tanks need and harsh on small or young fish.
-- ours, cycling-06 tank: "ammonia phải bằng 0": đúng là mức an toàn, nhưng bể mới chưa xong chu trình thường đo ra trên 0, mà câu trả lời không giải thích điều này.
-- plain, cycling-06 tank: "ammonia đạt khoảng 2-4 ppm" gives no warning that this is only safe with no fish in the tank; in an 8 L tank with fish, this dose would be dangerous.
-- plain, cycling-06 tank: "Tạo nguồn ammonia... đạt khoảng 2-4 ppm": không nói rõ chỉ làm khi bể chưa có cá; nếu bể đã có cá thì mức này gây độc, và cũng không cần thiết với một ca bùng vi sinh.
-- ours, cycling-07 post: "lũa ra nhớt": hồ này chỉ có phân nền và cây cắt cắm, người hỏi không nhắc đến lũa, nên lý do này không khớp với hồ.
-- ours, cycling-07 post: "lũa ra nhớt": the hobbyist mentioned no driftwood, so this reason is copied from the guide and does not fit the tank.
-- ours, cycling-07 post: "hút sát nền": vacuuming close to fresh aqua soil can stir it up and break down the granules, so it should be done gently above the surface.
-- plain, cycling-07 post: "Thay nước quá thường xuyên lại làm mất các vi khuẩn có lợi": vi sinh chủ yếu bám trên nền và bề mặt, không nằm trong nước, nên thay nước không làm mất đáng kể.
-- plain, cycling-07 post: "thay 20-30% nước mỗi 1-2 tuần": quá thưa cho hồ phân nền mới không lọc, vì nền đang nhả nhiều dinh dưỡng và amoni, dễ gây rêu và nước xấu.
-- plain, cycling-07 post: "rau muống nước" được xếp cùng cây nổi cho hồ phòng ngủ: gợi ý lạ, không phải cây phổ biến cho hồ thủy sinh nhỏ.
-- plain, cycling-07 post: "Thay nước 2-3 ngày một lần thường là không cần thiết": a new tank with aqua soil and no filter is exactly when frequent changes are needed, because the soil leaches ammonia and nutrients.
-- plain, cycling-07 post: "Thay nước quá thường xuyên lại làm mất các vi khuẩn có lợi": beneficial bacteria live on the substrate and surfaces, not mainly in the water, so changes barely remove them.
-- plain, cycling-07 post: "thay 20-30% nước mỗi 1-2 tuần": too little for the first weeks on new aqua soil without filtration, and invites algae and ammonia buildup.
-- plain, cycling-07 post: "rau muống nước" is listed among floating plants as if a standard choice: it is a poor and confusing suggestion for a small bedroom tank.
-- ours, cycling-07 tank: "Bật lọc liên tục từ bây giờ": assumes a filter is already there, while this tank has none, so the step should be to buy and install one.
-- ours, cycling-07 tank: "Bật lọc liên tục từ bây giờ": bể này chưa có lọc, nên phải mua và lắp lọc trước; câu này ngầm coi như đã có sẵn.
-- plain, cycling-07 tank: Reads "thay cho lọc" as replacing filter cleaning, but the hobbyist means having no filter at all, so the filter-cleaning advice does not apply.
-- plain, cycling-07 tank: "Thay nước không thay thế được việc vệ sinh lọc": hiểu sai câu hỏi. Người hỏi không có lọc và muốn thay nước thay cho việc chạy lọc, không phải thay cho việc vệ sinh lọc.
-- ours, cycling-08 post: Bỏ qua 3 mặt xi măng: kế hoạch đi thẳng từ đặt bể đến trồng cây, chạy lọc và thả cá mà không xử lý độ kiềm, vôi của xi măng mới, có thể làm pH cao và hại cá.
-- ours, cycling-08 post: "Đặt bể ở chỗ có bóng râm một phần": hồ đã nằm trong mái hiên, nên đây là lời khuyên chung, không bám tình huống.
-- ours, cycling-08 post: "Đặt bể ở chỗ có bóng râm một phần": the tank is already under the eaves, so this step ignores the stated placement.
-- ours, cycling-08 post: Omits the alkalinity and lime risk from the three cement walls: following its steps straight to cycling and fish, with only ammonia and nitrite tests and no pH check, could harm fish if the cement is new.
-- plain, cycling-08 post: "bèo tây": loại này lớn nhanh, dễ chiếm hết mặt nước của hồ 40x40 và cần vớt thường xuyên, nên không phải lựa chọn tốt cho hồ nhỏ.
-- ours, cycling-08 tank: "khoảng 1 con nhỏ cho mỗi 38 lít nước": a literal 1-fish-per-10-gallon conversion; a 32 L tank would get less than one fish, so it is unusable here.
-- ours, cycling-08 tank: "Lọc mạnh cũng chưa chắc đủ" leaves the filter question open: it never assesses the 400 l/h filter and gives no usable rule.
-- ours, cycling-08 tank: Các bước bắt đầu bằng "Chỉ thả vài con cá khỏe lúc đầu": khuyên cycle có cá ngay, rủi ro với bể xi măng mới chưa được xử lý vì chưa kiểm soát kiềm/pH.
-- ours, cycling-08 tank: "1 con nhỏ cho mỗi 38 lít": con số quy đổi từ 10 gallon, máy móc; bể này khoảng 32 lít nên không thả nổi một con, trái với "vài con".
-- ours, cycling-08 tank: "Đo amoniac và nitrit bằng que thử": que thử kém chính xác để bám ngưỡng 0,2 ppm.
-- plain, cycling-08 tank: "Thả cá từ từ" is listed as a tip to speed up cycling, but stocking slowly does not speed it up and it muddles the advice to wait before adding fish.
-- plain, cycling-08 tank: "amoniac = 0 và nitrit = 0 ... trong 2–3 ngày": không nói phải có nguồn amoniac để nuôi vi sinh; bể trống cũng có thể đo 0 và bị hiểu nhầm là đã xong chu trình.
-- plain, cycling-08 tank: "Thả cá từ từ" được xếp vào mẹo đẩy nhanh, lẫn với giai đoạn chờ trước khi thả cá nên hơi mâu thuẫn.
-- ours, sick-01 post: "nhiệt độ giữ 18–25°C": unrealistic in Vietnam's heat without a chiller, and needless since zebra danio live fine at normal room temperature up to about 28°C.
-- ours, sick-01 post: "nếu vài tuần nữa vẫn có con mới cong người, bệnh đã lan trong đàn": too categorical, because new bent fish could also come from old age or mycobacteriosis. It also never mentions mycobacteriosis, a main alternative that can infect people.
-- ours, sick-01 post: "nhiệt độ giữ 18–25°C": hard to hold in Vietnam's heat without a chiller and stated with no practical guidance; zebra danios also tolerate warmer room-temperature water, so this is an impractical target.
-- plain, sick-01 post: "tuổi già thường không gây ra triệu chứng này": too absolute, since spinal curvature is common in old zebra danio and a nearly 3-year-old group is already old.
-- plain, sick-01 post: "cichlid vằn xanh": brings in a doubtful species reading, then adds cichlid-focused causes that blur the answer for a hobbyist keeping a danio group.
-- plain, sick-01 post: "Nhiễm khuẩn mạn tính (Columnaris, Aeromonas...)": presented as a cause of bent bodies, but columnaris is usually an acute skin and gill infection, not a typical cause of a slow bend.
-- plain, sick-01 post: "tuổi già thường không gây ra triệu chứng này": spinal curvature is common in old zebra danios, and a nearly 3-year-old group is already near the end of its lifespan, so age is dismissed too firmly.
-- plain, sick-01 post: "Columnaris, Aeromonas... Gây tổn thương, cong người": these are usually acute skin, gill or systemic infections, not a typical cause of this slow pattern of one bent fish every few weeks.
-- ours, sick-01 tank: "Cho cá nhịn ăn 2–3 ngày... để cá nuốt ít không khí": this swim-bladder advice has little bearing on spinal curvature from chronic infection or parasites, and it could further weaken a thin fish.
-- ours, sick-01 tank: "Cho cá nhịn ăn 2–3 ngày... để cá nuốt ít không khí và đỡ tải cho ruột": this swim-bladder advice is carried over and does nothing for a bent spine caused by chronic infection or age.
-- plain, sick-01 tank: "Khử trùng: vệ sinh dụng cụ, lọc, và đá nền": with no limits given, disinfecting the filter and substrate of a running tank could destroy the biofilter and cause an ammonia spike.
-- plain, sick-01 tank: "Nhiễm virus Nodavirus (VNN)": listed as a common cause, but it is an unlikely explanation for slow, recurring deaths in pet danios over years.
-- plain, sick-01 tank: "Khử trùng: vệ sinh dụng cụ, lọc, và đá nền": told with no qualifier, disinfecting the filter and substrate in a running tank can destroy the biofilter and cause an ammonia spike.
-- plain, sick-01 tank: "Nhiễm virus Nodavirus (VNN)": listed as a common cause, but it is a stretch for a pet zebra danio tank and adds a cause the hobbyist cannot test or act on.
-- ours, sick-02 post: "chỉ châm thêm khi thấy đục": người hỏi nói là thay nước khi đục, không nói chỉ châm thêm, nên đây là đọc sai tình huống.
-- ours, sick-02 post: "chỉ châm thêm khi thấy đục": the hobbyist said they change water when it turns cloudy, not that they only top up, so this misreads the situation.
-- plain, sick-02 post: "rụng vảy hoặc có đốm trắng" listed as signs of ammonia poisoning: white spots point to ich or another disease, not ammonia.
-- plain, sick-02 post: "nước máy ở nhiều nơi dùng chloramin": overstated for Vietnam, where tap water is mainly treated with chlorine.
-- ours, sick-02 tank: "chỉ châm thêm": người hỏi không nói vậy; họ thay nước khi vẩn đục, nên đây là chi tiết suy diễn.
-- ours, sick-02 tank: "mỗi tháng 30–40%": mức thay này quá thưa cho bể có cá vàng đang chết hằng tuần.
-- ours, sick-02 tank: "Đo ... oxy hòa tan": hầu hết người chơi không có dụng cụ đo, và bể đã sục 24/24 nên oxy khó là nguyên nhân chính.
-- ours, sick-02 tank: "chỉ châm thêm": states the hobbyist only tops up, which their tank notes do not say.
-- ours, sick-02 tank: "Đo ngay... oxy hòa tan": a dissolved-oxygen test is impractical for most home hobbyists and of little use with a filter and aeration running 24/7.
-- plain, sick-02 tank: "kiểm tra bằng bút thử điện": bút thử điện không phải cách đáng tin để phát hiện rò điện nhẹ trong nước.
-- plain, sick-02 tank: "làm bẩn nước ngầm": dùng từ sai và khó hiểu trong ngữ cảnh bể cá.
-- plain, sick-02 tank: "Giảm số lượng cá hoặc tăng dung tích": listed as a basic fix although the tank is sparsely stocked, so it points effort away from the real cause.
-- ours, sick-03 post: "giống kiểu bể lâu năm... old tank syndrome": the hobbyist never said how old the tank is or how often they change water, so this is an assumption, though it is hedged.
-- plain, sick-03 post: "CO2 khoảng 12 mg/L, mức này đủ cho cây phát triển... khả năng cao là kit đã hết hạn": 12 ppm is low for a CO2 planted tank, and the test reading low agrees with the calculation, so this blames the kit and steers away from fixing CO2.
-- plain, sick-03 post: "Otto, pygmy và tầm (nếu là loài nhạy cảm)": misreads "tầm 1-2 tuần" (about 1-2 weeks) as a fish species.
-- plain, sick-03 post: "ban đêm tích tụ" CO2 is offered as a stress cause with no evidence that the CO2 runs overnight; the hobbyist's reading points to too little CO2.
-- plain, sick-03 post: "CO2 khoảng 12 mg/L, mức này đủ cho cây phát triển": 12 ppm is low for an injected planted tank, and it wrongly suggests the plants have enough CO2.
-- plain, sick-03 post: "khả năng cao là kit đã hết hạn, đọc sai bảng màu": blames the test even though the pH/KH reading agrees that CO2 is low, sending the hobbyist away from the real shortfall.
-- plain, sick-03 post: "Otto, pygmy và tầm (nếu là loài nhạy cảm)": misreads "tầm 1-2 tuần" (about 1-2 weeks) as a kind of fish.
-- ours, sick-03 tank: "TDS nên hạ dần về 120–160": nước nguồn đã 160-200, nên chỉ thay nước máy thì không đạt được; không nói phải pha RO hay nước mưa.
-- ours, sick-03 tank: "châm nước có TDS gần với bể": mâu thuẫn với mục tiêu hạ TDS, vì nước gần 360 sẽ không làm TDS giảm.
-- ours, sick-03 tank: "đo... sáng sớm để xem oxy và pH có tụt": sáng sớm, sau một đêm tắt CO2, pH thường cao hơn chứ không tụt; riêng oxy mới thấp lúc đó.
-- ours, sick-03 tank: "TDS nên hạ dần về 120–160": nước nguồn đã 160-200, nên chỉ thay nước máy thì không đạt được mốc này nếu không pha RO, và tép màu cũng không cần thấp đến vậy.
-- ours, sick-03 tank: "châm nước có TDS gần với bể" trong khi lại muốn hạ TDS: hai ý hơi mâu thuẫn và không nói rõ cách pha.
-- plain, sick-03 tank: "Nếu bạn cho tôi biết... TDS/GH/KH/pH hiện tại... loại cá đang nuôi": hỏi lại thông số có trong hồ sơ bể; đây là thiếu sót về độ khớp chứ không phải sai kiến thức.
-- plain, sick-03 tank: Nêu ví dụ tép Caridina (Crystal, Bee) trong khi bể nuôi tép màu; phần lý giải về độ nhạy GH/KH vì vậy lệch khỏi trường hợp này.
-- plain, sick-03 tank: Đặt trọng tâm vào Caridina (Crystal, Bee, Taiwan bee): tép màu của bạn này nhiều khả năng là Neocaridina, chịu GH 8 và TDS cao hơn nhiều, nên phần giải thích dễ làm họ lo sai hướng.
-- ours, sick-04 post: "Vết khuyết trên ngọn lá nhiều khả năng do ốc hoặc tép gặm": đoán yếu, vì tình trạng gãy ngang ngọn xuất hiện cùng cú sốc nước, nhiều khả năng do sốc pH hoặc thông số nước; tuy vậy câu này có nói rõ là chưa chắc.
-- ours, sick-04 post: "Vết khuyết trên ngọn lá nhiều khả năng do ốc hoặc tép gặm": lá gãy ngang ngọn mà vẫn xanh sau cú sốc nước khó là do gặm, dù câu này có nói rõ là chưa đủ căn cứ.
-- plain, sick-04 post: "Ốc vảy (Neritina)... Vết gãy hoặc mòn trên vỏ": hiểu sai vảy ốc, vốn là cây thủy sinh Rotala, thành ốc Neritina nên toàn bộ phần tư vấn về nhóm cây này bị lệch.
-- plain, sick-04 post: "Amoniac... là thủ phạm đáng ngờ nhất": tép hoảng loạn ngay khoảng 10 giây sau khi cho vật liệu vào không thể do amoniac từ xác phân hủy; nguyên nhân bám sát hơn là chất nhả ra từ vật liệu.
-- plain, sick-04 post: "Tép chết trong vài phút": hobbyist nói tép chạy loạn chỉ sau khoảng 10 giây rồi chết dần, nên câu này diễn đạt lại không chính xác.
-- plain, sick-04 post: "Bổ sung... lá bàng khô hoặc gỗ lũa để hạ pH": gần như không có tác dụng đáng kể khi nước có KH cao do đá da voi liên tục hòa tan.
-- plain, sick-04 post: "Ốc vảy (Neritina)... Vết gãy hoặc mòn trên vỏ": vảy ốc xanh/đỏ là cây Rotala, không phải ốc; người hỏi tả lá gãy ngang ngọn, nên cả mục này sai đối tượng.
-- plain, sick-04 post: "Amoniac là thủ phạm đáng ngờ nhất": tép loạn sau khoảng 10 giây khi vừa cho vật liệu vào là sốc hóa chất hoặc thông số nước; amoniac từ xác và lá rữa chỉ xuất hiện về sau.
-- plain, sick-04 post: "Tép chết trong vài phút": người hỏi nói tép chạy loạn sau khoảng 10 giây rồi chết dần, không nói chết trong vài phút.
-- ours, sick-04 tank: "có nhiệt độ và pH gần với bể ... để kéo pH về gần mức cũ": self-contradictory, since water matched to the current pH cannot move pH back toward the old level.
-- plain, sick-05 post: "bộ test API Freshwater Master... NH3/NH4, NO2, NO3, pH, KH, GH": the API Freshwater Master kit does not include KH/GH tests; those are sold separately.
-- plain, sick-05 post: "Vệ sinh lọc" listed among immediate steps: cleaning the filter while the cycle is unstable can further disturb the bacteria, even when using old tank water.
-- plain, sick-05 post: "Tảo silic (diatom)" is listed as a cause of the water colour, but diatoms form a film on surfaces and do not explain yellow-brown water.
-- plain, sick-05 post: "Vi khuẩn có lợi trong lọc cũng yếu đi" is stated as a direct effect of bottled water without qualification; this is only an indirect effect through low KH and falling pH.
-- ours, sick-05 tank: "Lũa chỉ giải thích màu vàng nâu" nói như thể bể có lũa, trong khi người hỏi không hề nhắc đến lũa; đây là giả định chưa xác nhận, dù nhận định về tannin là đúng.
-- ours, sick-05 tank: 'Lũa chỉ giải thích màu vàng nâu...' nói như thể bể có lũa, trong khi thông tin bể không ghi có lũa; đây là giả định chưa được xác nhận.
-- plain, sick-05 tank: "Tảo silic... làm nước đục màu nâu" sai phần lớn: tảo silic chủ yếu bám trên kính và nền, không phải nguyên nhân điển hình khiến nước ngả màu nâu.
-- plain, sick-05 tank: "Nước máy có vấn đề" và "Clo/cloramin chưa khử hoàn toàn" không áp dụng cho bể này vì người nuôi thay bằng nước uống đóng bình, nên hướng nghi ngờ bị sai.
-- plain, sick-05 tank: Tập trung vào rủi ro nước máy ('nước máy có vấn đề', 'thay nước bằng nước máy chưa xử lý') trong khi hobbyist dùng nước uống đóng bình, nên bỏ sót nguyên nhân thiếu KH/GH.
-- plain, sick-05 tank: 'Thay 30–50% nước' như bước xử lý ngay, trong khi họ đã thay 50% cách ngày; lời khuyên này không thay đổi được gì và vẫn không nói đổi nguồn nước.
-- ours, sick-06 post: "nhiệt độ bể mới trong khoảng 22–28°C": mức 22°C quá thấp cho cá rồng đang bỏ ăn; người nuôi ở Việt Nam thường giữ khoảng 27–30°C.
-- ours, sick-06 post: "nhiệt độ bể mới trong khoảng 22–28°C": the low end is too cold for arowana, which are usually kept around 26–30°C; a keeper could accept a cool tank that further suppresses appetite.
-- plain, sick-06 post: "Giảm lượng mồi cho cá mồi": muddled and off target, because the hobbyist's problem is uneaten live feeders; it never says to net them out so they stop stressing the arowana and adding bioload.
-- ours, sick-06 tank: "lâu hơn mức cá mới hay ăn lại sau 2–3 ngày": cá rồng chuyển bể thường có thể bỏ ăn lâu hơn nhiều, nên mốc này không có cơ sở vững và dễ gây lo quá mức.
-- plain, sick-06 tank: "đặt cây thủy sinh, đá hoặc ống để cá có chỗ ẩn nấp": cá rồng là cá tầng mặt cỡ lớn, cần khoảng bơi rộng; vật trang trí ẩn nấp không phải cách xử lý thực tế và có thể làm cá va chạm.
-- plain, sick-06 tank: "cho ăn vào buổi tối khi đèn tắt": cá rồng săn mồi trên mặt nước chủ yếu bằng mắt; cho ăn trong tối làm khó quan sát và vớt mồi thừa, nên đây là mẹo đáng ngờ.
-- ours, sick-07 post: "sau khi xới sỏi": the hobbyist threw the gravel out rather than stirring it, so the answer misses the lost beneficial bacteria and the resulting ammonia risk.
-- ours, sick-07 post: "không dùng muối ăn": stated flatly without addressing the hobbyist's muối hột, which is usable if clean and additive-free, so it leaves them unsure about what they already did.
-- ours, sick-07 post: "sau khi xới sỏi": bạn này đã vứt hẳn sỏi chứ không xới, nên bỏ sót nguy cơ mất vi sinh và bể chu trình lại.
-- ours, sick-07 post: "không dùng muối ăn": cấm quá mức; muối hột không phụ gia mà người hỏi đang dùng vẫn dùng được.
-- ours, sick-07 post: "ngừng muối và hỏi thêm" khi nghi columnaris: không cho hướng xử lý cụ thể cho bệnh tiến triển nhanh, trong khi ngừng muối cũng không phải điều bắt buộc với cá có vảy.
-- plain, sick-07 tank: "Cá bị nấm sau khi lật bể thường là hệ quả của nước xấu": too sure of one cause; it ignores handling injuries from the flip, the usual opening for water mould.
-- plain, sick-07 tank: "Không dùng muối cho bể có cây thủy sinh, cá trơn như cá trê, hoặc tôm, ốc": too absolute, since low doses and short use are often tolerated by plants and many fish, though caution is fair.
-- ours, sick-08 post: "ngâm túi cá 4–5 tiếng": read literally, this leaves the fish in the bag far too long, so ammonia and oxygen problems build up. Floating needs only 15–30 minutes, followed by slow drip acclimation in a bucket.
-- ours, sick-08 post: "cá còn lại vẫn bơi lờ đờ": all 3 otto have already died, so this does not fit unless it means the neon.
-- ours, sick-08 post: "không phải lỗi chung của cả bể": neon surviving does not rule out a water problem, because otto are more sensitive. The answer does partly correct this by asking for tests.
-- ours, sick-08 post: "Neon vẫn bình thường nên không phải lỗi chung của cả bể": overconfident; otto are more sensitive than neon, so healthy neon do not rule out a water problem.
-- ours, sick-08 post: "ngâm túi cá 4–5 tiếng": too long if read literally as keeping fish in a sealed bag; oxygen falls and waste builds up, and it should be a shorter float followed by slow drip acclimation.
-- ours, sick-08 post: "nếu cá còn lại vẫn bơi lờ đờ": all 3 otto are already dead, so the wording fits the situation poorly unless it means the neon.
-- plain, sick-08 post: "Thiếu oxy vào ban đêm (khả năng cao nhất)": ranked most likely with no evidence of low oxygen in this tank. Weak fish and poor acclimation fit at least as well.
-- plain, sick-08 post: "Chết đột ngột, nằm im là dấu hiệu điển hình của độc tố": an overclaim, since this sign is not specific and fits many causes.
-- plain, sick-08 post: "Thiếu oxy vào ban đêm (khả năng cao nhất)": ranked most likely without evidence; a night-time oxygen crash is a weak lead for fish that die within one night of being added while the neon in the same water stay normal.
-- plain, sick-08 post: "Chết đột ngột, nằm im là dấu hiệu điển hình của độc tố": overstated; lying still and dead is not specific to toxins and also fits shock or weak new fish.
-- ours, sick-08 tank: "cá otto bắt tự nhiên, chưa quen thức ăn viên": not eating pellets causes slow starvation over days or weeks, so it cannot explain all the fish dying overnight, especially in a tank with algae.
-- ours, sick-08 tank: "Với đàn còn lại" and "theo dõi những con còn lại": the hobbyist said all the otto died, so this advice has no fish to apply to.
-- ours, sick-08 tank: "chưa quen thức ăn viên" được nêu như nguyên nhân hàng đầu: chưa quen thức ăn không làm cả đàn chết sau một đêm.
-- ours, sick-08 tank: "Với đàn còn lại... giữ tảo cho cá gặm": otto đã chết hết, nên lời khuyên và phần theo dõi 'những con còn lại' không khớp tình huống.
-- plain, sick-08 tank: "Nuôi một hai con đơn lẻ dễ bị stress": hobbyist thả 3 con, và thiếu đàn không giải thích được cái chết sau một đêm.
-- ours, sick-09 post: "khả năng cao nhất là bệnh lây từ cá koi": overweights contagious disease and treats water quality as secondary in a 30 cm cold tank; KHV is also less typical in very cold water.
-- ours, sick-09 post: "Khi trời ấm nên đào sâu thêm": gives no practical option, and the filter question is not answered at all.
-- ours, sick-09 post: "Kiểm tra oxy... nếu mượn được bộ test": the 5 mg/L trigger is unusable for someone who said they have no oxygen meter, and no way of judging oxygen without one is given beyond watching for fish gasping.
-- plain, sick-09 post: "cho thấy cá đang đói": koi and carp naturally pick at water lilies, even when well fed.
-- plain, sick-09 post: "6–7 con... mật độ có thể đã vượt mức": misreads the 6-7 dead as the stock count, and 1,350 L is not obviously overstocked by that number.
-- plain, sick-09 post: "Thay 10–20% nước" when ammonia/nitrite are high: this is rather small if readings are truly high.
-- plain, sick-09 post: "cho thấy cá đang đói hoặc thiếu thức ăn tự nhiên": koi and carp pick at water lilies by habit, so this does not show hunger.
-- plain, sick-09 post: "Với 6–7 con... mật độ có thể đã vượt mức": 6-7 is the number that died, not the stock, and that many fish in about 1,350 L with a filter is not clearly overstocked, so the cause is overweighted.
-- ours, sick-09 tank: "kê bể lên đệm cách nhiệt": tip for a small glass tank, not practical for a 3 m outdoor koi pond with a stone floor.
-- ours, sick-09 tank: Excerpt "sưởi khoảng 1 W cho mỗi lít": would mean about 1.3 kW for this roughly 1,350 L outdoor pond; impractical and unnecessary for koi.
-- ours, sick-09 tank: "kê bể lên đệm cách nhiệt": không hợp với bể ngoài trời lớn, đáy lát đá; đây là mẹo cho bể kính.
-- ours, sick-09 tank: Trích dẫn "sưởi khoảng 1 W cho mỗi lít": với bể khoảng 1.350 lít ngoài trời thì không thực tế cho koi.
-- plain, sick-09 tank: "Ổn định nhiệt độ... 24–26°C cho cá nhiệt đới bằng heater": targets tropical fish; koi and carp tolerate cold and an outdoor pond this size is not heated this way.
-- plain, sick-09 tank: "betta, neon, guppy, tetra... rất nhạy với lạnh": irrelevant to this koi and carp pond.
-- plain, sick-09 tank: "Ổn định nhiệt độ... 24–26°C cho cá nhiệt đới bằng heater": sai đối tượng, koi và cá chép là cá nước lạnh, bể ngoài trời cỡ này không cần và khó sưởi như vậy.
-- plain, sick-09 tank: "Vi khuẩn lọc chậm lại dưới ~20°C... gần như ngừng": nói quá, ở mức dưới 20°C vi sinh chậm đi nhưng chưa gần như ngừng.
-- plain, stocking-01 post: "Cá 7 màu là loài ăn tạp, hung dữ": bảy màu là cá hiền, không phải thủ phạm săn mồi; câu này làm lệch chẩn đoán.
-- plain, stocking-01 post: "nuôi cá 7 màu: nên nuôi cùng cá cỡ lớn... bể tối thiểu khoảng 200 lít": sai hẳn, bảy màu nhỏ dễ bị cá lớn ăn và nuôi tốt trong bể nhỏ hơn nhiều.
-- plain, stocking-01 post: "Bống và dọn bể: chỉ nên nuôi chung với cá to": khái quát quá mức, không rõ loài và vô lý khi vừa nói bống ăn cá nhỏ là vấn đề của nhóm bảy màu.
-- plain, stocking-01 post: "Bống không phải 'công nhân vệ sinh'... là cá ăn thịt nhỏ": đúng về ý không ăn phân, nhưng bống có nhiều loài nên nói gộp là quá tay.
-- plain, stocking-01 post: "Cá 7 màu là loài ăn tạp, hung dữ": guppy are peaceful, not aggressive, and do not attack tankmates.
-- plain, stocking-01 post: "Nếu muốn nuôi cá 7 màu: nên nuôi cùng cá cỡ lớn... bể tối thiểu khoảng 200 lít... tránh thả cá nhỏ": backwards, since guppies are small fish that large fish eat, and they do not need 200 L.
-- plain, stocking-01 post: "Bống và dọn bể: chỉ nên nuôi chung với cá to": an invented, overly broad rule that does not fit a small community tank.
-- plain, stocking-01 tank: "cá rô, cá đầu bạc, cichlid, cá lia thia, hoặc cá lóc con" là thủ phạm: liệt kê những loài không có trong bể, trong khi bỏ qua cá vàng đang nuôi chung
-- plain, stocking-01 tank: "cá bảy màu trưởng thành, nhất là con đực" ăn cá bột: nói con đực ăn nhiều hơn là không có cơ sở
-- plain, stocking-01 tank: "cá chùy (cá tỳ bà, cá chuột)": gộp tên gọi lộn xộn, "cá chùy" không phải tên thông dụng của cá tỳ bà
-- plain, stocking-01 tank: "cá chùy (cá tỳ bà, cá chuột)": lumps cá tỳ bà and cá chuột under an odd name that is not normal hobby usage in Vietnam.
-- ours, stocking-02 post: "khoảng 140 lít, nên 40 neon vẫn sát giới hạn": theo chính phép tính này, tổng tải khoảng 110 lít, còn cách xa mức 140 lít, nên kết luận không khớp với con số đưa ra.
-- plain, stocking-02 post: "Nếu 'mún' của bạn là loài cá ăn thịt hoặc có tính hung dữ (ví dụ cá rô, cá betta đực...)": mún là tên quen thuộc của cá platy, loài hiền, nên answer không nhận ra loài và không trả lời dứt khoát câu hỏi sống chung.
-- plain, stocking-02 post: "Nếu 'mún' của bạn là loài cá ăn thịt hoặc có tính hung dữ (ví dụ cá rô, cá betta đực...)": mún là tên quen thuộc của cá platy, một loài hiền, nên phần này không trả lời được câu hỏi và gây lo không cần thiết.
-- ours, stocking-02 tank: "Đo nitrat ... trước khi thả thêm": a tank running only 1 week may not have cycled, so ammonia and nitrite are the key checks; nitrate alone can miss the danger.
-- ours, stocking-02 tank: "Giữ nước mềm, pH không quá 7 và nhiệt độ 21–25°C": this conflicts with platy, which prefer harder water, and 21–25°C is hard to hold in Vietnam's heat without a chiller.
-- ours, stocking-02 tank: "chưa tìm thấy trang loài nào tên mún": it already calls the fish platy in its first sentence, then says it cannot identify mún, which is contradictory and leaves the compatibility question unanswered.
-- ours, stocking-02 tank: "đo nitrat": relies on nitrate to judge stocking and never asks for ammonia/nitrite, the key tests for a 1-week-old tank.
-- ours, stocking-02 tank: "Kiểm tra bể đã chạy ổn định": does not tell the hobbyist that their tank has run only 1 week and is probably uncycled.
-- ours, stocking-02 tank: "mình chưa tìm thấy trang loài nào tên mún": contradicts its own use of 'platy' for the same fish and leaves platy-neon compatibility unanswered.
-- ours, stocking-02 tank: "pH không quá 7 và nhiệt độ 21–25°C": the pH limit is stricter than its own card (4–7.5), and 21–25°C is hard to hold in Vietnam's heat without a chiller; no practical guidance is given.
-- plain, stocking-02 tank: "thả thêm 40 con neon thường vẫn được" at 100 lít: this ignores the 10 existing fish and the 1-week-old tank, so it leans towards an overstock and a possible ammonia spike.
-- plain, stocking-02 tank: "cá lia thia lùn" listed as a good neon tankmate: bettas can be territorial and this is a loose, unreliable recommendation.
-- plain, stocking-02 tank: "thả thêm 40 con neon thường vẫn được": too permissive for a 96 L tank running only 1 week, which is not yet cycled and already holds 10 fish.
-- plain, stocking-02 tank: "mình chưa chắc bạn đang nói loài nào": mún is the common Vietnamese name for platy, so the compatibility question goes unanswered.
-- ours, stocking-03 post: "tetra mõm đỏ... đẹp và dễ nuôi": rummy nose is active, needs a real school and is sensitive to unstable water, so it is a poor fit for a beginner's 15 L tank.
-- ours, stocking-03 post: "Trong 2–3 tuần đầu... thả cá từ từ": this implies stocking during the unstable period and never tells a beginner to cycle the tank first.
-- ours, stocking-03 post: "tetra mõm đỏ" được gợi ý là lựa chọn đẹp, dễ nuôi: cá này dài khoảng 5 cm, bơi nhiều, sống theo đàn lớn và khá nhạy nước, không hợp bể 15 lít mới chạy với người mới.
-- ours, stocking-03 post: "neon vua... dễ nuôi hơn" cho bể 15 lít: cá đàn cần số lượng nhưng câu trả lời không nêu số con, dễ khiến người mới thả quá dày.
-- plain, stocking-03 post: "Tránh cá đàn lớn như neon, cá chuột, cá lia thia": lia thia is not a schooling fish; it is a territorial fighting fish closely related to betta.
-- plain, stocking-03 post: "Tránh cá đàn lớn như neon, cá chuột, cá lia thia": lia thia không phải cá đàn; nó là cá chọi, nên xếp chung nhóm này là sai, dù khuyên tránh nuôi chung trong bể nhỏ vẫn không hại.
-- ours, stocking-03 tank: "cá tetra mõm đỏ" được gợi ý cho bể 15 lít: loài bơi nhiều, sống theo đàn, nhạy nước, không hợp bể nhỏ thế này và người mới.
-- ours, stocking-03 tank: "ít nhất 1 đến 2 tuần" để vi sinh bám: thường chưa đủ để chu trình nitơ ổn định, dễ khiến người mới thả cá sớm.
-- ours, stocking-03 tank: "khoảng 6 con trở lên" cá đàn trong khoảng 15 lít mà không kèm cảnh báo: khá sát giới hạn với bể nhỏ, thả từng đợt và theo dõi nước là cần thiết.
-- ours, stocking-03 tank: "cá tetra mõm đỏ": cá này lớn hơn, bơi khỏe và nhạy nước, không hợp bể 35 cm khoảng 15 lít mới setup.
-- ours, stocking-03 tank: "ít nhất 1 đến 2 tuần" chạy lọc không có nguồn amoniac: thường chưa đủ để bể vào chu trình, dễ tạo cảm giác an toàn giả cho người mới.
-- ours, stocking-03 tank: "khoảng một phần nước mỗi tuần": không nêu phần trăm cụ thể nên người mới không biết thay bao nhiêu.
-- plain, stocking-03 tank: "cá thái lan (cá dĩa nhỏ hiền)": nhầm lẫn tên gọi; cá dĩa là loài lớn, khó nuôi, không phải cá dễ cho người mới.
-- plain, stocking-03 tank: "Cá vàng: cần bể lớn, nước lạnh": cá vàng không cần nước lạnh thật sự, chỉ không ưa nóng kéo dài.
-- plain, stocking-03 tank: "1 con betta + vài con cá nhỏ hiền" và cá chuột, molly trong danh sách chung: không lọc theo bể 15 lít, molly và cá chuột không hợp bể này.
-- plain, stocking-03 tank: "cá thái lan (cá dĩa nhỏ hiền)": sai định danh, cá dĩa là loài lớn, khó nuôi, không phải cá cho người mới hay bể nhỏ.
-- plain, stocking-03 tank: "Cá nhỏ cần khoảng 2–3 lít nước mỗi con": quy tắc thô và dễ khiến nuôi quá đông; bể 15 lít có thể bị hiểu là nuôi được 5–7 con cá bất kỳ, kể cả molly hay cory.
-- plain, stocking-03 tank: Gợi ý molly và cá chuột cho người mới mà không lưu ý kích thước, trong khi các loài này không hợp với bể khoảng 15 lít của họ.
-- ours, stocking-04 post: Nêu Stiphodon ornatus 'hợp với cá bảy màu' dựa trên suy đoán về loài, trong khi chính bảy màu là loài đã chết trong bể này, nên gợi ý này không giúp được gì
-- ours, stocking-04 post: "Stiphodon ornatus... có người bán tên gold fin" with the card's "dài 7 cm; bể từ 80 cm": the size and tank figures look too large for this small goby, and the closest guess may be the wrong species.
-- ours, stocking-04 post: It never clearly answers which fish can live with the goby, beyond the guide's note that this guessed species suits guppies.
-- plain, stocking-04 post: 'Bể không cần cạo rêu, không thay nước, không cho ăn': người hỏi không nói là không thay nước, và chỉ nói bống không cần cho ăn
-- plain, stocking-04 post: Khuyên 'tránh cá nhỏ quá' vì dễ bị bống ăn nhưng lại gợi ý neon, lòng tong mà chưa biết bống loài gì; 'cá thái lan nhỏ' cũng là tên mơ hồ
-- plain, stocking-04 post: "khả năng cao cá chết không phải do bống": said without knowing the species. A golden sucker-type algae eater sold under such a name can harass fish and rasp their slime coat, so the fish may well be the cause.
-- plain, stocking-04 post: "không thay nước": the hobbyist never said this; the assumption is used as the basis for the top cause.
-- plain, stocking-04 post: "cá bạc má nhỏ hoặc cá thái lan nhỏ": vague or wrong tankmate names. Bạc má is usually a marine fish, and 'cá thái lan' does not identify a species.
-- plain, stocking-04 tank: "cá kiếm (platy)": cá kiếm là swordtail, không phải platy (cá hạc đỉnh), và mục sau lại liệt kê "cá đuôi kiếm (swordtail)" như một loài khác.
-- plain, stocking-04 tank: "ốc hương" được gợi ý cho bể nước ngọt: ốc hương là ốc biển, không sống được trong bể này.
-- plain, stocking-04 tank: Xếp "cá dĩa" và "cá đá (betta)" vào danh sách nuôi chung với bảy màu, hồng kim: cá dĩa cần nước ấm và ổn định hơn, còn betta dễ cắn bảy màu, trái với chính lưu ý của answer.
-- plain, stocking-04 tank: Gợi ý bảy màu và cá kiếm: đây chính là những loài đã chết dần trong bể, mà answer không nhận ra.
-- plain, stocking-04 tank: "cá kiếm (platy)" is a wrong name: cá kiếm is the swordtail, which it then lists separately as "cá đuôi kiếm".
-- plain, stocking-04 tank: "cá hồng kim (neon tetra)" is a wrong name: hồng kim is a red platy/swordtail type, not neon tetra.
-- plain, stocking-04 tank: It lists bảy màu and kiếm as the fish to keep, though these same fish already died in this tank, and it does not address that.
-- plain, stocking-04 tank: It lists cá dĩa and betta in one community group; discus needs hotter, cleaner water and betta can nip guppies, so this is poor compatibility advice.
-- ours, stocking-05 post: "cá chép (cùng họ với cá koi...)": understated and awkward, since koi are simply ornamental common carp, not just a relative; the 'cùng họ' framing is a weak basis for applying the koi data.
-- ours, stocking-05 post: "làm theo nhãn của thuốc": names no medicine for open wounds, so it is not usable treatment advice.
-- ours, stocking-05 post: The attached card lists koi as 'peaceful', which sits uneasily with the claim that carp attack goldfish and is left unexplained.
-- ours, stocking-05 post: "cùng họ với cá koi": understates the link, since koi are ornamental carp and much closer than merely the same family.
-- ours, stocking-05 post: The card lists koi as "peaceful" without explanation, which sits awkwardly with the advice and the attacks the hobbyist saw.
-- plain, stocking-05 post: "Hai loài có nhu cầu môi trường và thức ăn hơi khác nhau, khó chăm chung": weak reason, since both are hardy omnivorous cyprinids with very similar needs; the real issues are size and vigour.
-- plain, stocking-05 post: "Cá chép thường hung hăng": overgeneralised, since carp are not typically aggressive by nature, though it matches what this hobbyist is seeing.
-- plain, stocking-05 post: "Cá chép thường hung hăng": overgeneralised, since carp are usually not aggressive by nature; harm more often comes from size difference, food competition or spawning chases.
-- ours, stocking-05 tank: "cá koi (cá chép Nhật)": the hobbyist said cá chép, not koi; the answer swaps in koi without basis.
-- ours, stocking-05 tank: "nguyên nhân khả dĩ nhất là kích thước chênh lệch quá lớn": states size difference as the likely cause of death without knowing the fish sizes; stress, injury or water problems after adding a new fish were not considered.
-- ours, stocking-05 tank: "nguyên nhân khả dĩ nhất là kích thước chênh lệch quá lớn": kết luận khi chưa biết kích thước hai con; cái chết còn có thể do stress, vết thương, chất lượng nước hoặc bệnh từ cá mới thả.
-- ours, stocking-05 tank: "con koi thả vào bể cá vàng có thể đang săn cá nhỏ hơn": tự coi cá chép là koi và suy đoán hành vi săn mồi dù hobbyist không nói đó là koi.
-- plain, stocking-05 tank: "Cho ăn đầy đủ để cá chép bớt tranh ăn và hung hăng hơn": extra feeding does little for this aggression and can foul the water in an already crowded tank; the sentence is also ambiguous.
-- plain, stocking-05 tank: "Cho ăn đầy đủ để cá chép bớt tranh ăn và hung hăng hơn": cho ăn thêm khó giảm việc đuổi cắn và dễ làm bẩn nước, nên không phải cách xử lý đáng tin.
-- ours, stocking-06 post: "Bể mới chưa cần thay nước hàng tuần đều đặn; thường thay khoảng 20 đến 30% mỗi tuần": tự mâu thuẫn, và bể mới đang chạy vi sinh, có mùi hôi lại càng cần thay đều.
-- ours, stocking-06 post: "Không thay hết một lần vì sẽ mất vi sinh": vi sinh chủ yếu bám ở lọc và nền, không nằm trong nước; lý do này không chính xác.
-- ours, stocking-06 post: Không sửa hiểu lầm "trứng": mún và kiếm đẻ con, không đẻ trứng.
-- ours, stocking-06 post: "Bể mới chưa cần thay nước hàng tuần đều đặn; thường thay khoảng 20 đến 30% mỗi tuần là đủ": tự mâu thuẫn, trong khi bể mới có cá và đang hôi lại càng cần thay đều.
-- plain, stocking-06 post: "Nước có mùi tanh nhẹ là bình thường": dễ khiến người nuôi chủ quan, nhất là với bể mới đang có mùi; nước bể khỏe thường chỉ có mùi đất nhẹ.
-- ours, stocking-06 tank: "khoảng ngày 18 đến 25 của thai kỳ": this is a guppy timing borrowed for molly, whose gestation usually runs longer, and few keepers can count the days anyway.
-- ours, stocking-06 tank: "Bể chính thì thay theo lượng nước và độ sạch hiện tại của bạn": this dodges the weekly water-change question and is poor guidance for a newly set tank with smelly water.
-- ours, stocking-06 tank: "Bể chính thì thay theo lượng nước và độ sạch hiện tại của bạn": no real answer on weekly changes, and it effectively endorses the current routine in a new tank whose water already smells.
-- ours, stocking-06 tank: "khoảng ngày 18 đến 25 của thai kỳ": a guppy timeline carried over to mún, which the hobbyist can rarely track and which is not established for this species.
-- plain, stocking-06 tank: "đưa mẹ về bể chính hoặc để trong lồng đẻ": leaving the mother in the breeder box with the fry risks her eating them, unless the box has a fry separator.
-- plain, stocking-06 tank: "Thường khi thấy vậy thì còn khoảng 1–2 ngày": this is overly precise, as a dark gravid spot and swollen belly can precede birth by much longer.
-- ours, stocking-07 post: "cá chạch sóc đuôi đỏ... 15–21°C": an unlikely match for a small fish commonly kept with neon, and the warning that the two can hardly live together rests on this guess.
-- ours, stocking-07 post: "bể 76 lít chỉ nuôi neon thì khoảng 10–15 con là vừa": far too conservative for a 3 cm schooling fish in a 60 cm tank.
-- ours, stocking-07 post: "Gần nhất trong cẩm nang là cá chạch sóc đuôi đỏ": ghép từ khớp tên, rất khó là loài người hỏi định thả chung với neon; kết luận khó sống chung và lời dặn theo dõi nhiệt độ cuối bài vì thế dễ gây hoang mang
-- ours, stocking-07 post: "chỉ nuôi neon thì khoảng 10–15 con là vừa": quá dè dặt với bể khoảng 76 lít có lọc tốt, nhưng không gây hại cho cá
-- plain, stocking-07 post: "Sóc đỏ (cá Corydoras)": Corydoras is usually called cá chuột in Vietnam, so this identification is doubtful, although the answer does ask for the exact name if it means another fish.
-- plain, stocking-07 post: "Sóc đỏ (cá Corydoras)": khẳng định sai tên, ở Việt Nam Corydoras thường gọi là cá chuột, không phải sóc; dù cuối bài có dặn báo lại nếu là loài khác, số 6-8 con và lời khuyên nền cát đều dựa trên giả định này
-- ours, stocking-07 tank: "chạch sóc đuôi đỏ" and "killifish sọc đỏ" are unlikely readings of "sóc đỏ", so the 15–21°C incompatibility warning probably concerns the wrong fish.
-- plain, stocking-07 tank: "Cá sóc (Corydoras)": Vietnamese hobbyists usually call Corydoras "cá chuột", so the stocking advice rests on a wrong identification.
-- plain, stocking-07 tank: "khoảng 10 con cho mỗi 20 lít": this rule is overly dense and has no stated basis.
-- plain, stocking-07 tank: "bể khoảng 60 lít": this appears to confuse the 60 cm length with volume; 60×35×40 cm is about 84 L gross.
-- plain, stocking-07 tank: "Tôm đỏ": shrimp is an off-target guess, since the hobbyist asked about a stocking number alongside neon.
-- plain, stocking-07 tank: "Cá sóc (Corydoras)": Corydoras is called cá chuột in Vietnam, and "cá sóc" usually means something else, so the stocking figure of 6-8 may be for the wrong fish.
-- plain, stocking-07 tank: "nên thả thưa hơn nếu bể có nhiều cây thủy sinh và lọc tốt": the logic is backwards, since dense plants and good filtration allow more stock, not less.
-- ours, stocking-08 post: "Bể nhỏ mất nước nhanh": muddled claim; the real problem is that little water dilutes waste poorly, not water loss, and the sentence does not explain that clearly.
-- ours, stocking-08 post: "Thay khoảng 20-30% nước mỗi tuần": too little for a week-old, overstocked 4 L tank that may have no filter, so ammonia can still build up.
-- ours, stocking-08 post: "Bể nhỏ mất nước nhanh": wrong or confusing wording; the issue is low water volume, not water loss.
-- ours, stocking-08 post: "Thay khoảng 20-30% nước mỗi tuần": light for an overstocked one-week-old 4 L tank that is probably still cycling, and it gives no filter to support it.
-- plain, stocking-08 post: "(neon, endler, ember...)" as 3-4 fish for 4 L: neon and ember are schooling fish and a 4 L tank is too small for them to be kept well long term.
-- plain, stocking-08 post: "máy sưởi mini có điều nhiệt": generally unnecessary in much of Vietnam; heat is the more common concern, and a heater in 4 L carries its own overheating risk.
-- plain, stocking-08 post: "máy sưởi mini có điều nhiệt": generally unnecessary in much of Vietnam's climate and risky to fit in a 4 L tank, so it is a poor default step.
-- plain, stocking-08 post: "3-4 con nếu là loài nhỏ (neon, endler, ember...)": neon are schooling fish that need more room, so 3-4 in 4 L is still unsuitable.
-- plain, stocking-08 tank: "cá bảy màu" listed as a schooling fish needing many of its kind: guppies are livebearers and not true schooling fish.
-- plain, stocking-08 tank: "7-8 con nhỏ có thể ổn trong bể 40-60 lít" and the whole conclusion assume a tank about 10x larger than the actual 4 L, so the reassurance does not apply.
-- plain, stocking-08 tank: "Cá đàn (neon, tetra, cá bảy màu)": cá bảy màu không phải cá đàn đúng nghĩa như neon/tetra.
-- plain, stocking-08 tank: "1 lít nước cho 1 cm cá" kèm kết luận chỉ xét bể 40-60 lít và dưới 30 lít: không đề cập bể 4 lít nên người đọc không nhận được cảnh báo rõ về mức quá tải nghiêm trọng.
-- ours, stocking-09 post: "Bể 80 cm cũng chưa đủ cho cá ông tiên": quá cứng nhắc, vì bể 80×35×45 cm (khoảng 126 lít) vẫn nuôi được một cặp ông tiên, dù rộng hơn thì tốt hơn.
-- ours, stocking-09 post: "Bể 80 cm cũng chưa đủ cho cá ông tiên": quá cứng nhắc, bể 80×35×45 cm khoảng 126 lít vẫn nuôi được 2 con ông tiên, dù chật hơn khi cá ghép cặp và lớn hẳn.
-- plain, stocking-09 post: "Có thể nuôi chung được": kết luận quá lạc quan, vì ông tiên trưởng thành có thể nuốt neon khoảng 3 cm và nguy cơ này còn nguyên về lâu dài.
-- plain, stocking-09 post: "cho ăn đầy đủ để giảm rủi ro": cho ăn no không ngăn được ông tiên lớn săn neon, nhất là vào ban đêm.
-- plain, stocking-09 post: "bổ sung thêm neon để chia đều sự chú ý": thêm neon không giải quyết được việc bị rượt đuổi, chỉ tăng số cá có nguy cơ bị ăn.
-- plain, stocking-09 post: "trạch, mơ": tên cây lạ, người chơi khó nhận ra và khó tìm mua đúng loại.
-- plain, stocking-09 post: "bổ sung thêm neon để chia đều sự chú ý": thêm neon không giải quyết được việc ông tiên rượt hoặc ăn neon, chỉ thêm mồi.
-- plain, stocking-09 post: "trạch, mơ": tên cây thủy sinh không rõ ràng, người chơi khó biết để mua.
-- ours, stocking-09 tank: "Bể 80 cm của bạn cũng chưa đủ": too strict as a flat verdict. A tank of about 126 L and 45 cm high can hold a pair of angelfish, though it is not generous.
-- ours, stocking-09 tank: "Bể 80 cm của bạn cũng chưa đủ" is too strict: this tank is about 126 litres gross and 45 cm tall, which can suit 2 angelfish.
-- ours, stocking-09 tank: "Không nên nuôi chung" treats a real predation risk as a flat ban, although this mix often works when the angels are young, well fed and the tank has dense cover.
-- ours, stocking-09 tank: "Mức đầy bể: 84%" looks falsely precise, and its "Vừa phải" rating sits awkwardly beside the claim that the tank is not big enough.
-- plain, stocking-09 tank: "Nếu bể nhỏ hơn 80 lít thì nên cân nhắc lại": contradicts its own stated minimum of about 100 L.
-- plain, stocking-09 tank: "Nếu bể nhỏ hơn 80 lít thì nên cân nhắc lại" conflicts with its own stated minimum of about 100 litres, leaving 80–100 litres unclear.
-- ours, stocking-10 post: "Không nên nuôi chung: cá betta hung dữ": overstated as a flat no. One betta with 12 neons in about 65 L with plants often works, depending on the individual fish.
-- ours, stocking-10 post: "cắn vây cá neon, làm neon luôn stress": presented as the expected outcome, when it is only a risk. It also omits the risk of neons nipping a long-finned betta.
-- ours, stocking-10 post: "Không nên nuôi chung... thường được nuôi riêng hoặc trong bể chỉ có một loài": too absolute, since one betta with a neon school in a planted tank of about 65 L is a common setup that often works, though it carries some risk.
-- plain, stocking-10 post: "Nên thả betta vào trước... rồi mới thả neon": does not fit, because the neons are already in the tank. Letting a betta claim territory first also makes it more aggressive.
-- plain, stocking-10 post: "thường dùng máy sưởi là hợp lý": a heater is usually unnecessary for most of the year in much of Vietnam, and heat is often the bigger problem.
-- plain, stocking-10 post: "trâm bầu": listed as an aquarium plant, but it is not a recognised aquatic plant for hiding cover.
-- plain, stocking-10 post: "cá đá/tiger barb": a confusing name for tiger barb, and the list of fish to avoid is partly muddled.
-- plain, stocking-10 post: "Nên thả betta vào trước... rồi mới thả neon, hoặc thả cả hai cùng lúc": the neons are already in the tank, and a betta is normally added last so it does not claim the tank as territory.
-- plain, stocking-10 post: "thường dùng máy sưởi là hợp lý": a heater is usually unnecessary for much of the year in southern Vietnam; the advice ignores the local climate.
-- plain, stocking-10 post: "cá đuôi bảng, cá đá/tiger barb": confusing fish names; "cá đá" normally suggests fighting fish, not tiger barb.
-- ours, stocking-10 tank: "thường phải nuôi riêng hoặc bể chỉ một loài": overstated, since a single betta sometimes lives with small peaceful fish in a planted tank of about 65 L, though the cautious advice is still safe.
-- plain, stocking-10 tank: "đặc biệt nếu bể đang có một con betta đực" / "Con betta hiện tại là đực hay cái?": assumes a betta already in the tank, but the tank holds only 12 neon tetras.
-- plain, stocking-10 tank: "cá tế bào (cá neon, cá rasbora)": "cá tế bào" is not a real hobby term for tetras, so it reads as a garbled translation.
-- plain, stocking-10 tank: "không hợp với cá có màu sắc sặc sỡ" then listing neon as commonly tried: confusing and gives no verdict for the user's neons.
-- plain, stocking-10 tank: "cá tế bào (cá neon, cá rasbora)": this is not a hobby term in Vietnam; it looks like a garbled word for tetra, and rasbora is not a tetra either.
-- plain, stocking-10 tank: "đặc biệt nếu bể đang có một con betta đực": assumes the tank may already hold a betta when it holds only 12 neon tetras, so most of the answer addresses the wrong situation.
-- ours, algae-12 post: "Giảm lượng phân châm hàng tuần một nửa... vì dư đạm và lân dễ nuôi tảo": đổ cho dư lân là sai hướng với rêu đốm xanh, loại thường gắn với lân thấp; 1 lần phân/tuần trong bể không CO2 cũng chưa chắc là dư.
-- ours, algae-12 post: "Dùng khăn mềm lau nhẹ lá ráy": rêu đốm xanh bám rất chặt, lau bằng khăn mềm thường không sạch, và câu trả lời không tách rêu đốm khỏi rêu bụi.
-- ours, algae-12 post: "dư đạm và lân dễ nuôi tảo": halving fertilizer is applied to green spot algae, which is not typically caused by excess phosphate and is often linked to low phosphate.
-- ours, algae-12 post: "khuyến nghị 8 đến 12 giờ mỗi ngày": too long for a non-CO2 tank with algae, and it contradicts the answer's own advice to cut to 7 hours.
-- plain, algae-12 post: "Thay nước 25-30%... để giảm chất dinh dưỡng dư thừa (đặc biệt là nitrat và phosphat)": mặc định dư lân là quá đơn giản với rêu đốm xanh, vốn thường gắn với lân thấp.
-- plain, algae-12 post: "Tôm Amano ăn rêu khá tốt... rêu bám lá": Amano does little against hard green spot algae; only the nerite really handles it.
-- plain, algae-12 post: "Thay nước... giảm nitrat và phosphat": excess phosphate is not the typical cause of green spot algae, which is more often linked to low phosphate.
-- ours, algae-12 tank: "Giữ tổng số giờ đèn ở khoảng 8 đến 10 giờ": hơi cao với bể không CO₂ mới 4 tuần, toàn cây ưa sáng yếu (ráy, dương xỉ, rêu java); 10 giờ dễ làm tảo nhiều hơn, trong khi 6–8 giờ an toàn hơn.
-- ours, algae-12 tank: "Giữ tổng số giờ đèn ở khoảng 8 đến 10 giờ": the upper end is on the long side for a 4-week-old, no-CO₂ tank of slow growers; 8 hours is already enough, and more invites algae.
-- plain, algae-12 tank: "giúp cá và cây đỡ căng thẳng hơn": lợi ích này không có cơ sở rõ ràng; bật tắt đèn thêm một lần không chứng minh giúp cá bớt stress.
-- plain, algae-12 tank: "timer thông thường chỉ có một khung": sai với phần lớn timer bán phổ biến; timer cơ và timer điện tử thường đặt được nhiều khung giờ.
-- plain, algae-12 tank: "Có... thường có lợi": khẳng định quá mạnh cho bể cây dễ, không CO₂, chưa có vấn đề tảo; ở đây không nhất thiết phải chia đèn.
-- plain, algae-12 tank: "giúp cá và cây đỡ căng thẳng hơn": claims a midday break reduces stress for fish and plants, which has no solid basis and oversells the split.
-- plain, algae-12 tank: "timer thông thường chỉ có một khung": common mechanical timers and many digital ones allow several on/off periods, so this is wrong.
-- plain, algae-12 tank: "Rêu chủ yếu phụ thuộc vào dinh dưỡng (nhất là phosphate, nitrate)": an oversimplified cause of algae, and using "rêu" for algae is confusing in a tank that grows rêu java.
+- ours, algae-01 post: "nếu chỉ thị chuyển xanh, CO2 đang thiếu" – drop checker màu xanh lá là CO2 đủ; xanh dương mới là thiếu
+- ours, algae-01 post: Bảo tạm ngưng hết phân nước trong khi NMC đang trắng lá do thiếu dinh dưỡng có thể làm cây yếu thêm
+- ours, algae-01 post: Không bảo ngưng dùng thuốc diệt rêu dù bạn này đang châm mỗi lần thay nước, 2 ngày một lần, ở bể mới set
+- ours, algae-01 post: 'nếu chỉ thị chuyển xanh, CO2 đang thiếu' – this is backwards: a green drop checker means CO₂ is about right, and blue means CO₂ is low
+- ours, algae-01 post: 'Tăng CO2 (bơm hoặc viên sủi)' – CO₂ tablets give very little CO₂, so they won't fix hair algae
+- ours, algae-01 post: Says to keep using the algae remover at the label dose, without warning that it can damage Bucephalandra and hairgrass in a new tank
+- ours, algae-01 post: Says 20 cm and 7 hours of light are not a cause, and never suggests lowering the light, though the tank most likely has no CO₂
+- plain, algae-01 post: Chia đèn thành 2 đợt (4h + 2h) không được chứng minh là giảm rêu, có khi còn kích rêu, nên đây chỉ là gợi ý phụ
+- plain, algae-01 post: 'thả ốc Nerite... để ăn rêu' – Nerite snails eat film algae and do little against hair algae
+- ours, algae-01 tank: "Chỉnh đèn xuống tổng 8–10 tiếng": the tank runs 7h now, so this adds light while there is already algae, and Flat One at 20cm is strong for bucep and nmc
+- ours, algae-01 tank: "thay 30–50% nước mỗi ba ngày": they already change 30% every 2 days, so this asks for less, not more
+- ours, algae-01 tank: "Đừng cắt tỉa trong hai tuần đầu": the tank is already 2 weeks old
+- ours, algae-01 tank: "thiếu CO2 là nguyên nhân hay gặp nhất" plus drop checker: the setup shows no CO₂ system, and it skips the much likelier cause, strong light over slow-growing plants
+- ours, algae-01 tank: "Chỉnh đèn xuống tổng 8–10 tiếng" — they're at 7h now, so this actually raises the light for slow, low-light bucep/nmc under a Flat One hung 20cm above the water. That feeds hair algae.
+- ours, algae-01 tank: "thiếu CO2 là nguyên nhân hay gặp nhất" + drop checker — this doesn't fit a tank with no CO2 being injected, and it misses the light and new fertiliser as causes
+- ours, algae-01 tank: "Đừng cắt tỉa trong hai tuần đầu" — the tank is already 2 weeks old, and cutting leaves covered in algae is fine
+- ours, algae-01 tank: "bắt chúng ra… để tránh chúng ăn cây" — Amano shrimp rarely eat healthy plants
+- plain, algae-01 tank: "Cá rìu/cá Siamese algae eater": in Vietnam 'cá rìu' is the hatchetfish, not the SAE (usually called cá bút chì)
+- plain, algae-01 tank: "Thay 30–50% nước mỗi tuần": they already change water far more often than this, so it doesn't fit their tank
+- plain, algae-01 tank: "Cá rìu/cá Siamese algae eater" — in Vietnam, cá rìu means hatchetfish, not SAE (usually called cá bú/cá dọn bể), which may lead them to buy the wrong fish
+- plain, algae-01 tank: "Thay 30–50% nước mỗi tuần" — they already change 30% every 2 days, so this is generic advice that doesn't apply
+- ours, algae-02 post: Assumes the tank has no CO₂ ('bể không châm CO2') when the hobbyist never said so, then tells them to 'kiểm tra lại CO2', which contradicts that assumption.
+- ours, algae-02 post: Assumes the tank has no CO₂ ("bể không châm CO2") though the hobbyist never said so
+- ours, algae-02 post: Meta remark "Cẩm nang chưa có trang riêng..." adds nothing for the reader
+- plain, algae-02 post: 'rau ngổ' as a floating plant: rau ngổ (Limnophila) is a rooted stem plant, not a floater.
+- plain, algae-02 post: 'dòng C series' is a vague product reference that looks made up.
+- plain, algae-02 post: "rau ngổ" listed as a floating plant: it's a stem plant, not a proper floating plant for blocking light
+- plain, algae-02 post: "CO₂ dao động" given as a cause even though CO₂ use is unknown
+- plain, algae-02 tank: "cá Siamese (cá cày Xiêm)": this isn't a name used in Vietnam. Hobbyists here call the Siamese algae eater cá bút chì or cá ăn rêu.
+- plain, algae-02 tank: "tôm Amano" is offered as a BBA eater, but Amano shrimp hardly touch black beard algae.
+- plain, algae-02 tank: It asks for "loại đèn" even though the tank already uses a Chihiros A601 plus. The question shows it didn't use the tank's details.
+- ours, algae-03 post: Says to cut back on feeding, but a tank set up 3 days ago likely has no fish yet, so this advice doesn't fit; it also says nothing about having swapped out the filter floss
+- ours, algae-03 post: Recommends cutting water changes to 20–30% a week. A new planted tank on aquasoil usually needs frequent water changes in its first weeks to pull out the leached ammonia and nutrients.
+- ours, algae-03 post: Mentions moving fish to a spare tank in a 3-day-old tank that may have no fish yet. This is generic advice that doesn't fit their setup.
+- plain, algae-03 post: Suggests the Odyssea light might be a UV unit and says to 'run both bulbs continuously'. The Odyssea dual is a lighting fixture, so this advice is confusing and could raise light levels
+- plain, algae-03 post: Asks what 'trân châu ngọc trai' is, even though it is a well-known aquarium plant in Vietnam
+- plain, algae-03 post: Says 'Giảm xuống 4 tiếng và bỏ 1 bóng làm tảo dễ quay lại', which contradicts the right step the hobbyist already took
+- plain, algae-03 post: Treats the Odyssea dual as possibly a UV sterilizer and says to run both tubes continuously. It is a planted-tank lighting fixture, so following this would make the green water worse.
+- plain, algae-03 post: Asks whether 'trân châu ngọc trai' is a plant, which shows it doesn't recognise a common carpet plant and ignores the planted-tank setup.
+- plain, algae-03 post: Blames the bloom on leftover food and fish waste in a 3-day-old planted tank and skips the likely cause: nutrients leaching from new substrate (aquasoil).
+- ours, algae-03 tank: "thay khoảng một phần lớn nước" is vague and doesn't say how much
+- ours, algae-03 tank: "thay khoảng một phần lớn nước": vague and awkwardly worded, with no %
+- ours, algae-03 tank: "bật đèn không quá 6 đến 8 giờ": ignores that they already run 4h, and a 7-day blackout is hard on a newly planted trân châu carpet
+- plain, algae-03 tank: Suggesting rau muống nước for a planted carpet tank doesn't fit an aquascape
+- plain, algae-03 tank: Saying big water changes slow the cycle misses that new soil leaches ammonia, and in a new planted tank frequent water changes are usually the right call
+- plain, algae-03 tank: "chỉ bật 6-8 tiếng/ngày": this is longer than the 4h a day they already run, so it would bring the bloom back
+- plain, algae-03 tank: "rau muống nước, bèo" as fast plants: rau muống is not a sensible aquarium plant to add, and floating plants would shade their trân châu carpet
+- plain, algae-03 tank: "thay quá nhiều nước có thể làm chậm quá trình này": the nitrifying bacteria live in the filter and substrate, so this is mostly a myth
+- plain, algae-04 post: "Thay nước 30% mỗi ngày... làm hệ vi sinh chưa kịp ổn định": vi sinh sống trong lọc và nền, không ở trong nước. Thay nước nhiều trong tuần đầu với phân nền (aquasoil) giúp hạ amoniac, nên giảm xuống mỗi tuần 1 lần ngay từ tuần 1 là việc rủi ro.
+- plain, algae-04 post: "nước máy ở Việt Nam thường có hàm lượng silicate khá cao": nói chung chung cho cả nước, không có nguồn; mức silicate khác nhau theo vùng và nguồn nước.
+- plain, algae-04 post: "Nhiệt độ thấp cũng làm tảo silic dễ phát triển": luận cứ yếu và hầu như không liên quan với khí hậu nóng ở Việt Nam.
+- plain, algae-04 post: "thay liên tục làm hệ vi sinh chưa kịp ổn định" — vi sinh sống chủ yếu trong lọc và nền, thay nước gần như không ảnh hưởng đến chúng; thay nước nhiều trong vài tuần đầu là cách làm phổ biến ở hồ Hà Lan/high-tech
+- plain, algae-04 post: "Nhiệt độ thấp cũng làm tảo silic dễ phát triển" — không liên quan với khí hậu nóng ở Việt Nam
+- plain, algae-04 post: "nước máy ở Việt Nam thường có silicate khá cao" — nói chung chung, không có nguồn
+- plain, algae-04 tank: "dùng bộ lọc than hoạt tính ... khử silicat": than hoạt tính không lọc được silicat, chỉ resin chuyên dụng mới khử được
+- plain, algae-04 tank: "Thay 20-30% mỗi tuần": với bể thủy sinh mới có CO₂ và phân, bạn ấy đang thay 30% mỗi ngày; giảm xuống mức mỗi tuần một lần thì tảo dễ bùng thêm
+- plain, algae-04 tank: Phần cho cá ăn ít lại và hỏi lại bể mấy lít, có cây không là không trúng: app đã có sẵn thông tin bể, mà bể mới một tuần thường chưa thả cá
+- plain, algae-04 tank: "bộ lọc than hoạt tính ... khử silicat": than hoạt tính không lọc được silicat, chỉ resin chuyên dụng mới khử được
+- plain, algae-04 tank: "Ốc Trochus": đây là ốc biển, không sống được trong bể nước ngọt
+- plain, algae-04 tank: "Cá chuột Otocinclus": ở Việt Nam cá chuột là Corydoras, Otocinclus gọi là cá otto
+- plain, algae-04 tank: "Thay 20-30% mỗi tuần": bỏ qua việc họ đang thay 30% mỗi ngày, và hỏi lại bể mấy lít, có cây không, trong khi app đã có sẵn các thông tin này
+- ours, algae-05 post: "Giảm đèn bể xuống khoảng 2 đến 3 tiếng mỗi ngày": far too little light for a planted Dutch tank whose plants are growing well. It would stunt the stem plants, and diatoms don't need that drastic a cut.
+- ours, algae-05 post: Never says that the slimy green growth is cyanobacteria (vi khuẩn lam), and never tells them that weak room light at night is only a minor factor.
+- ours, algae-05 post: "Giảm đèn bể xuống khoảng 2 đến 3 tiếng mỗi ngày": quá mạnh tay với bể Hà Lan đang lên cây tốt, cây thân dài dễ bị còi và rụng lá; tảo cát vốn tự hết khi bể ổn định
+- ours, algae-05 post: Đề xuất rắc Erythromycin khi chưa thử tắt đèn hay tăng dòng chảy: kháng sinh có thể ảnh hưởng vi sinh của bể mới 1 tháng
+- ours, algae-05 post: "cẩm nang chưa nói về ánh sáng phòng": để lộ chuyện nội bộ của trợ lý, không giúp gì cho người đọc
+- plain, algae-05 post: "Rau thơm trồng trong nền có thể làm dinh dưỡng dư thừa": a guess. The plant itself doesn't add nutrients to the water.
+- plain, algae-05 post: "Rau thơm trồng trong nền có thể làm dinh dưỡng dư thừa": đoán mò, không có căn cứ rằng cây tiền cảnh gây dư dinh dưỡng
+- plain, algae-05 post: "Ốc mới thả thường nằm im": người hỏi không nói ốc mới thả, đây là giả định
+- ours, algae-05 tank: "Không dùng thuốc diệt tảo... nếu cần dùng erythromycin" tự mâu thuẫn: vừa bảo không dùng thuốc vừa gợi ý dùng
+- ours, algae-05 tank: Contradicts itself: says not to use algae killer, then says to follow the manufacturer's directions if using erythromycin.
+- plain, algae-05 tank: Gợi ý thêm ốc nerite trong khi bể đã có nerita, còn chuyện ốc nằm im không bò thì không nhắc tới
+- plain, algae-05 tank: "cá chùy (cá ăn tảo Siamese)" và "cá tỳ hưu (Otocinclus)" là tên gọi lạ, không phải tên giới chơi ở Việt Nam hay dùng
+- plain, algae-05 tank: Khuyên giảm đèn xuống 6–8h trong khi bể đang chạy 8h, bỏ sót nguồn sáng thật là đèn trong nhà hắt vào buổi tối
+- plain, algae-05 tank: 'cá tỳ hưu (Otocinclus), cá chùy (cá ăn tảo Siamese)': these are not the names used in Vietnam. Otocinclus is called cá otto/chuột otto, and the Siamese algae eater is cá bút chì.
+- plain, algae-05 tank: Tells the hobbyist to get nerite snails, which they already keep, and doesn't notice that their nerites are lying still and not moving.
+- plain, algae-05 tank: Tells them to cut light to 6–8 h/day when they already run 8 h. It misses the indoor room light that shines on the tank every evening.
+- ours, algae-06 post: "chưa nên gắn thêm cánh quạt hay vòi phun": this reads 'trộn cánh quạt' as an ordinary flow nozzle, not the impeller CO₂ mixer the hobbyist meant, and never says gas is building up inside the canister
+- ours, algae-06 post: Khuyên chưa gắn cả vòi phun lẫn cánh quạt ở đầu out mà không nói rõ lý do cụ thể. Cũng không giải thích túi khí đọng trong lọc (cần xả khí lọc)
+- plain, algae-06 post: "Vàng-xanh lá nhẹ là khoảng 20-30 mg/L": the colours are mixed up. Plain green is about 30 mg/L and yellow-green is already high
+- plain, algae-06 post: "Tăng dần, mỗi lần khoảng 1 giọt, chờ 2-3 ngày": the hobbyist already gives too much CO₂ and needs to cut down, so advice on raising it is the wrong direction
+- plain, algae-06 post: "rêu sừng hươu và rêu lông tơ thường kém bền khi bị loại bỏ thủ công": this sentence is garbled and doesn't say anything clear
+- plain, algae-06 post: Nói drop checker 'vàng-xanh lá nhẹ là khoảng 20-30 mg/L' là sai: màu xanh lá chanh mới là khoảng 30 mg/L, còn ngả vàng nghĩa là CO2 đã quá cao
+- plain, algae-06 post: Hiểu 'cánh quạt trộn' ở đầu out thành bộ chỉnh dòng nên khuyên dùng spray bar. Thật ra hỏi về bộ trộn bọt CO2 kiểu cánh quạt
+- plain, algae-06 post: Tắt CO2 cùng lúc với đèn. Thường nên tắt CO2 sớm hơn đèn khoảng 1 giờ
+- ours, algae-06 tank: "Cắt phân nước xuống mức tối thiểu" — với bể có châm CO2, cắt phân thường làm rêu tóc/sừng hươu nặng hơn, vì cây thiếu dinh dưỡng; cách này không chắc chắn đúng
+- ours, algae-06 tank: "tăng CO2 từ từ" misses the real problem: at 6-7 bubbles per second in a 96 L tank, the filter gurgling and big bubbles at the outlet show the CO₂ isn't dissolving. Fix how it dissolves before adding more.
+- ours, algae-06 tank: "Cắt phân nước xuống mức tối thiểu" can starve the plants in a CO₂ tank and make the algae worse.
+- plain, algae-06 tank: "pH giảm khoảng 0,2–0,3" — sai; để đạt khoảng 30 ppm CO2, pH thường phải giảm khoảng 1 đơn vị
+- plain, algae-06 tank: "cá tỳ bà (ăn rêu lông tơ và rêu tóc)" — cá tỳ bà gần như không ăn rêu tóc
+- plain, algae-06 tank: "khuấy nước tốt để CO2 ... không thoát ra ngoài" — mâu thuẫn, vì khuấy mặt nước mạnh lại làm CO2 thoát ra
+- plain, algae-06 tank: Hỏi lại kích thước bể và có CO2 hay chưa, trong khi app đã có sẵn các thông tin này
+- plain, algae-06 tank: "pH giảm khoảng 0,2–0,3" is wrong: about 30 ppm CO₂ needs a pH drop of roughly 1.0 unit.
+- plain, algae-06 tank: "cá tỳ bà (ăn rêu lông tơ và rêu tóc)" is wrong: plecos don't really eat hair algae, and they're a poor choice for a shrimp tank.
+- plain, algae-06 tank: "rau muống nước" is an odd suggestion for a fast-growing plant in a planted tank.
+- plain, algae-06 tank: It asks whether the tank has CO₂ and how big it is, when the tank already runs CO₂ at 6-7 bubbles per second.
+- ours, algae-07 post: "Nền công nghiệp thường hết dưỡng sau vài tháng": too vague, and it doesn't really answer the lifespan question the hobbyist asked
+- ours, algae-07 post: Leaves out GH/Ca-Mg and KH/pH swings, a likely cause of twisted, white, deformed tips given the soft tap water in Vietnam and the daily 100% water changes
+- ours, algae-07 post: "Nền công nghiệp thường hết dưỡng sau vài tháng": this understates how long it lasts. Aqua soils usually keep releasing nutrients for about 6–12 months or more.
+- ours, algae-07 post: Same narrow diagnosis: blames only nutrients washed out by water changes and misses Ca/GH and ammonia from the rich soil.
+- plain, algae-07 post: Lists "Fluval Stratum" as an inert substrate with no nutrients: it's actually an aqua soil that has some nutrients and lowers KH
+- plain, algae-07 post: Doesn't point out that twisted, deformed tips also commonly come from low Ca/GH; it only asks for a GH test and doesn't explain why
+- plain, algae-07 post: Calls Fluval Stratum an inert, nutrient-free substrate like gravel. It is actually a light nutrient soil.
+- plain, algae-07 post: Blames the deformities mainly on daily water changes washing out nutrients, without mentioning calcium/boron deficiency from low GH (common in soft Vietnamese tap water) or ammonia released by rich mixed soil.
+- ours, algae-07 tank: "chuyển sang thay khoảng 20 đến 30% mỗi tuần": nền giàu dưỡng mới còn nhả amoni mạnh, nên giảm dần (ví dụ 30–50%, 2–3 lần/tuần trong tháng đầu). Cắt đột ngột xuống mỗi tuần một lần dễ làm rêu bùng thêm
+- ours, algae-07 tank: Bỏ qua nền giàu dưỡng không rõ công thức (nhả amoni, dư dưỡng) là thủ phạm chính hay gặp khi thất bại liên tiếp. Lại đổ cho dinh dưỡng trong nước "không theo kịp" trong khi nền đang giàu dưỡng
+- ours, algae-07 tank: Bỏ qua nền giàu dưỡng mới set, vốn hay nhả amoni và gây rêu; lại cho rằng nguyên nhân là dinh dưỡng trong nước "không theo kịp", có thể chẩn đoán sai hướng
+- ours, algae-07 tank: "nếu bọt quá dày thì giảm bớt": nói mơ hồ, không rõ ý
+- plain, algae-07 tank: Gợi ý thả "ốc táo": loài này ăn cây thủy sinh non, không hợp bể trồng cây Hà Lan
+- plain, algae-07 tank: Gợi ý thả "cá tỳ bà": cá lớn nhanh, xới nền và làm hại lá, không hợp bể thủy sinh
+- plain, algae-07 tank: Hỏi lại về đèn, CO₂ và hỏi bể là ao hay hồ ngoài trời, trong khi những thông tin này đã có sẵn
+- plain, algae-07 tank: "Ốc táo: ăn rêu xanh": ốc táo (ốc bươu vàng) ăn cả cây thủy sinh, nên thả vào bể cây Hà Lan là sai
+- plain, algae-07 tank: "cá chuột (cá sọc ngựa): ăn rêu đáy": cá sọc ngựa là zebra danio, không phải cá ăn rêu
+- plain, algae-07 tank: Hỏi lại về đèn, CO₂, ao ngoài trời trong khi app đã có sẵn thông tin bể; khuyên trồng bèo tây trong bể thủy sinh là không hợp
+- ours, algae-08 post: "Nếu một trong hai trên 0, đừng thay 50% nữa": khi ammonia/nitrite đang cao, thay nhiều nước (cùng nhiệt độ, đã khử clo) vẫn an toàn và còn có lợi; lý do bớt thay ở đây chưa đúng
+- ours, algae-08 post: "hút thức ăn thừa dưới nền": bể không trải nền; lỗi nhỏ
+- ours, algae-08 post: Ghi "sửa bốn việc trên" trong khi liệt kê năm bước
+- ours, algae-08 post: "Nếu một trong hai trên 0, đừng thay 50% nữa": a small caution that is debatable. With ammonia present, a large water change of the same temperature and dechlorinated actually helps.
+- plain, algae-08 post: "khoảng 26 con (10 bảy màu, 9 sọc ngựa, 9 mún, 5 mún đỏ)": tính sai; hiện bể có 24 con, 9 mún là số lúc đầu
+- plain, algae-08 post: "Bể xi măng non thường làm pH tăng": ở Việt Nam 'bể đúc' là bể kính/nhựa đúc liền khối, không phải bể xi măng
+- plain, algae-08 post: "bèo tây": quá to so với bể 50cm
+- plain, algae-08 post: "Đây là lỗi lớn nhất" (lọc tắt bật) nhưng lại gọi mật độ cá là nguyên nhân chính, tự mâu thuẫn
+- plain, algae-08 post: "Có thể do bể đúc mới. Bể xi măng non...": in Vietnam "bể đúc" means a seamless molded glass tank, not a cement tank, so the pH-from-cement advice doesn't apply here.
+- plain, algae-08 post: "khoảng 26 con (10 bảy màu, 9 sọc ngựa, 9 mún, 5 mún đỏ)": it adds the old 9 mún to the current stock. The tank now holds 24 fish.
+- plain, algae-08 post: Says the on-off filter is "lỗi lớn nhất" (the biggest mistake) right under a heading that names overstocking and overfeeding as the main cause, so it contradicts itself.
+- plain, algae-08 post: Suggests bèo tây (water hyacinth) for a 50cm tank. It's too big for a tank that size.
+- ours, algae-08 tank: "tảo silic, hay gặp khi bể nhiều sáng": tảo silic thường gặp ở bể mới (bể này mới 8 tuần) và bể thiếu sáng, không phải bể dư sáng. X cũng không nói bể mới là nguyên nhân chính của tảo nâu.
+- ours, algae-08 tank: "tảo silic hay gặp khi bể nhiều sáng": tảo nâu thường gắn với bể mới chạy, nhiều silicat và ánh sáng yếu, không phải với bể nhiều sáng.
+- ours, algae-08 tank: "chuyển cá sang bể tạm" khi che tối: không cần làm vậy, vì có thể che tối cả bể mà vẫn để cá trong bể.
+- plain, algae-08 tank: "Đừng thay nước quá ít": ngược với tình trạng của người hỏi, họ đang thay gần 100% mỗi tuần, tức là thay quá nhiều chứ không phải quá ít.
+- plain, algae-08 tank: Gợi ý nuôi ốc nhồi và ốc táo để ăn tảo: hai loài này ăn cả cây, sẽ phá 2 cây ráy. Cory cũng không phải cá ăn tảo.
+- plain, algae-08 tank: Hỏi lại cỡ bể, loài cá, cây và giờ đèn: app đã có sẵn các thông tin này.
+- plain, algae-08 tank: "nếu nước máy có nitrate/phosphate cao, hãy để nước lắng": để nước lắng chỉ giúp bay bớt clo, không làm giảm nitrate hay phosphate.
+- plain, algae-08 tank: "Đừng thay nước quá ít": người này đang thay gần 100% nước mỗi tuần, nên lời khuyên này ngược với tình trạng thật của họ.
+- plain, algae-08 tank: Gợi ý ốc táo/ốc nhồi để ăn tảo: các loại ốc này có thể ăn cả cây, và cory/otocinclus không hợp với một bể đúc nhỏ không có nền.
+- ours, algae-09 tank: "Bật đèn không quá 6–8 giờ mỗi ngày": bể dùng nắng ban công, không có đèn, nên lời khuyên này lệch; việc cần làm là che nắng.
+- ours, algae-09 tank: "Bật sủi khí và lọc liên tục": bể đã có sẵn sục khí và lọc tuần hoàn, nên bước này không thêm gì mới.
+- ours, algae-09 tank: 'Bật đèn không quá 6–8 giờ' doesn't fit this tank: it sits outdoors in natural sunlight and has no lamp to switch off, so shading is the only real way to cut light.
+- plain, algae-09 tank: Đổ lỗi chính cho chu trình nitơ bị phá vỡ do vệ sinh lọc, trong khi nguyên nhân rõ nhất là nắng trực tiếp ngoài ban công và bể không có cây.
+- plain, algae-09 tank: "ốc nerite, cá otto": chúng ăn tảo bám, không ăn tảo phù du làm nước xanh.
+- plain, algae-09 tank: "dương xỉ java" được xếp vào cây tăng trưởng nhanh, nhưng loài này mọc rất chậm.
+- plain, algae-09 tank: Puts the main blame on a broken nitrogen cycle from cleaning the filter. That doesn't fit a tank that stayed clear for 2-3 months and gets direct sun on a balcony with no plants.
+- plain, algae-09 tank: 'dương xỉ java' is listed as a fast-growing plant, but java fern grows slowly and won't compete well with algae for nutrients.
+- ours, algae-10 post: "handbook nói" / "kiểm tra bằng công cụ tank-mates": these point to internal sources the hobbyist can't see or use, so they read as filler
+- plain, algae-10 post: "Ốc nerite (ốc núi, ốc táo)": ốc táo is the apple snail, a different snail that also eats plants
+- plain, algae-10 post: "Cá nhớt Siamese (cá chét đuôi đỏ)": wrong Vietnamese name. The Siamese algae eater is not called that here, and it barely eats brown diatoms
+- plain, algae-10 post: "rêu hornwort": hornwort is a stem plant (rong đuôi chồn), not a moss or algae
+- plain, algae-10 post: "Cá tỳ bà (bristlenose pleco)": in Vietnam, tỳ bà usually means the common pleco, which grows large
+- plain, algae-10 post: "Ốc nerite (ốc núi, ốc táo)": ốc táo là ốc bươu vàng/apple snail, không phải nerite, và nó còn ăn cây thủy sinh
+- plain, algae-10 post: "rêu hornwort": hornwort là cây rong đuôi chồn, không phải rêu
+- plain, algae-10 post: "cá chét đuôi đỏ" cho Siamese algae eater: sai tên, ở VN gọi là cá bút chì
+- plain, algae-10 post: "Cá lau kính (Otocinclus)": ở VN cá lau kính thường là pleco lớn, còn otto gọi là cá otto
+- plain, algae-10 post: Bảo chấm H2O2 nhưng không nói liều dùng
+- ours, algae-10 tank: "Chờ bể chạy khoảng 5–7 ngày rồi mới thả tép": không liên quan đến bể đang có cá thần tiên, và 5–7 ngày là quá ngắn so với bể mới
+- ours, algae-10 tank: "ngâm bịch tép khoảng 10 phút": quá ngắn, tép cần thuần nước (nhỏ giọt) lâu hơn nhiều
+- ours, algae-10 tank: Thả tép lúc tắt đèn và thêm chỗ trốn không cứu được tép trước cá thần tiên, vì chúng vẫn săn tép
+- ours, algae-10 tank: "Thả tép vào lúc đèn tắt": angelfish still hunt shrimp in the dark, so releasing them at night won't stop the shrimp being eaten.
+- ours, algae-10 tank: "Chờ bể chạy khoảng 5–7 ngày rồi mới thả tép": this doesn't fit an established tank, and a week isn't enough for a new tank to be stable either.
+- ours, algae-10 tank: It still pushes adding shrimp to a tank with angelfish, which the hobbyist has already tried and failed.
+- plain, algae-10 tank: "Cá tỳ bà/cá Otocinclus" và "cá hút nhớt (Bristlenose)": nhập nhằng tên gọi, otto không phải cá tỳ bà, còn cá hút nhớt thường chỉ cá bám đá Trung Quốc, không phải Bristlenose
+- plain, algae-10 tank: Hỏi lại đang nuôi cá gì trong khi app đã có thông tin cá thần tiên, và không nói rõ thần tiên chính là loại cichlid ăn tép
+- plain, algae-10 tank: "Cá tỳ bà/cá Otocinclus" treats two different fish as one: in Vietnam, "tỳ bà" usually means the big common pleco, not the otto.
+- plain, algae-10 tank: "nhiều loại không đẻ trứng trong nước ngọt": Nerite snails do lay eggs in fresh water. The eggs just don't hatch.
+- plain, algae-10 tank: Suggests H₂O₂ but gives no dose (only "liều thấp").
+- plain, algae-11 post: 'chất khử ghi rõ khử chloramine, ví dụ sản phẩm có chứa sodium thiosulfate': thiosulfate alone breaks chloramine but leaves the ammonia behind, so it is a poor example of a chloramine treatment.
+- plain, algae-11 post: Gives "sản phẩm có chứa sodium thiosulfate" as an example of a chloramine remover. Plain thiosulfate breaks the chloramine bond but leaves the ammonia behind, so it is a poor example of a chloramine treatment.
+- ours, algae-11 tank: Gợi ý hỏi tiếp 'Cá tỳ bà leopard': hồ sơ chỉ ghi 'cá dọn bể', còn 'leopard' là chi tiết tự bịa ra
+- ours, algae-11 tank: Suggested question says 'cá tỳ bà leopard', which assumes a variety the hobbyist never named
+- ours, setup-01 post: "không cần chạy cứng 24/24": nghe như có thể rút điện sưởi. Sưởi có rơ-le nhiệt nên cứ cắm 24/24, nhất là khi Hà Nội đang lạnh.
+- ours, setup-01 post: Bỏ dở câu hỏi đầu: không nói được cách của bên setup (bật đèn liên tục 3 ngày đầu) sai ở chỗ nào, chỉ bảo "hỏi lại họ".
+- ours, setup-01 post: "không cần chạy cứng 24/24": câu này dễ gây hiểu nhầm. Sưởi có rơ-le nhiệt thì vẫn cắm điện 24/24 để nó tự ngắt; người mới có thể hiểu sai là phải rút điện.
+- plain, setup-01 post: "Không thay nhiều" trong 3–6 tuần đầu: bể cây dùng phân nền thường nhả amoniac, ở VN người ta hay thay nhiều nước trong tuần đầu, nên khuyên vậy chưa hợp với bể thủy sinh có cây.
+- plain, setup-01 post: Ước 150–200kg là hơi thấp: bể 1m khoảng 200L nước, cộng kính và nền thì dễ quá 200kg.
+- plain, setup-01 post: "Không thay nhiều, vì làm mất vi sinh vật có lợi": vi sinh sống chủ yếu trên vật liệu lọc chứ không phải trong nước. Bể thủy sinh mới có phân nền nhả amoniac thì vẫn cần thay nước nhiều trong tuần đầu.
+- plain, setup-01 post: "khoảng 150–200kg": bể 1m khoảng 200 lít, tính cả nền và kính thì thường trên 200kg, nên con số này hơi thấp.
+- ours, setup-01 tank: 'cây sủi bọt khoảng hai tiếng rưỡi sau khi bật đèn là bình thường': a made-up, overly precise figure. Pearling depends on light, CO₂ and how mature the tank is.
+- ours, setup-01 tank: The excerpt describes setting up a canister filter with UV and a Milwaukee regulator, but this person has no space for a canister filter, so it doesn't apply to them.
+- ours, setup-01 tank: "cây sủi bọt khoảng hai tiếng rưỡi sau khi bật đèn là bình thường" – con số chính xác kiểu bịa, sủi bọt phụ thuộc đèn, CO2 và cây
+- ours, setup-01 tank: Đoạn trích về điều áp Milwaukee và lọc thùng nối UV không hợp với người không có chỗ đặt lọc ngoài và chưa có CO2
+- plain, setup-01 tank: It lists 'lá vàng' (yellow leaves) as a sign of low CO₂. Yellowing usually comes from missing nutrients (N, Fe), so this is a misleading diagnosis.
+- ours, setup-02 post: Đọc nhầm 'trân châu ngọc trai' và 'la hán' thành tên cá. Trong danh sách cây cho bố cục bonsai thì đây là tên cây thủy sinh, nên phần cảnh báo cá La Hán (Flowerhorn) to 30 cm là lạc đề.
+- ours, setup-02 post: Không nói gì tới nền Gex, cũng không gợi ý dòng đèn hay lọc nào cụ thể, chỉ khuyên chung chung, trong khi người hỏi đang cần biết nên mua loại nào.
+- ours, setup-02 post: Bể mới set mà khuyên chiếu 8–10 tiếng/ngày là hơi dài, dễ lên tảo.
+- ours, setup-02 post: Hiểu nhầm La Hán là cá Flowerhorn và trân châu ngọc trai là cá, trong khi bạn ấy đang liệt kê cây cho bố cục bonsai
+- ours, setup-02 post: "8 đến 10 tiếng mỗi ngày": quá dài cho hồ mới set, dễ lên rêu hại
+- plain, setup-02 post: Bảo Twinstar 'giá mềm hơn' Chihiros là sai: Twinstar thường đắt hơn.
+- plain, setup-02 post: Eheim 2211 hơi yếu so với bể 96 lít.
+- plain, setup-02 post: Câu cuối lại hiểu 'la hán' là cá cichlid, nhưng chỉ là câu có điều kiện nên không ảnh hưởng nhiều.
+- plain, setup-02 post: "Twinstar hoặc Ista nếu muốn giá mềm hơn": Twinstar thường đắt ngang hoặc hơn Chihiros, không phải lựa chọn rẻ hơn
+- plain, setup-02 post: "Eheim 2211": lọc này quá nhỏ cho hồ khoảng 96 lít
+- plain, setup-02 post: "Nếu bạn định nuôi cá la hán (cichlid)": ở đây la hán là cây trong danh sách cây, không phải cá
+- plain, setup-02 post: "Chihiros C 60": dòng C là đèn kẹp cho hồ nano, không hợp hồ 60cm
+- ours, setup-02 tank: "cường độ vừa phải vì rêu, la hán và ráy đều chịu bóng": this leaves out trân châu ngọc trai, the one plant on their list that needs stronger light to spread as a carpet. A dim light will make it grow leggy.
+- plain, setup-02 tank: "0,5–1 W/lít": the watts-per-litre rule is outdated for LEDs. Light output (lumen/PAR) differs a lot between brands, so this figure doesn't reliably tell the hobbyist how bright a light is.
+- plain, setup-02 tank: It asks for the tank size and plants, which the app already has, and its advice is generic instead of fitted to this 96-litre bonsai tank.
+- plain, setup-02 tank: "0,5–1 W/lít": đây là quy tắc watt/lít cũ, không còn đúng với đèn LED; với bể 96 lít sẽ ra 48–96W, quá mạnh với rêu, la hán và ráy, dễ gây rêu hại
+- ours, setup-03 post: "tuần đầu thay khoảng 30% nước mỗi ngày": thay nhiều nước mỗi ngày khi bể chưa có cá thì không cần, lại làm chậm chu trình nitơ
+- ours, setup-03 post: Bàn về ngân sách 15 triệu rồi nói 3-4 triệu là "dưới mức cẩm nang đề xuất": làm người chơi nản, trong khi 3-4 triệu đủ dựng một bể low-tech nhỏ
+- ours, setup-03 post: Gợi ý sưởi Dennerle 50 W mà không nói rằng khí hậu nóng ở Việt Nam thường không cần sưởi
+- ours, setup-03 post: Gợi ý sưởi Dennerle 50 W cho cá nhiệt đới. Ở Việt Nam nước quanh năm đủ ấm nên phần lớn không cần sưởi, mà loại này đắt so với ngân sách 3-4 triệu.
+- plain, setup-03 post: "Có thể dùng cá Otocinclus để dọn rêu tảo": Oto cần bể đã chạy lâu, có sẵn tảo bám. Thả vào bể mới dễ chết đói.
+- plain, setup-03 post: Bảo chạy bể 3-4 tuần chờ amoniac và nitrit về 0 nhưng không nói phải cho nguồn amoniac vào (thức ăn, phân cá). Không có nguồn amoniac thì chu trình nitơ không chạy.
+- ours, setup-03 tank: "bắt đầu bằng một bể nano hoặc bể nhỏ khoảng 40-60 lít": người hỏi đã có sẵn bể, không cần chọn bể mới
+- ours, setup-03 tank: "thả nhóm dọn bể như cá otto... trước": otto cần bể đã ổn định, có sẵn rêu và màng sinh học, thả đầu tiên vào bể mới 2-3 tuần dễ bị chết đói
+- ours, setup-03 tank: "bắt đầu bằng một bể nano hoặc bể nhỏ khoảng 40-60 lít": the hobbyist already has a tank, so advice on which tank to pick does not apply.
+- ours, setup-03 tank: Putting cá otto into a 2-3 week old tank before the schooling fish: otto need mature algae and biofilm, so they often starve or die in a new tank.
+- plain, setup-03 tank: "Lọc treo thành bể hoặc lọc hộp kiểu HOB": HOB là lọc treo, không phải lọc hộp, nên bị nhầm hai loại
+- plain, setup-03 tank: "Trân châu" được xếp vào cây dễ: trân châu (cuba, ngưu mao chiên) thường cần CO₂ và đèn mạnh, không hợp người mới
+- plain, setup-03 tank: "crystal red": tép crystal cần nước mềm, mát, khó nuôi trong cái nóng ở Việt Nam, không phải tép dọn bể cho người mới
+- plain, setup-03 tank: "Trân châu" listed as an easy beginner plant: it is a carpet plant that needs strong light and CO₂, and usually fails in a basic tank without CO₂.
+- plain, setup-03 tank: "lọc hộp kiểu HOB": a HOB filter is a lọc treo (hang-on-back), not a lọc hộp (canister filter). This mixes up two filter types.
+- plain, setup-03 tank: Crystal red shrimp suggested for a beginner: they need soft, stable water, which Vietnamese tap water does not give, so they are hard for a beginner to keep.
+- ours, setup-04 post: "dùng lớp nền mỏng hoặc sỏi mịn để rêu mini... dễ trải và bám": rêu mini fiss nên buộc lên đá Tiger, không trải trên sỏi nền, nếu không sẽ bị bẩn và bong ra
+- ours, setup-04 post: Hỏi lượng nền thì Y nói 'cẩm nang chưa ghi rõ' rồi bảo đọc bao bì. Trong khi chỉ cần một phép tính đơn giản: 60×36×4 cm ≈ 8,6 lít.
+- plain, setup-04 post: 'rêu nâu hoặc bong tróc thì thường do thiếu ánh sáng hoặc cặn bẩn': ở Việt Nam, Fissidens thường nâu đi vì nước quá nóng. Câu trả lời không nhắc tới nhiệt độ hay cách làm mát (quạt).
+- plain, setup-04 post: Ước tính kính + khung 15–20 kg là hơi cao với hồ 60 cm. Tổng 100–120 kg nghiêng về phía an toàn nên chấp nhận được.
+- ours, setup-04 tank: "đèn không mạnh": X assumes the light is weak without being told; the hobbyist never mentioned their light
+- ours, setup-04 tank: Says the light is 'không mạnh' even though the hobbyist never gave their light, so this is an assumption. It also says 'phân nền sẽ ít tác dụng', which overstates the point: root tabs can still help a stem plant like rong La Hán.
+- plain, setup-04 tank: Lists Anubias among "cây có rễ" that need a rich substrate, but Anubias (ráy) is an epiphyte and its rhizome rots if buried
+- plain, setup-04 tank: Its worked example uses a 60×30 cm footprint, while the real tank is 60×36
+- plain, setup-04 tank: Calls Anubias a rooted plant that needs rich substrate. It is a rhizome plant that grows attached to rock or wood, and burying the rhizome makes it rot. The answer also lists Anubias as a low-light epiphyte elsewhere, so it contradicts itself.
+- ours, setup-05 post: "Bóng hồng chỉ thêm màu, ít tác dụng quang hợp": bóng hồng kiểu grolux phát đỏ/xanh dương, có ích cho quang hợp chứ không chỉ để lên màu
+- ours, setup-05 post: "handbook dùng đèn 90 cm cho bể 1m2": không liên quan tới bộ 4 bóng T5HO của người hỏi, đọc dễ rối
+- ours, setup-05 post: "handbook dùng đèn 90 cm cho bể 1m2": this has nothing to do with their 4-tube T5HO and is confusing
+- ours, setup-05 post: It never warns that 4 T5HO tubes over 300 L is strong light for moss and anubias, so moss/algae can take off without CO₂
+- plain, setup-05 post: Không biết Aquafor là phân nền (aqua soil) nội địa phổ biến ở VN, lại đoán nó có thể chỉ là phụ gia
+- plain, setup-05 post: Khuyên rải cát phủ lên aqua soil chỗ trồng cây đỏ: không phải cách làm thường thấy, lớp cát còn cản rễ cây cắt cắm
+- plain, setup-05 post: "bóng hồng... rất có lợi": nói quá công dụng của bóng
+- plain, setup-05 post: "Mình không chắc thành phần cụ thể của Aquafor": Aquafor is a well-known Vietnamese phân nền (aqua soil), and the answer should have known that
+- plain, setup-05 post: "1 bóng hồng: tăng cường màu đỏ/hồng của lá cây": the pink tube mainly makes red leaves look redder; it does little to make them actually colour up
+- ours, setup-05 tank: "để bể chạy vài ngày trước khi trồng cây đỏ": bể thủy sinh thường trồng cây ngay khi set nền, chờ không trồng thì dễ lên rêu hại; đây là lỗi nhỏ
+- ours, setup-05 tank: "khoảng 30 lít": 120×50 at 5–6 cm comes to 30–36 L, so this is slightly low
+- ours, setup-05 tank: "để bể chạy vài ngày trước khi trồng cây đỏ": planted tanks are usually planted right away to fight algae; waiting isn't necessary
+- plain, setup-05 tank: Hỏi lại kích thước bể, đèn, cây dù những thông tin này đã có trong app; ví dụ tính toán lại dùng bể 60×30 thay vì bể 120×50 của bạn
+- plain, setup-05 tank: Dùng mốc W/lít cho LED trong khi bạn đang dùng T5HO
+- plain, setup-05 tank: "0,6-1 W/lít (đèn LED thực tế)": watts per litre is an outdated and unreliable way to judge light, and it's useless for their T5HO setup
+- plain, setup-05 tank: Its worked example is for a 60×30 tank when their tank's size was already known
+- ours, setup-06 post: "lớp phủ sẽ giữ phân nền": hiểu sai. Mặt tiền là vùng trống ngoài gờ đá cuội nên cát trải thẳng xuống kính, không phải phủ lên Aquafor.
+- ours, setup-06 post: "0,5 đến 1 W mỗi lít": quy tắc W/lít đã lỗi thời và không giúp chọn giữa máng 2 bóng và 4 bóng.
+- ours, setup-06 post: Nói đi nói lại "handbook chưa có" là chuyện nội bộ của bot, người đọc không cần biết.
+- ours, setup-06 post: Lấy quy tắc W/lít để chọn đèn, cách này đã cũ và không đáng tin với LED/T5 hiện nay
+- ours, setup-06 post: Không trả lời câu hỏi 2 bóng hay 4 bóng dù Odyssea là máng phổ biến ở VN
+- plain, setup-06 post: "Phủ cát lên Aquafor khoảng 1–2 cm": hiểu lẫn vùng mặt tiền trống với vùng nền đã quây bằng đá cuội.
+- plain, setup-06 post: "Rêu, bucep và ráy ở gần nền cần đủ sáng": đây là các cây ưa sáng yếu, nên nêu chúng ra làm lý do chọn 4 bóng là sai.
+- plain, setup-06 post: "Hồ sâu 30 cm": 30 cm là chiều trước-sau của hồ, chiều cao là 36 cm.
+- plain, setup-06 post: "Hồ sâu 30 cm nên ánh sáng bị giảm": độ cao nước là 36 cm, còn 30 cm là chiều sâu từ trước ra sau
+- plain, setup-06 post: "Phủ cát lên Aquafor 1–2 cm": phân nền đã được quây đá cuội, mặt tiền trống nằm trên kính trơn; rải cát đè lên phân nền thì lâu ngày cát lọt xuống lẫn vào nền
+- plain, setup-06 post: Khuyên "chọn đèn LED" trong khi máng Odyssea 2/4 bóng thường là T5, chưa làm rõ điểm này
+- ours, setup-06 tank: "chỉ rải lớp sạn mỏng phía trước" trên nền giàu dinh dưỡng: không có vách ngăn thì phân nền sẽ trồi lên lẫn vào sạn mặt tiền. Bể này đã quây phân nền bằng đá cuội, nên cách đúng là để sạn nằm riêng ngoài vách đá chứ không phủ lên phân nền.
+- ours, setup-06 tank: Bước 3 chọn máng theo chiều rộng bể (dưới 30 cm dùng máng kẹp, 40–50 cm dùng đèn treo) là quy tắc mơ hồ, nghe như tự đặt ra, không giúp chọn giữa máng 2 bóng và 4 bóng
+- plain, setup-06 tank: "cá đào bới (cichlid, cá hoàng kim...)": ở VN cá hoàng kim thường là cá kiếm/platy, không phải cichlid và không phải cá hay đào bới
+- ours, setup-07 post: "Nhiều loài bống dọn bể nước ngọt như ốc vặn hoặc lau kính": ốc vặn và cá lau kính không phải là bống, câu này lẫn lộn và dễ gây hiểu nhầm.
+- ours, setup-07 post: "1 lít vật liệu ngập nước cho mỗi 10 g chất thải mỗi ngày": con số lấy từ cẩm nang nhưng không áp vào bể 10 con bảy màu thì bao nhiêu, người đọc không dùng được.
+- ours, setup-07 post: "Nhiều loài bống dọn bể nước ngọt như ốc vặn hoặc lau kính": ốc vặn là ốc, không phải cá bống, gộp chung như vậy dễ gây hiểu lầm.
+- ours, setup-07 post: Nhắc tới "bống neon" là cá biển, chẳng liên quan gì tới bể này.
+- ours, setup-07 post: "1 lít vật liệu ngập nước cho mỗi 10 g chất thải mỗi ngày": con số chính xác giả, không giúp ích gì khi chỉ nuôi 10 con bảy màu.
+- plain, setup-07 post: "luộc lũa... tránh rong nâu": luộc lũa để bớt tanin làm nước ngả vàng, không liên quan đến rêu nâu.
+- plain, setup-07 post: "Khoai lang... trồng ở phần đất cao để rễ không bị ngập lâu": khoai lang thả thủy sinh vẫn để rễ trong nước bình thường, lời khuyên này không cần thiết.
+- plain, setup-07 post: "lưu lượng khoảng 4–5 lần thể tích mỗi giờ": con số đoán, không có thông số thật của lọc thác 8W.
+- plain, setup-07 post: "ngâm... để loại bớt tanin và tránh rong nâu": tanin chỉ làm nước ngả màu trà, không gây ra rêu nâu.
+- plain, setup-07 post: "8–10 giờ/ngày": bể mới setup nên để đèn 6–8 giờ để tránh rêu, sau đó mới tăng dần.
+- ours, setup-07 tank: Gọi bống dọn bể là bống neon biển (pH 8,1-8,4): ở Việt Nam 'bống dọn bể' thường là cá nước ngọt ăn rêu, nên ghép thông số biển vào dễ gây hiểu nhầm, dù X có dặn xác nhận lại
+- ours, setup-07 tank: 'bể 90 lít': mực nước 40 cm thì chỉ khoảng 72 lít nước
+- ours, setup-07 tank: Kiểm tra số tải với 20 con trong khi người hỏi chỉ có 10 con nên con số 136% gây rối
+- ours, setup-07 tank: It treats 'bống dọn bể' as the marine neon goby (pH 8.1–8.4). In Vietnam, a 'bống dọn bể' sold for freshwater tanks is usually a freshwater fish, so this likely misreads the fish. It does hedge by asking for confirmation.
+- ours, setup-07 tank: It calls the tank 'bể 90 lít', but the water level is 40 cm, so it holds only about 72 L of water.
+- ours, setup-07 tank: It contradicts itself: the text says 10 guppies is about right, but the tool shows 136% overloaded and the text talks about checking 20 fish the hobbyist doesn't have.
+- ours, setup-08 post: "cá thần tiên vì cần bể từ khoảng 208 lít": the 208-litre figure is oddly exact and the limit is too strict. Most keepers would keep a pair in a tank around 120–150 litres if it is tall enough.
+- ours, setup-08 post: "cá thần tiên vì cần bể từ khoảng 208 lít": con số bê từ chuẩn 55 gallon của Mỹ, ghi chính xác như vậy là quá mức.
+- ours, setup-08 post: Lời kể kiểu 'phần kiểm tra độ dày kính mình đọc chưa hết' là thông tin nội bộ, không giúp gì cho người đọc.
+- plain, setup-08 post: "Kính 5 ly là ổn, không quá mỏng": this is wrong for a 45 cm tall tank. Shops in Vietnam usually use 8 ly glass at this height, and 5 ly is borderline.
+- plain, setup-08 post: "Lia thia (betta)... hoặc một cặp": a male and female betta cannot be kept together long-term.
+- plain, setup-08 post: "Cá sóc (corydoras)": in Vietnam, corydoras are called cá chuột, not cá sóc.
+- plain, setup-08 post: Y suggests putting in 1–2 fish to cycle the tank. A fish-in cycle puts those fish at risk.
+- plain, setup-08 post: "Kính 5 ly là ổn, không quá mỏng": với bể cao 45 cm, 5 ly là mức sát giới hạn. Dân chơi thường dùng 6–8 ly, nên X trấn an quá mức.
+- plain, setup-08 post: "Lia thia... nuôi chung" lại để cạnh gợi ý nuôi bảy màu: lia thia dễ cắn đuôi bảy màu.
+- plain, setup-08 post: "cá bảng" không phải tên cá thông dụng ở VN (có lẽ ý là cá hà lan/platy).
+- plain, setup-08 post: Nhắc 'chạy chu trình nitơ' chỉ là đề xuất chung. Neon dễ yếu khi nước nóng quá 28°C ở miền Nam, X không nhắc.
+- ours, setup-08 tank: "bể khoảng 57 lít" và "bơm mini 300 lít/giờ... hơn 5 lần mỗi giờ": bể của họ 60×45×45 là khoảng 120 lít, nên 300 L/h chỉ quay vòng khoảng 2,5 lần mỗi giờ
+- ours, setup-08 tank: Gọi Hemianthus và Myriophyllum là cây dễ cho người mới: trân châu (HC) cần sáng mạnh và CO2, Myriophyllum cũng không dễ
+- ours, setup-08 tank: "CO2 không bắt buộc với bể nhỏ" lấy theo bể nano, trong khi bể này không phải bể nhỏ
+- ours, setup-08 tank: Lấy con số bể 57 lít từ video và gợi ý bơm 300 L/h, trong khi bể thật khoảng 120 lít, nên với bể này bơm đó chỉ quay vòng khoảng 2,5 lần mỗi giờ.
+- ours, setup-08 tank: Gợi ý Hemianthus và Gratiola là cây dễ để bắt đầu: Hemianthus cần CO₂ và đèn mạnh, còn Gratiola ở Việt Nam ít bán.
+- plain, setup-08 tank: "Ốc Nerite không đẻ trứng trong nước ngọt": thực ra ốc vẫn đẻ trứng bám lên kính và đá, chỉ là trứng không nở
+- plain, setup-08 tank: Xếp trân châu vào nhóm cây dễ và rẻ: cây này cần sáng mạnh và thường cần CO2
+- plain, setup-08 tank: Ghi sưởi là "thiết yếu": ở phần lớn Việt Nam thường không cần, dải "25–300W" lại quá rộng, không giúp gì cho việc chọn
+- plain, setup-08 tank: "Sưởi 25–300W... cần sưởi": ở Việt Nam nước thường đã 26–30°C quanh năm, nên người tiết kiệm phần lớn không cần sưởi (cùng lắm vài tuần lạnh ở miền Bắc). Khoảng 25–300W cũng quá rộng, không giúp gì.
+- plain, setup-08 tank: Xếp Trân châu (Hemianthus) và Bucephalandra vào nhóm cây dễ, rẻ: trân châu thiếu CO₂ thì khó lên thảm, còn Bucephalandra khá đắt.
+- plain, setup-08 tank: Đoán bể 60 lít, trong khi bể thật 60×45×45 cm là khoảng 120 lít, nên ước lượng đèn, lọc và chi phí đều tính thấp.
+- ours, setup-09 post: "Handbook khuyên...": dẫn một nguồn mơ hồ mà không nói rõ là sách nào
+- plain, setup-09 post: "Lỗ hút... cách đáy khoảng 2–3 cm": quá sát lớp nền cát, dễ hút cát vào lọc, nên đặt cao hơn mặt nền vài cm
+- plain, setup-09 post: "Lỗ hút nên gần đáy bể, cách đáy khoảng 2–3 cm": khoan lỗ sát mép đáy kính vậy là dễ nứt kính, lại hút cả cát; lỗ phải cách mép xa hơn và đầu hút nên nằm trên mặt nền
+- plain, setup-09 post: "cá đuôi kiếm nhỏ đàn lớn": cá đuôi kiếm không phải cá đàn nhỏ, gợi ý không hợp
+- plain, setup-09 post: Kính 10–12 mm cho bể cao 35 cm là dư; thường 8 mm, đáy 10 mm là đủ
+- ours, setup-09 tank: "Với bể nhỏ... lọc treo thành có thể đủ": bể 170×30×35 khoảng 178 lít gộp, không phải bể nhỏ, nên lọc treo không đủ. X còn hỏi lại kích thước dù app đã có số đo.
+- ours, setup-09 tank: "Với bể nhỏ... lọc treo thành có thể đủ": this tank is about 178 litres, so the small-tank framing does not apply.
+- ours, setup-09 tank: "hay rò nước" overstates the leak risk of a properly fitted canister filter.
+- plain, setup-09 tank: "Cá tỳ bà/Otocinclus": ở Việt Nam tên tỳ bà thường chỉ cá lau kiếng (pleco), loài lớn và thải nhiều, không phải Otocinclus.
+- plain, setup-09 tank: "cá chép mini (rasbora)": tên gọi lạ, ở Việt Nam thường gọi là cá mũi đỏ hoặc cá tam giác.
+- plain, setup-09 tank: "1 cm cá trên 1 lít": quy tắc thô, dễ làm người mới thả quá đông.
+- plain, setup-09 tank: "Cá tỳ bà/Otocinclus": in Vietnam, cá tỳ bà usually means the pleco, which grows big and makes a lot of waste. Treating it as the same fish as Otocinclus can mislead a buyer.
+- plain, setup-09 tank: "Neon" is listed as easy, but neon tetras do poorly in Vietnam's heat and are not a low-care choice.
+- ours, cycling-01 post: 'Ngừng thay nước hằng ngày… 20-30%': với nền nhiều chất mới, nền thường nhả amoniac trong 2-3 tuần đầu, nên thay nước nhiều và thường xuyên lúc này là đúng. Bảo dừng lại có thể làm amoniac tăng cao.
+- ours, cycling-01 post: 'Cuốn cẩm nang chưa có mục nào…': câu nói về hệ thống, không có ích gì cho người đọc.
+- ours, cycling-01 post: "Ngừng thay nước hằng ngày... 20-30% mỗi lần": với nền nhiều chất mới thì giai đoạn đầu vẫn nên thay nước nhiều, thường xuyên để xả amoniac do nền nhả ra.
+- plain, cycling-01 post: 'giảm xuống 1-2 lần/tuần': với nền nhiều chất mới, giảm thay nước sớm như vậy dễ để amoniac nhả từ nền tích lại.
+- plain, cycling-01 post: Hỏi lại 'neon 7 màu' như thể đó là một loài cá, trong khi người hỏi đang nói hai loài khác nhau: neon và bảy màu (guppy).
+- plain, cycling-01 post: "giảm xuống 1-2 lần/tuần": nền nhiều chất mới nhả amoniac mạnh trong vài tuần đầu, nên thay nước nhiều, thường xuyên mới là cách làm chuẩn, không nên cắt bớt.
+- plain, cycling-01 post: "thả 2-3 con... như tép" làm cá thử: tép nhạy với amoniac hơn cá, lại khuyên chạy chu trình có cá trên nền đang nhả amoniac thì không an toàn.
+- plain, cycling-01 post: Hiểu "neon, 7 màu" thành một loài "neon 7 màu" rồi hỏi lại. Thật ra người hỏi nói hai loài: neon và cá bảy màu.
+- ours, cycling-01 tank: "nếu nước nhà mềm thì cần cân nhắc" — this is worded backwards. Guppies are the ones that struggle in soft water. The point is roughly right, but the phrasing is confusing.
+- plain, cycling-01 tank: "vài giọt nước rửa chén" làm nguồn amoniac: nước rửa chén chứa chất hoạt động bề mặt, độc cho vi sinh và cá. Đây là nhầm với amoniac nguyên chất.
+- plain, cycling-01 tank: Hỏi lại loại nền và lọc trong khi app đã có sẵn (nền nhiều dưỡng, lọc thùng DF1300). Với nền dưỡng vốn đã nhả amoniac thì không cần thêm nguồn amoniac.
+- plain, cycling-01 tank: "vài giọt nước rửa chén... làm nguồn amoniac" — dish soap isn't an ammonia source, and surfactants harm the bacteria, fish and plants. Use pure ammonia or a pinch of fish food instead.
+- plain, cycling-01 tank: Asks what substrate they use, but the tank info already says it is a nutrient-rich soil substrate (nền nhiều dưỡng).
+- ours, cycling-02 post: "Chuyển 3 con cá vàng còn lại sang chậu hoặc bể tạm": a fresh bowl or temporary tank has no cycle either, so moving the fish only adds stress; doing water changes in the main tank is better.
+- ours, cycling-02 post: Does not answer the second half of the question (which fish to buy), and never says that goldfish and neons should not be kept together.
+- ours, cycling-02 post: "Chuyển 3 con cá vàng sang chậu hoặc bể tạm": chậu tạm cũng chưa có vi sinh, nên cá còn dễ bị ngộ độc hơn. Để cá ở bể chính và thay nước thường xuyên thì tốt hơn.
+- ours, cycling-02 post: Trích đoạn hướng dẫn nói về chạy chu trình có cá (fish-in), nhưng bước 4 lại bảo chạy bể 4–6 tuần rồi mới thả cá tiếp. Hai ý này ngược nhau, người đọc dễ rối.
+- plain, cycling-02 post: "Cá kiếm (platy)": in Vietnam cá kiếm is the swordtail; the platy is called cá platy or cá hà lan.
+- plain, cycling-02 post: "Mua máy sưởi" and betta "cần sưởi": in most of Vietnam a heater is rarely needed, except in the North in winter.
+- plain, cycling-02 post: "Chạy bể trước 3-4 tuần (không thả cá)" contradicts the 3 goldfish still living in the tank.
+- plain, cycling-02 post: "Cá kiếm (platy)": cá kiếm là swordtail. Platy ở Việt Nam thường gọi là cá hà lan, không phải cá kiếm.
+- plain, cycling-02 post: "Neon và cá vàng đều thải nhiều chất bẩn": neon nhỏ, thải rất ít. Chỉ cá vàng mới thải nhiều.
+- plain, cycling-02 post: Khuyên mua máy sưởi cho cá nhiệt đới: ở Việt Nam trời nóng quanh năm nên thường không cần sưởi, ngoài vài tháng rét ở miền Bắc.
+- plain, cycling-02 post: Gợi ý thả cá chuột (corydoras) cho người mới vào bể chưa ổn định: cá chuột khá nhạy với nước bẩn, không phải loài dễ cho bể mới.
+- ours, cycling-02 tank: Bước 3 'thuần nước chậm... trước khi thả' cho cá còn sống: những con cá này đã ở trong bể rồi, nên bước này không áp dụng được và làm người đọc rối.
+- ours, cycling-02 tank: Nói thay nước nhưng không nhắc khử clo nước máy, trong khi ở Việt Nam đây là nguyên nhân rất phổ biến khi vừa set bể đã thả cá ngay.
+- ours, cycling-02 tank: Water change only says "nước sạch cùng nhiệt độ" and never says to remove chlorine from Vietnamese tap water, which may be part of what killed the fish
+- ours, cycling-02 tank: Step 3 says to acclimate the surviving fish "trước khi thả", but they are already in the tank
+- plain, cycling-02 tank: 'dùng nguồn amoniac như vi sinh/amoniac tinh khiết': vi sinh không phải là nguồn amoniac, nên câu này gộp sai hai thứ khác nhau.
+- plain, cycling-02 tank: "dùng nguồn amoniac như vi sinh" — vi sinh is bacteria, not an ammonia source
+- plain, cycling-02 tank: Lists "bể đầy" as a cause of low oxygen, which is misleading
+- plain, cycling-03 post: "Trân châu là sỏi trơ, không giữ dinh dưỡng": trân châu ở đây là cây trải nền (Hemianthus/Micranthemum), không phải sỏi, nên cả phần 2 về chuyện xử lý nền là đọc sai câu hỏi
+- plain, cycling-03 post: "Tỳ bà bướm cần nhiều không gian và có thể ăn cây non": tỳ bà bướm ăn rêu bám, không ăn cây; cái chúng cần là dòng chảy mạnh và nước mát, khó hợp với cá trâm
+- plain, cycling-03 post: Đưa bảy màu vào phần kế hoạch mới trong khi bạn không định nuôi lại bảy màu
+- plain, cycling-03 post: "Trân châu là sỏi trơ, không giữ dinh dưỡng": trân châu ngọc trai lùn là cây trải nền, không phải sỏi, nên cả phần tư vấn về nền đều sai
+- plain, cycling-03 post: "Tỳ bà bướm... có thể ăn cây non": tỳ bà bướm ăn màng rêu và biofilm, không ăn cây; điều nó thật sự cần là dòng chảy mạnh và nước mát, oxy cao
+- plain, cycling-03 post: "vớt cây lùn ra khỏi nền, rửa sạch cây và nền rồi cho lại vào": gỡ cả thảm cây đang yếu ra rửa sẽ làm hồ xáo trộn thêm
+- ours, cycling-03 tank: "Lật bể chỉ nên làm khi nghi hội chứng bể cũ (pH tụt dưới 6, amoniac trên 10 mg/L)": these cutoffs look made up, and old-tank syndrome is handled with gradual water changes, not by tearing the tank down.
+- ours, cycling-03 tank: "phần này handbook chưa nói rõ trong các trang mình đã đọc": talk about its own sources that gets in the way of advice for a hobbyist.
+- ours, cycling-03 tank: Waiting until "amoniac trên 5 mg/L" before moving the fish sets the bar far too high; bảy màu and tép are dying well below that
+- ours, cycling-03 tank: Bringing up "hội chứng bể cũ" (old tank syndrome) as the reason to tear down a one-week-old tank doesn't fit this case
+- ours, cycling-03 tank: "thả lại ít cá" (add a few fish back) assumes the tank is empty, but fish are still in it
+- ours, cycling-03 tank: Talk about "handbook" pages is assistant meta-talk, not natural hobby Vietnamese
+- plain, cycling-03 tank: "không nguy hiểm trực tiếp": the hobbyist says the white growth is already rotting the trân châu, so playing it down misses that it is feeding on dying plants.
+- plain, cycling-03 tank: It asks for the fish types and how many were stocked, which the app already has, and it numbers two steps as "5.".
+- plain, cycling-03 tank: "Rêu trắng... không nguy hiểm trực tiếp": the hobbyist says it is already rotting their trân châu, so the rotting patches need to be pulled out, not waited out
+- plain, cycling-03 tank: "trồng cây thủy sinh nếu có thể": they already have trân châu; this ignores what they told the app
+- plain, cycling-03 tank: Asks for fish species and counts that the app already holds
+- plain, cycling-04 post: "neon, guppy, betta thì khoảng 5–8 con": betta đực không nuôi chung 5–8 con được, hồ cỡ này chỉ nên 1 con betta.
+- ours, cycling-05 post: Không nhắc phải cho nguồn amoni khi chạy hồ không cá, nhưng lại bảo chờ amoni và nitrit về 0. Không có amoni thì hai chỉ số này về 0 ngay từ đầu, nên người chơi tưởng hồ đã chạy xong vi sinh mà thật ra chưa.
+- ours, cycling-05 post: Câu 'amoni vượt 0,1 mg/L thì thay nước ngay' trong lúc hồ chưa có cá sẽ làm vi sinh thiếu thức ăn và kéo dài thời gian chạy hồ.
+- ours, cycling-05 post: Câu 'giữ nhiệt độ 24–26°C' không hợp với Việt Nam: nước hồ ở đây thường 28–30°C, và vi sinh vẫn phát triển tốt ở mức này.
+- ours, cycling-05 post: Không nói đến nguồn amoni khi bể chưa có cá. Không có amoni thì test amoni/nitrit 'về 0' chẳng chứng tỏ bể đã chạy xong vi sinh.
+- ours, cycling-05 post: "Nếu amoni vượt 0,1 mg/L thì thay một phần nước ngay": khi chạy bể không cá, thay nước kiểu này làm vi sinh thiếu thức ăn và kéo dài thời gian chạy bể.
+- ours, cycling-05 post: "giữ nhiệt độ khoảng 24–26°C": ở Việt Nam bể thường 28–30°C, khó giữ mức đó, và vi sinh nitrat hóa vẫn phát triển tốt ở nhiệt độ cao hơn.
+- plain, cycling-05 post: 'Dùng nước để qua đêm' không khử được cloramin. Y có hỏi lại về cloramin nhưng vẫn đưa cách này ra như một lựa chọn.
+- plain, cycling-05 post: Bảo ngâm lũa trong khi hồ đã châm đầy nước là hơi lệch so với tình trạng hiện tại của bạn ấy.
+- plain, cycling-05 post: "Dùng nước đã để qua đêm": để qua đêm chỉ làm bay clo, không khử được cloramin.
+- plain, cycling-05 post: "Ngâm lũa trước": bể đã châm đầy nước rồi, nên bước này đến muộn so với tình trạng hiện tại.
+- ours, cycling-05 tank: "1 con nhỏ cho 38 lít": quy đổi máy móc từ 10 gallon, không phải quy tắc thả cá có cơ sở, nên trông như số bịa
+- ours, cycling-05 tank: '1 con nhỏ cho 38 lít' is a converted gallon rule. It's vague and doesn't say how many fish that means for a tank of about 160 L.
+- plain, cycling-05 tank: Coi cá neon là loại "chịu được biến động": neon nhạy cảm, không hợp với bể mới
+- plain, cycling-05 tank: Gợi ý thả 3-5 con lia thìa: lia thìa đực phải nuôi riêng, không thả theo đàn
+- plain, cycling-05 tank: Hỏi lại kích thước bể dù app đã có (80×40×50, khoảng 160 lít)
+- plain, cycling-05 tank: Calls neon a hardy fish for a new tank. Neons are sensitive and shouldn't be the first fish in a freshly cycled tank.
+- plain, cycling-05 tank: Asks for tank size and type even though the app already holds them (80×40×50 cm, biotope).
+- ours, cycling-06 post: "Giảm đèn còn khoảng 8–12 tiếng mỗi ngày": 12 tiếng là quá dài cho bể lowtech, nhất là khi đang có vấn đề, nên đây không phải là giảm đèn mà còn dễ gây rêu hại.
+- ours, cycling-06 post: "Nước thùng xốp trong vì có lọc hoặc được thay đều": bạn ấy nói rõ là chỉ thỉnh thoảng mới hút cặn và châm nước, không hề nhắc tới lọc, nên câu này giải thích sai tình trạng của bạn ấy.
+- ours, cycling-06 post: "Ngưng cho ăn khoảng 7 ngày, và chỉ cho ăn ít khi bể có cá": hai ý này mâu thuẫn nhau và không nói rõ có cá trong bể thì phải làm gì.
+- ours, cycling-06 post: "Giảm đèn còn khoảng 8–12 tiếng": that isn't a cut. 12 hours is too long for a new low-tech tank and invites algae.
+- ours, cycling-06 post: "Nước thùng xốp trong vì có lọc hoặc được thay đều": the hobbyist said they only siphon now and then and never mentioned a filter.
+- ours, cycling-06 post: "nước đó còn nhiều nitrat, phosphat": a guess stated as fact, with no test to back it.
+- plain, cycling-06 post: "ánh sáng nuôi tảo và vi khuẩn": vi khuẩn dị dưỡng gây đục nước sống nhờ chất hữu cơ chứ không nhờ ánh sáng. Lỗi này nhỏ.
+- plain, cycling-06 post: "ánh sáng nuôi tảo và vi khuẩn": light doesn't feed the heterotrophic bacteria that cause a white bloom, so cutting light helps with algae, not with the cloudiness.
+- ours, cycling-06 tank: "ngưng cho ăn khoảng 7 ngày": đưa ra mà không giải thích lý do. Nếu bể đang nuôi cá con hay tép nhỏ thì nhịn lâu như vậy là quá dài
+- plain, cycling-06 tank: "Tắt hoặc giảm đèn để hạn chế tảo": tắt đèn không giúp bloom vi khuẩn tan nhanh hơn, và với bể thủy sinh lowtech mới set thì việc này làm cây yếu đi.
+- plain, cycling-06 tank: "ammonia tinh khiết… đạt khoảng 2-4 ppm": dạy cách chạy chu trình không cá theo kiểu nước ngoài. Ở Việt Nam khó mua amoniac tinh khiết, mà bể 8 lít đang có thể có cá thì không hợp với bước này
+- ours, cycling-07 post: "Thay nước 2-3 ngày một lần không theo kịp": với phân nền mới, thay nước nhiều và thường xuyên chính là cách xả amoniac từ nền. X không nói rõ là nên thay thường xuyên trong vài tuần đầu.
+- ours, cycling-07 post: Bước 4 bảo đổi sang ráy/thanh đản buộc lũa vì "không cần phân nền", trong khi hồ đã có phân nền và cây cắt cắm, nên bước này lệch với hồ của bạn.
+- ours, cycling-07 post: "Thay nước 2-3 ngày một lần không theo kịp": thay dày là cách đúng để kéo amoniac từ phân nền mới xuống, nên bác lời người bán là không đúng.
+- ours, cycling-07 post: Gợi ý trồng ráy, thanh đản buộc lũa vì "không cần phân nền" là không hợp, vì người hỏi đã có phân nền và cây cắt cắm.
+- plain, cycling-07 post: "Thay nước quá thường xuyên lại làm mất các vi khuẩn có lợi": sai, vì vi sinh bám trên nền và bề mặt chứ không sống trong nước.
+- plain, cycling-07 post: Khuyên thay 20-30% mỗi 1-2 tuần cho hồ phân nền mới set: phân nền mới nhả amoniac nhiều nên cách này dễ gây rêu và dư amoniac. Tuần đầu nên thay nước thường xuyên.
+- plain, cycling-07 post: Nói rau muống nước là cây nổi: không hợp với hồ thủy sinh trong phòng ngủ.
+- plain, cycling-07 post: "Thay nước quá thường xuyên lại làm mất các vi khuẩn có lợi": vi sinh lọc bám trên bề mặt (nền, cây, lũa), không trôi trong nước, nên thay nước nhiều không làm mất chúng. Đây là ngộ nhận phổ biến.
+- plain, cycling-07 post: Bảo hồ phân nền mới set chỉ cần thay 20-30% mỗi 1-2 tuần: phân nền mới nhả nhiều amoniac, mấy tuần đầu thay nước dày (2-3 ngày một lần) mới là cách làm chuẩn để tránh ngộ độc và rêu bùng.
+- ours, cycling-07 tank: Reads the question as 'thay nước thay cho rửa lọc' and spends steps 2–5 on cleaning a filter, but the tank has no filter at all.
+- ours, cycling-07 tank: 'Cho cá ăn ít hơn khoảng 30 phần trăm' after a filter clean: there is no filter, and no fish are known in a tank running 0 weeks.
+- ours, cycling-07 tank: 'Dòng nước ra yếu hơn 50%' is a made-up threshold, and it is irrelevant here.
+- ours, cycling-07 tank: Assumes the tank has a filter and gives filter-cleaning steps, but the tank has no filter and no airstone
+- ours, cycling-07 tank: "dòng nước ra yếu hơn 50%" and "cho ăn ít hơn khoảng 30 phần trăm" are made-up precision with no reason given
+- plain, cycling-07 tank: Also assumes there is a filter to clean, and never addresses the fact that the tank has no filter or air pump.
+- plain, cycling-07 tank: 'Nếu chưa có cá, không cần thay nước quá nhiều': with fresh phân nền, frequent changes in the first weeks are what keep ammonia and algae down, so this steers them away from what helps.
+- plain, cycling-07 tank: Reads "thay cho lọc" as replacing filter cleaning, but the tank has no filter at all, so the filter-cleaning advice doesn't apply
+- plain, cycling-07 tank: "Nếu chưa có cá, không cần thay nước quá nhiều": new phân nền releases ammonia and nutrients, so it needs frequent large water changes in the first weeks even with no fish
+- ours, cycling-08 post: Says the cement walls need sealing but never warns that fresh cement makes the water very alkaline and leaches lime, or how to soak and flush it, and that's the biggest danger in this tank.
+- ours, cycling-08 post: "phần này cẩm nang chưa nói tới": exposes internal source talk to the reader, which doesn't help them.
+- plain, cycling-08 post: Suggests "bèo tây" (water hyacinth) for a 30-litre tank. It grows far too big for a box this size.
+- plain, cycling-08 post: "Nên chọn lọc có ngăn chứa bông lọc...": they already own the Sobo waterfall filter, so advice about which filter to choose doesn't fit. It should say what media to put in that filter.
+- plain, cycling-08 post: Gợi ý 'bèo tây' (lục bình) cho hồ 30 lít là không hợp: cây quá to, sẽ chiếm hết mặt nước
+- plain, cycling-08 post: Gợi ý cá neon cho hồ ngoài trời nóng ở Việt Nam là chưa hợp lắm, vì neon chịu nóng kém
+- ours, cycling-08 tank: "thay khoảng một phần nước": doesn't say how much water to change, so the reader can't act on it.
+- ours, cycling-08 tank: Misses the 3 fresh cement sides, which leach lime and push pH up. That is a key risk before adding fish.
+- ours, cycling-08 tank: "thay khoảng một phần nước" is too vague: it should give a figure, such as 30–50%.
+- plain, cycling-08 tank: Asks for tank volume and filter type, which were already known (32 L, Sobo hang-on filter at 400 l/h), so it never actually says whether the filter is enough.
+- plain, cycling-08 tank: Also misses the cement leaching lime and the hot rooftop.
+- ours, sick-01 post: "sống khoảng 3 đến 5 năm": danio thường sống 2–3,5 năm, nên đàn 3 năm tuổi đã là cá già
+- ours, sick-01 post: Bỏ sót bệnh lao cá (Mycobacterium), một nguyên nhân hàng đầu gây cong người, gầy mòn ở cá ngựa vằn, và không nhắc đeo găng tay
+- ours, sick-01 post: Thẻ loài ghi 18–25 °C, thấp hơn nhiệt độ bể thường gặp ở Việt Nam, trong khi danio vẫn chịu được khoảng 26–28 °C
+- ours, sick-01 post: Phần trích dẫn lấy từ cẩm nang cá đẻ con, không phải tài liệu về danio
+- ours, sick-01 post: Bỏ sót lao cá (Mycobacterium), một nguyên nhân rất hay gặp gây cong người và gầy mòn ở cá ngựa vằn, và không cảnh báo bệnh này có thể lây sang người.
+- ours, sick-01 post: Thẻ loài ghi bể "từ 90 cm" là hơi lớn so với nhu cầu thực của cá ngựa vằn, và mức 18–25 °C không nói gì đến cái nóng ở Việt Nam.
+- plain, sick-01 post: "tuổi già thường không gây ra triệu chứng này": cá ngựa vằn già rất hay bị cong cột sống
+- plain, sick-01 post: Lan man sang cichlid và Hexamita dù người hỏi đã nói rõ là ngựa vằn nuôi theo đàn
+- plain, sick-01 post: "Columnaris... gây cong người": Columnaris thường không gây cong người
+- plain, sick-01 post: Nói Columnaris gây "cong người": cong cột sống không phải dấu hiệu điển hình của Columnaris, nên liệt kê vậy dễ gây hiểu lầm.
+- plain, sick-01 post: Không biết chắc đây là loài nào ("zebra danio hoặc cichlid vằn xanh"), trong khi "không đẻ nổi" và tên gọi đã cho thấy khá rõ là cá ngựa vằn.
+- ours, sick-01 tank: "cong người, gầy dần": nói cá gầy dần, nhưng người hỏi không hề nói vậy
+- ours, sick-01 tank: Không nhắc tới bệnh lao cá (Mycobacterium), một nguyên nhân chính gây cong cột sống ở cá ngựa vằn và có thể lây sang người. Vì vậy cũng không dặn đeo găng tay
+- ours, sick-01 tank: "handbook không có cách chữa": nhắc tới tài liệu nội bộ, người đọc không hiểu handbook là gì
+- ours, sick-01 tank: Bỏ sót bệnh lao cá (mycobacteriosis), nguyên nhân hàng đầu gây cong cột sống ở cá ngựa vằn, và không cảnh báo bệnh này có thể lây sang người
+- ours, sick-01 tank: "handbook không có cách chữa" nhắc tới nguồn nội bộ mà người đọc không biết là gì
+- plain, sick-01 tank: "Nhiễm virus Nodavirus (VNN)": rất hiếm gặp ở cá ngựa vằn nuôi cảnh, đưa vào danh sách chỉ thêm nhiễu
+- plain, sick-01 tank: "Nhiễm khuẩn cấp tính... chết nhanh": không khớp với kiểu cá chết rải rác, kéo dài vài tuần lại một con
+- plain, sick-01 tank: "Nodavirus (VNN)" là bệnh chủ yếu của cá biển nuôi thương phẩm, rất khó xảy ra ở bể cá ngựa vằn cảnh nên dễ gây hiểu nhầm
+- plain, sick-02 post: 'bộ test nước (amoniac, nitrit, nitrat, pH) khoảng 100–200 nghìn đồng': this price looks made up. A liquid kit that tests all four usually costs a lot more in Vietnam, and at that price you mostly get test strips.
+- plain, sick-02 post: Asking which species '7 màu' is: in Vietnam '7 màu' clearly means guppy, so the question is unnecessary.
+- plain, sick-02 post: Its list of warning signs includes 'rụng vảy hoặc có đốm trắng'. Those point to injury or white spot (ich), not ammonia or nitrite poisoning, so they can send the reader the wrong way.
+- plain, sick-02 tank: "Giảm số lượng cá hoặc tăng dung tích": bể này nuôi thưa, nên lời khuyên này lệch hướng
+- plain, sick-02 tank: "Đo nhiệt độ bằng nhiệt kế để kiểm tra heater": bể này không có heater, đây là lời khuyên chung chung
+- plain, sick-02 tank: "kiểm tra bằng bút thử điện": cách kiểm tra rò điện qua nước bể này không đáng tin và có thể nguy hiểm
+- plain, sick-02 tank: "kiểm tra bằng bút thử điện" — a test pen won't reliably pick up a small leak in the water, so it isn't a real way to check for stray current
+- ours, sick-03 post: 'tép chết lai rai thường đi cùng nhau khi nước cứng, nhiều khoáng': GH 8 is not lethal hard water for Neocaridina, so this is a weak causal link
+- plain, sick-03 post: 'CO2 khoảng 12 mg/L, mức này đủ cho cây phát triển': 12 ppm is low for a CO2-injected tank, so the test reading 'thiếu' is probably right. Blaming the kit points the hobbyist the wrong way
+- plain, sick-03 post: Reads 'tầm 1-2 tuần' as a fish called 'tầm (nếu là loài nhạy cảm)', but in the question 'tầm' means 'about'
+- plain, sick-03 post: 'Ráy thích nước hơi mềm và không quá nhiều dinh dưỡng trong nước' is debatable and doesn't help here
+- plain, sick-03 post: "CO2 khoảng 12 mg/L, mức này đủ cho cây phát triển": a CO2-injected planted tank needs about 20–30 ppm, so 12 ppm really is too low.
+- plain, sick-03 post: "khả năng cao là kit đã hết hạn, đọc sai bảng màu": this blames the test kit, when the kit is right that CO2 is low.
+- plain, sick-03 post: "Otto, pygmy và tầm (nếu là loài nhạy cảm)": X read "tầm" (meaning "about") as the name of a fish.
+- ours, sick-03 tank: "TDS chỉ cho biết tổng chất rắn hòa tan, tức nước cứng hay mềm": TDS không phải là độ cứng. Nitrat, phốt phát, phân nước và muối natri cũng làm TDS tăng, nên phải đo GH riêng.
+- plain, sick-03 tank: Phần nói về độ nhạy với GH/KH lấy tép Caridina (Crystal, Bee) làm ví dụ, trong khi bạn này nuôi tép màu (Neocaridina). Tép màu chịu được GH 8, KH 4 dễ dàng, nên phần này dễ làm bạn ấy hiểu sai.
+- plain, sick-03 tank: Puts the focus on Caridina (Crystal, Bee, Taiwan bee), but the hobbyist keeps tép màu (Neocaridina), which handles GH 8 and KH 4 fine, so the hardness warning doesn't fit.
+- ours, sick-04 post: "tảo vi sinh cùng cây rữa lá" – người hỏi không hề nhắc đến tảo, chi tiết này là bịa ra
+- ours, sick-04 post: "vết gãy có thể do ốc gặm" – trong bể không có ốc nào được nhắc đến, nên đây chỉ là suy đoán
+- ours, sick-04 post: "vết gãy có thể do ốc gặm": không có ốc nào được nhắc tới, nên lý giải này không có cơ sở.
+- ours, sick-04 post: "tảo vi sinh": cách gọi này mơ hồ, không khớp với chuyện người hỏi kể.
+- plain, sick-04 post: "Ốc vảy (Neritina)... vết gãy trên vỏ" – vảy ốc xanh/đỏ là cây Rotala, không phải ốc Neritina. Đọc nhầm hoàn toàn
+- plain, sick-04 post: "Tắt đèn vài ngày để giảm tảo" – người hỏi không nhắc đến tảo, mà tắt đèn nhiều ngày còn làm thảm trân châu và Rotala đang yếu thêm suy
+- plain, sick-04 post: "Thay 40-50% nước bằng nước RO" – đổ nước RO tinh khiết vào nhiều như vậy một lần làm GH/KH đổi đột ngột, chính là kiểu sốc mà bài vừa dặn tránh
+- plain, sick-04 post: Lá bàng để hạ pH gần như vô tác dụng khi đá vôi liên tục đẩy KH lên
+- plain, sick-04 post: "Ốc vảy (Neritina)... Vết gãy hoặc mòn trên vỏ": vảy ốc xanh/đỏ ở đây là cây Rotala, không phải ốc Neritina. Người hỏi nói rõ lá gãy ngang ngọn nhưng vẫn xanh.
+- plain, sick-04 post: "Thay 40-50% nước bằng nước RO": thay nhiều nước RO cùng lúc vào bể đang pH 8,4 và KH cao sẽ làm pH/KH tụt đột ngột, ngược với chính lời khuyên tránh sốc pH của X.
+- plain, sick-04 post: "Tắt đèn vài ngày": thảm trân châu đang yếu mà tắt đèn nhiều ngày dễ rữa thêm.
+- ours, sick-04 tank: "bổ sung khoáng bằng san hô vụn hoặc Wonder Shell" — bể đã có đá da voi giữ pH 8,4, thêm san hô vụn chỉ đẩy pH/KH lên thêm và làm thông số dao động nhiều hơn
+- ours, sick-04 tank: "Wonder Shell/Seachem Equilibrium" to raise KH or GH: Equilibrium only adds GH, not KH, so it can't fix low KH
+- plain, sick-04 tank: Khoảng pH "6,5-7,5" cho tép đặt ra quá hẹp với Neocaridina, khiến người nuôi nghĩ phải tiếp tục hạ pH 8,4, mà chính việc hạ pH đó là thứ gây chết tép
+- plain, sick-04 tank: Hỏi lại loại vật liệu và loài tép trong khi ứng dụng đã có thông tin này (Neo Soft)
+- ours, sick-05 post: "Màu vàng nâu có thể do tannin từ lũa": it treats the tank as having driftwood when the hobbyist never mentioned any, and it never checks CO₂ overdose, a likely cause in a tank running CO₂ where fish keep dying.
+- ours, sick-05 post: The second guide excerpt (about arranging a maintenance schedule and tools) has nothing to do with the problem.
+- plain, sick-05 post: "Khử clo (hoặc để qua đêm)": leaving water to stand overnight doesn't fully remove chlorine, and it doesn't remove chloramine at all. A water conditioner is safer.
+- plain, sick-05 post: "Thay khoảng 20–30% mỗi tuần" is advised while ammonia or nitrite may still be high. Weekly changes are too few until the test readings are back to normal.
+- plain, sick-05 post: "màu vàng khi đèn tắt là quá cao" – drop checker vàng lúc nào cũng là CO2 quá cao, không chỉ khi đèn tắt; chỗ này chỉ hơi thiếu chính xác
+- ours, sick-05 tank: Không bảo giảm CO₂ hay tắt CO₂ ban đêm, dù pH tụt do KH thấp cộng với CO₂ là nghi phạm chính; đoạn trích cẩm nang về sắp xếp lịch chăm bể thì lạc đề
+- ours, sick-05 tank: Đoạn trích kèm theo nói về cách sắp lịch và dụng cụ cho đỡ mệt, không liên quan tới nước vàng hay cá chết
+- ours, sick-05 tank: Nhắc tới tannin của lũa dù người hỏi không nói bể có lũa
+- plain, sick-05 tank: Đổ lỗi cho nước máy chưa khử clo, trong khi bạn này thay bằng nước uống đóng bình; khuyên 'Thay 30–50% nước', mà bạn ấy đã thay 50% cách ngày rồi
+- plain, sick-05 tank: Nghi clo/cloramin và kim loại từ nước máy, trong khi họ thay bằng nước uống đóng bình, nên nguyên nhân này không áp dụng cho bể này
+- plain, sick-05 tank: Khuyên 'Thay 30–50% nước' như bước đầu, trong khi họ đã thay 50% cách ngày và việc đó không giúp được
+- ours, sick-06 post: "22–28°C" taken from the species card is too low for how arowana are usually kept in Vietnam (about 28–30°C), so the owner may think a cool tank is fine.
+- ours, sick-06 post: "thay một phần nước ngay" gives no amount or how often, which matters a lot if the new tank hasn't cycled.
+- ours, sick-06 post: "22–28°C" lấy từ thẻ loài là hơi thấp so với cách nuôi rồng thực tế ở Việt Nam (thường 28–30°C); dải pH 5–8 quá rộng nên không giúp được nhiều
+- plain, sick-06 post: "cá nhỏ sống" is suggested as a food, but the owner already has live feeder fish the arowana won't eat, so this repeats what isn't working.
+- plain, sick-06 post: "để nước qua một đêm" only removes chlorine. It doesn't work if the tap water has chloramine.
+- plain, sick-06 post: "thường chỉ cần kiên nhẫn vài ngày đến một tuần" — cá đã nhịn gần 1 tuần rồi, nên câu này không giúp được gì cho tình huống hiện tại
+- ours, sick-06 tank: "cá thường ăn lại sau 2–3 ngày": cá rồng thường nhịn một đến hai tuần sau khi đổi bể, nên câu này khiến người nuôi lo quá mức
+- ours, sick-06 tank: "22–28°C": ở Việt Nam cá rồng thường được nuôi ở 26–30°C, mốc 22°C là quá thấp với cá rồng
+- ours, sick-06 tank: "giữ nước ổn định trong khoảng 22–28°C": too cool for arowana. In Vietnam they are usually kept at 28–30°C, and warmer water helps a stressed fish start eating again.
+- ours, sick-06 tank: "cá thường ăn lại sau 2–3 ngày": arowanas often refuse food for 1–2 weeks after a move, so this overstates the alarm.
+- plain, sick-06 tank: "cho ăn vào buổi tối khi đèn tắt": cá rồng săn mồi trên mặt nước bằng mắt, nên tắt đèn không giúp cá ăn
+- plain, sick-06 tank: Hỏi lại kích thước bể và bể đã chạy bao lâu dù app đã có thông tin bể chạy 1 tuần
+- ours, sick-07 post: "1 muỗng canh cho 11,4 lít" is a US 3-gallon figure turned into metric. It reads as made-up precision and is awkward for a Vietnamese hobbyist.
+- ours, sick-07 post: "nước sạch lấy từ bể chính": the main tank was just torn down and is likely cloudy and unstable, so its water is a poor choice for the quarantine tank.
+- ours, sick-07 post: "1 muỗng canh cho 11,4 lít nước": con số quy đổi lệch từ đơn vị gallon của Mỹ (nhãn gốc thường ghi 1 muỗng canh cho 5 gallon, khoảng 19 lít), nghe thì chính xác nhưng thực ra là bịa, cũng không nói ra g/lít
+- ours, sick-07 post: "nước sạch lấy từ bể chính": bể chính vừa lật nền, có thể đang tăng amoniac, lấy nước đó sang bể cách ly là không ổn
+- ours, sick-07 post: Không trả lời câu hỏi muối hột người hỏi đang dùng có được không, chỉ nói chung chung là 'muối hồ cá mức 1'
+- ours, sick-07 tank: Tells them to remove activated carbon because it absorbs medicine, but never says which antifungal to use, so the medicine step is left open
+- ours, sick-07 tank: '1 muỗng canh cho 11,4 lít' is a direct conversion of the US 3-gallon rule, plus a Neosporin reference; neither is a measure Vietnamese hobbyists use, where people dose salt in grams per litre
+- ours, sick-08 post: "Theo dõi đàn còn lại trong 2–3 ngày": cả 3 con otto đã chết, không còn con nào để theo dõi.
+- ours, sick-08 post: "sốc và không ăn được... chỉ sau một đêm đã yếu hẳn": nhịn đói không làm cá chết chỉ sau một đêm; bước cho ăn thêm rau, viên chìm không liên quan khi cá đã chết hết.
+- ours, sick-08 post: Không nhắc đến hóa chất diệt rêu, dù bạn này đang xử lý rêu hại và đó là nguyên nhân hay gặp khiến otto chết còn neon sống.
+- ours, sick-08 post: "otto chết vì sốc và không ăn được": hunger can't kill a fish in one night. Starvation takes days to weeks.
+- ours, sick-08 post: Y never asks about algae killers, even though the hobbyist said the tank has bad algae. That is one of the most likely causes of a sudden die-off that spares the neon.
+- plain, sick-08 post: "Chết đột ngột, nằm im là dấu hiệu điển hình của độc tố": nói hơi quá chắc. Sốc nước hay thiếu oxy cũng cho triệu chứng y hệt.
+- plain, sick-08 post: "Thiếu oxy vào ban đêm (khả năng cao nhất)": overstated. Otto can gulp air at the surface, and the neon in the same tank were fine, so low oxygen is unlikely to be the main cause.
+- ours, sick-08 tank: "làm quen nước 4–5 tiếng": dài hơn mức cần thiết, nhỏ giọt khoảng 1–2 tiếng là đủ
+- ours, sick-08 tank: Không nhắc tới thuốc diệt rêu có đồng hay clo trong nước máy, trong khi hồ đang có rêu hại nên rất có thể bạn đã dùng thuốc diệt rêu
+- ours, sick-08 tank: "làm quen nước 4–5 tiếng" — far longer than needed; letting fish sit that long in shipping water lets ammonia build up. 1–2 hours of drip acclimation is enough.
+- ours, sick-08 tank: Doesn't raise algae-killer or copper medication as a possible cause, even though the tank has a nuisance algae problem.
+- plain, sick-08 tank: "Nuôi một hai con đơn lẻ": bạn nuôi 3 con nên ý này không đúng với bể của bạn, và stress vì ít bạn đàn không làm cá chết sau một đêm
+- plain, sick-08 tank: Hỏi lại số lượng và loài cá trong khi app đã có sẵn thông tin này
+- plain, sick-08 tank: "Nuôi một hai con đơn lẻ dễ bị stress" — the hobbyist had 3 otto, so this cause doesn't fit their case.
+- ours, sick-09 post: Coi "thiếu oxy trong nước lạnh" là nguyên nhân nhiều khả năng nhất: nước lạnh hòa tan nhiều oxy hơn, mà bể đã có bơm tạo oxy, nên khả năng cao hơn là bể chưa chạy vi sinh (amoniac/nitrit), nhiệt độ dao động mạnh trong bể nông, hoặc cá mua về mang bệnh.
+- plain, sick-09 post: "Với 6–7 con cá vừa mua/thả thì mật độ có thể đã vượt mức chịu của bể": 6–7 is how many fish died, not how many are in the tank. Also, 6–7 carp in about 1,350 L is not obviously overstocked.
+- plain, sick-09 post: "cá rỉa hoa súng cho thấy cá đang đói": koi and carp eat plants even when they are well fed, so this conclusion is a stretch.
+- plain, sick-09 post: "mùa lạnh nước cũng dễ thiếu oxy": nước lạnh giữ được nhiều oxy hơn, nhất là khi đã có bơm tạo oxy.
+- plain, sick-09 post: "mật độ có thể đã vượt mức chịu của bể": 6–7 con chép trong khoảng 1.350 lít không phải là quá dày.
+- ours, sick-09 tank: "sưởi nên có công suất khoảng 1 W cho mỗi lít nước": với hồ koi ngoài trời khoảng 1.350 L thì phải dùng sưởi khoảng 1,35 kW. Làm vậy không thực tế, mà koi chịu lạnh tốt nên cũng không cần sưởi.
+- ours, sick-09 tank: "Nếu amoniac hoặc nitrit có số đo": câu này mơ hồ, không nói rõ ngưỡng bao nhiêu thì phải thay nước.
+- ours, sick-09 tank: "sưởi nên có công suất khoảng 1 W cho mỗi lít nước": với bể ngoài trời khoảng 1.350 lít thì phải cỡ 1.350 W, không thực tế, mà koi cũng không cần sưởi
+- ours, sick-09 tank: Không nhắc rằng vào mùa lạnh phải giảm hoặc ngừng cho koi ăn, và không nhắc nguy cơ bể xây mới còn ra vôi xi măng
+- plain, sick-09 tank: "Ổn định nhiệt độ ... 24–26°C cho cá nhiệt đới" và ví dụ betta, neon, guppy: các mốc này không áp dụng cho koi và cá chép ở hồ ngoài trời. Bê nguyên lời khuyên này sang hồ koi là sai.
+- plain, sick-09 tank: "Ổn định nhiệt độ... 24–26°C... bằng heater": cá koi, cá chép là cá nước lạnh, không cần sưởi lên mức cá nhiệt đới, và bể ngoài trời khoảng 1.350 lít thì sưởi như vậy không thực tế
+- plain, sick-09 tank: Nói về betta, neon, guppy, tetra không liên quan gì tới bể koi ngoài trời
+- plain, stocking-01 post: "Cá 7 màu là loài ăn tạp, hung dữ": cá bảy màu hiền. Nhiều khả năng chính chúng là con mồi của cá vàng và bống, chứ không phải con đi ăn cá khác.
+- plain, stocking-01 post: "nên nuôi cùng cá cỡ lớn... bể tối thiểu khoảng 200 lít": sai ngược. Bảy màu cần nuôi chung với cá nhỏ, hiền. Con số 200 lít là bịa.
+- plain, stocking-01 post: "Cá vàng thích nước mát (khoảng 18–23°C)": hẹp quá mức cần thiết. Ở Việt Nam cá vàng vẫn sống được ở nhiệt độ phòng nếu nước sạch.
+- plain, stocking-01 post: "Cá 7 màu là loài ăn tạp, hung dữ, và sẽ ăn luôn cá yếu" — cá 7 màu hiền. Ở đây nó là con bị ăn chứ không phải thủ phạm. Thủ phạm khả năng cao là cá vàng và bống.
+- plain, stocking-01 post: "Nếu muốn nuôi cá 7 màu: nên nuôi cùng cá cỡ lớn... bể tối thiểu khoảng 200 lít" — sai hẳn. Cá 7 màu nuôi bể nhỏ được và nên nuôi với cá nhỏ hiền, không phải cá lớn.
+- plain, stocking-01 post: Không nói cá vàng ăn cá 7 màu nhỏ, mà đây gần như chắc là lý do cá mất không thấy xác.
+- plain, stocking-01 tank: Lists suspect fish the tank doesn't have (cá rô, cichlid, lia thia, cá lóc con) and misses the goldfish that is actually in it.
+- plain, stocking-01 tank: "cá chùy (cá tỳ bà, cá chuột)" is confused naming: cá chùy isn't the usual name for plecos or cory catfish.
+- ours, stocking-02 post: Gợi ý '10 đến 12 con neon' hơi dè dặt cho bể 96 lít chỉ có 5 mún và 5 chuột. Bể này nuôi được khoảng 20 con neon.
+- ours, stocking-02 post: Trích đoạn lấy từ bài hướng dẫn cho bể không lọc. Mức 4 lít/con mún trong bài đó không hẳn áp dụng cho bể có lọc.
+- ours, stocking-02 post: The quoted excerpt is from a guide for tanks without a filter, so it fits this case only loosely. The stocking math also leaves out the 5 corydoras.
+- ours, stocking-02 post: Suggesting 10-12 neon is more conservative than it needs to be. A filtered tank of about 96 L can hold around 20-30 neon once it has cycled.
+- plain, stocking-02 post: Không biết 'mún' là cá platy, lại đoán có thể là cá dữ như cá rô hay betta đực. Mún là cá hiền, ai chơi cá ở Việt Nam cũng biết.
+- plain, stocking-02 post: Ghi nhiệt độ 22-26°C nhưng không nói gì đến chuyện nước ở Việt Nam thường nóng 28-30°C.
+- plain, stocking-02 post: Doesn't know that 'mún' means platy and guesses it might be an aggressive fish like a gourami or a male betta. That is a wrong reading of a common Vietnamese hobby word, and it leaves the compatibility question unanswered.
+- plain, stocking-02 post: 'Nhiệt độ khoảng 22-26°C' ignores how hot Vietnam is. Most tanks there sit at 27-30°C, and the answer gives no advice on handling that.
+- ours, stocking-02 tank: Calls the mún 'platy' in the text, then says it can't confirm what mún is. That contradicts itself, since cá mún is the platy.
+- ours, stocking-02 tank: 'chuột đồng cần bể dài từ 80 cm': too strict. Bronze corydoras do fine in a 60 cm tank.
+- ours, stocking-02 tank: Never says the tank has only been running 1 week, which is the real reason not to add many fish at once.
+- ours, stocking-02 tank: Calls mún "platy" in the stocking count but then says it isn't sure which species mún is, which contradicts itself.
+- ours, stocking-02 tank: "Chuột đồng cần bể dài từ 80 cm": too strict; a group of 5 corydoras does fine in a 60 cm tank.
+- ours, stocking-02 tank: Never says the tank has only run 1 week (likely not cycled yet), which is the main reason not to add many fish at once.
+- plain, stocking-02 tank: Doesn't recognise 'mún' even though it's the common Vietnamese name for platy, and asks for the tank size even though it's already known.
+- plain, stocking-02 tank: Says adding 40 neon is usually fine without considering that the tank is only 1 week old.
+- plain, stocking-02 tank: Says it doesn't know what "mún" is, but in Vietnam cá mún is the common name for platy, a very common fish that does fine with neon.
+- plain, stocking-02 tank: Asks for the tank size even though the app already has it (60×40×40), and gives a conditional "usually fine" when the real answer is that 40 at once is too many for a 1-week-old tank.
+- ours, stocking-03 post: Recommends a school of 6+ black neons for a ~15 L tank, while its own species card says they need a tank of at least 80 cm and a school of 8+.
+- ours, stocking-03 post: "cá cherry" is ambiguous. If it means cherry barbs, they need more room than a 15 L tank gives.
+- ours, stocking-03 post: Khuyên nuôi cá neon đen theo đàn 6 con trở lên trong bể 15 lít, trong khi chính thẻ loài đi kèm ghi bể từ 80 cm và đàn từ 8 con.
+- ours, stocking-03 post: Cá cherry (cherry barb) hiếu động, cần bể dài hơn 35 cm.
+- ours, stocking-03 post: "Bể nhỏ đổi nước nhanh, nên thay 1 tuần một lần là hợp lý": lập luận ngược. Bể nhỏ nước dễ biến động thì càng phải để ý hơn, chứ không phải lý do để coi thay 1 tuần/lần là đủ.
+- plain, stocking-03 post: Lists "cá lia thia" as a big schooling fish. Lia thia are a betta-type fighting fish, not a schooling fish.
+- plain, stocking-03 post: "Tránh cá đàn lớn như neon, cá chuột, cá lia thia": lia thia không phải cá đàn. Đây là cá đá sống đơn lẻ, giống cá xiêm, nuôi 1 con trong bể 15 lít được.
+- ours, stocking-03 tank: "chưa tìm được loài cá nào ... hợp với bể này": quá khắt khe, bể khoảng 15 lít vẫn nuôi được 1 betta hoặc một đàn tép, nhưng X không gợi ý loài nào cụ thể
+- ours, stocking-03 tank: "Thay khoảng một phần nước" / "vài tuần": nói mơ hồ, không có con số % hay số tuần
+- plain, stocking-03 tank: "cá thái lan (cá dĩa nhỏ hiền)": sai, cá thái lan không phải cá dĩa, mà cá dĩa cũng không phải cá cho người mới hay cho bể nhỏ
+- plain, stocking-03 tank: Hỏi lại kích thước bể dù app đã có số đo; gợi ý cá chuột, molly, cá vàng không hợp với bể khoảng 15 lít
+- plain, stocking-03 tank: "cá thái lan (cá dĩa nhỏ hiền)": cá dĩa (discus) là cá lớn và khó nuôi, không hợp với người mới hay bể nhỏ
+- plain, stocking-03 tank: Lists neon and goldfish-type suggestions with the rule "2–3 lít mỗi con", which would let the reader overstock a 15 L tank with fish that need more space
+- ours, stocking-04 post: Đoạn trích về đèn Rạng Đông kèm dưới câu trả lời không liên quan gì đến câu hỏi
+- ours, stocking-04 post: The attached excerpt on choosing aquarium lights has nothing to do with the question
+- plain, stocking-04 post: "khả năng cao cá chết không phải do bống xử": bống vàng (cá mút đá vàng, Gyrinocheilus) lớn lên hay bám vào cá chậm như bảy màu, mún, kiếm để mút nhớt. Đây là thủ phạm có khả năng cao nhất
+- plain, stocking-04 post: "dễ bị bống ăn" cá nhỏ, tôm con: loài này không phải cá săn mồi. Nó hại cá vì bám mút nhớt chứ không phải vì ăn cá
+- plain, stocking-04 post: Coi "không cạo rêu" là dấu hiệu nước bẩn tích tụ: bể sạch rêu là do bống ăn rêu
+- plain, stocking-04 post: Treats 'bống vàng' as a generic goby. In the Vietnamese hobby it is the golden algae eater (Gyrinocheilus), which is known to suck slime off other fish once it grows
+- plain, stocking-04 post: 'khả năng cao cá chết không phải do bống xử': this dismisses the most likely cause
+- plain, stocking-04 post: Suggests vague or odd tankmates such as 'cá bạc má nhỏ' and 'cá thái lan nhỏ'
+- ours, stocking-04 tank: "đang thay 10% mỗi tuần thì chuyển sang thay khoảng 30–40% mỗi tháng": tổng lượng nước thay vẫn như cũ hoặc ít hơn, và còn ngược với đoạn trích hướng dẫn ngay bên dưới (30% mỗi hai tuần)
+- ours, stocking-04 tank: Không nghĩ tới việc bống vàng ăn rêu (thường là cá bống/chuột ăn rêu vàng) bị bỏ đói sẽ hung dữ, bám mút nhớt thân các loài bơi chậm như mún, kiếm, bảy màu. Đây có lẽ là nguyên nhân chính.
+- ours, stocking-04 tank: "thay 10% mỗi tuần thì chuyển sang 30–40% mỗi tháng": thế là thay ít nước hơn chứ không nhiều hơn (10%/tuần ≈ 40%/tháng)
+- ours, stocking-04 tank: Kết luận old tank syndrome khi chưa biết bể đã chạy bao lâu, và bỏ qua khả năng con bống ăn rêu (nếu là cá bống vàng loại Chinese algae eater) lớn lên sẽ rượt và gặm nhớt cá khác, nhất là khi không được cho ăn
+- plain, stocking-04 tank: Gọi cá kiếm là platy và cá hồng kim là neon tetra: dịch tên sai
+- plain, stocking-04 tank: Gợi ý nuôi bảy màu, kiếm, những loài đã chết trong chính bể này
+- plain, stocking-04 tank: Xếp cá dĩa vào nhóm cá vừa dễ nuôi chung: sai
+- plain, stocking-04 tank: Đưa ra quy tắc 1 inch/gallon: lỗi thời và không đáng tin
+- plain, stocking-04 tank: Bỏ qua con bống vàng ăn rêu, có thể là thủ phạm tấn công cá
+- plain, stocking-04 tank: "cá kiếm (platy)": cá kiếm là swordtail, platy là cá hà lan/platy, và X còn liệt kê đuôi kiếm riêng
+- plain, stocking-04 tank: Gợi ý lại bảy màu, kiếm, là những loài đã chết dần trong bể này, mà không hỏi vì sao chúng chết
+- plain, stocking-04 tank: Cho cá dĩa vào danh sách nuôi chung với guppy/tetra là gợi ý không hợp với một bể cộng đồng thông thường
+- ours, stocking-05 post: "nhiệt độ ổn định khoảng 20–23°C": most home tanks in Vietnam can't be kept that cool without a chiller, and goldfish do fine at room temperature, so this step isn't practical
+- ours, stocking-05 post: Says it "chưa đọc hết mục đó" and so gives no clear answer, which leaves the main question unanswered
+- ours, stocking-05 post: Assumes 'cá chép' means koi, but the hobbyist may have common carp; the fish card also calls koi 'peaceful', which contradicts the explanation given
+- ours, stocking-05 post: "giữ nhiệt độ ổn định khoảng 20–23°C": tanks in Vietnam can't hold this without a chiller, so it doesn't fit local conditions.
+- ours, stocking-05 post: The hedge "mình chưa đọc hết mục đó nên chưa có kết luận rõ" weakens the answer, and the koi card under it says "peaceful", which contradicts the warning.
+- plain, stocking-05 post: "Cá chép thường hung hăng": carp aren't really aggressive. The problems come from their bigger size and fighting for food, so this overstates it
+- plain, stocking-05 post: Mixes forms of address ('em' then 'anh/chị'), which reads awkwardly
+- plain, stocking-05 post: "tắm muối loãng 3-5 g/lít trong 10-15 phút": this strength suits a long bath, so a 10–15-minute dip at it does little. Harmless but weak.
+- plain, stocking-05 post: "Cá chép thường hung hăng, hay rượt và cắn vây": this overstates it. Carp are pushy and boisterous and win the food more than they nip fins.
+- plain, stocking-05 tank: "Cho ăn đầy đủ để cá chép bớt tranh ăn": cho ăn nhiều hơn dễ làm bẩn nước, nhất là khi vừa có cá chết, mà chưa chắc đã làm chép bớt hung
+- plain, stocking-05 tank: "xanh methylen hoặc muối (liều nhẹ)": không đưa liều cụ thể nên người đọc dễ pha sai
+- plain, stocking-05 tank: "Cho ăn đầy đủ để cá chép bớt tranh ăn và hung hăng hơn" – cho ăn nhiều hơn không làm cá chép bớt đuổi cá vàng, mà còn làm nước bẩn thêm, nhất là khi bể vừa có cá chết
+- plain, stocking-05 tank: "muối (liều nhẹ)" – không nói liều bao nhiêu nên người đọc không làm theo được
+- ours, stocking-06 post: "Cá kiếm và molly" / "molly cần nước kiềm": mún đỏ là cá platy, không phải molly, nên X đọc sai con cá người nuôi đang có.
+- ours, stocking-06 post: "Thay khoảng 30–50% nước" rồi lại "đừng thay nhiều một lúc": hai lời khuyên mâu thuẫn nhau, và X không trả lời thẳng câu hỏi có cần thay nước hàng tuần không.
+- ours, stocking-06 post: "Cá kiếm và molly đều đẻ con" / "molly cần nước kiềm": mún là cá platy, không phải molly, nên lời khuyên về nước đã nhầm loài
+- ours, stocking-06 post: "nguyên nhân chính là cá lớn đang ăn cá bột, không phải ốc": bạn này chưa hề nói cá bột bị ăn. Câu này chẩn đoán một chuyện chưa xảy ra
+- ours, stocking-06 post: Bảo thay 30–50% nước rồi ngay sau lại dặn bể mới thì đừng thay nhiều. Hai câu ngược nhau, lại không trả lời thẳng câu hỏi có cần thay nước hàng tuần không
+- plain, stocking-06 post: "bèo tây": lục bình quá to so với một bể cubic nhỏ. Lỗi nhỏ.
+- ours, stocking-06 tank: "chưa thấy trang riêng về 'mún'... giả định đó là cá đẻ con cùng nhóm với platy": mún is the Vietnamese name for platy, so this sounds unsure and confusing
+- ours, stocking-06 tank: "bể đẻ... khoảng 40 lít": too big for a fry tank, an unneeded figure
+- ours, stocking-06 tank: Doesn't know that 'mún' is the common Vietnamese name for platy. It treats mún as an unknown fish 'in the same group as platy' and wrongly says the tank has platy as a separate fish.
+- ours, stocking-06 tank: 'hộp đẻ khoảng 40 lít': a hang-on breeder box is never 40 litres. The figure is confused.
+- ours, stocking-06 tank: 'ngày 18–25 của thai kỳ' comes from guppy guides, and a hobbyist can rarely tell which day of pregnancy the fish is on.
+- plain, stocking-06 tank: "Thường khi thấy vậy thì còn khoảng 1–2 ngày": the gravid spot can stay dark for days, so this timing is too precise
+- plain, stocking-06 tank: Treats weekly 20–30% changes as routine in a new tank that smells foul and may not have finished cycling
+- plain, stocking-06 tank: Says to move the mother out with no warning that moving a female who is about to give birth can make her drop dead or unready fry. This is exactly this hobbyist's situation.
+- plain, stocking-06 tank: Ignores that the tank is newly set up and smells bad. It gives a routine water-change schedule without first saying to check whether the tank has cycled.
+- ours, stocking-07 post: "chạch sóc đuôi đỏ thích 15–21°C": botia are tropical fish (about 24–30°C), so this range is made up and would wrongly put off a keeper in Vietnam's heat
+- ours, stocking-07 post: "đủ cho... 6 con chạch" in 84 L: botia like Yasuhikotakia modesta grow large and are active, so 6 of them is far too many for a 60 cm tank
+- ours, stocking-07 post: Only 10 neons with an "85%" stocking level is a made-up figure that undersells what the tank can hold
+- ours, stocking-07 post: "chạch sóc đuôi đỏ thích 15–21°C": red-tailed botia-type loaches are tropical and like about 25–30°C, so this wrong figure could put the hobbyist off a mix that works.
+- ours, stocking-07 post: "đủ cho khoảng 10 con neon" in 84 L: this undercounts badly; a planted 60 cm tank easily holds 20+ neon tetras.
+- ours, stocking-07 post: Telling the hobbyist to reconsider the mix if the tank is above 22°C makes no sense in Vietnam's heat and rests on the wrong temperature.
+- plain, stocking-07 post: "Sóc đỏ (cá Corydoras)": in Vietnam Corydoras are called "cá chuột", so this guess at the species is probably wrong (though Y does ask the hobbyist to confirm)
+- plain, stocking-07 post: "Sóc đỏ (cá Corydoras)": in Vietnam Corydoras are called cá chuột, not sóc, so this is probably the wrong fish (it does ask the reader to confirm).
+- ours, stocking-07 tank: "Giữ nhiệt độ ổn định quanh 21°C": ở Việt Nam bể thường 27–30°C, muốn giữ 21°C phải có máy làm lạnh. Lời khuyên này không thực tế, mà cũng không cảnh báo người nuôi.
+- ours, stocking-07 tank: "cá vây dài hoặc bơi chậm như cá ngựa vằn": cá ngựa vằn (danio) bơi nhanh, vây ngắn, lấy làm ví dụ là sai.
+- ours, stocking-07 tank: Ở Việt Nam, "sóc đỏ" nhiều khả năng là cá sóc (medaka) đỏ chứ không phải chạch. Câu trả lời có nói rõ là mình đoán loài, nhưng vẫn có thể đoán sai.
+- ours, stocking-07 tank: "Giữ nhiệt độ ổn định quanh 21°C": in Vietnam's heat tanks run at 27–30°C, so this needs a chiller and isn't practical. Neon also do fine up to about 26–27°C
+- ours, stocking-07 tank: Reading "sóc đỏ" as a red-tailed loach that likes 15–21°C is shaky. Hobbyists would more likely mean red medaka (cá sóc đỏ)
+- plain, stocking-07 tank: Câu trả lời bỏ qua kích thước bể (60×35×40 ≈ 84 L) mà vẫn quay lại hỏi dung tích, rồi lại đưa gợi ý cho bể 60 lít.
+- plain, stocking-07 tank: "10 con cho mỗi 20 lít": mật độ này quá dày, không phải quy tắc hợp lý.
+- plain, stocking-07 tank: Gọi "cá sóc" là Corydoras là sai: ở Việt Nam người ta gọi Corydoras là cá chuột. Câu trả lời còn lạc đề sang tôm đỏ.
+- plain, stocking-07 tank: "Cá sóc (Corydoras)": in Vietnam Corydoras are called cá chuột. "Cá sóc" usually means medaka (Oryzias), so the guess is wrong
+- plain, stocking-07 tank: "10 con cho mỗi 20 lít": this stocking rule is made up and too dense
+- plain, stocking-07 tank: It asks for the tank size even though the tank is known to be 60×35×40 cm
+- ours, stocking-08 post: "Mình chưa tra được chùm xương cá": this is a common name used by Vietnamese hobbyists, so admitting it couldn't find it looks weak and leaves the plant question unanswered
+- ours, stocking-08 post: Never mentions a filter or aeration, which is the most urgent gap in a crowded 4-litre tank
+- plain, stocking-08 post: "giảm xuống 3-4 con... (neon, endler, ember)": 3–4 neon in 4 litres is still too many, since neon are schooling fish that need far more room
+- plain, stocking-08 post: The mini heater advice matters little in Vietnam's heat, apart from winter in the north
+- plain, stocking-08 post: "Giảm số cá xuống khoảng 3-4 con": 3–4 con vẫn là nhiều cho 4 lít, nên khuyên ít hơn nữa hoặc lên bể to
+- plain, stocking-08 post: Khuyên mua máy sưởi: ở khí hậu Việt Nam thường không cần, trừ mùa đông miền Bắc
+- ours, stocking-08 tank: Excerpt: '91 x 30 x 38 cm chứa khoảng 106 lít' – this works out to about 104 L, a small arithmetic slip.
+- ours, stocking-08 tank: 'khoảng vài ngày một lần' – too infrequent for a 4 L tank holding 7-8 fish that has only run for 1 week (not yet cycled). It needs small water changes daily or every other day.
+- plain, stocking-08 tank: Liệt kê 'cá bảy màu' là cá đàn cần đông con cùng loài: guppy không phải cá đàn bắt buộc như neon/tetra
+- ours, stocking-09 post: "Bể 80 cm còn chưa đủ chỗ cho cá ông tiên... cần bể dài từ 100 cm" — quá khắt khe: bể 80×35×45 (~126 L) vẫn nuôi được một cặp ông tiên, và chiều cao 45 cm mới là điều quan trọng.
+- ours, stocking-09 post: Bước 2 bảo chỉ nuôi ông tiên trong bể 80 cm, trái với chính câu trước đó nói bể này chưa đủ.
+- ours, stocking-09 post: "Mức đầy bể: 84%" là con số tự đặt ra, không giải thích cách tính.
+- ours, stocking-09 post: Nói bể 80 cm chưa đủ cho ông tiên nhưng lại khuyên 'bỏ neon, chỉ nuôi ông tiên' trong chính bể đó, tự mâu thuẫn
+- ours, stocking-09 post: "cần bể dài từ 100 cm" là quá khắt khe: bể khoảng 126 lít, cao 45 cm vẫn nuôi được một cặp ông tiên, dân chơi vẫn nuôi phổ biến
+- ours, stocking-09 post: Khuyên nuôi neon ở bể riêng là không cần thiết, vì thả neon trước rồi mới thả ông tiên con là cách người chơi vẫn làm thành công
+- plain, stocking-09 post: "rêu java, trạch, mơ, cỏ nến" — tên cây viết không rõ ràng, khó hiểu với người chơi ở Việt Nam.
+- plain, stocking-09 post: "Thêm cá lớn hoặc hung dữ (cichlid...)": cá ông tiên cũng là cichlid nên nói vậy dễ gây nhầm
+- plain, stocking-09 post: "bổ sung thêm neon để chia đều sự chú ý": nếu ông tiên đang săn neon thì thả thêm neon chỉ là thêm mồi, không giải quyết được vấn đề
+- plain, stocking-09 post: 24–27°C mà không nhắc gì đến cái nóng ở Việt Nam: mùa hè nước bể thường lên 29–31°C, neon chịu nóng kém
+- ours, stocking-09 tank: "Bể 80 cm của bạn cũng chưa đủ rộng, vì cá ông tiên cần bể dài từ 100 cm trở lên": too strict. 80×35×45 cm holds about 126 L, and the 45 cm height suits angelfish. That is enough for 2 angels.
+- ours, stocking-09 tank: "Không nên nuôi chung": too absolute. Angelfish with neons is a common pairing in Vietnam. There is a risk, but you can manage it by stocking the neons first, adding them while the angels are small, and feeding well.
+- ours, stocking-09 tank: "Bể 80 cm của bạn cũng chưa đủ rộng, cá ông tiên cần bể dài từ 100 cm" — quá khắt khe: bể 80×35×45 (~126 L, cao 45 cm) nuôi được một cặp ông tiên
+- ours, stocking-09 tank: "Không nên nuôi chung" nói tuyệt đối, trong khi ông tiên với neon là combo phổ biến, nuôi được nếu thả neon khi ông tiên còn nhỏ và có nhiều cây che
+- ours, stocking-10 post: "thường phải nuôi riêng hoặc bể chỉ một loài": that rule is for keeping two male bettas together. A betta often lives fine with neons in a planted 65 L tank.
+- ours, stocking-10 post: "Mức đầy bể 36%": a precise figure with no stated basis.
+- ours, stocking-10 post: "bể riêng, nhỏ hơn": telling them to use a smaller tank for the betta is odd advice with no reason given.
+- ours, stocking-10 post: "betta hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài": nói tuyệt đối quá; betta đực thường sống chung được với đàn neon trong bể khoảng 65 lít trồng nhiều cây, miễn là có theo dõi
+- ours, stocking-10 post: "Sau khi thay đổi, hãy quan sát neon xanh": mâu thuẫn, vì chính câu trả lời đã khuyên không thả betta
+- plain, stocking-10 post: "thường dùng máy sưởi là hợp lý": in Vietnam's climate a heater is usually not needed.
+- plain, stocking-10 post: "Nên thả betta vào trước... rồi mới thả neon": the neons are already in the tank, so this order can't be followed.
+- plain, stocking-10 post: Listing "cá đuôi bảng" as a fin-nipper is unclear and questionable.
+- plain, stocking-10 post: "Nên thả betta vào trước... rồi mới thả neon": đàn neon đã có sẵn trong bể, và betta thường được thả sau cùng để nó bớt giành lãnh thổ
+- plain, stocking-10 post: "cá đá/tiger barb": ở Việt Nam "cá đá" thường là cá betta đá, còn tiger barb gọi là cá tứ vân
+- plain, stocking-10 post: "thường dùng máy sưởi là hợp lý": ở Việt Nam nước trong nhà thường đã đủ ấm, mùa nóng cái cần lo là nước quá nóng chứ không phải sưởi
+- plain, stocking-10 post: Không nhắc rằng neon đôi khi rỉa vây dài của betta
+- ours, stocking-10 tank: 'betta dễ rượt và cắn cá neon nhỏ' / 'bể chỉ một loài' goes too far: one male betta with a school of neons in a ~65 L planted tank is a common pairing that often works. The bigger risk is neons nipping the betta's fins
+- plain, stocking-10 tank: "cá tế bào (cá neon, cá rasbora)" — sai từ: neon và rasbora không phải "cá tế bào"; dân chơi gọi là cá tetra/cá bầy
+- plain, stocking-10 tank: Y hỏi dung tích bể và hỏi đã có betta chưa dù app đã có sẵn dữ liệu bể (60×30×36, chỉ có 12 neon), lại còn tự cho là trong bể đang có betta
+- plain, stocking-10 tank: Assumes the tank already has a betta ('đặc biệt nếu bể đang có một con betta đực'), but the tank has only 12 neon tetras
+- plain, stocking-10 tank: 'cá tế bào (cá neon, cá rasbora)': this isn't a normal Vietnamese hobby term for these fish
+- plain, stocking-10 tank: Asks for the tank volume, even though the tank size is already known (≈65 L)
+- ours, algae-12 post: "Chấm xanh cứng khoảng 1 mm": người hỏi chỉ nói "đốm rêu xanh", không hề tả đốm cứng hay to cỡ 1 mm, nên chi tiết này là tự thêm vào.
+- ours, algae-12 post: "thủ phạm gần như luôn là phosphate chứ không phải đèn": nói quá. Với ráy chậm lớn trong bể không CO2, cường độ đèn và số giờ chiếu cũng là nguyên nhân chính.
+- ours, algae-12 post: "Thủ phạm gần như luôn là phosphate chứ không phải đèn" nói quá: ở bể không CO2 trồng cây chậm lớn, đèn mạnh hoặc bật lâu cũng góp phần gây GSA.
+- ours, algae-12 post: Đoán bể có phân nền giàu dinh dưỡng trong khi người hỏi không hề nhắc tới.
+- plain, algae-12 post: Bước 4 và 5 (thay nước để giảm phosphat, giảm phân): nếu đó là rêu đốm (GSA) thì nguyên nhân thường là thiếu PO4, nên cắt phân và thay nước nhiều có thể làm rêu nặng thêm.
+- plain, algae-12 post: "Kiểm tra cho ăn": người hỏi không nhắc đến cá, nên đây là lời khuyên chung chung, không khớp với bể của họ.
+- plain, algae-12 post: "Thay nước 25-30% để giảm... phosphat" và giảm phân: rêu đốm xanh (GSA) thường đi kèm phosphate thấp, nên cắt phân hoặc pha loãng PO4 có thể làm rêu nặng hơn.
+- ours, algae-12 tank: Ví dụ "3 tiếng buổi sáng và 5 tiếng buổi tối" vượt mức mỗi đợt không quá 4 tiếng mà người hỏi đặt ra
+- ours, algae-12 tank: Lý do "để bể không bị bật sáng khi không ai theo dõi" không có cơ sở, bể không cần người theo dõi khi đèn bật
+- ours, algae-12 tank: "3 tiếng buổi sáng và 5 tiếng buổi tối": the 5-hour block breaks the hobbyist's own limit of 4 hours per block.
+- ours, algae-12 tank: It keeps the total at 8 tiếng. For a 4-week-old low-tech tank of slow plants with no CO₂, 6–7 tiếng is the safer starting point.
+- plain, algae-12 tank: Dùng "rêu" để chỉ tảo, dễ gây nhầm vì bể có trồng rêu java
+- plain, algae-12 tank: Nói về canh giờ bơm CO₂ và hỏi lại loại bể, trong khi bể này không có CO₂ và đã rõ là bể trồng cây
+- plain, algae-12 tank: "Nếu có bơm CO₂, hãy canh giờ bơm..." and the mention of bể san hô: this is filler that doesn't apply to a tank with no CO₂ and no reef.
+- plain, algae-12 tank: "Có thể hạn chế rêu phát triển": it oversells splitting the light as a way to cut algae, though it partly takes this back later. It also says "rêu" for algae in a tank that holds rêu java, which is confusing.
 
 ## Failed
 
-- setup-07 post: ours Request timed out.
 
 ## Each question
 
-### algae-01 · post · plain wins (3.75 · 7.25)
+### algae-01 · post · plain wins (4 · 7)
 
 **Asked:** Bể em mới set được hơn 2 tuần mà đã có chút rêu tóc trên lá bucep và nmc. Em dùng đèn Flat One treo cách mặt nước 20cm, lúc đầu để chế độ giả lập ánh sáng mặt trời, giờ em hạ xuống còn 7 tiếng chạy một mạch không ngắt quãng. Cứ 2 hôm em thay 30% nước một lần, có cho Seachem khử clo, Advance và thuốc khử rêu. Em mới châm thêm 2 lọ phân nước ADA là Brighty K và Green Brighty Mineral vì thấy nmc bị trắng lá, chỉ có ít lá xanh mọc từ dưới lên. Em làm vậy có sai không, rêu tóc này xử lý sao ạ?
 
-**Judge:** Y targets the real levers: lower light intensity, stop the algae remover, test NO₃/PO₄ before dosing, remove algae by hand, and it explains the white leaves. X raises total light hours, ignores the algae remover and the 20cm/sun-mode setting, and gives no cause for the white leaves. / X nhắm đúng cường độ đèn Flat One treo thấp, khuyên giảm sáng, ngừng thuốc khử rêu, gỡ tay và đo NO₃/PO₄ trước khi châm phân, lại có giải thích cho lá trắng. Y tăng tổng giờ đèn lên 8–10 tiếng, không nói gì về thuốc khử rêu và không chẩn đoán lá trắng, nên kém hữu ích và có phần phản tác dụng.
+**Judge:** Y bám sát những gì bạn này đã làm: chỉ ra cường độ đèn, bảo ngưng thuốc diệt rêu, test NO₃/PO₄ trước khi châm phân, và có đủ các bước gỡ rêu cơ học và sinh học. X đọc ngược màu drop checker, bảo dừng hết phân trong khi NMC đang thiếu chất, và bỏ qua phần lớn chi tiết của bể. / X goes through every step the hobbyist took. It says to dim the light, stop the algae remover, and test before adding fertiliser, and it gives target figures. Y gets the drop checker reading backwards and ignores the light, which is the main thing to change in a tank that probably has no CO₂.
 
-**Ours lacks:** tank-fit, diagnosis, wrong. **Plain lacks:** plan, follow-up, too-long.
+**Ours lacks:** wrong, tank-fit, figures. **Plain lacks:** follow-up.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 1 pages, stopped at the tools limit):
 
-> Mình thấy rêu tóc trong bể mới set thường do ánh sáng và dinh dưỡng đang lệch nhau khi rễ cây chưa kịp hút, nên khả năng cao là đèn bật liên tục 7 tiếng (quá 4 tiếng một đợt, cách handbook khuyên cho bể Hà Lan mới set) cộng với việc thêm 2 lọ phân nước khi bể còn non. Chưa khẳng định được vì mình chưa đọc được hướng dẫn riêng cho phân ADA và cho loại cây NMC, nên phần đó bạn cân nhắc thêm.
-> 1. Chia đèn thành hai đợt, mỗi đợt không quá 4 tiếng, tổng khoảng 8 đến 10 tiếng mỗi ngày.
-> 2. Tạm ngừng châm phân Brighty K và Green Brighty Mineral vài ngày, để rêu và cây cùng chờ rễ ra.
-> 3. Giữ thay nước …
+> Nhiều khả năng rêu tóc đến từ thiếu CO2, vì đây là nguyên nhân hay gặp nhất theo cẩm nang; bể mới set cũng dễ bị rêu khi dinh dưỡng chưa cân bằng. Bạn chưa nhắc đến CO2 nên mình chưa chắc, bạn kiểm tra trước đã. Đèn treo cao 20 cm và chạy 7 tiếng không tự gây rêu nếu bể đủ CO2 và phân. Việc châm thêm Brighty K và Green Brighty Mineral khi chưa rõ CO2 có thể nuôi rêu thêm, nên mình khuyên tạm dừng châm phân cho đến khi xử lý được CO2.
+> 1. Thả drop checker vào bể để xem CO2; nếu chỉ thị chuyển xanh, CO2 đang thiếu và cần tăng.
+> 2. Tăng CO2 (bơm hoặc viên sủi) từ từ, hoặc nếu bể không châm CO2 thì…
 
 **Plain** (2410 characters):
 
@@ -736,22 +753,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 >   - Chạy 6–7 tiếng, hoặc chia 2 đợt (ví dụ 4 tiếng sáng + 2 tiếng chiều) để tránh đỉnh sáng quá lâu.
 > - Lá nmc bị trắng có thể là dấu hiệu ánh sáng quá mạnh (bị cháy/bạc lá) kết hợp t…
 
-### algae-01 · tank · plain wins (4.25 · 5.5)
+### algae-01 · tank · plain wins (3.5 · 5)
 
 **Asked:** Bể mới set của tôi đã có rêu tóc bám lên lá cây, xử lý sao?
 
-**Judge:** Y is generic and long, but its 6–8h light, physical removal, feeding and fertiliser control, added fast-growing plants, Amano shrimp and spot H₂O₂ would actually work. X is tidier, but its main light step raises this tank's 7h to 8–10h and its water-change step is less frequent than what they already do, so it gives them little real fix. / Neither answer uses the tank's details or addresses the algaecide or whitening ngưu mao chiên. X is long and generic, but its 6–8h light, manual removal and cutting back fertiliser are mostly sound, whereas Y is tidier yet would raise the light and only repeats water changes the hobbyist already exceeds.
+**Judge:** Neither answer uses the tank's details: a strong Flat One over slow-growing bucep and nmc, fertiliser just started, chemical algae remover, nmc leaves turning white. X tells them to raise the light to 8–10h while algae is already growing. Y is generic and long, but its advice is mostly sound: 6–8h light, cut back the fertiliser, add fast-growing or floating plants, and spot-treat with H₂O₂. / Both answers ignore the tank's details: the Flat One hung close over slow plants, the Brighty K just started, and the algae remover, which may be behind the nmc whitening. Y's advice to raise lighting to 8–10h is a harmful step. X is generic and long, but its advice on light and cutting back fertiliser is in the right direction.
 
-**Ours lacks:** tank-fit, wrong, diagnosis, too-thin. **Plain lacks:** tank-fit, too-long, follow-up, diagnosis.
+**Ours lacks:** tank-fit, wrong, diagnosis. **Plain lacks:** tank-fit, too-long, follow-up, diagnosis.
 
 **Ours** (read 2 pages, stopped at the tools limit):
 
-> Bể mới set có rêu tóc thường là do cây mới trồng chưa ra rễ nên ăn ít, dinh dưỡng dư còn lại trong nước, cộng với đèn bật quá lâu để rêu có điều kiện mọc. Hai nguyên nhân này khá chắc chắn với bể đang trong hai tuần đầu, nên bạn sửa thay nước và giờ đèn trước.
-> 1. Trong hai tuần đầu, thay 30–50% nước cứ ba ngày một lần, kể cả khi rêu chưa nhiều.
-> 2. Chia đèn tổng 8–10 tiếng mỗi ngày, mỗi đợt bật không quá 4 tiếng, dùng hẹn giờ nếu cần.
-> 3. Gỡ tay phần rêu tóc đang bám lá và đá, nhẹ tay để khỏi làm đứt lá non.
-> 4. Chưa cắt tỉa trong hai tuần đầu, để cây ra rễ rồi mới tỉa lần đầu vào tuần thứ ba.
-> 5…
+> Rêu tóc bám lá ở bể mới set thường do cây mới trồng chưa ra rễ nên ăn ít, dinh dưỡng dư còn lại trong nước, cộng với đèn bật quá lâu. Nếu bể của bạn là low tech không châm CO2 thì thiếu CO2 cũng có thể là thủ phạm, nên mình chưa chắc chắn hoàn toàn.
+> 1. Trong hai tuần đầu, thay 30–50% nước mỗi ba ngày để kéo dinh dưỡng dư xuống.
+> 2. Chỉnh đèn xuống tổng 8–10 tiếng mỗi ngày, chia thành nhiều đợt, mỗi đợt không quá 4 tiếng.
+> 3. Dùng bàn chải đánh răng xoay vào đám rêu rồi rút ra; làm vậy gỡ được phần lớn, nhưng sẽ không sạch hết.
+> 4. Nếu muốn thêm trợ thủ, thả vài con tép Amano, và bắt chúng ra khi…
 
 **Plain** (2014 characters):
 
@@ -770,20 +786,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - Thay 30–50% nước mỗi tuần.
 > - …
 
-### algae-02 · post · plain wins (5.5 · 7.25)
+### algae-02 · post · plain wins (6 · 7)
 
 **Asked:** Mình có hồ 70x30x40, cây chủ yếu là ráy và rêu. Đang dùng đèn Chihiros A601 plus mà bị rêu chùm đen, dù hồ không nền và hơn tuần nay không châm phân. Mình tính thay đèn, nên chọn đèn nào cho bể này?
 
-**Judge:** Both correctly advise fixing light, cleaning and feeding before replacing the light, but only Y answers the question with a dimming level (40–60%) and light criteria, though its A361 suggestion fits poorly. X admits it has no light-selection information, gives no recommendation, and barely uses the tank's details. / Cả hai đều khuyên chỉnh đèn và chăm bể trước khi đổi đèn, nhưng X còn trả lời câu hỏi chọn đèn với mức 20–30W và vài dòng cụ thể, dù gợi ý A361 không hợp hồ 70cm. Y gọn, có mục theo dõi và nhắc chất thải hữu cơ, nhưng nói thẳng là không có thông tin chọn đèn nên bỏ ngỏ điều người hỏi cần.
+**Judge:** Both answers treat strong light as the likely cause of the BBA. Y also explains that stopping fertilizer won't fix it and can make it worse, which corrects the hobbyist's assumption. Y gives concrete figures (40–60% intensity, 6–7 hours a day, a 20–30W light), names real replacement lights, and says when it would actually be worth changing the light. It has small errors (rau ngổ is not a floating plant) and runs a bit long. X is cleaner but never recommends a specific light and assumes the tank has no CO₂. / X answers the actual question. It says not to swap the light yet and to fix the photoperiod first, gives a dimming range (40–60%), and names specific lower-power light options to check. Y is shorter and its point about organic waste is good, but it guesses about CO₂, gives no figures and doesn't name a single light.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** too-long, follow-up.
+**Ours lacks:** figures, tank-fit. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Rêu râu đen (BBA) thường xuất hiện khi đèn mạnh hơn khả năng CO2 và dinh dưỡng của bể, hoặc khi bể có nhiều chất thải hữu cơ. Với bể không nền chỉ trồng ráy và rêu, đèn A601 Plus có thể đang mạnh so với nhu cầu, và việc ngừng châm phân một tuần làm cây yếu đi, khiến rêu dễ bám hơn. Mình chưa đọc được phần chọn đèn cụ thể cho bể này, nên bạn nên khắc phục nguyên nhân trước rồi mới đổi đèn.
-> 1. Kiểm tra số giờ bật đèn và giảm xuống khoảng 6 đến 8 tiếng mỗi ngày, hạ cường độ nếu đèn chỉnh được.
-> 2. Hút sạch lá úa, rêu chết và cặn bẩn, thay khoảng 30 phần trăm nước rồi vệ sinh lọc.
-> 3. Châm lại phân…
+> Mình nghĩ nguyên nhân chính là đèn quá mạnh so với bể không châm CO2: ráy và rêu chỉ cần ánh sáng vừa, còn BBA thường bùng khi đèn mạnh mà CO2 không ổn định, hoặc khi đèn mạnh đi cùng bể có chất thải hữu cơ. Cẩm nang chưa có trang riêng cho đèn Chihiros A601 Plus, nên mình chỉ dựa vào nguyên tắc chọn đèn và nguyên nhân gây BBA; mình chưa biết bạn đang bật đèn bao nhiêu giờ và ở mức độ nào, nên mức chắc chắn là vừa.
+> 1. Giảm giờ bật đèn xuống khoảng 6 đến 7 tiếng mỗi ngày, và nếu đèn chỉnh được thì hạ cường độ xuống mức vừa.
+> 2. Gỡ búi rêu trên lá ráy bằng tay hoặc nhíp, cắt bỏ lá nào bám rêu nặ…
 
 **Plain** (2238 characters):
 
@@ -794,19 +809,18 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Cây không tăng trưởng đủ để cạnh tranh.** Ráy chậm lớn nên không hấp thụ hết dinh dưỡng, và rêu chùm đen tận dụng phần dư đó.
 > - **Lịch chiếu sáng không ổn định…
 
-### algae-02 · tank · ours wins (7.25 · 4.75)
+### algae-02 · tank · ours wins (6.5 · 5.25)
 
 **Asked:** Bể của tôi bị rêu chùm đen dù không châm phân, có phải do đèn không?
 
-**Judge:** X nêu đúng đèn A601 plus và lá ráy, rồi đưa các bước theo thứ tự, cách xử lý tại chỗ bằng oxy già và mốc theo dõi 2-3 tuần. Y liệt kê đúng nhưng chung chung, còn hỏi lại loại đèn, dù có nhắc dòng chảy và cây mọc nhanh mà X bỏ sót. / Y gọi đúng đèn A601 plus và cây ráy, cho các bước có thứ tự, cách xử lý tại chỗ bằng oxy già và mốc theo dõi 2-3 tuần, dù có một con số lạ và một kết luận hơi chắc về phân. X chỉ liệt kê chung chung, không dùng dữ liệu bể, không có thứ tự ưu tiên hay mốc theo dõi, lại còn hỏi ngược loại đèn.
+**Judge:** X uses the strong Chihiros light and the week without fertiliser, says CO₂ is unknown, and sets out ordered checks by where the algae grows. It lacks light hours and doesn't mention that ráy and rêu grow slowly. Y gives useful numbers (6–8 h of light, 20–30% water changes), but it's a generic list that ignores the tank, asks what light they use, and uses a fish name nobody uses in Vietnam. / Y dựa vào bể thật của người hỏi: nhắc đèn Chihiros A601 plus, việc ngưng phân và tránh bảo hút nền khi bể không có nền. Bảng "BBA bám ở đâu" kèm theo cũng giúp đoán nguyên nhân. Tuy vậy Y thiếu số liệu cụ thể (giờ đèn, % thay nước) và không chỉ ra rằng ráy với rêu là cây chậm lớn, dễ bị BBA dưới đèn mạnh. X có số liệu rõ hơn nhưng viết chung chung cho bể nào cũng được, và còn hỏi lại loại đèn dù thông tin này đã có sẵn.
 
-**Ours lacks:** –. **Plain lacks:** tank-fit, plan, follow-up, too-long.
+**Ours lacks:** figures, tank-fit, diagnosis. **Plain lacks:** tank-fit, local.
 
 **Ours** (read 2 pages, stopped at the calls limit):
 
-> Đèn là một nghi ngờ hợp lý, nhưng gần như chắc chắn không phải nguyên nhân duy nhất. Bạn không châm phân nên không phải do phân. Rêu chùm đen (BBA) thường mọc khi đèn khá mạnh mà CO2 không ổn định, chất hữu cơ tích lại, hoặc cây yếu. Bể của bạn dùng đèn Chihiros A601 plus, khá mạnh, nên đèn là thủ phạm cần kiểm tra đầu tiên. Nhưng bạn chưa nói có châm CO2 không và đèn bật bao nhiêu giờ, nên mình chưa thể khẳng định chỉ do đèn.
-> 1. Giảm thời gian đèn xuống khoảng 6 đến 7 giờ mỗi ngày, và hạ cường độ đèn nếu đèn có chỉnh được (kinh nghiệm chung).
-> 2. Thay khoảng 25 đến 30% nước mỗi tuần và hút sạ…
+> Mình nghĩ đèn chưa chắc là thủ phạm duy nhất. Cẩm nang nói BBA thường do ba nhóm: CO2 thiếu hoặc dao động, chất thải hữu cơ nhiều, và cây yếu. Đèn mạnh tự nó không sinh ra BBA, nhưng khi đèn mạnh mà CO2 và dinh dưỡng không theo kịp thì bể mất cân bằng và rêu dễ bùng. Bể của bạn dùng Chihiros A601 plus, không châm phân hơn một tuần, nên khả năng cao là đèn đang mạnh hơn lượng dinh dưỡng và CO2 cây nhận được. Mình chưa biết bạn có châm CO2 không, nên đây là phỏng đoán từ thông tin bạn đưa.
+> 1. Nhìn BBA mọc ở đâu: nếu trên lá cây thì nghi CO2 hoặc cây yếu, nếu trên lũa hay đá thì nghi chất thải t…
 
 **Plain** (1709 characters):
 
@@ -818,21 +832,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > 2. **CO2 thiếu hoặc dao động:** Nếu bể trồng cây có đèn mạnh mà CO2 thấp hoặc không đều, cây phát triển kém và rêu có lợi thế cạnh tranh.
 > 3. **Dinh dưỡng vẫn có, dù không châm phân:** Thức ăn thừa, chất thải của cá, và phốt phát/nitrat trong nước máy đều là n…
 
-### algae-03 · post · ours wins (7.5 · 3.25)
+### algae-03 · post · ours wins (6.5 · 3.5)
 
 **Asked:** Mình mới chơi, hồ đầu tiên trồng trân châu ngọc trai, vừa set được 3 ngày. Từ 2 hôm trước nước chuyển xanh, mình nghi là rêu nước xanh. Mình thay 30% nước thì hôm sau nước còn xanh hơn. Hôm nay mình tháo bớt 1 bóng của đèn Odyssea dual, chỉnh timer từ 7 tiếng xuống 4 tiếng và thay bông lọc. Có nên tiếp tục thay nước mỗi ngày không? Đèn như vậy có dư không hay nên tắt luôn vài ngày?
 
-**Judge:** X trả lời thẳng: ngừng thay nước hằng ngày, giữ đèn 4 tiếng, chỉ che tối tối đa 7 ngày nếu sau 3-5 ngày vẫn xanh, có cảnh báo cho cây và cá, dù bỏ sót chuyện thay bông lọc. Y có lưu ý bông lọc hữu ích nhưng lại lạc sang giả định đèn UV, không chốt được chuyện đèn và còn hỏi lại cả cây trân châu là gì. / Y trả lời thẳng cả hai câu hỏi: ngừng thay nước hằng ngày, giữ đèn 4 tiếng, và chỉ che tối tối đa 7 ngày nếu sau 3-5 ngày vẫn xanh, kèm dấu hiệu cần theo dõi, tuy chưa nhắc đến việc thay bông lọc. X nhầm Odyssea dual có thể là đèn UV, khuyên bật đủ 2 bóng liên tục, và còn hỏi trân châu ngọc trai là gì, dù có điểm đúng về bông lọc.
+**Judge:** X got the main cause right (a new tank with too much light and nutrients). It says to stop the daily water changes and keep the light at 4 hours, gives a blackout option, and says to watch for low oxygen. Y misreads the Odyssea light as possibly a UV unit, which muddles the lighting advice, and it asks basic questions back. Its only clearly useful point is not to replace the filter floss. / X misreads the Odyssea light as a possible UV sterilizer and tells them to run it nonstop at full power, which is the opposite of what they need. Y correctly treats it as a grow light, gives clear numbered steps (keep 4 hours, cut feeding and fertiliser, blackout, watch the fish for oxygen trouble), and adds a guide excerpt. Its weakness is that it doesn't mention the new substrate.
 
-**Ours lacks:** tank-fit. **Plain lacks:** wrong, tank-fit, asks-only, plan.
+**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** wrong, asks-only, tank-fit, diagnosis.
 
-**Ours** (read 1 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Nhiều khả năng đây là nước xanh do tảo phù du nở rộ, thường gặp ở bể mới set vì bể chưa ổn định và được chiếu sáng khá lâu. Thay nước hằng ngày không cắt được nguồn gây tảo nên nước vẫn xanh lại nhanh. Cẩm nang nói bạn cần cắt nguyên nhân trước, rồi mới làm trong nước.
-> 1. Ngừng thay nước hằng ngày. Giữ đèn ở 4 tiếng như hiện tại và không bật thêm.
-> 2. Kiểm tra bể có nắng chiếu trực tiếp hoặc nắng hắt từ cửa sổ không, nếu có thì dời bể đi.
-> 3. Không cho ăn thừa và không châm phân nước trong lúc bể đang xanh.
-> 4. Nếu sau khoảng 3 đến 5 ngày nước vẫn xanh, che kín bể tối đa 7 ngày, lọc và sủi vẫn c…
+> Nước xanh trong bể mới 3 ngày thường là tảo phù du nở rộ, do ánh sáng và chất dinh dưỡng dư khi bể còn non, nên việc thay nước 30% mỗi ngày chưa xử lý được gốc. Mỗi lần thay, tảo lại có thêm dinh dưỡng và mọc lại nhanh. Bạn làm đúng hướng khi giảm đèn xuống 4 tiếng. Mình chưa tìm thấy trang nào trong cẩm nang về trân châu ngọc trai nên phần này mình chỉ nói theo kinh nghiệm chung.
+> 1. Dừng thay nước hàng ngày, để nước ổn định. Khi cần thì thay 20–30% mỗi tuần.
+> 2. Giữ đèn 4 tiếng, không bật thêm, và dời bể khỏi chỗ nắng hoặc ánh sáng hắt từ cửa sổ.
+> 3. Ngưng cho ăn nhiều và không châm phân lúc n…
 
 **Plain** (1616 characters):
 
@@ -844,21 +857,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Ngừng thay nước hằng ngày.** Chỉ thay khi thử nước thấy amonia hoặc nitrit tăng, và mỗi lần chỉ khoảng 10-15%.
 > - **Thử…
 
-### algae-03 · tank · ours wins (7 · 5.25)
+### algae-03 · tank · ours wins (5.75 · 5)
 
 **Asked:** Bể mới set vài ngày đã bị nước xanh, nên thay nước hay tắt đèn?
 
-**Judge:** X trả lời rõ tắt đèn trước rồi mới thay nước, giải thích được vì sao thay nước làm xanh lại, có các bước theo thứ tự, cảnh báo amoniac khi tảo chết và dấu hiệu cá ngạt. Y cũng chọn tắt đèn nhưng dàn trải, đoán nguyên nhân từ thức ăn và cá, lại nói che tối không hại gì; cả hai đều bỏ qua việc đèn đã giảm còn 4h. / Y trả lời thẳng: che tối trước, giữ lọc và sủi, thay nước sau khi trong, kèm giới hạn 7 ngày, cảnh báo cây yếu, amoniac tăng và dấu hiệu cá ngạt; điều này cũng giải thích vì sao thay 30% xong lại xanh hơn. X cũng chọn tắt đèn nhưng lại bảo không hại gì, tập trung vào thức ăn, thêm nhiều việc phụ và ít theo dõi hơn; cả hai đều không nhắc tới timer 4 giờ hay bóng đã tháo.
+**Judge:** Neither answer uses what the hobbyist already tried: light already cut to 4h with one bulb removed, a 30% change that made it greener, and swapped filter floss that strips the young bacteria. Neither warns that a blackout puts the trân châu carpet at risk. X gives a clearer step-by-step plan and caps the blackout at 7 days for the plants. Y is longer and less focused. / Neither answer uses what the hobbyist already tried: they've cut the light to 4h, and the water change made the tank greener. Y still gives a shorter step-by-step plan. It says why changing water doesn't clear the bloom, which matches what they saw, and it says to keep the filter running, move the tank away from sunlight and watch the fish. X runs long and suggests odd plants.
 
-**Ours lacks:** tank-fit. **Plain lacks:** tank-fit, plan, too-long, follow-up.
+**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** tank-fit, plan, too-long, follow-up.
 
-**Ours** (read 1 pages, stopped at the calls limit):
+**Ours** (read 1 pages):
 
-> Nước xanh trong bể mới thường là tảo phù du nở rộ, do bể chưa ổn định, đèn bật lâu và chất dinh dưỡng từ nền mới. Nước xanh tự nó chưa làm hại cá, nên thay nước ngay chỉ để hết xanh thì tảo sẽ mọc lại nhanh. Vì vậy bạn nên tắt đèn trước, rồi mới thay nước.
-> 1. Tắt đèn hoặc che kín bể tối đa 7 ngày, vẫn để lọc và sủi chạy liên tục.
-> 2. Nếu được, chuyển cá, tép sang bể tạm trong lúc che tối, vì cây cũng sẽ yếu đi.
-> 3. Khi nước đã trong, thay khoảng 30% nước để vớt xác tảo và giảm amoniac, vì tảo chết có thể làm amoniac tăng vọt.
-> 4. Sau đó bật đèn lại khoảng 6–8 giờ mỗi ngày và thay ít nhất 20% nướ…
+> Bạn nên tắt đèn trước, chưa cần thay nước vội. Bể mới thường nở xanh vì quá nhiều ánh sáng cộng với chất dinh dưỡng từ nền và thức ăn mới, nên cắt sáng là việc đầu tiên. Cẩm nang nói thay thật nhiều nước một lần không hết xanh, vì tảo sinh sản rất nhanh và sẽ mọc lại.
+> 1. Tắt đèn bể và đặt bể xa chỗ nắng chiếu hoặc nắng hắt từ cửa sổ.
+> 2. Che kín bể trong khoảng 3 đến 7 ngày, vẫn để lọc và sủi chạy liên tục. Cẩm nang ghi không quá 7 ngày, vì cây sẽ chịu khổ.
+> 3. Không châm phân nước và cho ăn ít lại trong lúc này.
+> 4. Khi nước đã trong, thay khoảng một phần lớn nước để vớt xác tảo và giảm amoniac…
 
 **Plain** (1484 characters):
 
@@ -872,19 +885,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > **Thay nước: chỉ nên làm vừa phải**
 > - Nếu bể đang chạy chu trình nitơ (chưa có vi khuẩn có lợi đủ mạnh), thay quá nhiều nước có thể …
 
-### algae-04 · post · plain wins (5.5 · 7)
+### algae-04 · post · plain wins (6 · 7)
 
 **Asked:** Mình chơi hồ 60x40x40 theo kiểu Hà Lan, dùng 2 cây đèn trắng Aquablue, 1 cây dài 60cm và 1 cây 45cm, vậy có bị dư sáng không? Hồ mới set được 7 ngày mà tảo nâu phát triển nhiều quá, CO2 và dinh dưỡng thì tương đối ổn định, mỗi ngày thay 30% nước kèm vệ sinh hồ, vậy mà rêu nâu cứ bám hoài trên đá và mặt kính. Hồ mình đang bị gì, nên làm sao?
 
-**Judge:** Y directly answers the light question for the actual 60cm + 45cm setup, addresses the daily water changes, and gives practical steps including Nerite snails and when to add grazers, though it overstates the silicate and water-change points. X is tidier and has a useful seeding tip, but it misreads the lights, is overconfident about excess light, and ignores the hobbyist's daily water-change routine. / X correctly identifies diatoms as normal new-tank algae, directly answers the light and water-change questions, and gives a fuller plan with a photoperiod, cleaning, algae eaters and a timeline, despite overplaying silicate and water changes. Y is concise and has useful steps like seeding from old filter floss and testing ammonia, but it misreads the lights, overclaims excess light, and barely addresses the daily water changes.
+**Judge:** Y trả lời thẳng câu hỏi có dư sáng không, có tính đến việc bạn thay nước mỗi ngày và nguồn silicate, lại gợi ý ốc Nerite. Nhưng khuyên giảm thay nước khi hồ mới 7 ngày, với lý do "vi sinh không kịp ổn định", là sai. X đúng và gọn hơn (như cấy bông lọc cũ, thêm cây), nhưng né câu hỏi về đèn và bỏ qua lịch thay nước của bạn. / X trả lời thẳng câu hỏi dư sáng với số liệu cụ thể (6-7 tiếng, hồ ~96L) và nói tới silicate cùng lịch thay nước bạn đang làm, nên khớp với hồ của bạn hơn, dù lý do khuyên thay nước ít lại là sai. Y an toàn và có dặn theo dõi, nhưng mỏng hơn, không đả động gì tới việc bạn thay nước mỗi ngày và cũng không trả lời rõ đèn có dư hay không.
 
-**Ours lacks:** tank-fit, diagnosis, follow-up. **Plain lacks:** follow-up, too-long, local.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** follow-up.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình nghĩ hồ đang bị tảo cát (tảo nâu) bùng lên vì bể còn non. Sau 7 ngày, vi sinh chưa đủ để ăn hết chất dinh dưỡng, và hai đèn trắng 60cm cộng với CO₂ và phân đang cho tảo đủ điều kiện phát triển. Với hồ mới, đèn 'dư sáng' là khá chắc chắn: handbook gợi ý bể mới chỉ có cây xanh nên bắt đầu ở khoảng 40-60 µmol PAR ở mặt nền, còn bể nhiều cây khó tính thì 80-100 µmol. Mình chưa đo được PAR của hồ bạn nên không chắc con số cụ thể.
-> 1. Giảm thời gian bật đèn xuống khoảng 6 tiếng mỗi ngày, hoặc chỉ bật một cây đèn trong 3-4 tuần đầu.
-> 2. Nâng đèn lên cao hơn hoặc giảm độ sáng nếu máng đèn có chỉnh…
+> Mình nghĩ đây là tảo nâu (tảo cát) bùng lên ở bể mới, khá bình thường trong vài tuần đầu. Bể mới 7 ngày chưa ổn định sinh học, còn đèn khá mạnh cùng dinh dưỡng và CO2 đều đặn nên tảo dễ bùng; mình chưa biết chắc cường độ đèn có đang vượt mức không vì chưa đo được, nên hãy kiểm tra thời gian chiếu sáng trước.
+> 1. Đặt hẹn giờ cho đèn, chỉ bật khoảng 6 đến 7 tiếng mỗi ngày và tránh để nắng chiếu vào bể.
+> 2. Nếu có thể, giảm cường độ một cây đèn hoặc đưa đèn lên cao hơn để giảm ánh sáng trực tiếp xuống nền.
+> 3. Giảm lượng phân nước đang châm hoặc giữ đúng liều thấp, vì phân dư nuôi tảo nhanh hơn cây…
 
 **Plain** (2537 characters):
 
@@ -897,22 +911,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > Với hồ khoảng 96L và 2 đèn (60cm + 45cm) thì **cường độ ở mức trung bình-khá**, chưa phải là quá dư, nhất là với kiểu Hà Lan vốn cần sáng tương đối. Tuy nhiên, trong giai đoạn mới set, **thời gian bật đèn** mới là yếu tố dễ gây tảo:
 > - Nên bật **6-7…
 
-### algae-04 · tank · ours wins (7.25 · 4.75)
+### algae-04 · tank · ours wins (6.75 · 4.25)
 
 **Asked:** Bể mới set một tuần bị tảo nâu bám kín đá và kính, làm sao?
 
-**Judge:** X correctly identifies new-tank diatoms and gives a short ordered plan for a planted tank, covering cleaning, light, fertiliser, plants and seeding, with a 4–6 week timeline, though it gives PAR instead of light hours and ignores the daily water changes. Y is generic, focuses on feeding and weekly water changes, contains errors, and ends by asking about details the app already holds, although it does give light hours and algae-eater options. / Y đúng nguyên nhân, dùng từ \"tảo cát\" quen thuộc, nêu mốc 4–6 tuần và các bước gọn hợp bể cây có phân, CO₂ như giảm đèn, giảm phân, cấy vi sinh, dù chưa nêu số giờ đèn. X chung chung, bỏ qua việc họ đã thay 30% nước mỗi ngày, có lỗi về than hoạt tính và ốc Trochus, lại hỏi những điều app đã biết.
+**Judge:** X nói đúng nguyên nhân (bể mới, vi sinh chưa ổn định, đèn và phân mạnh) và đưa ra các bước gọn, đúng cho bể có CO₂: giảm đèn, cấy vi sinh, châm phân nhẹ, theo dõi sau 2–3 tuần. Y dài, có chỗ sai (than hoạt tính khử silicat, thay nước mỗi tuần), có phần cho ăn không áp dụng được và lại hỏi những thông tin app đã có. Cả hai đều chưa dùng chi tiết hai đèn Aquablue hay việc bạn ấy đang thay nước mỗi ngày. / Cả hai đều đoán đúng nguyên nhân là tảo cát của bể mới. Nhưng Y đưa các bước làm theo thứ tự, gợi ý cấy vi sinh, bảo châm phân nhẹ, và nói rõ cần theo dõi gì. X sai ở mấy điểm: bảo than hoạt tính khử được silicat, khuyên dùng ốc Trochus là ốc biển, gọi otto là cá chuột, và còn hỏi lại thông tin bể mà app đã có. Y vẫn còn thiếu số giờ bật đèn cụ thể.
 
-**Ours lacks:** figures, tank-fit. **Plain lacks:** tank-fit, too-long, follow-up.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, wrong.
 
 **Ours** (read 2 pages):
 
-> Bể mới set một tuần mà tảo nâu phủ kính và đá thường là tảo cát, loại hay bùng trong vài tuần đầu khi vi sinh chưa ổn định. Cẩm nang cho biết lớp này thường tự hết sau 4–6 tuần, và lau là trôi.
-> 1. Hút bỏ các mảng tảo lớn khi thay nước, chà nhẹ kính và đá để lớp tảo không phủ kín cây.
-> 2. Giảm giờ đèn và cường độ: bể chỉ có cây xanh nên bắt đầu khoảng PAR 40–60 µmol tại nền, và tăng dần khi bể trưởng thành.
-> 3. Tạm ngưng hoặc châm rất nhẹ phân có đạm và phốt phát, dùng loại không đạm, không phốt phát trước.
-> 4. Trồng thêm cây hoặc tỉa lá úa để cây cạnh tranh với tảo và thích nghi nhanh hơn.
-> 5. Cấ…
+> Bể mới được một tuần mà đã có tảo nâu (tảo cát) phủ kính và đá là chuyện rất thường gặp. Cẩm nang cho biết tảo cát thường bùng trong vài tuần đầu vì vi sinh trong bể chưa ổn định, và đèn mạnh hoặc phân nhiều sẽ làm nó mọc nhanh hơn. Lớp này thường tự hết sau khoảng 4–6 tuần khi bể ổn định, nên bạn chưa cần diệt bằng hóa chất.
+> 1. Dùng khăn hoặc miếng cọ mềm lau kính, và hút các mảng tảo lớn khi thay nước.
+> 2. Giảm thời gian bật đèn và cường độ đèn trong giai đoạn đầu, tăng dần khi bể trưởng thành.
+> 3. Cấy vi sinh bằng cách bóp bông lọc cũ hoặc mulm từ bể đang chạy tốt vào bể mới, rồi cho lọc chạ…
 
 **Plain** (1723 characters):
 
@@ -927,20 +939,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Ánh sáng:** Giảm thời gian đèn xuống còn 6-8 tiếng/ngày, tránh đặt bể gần cửa sổ có nắng trực tiếp.
 > - **Dinh dưỡng:** Cho ăn ít lại, chỉ cho ăn l…
 
-### algae-05 · post · plain wins (5.25 · 7.25)
+### algae-05 · post · plain wins (4.5 · 7)
 
 **Asked:** Em set bể Hà Lan được gần 1 tháng, đèn mới lên 8h/ngày (10h sáng đến 18h), cây phát triển rất tốt, không có rêu hại. Phía trước dưới nền em trồng rau thơm. Nhưng ở mặt kính phía dưới, chỗ giáp nền, có tảo nâu bám kính và một chút tảo nhớt xanh, có phải do đèn trong nhà buổi tối hắt vào bể không? Bucep em buộc giá thể thả vào được 1 tuần cũng có tảo nâu trên lá. Em thay nước đều 2 ngày 1 lần. Em có thả ốc nerita nhưng nó chỉ nằm im không bò, kiểm tra thì vẫn sống. Xử lý tảo nâu với rêu nhớt sao ạ?
 
-**Judge:** Y nhận đúng nhớt xanh là vi khuẩn lam ở vùng đáy ít dòng chảy và đưa cách xử lý riêng (siphon, tắt đèn 2–3 ngày, tăng dòng chảy), đồng thời giải thích ốc nerita mới thả nằm im để thích nghi, dù hơi dài. X gọn và có mẹo mồi vi sinh hay, nhưng xử lý nhớt xanh quá yếu, chỉ giảm đèn và kiểm tra dinh dưỡng, nên chưa giải quyết được phần người hỏi cần. / X nhận ra lớp nhớt xanh có thể là vi khuẩn lam và cho cách xử lý thật: hút siphon, tắt đèn 2–3 ngày, tăng dòng chảy đáy, kèm tép Amano và giải thích về nerita, dù hơi dài và có vài ý suy diễn. Y gọn và lành, xử lý tảo nâu ổn với mulm hoặc bông lọc cũ, nhưng gần như bỏ ngỏ phần rêu nhớt mà người hỏi cần giải quyết, và phần nerita cũng rất sơ sài.
+**Judge:** Y names both problems correctly: diatoms that normally show up in a new tank, and cyanobacteria where water sits still. It says room light plays only a small part and gives the usual fixes: siphon, more flow, a 2–3 day blackout, Amano shrimp. X tells them to cut the tank light to 2–3 hours a day, which would hurt a planted tank whose plants are growing well. / X tách bạch tảo cát với vi khuẩn lam và đưa ra cách xử lý chuẩn: lau tảo, giảm đèn còn 6–7h, tắt đèn 2–3 ngày, tăng dòng chảy ở đáy, hút mùn. Y viết tiếng Việt tự nhiên hơn nhưng khuyên cắt đèn xuống 2–3h/ngày, có thể làm hại bể Hà Lan đang phát triển tốt, và đưa kháng sinh ra quá sớm.
 
-**Ours lacks:** diagnosis, plan, tank-fit, too-thin. **Plain lacks:** too-long.
+**Ours lacks:** wrong, tank-fit, diagnosis. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Bể mới set khoảng 1 tháng thường bùng tảo nâu (tảo cát) ở kính và lá, nhất là phía dưới giáp nền, nên đây là nguyên nhân khả dĩ nhất. Đèn phòng hắt ban đêm có thể góp phần nhỏ, nhưng mình nghĩ đèn bể và độ trưởng thành của bể quan trọng hơn. Tảo nhớt xanh thường đi kèm đèn chạy dài và dinh dưỡng dư, nên bạn nên xử lý cả hai.
-> 1. Hút tảo nâu bằng tay hoặc lau kính khi thay nước, không dùng thuốc diệt rêu lúc này.
-> 2. Giảm đèn bể xuống khoảng 6–7 giờ mỗi ngày, và tắt đèn phòng hoặc che mặt kính để ánh sáng phòng không chiếu vào bể.
-> 3. Thêm cây cho đủ dày để cạnh tranh với tảo, và bóp bông lọc cũ …
+> Tảo nâu (tảo cát) gần như bể mới set nào cũng có trong 2 đến 6 tuần đầu, và bể của bạn đang ở đúng giai đoạn đó. Nguyên nhân chính là hệ vi sinh chưa ổn định kết hợp với đèn bật lâu, nên bạn nên giảm đèn trước. Đèn nhà hắt vào buổi tối có thể góp phần nuôi tảo ở mặt kính, nhưng đây là suy đoán của mình, cẩm nang chưa nói về ánh sáng phòng.
+> Các bước bạn làm được ngay:
+> 1. Giảm đèn bể xuống khoảng 2 đến 3 tiếng mỗi ngày trong lúc còn tảo nâu, rồi tăng dần lại về 6 đến 8 tiếng khi tảo hết.
+> 2. Chà nhẹ kính, hút phần tảo nhớt xanh ra khỏi nền, và gỡ hoặc lau lá bucep đang dính tảo nâu.
+> 3. Giữ nhịp …
 
 **Plain** (2581 characters):
 
@@ -951,21 +964,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - Ánh nắng hoặc đèn phòng có chiếu trực tiếp vào mặt kính không.
 > - Đèn bể…
 
-### algae-05 · tank · ours wins (7 · 4.75)
+### algae-05 · tank · ours wins (6 · 4)
 
 **Asked:** Bể tôi có tảo nâu và tảo nhớt xanh ở chân kính sát nền, xử lý thế nào?
 
-**Judge:** X gọn, nhận đúng bể non và góc chết ít lưu thông, có các bước theo thứ tự và mốc theo dõi; guide kèm theo cũng hữu ích. Y dài, chung chung, liệt kê sinh vật ăn tảo với tên sai hoặc lạc đề; cả hai đều không dùng dữ kiện bể và bỏ qua việc ốc nerita nằm im. / Y gọn, nêu đúng hướng bể non và góc chết ít lưu thông, có các bước theo thứ tự, mốc theo dõi và trích dẫn hữu ích, dù chưa dùng dữ liệu bể và bỏ qua ốc nerita nằm im. X dàn trải, gợi ý thêm sinh vật với tên gọi sai hoặc lạ, nhắc H₂O₂ không liều và cũng không bám vào tình trạng bể 4 tuần tuổi.
+**Judge:** X ngắn gọn, nêu đúng nguyên nhân là bể còn non và góc chết, cặn nền, các bước làm theo thứ tự rõ ràng và có hẹn theo dõi sau 1–2 tuần. Y dài, chung chung, còn hỏi ngược lại thông tin bể. Cả hai đều bỏ qua chuyện ốc nằm im, đèn trong nhà hắt vào buổi tối và việc đang thay nước 2 ngày/lần. / Y gives the more likely cause (a young tank, dead spots with weak flow, and debris on the substrate), short steps in order, and a check-in after 1–2 weeks. X is long and generic, suggests buying snails the hobbyist already has, and uses odd fish names. Neither one picks up on the 4-week-old tank, the evening room light, or the nerites that aren't moving.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, local, follow-up.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, diagnosis, follow-up.
 
-**Ours** (read 2 pages, stopped at the calls limit):
+**Ours** (read 2 pages):
 
-> Bạn đang gặp hai loại tảo thường đi cùng nhau ở bể mới hoặc bể chưa ổn định sinh học. Tảo nâu là tảo cát, hay gặp khi bể còn non hoặc đèn mạnh đi kèm dinh dưỡng cao. Lớp nhớt xanh (vi khuẩn lam) thì hay bám ở góc chết, nơi nước lưu thông yếu và có cặn hữu cơ tích lại. Mình chưa biết bể đã chạy bao lâu, đèn bật mấy giờ và có bón phân không, nên đây là hướng xử lý chung.
-> 1. Hút nền nhẹ và thay một phần nước để dọn cặn hữu cơ.
-> 2. Chỉnh vòi lọc hoặc quạt nước hướng vào chỗ bám để tăng lưu thông ở góc chết.
-> 3. Gỡ tay các mảng nhớt xanh khi còn nhỏ, rồi hút tảo nâu khi thay nước.
-> 4. Giảm thời gian …
+> Tảo nâu (tảo cát) thường bám ở bể còn non hoặc khi nền có nhiều cặn hữu cơ. Lớp nhớt xanh là vi khuẩn lam, hay gặp ở chỗ nước chảy yếu và oxy thấp sát nền. Hai thứ này thường mọc cùng nhau ở chân kính, nên mình đoán nguyên nhân là góc chết và cặn nền. Bạn xử lý theo các bước sau:
+> 1. Hút cặn nền và thay khoảng 20–30% nước để bớt chất hữu cơ.
+> 2. Chỉnh vòi xả của lọc hoặc bơm hướng về chân kính để nước chảy qua vùng đó.
+> 3. Gỡ tay mảng nhớt xanh còn nhỏ, chà nhẹ tảo nâu bằng bàn chải mềm rồi hút ra khi thay nước.
+> 4. Trồng thêm cây để cạnh tranh dinh dưỡng với tảo, và châm phân đều theo lịch, khôn…
 
 **Plain** (2489 characters):
 
@@ -978,19 +991,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > ## 2. Xử lý ngay
 > - **Cọ và lau kính** bằng miếng cọ mềm hoặc nam châm lau kính. Với vi khuẩn lam…
 
-### algae-06 · post · tie or split (6.5 · 6.5)
+### algae-06 · post · tie or split (6.25 · 6.5)
 
 **Asked:** Em đang dùng bể 6-4-4, lọc Sunsun 702B (1000L/h), lọc phụ Sunsun 603. CO2 cho qua sủi đánh thẳng vào đầu in của lọc, có van điện bật tắt theo đèn. Thỉnh thoảng nghe trong lọc chính có tiếng lọc xọc, lúc khác lại thấy đầu out bắn ra bọt khí to cỡ hạt đỗ. Bể đang nhiều rêu tóc, rêu sừng hươu và rêu lông tơ nên em đang cho CO2 dồi dào hơn, tầm 6-7 giọt/giây. Trộn như vậy có ổn không khi CO2 nhiều? Lọc phụ gắn thêm trộn cánh quạt ở out được không hay sẽ yếu dòng? Cá tép có nguy cơ chết vì ngạt CO2 không?
 
-**Judge:** X gives a short, ordered plan: check with a drop checker, move injection to an inline mixer on the output, then watch the shrimp, though it lacks numbers and says 'Handbook' awkwardly. Y covers more, including a useful check valve and bubble-rate figures, but it is long and has contradictory diffuser placement, a garbled algae step and shaky algae claims. / X trả lời đủ cả ba câu hỏi, có số CO2 và ngưỡng an toàn, dấu hiệu ngạt, van một chiều và xử lý cả ba loại rêu, tuy dài và có vài chỗ lủng củng. Y gọn, thứ tự rõ và khuyên cốc trộn trên đường out rất đúng, nhưng thiếu số liệu, bỏ qua rêu sừng hươu và lông tơ, không trả lời thẳng nguy cơ ngạt và có câu chữ 'Handbook' gây lạ.
+**Judge:** Both answers find the same cause: CO₂ is fed straight into the filter intake and the dose is too high. X gives short steps in a clear order, using the drop checker and watching the shrimp. Y adds useful points like a check valve and light hours, but it is long, gets the drop checker colours wrong, and talks about raising CO₂ when the hobbyist needs to lower it. / X nói đúng nguyên nhân là khí bị hút vào lọc. X chỉ thêm van một chiều, reactor gắn trên đường out, mức giọt/giây cần nhắm tới, dấu hiệu tép bị ngạt và số giờ chiếu đèn để trị rêu, nhưng bài dài và có vài lỗi nhỏ về màu drop checker. Y gọn, có các bước theo thứ tự và mẹo sục khí ban đêm, nhưng thiếu con số và cách xử lý cụ thể cho lọc.
 
-**Ours lacks:** figures, diagnosis, too-thin. **Plain lacks:** too-long, plan.
+**Ours lacks:** figures, diagnosis. **Plain lacks:** too-long, wrong.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình nghĩ bạn đang châm CO2 quá tay, và chỗ đặt van ở đầu in lọc là nguyên nhân khiến khí bị đẩy vào lọc: đó là lý do có tiếng lọc xọc và bọt to ở đầu out. Handbook nói phần lớn rêu tóc là do thiếu CO2, nên đếm giọt không cho biết bể đủ hay thừa; bạn cần drop checker. Handbook không có số liệu về CO2 với tép, cánh quạt trên lọc phụ, nên phần đó là kinh nghiệm chung của mình.
-> 1. Treo drop checker trong bể và chỉnh lưu lượng CO2 cho nó ra xanh lá; nếu chuyển sang vàng thì bạn đang thừa CO2, giảm ngay.
-> 2. Chuyển điểm bơm CO2 sang cốc trộn nối trên đường out của lọc chính, thay vì đầu in, để khí …
+> Nhiều khả năng bạn đang châm CO2 quá tay và đưa khí vào sai chỗ: bọt CO2 đi thẳng vào đầu hút của lọc nên gây tiếng lọc xọc và bọt to ở đầu ra. Cẩm nang cho biết phần lớn rêu tóc do thiếu CO2, nhưng cũng có ý kiến châm quá nhiều vẫn sinh rêu, nên bạn cần đo CO2 thực trong nước thay vì đếm bọt.
+> 1. Chuyển điểm sủi CO2 ra khỏi đầu hút lọc, đặt đá sủi hoặc diffuser trong bể, ở chỗ có dòng nước đi qua.
+> 2. Đặt drop checker trong bể, chỉnh van để dung dịch chuyển xanh lá, rồi giảm dần số bọt mỗi giây thay vì giữ 6-7 bọt.
+> 3. Chỉnh từng bước nhỏ, đợi vài giờ rồi xem lại màu drop checker trước khi chỉn…
 
 **Plain** (3807 characters):
 
@@ -1003,20 +1017,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Khí bị hút vào bơm:** Bọt CO2 đi vào đầu hút, bơm 702B hút cả khí lẫn nước. Khí làm bơm mất mồi, chạy ồn, lưu lượng giảm, lâu dài có thể mòn cánh bơm và phớt.
 > - **Bọt to ở out:** CO2 không kịp hòa tan nên thoát ra theo dòng nước. Bọt to cỡ hạt đỗ nghĩa là lượng khí đang vượt…
 
-### algae-06 · tank · tie or split (5.5 · 4.25)
+### algae-06 · tank · ours wins (5 · 4)
 
 **Asked:** Bể tôi nhiều rêu tóc, rêu sừng hươu và rêu lông tơ, tăng CO2 có giúp được không?
 
-**Judge:** X gives an ordered, checkable plan (light hours, drop checker, redirect flow, manual removal, Amano, 2–3 week check) centred on CO₂, the real question, though it misses their rattling filter and CO₂ bubbles. Y is a generic list with a wrong pH target and the excess-phosphate myth, and it asks for tank details the app already holds. / Neither answer spots the real clue: 6-7 bps fed into the filter inlet, with a rattling filter and big bubbles at the outlet, points to poor dissolution rather than too little gas. Y has the tidier plan and better Vietnamese, but its reversed drop-checker advice could harm livestock in a tank already on heavy CO₂, so X narrowly wins for its safe CO₂ guidance and fish-gasping warning, despite being generic and getting the pH target wrong.
+**Judge:** Cả hai câu trả lời đều bỏ qua đầu mối quan trọng nhất trong bể này: CO2 sủi vào đầu in lọc, lọc kêu xọc xọc và có bọt khí to ở đầu out. Điều đó cho thấy khí CO2 bị kẹt trong lọc và hòa tan kém, nên việc cần làm là sửa cách hòa tan chứ chưa phải tăng thêm giọt. X ngắn gọn hơn, có các bước theo thứ tự, có trích cẩm nang và ít sai hơn. Y chứa các con số sai như mức giảm pH, và hỏi lại những thông tin app đã có. / Neither answer noticed the clearest clue: the filter gurgling and big bubbles at the outlet mean CO₂ gas is collecting in the canister and not dissolving. Y still gives clear steps in order, links the staghorn algae (rêu sừng hươu) to the filter outlet, and backs its claims with the guide. X is generic, has a wrong pH-drop target, and asks for details the tank profile already gives.
 
-**Ours lacks:** tank-fit, diagnosis, unsafe. **Plain lacks:** tank-fit, plan, wrong, too-long.
+**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** tank-fit, diagnosis, plan, too-long.
 
-**Ours** (read 3 pages):
+**Ours** (read 4 pages, stopped at the calls limit):
 
-> Có, tăng CO2 giúp được, nhưng chỉ khi bể đang thiếu CO2. Theo cẩm nang, khoảng 90% trường hợp rêu tóc là do thiếu CO2, nên bạn nên kiểm tra trước. Rêu sừng hươu hay mọc quanh chỗ nước ra của lọc treo vì dòng chảy đẩy CO2 thoát khỏi nước, nên cây ở đó thiếu CO2 hơn. Rêu lông tơ bạn nói thì mình chưa chắc là loại nào, bạn cho mình biết rõ hơn nếu cần.
-> 1. Kiểm tra giờ đèn: nếu đang bật trên 10 tiếng thì hẹn giờ về khoảng 8 tiếng.
-> 2. Treo drop checker và chỉnh CO2 cho nó xanh lá. Nếu đang châm CO2 mà checker vẫn vàng thì tăng thêm từ từ.
-> 3. Nếu bể không châm CO2, giảm đèn và giảm khuấy động mặt n…
+> Có, CO2 thường là thứ đầu tiên nên chỉnh cho rêu tóc. Cẩm nang ghi thiếu CO2 là nguyên nhân hay gặp nhất, và khoảng 90% trường hợp chỉ đơn giản là thiếu CO2. Rêu sừng hươu hay bám ở chỗ nước ra của lọc, nơi CO2 bị đẩy thoát đi nhanh, nên nhiều khả năng cùng nguyên nhân. Với rêu lông tơ, cẩm nang mình đã đọc không nói rõ, nên mình chỉ suy luận từ nguyên tắc chung: rêu nào cũng lên khi đèn, CO2 và dinh dưỡng lệch nhau.
+> 1. Gỡ rêu tóc và rêu sừng hươu bằng tay hoặc dụng cụ xoay, tránh để chúng tiếp tục sinh sôi.
+> 2. Lắp drop checker để xem CO2 thực tế, rồi tăng CO2 từ từ cho đến khi dung dịch chuy…
 
 **Plain** (1978 characters):
 
@@ -1026,19 +1039,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - Đo bằng drop checker hoặc theo pH: mục tiêu thường là pH giảm khoảng 0,2–0,3 so với nước không CO₂, hoặc drop checker chuyển xanh vàng nhẹ (khoảng 25–30 ppm).
 > - Bật CO₂ cùng lúc với…
 
-### algae-07 · post · plain wins (4.25 · 7.25)
+### algae-07 · post · plain wins (5 · 6.75)
 
 **Asked:** Em là tân binh theo trường phái Hà Lan, phần cứng gần như đủ cho một bể Hà Lan cơ bản: lọc chuẩn, CO2 dồi dào, nền trộn giàu dưỡng, đèn WRGB, quạt... Vậy mà em thất bại liên tiếp 5 bể, bể nào cũng bị: cây xoắn ngọn, xoắn tít, mất màu, teo ngọn, ngọn trắng toát và dị dạng; rêu hại bùng phát. Đèn bật 9h liên tục, CO2 3-4 giọt/giây, mới setup em thay hơn 100% nước hằng ngày trong 2 tuần (vì nghe nói nền trộn rất giàu dưỡng, mà nền mua nên em không biết công thức). Giờ em muốn chuyển qua nền công nghiệp + cốt nền nhưng lăn tăn về tuổi thọ và dinh dưỡng cho bể Hà Lan vốn rất háu ăn. Em nên làm sao?
 
-**Judge:** Y chỉ ra việc rửa trôi vi lượng khớp với triệu chứng ngọn, thêm KH/CO2, giảm đèn, nêu mức phân, cấu trúc nền, tuổi thọ nền và lộ trình theo tuần. X đúng hướng về thay nước nhưng quy về thiếu nitrat, các bước còn chung chung và gần như không có số liệu cho bể Hà Lan. / X connects the symptoms to washed-out micronutrients, adds KH/GH and CO2 checks, and gives target figures, a timeline and a clear substrate plan. It still misses calcium and has a substrate slip. Y blames nitrate, gives few numbers and offers only general steps.
+**Judge:** Both put the problem down to nutrients being washed out by the water changes. Y also covers KH/pH, says to test parameters, gives fertiliser targets and a schedule, explains how the substrate and root layer should be built, and gives a week-by-week plan. X is too thin, gives no doses, and barely answers the question about the substrate. / X gives a fuller plan: it says to test KH/GH, gives target ranges for KH, NO3, PO4 and K, explains how long industrial vs inert substrates last and how to layer cốt nền, and lays out a recovery timeline. Y is right but thin: it just says to dose by the label and barely answers the substrate question. Both miss Ca/GH deficiency as a likely cause.
 
-**Ours lacks:** figures, diagnosis, too-thin. **Plain lacks:** local, diagnosis.
+**Ours lacks:** figures, too-thin, diagnosis. **Plain lacks:** too-long, diagnosis.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 1 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân chính là bể đang thiếu dinh dưỡng và thiếu nitrat, chứ không phải do phần cứng. Bạn thay hơn 100% nước mỗi ngày trong 2 tuần, nên nitrat và phân bị rút gần hết, trong khi đèn 9 giờ và CO2 dày vẫn kéo cây ăn mạnh. Cây thiếu chất thì ngọn xoắn, nhạt màu, còn rêu lợi dụng lúc cây yếu. Cẩm nang nói rõ: bể trồng cây phải đo nitrat thực tế, không chỉ thay nước đều. Phần công thức phân cho bể Hà Lan thì cẩm nang chưa có, nên mình nêu theo kinh nghiệm chung.
-> 1. Ngừng thay nước quá nhiều mỗi ngày, chỉ thay khoảng 20–30% mỗi tuần.
-> 2. Mua bộ test nitrat và phosphat, đo để biết bể đ…
+> Mình nghĩ nguyên nhân chính là bể đang thiếu dinh dưỡng, không phải do nền mua hay bể sai, vì bạn thay trên 100% nước mỗi ngày trong 2 tuần nên đã rửa trôi phần lớn phân, trong khi đèn 9 giờ và CO2 dồi dào làm cây cần nhiều dưỡng hơn. Ngọn xoắn, trắng, dị dạng và rêu bùng phát đúng kiểu cây thiếu dưỡng khi ánh sáng và CO2 vượt khả năng nuôi của nước. Mình chưa đọc được trang chi tiết về cách bón phân bổ sung cho bể Hà Lan, nên phần liều lượng bạn làm theo nhãn sản phẩm.
+> 1. Ngừng thay nước hằng ngày; mỗi tuần chỉ thay khoảng 30-50% nước.
+> 2. Bổ sung phân nước đủ đa lượng và vi lượng (có sắt) th…
 
 **Plain** (3164 characters):
 
@@ -1049,21 +1062,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Thay 100% nước mỗi ngày trong 2 tuần** đã rửa trôi phần lớn dưỡng chất hòa tan và vi lượng (sắt, mangan, kẽm...). Nền trộn giàu dưỡng chỉ bổ sung từ từ, nên sau khi bị rửa trôi, cây đói ngay. Đây là lý do cây non bị xoắn, trắng ngọn, dị dạng.
 > - **Ánh sáng 9h + CO2 3-4 giọt/giây + không bón phân đều** là tổ hợp khiến cây tiêu thụ nhanh, trong khi nguồn cung khô…
 
-### algae-07 · tank · ours wins (6.5 · 3.5)
+### algae-07 · tank · ours wins (6.75 · 3.25)
 
 **Asked:** Bể tôi cứ bị rêu hại bùng phát và cây xoắn ngọn, trắng ngọn, phải làm sao?
 
-**Judge:** X links twisted new leaves to calcium or low hardness, gives a short ordered plan with a check period, and avoids the low-nutrient trap, though it ignores the rich substrate and past water changes. Y is long and generic, even asking whether this is an outdoor pond, blames iron and high nutrients, and adds poor algae-eater and floating-plant suggestions. / Y links twisted new growth to low calcium/hardness, which is likely with soft water and huge water changes, and gives a short ordered plan with a 2–3 week check, though it misses the substrate and water-change history. X is a long generic checklist that blames iron and high nutrients, suggests poor livestock and plants, and even asks if this is a pond.
+**Judge:** X dùng đúng thông số bể của bạn này (đèn 9h, CO₂, việc thay nước) và đưa ra kế hoạch có thứ tự, có số liệu và có mốc theo dõi, dù xem nhẹ vai trò của nền giàu dưỡng và khuyên giảm thay nước quá đột ngột. Y chung chung, dài dòng, có gợi ý sinh vật ăn rêu không hợp bể trồng cây, lại hỏi lại những thông tin đã có. / Y dùng đúng dữ liệu bể của bạn này (đèn 9h, CO₂ 3-4 giọt/giây, thay nước hơn 100% mỗi ngày), đưa ra 5 bước có số liệu dẫn từ cẩm nang và nói rõ cần theo dõi gì trong 1-2 tuần. X thì chung chung, hỏi lại những thông tin app đã có, và có lời khuyên sai như thả ốc táo, cá sọc ngựa để ăn rêu.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, diagnosis, too-long.
+**Ours lacks:** diagnosis, tank-fit. **Plain lacks:** tank-fit, too-long, diagnosis.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình đoán có hai chuyện đang chạy cùng nhau: rêu hại bùng lên thường do đèn bật quá lâu hoặc quá mạnh, cây trồng chưa đủ dày, và chất thải hữu cơ chưa được hút đi. Lá non xoắn quăn thường là dấu hiệu thiếu canxi hoặc nước có độ cứng thấp, còn trắng ngọn thì mình chưa đọc đủ để khẳng định, nên bạn cần kiểm tra thêm.
-> 1. Giảm đèn xuống còn khoảng 6–8 giờ mỗi ngày và tránh để nắng chiếu trực tiếp vào bể.
-> 2. Trồng thêm cây và chọn vài loại mọc nhanh để giành chất dinh dưỡng với rêu.
-> 3. Đo nitrat và photphat; nếu chúng tụt về 0 thì rêu sẽ được nuôi dưỡng, nên bổ sung phân đều hơn.
-> 4. Hút cặn đáy, c…
+> Nguyên nhân có khả năng cao nhất là đèn bật quá lâu (9 giờ liên tục) cùng CO2 khá mạnh, trong khi dinh dưỡng trong nước không theo kịp. Rêu thắng thế và lá ngọn non thiếu dưỡng chất nên bị trắng hoặc xoắn. Mình chưa chắc 100% vì chưa biết nitrate, phosphate và sắt trong bể đang ở mức nào. Cẩm nang nói rõ đèn quá lâu, quá mạnh là thủ phạm hay gặp của rêu hại, còn phần ngọn trắng xoắn thì mình dựa trên kinh nghiệm chung.
+> 1. Giảm đèn còn 6 đến 8 giờ mỗi ngày, cố định giờ bật tắt, rồi tăng dần nếu cây khỏe.
+> 2. Đo nitrate và phosphate; nếu gần bằng 0 thì bổ sung dinh dưỡng đến khoảng N 10 đến 20 p…
 
 **Plain** (2889 characters):
 
@@ -1076,17 +1087,18 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > 
 > ## 2. Giảm ánh sáng và kiểm soát thời gian chiếu s…
 
-### algae-08 · post · ours wins (7.5 · 6)
+### algae-08 · post · ours wins (7.75 · 5)
 
 **Asked:** Em mới chơi, bể đúc 50cm, lúc đầu nuôi 9 mún + 3 bảy màu + 2 sọc ngựa, giờ là 10 bảy màu, 9 sọc ngựa, 5 mún đỏ với 2 cây ráy. Bể không trải nền, chỉ có vài hòn đá; có lọc thác (có lúc chạy cả ngày, có lúc em không bật) và đèn RGB 9W, ban ngày bật trắng khoảng 10 tiếng, tối chuyển đèn màu đến lúc đi ngủ mới tắt. Cho ăn ngày 2 lần. Được hơn 3 tuần thì tảo nâu bám đầy bể, mún với bảy màu ăn hằng ngày cũng không hết, nước đục đục như phân cá rã ra. Tuần thay 50% nước vẫn đục, thành bể có một lớp mờ mờ như rêu tảo bám. Giờ thì thay nước xong được vài ngày là nước lại chuyển xanh đục, tuần nào cũng phải thay gần như hết nước. Lọc thác không ăn thua, em đang tính mua lọc thùng Sunsun 350K thay vào. Do lọc hay do gì, làm sao để nước luôn trong?
 
-**Judge:** X chẩn đoán đúng (thừa đèn, thừa thức ăn, lọc chập chờn), đưa 5 bước theo thứ tự và hoãn mua lọc thùng hợp lý, dù chưa nói đến việc bớt cá khi bảy màu đang sinh sản. Y có thêm vài ý hay như bớt cá, đặt ráy lên đá, cách rửa lọc, nhưng hiểu nhầm bể đúc thành bể xi măng, đếm sai cá, gợi ý cây chưa hợp, lại dài và hỏi lại điều đã biết. / Y directly answers that the filter is not the main cause, then gives a short ordered plan with a 1–2 week checkpoint before buying the canister filter, though it never suggests thinning the breeding fish. X has useful extras such as siphoning, cleaning the filter in old tank water and rehoming fish, but it is scattered, miscounts the fish, misreads the tank as cement and asks for the tank's age after being told it.
+**Judge:** X chẩn đoán đúng (quá tải cá, thức ăn, đèn, lọc tắt bật) và đưa ra kế hoạch gọn, có thứ tự, có mốc theo dõi, lại khuyên chưa vội mua lọc thùng. Y dài dòng, đếm sai số cá, hiểu nhầm 'bể đúc' là bể xi măng và gợi ý cây không hợp bể nhỏ. / I'd rather the hobbyist got Y. It names the cause (too many fish, too much food, light on too long, filter switched on and off) and gives clear steps in order. It also says to fix those before buying the 350K Sunsun canister and what to watch afterwards. X reads "bể đúc" as a cement tank, which is wrong, miscounts the fish, contradicts itself on the main cause and is padded.
 
-**Ours lacks:** tank-fit, follow-up, figures. **Plain lacks:** too-long, plan, wrong, tank-fit.
+**Ours lacks:** figures. **Plain lacks:** too-long, wrong.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình nghĩ nguyên nhân chính là bể đang thừa ánh sáng và thừa dinh dưỡng, chứ chưa phải do lọc. Đèn bật khoảng 10 tiếng trắng cộng thêm đèn màu buổi tối nên tổng thời gian chiếu sáng quá dài, còn cho ăn 2 lần mỗi ngày với đàn cá khá đông (khoảng 26 con trong bể 50cm mới chạy hơn 3 tuần) khiến thức ăn thừa và chất thải tích tụ. Đó là đúng kiểu tảo nâu (tảo cát) và tảo đơn bào xanh bùng lên ở bể mới. Lọc thác chạy lúc được lúc không cũng làm vi sinh lọc không ổn định, nên nước khó trong. Thay 50% mà vài ngày lại đục thì cho thấy nguồn thức ăn và ánh sáng vẫn còn nguyên, nên thay nước chỉ là xử l…
+> Mình nghĩ nguyên nhân chính là bể đang bị quá tải dinh dưỡng: cá quá đông so với bể 50cm, cho ăn hai lần một ngày, đèn bật gần 12 tiếng kể cả đèn màu buổi tối, và lọc lúc tắt lúc bật nên thức ăn thừa và phân cá phân hủy liên tục. Đó là thức ăn cho tảo xanh và vi khuẩn nở ra, nên nước đục xanh lại ngay sau mỗi lần thay. Lớp nâu bám kính là tảo silic, hay gặp ở bể còn mới. Mình khá chắc về hướng này, nhưng chưa biết ammonia và nitrite của bạn, nên đo trước là việc cần làm đầu tiên.
+> 1. Đo ammonia và nitrite ngay hôm nay. Nếu một trong hai trên 0, đừng thay 50% nữa, chỉ thay khoảng 20 đến 30% mỗi…
 
 **Plain** (2806 characters):
 
@@ -1098,21 +1110,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > 
 > **2. Cho ăn quá nhiều.** Thức ăn thừa phân hủy và làm nước đục, làm tăng dinh dưỡng cho tảo. Cho ăn 2 lần/ngày là ổn, nhưng mỗi lần chỉ nên cho lượng cá ăn hế…
 
-### algae-08 · tank · ours wins (7 · 5)
+### algae-08 · tank · ours wins (7.75 · 4.25)
 
 **Asked:** Bể tôi thay nước xong vài ngày lại xanh đục và bám tảo nâu, làm sao giữ nước trong?
 
-**Judge:** X nêu đúng hướng bể non, thừa sáng và dinh dưỡng, rồi cho thứ tự rõ ràng: đo ammonia/nitrite, rút đèn, giảm ăn, che tối, kèm dấu hiệu cần theo dõi, tuy quên khuyên thêm cây. Y có ý thêm cây rất hợp với bể chỉ có 2 cây ráy, nhưng dài, chung chung, có mẹo để lắng nước sai và kết bằng việc hỏi lại. / Y gives a short, ordered plan that checks ammonia and nitrite first, cuts light and food, covers blackout safely, and says what to watch, though it omits adding plants and doesn't read the tank's details. X has useful points on plants and filter care, but it is a long generic list with some weak tips, and its 20–30% water change advice misses that this keeper already changes far more.
+**Judge:** X dùng đúng chi tiết của bể này: đèn trắng 10 tiếng cộng đèn màu buổi tối, thay gần 100% mỗi tuần, cho ăn 2 lần, chỉ có 2 cây ráy. X đưa các bước theo thứ tự rõ ràng, có cả việc cần theo dõi. Y viết chung chung cho bể nào cũng được và dài. Y khuyên ngược với tình trạng thay nước của họ, gợi ý ốc ăn cây, rồi hỏi lại những thông tin đã có sẵn. / Y nói đúng các nguyên nhân có thật trong bể này: đèn bật khoảng 10 giờ cộng thêm đèn màu buổi tối, cho ăn 2 lần mỗi ngày, thay gần 100% nước và chỉ có 2 cây ráy. Y cũng đưa ra các bước theo thứ tự và dặn những dấu hiệu cần theo dõi. X là lời khuyên chung cho bể nào cũng được, có vài ý sai, và cuối bài còn hỏi lại những thông tin mà ứng dụng đã có sẵn.
 
-**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** tank-fit, too-long, plan, follow-up.
+**Ours lacks:** diagnosis, figures. **Plain lacks:** tank-fit, too-long, wrong, plan.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình đoán bể còn non hoặc đang thừa ánh sáng và dinh dưỡng, nên tảo phù du (nước xanh) và tảo cát (màu nâu) dễ nở lại ngay sau khi thay nước. Mình chưa biết chi tiết bể nên đây là nguyên nhân khả dĩ nhất, chưa phải chắc chắn.
-> 1. Đo ammonia và nitrite trước; nếu trên 0 thì xử lý trước, vì tảo chết dễ làm ammonia tăng.
-> 2. Rút đèn còn khoảng 6–8 giờ mỗi ngày và dời bể khỏi chỗ nắng chiếu hoặc nắng hắt từ cửa sổ.
-> 3. Cho ăn ít lại, vớt thức ăn thừa, và tạm ngưng châm phân nước khi nước đang xanh.
-> 4. Nếu nước vẫn xanh đậm, che tối bể tối đa 7 ngày trong lúc lọc và sủi vẫn chạy, hoặc dùng đèn UV; nế…
+> Nước xanh đục lặp lại sau mỗi lần thay thường là tảo phù du nở rộ. Bể của bạn có vài điểm dễ gây ra chuyện này: đèn sáng khoảng 10 giờ ban ngày rồi còn bật đèn màu buổi tối, cho ăn 2 lần mỗi ngày với khoảng 24 con cá, và thay gần 100% nước mỗi tuần làm nước dao động mạnh, trong khi chỉ có 2 cây ráy để tranh dinh dưỡng với tảo. Lớp nâu bám kính nhiều khả năng là tảo silic, hay gặp khi bể nhiều sáng và nước dư silicat. Handbook chưa có trang riêng cho tảo nâu nên phần này mình nói theo kinh nghiệm chung.
+> 1. Cắt đèn xuống khoảng 6–8 giờ mỗi ngày và tắt đèn màu buổi tối.
+> 2. Ngừng thay gần 100% nư…
 
 **Plain** (2142 characters):
 
@@ -1128,21 +1138,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Hút đáy (siphon) mỗi tuần** để loại bỏ thức ăn thừa, phân cá và mùn bã.
 > - **Đừng thay nước …
 
-### algae-09 · post · plain wins (5.75 · 8)
+### algae-09 · post · plain wins (6.5 · 8)
 
 **Asked:** Có cách nào trị rêu xanh nước không ạ? Em được cho cái bể đúc khá to nên phải để ngoài ban công. 2-3 tháng đầu chỉ bị bám rêu lên thành bể, phải cọ rêu thay nước nhưng nước vẫn trong. Giờ không hiểu sao cứ thay nước được khoảng 3 tuần là nước xanh lè, cá chết lăn quay. Bể có sục khí với lọc tuần hoàn thường thôi, không làm thủy sinh, đáy trống.
 
-**Judge:** Y fits a cast tank on a balcony better: it gives partial shade with netting and floating plants, explains the 3-week nutrient cycle, and covers cement pH, overstocking, bottom siphoning and emergency steps, though it is longer and its urgent steps come last. X is concise and mostly sound but generic, as it suggests moving a huge tank, turning off a light, and changing water only after a high test result. / X explains the 3-week cycle and fish deaths, and gives practical steps for a large outdoor tank: 50-70% shade, floating plants, less feeding, siphoning, partial water changes, more aeration and a cement pH check. Y identifies the likely cause but is generic, ignores the cast tank, and suggests moving a large tank and turning off a lamp it does not appear to have.
+**Judge:** Y gives the same correct diagnosis (sunlight plus nutrient buildup, low oxygen at night), but it also fits this hobbyist's case better. It points out that cement in a cast tank can push pH up, gives a shading percentage, and suggests floating plants. It also mentions a backup air pump in case the power cuts out, and gives a rescue step for fish that are still alive. X is correct and concise. But it tells them to move a large cast tank, which is hard to do, and it ignores the cement-pH issue. / X gives the reader more to work with for this tank: shade cloth covering 50–70% plus floating plants like bèo and lục bình, which are cheap and easy to find in Vietnam, weekly siphoning of the bare bottom, warning against changing almost all the water at once, a possible pH problem from a cement tank, stocking density, and a backup air pump for power cuts. Y is correct and neatly ordered with good follow-up, but it is thinner, and it tells them to move a big tank that they said has to stay on the balcony.
 
-**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** too-long.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 1 pages):
 
-> Nhiều khả năng bể bị nước xanh do tảo phù du nở rộ, thường vì bể ngoài ban công dính nắng trực tiếp, cộng với dinh dưỡng tích lại giữa các lần thay nước. Cá chết nhiều khả năng do oxy tụt vào ban đêm khi tảo chết hàng loạt, hoặc do amoniac tăng vọt, nên mình không chắc chắn đến mức nào nếu chưa đo nước. Làm theo các bước sau:
-> 1. Dời bể ra chỗ không có nắng chiếu, hoặc che kín bể bằng vải tối màu hoặc tấm che.
-> 2. Tắt đèn bể và giữ sủi khí với lọc chạy liên tục, kể cả ban đêm.
-> 3. Đo amoniac và nitrit; nếu có số đo cao, thay khoảng 30% nước bằng nước đã khử clo.
-> 4. Thay ít nhất 20% nước mỗi tuần…
+> Nhiều khả năng bể ngoài ban công đang nhận nắng, và nước thay ra không đủ nên nitrat, phosphat cùng chất thải tích lại sau khoảng 3 tuần, tảo nở rộ thành nước xanh. Mình chưa chắc hẳn vì chưa đo được nitrat và phosphat, nên bạn đo thử để xác nhận. Cá chết nhiều khả năng do ban đêm tảo dùng hết oxy, hoặc khi tảo tàn đi làm oxy tụt và amoniac tăng.
+> Các bước nên làm:
+> 1. Dời bể khỏi chỗ nắng chiếu trực tiếp, hoặc che bớt bằng tấm lưới đen hoặc tấm che.
+> 2. Cho ăn ít lại, chỉ cho lượng cá ăn hết trong vài phút.
+> 3. Thay 20–30% nước ngay, rồi duy trì thay ít nhất 20% mỗi tuần để kéo nitrat và phospha…
 
 **Plain** (2214 characters):
 
@@ -1153,19 +1163,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Amoniac/nitrit tăng**: do phân và thức ăn thừa phân hủy, nhất là khi lọc sinh học yếu.
 > - **pH dao động mạnh**: ban ngày pH lên cao vì tảo quang hợp, và bể đúc mới thường có pH cao do…
 
-### algae-09 · tank · ours wins (7.75 · 4.5)
+### algae-09 · tank · ours wins (7.5 · 4.5)
 
 **Asked:** Bể tôi cứ khoảng ba tuần sau khi thay nước lại xanh lè và cá chết, trị sao?
 
-**Judge:** X names the real cause (phytoplankton bloom from balcony sun with no plants, then a crash that drops oxygen and spikes ammonia) and gives ordered steps fitted to the tank. Y offers a generic checklist centred on a doubtful nitrogen-cycle theory, ignores the outdoor sun, and ends by asking for details. / Y nhận ra đúng nắng ban công, bể không cây là gốc của tảo phù du và giải thích cá chết do tảo tàn gây tụt oxy, tăng amoniac, kèm các bước khớp với bể. X chẩn đoán lệch sang chu trình nitơ, liệt kê chung chung, không dùng được thông tin bể ban công và còn gợi ý cá, ốc ăn tảo vô ích với nước xanh.
+**Judge:** X nêu đúng nguyên nhân: bể ngoài ban công bị nắng trực tiếp và không có cây nên tảo phù du nở lại. X cũng cho các bước theo thứ tự và dấu hiệu cần theo dõi. Y viết chung chung, đoán sai nguyên nhân là lỗi chu trình nitơ, gợi ý con vật ăn tảo không hợp với nước xanh, và hỏi lại những thông tin mà app đã có. / Y uses the hobbyist's own setup: balcony sun, no plants, bare bottom. It names the real cause, phytoplankton blooms driven by sunlight, and links the fish deaths to oxygen crashes at night, then gives clear steps in order with things to watch. X is generic: it blames the filter and nitrogen cycle, treats sun only as a maybe ('gần cửa sổ'), and ends by asking for details the app already has.
 
-**Ours lacks:** figures. **Plain lacks:** tank-fit, diagnosis, too-long.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** diagnosis, tank-fit, too-long.
 
-**Ours** (read 1 pages):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân chính là tảo phù du nở rộ. Bể bạn đặt ngoài ban công dưới nắng tự nhiên, không có cây, không có CO₂, đáy trống nên không có gì tranh dinh dưỡng với tảo. Mỗi lần thay nước lại đưa thêm chất dinh dưỡng vào, nên khoảng ba tuần tảo lại nở. Tảo không trực tiếp giết cá, nhưng khi nó tàn hàng loạt, vi khuẩn phân hủy xác tảo làm oxy ban đêm tụt xuống, còn amoniac có thể tăng vọt. Cá chết nhiều khả năng là do hai việc này, nên cần xử lý cả hai.
-> 1. Dời bể ra khỏi chỗ nắng chiếu trực tiếp, hoặc che bớt nắng; nếu có đèn thì chỉ bật 6–8 giờ mỗi ngày.
-> 2. Cho cá ăn ít lại, vớt ngay xác…
+> Nước xanh lặp lại sau khoảng ba tuần thường là do tảo phù du nở lại vì bể nhận quá nhiều ánh sáng và chưa có cây để tranh dinh dưỡng. Bể của bạn đặt ngoài ban công dưới nắng tự nhiên, không có CO₂, không có cây và đáy trống, nên thay nước xong nước vẫn có chất dinh dưỡng để tảo sinh lại. Cá chết nhiều khả năng do tảo nở dày làm thiếu oxy ban đêm, hoặc amoniac tăng khi tảo tàn. Mình chưa thấy cá nào trong bể đã lưu của bạn, nên bạn xem lại giúp mình có đang nuôi con nào không.
+> 1. Dời bể ra khỏi nắng trực tiếp hoặc che kín bể để cắt ánh sáng ngay hôm nay.
+> 2. Đo oxy và amoniac bằng bộ test; nếu …
 
 **Plain** (2324 characters):
 
@@ -1175,20 +1185,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Test nước** (amoniac NH3/NH4⁺, nitrit NO2⁻, nitrat NO3⁻, pH, nhiệt độ). Nếu amoniac hoặc nitrit > 0, đây là nguyên nhân chính làm cá chết.
 > - **Thay 30–50% nước** bằng nước đã khử clo, nhiệt độ gần bằng nước b…
 
-### algae-10 · post · plain wins (6 · 6.75)
+### algae-10 · post · ours wins (7 · 5)
 
 **Asked:** Có cách nào cứu bể em không: rêu hại dạng sợi màu nâu nhỏ nhỏ bám trên lá cây, sau đó bụi nền dính đầy vào. Thả nhiều tép thì sạch ngay, nhưng bể em nuôi nhiều thần tiên, thả tép vào thì tép bị ăn hết trước cả rêu.
 
-**Judge:** Y gives the fuller fix: it cleans the leaves, siphons the dirt, sets water-change, light and feeding routines, and offers more shrimp alternatives including bristlenose, despite some wrong fish and plant names. X is cleaner and more honest, with a useful wipe test, but it leans on a new-tank diatom assumption, barely deals with the dirt on the leaves, and gives little routine beyond otto and nerite. / Y gives a clearer diagnosis and picks the two safest shrimp substitutes, but it assumes a new tank and offers little on leaf cleaning, siphoning mulm or feeding. X has naming errors and some padding, yet its fuller plan on cleaning, water changes, light, feeding and algae eaters would help an established angelfish tank more.
+**Judge:** X gives a clearer diagnosis (brown diatoms with slime trapping the substrate dust, common in new tanks or silica-rich water) and offers fitting substitutes for the shrimp: nerite snails and otos. Y is longer and gets several Vietnamese names wrong (ốc táo, cá chét đuôi đỏ, rêu hornwort), and it never points out that the algae is likely diatoms. / Y nói ra nguyên nhân hợp lý (tảo silic/nhớt giữ bụi nền), đưa các bước gọn theo thứ tự, có mốc theo dõi 2–3 tuần và gợi ý cá dọn rêu an toàn khi nuôi chung với thần tiên. Tuy vậy, Y nhắc "handbook" và "công cụ tank-mates" khá gượng với người đọc. X dài hơn nhưng nhầm nhiều tên loài (gọi ốc táo là nerite, tên cá bút chì, cá lau kính), dễ làm người chơi ở VN mua nhầm con.
 
-**Ours lacks:** plan, figures, tank-fit. **Plain lacks:** diagnosis, too-long, tank-fit.
+**Ours lacks:** follow-up, local, figures. **Plain lacks:** diagnosis, too-long, local, wrong.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Nhiều khả năng đây là tảo nâu (tảo silic), loại hay gặp ở bể còn mới, vì nó bám lá rồi bụi nền dính vào. Bạn lau thử: nếu lớp nâu trôi nhẹ như bùn là đúng loại này. Sợi nâu li ti mà không trôi thì có thể là loại rêu khác, nên xem lại bảng nhận biết rêu trong cẩm nang.
-> 1. Chà kính, đá và lũa bằng mút hoặc bàn chải đánh răng trong buổi thay nước, và cắt bỏ lá quá rối.
-> 2. Nếu bể mới set khoảng 3–4 tuần, đừng thay đổi lung tung; rêu nâu thường tự hết sau vài tuần.
-> 3. Thả cá otto, loài cẩm nang ghi là ăn tảo nâu và rêu mềm; cá này hiền và thường sống được với thần tiên, bạn nên kiểm tra lại trước …
+> Bể bạn có khả năng là tảo nâu (tảo silic) hoặc rêu sợi nâu, và bụi nền bám vào là do lớp rêu nhớt giữ bụi lại. Nguyên nhân hay gặp là bể còn mới, nước nhiều silica, hoặc đèn bật quá lâu so với lượng phân. Mình chưa biết chắc loại nào vì chưa thấy bể; bạn cho biết bể chạy được bao lâu và đèn bật mấy giờ mỗi ngày để mình khoanh hơn.
+> 1. Giảm đèn xuống còn khoảng 6 đến 8 tiếng mỗi ngày, vì handbook nói rêu sợi mới chớm nên giảm giờ bật đèn ngay.
+> 2. Dùng bàn chải đánh răng cuốn rêu ra khỏi lá, cắt bỏ lá già phủ rêu nặng, rồi hút bụi nền.
+> 3. Thay khoảng 20 đến 30% nước mỗi tuần, sau đó cân lại phân…
 
 **Plain** (2133 characters):
 
@@ -1203,19 +1213,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > **2. Điều chỉnh nguyên nhân**
 > - **Ánh sáng:** giảm còn 6-8 giờ/…
 
-### algae-10 · tank · tie or split (6 · 5.5)
+### algae-10 · tank · plain wins (4 · 6.25)
 
 **Asked:** Lá cây trong bể tôi bị rêu sợi nâu bám, mà thả tép thì bị cá ăn mất, xử lý sao?
 
-**Judge:** X recognises the angelfish, rules out shrimp, and gives a short ordered plan with a replacement algae eater and a follow-up window, though it leans on diatoms despite the \"sợi\" and ignores the angel-eats-otto risk. Y handles filament removal and offers useful nerites, but it is generic, ignores the angelfish, asks what fish they keep, and pads with a long list of options. / Y biết bể có ông tiên và dứt khoát bỏ tép, nhưng chẩn đoán nghiêng về tảo silic, chỉ dựa vào otto và không có cách xử lý nếu đúng là rêu sợi. X chung chung và không biết cá của họ, song có gỡ rêu tay, giảm đèn 6–8 tiếng, thay nước và ốc Nerite, nên giải quyết được vấn đề hơn.
+**Judge:** Y đưa ra cách thay thế thực tế (ốc nerite, otto, SAE) và có cách giảm nguyên nhân gây rêu (giờ đèn, thay nước), dù nói chung chung và không nhắc tới cá thần tiên. X khăng khăng thả tép lại kèm mẹo sai (chờ 5–7 ngày, thuần 10 phút), trong khi tép vẫn sẽ bị thần tiên ăn. / X is the better answer. It offers algae eaters that can live with angelfish (Nerite snails, otto, bristlenose pleco) and covers light and feeding properly. Y keeps trying to make shrimp work in an angelfish tank, and its night-release tip doesn't actually work.
 
-**Ours lacks:** diagnosis, plan, figures. **Plain lacks:** tank-fit, too-long, figures.
+**Ours lacks:** tank-fit, wrong, figures. **Plain lacks:** tank-fit, diagnosis, too-long, follow-up.
 
-**Ours** (read 1 pages, stopped at the calls limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình đoán đây là rêu nâu (tảo silic), thường gặp khi bể còn mới, khoảng tuần thứ ba đến thứ tư sau khi set bể, hoặc khi nước máy hay cát trang trí có nhiều silicate. Mình chưa chắc 100% vì bạn ghi là rêu sợi, nên nếu sợi dài, bám chắc và không chà ra thì có thể là loại khác. Với bể của bạn, đang có một con ông tiên, nên tép thả vào sẽ bị ăn, bạn không nên thả tép nữa.
-> 1. Dùng mút hoặc bàn chải đánh răng chà kính và đá trong lần vệ sinh tới, rêu nâu không bám chắc nên chà ra dễ.
-> 2. Với lá cây, chà từng lá rất mất công, nên thả cá otto (Otocinclus) để dọn rêu trên lá, loài này hiền và không đụn…
+> Rêu sợi nâu bám lá thường là rêu nâu silic nếu bể còn mới (khoảng 3–4 tuần đầu), còn nếu bể đã chạy lâu thì nhiều khả năng là rêu tóc do thiếu CO2. Hai loại nhìn giống nhau nên bạn xem bể mới hay cũ trước. Tép bị cá ăn vì tép nhát, ban ngày hay trốn và bò ra lộ diện, nên cần tạo chỗ ẩn và chọn thời điểm thả hợp lý.
+> 1. Chà rêu bằng mút hoặc bàn chải đánh răng khi thay nước; lá mỏng thì chà nhẹ, lá nặng rêu thì cắt bỏ.
+> 2. Chờ bể chạy khoảng 5–7 ngày rồi mới thả tép, ngâm bịch tép trong bể khoảng 10 phút trước khi thả.
+> 3. Thả tép vào lúc đèn tắt hoặc tối, vì tép thường ra ăn rêu ban đêm khi cá đ…
 
 **Plain** (2088 characters):
 
@@ -1228,21 +1239,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > 
 > **2. Giả…
 
-### algae-11 · post · tie or split (6.75 · 6.5)
+### algae-11 · post · plain wins (6 · 7)
 
 **Asked:** Nhà mình dùng nước máy làm nước bể cá. Trước ở chỗ khác, thả cá vào mấy tháng mới phải thay nước một lần. Giờ chuyển về chỗ mới, để bể không có cá (chỉ 1 con cá dọn bể) thì không sao, nhưng cứ thả cá vào chưa đến một tuần là nước chuyển sang màu xanh lá cây, xanh đậm dần rồi cá chết. Bể không, không có cây cỏ gì cả. Trước có bỏ mấy gói tăng oxy gì đó, giờ không cho cũng vẫn vậy. Bắt bệnh giúp mình với.
 
-**Judge:** Y explains the hobbyist's actual puzzle better: why one cleaner fish was fine, how the old and new sites differ, what the oxygen packets do, and to test nitrate in the tap water. Its chloramine advice is shaky and it runs long. X is cleaner and safe with a tidy plan, but its generic new-tank diagnosis barely uses those details. / Both name the same likely causes: an uncycled tank, a green-water bloom and low oxygen at night. X ties this better to the cleaner fish and the move, but it is long, scattered and has a chloramine misstep. Y gives a short, ordered plan with what to monitor and when to act urgently, plus useful guide excerpts, though it is less tailored.
+**Judge:** Both answers name an uncycled filter plus an algae bloom as the cause. Y fits this tank better: it explains why the tank was fine with only the cleaner fish, and it points out that green water drains oxygen at night, so it adds aeration and plants. Those are the real fixes for fish dying in green water. X misses the oxygen risk. Y is long and gives one weak product example. / X gives two causes: the bacteria in the filter were lost in the move and need to rebuild (cycle), and green water drains oxygen at night, which kills fish fast. X explains why the tank was fine with only one cleaner fish, and it adds aeration, feeding less and adding plants. Y is shorter and correct but never mentions the night oxygen drop or aeration, and it uses less of what the hobbyist told us.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** too-long, local, follow-up.
+**Ours lacks:** tank-fit, follow-up, diagnosis. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 4 pages, stopped at the tools limit):
 
-> Nhiều khả năng bể mới chưa chạy xong chu trình nitơ, nên khi thả cá vào, amoniac và nitrit tăng lên và làm cá chết. Nước xanh là tảo phù du nở do bể mới có nhiều ánh sáng và chất dinh dưỡng dư, và tảo nở dày còn làm cạn oxy ban đêm. Mình chưa đo được nước nên đây là suy đoán từ những gì bạn kể.
-> 1. Dùng bộ test nhỏ đo amoniac và nitrit; nếu cao, thay khoảng 30–50% nước bằng nước đã khử clo.
-> 2. Khử clo cho nước máy trước khi đổ vào bể, làm theo hướng dẫn trên nhãn thuốc khử clo.
-> 3. Bật đèn không quá 6–8 giờ mỗi ngày, dời bể khỏi chỗ nắng chiếu, và cho ăn ít lại.
-> 4. Thêm vi khuẩn nitrat hóa hoặc…
+> Nhiều khả năng bể mới chưa có vi sinh lọc đủ, nên khi thả cá vào thì amoniac tăng vọt. Amoniac và chất thải dư làm tảo phù du nở rộ thành nước xanh, và cá chết vì độc. Chuyển bể sang chỗ mới cũng dễ làm mất lớp vi khuẩn cũ trong lọc. Nước máy chỗ mới cũng có thể chứa cloramin, khác với chỗ cũ. Mình chưa đo được thông số nào nên chưa chắc chắn, bạn cần đo để xác định.
+> 1. Mua bộ test amoniac, nitrit và nitrat, rồi đo nước bể hiện tại.
+> 2. Nếu amoniac hoặc nitrit lớn hơn 0, ngừng cho ăn và thay khoảng 30–50% nước bằng nước đã khử clo.
+> 3. Mỗi lần thay nước, dùng chất khử clo ghi rõ xử lý được cả c…
 
 **Plain** (3129 characters):
 
@@ -1255,20 +1265,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - Khi chuyển đi, vi khuẩn có thể bị giảm mạnh (rửa vật liệu lọc bằng nước máy có clo, thời gian gián đoạn, hoặc bể mới setup lại).
 > - Khi thả cá, chất thải làm amoniac tăng. Bể chưa đủ vi khuẩn để chuyển hóa nên amoniac và nitrit t…
 
-### algae-11 · tank · ours wins (7 · 6)
+### algae-11 · tank · ours wins (7.5 · 6)
 
 **Asked:** Bể tôi cứ thả cá vào là chưa tới một tuần nước xanh lè rồi cá chết, vì sao?
 
-**Judge:** X names the likely cause directly, correctly separates green water from what actually kills the fish, and gives a short ordered rescue plan with daily monitoring and warning signs. Y is sound and usefully mentions chlorine, adding plants and how to cycle, but it is more generic and textbook-like, has no what-to-watch step, and neither answer really uses the tank's details such as the oxygen packets or long gaps between water changes. / Y names the uncycled tank as the killer, correctly says green water alone doesn't kill, and gives ordered rescue steps with daily checks and gasping signs, though it barely explains how to cycle. X covers cycling, dechlorination and adding plants, which suits this bare tap-water tank by chance, but it is more scattered and has no what-to-watch; neither uses the old oxygen packets or the habit of rarely changing water.
+**Judge:** Hai câu trả lời đều chẩn đoán đúng là bể chưa cycle và tảo nở theo amoniac dư. X dùng đúng thông tin của bể này (một con cá dọn bể, bể không cây, mấy tháng không thay nước) và đưa ra các bước gọn, có thứ tự. Y viết chung chung và dài, lại hỏi lại những điều ứng dụng đã có sẵn như nước máy. / Y reads the hobbyist's tank details (one cá dọn bể, no plants, months without a water change) to pin the cause on a tank that never cycled or lost its bacteria. It then gives short steps in order with what to watch for. X is correct but generic, runs longer than it needs to, and asks for details the app already holds, like the tap water. Neither answer brings up the oxygen packs they used before.
 
-**Ours lacks:** tank-fit, plan. **Plain lacks:** follow-up, tank-fit, too-long.
+**Ours lacks:** figures, tank-fit. **Plain lacks:** tank-fit, too-long, follow-up.
 
-**Ours** (read 3 pages, stopped at the calls limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân chính là bể mới chưa chạy xong chu trình nitơ: thả cá khi vi sinh chưa đủ nên amoniac (và nitrit) tăng vọt, cá chết vì độc. Nước xanh trong vòng một tuần thường là tảo phù du nở rộ khi bể mới có nhiều chất dinh dưỡng và đèn sáng; nước xanh tự nó chưa giết cá, nhưng ban đêm tảo lấy oxy nên có thể làm cá thiếu oxy thêm. Mình chưa biết bạn đo được gì, nên hãy làm theo các bước sau:
-> 1. Đo amoniac và nitrit ngay hôm nay bằng bộ test; nếu có số trên 0 thì đó là thủ phạm chính.
-> 2. Ngừng cho ăn, tắt đèn hoặc chỉ bật 6–8 giờ mỗi ngày, dời bể khỏi chỗ nắng chiếu.
-> 3. Thay khoảng 30…
+> Mình đoán nguyên nhân chính là bể chưa đủ vi sinh để xử lý chất thải của cá. Khi thả cá vào, amoniac tăng vọt và cá chết, còn nước xanh là tảo phù du nở theo chất dinh dưỡng đó. Bể của bạn chỉ có một con cá tỳ bà, không có cây, và từng để nhiều tháng không thay nước, nên khả năng cao là bể chưa cycle hoặc vi sinh đã mất. Mình chưa chắc, cần đo amoniac và nitrit để xác nhận.
+> 1. Ngừng cho ăn và đo amoniac, nitrit nếu bạn có bộ test.
+> 2. Thay khoảng 30 đến 50% nước bằng nước đã khử clo, không thay hết một lần.
+> 3. Giữ lọc và sủi chạy liên tục để đủ oxy, nhất là ban đêm.
+> 4. Chưa thả thêm cá; đợi bể…
 
 **Plain** (2070 characters):
 
@@ -1281,20 +1292,22 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > 
 > **2. Tảo đơn bào nở hoa (nước xan…
 
-### setup-01 · post · plain wins (5 · 7.75)
+### setup-01 · post · plain wins (5.5 · 7.25)
 
 **Asked:** Vợ em vừa bắt em đầu tư một bể thủy sinh, em đặt mua trọn bộ: bể dài 1m + chân gỗ + sục + lọc + đèn (2 bóng LED) + sưởi. Em ở Hà Nội, trời đang lạnh. Em mù mờ khoản này nên hỏi: 1) Bên setup bảo bật đèn liên tục 3 ngày đầu rồi khoảng 8h/ngày, nhưng em đọc trên mạng thì tuần đầu chỉ bật 50% công suất rồi tăng dần lên 100%, 8h/ngày để tránh rêu và cho cây thích nghi. Cách nào đúng? 2) Cho cá ăn tần suất thế nào? 3) Sưởi có nên bật 24/24 không? 4) Có nên mua thêm bình CO2 không, vì em thấy phải có cái này cây mới đủ chất? 5) Lọc họ trang bị chỉ qua sợi bông đơn giản, em đọc thấy phải lọc qua sứ, mà lọc ngoài thì không có chỗ đặt vì bể dùng chân gỗ, không có tủ. Lọc như của em có ổn không? 6) Nên thay nước mấy ngày một lần, lúc mới setup và lúc đã ổn định?
 
-**Judge:** Y trả lời đủ cả sáu câu, nói rõ nên cắm sưởi 24/24, đưa phương án lọc treo hoặc lọc bọt biển cho bể không có tủ và có lịch thay nước khi bể đã ổn định, dù khuyên thay ít nước lúc đầu chưa ổn. X có lịch tuần đầu gọn và hợp bể thủy sinh, nhưng sai ý về sưởi, bỏ sót lịch thay nước khi ổn định, câu lọc còn lấp lửng và không giải quyết chuyện không có chỗ đặt lọc. / X trả lời đủ cả 6 câu, có số giờ đèn, nhiệt độ, lịch thay nước, cách xử lý lọc khi không có tủ và khuyên test nước trước khi thả cá. Y bác rõ việc bật đèn 3 ngày và có kế hoạch ngắn gọn, nhưng khuyên sai về sưởi, bỏ sót lịch thay nước khi bể đã ổn định, trả lời lọc và CO2 sơ sài, lại hay viện dẫn \"cẩm nang\".
+**Judge:** Y trả lời đủ cả 6 câu, rõ ràng, có số liệu và nhắc đúng chuyện trời lạnh ở Hà Nội, nước máy có clo, lọc treo hoặc lọc bọt biển cho bể đặt trên chân gỗ. X thì vội, đáp ít về sưởi, CO2 và lọc, lại có câu về sưởi dễ hiểu nhầm thành nên rút điện. / X trả lời đủ cả 6 câu và giải thích rõ chu trình nitơ, bộ test, cách chọn lọc thay khi không có tủ, nên rất hợp với người mới. Lỗi của X là khuyên ít thay nước tuần đầu. Y sát cách chơi thủy sinh ở Việt Nam hơn (thay 50% mỗi ngày, bỏ thêm sứ vào lọc), nhưng sơ sài hơn và câu về sưởi dễ gây hiểu nhầm.
 
-**Ours lacks:** tank-fit, figures, too-thin. **Plain lacks:** too-long.
+**Ours lacks:** plan, tank-fit, follow-up, too-thin, diagnosis. **Plain lacks:** too-long, local.
 
 **Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình nói thẳng: bên setup bảo bật liên tục 3 ngày rồi 8 tiếng không đúng với cẩm nang, và dễ sinh rêu hơn. Cẩm nang khuyên bật 6 tiếng mỗi ngày với giờ cố định, rồi tăng lên 8 tiếng liền một mạch khi cây ra lá mới. Cách giảm 50% công suất tuần đầu là cách của một số người, cẩm nang không nêu; nếu đèn chỉnh được mức thì bạn cứ làm, nhưng quan trọng nhất là giờ bật đều mỗi ngày.
-> 1. Cài hẹn giờ đèn 6 tiếng mỗi ngày, bật cố định, không bật liên tục.
-> 2. Khi cây ra lá mới (thường vài ngày đến 10 ngày), tăng lên 8 tiếng liền một mạch.
-> 3. Trong 10 ngày đầu, thay 30–50% nước mỗi ngày hoặc cách ngày, v…
+> Cách đúng là cách trong cẩm nang: tuần đầu không chiếu đèn mạnh. Bên setup đang bật đèn quá sớm và quá lâu, nên bạn nên hỏi lại họ và chỉnh lại lịch đèn.
+> 1. Tuần đầu hạ đèn xuống khoảng 50% và chỉ bật khoảng 5 tiếng mỗi ngày.
+> 2. Sang tuần thứ hai và thứ ba, tăng dần lên khoảng 70% rồi 80%, giờ chiếu lên 7 rồi 8 tiếng.
+> 3. Tuần đầu thay khoảng 50% nước mỗi ngày, tắt lọc khi thay. Chờ khoảng 7 đến 10 ngày sau khi set rồi mới thả cá.
+> 4. Cho cá ăn một lần mỗi ngày, lượng vừa ăn hết trong vài phút. Nếu cá bụng căng hoặc thải nhiều phân thì giảm bớt.
+> 5. Sưởi nên đặt bằng núm chỉnh nhiệt (khoảng 24 đ…
 
 **Plain** (3730 characters):
 
@@ -1311,20 +1324,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > 
 > Nên dùng ổ hẹn giờ cắm điện để bật/tắt đúng giờ, cây và cá sẽ c…
 
-### setup-01 · tank · tie or split (6.25 · 5.75)
+### setup-01 · tank · plain wins (4.5 · 6)
 
 **Asked:** Bể mới mua của tôi nên bật đèn, sưởi, thay nước thế nào và có cần mua thêm CO2 không?
 
-**Judge:** X gọn, có thứ tự và trả lời thẳng là chưa cần mua CO2, nhưng phần sưởi và thay nước còn mỏng, lại thiếu thời gian cycling. Y dài và chung chung, song đủ hơn cho bể mới mùa lạnh: 3–6 tuần cycling, 1W/lít và tăng thêm nếu phòng lạnh, chỉ cắm sưởi khi đã ngập nước, nước thay gần bằng nhiệt độ bể, cùng các lựa chọn CO2; cả hai đều không dùng chi tiết bể 1m ở Hà Nội. / Y trả lời ngắn gọn, theo thứ tự, kết luận rõ chưa cần mua CO2, có giờ đèn, nhiệt độ, % thay nước và mốc kiểm tra, lại nói thẳng phần nào chỉ là kinh nghiệm chung; X đúng phần lớn nhưng là hướng dẫn chung dài dòng, CO2 chỉ nói tùy kiểu bể. Cả hai đều không dùng chi tiết bể 1m, Hà Nội mùa lạnh, lọc bông và 2 bóng LED, cũng không trả lời trực tiếp băn khoăn bật đèn 3 ngày liền hay tăng dần.
+**Judge:** Neither answer uses the tank's details: the 1 m tank, the sponge filter, the Hanoi winter, or the question of running the lights for 3 days straight versus starting at 50%. Y is better because it covers cycling, heater wattage with extra power for a cold room, heater safety, rinsing filter media, and CO₂ options including liquid carbon. X is thin, includes a made-up pearling time, and attaches a canister-filter excerpt that doesn't apply to this tank. / Cả hai câu trả lời đều chung chung, không dùng đến chi tiết bể 1m ở Hà Nội đang mùa lạnh, và không trả lời câu bật đèn 3 ngày liền hay 50% rồi tăng dần. X đầy đủ hơn vì có công suất sưởi (khoảng 1W/lít, phòng lạnh thì tăng thêm), lưu ý chỉ cắm sưởi khi đã ngập nước, và gợi ý carbon lỏng thay cho CO2. Y gọn và có thứ tự rõ hơn, nhưng có con số sủi bọt kiểu bịa và kèm đoạn trích về thiết bị CO2, lọc thùng không hợp với bể của người hỏi.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, follow-up, local.
+**Ours lacks:** tank-fit, figures, too-thin. **Plain lacks:** tank-fit, too-long.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 4 pages, stopped at the tools limit):
 
-> Với bể mới, mình sẽ làm theo thứ tự: chạy nước và chu trình trước, rồi mới tính đến đèn chi tiết và CO2. Phần cẩm nang mình đọc được nói rõ về chu trình nitơ, CO2 và thời gian chiếu sáng, còn phần sưởi và thay nước thì mình chưa đọc được trang nào nên phần đó là kinh nghiệm chung.
-> 1. Lắp bể, đổ nước đã khử clo, lắp lọc và sưởi, rồi để chạy vài ngày trước khi thả bất cứ con cá nào.
-> 2. Sưởi: cài nhiệt theo loài cá bạn định nuôi, thường khoảng 24–26°C với cá nhiệt đới, và đo bằng nhiệt kế để chắc chắn.
-> 3. Đèn: bắt đầu khoảng 6–8 giờ mỗi ngày, rồi tăng dần lên 8–10 giờ khi cây đã lên; cẩm nang kh…
+> Bể mới thường cần chạy ổn định trước khi thả cá, và đèn, sưởi, thay nước, CO2 đều nên làm theo thứ tự. Handbook khuyên bật đèn khoảng 6 đến 8 tiếng mỗi ngày, giữ cố định một khung giờ; CO2 không bắt buộc, chỉ cần khi bạn muốn bể trồng cây công nghệ cao với đèn mạnh. Phần sưởi, chu trình nitơ và tỉ lệ thay nước mình đưa theo kinh nghiệm chung vì các trang đó chưa đủ chi tiết.
+> 1. Lắp lọc và sưởi, chạy máy với nước thật vài ngày, đặt nhiệt độ theo loài cá bạn định nuôi (cá nhiệt đới thường khoảng 24 đến 26 độ).
+> 2. Bật đèn theo timer cố định 6 đến 8 tiếng mỗi ngày, chưa cần bật cả ngày để tránh t…
 
 **Plain** (2787 characters):
 
@@ -1339,21 +1351,18 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - Quá trình thường kéo dài 3–6 tuần. Khi amoniac và nitrit đều về 0 và có nitrat, bể đã sẵn sàng.
 > - Trong thời gian này, **k…
 
-### setup-02 · post · plain wins (4.5 · 6.5)
+### setup-02 · post · plain wins (3 · 6.5)
 
 **Asked:** Mình đang gom đồ để set hồ 60x40x40 chơi rêu taiwan, trân châu ngọc trai, la hán và ráy, bố cục bonsai. Phân nền dùng Gex xanh. Tư vấn giúp mình nên mua đèn và lọc loại nào?
 
-**Judge:** Y directly answers what to buy, with wattage, flow, Kelvin and named models for this 96 L tank, despite an oversized Sunsun pick and some shaky brand claims. X is cleaner and safer, but it names no products, gives no filter flow figure, and skips trân châu and la hán, leaving the buying question largely unanswered. / X trả lời đúng câu hỏi mua gì, có công suất, lưu lượng và tên hãng dù vài gợi ý sai về giá hoặc lưu lượng. Y gọn và thận trọng hơn nhưng không nêu sản phẩm nào, phần lọc rất chung chung và bỏ ngỏ trân châu, la hán, nên khó dùng để đi mua đồ.
+**Judge:** Y hiểu đúng đây là bể trồng cây. Y đưa thông số đèn và lọc hợp với bể 96 lít, gợi ý các dòng đèn, lọc có bán ở Việt Nam và có tính tới nền Gex, dù nói sai giá Twinstar. X hiểu nhầm tên cây thành tên cá và chỉ khuyên chung chung, gần như không giúp người hỏi chọn được đồ để mua. / X đưa ra thông số và tên đèn, lọc cụ thể, bán ở Việt Nam, đúng hồ cây 96 lít, chỉ sai vài chi tiết về sản phẩm. Y hiểu nhầm la hán và trân châu ngọc trai là cá, lại hầu như không gợi ý thiết bị nào cụ thể.
 
-**Ours lacks:** too-thin, tank-fit, figures, local. **Plain lacks:** follow-up, too-long.
+**Ours lacks:** wrong, tank-fit, figures. **Plain lacks:** follow-up, too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 0 pages, stopped at the tools limit):
 
-> Với bố cục bonsai, rêu Taiwan và ráy đều là cây ánh sáng yếu, nên bạn không cần đèn quá mạnh. Cẩm nang khuyên dùng đèn LED, bật khoảng 8 tiếng mỗi ngày và không quá 10 tiếng. Phần lọc cẩm nang chưa trả lời cụ thể, nên mình nói theo kinh nghiệm chung.
-> 1. Chọn đèn LED có tổng lumen khoảng 3.800, vì bể 60x40x40 khoảng 96 lít nhân 40 ra con số này; ưu tiên loại RGB.
-> 2. Đặt bật tắt đèn bằng timer, mỗi ngày khoảng 8 tiếng.
-> 3. Chọn lọc thùng hoặc lọc treo sau có lưu lượng vừa phải, có núm chỉnh dòng để rêu Taiwan không bị thổi bật khỏi lũa hay đá.
-> 4. Buộc rêu Taiwan và ráy lên lũa hoặc đá, không chô…
+> Mình chưa mở được nội dung chi tiết của các cẩm nang đèn và lọc, nên phần chọn thiết bị dưới đây mình nói theo kinh nghiệm chung cho bể cây thấp sáng. Trước khi mua, bạn nên xem lại hai điều: La Hán (Flowerhorn) lớn khá nhanh, có thể tới 30 cm trở lên, và thường nhổ hoặc ăn cây, nên khó hợp với bể 60x40x40 bố cục bonsai có rêu Taiwan và ráy. Còn trân châu ngọc trai là cá nào thì bạn cho mình biết tên khoa học hoặc ảnh, vì có loài nhỏ hợp bể trồng cây và có loài lớn hơn.
+> Về đèn: rêu Taiwan và ráy đều chịu sáng vừa phải, nên bạn chọn đèn LED dải hoặc đèn thanh chuyên thủy sinh, ánh sáng trắng k…
 
 **Plain** (2038 characters):
 
@@ -1371,17 +1380,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Twinstar** hoặc **Ista** nếu muốn giá mềm hơn
 > - **Nicrew…
 
-### setup-02 · tank · tie or split (5.25 · 5)
+### setup-02 · tank · ours wins (7 · 4)
 
 **Asked:** Bể tôi sắp set nên mua đèn và lọc loại nào?
 
-**Judge:** Cả hai đều không dùng thông tin bể và đều hỏi lại, nhưng Y cho khung chọn lọc theo số lít, kèm hãng, lưu lượng, giờ đèn và thời gian chạy vi sinh, nên người chơi có thể đi mua ngay dù gợi ý lọc treo cho 96 lít chưa tối ưu. X có định hướng lọc đúng hơn (ưu tiên vật liệu) và cách tính đèn, số máng hữu ích, nhưng không chốt được nên mua loại lọc nào. / Both ignore the tank's details and ask for its size, but Y's light formula, tray-width check, white-LED advice for green plants and emphasis on filter media lead this 96 L tank to a better setup. X is tidier and adds a timer and cycling time, but its size bands steer this tank to a hang-on-back filter.
+**Judge:** X is better. It works from the real tank (60 cm, about 96 litres, bonsai layout, their plants) and gives a light length, colour temperature, lighting hours, how to choose a filter, and a cycling step. It does miss that trân châu needs stronger light, and it names no brands. Y asks again for details that are already known and gives generic rules, including the outdated watts-per-litre figure, though it does name filter brands sold in Vietnam. / Y dùng đúng bể 60×40×40 (~96 lít) và bộ cây chịu bóng của bạn: khuyên đèn LED 60 cm cường độ vừa, có hẹn giờ 7–8 tiếng, và lọc chứa nhiều vật liệu, kèm trích cẩm nang. X hỏi lại những thông tin app đã có, chỉ đưa lời khuyên chung chung, và dùng quy tắc W/lít đã lỗi thời. Điểm yếu của Y: không có số lưu lượng lọc và không gợi ý mẫu đèn, lọc nào bán ở Việt Nam.
 
-**Ours lacks:** tank-fit, plan, follow-up, figures. **Plain lacks:** tank-fit, plan.
+**Ours lacks:** figures, local. **Plain lacks:** tank-fit, asks-only.
 
-**Ours** (read 4 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình cần biết kích thước bể (dài x rộng x cao, cm) và bạn định trồng cây hay chỉ nuôi cá để chọn đúng đèn và lọc. Trong lúc chờ, cẩm nang gợi ý như sau. Đèn: tính số lít nước rồi nhân với 0,5 đến 1 W mỗi lít, ví dụ bể 60x30x30 cm (khoảng 54 lít) cần khoảng 27 đến 54 W. Chọn đèn LED nhiệt độ màu 6500K đến 10000K, ưu tiên thương hiệu uy tín dù là dòng rẻ. Bể rộng thì đo chiều rộng để biết cần một hay hai máng đèn. Nếu chỉ trồng cây xanh thì LED trắng là đủ; muốn cây đỏ lên màu thì dùng LED RGB hoặc WRGB. Lọc: bể nào cũng cần lọc cơ học và lọc sinh học, nên chọn lọc có nhiều vật liệu, vì lưu lượ…
+> Với bể 60 x 40 x 40 cm (khoảng 96 lít) đang trồng bonsai với rêu, trân châu, la hán và ráy, bạn nên chọn đèn LED thủy sinh dài khoảng 60 cm có hẹn giờ, và lọc thùng hoặc lọc treo sau có nhiều vật liệu lọc. Cẩm nang không có model cụ thể cho đúng kích thước này, nên đây là hướng dẫn chung dựa trên các trang về đèn và lọc, cộng thêm kinh nghiệm của mình.
+> 1. Đèn: chọn LED 60 cm, nhiệt màu khoảng 5000K đến 6500K, và chọn cường độ vừa phải vì rêu, la hán và ráy đều chịu bóng khá tốt. Cẩm nang nói cường độ đèn phụ thuộc loại cây bạn trồng.
+> 2. Hẹn giờ: đặt đèn chạy khoảng 7 đến 8 tiếng mỗi ngày, nên…
 
 **Plain** (1445 characters):
 
@@ -1403,16 +1414,16 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 
 **Asked:** Em có cái bể đang bỏ không, hiện chỉ có mỗi bể, không đèn không lọc không gì hết. Với tầm 3-4 triệu thì nên làm gì để hồi sinh nó? Thủy sinh rong rêu cũng được, còn cá thì em thích kiểu thả nhiều con cá nhỏ tí ti.
 
-**Judge:** Y gives a budget split, a gentle sponge filter, named easy plants and tiny schooling fish, cycling checks and a week-by-week plan, so it directly answers the 3-4 million question. X is generic, gives no prices or species, recommends a strong filter and treats the hobbyist's existing tank as a size choice, leaving them without the fish and budget help they asked for. / X chia ngân sách rõ từng hạng mục, chọn lọc bọt biển hợp cá nhỏ, nêu tên cây và cá cụ thể, có lộ trình chạy bể theo tuần với đo amoniac/nitrit, chỉ vướng vài lỗi nhỏ về tên cá. Y quá mỏng: không chia 3-4 triệu, không gợi ý loài cá nào dù bạn này đã nói thích cá nhỏ, lại đẩy tiền vào sưởi và lọc 400 lít/giờ khá mạnh cho cá tí hon.
+**Judge:** Y chia ngân sách 3-4 triệu với giá sát thị trường Việt Nam, khuyên dùng lọc bọt biển cho cá nhỏ, kể tên cây dễ sống và cá nhỏ đàn, rồi đưa lộ trình chạy chu trình nitơ rõ ràng theo tuần. X bám vào con số 15 triệu không liên quan, ít số liệu cụ thể và khuyên thay 30% nước mỗi ngày trong tuần đầu, điều này không cần khi bể chưa có cá. / X chia sẵn ngân sách 3-4 triệu ra từng món, chỉ rõ nên dùng lọc bọt biển, cây dễ sống, cá nhỏ đi đàn, và có lộ trình theo tuần kèm chu trình nitơ. Y chủ yếu dẫn lại cẩm nang 15 triệu, chê ngân sách thấp, gợi ý sưởi đắt không hợp khí hậu Việt Nam, và không gợi ý tên cá cụ thể nào.
 
-**Ours lacks:** figures, tank-fit, too-thin. **Plain lacks:** local.
+**Ours lacks:** figures, tank-fit, plan, local. **Plain lacks:** tank-fit.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Bể để trống lâu thì phần đáng giữ nhất thường là kính và keo silicone, nên việc đầu tiên là kiểm tra chúng. Với 3–4 triệu, mình sẽ làm một bể low-tech cỡ 35–55 lít, không viền, trồng vài loại cây dễ rồi mới thả cá nhỏ. Phần lớn tiền sẽ đi vào đèn, lọc và sưởi; giá cụ thể tùy cửa hàng, mình chỉ ước chừng theo kinh nghiệm chung.
-> 1. Kiểm tra kính và keo silicone; nếu không rò thì rửa bể bằng nước sạch, không dùng xà phòng.
-> 2. Mua đèn đúng chiều dài bể, lọc trong khoảng 400 lít/giờ cho bể 35–55 lít, và sưởi cố định khoảng 50 W giữ 25°C.
-> 3. Trồng 3–5 loại cây dễ, giai đoạn đầu để đèn yếu và châm p…
+> Với 3-4 triệu thì bạn làm lại được một bể thủy sinh low-tech nhỏ từ cái bể đang có, nhưng phải chọn đồ có ưu tiên. Cẩm nang tính cả bộ đồ (đèn, lọc, sưởi, nền, cây, cá) vào khoảng 15 triệu, và nói rằng chơi tiết kiệm cũng chỉ cần khoảng 2/3 con số đó, nên 3-4 triệu là dưới mức cẩm nang đề xuất. Mình khuyên bạn làm từng bước, mua đồ thiết yếu trước.
+> 1. Kiểm tra bể: rửa sạch, thử rò rỉ, đo kích thước; cẩm nang nói bể nano khoảng 35-55 lít là dễ bắt đầu nhất.
+> 2. Mua đèn đúng chiều dài bể: cẩm nang cho biết đèn Odyssea hoặc T5HO chỉ vài trăm nghìn, rẻ hơn nhiều so với đèn cao cấp.
+> 3. Chọn lọc và …
 
 **Plain** (2478 characters):
 
@@ -1435,15 +1446,15 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 
 **Asked:** Tôi có bể trống và 3-4 triệu, nên mua gì để làm bể thủy sinh nuôi đàn cá nhỏ?
 
-**Judge:** Y answers the budget question directly with a priced shopping list, named fish, a conditional heater recommendation and cycling advice, despite some plant and shrimp missteps. X has a tidier order and safer basics, but gives no budget split, names no fish or plants, and says little about how to spend 3-4 triệu. / X trả lời đúng câu hỏi bằng danh sách đồ có giá ước tính khớp ngân sách, gợi ý loài cá và cây, nhắc chạy bể 2-4 tuần, dù có vài gợi ý loài chưa chuẩn. Y có thứ tự mua rõ và ít lỗi hơn nhưng không phân bổ tiền, không nêu loài cá hay cây cụ thể, lại dựa vào cỡ bể 35-55 lít trong khi chưa biết bể của họ.
+**Judge:** Y bám sát câu hỏi: chia ngân sách 3-4 triệu thành từng món, giá theo thị trường Việt Nam, có tính đến chuyện sưởi cho miền Bắc mùa đông và có nhắc chạy bể trước khi thả cá. Y còn vài lỗi nhỏ về cây và tép. X không chia tiền cho từng món, khuyên chọn bể trong khi người hỏi đã có bể, và gợi ý thả otto vào bể mới là không ổn. / X answers the actual question: it splits the 3-4 triệu budget into items with VND prices, gives a Vietnam-specific note on heaters for miền Bắc in winter, and covers cycling the tank. Y gives the right order of steps and good sizing rules, but it puts no money figures against the budget and gives advice on choosing a tank to someone who already has one.
 
-**Ours lacks:** figures, tank-fit, too-thin, local. **Plain lacks:** plan, follow-up.
+**Ours lacks:** figures, tank-fit, plan. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Với bể trống và ngân sách 3-4 triệu, bạn nên chi phần lớn cho đèn, lọc và sưởi, vì đó là ba thứ quyết định cá và cây sống ổn định. Cẩm nang khuyên người mới bắt đầu bằng bể 35-55 lít không viền, nền trơ như sỏi hoặc cát hạt thô, và cây dễ trồng. Bạn cho mình biết kích thước bể trống (dài, rộng, cao) để mình chọn đúng cỡ đèn và lọc, và chọn loài cá phù hợp.
-> 1. Đo bể và kiểm tra kệ có chịu được sức nặng (bể đầy nước, nền, đồ trang trí nặng khoảng 1,2 kg mỗi lít), rồi chọn đèn LED thủy sinh đúng chiều dài bể, kèm bộ hẹn giờ.
-> 2. Mua lọc trong giá rẻ, lưu lượng khoảng 400 lít/giờ là đủ cho bể 55 l…
+> Với 3-4 triệu và bể trống, bạn nên bắt đầu bằng một bể nano hoặc bể nhỏ khoảng 40-60 lít, rồi chi tiền cho lọc, đèn và nền trước, còn đá lũa và cây thì mua sau. Cẩm nang hướng dẫn người mới chọn bể nhỏ, lọc, đèn, phân nền và chờ vi sinh ổn định trước khi thả cá. Các giá cụ thể là ước lượng của mình, bạn cần hỏi cửa hàng để biết giá thật.
+> 1. Đo kích thước trong của bể (dài x rộng x cao) rồi chọn lọc khoảng 10 lần thể tích bể mỗi giờ, ví dụ bể 60 lít thì lọc khoảng 600 lít/giờ.
+> 2. Ưu tiên đèn LED chuyên cho thủy sinh đúng cỡ bể, kèm ổ hẹn giờ, rồi mua phân nền loại tốt. Bể 60 x 30 cm cần khoảng…
 
 **Plain** (2414 characters):
 
@@ -1462,18 +1473,18 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > **3. Nền bể (~200-400k)**
 > - Đất nền thủy sinh (aqua soil) giúp …
 
-### setup-04 · post · plain wins (5.5 · 8)
+### setup-04 · post · plain wins (5 · 8)
 
 **Asked:** Mình muốn set hồ 60x36x36 để trên kệ tivi phòng khách chung cư nên cần tinh gọn, không có chỗ cho bình CO2, thùng lọc. Phương án của mình: bố cục đá Tiger + rêu mini fiss và ráy lá nhỏ ở tiền cảnh, rong La Hán + dương xỉ Java ở hậu cảnh, đều là cây cần ít CO2. Mình tính dùng lọc thác. Bố cục vậy có ổn không, nên dùng nền nào và bao nhiêu?
 
-**Judge:** Y chọn nền theo đúng danh sách cây: cây bám đá gần như không cần nền, chỉ dùng nền dinh dưỡng nếu trồng La Hán ở gốc. Y còn nêu rủi ro của cây thân khi không CO2, cho số đèn, lưu lượng lọc và cảnh báo tải kệ tivi rõ ràng. X gọn nhưng mặc định aquasoil dày, xen lời xin lỗi về việc chưa đọc được cẩm nang và thiếu số liệu lọc, đèn. / X đánh giá từng cây, nói rõ rong La Hán không CO2 sẽ yếu hơn, chọn nền theo việc có trồng gốc hay không, có số liệu về nền, đèn, lưu lượng lọc và cảnh báo tải kệ TV. Y gọn và đúng hướng nhưng mỏng, chèn lời xin lỗi về cẩm nang, không đánh giá La Hán và thiếu số liệu đèn, lọc.
+**Judge:** Y trả lời thẳng câu hỏi "nền bao nhiêu": tính ra khoảng 8–9 lít nền cho đáy 60x36 dày 4 cm, đúng phép tính. Y còn đưa con số cho đèn và lưu lượng lọc thác, và cảnh báo tải trọng kệ tivi khoảng 110 kg, điều rất quan trọng với hồ đặt trong chung cư. X không nói lượng nền, chỉ bảo người chơi xem bao bì, và lại khuyên trải rêu mini lên sỏi. / X bám sát hồ 60x36x36 của bạn này: tính ra khoảng 8–9 lít nền cho lớp dày trung bình 4 cm, nói rõ chọn nền theo từng loại cây, cho lưu lượng lọc thác, chỉnh tiếng ồn, và cảnh báo sức chịu tải của kệ TV. Y không trả lời được câu hỏi "bao nhiêu nền" và nhìn chung mỏng hơn.
 
-**Ours lacks:** tank-fit, diagnosis, figures, too-thin. **Plain lacks:** too-long, follow-up.
+**Ours lacks:** figures, tank-fit, too-thin. **Plain lacks:** too-long, local.
 
-**Ours** (read 0 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Bố cục của bạn hợp với low-tech: đá Tiger, rêu Fissidens, ráy lá nhỏ và dương xỉ Java đều chịu ánh sáng vừa và ít CO2. Lần này mình chưa đọc được nội dung chi tiết các trang hướng dẫn low-tech, so sánh nền và trang cây, nên phần nền, số lượng và cách đặt dưới đây là kinh nghiệm chung của mình, chưa phải từ cẩm nang. Mình cũng chưa tìm thấy trang riêng cho rong La Hán, bạn cho mình tên khoa học hoặc ảnh để xác nhận loài đó có hợp low-tech không.
-> 1. Nền: dùng aquasoil hoặc đất nền phủ sỏi, phía sau dày khoảng 4-5 cm và mỏng dần về phía trước. Với đáy 60x36 cm, 5 cm nền cần khoảng 10-11 lít, bạn…
+> Bố cục này khá ổn cho bể không CO2: đá Tiger, Java fern và ráy là nhóm cây chịu thiếu CO2, sống tốt khi bám lên đá hoặc gỗ chứ không cần chôn rễ. Điểm cần lưu ý là phần nền. Cẩm nang so sánh các loại nền sau 1 tháng không CO2 cho thấy nền đất hồ phủ (Tropica Powder Soil) cho cây lên tốt nhất, còn các ngăn nền sỏi lại dễ bị rêu hại. Với rong La Hán (cây thân mềm, cần nhiều sáng và dinh dưỡng hơn), mình chưa đủ thông tin chắc chắn từ cẩm nang, nên bạn nên cân nhắc lại xem nó có hợp với bể không CO2 và đèn của bạn không.
+> 1. Chọn nền đất hồ phủ dày khoảng 4 đến 5 cm ở hậu cảnh và trung cảnh, làm …
 
 **Plain** (3463 characters):
 
@@ -1484,18 +1495,20 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Đá Tiger**: hợp lý, bền, không làm đổi pH đáng kể. Nên đặt đá lệch một bên, cao dần về hậu cảnh để tạo chiều sâu.
 > - **Rêu Fissidens mini và ráy lá nhỏ (Anubias nana) ở tiền cảnh**: ổn. Cả hai đều bám trên đá hoặc gỗ, không cần nền dinh dưỡng. Buộc hoặc keo (loại an toàn cho cá) ráy lên đá, **không vùi thân rễ xuống nền**, nếu không sẽ thối. Fissidens mini hơi khó giữ hơn, cần nước sạch, í…
 
-### setup-04 · tank · ours wins (7.75 · 3)
+### setup-04 · tank · ours wins (8 · 3)
 
 **Asked:** Bể tôi định set nên dùng nền gì, bao nhiêu, và chọn cây như vậy có ổn không?
 
-**Judge:** X đánh giá đúng bộ cây của bể 60×36 không CO₂, đưa lựa chọn nền kèm độ dày và số kg hợp lý, dặn gắn ráy và dương xỉ lên đá, và nói rõ cần theo dõi gì. Y hỏi lại những thông tin app đã có rồi chỉ nói chung chung, dùng ví dụ sai kích thước và nêu cây thảm không liên quan. / Y judges the actual plant list for a no-CO₂ 60×36×36 tank, gives substrate options with a checkable 18 kg for about 5 cm, says to attach ráy and fern to hardscape, and says what to monitor. X asks for details the app already holds, uses a 60×30 example and gives only generic advice, including carpet plants the hobbyist isn't growing.
+**Judge:** X uses the real tank (60×36, no CO₂, đá Tiger). It recommends plain sand at 3–4 cm (about 12–15 kg), says to tie ráy, dương xỉ and rêu onto the stone, and flags rong La Hán to watch. Y asks for details the app already holds, then gives generic advice with a wrong example size and wrongly calls Anubias a rooted plant. / Y uses the real tank (60×36, no CO₂, Tiger rock) and gives a sensible substrate depth and weight. It correctly says to tie the epiphytes onto rock instead of burying them, and it flags rong La Hán as the risky plant without CO₂. X asks for details the app already had and gives generic advice based on a 60×30 example tank.
 
-**Ours lacks:** –. **Plain lacks:** tank-fit, asks-only, plan.
+**Ours lacks:** figures. **Plain lacks:** tank-fit, asks-only, plan.
 
-**Ours** (read 4 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Với bể 60x36x36 cm, không CO2, đặt trên kệ tivi, mình thấy hướng chọn cây của bạn ổn. Ráy, dương xỉ Java và rêu mini đều chịu ánh sáng vừa và không cần CO2, nên hợp với bể này. Rong La Hán thì lên chậm và dễ tàn nếu thiếu sáng hoặc dinh dưỡng, nên bạn cần theo dõi nó. Về nền, cẩm nang nói nền không phải điều kiện quyết định: ráy, dương xỉ và rêu vẫn sống tốt mà không cần nền giàu dinh dưỡng, còn nền dinh dưỡng thì giúp cây lên nhanh nhưng làm pH và KH giảm trong vài tuần đầu. Lượng nền thì cẩm nang chưa ghi cho kích thước này, nên phần này là kinh nghiệm chung của mình.
-> 1. Nếu muốn tiết kiệm …
+> Với bể 60x36x36 cm, cây bạn chọn (rêu mini fissidens, ráy lá nhỏ, dương xỉ Java) là nhóm cây ít đòi hỏi, sống bám trên đá hoặc lũa và không cần nền giàu dinh dưỡng, nên nền thường không phải là phần khó nhất. Cẩm nang chỉ so sánh nền aquasoil với nền đất trong bể đèn mạnh có CO2, chưa nói lượng nền cho bể của bạn, nên phần lượng là kinh nghiệm chung của mình.
+> 1. Dùng cát hoặc sỏi mịn thường, lớp dày khoảng 3 đến 4 cm, thoai thoải cao về phía sau, khoảng 12 đến 15 kg cho đáy 60x36 cm.
+> 2. Không cần aquasoil hay nền đất ao vì bể không có CO2 và đèn không mạnh, phân nền sẽ ít tác dụng.
+> 3. Cố định…
 
 **Plain** (1597 characters):
 
@@ -1513,19 +1526,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Sỏi hoặc cát thường**: rẻ, dễ vệ sinh, nhưng cần thêm phân nền (viên nén, bùn nền) nếu trồng cây cần dinh dưỡng ở rễ.
 > - **Đất nền thông thường**: chỉ…
 
-### setup-05 · post · plain wins (5 · 7.25)
+### setup-05 · post · plain wins (5 · 6)
 
 **Asked:** Em định set hồ 1m2x50x50 phong cách natural, chủ yếu rêu, ráy với ít cây cắt cắm lá đỏ. Nên chọn nền thế nào, bao nhiêu kg cho phù hợp và kinh tế? Em tính xài nền trộn kết hợp Aquafor thì ổn không? Đèn em xài T5HO, 2 bóng 10k, 1 bóng 6k5, 1 bóng hồng có hợp lý không?
 
-**Judge:** Y trả lời đủ cả ba ý: cấu trúc nền có dốc, số kg từng lớp kèm cách tiết kiệm, đánh giá dàn 4 bóng và cảnh báo rêu hại, giảm bóng hoặc giờ đèn nếu không có CO₂. X mỏng hơn, hay dẫn lại \"cẩm nang\", bắt người hỏi tự cộng W, không nói đến CO₂ và không đưa ra kết luận rõ về nền trộn cho hồ này. / X gives a usable substrate plan with layer depths, kg amounts, a way to save money, and a clear verdict on the 4-tube light tied to CO₂ and photoperiod. Y is thin and handbook-driven, leaves the light calculation to the hobbyist, and never addresses CO₂ for the red plants, though it does warn sensibly that mixed substrate can leach.
+**Judge:** Y cho số kg cụ thể và nói rõ 4 bóng T5HO trên 300 lít mạnh thế nào, ít đèn hay nhiều đèn tùy có CO₂ hay không. Đó đúng là điều người hỏi cần. Bù lại Y không biết Aquafor là gì và khuyên phủ cát. X thì đúng về Aquafor nhưng sơ sài: không nói số kg, không đánh giá cường độ đèn, và nhắc tới handbook làm người đọc rối. / X answers every part of the question. It gives layer depths and a kg estimate, and it warns that 4 T5HO tubes are strong light that needs CO₂ or fewer hours, though it doesn't know Aquafor. Y sidesteps the mixed-substrate question, gives no kg, and adds an odd handbook remark about the light. Y is right that red stem plants need CO₂.
 
-**Ours lacks:** tank-fit, too-thin, figures. **Plain lacks:** plan, local, follow-up.
+**Ours lacks:** figures, tank-fit. **Plain lacks:** local, too-long.
 
 **Ours** (read 4 pages, stopped at the tools limit):
 
-> Mình tính sơ bộ cho bể 120x50x50 (khoảng 300 lít). Với đèn, nếu 3 bóng 10k và 6k5 là T5HO thì ổn, còn bóng hồng nên coi là phụ, vì nó chủ yếu thêm màu đỏ, không đủ để làm chính. Bạn cộng tổng công suất các bóng, mục tiêu khoảng 0,5–1 W mỗi lít, tức khoảng 150–300 W. Handbook không ghi rõ T5HO bao nhiêu W, nên bạn kiểm tra thông số trên bóng để tính. Cẩm nang cũng ghi máng đèn treo thường chiếu được bể rộng khoảng 40–50 cm, nên bể 50 cm của bạn vừa một máng; hãy chọn máng đủ dài và đặt bóng đều.
-> 
-> Về nền, cẩm nang nói người mới nên dùng phân nền công nghiệp vì đổ vào là trồng được; nền tự trộn …
+> Với hồ 1m2 (tính khoảng 120 cm) x 50 x 50, mình nghĩ bạn nên dùng phân nền công nghiệp như Aquafor thay vì tự trộn. Handbook ghi Aquafor là lựa chọn tiết kiệm mà vẫn đủ dùng cho người mới, và phân nền đã là sản phẩm trọn gói nên không cần thêm gì vào. Cây rêu, ráy vốn mọc chậm, hút dinh dưỡng ít, nên nền công nghiệp là đủ.
+> 1. Đáy khoảng 120 x 50 cm, rải nền dày 4 cm phía trước và 5 đến 6 cm phía sau, cần khoảng 30 đến 35 lít. Đổ theo thể tích, tra kg theo bao rồi mua dư một chút.
+> 2. Nếu muốn lót thêm, có thể rải đá nham thạch (lava rock) đập nhỏ dưới lớp nền để nâng độ cao và giữ vi sinh. Đây…
 
 **Plain** (2561 characters):
 
@@ -1553,15 +1566,14 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 
 **Asked:** Bể tôi định set nên dùng nền gì, bao nhiêu kg, và đèn như vậy có đủ cho cây đỏ không?
 
-**Judge:** X uses the 120×50×50 tank to give a sensible 25–30 kg estimate, says the 4 T5HO tubes are only enough with CO₂ or paler reds, and warns about ammonia, though it skips the planned mixed substrate and the tube mix. Y asks for details already held, uses a 60×30 example, and never answers for this tank. / Y dùng đúng bể 120×50×50 (khoảng 300 lít), cho 25–30 kg nền hợp lý và kết luận 4 bóng T5HO chỉ đủ nếu có CO₂ hoặc chấp nhận đỏ nhạt, dù chưa bàn kỹ nền trộn, Aquafor và bóng hồng. X hỏi lại những thông tin app đã có, chỉ đưa công thức và ví dụ bể 60×30 không liên quan nên không trả lời được cho bể này.
+**Judge:** X dùng đúng bể 120×50 để ra khoảng 30 lít, tức 25–35 kg nền. X cũng nhận định 4 bóng T5HO là đủ cho cây đỏ, kèm lưu ý về CO₂ và phân, và đưa ra các bước làm cụ thể. Y lại hỏi những thông tin đã có sẵn và chỉ đưa hướng dẫn chung với ví dụ cho bể 60 cm. / Y works from the real 120×50 tank and the 4-bulb T5HO. It gives a substrate amount (about 25–35 kg) and a photoperiod, says plainly that CO₂ is needed, and lays out ordered steps. X asks for details the app already had, then gives generic advice with an example for some other tank.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, asks-only, plan.
+**Ours lacks:** figures. **Plain lacks:** tank-fit, asks-only, too-long, plan.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Bể của bạn lưu là 120x50x50 cm, khoảng 300 lít, nên mình ước lượng theo kích thước đó. Với bể trồng cây, nền phù hợp nhất là phân nền aqua soil, đổ thẳng vào bể không cần rửa. Cây đỏ cần đèn đủ mạnh và thường phải có CO₂, nên 4 bóng T5HO của bạn ở mức trung bình khá, chỉ đủ nếu bạn có châm CO₂ hoặc chấp nhận màu đỏ nhạt hơn.
-> 1. Dùng phân nền chất lượng tốt, lót lớp dày khoảng 5 cm ở phía sau và 3 cm ở phía trước; mình ước tính cần khoảng 25–30 kg cho cả bể (ước lượng từ kinh nghiệm, không lấy từ handbook).
-> 2. Nếu bạn định trộn thêm Aquafor hay bất kỳ chế phẩm nào, làm theo đúng hướng dẫn trên…
+> Cẩm nang chưa ghi rõ số kg nền cho bể 120 x 50 x 50 cm của bạn, nên phần này mình dùng kinh nghiệm chung: với lớp nền khoảng 5–6 cm, bạn cần khoảng 30 lít, tức chừng 25–35 kg tùy loại nền trộn, bạn nên kiểm tra khối lượng ghi trên bao. Về đèn, cẩm nang ghi rằng cây đỏ cần cường độ sáng mạnh hơn là thời gian chiếu, và 4 bóng T5HO trên bể dài 120 cm thường là đủ mạnh cho nhóm cây này. Nhưng đèn mạnh thì phải có CO₂ và phân đi kèm, nếu không cây đỏ sẽ đói và nhạt màu. Bạn nên bật đèn 6–8 tiếng mỗi ngày bằng hẹn giờ, và cho Aquafor đúng theo hướng dẫn trên bao.
+> 1. Trải lớp nền trộn đều, đổ khoảng…
 
 **Plain** (1466 characters):
 
@@ -1578,19 +1590,17 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - Cây đỏ cần dinh dưỡng tốt, nên dùng **nền dinh dưỡng** (Aqua Soil, ADA Amazonia, Tropica...) lót dưới, phủ **sỏi hoặc cát mịn** lên trên khoảng 1-2 cm.
 > - Nền dày khoảng **5-7 cm** ở phía sau, thấp dần về phía trước…
 
-### setup-06 · post · plain wins (5 · 7)
+### setup-06 · post · plain wins (4 · 7)
 
 **Asked:** Em đang set hồ 60x30x36, bố cục lũa đá nature. Cốt nền JBL Aquabasic Plus 1 bao (2,5 lít), phân nền Aquafor 2,5 bao (7,5 lít), quây phần nền bằng đá cuội. Cây dự kiến: rêu, ráy, ít bucep, dương xỉ, hậu cảnh cắt cắm táo lớn, hồng thái dương. Phần trống mặt tiền có nên trải sạn hoặc cát không? Với bố cục và kích thước này nên dùng máng Odyssea 2 bóng hay 4 bóng?
 
-**Judge:** Y gives a clear choice (fine sand, 4 bulbs with CO₂ or good fertilising, 2 bulbs for low-tech) with practical sand and lighting tips tied to the listed plants, despite a dimension slip and some padding. X is honest but hedged and thin, with awkward handbook talk and no firm lighting decision; both wrongly suggest sand as a cap over the soil. / X makes clear choices: fine sand at the front, built after the pebble edge, and 4 lamps if using CO₂ or good fertilising, or 2 for low-tech, with reasons tied to each plant and a photoperiod, despite a depth/height slip. Y is honest and concise but hedges on sand versus gravel, spends words on what the handbook lacks, and gives few concrete steps.
+**Judge:** Y trả lời thẳng hai câu hỏi: nên trải cát mịn, và chọn 4 bóng nếu có CO₂ vì có hồng thái dương với táo lớn, có kèm điều kiện và số giờ bật đèn. X né câu hỏi 2 bóng hay 4 bóng, chỉ đưa quy tắc W/lít chung chung, lại hay nhắc đến \"handbook\". / X trả lời thẳng cả hai câu: nên rải cát mịn, và chọn 4 bóng nếu chạy CO₂ hoặc bón phân đủ, 2 bóng nếu chạy low-tech. Lời khuyên bám theo từng cây trong danh sách và có tính đến chuyện nóng, tốn điện. Tuy vậy X nhầm con số độ sâu và hiểu sai chỗ rải cát. Y né câu hỏi chính về máng Odyssea, chỉ đưa quy tắc W/lít chung chung, nên người hỏi vẫn chưa biết chọn loại nào.
 
-**Ours lacks:** too-thin, tank-fit, figures, plan. **Plain lacks:** too-long, follow-up.
+**Ours lacks:** tank-fit, plan, local. **Plain lacks:** figures, tank-fit.
 
-**Ours** (read 1 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Về phần trống mặt tiền, handbook mình chưa tìm được trang nào nói về việc trải sạn hay cát trên nền đất, nên phần này là kinh nghiệm chung của người chơi. Với lớp Aquabasic và Aquafor bên dưới, bạn có thể phủ ở mặt tiền một lớp sạn hoặc cát mịn mỏng khoảng 1 đến 2 cm để nền dinh dưỡng ít bị trôi và nước ít đục. Cát mịn nhìn gọn hơn, sạn nhỏ dễ cắm cây thấp hơn. Đừng trải quá dày, vì cây thấp sẽ khó bám rễ.
-> 
-> Về máng đèn, handbook có trang về cách chọn đèn cho bể thủy sinh nước ngọt, gồm phần cường độ sáng và độ lan tỏa, nhưng mình chưa mở được thông số riêng của Odyssea. Theo kinh nghiệm chung…
+> Với hồ 60x30x36 (khoảng 65 lít), mình khuyên bạn trải một lớp cát mịn hoặc sạn nhỏ ở mặt tiền. Phân nền Aquafor khá nhẹ và dễ bung khi hút đáy hoặc khi cá đào, lớp phủ sẽ giữ phân nền và làm mặt tiền gọn. Handbook chưa có trang riêng về việc trải cát mặt tiền, nên đây là kinh nghiệm chung của mình: dùng cát hoặc sạn đã rửa sạch, lớp mỏng khoảng 1 đến 2 cm, và để lớp này thấp hơn đá cuội quây để không lộ phân nền. Về máng đèn, handbook ghi bể tiêu chuẩn thường chỉ cần một máng, với mức khoảng 0,5 đến 1 W mỗi lít, tức khoảng 33 đến 65 W cho bể này, và đèn LED nên đánh giá bằng lumen, khoảng 20 …
 
 **Plain** (2354 characters):
 
@@ -1604,19 +1614,21 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Làm gờ đá cuội trước rồi mới đổ cát** để giữ ranh giới và tránh cát trôi sang phần nền.
 > - Nếu …
 
-### setup-06 · tank · plain wins (4.75 · 5.75)
+### setup-06 · tank · plain wins (4 · 5)
 
 **Asked:** Bể thủy sinh tôi đang set có nên trải sạn mặt tiền không, và cần đèn mấy bóng?
 
-**Judge:** Neither answer uses the hobbyist's setup or settles Odyssea 2 vs 4 bulbs, but Y gives a clear yes on front gravel, slope heights, a way to keep gravel from sinking into soil, a W/L table by tank type, 30–40 W for a 60×30×36 tank, and 6–8 light hours. X is honest and sourced, but thinner, uses a 30 cm-high example, and gives a broad 0.5–1 W/L with little guidance on what to do. / Cả hai đều không đọc được bể và không chốt 2 hay 4 bóng, nhưng X trả lời thẳng là nên trải, có cách làm cụ thể, có đúng ví dụ 60×30×36 cm (30–40 W) và giờ chiếu sáng, dù lan man sang bể to và cá đào bới. Y gọn và trung thực về giới hạn nguồn, có ý nền giàu dinh dưỡng chỉ đặt quanh cây rất hợp với bể này, nhưng ví dụ lệch kích thước và ít việc cụ thể để làm.
+**Judge:** Cả hai đều hỏi lại kích thước bể và không trả lời chuyện chọn máng Odyssea 2 bóng hay 4 bóng. Y tốt hơn một chút vì ví dụ của Y trùng đúng bể 60×30×36 (~65 L, 30–40 W), có mẹo tách sạn khỏi phân nền và gợi ý bật đèn 6–8 tiếng mỗi ngày. Tuy vậy Y có đoạn về cá đáy và cá đào bới không liên quan đến bể này. / Cả hai đều không đọc được thông tin bể và quay lại hỏi kích thước. Riêng X tình cờ đưa ví dụ đúng bể 60×30×36 (~65 L, cần 30–40 W), cho giờ bật đèn và mẹo lót lưới ngăn giữa phân nền với sạn, nên dùng được ngay hơn. Y chỉ đưa công thức, không có con số cụ thể, và cũng không bàn được chuyện chọn Odyssea 2 bóng hay 4 bóng.
 
-**Ours lacks:** tank-fit, figures, too-thin, plan. **Plain lacks:** tank-fit, too-long.
+**Ours lacks:** tank-fit, figures, diagnosis, plan. **Plain lacks:** tank-fit, too-long.
 
-**Ours** (read 3 pages, stopped at the calls limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình chưa có trang nào trong cẩm nang nói riêng về việc trải sạn ở phía trước (mặt tiền) nên cẩm nang chưa trả lời trọn vẹn câu này. Theo kinh nghiệm chung, bạn có thể làm đáy dốc nhẹ, cao phía sau và thấp phía trước, rồi rải lớp sạn hoặc cát mịn đều ở mặt tiền để nhìn gọn và dễ hút đáy. Cẩm nang khuyên dùng loại nền rẻ, trông tự nhiên cho phần không trồng nhiều cây, còn nền giàu dinh dưỡng chỉ nên dùng quanh chỗ cây cần nó.
-> 
-> Về đèn, cẩm nang tính theo công suất: với người mới, lấy 0,5 đến 1 W cho mỗi lít nước. Cách tính: dài × rộng × cao (cm) chia cho 1000 ra số lít. Ví dụ bể 60 × 30 × 30 cm…
+> Trải sạn mặt tiền được, miễn chọn hạt vừa, không quá mịn, để nước và rễ cây đi qua dễ. Cát quá mịn dễ nén chặt, rễ khó lan. Số bóng đèn thì phụ thuộc vào kích thước bể, bạn cho mình dài × rộng × cao (cm) để tính chính xác.
+> 1. Đo bể dài × rộng × cao rồi chia 1000 để ra số lít nước.
+> 2. Nhân số lít với 0,5 và với 1 để ra khoảng công suất đèn cần mua, tính bằng W.
+> 3. Đo chiều rộng bể: dưới khoảng 30 cm thì một máng kẹp thành bể là đủ; khoảng 40–50 cm thì một đèn treo là đủ; rộng hơn thì cần thêm máng.
+> 4. Chọn đèn có nhiệt độ màu 6500K–10000K. Bể chủ yếu cây xanh thì LED trắng đủ, muốn cây đỏ lên …
 
 **Plain** (1822 characters):
 
@@ -1630,13 +1642,19 @@ Tags: plan, diagnosis, tank-fit, figures, follow-up, local, too-thin, too-long, 
 > - **Bố cục dốc:** cao ở phía sau (khoảng 5–8 cm), thấp dần về phía trước (2–3 cm). Cây và đá lớn đặt ở phía sau.
 > - **Nếu dùng nền dinh dưỡng** (đất nền, soil) cho cây thủy sinh: không nên để sạn trộn lẫn với đất. Hãy trải đất trước, phủ một lớp lưới hoặc g…
 
-### setup-07 · post · not judged
+### setup-07 · post · plain wins (4 · 8)
 
 **Asked:** Cửa sổ nhà em bị bít nên em tháo ra, được một hõm sâu 20cm, cao 90cm, dài 100cm, em định làm bể cá âm vào đó kiểu bán cạn: hồ kính dài 90cm (chừa 10cm bố trí lọc), sâu 20cm, cao 50cm (mực nước 40cm), đèn 90cm treo phía trên. Thả 1 cục lũa cao hơn mặt nước, xếp ít đá xung quanh, phía sau trải nền trồng cây dễ sống, phía trước trải cát, trồng thêm ít cây vượt mặt nước như dương xỉ, cỏ đồng tiền, khoai lang. Cá nuôi tầm 10 con bảy màu, ít con bống dọn bể. Lọc em định dùng 1 lọc thác 8W và 1 lọc vi sinh (chạy bằng bơm oxy) với vật liệu lọc là sứ vì nuôi ít cá. Các cụ góp ý giúp em.
 
-**Ours** (read 4 pages, stopped at the error limit):
+**Judge:** Y bàn đúng những điểm riêng của bể âm hõm cửa sổ: chống thấm, đáy phẳng, an toàn điện, khe hở quanh kính, ngăn đất với cát, cây vượt mặt nước và lớp mút trước lớp sứ. X sơ sài, không nhắc phần lắp đặt và chống thấm, lại lẫn ốc vặn và cá lau kính với bống. / X đi sát đúng bể âm tường của bạn: tính tải trọng khoảng 72 kg nước, chống thấm, khe hở quanh kính, an toàn điện, cách chia nền cây/cát, cố định lũa, chọn cá dọn bể nhỏ như cá chuột, otto, ốc nerite, và nhắc đặt mút lọc trước lớp sứ. Y thì mỏng, mấy đoạn trích dẫn lạc đề, nói về bống dọn bể thì lẫn lộn, lại bỏ qua hẳn chuyện kết cấu và chống thấm của hõm tường.
 
-failed: Request timed out.
+**Ours lacks:** tank-fit, too-thin, plan, wrong. **Plain lacks:** too-long.
+
+**Ours** (read 3 pages, stopped at the tools limit):
+
+> Mình thấy ý tưởng bán cạn này làm được và hợp với bảy màu, vì cá này hiền, chịu được nhiều sai sót và sống khỏe trong bể có cây. Điểm cần chú ý nhất là lọc và sưởi, còn phần bống dọn bể bạn cần xác định đúng loài trước. Cẩm nang chưa có trang nào nói riêng về cỏ đồng tiền và khoai lang trong bể bán cạn, nên phần cây mình chỉ góp ý theo kinh nghiệm chung.
+> 1. Lọc: với khoảng 70 lít nước và 10 bảy màu, một lọc thác 8W cộng một lọc vi sinh là đủ. Cẩm nang khuyên đừng chọn lọc quá cỡ vì dễ làm bể xoáy và tốn điện, nên chọn loại chỉnh được lưu lượng.
+> 2. Vật liệu vi sinh: cẩm nang tính khoảng 1 lít …
 
 **Plain** (4665 characters):
 
@@ -1648,17 +1666,20 @@ failed: Request timed out.
 > - **Đáy hõm:** Phải phẳng và chắc, nên trát lại bằng vữa để đáy bể đặt đều. Nếu đáy lệch, kính dễ nứt.
 > - **Chống thấm:** Trong hõm nên quét chống thấm trước khi đặt bể. Nếu nước…
 
-### setup-07 · tank · ours wins (6.5 · 2)
+### setup-07 · tank · ours wins (6 · 2.5)
 
 **Asked:** Kế hoạch lọc, cây và cá cho bể tôi định làm như vậy có ổn không?
 
-**Judge:** X dùng đúng thông số bể đã lưu, chỉ ra lọc là điểm cần xem và đưa ra các bước theo thứ tự, dù chưa xử lý kỹ chuyện nắng hốc cửa sổ và chi tiết cây. Y không đọc được bể, chủ yếu hỏi lại và chỉ cho lời khuyên chung áp dụng cho bể nào cũng được. / Y reads the saved tank and gives a usable verdict and ordered steps, though its filter worry is shaky and it says little about window sun and heat. X claims no plan was sent, asks for details the app already holds, and offers only generic tips.
+**Judge:** X dùng đúng thông số bể của bạn và đưa ra các bước làm được ngay: che nắng vì bể đặt ở hốc cửa sổ, bật đèn 8 giờ mỗi ngày, rửa vật liệu lọc bằng nước bể, giữ khoảng 10 con bảy màu. X có vài chỗ sai: nhận nhầm con bống là bống biển, tính sai dung tích nước (khoảng 72 lít chứ không phải 90 lít), và kiểm tra tải theo 20 con. Y chỉ hỏi lại những thông tin đã có sẵn và đưa lời khuyên chung chung. / Y is better. It uses the actual tank (window recess, 8W hang-on filter, ceramic media, 10 guppies) and gives concrete steps: shade the window glass, run the light about 8 hours, rinse filter media only in tank water, test the water. It does have mistakes: the goby is probably misidentified, it uses the wrong volume, and its stocking figures contradict each other. X only asks back for details the app already has and adds generic tips.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** asks-only, tank-fit, plan.
+**Ours lacks:** figures, follow-up. **Plain lacks:** asks-only, tank-fit, plan.
 
-**Ours** (read 1 pages, stopped at the tools limit):
+**Ours** (read 1 pages, stopped at the calls limit):
 
-> Mình xem bể đã lưu của bạn: 90×20×50 cm, mực nước 40 cm, 10 cá bảy màu và 1 bống dọn bể, cùng cây dễ sống, dương xỉ, cỏ đồng tiền và khoai lang. Phần cá đang ổn: cẩm nang tính mật độ là 66%, mức vừa phải. Chỗ mình lo nhất là lọc. Một lọc thác 8W cộng lọc vi sinh chạy bơm oxy có vẻ còn yếu cho khoảng 72 lít nước. Cẩm nang nói dung lượng và loại vật liệu quan trọng hơn lưu lượng, nên bạn nên kiểm tra vật liệu trong lọc trước. Theo kinh nghiệm chung của mình (không phải từ cẩm nang), tổng lưu lượng thường nên khoảng 5 đến 10 lần thể tích nước mỗi giờ. Cẩm nang không có trang riêng cho bống dọn b…
+> Nuôi chung được: nước có khoảng chung, kích thước và tính cách hợp nhau, nhưng mình chưa tin con bống dọn bể trong bể này. Trang cá bống neon ghi đây là bống biển, cần pH 8,1-8,4, độ cứng 8-12 dGH và 22-26 °C, không hợp với bể nước ngọt có cá bảy màu. Với đàn cá bảy màu thì bể 90 x 20 x 50 cm chỉ chứa khoảng 10 con là vừa, còn kiểm tra 20 con kèm bống thì đã quá tải (136%).
+> 1. Xác nhận lại tên khoa học hoặc gửi ảnh con bống dọn bể đang nuôi; nếu là bống neon biển thì không giữ trong bể nước ngọt này.
+> 2. Giữ đàn bảy màu khoảng 10 con, không thêm đến 20 con trong bể 90 lít này.
+> 3. Che nắng chiế…
 
 **Plain** (1347 characters):
 
@@ -1673,18 +1694,18 @@ failed: Request timed out.
 > 
 > Trong lúc chờ, bạn…
 
-### setup-08 · post · ours wins (6 · 5)
+### setup-08 · post · plain wins (5 · 6.25)
 
 **Asked:** Mình đang có bể dán 60x45x45, kính 5 ly. Bể vậy có mỏng quá không? Tư vấn giúp mình độ dày nền, các phụ kiện cần có và nên nuôi loại cá nào để có bể thủy sinh hợp lý. Kinh phí mình cũng không được nhiều lắm.
 
-**Judge:** Y is more complete and easier to act on, with concrete figures for substrate, light and cycling, but it wrongly assures the hobbyist that 5 mm glass is safe and adds some poor fish advice. X is thinner and avoids a verdict on the glass, yet it prompts safety checks, links the guide, and gives a sound low-tech plan with compatible fish. / X đầy đủ và dễ làm theo hơn, nhưng lại khẳng định sai rằng kính 5 ly là an toàn cho bể cao 45 cm, đúng câu hỏi quan trọng nhất và có nguy cơ bục bể, kèm vài tên cá sai. Y không chốt được độ dày và khá mỏng về số liệu, nhưng cảnh báo đúng hướng, có trích cẩm nang về độ dày kính, và lời khuyên về nền, phụ kiện, cá đều an toàn.
+**Judge:** On the main question, X is more correct: it calls 5 ly glass a bit thin at 45 cm and has the reader do a water test first, but it gives too little on accessories and fish. Y gives a complete, budget-ordered plan with substrate depth, lighting hours, cycling and fish counts, but it wrongly calls 5 ly safe and makes a few naming and stocking mistakes. Overall Y helps more. / Y đánh giá kính 5 ly hơi mỏng là đúng hơn, và bước ngâm thử nước 1–2 ngày rất có ích. Nhưng phần phụ kiện và cá của Y quá sơ sài. X trả lời đủ cả ba câu: nền, phụ kiện theo ngân sách, cá. Điểm trừ của X là trấn an quá mức về độ dày kính.
 
-**Ours lacks:** figures, plan, too-thin. **Plain lacks:** wrong, too-long, tank-fit, unsafe, local.
+**Ours lacks:** too-thin, figures. **Plain lacks:** wrong.
 
 **Ours** (read 4 pages, stopped at the tools limit):
 
-> Bể 60x45x45 (khoảng 120 lít) là cỡ rất hợp để chơi thủy sinh, và ngân sách vừa phải vẫn làm được. Về kính 5 ly, cẩm nang mình đọc tới chỉ nói chung là bể dùng kính mỏng so với thể tích nước sẽ dễ phình thành, nhưng chưa ghi con số an toàn cho cỡ bể này, nên mình chưa đưa ra kết luận chắc về độ dày. Khi đã đầy nước, nền và đá, bạn nên kiểm tra các mối dán có đều không, thành có phình không và có chân đỡ chắc chắn không. Nếu bể cao 45 cm mà kính thành mỏng, nhiều người chọn thêm nẹp hoặc đổi sang kính dày hơn khi làm bố cục nặng.
-> Nền: với bể cây sống, bạn nên trải lớp nền khoảng 4 đến 6 cm (đây…
+> Với bể 60x45x45 cm (khoảng 120 lít) dùng kính 5 ly thì đúng là hơi mỏng, nhất là khi chiều cao 45 cm và bạn đặt nền, đá, lũa nặng. Theo cẩm nang, bể thủy sinh chứa cả nền và vật liệu nên lực đè lên các tấm kính bên lớn hơn bể cá thường, và bể từ 60 cm trở lên thì chân bể rất quan trọng. Phần kiểm tra độ dày kính cụ thể mình đọc chưa hết, nên phần này là kinh nghiệm chung của mình: bể này dùng được nếu kính sạch, mối dán chắc và đặt trên chân phẳng, chắc. Đừng tăng thêm mực nước cao hơn mức bạn đã thử.
+> 1. Đặt bể lên chân hoặc kệ phẳng, chịu được khoảng 150 kg (nước khoảng 120 kg cộng nền và vậ…
 
 **Plain** (3252 characters):
 
@@ -1699,20 +1720,17 @@ failed: Request timed out.
 > - Nếu chỉ nuôi cá, không trồng cây: sỏi hoặc cát **3–5 cm** là đủ.
 > - Tiết kiệm: dùng sỏi thường thay nền dinh dưỡng, rồi bón phâ…
 
-### setup-08 · tank · plain wins (4 · 6.25)
+### setup-08 · tank · plain wins (4 · 6)
 
 **Asked:** Tôi có sẵn bể, cần mua gì và nuôi cá gì để làm bể thủy sinh tiết kiệm?
 
-**Judge:** Neither uses the real 120 L size, and X's filter and heater sizing would be too small for it. Y gives a fuller and more useful budget guide, with skip-list, fish, cycling, water changes and rough cost, despite some plant and detail errors. / Cả hai đều không biết bể 120 lít kính 5 ly, nhưng X trả lời đủ cần mua gì, cây, cá, chu trình nitơ, thay nước và chi phí ước tính, nên dùng được ngay. Y có thứ tự nhưng cấu hình theo bể 35–55 lít bị thiếu cho bể thật, phần cá sơ sài và không nhắc chờ chu trình trước khi thả cá.
+**Judge:** Cả hai câu trả lời đều không dùng kích thước bể 60×45×45 (khoảng 120 lít). X còn tính đèn và bơm theo bể nano 57 lít, nên số liệu sai. X cũng gần như bỏ qua phần chọn cá. Y vẫn hỏi lại kích thước dù đã có sẵn, nhưng đưa danh sách đồ cần mua, cây, cá và chi phí thực tế ở Việt Nam, đúng với nhu cầu làm bể tiết kiệm hơn. / Cả hai đều không dùng đúng kích thước bể (khoảng 120 lít), và không câu nào nhắc rằng kính 5 ly là mỏng với bể cao 45 cm. X trả lời đủ cả câu hỏi: cần mua gì, cây gì, cá gì, mẹo tiết kiệm và chi phí ước tính, dù khuyên mua sưởi là thừa ở khí hậu Việt Nam. Y có mẹo tự làm hợp túi tiền như lọc bông góc và CO₂ tự chế, nhưng phần cá quá sơ sài và các con số lấy từ bể 57 lít.
 
-**Ours lacks:** tank-fit, follow-up, too-thin. **Plain lacks:** tank-fit, plan, too-long.
+**Ours lacks:** tank-fit, too-thin, figures, wrong. **Plain lacks:** tank-fit, too-long, local.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 4 pages, stopped at the tools limit):
 
-> Bạn chưa cho mình biết kích thước bể, nên mình gợi ý theo bể 35–55 lít, cỡ dễ bắt đầu nhất theo cẩm nang. Với bể có sẵn, cách tiết kiệm là dùng bể không viền, lọc trong giá rẻ, sưởi cố định và nền trơ, rồi chọn cây dễ sống. Cẩm nang chưa có danh sách cá riêng cho bể tiết kiệm nên phần cá là kinh nghiệm chung của mình.
-> 1. Đo bể và kệ, kiểm tra kệ chịu được sức nặng (bể có thể nặng gần 1,2 kg mỗi lít khi đầy đủ đồ).
-> 2. Mua đèn LED đúng chiều dài bể, kèm bộ hẹn giờ để ánh sáng đều mỗi ngày và rêu khó bùng.
-> 3. Mua lọc trong khoảng 400 lít/giờ (ví dụ Superfish AquaFlow 200), đủ cho bể 55 lít, và s…
+> Với bể sẵn có, mình khuyên quyết định cây trước, rồi mới mua đèn, lọc và CO2, vì cây quyết định bạn cần đèn mạnh đến mức nào. Đèn là chỗ không nên tiết kiệm, vì thiếu sáng thì cây không quang hợp được và sẽ tàn dần. Theo một cách làm trong video, bể khoảng 57 lít dùng đèn LED khoảng 6000 K có chuẩn chống nước: một bóng cho bể trồng cây dễ, hai bóng nếu muốn trải thảm. Lọc có thể tự làm bằng bông góc, bơm mini khoảng 300 lít/giờ là đủ để nước quay vòng hơn 5 lần mỗi giờ. CO2 không bắt buộc với bể nhỏ: có thể tự chế bằng axit citric với baking soda, hoặc đường với men nở, và nếu nhà đã có bình …
 
 **Plain** (2910 characters):
 
@@ -1728,19 +1746,19 @@ failed: Request timed out.
 > - **Lọc:** Lọc hang (lọc thác) hoặc lọc thùng nhỏ, công suất gấp 3–5 lần thể tích bể mỗi giờ. Lọc hang rẻ và dễ bảo trì.
 > - **Sưở…
 
-### setup-09 · post · plain wins (5.75 · 7)
+### setup-09 · post · plain wins (6 · 7.5)
 
 **Asked:** Em có cái hộc giá sách, định làm bể dài 170x30x35, mặt trước kính siêu trong để vào đó. Layout đơn giản: nền cát và cuội hoặc đá, thêm ít lũa và ráy; cá thì loại size nhỏ dễ nuôi, ít tốn công chăm và ít thay nước. Em định dùng lọc thùng, với size bể này có phù hợp không? Em định dặn bên làm bể chừa lỗ chờ cho lọc ở 2 đầu bể.
 
-**Judge:** Y trả lời trực tiếp chuyện lỗ chờ, công suất lọc, cá và ráy nên sát kế hoạch của bạn này hơn, dù vị trí lỗ hút sát đáy không hợp với nền cát. X an toàn và có mẹo hay (khay hứng, van khóa, chạy thử) nhưng nói rất ít về vị trí lỗ và bỏ qua cá lẫn layout. / X answers the filter question with usable flow figures, explains how to place the inlet and outlet for a 170 cm tank, and covers fish and water changes, despite a too-low inlet and a filter timer slip. Y has useful practical tips on valves, a drip tray, waterproofing and a leak test, but it undersizes the filter, says nothing about flow along the tank, and skips stocking.
+**Judge:** Y có ích hơn. Y nói đến những việc quan trọng khi đặt bể vào hộc giá sách: hộc phải chịu được khoảng 230–250 kg, cần đáy phẳng, lót xốp, chọn độ dày kính, bố trí lỗ hút và lỗ xả chéo nhau, gợi ý cá, cây hợp với bể, và nói rõ vẫn phải thay nước định kỳ. X đúng nhưng mỏng, không nhắc gì đến tải trọng của hộc hay việc chọn cá. / X trả lời được nhiều phần hơn mà người hỏi cần: lưu lượng lọc, bố trí ống hút/xả chéo nhau, sức chịu tải và lót đáy hộc, chọn cá hợp nền cát, và nói rõ vẫn phải thay nước. Có điều X khuyên khoan lỗ cách đáy chỉ 2–3 cm là sai và nguy hiểm, kính dễ nứt. Y an toàn hơn ở khâu khoan lỗ và thử rò nước trước khi đổ nền, nhưng mỏng, bỏ qua chuyện chọn cá, sức chịu tải của hộc và chuyện ít thay nước.
 
-**Ours lacks:** tank-fit, too-thin, figures. **Plain lacks:** too-long, follow-up.
+**Ours lacks:** tank-fit, figures, too-thin. **Plain lacks:** too-long.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 3 pages):
 
-> Lọc thùng cho bể khoảng 178 lít (170 x 30 x 35 cm) là hợp lý. Tuy vậy, cẩm nang chưa có trang nào nói riêng về bể âm trong hộc giá sách, nên phần làm hộc mình nói theo kinh nghiệm chung, không phải theo một hướng dẫn cụ thể.
-> 1. Chọn lọc thùng theo lượng vật liệu lọc chứ không theo lưu lượng: cẩm nang nói vật liệu quyết định độ mạnh của máy. Với bể này, chọn máy ghi khoảng 400 lít trở lên là thoải mái, vì cẩm nang đề nghị chỉ lấy một nửa con số hãng ghi cho bể dùng được.
-> 2. Đặt thùng lọc trong một ngăn riêng dưới đáy hộc, có khay hứng nước và cửa mở được để kéo lọc ra vệ sinh. Cẩm nang cho biế…
+> Lọc thùng hoàn toàn hợp với bể 170x30x35, nhưng bạn nên chọn theo thể tích nước thật chứ không theo kích thước bể. Kích thước này khoảng 178 lít khi đầy kính, còn sau khi trừ cát, đá và lũa thì khoảng 150 đến 160 lít nước. Handbook khuyên lọc có lưu lượng mỗi giờ gấp 5 đến 6 lần thể tích nước, tức khoảng 800 đến 1000 lít mỗi giờ cho bể này. Với lọc thùng, thứ quyết định độ mạnh là lượng vật liệu bên trong nhiều hơn lưu lượng, nên hãy chọn loại có khoang vật liệu rộng.
+> 1. Trước khi đặt lỗ, chọn sẵn mẫu lọc và ghi lại đường kính ống, khớp nối và vị trí cần khoan.
+> 2. Nhờ bên làm bể khoan lỗ đúng…
 
 **Plain** (2866 characters):
 
@@ -1751,21 +1769,17 @@ failed: Request timed out.
 > - Tức là khoảng **1000–1400 L/h** là hợp lý. Chọn thùng có công suất thực tế (không chỉ ghi trên hộp) khoảng 1000 L/h trở lên, loại có thể chỉnh lưu lượng.
 > - Có thể dùng thùng cỡ vừa đến lớn (ví dụ dòng Sunsun, Eheim…
 
-### setup-09 · tank · plain wins (3.5 · 5.5)
+### setup-09 · tank · plain wins (3 · 5)
 
 **Asked:** Bể tôi định làm dùng lọc thùng có hợp không, và nuôi cá gì cho ít phải chăm?
 
-**Judge:** Cả hai đều bỏ qua bể dài hẹp đặt trong hộc giá sách và lỗ lọc ở 2 đầu. Y vẫn trả lời được cả hai câu hỏi với ngưỡng dung tích, lưu lượng, danh sách cá và cách giữ bể ổn định, dù dàn trải và có vài chỗ chưa chuẩn; X quá mỏng, chỉ gợi ý mỗi Corydoras. / X xác nhận lọc thùng hợp với bể từ 80 lít, có lưu lượng tham khảo và danh sách cá, cách giảm công chăm dù còn chung chung và có vài tên gọi sai. Y nói khá đúng về lọc và bảo trì, nhưng hỏi lại kích thước, chỉ gợi ý Corydoras nên gần như chưa trả lời nuôi cá gì; cả hai đều không bám vào bể dài 170 cm, đặt trong hộc giá sách với lỗ lọc ở hai đầu.
+**Judge:** Cả hai đều bỏ qua thông số bể. X còn nói sai đây là bể nhỏ và khuyên lọc treo. Y khẳng định lọc thùng hợp với bể từ 80 lít trở lên (đúng với bể khoảng 178 lít này), có danh sách cá và mẹo giảm công chăm theo thứ tự, nhưng chung chung và nhầm tỳ bà với Otocinclus. / Neither answer uses the tank's details: about 178 litres, set in a bookshelf niche, filter holes planned at both ends, few water changes wanted. X at least gives a correct conditional ("from 80 litres up") and a usable list of fish and care tips. Y is thin, recommends only one fish, and steers toward a hang-on filter for a tank it assumes is small.
 
-**Ours lacks:** tank-fit, too-thin, figures. **Plain lacks:** tank-fit, too-long, local.
+**Ours lacks:** tank-fit, too-thin, plan. **Plain lacks:** tank-fit, local, too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Lọc thùng hợp với bể cần lọc mạnh và êm, vì nó chứa được nhiều vật liệu và ít chiếm chỗ trong hồ. Đổi lại, nó khó vệ sinh hơn lọc treo, giá thường cao, và vật liệu sinh học nằm trong hộp kín nên dễ mất vi khuẩn nếu mất điện lâu. Bạn cho mình biết kích thước bể và loại cá định nuôi để mình xem kỹ hơn.
-> Nếu muốn ít phải chăm, mình gợi ý:
-> 1. Chọn lọc có khay và ống dễ tháo, để việc vệ sinh không mất quá nhiều thời gian.
-> 2. Vệ sinh lọc khi lưu lượng nước ra giảm rõ, rửa vật liệu sinh học bằng nước lấy từ chính bể, không rửa khô.
-> 3. Thay than hoạt tính khi đã dùng quá khoảng 30 ngày hoặc bị nhớt bá…
+> Lọc thùng làm được việc cho bể bạn định làm nếu bạn chấp nhận chi phí cao hơn và chịu bảo trì. Cẩm nang nói đây là loại mạnh và êm, chứa được nhiều vật liệu lọc, nhưng giá khá cao, khó vệ sinh và hay rò nước. Với bể nhỏ mà bạn muốn ít việc nhất, một lọc treo thành chất lượng tốt có thể đủ, nên bạn cho mình biết kích thước bể để mình gợi ý cụ thể hơn. Nếu nuôi cá ít phải chăm, cẩm nang gợi ý cá chuột (Corydoras): hiền, không kén ăn, dễ đẻ trong bể. Hầu hết loài cần bể từ 75 lít, loài lùn có thể nuôi trong 38 lít, và chúng cần nền cát mịn hoặc sỏi nhẵn vì râu mảnh dùng để tìm ăn ở đáy. Với lọc …
 
 **Plain** (2074 characters):
 
@@ -1779,19 +1793,20 @@ failed: Request timed out.
 > 
 > ## Cá ít phải …
 
-### cycling-01 · post · tie or split (5.75 · 6)
+### cycling-01 · post · tie or split (5.5 · 6)
 
 **Asked:** Bể em dài 90cm rộng 40, đã mua bình CO2 + trộn cánh quạt, lọc thùng DF1300, đèn Odyssea, nền 10kg loại nhiều chất, trồng trân châu ngọc trai, sao nhỏ và một đống cây cắm lưa thưa. Tuần đầu em lật ra lật vào 3 lần, mất một đống cây vì nhổ ra bị úa, nền mua thiếu thấy mỏng lại hút nước ra cho thêm. Hiện ngày nào em cũng thay 50% nước. Bể đang ổn định được 3 ngày, em định 1 tuần thì thả cá nhỏ như neon, 7 màu. Vậy đã thả được chưa, và nên mua sục oxy loại nào?
 
-**Judge:** Y bám sát bể hơn (DF1300, trân châu, nền thiếu), trả lời đúng câu hỏi mua sục loại nào và giảm thay nước hợp lý hơn, dù gợi ý thả cá thử là sai. X có thứ tự rõ ràng nhưng cắt thay nước quá mạnh với nền mới, bỏ qua 7 màu và không gợi ý loại sục cụ thể. / Cả hai đều đúng là chưa nên thả cá nhưng đều khuyên giảm thay nước quá sớm với nền mới. X bám sát bể và có mốc 3-4 tuần, song gợi ý thả tép/guppy để thử bể và đọc sai \"neon, 7 màu\"; Y có các bước rõ, an toàn hơn và có dấu hiệu theo dõi, nên nhỉnh hơn dù ít bám chi tiết bể và bỏ sót cá 7 màu.
+**Judge:** Cả hai đều khuyên giảm thay nước, mà không nhắc rằng nền nhiều chất mới sẽ nhả amoniac. Nhưng Y bám sát bể này hơn: nhắc DF1300, khuyên đặt đá sủi xa luồng CO₂, nói thời gian chạy chu trình 3-4 tuần, mật độ neon cho bể, và tên các hãng máy sục có bán ở Việt Nam. X mỏng và chung chung. / Cả hai đều khuyên sai là bớt thay nước, dù nền nhiều chất mới nhả amoniac mạnh trong vài tuần đầu. X sai thêm hai chỗ: khuyên thả tép làm cá thử, và đọc nhầm neon với bảy màu thành một loài. Y gọn, có các bước theo thứ tự và ít sai hơn, nhưng thiếu số liệu cụ thể.
 
-**Ours lacks:** tank-fit, local, figures. **Plain lacks:** plan, follow-up.
+**Ours lacks:** too-thin, tank-fit, figures, diagnosis. **Plain lacks:** tank-fit, wrong, too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 0 pages, stopped at the time limit):
 
-> Bạn chưa nên thả neon lúc này. Bể mới chạy được 3 ngày, vi khuẩn có lợi chưa đủ để xử lý amoniac và nitrit, và nền mới cùng cây vừa trồng lại đang nhả chất. Cá neon rất nhạy với giai đoạn này, cẩm nang cũng nói bể mới chưa hợp với neon vì chúng không chịu được biến động lúc khởi động, nên chỉ thả khi bể đã chạy ổn định. Việc nhổ cây ra xem nhiều lần và thay 50% nước mỗi ngày cũng làm chậm quá trình này, vì nước thay liên tục kéo theo vi khuẩn và chất dinh dưỡng cây cần.
-> 1. Ngừng thay 50% nước mỗi ngày, chỉ thay khoảng 20 đến 30% mỗi tuần nếu nước không có mùi lạ.
-> 2. Ngừng lật cây ra vào, để c…
+> Bạn chưa nên thả neon ngay. Bể mới chạy được 3 ngày thì vi khuẩn có lợi chưa đủ để phân hủy amoniac từ cá, và việc thay 50% nước mỗi ngày đang cuốn bớt chúng đi cùng chất dinh dưỡng. Phần cây bị úa khi nhổ lên cũng cho thấy bể đang bị xáo trộn quá nhiều. Cuốn cẩm nang chưa có mục nào trả lời trực tiếp câu hỏi về sục oxy cho bể này, nên phần dưới là kinh nghiệm chung.
+> 1. Ngừng thay nước hằng ngày, chỉ thay khi cần và khoảng 20-30% mỗi lần.
+> 2. Để nguyên cây, không nhổ lên xem nữa, cho cây bén rễ và nền ổn định.
+> 3. Mua bộ test amoniac và nitrit, kiểm tra mỗi vài ngày; khi amoniac và nitrit về 0 …
 
 **Plain** (1970 characters):
 
@@ -1801,19 +1816,19 @@ failed: Request timed out.
 > - **Thay 50% nước mỗi ngày làm chậm quá trình này.** Nó loại bỏ amoniac và vi khuẩn ngay khi chúng vừa hình thành, nên bể chưa có cơ hội ổn định. Bạn có thể giảm xuống 1-2 lần/tuần, chỉ thay thêm khi đo thấy chỉ số xấu.
 > - **Cây đang hồi phục.** Cây mới trồng và vừa bị nhổ lên nhổ xuống cần vài tuần để bám rễ và ra rễ mới. Trân châu ngọc trai rất khó…
 
-### cycling-01 · tank · ours wins (5.75 · 4)
+### cycling-01 · tank · ours wins (6.25 · 3.5)
 
 **Asked:** Bể thủy sinh mới set được ít ngày, khi nào thì thả neon và bảy màu được?
 
-**Judge:** Cả hai đều đúng ý chính là chờ xong chu trình và test NH3/NO2, nhưng đều bỏ qua bể cụ thể của bạn này (nền dưỡng, thay 50% nước mỗi ngày, lọc DF1300). Y có các bước rõ hơn nhưng khuyên dùng nước rửa chén làm nguồn amoniac, một lỗi có hại, nên X dù ngắn và có chỗ mâu thuẫn về việc thả sớm bảy màu vẫn an toàn hơn. / Y đưa ra thứ tự thả đúng hướng (bảy màu trước, neon sau cùng khi bể ổn định) và tiêu chí test rõ, dù ngắn và chưa bám bể nền nhiều dưỡng đang thay nước mạnh. X có cấu trúc rõ hơn nhưng khuyên nhỏ nước rửa chén vào bể là sai và có hại, lại hỏi những điều về nền và lọc mà app đã có.
+**Judge:** Cả hai đều bỏ qua chi tiết bể: mới 1,5 tuần, nền 10kg loại nhiều dưỡng đang nhả amoniac, đang thay 50% nước mỗi ngày. Dù vậy X an toàn, các bước có thứ tự rõ: test, thả bảy màu trước rồi mới thả neon, lưu ý độ cứng nước. Y khuyên nhỏ nước rửa chén vào bể, một lời khuyên nguy hiểm, và còn hỏi lại thông tin mà app đã có. / I'd rather this hobbyist got Y. X tells them to use dish soap as an ammonia source, which is harmful, and asks about a substrate the tank info already gives. Y lays out safe steps in order, and its species cards show the neon/guppy water mismatch. Neither answer uses the key details of this tank: the rich soil substrate leaches ammonia, and changing 50% of the water every day in the first weeks is normal for that kind of substrate.
 
-**Ours lacks:** tank-fit, plan, follow-up. **Plain lacks:** tank-fit, wrong, unsafe.
+**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** tank-fit, unsafe, wrong.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Bể mới set chỉ vài ngày thì chưa nên thả neon hay bảy màu. Cẩm nang nói cá neon không hợp với bể mới vì chúng không chịu được biến động của giai đoạn khởi động, chỉ thả khi bể đã trưởng thành và thông số nước ổn định. Bảy màu chịu đựng tốt hơn nhưng cũng cần bể đã có vi khuẩn lọc, nên bạn nên chờ đến khi bể chạy xong chu trình nitơ: thường mất khoảng 4 đến 8 tuần, và dùng bộ test để kiểm tra amoniac và nitrit đều về 0 trong vài ngày liên tiếp. Trong lúc chờ, bạn có thể thả trước vài con bảy màu khỏe để bể có cá mà vẫn an toàn, hoặc thả neon sau cùng khi nước đã ổn định.
-> 
-> [Trích: Cycling bể cá…
+> Bể mới set vài ngày thì chưa nên thả neon hay bảy màu. Cẩm nang nói rõ cá neon không hợp với bể mới vì không chịu được biến động của giai đoạn khởi động, chỉ nên thả khi bể đã trưởng thành và thông số nước ổn định. Bảy màu chịu được nhiều hơn nhưng vẫn cần bể đã chạy xong chu trình nitơ, nếu không amoniac và nitrit sẽ làm cá yếu và dễ chết. Thời gian chạy xong thường kéo dài vài tuần, mình ghi theo kinh nghiệm chung chứ cẩm nang không đưa con số cụ thể.
+> 1. Mua bộ test amoniac và nitrit, rồi đo nước mỗi 2 đến 3 ngày.
+> 2. Chờ đến khi amoniac và nitrit đều bằng 0 sau khi đã cho ăn, và đã có nitra…
 
 **Plain** (1389 characters):
 
@@ -1828,18 +1843,20 @@ failed: Request timed out.
 > - Thêm một nguồn amoniac (vài giọt nước rửa chén không có chất tẩy mạnh, hoặc chế phẩm vi sinh/cycle bacteria) để nuôi vi khuẩn có lợi.
 > - Có thể dùng vi sinh từ b…
 
-### cycling-02 · post · plain wins (5 · 7)
+### cycling-02 · post · plain wins (5 · 6.5)
 
 **Asked:** Em mới nhập môn, mua bể đúc 50cm + đèn 3 màu + lọc thác. Hai bố con mua 7 đôi cá: 5 đôi neon xanh đỏ + 2 đôi cá vàng nhỏ xíu. Sau 2 ngày cá lăn ra chết, chỉ còn 3 con cá vàng nhỏ. Vì sao vậy, và nên mua loại cá nào sống dai, sống khỏe cho con chăm?
 
-**Judge:** X chẩn đoán đúng, gọn và thận trọng khi hỏi lại \"cá vàng\" là loài nào, nhưng bỏ hẳn câu hỏi nên mua cá gì cho con chăm. Y dài và có lỗi tên cá, nhưng trả lời đủ cả hai ý: nguyên nhân, cách cứu 3 con còn lại, danh sách cá bền cùng cấu hình và lộ trình cụ thể, nên giúp hai bố con nhiều hơn. / X nêu đúng nguyên nhân (bể chưa chín, neon không hợp cá vàng), có việc cần làm ngay và trả lời câu hỏi nên mua cá gì kèm cấu hình cụ thể, dù dài và có vài lỗi nhỏ như gọi nhầm tên cá kiếm. Y chẩn đoán gọn, cẩn trọng và có bước rõ ràng nhưng bỏ hẳn câu hỏi về cá khỏe cho con chăm, chỉ để nó thành gợi ý hỏi tiếp.
+**Judge:** Both answers name the main cause correctly: the tank had not finished its nitrogen cycle. Y is better because it also covers stocking too many fish, the goldfish–neon mismatch, and how to acclimatise new fish, and it answers the question about hardy fish with concrete species. It has a few naming and local-fit slips. X is clear but skips the fish suggestions and gives a doubtful step of moving the fish to a temporary tank. / Hai câu trả lời đều chỉ đúng nguyên nhân chính là bể mới chưa chạy chu trình nitơ. Y không trả lời câu hỏi thứ hai về loài cá dễ nuôi cho con chăm, và cũng không nói cá vàng không hợp nuôi chung với neon. X trả lời đủ cả hai câu và có lộ trình rõ ràng, dù dài và có vài lỗi về tên cá và về việc mua máy sưởi ở Việt Nam.
 
-**Ours lacks:** tank-fit, too-thin, figures. **Plain lacks:** local, too-long.
+**Ours lacks:** tank-fit, too-thin. **Plain lacks:** too-long, local.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân chính là bể mới chưa chạy xong chu trình nitơ, nên nước có amoniac hoặc nitrit độc, cộng thêm việc thả 14 con cùng lúc trong bể 50 cm và cá bị sốc khi vận chuyển. Cẩm nang nói rõ cá neon không chịu được những biến động của giai đoạn khởi động bể, nên chỉ thả khi bể đã trưởng thành và thông số nước ổn định. Mình chưa rõ "cá vàng nhỏ xíu" là loài nào. Nếu là cá vàng thật thì loài này cần nước mát, không hợp với bể nhiệt đới có neon, nên bạn kiểm tra lại tên trên hóa đơn hoặc cho mình biết.
-> 1. Ngừng thả thêm cá và ngừng cho ăn dư, vì thức ăn thừa phân hủy làm amoniac tăng n…
+> Mình đoán nguyên nhân chính là bể mới chưa kịp chạy chu trình nitơ: vi khuẩn có lợi chưa đủ để phân hủy amoniac từ cá, nên amoniac và nitrit tăng rất nhanh và giết cá. Thả 14 con cùng lúc vào bể 50 cm làm tình hình tệ hơn. Cá neon đặc biệt nhạy với bể mới, handbook ghi rõ bể mới không hợp với chúng. Mình chắc về hướng này nhưng chưa biết chắc số đo, nên bạn nên thử nước ngay.
+> 1. Thử amoniac và nitrit bằng que thử ngay hôm nay; nếu có số đo trên 0,2 ppm, thay khoảng 30–50% nước bằng nước đã khử clo.
+> 2. Ngừng cho ăn hoàn toàn, vì thức ăn thừa thối làm amoniac tăng thêm.
+> 3. Chuyển 3 con cá vàng …
 
 **Plain** (3305 characters):
 
@@ -1856,22 +1873,21 @@ failed: Request timed out.
 > **3. Hai loài không hợp nhau**
 > - Neon là cá nhi…
 
-### cycling-02 · tank · ours wins (7 · 5.25)
+### cycling-02 · tank · plain wins (5 · 6.25)
 
 **Asked:** Tôi vừa mua bể và thả cá, mới 2 ngày cá đã chết gần hết, vì sao?
 
-**Judge:** X gives a short, ordered rescue plan, names chlorine and transport stress alongside the uncycled tank, and shows relevant neon and acclimation guides. Y is correct on the main cause but is a long generic list with a few muddled details and asks for fish details. Neither notes that neon and goldfish are a poor match. / Cả hai đều chẩn đoán đúng là bể mới chưa có vi sinh nhưng đều không nói gì về 3 con cá vàng còn sống hay việc nuôi chung neon với cá vàng. Y gọn, có bước theo thứ tự và dặn theo dõi 1–2 ngày, còn X dài, liệt kê chung chung, có lỗi nhỏ và cuối bài hỏi lại những thông tin cơ bản.
+**Judge:** Cả hai câu trả lời đều không dùng thông tin bể của người hỏi: bể đúc mới mua thả cá ngay, nuôi chung neon với cá vàng là không hợp, và còn 3 con cá vàng sống. Y nêu thêm clo trong nước máy và thiếu oxy, cho tỉ lệ thay nước cụ thể (25–50%) kèm khử clo, nên hữu ích hơn với người chơi ở Việt Nam. X ngắn gọn nhưng bỏ sót clo và có một bước thuần nước không áp dụng được cho cá đang ở trong bể. / Both answers ignore the tank details: a new cast tank stocked the same day, neons kept with goldfish, and the neons dying first. X covers chlorine and dechlorinated water changes, stopping feeding and adding bacteria, which suit Vietnamese tap water, though it is long. Y is shorter but never mentions chlorine and gives an acclimation step that doesn't apply to fish already in the tank.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, local, follow-up.
+**Ours lacks:** tank-fit, diagnosis, local, figures. **Plain lacks:** tank-fit, too-long.
 
-**Ours** (read 4 pages, stopped at the calls limit):
+**Ours** (read 3 pages):
 
-> Mình đoán nguyên nhân chính là bể mới chưa có vi sinh: amoniac và nitrit tăng vọt trong vài ngày đầu và làm cá chết sốc. Cá vừa vận chuyển cũng đang yếu, và nước máy có nhiều clo nếu bạn chưa khử. Mình chưa biết chắc vì chưa có số đo nước, nên hãy kiểm tra ngay.
-> 1. Thử amoniac và nitrit bằng bộ test nếu có; nếu chưa có, cứ coi như đang độc.
-> 2. Thay khoảng một phần ba nước bằng nước đã khử clo và cùng nhiệt độ với bể.
-> 3. Ngừng cho ăn và hạn chế đụng vào bể, để đèn dịu và giữ bể tối vài giờ đầu.
-> 4. Kiểm tra sục khí và nhiệt độ, vớt cá đã chết ra ngay.
-> 5. Đừng thả thêm cá cho tới khi bể đã qua c…
+> Nhiều khả năng bể còn mới chưa đủ vi sinh, nên amoniac hoặc nitrit tăng cao và làm cá sốc và chết nhanh. Cá mua về yếu hoặc chênh nhiệt độ, pH, chưa thuần nước cũng dễ chết sớm. Mình chưa biết bể đã chạy được bao lâu hay bạn thả loài nào, nên đây là mức khá chắc, chưa phải kết luận hẳn.
+> 1. Test amoniac và nitrit ngay bằng que thử; nếu trên 0,2 ppm thì thay một phần nước sạch cùng nhiệt độ.
+> 2. Ngừng cho ăn và kiểm tra lọc đang chạy, nước không quá đục hay có mùi lạ.
+> 3. Với cá còn sống, thuần nước chậm: nhỏ từ từ nước bể vào chỗ chứa cá trong 30 đến 60 phút trước khi thả.
+> 4. Từ nay chỉ thả thêm…
 
 **Plain** (2432 characters):
 
@@ -1886,20 +1902,20 @@ failed: Request timed out.
 > 
 > 2. **…
 
-### cycling-03 · post · plain wins (5.5 · 6)
+### cycling-03 · post · ours wins (7 · 5)
 
 **Asked:** Em mới chơi lần đầu, nghe người bán cá chỉ và hơi hấp tấp nên trong một tuần em set nền full trân châu ngọc trai lùn, trồng cây xếp cảnh. Sau đó em thả 2 ngàn đồng cá trâm, 5 con tép RC, 1 tỳ bà baby, chục con bảy màu. Đổ nước vào được một tuần thì rêu hại tràn lan, loại rêu trắng trắng làm thối rữa trân châu và lan rất nhanh. Bảy màu chết 7 con, cá trâm chết gần nửa đàn, tép trốn biệt vài ngày mới thấy ló mặt. Cây đang chết dần chết mòn, em đã thay nước, vớt bớt rêu, thả tép mồi số lượng lớn mà bất lực. Em đang định bỏ hồ này set lại theo kiểu nền đá đen, tường full rêu, mấy cây lá to dày, nuôi đội vệ sinh tỳ bà bướm, chuột panda, tép RC, cá trâm. Nên làm sao?
 
-**Judge:** X chẩn đoán đúng, trung thực về chỗ chưa chắc và không có lỗi, nhưng gần như bỏ ngỏ kế hoạch set lại và không bảo dọn thảm cây đang thối. Y hiểu sai trân châu thành sỏi, một lỗi đáng tiếc, nhưng vẫn có chẩn đoán cycle đúng, xử lý khẩn cấp, gợi ý cây, cycle 4-6 tuần và cách thả dần, nên trả lời câu hỏi nhỉnh hơn. / X hiểu nhầm trân châu thành sỏi, nhưng vẫn chẩn đoán đúng hồ chưa cycle, có các bước cứu hồ và góp ý trực tiếp cho kế hoạch set lại (loại cây, cycle 4-6 tuần, thả từng đợt). Y chính xác, gọn và trung thực hơn nhưng gần như không đánh giá kế hoạch mới, chỉ nói về cá trâm rồi bảo hỏi lại về tỳ bà bướm và chuột panda.
+**Judge:** Cả hai đều chỉ ra đúng nguyên nhân là bể chưa chạy xong chu trình nitơ. X ngắn, xếp bước theo thứ tự rõ ràng, nói đúng lớp trắng là vi khuẩn bùng trên chất hữu cơ thừa, và có thẻ loài cá trâm đi kèm. Y dài và có thêm vài ý hay, nhưng hiểu nhầm trân châu là sỏi nền và nói sai về tỳ bà bướm. / Y chỉ đúng nguyên nhân: hồ chưa chạy chu trình nitơ và phân nền mới đang nhả amoniac. Y đưa ra các bước gọn, có thứ tự, có con số, và lưu ý đúng về nhu cầu nước của cá trâm. X hiểu nhầm trân châu là sỏi nền, nói sai rằng tỳ bà bướm ăn cây, và viết dài lan man.
 
-**Ours lacks:** plan, tank-fit, too-thin. **Plain lacks:** wrong, too-long, figures.
+**Ours lacks:** follow-up, tank-fit. **Plain lacks:** wrong, too-long, tank-fit.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 4 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân chính là bể chưa chạy chu trình nitơ: bạn set xong mới một tuần đã thả cá, nên amoniac và nitrit tăng lên đốt cá bảy màu và cá trâm, còn tép trốn vì nước xấu. Rêu trắng và cây chết dần là hệ quả của nước giàu dinh dưỡng từ nền mới mà cây chưa đủ rễ để hấp thụ. Mình khá chắc về phần chu trình, còn loại rêu trắng cụ thể thì mình chưa chắc, có thể là màng vi khuẩn bùng lên.
-> 1. Mua bộ test amoniac và nitrit, đo ngay hôm nay để biết bể đang ở đâu.
-> 2. Ngừng cho ăn, không thả thêm cá hay tép, tạm giảm đèn còn khoảng 6 giờ mỗi ngày và không châm phân.
-> 3. Nếu amoniac hoặc nitrit …
+> Mình đoán nguyên nhân chính là bể chưa kịp chạy chu trình nitơ: thả cá sau một tuần khi nền mới đang nhả amoniac và nitrit nên bảy màu và cá trâm chết hàng loạt. Lớp trắng bết trên trân châu và cây là vi khuẩn bùng lên trên chất hữu cơ thừa, còn cây chết dần vì thiếu ổn định và nền đang nhả dinh dưỡng quá nhiều. Mình chưa xác định được chắc loại rêu trắng này, nên bạn cần test nước để biết rõ hơn.
+> 1. Test amoniac và nitrit ngay hôm nay; nếu còn có số, thay 50% nước mỗi ngày và ngừng cho ăn.
+> 2. Vớt xác cá, lá rữa và rêu chết, hút bỏ cặn dưới nền trân châu mỗi lần thay nước.
+> 3. Giảm đèn còn kho…
 
 **Plain** (3273 characters):
 
@@ -1912,21 +1928,21 @@ failed: Request timed out.
 > **Xử lý tình trạng cấp bách:**
 > - **Ngưng cho ăn 2-3 ngày.** Thức ăn thừa là nguồn amoniac chính…
 
-### cycling-03 · tank · tie or split (6.25 · 6)
+### cycling-03 · tank · plain wins (5 · 6)
 
 **Asked:** Bể mới set một tuần thì rêu trắng lan và cá chết gần nửa, có nên lật bể làm lại không?
 
-**Judge:** Both correctly say not to flip the tank and blame the uncycled tank, and neither uses the actual stock. X is cleaner and safer but barely deals with the white growth; Y has minor flaws but directly treats the white growth and gives daily water changes, a detoxifier and clear conditions for when flipping makes sense, so it answers more of the question. / Both correctly say not to strip the tank and blame the uncycled tank, and neither uses the hobbyist's stock or the rotting trân châu. Y is tighter and safer, with clear thresholds, daily re-testing, warning signs and a useful guide excerpt, though it barely treats the white growth; X covers that growth better but downplays it and gives weak reasons for stripping the tank later.
+**Judge:** Both answers correctly say this is new-tank syndrome and that the tank shouldn't be torn down. Y explains why: tearing down throws away the bacteria and restarts the cycle. Y also gives a 30–50% daily water-change plan, says to use bottled bacteria (vi sinh), which shops in Vietnam sell, and sets clear conditions for when tearing down makes sense. X's tear-down cutoffs look invented, and it adds talk about its own sources. Neither answer uses the tank's details: the shrimp, the feeder shrimp they just added, or the water change they already did. / Both answers correctly blame new tank syndrome and advise against tearing down the tank. Neither uses the hobbyist's fish or the rotting trân châu. X gives clearer daily steps (30-50% water changes every day, stop feeding, add bacteria). Y's 5 mg/L threshold for moving fish is too high, and it brings in old tank syndrome and handbook talk that don't help.
 
-**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** tank-fit, follow-up.
+**Ours lacks:** tank-fit, local, figures. **Plain lacks:** tank-fit, follow-up.
 
-**Ours** (read 4 pages, stopped at the calls limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình nghĩ bạn chưa cần lật bể. Bể mới một tuần chưa có đủ vi sinh để xử lý amoni và nitrit, nên cá chết nhiều thường là do chất độc tích lên, kèm theo rêu trắng hoặc nước đục là bùng vi sinh. Đây là suy đoán từ triệu chứng bạn kể, bạn cần đo nước để chắc chắn. Bạn nên làm thế này:
-> 1. Đo ngay amoni, nitrit, pH và nhiệt độ nước.
-> 2. Nếu amoni trên 0,1 mg/L hoặc nitrit trên 0, thay một phần nước, không quá 50%, bằng nước đã khử clo và có nhiệt độ bằng nước trong bể.
-> 3. Vớt cá chết và thức ăn thừa, tạm ngưng cho ăn một đến hai ngày.
-> 4. Giữ lọc chạy liên tục, không rửa vật liệu lọc bằng nước máy, v…
+> Bể mới set một tuần mà cá chết gần nửa thường là hội chứng bể mới: amoniac tăng vọt khi vi khuẩn lọc sinh học chưa đủ để xử lý chất thải, và đây là nguyên nhân phổ biến nhất trong giai đoạn này. Mình chưa thấy bạn đo nước nên chưa chắc chắn, nên chưa cần lật bể làm lại ngay.
+> 1. Đo ngay amoniac, nitrit, pH, nhiệt độ; nếu có, đo thêm oxy hòa tan.
+> 2. Ngưng cho ăn, rồi thay khoảng 50% nước bằng nước đã khử clo, cùng nhiệt độ với bể.
+> 3. Sục khí mạnh, kiểm tra máy sủi và máy lọc còn chạy, vớt cá chết ra ngay.
+> 4. Nếu amoniac trên 5 mg/L và pH dưới 7, chuyển cá còn lại sang một bể tạm có nước sạch, p…
 
 **Plain** (1555 characters):
 
@@ -1938,17 +1954,20 @@ failed: Request timed out.
 > 2. **Thay nước 30-50% mỗi ngày** nếu có amoniac/nitrit, dùng nước đã khử clo, cùng nhiệt độ với bể. Dùng thuốc khử độc amoniac nếu có.
 > 3. **Ngừng cho ăn 1-2 n…
 
-### cycling-04 · post · plain wins (6.25 · 7.5)
+### cycling-04 · post · plain wins (7 · 7.75)
 
 **Asked:** Hồ mình 40x30x30, vừa set up được 5 ngày thì có hiện tượng cá chết, mặt hồ có bọt trắng là sao? Hồ như vậy có cần thay nước thường xuyên không, có cần sục sủi không? Mình chỉ để chạy máy lọc nước thôi.
 
-**Judge:** Both correctly blame an uncycled tank, but Y answers all the questions directly: foam cause and removal, a water-change routine during and after cycling, and aeration in hot weather, plus 36-litre stocking advice. X has clear emergency steps but is awkward with its handbook references, gives no routine water-change plan, and ignores the tank size. / X trả lời đủ nguyên nhân, cách xử lý, lịch thay nước trước và sau khi hồ ổn định, việc có cần sủi hay không, và mức thả cho hồ 36 lít, dù thiếu men vi sinh và gộp nhầm betta. Y có men vi sinh, mượn vật liệu lọc và phần theo dõi tốt, nhưng trả lời thiếu về thay nước lâu dài, không dùng kích thước hồ và văn phong còn lộ 'cẩm nang nói'.
+**Judge:** Cả hai câu trả lời đều chẩn đoán đúng là hồ chưa chạy xong chu trình nitơ (cycling). Y tốt hơn vì nói thêm các nguyên nhân khác hay gặp: nước máy chưa khử clo, xà phòng còn sót lại, thả cá bị sốc nhiệt hoặc chênh pH. Y cũng gợi ý dùng chất giải độc amoniac, tính đúng thể tích hồ 36 lít kèm lời khuyên về số lượng cá, và nói rõ có nên sục khí hay không khi trời nóng. X ngắn gọn và đúng, nhưng ít bám vào cái hồ cụ thể của người hỏi. / Cả hai đều đoán đúng là hồ chưa chạy xong chu trình nitơ, và các bước xử lý gần như giống nhau. X hợp với hồ này hơn: tính ra thể tích 36 lít, gợi ý chất khử độc kiểu Prime, nhắc trời nóng thì nên có sủi, và trả lời đủ chuyện thay nước khi hồ còn mới lẫn khi đã ổn định. Đổi lại X hơi dài và có một lỗi nhỏ về số lượng betta. Y gọn và có lịch theo dõi rõ ràng nhưng ít dùng đến chi tiết của hồ này.
 
-**Ours lacks:** tank-fit, follow-up, local. **Plain lacks:** follow-up.
+**Ours lacks:** tank-fit, local. **Plain lacks:** too-long.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 1 pages):
 
-> Với bể 5 ngày tuổi mà cá đã chết, nguyên nhân khả nhất là hội chứng bể mới: bể chưa có vi sinh để phân hủy amoni từ cá và thức ăn thừa, nên amoni (và có thể nitrit) tích lại đến mức độc. Hiện mình chưa có đủ dữ liệu để chắc chắn. Cẩm nang nói rõ dấu hiệu này gồm cá ngáp mặt nước, thở nhanh, lờ đờ, bỏ ăn, nước đục và có mùi hôi; bể mới thường cho amoni cao, nitrit thấp hoặc bằng 0 và không có nitrat. Riêng lớp bọt trắng trên mặt, cẩm nang chưa giải thích nguyên nhân, nên mình không dám chắc. Thường gặp là cặn bẩn hoặc chất hữu cơ trên mặt nước, cặn xà phòng còn sót trong dụng cụ, hoặc bọt do d…
+> Mình đoán nguyên nhân chính là bể mới 5 ngày chưa đủ vi khuẩn có lợi để phân hủy amoniac và nitrit từ cá, thức ăn thừa và chất thải. Chất độc tích tụ thì cá dễ chết, còn bọt trắng thường là protein và chất hữu cơ nổi lên từ thức ăn, chất thải hoặc cặn bẩn còn sót lại khi set bể. Mình chưa thể chắc chắn chỉ từ bọt, nên cần đo nước để xác định.
+> 1. Đo amoniac và nitrit ngay bằng que thử. Nếu trên 0,2 ppm, thay khoảng 25 đến 30% nước bằng nước đã khử clo.
+> 2. Ngừng cho ăn hoặc chỉ cho ăn rất ít, và vớt hết cá chết cùng thức ăn thừa dưới đáy.
+> 3. Giữ máy lọc chạy liên tục, không tắt. Nếu mặt nước ít…
 
 **Plain** (2320 characters):
 
@@ -1960,20 +1979,19 @@ failed: Request timed out.
 > - **Bọt trắng trên mặt** thường là bọt protein từ chất hữu cơ, hoặc do vi khuẩn bùng phát trong giai đoạn đầu. Bọt có thể do thức ăn thừa, phân, hoặc dư chất tẩy rửa/xà phòng còn sót lại khi vệ sinh hồ và trang trí.
 > - Các nguyên nhân khác: nước máy chưa khử clo, nhiệt độ h…
 
-### cycling-04 · tank · plain wins (6 · 7.25)
+### cycling-04 · tank · ours wins (7.25 · 6.25)
 
 **Asked:** Bể mới set 5 ngày cá chết và mặt nước có bọt trắng, là sao?
 
-**Judge:** Cả hai đều chẩn đoán đúng bể chưa cycle, nhưng Y cứu cá tốt hơn nhờ có % thay nước, khử clo, tăng sục khí và chất khử độc, lại xét cả clo và xà phòng, hai nguyên nhân X bỏ sót. X gọn hơn nhưng thiếu số liệu thay nước và nguyên nhân từ nước máy; Y hơi dài và hỏi lại thể tích bể dù không dùng được dữ liệu bể. / Both correctly blame an uncycled tank, but X gives a clearer rescue: add aeration, change 30–50% of the water with dechlorinated water, use a detoxifier, and consider chlorine or soap residue. Y is tighter and has a good cycling-complete check, but it gives no water-change amount, barely covers tap water, and only says to keep aeration running though this tank has none.
+**Judge:** Both answers get it right: the tank is only 5 days old and hasn't cycled, so ammonia built up. X gives a short plan in the right order (test, remove the dead fish, change water, add air, don't add fish yet) and says to test every day. Y covers more possible causes, like soap and chlorine, and suggests Prime, but it is long and padded. Y also asks for the tank size, which the app already holds, and neither answer links the advice to the tank having no air pump. / Cả hai đều đúng: bể mới chưa chạy xong chu trình nitơ nên amoniac/nitrit tăng cao. Y gọn hơn, các bước có thứ tự rõ, có dặn thử amoniac mỗi ngày và chờ amoniac/nitrit về 0 rồi mới thả thêm cá. X dài, liệt kê nhiều khả năng như một bài hướng dẫn chung, lại hỏi lại thể tích bể dù đã có kích thước 40×30×30 (~36 lít). Bù lại, X có nhắc clo trong nước máy và xà phòng, là những nguyên nhân hay gặp ở Việt Nam mà Y bỏ qua. Cả hai đều không tận dụng chi tiết bể chỉ chạy lọc, không có sủi.
 
-**Ours lacks:** figures, tank-fit, diagnosis. **Plain lacks:** tank-fit, too-long.
+**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** too-long, tank-fit, follow-up.
 
 **Ours** (read 2 pages):
 
-> Mình đoán nguyên nhân chính là bể chưa cycle: mới set 5 ngày thì vi khuẩn có lợi chưa đủ để xử lý amoniac từ cá và thức ăn thừa, nên amoniac tích tụ đến mức độc và cá chết. Cách cycling trong cẩm nang nói rõ điều này. Còn lớp bọt trắng thì cẩm nang chưa nói cụ thể; thường là chất hữu cơ phân hủy, cặn từ vật liệu mới hoặc xác thức ăn, nên bạn cần đo nước để xác định thêm. Việc cần làm ngay:
-> 1. Đo amoniac và nitrit bằng que thử ngay hôm nay; nếu trên 0,2 ppm thì thay một phần nước bằng nước sạch.
-> 2. Ngừng cho ăn, vớt xác cá, thức ăn thừa và cặn nổi trên mặt nước.
-> 3. Giữ lọc và sục khí chạy liên…
+> Nhiều khả năng bể chưa đủ vi khuẩn có lợi để xử lý amoniac, nên amoniac từ phân cá, thức ăn thừa và cá chết tích lên đến mức làm cá chết. Bọt trắng trên mặt nước thường là chất hữu cơ phân hủy hoặc lớp màng protein trong bể mới, chưa chắc là dấu hiệu riêng, nhưng cùng lúc với cá chết thì rất đáng ngờ. Mình chưa có trang nào trong cẩm nang chẩn đoán đúng bọt này, nên đây là suy đoán từ kinh nghiệm chung, bạn cần thử nước để xác nhận.
+> 1. Thử amoniac và nitrit ngay bằng que thử; nếu amoniac hoặc nitrit trên 0 thì bể chưa chạy xong chu trình nitơ.
+> 2. Vớt hết cá chết ra ngay và ngừng cho ăn ít nhấ…
 
 **Plain** (2085 characters):
 
@@ -1985,21 +2003,20 @@ failed: Request timed out.
 > 2. **Bọt trắng** thường do chất hữu cơ dư thừa: thức ăn thừa, phân cá, cá chết phân hủy, nhớt cá, hoặc còn sót xà phòng/chất tẩy rửa khi vệ sinh bể, lọc, đá, cây.
 > 3. **Sốc môi trường:** nước máy chứa clo/chlor…
 
-### cycling-05 · post · plain wins (6 · 7.25)
+### cycling-05 · post · plain wins (5 · 7)
 
 **Asked:** Mình mới tập set một hồ biotop 845, chỉ có lũa hải sa quỳ, đá đen và đá cuội, vài cây thủy sinh không cần CO2, lọc thùng Atman, đèn rọi vàng-trắng. Giai đoạn mới châm đầy nước và chạy lọc thì nên châm loại vi sinh nào?
 
-**Judge:** Y names the bacteria type and example products, and covers dechlorination, an ammonia source, not washing filter media in tap water, and a test schedule with a 3–6 week timeframe, so the hobbyist can really run the cycle. X is concise and correct on the main point but misses dechlorination and an ammonia source, is vague on timing, and has an awkward \"cẩm nang không nêu tên hãng\" line. / X trả lời trúng loại vi sinh, có tên sản phẩm, nguồn amoniac, mốc test và thời gian 3–6 tuần nên dễ làm theo, dù hơi dài và vài bước không đúng giai đoạn. Y gọn, sát hồ và hợp cách cycling bằng cây, nhưng không nêu tên sản phẩm hay số liệu, lại có câu \"cho ăn dè\" gây rối khi chưa có cá.
+**Judge:** Y nói đúng ý chính: hồ không cá thì phải cho vi sinh 'thức ăn' (thức ăn khô hoặc amoni), và có nhắc tanin từ lũa. X đưa liều Stability đúng nhãn, nhưng thiếu nguồn amoni, nên chờ test về 0 sẽ báo sai là hồ đã chạy xong, và lời khuyên thay nước khi amoni vượt 0,1 lại làm chậm việc chạy hồ. / X đưa ra quy trình chạy bể không cá đủ ý: thêm nguồn amoni 2–4 ppm, test cả ba chỉ số và cấy vật liệu lọc từ bể cũ. Y bỏ mất bước cấp amoni cho vi sinh và khuyên thay nước khi amoni vượt 0,1, nên dễ báo sai là bể đã chạy xong. Cả hai đều không tính liều theo thể tích bể 845 (khoảng 160 L).
 
-**Ours lacks:** figures, plan, local, too-thin. **Plain lacks:** too-long, local, tank-fit.
+**Ours lacks:** wrong, tank-fit, local. **Plain lacks:** figures, too-long, local.
 
-**Ours** (read 3 pages, stopped at the calls limit):
+**Ours** (read 2 pages):
 
-> Với bể biotop chỉ có lũa, đá và cây không CO2 thì mình sẽ dùng vi khuẩn nitrat hóa sống (dạng chai) là lựa chọn chính, vì bể mới chưa có vi khuẩn có lợi để xử lý amoniac. Cẩm nang không nêu tên hãng cụ thể nên bạn chọn loại có ghi vi khuẩn nitrat hóa sống và làm theo liều trên nhãn.
-> 1. Châm đầy nước, bật lọc Atman chạy trước, rồi nhỏ vi khuẩn sống vào theo liều ghi trên chai.
-> 2. Đặt cây thủy sinh ngay, vì cây và rễ cũng mang vi khuẩn có lợi và hấp thụ amoniac, nitrat.
-> 3. Chưa thả cá; cho ăn dè và dùng que thử nước theo dõi amoniac và nitrit.
-> 4. Khi cây ra chồi lá mới và amoniac, nitrit về 0 t…
+> Bạn nên châm men vi sinh (vi khuẩn đóng chai, ví dụ Seachem Stability hoặc FritzZyme, hay loại tương đương) ngay khi bể đã có nước và lọc đã chạy, vì bể mới chưa có hệ vi sinh để phân hủy amoni và nitrit. Bể không CO2 và chưa có cá vẫn cần bước này. Cách nhanh hơn nữa là xin thêm vật liệu lọc đã chạy từ một bể khỏe để mồi vi sinh.
+> 1. Trung hòa clo trong nước máy, rồi chờ 30 phút trước khi châm men.
+> 2. Chạy lọc Atman liên tục và giữ nhiệt độ khoảng 24–26°C trước khi châm men.
+> 3. Châm men đúng liều in trên nhãn chai, ví dụ Seachem Stability khoảng 5 mL cho 40 lít vào ngày đầu, rồi thêm theo nhã…
 
 **Plain** (2095 characters):
 
@@ -2010,19 +2027,20 @@ failed: Request timed out.
 > 1. **Khử clo trước khi châm nước.** Clo sẽ diệt vi khuẩn. Dùng nước đã để qua đêm, hoặc dùng chất khử clo, và chỉ thả vi sinh sau khi nước đã xử lý xong.
 > 2. **Ngâm lũ…
 
-### cycling-05 · tank · plain wins (5 · 7)
+### cycling-05 · tank · plain wins (5.25 · 6.75)
 
 **Asked:** Bể mới đổ nước chạy lọc, nên châm vi sinh loại nào để sớm thả cá?
 
-**Judge:** Y trả lời đúng câu hỏi bằng tên chế phẩm thật, có nguồn amoniac để nuôi vi sinh, mốc ppm và thời gian, dù gợi ý neon và lia thìa chưa chuẩn và còn hỏi lại kích thước bể. X an toàn và trung thực về thời gian nhưng không nêu sản phẩm nào, các bước chính thiếu nguồn amoniac, và cũng không dùng thông tin bể. / X trả lời đúng câu hỏi: nêu tên sản phẩm cụ thể, cách cấp amoniac nuôi vi sinh, mốc thời gian và điều kiện thả cá, dù chưa dùng thông tin bể và gợi ý neon chưa hợp. Y an toàn nhưng không nêu sản phẩm nào, các bước không có nguồn amoniac nuôi vi sinh (chỉ thoáng nhắc trong trích dẫn) và thời gian còn mơ hồ.
+**Judge:** Y trả lời đúng câu hỏi: kể tên các loại vi sinh sống có thật, bán ở VN, và đưa quy trình cycle cùng mốc kiểm tra rõ ràng. Nhưng Y gợi ý sai loại cá để thả đầu (neon, lia thìa). X chung chung, không nêu tên sản phẩm, và có con số 38 lít khó hiểu. Cả hai đều không dùng thông tin bể 160 lít, biotop, có lũa. / X answers 'which kind' directly: it names real live-bacteria products and gives a clear fishless-cycle plan with ammonia figures and when the cycle is done, although listing neon as a hardy fish is wrong. Y is safe but vague: it repeats the guide, names no product, and neither answer uses the 160 L biotope tank with the Atman canister filter.
 
-**Ours lacks:** figures, tank-fit, plan. **Plain lacks:** tank-fit, local.
+**Ours lacks:** tank-fit, figures, local. **Plain lacks:** tank-fit, local.
 
-**Ours** (read 3 pages, stopped at the calls limit):
+**Ours** (read 2 pages):
 
-> Bể mới chạy lọc thì vi sinh chưa đủ để xử lý chất thải, nên thả cá sớm dễ làm cá bị ngộ độc amoniac. Cẩm nang không nêu tên sản phẩm cụ thể nào, nhưng có ghi bạn có thể mua một chai vi khuẩn nitrat hóa dạng sống, xin vật liệu lọc đã chạy lâu từ bạn bè, hoặc trồng cây thủy sinh để có sẵn vi khuẩn có lợi bám theo. Theo cẩm nang, nuôi trước vật liệu giúp rút ngắn thời gian nhưng không có nghĩa là lắp xong là thả cá được ngay.
-> 1. Chọn chế phẩm vi khuẩn nitrat hóa dạng sống, không phải loại đã diệt, và làm theo liều in trên nhãn.
-> 2. Nếu xin được, cho vật liệu lọc đã nuôi vi sinh từ bể khác vào ngă…
+> Muốn thả cá sớm, bạn nên dùng vi khuẩn nitrat hóa sống, không chỉ loại vi sinh ghi chung chung. Cẩm nang nói bạn có thể mua một chai vi khuẩn nitrat hóa sống, xin ít vật liệu lọc đã chạy lâu từ bạn bè, hoặc trồng cây thủy sinh để rút ngắn thời gian cycle. Khi bể mới chưa có đủ vi khuẩn, amoniac và nitrit từ cá dễ tích lại, nên cần làm đồng thời các bước dưới đây.
+> 1. Mua vi khuẩn nitrat hóa sống và làm theo hướng dẫn in trên nhãn, chọn loại ghi rõ là vi khuẩn sống.
+> 2. Nếu có bể đã ổn định, xin ít vật liệu lọc hoặc nền từ bể đó và cho vào ngăn lọc của bể mới.
+> 3. Trồng thêm cây thủy sinh để cây …
 
 **Plain** (1429 characters):
 
@@ -2032,22 +2050,22 @@ failed: Request timed out.
 > 1. **Châm vi sinh ngay** sau khi đổ nước và chạy lọc, liều theo hướng dẫn trên bao bì. Có thể châm lại sau 1-2 tuần để bù lượng vi khuẩn.
 > 2. **Nuôi vi khuẩn bằng nguồn amoniac:** cho ăn một ít thức ăn mỗi ngày, hoặc dùng amoniac nguyên chất (không có ch…
 
-### cycling-06 · post · tie or split (6.5 · 6.75)
+### cycling-06 · post · plain wins (6 · 7)
 
 **Asked:** Em mới set một bể cubic 20 loại lowtech, mấy hôm nay nước trong bể tự nhiên rất đục, mờ mờ như lớp sương mù. Mọi người bảo do vi sinh bị chết. Làm sao khắc phục và tạo lại vi sinh? Em cũng nuôi cá trong thùng xốp, nước trong đó rất trong dù thỉnh thoảng mới hút cặn và châm thêm nước. Em lấy nước thùng xốp đó châm mồi vi sinh cho bể mới được không?
 
-**Judge:** X chẩn đoán đúng và cho các bước có thứ tự: đo ammonia, ngưng ăn, để yên lọc, biết khi nào thay nước và khi nào kiểm tra lại, dù câu \"cẩm nang không nói\" hơi lạ và phần mồi vi sinh còn dè dặt. Y trả lời việc mồi vi sinh rõ và thực tế hơn, nhưng phần xử lý đục là danh sách rời rạc, có giải thích sai về ánh sáng và khuyên lấy vật liệu lọc từ thùng xốp vốn có thể không có lọc. / Both correctly identify a bacterial bloom and warn against disturbing the tank. X is more useful because it directly answers the seeding question and shows how to seed with media or a squeezed sponge, while Y's steps are crisp but it hedges with \"cẩm nang không nói\" and gives only brief seeding advice.
+**Judge:** Cả hai đều nói đúng nguyên nhân là bùng vi khuẩn chứ không phải vi sinh chết. Y hợp với bể lowtech hơn: Y khuyên thêm cây mọc nhanh, cảnh báo nguy cơ mang bệnh từ thùng xốp sang, và nói thật là dùng nước thùng xốp được nhưng ít hiệu quả. X thì khuyên để đèn tới 12 tiếng và tự cho rằng thùng xốp có lọc, trái với lời bạn ấy kể, dù X có trích dẫn bài viết sát với điều kiện ở Việt Nam. / Both answers say the cloudiness is a bacterial bloom, not dead bacteria, and that it's better to move filter media than pour in water from the foam box. X's advice is safer and also warns that fish diseases could come along with the water. Y adds a useful polyester floss tip and Vietnam-specific guide excerpts, but its 8–12 hours of light per day is wrong for a new low-tech tank.
 
-**Ours lacks:** tank-fit. **Plain lacks:** plan, follow-up, too-long.
+**Ours lacks:** tank-fit, wrong. **Plain lacks:** local, follow-up.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 5 pages):
 
-> Nhiều khả năng bạn đang bị bùng vi sinh, hiện tượng hay gặp nhất ở bể mới set. Nước đục trắng như sương là vi khuẩn sinh sôi quá nhanh khi bể chưa ổn định, không phải vi sinh bị chết. Thường nó tự hết nếu bạn không làm xáo động bể.
-> 1. Đo ammonia và nhiệt độ nước ngay. Nếu ammonia bằng 0 thì gần như không cần làm gì thêm.
-> 2. Ngừng cho ăn khoảng 7 ngày, kể cả khi cá vẫn khỏe.
-> 3. Để yên bộ lọc ít nhất 7 ngày, không vệ sinh và không đổi vật liệu lọc.
-> 4. Nếu ammonia hoặc nitrite trên 0, đo mỗi ngày và thay khoảng 10–25% nước bằng nước có nhiệt độ gần bằng bể.
-> 5. Đặt bể tránh nắng chiếu thẳng, bật …
+> Nước trắng đục như sương mù trong bể mới thường là bùng vi sinh, chứ chưa chắc vi sinh đã chết. Vi khuẩn sinh sôi rất nhanh khi bể còn non, nhiều chất hữu cơ, thức ăn dư hoặc cặn từ nền. Nếu ammonia đo được bằng 0 thì chưa đáng lo.
+> 1. Đo ammonia bằng que thử; nếu bằng 0 thì để bể tự cân bằng và đừng đụng vào lọc.
+> 2. Ngưng cho ăn khoảng 7 ngày, và chỉ cho ăn ít khi bể có cá.
+> 3. Giảm đèn còn khoảng 8–12 tiếng mỗi ngày và đặt bể tránh nắng chiếu trực tiếp.
+> 4. Nếu vài ngày vẫn chưa bớt, lót bông tấm polyester 100% vào tầng lọc cơ học để giữ lại cặn lơ lửng; không dùng loại ghi chống nấm mốc.
+> 5. K…
 
 **Plain** (2164 characters):
 
@@ -2060,19 +2078,21 @@ failed: Request timed out.
 > - **Đừng thay nước lớn** hoặc rửa lọc bằng nước máy mạnh. Việc này loại bỏ vi sinh bám và làm bloom kéo dài.
 > - **Giảm ánh sáng** xuống khoảng 4-6 giờ/ng…
 
-### cycling-06 · tank · ours wins (6.75 · 5.75)
+### cycling-06 · tank · ours wins (6.25 · 5.25)
 
 **Asked:** Bể mới set bỗng đục mờ như sương, có phải vi sinh chết và làm sao gây lại?
 
-**Judge:** X gives the right diagnosis and a short ordered plan with clear checks, while Y is also correct but more generic and less clearly sequenced, ending in questions. Neither addresses the hobbyist's styrofoam-box water or the 20 cm tank, though X's guide excerpts add useful follow-through. / Cả hai đều nhận đúng là bùng vi sinh chứ không phải vi sinh chết, nhưng đều bỏ qua bể cubic 20 và ý định lấy nước thùng xốp để mồi vi sinh. Y gọn hơn, có các bước theo thứ tự, biết khi nào thay nước và dùng từ quen thuộc; X dàn trải, chèn quy trình cycling dài và liều ammonia không cần cho ca này, dù phần gây lại vi sinh đầy đủ hơn.
+**Judge:** Cả hai đều nói đúng rằng nước đục là bùng vi khuẩn chứ không phải vi sinh chết, nhưng cả hai đều bỏ qua bể cubic 20 cm và thùng xốp của bạn này: nên lấy bông lọc hoặc nền từ thùng xốp để mồi vi sinh thì tốt hơn lấy nước. X ngắn gọn, làm theo thứ tự đo rồi mới xử lý, dễ làm ngay. Y có thêm số liệu (thay 20–30% nước, amoni 2–4 ppm, chạy 4–8 tuần) nhưng dài và lan man, khuyên tắt đèn bất lợi cho cây, dùng chữ "bloom" tiếng Anh và cuối bài thì hỏi lại. / Cả hai đều nói đúng rằng đây là bùng vi khuẩn chứ không phải vi sinh chết. Y gọn hơn và làm theo thứ tự đo trước rồi rẽ nhánh theo kết quả. Y còn chỉ cách phân biệt với bụi nền và nêu dấu hiệu cá bị ngộ độc. X dài, chung chung, kèm cách chạy chu trình bằng amoniac kiểu nước ngoài. Không bên nào để ý đến bể cubic 20 hay ý định lấy nước thùng xốp để mồi vi sinh, trong khi nước thì mang rất ít vi sinh.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, plan.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long, local.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Nhiều khả năng đây là bùng vi sinh chứ không phải vi sinh chết. Bể mới set hay đục trắng như nước vo gạo khi vi khuẩn sinh sôi mạnh, và nhiệt độ đổi đột ngột hoặc cho ăn nhiều cũng dễ gây ra. Nước đục không đồng nghĩa với vi khuẩn chết; nếu chết thật thì ammonia và nitrite sẽ tăng lên. Để gây lại vi sinh nhanh hơn, bạn có thể cấy vi khuẩn bằng vật liệu lọc đã dùng từ một bể đang chạy tốt, hoặc dùng chế phẩm vi khuẩn theo hướng dẫn trên nhãn; không làm vậy thì sẽ phải chờ lâu.
-> 1. Đo ammonia và nitrite ngay, ammonia phải bằng 0, và kiểm tra nhiệt độ nước.
-> 2. Ngưng cho ăn khoảng 7 ngày; cá khỏe …
+> Nhiều khả năng đây là bùng vi sinh chứ không phải vi sinh chết: bể mới hay đục trắng như nước vo gạo khi vi khuẩn nở hoa, thường là lúc bể đang chạy chu trình nitơ. Mình chưa biết chỉ số trong bể bạn, nên việc đầu tiên là đo.
+> 1. Đo ammonia và nitrite ngay, đồng thời kiểm tra nhiệt độ nước.
+> 2. Nếu ammonia và nitrite đều bằng 0 thì chưa cần làm gì: ngưng cho ăn khoảng 7 ngày và để nguyên bộ lọc, không vệ sinh hay đổi gì trong lọc.
+> 3. Nếu ammonia hoặc nitrite trên 0, thay một phần nước (đừng thay 75% một lần) và đo mỗi ngày cho đến khi về 0.
+> 4. Nếu bể thật sự vỡ vi sinh, mồi lại bằng vật liệu lọ…
 
 **Plain** (1912 characters):
 
@@ -2083,21 +2103,20 @@ failed: Request timed out.
 > **Cách xử lý khi bloom:**
 > - Đừng hoảng và đừng thay …
 
-### cycling-07 · post · ours wins (7 · 4.25)
+### cycling-07 · post · ours wins (5.5 · 3.5)
 
 **Asked:** Hồ em mới set hôm nay, có phân nền và chỉ một số cây cắt cắm dễ trồng. Em đặt trong phòng ngủ nên không thích sủi và lọc vì tiếng ồn. Người bán bảo chỉ cần 2-3 ngày thay nước một lần là được, vậy có ổn không, có cách nào khác không?
 
-**Judge:** X đúng trọng tâm: phân nền mới cần thay nước dày, có lịch theo tuần, số phần trăm rõ, chưa thả sinh vật và biết cần theo dõi gì, dù phần cách khác ngoài thay nước còn mỏng. Y có nhiều gợi ý hữu ích về lọc bọt biển, cây nổi và test nước, nhưng lại khuyên thay nước thưa dựa trên lý do sai về vi sinh, nên sai ở đúng điều người hỏi cần biết. / Y correctly says a new soil tank with no filter needs more frequent changes than the seller suggested, and gives a dated schedule with what to watch for, though it offers little on no-filter alternatives or the long term. X has better quiet-setup ideas such as floating plants and a remote pump, but its core advice to change water less often rests on a false bacteria claim and is wrong for this stage.
+**Judge:** Y nói sai rằng thay nước thường làm mất vi sinh, và lịch 1-2 tuần mới thay nước là rủi ro với phân nền mới. X nhận ra đúng chuyện amoniac trong hồ chưa có chu trình, và đưa ra cách làm êm hợp lý (lọc mút với máy sủi để xa, giảm đèn, thả bèo). Tuy vậy X vẫn chưa nói rõ là nên thay nước thường xuyên trong thời gian đầu. / Cả hai đều bác sai việc thay nước dày, mà với hồ phân nền mới thì đó lại là cách đúng. Trong khi đó X còn lặp lại ngộ nhận thay nước làm mất vi sinh và đẩy lịch thay lên 1-2 tuần. Y an toàn hơn vì có chạy chu trình, giảm đèn và thay ngay khi amoniac lên, dù đề xuất cây buộc lũa lệch với hồ của người hỏi.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** wrong, plan, too-long.
+**Ours lacks:** figures, tank-fit, diagnosis. **Plain lacks:** wrong, too-long, tank-fit, figures.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Lịch 2-3 ngày thay một lần chưa ổn cho hồ vừa set. Nền mới đang nhả nhiều dinh dưỡng và lũa ra nhớt, nên cẩm nang khuyên tuần đầu thay 50% nước mỗi ngày, tuần 2 và 3 thay 40% cách hai ngày. Không có lọc hay sủi thì nước càng dễ bẩn, nên lịch thay nước càng quan trọng.
-> 1. Tuần đầu thay khoảng 50% nước mỗi ngày, nước mới phải khử clo trước khi đổ vào.
-> 2. Tuần 2 và 3 thay 40% hai ngày một lần, hút sát nền bằng ống nhựa để nhặt cặn và lá rụng.
-> 3. Mỗi lần thay, châm Seachem Prime theo liều in trên chai, và soi cây để cắt bỏ phần úng trước khi thay.
-> 4. Chưa thả cá, tôm hay ốc. Cẩm nang khuyên chờ 7…
+> Mình nghĩ lời người bán chưa ổn. Bể mới set hôm nay chưa có vi sinh lọc, nên dù chưa thả cá, phân nền và lá cây mục vẫn sinh amoniac. Thay nước 2-3 ngày một lần không theo kịp, và cẩm nang cũng nói bể không lọc thì amoniac tích lại nhanh. Cẩm nang chưa có con số riêng cho bể mới không lọc, nên các bước dưới đây là kinh nghiệm chung của mình.
+> 1. Chưa thả cá, và chạy chu trình nitơ trước, thường vài tuần đến vài tháng.
+> 2. Nếu muốn không tiếng ồn, dùng lọc mút (sponge) chạy bằng máy sủi đặt ngoài phòng ngủ hoặc dưới tủ, lót đệm cao su và chỉnh bọt thật nhỏ.
+> 3. Hạ đèn xuống khoảng 50-60%, chiếu k…
 
 **Plain** (2058 characters):
 
@@ -2107,20 +2126,20 @@ failed: Request timed out.
 > - **Chỉ châm thêm nước** khi bị bay hơi, dùng nước đã khử clo.
 > - **Dùng bộ test nước** (NH₃/NH₄⁺, NO₂⁻, NO₃⁻) để quyết định khi nào thay nước, thay vì theo lịch cố đị…
 
-### cycling-07 · tank · ours wins (7 · 3)
+### cycling-07 · tank · ours wins (4 · 3)
 
 **Asked:** Bể mới set của tôi chỉ thay nước vài ngày một lần thay cho lọc thì có ổn không?
 
-**Judge:** X understands the question, explains that water changes only dilute ammonia and do not build a biological filter, and gives ordered steps with test thresholds, though it misses the soil substrate and the tank's lack of a filter. Y misreads the question as being about filter cleaning, so much of its advice misses this filterless tank, and it ends by asking for details. / Y trả lời đúng điều được hỏi: thay nước chỉ làm loãng amoniac chứ không tạo lọc sinh học, rồi đưa các bước, ngưỡng đo và dấu hiệu cần theo dõi, dù bỏ qua phân nền mới và lời người bán. X hiểu nhầm thành vệ sinh lọc nên phần lớn lời khuyên lạc đề với bể không lọc, cuối cùng còn hỏi lại thông tin.
+**Judge:** Neither answer notices that the tank has no filter, so neither one actually answers the question. X at least confirms that changing water every few days is right for new phân nền and points to the algae risk, while Y gives generic advice and ends by asking questions back. / Both answers misread the question. The hobbyist means water changes instead of having a filter, and neither one talks about a tank with no filter and no airstone sitting in a bedroom. Y is a little better: it agrees that frequent 30–50% changes suit new phân nền, which matches the seller's advice, and it says to watch for algae and cloudy water. X adds little that fits and mostly asks questions back.
 
-**Ours lacks:** tank-fit. **Plain lacks:** off-topic, plan, tank-fit.
+**Ours lacks:** tank-fit, diagnosis, follow-up, off-topic. **Plain lacks:** tank-fit, asks-only, plan, diagnosis.
 
-**Ours** (read 2 pages, stopped at the calls limit):
+**Ours** (read 5 pages):
 
-> Mình nghĩ là chưa ổn, bạn nên chạy lọc ngay từ đầu. Thay nước làm loãng amoniac nhưng không tạo được lọc sinh học, vì bể mới chưa có vi khuẩn có lợi. Vi khuẩn này sống trên lọc, sỏi nền, kính và đồ trang trí, và cần thời gian để đủ số lượng. Trong lúc chờ, chất thải của cá vẫn tích tụ thành amoniac và nitrit giữa các lần thay nước. Cycle bể thường mất vài tuần đến vài tháng, nên bạn không thể bỏ qua bước này.
-> 1. Bật lọc liên tục từ bây giờ, đừng tắt để thay cho việc lọc.
-> 2. Mua vi khuẩn nitrat hóa sống hoặc xin ít vật liệu lọc đã chạy ổn từ bạn bè.
-> 3. Trồng thêm cây thủy sinh để cây hút amoni…
+> Với bể mới set, thay nước vài ngày một lần là hợp lý, nhất là khi nền mới còn nhả nhiều dinh dưỡng. Cẩm nang có thí nghiệm hai bể giống hệt nhau: bể không thay nước bị rêu hại phủ kín sau 5 tuần, còn bể được thay nước ổn định hơn. Mình hiểu bạn thay nước thay cho việc rửa lọc. Cách đó ổn, miễn là bạn không rửa lọc quá kỹ làm mất vi sinh có lợi.
+> 1. Tiếp tục thay nước đều đặn, khoảng 30 đến 50 phần trăm mỗi lần, đặc biệt trong vài tuần đầu.
+> 2. Chỉ rửa lọc khi dòng nước ra yếu hơn 50% so với bình thường, hoặc nước vẫn đục, có mùi dù vừa thay nước.
+> 3. Khi rửa lọc, hút 3 đến 5 lít nước bể ra xô và…
 
 **Plain** (1338 characters):
 
@@ -2133,19 +2152,17 @@ failed: Request timed out.
 > **Với bể mới, bạn nên lưu ý:**
 > - **Bể chưa chạy xong chu trình nitơ (chưa…
 
-### cycling-08 · post · plain wins (4.75 · 8)
+### cycling-08 · post · plain wins (5.5 · 8)
 
 **Asked:** Hồ của em làm từ thùng xốp 40x40x20, 2 mặt kính, 3 mặt xi măng, để trên sân thượng trong mái hiên. Em dùng lọc thác Sobo 400l/h có đủ không? Hồ như vậy có cần CO2 không? Bao lâu thì thả cá được?
 
-**Judge:** Y trả lời đủ ba câu và nêu đúng rủi ro lớn nhất của hồ này là xi măng mới làm pH cao, kèm cách quét chống thấm, ngâm xả và kiểm tra pH. X gọn và đúng về lọc, CO2, thời gian cycling nhưng bỏ sót xi măng, nên làm theo vẫn có thể hại cá. / X answers all three questions and catches the main hazard in this build, the alkaline cement walls, with sealing, soaking and pH-check steps, plus cycling detail and stocking numbers. Y is concise and its substrate advice is useful, but it treats this as an ordinary styrofoam tank and never mentions the cement, which is a serious omission before adding fish.
+**Judge:** Y explains the danger of fresh cement: high pH and leaching lime. It gives the order of steps for cycling, soaking and flushing the cement, plus how to handle rain, chlorine and the heat on the rooftop, all fitted to this tank. X is right but thin and skips the part about curing the cement. / Rủi ro lớn nhất với hồ này là phần xi măng mới làm nước kiềm và thải vôi. X giải thích rõ chuyện này: phủ epoxy, ngâm 1–2 tuần, thay nước nhiều lần cho tới khi pH ổn định. X cũng đưa các bước cycling theo thứ tự và lưu ý chuyện khử clo nước máy. Y trả lời đúng nhưng sơ sài: phần xi măng chỉ nhắc qua rồi nói thẳng là cẩm nang chưa đề cập, nên người hỏi không có hướng làm cụ thể.
 
-**Ours lacks:** tank-fit, unsafe, plan, too-thin. **Plain lacks:** too-long.
+**Ours lacks:** plan, too-thin, figures, tank-fit. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Với bể 40x40x20 (khoảng 32 lít), Sobo 400 l/h là dư sức: lọc quay vòng khoảng 12 lần mỗi giờ, nên nếu cá bơi chao đảo hay nước xoáy mạnh thì bạn chỉnh bớt dòng chảy. Bể không bắt buộc có CO2 nếu bạn trồng các loại cây không CO2 dễ sống; với bể đặt ngoài sân thượng, nguy cơ lớn hơn là rêu do nắng chứ không phải thiếu CO2. Mình chưa đọc được hướng dẫn riêng về thời gian cycling cho bể xốp, nên thời gian chờ dưới đây là kinh nghiệm chung.
-> 1. Đặt bể ở chỗ có bóng râm một phần, tránh nắng gắt cả ngày để hạn chế rêu.
-> 2. Lót 4 đến 5 cm đất vườn sạch, phủ lớp than, rồi trồng cây không CO2 trước khi c…
+> Bể 40x40x20 cm chứa khoảng 32 lít, nên lọc Sobo 400 lít/giờ là đủ và khá dư: cẩm nang khuyến nghị tối thiểu gấp 5 lần thể tích (khoảng 160 lít/giờ) và tốt hơn là gấp 10 lần (khoảng 320 lít/giờ), còn 400 lít/giờ tương đương gần 12 lần. Bể nhỏ, không trồng nhiều cây và không cần CO2 vẫn nuôi được cá bình thường; CO2 chỉ cần khi bạn chơi bể thủy sinh công nghệ cao, trồng nhiều cây ưa carbon và đèn mạnh. Thời gian cycling theo kinh nghiệm chung thường khoảng 3 đến 6 tuần, nên thả cá khi amoniac và nitrit đều đo về 0 và nitrat có mặt. Vì bể đặt trên sân thượng dưới mái hiên, bạn nên tránh nắng trự…
 
 **Plain** (2777 characters):
 
@@ -2159,22 +2176,20 @@ failed: Request timed out.
 > 
 > …
 
-### cycling-08 · tank · plain wins (3.5 · 4.75)
+### cycling-08 · tank · ours wins (6 · 4)
 
 **Asked:** Bể mới làm của tôi bao lâu thì thả cá được, lọc như vậy có đủ không?
 
-**Judge:** Neither answer uses the 32 L size or Sobo 400 l/h filter, and neither warns about new cement leaching lime and raising pH, which is the real risk here. Y is still more useful: it gives a clear 3–6 week wait, readiness criteria, and a flow rule to check the filter, while X has clearer steps but a vague timeline, an awkward 38 L stocking figure, and no filter guidance. / Cả hai đều bỏ qua việc xi măng mới cần ngâm xả và không tính được lọc 400 l/h cho bể khoảng 32 lít. X vẫn trả lời rõ 3–6 tuần, có tiêu chí sẵn sàng và quy tắc 4–6 lần/giờ để tự đối chiếu, còn Y trả lời mơ hồ và đẩy người chơi sang thả cá sớm với con số 38 lít không hợp bể.
+**Judge:** X uses the real tank (about 32 L, Sobo 400 l/h), says directly whether the filter is enough, and gives steps in order with what to watch. Y gives generic advice and asks back for information that was already available. Neither warns about the fresh cement walls or the heat on the rooftop. / Y uses the tank's real details: about 32 L, and the Sobo 400 l/h is plenty of flow but light on bio media. It also gives steps in order and what to watch for. X asks for the size and filter even though it should already know them, so the filter half of the question goes unanswered. Neither answer warns that new cement walls can leach lime and raise the pH, which needs curing before any fish go in.
 
-**Ours lacks:** tank-fit, local, asks-only, figures, unsafe. **Plain lacks:** tank-fit, plan, follow-up.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, asks-only, local.
 
-**Ours** (read 2 pages):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Thời gian chờ phụ thuộc vào việc bể đã có đủ vi khuẩn có lợi chưa, thường mất vài tuần đến vài tháng. Lọc chỉ là nơi vi khuẩn sống, nên lọc mạnh cũng chưa chắc đủ nếu bể chưa cycle xong. Bể được coi là đã cycle khi bạn cho cá ăn lượng bình thường trong một tuần mà amoniac và nitrit đều ở 0 ppm, và nitrat trên 0 ppm.
-> 1. Chỉ thả vài con cá khỏe lúc đầu, khoảng 1 con nhỏ cho mỗi 38 lít nước.
-> 2. Cho ăn ít lúc đầu, rồi tăng dần trong bốn đến sáu tuần.
-> 3. Đo amoniac và nitrit bằng que thử mỗi một đến hai ngày.
-> 4. Nếu amoniac hoặc nitrit trên 0,2 ppm, thay một phần nước.
-> 5. Khi bể ổn định một tuần, …
+> Bể 40x40x20 cm (khoảng 32 lít) thường cần vài tuần đến vài tháng để cycle, nên bạn chưa nên thả cá ngay. Cẩm nang nói chu trình hoàn tất khi cho cá ăn bình thường trong một tuần mà amoniac và nitrit đều ở 0 ppm, còn nitrat trên 0. Về lọc: lưu lượng 400 l/h của Sobo là đủ cho bể này, nhưng lọc thác có ít vật liệu sinh học nên chưa chắc đủ một mình. Đây là kinh nghiệm chung của mình, cẩm nang không có thông số riêng cho máy này.
+> 1. Trồng vài cây thủy sinh hoặc cho thêm vật liệu lọc đã chạy lâu từ bạn bè để có sẵn vi khuẩn có lợi.
+> 2. Nếu muốn thả cá sớm, chỉ thả 1 con nhỏ và cho ăn rất ít.
+> 3. Đo…
 
 **Plain** (1336 characters):
 
@@ -2185,18 +2200,17 @@ failed: Request timed out.
 > - Khi **amoniac = 0** và **nitrit = 0** trong ít nhất 2–3 ngày liên tiếp, và đã có nitrat (NO₃⁻) xuất hiện, bể đã chạy xong chu trình.
 > - Ngược lại, nếu amoniac hoặc nitrit vẫn đo được thì chưa nên t…
 
-### sick-01 · post · ours wins (7 · 5)
+### sick-01 · post · ours wins (6.5 · 5.5)
 
 **Asked:** Đàn ngựa vằn xanh nhà em nuôi gần 3 năm, rơi rụng dần. Giống này không đẻ nổi, giờ cứ 1 vài tuần lại có con cong người, 1-2 tuần sau là chết. Có phải do già quá không, hay bị bệnh gì?
 
-**Judge:** X treats the fish as old zebra danio, names a likely wasting disease, answers the age question and gives ordered steps with something to track, though its 18–25°C target does not suit Vietnam. Y has a useful lao cá warning, but it doubts the species, lists six causes and ends with many questions, leaving the hobbyist with less clear direction. / Y treats the fish as zebra danio, gives its lifespan, names microsporidiosis, a classic cause of bent, wasting zebrafish, and is honest that it has no cure, then gives ordered steps and what to watch, though it omits fish TB and its 18–25°C target is impractical. X correctly warns about TB and infection risk to people, but it is unsure of the species, lists many causes, dismisses age too firmly and ends mostly with questions.
+**Judge:** X bám sát loài danio và nêu Pseudoloma, một bệnh điển hình ở cá ngựa vằn, kèm các bước làm theo thứ tự, nhưng bỏ sót bệnh lao và đánh giá thấp yếu tố tuổi già. Y có điểm cộng là nêu bệnh lao cùng cảnh báo lây sang người, nhưng lại sai khi gạt bỏ yếu tố tuổi già, lạc đề sang cichlid và hỏi lại quá nhiều. / Y trả lời thẳng câu hỏi về tuổi (cá sống 3–5 năm). Y cũng nêu đúng Pseudoloma, bệnh kinh điển gây cong cột sống ở cá ngựa vằn, và đưa ra các bước gọn, có hẹn theo dõi sau 2–3 tuần. X liệt kê dàn trải, không chắc đây là loài gì và kết thúc bằng nhiều câu hỏi ngược lại người nuôi, dù X có ưu điểm là nêu lao cá kèm cảnh báo lây sang người.
 
-**Ours lacks:** local. **Plain lacks:** tank-fit, diagnosis, figures, plan, follow-up.
+**Ours lacks:** diagnosis, figures. **Plain lacks:** tank-fit, too-long, wrong, follow-up.
 
-**Ours** (read 1 pages, stopped at the calls limit):
+**Ours** (read 3 pages, stopped at the calls limit):
 
-> Mình nghĩ nhiều khả năng đây là bệnh gầy (microsporidiosis, do ký sinh trùng Pseudoloma neurofilia), vì cá cong người, gầy dần rồi chết trong vài tuần. Cá ngựa vằn sống khoảng 3–5 năm, nên đàn gần 3 năm tuổi đã gần cuối đời, và giống thương mại đã cận huyết nhiều đời nên khó đẻ và yếu đề kháng. Tuổi già có thể làm cá cong người, nhưng thường không lan đều trong đàn như bạn đang thấy. Bệnh này khó chẩn đoán chắc nếu không mổ kiểm tra, và handbook ghi rằng hiện không có thuốc chữa, nên bạn làm như sau:
-> 1. Vớt riêng con cong người, gầy hoặc bỏ ăn ra khỏi đàn, không để chúng sống chung với con kh…
+> Cá ngựa vằn thường sống khoảng 3 đến 5 năm, nên đàn gần 3 năm đã là lớn tuổi, nhưng mình nghĩ nguyên nhân chính không phải chỉ là già. Cá cong người, gầy dần rồi chết trong 1 đến 2 tuần, lặp đi lặp lại trong đàn, rất giống bệnh ký sinh trùng ở hệ thần kinh hoặc bệnh gầy mòn do giun ruột. Cẩm nang có mô tả hai bệnh này. Bệnh vi bào tử (Pseudoloma) làm cá gầy mòn kéo dài và cong cột sống, khó chẩn đoán vì có khi cả con trông khỏe. Bệnh neon tetra (Pleistophora) làm cá bồn chồn, da có mảng trắng, và gần như không chữa được khi đã nặng. Mình chưa đọc được đủ để xác định chắc bệnh nào, nên phần nà…
 
 **Plain** (2113 characters):
 
@@ -2205,19 +2219,20 @@ failed: Request timed out.
 > 1. **Lao cá (Mycobacteriosis)**: Đây là nghi ngờ hàng đầu với triệu chứng bạn mô tả: gầy dần, rụng dần, cong cột sống, bụng hõm, có thể có vết loét hoặc u hạt. Bệnh âm ỉ, lây lan chậm, khó chữa. Lao cá có thể lây sang người qua vết xước, nên khi xử lý cá bệnh hoặc xác chết phải đeo găng tay và rửa tay kỹ.
 > 2. **Nhiễm kh…
 
-### sick-01 · tank · plain wins (5.75 · 6.5)
+### sick-01 · tank · plain wins (5 · 6)
 
 **Asked:** Cá ngựa vằn của tôi cứ vài tuần lại có con cong người rồi chết, là bệnh gì?
 
-**Judge:** Y names the most likely causes in zebrafish, mycobacteriosis and Pseudoloma, matches them to slow recurring deaths, and warns that TB can infect people, though its steps are less focused. X has clearer ordered steps and follow-up but a thinner diagnosis, borrowed swim-bladder advice and no human-infection warning; neither considers that the fish are nearly 3 years old. / X better answers 'là bệnh gì' by naming lao cá and Pseudoloma, the classic causes of bent spines in zebrafish, and warns that lao can infect people, though its list is padded and its disinfection step is risky. Y is tidier and more natural with a clear order, but it gives a thinner diagnosis and leans on off-target swim-bladder material; neither considers the fish's nearly 3-year age or says these diseases are hard to cure.
+**Judge:** Y nêu đúng hai nguyên nhân hay gặp nhất ở cá ngựa vằn bị cong người rồi chết dần: lao cá và vi bào tử trùng Pseudoloma. Y còn cảnh báo bệnh lao có thể lây sang người và dặn đeo găng tay, nên an toàn hơn X, dù danh sách dài và có vài khả năng ít liên quan. Không câu trả lời nào nhắc rằng đàn cá đã nuôi gần 3 năm, đã có tuổi, nên chết dần cũng có thể một phần do già. / X nêu đúng hai nguyên nhân chính ở cá ngựa vằn là lao cá và Pseudoloma, và dặn đeo găng tay vì lao cá lây sang người. Y chỉ nói chung chung về vi bào tử trùng và bỏ sót lao cá. Cả hai đều không nhắc rằng đàn cá đã gần 3 năm tuổi, đã khá già.
 
-**Ours lacks:** diagnosis, tank-fit, figures. **Plain lacks:** tank-fit, plan, follow-up, too-long, local.
+**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** tank-fit, too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Mình chưa tìm thấy trong cẩm nang trang nào mô tả đúng kiểu cá cong người rồi chết dần qua nhiều tuần. Trang gần nhất là bài về cá lệch bong bóng, nhưng triệu chứng đó thường là cá mất thăng bằng đột ngột chứ không phải cong người kéo dài. Với cá ngựa vằn bị cong người và chết lặp lại, mình nghi hai khả năng: nước bể đang có vấn đề kéo dài, hoặc cá bị nhiễm khuẩn mạn tính như bệnh lao cá (mycobacteriosis), loại này khó chữa và có thể lây sang cá khác. Bạn nên làm ngay các bước sau:
-> 1. Đo amoniac, nitrit và nitrat hôm nay; chỉ số nào lệch thì thay nước từng phần và tìm nguyên nhân.
-> 2. Cách ly …
+> Triệu chứng cá cong người, gầy dần rồi chết, lặp lại sau vài tuần, rất giống bệnh vi bào tử trùng (microsporidiosis, dân gian gọi là bệnh gầy, skinny disease) hoặc bệnh neon tetra (NTD). Cả hai đều do ký sinh trùng vào cá qua đường miệng và ảnh hưởng đến cột sống, cơ và thần kinh. Mình chỉ đoán từ mô tả, nên chưa chắc chắn, và handbook không có cách chữa khỏi cho hai bệnh này.
+> 1. Vớt con đang cong người ra một bể cách ly riêng, đặt xa các bể khác nếu có thể.
+> 2. Không thả thêm cá mới vào bể này, và cá mới nào cũng nên cách ly trước khi nhập.
+> 3. Kiểm tra nước (amoniac, nitrit, pH, nhiệt độ) để …
 
 **Plain** (1884 characters):
 
@@ -2229,18 +2244,20 @@ failed: Request timed out.
 > 
 > 3. **Nhiễm virus Nodavi…
 
-### sick-02 · post · plain wins (6.5 · 7.5)
+### sick-02 · post · tie or split (7.5 · 7.25)
 
 **Asked:** Nguyên nhân cá chết là gì ạ? Em có bể cá vàng, 7 màu và mấy loại linh tinh rẻ rẻ cho con chơi, nuôi trong nhà, mật độ thưa. Lọc với sục oxy chạy 24/24, nước trong sạch; em cho ăn rất ít, thức ăn viên mua sẵn; ít thay nước, chỉ thay khi thấy vẩn đục, có xử lý clo trước khi cho nước vào. Cái mút xốp lọc em giặt nước lã suốt vì phân cá hút lên nhanh bẩn. Vậy mà tuần nào cũng có con chết, tháng nào cũng đi mua thêm mà cứ chết dần.
 
-**Judge:** Cả hai đều chỉ đúng thủ phạm là giặt mút bằng nước máy làm hỏng vi sinh, dẫn đến amoniac/nitrit. Y hơn nhờ đưa ra lịch thay 20–30% mỗi tuần, nêu chuyện nuôi chung cá vàng với cá nhiệt đới và cloramin, dù hỏi lại \"7 màu là loài nào\" hơi thừa; X có thứ tự và theo dõi rõ hơn nhưng thiếu lịch thay nước định kỳ. / Both correctly blame sponge washing and ammonia/nitrite, and Y has the clearer ordered plan and daily follow-up. X is more useful overall because it sets a weekly 20–30% water change, explains why clear water can still be toxic, and flags the goldfish–tropical temperature mismatch, while Y gives only a one-off change and misreads the hobbyist's routine.
+**Judge:** Both answers name the right cause: washing the sponge in tap water and changing water too rarely. Y is slightly better because it also flags the problem of keeping goldfish, which like cool water, with tropical guppies, and it gives an emergency step (a big water change plus an ammonia/nitrite detoxifier). X is more concise and follows a clear order with a follow-up check, but it misses the point about mixing the two kinds of fish. / Both answers find the same likely cause: washing the filter sponge in tap water kills the filter bacteria, and rare water changes let ammonia build up. Y gives short steps in order, says what to recheck after 2–3 days, and notes that goldfish make a lot of waste. X adds a useful emergency water change and the point that goldfish and guppies (cá 7 màu) like different temperatures, but it is padded with general advice, has no clear recheck plan, and ends by asking questions.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** plan, follow-up.
+**Ours lacks:** tank-fit, figures. **Plain lacks:** too-long, follow-up.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Mình nghĩ nguyên nhân chính là bể đang tích amoniac và nitrit, vì lọc vi sinh bị yếu dần. Cái mút bạn giặt bằng nước lã là thủ phạm đáng ngờ nhất: nước máy có clo, và clo giết vi khuẩn có lợi sống trên mút, nên mỗi lần giặt lọc lại yếu thêm. Cộng với việc ít thay nước và chỉ châm thêm khi thấy đục, chất bẩn và amoniac cứ tích dần, rồi mỗi lần thả thêm cá mới lại gây thêm sốc. Cẩm nang ghi rằng amoniac, nitrit và clo đều giết cá, nên mình khuyên bạn đo nước trước khi đoán thêm. Mức chắc chắn của mình là khá, nhưng chỉ đo mới xác nhận được.
-> 1. Mua bộ test nước (amoniac, nitrit, pH) và đo ngay h…
+> Nhiều khả năng nước bể đang tích amoniac và nitrit, vì vi khuẩn lọc sinh học bị giết dần. Giặt mút lọc bằng nước máy là thủ phạm hay gặp nhất, vì clo trong nước máy diệt vi khuẩn sống trong mút. Thay nước chỉ khi đã vẩn đục làm chất bẩn tích lâu, trong khi cá vàng thải rất nhiều chất bẩn nên bể ít cá vẫn bẩn nhanh. Mình chưa đo được nước của bạn nên chưa chắc chắn hoàn toàn, nhưng đây là hướng cần kiểm tra trước.
+> 1. Mua bộ test amoniac và nitrit, đo nước hôm nay và ghi lại kết quả.
+> 2. Ngưng giặt mút bằng nước máy; từ nay chỉ xả mút trong nước đã rút ra từ chính bể.
+> 3. Thay 30–50% nước mỗi tuầ…
 
 **Plain** (2226 characters):
 
@@ -2252,19 +2269,19 @@ failed: Request timed out.
 > 
 > 2. **Thay nước quá…
 
-### sick-02 · tank · ours wins (7.75 · 4.75)
+### sick-02 · tank · ours wins (8.25 · 5)
 
 **Asked:** Bể tôi tuần nào cũng có cá chết dù nước trong và cho ăn ít, nguyên nhân là gì?
 
-**Judge:** X chỉ đúng nguyên nhân từ thói quen của chính bể này (ít thay nước, giặt mút lọc bằng nước máy) và cho các bước theo thứ tự, dù lịch thay nước hơi thưa. Y chỉ liệt kê 10 nguyên nhân chung chung, không khoanh vùng, nên người đọc phải tự dò dù phần xử lý có ý đúng. / Y names the likely cause from this tank's own habits, infrequent water changes and sponge rinsing in tap water, then gives ordered steps and what to watch, though it hedges on the rinsing. X is a generic ten-cause list that buries the same fixes among unlikely causes and ignores the sparse stocking, aeration and dechlorination already in place.
+**Judge:** X chỉ đúng hai thói quen của người hỏi đang làm hỏng lọc vi sinh: giặt mút lọc bằng nước lã (nước máy có clo) và chỉ thay nước khi vẩn đục. X còn đưa ra các bước theo thứ tự, có số liệu và có dặn theo dõi gì. Y liệt kê 10 nguyên nhân chung chung, không dựa vào bể cụ thể này, và có lời khuyên không hợp (giảm bớt cá, kiểm tra heater). / Y names the two likely causes in this tank: the filter sponge washed often in tap water kills the good bacteria, and water changed only when cloudy lets ammonia and nitrite build up. It then gives clear steps in order with tests and what to watch for. X lists ten general causes for any tank, including a heater the user may not have, and never points to the problem in this tank.
 
-**Ours lacks:** figures. **Plain lacks:** tank-fit, diagnosis, too-long.
+**Ours lacks:** –. **Plain lacks:** tank-fit, too-long, diagnosis.
 
-**Ours** (read 2 pages):
+**Ours** (read 1 pages):
 
-> Nước trong không có nghĩa là nước an toàn. Amoniac, nitrit và nitrat không đổi màu nước, và bể của bạn đang có dấu hiệu tích bẩn lâu ngày: bạn chỉ thay nước khi vẩn đục, chỉ châm thêm, và có thể đang rửa mút lọc bằng nước máy, làm chết vi khuẩn có ích. Cá chết đều đặn mỗi tuần thường là do chất bẩn tích dần (giống hội chứng bể cũ trong cẩm nang), hoặc amoniac, nitrit đang lên mà bạn không thấy. Mình chưa biết thể tích bể và loại nước máy, nên mức chắc chắn là vừa phải; đo nước sẽ cho biết chắc hơn.
-> 1. Đo ngay amoniac, nitrit, nitrat, pH và oxy hòa tan; nếu dùng nước máy thì đo thêm clo.
-> 2. Th…
+> Nước trong không có nghĩa là nước an toàn. Khi cá chết lặp lại mỗi tuần, nguyên nhân hay gặp nhất là amoniac hoặc nitrit tích lại vì lọc vi sinh yếu dần, và cá chết trước khi bạn thấy nước đục. Bể của bạn có hai điểm dễ làm lọc yếu: mút lọc được giặt bằng nước máy thường xuyên (clo giết vi khuẩn có lợi), và nước chỉ được thay khi vẩn đục nên chất độc có thể tích lâu. Mình chưa thể chắc đây là nguyên nhân duy nhất khi chưa đo nước, nên hãy kiểm tra trước.
+> 1. Mua bộ thử amoniac, nitrit, nitrat và clo, rồi đo nước bể ngay hôm nay.
+> 2. Từ nay chỉ rửa mút lọc bằng nước lấy từ chính bể, không dùng n…
 
 **Plain** (3042 characters):
 
@@ -2279,19 +2296,18 @@ failed: Request timed out.
 > ## 2. Nuôi quá nhiều cá so với dung tích
 > Cho ăn ít nhưng số lượng cá nhiều vẫn tạo ra nhiều chất thải, làm …
 
-### sick-03 · post · ours wins (6.75 · 5.5)
+### sick-03 · post · ours wins (7 · 4.5)
 
 **Asked:** Hồ em trồng minifiss, ráy và ít cắt cắm (sunset, rong la hán), nuôi tép màu và ít cá (bảy màu, otto, pigmy). pH lúc có CO2 đo được 7, KH 4, GH 8, TDS 360; nước nguồn TDS cao (160-200). Rong èo uột không phát triển, ráy ra lá non nhưng không khỏe, có rêu xanh bám lá, fiss phát triển chậm. CO2 em để 2-3 giọt/giây nhưng test CO2 vẫn báo thiếu. Tép bị chết lai rai, cá tầm 1-2 tuần chết 1 con. Có cách nào hạ TDS không, hay do đâu?
 
-**Judge:** X correctly reads pH 7/KH 4 as about 10–15 ppm, confirms the test's low reading, and gives a short ordered plan, though it has no TDS target. Y has better TDS detail (RO top-off, targets, shrimp type) but wrongly blames the kit for the CO2 reading, misreads \"tầm\" as a fish, and is long. / Y correctly confirms CO2 is low from pH 7 and KH 4, then gives a short ordered plan, though its TDS guidance has no target or mix and it awkwardly admits the handbook gap. X gives more useful TDS and shrimp detail (RO top-off, target numbers, copper), but it calls 12 ppm enough, blames the test kit and misreads \"tầm\" as a fish, and it is long.
+**Judge:** X is the better answer. It works out CO2 correctly from pH 7 and KH 4 (about 12 ppm, which is too low) and gives a short plan that fits this tank. Y says 12 ppm is enough and blames the test kit, so it gets the main problem wrong, misreads 'tầm' as a fish species, and runs long. Its useful points (evaporation top-up raising TDS, copper, Neocaridina vs Caridina) don't make up for that. / Y works out CO2 at about 10–12 ppm, says that is below what plants need, agrees with the test kit, and gives short, ordered steps that fit this tank. X says 12 ppm is enough and blames the test kit, which is the wrong cause. It also reads "tầm" as a fish name and is padded.
 
-**Ours lacks:** figures, tank-fit. **Plain lacks:** too-long, wrong.
+**Ours lacks:** figures. **Plain lacks:** too-long, wrong, diagnosis.
 
 **Ours** (read 4 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân chính là nước và dinh dưỡng chứ chưa phải lỗi đèn: TDS 360 với nguồn 160–200 cho thấy phần lớn khoáng đến từ nước máy và phân bón cộng dồn, còn pH 7 với KH 4 cho CO2 vào khoảng 10–15 ppm, thấp hơn mức 20–30 ppm cây cần, nên test CO2 báo thiếu là đúng. Cá và tép chết lai rai có thể do nitrat hoặc amoniac tích lại vì thay nước ít, giống kiểu bể lâu năm mà handbook gọi là old tank syndrome; mình chưa đo được nên chưa chắc chắn.
-> 1. Đo ngay amoniac, nitrit và nitrat; nếu amoniac hoặc nitrit có số thì thay 30–50% nước và ngưng thêm thức ăn vài ngày.
-> 2. Thay nước hằng tuần 30–5…
+> Nhiều khả năng bể đang thiếu dinh dưỡng và CO2 đồng thời, còn nước nguồn có TDS 160–200 nên tổng khoáng đã cao sẵn. Với pH 7 và KH 4, CO2 ước chừng khoảng 10–12 ppm theo công thức thường dùng, thấp hơn mức 20–30 ppm mà cây thủy sinh cần, nên test báo thiếu là hợp lý. Cây lá non yếu, rêu xanh bám lá và tép chết lai rai thường đi cùng nhau khi nước cứng, nhiều khoáng và cây không hấp thu đủ. Mình chưa đo được nitrat, phosphat, amoniac hay oxy nên chưa biết chắc thủ phạm nào mạnh nhất.
+> 1. Đo nitrat, phosphat, amoniac và nitrit trước khi thêm phân; nitrat thấp hay làm cây còi và tạo điều kiện cho…
 
 **Plain** (3801 characters):
 
@@ -2304,20 +2320,18 @@ failed: Request timed out.
 >   - Dùng drop checker để theo dõi xu hướng (xanh vàng là đủ CO2 hay chưa).
 >   - Đo pH sáng sớm trước khi bật đèn và …
 
-### sick-03 · tank · ours wins (6.75 · 4.25)
+### sick-03 · tank · tie or split (5.25 · 5)
 
 **Asked:** Tép trong bể tôi chết lai rai và cá thỉnh thoảng chết một con, có phải do TDS cao không?
 
-**Judge:** X dùng đúng số của bể (TDS 360, CO2 2–3 giọt/giây), nhận định thận trọng và cho các bước theo thứ tự kèm theo dõi, dù cách hạ TDS chưa khả thi với nước nguồn 160-200. Y đúng về TDS nói chung và có nhắc RO/nước mưa, nhưng chỉ là danh sách nguyên nhân chung, không dùng dữ liệu bể và còn hỏi lại những gì app đã có. / Y dùng đúng số liệu của bể (TDS 360, CO2 2-3 giọt/giây), trả lời thẳng rằng TDS chưa chắc là thủ phạm và cho các bước theo thứ tự kèm điều cần theo dõi, dù mốc 120–160 thấp hơn cả nước nguồn và một đoạn trích về ốc không liên quan. X là danh sách chung chung cho bể bất kỳ, nói nhiều về Caridina và hỏi lại những thông tin app đã có, nên khó biết làm gì trước.
+**Judge:** Không câu nào dùng số liệu bể của bạn ấy: TDS bể 360 trong khi nước nguồn chỉ 160-200, tức là chất hòa tan đang tích tụ và cần thay nước đều hơn. Y gần với hướng này hơn vì bảo so TDS bể với nước nguồn, có nhắc nitrat và nhiệt độ cao kiểu khí hậu Việt Nam. X gọn gàng, các bước có thứ tự, nhưng lại đồng nhất TDS với độ cứng và nhận định nguyên nhân còn chung chung. / Neither answer used the tank data. Their TDS of 360 is well above the 160–200 of their source water, which points to waste and fertiliser building up and means more regular water changes; the 2–3 bubbles/s of CO₂ also matters. Y still gives short, ordered steps, covers oxygen and dead shrimp, says what to recheck, and links useful guide sections. X is a long generic list aimed at the wrong kind of shrimp and ends by asking for details the app already has.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, diagnosis, follow-up, plan.
+**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** tank-fit, too-long, plan.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình chưa chắc TDS là thủ phạm. Bể bạn đang 360, cao hơn mốc 120–160 mà handbook gợi ý sau khi thay nước, nên TDS có thể làm tép yếu và khó lột xác. Nhưng tép chết lai rai kèm cá thỉnh thoảng chết thường do chất lượng nước như amoniac, nitrit, oxy thấp hoặc CO2 thất thường. Handbook không nói rõ TDS cao giết tép nhanh, nên đây là suy đoán từ những gì bạn kể.
-> 1. Đo amoniac, nitrit và pH ngay, nhất là vào sáng sớm để xem oxy và pH có tụt không.
-> 2. Thay khoảng 20–30% nước, châm nước có TDS gần với bể, không đổi đột ngột để tránh sốc cho tép.
-> 3. Kiểm tra máy lọc còn chạy, có sục khí đủ, và bể khô…
+> Mình chưa thấy trang nào trong cẩm nang nói TDS cao là nguyên nhân giết tép hay cá, nên mình không dám khẳng định đó là thủ phạm. TDS chỉ cho biết tổng chất rắn hòa tan, tức nước cứng hay mềm. Tép nhạy với thay đổi đột ngột hơn cá, nên TDS lệch nhiều có thể góp phần. Nhưng tép chết lai rai kèm cá thỉnh thoảng chết thường là do chất lượng nước: amoniac hoặc nitrit tích lại, oxy thấp, pH tụt, clo từ nước máy, hoặc tép bị kẹt vỏ khi lột xác. Mình đoán nguyên nhân về nước là khả năng cao hơn, nhưng cần đo mới biết chắc.
+> 1. Đo ngay amoniac, nitrit, pH, độ cứng (GH/KH) và TDS để xem chỉ số nào đang…
 
 **Plain** (2006 characters):
 
@@ -2331,20 +2345,18 @@ failed: Request timed out.
 > **Nhưng cần kiểm tra các nguyên nhân phổ biến khác:**
 > - **Amoniac (NH3/NH4+) và…
 
-### sick-04 · post · ours wins (6.5 · 5)
+### sick-04 · post · ours wins (6 · 4)
 
 **Asked:** Mình chơi bể 60x40x40, set được gần 3 tháng, layout núi đá dùng đá da voi màu trắng nên pH ở ngưỡng 7,8-8. Thảm nền trồng trân châu ngọc trai, mấy ngọn rau thơm cắm khe đá, có vảy ốc xanh và vảy ốc đỏ. Để hạ pH, mình bổ sung thêm vật liệu lọc Neo Soft, vừa cho vào chạy thì chỉ khoảng 10 giây sau tép chạy loạn hết rồi chết dần. Sau đó thảm trân châu và rau thơm bị rữa lá, pH luôn ở 8,4, sục CO2 cũng chỉ xuống 7,4 trong khi nước đầu vào 7,0 trở xuống. Vảy ốc thì có vết như gãy ngang ngọn lá nhưng lá vẫn xanh, không rụng. Mình nên xử lý sao?
 
-**Judge:** X nhận đúng Neo Soft là nguyên nhân chính, hiểu vảy ốc là cây và đưa các bước gọn, an toàn, dù ít số liệu và nguyên nhân gãy ngọn còn đoán yếu. Y có lộ trình lâu dài với nước RO và KH chi tiết hơn, nhưng nhầm vảy ốc thành ốc Neritina và coi amoniac là thủ phạm chính, nên chẩn đoán lệch và kém tin cậy. / Y nhận đúng Neo Soft là nguyên nhân sốc, hiểu vảy ốc là cây và đưa ra các bước ngắn gọn, có theo dõi, dù hơi mỏng và thiếu chi tiết. X có kế hoạch và phần KH, RO kỹ hơn, nhưng nhầm vảy ốc thành ốc Neritina và đổ chính cho amoniac, nên chẩn đoán sai hướng.
+**Judge:** Y viết có cấu trúc rõ ràng nhưng nhầm vảy ốc (cây Rotala) thành ốc Neritina, và khuyên thay 40-50% nước RO cùng tắt đèn nhiều ngày, đều có thể gây hại. X ngắn hơn nhưng hiểu đúng vảy ốc là cây, đổi nước từ từ và an toàn hơn, chỉ có một chi tiết bịa về tảo. / X tưởng vảy ốc là ốc Neritina, trong khi đó là cây Rotala, lại còn khuyên thay 40-50% nước RO cùng lúc, dễ gây sốc pH. Y gọn hơn và hiểu đúng vảy ốc là cây. Y khuyên lấy Neo Soft ra, đo amoniac/nitrit/KH trước, rồi thay 20-30% nước thật chậm, an toàn hơn cho bể.
 
-**Ours lacks:** figures, too-thin. **Plain lacks:** diagnosis, wrong, too-long.
+**Ours lacks:** figures, diagnosis. **Plain lacks:** wrong, too-long, tank-fit.
 
-**Ours** (read 0 pages, stopped at the tools limit):
+**Ours** (read 1 pages, stopped at the tools limit):
 
-> Mình nghi nguyên nhân chính là Neo Soft: tép chạy loạn rồi chết chỉ sau khoảng 10 giây khi vật liệu vừa được cho vào chạy, cho thấy nước bị sốc hóa chất. Rau thơm và trân châu rữa lá sau đó, pH không xuống, và đá da voi trắng giữ độ cứng carbonate cao nên pH cứ bám ở 8,4. Cẩm nang chưa trả lời trực tiếp trường hợp này nên phần dưới là kinh nghiệm chung của mình, không phải từ trang cẩm nang.
-> 1. Tháo Neo Soft khỏi bể lọc ngay và không cho chạy lại.
-> 2. Thay khoảng 30% nước bằng nước đã khử clo, cùng nhiệt độ với bể, để đưa bể về trạng thái trước khi thêm vật liệu.
-> 3. Test amoniac và nitrit; cắt…
+> Mình nghĩ nguyên nhân chính là cú sốc hóa học khi bạn cho Neo Soft chạy thẳng vào bể đang có tép: tép chết trong vài giây đến vài phút thường là do thay đổi đột ngột của nước, và tảo vi sinh cùng cây rữa lá phía sau có thể là hệ quả. Đá da voi trắng có thành phần vôi nên giữ độ cứng (KH) cao, khiến CO₂ khó kéo pH xuống, đó là lý do pH vẫn kẹt ở 8,4. Handbook chưa có trang nào về Neo Soft hay vật liệu hạ pH, nên mình không khẳng định được thành phần của nó; mình đoán chắc hơn là bạn cần kiểm tra nước trước khi làm thêm gì.
+> 1. Ngưng cho Neo Soft vào thêm và lấy ra khỏi ngăn lọc, không cần thay …
 
 **Plain** (2824 characters):
 
@@ -2359,21 +2371,20 @@ failed: Request timed out.
 > 
 > ## 2. Kiểm tra n…
 
-### sick-04 · tank · plain wins (5.25 · 6.25)
+### sick-04 · tank · ours wins (6 · 5)
 
 **Asked:** Tôi vừa thêm vật liệu lọc hạ pH thì tép chạy loạn rồi chết dần, phải làm gì?
 
-**Judge:** Both correctly say to remove the media and change 20-30% of the water, but neither addresses Neo Soft fighting the đá da voi at pH 8.4 or the CO₂ running in the tank. Y is more useful because it adds aeration, ammonia/nitrite and KH checks, target parameters and a safe rate of pH change, though it is longer and gives no recheck timing; X is tidier with a follow-up but thinner. / Both correctly say to remove the media and change 20-30% of the water, but neither sees that the elephant-skin rock (đá da voi) drives the pH 8.4 or names Neo Soft. X edges ahead with aeration, ammonia/nitrite checks and target ranges for shrimp, while Y has a clearer cause and follow-up but less to act on.
+**Judge:** X đúng ở chỗ Neo Soft kéo cả KH/GH xuống, kế hoạch gọn và có dặn theo dõi 2–3 ngày. Y dài hơn, đưa khoảng pH quá hẹp dễ khiến người nuôi tiếp tục hạ pH. Cả hai đều không nhắc đến đá da voi là thứ đẩy pH lên 8,4, và cũng không khuyên giảm CO₂ cho bớt sốc. / Neither answer names the real cause. The white elephant-skin rock (đá da voi) keeps the tank at pH 8.4, Neo Soft stripped KH/GH and pH fast against it, and the shrimp crashed from the swing. Neither says to deal with the rock or drop the goal of lowering pH, and with CO₂ running, X's tip to aerate hard matters. Still, Y explains the KH/GH drop and the moulting risk, gives clear steps, and says what to watch over the next 2–3 days. X is more generic, adds a block of target ranges, and ends by asking questions.
 
-**Ours lacks:** tank-fit, figures, too-thin. **Plain lacks:** tank-fit, follow-up, too-long.
+**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** tank-fit, too-long, diagnosis, follow-up.
 
-**Ours** (read 2 pages, stopped at the calls limit):
+**Ours** (read 3 pages, stopped at the calls limit):
 
-> Mình đoán nguyên nhân khá chắc là pH giảm quá nhanh sau khi bạn thêm vật liệu hạ pH. Tép rất nhạy với thay đổi đột ngột, và sốc này dễ làm tép lột xác hỏng hoặc yếu dần rồi chết. Handbook chưa có trang riêng về vật liệu hạ pH cho tép, nên phần dưới là kinh nghiệm chung của mình.
-> 1. Đo pH và độ cứng (GH, KH) ngay bằng bộ test, rồi so với lúc trước khi thêm vật liệu.
-> 2. Lấy vật liệu hạ pH ra khỏi bể hoặc ngăn lọc, không thêm lại và không thêm hóa chất hạ pH nào khác.
-> 3. Thay khoảng 20-30% nước bằng nước đã khử clo, có nhiệt độ và pH gần với bể, để kéo pH về gần mức cũ từ từ.
-> 4. Giữ bể yên, khôn…
+> Nhiều khả năng tép bị sốc vì pH tụt quá nhanh sau khi thêm vật liệu hạ pH, và vật liệu này cũng làm KH, GH giảm, nên tép khó lột xác. Cẩm nang chưa có bài riêng về trường hợp này. Phần nước của trang tép red cherry chỉ ghi tép cần pH 6,5–8,5, GH từ 6 dGH trở lên và KH từ 2 dKH trở lên để tạo vỏ mới, và thay đổi đột ngột làm tép bị ảnh hưởng xấu. Các bước dưới đây là kinh nghiệm chung, bạn kiểm tra thêm để chắc.
+> 1. Lấy vật liệu hạ pH ra khỏi lọc ngay và không thêm lại.
+> 2. Đo pH, KH, GH, nhiệt độ, amoniac và nitrit để biết bể đang lệch ở đâu.
+> 3. Thay một phần nước (khoảng 20–30%) bằng nước có t…
 
 **Plain** (1635 characters):
 
@@ -2387,19 +2398,19 @@ failed: Request timed out.
 > 4. **Thay khoảng 20-30% nước** bằng nước đã khử clo, có pH và độ cứng gần với bể hiện tại. Không thay quá nhiều một lúc, vì làm vậy có thể gây sốc thêm.
 > 5. **Vớt tép chết** để trán…
 
-### sick-05 · post · tie or split (6.5 · 6.5)
+### sick-05 · post · plain wins (6 · 7.25)
 
 **Asked:** Bể của tôi set được 2 tháng, có đèn, oxy, CO2, nhưng gần đây nước trong bể có màu vàng nâu, cá thì chết lai rai. Tôi thay nước cách ngày 50% (dùng nước lọc loại mua uống hằng ngày) mà vẫn không hết. Giúp tôi với.
 
-**Judge:** Y names the mineral-poor drinking water as the likely mistake and checks CO2 excess, which matters in this CO2 tank, but it is long and ends with many questions. X is tidier and more clearly ordered, with sound advice, yet it treats the drinking water as a side note and never mentions CO2 as a possible killer. / Both name ammonia/nitrite and very soft bottled water as suspects, and both say tannin alone doesn't kill fish. X alone checks CO₂ and light, but it is long, its order is muddled and it ends in a long list of questions; Y gives a short ordered plan with a recheck time, though it misses the CO₂ the hobbyist mentioned, so Y wins narrowly.
+**Judge:** Y is better for this hobbyist. Both answers name the two main causes: ammonia or nitrite building up, and bottled water with almost no minerals, which lets pH crash. Only Y tells them to check for too much CO₂ with a drop checker, which matters because the tank runs CO₂. Y also gives numbers and clearer steps in order. X assumes driftwood that wasn't mentioned and shows a guide excerpt that's off-topic. Y's downside is that it runs long and asks a lot of questions at the end. / Cả hai đều đoán đúng nguyên nhân: amoniac/nitrit tích tụ, cộng với nước lọc đóng chai quá mềm làm pH tụt khi đang bơm CO2. Y nói gọn hơn và gắn CO2 với pH rõ hơn. Nhưng X cho người chơi nhiều thứ để làm hơn: có con số cụ thể (thay 20–30%, chiếu đèn 6–8 giờ, ngừng ăn 2–3 ngày, NO3 >50), có cách kiểm tra drop checker và oxy. Y thiếu con số, và một đoạn trích dẫn kèm theo không liên quan đến vấn đề.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** too-long, plan.
+**Ours lacks:** figures, tank-fit, diagnosis, too-thin. **Plain lacks:** too-long.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình đoán nguyên nhân nhiều khả năng là bể chưa ổn định sinh học hoặc nước đang bị xấu đi (amoniac, nitrit hoặc pH tụt), chứ màu vàng nâu chỉ là dấu hiệu đi kèm. Nước vàng nâu thường do tanin từ lá bàng, lũa hoặc vật liệu gỗ, nhưng tanin không giết cá. Cá chết lai rai trong bể 2 tháng tuổi thường do amoniac hoặc nitrit tích lại, hoặc thiếu oxy. Mình chưa đo được nước nên chưa chắc chắn, cẩm nang chưa có trang nào nối đúng trường hợp của bạn. Bạn làm theo các bước sau:
-> 1. Đo ngay amoniac, nitrit, pH và độ cứng (KH) bằng bộ test. Ghi lại để so sánh sau mỗi lần thay nước.
-> 2. Ngưng cho ăn ít nhất…
+> Mình đoán nguyên nhân nhiều khả năng là chất lượng nước đang xấu đi, không chỉ do màu. Màu vàng nâu có thể do tannin từ lũa, và lũa thì không hại cá. Nhưng cá chết lai rai sau 2 tháng cho thấy có thể amoniac hoặc nitrit đang tích tụ (bể chưa chạy ổn định hoặc cho ăn dư), hoặc pH tụt. Nước lọc đóng chai thường rất mềm, ít khoáng, nên thay 50% liên tục có thể làm độ cứng và pH xuống thấp, nhất là khi bể đang bón CO2. Mình chưa đo được nên chưa chắc chắn, bạn cần đo mới biết.
+> 1. Ngừng cho ăn vài ngày, vớt hết thức ăn thừa và xác cá chết ra khỏi bể.
+> 2. Đo ngay amoniac, nitrit, nitrat và pH bằng b…
 
 **Plain** (3054 characters):
 
@@ -2411,19 +2422,18 @@ failed: Request timed out.
 > - **Chất hữu cơ phân hủy:** Thức ăn thừa, cá chết, lá úa, phân cá tích tụ, nền đất/sỏi bị thối. Đây là nguyên nhân hay gặp nhất khi bể mới 2 tháng.
 > - **Tảo silic (diatom):** Lớp màu nâu bám trên kính, lá, sỏi, thường gặp ở bể mới có đèn mạnh…
 
-### sick-05 · tank · ours wins (8 · 4)
+### sick-05 · tank · ours wins (7 · 4)
 
 **Asked:** Nước bể tôi ngả vàng nâu và cá chết lai rai dù thay nước thường xuyên, vì sao?
 
-**Judge:** X nhắm đúng điểm mấu chốt của bể này: thay 50% cách ngày bằng nước đóng bình nghèo khoáng cùng CO2 dễ làm tụt KH và pH, kèm phép thử CO2 cụ thể và thứ tự xử lý rõ. Y chỉ liệt kê nguyên nhân chung chung, bỏ qua CO2 và nguồn nước thực tế, lại dài và kết thúc bằng một loạt câu hỏi ngược. / Y nhắm đúng điểm mấu chốt: thay nhiều bằng nước uống đóng bình nghèo khoáng cộng CO₂ gây tụt pH, kèm bài thử CO₂ và các bước theo thứ tự, dù giả định có lũa. X chỉ liệt kê nguyên nhân chung chung, bỏ qua dữ kiện của bể và còn hỏi lại nguồn nước.
+**Judge:** X dùng đúng chi tiết của bể: nước đóng bình ít khoáng làm KH thấp, cộng thêm CO₂ nên pH tụt và dao động, và X cho bước sửa hợp với Việt Nam là pha thêm nước máy đã khử clo. Y chỉ liệt kê nguyên nhân chung chung, bỏ qua CO₂ và nước đóng bình, dài và hỏi lại nhiều. / Y nối đúng hai chi tiết của bể: nước đóng bình gần như không có khoáng, KH thấp, cộng với sục CO₂ nên pH dễ tụt và dao động, cá yếu dần. Hướng sửa cũng hợp lý: đo pH sáng và tối, thêm khoáng hoặc pha nước máy đã khử clo. Y vẫn thiếu con số KH cần đạt và không nói giảm hay tắt CO₂ ban đêm. X chỉ liệt kê chung chung, bỏ qua dữ liệu bể và hỏi lại rất nhiều.
 
-**Ours lacks:** figures. **Plain lacks:** tank-fit, diagnosis, too-long.
+**Ours lacks:** figures, plan. **Plain lacks:** tank-fit, too-long, diagnosis.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 1 pages, stopped at the calls limit):
 
-> Nguyên nhân có khả năng nhất là nước đang thiếu độ kiềm và độ cứng vì bạn chỉ thay bằng nước uống đóng bình, nên pH dễ tụt mạnh khi bể có CO2 và mỗi lần thay nước. Bể mới khoảng 60 ngày cũng có thể lọc vi sinh chưa ổn định, nên amoniac hoặc nitrit có thể tích lại giữa các lần thay. Lũa chỉ giải thích màu vàng nâu do tannin, không giải thích cá chết, nhưng nó cũng làm pH giảm. Mình chưa chắc chắn khi chưa đo, nên bạn cần kiểm tra trước.
-> 1. Đo ngay pH, amoniac, nitrit, nitrat, oxy hòa tan, độ kiềm (KH) và độ cứng (GH) nếu có bộ test.
-> 2. Làm thử CO2: múc một xô nước bể, sục khí 1 giờ rồi đo lại …
+> Nước ngả vàng nâu kèm cá chết dần thường do nước bể không ổn định hơn là do thiếu thay nước. Cẩm nang ghi rằng lũa nhả tannin làm nước nâu và pH cũng giảm. Bể của bạn có sục CO2 và thay 50% cách ngày bằng nước uống đóng bình. Nước đóng bình thường rất ít khoáng, nên độ cứng KH thấp, pH dễ tụt rồi dao động mạnh giữa ngày và đêm, và cá dễ yếu dần dù bạn thay nước đều. Mình chưa đọc hết bài về cá chết hàng loạt trong cẩm nang nên chưa chắc đây là nguyên nhân duy nhất. Bạn hãy kiểm tra các điểm sau.
+> 1. Đo ngay amoniac, nitrit, nitrat và pH; nếu amoniac hoặc nitrit có số đo thì đó là ưu tiên số mộ…
 
 **Plain** (3373 characters):
 
@@ -2443,16 +2453,17 @@ failed: Request timed out.
 
 **Asked:** Bể cá rồng nhà em dùng hơn 20 năm bị rò nên phải thay bể mới. Từ hôm chuyển sang bể mới, 2 con cá rồng bỏ ăn luôn, được gần 1 tuần rồi. Cá mồi vẫn bơi trong bể mà rồng không chịu ăn. Em theo dõi thì 2 con vẫn bơi bình thường, chưa nằm đáy. Phải làm sao?
 
-**Judge:** Y kiểm tra thêm pH, độ cứng và clo, đồng thời có cách giảm stress thực tế như che ba mặt kính, giảm đèn và cho ăn đều giờ, nên sát nguyên nhân sau chuyển bể hơn, dù dài và khá chung chung. X gọn và nhắc đúng việc chuyển vật liệu lọc cũ, nhưng bỏ sót pH và giảm stress, dải nhiệt có mức 22°C quá thấp, và hướng dẫn theo dõi còn mơ hồ. / X covers both likely causes with usable steps: water testing and changes, plus dark backing, lower light and tempting foods like crickets and shrimp, with clear warning signs, though it is long and generic. Y is tidy and states the cause up front, but it gives no way to reduce the stress it blames, uses a low temperature range, and reads awkwardly with its 'Handbook' and sourcing remarks.
+**Judge:** Y is more likely to fix the problem. It names an uncycled new tank as a likely cause, which fits this case. It gives a 20–30% water change daily or every other day, suggests moving filter media from the old tank, and sets clear points for when to worry. X is correct but thin: it doesn't say how much water to change, and its temperature range is too low for Vietnam. / X chỉ ra đúng nguyên nhân dễ gặp nhất: bể mới chưa có vi sinh sau khi bỏ bể đã chạy 20 năm. X còn đưa cách xử lý cụ thể: chuyển vật liệu lọc từ bể cũ sang, thay 20–30% nước mỗi ngày, ngưỡng NH₃/NO₂ 0,25 ppm. Y gọn và minh bạch về nguồn nhưng thiếu bước chuyển vật liệu lọc cũ và không nói thay bao nhiêu nước. Tuy vậy X hơi dài.
 
-**Ours lacks:** plan, follow-up, too-thin, local. **Plain lacks:** too-long, tank-fit.
+**Ours lacks:** figures, too-thin, diagnosis, plan. **Plain lacks:** too-long, tank-fit.
 
-**Ours** (read 3 pages, stopped at the calls limit):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Gần một tuần sau khi chuyển bể mà cá rồng vẫn bỏ ăn, trong khi cá còn bơi bình thường và chưa nằm đáy, nhiều khả năng cá đang stress vì chuyển bể kèm nước bể mới chưa ổn định. Handbook ghi cá mới bị stress thường không đụng tới đồ ăn trong 24–72 giờ đầu, nên một tuần là lâu hơn bình thường. Bể mới chưa có vi sinh nên nước dễ xấu, đây là điều mình suy ra từ kinh nghiệm chung chứ không phải từ trang nào.
-> 1. Test ngay amoniac, nitrit và nitrat bằng bộ test nhỏ giọt. Nếu amoniac hoặc nitrit trên 0, thay 30–50% nước.
-> 2. Kiểm tra nhiệt độ bể mới trong khoảng 22–28°C và cho giống bể cũ.
-> 3. Kiểm tra …
+> Mình đoán nguyên nhân chính là cá đang sốc vì vừa chuyển bể, cộng với nước bể mới có thể chưa giống bể cũ. Cá rồng hay bỏ ăn vài ngày đến vài tuần sau khi chuyển, nên gần một tuần chưa phải quá lâu, nhưng bạn nên kiểm tra nước trước.
+> 1. Đo nhiệt độ và pH của bể mới, so với bể cũ. Cá rồng châu Á sống tốt ở 22–28°C và pH 5–8, và bài chuyển cá nói nhiệt độ hai bể phải bằng nhau.
+> 2. Nếu bể mới mới chạy lọc, đo amoniac và nitrit. Nếu có chỉ số bất thường, thay một phần nước ngay.
+> 3. Đừng ép ăn. Thử cho mồi chết, tôm nguyên con hoặc thịt cá thái miếng, hoặc giun đất, vào buổi tối khi bể yên.
+> 4. Bớt…
 
 **Plain** (3108 characters):
 
@@ -2463,20 +2474,20 @@ failed: Request timed out.
 > - **Nitrat:** Giữ dưới 40 ppm, lý tưởng dưới 20 ppm.
 > - **pH và độ cứng:** Khác biệt lớn so với bể cũ cũng gây sốc. Nếu nước bể cũ và bể mới khác nhau nhiề…
 
-### sick-06 · tank · ours wins (7.25 · 5.75)
+### sick-06 · tank · plain wins (5.75 · 6.25)
 
 **Asked:** Cá rồng của tôi bỏ ăn gần một tuần từ khi chuyển sang bể mới, làm sao?
 
-**Judge:** X names the likely cause, an uncycled new tank, and gives a short ordered plan with water-change triggers, surface feeding and warning signs, and it uses the note that the fish still swim normally. Y is sound, and its 1–2 week fasting reassurance is useful, but it is long and generic and asks for details rather than tying advice to this one-week-old tank; neither answer suggests carrying over old-tank filter media. / Y nêu ngay nghi vấn bể mới chưa ổn định, dùng chi tiết cá vẫn bơi bình thường và đưa ra các bước gọn cùng mốc theo dõi; X đúng hướng nhưng dài, chung chung và hỏi lại điều app đã biết. Cả hai đều bỏ sót việc chuyển vật liệu lọc cũ và tải bẩn từ cá mồi.
+**Judge:** Y nói rõ bể mới chạy 1 tuần chưa xong chu trình nitơ, đưa mốc nhịn ăn 1–2 tuần sát thực tế hơn với cá rồng và nhắc kiểm tra hai con rồng có cắn nhau không. Tuy vậy Y dài và hỏi lại điều đã biết. X gọn và làm theo được ngay, nhưng mốc thời gian và nhiệt độ chưa chuẩn. Cả hai đều không nhắc chuyển vật liệu lọc từ bể cũ sang, cũng không nhắc lượng chất thải và mầm bệnh từ cá mồi. / I'd rather they got X. Its facts are more accurate: 26–30°C, a 1–2 week fast being normal for arowana, and the warning that a new tank may not have finished cycling. Y is shorter and uses the note that the fish still swim normally, but it gives a temperature range too low for arowana and says they usually eat again after 2–3 days, which is too short. Neither one asks whether the filter media came over from the 20-year-old tank, which is the likely cause, or mentions that there are two arowanas and feeder fish in the tank.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** tank-fit, too-long.
+**Ours lacks:** tank-fit, diagnosis. **Plain lacks:** too-long, tank-fit.
 
 **Ours** (read 2 pages, stopped at the tools limit):
 
-> Cá rồng bỏ ăn sau khi chuyển bể thường do stress vì đổi chỗ, nhưng một tuần là lâu hơn mức cá mới hay ăn lại sau 2–3 ngày, nên mình nghi bể mới chưa ổn định về nước (amoniac, nitrit) hoặc nhiệt độ đổi đột ngột. Bạn ghi cá vẫn bơi bình thường là tín hiệu tốt, nhưng vẫn cần kiểm tra ngay.
-> 1. Test amoniac, nitrit, nitrat, pH và nhiệt độ bằng bộ test nhỏ giọt, dùng thêm một nhiệt kế thứ hai để đối chiếu.
-> 2. Nếu amoniac hoặc nitrit trên 0, thay 30–50% nước bằng nước đã khử clo và cùng nhiệt độ với bể.
-> 3. Nếu bể mới chưa chạy hệ vi sinh, đừng thêm cá nào nữa và theo dõi test mỗi vài ngày cho tới kh…
+> Cá rồng bỏ ăn gần một tuần sau khi chuyển bể thường do stress vì vận chuyển và đổi chỗ, nhưng bể mới cũng có thể chưa ổn định nên bạn cần kiểm tra nước trước. Cá vẫn bơi bình thường là dấu hiệu tốt, nhưng cá thường ăn lại sau 2–3 ngày, nên một tuần đã là lâu và đáng để ý.
+> 1. Test ngay amoniac, nitrit, nitrat và pH bằng bộ test nhỏ giọt; nếu amoniac hoặc nitrit trên 0 thì thay 30–50% nước, dùng nước có nhiệt độ và pH gần với bể.
+> 2. Đo nhiệt độ bằng nhiệt kế thứ hai và giữ nước ổn định trong khoảng 22–28°C; kiểm tra sưởi nếu bể mới có sưởi.
+> 3. Kiểm tra lọc đang chạy đều, nắp bể đậy kín, và khôn…
 
 **Plain** (2612 characters):
 
@@ -2488,20 +2499,19 @@ failed: Request timed out.
 > - Nếu có amonia/nitrit: thay 25–30% nước mỗi ngày, dùng nước đã khử clo và có nhiệt độ, pH gần với bể cũ. Không thay quá nhiều một lúc vì sẽ gây sốc thêm.
 > -…
 
-### sick-07 · post · plain wins (6 · 7.5)
+### sick-07 · post · plain wins (5.5 · 7.5)
 
 **Asked:** Em vừa lật bể, vứt nền sỏi nhỏ đi vì thấy bẩn quá, thì tự nhiên thấy 1 con bị như nấm trắng. Em đang tách riêng, cho ít muối hột vào xem có khỏi không. Như vậy đã đúng chưa, cần làm gì thêm?
 
-**Judge:** Y correctly explains that discarding the gravel removes beneficial bacteria, and gives a usable salt dose, sensitive-species warnings, quarantine setup, a 3–5 day switch to methylene blue and warning signs. X names the fungus more decisively and is tighter, but misreads the gravel step, gives no treatment timeline or escalation, and its unnatural 11.4-litre dose reads like a translation. / X giúp phân biệt đốm trắng, nấm và vi khuẩn, nêu rõ liều muối, cách chăm bể cách ly, bước chuyển thuốc, và chỉ đúng rủi ro mất vi sinh khi bỏ sỏi. Y gọn và nêu đúng cơ chế nấm bám vết thương nhưng hiểu nhầm vứt sỏi thành xới sỏi, cấm muối ăn quá mức và không có hướng tiếp theo nếu muối không hiệu quả.
+**Judge:** Y is the more useful answer. It helps the hobbyist tell ich from cotton-like fungus, which matters because "nấm trắng" could be either. It gives a sensible salt dose (1–2 g/l), a temperature range, a water-change schedule, methylene blue (sold everywhere in Vietnam), and clear warning signs. X is correct but thinner, and its salt dose is a converted US measure. / X đáp trúng việc người hỏi đang làm. X chỉ cách phân biệt đốm trắng, nấm bông và vi khuẩn, cho liều muối 1–2 g/lít rõ ràng, xác nhận dùng muối hột không i-ốt là được, nêu những loài và cây không chịu được muối, và giải thích việc vứt sỏi làm mất vi sinh. Y gọn hơn và có kèm trích hướng dẫn, nhưng liều muối thì quy đổi kiểu Mỹ, lệch số, lại bảo lấy nước từ bể chính đang có thể bị nhiễm amoniac.
 
-**Ours lacks:** tank-fit, figures, follow-up. **Plain lacks:** too-long.
+**Ours lacks:** figures, local, follow-up, diagnosis. **Plain lacks:** too-long.
 
-**Ours** (read 2 pages):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Mảng trắng như bông gòn thường là nấm thủy mi (Saprolegnia). Nấm hiếm khi đụng tới cá khỏe, nên nhiều khả năng con cá này bị xước hoặc stress khi bạn lật bể, xới sỏi làm đục nước, và nấm bám vào chỗ da hoặc vây đã tổn thương. Việc tách riêng và cho muối là đúng hướng. Mình chưa biết loài cá, nên bạn làm thêm các bước sau:
-> 1. Trong bể cách ly, cho muối hồ cá theo mức 1: 1 muỗng canh cho 11,4 lít nước. Hòa muối trước rồi đổ vào, không dùng muối ăn.
-> 2. Giữ muối trong bể cách ly đến khi cá trông khỏe hẳn, rồi thay khoảng 30% nước để rút muối ra.
-> 3. Kiểm tra lại bể chính sau khi xới sỏi: đo amonia…
+> Mình thấy việc tách cá ra là đúng hướng. Nấm trắng dạng bông thường là bệnh thứ phát: cá đã có vết xước hoặc yếu từ trước rồi nấm mới bám vào. Việc lật bể và bỏ nền làm nước đục, khuấy chất bẩn và có thể làm cá va quệt, nên nguy cơ càng cao. Muối hột chỉ là bước hỗ trợ, không thay được việc tìm và sửa nguyên nhân. Mình chưa biết loài cá và nhiệt độ hiện tại, nên phần nguyên nhân này là suy đoán.
+> 1. Chuyển cá sang thùng hoặc bể cách ly có nước sạch lấy từ bể chính, có sục khí và sưởi ổn định.
+> 2. Cho muối hồ cá theo mức 1 (khoảng 1 muỗng canh cho 11,4 lít nước), đổ thẳng hoặc hòa trước, và khôn…
 
 **Plain** (2176 characters):
 
@@ -2516,20 +2526,19 @@ failed: Request timed out.
 > - Dùng muối hạt không i-ốt (muối ăn sạch cũng được, tốt nhất là muối hồ cá). Hòa tan trước rồi mới cho vào.
 > - L…
 
-### sick-07 · tank · tie or split (6.75 · 6.75)
+### sick-07 · tank · plain wins (6 · 7)
 
 **Asked:** Sau khi lật bể, một con cá của tôi bị nấm trắng, tách riêng và cho muối đã đủ chưa?
 
-**Judge:** X links the fungus to wounds and debris from the flip, gives a sourced salt dose, escalates only if needed and flags columnaris, the key look-alike, though it names no medicine and is vague on duration. Y is more concrete with water tests, methylene blue and 5-7 days, but it blames water quality alone, misses the wound cause and columnaris, and reads more generically. / X is easier to act on after a tank flip: it covers testing NH3/NO2, water changes, salt in g/L, methylene blue (easy to buy in Vietnam) and a 5-7 day course. Y explains wounds and stirred-up debris well and usefully flags columnaris, but it skips ammonia/nitrite testing, names no medicine in its text and uses a less familiar spoon-per-11.4-litre dose.
+**Judge:** Y says clearly that salt alone isn't enough, names a medicine sold in Vietnam (xanh methylene), and covers testing the water after the tank flip, temperature, and how long to treat. X fits their situation better and usefully warns about columnaris, but its only treatment is salt with an imperial-based dose (1 muỗng canh per 11,4 lít), and it gives no temperature or medicine. / X answers clearly that salt alone isn't enough. It names a medicine sold in Vietnam (xanh methylene), says to test for ammonia and nitrite after the rescape, and gives the salt dose in grams per litre. Y has a useful point about telling true fungus apart from columnaris, but it never names a medicine and its dosing comes from a foreign guide.
 
-**Ours lacks:** figures, local, plan. **Plain lacks:** tank-fit, diagnosis, too-long.
+**Ours lacks:** figures, plan, local. **Plain lacks:** tank-fit, too-long.
 
 **Ours** (read 2 pages):
 
-> Mình nghĩ tách cá và cho muối là đúng hướng, nhưng muối một mình thường chưa đủ. Nấm thủy mi hầu như chỉ bám vào cá đã có vết thương hoặc đang yếu, mà lật bể dễ làm xước da, khuấy cặn bẩn và bào tử nấm lên. Cần xử lý nguyên nhân cùng lúc với chữa, nếu không bệnh sẽ quay lại.
-> 1. Xem kỹ cá bị nấm: có vết xước, vây rách hay mang bị thương không, và búi nấm mọc ở đâu.
-> 2. Dọn cặn, lá thối và chất hữu cơ dưới nền, rồi kiểm tra lại lọc và lượng oxy sau khi lật bể.
-> 3. Nếu bạn dùng muối mức 1 (1 muỗng canh cho 11,4 lít nước) trong bể cách ly, giữ đến khi cá khỏe hẳn, rồi thay 30% nước không thêm muối …
+> Cách bạn tách cá và cho muối là đúng hướng nhưng chưa đủ. Nấm thủy mi thường chỉ bám vào chỗ da hoặc mang đã xây xát trước đó, nên sau khi lật bể cá có thể đã bị va quệt, sốc hoặc nước bị xáo động làm yếu đi. Nấm là hệ quả, còn nguyên nhân thì cần tìm và xử lý luôn, nếu không bệnh sẽ quay lại. Mình chưa biết loại cá nên chưa chắc chắn được; cẩm nang nói phải xem kỹ vết bệnh trước.
+> 1. Xem kỹ vết bệnh: búi trắng xốp như bông gòn là nấm; mảng xám loang, mất bóng thì nên nghi columnaris, khi đó cần thuốc kháng khuẩn chứ không phải thuốc trị nấm.
+> 2. Giữ cá trong bể cách ly nước sạch, cho muối mức …
 
 **Plain** (1892 characters):
 
@@ -2541,19 +2550,19 @@ failed: Request timed out.
 > 2. **Kiểm tra nước bể cũ và bể cách ly:** Dùng bộ test để đo NH3/NH4+, NO2-, NO3-, pH. Nếu amoniac hoặc nitrit > 0, thay nước ngay (khoảng 30-50%) và thay từng phần hằng ngày cho đến khi ổn định. Nước bể cách ly phải sạch, cùng nhiệt độ và pH với bể cũ.
 > 3. **Thuốc trị nấm…
 
-### sick-08 · post · ours wins (7 · 5.75)
+### sick-08 · post · plain wins (4.75 · 6.75)
 
 **Asked:** Hồ mình đang có rêu tảo hại nên mình thử nuôi otto. Thả vào thì cá rất khỏe, bơi kiếm ăn (không quá manh động), nhưng sau một đêm 3 con chết hết, sáng ra thấy nằm im, đụng vào không nhúc nhích. Cùng lúc đó có một đàn neon trong bể vẫn bình thường mà otto thì chết. Vì sao vậy?
 
-**Judge:** X names a realistic main cause (weak, stressed, possibly wild-caught otto) and gives short ordered steps, though its 4–5 hour bag advice is flawed and it misses algae chemicals and oxygen. Y usefully raises chemicals and night aeration, but it is a long list of five causes with an unsupported top pick and a looser plan. / Y leads with the most realistic cause, weak wild-caught otto shocked on arrival, and gives ordered steps including water tests, acclimation and feeding, though its bag-soak advice is loose and it omits algae chemicals. X usefully raises algae chemicals but is a scattered list topped by a doubtful night-oxygen diagnosis.
+**Judge:** Y nêu được những nguyên nhân thật sự làm otto chết qua đêm mà neon vẫn sống: hóa chất diệt rêu, thiếu oxy ban đêm, bể chưa ổn định, sốc khi thả. Y cũng đưa bước xử lý rõ ràng và cách diệt rêu an toàn cho otto. X thì đoán nguyên nhân yếu, khuyên theo dõi đàn otto dù cả 3 con đã chết, và bỏ sót khả năng do hóa chất diệt rêu. / X asks whether algae killers or H₂O₂ were used, which fits the hobbyist saying their tank has algae, and it covers acclimation shock and fish already weak from transport. But it is long, and its top cause (low oxygen) is shaky. Y is shorter, reads more naturally in Vietnamese and has good acclimation steps, but blames hunger for an overnight death and never mentions chemicals.
 
-**Ours lacks:** diagnosis, tank-fit, figures. **Plain lacks:** too-long, plan, follow-up, diagnosis, tank-fit.
+**Ours lacks:** diagnosis, tank-fit, wrong. **Plain lacks:** too-long, diagnosis.
 
-**Ours** (read 3 pages):
+**Ours** (read 2 pages):
 
-> Mình nghĩ nguyên nhân nhiều khả năng là đàn otto bạn mua là cá bắt tự nhiên, sức chịu stress kém, nên sốc khi vào bể mới dù lúc đầu vẫn bơi khỏe. Neon vẫn bình thường nên không phải lỗi chung của cả bể. Cẩm nang ghi rằng otto bắt tự nhiên hay chết sau khi về, và thay đổi thông số nước đột ngột cũng làm cá sốc. Mình chưa biết bể đã chạy được bao lâu, nên cũng cần loại trừ chất lượng nước.
-> 1. Kiểm tra ngay amoniac, nitrit và pH trong bể; nếu amoniac hoặc nitrit có số đo thì thay nước một phần trước.
-> 2. Hỏi lại tiệm lô cá đó bắt tự nhiên hay nuôi sinh sản và đã ở tiệm bao lâu; lần sau ưu tiên lô…
+> Nhiều khả năng otto chết vì sốc và không ăn được, chứ không phải do bể bị độc với riêng loài này. Neon vẫn khỏe nên nước bể không đến mức xấu. Otto nhạy hơn: cá bắt tự nhiên hoặc vừa vận chuyển về thường mệt, không chịu ăn, và chỉ sau một đêm đã yếu hẳn. Hay gặp hơn là lệch pH hoặc nhiệt độ so với nước cũ, hoặc bể chưa thật ổn định. Mình chưa biết cá mua ở đâu nên chưa chắc được nguyên nhân nào, bạn cho mình biết thêm nhé.
+> 1. Kiểm tra ngay pH, nhiệt độ, amoniac và nitrit của bể, và so với nước ở chỗ mua cá.
+> 2. Nếu bể còn ít rêu, cho cá ăn thêm viên chìm và rau như dưa leo, xà lách hoặc bí ngò…
 
 **Plain** (2455 characters):
 
@@ -2568,20 +2577,20 @@ failed: Request timed out.
 > **2. Hóa chất diệt rêu**
 > Đây là nguyên nhân rất thường gặp với rêu tảo hại. Nếu tr…
 
-### sick-08 · tank · plain wins (5.5 · 6.5)
+### sick-08 · tank · ours wins (7 · 6)
 
 **Asked:** Tôi thả cá otto ăn rêu mà sau một đêm chết hết trong khi neon vẫn khỏe, vì sao?
 
-**Judge:** Y names the causes that really kill otto overnight (ammonia/nitrite, low oxygen, acclimation shock, chlorine, copper algae killers), with a sensible 30–60 minute drip, though it is a long, unranked list that asks for details. X is tidier and has ordered steps, but it leads with a feeding cause that cannot explain overnight death, and it gives care advice for fish that are already dead. / X giải thích đúng hơn các nguyên nhân chết nhanh như sốc nước, cá yếu sẵn sau vận chuyển, NH₃/NO₂, thiếu oxy và thuốc diệt rêu chứa đồng, dù dài và chưa xếp theo khả năng xảy ra. Y gọn và có bước làm rõ hơn nhưng đoán nguyên nhân thức ăn không hợp với cái chết sau một đêm và khuyên chăm 'đàn còn lại' dù otto đã chết hết.
+**Judge:** X đưa ra nguyên nhân hợp lý nhất (otto yếu sẵn hoặc bị sốc khi thả, còn neon đã quen nước) cùng các bước kiểm tra cụ thể, ngắn gọn. Y liệt kê bảy nguyên nhân chung chung, không xếp theo khả năng, và hỏi lại thông tin đã có sẵn, dù Y có nhắc tới clo và thuốc diệt rêu chứa đồng, hai ý đáng lưu ý. / Y gives the cause that most often explains this (weak, wild-caught or just-shipped otto) and short, ordered steps that fit the case, plus a species card and a guide excerpt. X is a long generic checklist that ends by asking for details. X does mention copper in algae treatments, which matters for a tank with algae, but its cause list doesn't fit this tank closely.
 
-**Ours lacks:** diagnosis, tank-fit. **Plain lacks:** plan, too-long, tank-fit, follow-up.
+**Ours lacks:** diagnosis, figures. **Plain lacks:** tank-fit, too-long, plan.
 
-**Ours** (read 2 pages, stopped at the calls limit):
+**Ours** (read 3 pages):
 
-> Mình đoán nguyên nhân nhiều khả năng là cá otto bắt tự nhiên, chưa quen thức ăn viên, hoặc bể chưa đủ ổn định với loài nhạy như otto, trong khi neon khỏe hơn nên trụ được. Mình chưa thể chắc khi chưa biết cá mua từ đâu, bể đã chạy bao lâu và lúc thả có làm quen nước không, nên bạn kiểm tra theo các bước sau:
-> 1. Test ngay amoniac và nitrit trong bể. Nếu có số đo cao, thay khoảng 30% nước bằng nước cùng nhiệt độ.
-> 2. Nhớ lại lúc thả: nếu nước trong túi chênh nhiều về nhiệt độ hoặc pH so với bể, lần sau nên làm quen nước 4–5 tiếng bằng xô và ống nhỏ giọt.
-> 3. Với đàn còn lại, giữ tảo trong bể cho …
+> Nhiều khả năng đàn otto bạn mua là cá bắt tự nhiên hoặc vừa qua vận chuyển, nên rất yếu, còn neon đã quen nước nên sống được. Cẩm nang ghi otto bắt tự nhiên chịu stress kém, và cá mới thả hay chết khi bể chưa ổn định hoặc thông số nước đổi đột ngột. Mình chưa biết nguồn cá và thông số bể của bạn nên chưa chắc chắn, bạn nên kiểm tra theo các bước sau.
+> 1. Hỏi lại tiệm xem cá là bắt tự nhiên hay nuôi sinh sản, và lô đó đã ở đó bao lâu.
+> 2. Đo ngay amoniac, nitrit và pH trong bể; nếu amoniac hay nitrit khác 0 thì bể chưa ổn định, cần thay nước trước khi thả thêm cá.
+> 3. Lần sau thả cá chậm bằng các…
 
 **Plain** (2215 characters):
 
@@ -2595,19 +2604,20 @@ failed: Request timed out.
 > 
 > 3. **Sốc do th…
 
-### sick-09 · post · plain wins (5.25 · 7.25)
+### sick-09 · post · plain wins (5 · 7)
 
 **Asked:** Nhà mình có bể cá ngoài trời 3x1,5m, sâu có 30 phân, đáy lát đá hoa, có hệ thống lọc nước và hút đáy, thêm 1 bơm nước tạo oxy. Trước mua koi về được mấy hôm là lăn ra chết, thế là thả cá chép cho khỏe, mà nay 6-7 con lại chết. Trời đang lạnh ngắt, mình không có dụng cụ đo oxy, không biết do trời lạnh hay sao. Bể này bố mình làm, trước có thả hoa súng nhưng cá rỉa hết. Bắt bệnh giúp mình, nên sửa lọc thế nào, có cần đào sâu thêm không, đáy lát đá hoa có ổn không?
 
-**Judge:** Y answers everything asked (likely causes, filter fixes, depth with a deep-corner option, marble floor) and gives no-meter checks and first steps, though it is long and ends with many questions. X has a sensible disease warning and short steps, but it skips the filter question and offers little for this particular tank. / X answers every question asked: likely causes, how to fix the filter, digging a deep corner and the marble floor, with practical checks and steps, though it is long and leans on water quality. Y sensibly suspects disease from the koi and is concise, but it skips the filter question entirely and stays thin on digging.
+**Judge:** Y answers every question the hobbyist asked. It explains how to fix the filter, including the flow rate and washing the bio media in tank water. It suggests digging just one corner down to 80–100 cm, and says correctly that a marble floor makes the water harder and raises the pH. X is safe but admits its guide has nothing on the filter or the marble floor, so it leaves out half of what the hobbyist needs. Y is long, though. / X chỉ ra được nguyên nhân hợp lý hơn: bể chưa chạy vi sinh nên amoniac/nitrit tăng, bể nông nên nhiệt độ thay đổi nhanh, và cá mới mua có thể mang bệnh. X cũng trả lời đủ cả ba câu về lọc, đào sâu và đáy đá hoa, có số liệu cụ thể. Y lại đặt nặng chuyện thiếu oxy trong nước lạnh, trong khi nước lạnh giữ oxy tốt hơn, và Y né hẳn câu hỏi về lọc và đáy đá hoa.
 
-**Ours lacks:** tank-fit, plan, too-thin. **Plain lacks:** too-long.
+**Ours lacks:** tank-fit, too-thin, figures, diagnosis, plan. **Plain lacks:** too-long.
 
 **Ours** (read 3 pages, stopped at the tools limit):
 
-> Mình chưa thể chắc nguyên nhân khi chưa có số đo nước, nhưng khả năng cao nhất là bệnh lây từ cá koi mua về, vì koi chết ngay sau khi mua rồi cá chép thả sau cũng chết dần. Cẩm nang nói koi hay bị herpes (KHV) và bệnh vi-rút mùa xuân, cả hai đều chưa có thuốc chữa, nên lúc này việc chính là cách ly và giảm stress. Thiếu oxy và amoniac cao cũng dễ giết cá, nên mình nêu luôn để bạn kiểm tra song song.
-> 1. Ngừng cho ăn khi nước xuống dưới khoảng 10–15°C, vì thức ăn thừa thối làm amoniac tăng.
-> 2. Vớt cá đang lờ đờ hoặc có dấu hiệu bệnh ra thùng riêng có sục khí; không vứt cá chết xuống ao và đừng …
+> Mình chưa đo được oxy nên chỉ đoán được nguyên nhân nhiều khả năng nhất: thiếu oxy trong nước lạnh, kết hợp với cá stress sau khi chuyển về, và có thể có bệnh. Cẩm nang ghi thiếu oxy làm nhiều con chết cùng lúc, còn amoniac hay clo cũng giết cá. Bể sâu 30 cm lại đông cá, trời lạnh nước ít xáo động nên dễ thiếu oxy. Cá chết dần sau khi về cũng hay do bệnh mang theo.
+> 1. Sáng sớm xem cá có ngoi lên đớp khí không. Nếu có, bật máy sục khí chạy liên tục và đặt đá sủi sâu sát đáy.
+> 2. Tạo xáo động mặt nước bằng vòi phun hoặc bơm, và kiểm tra bơm oxy và lọc có chạy đều không.
+> 3. Thử amoniac, nitrit và…
 
 **Plain** (4648 characters):
 
@@ -2621,20 +2631,19 @@ failed: Request timed out.
 > 
 > **b) Lọc sinh học chưa đủ ho…
 
-### sick-09 · tank · ours wins (6.5 · 4)
+### sick-09 · tank · tie or split (4.5 · 4.5)
 
 **Asked:** Cá trong bể tôi thả vào mấy hôm là chết, trời lạnh lại chết thêm, do đâu?
 
-**Judge:** X gives a short ordered plan that suits cold-weather koi keeping: test ammonia and nitrite, make temperature-matched water changes, aerate, cut feeding, shelter the pond, and watch for ich, though it underplays an uncycled pond and has some small-tank tips. Y does name the cycling cause but is a generic checklist aimed at heated tropical tanks, and it ends by asking for details it doesn't have. / Y nêu thẳng nguyên nhân rét và mất ổn định kèm các bước gọn: đo nước, thay nước ấm, sục khí, giảm ăn, che gió, nên gần với bể ngoài trời hơn. X là danh sách chung cho bể cá nhiệt đới trong nhà, nói về heater 24–26°C và betta, neon, rồi hỏi ngược lại; cả hai đều bỏ sót độ nông 30 cm và bệnh koi như KHV.
+**Judge:** Cả hai câu trả lời đều chung chung kiểu bể cá cảnh trong nhà và bỏ qua chuyện đây là hồ koi ngoài trời. X khuyên dùng sưởi theo mức 1 W cho mỗi lít, không hợp với hồ koi. Y rộng hơn: có đo pH, nhắc nguy cơ cá mới mang bệnh từ cửa hàng, thả quá dày và thiếu oxy, và nói vi khuẩn lọc chậm lại khi nước dưới khoảng 20°C. Những ý này sát với nguyên nhân cá chết thật hơn, dù Y dài và có mốc nhiệt độ cá nhiệt đới không liên quan. / Cả hai câu trả lời đều coi đây là bể kính trong nhà có sưởi, bỏ qua chuyện đây là bể koi ngoài trời nông 30 cm, và cũng không nhắc tới vôi xi măng của bể mới xây. Y gọn hơn, có các bước theo thứ tự và dặn dấu hiệu cần theo dõi; lời khuyên đậy nắp, tăng xáo động mặt nước dùng được cho bể ngoài trời. Còn X dài, chung chung, và khuyên sưởi lên mức cá nhiệt đới, không hợp với koi.
 
-**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** tank-fit, too-long, diagnosis.
+**Ours lacks:** tank-fit, diagnosis, wrong, figures. **Plain lacks:** tank-fit, too-long, wrong.
 
-**Ours** (read 2 pages):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Mình đoán nguyên nhân chính là đợt rét làm cá bị sốc nhiệt và bể mất ổn định. Nước lạnh làm vi sinh lọc chậm lại nên amoniac hoặc nitrit có thể tăng, còn cá thả mới thì chưa kịp quen nước. Mình chưa có số đo nước nên chưa chắc chắn, bạn nên kiểm tra theo thứ tự sau.
-> 1. Hôm nay đo amoniac và nitrit bằng bộ test. Nếu một trong hai có chỉ số, thay khoảng 20–30% nước.
-> 2. Khi thay nước, dùng nước đã khử clo và gần nhiệt độ nước bể, không đổ nước lạnh thẳng vào.
-> 3. Bật sục khí và lọc suốt ngày đêm để bù oxy. Cá lớn bị thiếu oxy trước, nên nếu thấy cá ngoi lên đớp khí thì đây là dấu hiệu cần xử lý n…
+> Mình đoán nguyên nhân nhiều khả năng nhất là bể chưa ổn định chu trình nitơ: cá mới thả thì amoniac hoặc nitrit tăng lên, vài ngày sau cá chết, và trời lạnh làm cá yếu hơn nên chết thêm. Nếu bể mới set thì đây là khả năng cao nhất. Nếu bể đã chạy lâu thì nghi nhiệt độ tụt hoặc sưởi chưa đủ công suất, hoặc nước bị đổi đột ngột khi thay hay thả cá. Mình chưa biết bể đã chạy bao lâu, nên bạn cho mình biết thêm nhé.
+> 1. Test amoniac và nitrit ngay bằng bộ test nước; nếu có số đo thì ghi lại.
+> 2. Nếu amoniac hoặc nitrit có số đo, thay khoảng một phần ba nước bằng nước đã khử clo, cùng nhiệt độ với b…
 
 **Plain** (2551 characters):
 
@@ -2646,19 +2655,19 @@ failed: Request timed out.
 > - Cá chết sau 2–7 ngày, thường có dấu hiệu thở gấp, nổi đầu lên mặt nước, mang đỏ hoặc tái, lờ đờ, bơi lảo đảo.
 > - **Cách kiểm tra:** dùng bộ test nước (API hoặc tương đương) đo amoniac,…
 
-### stocking-01 · post · ours wins (7.5 · 4.5)
+### stocking-01 · post · ours wins (7 · 4)
 
 **Asked:** Em mới tập chơi lại bể cá. Ban đầu hỏi loại nào dễ nuôi, khỏe thì được tư vấn mua 2 cá vàng, 2 con bống (bảo nó ăn phân thừa) và 2 con dọn bể. Được vài hôm 1 con cá vàng chết, nghi đánh nhau. Em mua thêm 10 con 7 màu bé thả vào, vài hôm còn 9, 8 rồi 7 mà không thấy xác. Lạ nhất là 1 con 7 màu bụng to như chửa cũng biến mất. Hôm qua 1 con bống chết, nay con dọn bể chết và mất thêm 2 con 7 màu. Con bống với con dọn bể còn nửa xác, thấy con bống còn lại thỉnh thoảng rỉa. Có phải chúng đánh nhau và con to ăn con bé không? Vậy chỉ được thả cá sàn sàn nhau thôi à?
 
-**Judge:** X đưa ra chẩn đoán hợp lý (nước xấu, quá tải, cá chết rồi bị ăn xác, bống có thể ăn cá bé) kèm các bước xử lý rõ, thay nước mạnh theo kết quả đo và dấu hiệu cần theo dõi, dù chưa giải thích con bụng to. Y giải thích nhiều hơn nhưng gọi bảy màu là hung dữ và khuyên nuôi chúng với cá lớn trong bể 200 lít, là lời khuyên sai có thể khiến người chơi mất cá tiếp. / Y gives the likely cause (water and overstocking, with the bống and cleaner scavenging and the bống possibly preying on weak small fish) and an ordered plan with what to watch for, plus a relevant guide excerpt. X has the same water diagnosis but calls guppies aggressive and gives backwards stocking advice with an invented 200 L figure.
+**Judge:** Cả hai câu trả lời đều nghĩ trước tiên tới chất lượng nước và chuyện cá lớn ăn cá bé. X chỉ đúng thủ phạm là cá vàng và bống, các bước làm gọn và dễ theo. Y đổ lỗi cho bảy màu là loài hung dữ, rồi khuyên nuôi bảy màu chung với cá lớn trong bể 200 lít. Lời khuyên này sai và có hại cho cá. / Y nói đúng thủ phạm: cá vàng và bống ăn cá 7 màu nhỏ, cộng thêm nước xấu. Y cho các bước rõ ràng, có tách cá vàng ra, và dặn theo dõi trong 24–48 giờ. X lại đổ lỗi cho cá 7 màu là "hung dữ" và khuyên nuôi cá 7 màu chung với cá lớn trong bể 200 lít, cả hai đều sai và làm người mới chơi hiểu nhầm.
 
-**Ours lacks:** tank-fit, figures. **Plain lacks:** wrong, figures, too-long.
+**Ours lacks:** figures, tank-fit. **Plain lacks:** wrong, too-long, diagnosis.
 
-**Ours** (read 1 pages, stopped at the tools limit):
+**Ours** (read 0 pages, stopped at the time limit):
 
-> Mình nghĩ nguyên nhân chính là nước trong bể và mật độ cá, chưa chắc là cá to ăn cá bé. Cá vàng thải rất nhiều chất bẩn, bể nhỏ mà thả thêm 10 con bảy màu cùng lúc thì amoniac, nitrit tăng và thiếu oxy. Con yếu chết trước, rồi bống và cá dọn ăn xác. Bống có thể ăn cá bé yếu nên cũng có phần, nhưng mình chưa đủ dữ kiện để kết luận. Cẩm nang chưa có trang riêng cho bống và cá dọn nên phần này mình dựa trên kinh nghiệm chung.
-> 1. Đo ngay amoniac, nitrit, pH và nhiệt độ nước; nếu amoniac hoặc nitrit cao, thay ít nhất 50% nước.
-> 2. Vớt hết xác cá ra ngay, đừng để thối trong bể, và tạm ngưng cho ăn 1…
+> Mình nghĩ nguyên nhân nhiều khả năng là bể đang quá tải, nước bẩn và có nồng độ amoniac hoặc nitrit cao, cộng với việc cá lớn ăn cá bé và cá yếu. Cá vàng và bống có thể ăn luôn xác cá chết và cá con, nên bạn mới thấy cá biến mất không để lại xác và chỉ còn nửa con. Chuyện đánh nhau thì có thể có, nhưng không phải lý do chính. Cẩm nang của mình chưa có trang nào nói đúng trường hợp này nên phần dưới là kinh nghiệm chung của người nuôi cá.
+> 1. Thử nước ngay bằng bộ test amoniac và nitrit, nếu có số đo thì thay khoảng một phần ba nước bằng nước đã khử clo, cùng nhiệt độ.
+> 2. Vớt hết xác cá, lá úa …
 
 **Plain** (2150 characters):
 
@@ -2674,20 +2683,20 @@ failed: Request timed out.
 > - Bống và dọn bể ăn xác, nên xác cá biến mất hoặc chỉ còn nửa.
 > - Con bụng to như chửa có …
 
-### stocking-01 · tank · ours wins (7.25 · 4.5)
+### stocking-01 · tank · ours wins (7 · 5)
 
 **Asked:** Bảy màu trong bể tôi cứ biến mất không thấy xác, có phải bị cá khác ăn không?
 
-**Judge:** X dựa vào đúng bể của người hỏi (cá vàng, tỳ bà, bống rỉa xác), trả lời thẳng và cho các bước đếm cá, quan sát, thử nước, tách cá kèm mốc 1–2 tuần, dù quên khả năng cá nhảy ra ngoài. Y có ý hay là kiểm tra cá nhảy và đậy nắp, nhưng chỉ là danh sách nguyên nhân chung, nêu các loài không có trong bể và còn hỏi lại những loài đang nuôi. / Y uses the actual tank (cá vàng, bống, cá dọn bể, the note that bống rỉa xác), names the likely cause, is honest about uncertainty, and gives ordered steps with a 1–2 week check, though it omits fish jumping out. X is a generic list that names fish this tank does not have, never addresses the goldfish or bống as suspects, and ends by asking for details the hobbyist's tank record already holds, though it does usefully mention checking the lid and floor.
+**Judge:** X dùng đúng thông tin bể của bạn (cá vàng, bống, bống rỉa xác) và đưa ra kế hoạch theo dõi trong một tuần, có cách phân biệt cá bị ăn với cá chết vì nước. Tuy vậy X bỏ sót khả năng cá nhảy ra ngoài và không nói thẳng rằng cá vàng ăn cá bột lẫn bảy màu nhỏ. Y kể đủ các nguyên nhân phổ biến, kể cả cá nhảy, nhưng chung chung: nêu những loài không có trong bể và hỏi lại thành phần cá dù app đã có sẵn. / Y points to the goldfish and gobies actually in the tank and to the note that the gobies pick at dead bodies, and it gives ordered steps with a one-week check that tells being eaten apart from dying. X is a generic list built around fish they don't keep, and it skips the possibility of being eaten by the goldfish. Y also leaves out jumping out of the tank, a common way guppies go missing.
 
-**Ours lacks:** figures. **Plain lacks:** tank-fit, diagnosis, too-long, follow-up.
+**Ours lacks:** diagnosis, figures. **Plain lacks:** tank-fit, too-long, diagnosis.
 
 **Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình nghĩ nhiều khả năng là bị cá khác ăn, nhưng chưa chắc chắn. Trong bể bạn có cá vàng, cá tỳ bà và bống. Ghi chú của bạn cho biết bống rỉa xác, nên xác cá bảy màu có thể đã bị ăn sạch trước khi bạn thấy. Cẩm nang nói cá bảy màu con rất dễ thành mồi cho cá khác trong bể. Cẩm nang chưa nói rõ bống có ăn cá trưởng thành hay không, nên phần này mình dựa vào kinh nghiệm chung.
-> 1. Đếm lại cá bảy màu mỗi ngày, ghi riêng cá lớn và cá con để biết con nào mất.
-> 2. Nếu mất chủ yếu là cá con, tạo nhiều cây dày hoặc lá khô ở một góc để cá con có chỗ trốn.
-> 3. Nếu có cá cái sắp đẻ, đưa cá mẹ vào hộp đẻ để…
+> Mình nghĩ có khả năng cao là cá khác ăn bảy màu, nhất là cá bột, vì trong bể bạn có cá vàng và bống, và cá bảy màu lại đẻ liên tục. Handbook không nói rõ bống hay cá vàng có ăn cá bảy màu trưởng thành không, nên mình chỉ chắc được một phần. Ngoài ra, bạn ghi là bống rỉa xác, nên cá chết vì lý do khác cũng có thể biến mất mà không để lại xác.
+> 1. Đếm lại số bảy màu mỗi ngày và ghi lại, để biết con nào mất và mất lúc nào.
+> 2. Tách cá bột sang hộp lọc riêng hoặc bể nhỏ, hoặc trồng nhiều cây nổi để cá bột có chỗ trốn.
+> 3. Quan sát bể buổi tối, xem bống hay cá vàng có đuổi, rượt hoặc ăn cá bảy màu kh…
 
 **Plain** (1926 characters):
 
@@ -2701,19 +2710,19 @@ failed: Request timed out.
 > **2. Cá bị nhảy ra ngoài**
 > - Cá bảy màu khá hay nhảy, đặc biệt khi nước bẩn, thiếu oxy hoặc bị hoảng sợ. Kiểm tra nắp bể, khe hở, và sàn…
 
-### stocking-02 · post · ours wins (8 · 4.75)
+### stocking-02 · post · ours wins (7 · 5)
 
 **Asked:** Hồ em 60x40x40, được 1 tuần, đang thả 5 mún + 5 chuột, cá đang tung tăng tốt. Em tính thả thêm 40 neon nữa vậy có nhiều không? Mún có sống chung với neon được không?
 
-**Judge:** X nhận đúng mún là platy, khẳng định sống chung được, tính tải theo đúng đàn cá hiện có và đưa lộ trình thả theo đợt kèm dấu hiệu cần theo dõi. Y cũng khuyên giảm số lượng và thả dần, nhưng không biết mún là cá gì nên bỏ ngỏ câu hỏi chính và phải hỏi lại. / Y nhận đúng mún là platy, trả lời thẳng là sống chung được, rồi đưa kế hoạch thả theo đợt kèm dấu hiệu cần theo dõi; phép tính tải có chỗ hơi lệch và thiếu lưu ý về thay nước hay khác biệt pH. X có lời khuyên đúng về chia đợt nhưng không biết mún là cá gì nên bỏ lửng câu hỏi chính và phải hỏi ngược lại.
+**Judge:** X biết mún là cá platy, xác nhận nuôi chung với neon được, và đưa các bước rõ ràng: đo nước, chờ vi sinh, thả neon theo đợt. Y không biết mún là cá gì nên bỏ ngỏ đúng câu hỏi chính. Bù lại, mức 20-30 con neon mà Y đề xuất sát thực tế hơn. / Y correctly recognises mún as platy, so it can answer the compatibility question outright. It also gives a clear order of steps: test the water, wait for the tank to cycle, add the neon in batches, then watch for signs of nitrite trouble. X doesn't know what mún is, falls back on asking the hobbyist, and its temperature range ignores Vietnam's heat.
 
-**Ours lacks:** figures. **Plain lacks:** tank-fit, follow-up, diagnosis, local.
+**Ours lacks:** figures, tank-fit. **Plain lacks:** local, tank-fit, plan.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Mún (cá platy) sống chung được với neon xanh: cả hai đều hiền, và trang cá platy ghi neon xanh là loài hợp. Nhưng 40 neon là nhiều, và bể 1 tuần tuổi chưa nên thả ngay.
-> 
-> Bể 60×40×40 khoảng 96 lít. Theo cách tính của cẩm nang, mún cần khoảng 4 lít mỗi con và cá nhỏ khoảng 2 lít. Hiện 5 mún và 5 chuột đã chiếm khoảng 30 lít. Nếu bể không lọc, 40 neon (khoảng 80 lít) sẽ vượt quá mức 96 lít. Nếu có lọc và sủi, cẩm nang cho phép thêm tối đa 30–50%, tức khoảng 140 lít, nên 40 neon vẫn sát giới hạn. Trang neon xanh còn ghi bể mới không phù hợp với neon vì chúng không chịu được biến động khi bể khởi …
+> Mún (cá platy) và neon đều hiền, và trang cá platy trong cẩm nang ghi neon xanh là loài hợp sống chung, nên bạn không phải lo chuyện đối đầu. Điều cần cân nhắc là số lượng: bể 60x40x40 khoảng 96 lít, 40 con neon là quá nhiều, và bể mới một tuần chưa chắc đã ổn định. Theo hướng dẫn tính số cá, mỗi con mún cần khoảng 4 lít, nên 5 con mún đã chiếm khoảng 20 lít, phần còn lại nên để dành cho đàn neon vừa phải. Với bể có lọc, mình gợi ý thả khoảng 10 đến 12 con neon là hợp lý, không nên 40 con.
+> 1. Trước khi thả thêm, đo amoniac và nitrit; cả hai nên về 0, nếu chưa về 0 thì bể chưa đủ ổn định.
+> 2. C…
 
 **Plain** (1147 characters):
 
@@ -2727,21 +2736,21 @@ failed: Request timed out.
 > **Về sống chung với mún:**
 > - Neon hiền, bơi thành đàn, thường sống khá tốt với các l…
 
-### stocking-02 · tank · ours wins (6.25 · 3.75)
+### stocking-02 · tank · ours wins (6.5 · 3.5)
 
 **Asked:** Bể của tôi thả thêm 40 con neon có nhiều quá không, nuôi chung với mún được không?
 
-**Judge:** X uses the real tank and fish, says 40 is too many, and gives a staged plan starting at 10–15 neon, though it misses the 1-week cycling risk and fumbles mún despite naming platy. Y gives generic advice, asks for the tank size, leans towards allowing 40, and does not recognise mún, though it rightly mentions ammonia and nitrite. / Y uses the real tank (96 L, 5 platy, 5 cá chuột), says 40 is too many and gives a staged 10–15 fish plan with checks, though it misses the 1-week age and ammonia/nitrite tests. X is generic, asks for the tank size, doesn't recognise mún, and leans towards allowing 40 neon in a new tank.
+**Judge:** X is the better answer. It uses the real tank (about 96 L, platy and cory already in it) and gives a clear step: add only 10–12 neon first. But it contradicts itself about what mún is and never mentions that the tank is only 1 week old. Y is generic and asks for details it should already have. / Y uses the real tank size and stock and clearly says to add only 10–12 neon first and watch the water. X doesn't know that mún is platy, asks for information the app already has, and leans toward saying 40 is fine.
 
-**Ours lacks:** diagnosis, local. **Plain lacks:** tank-fit, plan, follow-up.
+**Ours lacks:** diagnosis, figures, tank-fit. **Plain lacks:** tank-fit, asks-only, diagnosis, local.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the time limit):
 
-> Mình thấy 40 con neon là hơi nhiều với bể 60×40×40 cm (khoảng 96 lít) đang có 5 platy và 5 cá chuột. Theo cách tính trong cẩm nang, mỗi cá nhỏ cần khoảng 2 lít, nên tổng cộng gần hoặc vượt mức của bể. Chỉ khi bể có lọc và sủi tốt mới có thể thêm khoảng 30–50% số cá. Neon là cá đàn, thả từ nửa tá trở lên là đủ để chúng khỏe, nên bạn không cần thả 40 con một lúc.
-> 1. Kiểm tra bể đã chạy ổn định và đo nitrat trước khi thả thêm.
-> 2. Thả đợt đầu khoảng 10–15 con neon, không thả hết một lần.
-> 3. Đo nitrat mỗi tuần trong 2–3 tuần và giữ dưới 40 ppm theo cẩm nang.
-> 4. Nếu nitrat vẫn ổn, mới thả đợt tiếp …
+> Nuôi chung được: nước có khoảng chung, kích thước và tính cách hợp nhau. Nhưng 40 con neon là quá nhiều cho bể 60×40×40 cm (khoảng 96 lít), vì cùng với 5 platy và 5 chuột đồng thì bể đang quá tải, khoảng 195%. Cá neon là loài đàn, nên chỉ cần một đàn khoảng 10 đến 12 con là đủ đẹp và thoải mái, không cần 40 con.
+> 1. Đừng thả thêm 40 con neon; thả khoảng 10 đến 12 con trước.
+> 2. Theo dõi nước vài tuần: amoniac, nitrit phải về 0, và thay nước định kỳ.
+> 3. Nếu muốn nuôi đông hơn, nên dùng bể dài hơn; chuột đồng cần bể dài từ 80 cm.
+> 4. Về cá mún: cẩm nang chỉ dùng mún như một cỡ cá (khoảng 4 lít mỗi…
 
 **Plain** (1103 characters):
 
@@ -2751,17 +2760,21 @@ failed: Request timed out.
 > - **Lọc và thay nước:** Đàn đông thải nhiều chất bẩn hơn. Bạn cần lọc đủ công suất (ít nhất gấp 4-5 lần thể tích bể mỗi giờ) và thay 25-30% nước mỗi tuần.
 > - **Chỉ số nước:** Sau khi thả, theo dõi amoniac và nitrit. Hai chỉ số này phải luôn …
 
-### stocking-03 · post · plain wins (5 · 8)
+### stocking-03 · post · plain wins (4.5 · 8)
 
 **Asked:** Em mới kiếm được cái bể kích thước 35x20x22cm, chưa chơi bao giờ. Nên nuôi loại cá nào cho đẹp, dự định 1 tuần thay nước 1 lần? Có cần mua lọc và sục khí cho bể không?
 
-**Judge:** Y gives a beginner stocking options with quantities that suit 15 L, a clear sponge filter and air pump answer, and the key steps of cycling first and dechlorinating tap water. X answers the basics, but it suggests schooling fish without counts, includes a poor beginner pick, and barely explains how to start the tank. / X chốt được phương án cụ thể cho bể 15 lít (1 cá xiêm đực hoặc đàn tôm, kèm số lượng), giải thích rõ lọc mút, thay nước và chạy bể 2-4 tuần trước khi thả cá. Y mỏng hơn, gợi ý cá đàn không rõ số lượng, có loài quá lớn cho bể và không hướng dẫn cycling, khử clo nên người mới dễ thả cá vào bể chưa ổn định.
+**Judge:** Y picks livestock that suits 15 L (one betta, cherry shrimp, a few guppies) and adds practical tips for Vietnam: dechlorinating tap water, beginner plants, lights, and a heater if the room is cold. X suggests black neons, which its own card says need a much bigger tank. / X chọn đúng loài hợp với bể 15 lít (1 cá xiêm đực, tôm cherry, vài con bảy màu) và có lời khuyên đầy đủ, đúng: lọc bọt biển, chạy bể trước, khử clo, trồng cây. Y khuyên nuôi đàn neon đen và cherry barb trong 15 lít, trái với chính thẻ loài nó đưa ra (bể từ 80 cm).
 
-**Ours lacks:** plan, figures, too-thin. **Plain lacks:** –.
+**Ours lacks:** tank-fit, wrong, local, follow-up. **Plain lacks:** –.
 
-**Ours** (read 4 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Bể 35x20x22 cm chứa khoảng 15 lít, nhỏ nên nước dễ bẩn và đổi nhanh, bạn nên chọn ít cá và làm đều việc thay nước. Với người mới, cá đàn nhỏ như neon vua, tetra mõm đỏ hay lambchop rasbora là lựa chọn đẹp và dễ nuôi hơn, còn ember tetra chỉ khoảng 2 cm hợp bể nano. Cẩm nang khuyên người mới nên dùng lọc mút xốp (sponge filter) thay vì lọc thùng, vì dòng nhẹ, chạy ổn định và vệ sinh mỗi tháng một lần là đủ. Lọc mút xốp chạy bằng sủi khí nên bạn cần một máy sục khí, và nên để máy chạy suốt ngày đêm. Thay nước 1 tuần 1 lần là ổn, bạn thay khoảng 20–30% nước mỗi lần (mình nói theo kinh nghiệm chu…
+> Với bể 35x20x22 cm (khoảng 15 lít), bạn nên chọn cá nhỏ, đi đàn và hiền như cá neon đen, cá cherry hoặc cá Endler, nuôi đàn từ 6 con trở lên. Bể nhỏ đổi nước nhanh, nên thay 1 tuần một lần là hợp lý. Bạn cần lọc và sục khí: lọc bọt biển chạy bằng máy sục khí là lựa chọn dễ nhất cho bể nhỏ, vì dòng nước nhẹ và không làm cá mệt.
+> 1. Mua một lọc bọt biển nhỏ và một máy sục khí êm, đặt máy ngoài bể, nối bằng dây khí.
+> 2. Trước khi thả cá, chạy lọc khoảng 4 đến 6 tuần để vi khuẩn có lợi lên đủ, rồi mới thả cá.
+> 3. Mỗi tuần thay khoảng 25 đến 30% nước, dùng nước đã khử clo và đúng nhiệt độ với bể.
+> 4. …
 
 **Plain** (2058 characters):
 
@@ -2777,18 +2790,19 @@ failed: Request timed out.
 > 
 > ## Thay nước 1 tu…
 
-### stocking-03 · tank · ours wins (7 · 3.75)
+### stocking-03 · tank · ours wins (6 · 4)
 
 **Asked:** Bể tôi nên nuôi cá gì, bao nhiêu con, có cần lọc và sục khí không?
 
-**Judge:** X dùng đúng bể 15 lít, trả lời thẳng là cần lọc mút và máy sủi, kèm các bước theo thứ tự, dù chọn loài chưa khéo và thời gian chạy bể hơi ngắn. Y hỏi lại kích thước rồi đưa bảng chung từ 30 lít trở lên, không có đáp án cho bể này và còn nhầm tên cá. / Y tính đúng khoảng 15 lít, trả lời thẳng là cần lọc mút và máy sục, rồi đưa các bước theo thứ tự, dù chọn cá chưa thật khớp và số con còn chung chung. X hỏi lại kích thước, chỉ đưa gợi ý chung cho các bể 30–100 lít và có lỗi nhận định về cá thái lan/cá dĩa.
+**Judge:** X tính được thể tích bể (khoảng 15 lít) và trả lời thẳng: nên dùng lọc bọt biển chạy bằng máy sục khí, rồi chạy bể trước khi thả. Nhưng X không gợi ý được loài nào cụ thể. Y hỏi lại những điều app đã có, rồi đưa lời khuyên chung chung có lỗi, và trong đó có những loài không hợp bể nhỏ. / Y nhận ra bể chỉ khoảng 15 lít và đưa ra hướng làm đúng: dùng lọc bọt biển chạy bằng máy sục khí, chạy vi sinh và test amoniac/nitrit trước khi thả cá. Nhưng Y không gợi ý cụ thể loài nào hay bao nhiêu con (ví dụ 1 con betta hoặc một đàn tép), và nói mơ hồ "vài tuần", "một phần nước". X không dùng thông tin bể, hỏi lại kích thước, chỉ đưa con số chung chung và có lỗi gọi cá dĩa là cá nhỏ, dễ nuôi.
 
-**Ours lacks:** figures, follow-up. **Plain lacks:** tank-fit, plan, asks-only.
+**Ours lacks:** figures, too-thin. **Plain lacks:** tank-fit, asks-only, too-long, wrong.
 
 **Ours** (read 3 pages, stopped at the calls limit):
 
-> Với bể 35 x 20 x 22 cm (khoảng 15 lít) chưa có lọc và sục khí, bạn nên có cả hai trước khi thả cá. Cẩm nang khuyên người mới dùng lọc mút xốp (sponge filter), vì dòng chảy nhẹ, chạy ổn định và dễ vệ sinh, và lọc mút này chạy bằng sủi khí nên cần thêm một máy sục khí. Sục khí giúp cá đủ oxy trong bể nhỏ. Về số lượng, cẩm nang mình đọc được chưa nêu con số cho bể dung tích này, nên phần số con là kinh nghiệm chung của mình: bể nhỏ nên chọn một đàn nhỏ vài con (khoảng 6 con trở lên nếu là cá đàn) thay vì nuôi nhiều loài.
-> 1. Mua một lọc mút xốp và một máy sục khí có công suất nhỏ, đặt lọc trong b…
+> Bể 35 × 20 × 22 cm (khoảng 15 lít) còn nhỏ, và các loài nhỏ mà mình đã đọc trong cẩm nang đều cần bể lớn hơn: cá neon xanh cần bể 60 cm, cá Jewel minnow (cá neon Việt Nam) cần bể tối thiểu 45 cm. Vì vậy mình chưa tìm được loài cá nào trong cẩm nang hợp với bể này, nên bạn đừng mua cá theo các loài đó. Bể cần lọc và sục khí: bạn nên dùng lọc bọt biển chạy bằng máy sục khí, vì lọc này nhẹ, không hút cá bột hay tép con, và vi khuẩn có lợi bám trên bọt biển giúp nước ổn định.
+> 1. Mua một máy sục khí và một lọc bọt biển nhỏ, rồi lắp và chạy thử trước khi thả bất kỳ con gì vào bể.
+> 2. Để bể chạy khoả…
 
 **Plain** (1774 characters):
 
@@ -2807,19 +2821,18 @@ failed: Request timed out.
 > 
 > Nguyên tắc: đừng nuôi quá …
 
-### stocking-04 · post · tie or split (5.75 · 5.5)
+### stocking-04 · post · ours wins (7 · 4)
 
 **Asked:** Em thích con cá bống vàng vì nó khá sinh động (lúc núp dưới đá, lúc đậu trên cây, trên đá) và dọn bể rất sạch, từ ngày nuôi không phải cạo rêu thành bể nữa, cũng chả cần cho ăn gì mà vẫn sống. Nuôi loại gì chung với bống này được? Trước em nuôi mún, rồi kiếm, rồi cá bảy màu, đều cứ chết dần, không biết có phải bị con bống xử không?
 
-**Judge:** X có các bước rõ, trung thực về việc chưa rõ loài và có phép thử tách bống, nhưng gần như bỏ qua câu hỏi nên nuôi chung cá gì. Y danh sách nguyên nhân dài và chung chung hơn, nhưng trả lời cả hai câu hỏi, nêu ý cá khác có thể bị đói và gợi ý cá nuôi chung bằng tên quen thuộc, nên giúp người hỏi hơn một chút. / Y admits the species is unknown and gives an ordered plan: test water, change water, identify the fish, then separate it if deaths continue, though it skips the tankmate question and the unfed fish. X does answer tankmates and rightly flags hunger, but it is a scattered list that dismisses the goby without knowing the species and suggests dubious fish.
+**Judge:** Con bống vàng trong câu hỏi chính là cá mút đá vàng. Khi lớn nó hay bám vào cá khác để mút nhớt. X chỉ đúng thủ phạm và đưa ra các bước hợp lý: soi vết trầy trên cá, tách bống ra và cho cá ăn đều. Y lại gạt bống ra khỏi diện nghi ngờ và đưa một danh sách nguyên nhân chung chung, áp vào bể nào cũng được. / Y correctly blames the golden algae eater, which sucks slime off other fish as it gets bigger. That fits the hobbyist's description and their fish dying one by one, and Y gives clear steps: separate it, feed the other fish, and watch them. X takes it for a gentle goby, rules it out as the cause, and gives a generic water-quality checklist. Y's light excerpt is off-topic, though.
 
-**Ours lacks:** tank-fit, too-thin, diagnosis, follow-up. **Plain lacks:** plan, follow-up, too-long.
+**Ours lacks:** figures, off-topic. **Plain lacks:** diagnosis, tank-fit, wrong, too-long.
 
-**Ours** (read 2 pages, stopped at the tools limit):
+**Ours** (read 1 pages):
 
-> Mình chưa tìm thấy "cá bống vàng" trong cẩm nang nên chưa chắc đó là loài nào, nên mình chưa dám khẳng định con bống của bạn có ăn cá khác hay không. Gần nhất là cá bống Stiphodon ornatus (bống cầu vồng, có người bán tên gold fin): loài này hiền, sống nhờ màng sinh học và tảo trên bề mặt, và cẩm nang ghi nó hợp với cá bảy màu. Cá chết dần qua nhiều loài thường do nước hơn là do bống xử, nên mình nghĩ nên kiểm tra nước trước.
-> 1. Test amoniac, nitrit, pH và nhiệt độ ngay hôm nay; amoniac hay nitrit trên 0 là bể chưa ổn định hoặc đang quá tải.
-> 2. Thay khoảng 25–30% nước bằng nước đã khử clo, cùn…
+> Cẩm nang chưa có trang riêng cho cá bống vàng, nên mình không có danh sách cá nuôi chung chính thức cho loài này. Chỉ có một đoạn trong bài chăm bể thủy sinh, do một người chơi kể theo video của họ: bống vàng ăn rêu nâu rất tốt, nhưng khi lớn thì quậy, lười ăn rêu và hay bám vào cá khác để mút nhớt. Vì vậy mình nghi bống vàng là thủ phạm làm mún, kiếm và bảy màu chết dần, nhất là khi cá bị mút nhớt mà không kịp lành. Tuy nhiên cẩm nang không có dấu hiệu cụ thể để khẳng định, nên bạn cần quan sát thêm.
+> 1. Soi kỹ cá còn lại: nếu có vết trầy, nhớt bị bong, vây rách hoặc cá nằm một chỗ thì khả nă…
 
 **Plain** (1911 characters):
 
@@ -2828,20 +2841,17 @@ failed: Request timed out.
 > 1. **Chất lượng nước**: Bể không cần cạo rêu, không thay nước, không cho ăn có thể đang tích tụ amoniac, nitrit hoặc nitrat. Đây là nguyên nhân phổ biến nhất khiến cá chết dần. Nên test nước (kit amoniac, nitrit, nitrat, pH) và thay 20–30% nước nếu chỉ số cao.
 > 2. **Thiếu thức ăn**: Bống có thể sống nhờ rêu, màng sinh học và thức ăn tự nhiên trong bể, nhưng cá mún, kiếm, bảy …
 
-### stocking-04 · tank · ours wins (7 · 4.25)
+### stocking-04 · tank · ours wins (5.5 · 3.5)
 
 **Asked:** Bể tôi nuôi chung được những cá nào, khi cá thả thêm cứ chết dần?
 
-**Judge:** X nêu nguyên nhân nghi ngờ là nước, cho các bước cụ thể và dặn cho bống ăn thêm, dù chưa trả lời trực tiếp nên nuôi chung cá nào. Y có danh sách cá nhưng chung chung, có lỗi và lại gợi ý đúng những loài đã chết, không dùng gì về bể của họ. / Y uses the tank's history (several species dying, a bống living on algae with no feeding) and gives an ordered plan: test, change water, check the filter, stop adding fish, feed the bống. It doesn't list tankmates, but it is honest about its limits. X has the right cause but is a generic checklist that ignores the tank, confuses Vietnamese fish names and recommends fish that already died there.
+**Judge:** Cả hai câu đều bỏ sót khả năng con bống vàng ăn rêu bị bỏ đói đang mút nhớt thân giết cá mới. X ít ra có dùng ghi chú của bể và nhắc phải cho bống ăn, tuy lời khuyên thay nước bị lẫn lộn. Y chung chung, dịch tên cá sai và còn khuyên thả lại đúng những loài đã chết. / Y dùng thông tin trong bể (bống vàng, mún/kiếm/bảy màu chết dần, không cho ăn), có các bước làm theo thứ tự và bảo cho bống ăn thêm. Tuy vậy, Y tính sai lượng nước thay và chưa nghĩ tới việc con bống ăn rêu có thể tấn công cá khác. X thì chung chung, gợi ý lại đúng những loài đã chết và gọi nhầm tên cá kiếm.
 
-**Ours lacks:** tank-fit, figures, too-thin. **Plain lacks:** tank-fit, too-long, follow-up.
+**Ours lacks:** diagnosis, tank-fit, figures. **Plain lacks:** tank-fit, diagnosis, wrong, too-long.
 
-**Ours** (read 2 pages, stopped at the calls limit):
+**Ours** (read 1 pages):
 
-> Mình chưa tìm thấy trang nào trong cẩm nang về cá bống vàng, nên mình không xác nhận được nhu cầu riêng của loài này. Từ chuyện bạn kể, nguyên nhân dễ nghi nhất là chất lượng nước: nhiều loài cùng chết dần thường do amoniac hoặc nitrit tích tụ khi bể chưa có vi khuẩn lọc đủ, hoặc nước có clo, pH bị sốc. Mình chưa thể chắc vì chưa biết bể đã chạy chu trình nitơ chưa và đã chạy bao lâu.
-> 1. Mua bộ test nước và đo amoniac, nitrit, nitrat, pH ngay hôm nay.
-> 2. Nếu amoniac hoặc nitrit khác 0, thay khoảng 25–30% nước bằng nước đã khử clo, cùng nhiệt độ.
-> 3. Kiểm tra bộ lọc: nếu vật liệu lọc vừa bị rửa…
+> Có khả năng cao bể của bạn bị old tank syndrome: bể lâu năm đã tích nitrate, khoáng từ nước máy và phosphate qua nhiều tháng, nên cá mới từ tiệm đưa vào nước có nồng độ cao hơn hẳn và dễ chết, còn bống vàng quen dần nên vẫn sống. Mún, kiếm và bảy màu chết dần cũng hợp với kiểu này. Mình chưa đo được nước của bạn nên mức độ chắc chắn vừa phải, bạn nên kiểm tra nitrate và độ cứng trước. Các bước làm: 1. Mua bộ test nitrate và độ cứng GH, đo nước hiện tại để biết bể đã tích bao nhiêu. 2. Tăng lượng thay nước: nếu đang thay 10% mỗi tuần thì chuyển sang thay khoảng 30–40% mỗi tháng, hoặc thay nhỏ …
 
 **Plain** (2273 characters):
 
@@ -2852,20 +2862,18 @@ failed: Request timed out.
 > - **Nước chưa ổn định (chu trình nitơ chưa hoàn thiện):** Mỗi lần thả thêm cá, lượng amoniac và nitrit tăng đột ngột, làm cá yếu và chết. Bạn nên dùng bộ test (API hoặc tương tự) để đo NH3/NH4+ và NO2-. Hai chỉ số này phải bằng 0. NO3- nên dưới 20-40 ppm.
 > - **Quá tải cá:** Quy tắc tham khảo là khoảng 1 inch (2,5 cm) cá trưởng thành cho 1 gallon (3,8 lít) nước, nhưng thực tế nên thưa hơn. Bể nhỏ dưới 60 lít chỉ nên nuôi v…
 
-### stocking-05 · post · plain wins (6 · 7.25)
+### stocking-05 · post · plain wins (5 · 7)
 
 **Asked:** Em mới mua thêm mấy con cá chép thả chung với cá vàng, mà nó tấn công cá vàng kinh quá, một con chết rồi. Hỏi cửa hàng thì họ bảo thả chung được em mới mua. Giờ em nên làm sao, chép với cá vàng có nuôi chung được không?
 
-**Judge:** Both correctly say to separate the carp, but Y also covers removing the dead fish, testing ammonia and nitrite, a 30% water change, aeration and wound care using methylene blue and a salt bath with figures. X is sound but thinner on care for injured fish, and its repeated references to 'cẩm nang' read stiffly. / Both correctly say to separate the carp, but X gives a fuller recovery plan: treat wounds, test water, change 30% and add aeration. Y is tidy and offers returning the carp, but its care steps are vague, and its 'cẩm nang' references and koi card read less naturally.
+**Judge:** Y is better for this hobbyist. It answers the question directly: carp and goldfish shouldn't be kept together, and the shop was wrong. Its steps are practical: separate the carp, remove the dead fish, test the water, change 30% of the water, and treat wounds with a mild salt bath or methylene blue. X is unsure of its own answer, assumes the carp is a koi, and recommends 20–23°C, which most tanks in Vietnam can't reach without a chiller. / Both answers tell the hobbyist to take the carp out first. X gives clearer follow-up steps: check the water, change 30%, add aeration, and treat any wounds. Y hedges, its 20–23°C target is impractical in Vietnam, and the 'peaceful' koi card under it works against its own advice.
 
-**Ours lacks:** figures, follow-up, local, plan. **Plain lacks:** tank-fit.
+**Ours lacks:** diagnosis, local, figures. **Plain lacks:** tank-fit.
 
-**Ours** (read 2 pages):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Không nên nuôi chung: cá chép (cùng họ với cá koi trong cẩm nang) lớn hơn cá vàng rất nhiều và có thể ăn hoặc cắn cá vàng, nên việc một con đã chết là dấu hiệu rõ ràng. Cá vàng vốn hiền, còn cá chép ăn tạp và lớn nhanh, nên thả chung là rủi ro lớn; lời người bán không đúng với cẩm nang.
-> 1. Tách cá chép ra ngay, nhốt riêng hoặc trả lại cửa hàng, đừng để chung bể với cá vàng nữa.
-> 2. Kiểm tra cá vàng còn lại: vây rách, vết cắn, bơi lờ đờ hay nằm đáy; giữ nước sạch và cho ăn ít, vừa đủ.
-> 3. Nếu vẫn muốn nuôi chép, cần hồ ngoài trời đủ rộng, vì cẩm nang ghi koi cần khoảng 950 lít nước cho mỗi con k…
+> Mình tiếc con cá vàng. Nhiều khả năng con chép lớn hơn và hung hơn nên đuổi, cắn cá vàng, còn cá vàng thân ngắn, vây dài, bơi chậm nên không thoát được. Cẩm nang có trang cá koi (cá chép Nhật, cùng họ với cá vàng), nói koi có thể dài trên 60 cm và cần khoảng 950 lít nước cho mỗi con khi lớn, nên bể nhỏ dễ dẫn đến cắn nhau. Cẩm nang cũng nói nuôi chung koi với cá vàng không phải là không được, nhưng mình chưa đọc hết mục đó nên chưa có kết luận rõ cho trường hợp của bạn. Lời cửa hàng chỉ đúng khi bể đủ rộng và cá chép còn nhỏ.
+> 1. Tách con chép còn lại ra ngay, nuôi riêng trong bể khác hoặc hồ …
 
 **Plain** (1438 characters):
 
@@ -2879,17 +2887,18 @@ failed: Request timed out.
 > **Em nên làm ngay:**
 > 1. **Tách chép ra riêng** càng sớm càng tốt, nếu được thì nuôi trong bể …
 
-### stocking-05 · tank · plain wins (2.25 · 7)
+### stocking-05 · tank · ours wins (7.25 · 6)
 
 **Asked:** Cá chép mới thả cứ tấn công cá vàng trong bể tôi, có nuôi chung được không?
 
-**Judge:** Y gives a clear verdict and ordered steps (separate the carp, check for injuries, long-term pond), though it misses the dead goldfish and lacks doses. X notes the death but cuts off mid-sentence with no steps, so the hobbyist has nothing to act on. / X trả lời rõ là không nên nuôi chung và cho các bước cụ thể: tách cá, kiểm tra vết thương, hướng lâu dài, dù bỏ sót con cá vàng đã chết. Y có nhắc đến con cá chết nhưng bị cụt giữa câu, không có bước xử lý nào và suy đoán nguyên nhân thiếu căn cứ.
+**Judge:** X để ý đến con cá vàng đã chết: bảo đo amoniac/nitrit, thay 1/3 nước cùng nhiệt độ, tách cá ngay, và chỉ đưa con số có dẫn nguồn. Y viết tiếng Việt tự nhiên hơn nhưng bỏ qua con cá chết, lại khuyên cho ăn nhiều hơn và dùng thuốc mà không có liều. / Y biết bạn đã có một con cá vàng chết. Y bảo tách cá ngay, đo amoniac và nitrit, thay khoảng 1/3 nước, rồi theo dõi cá vàng còn lại trong 1–2 tuần. Con số 950 lít cho mỗi con koi cũng lấy từ cẩm nang. X chung chung, không nhắc đến con cá đã chết, không bảo kiểm tra nước, và khuyên cho ăn nhiều hơn để cá bớt hung, lời khuyên này sai. Tiếng Việt của X tự nhiên hơn: Y mở đầu bằng một đoạn giải thích về công cụ khá lủng củng.
 
-**Ours lacks:** plan, too-thin, follow-up. **Plain lacks:** tank-fit, figures, follow-up.
+**Ours lacks:** local. **Plain lacks:** tank-fit, figures, follow-up.
 
-**Ours** (read 2 pages, stopped at the calls limit):
+**Ours** (read 2 pages, stopped at the tools limit):
 
-> Không nên nuôi chung: cá koi (cá chép Nhật) có thể ăn cá vàng. Koi lớn tới khoảng 90 cm, còn cá vàng chỉ khoảng 20 cm, nên con koi thả vào bể cá vàng có thể đang săn cá nhỏ hơn. Cá vàng trong bể của bạn đã chết sau khi thả chép, nên nguyên nhân khả dĩ nhất là kích thước chênh lệch quá lớn. Mình chưa chắc 
+> Mình chưa kiểm tra được cặp này: cẩm nang chưa có trang riêng cho cá chép nên công cụ tank-mates không có số liệu để so, và trang cá koi cũng không nói rõ chuyện cắn cá vàng. Theo trang cá vàng trong cẩm nang, cá vàng hiền nhưng hay bị cắn vây khi stress hoặc tranh ăn, và không nên nuôi chung với cá có thể nuốt hay quấy nó. Cá chép và koi lớn nhanh, có thể dài trên 60 cm và cần rất nhiều nước, nên trong một bể nhỏ chúng gần như chắc chắn làm cá vàng stress. Nhiều khả năng cá vàng chết vì bị đuổi, bị thương hoặc vì stress, nhưng mình chưa thấy trang nào nói rõ trường hợp của bạn.
+> 1. Tách ngay:…
 
 **Plain** (1280 characters):
 
@@ -2900,22 +2909,20 @@ failed: Request timed out.
 > 1. **Tách cá chép ra** nếu có thể, bằng một bể riêng hoặc ngăn tạm bằng lưới/tấm nhựa trong bể.
 > 2. **Kiểm tra cá vàng**: tìm vết cắn, rách vây, trầy xước, đốm đỏ hoặc nấm trắng. Nếu có vết thương, nên thay một phần nước và theo dõi, có thể dùng thuốc xanh methylen hoặc muối (liều nhẹ) đ…
 
-### stocking-06 · post · plain wins (6 · 7.5)
+### stocking-06 · post · plain wins (5 · 7)
 
 **Asked:** Em vừa set cái bể cubic theo tư vấn, đáy bể để 5 con nerita. Ra cửa hàng thấy cá kiếm mắt đỏ đẹp quá nên mua thử vài con. Mấy con mún đỏ sắp đẻ nên em đang tính chuyển sang chỗ khác vì sợ bị ăn hết trứng, cá con, bắt đầu thấy ngại rồi. Bể có lọc thác, có cần thay nước hàng tuần không vì thấy nước có mùi hôi?
 
-**Judge:** Y sửa hiểu lầm về trứng, đưa phương án hộp đẻ và cây rậm, trả lời rõ việc thay 20–30% mỗi tuần, thêm cách rửa bông lọc và lượng cho ăn, tuy xưng hô hơi lẫn lộn. X có bước xử lý mùi gọn và hợp lý nhưng tự mâu thuẫn đúng ở câu hỏi chính, lộ câu \"chưa đọc được trang nào\" và bỏ qua lọc thác trong phần trả lời. / X đính chính mún và kiếm đẻ con chứ không đẻ trứng, trả lời rõ cần thay 20–30% mỗi tuần, có cách xử lý lọc thác đúng và nêu cả nguyên nhân nuôi đông. Y có bước xử lý mùi hôi tốt và nhắc kiếm cũng ăn cá con, nhưng câu trả lời về thay nước tự mâu thuẫn, không sửa hiểu lầm về trứng và phần tách cá còn thiếu tự tin.
+**Judge:** Y nên được chọn. Y nói đúng là mún và kiếm đẻ con chứ không đẻ trứng, trả lời thẳng là nên thay 20–30% nước mỗi tuần, và kể ra các nguyên nhân gây hôi, trong đó có chuyện bể cubic nhỏ nuôi đông cá. X nhầm mún đỏ thành molly, và lời khuyên thay nước của X mâu thuẫn nhau. Cả hai đều không nói rõ là cá kiếm không hợp với bể cubic nhỏ (thẻ loài của X ghi bể từ 120 cm nhưng phần trả lời không nhắc tới). / X đúng khi nhắc mún và kiếm đẻ con chứ không đẻ trứng, nhờ vậy gỡ được hiểu lầm của bạn này, và trả lời thẳng là thay 20–30% nước mỗi tuần, có kèm các nguyên nhân gây mùi hôi. Y nhầm mún thành molly, chẩn đoán chuyện chưa xảy ra và tự mâu thuẫn về lượng nước thay. Tuy vậy thẻ loài của Y có ghi cá kiếm dài tới 14 cm và cần bể từ 120 cm, điều mà cả hai câu trả lời đều không nói ra với một bể cubic.
 
-**Ours lacks:** tank-fit, follow-up, plan. **Plain lacks:** follow-up.
+**Ours lacks:** tank-fit, follow-up, diagnosis. **Plain lacks:** tank-fit.
 
-**Ours** (read 1 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the tools limit):
 
-> Mùi hôi sau khi set bể mới thường là do chất hữu cơ phân hủy ở nền hoặc sau lũa, hoặc do bể chưa chạy xong vi sinh nên chưa ổn định. Bạn kiểm tra xem có xác cá, ốc hay lá mục nằm khuất sau đá và lũa không trước.
-> 1. Vớt sạch xác, lá mục và thức ăn thừa, soi kỹ khe đá và lũa.
-> 2. Thay khoảng 30 đến 50% nước, vừa thay vừa hút nền. Không thay hết một lần vì sẽ mất vi sinh và làm cá bị sốc.
-> 3. Nước mới phải xử lý clo trước khi cho vào bể.
-> 4. Test amoniac và nitrit. Nếu cả hai đều bằng 0 mà vẫn hôi, cho ăn ít lại và kiểm tra lại sau vài ngày.
-> Bể mới chưa cần thay nước hàng tuần đều đặn; thường thay …
+> Mình đoán nguyên nhân chính là cá lớn đang ăn cá bột, không phải ốc. Cá kiếm và molly đều đẻ con, con lớn hay ăn con non ngay, và ốc nerita không ăn trứng hay cá bột nên 5 con ở đáy bạn giữ được. Mùi hôi thường đến từ xác hoặc thức ăn thừa dưới nền, nên thay nước chỉ là một phần của việc xử lý. Bạn không cần chuyển cả bể, chỉ cần tách con sắp đẻ.
+> 1. Khi con cái bụng to và quầng đen gần bụng sẫm lại, chuyển nó sang hộp đẻ hoặc bể nhỏ có nhiều cây, rồi lấy ra sau khi đẻ xong.
+> 2. Nếu chưa kịp tách, để nhiều cây dày như rêu java hoặc bèo để cá bột có chỗ trốn.
+> 3. Vớt sạch xác cá, ốc, lá mục và th…
 
 **Plain** (1544 characters):
 
@@ -2930,21 +2937,18 @@ failed: Request timed out.
 > Mùi hôi thường là dấu hiệu của amoniac hoặc chất hữu cơ phân hủy, không nên bỏ qua. Nguyên nhân hay gặp:
 > …
 
-### stocking-06 · tank · plain wins (5 · 6.25)
+### stocking-06 · tank · ours wins (6.5 · 5.5)
 
 **Asked:** Mún trong bể tôi sắp đẻ, có cần tách ra không, và có phải thay nước hàng tuần không?
 
-**Judge:** Y answers both questions directly, with 20–30% weekly water changes and a target of zero ammonia and nitrite, which is more useful for a smelly new tank. X gives good advice not to move a fish close to birth and to use a divider, but it leans on guppy material and dodges the main-tank water-change question. Neither addresses the smell or the new tank's cycle. / X answers both questions clearly, giving 20–30% weekly and ammonia/nitrite at 0, which is useful for a new tank, though it misses the smell and the new setup. Y has a good warning about moving a near-term female and clearer steps, but it dodges the main-tank water-change question and relies on guppy guidance.
+**Judge:** X catches that the tank is newly set up and the water smells bad, and says to test ammonia and nitrite first. Y misses this completely. X also warns against moving the mother when she is about to give birth. But X wrongly doesn't recognise that mún is platy. / Y is the better answer for this hobbyist. It warns against moving a female who is close to giving birth and suggests a divider inside the tank instead. It also connects the bad smell and the new tank to the nitrogen cycle and says to test ammonia and nitrite before changing water. X gives sensible general advice but ignores the new tank and the smell. Y loses some points for not recognising 'mún' as platy and for a few made-up figures.
 
-**Ours lacks:** tank-fit, diagnosis, figures. **Plain lacks:** tank-fit, diagnosis, plan, follow-up.
+**Ours lacks:** local, figures. **Plain lacks:** tank-fit, diagnosis, follow-up.
 
-**Ours** (read 1 pages):
+**Ours** (read 1 pages, stopped at the calls limit):
 
-> Có, nên tách. Cá mún là cá đẻ con, và cá lớn thường ăn cá con, kể cả chính cá mẹ. Cẩm nang viết về cá bảy màu, cùng nhóm cá đẻ con với mún nên cách làm áp dụng được. Cá đã sát ngày đẻ thì đừng bắt chuyển bể, vì cá có thể sẩy thai hoặc chết. Lúc đó dùng vách ngăn ngay trong bể.
-> 1. Nếu còn sớm (khoảng ngày 18 đến 25 của thai kỳ), chuyển cá mẹ sang bể đẻ khoảng 40 lít hoặc hộp đẻ treo trong bể.
-> 2. Nếu đã sát ngày, lắp vách ngăn hoặc hộp đẻ có lưới để cá con lọt xuống, cá lớn ở lại trên.
-> 3. Thêm chỗ trốn cho cá con bằng cây lá mảnh như rêu java hoặc rong đuôi chó.
-> 4. Sau khi đẻ, vớt cá mẹ ra và v…
+> Mình chưa thấy trong cẩm nang trang riêng về "mún", nên mình giả định đó là cá đẻ con cùng nhóm với platy hoặc bảy màu, vì bể bạn đang có cá kiếm và platy. Cẩm nang khuyên đừng bắt cá mẹ chuyển bể khi đã sát ngày đẻ, vì cá có thể sẩy thai hoặc chết. Nên nếu chưa gần đẻ thì chuyển sang bể đẻ riêng, còn sát ngày thì dùng vách ngăn ngay trong bể.
+> Còn chuyện thay nước hàng tuần, cẩm nang mình đọc không ghi tần suất cho cá trưởng thành. Mình chỉ thấy mức 20–30% cho cá con. Theo kinh nghiệm chung, bạn nên thay khoảng 20–30% mỗi tuần khi bể đã chạy ổn. Bể bạn mới set và nước đang có mùi hôi, nên trư…
 
 **Plain** (1246 characters):
 
@@ -2956,18 +2960,19 @@ failed: Request timed out.
 > - **Sau khi đẻ:** đưa mẹ về bể chính hoặc để trong lồng đẻ, và lấy cá con ra khi cần.
 > - **Cho cá con ăn:** artemia con, bột thức ăn cho cá con, hoặc thứ…
 
-### stocking-07 · post · plain wins (4.25 · 6.75)
+### stocking-07 · post · plain wins (3.5 · 6)
 
 **Asked:** Bể nhà em kích cỡ 60x35x40, thả neon và sóc đỏ khoảng bao nhiêu con thì được ạ?
 
-**Judge:** Y gives usable numbers for both fish in this tank, plus cycling, water-change and temperature basics, and it still flags that the species may differ. X mostly withholds an answer, guesses an unlikely cool-water loach, and gives only a low neon count, though it is more open about its uncertainty. / X trả lời thẳng bằng số lượng dùng được cho cả hai loài cá nhỏ kèm hướng dẫn cycle, thay nước và thả dần, dù nhận nhầm sóc đỏ là Corydoras nhưng có dặn báo lại nếu khác loài. Y trung thực khi chưa rõ loài và có các bước thả, nhưng không đưa số cho sóc đỏ, số neon lại thấp và lạc sang loài chạch nước lạnh có lẽ không liên quan.
+**Judge:** X guessed the species as botia and then gave a wrong cold-water temperature range and too many fish that grow large. Y may also have the species wrong, but its numbers are reasonable and safe, and it gives clear basics: cycle the tank 3–6 weeks, change 25–30% of the water weekly, keep it at 23–26°C. / X gives believable stocking numbers and sound basic care, though it probably guesses the wrong fish for "sóc đỏ". Y's loach guess is plausible, but its 15–21°C range is wrong, its neon count is too low, and the temperature warning it builds on those figures could mislead the hobbyist.
 
-**Ours lacks:** figures, tank-fit, asks-only. **Plain lacks:** follow-up.
+**Ours lacks:** wrong, local, tank-fit, figures. **Plain lacks:** local, follow-up.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 2 pages, stopped at the calls limit):
 
-> Mình chưa chắc "sóc đỏ" bạn nói là con nào, nên chưa thể tính chính xác số lượng. Gần nhất trong cẩm nang là cá chạch sóc đuôi đỏ, loài này ưa nước 15–21°C, còn neon ưa 21–25°C, nên hai loài này khó sống chung dù số lượng vừa đủ. Bể 60x35x40 khoảng 84 lít, trừ khoảng 10% cho đồ trang trí còn khoảng 76 lít. Cẩm nang không đưa con số cố định cho bể này. Cách tính là dựa trên cỡ trưởng thành của từng loài, không dựa trên cỡ lúc mua. Theo kinh nghiệm chung, một bể 76 lít chỉ nuôi neon thì khoảng 10–15 con là vừa, còn nếu thêm loài khác thì phải giảm số neon xuống.
-> 1. Cho mình biết tên đầy đủ hoặc…
+> Nuôi chung được, nhưng cần để ý: chạch sóc đuôi đỏ có thể rượt đuổi cá neon và hay cắn vây cá khác. Mình hiểu "sóc đỏ" là chạch sóc đuôi đỏ, nếu bạn nói loài khác thì cho mình biết để kiểm tra lại. Bể 60x35x40 (khoảng 84 lít) đủ cho khoảng 10 con neon xanh và 6 con chạch, mức nuôi khoảng 85%. Có một điểm quan trọng hơn số lượng: cá neon thích 21–25°C, còn chạch sóc đuôi đỏ thích 15–21°C, hai khoảng này chỉ trùng nhau quanh 21°C. Nếu bể của bạn thường xuyên trên 22°C thì nên cân nhắc lại việc nuôi chung.
+> 1. Đo nhiệt độ bể vài ngày liên tiếp, nhất là buổi chiều, trước khi thả cá.
+> 2. Thả neon tr…
 
 **Plain** (944 characters):
 
@@ -2981,19 +2986,20 @@ failed: Request timed out.
 > - Nếu "sóc đỏ" bạn nói là loài khác (ví dụ cá ember, cá sóc khác), hãy cho mình biết tên chính xác để tính lại.
 > - Bể cần **chu trình nitơ ổn định** (cycle) trước kh…
 
-### stocking-07 · tank · ours wins (5.25 · 3.75)
+### stocking-07 · tank · ours wins (5 · 2.5)
 
 **Asked:** Bể của tôi thả được bao nhiêu con neon và sóc đỏ?
 
-**Judge:** X uses the real tank and gives a sound neon group size, but gives no total and stalls on identifying sóc đỏ. Y gives a concrete number, but it ignores the known size, asks for it back, and bases its stocking on a guessed 60 L tank and a wrong species. / Y uses the real 60×35×40 tank, doesn't guess the species, and warns of a temperature clash, but it gives only a minimum shoal and no upper count. X gives a usable neon number, but it asks for a tank size the app already holds, assumes about 60 L, and maps \"sóc\" to Corydoras without basis.
+**Judge:** X dùng đúng kích thước bể và đưa ra số lượng cụ thể (10 neon, 6 con), có kiểm tra khả năng nuôi chung. Tuy vậy, X đoán sai loài có thể xảy ra và khuyên giữ 21°C là không hợp với Việt Nam. Y bỏ qua dữ liệu bể, đoán loài sai, đưa mật độ quá dày và phần lớn chỉ hỏi lại. / Y works from the real tank (about 84 L), gives concrete numbers and steps, and says what it assumed "sóc đỏ" means. Its 21°C advice doesn't suit Vietnam, though. X ignores the known tank size, reads "sóc" as Corydoras (wrong), and mostly asks questions back.
 
-**Ours lacks:** figures, plan, tank-fit, too-thin. **Plain lacks:** tank-fit, wrong, asks-only, local.
+**Ours lacks:** local, wrong. **Plain lacks:** tank-fit, asks-only, wrong, local.
 
 **Ours** (read 2 pages):
 
-> Bể của bạn dài 60 cm, rộng 35 cm, cao 40 cm, hiện chưa có cá. Với cá neon xanh, cẩm nang khuyên nuôi đàn ít nhất 8–10 con, có cả đực lẫn cái, và không nuôi dưới nửa tá (6 con), vì chúng cần có đồng loại bên cạnh. Bể 60 cm của bạn đủ cho đàn này. Về sóc đỏ, mình chưa chắc bạn đang nói loài nào: cẩm nang có chạch sóc đuôi đỏ và cá killifish sọc đỏ đuôi đàn lia. Nếu là chạch sóc đuôi đỏ thì nó cần nước mát 15–21°C, còn neon cần 21–25°C, nên hai loài này khó sống chung. Bạn cho mình biết tên khoa học hoặc ảnh loài bạn muốn thả, mình sẽ kiểm tra cụ thể số lượng và khả năng sống chung.
-> 
-> [Thẻ loài] …
+> Nuôi chung được, nhưng cần để ý: mình hiểu "sóc đỏ" là cá chạch sóc đuôi đỏ, nên nếu bạn nói loài khác thì mình sẽ kiểm tra lại. Với bể 60 × 35 × 40 cm (khoảng 84 lít), 10 neon xanh và 6 chạch sóc đuôi đỏ làm bể đầy khoảng 85%, mức vừa phải. Hai điểm cần lưu ý: chạch có thể rượt neon và hay cắn vây cá khác, còn nhiệt độ thì neon thích 21–25°C, chạch thích 15–21°C, hai loài chỉ trùng nhau ở khoảng 21°C.
+> 1. Giữ nhiệt độ ổn định quanh 21°C, không để nước lên cao hơn.
+> 2. Set nhiều đá hang, rễ cây và cây thủy sinh để chạch có chỗ trốn.
+> 3. Thả neon trước, đợi bể ổn định, rồi thả chạch, mỗi loài nên…
 
 **Plain** (1001 characters):
 
@@ -3009,19 +3015,21 @@ failed: Request timed out.
 > 
 > **Tôm đỏ…
 
-### stocking-08 · post · plain wins (6.25 · 7)
+### stocking-08 · post · plain wins (6 · 7)
 
 **Asked:** Em mới chơi, ban đầu chỉ định mua cá với cây nhựa, nhưng tìm hiểu thấy mê thủy sinh quá nên mua thêm cây ráy nhỏ và chùm xương cá thay cây nhựa. Bể bé tí 4 lít mà thích đẹp em thả 7-8 con. Nuôi được 1 tuần rồi vẫn ổn, lâu dài có ổn không ạ?
 
-**Judge:** Y covers what actually decides this tank's future: the uncycled one-week-old tank, the need for a sponge filter and oxygen, stronger water changes and fewer fish, plus warning signs and a practical upgrade path. X is tidier and has a sound core, but it never mentions a filter or the nitrogen cycle, and its weekly water change is light, though Y is somewhat padded with lesser items such as the heater. / X explains the uncycled one-week tank and adds a filter with aeration, both key to long-term survival, though it is padded and its heater step fits Vietnam poorly. Y is tighter, names their plants and sets a retest schedule, but omits filtration and cycling and has awkward wording such as \"Handbook\" and \"mất nước nhanh\".
+**Judge:** Y explains the right causes (waste build-up, no cycled filter bacteria yet, temperature swings, low oxygen). It also adds the most practical fix, an air-driven sponge filter, and gives clear feeding and water-change advice. X is shorter and its stocking figure is conservative, but it leaves out the filter and aeration and couldn't identify the plant. / X đủ hơn. Nó nói đúng các rủi ro của bể 4 lít và có những bước then chốt như thêm lọc bọt biển chạy khí để vừa lọc vừa có oxy, cho ăn ít, đậy nắp, cùng dấu hiệu cần theo dõi. Y gọn và thực tế hơn khi khuyên chỉ giữ 1–2 con, nhưng bỏ qua lọc/sục khí. Bước đầu của Y (ghi tên loài rồi cộng chiều dài) lại chỉ là việc vặt, và Y không trả lời được gì về cây chùm xương cá.
 
-**Ours lacks:** diagnosis, plan, local. **Plain lacks:** too-long, local, tank-fit.
+**Ours lacks:** tank-fit, plan. **Plain lacks:** too-long, local.
 
 **Ours** (read 2 pages, stopped at the tools limit):
 
-> Mình thấy bể 4 lít với 7-8 con cá là quá tải, và về lâu dài sẽ khó ổn. Bể nhỏ mất nước nhanh, nên chất thải như amoniac và nitrit tích lại rất nhanh, còn cây ráy và chùm xương cá không gánh nổi lượng đó. Cảm giác ổn sau một tuần chưa nói lên được gì, vì cá nhỏ thì mới đầu vẫn bình thường. Handbook không ghi con số cụ thể cho bể 4 lít, nhưng trang về mật độ thả cá nói rõ: khi bể chứa quá sức thì amoniac cứ cao mãi không xuống, và cá sẽ lên đớp khí. Bạn nên làm theo các bước sau:
-> 1. Mua bộ test amoniac và nitrit, đo nước hôm nay và ghi lại; bể khỏe thì cả hai phải bằng 0.
-> 2. Thay khoảng 20-30% …
+> Nhiều khả năng bể này chưa ổn lâu dài: bể 4 lít chỉ gánh được khoảng 2–3 cm cá tổng cộng, mà 7–8 con đang vượt mức đó rất nhiều. Một tuần vẫn ổn chưa có nghĩa là bể đã ổn, vì ammonia thường tích dần khi vi sinh chưa theo kịp và cá dễ thiếu oxy. Mình chưa tra được chùm xương cá trong cẩm nang, nên phần cây này bạn kiểm tra lại tên với người bán giúp mình.
+> Các bước nên làm:
+> 1. Ghi tên từng loài cá và cỡ khi trưởng thành, rồi cộng tổng chiều dài.
+> 2. Đo ammonia, nitrite và nitrate bằng bộ test; nếu ammonia hoặc nitrite trên 0 thì giảm cá ngay.
+> 3. Chuyển bớt cá sang bể lớn hơn, khoảng 20 lít trở l…
 
 **Plain** (2035 characters):
 
@@ -3033,19 +3041,21 @@ failed: Request timed out.
 > - **Nhiệt độ dao động mạnh:** Nước ít nên thay đổi theo nhiệt độ phòng rất nhanh, dễ gây sốc.
 > - **Thi…
 
-### stocking-08 · tank · ours wins (8 · 2.75)
+### stocking-08 · tank · ours wins (7 · 3)
 
 **Asked:** Bể của tôi đang thả 7-8 con cá, lâu dài có ổn không?
 
-**Judge:** X uses the 4 L size, says plainly that 7-8 fish is too many, and gives ordered steps: identify species, test ammonia and nitrite, rehome fish, feed less, and watch for warning signs. Y ignores the tank details, reasons around 40-60 L, and mostly asks back for size and species, though its under-30 L note points vaguely toward reducing fish. / Y dùng đúng thể tích 4 L, khẳng định 7-8 con là quá đông và đưa ra các bước xử lý theo thứ tự cùng dấu hiệu cần theo dõi. X bỏ qua dữ liệu bể, chỉ nêu tiêu chí chung cho bể 40-60 L rồi hỏi lại, nên không cảnh báo được vấn đề thật.
+**Judge:** X dùng đúng bể 4 L và nói thẳng là 7-8 con thì quá tải. X cũng cho các bước cụ thể: ngừng thả thêm, chuyển bớt cá đi, đo ammonia/nitrite, thay nước. Tuy vậy, X không nhắc bể mới chạy 1 tuần nên chưa có hệ vi sinh, và tần suất thay nước nói chưa rõ. Y bỏ qua thông tin bể, chỉ nói chung chung cho bể 40-60 L rồi hỏi lại, nên người chơi không biết phải làm gì ngay. / Y uses the 4 L size, says plainly that the tank is overstocked, and gives clear steps: rehome some fish, test the water, change water. It doesn't point out that a 1-week-old tank hasn't cycled yet, and its water-change schedule is too loose. X ignores the tank size, gives generic examples for 40-60 L tanks, and mostly asks questions back.
 
-**Ours lacks:** figures. **Plain lacks:** tank-fit, asks-only, plan.
+**Ours lacks:** figures, tank-fit, diagnosis. **Plain lacks:** tank-fit, asks-only, too-long, plan.
 
 **Ours** (read 1 pages, stopped at the calls limit):
 
-> Với bể 4 lít thì 7-8 con cá là quá nhiều, và đây là điều mình lo nhất. Theo cách tính trong cẩm nang, quy tắc 1 cm cá cho 1,5 lít chỉ cho khoảng 2-3 cm tổng chiều dài cá, tức là mỗi con chỉ chừng 0,3-0,4 cm. Bể nhỏ như vậy dễ thiếu oxy và nước bẩn rất nhanh. Trong bể đang lưu là 4 lít, nếu bạn đo khác thì cho mình biết kích thước để tính lại. Mình chưa biết loài cá nào nên chưa thể nói chắc từng con. Cẩm nang không có trường hợp bể nhỏ thế này, nên mình dựa vào cách tính mật độ thả và kinh nghiệm chung.
-> 1. Ghi tên loài và kích thước lúc trưởng thành của từng con, rồi cộng tổng chiều dài lại.
-> …
+> Với bể khoảng 4 lít thì 7-8 con cá là quá tải, nên lâu dài chưa ổn. Trong bể nhỏ, chất thải và ammonia tăng rất nhanh, nước đổi xấu trong vài ngày. Cẩm nang chỉ có cách tính chung, không có con số riêng cho bể 4 lít, và bạn chưa cho biết loài nào nên mình chưa tính được cụ thể.
+> 1. Xác định từng loài và cỡ trưởng thành của chúng, không tính theo cỡ con mua ở tiệm.
+> 2. Đo ammonia và nitrite, cả hai nên bằng 0; nitrate nên dưới 40 ppm.
+> 3. Ngừng thả thêm, và chuyển bớt cá sang bể lớn hơn hoặc trả lại cửa hàng.
+> 4. Thay một phần nước bằng nước đã khử clo thường xuyên, khoảng vài ngày một lần theo ki…
 
 **Plain** (1607 characters):
 
@@ -3057,23 +3067,21 @@ failed: Request timed out.
 > 
 > 2. **Loài cá:** Cá đàn (neon, tetra, cá bảy màu) cần nhiều con cùng loài và thường thoải mái hơn khi đông. Cá lãnh …
 
-### stocking-09 · post · tie or split (5.75 · 6.25)
+### stocking-09 · post · plain wins (4.5 · 7)
 
 **Asked:** Bể dài 80, rộng 35, cao 45 cm thả 2 con cá ông tiên với 10 con neon xanh được không?
 
-**Judge:** X nêu thẳng rủi ro chính là ông tiên lớn sẽ ăn neon, ngắn gọn và an toàn cho cá, dù hơi cứng về bể 100 cm và thiếu bước làm cụ thể. Y thực dụng và bám bể hơn với cách trồng cây, thả cá lúc còn nhỏ, nhưng kết luận \"được\" làm nhẹ nguy cơ mất neon và kèm vài mẹo yếu. / X đúng thực tế hơn: bể này nuôi được 2 ông tiên, neon có rủi ro bị ăn khi ông tiên lớn, và có cách giảm rủi ro như thả lúc cá còn nhỏ, trồng nhiều cây, theo dõi rượt đuổi. Y nêu đúng nguy cơ bị ăn nhưng cấm thẳng, chê bể theo ngưỡng 100 cm quá cứng và gần như không có hướng dẫn cụ thể.
+**Judge:** Ở Việt Nam, nuôi ông tiên chung với neon là kiểu bể rất phổ biến. Y trả lời đúng thực tế: nuôi được nhưng có rủi ro ông tiên lớn lên sẽ ăn neon, và chỉ cách giảm rủi ro như trồng nhiều cây, thả lúc ông tiên còn nhỏ, rồi theo dõi. X cấm hẳn, lấy lý do bể phải dài 100 cm là quá khắt khe, lời khuyên lại tự mâu thuẫn và thiếu cụ thể. / X nói đúng thực tế mà dân chơi đã làm: nuôi chung được nếu thả neon trước khi ông tiên còn nhỏ, trồng nhiều cây và theo dõi. Tuy vậy X chưa nhắc đến nhiệt độ nước mùa nóng ở Việt Nam. Y cứng nhắc, nêu một con số bể 100 cm quá khắt khe và tự mâu thuẫn khi bảo chỉ nuôi ông tiên trong cái bể mà nó vừa nói là chưa đủ.
 
-**Ours lacks:** plan, too-thin, follow-up, tank-fit. **Plain lacks:** too-long, follow-up.
+**Ours lacks:** wrong, tank-fit, plan. **Plain lacks:** figures, local.
 
 **Ours** (read 0 pages):
 
-> Không nên nuôi chung: cá ông tiên có thể ăn cá neon xanh. Cá ông tiên dài khoảng 15 cm, còn neon chỉ khoảng 3 cm, nên neon dễ thành mồi, và cá ông tiên khá hung nên hay rượt đuổi. Bể 80 cm cũng chưa đủ cho cá ông tiên, vì cần bể dài từ 100 cm trở lên. Nếu bạn muốn nuôi neon, nên chọn loài cá hiền hơn, cỡ nhỏ tương tự, hoặc nuôi cá ông tiên riêng trong bể lớn hơn.
-> 
-> [Công cụ: Nuôi chung]
-> Không nên nuôi chung: Cá ông tiên có thể ăn Cá neon xanh.
-> Cá ông tiên (15 cm) có thể ăn Cá neon xanh (3 cm).
-> Cá ông tiên hơi dữ, có thể rượt đuổi Cá neon xanh. Cần bể rộng, nhiều chỗ trốn.
-> Mức đầy bể: 84% — 84%…
+> Không nên nuôi chung: cá ông tiên dài tới 15 cm nên có thể ăn cá neon xanh chỉ dài 3 cm, và nó cũng hay rượt đuổi cá nhỏ. Bể 80 cm còn chưa đủ chỗ cho cá ông tiên, vì handbook ghi loài này cần bể dài từ 100 cm.
+> 1. Nếu muốn giữ ông tiên, bạn nên chọn bể dài từ 100 cm trở lên và trồng nhiều cây để cá có chỗ trốn.
+> 2. Trong bể 80 cm này, bạn nên bỏ neon xanh và chỉ nuôi ông tiên, hoặc chọn loài nhỏ, hiền hơn, không đủ lớn để bị ăn.
+> 3. Nếu muốn giữ neon xanh, bạn nên nuôi chúng thành đàn lớn trong bể riêng, có cá hiền cùng kích cỡ.
+> Bạn nên theo dõi cá ông tiên vài tuần đầu khi thả vào bể mới, xem …
 
 **Plain** (1504 characters):
 
@@ -3087,23 +3095,23 @@ failed: Request timed out.
 > **Những điểm cần lưu ý:**
 > 1. **Ông tiên lớn dần:** Cá trưởng thành cao khoảng 15 cm (tính cả vây). Khi đã trưởng thành, c…
 
-### stocking-09 · tank · plain wins (5.25 · 6.75)
+### stocking-09 · tank · plain wins (4.5 · 7)
 
 **Asked:** Bể của tôi thả 2 con cá ông tiên với 10 con neon xanh được không?
 
-**Judge:** X uses the tank and rightly warns that angels eat neons, but its flat no overstates the size problem and leaves little to act on. Y never applies the 80×35×45 cm size and has a muddled litre limit, yet it gives the more realistic verdict: this common pairing can work, with concrete ways to reduce the predation and breeding risks. / X correctly says the mix can work and gives practical ways to manage predation, breeding aggression, temperature and water changes, though it never applies the size limit to this roughly 126-litre tank. Y uses the tank and rightly warns that neons may be eaten, but its flat no and claim that the 80 cm tank is too small are overly strict, and it offers little to act on.
+**Judge:** X is wrong to rule this out and to call an 80 cm (about 126 L) tank too small, and it gives no workable way to keep them. Y gets the real risk right (big angels can eat neons, and angels turn aggressive when spawning) and says how to handle it. Y's ≥100 L minimum fits this tank, but Y doesn't work out the volume for them or mention keeping the water cool in the Vietnamese heat. / Bể của bạn khoảng 126 lít, nuôi được 2 con ông tiên. X nói đúng combo này nuôi được và chỉ cách giảm rủi ro ông tiên ăn neon. Y dùng kích thước bể nhưng lại cấm hẳn, dựa vào mức 100 cm bị nói quá, và không chỉ cách làm cho được.
 
-**Ours lacks:** plan, too-thin, follow-up, wrong. **Plain lacks:** tank-fit, local, follow-up.
+**Ours lacks:** wrong, plan, too-thin. **Plain lacks:** tank-fit, local.
 
 **Ours** (read 0 pages):
 
-> Không nên nuôi chung: cá ông tiên có thể ăn cá neon xanh. Cá ông tiên dài khoảng 15 cm, còn neon chỉ khoảng 3 cm, và ông tiên hơi dữ nên hay rượt đuổi. Bể 80 cm của bạn cũng chưa đủ, vì ông tiên cần bể dài từ 100 cm. Nếu bạn muốn nuôi ông tiên, hãy chọn cá hiền cùng cỡ lớn, còn neon nên nuôi trong bể riêng.
+> Không nên nuôi chung: cá ông tiên dài khoảng 15 cm và có thể ăn cá neon xanh chỉ dài 3 cm, lại hay rượt đuổi cá nhỏ. Bể 80 cm của bạn cũng chưa đủ rộng, vì cá ông tiên cần bể dài từ 100 cm trở lên. Nếu muốn nuôi ông tiên, bạn nên chọn cá to hơn hoặc tính lại bể; còn neon xanh thì nên nuôi cùng cá nhỏ, hiền và cùng cỡ.
 > 
 > [Công cụ: Nuôi chung cho Bể của tôi 80×35×45 cm]
 > Không nên nuôi chung: Cá ông tiên có thể ăn Cá neon xanh.
 > Cá ông tiên (15 cm) có thể ăn Cá neon xanh (3 cm).
 > Cá ông tiên hơi dữ, có thể rượt đuổi Cá neon xanh. Cần bể rộng, nhiều chỗ trốn.
-> Mức đầy bể: 84% — 84% · Vừa phải: bể ổn định với lọ…
+> Mức đầy bể: 84% — 84% · Vừa phải: bể ổn …
 
 **Plain** (1253 characters):
 
@@ -3117,21 +3125,25 @@ failed: Request timed out.
 > **Rủi ro cần biết**
 > - **Cá ông tiên ăn neon:** Ông tiên lớn có thể ăn neon nếu neon đủ nhỏ để vừa miệng. Vì vậy nên thả neon cùng lúc hoặ…
 
-### stocking-10 · post · plain wins (5.5 · 6.5)
+### stocking-10 · post · plain wins (4 · 6.5)
 
 **Asked:** Bể 60x30x36 cm của mình đang nuôi 12 con neon xanh, thả thêm 1 con cá betta được không?
 
-**Judge:** Y gives the verdict an experienced keeper would give: possible in a 65 L tank if planted and watched, with clear signs for separating the betta, though it has side errors on release order, heater and plant name. X is clean, short and safe, but its flat no overstates the risk and gives little on how to make the pairing work. / X gives the more realistic verdict for a 65-litre tank: it can work, with cover, gentle flow and clear signs for when to separate the betta, despite a misplaced stocking-order tip and some padding. Y is safe, concise and offers alternatives, but its flat 'no' overstates the risk and gives little help for trying the combination.
+**Judge:** Y matches how hobbyists actually keep fish: a betta with a school of neons in a planted 65 L tank usually works. It tells them what to watch for and when to separate the fish. Its weak points are the heater advice, which doesn't fit Vietnam, and a stocking order that doesn't apply to this tank. X just says no on a blanket rule that's wrong and is too thin to help. / Bể khoảng 65 lít, cây nhiều, nuôi 1 betta chung với đàn neon thì thường là được. X trả lời đúng hướng này, kèm điều kiện và dấu hiệu cần theo dõi, dù có vài lỗi nhỏ như khuyên thứ tự thả cá và dùng tên gọi chưa chuẩn. Y cấm hẳn theo một quy tắc cứng, không đúng thực tế nuôi, còn tự mâu thuẫn ở bước theo dõi.
 
-**Ours lacks:** wrong, figures, too-thin. **Plain lacks:** local, too-long.
+**Ours lacks:** wrong, too-thin, tank-fit, diagnosis. **Plain lacks:** local, tank-fit, follow-up.
 
 **Ours** (read 0 pages):
 
-> Không nên nuôi chung: cá betta hung dữ, nên thường được nuôi riêng hoặc trong bể chỉ có một loài. Bể 60x30x36 cm của bạn đủ rộng, nên mật độ không phải vấn đề. Vấn đề là tính khí của betta: nó có thể rượt đuổi, cắn vây cá neon, làm neon luôn stress và dễ bệnh.
-> 1. Nếu muốn nuôi betta, nên để riêng một bể nhỏ cho betta, có cây thủy sinh và nơi ẩn náu.
-> 2. Nếu muốn giữ 12 con neon, có thể thả thêm neon hoặc các loài tetra hiền cùng nhóm, thay vì betta.
-> 3. Nếu đã thả betta, hãy quan sát vài ngày đầu: nếu neon bị rượt hoặc vây bị rách, tách betta ra ngay.
-> Nên kiểm tra lại sau một tuần để chắc chắn …
+> Không nên nuôi chung: cá betta hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài. Bể 60x30x36 cm đang nuôi 12 con neon xanh chỉ dùng khoảng 36% tải nên còn chỗ, nhưng vấn đề nằm ở tính cách betta chứ không phải dung tích.
+> 1. Đừng thả betta vào bể neon hiện tại.
+> 2. Giữ nguyên 12 con neon xanh, vì bể đang ở mức tải thưa.
+> 3. Nếu muốn nuôi betta, chuẩn bị một bể riêng, nhỏ hơn và có nắp đậy.
+> 4. Khi thêm cá mới vào bể này, kiểm tra lại tính cách và số lượng trước.
+> Sau khi thay đổi, hãy quan sát neon xanh vài ngày để chắc chúng không bị rượt hay cắn.
+> 
+> [Công cụ: Nuôi chung]
+> Không nên nuôi chung: …
 
 **Plain** (1406 characters):
 
@@ -3142,21 +3154,24 @@ failed: Request timed out.
 > - **Dòng nước nhẹ:** Betta bơi chậm và không thích dòng chảy mạnh, nên chọn lọc không quá mạnh hoặc để bớt vòi phun.
 > - **Nhiệt độ:** Cả hai loài đều ưa nước ấm, khoảng 24–27°C, nên thường dùng máy sưởi l…
 
-### stocking-10 · tank · ours wins (7 · 3)
+### stocking-10 · tank · ours wins (6.5 · 3)
 
 **Asked:** Bể của tôi thả thêm 1 con cá betta được không?
 
-**Judge:** X gives a clear verdict using the actual 60×30×36 tank and 12 neons, with a simple alternative of a separate betta tank, though it is rather cautious and thin on detail. Y ignores the tank, wrongly assumes an existing betta, uses a garbled term, and ends by asking questions instead of answering for this tank. / Y uses the actual tank and 12 neons, gives a clear safe answer and a separate-tank alternative, though it is brief and omits conditions for trying. X ignores the tank, wrongly assumes an existing betta, uses an odd term, and asks for details the app already holds.
+**Judge:** X dùng đúng thông tin bể (khoảng 65 lít, 12 neon, mới đầy 36%) và trả lời thẳng là nên nuôi betta bể riêng. Lời khuyên này hơi thận trọng quá mức, vì thực tế một con betta trong bể 65 lít với đàn neon vẫn thường nuôi được, nhưng vẫn an toàn. Y bỏ qua dữ liệu bể, tưởng trong bể đã có betta, dùng sai từ "cá tế bào" và chủ yếu hỏi lại người hỏi. / Y uses the actual tank (60×30×36 cm, 12 neons, still lightly stocked) and gives a clear answer, though it is overcautious. X answers a different question (betta with another betta) and asks for details the app already has.
 
-**Ours lacks:** figures, follow-up. **Plain lacks:** tank-fit, asks-only, too-long, local.
+**Ours lacks:** follow-up, plan. **Plain lacks:** tank-fit, asks-only, local, off-topic.
 
-**Ours** (read 0 pages, stopped at the time limit):
+**Ours** (read 0 pages):
 
-> Không nên nuôi chung: cá betta (cá xiêm) hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài. Với bể 60x30x36 cm đang có 12 con neon xanh, thêm một con betta dễ khiến neon bị rượt và rỉa vây, nên mình khuyên bạn đừng thả. Nếu muốn nuôi betta, bạn nên làm một bể riêng.
+> Không nên nuôi chung: cá betta (cá xiêm) hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài. Bể 60×30×36 cm của bạn đang có 12 con cá neon xanh, còn thưa (khoảng 36%), nên về mật độ thì thả thêm được, nhưng betta dễ rượt và cắn cá neon nhỏ, nhất là khi cá mới vào. Nếu muốn nuôi betta, bạn nên làm một bể riêng.
 > 
-> [Thẻ loài] Cá betta (cá xiêm) (Betta splendens): nhiệt độ 22–30 °C; pH 6–8; GH 1–15; dài 7 cm; bể từ 45 cm; tính aggressive; độ khó 3/8
+> [Công cụ: Nuôi chung cho Bể của tôi 60×30×36 cm]
+> Không nên nuôi chung: Cá betta (cá xiêm) hung dữ.
+> Cá betta (cá xiêm) hung dữ, thường phải nuôi riêng hoặc bể chỉ một loài.
+> Mức đầy bể: 36% — 36% · Còn thưa: thả thêm được.
 > 
-> [Gợi ý hỏi tiếp] Bể 60x30x36 cm nuôi được những loài nào hợp với neon xanh? · Cá betta cần bể tối thiểu bao nhiêu lít? · Cá betta nuôi một mình cần chăm sóc thế nào?
+> [Gợi ý hỏi tiếp] Bể nhỏ bao nhiêu lít thì nuôi một con betta đ…
 
 **Plain** (1081 characters):
 
@@ -3168,18 +3183,17 @@ failed: Request timed out.
 > - **Betta đực + betta cái:** Chỉ có thể thử trong bể rất lớn (thường từ 80 lít trở lên), có nhiều cây thủy sinh và chỗ ẩn nấp, và phải quan sát liên tục. Con cái có thể bị đực rượt đuổi hoặc cắn. Nếu thấy cá cái bị thương hoặc stress, phải tách ra ngay.
 > - **B…
 
-### algae-12 · post · plain wins (5.5 · 7.25)
+### algae-12 · post · ours wins (7 · 6)
 
 **Asked:** Bể 60x30x36 của mình set được 4 tuần, không CO2, trồng rêu java, ráy nana với dương xỉ java, đèn LED bật liền 8 tiếng mỗi ngày, châm phân nước 1 lần/tuần. Lá ráy bắt đầu có đốm rêu xanh. Có nên chia đèn ra làm hai đợt sáng chiều, mỗi đợt không quá 4 tiếng không?
 
-**Judge:** Y trả lời thẳng việc chia đèn (cùng tổng 8 tiếng, chỉ là mẹo phụ), có cách phân biệt rêu bụi với rêu đốm và kế hoạch đủ dùng, dù hơi dài và thiếu mốc theo dõi. X né câu hỏi vì cẩm nang không nói, không phân biệt loại rêu và đổ cho dư phân, dù các bước giảm đèn gọn và có mốc theo dõi rõ. / X directly answers the split-light question (same total hours, only a minor trick) and tells green dust from green spot, with a fuller plan including water changes and nerite snails. Y has a tidy stepwise light cut and clear follow-up, but it dodges the question and cites a confusing 8–12 hour guideline.
+**Judge:** X nhận ra rêu đốm (GSA) trên lá ráy, cho cách lau thử để phân biệt, rồi đi theo thứ tự hợp lý: đo PO4, có khoảng mục tiêu và ngưỡng để quyết định. X cũng trả lời thẳng câu hỏi về chia đèn. Y dài và chung chung hơn, lại khuyên giảm phân và thay nước để giảm phosphat, điều này có thể làm GSA nặng thêm. / Y chỉ ra rêu đốm xanh (GSA) và cho cách xác định: lau thử chấm rêu, đo PO4 theo mốc 0,5–2 ppm và theo dõi 2–3 tuần. X đưa ra danh sách chung chung, có cả bước giảm phân và giảm phosphate, mà bước này có thể làm GSA nặng thêm. Cả hai đều trả lời đúng câu hỏi chia đèn: chia làm hai đợt không phải là cách sửa chính.
 
-**Ours lacks:** diagnosis, tank-fit. **Plain lacks:** follow-up, too-long.
+**Ours lacks:** local. **Plain lacks:** diagnosis, too-long, tank-fit, follow-up.
 
-**Ours** (read 3 pages, stopped at the tools limit):
+**Ours** (read 3 pages, stopped at the calls limit):
 
-> Mình chưa thấy trong cẩm nang nào nói về việc chia đèn thành hai đợt sáng chiều, nên mình không xác nhận được cách này. Điều cẩm nang nói rõ là kéo dài giờ đèn không bù được ánh sáng thiếu, và khuyến nghị 8 đến 12 giờ mỗi ngày, lý tưởng là chia đèn theo bậc để mô phỏng bình minh, trưa và hoàng hôn. Đốm xanh trên lá ráy thường là tảo đốm xanh, hay gặp khi bể có nhiều ánh sáng và dinh dưỡng so với mức cây hấp thụ, mà bể lại không có CO2 để cây lên nhanh. Bạn nên làm theo các bước sau.
-> 1. Giảm thời gian bật đèn xuống 1 giờ, tức khoảng 7 giờ mỗi ngày, rồi chờ 3 đến 5 ngày xem đốm có ngừng lan khô…
+> Chấm xanh cứng khoảng 1 mm bám trên lá ráy thường là rêu chấm xanh (GSA). Theo cẩm nang, thủ phạm gần như luôn là phosphate chứ không phải đèn, nên việc chia đèn sáng chiều chưa phải là cách sửa đầu tiên. Bể 4 tuần, châm phân mỗi tuần và có thể có phân nền giàu dinh dưỡng là những điều dễ làm phosphate lệch. 1. Lau thử một chấm: nếu bám chặt và không lau trôi thì đúng là GSA, không phải rêu bụi. 2. Cạo kính và cắt bỏ những lá ráy phủ dày đốm, lá ít đốm thì giữ lại. 3. Đo PO4 bằng bộ test: nếu gần 0 thì bổ sung phosphate, nếu đã cao thì giảm phân. Cẩm nang nhắm PO4 khoảng 0,5 đến 2 ppm, nhưng …
 
 **Plain** (1952 characters):
 
@@ -3193,20 +3207,19 @@ failed: Request timed out.
 > **Hướng xử lý hiệu quả hơn:**
 > 1. **Xác định loại …
 
-### algae-12 · tank · ours wins (6.75 · 4.5)
+### algae-12 · tank · ours wins (6.5 · 5)
 
 **Asked:** Bể của tôi có nên chia đèn làm hai đợt, mỗi đợt không quá 4 tiếng không?
 
-**Judge:** X dựa vào đúng lịch 8 tiếng của bể, nói rõ tổng giờ quan trọng hơn cách chia và cho bước theo dõi tảo, dù mức 8–10 giờ hơi cao và chưa nhắc đến nhóm cây ưa sáng yếu. Y có khoảng 6–8 giờ hợp lý và lịch mẫu cụ thể, nhưng trả lời chung chung, không dùng dữ liệu bể, còn hỏi lại loại bể và khẳng định lợi ích hơi quá. / Y reads their 8-hour schedule, says total hours matter more than the split, and gives a 4+4 option, one-change-at-a-time steps and an algae check. X is generic: it says yes on weak claims, asks whether the tank is planted, and adds irrelevant CO₂ and reef-tank points.
+**Judge:** X dựa vào chính bể này: 8 tiếng bật liền, không CO₂, phân nước mỗi tuần. X cũng cho các bước làm theo thứ tự kèm cách theo dõi, nhưng ví dụ một đợt 5 tiếng lại trái với điều kiện mỗi đợt không quá 4 tiếng của người hỏi. Y có lịch mẫu hợp lý, nhưng lời khuyên chung chung, nhắc đến CO₂ mà bể không có, và kết thúc bằng câu hỏi lại về loại bể. / Y is the better answer. It uses this tank's facts (no CO₂, phân nước once a week, 8 tiếng straight) and says plainly that algae comes from too much light for the nutrients and CO₂, not from how the hours are split. It also gives clear steps and what to watch for. Its example schedule does break the 4-hour limit the hobbyist set. X is generic and padded with CO₂ and reef notes that don't apply, and it ends by asking what kind of tank it is.
 
-**Ours lacks:** diagnosis, follow-up. **Plain lacks:** tank-fit, follow-up, plan.
+**Ours lacks:** figures. **Plain lacks:** tank-fit, follow-up, plan.
 
 **Ours** (read 2 pages):
 
-> Cẩm nang chưa bàn riêng về việc chia đèn thành hai đợt, nên đây là cách mình suy ra từ các trang về thời gian chiếu sáng. Cẩm nang nói bể trồng cây nên bật đèn 8 đến 12 giờ mỗi ngày, và lý tưởng là chia thành nhiều bậc để mô phỏng bình minh, giữa trưa và hoàng hôn. Bể của bạn đang bật liền 8 tiếng, tức mức thấp nhất của khoảng đó, nên chia 4 tiếng + 4 tiếng vẫn đủ tổng nếu bạn giữ đúng 8 tiếng. Quan trọng hơn là tổng số giờ, không phải cách chia.
-> 1. Giữ tổng số giờ đèn ở khoảng 8 đến 10 giờ mỗi ngày.
-> 2. Nếu muốn chia hai đợt, đặt đợt đầu buổi sáng và đợt sau buổi chiều, cách nhau vài giờ.
-> 3. …
+> Có, bạn có thể chia đèn làm hai đợt, tổng cộng vẫn khoảng 8 tiếng mỗi ngày, và cây không bị hại vì việc đó. Cẩm nang nói đây là cách một số người chơi làm để bể có lúc nghỉ giữa ngày, còn bật liền một lần cũng ổn. Điều quan trọng hơn là tổng số giờ và việc không để đèn sáng qua đêm. Bể của bạn bật liền 8 tiếng, không có CO2 và phân nước 1 lần mỗi tuần, nên nếu tảo xuất hiện thì nguyên nhân dễ nhất là ánh sáng dư so với dinh dưỡng và CO2, chứ không phải do cách chia giờ.
+> 1. Dùng ổ cắm hẹn giờ để đèn bật đúng hai khung, ví dụ 3 tiếng buổi sáng và 5 tiếng buổi tối, tổng không quá 8 tiếng.
+> 2. Đặt…
 
 **Plain** (1331 characters):
 
