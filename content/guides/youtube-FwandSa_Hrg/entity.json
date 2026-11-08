@@ -8,7 +8,7 @@
   "mentions": [
     "astronotus-ocellatus"
   ],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "FwandSa_Hrg",
     "title": "HOW TO: Build A Large Aquarium 5/6",
@@ -39,18 +39,25 @@
       },
       {
         "category": "loc",
-        "t": 159
-      },
-      {
-        "category": "khac",
-        "brand": "Reeflow",
-        "model": "Dart",
-        "t": 1560
+        "type": "sump",
+        "t": 2
       }
     ],
     "figures": [
       {
-        "heading": "Tính lượng K1 theo cá, không theo lít nước",
+        "heading": "Lọc tầng sôi K1 hoạt động thế nào",
+        "moments": [
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh một hạt K1 hình trụ nhựa có các vách bên trong."
+          }
+        ]
+      },
+      {
+        "heading": "Cần bao nhiêu K1 cho đàn cá của bạn",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/FwandSa_Hrg/p1-lX1pvb18wMS5qcGc.webp",
@@ -60,36 +67,77 @@
           "licence": "CC BY-SA 3.0",
           "author": "H. Zell",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
-          "caption": "Cá Oscar vằn cam đen bơi trong bể trồng cây, loài thải nhiều chất thải."
+          "caption": "Cá oscar màu cam đen bơi trong bể trồng cây, thải nhiều chất thải."
         }
       },
       {
-        "heading": "Chọn thùng và tính lượng khí",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/FwandSa_Hrg/p2-EzNjk4MjcpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/FwandSa_Hrg/p2-EzNjk4MjcpLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 2.0",
-          "author": "Stan Dalone",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vivid_colours_-_warning_!_(2851369827).jpg",
-          "caption": "Nhiều thùng phuy 200 lít xếp trong bãi, loại hay dùng làm vỏ lọc."
-        }
+        "heading": "Thùng chứa và lượng khí cho K1",
+        "moments": [
+          {
+            "t": 630,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng tròn xanh đặt cạnh thùng khác, có dây khí nối vào."
+          }
+        ]
       },
       {
-        "heading": "Dựng bộ lọc từ thùng phuy",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/FwandSa_Hrg/p3-X3Nhd19iaXQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/FwandSa_Hrg/p3-X3Nhd19iaXQuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Junkyardsparkle",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_and_one_quarter_inch_hole_saw_bit.jpg",
-          "caption": "Mũi khoét lỗ dạng cốc, dùng khoan lỗ nối hai thùng phuy."
-        }
+        "heading": "Lọc cơ học đặt phía trên",
+        "moments": [
+          {
+            "t": 1000,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1000-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm lưới nhựa trắng dùng để ráp thành khay lọc nhỏ."
+          },
+          {
+            "t": 1060,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1060-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khay lọc cơ học bằng lưới nhựa treo trên miệng thùng bằng móc nhựa."
+          }
+        ]
+      },
+      {
+        "heading": "Lưu lượng bơm và cách đặt ống tràn",
+        "moments": [
+          {
+            "t": 1250,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang vạch vị trí bulkhead trên đáy bể để khoét lỗ tràn."
+          },
+          {
+            "t": 1280,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lỗ khoan tràn trên đáy bể, tay đang đặt bulkhead vào lỗ."
+          }
+        ]
+      },
+      {
+        "heading": "Lắp máy bơm và ống hồi",
+        "moments": [
+          {
+            "t": 1610,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máy bơm và đường ống nối với khớp ren bên cạnh hai thùng xanh."
+          },
+          {
+            "t": 1620,
+            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1620-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống hồi đi lên dọc thùng, có khớp nối ren và máy bơm."
+          }
+        ]
       }
     ]
   }
