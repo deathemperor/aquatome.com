@@ -1,0 +1,148 @@
+{
+  "id": "faxonius-rusticus",
+  "native": {
+    "input": "4df52a80bf2a8b83",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "This crayfish is native to the United States, in the Ohio River Basin (southeast Illinois, Indiana, Ohio, West Virginia, Tennessee, Kentucky, and parts of Alabama, Virginia and North Carolina).",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has now been reported in 33 US states and 3 Canadian provinces, possibly through use as live bait by anglers or intentional release by lake managers seeking to manage macrophyte communities.",
+        "words": "US",
+        "ok": true
+      },
+      {
+        "code": "CA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has now been reported in 33 US states and 3 Canadian provinces, possibly through use as live bait by anglers or intentional release by lake managers seeking to manage macrophyte communities.",
+        "words": "Canadian",
+        "ok": false,
+        "why": "\"Canadian\" is not CA"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ohio River Basin",
+        "source": "aquariumbreeder",
+        "quote": "This crayfish is native to the United States, in the Ohio River Basin (southeast Illinois, Indiana, Ohio, West Virginia, Tennessee, Kentucky, and parts of Alabama, Virginia and North Carolina).",
+        "country": "US",
+        "ok": false,
+        "why": "in US, which a source calls introduced or doubtful"
+      }
+    ],
+    "disputed": [
+      "US"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Faxonius rusticus",
+    "status": "ACCEPTED",
+    "taxonKey": 8979506,
+    "datasets": [
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        3603
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        655
+      ],
+      [
+        "1ad3c2b1-04dd-4be2-992b-f74027068713",
+        416
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        394
+      ],
+      [
+        "d422028c-43cd-44af-8e8c-d3cf11dfe14c",
+        206
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        139
+      ],
+      [
+        "7a9ad56e-7452-4f24-a1b4-3be3400c9a9d",
+        54
+      ],
+      [
+        "005eb8d8-ed94-41be-89cf-e3115a9058e4",
+        42
+      ],
+      [
+        "96cdea48-b78a-4345-ae6d-b2c7c6e0278a",
+        30
+      ],
+      [
+        "87f42a91-8dfd-44f1-aabb-8b6ef14aba82",
+        23
+      ],
+      [
+        "ebf061ab-5f8a-4958-ad37-0f55e2a953e7",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "34fbcf59-d9bb-47e7-9672-99e13ea8c736",
+        7
+      ],
+      [
+        "4655f1f3-60a5-4346-a343-84f5836a4585",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "1560f099-f48d-43ac-8d88-ce329a53aa7e",
+        2
+      ],
+      [
+        "58fc397b-eee4-4138-8a5f-50f9dfb00216",
+        2
+      ],
+      [
+        "854e35e6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "f9a70dab-004b-45ad-90cb-24d8ff645b44",
+        2
+      ],
+      [
+        "129704b4-762b-4f0c-8eab-ef3f8aedd478",
+        1
+      ],
+      [
+        "44fb5823-c1f5-4ac7-8e06-795a09a138f2",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

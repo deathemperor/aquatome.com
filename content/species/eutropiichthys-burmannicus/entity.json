@@ -12,6 +12,111 @@
     "thailand",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Salween"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Irrawaddy, lower Salween and smaller intervening rivers: Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is known from the Irrawaddy River drainage in Myanmar eastwards to the Salween River drainage in western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341574,
+      "total": 14,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          11
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          85.78125,
+          19.6875,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

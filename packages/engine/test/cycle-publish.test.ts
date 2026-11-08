@@ -12,8 +12,9 @@ const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8
 test('a cycle sweeps again after each merge with main, before the tests', () => {
   const cycle = script('engine-cycle.sh')
   expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
-  expect(cycle).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify 'pnpm test'/)
+  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify 'pnpm test'/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -33,9 +34,41 @@ test('what the sweep changes after a merge is committed, and no change leaves no
   expect(sh('git status --porcelain').trim()).toBe('')
 })
 
+// The photos part of 2026-11-08: its calendar clashed with an editor's re-plan, and the line-by-line merge named one guide
+// on two days running.
+test("after a clash in the calendar it is main's calendar, planned again, never a blend of two plans", () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-replan-'))
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$1 $2" = "engine curate" ] || exit 0\nx=$(cat content/curation.json); echo "$x, planned" > content/curation.json\n')
+  chmodSync(join(dir, 'bin/pnpm'), 0o755)
+  const sh = (command: string, cwd = dir) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, PATH: `${dir}/bin:${process.env.PATH}` } })
+  sh('git init -q --bare origin.git && git clone -q origin.git repo 2>/dev/null')
+  const repo = join(dir, 'repo')
+  sh('git config user.email a@example.com && git config user.name a && mkdir content && echo main > content/curation.json && git add . && git commit -qm main && git push -q origin HEAD 2>/dev/null', repo)
+  sh('echo mine > content/curation.json && git commit -qam cycle', repo)
+  const replan = (clash: string) => sh(`log() { echo "$*"; }; source '${join(ROOT, 'scripts/cycle-checks.sh')}'; replan_merged '${clash}'`, repo)
+  replan('content/gallery/a.json')
+  expect(sh('git rev-list --count HEAD', repo).trim()).toBe('2')
+  replan('content/gallery/a.json content/curation.json')
+  expect(readFileSync(join(repo, 'content/curation.json'), 'utf8').trim()).toBe('main, planned')
+  expect(sh('git rev-list --count HEAD', repo).trim()).toBe('3')
+  expect(sh('git status --porcelain', repo).trim()).toBe('')
+})
+
 // The run of 2026-11-07 failed its tests with its work uncommitted, and the next run's reset dropped it.
 test("a video run's work is committed before its tests, so a run that fails them can still be published", () => {
   const cycle = script('video-cycle.sh')
   expect(cycle.indexOf('git commit -q -m "content: videos')).toBeGreaterThan(0)
   expect(cycle.indexOf('git commit -q -m "content: videos')).toBeLessThan(cycle.indexOf("verify 'pnpm test'"))
+})
+
+// The re-check of 2026-11-08: its tests failed on a defect the sweep fixes, and its work, tested before it was committed,
+// was left for the next run's reset to drop.
+test("a video re-check sweeps its work and commits it before its tests, as the video job does", () => {
+  const s = script('video-recheck.sh')
+  const sweep = s.indexOf('pnpm engine sweep')
+  const commit = s.indexOf('git commit -q -m "content: video guides checked again')
+  expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
+  expect(commit).toBeGreaterThan(sweep)
+  expect(commit).toBeLessThan(s.indexOf("verify 'pnpm test'"))
 })

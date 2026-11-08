@@ -308,6 +308,135 @@ final class OwnerFlowTests: XCTestCase {
     return app
   }
 
+  // ——— The owner's report ———
+
+  /// The sheet: the keyboard up for the dictation key, what was on the screen attached, and a send that closes it.
+  func testTheOwnerReportsWhatsOnTheScreenFromTheButton() {
+    let app = launch()
+    signIn(app)
+    let button = app.buttons["owner-report"]
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button for the owner")
+    button.tap()
+    let words = app.textViews["owner-report-words"].exists ? app.textViews["owner-report-words"] : app.textFields["owner-report-words"]
+    XCTAssertTrue(words.waitForExistence(timeout: 10), "no sheet")
+    XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "the keyboard should come up by itself")
+    XCTAssertTrue(app.images["owner-report-image"].exists, "what was on the screen isn't attached")
+    words.typeText("Ảnh bị lệch")
+    app.buttons["owner-report-send"].tap()
+    // The sheet goes by itself only once it's sent, and the button comes back.
+    XCTAssertTrue(app.buttons["owner-report-send"].waitForNonExistence(timeout: 20), "not sent: the sheet stayed")
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "the button didn't come back")
+  }
+
+  /// v2, the owner's default: the report names v2's tab, the page on it and its item, and its picture is what the screen
+  /// shows. A page left for another tab is no longer named.
+  func testTheReportNamesV2sScreenAndThePageOnIt() {
+    let app = launch(owner: "ui-apple", "-v2", "YES")
+    signIn(app)
+    app.closeAccount()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "v2 didn't open on Hôm nay")
+    let home = XCUIScreen.main.screenshot().image
+    let today = report(app)
+    XCTAssertTrue(today.hasPrefix("v2 today · "), today)
+
+    app.buttons["v2-fish-of-the-day"].tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the fish's page didn't open")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "settled")], timeout: 2)
+    let screen = XCUIScreen.main.screenshot().image
+    let fish = report(app) { picture in
+      // Near the screen it was taken from, and nearer it than Hôm nay's: a check that any picture would pass can't.
+      let (near, other, spread) = (Self.difference(picture, screen), Self.difference(picture, home), Self.spread(picture))
+      print("owner report picture: \(near) from the screen, \(other) from Hôm nay's, spread \(spread)")
+      XCTAssertLessThan(near, 0.08, "the picture isn't what the screen showed: \(near)")
+      XCTAssertLessThan(near * 2, other, "the picture is as near another screen as its own: \(near) against \(other)")
+      XCTAssertGreaterThan(spread, 0.05, "the picture is one flat colour")
+    }
+    XCTAssertTrue(fish.hasPrefix("v2 today species · /"), fish)
+    XCTAssertTrue(fish.contains("/ca/"), fish)
+
+    app.openTab("Bể của tôi")
+    let tanks = report(app)
+    XCTAssertTrue(tanks.hasPrefix("v2 tanks · "), tanks)
+    XCTAssertFalse(tanks.contains("/ca/"), "the fish's page, left on Hôm nay, still named: \(tanks)")
+  }
+
+  /// The report's sheet from the button: what it says it sends with the words, after `look` at its picture; then closed.
+  private func report(_ app: XCUIApplication, look: ((UIImage) -> Void)? = nil, line: UInt = #line) -> String {
+    let button = app.buttons["owner-report"]
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button", line: line)
+    button.tap()
+    let sent = app.staticTexts["owner-report-where"]
+    XCTAssertTrue(sent.waitForExistence(timeout: 10), "no sheet", line: line)
+    let image = app.images["owner-report-image"]
+    XCTAssertTrue(image.exists, "no picture attached", line: line)
+    look?(image.screenshot().image)
+    let said = sent.label
+    app.buttons["owner-report-close"].tap()
+    XCTAssertTrue(sent.waitForNonExistence(timeout: 10), "the sheet didn't close", line: line)
+    return said
+  }
+
+  /// Two pictures as a small grid of greys, 0 to 1: how far apart, on average.
+  private static func difference(_ a: UIImage, _ b: UIImage) -> Double {
+    let (x, y) = (greys(a), greys(b))
+    return zip(x, y).map { abs($0 - $1) }.reduce(0, +) / Double(x.count)
+  }
+
+  /// How far a picture's greys stray from their mean: near 0 for one colour.
+  private static func spread(_ a: UIImage) -> Double {
+    let g = greys(a)
+    let mean = g.reduce(0, +) / Double(g.count)
+    return (g.map { ($0 - mean) * ($0 - mean) }.reduce(0, +) / Double(g.count)).squareRoot()
+  }
+
+  private static func greys(_ image: UIImage, columns: Int = 9, rows: Int = 19) -> [Double] {
+    var bytes = [UInt8](repeating: 0, count: columns * rows)
+    bytes.withUnsafeMutableBytes { buffer in
+      guard let cg = image.cgImage,
+            let context = CGContext(data: buffer.baseAddress, width: columns, height: rows, bitsPerComponent: 8, bytesPerRow: columns,
+                                    space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return }
+      context.interpolationQuality = .medium
+      context.draw(cg, in: CGRect(x: 0, y: 0, width: columns, height: rows))
+    }
+    return bytes.map { Double($0) / 255 }
+  }
+
+  /// A normal iPhone screenshot offers a report, without getting in the way: nothing opens until it's tapped.
+  func testAScreenshotOffersAReport() {
+    let app = launch(owner: "ui-apple", "-owner-screenshot-after", "6")
+    signIn(app)
+    let button = app.buttons["owner-report"]
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button")
+    let offered = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value == 'ảnh vừa chụp'"), object: button)
+    XCTAssertEqual(XCTWaiter.wait(for: [offered], timeout: 20), .completed, "no offer after the screenshot")
+    XCTAssertFalse(app.buttons["owner-report-send"].exists, "a screenshot alone shouldn't open the sheet")
+    button.tap()
+    XCTAssertTrue(app.buttons["owner-report-send"].waitForExistence(timeout: 10), "no sheet")
+    XCTAssertTrue(app.images["owner-report-image"].exists, "the screenshot isn't attached")
+    app.buttons["owner-report-close"].tap()
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "the button didn't come back")
+  }
+
+  /// Another account never sees it: the site would refuse it anyway.
+  func testAnotherAccountHasNoReportButton() {
+    let app = launch(owner: "someone-else")
+    signIn(app)
+    XCTAssertFalse(app.buttons["owner-report"].waitForExistence(timeout: 5), "a report button for another account")
+  }
+
+  func testSigningOutTakesTheReportButtonAway() {
+    let app = launch()
+    signIn(app)
+    XCTAssertTrue(app.buttons["owner-report"].waitForExistence(timeout: 10), "no report button")
+    // At the sheet's foot: the list makes the row only once it scrolls into view, and not under the sheet's bar.
+    let out = app.descendants(matching: .any)["sign-out"].firstMatch
+    let bar = app.navigationBars["Tài khoản"]
+    repeatUntil(out.exists && out.isHittable && (!bar.exists || out.frame.minY >= bar.frame.maxY), times: 10) { app.swipeUp() }
+    XCTAssertTrue(out.isHittable, "no sign-out")
+    out.tap()
+    XCTAssertTrue(app.buttons["owner-report"].waitForNonExistence(timeout: 10), "the report button stayed after signing out")
+  }
+
   private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
   private func open(_ app: XCUIApplication, _ id: String) { app.scrollToAndTap(id) }
   /// It reads `label` within 5 s.

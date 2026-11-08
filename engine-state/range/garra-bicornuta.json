@@ -1,0 +1,70 @@
+{
+  "id": "garra-bicornuta",
+  "native": {
+    "input": "a79c77e7618d94d7",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern India with the type series originating from the 'Tunga River at Shimoga in Karnataka' (previously Mysore) state.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "Native to southern India with the type series originating from the 'Tunga River at Shimoga in Karnataka' (previously Mysore) state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "The Tunga is part of the Upper Krishna River drainage and arises from a hill known as Varaha Parvata in the Western Ghats mountain range.",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "The Tunga is part of the Upper Krishna River drainage and arises from a hill known as Varaha Parvata in the Western Ghats mountain range.",
+        "ok": true
+      },
+      {
+        "name": "Bhadra",
+        "source": "seriouslyfish",
+        "quote": "A 2008 fish diversity survey of the Bhadra failed to record G. bicornuta at any locality other than its confluence with the Tunga, suggesting this might represent the lower limit of its range.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra bicornuta",
+    "status": "ACCEPTED",
+    "taxonKey": 2366823,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

@@ -1,26 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/186328877/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/186328877/medium.jpg",
-   "width": 2048,
-   "height": 1481,
-   "licence": "CC BY",
-   "author": "rukai95",
-   "sourceUrl": "https://www.inaturalist.org/photos/186328877",
-   "key": "inat:186328877"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251922416/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251922416/medium.jpg",
-   "width": 2048,
-   "height": 1406,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/251922416",
-   "key": "inat:251922416"
-  }
- ],
+ "queue": [],
  "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/98e2594053e875b3.webp": "8f8f6d2cf06a6e0e",
+  "https://media.aquatome.com/scotcat/6cdbb484778d7467.webp": "d9d911ff1a6e4d37",
+  "https://media.aquatome.com/scotcat/e6e71ea43f912c3b.webp": "36461e36f8e8fcb8"
+ },
+ "commons": "2026-11-08"
 }

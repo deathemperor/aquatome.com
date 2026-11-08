@@ -71,6 +71,7 @@ struct V2Root: View {
       }
     }
     .onAppear { follow(tab) }
+    .ownerShowsTab("\(selection)")
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
     // Khám phá, what Hôm nay had open, or else the search tab (which pushes only v1's own screens).
     .onDisappear {
@@ -225,9 +226,10 @@ extension EnvironmentValues {
   @Entry var v2PhotoTries = 0
 }
 
-/// The colour a page has the tab stand on, and whose it is: two pages can have the same one.
+/// The colour a page has the tab stand on, and whose it is: two pages can have the same one. Whose by the page itself, not
+/// its fish: the same fish can be open twice, one over the other (a link to it from outside).
 struct FootGround: Equatable {
-  let page: String
+  let page: UUID
   let colour: Color
 }
 

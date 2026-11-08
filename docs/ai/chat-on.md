@@ -32,9 +32,35 @@ chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện ch�
   và không có bình luận, ảnh bạn đã gửi."
 - What deleting an account removes, adding: "các cuộc trò chuyện cùng nhật ký của chúng".
 - Under "6. Thời gian lưu": "Câu hỏi, câu trả lời và nhật ký khi hỏi về cá: đến khi bạn xóa tài khoản."
+- In the new section, after the paragraph on "Ẩn", for "Báo sai" (the chief's wording, 2026-11-08): "Khi bạn báo câu
+  trả lời sai, chúng tôi lưu câu trả lời đó, báo cáo và lý do bạn ghi (nếu có) để xem lại và cải thiện các câu trả lời
+  sau này. Khi bạn xóa tài khoản, chúng tôi xóa luôn dữ liệu này." The Writing Lead's translations, to go in as they are:
+  - id: "Saat Anda melaporkan jawaban yang salah, kami menyimpan jawaban tersebut, laporannya, dan alasan yang Anda tulis
+    (jika ada) untuk ditinjau dan untuk meningkatkan kualitas jawaban berikutnya. Saat Anda menghapus akun, data ini juga
+    kami hapus."
+  - th: "เมื่อคุณรายงานว่าคำตอบผิด เราจะเก็บคำตอบนั้น รายงาน และเหตุผลที่คุณระบุ (ถ้ามี) ไว้เพื่อตรวจสอบและปรับปรุงคำตอบ
+    ในอนาคต เมื่อคุณลบบัญชี เราจะลบข้อมูลเหล่านี้ด้วย"
+  - ms: "Apabila anda melaporkan jawapan yang salah, kami menyimpan jawapan itu, laporan anda dan sebab yang anda tulis
+    (jika ada) untuk disemak dan untuk menambah baik jawapan pada masa hadapan. Apabila anda memadam akaun, kami turut
+    memadam data ini."
+
+## The chat screen
+
+- The line on where answers come from (approved 2026-11-08): "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang
+  AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá." Nothing in the chat's words may still
+  say it answers only from the handbook.
+- Under the chat box (the chief's wording, 2026-11-08): "AquaTome gửi câu hỏi tới Claude và lưu đến khi bạn xóa tài
+  khoản." Indonesian, Thai and Malay: the Writing Lead's, to come.
 
 ## The rest
 
 - The Worker serves the stop and past-conversation calls in `protocols/chat.openapi.json`. The account's export holds the
   conversations, hidden ones marked, without the logs, comments or photos.
 - A stopped question's log is kept, the owner's ruling.
+- The Worker serves "Báo sai" (`POST /api/chat/conversations/{id}/report`) and the stop limit (`counted`, `freeLeft`;
+  10 free stops a day). A report is kept in R2 under the account, as its conversations are, so it needs no
+  migration, and deleting the account deletes it. The chat's evals read reports there, by reference, and never copy one
+  into the repository (it is public, and its history can't be deleted): results there name a report by an id that
+  doesn't name the account, never its words, the Mac's eval caches drop a report's answers once the report is gone, and
+  a report's question goes to Claude only through the chat's API key, never a person's Claude login. So deleting the
+  account takes it out of the evals too, the chief's condition.

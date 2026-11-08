@@ -24,13 +24,14 @@ const readJson = async (root: string, f: string) => JSON.parse(await readFile(jo
 const edit = async (root: string, f: string, change: (t: Record<string, unknown>) => void) => {
   const t = await readJson(root, f); change(t); await writeFile(join(root, f), `${JSON.stringify(t, null, 2)}\n`)
 }
-/** A reader that finds a foreign shop wherever "Petco" is, and a shop's kit wherever "Aqueon" is. */
+/** A reader that finds a foreign shop wherever "Petco" is, a shop's kit wherever "Aqueon" is, and harm wherever "tắt lọc" is. */
 const reader = (calls: string[] = []): Llm => (async ({ prompt }: { prompt: string }) => {
   calls.push(prompt)
   return {
     findings: [
       ...(prompt.includes('Petco') ? [{ check: 'shop', part: 'P1', quote: 'Petco', why: 'a US shop', fix: '', product: '' }] : []),
       ...(prompt.includes('Aqueon') ? [{ check: 'kit', part: 'P1', quote: 'Aqueon', why: 'one shop\'s kit', fix: '', product: '' }] : []),
+      ...(prompt.includes('tắt lọc') ? [{ check: 'harm', part: 'P1', quote: 'tắt lọc', why: 'fish suffocate', fix: '', product: '' }] : []),
     ],
     products: [], doses: [],
   }
@@ -46,6 +47,11 @@ test('what the gate does with a page, from its checks now and before', () => {
   expect(gateCall(s(), { isNew: false, wasHeld: true }).action).toBe('release')
   expect(gateCall(s('units'), { isNew: false, wasHeld: true }).action).toBe('hold')
   expect(gateCall(s('kit'), { isNew: false, wasHeld: false, before: s('kit') })).toEqual({ action: 'hold', checks: ['kit'] })
+  // Advice that would hurt holds a page as a kit does; a live page whose new text brought it gets its old text back.
+  expect(gateCall(s('harm'), { isNew: true, wasHeld: false })).toEqual({ action: 'hold', checks: ['harm'] })
+  expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s('harm') })).toEqual({ action: 'hold', checks: ['harm'] })
+  expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s() })).toEqual({ action: 'revert', checks: ['harm'] })
+  expect(gateCall(s('harm', 'kit'), { isNew: false, wasHeld: false, before: s('kit') })).toEqual({ action: 'revert', checks: ['harm'] })
 })
 
 test('a new page that fails is held, and one that passes goes out', async () => {
@@ -196,6 +202,33 @@ test('a held page a batch read has since passed is let out, with no call; one st
   const r = await gate(root, { llm: reader(), now })
   expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['elsewhere'], at: '2026-11-08' })
   expect(r.report.hold).toEqual([])
+})
+
+test('a live page that harm was found on is held, changed or not; one a cycle made harmful gets its old text back', async () => {
+  const root = await repo()
+  const page = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(page)]: { at: '2026-11-09', hash: fitText(page).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  await gate(root, { llm: reader(), now })
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+
+  const fresh = await repo()
+  const before = await readFile(join(fresh, GUIDE), 'utf8')
+  await edit(fresh, GUIDE, t => { t.body = `${t.body as string}<p>Muốn bắt cá thì tắt lọc cho cá ngáp.</p>` })
+  const r = await gate(fresh, { llm: reader(), now })
+  expect(r.report.revert).toHaveLength(1)
+  expect(await readFile(join(fresh, GUIDE), 'utf8')).toBe(before)
+  expect((await readJson(fresh, GUIDE)).held).toBeUndefined()
+
+  // With the accounts out, a changed page is put back, and held when its old text was read as harmful.
+  const out = await repo()
+  const committed = (await loadPages(join(out, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(out, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(committed)]: { at: '2026-11-09', hash: fitText(committed).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  const text = await readFile(join(out, GUIDE), 'utf8')
+  await edit(out, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  const o = await gate(out, { llm: none, now })
+  expect(o.report.unread).toHaveLength(1)
+  expect(JSON.parse(await readFile(join(out, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(text), held: { checks: ['harm'], at: '2026-11-09' } })
 })
 
 test('a text put back that no rewording fixes is held', async () => {

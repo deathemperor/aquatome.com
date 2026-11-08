@@ -2,7 +2,12 @@
   "id": "hemigrammus-rhodostomus",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 10,
+  "schoolMin": 8,
   "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-06T21:16:08.910Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T09:03:46.190Z"
 }

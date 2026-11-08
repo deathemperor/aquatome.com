@@ -808,7 +808,7 @@
       "youtube-8B80s_qtzxA"
     ],
     "attempts": 0,
-    "updatedAt": "2026-11-02T17:48:51.698Z"
+    "updatedAt": "2026-11-08T09:38:57.785Z"
   },
   "8DffJuK_nqI": {
     "status": "processed",
@@ -1523,12 +1523,11 @@
     "updatedAt": "2026-11-02T18:42:03.246Z"
   },
   "FCEKuUr_Z-U": {
-    "status": "processed",
-    "entityIds": [
-      "youtube-FCEKuUr_Z-U"
-    ],
+    "status": "skipped",
+    "entityIds": [],
+    "error": "harm: on the rejected list (engine-state/_video-rejected.json)",
     "attempts": 0,
-    "updatedAt": "2026-10-31T13:25:27.798Z"
+    "updatedAt": "2026-11-08T10:30:00.000Z"
   },
   "FG8c0evXqCE": {
     "status": "skipped",
@@ -2557,7 +2556,7 @@
       "youtube-Q8-gktwcXqQ"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-30T08:30:15.499Z"
+    "updatedAt": "2026-11-08T09:35:28.771Z"
   },
   "QAcDPQkIJD0": {
     "status": "skipped",
@@ -2735,7 +2734,7 @@
       "youtube-SEnv3QWLIMw"
     ],
     "attempts": 0,
-    "updatedAt": "2026-11-05T23:43:26.169Z"
+    "updatedAt": "2026-11-08T09:37:17.568Z"
   },
   "SKB7ImWt9Fc": {
     "status": "processed",
@@ -2805,7 +2804,7 @@
       "youtube-TEZjYpuJFsU"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-30T23:13:01.024Z"
+    "updatedAt": "2026-11-08T09:35:01.457Z"
   },
   "TKP37sn5BC0": {
     "status": "processed",
@@ -4449,7 +4448,7 @@
       "youtube-jvEJpkByqJ0"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-30T23:23:52.963Z"
+    "updatedAt": "2026-11-08T09:37:17.534Z"
   },
   "jzJ_QmplCFE": {
     "status": "processed",
@@ -4465,7 +4464,7 @@
       "youtube-k3xDjE_A8t0"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-31T12:39:14.857Z"
+    "updatedAt": "2026-11-08T09:37:46.152Z"
   },
   "k7oytunIYow": {
     "status": "skipped",
@@ -4726,7 +4725,7 @@
       "youtube-nSfYE7PXUmY"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-31T12:54:30.779Z"
+    "updatedAt": "2026-11-08T09:36:59.814Z"
   },
   "naWrFEnwALY": {
     "status": "processed",
@@ -5547,7 +5546,7 @@
       "youtube-wV9FK0MHv5g"
     ],
     "attempts": 0,
-    "updatedAt": "2026-10-31T03:45:06.527Z"
+    "updatedAt": "2026-11-08T09:34:50.786Z"
   },
   "wfG_EzUX04s": {
     "status": "processed",

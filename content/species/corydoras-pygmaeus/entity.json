@@ -17,11 +17,13 @@
         "BR"
       ],
       "regions": [
-        "Madeira River"
+        "Madeira River",
+        "Rio Madeira"
       ],
       "sources": [
         "bwaquatics",
-        "aquariumcoop"
+        "aquariumcoop",
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -32,6 +34,14 @@
           ],
           "regions": [
             "Madeira River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to the Rio Madeira basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira"
           ]
         }
       ]

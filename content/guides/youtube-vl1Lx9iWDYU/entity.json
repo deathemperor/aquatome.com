@@ -165,21 +165,27 @@
     ],
     "gear": [
       {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "Aquasoil",
-        "t": 314
-      },
-      {
         "category": "khac",
         "brand": "2Hr Aquarist",
-        "model": "APT0",
-        "t": 1000
+        "model": "APT Zero",
+        "t": 1047
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aqua Soil",
+        "t": 330
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 542
       },
       {
         "category": "co2",
         "type": "binh",
-        "t": 1616
+        "t": 1576
       },
       {
         "category": "loc",
@@ -209,26 +215,41 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 820
+        "t": 780
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 330
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 1275
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 814
       }
     ],
     "figures": [
       {
-        "heading": "Thay nước thế nào cho đều và đúng lúc",
+        "heading": "Thay nước bao lâu một lần và vào giờ nào",
         "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dàn bể thủy sinh trên kệ với bể lớn đặt lũa."
-          },
           {
             "t": 70,
             "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Người đang thay nước cho bể thủy sinh nhỏ trên kệ."
+            "caption": "Đang thay nước bể thủy sinh bằng ống siphon, bên cạnh là kệ nhiều bể."
+          },
+          {
+            "t": 150,
+            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bể thủy sinh với rêu, đá và cây thủy sinh xanh tốt."
           }
         ],
         "photo": {
@@ -239,25 +260,18 @@
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
-          "caption": "Cá chép bơi trong bể nước trong, nền sỏi sạch sau khi thay nước."
+          "caption": "Bể cá nước trong, nền sỏi sạch, hai chú cá chép bơi thong thả."
         }
       },
       {
-        "heading": "Khởi động bể mới sao cho ít rêu",
+        "heading": "Khởi động bể mới sao cho ít rêu hại",
         "moments": [
           {
             "t": 170,
             "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at170-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cho vật liệu lọc vào túi lưới để bỏ vào lọc bể mới."
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới set với lũa, đá và cây xanh mướt."
+            "caption": "Cầm túi vật liệu lọc đã chạy lâu để cho vào lọc bể mới."
           }
         ],
         "photo": {
@@ -268,25 +282,25 @@
           "licence": "CC BY-SA 3.0",
           "author": "Wikimedia Commons",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
-          "caption": "Các loại vật liệu lọc: bông lọc, sứ lọc, bio ball và sỏi nung."
+          "caption": "Các loại vật liệu lọc như sứ, mút xốp và bóng vi sinh."
         }
       },
       {
-        "heading": "Chỉnh đèn: độ sáng và thời gian chiếu",
+        "heading": "Chỉnh đèn thế nào để không kích rêu hại",
         "moments": [
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới setup với cây còn nhỏ, đang thích nghi dưới đèn."
-          },
           {
             "t": 380,
             "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at380-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh có lũa, cây đã lên xanh sau một thời gian."
+            "caption": "Bể thủy sinh mới với đá lũa và cây xanh tươi, chưa có rêu hại."
+          },
+          {
+            "t": 410,
+            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at410-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cây thủy sinh khỏe mạnh bám lũa dưới ánh đèn."
           }
         ],
         "photo": {
@@ -297,73 +311,54 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt với đèn LED gắn phía trên."
+          "caption": "Bể thủy sinh có đèn LED gắn phía trên, cây xanh tốt."
         }
       },
       {
-        "heading": "Chọn và trồng cây để thắng rêu",
+        "heading": "Cây khỏe và nhiều cây là cách chống rêu hại tốt",
         "moments": [
           {
             "t": 640,
             "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at640-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khóm cây xanh tươi mọc khỏe trên lũa trong bể."
+            "caption": "Cụm cây xanh tốt mọc khỏe trên lũa trong bể."
           },
           {
-            "t": 740,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at740-hd.webp",
+            "t": 690,
+            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at690-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây rậm rạp, xanh khỏe, rêu hại khó mọc."
+            "caption": "Nhiều loại cây thủy sinh tươi khỏe được bày trong khay để chọn mua."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/p3-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/vl1Lx9iWDYU/p3-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/p3-9zdXJmYWNlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/vl1Lx9iWDYU/p3-9zdXJmYWNlLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riccia_fluitans-1-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Rêu xanh mọc dày trên lũa trong bể thủy sinh, cạnh các loại cây khác."
+          "height": 427,
+          "licence": "CC BY-SA 4.0",
+          "author": "Mechsnipe",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocotyle_Leucocephala_floating_in_water_surface.jpg",
+          "caption": "Cây thủy sinh xanh khỏe, lá mọc dày trong bể."
         }
       },
       {
-        "heading": "Châm phân sao cho rêu không có phần",
+        "heading": "Đá, nền và phân: giữ dinh dưỡng ở đâu",
         "moments": [
           {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at830-hd.webp",
+            "t": 760,
+            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at760-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây đỏ lên màu đẹp, sạch rêu hại."
+            "caption": "Bể thủy sinh có đá, lũa và thảm cây xanh tươi tốt."
           },
           {
-            "t": 850,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at850-hd.webp",
+            "t": 820,
+            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at820-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ phân nền vào bể trống để trồng cây."
-          }
-        ]
-      },
-      {
-        "heading": "Nước, nhiệt độ và dòng chảy",
-        "moments": [
-          {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống đặt đá và lũa, đang bố trí hardscape."
-          },
-          {
-            "t": 1290,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at1290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh cây xanh tốt với đá và lũa, có cá bơi."
+            "caption": "Xếp các tảng đá nham thạch sẫm màu trong bể trống."
           }
         ],
         "photo": {
@@ -374,20 +369,12 @@
           "licence": "CC BY-SA 4.0",
           "author": "Lennart Jöhnk",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh bố cục đá và cây thảm xanh mướt, nước trong."
+          "caption": "Bể thủy sinh bố cục đá với cây thảm xanh mướt phủ nền."
         }
       },
       {
         "heading": "Đọc dấu hiệu rêu hại và nuôi đội dọn",
-        "moments": [
-          {
-            "t": 1550,
-            "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/at1550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ốc Clithon bò trên thảm cỏ, làm đội dọn rêu hại trong bể."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/vl1Lx9iWDYU/p7-JkX2FsZ2FlLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/vl1Lx9iWDYU/p7-JkX2FsZ2FlLnBuZw-480.webp",
@@ -396,7 +383,7 @@
           "licence": "CC BY 3.0",
           "author": "Emboli",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu râu đen bám dày trên lá cây thủy sinh và nền sỏi."
+          "caption": "Rêu râu đen bám dày trên lá cây thủy sinh trong bể."
         }
       }
     ]

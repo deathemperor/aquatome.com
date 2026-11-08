@@ -9,6 +9,7 @@ import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
+import { CONVERTED_LITRES } from './round'
 import { snapshotName } from './snapshot'
 
 /**
@@ -18,7 +19,7 @@ import { snapshotName } from './snapshot'
  * (prompts/fit.md). A model's finding counts only with a quote that is on the page. Whether a product is sold in a market
  * is never the model's call: it names the products, and the market table (market.ts) says.
  */
-export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'card', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
+export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'harm', 'card', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
 export type FitCheck = (typeof FIT_CHECKS)[number]
 /** What each check came from, so a new complaint about one page has a place to go: a check run over all of them. */
 export const FIT_TITLE: Record<FitCheck, string> = {
@@ -31,6 +32,7 @@ export const FIT_TITLE: Record<FitCheck, string> = {
   words: 'Words keepers here don\'t use',
   elsewhere: 'Written for a reader who lives elsewhere',
   kit: 'A shop abroad\'s kit or catalogue, which no rewording fixes',
+  harm: 'Advice that, followed as written, would hurt the fish, other animals, plants or the keeper',
   card: 'A card that says a newly described species was discovered or gives no date for its paper, or a trend without its figures or where they come from',
   'dose-purpose': 'A dose that doesn\'t say what it\'s for',
   'dose-conflict': 'The same treatment, for the same thing, dosed differently on another page',
@@ -47,6 +49,7 @@ export const FIT_LABEL_VI: Record<FitCheck, string> = {
   words: 'Chữ người chơi ở đây không dùng',
   elsewhere: 'Viết cho người đọc ở nước khác',
   kit: 'Bộ đồ hay danh mục của tiệm nước ngoài',
+  harm: 'Lời khuyên làm theo thì hại cá, con vật khác, cây hay người nuôi',
   card: 'Thẻ ghi loài mới là "phát hiện" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn',
   'dose-purpose': 'Liều không nói để trị gì',
   'dose-conflict': 'Cùng một cách trị mà trang này liều khác trang kia',
@@ -62,8 +65,12 @@ export type FitEntry = {
   /** The checklist it was read with (CHECKLIST); absent: the first. */
   checklist?: number
 }
-/** 2: `kit` added, a check guides read before it lack, so they're read again. */
-export const CHECKLIST = 2
+/**
+ * 2: `kit` added, a check guides read before it lack, so they're read again. 3: `harm` added, after a video guide told
+ * readers to catch fish by raising CO₂ and switching the filter off: guides are read again for it; other pages take it at
+ * their next read, when their text changes.
+ */
+export const CHECKLIST = 3
 export type FitState = Record<string, FitEntry>
 
 const COUNTRY: Record<Lang, string> = { vi: 'Vietnam', id: 'Indonesia', th: 'Thailand', ms: 'Malaysia' }
@@ -115,7 +122,7 @@ const IMPERIAL = [
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
 ]
 /** A volume only a conversion from gallons would give. A dose's figures are the dose check's. */
-const CONVERTED = re(`(?<![\\d.,])(?:19|38|57|76|114|151|208|284|379)\\s*(?:lít|liter|litre|l|ลิตร)(?![\\p{L}\\p{N}])`)
+const CONVERTED = re(`(?<![\\d.,])(?:${CONVERTED_LITRES.join('|')})\\s*(?:lít|liter|litre|l|ลิตร)(?![\\p{L}\\p{N}])`)
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
 const DOSE = re(WORD(`${AMOUNT}(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|sachet|tablet|butir|ซอง|เม็ด|หยด)`))
 

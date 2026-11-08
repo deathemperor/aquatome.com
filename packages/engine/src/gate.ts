@@ -13,7 +13,8 @@ import { loadCards, loadPages, pageUrl, type Page } from './pages'
  * pages: the pages whose text the cycle changed are read, and
  * - a new page that fails any check but words is held: kept in the repository with `held`, which the build leaves out;
  * - a live page whose new text fails a check its old text passed gets its committed text back;
- * - a page with a fault no rewording fixes (HOLD_ALWAYS) is held, new or old, changed or not;
+ * - a page with a fault no rewording fixes or advice that would hurt (HOLD_ALWAYS) is held, changed or not, unless it's a
+ *   live page whose new text brought it, which gets its old text back;
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
  *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
@@ -23,8 +24,11 @@ import { loadCards, loadPages, pageUrl, type Page } from './pages'
 export const GATE_KINDS = ['guides', 'species', 'plants', 'breeds'] as const
 /** What the gate reads: those, and the app's short cards (content/cards), which the owner's number and the report don't count. */
 export const GATED_KINDS = [...GATE_KINDS, 'cards'] as const
-/** Faults no rewording fixes: a page with one is held back, whether or not the cycle changed it. */
-export const HOLD_ALWAYS: readonly FitCheck[] = ['kit']
+/**
+ * Faults a page is held back for, whether or not the cycle changed it: a kit, which no rewording fixes, and advice that
+ * would hurt, which readers mustn't have while it waits for a fix. A live page whose new text brings one gets its old text.
+ */
+export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
 /** Pages wrong for the reader on 8 Nov 2026, when the checklist first read the site: the owner's number starts here. */
 export const FIT_BASELINE = { day: '2026-11-08', pct: { vi: 50, id: 37, th: 31, ms: 51 } as Record<Lang, number> }
 
@@ -48,7 +52,8 @@ export const gateChecks = (p: Page, e?: FitEntry) => new Set(fitFindings(p, e).f
 /** What the gate does with one changed page, from its checks now and, for a live page, its old text's. */
 export function gateCall(now: Set<FitCheck>, o: { isNew: boolean; wasHeld: boolean; before?: Set<FitCheck> }): GateCall {
   const checks = [...now].sort()
-  if (checks.some(c => HOLD_ALWAYS.includes(c))) return { action: 'hold', checks }
+  const always = checks.filter(c => HOLD_ALWAYS.includes(c))
+  if (always.length && (o.isNew || o.wasHeld || always.every(c => o.before?.has(c)))) return { action: 'hold', checks }
   if (o.isNew || o.wasHeld) return checks.length ? { action: 'hold', checks } : { action: o.wasHeld ? 'release' : 'pass', checks }
   const worse = checks.filter(c => !o.before?.has(c))
   return worse.length ? { action: 'revert', checks: worse } : { action: 'pass', checks }
@@ -152,8 +157,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   // text, and a new or held one waits, held. The run still publishes the rest; only a crash in the gate stops it.
   const unread = (f: string, p: Page, held: boolean) => {
     report.unread.push(p.path)
-    if (held) pending.push(f)
-    else reverts.push(f)
+    if (held) { pending.push(f); return }
+    reverts.push(f)
+    // The text put back is held if its own saved read has a fault that holds a page.
+    const old = head.pages.get(fitKey(p)), e = state[fitKey(p)]
+    const back = old && e?.hash === fitText(old).hash ? [...gateChecks(old, e)].sort() : []
+    if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
   }
   const pending: string[] = []
   let next = 0
@@ -188,7 +197,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
             state[fitKey(p)] = fresh
-            // The text put back is held if no rewording fixes it.
+            // The text put back is held if it has a fault of that kind itself.
             const back = [...before].sort()
             if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
           }

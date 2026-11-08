@@ -5,7 +5,7 @@ import { contract, type Op } from './contract'
 
 const { api, fixtures, misfits, streamMisfits } = contract('chat.openapi.json')
 const sse = (api.paths['/api/chat'].post as Op).responses['200']!.content['text/event-stream']!
-const recorded = ['chat-cancel-cancelled.json', 'chat-cancel-late.json', 'chat-cancelled.json', 'chat-conversation.json', 'chat-conversations.json', 'chat-hidden.json', 'chat-rate.json', 'chat-stream-cancelled.sse', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
+const recorded = ['chat-cancel-cancelled.json', 'chat-cancel-late.json', 'chat-cancelled.json', 'chat-conversation.json', 'chat-conversations.json', 'chat-hidden.json', 'chat-rate.json', 'chat-report-already.json', 'chat-report-saved.json', 'chat-stream-cancelled.sse', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
 
 test('the recorded answers in protocols/ a fake server replays follow the chat contract, and the contract names each of them', () => {
   const checked = fixtures()

@@ -17,10 +17,14 @@ enum OwnCopy {
     #endif
   }
 
+  /// A link to the site for the browser, from our copies marked (`SiteMark`).
+  static func marked(_ url: URL, site: URL) -> URL { isOurs ? SiteMark.marked(url, site: site) : url }
+
   /// A link that leaves the app, in the browser or the app that handles it. A shop link on the site goes from our
-  /// copies straight to its shop (`ShopLink`), so the site doesn't count their taps as readers' clicks.
+  /// copies straight to its shop (`ShopLink`), so the site doesn't count their taps as readers' clicks; another of the
+  /// site's links goes marked.
   @MainActor static func open(_ url: URL, site: URL) async {
-    var to = url
+    var to = marked(url, site: site)
     if isOurs, ShopLink.is(url, site: site) {
       to = await ShopLink.target(of: url, userAgent: "AquaTome-iOS \(AccountsClient.ourCopy)") { r in
         guard let answer = try await URLSession.shared.data(for: r, delegate: NoRedirects()).1 as? HTTPURLResponse else {
