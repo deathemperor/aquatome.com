@@ -17,14 +17,16 @@ test('a simulator run waits for the one before it, across checkouts', async () =
   const dir = home()
   const env = { ...process.env, HOME: dir }
   const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  // Each run's end, heard from its start: the second can finish before node has seen the first close (CI, 2026-11-08).
+  const firstEnd = new Promise(r => first.on('close', r))
   await until(() => existsSync(`${dir}/first`))
   const second = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/second`], { env, stdio: 'ignore' })
+  const secondEnd = new Promise(r => second.on('close', r))
   await wait(500)
   expect(existsSync(`${dir}/second`)).toBe(false)
   writeFileSync(`${dir}/release`, '')
-  const code = await new Promise(r => second.on('close', r))
-  expect(code).toBe(0)
-  expect(first.exitCode).toBe(0)
+  expect(await secondEnd).toBe(0)
+  expect(await firstEnd).toBe(0)
 }, 30_000)
 
 test("a job's stop reaches the command, and the turn passes on", async () => {
