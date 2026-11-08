@@ -66,7 +66,7 @@ const { values: args } = parseArgs({
     judges: { type: 'string', default: '3' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     site: { type: 'string', default: 'https://aquatome.com' },
-    cache: { type: 'string', default: '/tmp/chat-vs-plain' },
+    cache: { type: 'string', default: join(homedir(), '.cache/aquatome/chat-vs-plain') },
     out: { type: 'string', default: join(ROOT, 'docs/review/chat-vs-plain.md') },
     panel: { type: 'string' },
     'retry-failed': { type: 'boolean', default: false },
