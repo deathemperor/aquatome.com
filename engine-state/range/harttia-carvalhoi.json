@@ -1,0 +1,95 @@
+{
+  "id": "harttia-carvalhoi",
+  "native": {
+    "input": "0efe5e18181c442e",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Paquequer, Estado do Rio de Janeiro, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Paquequer River basin in the Paraíba do Sul River drainage, Rio de Janeiro State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: Paquequer River basin in the Paraíba do Sul River drainage, Rio de Janeiro State, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paquequer",
+        "source": "scotcat",
+        "quote": "South America: Paquequer River basin in Paraíba do Sul River drainage, southeastern Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Harttia carvalhoi",
+    "status": "ACCEPTED",
+    "taxonKey": 5202424,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        26
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

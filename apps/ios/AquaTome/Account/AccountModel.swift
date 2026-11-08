@@ -222,6 +222,7 @@ final class AccountModel {
         state = .off
       case .on(_, _, let u?):
         signedIn(u)
+        await pictureArrived(u)
         await sync()
       case .on(_, _, nil):
         // A token whose session ended elsewhere (signed out there, or the account deleted).
@@ -306,6 +307,7 @@ final class AccountModel {
     if !adding { signingInAgain = false }
     token = s.token
     signedIn(s.user)
+    await pictureArrived(s.user)
     await sync(first: true)
     if adding { await register(s.token) }
   }
@@ -466,6 +468,39 @@ final class AccountModel {
     }
   }
 
+  /// The account's fish picture (ProfilePictures) sent to the account, so the reader's other phones have it; the phone
+  /// shows it at once (AccountPicture.key). One not sent (offline, or the server failed) is sent at the next refresh.
+  func sendPicture(_ id: String?) async {
+    guard let token, let u = user else { return }
+    UserDefaults.standard.set(u.id, forKey: AccountPicture.unsent)
+    do {
+      let now = try await api.setPicture(id, token: token)
+      guard self.token == token else { return }
+      UserDefaults.standard.removeObject(forKey: AccountPicture.unsent)
+      signedIn(now)
+    } catch AccountError.signedOut {
+      ended()
+    } catch AccountError.refused("bad_picture") {
+      // One of this app's set the server's hasn't (their sets differ): kept on this phone alone.
+      UserDefaults.standard.removeObject(forKey: AccountPicture.unsent)
+    } catch {}
+  }
+
+  /// The account's picture as the server has it, taken on this phone; this phone's own choice instead while it's still
+  /// to be sent, which it then is.
+  private func pictureArrived(_ u: AccountUser) async {
+    let stored = UserDefaults.standard.string(forKey: AccountPicture.key) ?? ""
+    if !UserDefaults.standard.bool(forKey: AccountPicture.carried) {
+      UserDefaults.standard.set(true, forKey: AccountPicture.carried)
+      if AccountPicture.chosen(stored, by: u) != nil { UserDefaults.standard.set(u.id, forKey: AccountPicture.unsent) }
+    }
+    if UserDefaults.standard.string(forKey: AccountPicture.unsent) == u.id {
+      await sendPicture(AccountPicture.chosen(stored, by: u)?.id)
+    } else {
+      UserDefaults.standard.set(u.picture.flatMap { ProfilePicture.with(id: $0) }.map { AccountPicture.stored($0, by: u) } ?? "", forKey: AccountPicture.key)
+    }
+  }
+
   func signOut() async {
     guard let token, !working else { return }
     working = true
@@ -546,6 +581,7 @@ final class AccountModel {
   private func forget() {
     keychain.delete()
     UserDefaults.standard.removeObject(forKey: Self.keptUser)
+    UserDefaults.standard.removeObject(forKey: AccountPicture.unsent)
     token = nil
     signingInAgain = false
     synced = nil
