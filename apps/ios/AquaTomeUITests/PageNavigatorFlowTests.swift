@@ -1,6 +1,7 @@
 import XCTest
 
-/// The owner's trial of a way round a long page (PageNavigator), on the fixed handbook's fish: nothing of it for anyone
+/// The owner's trial of a way round a long page (PageNavigator), on the fixed handbook's fish, in v1's look (`-v2 NO`,
+/// whichever is the default; in v2 a fish opens v2's own page, and the trial is on the pages v1 draws): nothing of it for anyone
 /// else; for the owner, chosen in the ⋯ menu, the title's list of parts, and the rail's tab, which catches an ordinary
 /// drag (80 points a second, what the first version never caught) and leaves a quick swipe to scroll the page.
 final class PageNavigatorFlowTests: XCTestCase {
@@ -8,7 +9,7 @@ final class PageNavigatorFlowTests: XCTestCase {
 
   func testAReaderHasNoTrialEvenWithTheSettingOn() {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook",
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-v2", "NO", "-reset-defaults", "-fixed-handbook",
                            "-page-navigator-trial", "rail", "-page-rail-stays"]
     app.launchForFlow()
     openFish(app)
@@ -137,7 +138,7 @@ final class PageNavigatorFlowTests: XCTestCase {
   private func owner(_ more: String...) -> XCUIApplication { owner(more) }
   private func owner(_ more: [String]) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-v2", "NO", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
                            "-reset-fake-server", "-fake-owner", "ui-apple"] + more
     app.launchForFlow()
     app.openAccount()
