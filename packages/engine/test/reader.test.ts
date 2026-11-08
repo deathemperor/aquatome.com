@@ -211,3 +211,21 @@ test('a part said more surely than before is not kept, however well it scores', 
   expect(r!.lost).toHaveLength(1)
   expect(r!.notes[0]).toContain('Said more surely than before: "Cá nhảy khỏi bể')
 })
+
+test('the reader step keeps no part said more surely than its English, however well it scores', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rr-'))
+  await mkdir(join(root, 'content', 'species', 's'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const sections = { 'notes:sprucepets': '<p>Cá hiền. Trang lưu ý rằng chúng có thể không làm sạch bể.</p>' }
+  const file = join(root, 'content', 'species', 's', 'vi.json')
+  await writeFile(file, JSON.stringify({ slug: 's', name: 'Cá', sections }))
+  const en = '<p>Peaceful. They may not really clean the tank.</p>'
+  const p = page({ kind: 'species', id: 's', path: '/vi/ca/s/', fields: [{ field: 'sections.notes:sprucepets', html: sections['notes:sprucepets'] }], en: { 'sections.notes:sprucepets': en } })
+  await writeFile(join(root, 'engine-state', '_reader.json'), JSON.stringify({ 'vi/species/s': { at: '2026-10-01', hash: readerText(p).hash, findings: [] } }))
+  const before = await readFile(file, 'utf8')
+  const sure = fakeLlm({ findings: [], rewrite: v => v.replace('Trang lưu ý rằng chúng có thể không', 'Chúng không'), score: 0.95, hedges: [{ from: 'They may not really clean the tank.', to: 'Chúng không làm sạch bể.' }] })
+  const { report } = await readPages(root, [p], { llm: sure.llm, now: () => new Date('2026-11-01T00:00:00Z') }, { limit: 20, rewrites: 3 })
+  expect(report.rewritten).toEqual([])
+  expect(report.notKept).toHaveLength(1)
+  expect(await readFile(file, 'utf8')).toBe(before)
+})

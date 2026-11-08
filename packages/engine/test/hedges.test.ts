@@ -31,3 +31,19 @@ test('a Vietnamese part rewritten: its own hedges are held, through its markup',
   expect(hedgesLost([{ from: 'Cá có thể nhảy khỏi bể.', to: 'Cá nhảy khỏi bể.' }], before, after)).toHaveLength(1)
   expect(hedgesLost([{ from: 'Cá ăn rêu.', to: 'Cá ăn rêu.' }], before, after)).toEqual([])
 })
+
+test('what a reviewer quotes is found as it would read it, and a hedge is read in its own language', () => {
+  // "<40 … >30" is a figure, not a tag: the hedged fact between them is still found.
+  const facts = 'Keep nitrate <40 ppm.\nIch may come back after treatment.\nRaise the heat to >30°C.'
+  expect(hedgesLost([{ from: 'Ich may come back after treatment.', to: 'Ich sẽ quay lại sau khi chữa.' }], facts, 'Ich sẽ quay lại sau khi chữa.')).toHaveLength(1)
+  // An inline tag leaves nothing before its comma, and entities are read.
+  expect(hedgesLost([{ from: 'It may be sold as C. punctatus, a similar fish.', to: 'Cá được bán dưới tên C. punctatus, một loài giống nó.' }], 'It <em>may</em> be sold as <em>C. punctatus</em>, a similar fish.', '<p>Cá được bán dưới tên <em>C. punctatus</em>, một loài giống nó.</p>')).toHaveLength(1)
+  expect(hedgesLost([{ from: 'Fish may live <2 years.', to: 'Cá sống (<2 năm).' }], '<p>Fish may live &lt;2 years.</p>', '<p>Cá sống (&lt;2 năm).</p>')).toHaveLength(1)
+  // The style rewrite's own words keep a hedge: "phần lớn" → "chủ yếu"; "hay" for "or" is no hedge to lose, "hay bị" is.
+  const part = (from: string, to: string) => hedgesLost([{ from, to }], `<p>${from}</p>`, `<p>${to}</p>`)
+  expect(part('Phần lớn thời gian cá ở tầng đáy.', 'Cá chủ yếu ở tầng đáy.')).toEqual([])
+  expect(part('Cho ăn trùn huyết hay artemia.', 'Cho ăn trùn huyết hoặc artemia.')).toEqual([])
+  expect(part('Cá hay bị nấm.', 'Cá bị nấm.')).toHaveLength(1)
+  // "Can thiệp" and "may mắn" are Vietnamese words, not "can" and "may".
+  expect(part('Đừng can thiệp vào bể, may mắn là cá khỏe.', 'Để yên bể, cá khỏe.')).toEqual([])
+})
