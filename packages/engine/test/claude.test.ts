@@ -39,6 +39,17 @@ test('a call that reads no files runs from an empty folder, not /tmp, whose ever
   }
 })
 
+test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
+  spawned.length = 0
+  await call()
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(spawned).toHaveLength(2)
+  for (const { cwd } of spawned) {
+    expect(await realpath(cwd)).not.toBe(await realpath('/tmp'))
+    expect(await readdir(cwd)).toEqual([])
+  }
+})
+
 test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the call', async () => {
   const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
   process.env.ENGINE_COST_LOG = log

@@ -9,9 +9,10 @@
 # waiter that is stopped keeps its place, holding up everyone behind it. Each step of the checks (the build, then the
 # tests) takes the lock on its own, so whoever waits goes in between: on 2026-11-07, at a load of 300 to 600, one part's
 # build and tests held it for 3 h 23 min, with four jobs waiting behind them, another lead's iOS build for 80 min.
-# Other jobs on this Mac: take the lock only to run tests (vitest, xcodebuild test), which time out when another suite
-# runs beside them. A build that only compiles (xcodebuild build, a site build) has no timeouts and doesn't need it: in
-# the queue, it only holds up the tests behind it. The engine takes it only for its tests too (verify_cycle).
+# Other jobs on this Mac: take the lock only to run tests (vitest), which time out when another suite runs beside them.
+# A simulator run takes its turn in its own queue instead (apps/ios/scripts/sim-run.py). A build that only compiles
+# (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
+# behind it. The engine takes it only for its tests too (verify_cycle).
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
 # One step, under the lock on the Mac (GitHub: a runner of its own).
 checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
