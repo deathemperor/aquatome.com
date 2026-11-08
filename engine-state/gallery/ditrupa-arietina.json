@@ -1,5 +1,16 @@
 {
- "queue": [],
+ "queue": [
+  {
+   "url": "https://api.gbif.org/v1/image/cache/fit-in/2400x/occurrence/2412233628/media/1dfa6ee1770a11b6518c296c253e7650",
+   "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/2412233628/media/1dfa6ee1770a11b6518c296c253e7650",
+   "width": 640,
+   "height": 301,
+   "licence": "CC BY-SA 4.0",
+   "author": "Magne Flåten",
+   "sourceUrl": "https://www.gbif.org/occurrence/2412233628",
+   "key": "gbif:2412233628:518c296c253e7650"
+  }
+ ],
  "judged": [
   "File:Ditrupa arietina tube microstructure.jpg",
   "File:Ditrupa arietina 01.jpg"

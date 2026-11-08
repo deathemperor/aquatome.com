@@ -34,6 +34,7 @@ import { r2Media } from './media'
 import { largePhotos } from './large-photos'
 import { mirrorPhotos } from './mirror-photos'
 import sharp from 'sharp'
+import { seedGalleries } from './gallery-seed'
 import { fishbasePhotos, inatPhotos } from './fishbase-photos'
 import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
@@ -365,6 +366,12 @@ if (cmd === 'run' || cmd === 'card-fill') {
   } finally {
     await fetcher.close()
   }
+} else if (cmd === 'gallery-seed') {
+  // Candidates found by hand ({ <page id>: Candidate[] }, gallery.ts keys), at the front of each page's gallery queue,
+  // for the gallery step to screen next (gallery-seed.ts). pnpm engine gallery-seed --from <file>
+  if (!values.from) throw new Error('gallery-seed: --from <file>')
+  const r = await seedGalleries(ROOT, JSON.parse(await readFile(values.from, 'utf8')))
+  console.log(`gallery-seed: ${r.added} candidates queued on ${r.pages} pages, ${r.skipped} already known, shown, rejected or not licensed, ${r.invalid} malformed, ${r.unknown.length} pages not found${r.unknown.length ? ` (${r.unknown.slice(0, 10).join(', ')})` : ''}`)
 } else if (cmd === 'mirror-photos') {
   // Commons and iNaturalist photos served from our bucket (their hosts set third-party cookies; WebP, long cache). --limit N uploads; --dry-run counts.
   const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
