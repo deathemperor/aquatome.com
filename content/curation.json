@@ -54,10 +54,10 @@
    ],
    "shelves": [
     {
-     "id": "chiu-lanh",
+     "id": "ua-nuoc-mat",
      "title": {
-      "vi": "Cá chịu lạnh",
-      "th": "ปลาที่ทนหนาวได้"
+      "vi": "Cá ưa nước mát",
+      "th": "ปลาชอบน้ำเย็น"
      },
      "pages": [
       "breeds/oranda-goldfish",
@@ -88,7 +88,7 @@
      ]
     }
    ],
-   "why": "The cold monsoon reaches northern Vietnam in November and Thailand turns cool, so fish that take the cold and fish that need a heater, with heater and power-cut guides."
+   "why": "The cold monsoon reaches northern Vietnam in November and Thailand turns cool, so fish that like cool water and fish that need a heater, with heater and power-cut guides."
   },
   {
    "from": "2026-11-16",
@@ -143,9 +143,9 @@
      "id": "ca-dan-nho",
      "title": {
       "vi": "Cá đàn nhỏ cho bể thủy sinh",
-      "id": "Ikan kecil bergerombol untuk akuarium tanaman",
+      "id": "Ikan kecil bergerombol untuk aquascape",
       "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
-      "ms": "Ikan kecil berkumpulan untuk akuarium tanaman"
+      "ms": "Ikan kecil berkumpulan untuk aquascape"
      },
      "pages": [
       "species/paracheirodon-axelrodi",
@@ -167,9 +167,9 @@
      },
      "pages": [
       "species/poecilia-reticulata",
-      "species/xiphophorus-maculatus",
       "species/thayeria-boehlkei",
-      "species/corydoras-aeneus"
+      "species/corydoras-aeneus",
+      "species/pristella-maxillaris"
      ]
     }
    ],

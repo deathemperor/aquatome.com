@@ -27,7 +27,7 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 export const REPEAT_DAYS = 28
 
 /** Each tag as the owner's daily report says it, in the day's `why`. */
-const TAG_WORDS: Record<string, string> = { cold: 'tolerates cold', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small fish for a small tank', local: 'native to Vietnam' }
+const TAG_WORDS: Record<string, string> = { cold: 'takes cool water', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small fish for a small tank', local: 'native to Vietnam' }
 
 /** What a week can ask its fish to be (a week's `tags`): how the planner reads each from a page's figures. */
 export const TAGS: Record<string, (f: Facts) => boolean> = {
