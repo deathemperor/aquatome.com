@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs'
+import { cp, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, type Curation } from '@aq/schema'
-import { across, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
+import { across, candidates, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -107,4 +110,14 @@ test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no 
   // Native by the page's native range, not by where it was recorded.
   expect(TAGS.local!({ ...f, places: ['vietnam', 'thailand'], native: ['TH'] })).toBe(false)
   expect(TAGS.local!({ ...f, places: ['vietnam'] })).toBe(true)
+})
+
+test('a breed\'s card can use a checked photo from its gallery', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'curation-'))
+  await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), join(root, 'content'), { recursive: true })
+  const url = 'https://images.unsplash.com/photo-1000000000007-flowerhorn7?ixid=fixture&w=1280&q=80&fm=jpg&fit=max'
+  await mkdir(join(root, 'engine-state'))
+  await writeFile(join(root, 'engine-state', '_photo-subjects.json'), JSON.stringify({ [url]: { 'flowerhorn-cichlid': { ok: 'yes', typical: true, note: '' } } }))
+  const fh = (await candidates(root)).find(c => c.ref === 'breeds/flowerhorn-cichlid')
+  expect(fh?.photo.square?.url).toBe(url)
 })
