@@ -5659,6 +5659,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-australis-2/": {
+    "lastmod": "2017-08-02T13:06:00+00:00",
+    "entityIds": [
+      "species/melanotaenia-australis"
+    ],
+    "updatedAt": "2026-11-08T01:22:23.086Z",
+    "hash": "1af5210d848eedc117fd821bb7360690eb807b42bf2a41b6487c888c7199f1cb",
+    "processedHash": "1af5210d848eedc117fd821bb7360690eb807b42bf2a41b6487c888c7199f1cb",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_pygmaea_en/": {
     "lastmod": "2016-12-15T08:24:15+00:00",
     "entityIds": [
@@ -5723,6 +5734,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_beautiful_swordtail_xiphophorus_hellerii_pineapple_en/": {
+    "lastmod": "2016-11-22T08:55:39+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:31:29.207Z",
+    "hash": "0afcc2b6d0a9617af259c8b50c4c04752d8360e5d26b8c53575ddf5b475f0d9e",
+    "processedHash": "0afcc2b6d0a9617af259c8b50c4c04752d8360e5d26b8c53575ddf5b475f0d9e",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphanius_farsicus_en/": {
     "lastmod": "2016-11-22T08:55:39+00:00",
     "entityIds": [
@@ -5742,6 +5762,37 @@
     "updatedAt": "2026-10-30T13:12:48.762Z",
     "hash": "0bb0bde79fdeaefc33c153621c233a0c3a4a0ccea4c29ff4fee003d72c898584",
     "processedHash": "0bb0bde79fdeaefc33c153621c233a0c3a4a0ccea4c29ff4fee003d72c898584",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_peruensis_en-2/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T13:44:50.474Z",
+    "hash": "154c4537f17d7a27ad106ae2ab9610ef684e95f59ce782e572deae36323c2c88",
+    "processedHash": "154c4537f17d7a27ad106ae2ab9610ef684e95f59ce782e572deae36323c2c88",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyoplatys_duboisi_en/": {
+    "lastmod": "2016-11-22T08:55:39+00:00",
+    "entityIds": [
+      "species/epiplatys-duboisi"
+    ],
+    "updatedAt": "2026-11-08T01:29:34.257Z",
+    "hash": "8bbfb68a107c6bdca6f0faadc96410b8c26d4d547099d6f2563aa9b4ee039453",
+    "processedHash": "8bbfb68a107c6bdca6f0faadc96410b8c26d4d547099d6f2563aa9b4ee039453",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_gabunense_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "species/aphyosemion-gabunense"
+    ],
+    "updatedAt": "2026-11-08T01:40:02.054Z",
+    "hash": "2a59a17a7259af6692a869e154a618f643a727652d394e56a283869defee2f30",
+    "processedHash": "2a59a17a7259af6692a869e154a618f643a727652d394e56a283869defee2f30",
     "status": "processed",
     "attempts": 0
   },
@@ -5789,6 +5840,57 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/double_sword_guppys_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "guides/glaser-en-18-toothcarps-killis-and-livebearers-double-sword-guppys-en"
+    ],
+    "updatedAt": "2026-11-08T01:37:38.726Z",
+    "hash": "25f92e12d65305b80887a92348db78d87ec4c5b8458ed68adf441c0294a48d8f",
+    "processedHash": "25f92e12d65305b80887a92348db78d87ec4c5b8458ed68adf441c0294a48d8f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/dwarf_lampeyes_fluviphylax_from_venezuela_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "guides/glaser-en-18-toothcarps-killis-and-livebearers-dwarf-lampeyes-fluviphylax-from-venezuela-en"
+    ],
+    "updatedAt": "2026-11-08T13:45:05.748Z",
+    "hash": "9d62688825546756635cd98e229c04105ea992dedeb7a905be1a1cfd56b95c41",
+    "processedHash": "9d62688825546756635cd98e229c04105ea992dedeb7a905be1a1cfd56b95c41",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_classic_en/": {
+    "lastmod": "2016-11-22T08:55:39+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:30:15.468Z",
+    "hash": "63da8ab6177d44b641ef88314e1a5719762e6ecf00efa9034613e9b0d782cb75",
+    "processedHash": "63da8ab6177d44b641ef88314e1a5719762e6ecf00efa9034613e9b0d782cb75",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "species/poecilia-wingei"
+    ],
+    "updatedAt": "2026-11-08T01:41:52.668Z",
+    "hash": "75b8a8a5b60d9b2fab2511bd3ff6fce82d870262a801870389e27757e34c6df2",
+    "processedHash": "75b8a8a5b60d9b2fab2511bd3ff6fce82d870262a801870389e27757e34c6df2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy_blue_sapphire_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:33:48.298Z",
+    "hash": "0250010fb668feb90b826aaa7dc409339bf31823c237861e2af2e9bba0c8c269",
+    "processedHash": "0250010fb668feb90b826aaa7dc409339bf31823c237861e2af2e9bba0c8c269",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/heterandria_formosa_and_neoheterandria_elegans_en/": {
     "lastmod": "2017-01-04T13:40:12+00:00",
     "entityIds": [
@@ -5833,6 +5935,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_hellneri_m_cf_ortegai__en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "species/moema-hellneri"
+    ],
+    "updatedAt": "2026-11-08T01:40:43.385Z",
+    "hash": "48e1cdf445c00462f78e2a1d4e5a3b166d07525826deecd31b910231419f6318",
+    "processedHash": "48e1cdf445c00462f78e2a1d4e5a3b166d07525826deecd31b910231419f6318",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_quiii_en/": {
+    "lastmod": "2017-01-04T15:28:32+00:00",
+    "entityIds": [
+      "species/moema-quiii"
+    ],
+    "updatedAt": "2026-11-08T13:29:13.639Z",
+    "hash": "ba1ae66500acf1a515dbebf49c75ef817f452a95b44b17bb4eb04a202846ac07",
+    "processedHash": "ba1ae66500acf1a515dbebf49c75ef817f452a95b44b17bb4eb04a202846ac07",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/neoheterandria-elegans-2/": {
     "lastmod": "2021-06-09T17:17:13+00:00",
     "entityIds": [
@@ -5861,6 +5985,26 @@
     "updatedAt": "2026-11-06T20:58:26.056Z",
     "hash": "0d9637664765be688a2a152d702b2fb67983b88c0fae9fd49c954d7422fb8cd5",
     "processedHash": "0d9637664765be688a2a152d702b2fb67983b88c0fae9fd49c954d7422fb8cd5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new_guppys__en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:39:10.424Z",
+    "hash": "9e32d98b6f01a86a0d026ac49fef88591bb63c6d40e077657aae26aa5aca948d",
+    "processedHash": "9e32d98b6f01a86a0d026ac49fef88591bb63c6d40e077657aae26aa5aca948d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new_nothos_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "guides/glaser-en-18-toothcarps-killis-and-livebearers-new-nothos-en"
+    ],
+    "updatedAt": "2026-11-08T01:34:56.884Z",
+    "hash": "da56f6a69a300d45e9979e51a96553275e9053a20264b6245419fb1a92c4ed19",
+    "processedHash": "da56f6a69a300d45e9979e51a96553275e9053a20264b6245419fb1a92c4ed19",
     "status": "processed",
     "attempts": 0
   },
@@ -5919,6 +6063,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/platy_pepper_salt_rainbow_en/": {
+    "lastmod": "2016-11-22T08:55:39+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:31:21.461Z",
+    "hash": "9145247cc71db75e6f686dd7eeda12f18209ad0ea7d5d5fc66adfbc7addb7236",
+    "processedHash": "9145247cc71db75e6f686dd7eeda12f18209ad0ea7d5d5fc66adfbc7addb7236",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-mexicana-campeche/": {
     "lastmod": "2016-11-22T08:55:38+00:00",
     "entityIds": [
@@ -5941,6 +6094,103 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_perugiae_en/": {
+    "lastmod": "2016-12-18T09:29:24+00:00",
+    "entityIds": [
+      "species/limia-perugiae"
+    ],
+    "updatedAt": "2026-11-08T01:21:27.390Z",
+    "hash": "238a5ce823ff4128a873a70f11814801693b2afe7e630ad20f486667a0d74603",
+    "processedHash": "238a5ce823ff4128a873a70f11814801693b2afe7e630ad20f486667a0d74603",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_wingei_blue_star_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T01:37:03.562Z",
+    "hash": "3949a8f752f37cb0d8fca808a35c1d5117324420e70806dda12a9fabc8ac9177",
+    "processedHash": "3949a8f752f37cb0d8fca808a35c1d5117324420e70806dda12a9fabc8ac9177",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-2/": {
+    "lastmod": "2017-01-30T09:33:57+00:00",
+    "entityIds": [
+      "species/procatopus-aberrans"
+    ],
+    "updatedAt": "2026-11-08T13:31:48.796Z",
+    "hash": "cd67fb621998b0115e2f7f6625a277eb8d72014bac7c9b79734831038e322792",
+    "processedHash": "cd67fb621998b0115e2f7f6625a277eb8d72014bac7c9b79734831038e322792",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-4/": {
+    "lastmod": "2017-10-23T13:29:30+00:00",
+    "entityIds": [
+      "species/procatopus-aberrans"
+    ],
+    "updatedAt": "2026-11-08T13:32:35.499Z",
+    "hash": "35de7eaecc4bfc3a9b5d6053ffca9fa0bd7b09a1321b53ce285c5c0282ce2931",
+    "processedHash": "35de7eaecc4bfc3a9b5d6053ffca9fa0bd7b09a1321b53ce285c5c0282ce2931",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/": {
+    "lastmod": "2021-01-15T17:18:49+00:00",
+    "entityIds": [
+      "species/procatopus-aberrans"
+    ],
+    "updatedAt": "2026-11-08T13:33:34.267Z",
+    "hash": "35de7eaecc4bfc3a9b5d6053ffca9fa0bd7b09a1321b53ce285c5c0282ce2931",
+    "processedHash": "35de7eaecc4bfc3a9b5d6053ffca9fa0bd7b09a1321b53ce285c5c0282ce2931",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-8/": {
+    "lastmod": "2021-10-01T17:02:18+00:00",
+    "entityIds": [
+      "species/procatopus-aberrans"
+    ],
+    "updatedAt": "2026-11-08T13:39:10.193Z",
+    "hash": "10588414b42a3cbf25b4c09e74f70d7ba09a23578166ffe8a29c13f31f93a034",
+    "processedHash": "10588414b42a3cbf25b4c09e74f70d7ba09a23578166ffe8a29c13f31f93a034",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus_aberrans_and_p_nototaenia_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "guides/glaser-en-18-toothcarps-killis-and-livebearers-procatopus-aberrans-and-p-nototaenia-en"
+    ],
+    "updatedAt": "2026-11-08T01:35:57.787Z",
+    "hash": "d6f6a10c7f5fc0d9bb3396ae8604854b729a10ff5b11fd2f1f541d16cd2bebb5",
+    "processedHash": "d6f6a10c7f5fc0d9bb3396ae8604854b729a10ff5b11fd2f1f541d16cd2bebb5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus_similis_mundemba_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "species/procatopus-similis"
+    ],
+    "updatedAt": "2026-11-08T01:32:38.518Z",
+    "hash": "1218c00e0d9e8dabab176f5dc6d97d6104830e757ddeb7003244ea1d53eaed7d",
+    "processedHash": "1218c00e0d9e8dabab176f5dc6d97d6104830e757ddeb7003244ea1d53eaed7d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_hartii_en/": {
+    "lastmod": "2016-11-22T08:55:41+00:00",
+    "entityIds": [
+      "species/anablepsoides-hartii"
+    ],
+    "updatedAt": "2026-11-08T13:45:51.154Z",
+    "hash": "0182770826d162084101df4147b4e4eb394e8aa919a77247445dd125ff9099a2",
+    "processedHash": "0182770826d162084101df4147b4e4eb394e8aa919a77247445dd125ff9099a2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/": {
     "lastmod": "2017-01-05T15:07:03+00:00",
     "entityIds": [
@@ -5960,6 +6210,48 @@
     "updatedAt": "2026-11-07T03:17:13.851Z",
     "hash": "35378671f5025baf4f4dd0263432739d7b70f815fd52850183012b9117adc867",
     "processedHash": "35378671f5025baf4f4dd0263432739d7b70f815fd52850183012b9117adc867",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/small_neon_ricefish_en/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [
+      "species/oryzias-wolasi"
+    ],
+    "updatedAt": "2026-11-08T01:34:22.916Z",
+    "hash": "7f4dd0ba376e4544f4654e70b2e343379fbe8e89687c696d224f7db31c60343d",
+    "processedHash": "7f4dd0ba376e4544f4654e70b2e343379fbe8e89687c696d224f7db31c60343d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenophallus_umbratilis_en-2/": {
+    "lastmod": "2016-11-22T08:55:39+00:00",
+    "entityIds": [
+      "species/xenophallus-umbratilis"
+    ],
+    "updatedAt": "2026-11-08T01:30:41.688Z",
+    "hash": "2584784db2030645a5d48e00721ea90ffe955c5c503248c9e8277e9bbc18148b",
+    "processedHash": "2584784db2030645a5d48e00721ea90ffe955c5c503248c9e8277e9bbc18148b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca_eiseni_san_marcos_en-2/": {
+    "lastmod": "2016-11-22T08:55:40+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T13:44:58.034Z",
+    "hash": "71cde0cd90abbbbf2baf50ac0b86497e313d690f8578a6a91a49f39be83c6d3b",
+    "processedHash": "71cde0cd90abbbbf2baf50ac0b86497e313d690f8578a6a91a49f39be83c6d3b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xenotoca_eiseni_san_marcos_en/": {
+    "lastmod": "2016-11-22T08:55:41+00:00",
+    "entityIds": [
+      "species/xenotoca-eiseni"
+    ],
+    "updatedAt": "2026-11-08T13:47:02.262Z",
+    "hash": "71cde0cd90abbbbf2baf50ac0b86497e313d690f8578a6a91a49f39be83c6d3b",
+    "processedHash": "71cde0cd90abbbbf2baf50ac0b86497e313d690f8578a6a91a49f39be83c6d3b",
     "status": "processed",
     "attempts": 0
   },
@@ -6169,6 +6461,17 @@
     "updatedAt": "2026-10-31T00:39:38.611Z",
     "hash": "0f5c0917f5642d327268374dae588e70a46fcb06278c69ef6237256ee14e9ed0",
     "processedHash": "0f5c0917f5642d327268374dae588e70a46fcb06278c69ef6237256ee14e9ed0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus_cortezi_rio_axtla_en/": {
+    "lastmod": "2016-11-22T08:55:41+00:00",
+    "entityIds": [
+      "species/xiphophorus-cortezi"
+    ],
+    "updatedAt": "2026-11-08T13:47:44.559Z",
+    "hash": "e75b39070168b4b7debc5d4cf5c6fa4412ce964fa0b512b083f11418538dd5cb",
+    "processedHash": "e75b39070168b4b7debc5d4cf5c6fa4412ce964fa0b512b083f11418538dd5cb",
     "status": "processed",
     "attempts": 0
   },
@@ -7001,6 +7304,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/hypseleotris_compressa_en/": {
+    "lastmod": "2022-01-07T17:00:00+00:00",
+    "entityIds": [
+      "species/hypseleotris-compressa"
+    ],
+    "updatedAt": "2026-11-08T01:23:28.242Z",
+    "hash": "6923df7016a77226c48a9a53dd31620bc65e3d477c7be61b110ddf112b0046cf",
+    "processedHash": "6923df7016a77226c48a9a53dd31620bc65e3d477c7be61b110ddf112b0046cf",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/": {
     "lastmod": "2024-02-07T11:14:30+00:00",
     "entityIds": [
@@ -7644,6 +7958,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/limnopilos-naiyanetri/": {
+    "lastmod": "2017-01-09T13:16:15+00:00",
+    "entityIds": [
+      "species/limnopilos-naiyanetri"
+    ],
+    "updatedAt": "2026-11-08T13:29:58.160Z",
+    "hash": "b91c8115b6e9b7362beba8fc83d212700c96ca1010ef04adf1c933aab08b6082",
+    "processedHash": "b91c8115b6e9b7362beba8fc83d212700c96ca1010ef04adf1c933aab08b6082",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neocaridina-denticulata-hulk-orange-2/": {
     "lastmod": "2022-10-31T11:23:25+00:00",
     "entityIds": [
@@ -7864,6 +8189,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/": {
+    "lastmod": "2024-04-04T10:54:37+00:00",
+    "entityIds": [
+      "species/devario-maetaengensis"
+    ],
+    "updatedAt": "2026-11-08T01:24:42.748Z",
+    "hash": "1efdec5ffae017f3c0e53a6108476d979b125ea5dca1b878c39dc3b3eefb1d86",
+    "processedHash": "1efdec5ffae017f3c0e53a6108476d979b125ea5dca1b878c39dc3b3eefb1d86",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/fisharchive/dichotomyctere-fluviatilis-formerly-tetraodon-fluviatilis/": {
     "lastmod": "2025-02-28T08:12:50+00:00",
     "entityIds": [
@@ -7886,6 +8222,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chaperi-angona-2/": {
+    "lastmod": "2024-09-05T10:55:27+00:00",
+    "entityIds": [
+      "species/epiplatys-chaperi"
+    ],
+    "updatedAt": "2026-11-08T01:26:00.479Z",
+    "hash": "5ee542534bf9b29d86d6b94948c872ea10cebec4bf14003552754f015f590a97",
+    "processedHash": "5ee542534bf9b29d86d6b94948c872ea10cebec4bf14003552754f015f590a97",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/fisharchive/epiplatys-chevalieri-2/": {
     "lastmod": "2024-08-23T09:03:09+00:00",
     "entityIds": [
@@ -7905,6 +8252,17 @@
     "updatedAt": "2026-11-02T23:22:57.635Z",
     "hash": "a5adf4aaaff72041b08077ac8f635f81dee49e4c508b06a006b4949d0b8c597c",
     "processedHash": "a5adf4aaaff72041b08077ac8f635f81dee49e4c508b06a006b4949d0b8c597c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/fisharchive/garra-qiaojiensis-2/": {
+    "lastmod": "2025-10-10T08:08:52+00:00",
+    "entityIds": [
+      "species/garra-qiaojiensis"
+    ],
+    "updatedAt": "2026-11-08T01:28:26.470Z",
+    "hash": "ac502784bb7e3b226e3026f304e50d16f1e92e75ab1f374c3c16d865bc904ab6",
+    "processedHash": "ac502784bb7e3b226e3026f304e50d16f1e92e75ab1f374c3c16d865bc904ab6",
     "status": "processed",
     "attempts": 0
   },
@@ -8359,6 +8717,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/": {
+    "lastmod": "2025-06-13T07:59:47+00:00",
+    "entityIds": [
+      "species/nomorhamphus-ebrardtii"
+    ],
+    "updatedAt": "2026-11-08T13:43:44.118Z",
+    "hash": "b9e8b77518130457f878e33b7de5878a521b2aade942a9477f62a9398f430942",
+    "processedHash": "b9e8b77518130457f878e33b7de5878a521b2aade942a9477f62a9398f430942",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/fisharchive/opsarius-koratensis-2/": {
     "lastmod": "2024-06-28T07:27:47+00:00",
     "entityIds": [
@@ -8675,6 +9044,17 @@
     "updatedAt": "2026-11-02T23:42:11.620Z",
     "hash": "ee4f30ada066139bd8ded9cf70b9b53a35221633c82bda8c9b16c3f7519838f5",
     "processedHash": "ee4f30ada066139bd8ded9cf70b9b53a35221633c82bda8c9b16c3f7519838f5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/fisharchive/trichogaster-pectoralis-2/": {
+    "lastmod": "2025-03-13T11:23:03+00:00",
+    "entityIds": [
+      "species/trichopodus-pectoralis"
+    ],
+    "updatedAt": "2026-11-08T01:27:17.798Z",
+    "hash": "ae35b9a8518412e102e2cb83e7fa673ebb105bc006f0568ae0e899876f476df6",
+    "processedHash": "ae35b9a8518412e102e2cb83e7fa673ebb105bc006f0568ae0e899876f476df6",
     "status": "processed",
     "attempts": 0
   },

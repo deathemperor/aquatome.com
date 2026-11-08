@@ -1,0 +1,105 @@
+{
+  "id": "corydoras-napoensis",
+  "native": {
+    "input": "4fd41718ecd7afcd",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Napo cory, Gastrodermus napoensis, long known as Corydoras napoensis, is an armoured catfish from the upper Amazon in Peru and Colombia, including the Rio Napo and Rio Nanay.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Napo cory, Gastrodermus napoensis, long known as Corydoras napoensis, is an armoured catfish from the upper Amazon in Peru and Colombia, including the Rio Napo and Rio Nanay.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's native to the Rio Napo, Rio Aguarico and Rio Nanay in Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's native to the Rio Napo, Rio Aguarico and Rio Nanay in Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Napo",
+        "source": "seriouslyfish",
+        "quote": "It's native to the Rio Napo, Rio Aguarico and Rio Nanay in Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Rio Nanay",
+        "source": "seriouslyfish",
+        "quote": "It's native to the Rio Napo, Rio Aguarico and Rio Nanay in Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Rio Aguarico",
+        "source": "seriouslyfish",
+        "quote": "It's native to the Rio Napo, Rio Aguarico and Rio Nanay in Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The Napo cory, Gastrodermus napoensis, long known as Corydoras napoensis, is an armoured catfish from the upper Amazon in Peru and Colombia, including the Rio Napo and Rio Nanay.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CO"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Corydoras napoensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342772,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "CO",
+      "EC"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

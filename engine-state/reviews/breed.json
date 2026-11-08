@@ -273,5 +273,80 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/breeds/flowerhorn-cichlid": [
+    {
+      "at": "2026-11-08T12:54:09Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"penyakit bintik putih (white spot)\" - the facts say ich; white spot is a fair translation, so this is fine. Ignore this note.",
+        "\"Sesetengah peminat pula percaya corak pada badannya menyerupai tulisan Cina\" - in the facts this is a Vietnam claim about the name's origin, not a Malaysian one. Minor.",
+        "\"Sesetengah stok jenis badan bulat bermutiara putih yang dibiak baka dalam telah merosot\" - the facts say 'some inbred kim cương stock'. Equating kim cương with the round-bodied La Hán kim cương line is acceptable.",
+        "\"Jenis yang diternak terutamanya di Thailand mempunyai kepala merah, badan kuning jingga\" - the facts attach this to Kim Hoa / Kim Cương Thái đỏ (King Kamfa), so this is supported.",
+        "\"Satu sumber menilai louhan sebagai ikan yang agak mencabar\" - the facts give only difficulty 4, with no scale. 'Agak mencabar' (fairly challenging) is an invented interpretation.",
+        "\"Lebih 60 jenis louhan dilaporkan wujud\" - supported.",
+        "\"Louhan ialah cichlid hibrid ... dihasilkan oleh penternak di Malaysia pada tahun 1990-an\" - this firmly states Malaysian origin. The facts support it only partly, since they say breeders crossed fish there by about 1994.",
+        "\"Seorang penternak berpendapat\" - the facts say a forum keeper, so this is fine.",
+        "\"Ia perlukan air panas yang bersih\" - generic, but roughly supported by the temperature facts.",
+        "\"betina hanya ada kok kecil atau tiada langsung\" - the facts say 'little or none', so this is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T12:54:09Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Penyakit bintik putih (white spot)\": facts say ich, so this is okay, but the page lists it as its own entry with 'juga biasa berlaku' — minor.",
+        "\"Trimac ... dianggap induk yang paling pasti\" — OK; but \"Louhan dihasilkan di Malaysia\" stated flatly is fine.",
+        "\"Jenis golden base dan jenis berwarna putih dianggap jenis premium\": the facts say this about Vietnam (Hoàng Kim and Tuyết Điêu – Bạch Ngọc), not in general; the 'putih' line is only loosely supported.",
+        "\"Midas ... dan redhead cichlid ... turut dicadangkan\": ok. But \"Nico ... merumuskan ... berkemungkinan besar hibrid\" is supported.",
+        "\"sekitar 10–12 tahun\": facts give 10–12 and 10; ok.",
+        "\"Jenis berlian ... (Kim Cương)\" and \"Thai Silk\" lack the Vietnam 2008 context; harmless.",
+        "\"Masalah pencernaan ... terutamanya apabila air sejuk atau ikan diberi makan berlebihan\": combines separate facts into a health claim; mildly unsupported.",
+        "\"Kamfa ... jenis yang diternak terutamanya di Thailand mempunyai kepala merah, badan kuning jingga\": facts attribute this to Kim Hoa / King Kamfa, so this is fine.",
+        "\"Seorang penternak berpendapat\" — facts say a Vietnamese forum keeper; fine.",
+        "\"Ikan ini agak mencabar ... suhu yang panas dan stabil\": 'stabil' (stable) is not in the facts; small unsupported generality. Also \"Sebab itu penternak bergilir-gilir\" and 'Over 60 lines' are supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/full-red-guppy": [
+    {
+      "at": "2026-11-08T12:56:01Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"jangan beri terlalu banyak\" is fine, but \"Seorang penjaga di forum meragui baka albino merah boleh membiak lebih daripada kira-kira 75 peratus mengikut baka induk\" is a slight reinterpretation of \"breed true\"; acceptable but loosely worded.",
+        "\"Satu sumber lain memberinya skor kesukaran 2, tetapi tidak menyatakan skalanya\" – the facts give no information on whether a scale was stated; this is an inference not in the facts.",
+        "\"kotak polisterin\" for foam boxes is fine, but \"tangki bertumbuhan akuatik\" is fine; \"kolam simen\" for cement tanks is fine.",
+        "\"Jika kedua-dua induk membawa gen albino\" – facts say 'two carrier parents', roughly equal; acceptable.",
+        "\"Sumber tidak sepakat tentang kesukarannya... mudah terkejut apabila keadaan air atau cahaya berubah\" – the intro attributes both water and light shock to one shop, whereas the facts attribute light sensitivity to other sources; minor blending.",
+        "\"Albino kurang jelas penglihatannya\" is supported, but the FAQ's \"Jauhkan bentuk albino daripada ikan yang agresif\" is fine.",
+        "\"Sebuah kedai di Amerika Syarikat menyifatkan bentuk albino Full Red sebagai strain warna yang lebih baharu\" is supported.",
+        "\"Ikan jantan lebih kecil\" and the red-eyed albino description are supported; \"Albino mata merah: badan, sirip dan matanya merah\" slightly extends the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T12:56:01Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Lebih penting ialah mengelakkan perubahan suhu yang mengejut\" is not in the facts (temperature advice invented).",
+        "\"Ada bentuk bermata hitam dan bentuk albino bermata merah\" is supported, but \"Jadi asal-usul sebenarnya tidak didokumentasikan dengan jelas\" is an inference not stated in the facts.",
+        "\"tangki bertumbuhan akuatik\" and \"kotak polisterina\" are paraphrases; they are acceptable but slightly loose.",
+        "\"Tahap kesukarannya... sumber lain menilainya sebagai ikan yang mudah dijaga\" is a loose reading of difficulty 2 (of unspecified scale) as 'easy'.",
+        "\"Boleh. Ikan ini aman\" and the claim that the albino should avoid aggressive fish are supported. \"mudah terkejut ... akibat tukar air secara mengejut atau cahaya terang\" is supported.",
+        "\"Satu artikel kedai pula menyebut Thailand dan Taiwan\" omits Vietnam in the shop's own listing, but it is not wrong.",
+        "\"seperti kipas\" for the BDS dorsal is a mild elaboration of 'fanning'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

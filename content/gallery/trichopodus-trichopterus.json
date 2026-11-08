@@ -59,7 +59,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/570340073",
       "caption": "Cá sặc bướm trưởng thành với đốm đen thân, chụp trong bể nhỏ",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/570340073-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/601435004.webp",
@@ -83,7 +88,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/565684230",
       "caption": "Cá sặc bướm bơi trong hộp trong suốt, thấy rõ vây và đốm thân",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/565684230-large.webp",
+        "width": 1802,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/618952563.webp",
@@ -380,16 +390,6 @@
       "caption": "Cá sặc bướm opaline vân xám, vây ngực dài sợi"
     },
     {
-      "url": "https://media.aquatome.com/commons/88dde4c7b32997c5.webp",
-      "thumb": "https://media.aquatome.com/commons/88dde4c7b32997c5-480.webp",
-      "width": 1200,
-      "height": 896,
-      "licence": "CC BY-SA 3.0",
-      "author": "Gourami Watcher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichogaster_trichopterus_with_Xiphophorus_maculatus.jpg",
-      "caption": "Cá sặc bướm opaline đốm đen trong bể nền xanh"
-    },
-    {
       "url": "https://media.aquatome.com/commons/cc7ea25ce73c14d9.webp",
       "thumb": "https://media.aquatome.com/commons/cc7ea25ce73c14d9-480.webp",
       "width": 1200,
@@ -477,7 +477,12 @@
       "licence": "CC BY",
       "author": "Diogo Luiz",
       "sourceUrl": "https://www.inaturalist.org/photos/56732221",
-      "caption": "Cá sặc bướm màu bạc với đốm đen thân trong bể"
+      "caption": "Cá sặc bướm màu bạc với đốm đen thân trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/56732221-large.webp",
+        "width": 1032,
+        "height": 581
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406164838.webp",

@@ -1,0 +1,70 @@
+{
+  "id": "eutropiichthys-britzi",
+  "native": {
+    "input": "36d32123935d1a0e",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Irrawaddy and Sittang River systems, Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "Eutropiichthys britzi is widely distributed in the Irrawaddy River in northern Myanmar and is also present in the Sittang River drainage.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittang",
+        "source": "scotcat",
+        "quote": "Eutropiichthys britzi is widely distributed in the Irrawaddy River in northern Myanmar and is also present in the Sittang River drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Eutropiichthys britzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2341581,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

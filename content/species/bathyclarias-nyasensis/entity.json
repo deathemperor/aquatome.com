@@ -1,0 +1,117 @@
+{
+  "id": "bathyclarias-nyasensis",
+  "scientificName": "Bathyclarias nyasensis",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Bathyclarias",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342479,
+      "total": 1122,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MZ",
+          1121
+        ],
+        [
+          "MW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          830
+        ],
+        [
+          33.75,
+          -12.65625,
+          292
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>Bathyclarias nyasensis (Worthington, 1933), common name Sapuwa. Type locality: Lake Malawi [Lake Nyasa], southeastern Africa. Maximum size: 100 cm SL.</p><p>Synonyms: Clarias nyasensis, Dinotopterus nyasensis.</p><p>IUCN Red List: Least Concern (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>Africa: Endemic to Lake Malawi.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>Occurs in open water and mainly filters zooplankton. Also feeds on small fishes and insect larvae.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>The genital papilla, which is to the right of the anus as you look at the fish with its head to the left, is elongated and pointed in males while it is round and relatively larger (and larger than the anus) in females. In ventral view especially, females are much broader in the body than males of equal age and rearing practices.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>The small, laterally placed eyes that bulge out from the outline of the head are a key characteristic for distinguishing Bathyclarias from Clarias.</p><p>B. nyasensis can be distinguished from the other species of Bathyclarias by having all of the following characters (adapted from Greenwood, 1961: 230):</p><ol><li>Gill rakers long, length of longest gill raker (on outer arch) divided by length of longest gill filament = 0.7-1.0;</li><li>Body relatively slender;</li><li>Maxillary barbel contained 1.8-2.2 times in head length.</li></ol><p>Etymology: from the Greek bathys meaning deep and clarias also from the Greek chlaros, meaning lively; in reference to the ability of clarias to live for long periods out of water.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1245",
+      "html": "<p>Proceedings of the Zoological Society of London Part 2, pp 308, Fig. 9.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-08"
+}

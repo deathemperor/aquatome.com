@@ -1,0 +1,76 @@
+{
+  "id": "geophagus-neambi",
+  "native": {
+    "input": "9446a669589ddabb",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lajeado Hydroelectric Reservoir, Porto Nacional, Tocantins, Rio Tocantins, Brazil, 10°41'36\"S, 48°24'52\"W' but the species has been recorded at various localities within the mid-to-upper rio Tocantins, to which it may be endemic.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lajeado Hydroelectric Reservoir, Porto Nacional, Tocantins, Rio Tocantins, Brazil, 10°41'36\"S, 48°24'52\"W' but the species has been recorded at various localities within the mid-to-upper rio Tocantins, to which it may be endemic.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus neambi",
+    "status": "ACCEPTED",
+    "taxonKey": 5961953,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        38
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

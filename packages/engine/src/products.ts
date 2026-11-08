@@ -6,9 +6,9 @@ import type { Llm } from './claude'
 import { isMarketplace } from './marketplaces'
 import { lastKept, logReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
+import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/product.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 
 type Sourced = { fact: string; source: number }
 type Spec = { key: string; value: string; source?: number }

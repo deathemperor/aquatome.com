@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/discherodontus-halei
 title: Discherodontus halei · Seriously Fish
-fetchedAt: 2026-11-07T05:01:28.131Z
+fetchedAt: 2026-11-07T19:42:32.294Z
 hash: 2ddb04a020af5ffb7f421f47b509e7efe9179d2f31cbca9198472b6edab2c31d
 ---
 

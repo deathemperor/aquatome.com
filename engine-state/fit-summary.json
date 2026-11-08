@@ -1,0 +1,107 @@
+{
+ "day": "2026-11-08",
+ "baseline": {
+  "day": "2026-11-08",
+  "pct": {
+   "vi": 50,
+   "id": 37,
+   "th": 31,
+   "ms": 51
+  }
+ },
+ "langs": {
+  "vi": {
+   "pages": 2985,
+   "read": 2645,
+   "wrong": 1272,
+   "pct": 46,
+   "held": 22
+  },
+  "id": {
+   "pages": 978,
+   "read": 848,
+   "wrong": 260,
+   "pct": 31,
+   "held": 3
+  },
+  "th": {
+   "pages": 971,
+   "read": 850,
+   "wrong": 250,
+   "pct": 30,
+   "held": 5
+  },
+  "ms": {
+   "pages": 127,
+   "read": 99,
+   "wrong": 39,
+   "pct": 42,
+   "held": 1
+  }
+ },
+ "labels": {
+  "product": "Sản phẩm tiệm ở đây có thể không bán",
+  "shop": "Tiệm ở nước ngoài",
+  "price": "Giá hay phí ship ở nước ngoài",
+  "dose": "Liều theo sản phẩm nước ngoài",
+  "source": "Nhắc tới bài hay video gốc",
+  "units": "Gallon, inch hay số lít đổi từ đó",
+  "words": "Chữ người chơi ở đây không dùng",
+  "elsewhere": "Viết cho người đọc ở nước khác",
+  "kit": "Bộ đồ hay danh mục của tiệm nước ngoài",
+  "harm": "Lời khuyên làm theo thì hại cá, con vật khác, cây hay người nuôi",
+  "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
+  "dose-purpose": "Liều không nói để trị gì",
+  "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",
+  "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy"
+ },
+ "sample": [
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-ty-ba-buom-myersi/",
+   "url": "https://aquatome.com/ca/ca-ty-ba-buom-myersi/",
+   "title": "Cá tỳ bà bướm myersi",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    },
+    {
+     "check": "words",
+     "quote": "giới chơi"
+    },
+    {
+     "check": "words",
+     "quote": "thị trường cá cảnh"
+    }
+   ]
+  },
+  {
+   "lang": "ms",
+   "path": "/ms/ikan/ikan-toman/",
+   "url": "https://aquatome.com/ms/ikan/ikan-toman/",
+   "title": "Ikan toman",
+   "wrong": []
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
+   "url": "https://aquatome.com/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
+   "title": "Uốn cong tấm mica acrylic bằng lò nướng để tự làm bể mặt cong",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "nhiều khả năng"
+    },
+    {
+     "check": "words",
+     "quote": "Dù vậy"
+    },
+    {
+     "check": "words",
+     "quote": "bắt buộc phải"
+    }
+   ]
+  }
+ ]
+}

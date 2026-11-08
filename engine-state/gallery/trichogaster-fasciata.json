@@ -44,7 +44,9 @@
   "inat:514213729",
   "inat:545966910",
   "inat:545966912",
-  "inat:545966972"
+  "inat:545966972",
+  "inat:188704114",
+  "inat:188281788"
  ],
  "hashes": {
   "https://media.aquatome.com/inaturalist/470430345.webp": "7368e44d8d9f93d1",
@@ -61,5 +63,9 @@
    "research": 318426418,
    "agree": 360150944
   }
+ },
+ "gbif": {
+  "key": null,
+  "next": 0
  }
 }

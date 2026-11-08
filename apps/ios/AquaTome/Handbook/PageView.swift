@@ -17,6 +17,8 @@ struct PageView: View {
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
+  /// The tank to open once the put sheet has closed.
+  @State private var openAfter: String?
   /// The page as the app draws it, once looked for (`tried`); the web page when there's none or the reader asks for it.
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
@@ -105,7 +107,12 @@ struct PageView: View {
         .background(.bar)
       }
       .onAppear { handbook.read(item) }
-      .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+      .ownerShows(item.path, as: "page")
+      .sheet(isPresented: $putting, onDismiss: {
+        if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
+      }) {
+        if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
+      }
   }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
@@ -177,8 +184,8 @@ private struct WebPage: UIViewRepresentable {
     config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
     context.coordinator.bridge(config.userContentController)
     let web = WKWebView(frame: .zero, configuration: config)
-    // As the app's own screens: a page's words passing under the tab bar are cut off there, not shown through its glass.
-    if #available(iOS 26.0, *) { web.scrollView.bottomEdgeEffect.style = .hard }
+    // As the app's own screens: a page's words passing under the title are cut off there, not shown behind it.
+    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.style = .hard }
     web.navigationDelegate = context.coordinator
     web.allowsBackForwardNavigationGestures = true
     // Ads stay out of the app: AdSense isn't allowed in an app's web view that isn't registered with Google.

@@ -1,0 +1,49 @@
+{
+  "id": "gastromyzon-scitulus",
+  "native": {
+    "input": "82ce9f91db09c596",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Restricted to tributaries of the Sungai (river) Sadong basin in southern Sarawak state, Malaysian Borneo with type locality 'Serian, Sungai Kuhas, 6.9 kilometers from Tebeu Tebakang turnoff, 5.8 kilometers inside right road, 1°09'10.0\"N, 110°29\"22.7\"E, Sadong River basin, Sarawak, Borneo'.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sadong",
+        "source": "seriouslyfish",
+        "quote": "Restricted to tributaries of the Sungai (river) Sadong basin in southern Sarawak state, Malaysian Borneo with type locality 'Serian, Sungai Kuhas, 6.9 kilometers from Tebeu Tebakang turnoff, 5.8 kilometers inside right road, 1°09'10.0\"N, 110°29\"22.7\"E, Sadong River basin, Sarawak, Borneo'.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon scitulus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358875,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# The engine cycle's and the video job's checks before they publish (sourced by engine-cycle.sh and video-cycle.sh, which
-# define log and TEST_LOG).
+# The engine cycle's and the video jobs' checks before they publish, and their start from main (sourced by engine-cycle.sh,
+# video-cycle.sh and video-recheck.sh, which define log and TEST_LOG).
 # The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
 # slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
 # The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
@@ -9,10 +9,29 @@
 # waiter that is stopped keeps its place, holding up everyone behind it. Each step of the checks (the build, then the
 # tests) takes the lock on its own, so whoever waits goes in between: on 2026-11-07, at a load of 300 to 600, one part's
 # build and tests held it for 3 h 23 min, with four jobs waiting behind them, another lead's iOS build for 80 min.
-# Other jobs on this Mac: take the lock only to run tests (vitest, xcodebuild test), which time out when another suite
-# runs beside them. A build that only compiles (xcodebuild build, a site build) has no timeouts and doesn't need it: in
-# the queue, it only holds up the tests behind it. The engine takes it only for its tests too (verify_cycle).
+# Other jobs on this Mac: take the lock only to run tests (vitest), which time out when another suite runs beside them.
+# A simulator run takes its turn in its own queue instead (apps/ios/scripts/sim-run.py). A build that only compiles
+# (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
+# behind it. The engine takes it only for its tests too (verify_cycle).
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
+# Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of
+# its 16 while every lead's work slowed, a 0.4 s job taking up to 54 s. A run waits while any core is taken away, up to 2 h,
+# then goes ahead at its low priority. Its heat level alone says less: it read heavy with all 16 cores at work and that job
+# at 0.3 s. GitHub's runners, and anywhere without these readings, count none taken.
+cores_taken() {
+  local all mask n=0
+  all=$(sysctl -n hw.ncpu 2>/dev/null) && mask=$(sysctl -n kern.sched_recommended_cores 2>/dev/null) || { echo 0; return; }
+  while [ "${mask:-0}" -gt 0 ]; do n=$((n + (mask & 1))); mask=$((mask >> 1)); done
+  [ "$all" -gt "$n" ] 2>/dev/null && echo $((all - n)) || echo 0
+}
+cool() {
+  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  for _ in $(seq "${COOL_TRIES:-240}"); do
+    [ "$(cores_taken)" -eq 0 ] && return 0
+    sleep "${COOL_PAUSE:-30}"
+  done
+  log "still hot after the wait: going ahead"
+}
 # One step, under the lock on the Mac (GitHub: a runner of its own).
 checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
 # The checks, a step an argument, their output in $TEST_LOG. Tests that ran out of time ran on a Mac too busy for them,
@@ -52,8 +71,30 @@ sweep_merged() {
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
 }
+# The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
+# line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
+# 2026-11-08, against an editor's re-plan): its tests failed and the part's photos waited a cycle. So when the calendar
+# is among the clashing files ($1), it is main's, planned again on this cycle's photos, as the curate step plans.
+replan_merged() {
+  [[ " $1 " == *" content/curation.json "* ]] || return 0
+  git show '@{u}:content/curation.json' > content/curation.json
+  pnpm engine curate || log "curate: failed"
+  git add content/curation.json
+  git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
+}
 catch_up() {
   git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
+}
+# Start from GitHub's main, this very script too. git writes main's version as a new file, and bash keeps reading the one it
+# started with, so a run went on with its old script against main's code: on 2026-11-08 a video run tested before it
+# committed, as its old script did, though main's now commits first, and its failed tests left its work uncommitted. The
+# run starts again from the top of main's script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as
+# `from_main "$@"`.
+from_main() {
+  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
+  AQ_SCRIPT_HEAD="$(git rev-parse HEAD)"; export AQ_SCRIPT_HEAD
+  exec bash "$0" "$@"
 }

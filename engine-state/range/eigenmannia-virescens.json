@@ -1,0 +1,315 @@
+{
+  "id": "eigenmannia-virescens",
+  "native": {
+    "input": "56f8a901fc11d099",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "E. virescens, described in 1836, is found in the Rio la Plata and lower Paraná in Brazil, Argentina, Uruguay and Paraguay, but it is questionable whether this southern species has been imported more frequently.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "E. virescens, described in 1836, is found in the Rio la Plata and lower Paraná in Brazil, Argentina, Uruguay and Paraguay, but it is questionable whether this southern species has been imported more frequently.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "E. virescens, described in 1836, is found in the Rio la Plata and lower Paraná in Brazil, Argentina, Uruguay and Paraguay, but it is questionable whether this southern species has been imported more frequently.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "E. virescens, described in 1836, is found in the Rio la Plata and lower Paraná in Brazil, Argentina, Uruguay and Paraguay, but it is questionable whether this southern species has been imported more frequently.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio la Plata",
+        "source": "glaser",
+        "quote": "E. virescens, described in 1836, is found in the Rio la Plata and lower Paraná in Brazil, Argentina, Uruguay and Paraguay, but it is questionable whether this southern species has been imported more frequently.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "glaser",
+        "quote": "E. virescens, described in 1836, is found in the Rio la Plata and lower Paraná in Brazil, Argentina, Uruguay and Paraguay, but it is questionable whether this southern species has been imported more frequently.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": [
+        "BR",
+        "AR",
+        "UY",
+        "PY"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Eigenmannia virescens",
+    "status": "ACCEPTED",
+    "taxonKey": 2402039,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        2290
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        274
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        229
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        141
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        139
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        106
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        76
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        75
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        72
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        62
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        60
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        58
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        54
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        53
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        45
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        36
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        32
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        32
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        29
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        26
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        24
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        20
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        18
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        15
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        13
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        12
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        12
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        11
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        9
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        9
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        8
+      ],
+      [
+        "71d58564-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        3
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "ca5ece39-358c-4dcf-8bb8-fa28601f1be6",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "68ace562-4acd-4a6e-a1ef-52c73a5018d8",
+        2
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "e42bf2ce-364f-444c-ba0e-c5947cc5f4b3",
+        2
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        2
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "cc47cd0b-7cdb-452d-b41c-c3e340092c09",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "AR",
+      "UY",
+      "PY"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

@@ -2,6 +2,18 @@
   "id": "barbonymus-altus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/367464285.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/367464285-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Ong Jyh Seng",
+      "sourceUrl": "https://www.inaturalist.org/photos/367464285",
+      "caption": "Đàn cá he vàng bơi trong bể nuôi",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/5e143950e4115918.webp",
       "thumb": "https://media.aquatome.com/commons/5e143950e4115918-480.webp",
       "width": 1200,
@@ -12,9 +24,21 @@
       "caption": "Cá he vàng bơi trong bể kính, thân ánh xanh, vây cam",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30204807.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30204807-480.webp",
+      "width": 1024,
+      "height": 464,
+      "licence": "CC BY",
+      "author": "Karim Haddad",
+      "sourceUrl": "https://www.inaturalist.org/photos/30204807",
+      "caption": "Cá he vàng trong bể kính nền xanh",
+      "best": true,
+      "kind": "group"
     }
   ],
-  "seen": 2,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 16,
+  "updatedAt": "2026-11-07",
+  "builtAt": "2026-11-07"
 }

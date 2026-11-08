@@ -73,7 +73,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ompok-bimaculatus",
-      "html": "<p>The butter catfish, Ompok bimaculatus, is a widespread silurid catfish recorded from Afghanistan and Pakistan east to China and Indonesia. Also known as the two spot glass catfish, it very likely contains a number of separate species, given the clear morphological differences between populations. It grows to 45 cm, needs a very large tank and will eat any smaller fish it can fit in its mouth.</p>"
+      "html": "<p>The butter catfish, Ompok bimaculatus, is a widespread silurid catfish recorded from Afghanistan and Pakistan east to China and Indonesia. Also known as the two spot glass catfish, it very likely contains a number of separate species, given the clear morphological differences between populations. It grows to 45 cm, needs a very large tank and will eat any smaller fish it can fit in its mouth.</p><ul><li>Difficulty: Moderate. Rated moderate because it needs a very large tank.</li></ul>"
     },
     {
       "key": "distribution",
@@ -91,7 +91,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ompok-bimaculatus",
-      "html": "<p>Standard length: 45 cm SL.</p><p>Aquarium base: 180 × 60 cm.</p><p>Volume: ~648 litres.</p><p>Suggested tank: 180 × 60 × 60 cm - ~648 litres.</p>"
+      "html": "<p>Standard length: 45 cm SL.</p><p>Aquarium base: 180 × 60 cm.</p><p>Volume: ~648 litres (180 × 60 × 60 cm).</p>"
     },
     {
       "key": "maintenance",
@@ -103,7 +103,7 @@
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ompok-bimaculatus",
-      "html": "<p>Temperature: 20–26°C</p><p>pH: 6.0–8.0</p><p>Hardness: 4–28 dGH</p>"
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 4–28 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -133,7 +133,7 @@
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ompok-bimaculatus",
-      "html": "<p>This infrequently seen (in the trade) species is also known as the two spot glass catfish, for fairly obvious reasons. It is more than likely that a number of separate species are currently considered within this one, as there are clear morphological differences between populations. Pending a taxonomic revision, these currently all remain classified as O.bimaculatus. This would also seem to explain the apparent toleration of the fish to wildly different water chemistry. Xanthic and albino forms are also occasionally available in the hobby, although these seem to be confined to the Southeast Asian 'species'. Taxonomy aside, it's considered a fine food fish in many of its native countries in both fresh and smoked forms.</p>"
+      "html": "<p>This infrequently seen (in the trade) species is also known as the two spot glass catfish, for fairly obvious reasons. It is more than likely that a number of separate species are currently considered within this one, as there are clear morphological differences between populations. Pending a taxonomic revision, these currently all remain classified as O. bimaculatus. This would also seem to explain the apparent toleration of the fish to wildly different water chemistry.</p><p>Xanthic and albino forms are also occasionally available in the hobby, although these seem to be confined to the Southeast Asian 'species'. Taxonomy aside, it's considered a fine food fish in many of its native countries in both fresh and smoked forms.</p>"
     }
   ],
   "photos": [
@@ -178,7 +178,32 @@
       "thumb": "https://media.aquatome.com/commons/4ee2bc83a044fcc0-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "y1P-eieqft8",
+      "title": "Butter Catfish aka Ompok Bimaculatus hand feeding / aggressive fish",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IDvosWfSCRI",
+      "title": "オンポックビマクラートゥス Butter catfish　Ompok bimaculatus",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Cwnlb5XJmCE",
+      "title": "オンポックビマクラートゥス Butter catfish　Ompok bimaculatus",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ByAXBN8Tvi8",
+      "title": "Ompok bimaculatus,a active Asian catfish",
+      "durationSec": 51,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -190,14 +215,24 @@
       "category": "loc",
       "keywords": [
         "lọc thùng bể lớn",
-        "máy lọc công suất lớn"
+        "máy lọc công suất lớn",
+        "máy bơm tạo dòng chảy"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn viên cho cá da trơn lớn",
-        "thức ăn cá ăn thịt"
+        "thức ăn cá ăn thịt",
+        "thức ăn viên chìm cho cá da trơn",
+        "thức ăn cho cá ăn thịt"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá lớn",
+        "quạt làm mát bể cá"
       ]
     }
   ],

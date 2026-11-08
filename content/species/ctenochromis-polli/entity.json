@@ -1,0 +1,199 @@
+{
+  "id": "ctenochromis-polli",
+  "scientificName": "Ctenochromis polli",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Ctenochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "pool-malebo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "Congo River",
+        "Pool Malebo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from \"Stanley Pool\", now known as Pool Malebo, a lake-like widening of the Congo River in western-central Africa on the border of the Democratic Republic of the Congo (formerly Zaire) and the Republic of the Congo between their respective capital cities of Kinshasa and Brazzaville.",
+          "countries": [
+            "CD",
+            "CG"
+          ],
+          "regions": [
+            "Congo River",
+            "Pool Malebo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369770,
+      "total": 89,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          65
+        ],
+        [
+          "CG",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          58,
+          58
+        ],
+        [
+          14.0625,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          15.46875,
+          -5.625,
+          15,
+          15
+        ],
+        [
+          15.46875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28.3
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<p>Haplochromis polli is a cichlid described from Pool Malebo (Stanley Pool), the lake-like widening of the Congo River between Kinshasa and Brazzaville. It has been recorded south to Pioka and Maninga in the Lower Congo and north to Kwamouth. Mostly benthic and not very gregarious, it is best kept as a single male with several females, since the dominant individual will not normally tolerate others in its territory.</p><p>Rated moderate because it needs a well-established tank and stable water.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<p>Described from \"Stanley Pool\", now known as Pool Malebo, a lake-like widening of the Congo River in western-central Africa on the border of the Democratic Republic of the Congo (formerly Zaire) and the Republic of the Congo between their respective capital cities of Kinshasa and Brazzaville. South of the pool it's been recorded as far as Pioka and Maninga in the Lower Congo basin while to the north the town of Kwamouth in the Central Congo appears to represent the limit of its distribution.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<p>Minimum base dimensions of at least 90 cm x 30 cm for a single pair are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<p>Use a soft, sandy substrate since this species is mostly benthic and add driftwood roots and branches in such a way that plenty of sheltered spots are formed in order that subdominant males and females are able to escape the dominant male if necessary. Clay flowerpots, lengths of PVC piping, halved coconut shells, etc. can all be used for the same purpose if you prefer.</p><p>Fairly dim lighting is preferable. You could add some aquatic plants that can survive under such conditions such as Anubias, Microsorum, Taxiphyllum or perhaps some potted Cryptocoryne spp. A few patches of floating vegetation to diffuse the light entering the tank would also be useful, while gentle filtration providing a little surface agitation is adequate.</p><p>Congochromis spp. require stable water conditions and should never be introduced to immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<ul><li>Temperature: 24–28.3°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–15°dGH</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<p>Can be maintained in a community provided tankmates are properly researched and chosen with care. Peaceful, pelagic characids and cyprinids represent ideal choices while other cichlids are best avoided unless the tank is very large and even then only very robust species should be risked.</p><p>This species is not very gregarious and only a single male should be maintained in all but the largest aquaria since the dominant individual will not normally tolerate others in its territory. It's also best to keep several females per male in order to reduce excessive harassment, and these will form a dominance hierarchy of their own.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
+      "html": "<p>Besides growing larger than females adult males possess a reddish-orange marking on the ventral surface of the head which intensifies when the fish are displaying territorial or courtship behaviour.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho bể cá",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "lọc treo êm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

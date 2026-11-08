@@ -6,10 +6,11 @@ import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
 import { KEY_NAMES_EN, scoreboardBlock, type BlockWords, type Scoreboard } from '../admin/scoreboard'
+import { QUALITY_PATH, type Quality } from '../admin/quality'
 import { CHANGELOG_PATH, isFailed, REPORT_PATH, SCOREBOARD_PATH, type Soft } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { clock, HOME_TZ } from '../admin/time'
-import { AREAS, REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
+import { AREAS, REPO_URL, type Calendar, type GitHubSide, type Item, type Listed, type Runs } from './github'
 
 /** Numbers as the report's English reads them, 2.1, 1,234, $0.11; the dashboard writes them the Vietnamese way (admin/chart.ts). */
 export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
@@ -45,8 +46,8 @@ type Line = { text: string; href?: string }
 type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number; groups?: { label: string; lines: string[] }[]; link?: Line }
 type Table = { head: string[]; rows: string[][] }
 
-/** `scoreboard`: undefined when it couldn't load (a loaded one names in its own `failed` the parts that didn't). */
-export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide; scoreboard: Scoreboard | undefined }
+/** `scoreboard`: undefined when it couldn't load (a loaded one names in its own `failed` the parts that didn't). `quality`: the content page's lists. */
+export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide; scoreboard: Scoreboard | undefined; quality?: Soft<Quality> }
 /** `first`: the first thing that needs care, for the phone's notification. */
 export type Composed = { subject: string; text: string; html: string; care: number; first?: string }
 
@@ -75,6 +76,9 @@ export function needsCare({ now, overview: o, app, gh, scoreboard }: ComposeInpu
     if (crashes) out.push({ title: `App: ${plural(crashes, 'crash', 'crashes')} in the last 24 hours`, text: app.versions.filter(v => v.crashes).map(v => `${v.version}: ${fmt(v.crashes)}`).join(', '), href: '/_ab/ung-dung/' })
   }
   if (!scoreOf(scoreboard)) out.push({ title: 'Could not load the week\'s success numbers', href: SCOREBOARD_PATH })
+  // A burst of fresh tabs sweeping the pages (readers.ts BURST) yesterday: left out of the readers, and worth a look.
+  const auto = isFailed(o.readers) ? 0 : o.readers.find(d => d.day === lastDays(now, 2, HOME_TZ)[0])?.automated ?? 0
+  if (auto) out.push({ title: `Likely automated visits yesterday: ${plural(auto, 'fresh tab')}`, text: 'A burst of new tabs from one country, each opening a different page. Left out of the readers.', href: '/_ab/doc-gia/' })
   return out
 }
 
@@ -177,7 +181,14 @@ function whatChanged(gh: GitHubSide): Built {
 
 const itemLines = (l: Listed, n: number): Pick<Built, 'lines' | 'more'> => ({ lines: l.items.slice(0, n).map((i: Item) => ({ text: `#${i.number} ${i.title}`, href: i.url })), more: Math.max(0, l.total - Math.min(n, l.items.length)) })
 
-function built({ now, overview: o, gh }: ComposeInput): Built[] {
+/** The content page's quality lists (admin/quality.ts) in one line: how many pages each holds, no page or name, as no reader's words go in the report. */
+function qualityLine(q: Soft<Quality> | undefined): Built[] {
+  if (!q || isFailed(q)) return []
+  const t = q.totals
+  return [{ label: 'Content quality', text: `${plural(t.rewrite, 'page')} to rewrite first, ${fmt(t.decaying)} decaying, ${plural(t.gaps, 'gap')} (asked for, not written).`, href: QUALITY_PATH }]
+}
+
+function built({ now, overview: o, gh, quality }: ComposeInput): Built[] {
   const live = gh.deploys.live
   const madeAt = !isFailed(o.content) && o.content.builtAt ? ` Build made ${when(o.content.builtAt, now)}.` : ''
   const parts = gh.commits.parts.map(p => `${p.name} ${fmt(p.n)}`).join(', ')
@@ -187,9 +198,20 @@ function built({ now, overview: o, gh }: ComposeInput): Built[] {
     whatChanged(gh),
     { label: 'Deploys', text: `${runsText(gh.deploys)}.${live ? ` Live: ${live.sha}, deployed ${when(live.at, now)}.` : ''}${madeAt}`, ...(live ? { href: live.url } : {}) },
     { label: 'Content pushes', text: `Engine: ${plural(gh.engine.runs, 'cycle')}, ${fmt(gh.engine.failed)} failed. ${plural(gh.commits.total, 'content commit')}${parts ? ` (${parts})` : ''}.`, lines: addedText ? [{ text: addedText }] : [] },
+    ...qualityLine(quality),
     { label: 'App builds', text: `ios.yml: ${runsText(gh.ios)}. TestFlight: ${tf.uploads.length ? `${plural(tf.uploads.length, 'upload')} (build ${tf.uploads.map(u => u.build).join(', ')})` : 'no upload'}${tf.failed ? `, ${fmt(tf.failed)} failed` : ''}. App Store: ${runsText(gh.appStore)}.`, ...(tf.uploads[0] ? { href: tf.uploads[0].url } : {}) },
     { label: 'Live checks', text: `${runsText(gh.watch)}.${gh.notes ? ` ${plural(gh.notes, 'review note')} open.` : ''}` },
     { label: 'Open PRs', text: `${fmt(gh.prs.ready.total)} ready, ${fmt(gh.prs.draft.total)} draft.`, ...itemLines(gh.prs.ready, PRS_SHOWN) },
+  ]
+}
+
+const CAL_DAY = new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })
+const calDay = (date: string) => CAL_DAY.format(new Date(`${date}T00:00:00Z`))
+/** What the app shows next, from the editorial calendar: Khám phá's week, its theme and the curator's note, then Hôm nay's fish a day, in the curator's words when the day has them. */
+function coming(c: Calendar): Built[] {
+  return [
+    ...c.weeks.map(w => ({ label: `Khám phá, week of ${calDay(w.from)}`, text: `${w.theme}${w.why ? `. ${w.why}` : ''}` })),
+    { label: 'Hôm nay', text: '', lines: c.days.map(d => ({ text: `${calDay(d.date)}: ${d.fish ? (d.why ?? d.fish) : 'no fish picked, the app picks its own'}` })) },
   ]
 }
 
@@ -221,8 +243,18 @@ function appBlock(app: Soft<AppDay>): Table | string {
 
 // ——— Its two forms: one model, drawn as plain text and as HTML with inline styles, which is what Gmail on a phone keeps ———
 
-type Model = { title: string; lede: string; success: string[] | string; count: number; care: Care[]; highlights: string[]; built: Built[]; site: Table[]; app: Table | string; footer: Line[] }
+type Model = { title: string; lede: string; success: string[] | string; count: number; care: Care[]; highlights: string[]; built: Built[]; coming?: Built[]; site: Table[]; app: Table | string; footer: Line[] }
 
+function builtText(b: Built): string[] {
+  const out = [`${b.label}${b.text ? `: ${b.text}` : ''}`]
+  const href = linkOf(b.href)
+  if (href) out.push(`  ${href}`)
+  for (const l of b.lines ?? []) out.push(`- ${l.text}${linkOf(l.href) ? ` ${linkOf(l.href)}` : ''}`)
+  if (b.more) out.push(`- and ${fmt(b.more)} more`)
+  for (const g of b.groups ?? []) out.push(`  ${g.label}:`, ...g.lines.map(l => `  - ${l}`))
+  if (b.link) out.push(`  ${b.link.text}: ${linkOf(b.link.href) ?? ''}`)
+  return out
+}
 const textTable = (t: Table) => [`${t.head[0]}:`, ...t.rows.map(r => `  ${r[0]}: ${r[1]}${r[2] !== undefined ? ` (${t.head[2]} ${r[2]})` : ''}`)]
 function toText(m: Model): string {
   const out = [m.title, m.lede, '', SUCCESS.title.toUpperCase(), ...(typeof m.success === 'string' ? [m.success] : m.success.map(l => `- ${l}`)), `Scoreboard: ${linkOf(SCOREBOARD_PATH)}`]
@@ -233,16 +265,8 @@ function toText(m: Model): string {
     if (href) out.push(`   ${href}`)
   })
   if (m.care.length > CARE_SHOWN) out.push(`and ${fmt(m.care.length - CARE_SHOWN)} more`)
-  out.push('', 'HIGHLIGHTS', ...(m.highlights.length ? m.highlights.map(h => `- ${h}`) : ['No big moves.']), '', 'BUILT (last 24 hours)')
-  for (const b of m.built) {
-    out.push(`${b.label}${b.text ? `: ${b.text}` : ''}`)
-    const href = linkOf(b.href)
-    if (href) out.push(`  ${href}`)
-    for (const l of b.lines ?? []) out.push(`- ${l.text}${linkOf(l.href) ? ` ${linkOf(l.href)}` : ''}`)
-    if (b.more) out.push(`- and ${fmt(b.more)} more`)
-    for (const g of b.groups ?? []) out.push(`  ${g.label}:`, ...g.lines.map(l => `  - ${l}`))
-    if (b.link) out.push(`  ${b.link.text}: ${linkOf(b.link.href) ?? ''}`)
-  }
+  out.push('', 'HIGHLIGHTS', ...(m.highlights.length ? m.highlights.map(h => `- ${h}`) : ['No big moves.']), '', 'BUILT (last 24 hours)', ...m.built.flatMap(builtText))
+  if (m.coming) out.push('', 'COMING UP IN THE APP', ...m.coming.flatMap(builtText))
   out.push('', 'SITE', ...m.site.flatMap(textTable), '', 'APP', ...(typeof m.app === 'string' ? [m.app] : textTable(m.app)), '', ...m.footer.map(l => `${l.text}: ${linkOf(l.href) ?? ''}`))
   return out.join('\n')
 }
@@ -264,6 +288,12 @@ function htmlTable(t: Table): string {
   const cell = (s: string, i: number, tag: 'th' | 'td') => `<${tag} style="padding:6px 8px 6px ${i ? '8px' : '0'};border-bottom:1px solid ${RULE};text-align:${i ? 'right' : 'left'};font-weight:${tag === 'th' ? 600 : 400};white-space:${i ? 'nowrap' : 'normal'}${tag === 'th' ? `;color:${MUTED};font-size:13px` : ''}">${esc(s)}</${tag}>`
   return `<table style="width:100%;border-collapse:collapse;margin:0 0 14px;font-size:14px"><tr>${t.head.map((h, i) => cell(h, i, 'th')).join('')}</tr>${t.rows.map(r => `<tr>${r.map((c, i) => cell(c, i, 'td')).join('')}</tr>`).join('')}</table>`
 }
+function builtHtml(b: Built): string {
+  const sub = [...(b.lines ?? []).map(l => anchor(l.text, l.href)), ...(b.more ? [`and ${fmt(b.more)} more`] : [])]
+  const groups = (b.groups ?? []).map(g => `<p style="margin:0 0 2px;color:${MUTED};font-size:13px;font-weight:600">${esc(g.label)}</p><ul style="${LIST};margin-bottom:8px">${g.lines.map(l => `<li style="margin:0 0 4px;${WRAP}">${esc(l)}</li>`).join('')}</ul>`).join('')
+  const link = b.link ? `<p style="margin:0 0 10px">${anchor(b.link.text, b.link.href)}</p>` : ''
+  return `<p style="margin:0 0 ${sub.length || groups || link ? 4 : 10}px;${WRAP}"><b>${esc(b.label)}</b>${b.text ? `: ${esc(b.text)}` : ''}${linkOf(b.href) ? ` ${anchor('run', b.href)}` : ''}</p>${sub.length ? `<ul style="${LIST};margin-bottom:10px">${sub.map(s => `<li style="margin:0 0 4px;${WRAP}">${s}</li>`).join('')}</ul>` : ''}${groups}${link}`
+}
 function toHtml(m: Model): string {
   const score = typeof m.success === 'string' ? `<p style="margin:0">${esc(m.success)}</p>` : `<ul style="${LIST}">${m.success.map((l, i) => `<li style="margin:0 0 6px">${i ? esc(l) : `<b>${esc(l)}</b>`}</li>`).join('')}</ul>`
   const more = m.care.length > CARE_SHOWN ? `<p style="margin:0;color:${MUTED}">and ${fmt(m.care.length - CARE_SHOWN)} more</p>` : ''
@@ -271,12 +301,7 @@ function toHtml(m: Model): string {
     ? `<ol style="${LIST}">${m.care.slice(0, CARE_SHOWN).map(c => `<li style="margin:0 0 8px;${WRAP}">${anchor(c.title, c.href, true)}${c.text ? `<br><span style="color:${MUTED}">${esc(c.text)}</span>` : ''}</li>`).join('')}</ol>${more}`
     : '<p style="margin:0">Nothing.</p>'
   const moves = m.highlights.length ? `<ul style="${LIST}">${m.highlights.map(h => `<li style="margin:0 0 6px">${esc(h)}</li>`).join('')}</ul>` : '<p style="margin:0">No big moves.</p>'
-  const made = m.built.map(b => {
-    const sub = [...(b.lines ?? []).map(l => anchor(l.text, l.href)), ...(b.more ? [`and ${fmt(b.more)} more`] : [])]
-    const groups = (b.groups ?? []).map(g => `<p style="margin:0 0 2px;color:${MUTED};font-size:13px;font-weight:600">${esc(g.label)}</p><ul style="${LIST};margin-bottom:8px">${g.lines.map(l => `<li style="margin:0 0 4px;${WRAP}">${esc(l)}</li>`).join('')}</ul>`).join('')
-    const link = b.link ? `<p style="margin:0 0 10px">${anchor(b.link.text, b.link.href)}</p>` : ''
-    return `<p style="margin:0 0 ${sub.length || groups || link ? 4 : 10}px;${WRAP}"><b>${esc(b.label)}</b>${b.text ? `: ${esc(b.text)}` : ''}${linkOf(b.href) ? ` ${anchor('run', b.href)}` : ''}</p>${sub.length ? `<ul style="${LIST};margin-bottom:10px">${sub.map(s => `<li style="margin:0 0 4px;${WRAP}">${s}</li>`).join('')}</ul>` : ''}${groups}${link}`
-  }).join('')
+  const made = m.built.map(builtHtml).join('')
   return `<div style="font:15px/1.5 ${FONT};color:${INK};background:#fff;max-width:640px;margin:0 auto;padding:16px">
 <h2 style="display:block;font:600 21px/1.25 ${FONT};color:${INK};margin:0 0 4px">${esc(m.title)}</h2>
 <p style="margin:0;color:${MUTED};font-size:13px">${esc(m.lede)}</p>
@@ -284,6 +309,7 @@ ${h3(SUCCESS.title)}${score}<p style="margin:8px 0 0">${anchor('Scoreboard', SCO
 ${h3(m.count ? `Needs care (${fmt(m.count)})` : 'Needs care', m.count ? RUST : INK)}${care}
 ${h3('Highlights')}${moves}
 ${h3('Built, last 24 hours')}${made}
+${m.coming ? `${h3('Coming up in the app')}${m.coming.map(builtHtml).join('')}` : ''}
 ${h3('Site')}${m.site.map(htmlTable).join('')}
 ${h3('App')}${typeof m.app === 'string' ? `<p style="margin:0">${esc(m.app)}</p>` : htmlTable(m.app)}
 <p style="margin:22px 0 0;color:${MUTED};font-size:13px">${m.footer.map(l => anchor(l.text, l.href)).join(' · ')}</p>
@@ -313,6 +339,7 @@ export function compose(input: ComposeInput): Composed {
     count, care,
     highlights: highlights(stats),
     built: built(input),
+    ...(gh.calendar ? { coming: coming(gh.calendar) } : {}),
     site: siteTables(o, stats),
     app: appBlock(app),
     footer: [{ text: 'All reports', href: REPORT_PATH }, { text: 'This run', href: gh.runUrl }],

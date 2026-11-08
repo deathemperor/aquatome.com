@@ -10,15 +10,27 @@ struct TodayView: View {
   @Binding var path: NavigationPath
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
+  @Environment(\.colorScheme) private var scheme
   @Namespace private var zoom
-  /// The feed scrolled under the status bar: a bar's material behind it then, none at the top.
-  @State private var under = false
+  /// The large title has gone up into the bar, as on Khám phá.
+  @State private var titleGone = false
+  @State private var refreshes = 0
+  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
+  /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
+  @State private var today = Date.now
+  /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
+  @State private var heldBeginner: Bool?
+  private var beginner: Bool { heldBeginner ?? tanks.tanks.allSatisfy { $0.species.isEmpty } }
 
   var body: some View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
-          header
+          Text(verbatim: date)
+            // Plain, not a second line of capitals over the first card's own.
+            .font(.subheadline).foregroundStyle(.v2Faint)
+            .padding(.horizontal, 20)
+            .padding(.bottom, -16)
           // The kept copy in use, or none at all, as v1's Tìm says.
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
@@ -38,31 +50,38 @@ struct TodayView: View {
         }
         .padding(.bottom, 32)
       }
-      .toolbarVisibility(.hidden, for: .navigationBar)
-      // With no bar, the feed would scroll bare under the status bar: a bar's material behind it once it does.
-      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 4 } action: { _, u in under = u }
-      .safeAreaInset(edge: .top, spacing: 0) {
-        Color.clear.frame(height: 0).background(.bar.opacity(under ? 1 : 0)).animation(.easeInOut(duration: 0.2), value: under)
-      }
+      .v2ClearOfTheFade()
+      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
+      .modifier(ClearUnderTopBar(shown: titleGone))
+      .navigationTitle("Hôm nay")
+      // Its own, not one iOS picks from what passes under the bar: a dark card there turned the bar's words and the clock
+      // white on the white band. As a fish's page pins its own.
+      .toolbarColorScheme(scheme, for: .navigationBar)
+      .profileButton()
+      .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
+      .v2ClearsFootGoingBack(path.count)
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
-      .refreshable { await handbook.load() }
+      .refreshable {
+        await handbook.load()
+        refreshes += 1
+      }
+      .environment(\.v2PhotoTries, refreshes)
     }
     .v2StackLinks($path)
+    .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
+      today = .now
+      heldBeginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
+    }
   }
 
-  private var header: some View {
-    HStack(alignment: .bottom) {
-      VStack(alignment: .leading, spacing: 2) {
-        Text(Date.now, format: .dateTime.weekday(.wide).day().month(.wide))
-          .font(.footnote.weight(.semibold)).textCase(.uppercase).foregroundStyle(.secondary)
-        Text("Hôm nay").font(.largeTitle.weight(.bold))
-      }
-      Spacer()
-      ProfileButton().font(.title).frame(minWidth: 44, minHeight: 44).padding(.bottom, 2)
-    }
-    .padding(.horizontal, 20)
-    .padding(.top, 8)
+  /// In the app's language, as the words around it: on a phone set to a language the app doesn't have, iOS's locale can be
+  /// another of the app's (Malay, on an English phone), and `Text(_:format:)` would put that one in. The day and its month
+  /// kept on one line ("8 tháng 11", not "8 tháng" over "11"), in Thai too, which has no comma before them.
+  private var date: String {
+    let s = today.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: handbook.lang)))
+    guard let day = s.firstIndex(where: \.isNumber) else { return s }
+    return s[..<day] + s[day...].replacingOccurrences(of: " ", with: "\u{00A0}")
   }
 
   enum Card: Identifiable {
@@ -86,7 +105,7 @@ struct TodayView: View {
   /// one card only (its card is where it zooms from).
   private var cards: [Card] {
     let s = handbook.shelves
-    let day = Calendar.current.ordinality(of: .day, in: .era, for: .now) ?? 0
+    let day = Calendar.current.ordinality(of: .day, in: .era, for: today) ?? 0
     // One with a photo where the shelf has any.
     func pick(_ items: [HandbookIndex.Item], _ turn: Int = 0) -> HandbookIndex.Item? {
       let photographed = items.filter { $0.img != nil }, pool = photographed.isEmpty ? items : photographed
@@ -94,12 +113,11 @@ struct TodayView: View {
     }
     var out: [Card] = []
     // A reader with no fish yet isn't first shown one that needs a very large tank.
-    let beginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
     let easy = beginner ? s.featuredFish.filter { ($0.facts.tankCm ?? 0) <= 100 } : []
     if let f = pick(easy.isEmpty ? s.featuredFish : easy) { out.append(.fish(f)) }
     if let g = pick(s.firstGuides) { out.append(.guide(g)) }
     // The northern winter (November to March): the well-known fish that need a heater. Vietnam's season, so Vietnamese only.
-    let month = Calendar.current.component(.month, from: .now)
+    let month = Calendar.current.component(.month, from: today)
     var shown = Set(out.compactMap { if case let .fish(i) = $0 { i.path } else if case let .guide(i) = $0 { i.path } else { nil } })
     if handbook.lang == "vi", [11, 12, 1, 2, 3].contains(month) {
       let warm = s.featuredFish.filter { ($0.facts.tempC?.min ?? 0) >= 23 && $0.img != nil && !shown.contains($0.path) }
@@ -111,7 +129,8 @@ struct TodayView: View {
     // The reader's tank, or, with none yet, the way to add one.
     out.append(tanks.tanks.first.map { .tank($0) } ?? .firstTank)
     if let v = pick(s.all(.video), 3) { out.append(.series(v)) }
-    let latest = handbook.latest.filter { $0.item.img != nil && !shown.contains($0.item.path) }.prefix(3)
+    // A page updated on two days is listed twice there, and shows on one card here.
+    let latest = handbook.latest.filter { $0.item.img != nil && shown.insert($0.item.path).inserted }.prefix(3)
     if !latest.isEmpty { out.append(.latest(Array(latest))) }
     return out
   }
@@ -128,12 +147,21 @@ private struct Eyebrow: View {
 
 /// A fish's figures in a line: "Dễ · 24–30 °C · 15 cm".
 @MainActor func factsLine(_ item: HandbookIndex.Item, _ lang: String) -> String? {
-  let locale = Locale(identifier: lang), f = item.facts
+  // A breed's are on its own card, as on its page.
+  let locale = Locale(identifier: lang), f = item.facts.any ? item.facts : item.card ?? item.facts
   var parts: [String] = []
   if let d = f.difficulty { parts.append(FactsCard.level(d)) }
-  if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale)) °C") }
-  if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale)) cm") }
+  if let t = f.tempC { parts.append(HandbookIndex.Facts.degrees(t, locale)) }
+  // A figure stays with its unit when the line wraps.
+  if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale))\u{A0}cm") }
   return parts.isEmpty ? nil : parts.joined(separator: " · ")
+}
+
+extension HandbookIndex.Facts {
+  /// "24–30 °C", whole when a line wraps: the range and its unit on one line.
+  static func degrees(_ t: Range, _ locale: Locale) -> String {
+    "\(range(t, locale).replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}"))\u{A0}°C"
+  }
 }
 
 /// The fish of the day: its photo, its colour washed over the top for its name, and its lockup on a band of that colour.
@@ -152,27 +180,23 @@ private struct FishOfTheDay: View {
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
   /// Taller with the text, so a long name at the larger sizes stays on the photo.
-  @ScaledMetric(relativeTo: .largeTitle) private var height: CGFloat = 380
+  @ScaledMetric(relativeTo: .largeTitle) private var height: CGFloat = 420
 
   var body: some View {
     VStack(spacing: 0) {
       NavigationLink(value: item) {
-        // At the accessibility sizes a name over the photo would hide the fish: it goes above, on the photo's colour.
-        if size.isAccessibilitySize {
+        // At the accessibility sizes a name over the photo would hide the fish: it goes above, on the photo's colour. A fish
+        // with no photo has no photo's place: its name on the colour.
+        if size.isAccessibilitySize || item.img == nil {
           VStack(spacing: 0) {
             name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
-            V2Photo(src: item.img) { colour = $0 }.frame(height: 260)
+            if item.img != nil { V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260) }
           }
         } else {
-          V2Photo(src: item.img) { colour = $0 }
-            .frame(height: height)
-            .overlay {
-              LinearGradient(stops: [.init(color: colour.opacity(0.85), location: 0), .init(color: colour.opacity(0), location: 0.5)],
-                             startPoint: .top, endPoint: .bottom)
-            }
-            .overlay(alignment: .topLeading) { name }
+          V2Photo(src: item.img, ground: colour) { colour = $0 }
+            .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
-              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 80)
+              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 56)
             }
         }
       }
@@ -222,21 +246,16 @@ private struct GuideCard: View {
   var body: some View {
     NavigationLink(value: item) {
       Group {
-        // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour.
-        if size.isAccessibilitySize {
+        // At the accessibility sizes the title would take the whole photo: it goes under, on the photo's colour. A guide with
+        // no photo has no photo's place.
+        if size.isAccessibilitySize || item.img == nil {
           VStack(spacing: 0) {
-            V2Photo(src: item.img) { colour = $0 }.frame(height: 260)
+            if item.img != nil { V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 260) }
             words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
           }
         } else {
-          V2Photo(src: item.img) { colour = $0 }
-            .frame(height: height)
-            .overlay {
-              // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
-              LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.3), .init(color: colour.opacity(0.95), location: 0.55),
-                                     .init(color: colour, location: 0.65)], startPoint: .top, endPoint: .bottom)
-            }
-            .overlay(alignment: .bottomLeading) { words }
+          V2Photo(src: item.img, ground: colour) { colour = $0 }
+            .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height) { words })
         }
       }
       .animation(.easeInOut(duration: 0.4), value: colour)
@@ -277,7 +296,7 @@ private struct SeasonCard: View {
         .fixedSize(horizontal: false, vertical: true)
       VStack(spacing: 0) {
         ForEach(items) { item in
-          Lockup(item: item, line: item.facts.tempC.map { "\(HandbookIndex.Facts.range($0, Locale(identifier: handbook.lang))) °C" },
+          Lockup(item: item, line: item.facts.tempC.map { HandbookIndex.Facts.degrees($0, Locale(identifier: handbook.lang)) },
                  thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)
@@ -298,6 +317,7 @@ private struct SeasonCard: View {
 private struct TankCard: View {
   let tank: Tank
   @Environment(\.openScreen) private var openScreen
+  @Environment(\.dynamicTypeSize) private var size
   private var empty: Bool { tank.species.isEmpty && tank.plants.isEmpty }
 
   var body: some View {
@@ -308,7 +328,9 @@ private struct TankCard: View {
         TankSketch(dims: tank.dims, fish: tank.species.reduce(0) { $0 + ($1.count ?? 1) }, plants: tank.plants.count)
           .frame(height: 140)
           .padding(.vertical, 12)
-        HStack(alignment: .bottom, spacing: 24) {
+        // Down the card at the accessibility sizes, not cut across it.
+        (size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12))
+                                  : AnyLayout(HStackLayout(alignment: .bottom, spacing: 24))) {
           if let l = tank.totalLitres {
             fact("Nước", litresText(l))
           }
@@ -407,6 +429,7 @@ private struct TankSketch: View {
 private struct SeriesCard: View {
   let item: HandbookIndex.Item
   let zoom: Namespace.ID
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     NavigationLink(value: item) {
@@ -415,11 +438,8 @@ private struct SeriesCard: View {
         Image(systemName: "play.fill").font(.title3)
           .frame(width: 48, height: 48)
           .background(Circle().fill(.white.opacity(0.18)))
-        Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(3).multilineTextAlignment(.leading)
-        if let n = item.parts {
-          SeriesTicks(count: n)
-          Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75)
-        }
+        Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(size.isAccessibilitySize ? nil : 3).multilineTextAlignment(.leading)
+        if let n = item.parts { Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75) }
       }
       .foregroundStyle(.white)
       .frame(maxWidth: .infinity, alignment: .leading)
@@ -446,7 +466,7 @@ private struct LatestCard: View {
       HStack(alignment: .firstTextBaseline) {
         Text("Mới cập nhật").font(.system(.title2, weight: .heavy))
         Spacer()
-        NavigationLink(value: Browse.latest) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
+        if !size.isAccessibilitySize { seeAll }
       }
       VStack(spacing: 0) {
         ForEach(rows) { row in
@@ -456,10 +476,16 @@ private struct LatestCard: View {
         }
       }
       .padding(.top, 10)
+      // At the accessibility sizes its header has no room for it: at the list's end, as Khám phá's.
+      if size.isAccessibilitySize { seeAll.font(.body.weight(.semibold)).padding(.top, 4) }
     }
     .padding(18)
     .background(Color(.tertiarySystemBackground))
     .v2Card()
     .padding(.horizontal, 20)
+  }
+
+  private var seeAll: some View {
+    NavigationLink(value: Browse.latest) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
   }
 }

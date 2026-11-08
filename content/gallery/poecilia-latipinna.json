@@ -35,7 +35,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/266948318",
       "caption": "Hai cá molly vây buồm bơi trong bể kính",
       "best": true,
-      "kind": "pair"
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/266948318-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/252129078.webp",
@@ -62,26 +67,38 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/61406064.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/61406064-480.webp",
-      "width": 861,
-      "height": 647,
-      "licence": "CC0",
-      "author": "mefisher",
-      "sourceUrl": "https://www.inaturalist.org/photos/61406064",
-      "caption": "Cá molly vây buồm đực với vây lưng lớn gần mặt nước",
+      "url": "https://media.aquatome.com/inaturalist/297096133.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/297096133-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/297096133",
+      "caption": "Cá molly vây buồm vàng ô liu trong bể kính nhỏ",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/297268522.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/297268522-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/297268522",
+      "caption": "Cá molly vây buồm đực với vây lưng cao trong bể kính",
       "best": true,
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/123750739.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/123750739-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/140704651.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/140704651-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
-      "author": "Eamon Corbett",
-      "sourceUrl": "https://www.inaturalist.org/photos/123750739",
-      "caption": "Cá molly vây buồm cái bắt được, nằm trên lưới",
+      "author": "Jody Shugart",
+      "sourceUrl": "https://www.inaturalist.org/photos/140704651",
+      "caption": "Cá molly vây buồm cái trên nền trắng",
       "best": true,
       "kind": "female"
     },
@@ -122,14 +139,26 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/140704651.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/140704651-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/61406064.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/61406064-480.webp",
+      "width": 861,
+      "height": 647,
+      "licence": "CC0",
+      "author": "mefisher",
+      "sourceUrl": "https://www.inaturalist.org/photos/61406064",
+      "caption": "Cá molly vây buồm đực với vây lưng lớn gần mặt nước",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/282868571.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/282868571-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
-      "author": "Jody Shugart",
-      "sourceUrl": "https://www.inaturalist.org/photos/140704651",
-      "caption": "Cá molly vây buồm cái trên nền trắng",
+      "author": "Sam Kieschnick",
+      "sourceUrl": "https://www.inaturalist.org/photos/282868571",
+      "caption": "Cá molly vây buồm cái trong bể kính, nhìn nghiêng",
       "best": true,
       "kind": "female"
     },
@@ -158,14 +187,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/282868571.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/282868571-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/282868550.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/282868550-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
       "author": "Sam Kieschnick",
-      "sourceUrl": "https://www.inaturalist.org/photos/282868571",
-      "caption": "Cá molly vây buồm cái trong bể kính, nhìn nghiêng",
+      "sourceUrl": "https://www.inaturalist.org/photos/282868550",
+      "caption": "Cá molly vây buồm cái màu vàng nâu trong bể kính",
       "best": true,
       "kind": "female"
     },
@@ -194,14 +223,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/282868550.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/282868550-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/171957267.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/171957267-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Sam Kieschnick",
-      "sourceUrl": "https://www.inaturalist.org/photos/282868550",
-      "caption": "Cá molly vây buồm cái màu vàng nâu trong bể kính",
+      "author": "Tom Field",
+      "sourceUrl": "https://www.inaturalist.org/photos/171957267",
+      "caption": "Cá molly vây buồm trong hộp nhựa trong suốt, nhìn nghiêng",
       "best": true,
       "kind": "female"
     },
@@ -230,14 +259,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/171957267.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/171957267-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/171957271.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/171957271-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "CC BY",
       "author": "Tom Field",
-      "sourceUrl": "https://www.inaturalist.org/photos/171957267",
-      "caption": "Cá molly vây buồm trong hộp nhựa trong suốt, nhìn nghiêng",
+      "sourceUrl": "https://www.inaturalist.org/photos/171957271",
+      "caption": "Cá molly vây buồm thân vàng nâu có hàng chấm trong hộp",
       "best": true,
       "kind": "female"
     },
@@ -251,17 +280,22 @@
       "sourceUrl": "https://www.inaturalist.org/photos/70385006",
       "caption": "Đàn cá molly vây buồm bơi gần mặt nước ngoài tự nhiên",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/70385006-large.webp",
+        "width": 1081,
+        "height": 746
+      }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/171957271.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/171957271-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/185418555.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/185418555-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "CC BY",
-      "author": "Tom Field",
-      "sourceUrl": "https://www.inaturalist.org/photos/171957271",
-      "caption": "Cá molly vây buồm thân vàng nâu có hàng chấm trong hộp",
+      "author": "Tia Offner",
+      "sourceUrl": "https://www.inaturalist.org/photos/185418555",
+      "caption": "Cá molly vây buồm cái trong nước xanh",
       "best": true,
       "kind": "female"
     },
@@ -278,14 +312,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/185418555.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/185418555-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/175150062.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/175150062-480.webp",
       "width": 1024,
-      "height": 683,
+      "height": 680,
       "licence": "CC BY",
-      "author": "Tia Offner",
-      "sourceUrl": "https://www.inaturalist.org/photos/185418555",
-      "caption": "Cá molly vây buồm cái trong nước xanh",
+      "author": "Tom Kennedy",
+      "sourceUrl": "https://www.inaturalist.org/photos/175150062",
+      "caption": "Cá molly vây buồm cái trên nền đen, thân có đốm",
       "best": true,
       "kind": "female"
     },
@@ -300,18 +334,6 @@
       "caption": "Cá molly vây buồm bơi gần mặt nước trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/175150062.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/175150062-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY",
-      "author": "Tom Kennedy",
-      "sourceUrl": "https://www.inaturalist.org/photos/175150062",
-      "caption": "Cá molly vây buồm cái trên nền đen, thân có đốm",
-      "best": true,
-      "kind": "female"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/259506481.webp",
@@ -413,7 +435,12 @@
       "licence": "CC BY 4.0",
       "author": "Tia Offner",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_latipinna_170400954.jpg",
-      "caption": "Cá molly vây buồm ngoài tự nhiên, thân có hàng chấm"
+      "caption": "Cá molly vây buồm ngoài tự nhiên, thân có hàng chấm",
+      "large": {
+        "url": "https://media.aquatome.com/commons/115a23b2b151bcce-large.webp",
+        "width": 2048,
+        "height": 1136
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/440b4d21caa41451.webp",
@@ -670,7 +697,7 @@
       "kind": "other"
     }
   ],
-  "seen": 553,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 573,
+  "updatedAt": "2026-11-07",
+  "builtAt": "2026-11-07"
 }

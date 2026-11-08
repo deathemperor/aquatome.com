@@ -1,9 +1,14 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/commons/95cb65eec418811f.webp": "29f99992d8c96968",
-  "https://media.aquatome.com/commons/b8450f13839289cb.webp": "1f31f823dccc3f73"
- },
- "commons": "2026-11-06"
+ "hashes": {},
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 187192,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

@@ -9,9 +9,11 @@ import { logReviews } from './review-log'
 import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
 import { LANG_NAME, pageUrl, type Page } from './pages'
-import { reviewRewrite, reviewTranslation } from './quality'
+import type { HedgePair } from './hedges'
+import { reviewRewrite, reviewTranslation, type Review } from './quality'
 import { snapshotName } from './snapshot'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
+import { VI_STYLE } from './phrases'
 
 /**
  * A reader's eye: each cycle the model reads a few published pages the way a careful reader would, against a rubric
@@ -23,7 +25,6 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
  */
 const RUBRIC = readFileSync(new URL('./prompts/reader.md', import.meta.url), 'utf8')
 /** How the site writes Vietnamese: what "natural" means on a Vietnamese page. */
-const VI_STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 export const FINDING_KINDS = ['structure', 'contradiction', 'numbers', 'language', 'caption', 'unsupported', 'other'] as const
 const SEVERITIES = ['high', 'medium', 'low'] as const
 const SCHEMA = {
@@ -61,12 +62,12 @@ const SOURCE_CHARS = 12_000
 
 export const pageKey = (p: Page) => `${p.lang}/${p.kind}/${p.id}`
 const range = (v: number | { min: number; max: number }) => (typeof v === 'number' ? `${v}` : `${v.min}–${v.max}`)
-const render = (html: string) => blocks(html).map(b => (b.tag === 'h3' ? `## ${b.text}` : b.tag === 'li' ? `- ${b.text}` : b.tag === 'td' || b.tag === 'th' ? `| ${b.text}` : b.text)).join('\n')
+export const render = (html: string) => blocks(html).map(b => (b.tag === 'h3' ? `## ${b.text}` : b.tag === 'li' ? `- ${b.text}` : b.tag === 'td' || b.tag === 'th' ? `| ${b.text}` : b.text)).join('\n')
 /** "sections.diet:seriouslyfish" → "diet, from seriouslyfish". */
-const label = (field: string) => field.replace(/^sections\.([^:]+):(.+)$/, '$1, from $2')
-const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim().toLowerCase()
+export const label = (field: string) => field.replace(/^sections\.([^:]+):(.+)$/, '$1, from $2')
+export const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim().toLowerCase()
 /** The page's own text without the sources' reference lists. */
-const readable = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
+export const readable = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
 
 /** The page as the reader gets it, in numbered parts (`parts`: id → where it is kept), and a hash of that text. */
 export function readerText(p: Page): { text: string; parts: Record<string, string>; hash: string } {
@@ -119,7 +120,7 @@ export function ruleFindings(p: Page, parts: Record<string, string>): ReaderEntr
 }
 
 /** A finding that takes itself back ("…, so it is not an error"). */
-const RETRACTED = /\b(not an error|not a problem|no error|so it is fine|which is fine|is fine;|low confidence|consistent with the source|matches the source)\b/i
+export const RETRACTED = /\b(not an error|not a problem|no error|so it is fine|which is fine|is fine;|low confidence|consistent with the source|matches the source)\b/i
 
 /** The model's findings that hold: a known kind, a part the page has, a quote that is on the page, and not taken back. */
 export function keepFindings(found: ReaderFinding[], text: string, parts: Record<string, string>): ReaderEntry['findings'] {
@@ -149,12 +150,13 @@ const notesOf = (fs: ReaderFinding[]) => fs.map(f => `${f.problem}${f.quote ? ` 
  * quote, checked against the old wording. Returns the part's new HTML and the review's score; undefined when the quotes
  * can't be placed.
  */
-export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o: { en?: string; source?: string }): Promise<{ html: string; score: number; notes: string[] } | undefined> {
+export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o: { en?: string; source?: string }): Promise<{ html: string; score: number; notes: string[]; lost: HedgePair[] } | undefined> {
   const opts = { ...VI_WRITE, notes: notesOf(fs), ...(o.source ? { source: o.source } : {}) }
+  // A sentence said more surely than what it was written from (hedges.ts) is in `lost`, and the part isn't kept.
+  const out = (next: string, r: Review) => ({ html: next, score: r.score, notes: [...r.lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...r.notes], lost: r.lost })
   if (o.en) {
     const next = (await rewriteVi(llm, [{ id: 'part', en: o.en, vi: html }], opts)).get('part')!
-    const r = await reviewTranslation(llm, [{ en: o.en, vi: next }])
-    return { html: next, score: r.score, notes: r.notes }
+    return out(next, await reviewTranslation(llm, [{ en: o.en, vi: next }], { hedges: true }))
   }
   const root = parse(html)
   const els = root.childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement)
@@ -162,12 +164,12 @@ export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o
   if (!at.length || at.includes(-1)) return undefined
   const parts = at.map(i => ({ id: `b${i}`, vi: els[i]!.toString() }))
   const next = await rewriteVi(llm, parts, opts)
-  const r = await reviewRewrite(llm, parts.map(x => ({ before: x.vi, after: next.get(x.id)! })))
+  const r = await reviewRewrite(llm, parts.map(x => ({ before: x.vi, after: next.get(x.id)! })), { hedges: true })
   for (const i of at) els[i]!.replaceWith(next.get(`b${i}`)!)
-  return { html: root.toString(), score: r.score, notes: r.notes }
+  return out(root.toString(), r)
 }
 
-const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
+export const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
   field === 'body' ? t.body : field === 'definition' ? t.definition : t.sections?.[field.replace(/^sections\./, '')]
 
 const TITLE = { type: 'object', additionalProperties: false, required: ['title'], properties: { title: { type: 'string' } } }
@@ -259,7 +261,7 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         const r = await rewritePart(d.llm, html, fs, { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) continue
-        const kept = r.score >= QUALITY_THRESHOLD
+        const kept = r.score >= QUALITY_THRESHOLD && !r.lost.length
         entry.rewrites = [...(entry.rewrites ?? []), { at: entry.at, field, score: r.score, kept, problems: fs.map(f => f.problem) }]
         const traced = { id: `${p.kind}/${p.id}`, lang: 'vi', part: field }
         if (!kept) { await logReviews(root, 'reader-rewrite', traced, [r], undefined, { now: d.now() }); report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }

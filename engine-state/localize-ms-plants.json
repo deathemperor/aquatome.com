@@ -65,18 +65,14 @@
     ]
   },
   "alternanthera-reineckii-mini": {
-    "at": "2026-11-06",
-    "from": "2026-10-28",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Alternanthera reineckii 'Mini'",
     "confidence": "high",
-    "score": 0.75,
+    "score": 0.9,
     "notes": [
-      "\"Tumbuhan batang\" for Type: Stem is acceptable, but \"Tumbuhan akuatik\" for \"Aquarium plant\" drops the aquarium sense; use \"Tumbuhan akuarium\".",
-      "\"tumbuh padat dan lebih perlahan\" is awkward; use \"pertumbuhan yang padat dan kadar pertumbuhan yang lebih perlahan\".",
-      "\"memperbaik\" is non-standard; use \"memperbaiki\" or \"meningkatkan\".",
-      "\"Cahaya yang tinggi\" is imprecise; use \"keamatan cahaya yang tinggi\".",
-      "\"latar depan\" is better as \"latar hadapan\" (foreground); \"aquascape\" could be given as \"akuaskap\" or kept in italics.",
-      "\"hamparan merah keunguan\" for \"carpet\" is acceptable, but \"permaidani\" or \"hamparan padat\" is the more common hobby term."
+      "Item 2: the source names the plant only as 'Rau dền đỏ mini'. The translation replaces it with \"Alternanthera reineckii 'Mini'\", which adds a species and cultivar name the source does not give. Use 'Alternanthera Mini' or a neutral phrase such as 'Alternanthera mini merah'.",
+      "Item 2: the 'EN' source text is Vietnamese, not English. The Malay is faithful to it, so flag this to the content team rather than treat it as a translation error."
     ]
   },
   "ammannia-crassicaulis": {
@@ -164,16 +160,12 @@
     ]
   },
   "anubias-barteri-var-caladiifolia": {
-    "at": "2026-11-06",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Anubias Caladiifolia",
     "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "\"Berizom\" is a bit unusual; prefer \"Berakar rizom\" or \"Rizom\" for \"Rhizomatous\".",
-      "\"Pokok induk\" is acceptable but \"tumbuhan induk\" is more natural; \"pasu segi empat 9 cm\" should be \"pasu segi empat sama 9 cm\".",
-      "\"Daunnya boleh hidup\" is slightly awkward; prefer \"Daunnya tahan selama beberapa tahun\"."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "anubias-barteri-var-coffeifolia": {
     "at": "2026-11-06",
@@ -267,16 +259,19 @@
     ]
   },
   "aponogeton-madagascariensis": {
-    "at": "2026-11-06",
-    "from": "2026-10-30",
-    "name": "Madagascar Lace Plant",
-    "confidence": "medium",
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Madagascar Lace",
+    "confidence": "high",
     "score": 0.75,
     "notes": [
-      "\"Kapsul baja\" – source says \"Nutrition capsules\"; acceptable, but \"kapsul nutrien\" is closer. Minor.",
-      "\"tumpuan istimewa\" – \"speciality\" is rendered as a focal point; \"kegemaran istimewa/spesies istimewa\" would be closer to the meaning. Minor.",
-      "\"sangat cerewet\" is informal for \"makes such high demands\"; consider \"menuntut kualiti air dan substrat yang sangat tinggi\". Minor.",
-      "\"bottom layer\" rendered as \"substrat\" – fine, but \"saiznya dari 25 hingga 50 cm\" is better as \"bersaiz 25 hingga 50 cm\". Minor."
+      "\"120 liter\" (twice): standard Malaysian spelling is \"120 liter\" in DBP but hobbyists commonly write \"litre\"/\"L\"; consider \"120 L\" for consistency with the style used elsewhere.",
+      "\"bebawang (bulb)\" / \"Bebawang\": \"ubi\" or \"umbi\" is the more natural term for bulb/corm in Malay; \"bebawang\" reads awkward and is not standard botanical usage.",
+      "\"sehinggakan ia hanya boleh disyorkan\": phrasing is slightly stiff; consider \"sehingga hanya sesuai disyorkan\".",
+      "\"kormus\": use standard \"korm\" (corm).",
+      "\"Pembiakan: Anak pokok melalui bebawang atau biji benih\": fine but \"biji benih\" could simply be \"biji\".",
+      "\"ia merosakkan cengkerangnya\": ambiguous; clarify that the low-pH water harms the shells (\"air itu merosakkan cengkerangnya\").",
+      "\"Jika pH anda menghampiri 7.0\" and \"pH 5.5 – 7.5\": decimal separators use a point; Malay usually uses a comma/point inconsistently, acceptable but be consistent."
     ]
   },
   "aponogeton-ulvaceus": {
@@ -452,6 +447,16 @@
       "\"Bahagian tengah atau depan tangki\": 'midground or foreground' is more naturally 'tengah atau latar depan'. Minor.",
       "\"yang sudah berpengalaman\" is slightly awkward. Consider 'pemain hobi berpengalaman'. Minor.",
       "\"Bentuknya kekal kemas walaupun jarang dipangkas\" slightly changes 'minimal trimming'. Consider 'dengan pemangkasan yang minimum'. Minor."
+    ]
+  },
+  "bucephalandra-sp": {
+    "at": "2026-11-08",
+    "from": "2026-11-06",
+    "name": "Bucephalandra Dark Leaf",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"tumbuhan karpet\" narrows \"cây nền\" (ground or foreground plants). Use \"tumbuhan latar depan/tumbuhan dasar\" or \"tumbuhan yang ditanam dalam substrat\"."
     ]
   }
 }

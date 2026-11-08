@@ -12,6 +12,324 @@
     "sri-lanka",
     "negombo-lagoon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK"
+      ],
+      "regions": [
+        "Tapti River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The green chromide, Etroplus suratensis, is a euryhaline cichlid from peninsular India and Sri Lanka, growing to 350 mm SL.",
+          "countries": [
+            "IN",
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Suratte, India, 21°12'N, 72°55'E', referring to modern-day Surat which lies on the lower Tapti River in Gujarat state, western India.",
+          "countries": [],
+          "regions": [
+            "Tapti River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372834,
+      "total": 244,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          197
+        ],
+        [
+          "MY",
+          23
+        ],
+        [
+          "LK",
+          13
+        ],
+        [
+          "SG",
+          9
+        ],
+        [
+          "AE",
+          1
+        ],
+        [
+          "DO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          53.4375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          73.125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          73.125,
+          16.875,
+          4,
+          4
+        ],
+        [
+          73.125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          11.25,
+          21,
+          21
+        ],
+        [
+          74.53125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          8.4375,
+          61,
+          61
+        ],
+        [
+          75.9375,
+          9.84375,
+          18,
+          18
+        ],
+        [
+          75.9375,
+          11.25,
+          3,
+          3
+        ],
+        [
+          75.9375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          77.34375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          77.34375,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          78.75,
+          5.625,
+          7,
+          7
+        ],
+        [
+          78.75,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          78.75,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          78.75,
+          11.25,
+          3,
+          3
+        ],
+        [
+          78.75,
+          16.875,
+          1,
+          1
+        ],
+        [
+          78.75,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          80.15625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          15.46875,
+          14,
+          14
+        ],
+        [
+          80.15625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          22.5,
+          6,
+          6
+        ],
+        [
+          81.5625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          82.96875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          84.375,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          84.375,
+          19.6875,
+          23,
+          23
+        ],
+        [
+          85.78125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          8,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          18,
+          0
+        ],
+        [
+          115.3125,
+          5.625,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -128,17 +446,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/f76f99de0c45a7d7.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f76f99de0c45a7d7-480.webp",
-      "width": 640,
-      "height": 360,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-suratensis",
-      "caption": "Sexually mature specimen from Alappuzha, Kerala, southwestern India.",
-      "source": "seriouslyfish"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/d7bd1282ad6c894b.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/d7bd1282ad6c894b-480.webp",

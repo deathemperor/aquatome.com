@@ -2,7 +2,12 @@
   "id": "aphanius-apodus",
   "temperament": null,
   "finNipper": false,
-  "schoolMin": 3,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-29T05:28:11.935Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T02:01:18.982Z"
 }

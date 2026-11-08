@@ -365,9 +365,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
     if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
     await Promise.all(spends)
-    // Our side failed (503: no key, Claude unreachable): the reader's count goes back. A failed answer (502) still counts.
+    // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
+    // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
+    // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts.
     const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
-    await ledger.settle({ day, run, refund: done.status === 503, keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+    const offTopic = done.status === 200 && trail?.answer?.offTopic === true
+    await ledger.settle({ day, run, refund: done.status === 503, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
 
   /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */
@@ -378,7 +381,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       question: q.question, outcome: done.status === 200 ? 'ok' : String(done.body.error), ms: clock() - began,
       cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
       agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
-      ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, blocks: t.blocks.length, dropped: t.dropped } } : {}),
+      ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
       turns: turnsOf(t.history, t.message),
     }
   }

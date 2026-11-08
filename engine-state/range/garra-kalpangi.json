@@ -1,0 +1,57 @@
+{
+  "id": "garra-kalpangi",
+  "native": {
+    "input": "e8076540db6e941b",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra kalpangi is a small cyprinid known only from the Kalpangi River, a Brahmaputra tributary in the Himalayan foothills of Arunachal Pradesh, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Kalpangi River, a tributary within the Brahmaputra basin in the Himalayan foothills of Arunachal Pradesh state, northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Kalpangi River, a tributary within the Brahmaputra basin in the Himalayan foothills of Arunachal Pradesh state, northeastern India.",
+        "ok": true
+      },
+      {
+        "name": "Kalpangi River",
+        "source": "seriouslyfish",
+        "quote": "Garra kalpangi is a small cyprinid known only from the Kalpangi River, a Brahmaputra tributary in the Himalayan foothills of Arunachal Pradesh, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra kalpangi",
+    "status": "ACCEPTED",
+    "taxonKey": 7193652,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

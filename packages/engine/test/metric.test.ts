@@ -29,8 +29,8 @@ test('fish, plant, breed and guide pages in every language come out in metric; o
   expect((await read('species/a/vi.json')).sections).toEqual({ 'quickFacts:seriouslyfish': '<li>Nhiệt độ: 20–30°C</li>', 'references:seriouslyfish': '<p>Smith (1990) 12 in.</p>' })
   expect((await read('species/a/th.json')).sections['quickFacts:bwaquatics']).toBe('<li>ขนาดสูงสุด: ประมาณ 12.5 ซม.</li>')
   expect((await read('plants/b/vi.json')).sections['maintenance:aquariumcoop']).toBe('<p>Cây cao khoảng 25 đến 30 cm.</p>')
-  expect(await read('breeds/c/id.json')).toMatchObject({ body: '<p>Minimal 114 L.</p>', summary: ['Akuarium 38 liter.'], faq: [{ q: 'Suhu?', a: '24 °C.' }] })
-  expect(await read('guides/e/vi.json')).toMatchObject({ body: '<p>Bể khoảng 75 lít (76 × 30 × 30 cm).</p>', summary: ['Ống PVC phi 27.'] })
+  expect(await read('breeds/c/id.json')).toMatchObject({ body: '<p>Minimal 120 L.</p>', summary: ['Akuarium 40 liter.'], faq: [{ q: 'Suhu?', a: '24 °C.' }] })
+  expect(await read('guides/e/vi.json')).toMatchObject({ body: '<p>Bể khoảng 75 lít (75 × 30 × 30 cm).</p>', summary: ['Ống PVC phi 27.'] })
   expect((await read('guides/e/th.json')).body).toBe('<p>ลดลงราว 8°C ภายในหนึ่งชั่วโมง</p>') // a change of 15 °F, not a temperature
   expect((await read('guides/e/ms.json')).body).toBe('<p>Akuarium 3,800 liter, 6.5 cm.</p>') // a language the site doesn't serve yet, in its own number marks
   expect((await read('glossary/f/vi.json')).definition).toBe('Bể 10 gallon.') // not a page this pass writes
@@ -61,6 +61,6 @@ test("a guide's topic, already checked, stays checked when only its units change
   await writeFile(join(root, 'engine-state/_topic-check.json'), JSON.stringify({ a: sha(bodies.a), 'b:id': `held:${sha(bodies.b)}`, c: 'old' }))
   await metricPages(join(root, 'content'), root)
   expect(JSON.parse(await readFile(join(root, 'engine-state/_topic-check.json'), 'utf8'))).toEqual({
-    a: sha('<p>Bể 38 lít.</p>'), 'b:id': `held:${sha('<p>Nước 24 °C.</p>')}`, c: 'old',
+    a: sha('<p>Bể 40 lít.</p>'), 'b:id': `held:${sha('<p>Nước 24 °C.</p>')}`, c: 'old',
   })
 })

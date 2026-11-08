@@ -90,6 +90,10 @@
             "items": {
               "$ref": "#/components/schemas/Method"
             }
+          },
+          "picture": {
+            "type": "string",
+            "description": "The account's picture: an id from protocols/profile-pictures.json. Absent when none is chosen."
           }
         }
       },
@@ -1268,7 +1272,7 @@
     },
     "/api/v1/account/export": {
       "get": {
-        "summary": "Everything the account holds, as a JSON file",
+        "summary": "The account's details and sign-in methods, its saved tanks, the fish-ID photos it let AquaTome keep (their details, not the images) and its chat conversations, as a JSON file. Not the chat's transcripts, nor the comments and photos it sent.",
         "security": [
           {
             "bearer": []
@@ -1305,6 +1309,13 @@
                         "$ref": "#/components/schemas/KeptPhoto"
                       },
                       "description": "The fish-ID photos it let AquaTome keep (not the images)."
+                    },
+                    "chatConversations": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "chat.openapi.json#/components/schemas/Conversation"
+                      },
+                      "description": "Its chat conversations, each question with its answer, those the reader hid too (marked `hidden`)."
                     }
                   }
                 }
@@ -1425,6 +1436,82 @@
           },
           "502": {
             "description": "Error: apple_revoke_failed (Apple refused the code or the revoke: ask again)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/picture": {
+      "post": {
+        "summary": "Choose the account's picture from the set, or none",
+        "description": "The set is protocols/profile-pictures.json; the account keeps the id alone. The session's user and the export carry it.",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "picture"
+                ],
+                "properties": {
+                  "picture": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "An id from the set; null for none."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chosen. The account, with its picture.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "user"
+                  ],
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_picture (not an id in the set)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out",
             "content": {
               "application/json": {
                 "schema": {

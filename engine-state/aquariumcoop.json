@@ -142,6 +142,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/5-red-plants": {
+    "lastmod": "2025-12-18T13:56:46-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-5-red-plants"
+    ],
+    "updatedAt": "2026-11-08T00:43:51.254Z",
+    "hash": "2d5487b3f5082bfe3ba6b6f315ea43c20252122d4c082d0c71b5309ff28a5bb8",
+    "processedHash": "2d5487b3f5082bfe3ba6b6f315ea43c20252122d4c082d0c71b5309ff28a5bb8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/5-simple-tricks-to-improve-aquarium-filters": {
     "lastmod": "2025-12-18T13:56:36-08:00",
     "entityIds": [
@@ -150,6 +161,17 @@
     "updatedAt": "2026-11-07T02:34:49.247Z",
     "hash": "7501200fd09816b8e8dd778a35203656fb1fed649721f073cdcf7d918e7975f9",
     "processedHash": "7501200fd09816b8e8dd778a35203656fb1fed649721f073cdcf7d918e7975f9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/5-ways-to-cool-aquarium-water": {
+    "lastmod": "2025-12-18T13:57:02-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-5-ways-to-cool-aquarium-water"
+    ],
+    "updatedAt": "2026-11-08T13:00:25.851Z",
+    "hash": "322685e9216ace6ae4383a1fb8b44c56c88391f2592a1dfc55ef5e5594ade3e8",
+    "processedHash": "322685e9216ace6ae4383a1fb8b44c56c88391f2592a1dfc55ef5e5594ade3e8",
     "status": "processed",
     "attempts": 0
   },
@@ -249,6 +271,17 @@
     "updatedAt": "2026-10-30T23:23:02.568Z",
     "hash": "23ff2c62cc5fc12547c2adab2f6544c4f0e6d616a480b50c6ce03f5e979a012e",
     "processedHash": "23ff2c62cc5fc12547c2adab2f6544c4f0e6d616a480b50c6ce03f5e979a012e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/apistogramma-dwarf-cichlid": {
+    "lastmod": "2026-10-28T13:40:27-07:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-apistogramma-dwarf-cichlid"
+    ],
+    "updatedAt": "2026-11-08T13:02:21.597Z",
+    "hash": "fbbe7c4c4a740619089c076c6cab24bc82d1f9374fb43ac2fab93456349e721e",
+    "processedHash": "fbbe7c4c4a740619089c076c6cab24bc82d1f9374fb43ac2fab93456349e721e",
     "status": "processed",
     "attempts": 0
   },
@@ -581,6 +614,14 @@
     "processedHash": "4885910ea04f53093362b57ca7a86a958e4779ddd45b8fa517d5b05fd63278e4",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/bubbles-in-fish-tank-water": {
+    "lastmod": "2025-12-18T13:56:56-08:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T12:45:50.354Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.aquariumcoop.com/blogs/aquarium/bubbles-in-fish-tank-water\", waiting until \"domcontentloaded\"\n"
   },
   "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra": {
     "lastmod": "2025-12-18T13:56:01-08:00",
@@ -978,6 +1019,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/fish-food-types": {
+    "lastmod": "2026-10-28T11:57:27-07:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-fish-food-types"
+    ],
+    "updatedAt": "2026-11-08T00:29:02.103Z",
+    "hash": "dd6c6b5bd561ea23f16b7e973acc1bc4520643bdbaccfb8350396ec2851ebad6",
+    "processedHash": "dd6c6b5bd561ea23f16b7e973acc1bc4520643bdbaccfb8350396ec2851ebad6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/fish-for-profit": {
     "lastmod": "2025-12-18T13:53:36-08:00",
     "entityIds": [
@@ -1143,6 +1195,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra": {
+    "lastmod": "2025-12-18T13:56:42-08:00",
+    "entityIds": [
+      "species/paracheirodon-simulans"
+    ],
+    "updatedAt": "2026-11-08T00:32:18.470Z",
+    "hash": "96412e1ef383b1df70515524299004572ef0e4fba97c1977857400f523a39f84",
+    "processedHash": "96412e1ef383b1df70515524299004572ef0e4fba97c1977857400f523a39f84",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/guppy-care-guide": {
     "lastmod": "2025-12-18T13:52:48-08:00",
     "entityIds": [
@@ -1294,6 +1357,17 @@
     "updatedAt": "2026-10-29T06:10:17.898Z",
     "hash": "903bf193de8d899d47658a0b704247dfa65806ff8b9cc371dce31d5131e2c417",
     "processedHash": "903bf193de8d899d47658a0b704247dfa65806ff8b9cc371dce31d5131e2c417",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/how-to-clean-aquarium-filter": {
+    "lastmod": "2025-12-18T13:56:58-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-how-to-clean-aquarium-filter"
+    ],
+    "updatedAt": "2026-11-08T12:46:36.598Z",
+    "hash": "7cba6a05f4169b2e2c6bcdc44d39cb1378cef68865212fb8ccde8e66e2b23ccd",
+    "processedHash": "7cba6a05f4169b2e2c6bcdc44d39cb1378cef68865212fb8ccde8e66e2b23ccd",
     "status": "processed",
     "attempts": 0
   },
@@ -1594,6 +1668,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/money-saving-tips-for-aquariums": {
+    "lastmod": "2025-12-18T13:56:48-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-money-saving-tips-for-aquariums"
+    ],
+    "updatedAt": "2026-11-08T00:46:08.739Z",
+    "hash": "70a8b87574fa0edbd8b4fa0447031c0b8f86d20d43f628ff48c5cd6b89a99e0f",
+    "processedHash": "70a8b87574fa0edbd8b4fa0447031c0b8f86d20d43f628ff48c5cd6b89a99e0f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/mulm": {
     "lastmod": "2025-12-18T13:53:44-08:00",
     "entityIds": [
@@ -1602,6 +1687,17 @@
     "updatedAt": "2026-10-31T12:57:43.431Z",
     "hash": "57b3611ab3ee7f698b925758019d4ff0ecb132a45594d359e2aed48181807838",
     "processedHash": "57b3611ab3ee7f698b925758019d4ff0ecb132a45594d359e2aed48181807838",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/mystery-snail": {
+    "lastmod": "2025-12-18T13:56:59-08:00",
+    "entityIds": [
+      "species/pomacea-diffusa"
+    ],
+    "updatedAt": "2026-11-08T12:53:18.533Z",
+    "hash": "c7a618961748013ce119d344b278e6c4c34d38770eee662a2a55e919b3d6ad3f",
+    "processedHash": "c7a618961748013ce119d344b278e6c4c34d38770eee662a2a55e919b3d6ad3f",
     "status": "processed",
     "attempts": 0
   },
@@ -1679,6 +1775,17 @@
     "updatedAt": "2026-11-06T12:29:34.579Z",
     "hash": "766c64e2d7962ed63e1a38e32acff57e6f29d57c31d5742a4133b8d20ae93b19",
     "processedHash": "766c64e2d7962ed63e1a38e32acff57e6f29d57c31d5742a4133b8d20ae93b19",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/otocinclus-catfish": {
+    "lastmod": "2025-12-18T13:56:55-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-otocinclus-catfish"
+    ],
+    "updatedAt": "2026-11-08T12:41:35.698Z",
+    "hash": "038f5daa302cbb4114d1d8bebe4a59a0bc86a63844f40b9ec10ea015c356c1f3",
+    "processedHash": "038f5daa302cbb4114d1d8bebe4a59a0bc86a63844f40b9ec10ea015c356c1f3",
     "status": "processed",
     "attempts": 0
   },
@@ -1825,6 +1932,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/power-outage": {
+    "lastmod": "2026-10-19T08:14:28-07:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-power-outage"
+    ],
+    "updatedAt": "2026-11-08T00:52:45.233Z",
+    "hash": "4fc8d1ec21690374be792d04ced4f75b6cbe36b2fee439c059f15451bce66f46",
+    "processedHash": "4fc8d1ec21690374be792d04ced4f75b6cbe36b2fee439c059f15451bce66f46",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/pre-filter-sponge": {
     "lastmod": "2025-12-18T13:55:40-08:00",
     "entityIds": [
@@ -1833,6 +1951,17 @@
     "updatedAt": "2026-11-04T07:57:07.127Z",
     "hash": "13d796224ba32098c65645b574afe35acdf9301238982465f4f8388959696aa7",
     "processedHash": "13d796224ba32098c65645b574afe35acdf9301238982465f4f8388959696aa7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras": {
+    "lastmod": "2025-12-18T13:56:45-08:00",
+    "entityIds": [
+      "species/corydoras-pygmaeus"
+    ],
+    "updatedAt": "2026-11-08T00:41:47.565Z",
+    "hash": "d90006f4658bd2210b01d9c7807e637608046e3211747ff74cd626531393655d",
+    "processedHash": "d90006f4658bd2210b01d9c7807e637608046e3211747ff74cd626531393655d",
     "status": "processed",
     "attempts": 0
   },
@@ -1946,6 +2075,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras": {
+    "lastmod": "2025-12-18T13:56:51-08:00",
+    "entityIds": [
+      "species/hasemania-nana"
+    ],
+    "updatedAt": "2026-11-08T00:47:45.765Z",
+    "hash": "d1187472b9105b55a95706fa6ffbd96066959643d2108079e03da00f0dd5d42e",
+    "processedHash": "d1187472b9105b55a95706fa6ffbd96066959643d2108079e03da00f0dd5d42e",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/slow-aquarium-flow": {
     "lastmod": "2025-12-18T13:54:22-08:00",
     "entityIds": [
@@ -2054,6 +2194,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/top-10-colorful-fish": {
+    "lastmod": "2025-12-18T13:56:52-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-colorful-fish"
+    ],
+    "updatedAt": "2026-11-08T00:49:40.354Z",
+    "hash": "243b2d93f5570e410a4d47b8d09339c69c7ff9472b04808e1d20236e6f6d9b70",
+    "processedHash": "243b2d93f5570e410a4d47b8d09339c69c7ff9472b04808e1d20236e6f6d9b70",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/top-10-cory-catfish": {
     "lastmod": "2025-12-18T13:53:51-08:00",
     "entityIds": [
@@ -2084,6 +2235,17 @@
     "updatedAt": "2026-10-30T23:29:03.025Z",
     "hash": "d76388d56c4fc31a75d9e950d3c3b3db75493c8af7a1ebac95d1ef494e4bd410",
     "processedHash": "d76388d56c4fc31a75d9e950d3c3b3db75493c8af7a1ebac95d1ef494e4bd410",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/top-10-fish-for-planted-tanks": {
+    "lastmod": "2025-12-18T13:56:43-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-fish-for-planted-tanks"
+    ],
+    "updatedAt": "2026-11-08T00:34:50.910Z",
+    "hash": "57a58ef48fc2635cd2cec48f9e8eb42aea5dba381bbbb70e20d573ab70e057cc",
+    "processedHash": "57a58ef48fc2635cd2cec48f9e8eb42aea5dba381bbbb70e20d573ab70e057cc",
     "status": "processed",
     "attempts": 0
   },
@@ -2230,6 +2392,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/warm-water-fish": {
+    "lastmod": "2025-12-18T13:57:00-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-warm-water-fish"
+    ],
+    "updatedAt": "2026-11-08T12:56:57.695Z",
+    "hash": "507ada930243a6cc172053aa9f2389f0e5a402fc65ef9359e8ba56f3dd05f545",
+    "processedHash": "507ada930243a6cc172053aa9f2389f0e5a402fc65ef9359e8ba56f3dd05f545",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/water-circulation": {
     "lastmod": "2025-12-18T13:54:49-08:00",
     "entityIds": [
@@ -2260,6 +2433,17 @@
     "updatedAt": "2026-11-02T13:06:15.834Z",
     "hash": "19acc7b9bf624a78ce867e233e548331957b2fb6018007f4db947135059ceab9",
     "processedHash": "19acc7b9bf624a78ce867e233e548331957b2fb6018007f4db947135059ceab9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/where-to-buy-pet-fish": {
+    "lastmod": "2025-12-18T13:56:44-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-where-to-buy-pet-fish"
+    ],
+    "updatedAt": "2026-11-08T00:39:53.816Z",
+    "hash": "6cd42d8525a010d2d22a662ac7a7b2237e45a54000f90973604990267242970b",
+    "processedHash": "6cd42d8525a010d2d22a662ac7a7b2237e45a54000f90973604990267242970b",
     "status": "processed",
     "attempts": 0
   },

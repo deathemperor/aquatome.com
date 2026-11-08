@@ -18,8 +18,8 @@ struct CappedField: UIViewRepresentable {
 
   func makeUIView(context: Context) -> UITextField {
     let f = UITextField()
-    f.placeholder = String(localized: prompt ?? title)
-    f.accessibilityLabel = String(localized: title)
+    f.placeholder = String(localized: (prompt ?? title).inApp)
+    f.accessibilityLabel = String(localized: title.inApp)
     f.accessibilityIdentifier = id
     f.font = .preferredFont(forTextStyle: .body)
     f.adjustsFontForContentSizeCategory = true

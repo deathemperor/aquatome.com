@@ -1,0 +1,507 @@
+{
+ "version": 1,
+ "weeks": [
+  {
+   "from": "2026-11-09",
+   "to": "2026-11-15",
+   "theme": {
+    "vi": "Trời trở lạnh",
+    "th": "หน้าหนาวมาแล้ว"
+   },
+   "tags": [
+    "cold",
+    "heater"
+   ],
+   "fish": [
+    "breeds/ryukin-goldfish",
+    "species/pterophyllum-altum",
+    "breeds/bubble-eye-goldfish",
+    "species/betta-anabatoides"
+   ],
+   "guides": [
+    "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua",
+    "guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater",
+    "guides/youtube-7l1Ja0NL_UQ",
+    "guides/youtube-DZ0JTLYiawU",
+    "guides/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do",
+    "guides/aquariumcoop-blogs-aquarium-goldfish-food",
+    "guides/youtube-AdOl8K9Ri4Q",
+    "guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao",
+    "guides/seriouslyfish-articles-heating-the-aquarium",
+    "guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu"
+   ],
+   "hero": [
+    {
+     "page": "breeds/oranda-goldfish",
+     "img": "https://media.aquatome.com/commons/4a72748522b76373.webp"
+    },
+    {
+     "page": "species/pterophyllum-scalare",
+     "img": "https://media.aquatome.com/commons/45fccde9d99b3154.webp"
+    },
+    {
+     "page": "breeds/black-moor-goldfish",
+     "img": "https://media.aquatome.com/commons/a2b410fe31df8255.webp"
+    },
+    {
+     "page": "species/mikrogeophagus-ramirezi",
+     "img": "https://media.aquatome.com/commons/77efa1b146855ade.webp"
+    },
+    {
+     "page": "breeds/plakat-betta",
+     "img": "https://media.aquatome.com/commons/2f06e503b293c8ae.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ua-nuoc-mat",
+     "title": {
+      "vi": "Cá ưa nước mát",
+      "th": "ปลาชอบน้ำเย็น"
+     },
+     "pages": [
+      "breeds/ranchu-goldfish",
+      "breeds/black-moor-goldfish",
+      "breeds/bubble-eye-goldfish",
+      "species/oryzias-latipes",
+      "species/tanichthys-albonubes",
+      "species/macropodus-opercularis",
+      "breeds/oranda-goldfish",
+      "breeds/lionhead-goldfish"
+     ]
+    },
+    {
+     "id": "can-suoi",
+     "title": {
+      "vi": "Cần sưởi khi trời lạnh",
+      "th": "ต้องใช้ฮีตเตอร์ตอนอากาศหนาว"
+     },
+     "pages": [
+      "species/symphysodon-aequifasciatus",
+      "species/pterophyllum-scalare",
+      "species/mikrogeophagus-ramirezi",
+      "breeds/flowerhorn-cichlid",
+      "breeds/plakat-betta",
+      "breeds/blue-diamond-discus",
+      "species/pterophyllum-altum",
+      "species/betta-splendens"
+     ]
+    }
+   ],
+   "why": "The cold monsoon reaches northern Vietnam in November and Thailand turns cool, so fish that like cool water and fish that need a heater, with heater and power-cut guides."
+  },
+  {
+   "from": "2026-11-16",
+   "to": "2026-11-22",
+   "theme": {
+    "vi": "Bể nhỏ, cá đàn nhỏ",
+    "id": "Akuarium kecil, ikan kecil bergerombol",
+    "th": "ตู้เล็ก ปลาฝูงตัวเล็ก",
+    "ms": "Akuarium kecil, ikan kecil berkumpulan"
+   },
+   "tags": [
+    "nano"
+   ],
+   "fish": [
+    "species/boraras-maculatus",
+    "species/nannostomus-marginatus"
+   ],
+   "guides": [
+    "guides/aquariumcoop-blogs-aquarium-beginner-planted-aquarium",
+    "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
+    "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
+    "guides/youtube-ahN0nP8HLaI",
+    "guides/youtube-YLGv95LMF6c",
+    "guides/aquatome-be-ca-nuoi-bao-nhieu-con-la-vua-cach-tinh-mat-do-tha-ca-theo-the-tich-va-loai",
+    "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
+    "guides/youtube-cGTFcYJ_BQs"
+   ],
+   "hero": [
+    {
+     "page": "species/paracheirodon-axelrodi",
+     "img": "https://media.aquatome.com/sprucepets/4e2222e45b417ad7.webp"
+    },
+    {
+     "page": "species/hemigrammus-erythrozonus",
+     "img": "https://media.aquatome.com/commons/92deb889aca4d02a.webp"
+    },
+    {
+     "page": "species/thayeria-boehlkei",
+     "img": "https://media.aquatome.com/commons/cd40e7262b6811c5.webp"
+    },
+    {
+     "page": "species/oryzias-latipes",
+     "img": "https://media.aquatome.com/commons/4f94899e8e811e8e.webp"
+    },
+    {
+     "page": "species/boraras-merah",
+     "img": "https://media.aquatome.com/commons/4e16c3be6be70077.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ca-dan-nho",
+     "title": {
+      "vi": "Cá đàn nhỏ cho bể thủy sinh",
+      "id": "Ikan kecil bergerombol untuk aquascape",
+      "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
+      "ms": "Ikan kecil berkumpulan untuk aquascape"
+     },
+     "pages": [
+      "species/paracheirodon-axelrodi",
+      "species/hemigrammus-erythrozonus",
+      "species/thayeria-boehlkei",
+      "species/boraras-merah",
+      "species/boraras-maculatus",
+      "species/nannostomus-marginatus",
+      "species/pristella-maxillaris",
+      "species/danio-erythromicron"
+     ]
+    },
+    {
+     "id": "de-nuoi",
+     "title": {
+      "vi": "Dễ nuôi cho người mới",
+      "id": "Mudah dipelihara, cocok untuk pemula",
+      "th": "ปลาเลี้ยงง่ายสำหรับมือใหม่",
+      "ms": "Mudah dijaga, sesuai untuk pemula"
+     },
+     "pages": [
+      "species/poecilia-reticulata",
+      "species/thayeria-boehlkei",
+      "species/pristella-maxillaris"
+     ]
+    }
+   ],
+   "why": "Small tanks and the small schooling fish that suit them, with guides for setting one up."
+  },
+  {
+   "from": "2026-11-23",
+   "to": "2026-11-29",
+   "theme": {
+    "vi": "Cá bản địa Việt Nam",
+    "id": "Ikan asli Asia Tenggara",
+    "th": "ปลาพื้นเมืองอาเซียน",
+    "ms": "Ikan asli Asia Tenggara"
+   },
+   "tags": [
+    "local"
+   ],
+   "fish": [
+    "species/macropodus-opercularis",
+    "species/channa-micropeltes",
+    "species/trichopodus-trichopterus",
+    "species/anabas-testudineus",
+    "species/mastacembelus-erythrotaenia",
+    "species/datnioides-pulcher",
+    "species/betta-siamorientalis"
+   ],
+   "guides": [
+    "guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms",
+    "guides/loachesonline-articles-a-river-runs-through-it",
+    "guides/youtube-cJLZq603RAY"
+   ],
+   "hero": [
+    {
+     "page": "species/channa-micropeltes",
+     "img": "https://media.aquatome.com/commons/004b2d13f73b52b4-large.webp"
+    },
+    {
+     "page": "species/macropodus-opercularis",
+     "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp"
+    },
+    {
+     "page": "species/datnioides-pulcher",
+     "img": "https://media.aquatome.com/commons/8bac445743996b73.webp"
+    },
+    {
+     "page": "species/mastacembelus-erythrotaenia",
+     "img": "https://media.aquatome.com/commons/66c8bc640e4b6617.webp"
+    },
+    {
+     "page": "species/dichotomyctere-nigroviridis",
+     "img": "https://media.aquatome.com/commons/dc869ceba62259ce-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ca-loc",
+     "title": {
+      "vi": "Cá lóc",
+      "id": "Ikan channa",
+      "th": "ปลาช่อนและปลาชะโด",
+      "ms": "Ikan channa"
+     },
+     "pages": [
+      "species/channa-micropeltes",
+      "species/channa-asiatica",
+      "species/channa-gachua",
+      "species/channa-lucius",
+      "species/channa-maculata",
+      "species/channa-marulius"
+     ]
+    },
+    {
+     "id": "ro-sac-co",
+     "title": {
+      "vi": "Cá rô, cá sặc, cá cờ",
+      "id": "Betok, sepat, dan ikan paradise",
+      "th": "ปลาหมอไทย ปลากระดี่ และปลาพาราไดซ์"
+     },
+     "pages": [
+      "species/anabas-testudineus",
+      "species/trichopodus-trichopterus",
+      "species/macropodus-opercularis",
+      "species/trichopodus-pectoralis"
+     ]
+    }
+   ],
+   "why": "Fish native to Vietnam by their pages, led by snakeheads, the fish readers find the site through most in search."
+  }
+ ],
+ "days": [
+  {
+   "date": "2026-11-08",
+   "fish": "species/acrossocheilus-paradoxus",
+   "img": "https://media.aquatome.com/inaturalist/216739809-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-cladophora",
+   "why": "Guide: Cách loại bỏ tảo cladophora, the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/2hraquarist/ecd9ac8852f565f3.webp"
+  },
+  {
+   "date": "2026-11-09",
+   "fish": "breeds/flowerhorn-cichlid",
+   "img": "https://media.aquatome.com/commons/19baaafa3f516888-large.webp",
+   "guide": "guides/youtube-DZ0JTLYiawU",
+   "story": {
+    "page": "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua",
+    "eyebrow": {
+     "vi": "Hướng dẫn"
+    },
+    "title": {
+     "vi": "Trời lạnh, bể cá cần gì"
+    },
+    "dek": {
+     "vi": "Chọn sưởi khoảng 1 W mỗi lít, đặt ở chỗ nước lưu thông tốt, ốp xốp quanh bể và sắm sẵn máy sủi chạy pin phòng khi mất điện"
+    }
+   },
+   "why": "Guide: Dưỡng cá thủy sinh mùa giao mùa: bệnh hay gặp, đánh thuốc, bể dưỡng, on this week's list."
+  },
+  {
+   "date": "2026-11-10",
+   "fish": "species/pterophyllum-altum",
+   "img": "https://media.aquatome.com/commons/302997e125c7870b.webp",
+   "guide": "guides/sprucepets-platy-types-1381066",
+   "guideImg": "https://media.aquatome.com/sprucepets/9d227b32ea4026ab.webp",
+   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
+  },
+  {
+   "date": "2026-11-11",
+   "fish": "breeds/oranda-goldfish",
+   "img": "https://media.aquatome.com/commons/5c695b18592945a0.webp",
+   "guide": "guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu",
+   "why": "Guide: Cho cá ăn bao nhiêu, mấy lần một ngày: cách tránh cho ăn quá nhiều, on this week's list."
+  },
+  {
+   "date": "2026-11-12",
+   "fish": "breeds/bubble-eye-goldfish",
+   "img": "https://media.aquatome.com/commons/fe61173833b53e0d.webp",
+   "guide": "guides/aquariumbreeder-why-do-shrimp-change-color",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/077edec0ff1c1f11.webp",
+   "why": "Guide: Vì sao tép đổi màu?, 3 search impressions."
+  },
+  {
+   "date": "2026-11-13",
+   "fish": "species/xiphophorus-hellerii",
+   "img": "https://media.aquatome.com/inaturalist/268032912-large.webp",
+   "guide": "guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con",
+   "card": "cards/trivia-medaka-space",
+   "why": "Guide: Cá bảy màu sắp đẻ: dấu hiệu, cách tách cá mẹ và nuôi cá con, 5 search impressions."
+  },
+  {
+   "date": "2026-11-14",
+   "fish": "species/betta-anabatoides",
+   "img": "https://media.aquatome.com/bwaquatics/ee2c04cb1a2140b8.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-cynobacteria",
+   "why": "Guide: Cách kiểm soát vi khuẩn lam (tảo lam) trong bể thủy sinh, the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/2hraquarist/df5fdbb89b7067de.webp"
+  },
+  {
+   "date": "2026-11-15",
+   "fish": "species/monodactylus-sebae",
+   "img": "https://media.aquatome.com/commons/f951f81ed157dba7.webp",
+   "guide": "guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua",
+   "why": "Guide: Cá đĩa đi phân trắng: dấu hiệu, nguyên nhân và cách chữa trùng roi Hexamita, 3 search impressions."
+  },
+  {
+   "date": "2026-11-16",
+   "img": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
+   "guide": "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
+   "why": "Guide: 5 loài cá đàn tốt nhất cho người mới chơi bể nước ngọt, on this week's list."
+  },
+  {
+   "date": "2026-11-17",
+   "fish": "species/nannostomus-marginatus",
+   "img": "https://media.aquatome.com/commons/1881b5ea5480ca6d.webp",
+   "guide": "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
+   "why": "Guide: Thả cá mới mua vào bể: cách thuần nước đúng để cá không sốc, on this week's list."
+  },
+  {
+   "date": "2026-11-18",
+   "img": "https://media.aquatome.com/commons/40a970f67cc6e69d-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms",
+   "story": {
+    "page": "guides/youtube-EIjUVVFcNmo",
+    "eyebrow": {
+     "vi": "Cho người mới"
+    },
+    "title": {
+     "vi": "Set bể thủy sinh để bàn cubic 30"
+    },
+    "dek": {
+     "vi": "Bể 27 lít: dựng đá lũa, trải nền cao dần về phía sau, trồng cây, chạy lọc một ngày rồi mới châm vi sinh và lắp CO2"
+    }
+   },
+   "why": "Guide: Cách kiểm soát tảo nâu (tảo cát) trong bể thủy sinh, the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/2hraquarist/a9c11948bc323c9f.webp"
+  },
+  {
+   "date": "2026-11-19",
+   "fish": "species/paracheirodon-axelrodi",
+   "img": "https://media.aquatome.com/inaturalist/365422173-large.webp",
+   "guide": "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
+   "why": "Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list."
+  },
+  {
+   "date": "2026-11-20",
+   "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
+   "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
+   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
+  },
+  {
+   "date": "2026-11-21",
+   "img": "https://media.aquatome.com/commons/92deb889aca4d02a-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients",
+   "guideImg": "https://media.aquatome.com/2hraquarist/20af0b5ea6f239f1.webp",
+   "why": "Guide: Dư dinh dưỡng có gây tảo trong bể thủy sinh không?, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-11-22",
+   "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
+   "guide": "guides/aquatome-ca-bo-an-khong-chiu-an-nguyen-nhan-va-cach-xu-ly",
+   "why": "Guide: Cá bỏ ăn, không chịu ăn: nguyên nhân và cách xử lý, 2 search impressions."
+  },
+  {
+   "date": "2026-11-23",
+   "fish": "species/datnioides-pulcher",
+   "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae",
+   "why": "Guide: Cách kiểm soát tảo sợi (tảo tóc, tảo lông, tảo chỉ), the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/2hraquarist/de1486196265f59b.webp"
+  },
+  {
+   "date": "2026-11-24",
+   "fish": "species/macropodus-opercularis",
+   "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp",
+   "guide": "guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/eb9f5d29655fb0c7.webp",
+   "why": "Guide: Hồ sơ bọ cánh cứng lặn (Diving beetle): kẻ săn mồi trong bể tép và bể cá, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-11-25",
+   "fish": "species/channa-marulius",
+   "img": "https://media.aquatome.com/commons/407a83407c0434ed-large.webp",
+   "guide": "guides/sprucepets-barb-species-1380768",
+   "card": "cards/trivia-climbing-perch-land",
+   "why": "Guide: Cá barb: hồ sơ các loài, the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/sprucepets/0b24516e48902bab.webp"
+  },
+  {
+   "date": "2026-11-26",
+   "fish": "species/anabas-testudineus",
+   "img": "https://media.aquatome.com/commons/771f9afef1d694dc-large.webp",
+   "guide": "guides/aquariumbreeder-snails-external-anatomy",
+   "why": "Fish: Cá rô đồng, on this week's list, native to Vietnam, 9 search impressions."
+  },
+  {
+   "date": "2026-11-27",
+   "img": "https://media.aquatome.com/commons/f29e8529f2571332-large.webp",
+   "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
+   "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
+   "why": "Guide: 11 loài cá da trơn phù hợp cho bể cá tại nhà, 1 search impression."
+  },
+  {
+   "date": "2026-11-28",
+   "img": "https://media.aquatome.com/commons/d6469d9d31e58aa4-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
+   "why": "Guide: Cách loại bỏ tảo gạc nai (staghorn algae), the best left with a big enough photo.",
+   "guideImg": "https://media.aquatome.com/2hraquarist/2ff2150b8977932c.webp"
+  },
+  {
+   "date": "2026-11-29",
+   "fish": "species/dichotomyctere-nigroviridis",
+   "img": "https://media.aquatome.com/commons/dc869ceba62259ce-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-bba",
+   "guideImg": "https://media.aquatome.com/2hraquarist/eeaa072abc3396d6.webp",
+   "why": "Guide: Cách loại bỏ tảo râu đen (BBA), the best left with a big enough photo."
+  }
+ ],
+ "loops": {
+  "koi": {
+   "src": "https://media.aquatome.com/loops/koi-2.mp4",
+   "h264": "https://media.aquatome.com/loops/koi-2-h264.mp4",
+   "poster": "https://media.aquatome.com/loops/koi-2.webp",
+   "w": 1080,
+   "h": 1080,
+   "seconds": 4.92,
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Mário J.R. Matos",
+   "source": "https://archive.org/details/4kfreestockfootagegiantcarpfishorangeblackwhite",
+   "replace": "Replace with the owner's or a Vietnamese shop's koi footage when it comes (council 8/10: a bubble shows twice in the dissolve). If the owner dislikes the dissolve, remove it so the card shows the photo (CoS, 2026-11-08)."
+  },
+  "cyprinus-rubrofuscus": {
+   "src": "https://media.aquatome.com/loops/koi-2.mp4",
+   "h264": "https://media.aquatome.com/loops/koi-2-h264.mp4",
+   "poster": "https://media.aquatome.com/loops/koi-2.webp",
+   "w": 1080,
+   "h": 1080,
+   "seconds": 4.92,
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "author": "Mário J.R. Matos",
+   "source": "https://archive.org/details/4kfreestockfootagegiantcarpfishorangeblackwhite",
+   "replace": "Replace with the owner's or a Vietnamese shop's koi footage when it comes (council 8/10: a bubble shows twice in the dissolve). If the owner dislikes the dissolve, remove it so the card shows the photo (CoS, 2026-11-08)."
+  }
+ },
+ "avoid": {
+  "https://media.aquatome.com/commons/d303bc24129e7273.webp": "betta: a dark tank where the fish is small; its caption says the fish is sick",
+  "https://media.aquatome.com/aquariumcoop/f60636dca7caf019.webp": "a person",
+  "https://media.aquatome.com/commons/f8dffac3dfb62633.webp": "fish out of water",
+  "https://media.aquatome.com/seriouslyfish/df72499a9847ce5d.webp": "another subject",
+  "https://media.aquatome.com/commons/fc9ccca176726701.webp": "red devil: looks like a juvenile or another cichlid, not the adult's look",
+  "https://media.aquatome.com/aquariumbreeder/b40dca8c4c2540cf.webp": "a line diagram of a snail with English labels, not a photo",
+  "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": "two photos joined side by side, with a slanted seam across the card"
+ },
+ "off": {
+  "breeds/blue-diamond-discus": "reader fit: units",
+  "breeds/ranchu-goldfish": "reader fit: source, units",
+  "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": "reader fit: elsewhere, units, source",
+  "species/betta-splendens": "reader fit: elsewhere",
+  "species/boraras-maculatus": "reader fit: source",
+  "species/boraras-merah": "reader fit: elsewhere, source",
+  "species/channa-asiatica": "reader fit: source",
+  "species/channa-gachua": "reader fit: source",
+  "species/channa-micropeltes": "reader fit: elsewhere",
+  "species/hemigrammus-erythrozonus": "reader fit: units, elsewhere",
+  "species/mikrogeophagus-ramirezi": "reader fit: source",
+  "species/oryzias-latipes": "reader fit: elsewhere",
+  "species/poecilia-reticulata": "reader fit: units, elsewhere",
+  "species/pristella-maxillaris": "reader fit: elsewhere",
+  "species/pterophyllum-scalare": "reader fit: source",
+  "species/symphysodon-aequifasciatus": "reader fit: source",
+  "species/tanichthys-albonubes": "reader fit: source, elsewhere",
+  "species/thayeria-boehlkei": "reader fit: units, elsewhere",
+  "species/trichopodus-trichopterus": "reader fit: elsewhere"
+ }
+}

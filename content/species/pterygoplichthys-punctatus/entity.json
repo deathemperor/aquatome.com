@@ -1,0 +1,190 @@
+{
+  "id": "pterygoplichthys-punctatus",
+  "scientificName": "Pterygoplichthys punctatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pterygoplichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "maranon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 28.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<ul><li>Scientific name: Pterygoplichthys punctatus (Kner, 1854)</li><li>Common names: Imperial Ranger Pleco, Guimares Silver Pleco, Punktierter Schilderwels (Germany), Trinidad Pleco, Yogi Pleco</li><li>Type locality: Rio Guaporé, Amazon system, San Vincente, Mato Grosso state, Brazil.</li><li>Synonyms: Glyptoperichthys punctatus, Loricaria punctata, Pterygoplichthys punctatus</li><li>Pronunciation: terry gop LICK thees</li><li>Etymology: Greek, pterygion, diminutive of pteryx = wing, fin + Greek, hoplon = weapon + Greek, ichthys = fish. Lorica, Loricare = cuirass of corslet of leather (a suit of armour made of leather).</li><li>IUCN Red List category: Least Concern. Last assessed 2020.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>South America: Amazon basin, including the Middle Amazon (Solimões) and Madeira, the Upper Amazon (Marañón), the Juruá, and the Middle Amazon (Solimões) and Purus.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Temperature: 22.0–26.0°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Omnivorous and a good algae eater, especially when young.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Suggested tankmates: almost any medium sized community fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Comparison of the genital papilla in mature fish shows the differences in the sexes to the trained eye. In males this is a small yet thick stump which noticeably protrudes from the fish's undercarriage. In females it is less obvious and is recessed or lies flat with the body.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Unreported in captivity. In nature, the male fish occupies a tunnel in soft river bank in which the eggs are laid and guarded. The egg mass of bright orange eggs contains thousands of eggs. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Pterygoplichthys can be identified by the number of rays in the dorsal fin. Ten or more dorsal rays (usually more than 10) indicates that it's a Pterygoplichthys. Most other plecos have 8 or fewer rays (in particular the larger Hypostomus species that are most likely to be confused with Pterygoplichthys).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1295",
+      "html": "<p>Denkschriften der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe. v. 7, pp 281 [31].</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/91286e53acb80918.webp",
+      "thumb": "https://media.aquatome.com/scotcat/91286e53acb80918-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_punctatus.htm",
+      "caption": "Pterygoplichthys punctatus: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6ae93c09e569142f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6ae93c09e569142f-480.webp",
+      "width": 500,
+      "height": 241,
+      "licence": "dùng với sự cho phép",
+      "author": "Joost Schuitemaker / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_punctatus.htm",
+      "caption": "Pterygoplichthys punctatus: subadult",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/faded4e43e34ada9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/faded4e43e34ada9-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Joost Schuitemaker / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_punctatus.htm",
+      "caption": "Pterygoplichthys punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9de3aa5a14cabffe.webp",
+      "width": 960,
+      "height": 683,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ramon and Suzanne Vargas",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterygoplichthys_punctatus.jpg",
+      "caption": "Blackdotted King Pleco (Pterygoplichthys punctatus). Species of fish.",
+      "thumb": "https://media.aquatome.com/commons/9de3aa5a14cabffe-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "YhL5X-Ea1Gk",
+      "title": "My old Glyptoperichthys punctatus",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SOzz5n3uU6o",
+      "title": "Tiny Ranger Plecos!",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "b1bQJS--mbs",
+      "title": "Glyptoperichthys punctatus",
+      "durationSec": 105,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qmeW6VpJk30",
+      "title": "Hypostomus punctatus.flv",
+      "durationSec": 124,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn nuôi cá lau kiếng",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi cá cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

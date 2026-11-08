@@ -68,7 +68,7 @@ TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'Accou
              'TankMatesFlowTests', 'TelemetryFlowTests'] + LIGHTS_ON_TANKS
 KEPT_ROW = 'OfflineFlowTests/testTheAccountSheetCountsTheKeptPagesAndOpensTheirShelfOnTim'
 ACCOUNT_SHEET = ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'TelemetryFlowTests',
-                 'PageShotsFlowTests']
+                 'PageShotsFlowTests', 'ProfilePictureFlowTests']
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -145,6 +145,9 @@ REACH = {
     # The sheet's row for the pages kept offline opens their shelf on Tìm: the offline flow that checks it too.
     APP + 'Account/AccountView.swift': ACCOUNT_SHEET + [KEPT_ROW], APP + 'Account/ProfileButton.swift': ACCOUNT_SHEET,
     APP + 'Account/AccountSection.swift': ACCOUNT_SHEET, APP + 'Account/AppleSignIn.swift': ACCOUNT_SHEET,
+    # The account's picture: on the profile button every flow through the sheet taps, and its row on the sheet.
+    APP + 'ProfilePictures/': ACCOUNT_SHEET, APP + 'Assets.xcassets/ProfilePictures/': ['ProfilePictureFlowTests'],
+    'protocols/profile-pictures.json': ['ProfilePictureFlowTests'],
     APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
     # v2, behind the Tài khoản sheet's switch: its own flows (the switch, its tabs, a link into it), and its page shots.
     APP + 'V2/': ['V2FlowTests', 'PageShotsFlowTests'],

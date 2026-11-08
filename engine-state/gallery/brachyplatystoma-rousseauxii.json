@@ -10,7 +10,11 @@
   "File:Brachyplatystoma rousseauxii head.jpg",
   "File:Roussseauxii dourada dorado.png",
   "File:Gilded catfish or dourada.jpg",
-  "File:Gilded catfish or dourada side.jpg"
+  "File:Gilded catfish or dourada side.jpg",
+  "inat:301677770",
+  "inat:301677830",
+  "inat:301677886",
+  "File:Fishing at the Teotônio rapids.png"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/198cf6d39662b974.webp": "c844623753610d1e",
@@ -21,5 +25,13 @@
   "https://media.aquatome.com/commons/b865a97b4369b952.webp": "9e8ecc0f2e8e9a82",
   "https://media.aquatome.com/commons/5bc6df557e194f29.webp": "1010880c04075a84"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 95989,
+  "pass": "done",
+  "after": {
+   "research": 173699010,
+   "agree": 0
+  }
+ }
 }

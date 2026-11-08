@@ -1,0 +1,317 @@
+{
+  "id": "corydoras-guapore",
+  "scientificName": "Corydoras guapore",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "bolivia",
+    "guapore",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "BR"
+      ],
+      "regions": [
+        "Rio Guaporé",
+        "Madeira",
+        "Río Paucerna"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Guaporé cory, Gastrodermus guapore, long known as Corydoras guapore, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+          "countries": [
+            "BO",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Guaporé",
+            "Madeira"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is likely to occur in various tributary drainages at least as far upstream as the Río Paucerna in Noel Kempff Mercado National Park.",
+          "countries": [],
+          "regions": [
+            "Río Paucerna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342752,
+      "total": 5,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BO",
+          3
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>The Guaporé cory, Gastrodermus guapore, long known as Corydoras guapore, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil. Unlike most congeners it forms aggregations in midwater and spends much of its time away from the substrate, with a large eye, a more terminal mouth and a strongly forked caudal fin to match. It partly feeds on pelagic zooplankton, so live Daphnia and Artemia belong in its diet. Similar species such as Hoplisoma simile lack these adaptations.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil. The Madeira itself is a major affluent of the middle Amazon basin.</p><p>Gastrodermus guapore has been recorded from the mainstream Guaporé/Iténez in both Bolivia and Brazil, which is unsurprising given that the river forms the border between the countries for a portion of its length. It is likely to occur in various tributary drainages at least as far upstream as the Río Paucerna in Noel Kempff Mercado National Park.</p><p>Type locality is a 'Main stream of upper Rio Guaporé, Rondônia, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>The Guaporé is an acidic, tannin-stained river with warm, clear water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>Minimum base dimensions of 90 × 30 cm are recommended (approximately 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security, ideally in the form of driftwood roots and branches, leaf litter and live vegetation at the water surface.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>Corydoras spp. are foraging omnivores, and most will accept sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Gastrodermus guapore is slightly different in that it is partially adapted to forage on pelagic zooplankton (see 'Notes') meaning a diet containing plenty of live Daphnia, Artemia, and suchlike is recommended.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably broader and deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>This species is rarely bred in aquaria, although when successful the method is typically similar to that used for many other Corydoras species.</p><p>Use a ratio of two or more males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<p>This species is a sought after aquarium fish although it is not often traded. It exhibits slightly different behaviour to the majority of congeners in that it tends to form aggregations in midwater and spends a large proportion of its time away from the substrate. Its morphology exhibits corresponding adaptations towards a pelagic existence with a relatively large eye, a more terminal mouth position, more strongly-forked caudal-fin, and more symmetrical body shape than most other Corydoras species.</p><p>It may be confused with a handful of congeners, particularly Hoplisoma caudimaculatum, C. ourastigma, and H. simile, although all of them differ from Gastrodermus guapore in that they are not adapted to feed within the water column and do not possess the characters mentioned above. In addition, H. caudimaculatum has a deeper body with a more heavily-spotted colour pattern, C. ourastigma a prolonged snout and larger dark blotch on the caudal peduncle, and H. simile a greenish sheen on the body, more heavily-spotted colour pattern, and a less well-defined caudal peduncle blotch.</p><p>This group of species are all native to the rio Madeira basin (or neighbouring rio Purus in the case of C. ourastigma), and the existence of multiple, similarly-coloured species which coexist and form large mixed schools is relatively common in the genus. In some cases Corydoras colour patterns have even evolved in other taxa, such as certain members of the genera Otocinclus, Brachyrhamdia, and Serrapinus. The reason for the success of such patterns is thought to be protection from predators in that they feature cryptic or otherwise disruptive details such as stripes, reticulations, or strongly-coloured fin spines. Similarly-patterned species may therefore have evolved to take advantage of foraging in a larger group while simultaneously adapting to exploit contrasting ecological niches. In Corydoras, this is typically expressed via differences in snout length, for example.</p><p>Genetically, however, G. guapore appears to form a distinct lineage with G. mamore and G. paucerna which are also native to the upper rio Madeira and have evolved similar morphological adaptations to G. guapore, but possess colour patterns reminiscent of other genus members from the region.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "html": "<ul><li>Knaack, J. (1961). Ein neuer Panzerwels aus Brasilien (Corydoras guapore) (Pisces, Teleostei, Callichthyidae). Sitzungsberichte der Gesellschaft Naturforschender Freunde zu Berlin (N.F.) v. 1 (nos 1-3), 135-138</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9f3e35e69d67e198.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9f3e35e69d67e198-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ed8eab78641b69c0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ed8eab78641b69c0-480.webp",
+      "width": 794,
+      "height": 595,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "caption": "The rio Guaporé close to Pontes e Lacerda, Mato Grosso state, southwestern Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/83d36c77ca13aae6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/83d36c77ca13aae6-480.webp",
+      "width": 820,
+      "height": 547,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d552f2139d474c5c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d552f2139d474c5c-480.webp",
+      "width": 836,
+      "height": 557,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-guapore",
+      "caption": "Aquarium-bred juvenile at approximately six weeks of age.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ELEHsE6Zm3g",
+      "title": "Corydoras guapore 瓜波鼠",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2qk-MvWIYWQ",
+      "title": "corydoras guapore #corydoras #catfish #iwakiwak #iwak2 #short #shorts #shortsvideo #youtubeshorts",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0jTnLC_eTtI",
+      "title": "Corydoras guaporè",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "X--lfmLmBH4",
+      "title": "Corydoras guapore",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo sống",
+        "artemia",
+        "thức ăn chìm cho cá chuột"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 90cm",
+        "máy sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

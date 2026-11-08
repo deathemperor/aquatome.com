@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/enteromius-candens
 title: Enteromius candens · Seriously Fish
-fetchedAt: 2026-11-07T05:15:42.956Z
+fetchedAt: 2026-11-07T19:56:16.893Z
 hash: ddca7c5b8c4091c5978c1bdecf116db75644252386489b5d3063d9e45be111b3
 ---
 

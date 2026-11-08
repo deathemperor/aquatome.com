@@ -1,11 +1,14 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/commons/b40ec40ae94fd07d.webp": "0059f1e8c6e90900",
-  "https://media.aquatome.com/commons/15eb9398c56c7c85.webp": "0d59d99ca6d9690c",
-  "https://media.aquatome.com/commons/d077a6c01daf94de.webp": "e1e0fcfca1b0c8c8",
-  "https://media.aquatome.com/commons/62274652b5f7e265.webp": "657c3064e9838519"
- },
- "commons": "2026-11-06"
+ "hashes": {},
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 621540,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

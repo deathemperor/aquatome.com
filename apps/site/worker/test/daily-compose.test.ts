@@ -21,7 +21,7 @@ function quiet(now = NOW): Overview {
   return {
     now, tz: TZ, readers: [], clicks: { days, clicks: days.map(() => 0) },
     fish: { days: days.slice(1), perDay: { ok: z, none: z, blocked: z, usd: z, tin: z, tout: z }, unmatched: [], recent: [], periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } },
-    keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] },
+    keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] },
     photos: 3, waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, hidden: {},
     accounts: { days: days.slice(1), users: 5, newUsers: z, synced: 2, openSessions: 1, credentials: [], comments: [], newComments: z },
     content: { engine: { needsHuman: [], sources: [], videos: { waiting: 0, writtenAt: [] } }, inventory: {} } as unknown as Overview['content'],
@@ -142,7 +142,7 @@ test('needs care: the AI spend of the day that just ended, past 80% of the cap, 
 })
 
 test('needs care: fish ID keys, in English', () => {
-  const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } } })
+  const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } } })
   const resting = { ...KEY, state: 'credit' as const, until: '2026-11-06T08:00:00.000Z' }
   // The owner's rule: one key out is the rotation's to skip, and only every key out is theirs.
   expect(needsCare(keys([resting, { ...KEY, n: 2 }]))).toEqual([])
@@ -229,6 +229,22 @@ test('built: deploys and the live version, content pushes with what they added, 
   expect(html).toContain(`<a href="${REPO}/pull/562"`)
   // Under two nights' totals: no line of made-up nothing.
   expect(compose(input()).text).not.toContain('Added ')
+})
+
+test('content quality: how many pages each list holds, linked to the content page, and no page or name a reader typed', () => {
+  const row = { path: '/ca/x/', title: 'Cá x', section: 'fish·vi', score: 30, ranked: true, demand: 1, figures: {} as never, why: '' }
+  const quality = {
+    days: 28, scored: 40, ranked: 12, best: [], worst: [], rewrite: [row], decaying: [row],
+    gaps: [{ source: 'wanted' as const, name: 'Cá rồng đỏ', demand: 30, why: '' }], totals: { rewrite: 14, decaying: 3, gaps: 1 },
+  }
+  const { text, html } = compose(input({ quality }))
+  expect(text).toContain('Content quality: 14 pages to rewrite first, 3 decaying, 1 gap (asked for, not written).')
+  expect(html).toContain(`href="${dashboardUrl('/_ab/noi-dung/#chat-luong')}"`)
+  expect(text).not.toContain('Cá rồng đỏ')
+  expect(text).not.toContain('/ca/x/')
+  // Not loaded, or failed: no line (the content page says why).
+  expect(compose(input()).text).not.toContain('Content quality')
+  expect(compose(input({ quality: { failed: 'analytics engine sql 422' } })).text).not.toContain('Content quality')
 })
 
 test('what changed: the site\'s, the app\'s and the engine\'s lines, each newest first and once, then the change log; no PR number or link', () => {
@@ -322,4 +338,27 @@ test('the workflow\'s body: read strictly, every link this repository\'s', () =>
 test('the report writes numbers the English way, not the dashboard\'s Vietnamese way', async () => {
   const { fmt } = await import('../daily/compose')
   expect([fmt(2.1, 1), fmt(1234), fmt(0.11, 2)]).toEqual(['2.1', '1,234', '0.11'])
+})
+
+test("coming up in the app: Khám phá's week with its theme and the curator's note, then Hôm nay's fish a day; nothing without a calendar", () => {
+  const calendar = { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 'Trời trở lạnh', why: 'Gió mùa về, bể cần sưởi.' }], days: [{ date: '2026-11-06', fish: 'Cá ông tiên altum' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'Cá vàng Lưu kim (Ryukin)', why: 'Fish: Cá vàng Lưu kim (Ryukin), fine without a heater.' }] }
+  const r = compose(input({ gh: gh({ calendar }) }))
+  expect(r.text).toContain(['COMING UP IN THE APP', 'Khám phá, week of Mon 9 Nov: Trời trở lạnh. Gió mùa về, bể cần sưởi.', 'Hôm nay', '- Fri 6 Nov: Cá ông tiên altum', '- Sat 7 Nov: no fish picked, the app picks its own', '- Sun 8 Nov: Fish: Cá vàng Lưu kim (Ryukin), fine without a heater.'].join('\n'))
+  expect(r.text.indexOf('COMING UP IN THE APP')).toBeGreaterThan(r.text.indexOf('BUILT (last 24 hours)'))
+  expect(r.text.indexOf('COMING UP IN THE APP')).toBeLessThan(r.text.indexOf('\nSITE'))
+  expect(r.html).toContain('>Coming up in the app</h3>')
+  expect(r.html).toContain('Fri 6 Nov: Cá ông tiên altum')
+  const without = compose(input())
+  expect(without.text).not.toContain('COMING UP')
+  expect(without.html).not.toContain('Coming up')
+  const bad = (c: unknown) => parseGitHubSide(JSON.stringify({ ...gh(), calendar: c }))
+  expect(bad(calendar)?.calendar).toEqual(calendar)
+  for (const c of [{ weeks: [], days: [{ date: 'soon' }] }, { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 1 }], days: [] }, { weeks: [], days: Array.from({ length: 15 }, () => ({ date: '2026-11-06' })) }, { days: [] }, 'x']) expect(bad(c), JSON.stringify(c).slice(0, 60)).toBeNull()
+})
+
+test('a burst of likely automated tabs yesterday is something to look at; today\'s, or none, isn\'t', () => {
+  // NOW is 07:00 on 6 Nov in Vietnam: yesterday is the 5th.
+  const care = (readers: Overview['readers']) => needsCare(input({ overview: { ...quiet(), readers } })).filter(c => c.title.startsWith('Likely automated'))
+  expect(care([{ day: '2026-11-05', sessions: 3, readers: 1, automated: 97 }])).toEqual([{ title: 'Likely automated visits yesterday: 97 fresh tabs', text: 'A burst of new tabs from one country, each opening a different page. Left out of the readers.', href: '/_ab/doc-gia/' }])
+  expect(care([{ day: '2026-11-06', sessions: 3, readers: 1, automated: 40 }, { day: '2026-11-05', sessions: 3, readers: 1 }])).toEqual([])
 })

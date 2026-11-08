@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/eretmodus-cyanostictus
 title: Eretmodus cyanostictus (Striped Goby Cichlid) · Seriously Fish
-fetchedAt: 2026-11-07T06:16:30.708Z
+fetchedAt: 2026-11-07T20:40:29.790Z
 hash: b96be1d440a0454f5a34fb5582c84916c381f5b566e9caf86e06bede80b4b630
 ---
 

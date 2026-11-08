@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/552749189",
       "caption": "Đàn cá hồng nhung bơi trong bể thủy sinh rêu xanh",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/552749189-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/117f7e3709f3c801.webp",
@@ -26,18 +31,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/11f47fe29e06233f.webp",
-      "thumb": "https://media.aquatome.com/commons/11f47fe29e06233f-480.webp",
-      "width": 1200,
-      "height": 901,
-      "licence": "CC BY 3.0",
-      "author": "Francesco Loda",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_serpae_-_Serpae_Tetra.jpg",
-      "caption": "Cá hồng nhung màu đỏ cam bơi trong bể nuôi",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/551d0bdb3f541228.webp",
       "thumb": "https://media.aquatome.com/commons/551d0bdb3f541228-480.webp",
       "width": 1200,
@@ -47,7 +40,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serpae_tetra.JPG",
       "caption": "Cá hồng nhung màu đỏ cam, vây lưng đen, trong bể",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/347048436.webp",
@@ -59,7 +57,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/347048436",
       "caption": "Cặp cá hồng nhung trong bể nuôi",
       "best": false,
-      "kind": "pair"
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/347048436-large.webp",
+        "width": 1673,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/651012788.webp",
@@ -71,7 +74,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/651012788",
       "caption": "Cá hồng nhung đỏ bơi giữa đá và rễ cây",
       "best": false,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/651012788-large.webp",
+        "width": 1563,
+        "height": 879
+      }
     }
   ],
   "seen": 28,

@@ -3,19 +3,20 @@
   "name": "Alternanthera reineckii 'Mini'",
   "altNames": [
     "Alternanthera Mini",
-    "AR Mini",
     "Alternanthera reineckii Mini",
-    "Red Alternanthera Mini"
+    "AR Mini"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tumbuhan batang</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Kadar pertumbuhan:</strong> Sederhana</li><li><strong>Ketinggian:</strong> 5 - 10+ cm</li><li><strong>Keperluan cahaya:</strong> Sederhana</li><li><strong>CO2:</strong> Sederhana</li></ul>",
-    "notes:tropica": "<p>Tumbuhan akuatik daripada kultur tisu dalam cawan tertutup. Versi mini Alternanthera yang terkenal ini tumbuh padat dan lebih perlahan. Ia amat sesuai untuk akuarium kecil atau sebagai tumbuhan latar depan dalam aquascape yang lebih besar. Dengan pemangkasan yang teliti, boleh dihasilkan hamparan merah keunguan yang padat dengan ketinggian kira-kira 5 hingga 10 cm. Cahaya yang tinggi dan tambahan CO2 dapat memperbaik pertumbuhan dan rupa keseluruhan tumbuhan ini.</p>"
+    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tumbuhan batang</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Kadar pertumbuhan:</strong> Sederhana</li><li><strong>Ketinggian:</strong> 5–10+ cm</li><li><strong>Keperluan cahaya:</strong> Sederhana</li><li><strong>CO2:</strong> Sederhana</li></ul>",
+    "maintenance:aquatome": "<p>Alternanthera reineckii 'Mini' sesuai untuk bahagian depan atau tengah aquascape. Ia tumbuh lebih padat dan lebih perlahan berbanding Alternanthera biasa, jadi ia amat sesuai untuk tangki kecil, manakala dalam tangki besar ia boleh dijadikan tumbuhan latar depan.</p><ul><li>Tumbuhan ini ialah tumbuhan kultur tisu dalam cawan tertutup, dan tidak boleh ditanam terus dari cawan. Gel nutrien yang melekat di sekeliling akar dan pangkalnya perlu dibilas sehingga bersih, kemudian rumpunnya dibahagikan kepada beberapa bahagian kecil sebelum dicucuk ke dalam substrat.</li><li>Pucuk yang dipangkas kemudian boleh ditanam semula sebagai pokok baharu. Buang beberapa helai daun di bahagian paling bawah, kemudian cucuk bahagian batang yang sudah tidak berdaun itu ke dalam substrat, kerana bahagian batang tersebut lebih cepat mengeluarkan akar.</li><li>Untuk mendapatkan hamparan merah keunguan yang padat setinggi kira-kira 5–10 cm, anda perlu rajin memangkasnya dengan teliti.</li></ul>",
+    "notes:tropica": "<p>Tumbuhan akuatik daripada kultur tisu dalam cawan tertutup. Versi mini Alternanthera yang terkenal ini mempunyai pertumbuhan yang padat dan kadar pertumbuhan yang lebih perlahan. Ia amat sesuai untuk akuarium kecil atau sebagai tumbuhan latar depan dalam aquascape yang lebih besar. Dengan pemangkasan yang teliti, hamparan merah keunguan yang padat setinggi kira-kira 5 hingga 10 cm boleh dihasilkan. Cahaya yang kuat dan penambahan CO2 dapat memperbaiki pertumbuhan dan rupa keseluruhan tumbuhan ini.</p>"
   },
   "quality": {
-    "score": 0.75,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "tropica": 0.75
+      "tropica": 0.9,
+      "aquatome": 0.9
     }
   }
 }

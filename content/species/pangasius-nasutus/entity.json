@@ -1,0 +1,115 @@
+{
+  "id": "pangasius-nasutus",
+  "scientificName": "Pangasius nasutus",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pangasius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "barito",
+    "malaysia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 90
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1243",
+      "html": "<p>Scientific name: Pangasius nasutus (Bleeker, 1863). Family: Pangasiidae. Maximum size: 90 cm SL. IUCN Red List: Least Concern (last assessed 2019).</p><p>Etymology: the name Pangasius comes from a local (Bengali) name of the fish (pungas).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1243",
+      "html": "<p>Asia: Greater Sunda Island rivers in Sumatra and Borneo, and Peninsular Malaysia. Type locality: Barito River, Bandjarmasin, southern Kalimantan, Borneo, Indonesia.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1243",
+      "html": "<p>Needs a large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1243",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1243",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1243",
+      "html": "<p>Verslagen en Mededeelingen der Koninklijke Akademie van Wetenschappen. Afdeling Natuurkunde. v. 15, pp 72.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c4dd97327db929de.webp",
+      "width": 960,
+      "height": 1440,
+      "licence": "CC BY-SA 3.0",
+      "author": "Lord Mountbatten",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_nasutus.JPG",
+      "caption": "A catfish Pangasius nasutus caught in a reservoir in Cikidang, West Jawa, Indonesia",
+      "thumb": "https://media.aquatome.com/commons/c4dd97327db929de-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "DMKR3ExBMtc",
+      "title": "Freshwater Fish : River Patin HD",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MPaO78tVcq0",
+      "title": "FishFacts Part 372: Pangasius nasutus 🐟 #pangasiusfish #pangasius #aquaticpets #exoticaquariumfish 🪨",
+      "durationSec": 27,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "NgkOG2R47gA",
+      "title": "(pangasius nasutus)atau yang lebih di kenal dengan patin amoy#fishing #fish #ikanpatin #ikansungai",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9EZ0IwWLOgY",
+      "title": "Patin Sungai Jambi / Patin Mato kecik - Patin Buah - Patin Pulutan - Ikan Labang - Pangasius nasutus",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "máy bơm tạo dòng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

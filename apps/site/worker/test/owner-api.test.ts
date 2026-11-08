@@ -33,7 +33,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
   'noi-dung': [
     ['sample', () => contentPage(S.CONTENT), () => contentSection(S.CONTENT)],
     ['failed', () => contentPage({ ...S.CONTENT, stats: F }), () => contentSection({ ...S.CONTENT, stats: F })],
-    ['parts failed', () => contentPage({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F }), () => contentSection({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F })],
+    ['parts failed', () => contentPage({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F, quality: F }), () => contentSection({ ...S.CONTENT, reads: F, talk: F, clicks: F, snapshots: F, quality: F })],
     ...(() => {
       const c = { ...S.CONTENT, tz: 'America/New_York', snapshots: [S.SNAPSHOTS[0]!], stats: { ...S.STATS, engine: null, sources: {}, gaps: {} }, reads: { ...S.READS, byKind: [], top: [], unread: { n: 0, byKind: {}, pages: [] }, elsewhere: { views: 0, paths: 0 } } }
       return [['empty, elsewhere', () => contentPage(c), () => contentSection(c)] as [string, () => string, () => Section]]
@@ -82,7 +82,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['30 days', () => fishIdPage({ ...S.FISH, period: 'd30' }), () => fishIdSection({ ...S.FISH, period: 'd30' })],
     ['failed', () => fishIdPage({ ...S.FISH, stats: F, keys: F }), () => fishIdSection({ ...S.FISH, stats: F, keys: F })],
     ['no keys', () => fishIdPage({ ...S.FISH, keys: undefined }), () => fishIdSection({ ...S.FISH, keys: undefined })],
-    ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } })],
+    ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } })],
   ],
   'anh-nhan-dien': [
     ['sample', () => keptPage(S.KEPT, S.NOW, S.TZ), () => keptSection(S.KEPT, S.NOW, S.TZ)],

@@ -1,0 +1,70 @@
+{
+  "id": "devario-pathirana",
+  "native": {
+    "input": "e91c0a2e30722462",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a series of small streams and tributaries exiting the Kanneliya Forest Reserve plus tributaries of the Opatha Ela (Opatha stream) near the village of the same name in southwestern Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nilwala River",
+        "source": "seriouslyfish",
+        "quote": "All known populations exist within the Nilwala River watershed, at least 70% of which is now cultivated and heavily mined for sand in some areas.",
+        "ok": true
+      },
+      {
+        "name": "Opatha Ela",
+        "source": "seriouslyfish",
+        "quote": "Known only from a series of small streams and tributaries exiting the Kanneliya Forest Reserve plus tributaries of the Opatha Ela (Opatha stream) near the village of the same name in southwestern Sri Lanka.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario pathirana",
+    "status": "ACCEPTED",
+    "taxonKey": 2361592,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

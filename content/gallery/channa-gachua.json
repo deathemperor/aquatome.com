@@ -2,16 +2,28 @@
   "id": "channa-gachua",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/3657ec5c87f20a04.webp",
-      "thumb": "https://media.aquatome.com/commons/3657ec5c87f20a04-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_andrao_im_Aquarium.jpg",
-      "caption": "Cá lóc lùn đực vây xanh óng trong bể",
+      "url": "https://media.aquatome.com/inaturalist/81676589.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/81676589-480.webp",
+      "width": 1024,
+      "height": 678,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/81676589",
+      "caption": "Cá lóc lùn mẹ cùng đàn cá con trong bể rêu xanh",
       "best": true,
-      "kind": "male"
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/405232457.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/405232457-480.webp",
+      "width": 1200,
+      "height": 899,
+      "licence": "CC0",
+      "author": "卢江离",
+      "sourceUrl": "https://www.inaturalist.org/photos/405232457",
+      "caption": "Cá lóc lùn trong suối nước trong, đáy sỏi",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/32b5af3692be981b.webp",
@@ -26,6 +38,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/158986896.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/158986896-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Paulmathi Vinod",
+      "sourceUrl": "https://www.inaturalist.org/photos/158986896",
+      "caption": "Cá lóc lùn bơi gần hốc đá và rễ cây ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/c7f945c5a57c560d.webp",
       "thumb": "https://media.aquatome.com/commons/c7f945c5a57c560d-480.webp",
       "width": 1200,
@@ -35,6 +59,42 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chan_gachu_120715_0270_krw.jpg",
       "caption": "Cá lóc lùn trong bể với đá cuội",
       "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3016ed0c46a525af.webp",
+      "thumb": "https://media.aquatome.com/commons/3016ed0c46a525af-480.webp",
+      "width": 1200,
+      "height": 670,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_gachua_%E2%99%82.jpg",
+      "caption": "Hai cá lóc lùn trong bể nền cát",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/81677793.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/81677793-480.webp",
+      "width": 1024,
+      "height": 678,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/81677793",
+      "caption": "Cá lóc lùn mẹ chăm đàn con trong bể thủy sinh",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/155552960.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/155552960-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY",
+      "author": "Vivaan jalan",
+      "sourceUrl": "https://www.inaturalist.org/photos/155552960",
+      "caption": "Cá lóc lùn trong thau trắng, thân nâu vây trong",
+      "best": false,
       "kind": "other"
     },
     {
@@ -62,18 +122,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/3016ed0c46a525af.webp",
-      "thumb": "https://media.aquatome.com/commons/3016ed0c46a525af-480.webp",
-      "width": 1200,
-      "height": 670,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_gachua_%E2%99%82.jpg",
-      "caption": "Hai cá lóc lùn trong bể nền cát",
-      "best": false,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/commons/b72603309a6cad05.webp",
       "thumb": "https://media.aquatome.com/commons/b72603309a6cad05-480.webp",
       "width": 1200,
@@ -86,7 +134,7 @@
       "kind": "other"
     }
   ],
-  "seen": 14,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 30,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

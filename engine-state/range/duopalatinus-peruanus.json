@@ -1,0 +1,133 @@
+{
+  "id": "duopalatinus-peruanus",
+  "native": {
+    "input": "e0c2222a72c1b7b8",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Puinagua, mouth of Río Pacaya, Río Ucayali system, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Puinagua, mouth of Rio Pacaya [Río Ucayali system, Peru].",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Río Ucayali",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Puinagua, mouth of Río Pacaya, Río Ucayali system, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Río Ucayali",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Puinagua, mouth of Rio Pacaya [Río Ucayali system, Peru].",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Duopalatinus peruanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338717,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

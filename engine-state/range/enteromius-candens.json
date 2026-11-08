@@ -1,0 +1,76 @@
+{
+  "id": "enteromius-candens",
+  "native": {
+    "input": "6a246ed90fb5805a",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has been collected from parts of the Congo River basin in northern and central Democratic Republic of Congo (DRC), Africa.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Further records also exist but may represent cases of mistaken identity because localities such as the Kasai River, Djamba, Bena Tshadi, Lodja and The Republic of the Congo (!) are geographically distant from the rest of the species' range.",
+        "words": "Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "seriouslyfish",
+        "quote": "This species has been collected from parts of the Congo River basin in northern and central Democratic Republic of Congo (DRC), Africa.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Itimbiri River",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded close to the settlements of Ibembo on the Itimbiri River and Buta to the northeast, at Mondimbi just south of the main Congo River near Bumba, Mongonde west of Lisala, Bengamisa and the Masendula River north of Kisangani.",
+        "ok": true
+      },
+      {
+        "name": "Lilanda River",
+        "source": "seriouslyfish",
+        "quote": "Other populations have been found further south in the Lilanda River (Yangole area) and close to Ikela.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Enteromius candens",
+    "status": "ACCEPTED",
+    "taxonKey": 9292938,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        72
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

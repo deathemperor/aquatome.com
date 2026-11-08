@@ -1,0 +1,140 @@
+{
+  "id": "garra-fuliginosa",
+  "native": {
+    "input": "52791156bd8b4769",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra fuliginosa is a cyprinid from the Mekong basin in Thailand, Laos, Vietnam and Cambodia, and the Chao Phraya and Mae Klong in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra fuliginosa is a cyprinid from the Mekong basin in Thailand, Laos, Vietnam and Cambodia, and the Chao Phraya and Mae Klong in Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra fuliginosa is a cyprinid from the Mekong basin in Thailand, Laos, Vietnam and Cambodia, and the Chao Phraya and Mae Klong in Thailand.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra fuliginosa is a cyprinid from the Mekong basin in Thailand, Laos, Vietnam and Cambodia, and the Chao Phraya and Mae Klong in Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Metang [Nam Mae Taeng], River, 35 miles north of Chieng Mai [Chiang Mai], northern Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra fuliginosa",
+    "status": "ACCEPTED",
+    "taxonKey": 2366747,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "VN",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

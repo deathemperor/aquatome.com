@@ -1,0 +1,120 @@
+{
+  "id": "elopichthys-bambusa",
+  "native": {
+    "input": "64e9f907e4ae5995",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Elopichthys bambusa is a large predatory cyprinid of eastern Asia, from the Amur River in Russia to the Lam drainage in northern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "words": "Russian Federation",
+        "ok": false,
+        "why": "\"Russian Federation\" is not RU"
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Canton, China'.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amur River",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "country": "RU",
+        "ok": true
+      },
+      {
+        "name": "Lam",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed in eastern Asia, between the Amur River in the Russian Federation and the Lam drainage in northern Vietnam, and thus occurs in several major river systems of China.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Elopichthys bambusa",
+    "status": "ACCEPTED",
+    "taxonKey": 2362832,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "RU",
+      "VN",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

@@ -1,0 +1,274 @@
+import { spawn, spawnSync } from 'node:child_process'
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { expect, test } from 'vitest'
+
+const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
+const SIM_RUN = join(ROOT, 'apps/ios/scripts/sim-run.py')
+const HOOK = join(ROOT, '.claude/hooks/sim-run-only.sh')
+
+const until = async (ok: () => boolean) => { while (!ok()) await new Promise(r => setTimeout(r, 25)) }
+const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
+const home = () => mkdtempSync(join(tmpdir(), 'aq-load-'))
+
+test('a simulator run waits for the one before it, across checkouts', async () => {
+  const dir = home()
+  const env = { ...process.env, HOME: dir }
+  const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  // Each run's end, heard from its start: the second can finish before node has seen the first close (CI, 2026-11-08).
+  const firstEnd = new Promise(r => first.on('close', r))
+  await until(() => existsSync(`${dir}/first`))
+  const second = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/second`], { env, stdio: 'ignore' })
+  const secondEnd = new Promise(r => second.on('close', r))
+  await wait(500)
+  expect(existsSync(`${dir}/second`)).toBe(false)
+  writeFileSync(`${dir}/release`, '')
+  expect(await secondEnd).toBe(0)
+  expect(await firstEnd).toBe(0)
+}, 30_000)
+
+test("a job's stop reaches the command, and the turn passes on", async () => {
+  const dir = home()
+  const env = { ...process.env, HOME: dir }
+  const run = spawn(SIM_RUN, ['sh', '-c', `trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  await until(() => existsSync(`${dir}/up`))
+  run.kill('SIGTERM')
+  expect(await new Promise(r => run.on('close', r))).toBe(7)
+  expect(existsSync(`${dir}/stopped`)).toBe(true)
+  expect(spawnSync(SIM_RUN, ['true'], { env }).status).toBe(0)
+}, 30_000)
+
+// The photos cycle of 2026-11-08, under load: the stop came while Popen was still returning, before this script knew its
+// command, so it ended alone (143) and left the command running with no parent. Here the stop comes at that moment on
+// purpose: Popen is wrapped so the signal lands after the command is up and before Popen has returned.
+test('a stop that comes while the command is starting still reaches it', () => {
+  const dir = home()
+  const harness = `
+import importlib.util, os, signal, subprocess, sys, time
+spec = importlib.util.spec_from_file_location("sim_run", ${JSON.stringify(SIM_RUN)})
+sim_run = importlib.util.module_from_spec(spec); spec.loader.exec_module(sim_run)
+real = subprocess.Popen
+def starting(argv, *a, **k):
+    if argv[:1] != ["sh"]:  # sim-run's own calls (ps), not the command
+        return real(argv, *a, **k)
+    p = real(argv, *a, **k)
+    open(${JSON.stringify(`${dir}/pid`)}, "w").write(str(p.pid))
+    while not os.path.exists(${JSON.stringify(`${dir}/up`)}): time.sleep(0.01)
+    os.kill(os.getpid(), signal.SIGTERM)
+    time.sleep(0.2)
+    return p
+sim_run.subprocess.Popen = starting
+sys.argv = ["sim-run.py", "sh", "-c", ${JSON.stringify(`trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`)}]
+sim_run.main()
+`
+  const r = spawnSync('python3', ['-I', '-c', harness], { env: { ...process.env, HOME: dir }, encoding: 'utf8', timeout: 20_000 })
+  const left = Number(readFileSync(`${dir}/pid`, 'utf8'))
+  const running = spawnSync('kill', ['-0', String(left)]).status === 0
+  if (running) spawnSync('kill', ['-9', String(left)])
+  expect(running).toBe(false)
+  expect(r.status, r.stderr).toBe(7)
+  expect(existsSync(`${dir}/stopped`)).toBe(true)
+}, 30_000)
+
+// A stand-in for macOS's sysctl: a 16-core Mac, and the cores it leaves to work, one reading a call, the last one kept.
+const hot = (masks: number[]) => {
+  const dir = home()
+  writeFileSync(join(dir, 'masks'), masks.join('\n') + '\n')
+  writeFileSync(join(dir, 'sysctl'), `#!/bin/sh
+[ "$2" = hw.ncpu ] && { echo 16; exit 0; }
+n=$(cat "${dir}/calls" 2>/dev/null || echo 0); n=$((n + 1)); echo $n > "${dir}/calls"
+mask=$(sed -n "\${n}p" "${dir}/masks"); [ -n "$mask" ] || mask=$(tail -1 "${dir}/masks")
+echo $mask
+`)
+  chmodSync(join(dir, 'sysctl'), 0o755)
+  const calls = () => (existsSync(join(dir, 'calls')) ? Number(readFileSync(join(dir, 'calls'), 'utf8')) : 0)
+  const run = (env: Record<string, string>) => spawnSync(SIM_RUN, ['true'], { env: { ...process.env, HOME: dir, PATH: `${dir}:${process.env.PATH}`, SIM_RUN_COOL_PAUSE: '0', ...env }, encoding: 'utf8' })
+  return { run, calls }
+}
+
+// Main's iOS runs back on this Mac (2026-11-08) wait while macOS has taken cores away, as the engine's runs do. Its heat
+// level alone said less: heavy with all 16 cores at work. Leads' runs don't wait here, nor do pull requests' jobs on
+// GitHub's Macs, which run sim-run too.
+test("this Mac's runner's simulator run waits while cores are taken away, and a lead's or GitHub's Macs' doesn't", () => {
+  const all = 0xffff
+  const runner = hot([0x41f, 0xc3f, 0x7fff, all]) // 6, 8, then 15 of 16 cores, then all
+  const r = runner.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted' })
+  expect(r.status).toBe(0)
+  expect(runner.calls()).toBe(4)
+  expect(r.stdout).toContain('10 of its cores taken away')
+  expect(hot([all]).run({ RUNNER_ENVIRONMENT: 'self-hosted' }).stdout).not.toContain('hot')
+  for (const env of [{ GITHUB_ACTIONS: '', RUNNER_ENVIRONMENT: '' }, { GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'github-hosted' }]) {
+    const other = hot([0x41f])
+    expect(other.run({ ...env, SIM_RUN_COOL_MINUTES: '0.0001' }).status).toBe(0) // a short wait, should it wrongly wait
+    expect(other.calls()).toBe(0)
+  }
+  // Still taken away at the end of the wait: it goes on.
+  const stuck = hot([0x41f])
+  const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
+  expect(s.status).toBe(0)
+  expect(s.stdout).toContain('went on after')
+}, 30_000)
+
+// 2026-11-08: after main's simulator booted, its mediaanalysisd took 3.4 cores at normal priority for 8 min, and a 0.4 s job
+// on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it. macOS's
+// alone, as simulators and taskpolicy are (and nice goes to 20 there, 19 on Linux): CI's Linux skips it, the Mac's cycles run it.
+test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
+  const dir = home()
+  const daemon = (path: string) => {
+    mkdirSync(dirname(join(dir, path)), { recursive: true })
+    symlinkSync('/bin/sleep', join(dir, path))
+    return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
+  }
+  const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
+  const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
+  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+  try {
+    await wait(200)
+    const before = nice(mac.pid)
+    expect(nice(sim.pid)).toBe(before)
+    // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
+    // before sim-run had looked once (2026-11-08).
+    const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
+    expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+    expect(nice(sim.pid)).toBe(20)
+    expect(nice(mac.pid)).toBe(before)
+  } finally {
+    sim.kill()
+    mac.kill()
+  }
+}, 30_000)
+
+test("the runner's second ask ends the command, so nothing is left running when the turn passes on", async () => {
+  const dir = home()
+  const run = spawn(SIM_RUN, ['sh', '-c', `trap '' INT TERM; touch ${dir}/up; while :; do sleep 0.05; done`], { env: { ...process.env, HOME: dir }, stdio: 'ignore' })
+  await until(() => existsSync(`${dir}/up`))
+  run.kill('SIGINT')
+  await wait(100)
+  run.kill('SIGTERM')
+  expect(await new Promise(r => run.on('close', r))).toBe(137)
+}, 30_000)
+
+test('at most two copies of a simulator', () => {
+  const dir = home()
+  writeFileSync(join(dir, 'fake'), '#!/bin/sh\necho "$@"\n', { mode: 0o755 })
+  const args = (...a: string[]) => spawnSync(SIM_RUN, [join(dir, 'fake'), ...a], { env: { ...process.env, HOME: dir }, encoding: 'utf8' }).stdout.trim()
+  expect(args('test', '-parallel-testing-worker-count', '3')).toBe('test -parallel-testing-worker-count 2')
+  expect(args('test', '-parallel-testing-worker-count', '1')).toBe('test -parallel-testing-worker-count 1')
+  expect(args('test', '-maximum-parallel-testing-workers', '8')).toBe('test -maximum-parallel-testing-workers 2')
+  expect(args('test', '-parallel-testing-enabled', 'YES')).toBe('test -parallel-testing-enabled YES -parallel-testing-worker-count 2')
+  expect(args('test', '-parallel-testing-enabled', 'NO')).toBe('test -parallel-testing-enabled NO')
+})
+
+test('a session starts a simulator run only through sim-run.py', () => {
+  const blocked = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' }).status === 2
+  for (const c of [
+    'xcodebuild test -project a -scheme b',
+    'cd apps/ios && xcodebuild test -project a',
+    'nice -n 10 xcodebuild test-without-building -xctestrun x',
+    'lockf -k ~/.cache/aquatome/checks.lock sh -c "xcodebuild test"',
+    'lockf -k ~/.cache/aquatome/checks.lock xcodebuild test',
+    'NSUnbufferedIO=YES xcodebuild test',
+    'env FOO=1 xcodebuild test',
+    '/usr/bin/xcodebuild test',
+    'xcrun xcodebuild test',
+    'nohup xcodebuild test &',
+    'time xcodebuild test',
+    'xcodebuild test; echo done',
+    'xcodebuild test|xcpretty',
+    'if xcodebuild test; then echo ok; fi',
+    'for s in a b; do xcodebuild test -scheme "$s"; done',
+    'xcodebuild -quiet test',
+    'cat apps/ios/scripts/sim-run.py; xcodebuild test',
+  ]) expect(blocked(c), c).toBe(true)
+  for (const c of [
+    'apps/ios/scripts/sim-run.py xcodebuild test -project a',
+    'nice -n 10 scripts/sim-run.py xcodebuild test -project a',
+    'lockf -k ~/.cache/aquatome/checks.lock xcodebuild build-for-testing -project a',
+    'xcodebuild -list',
+    'lockf -k "$HOME/.cache/aquatome/checks.lock" xcodebuild -scheme test build',
+    'xcodebuild -list\npnpm exec vitest run test/foo.test.ts',
+    'xcodebuild -version\nswift test --filter a',
+    "cat > x.sh <<'EOF'\nxcodebuild test -project a\nEOF",
+    "git commit -m \"$(cat <<'EOF'\nxcodebuild test\nEOF\n)\"",
+    "gh pr create --body 'ran (xcodebuild test -project a)'",
+    "rg 'foo|xcodebuild test ' apps/ios",
+    'grep -n "xcodebuild test" apps/ios/README.md',
+    'swift test --filter ChatTests',
+    'ls',
+    'echo "unbalanced',
+  ]) expect(blocked(c), c).toBe(false)
+  // Words elsewhere in the call don't count.
+  expect(spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command: 'ls', description: '(xcodebuild test -project a)' } }), encoding: 'utf8' }).status).toBe(0)
+})
+
+// 2026-11-08: Astro builds, test suites, e2e and xcodebuild builds side by side took the Mac to heavy thermal pressure, and
+// a 0.4 s job took up to 54 s. A session's go through the checks queue; one test file needs no turn.
+test('a session runs heavy work only in the checks queue', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  const sentToQueue = (command: string) => { const r = hook(command); return r.status === 2 && r.stderr.includes('checks.lock') }
+  for (const c of [
+    'pnpm test',
+    'pnpm -r --no-bail --if-present test',
+    'cd apps/site && pnpm build',
+    'pnpm --filter site build',
+    'pnpm -C apps/site test',
+    'pnpm --filter site e2e',
+    'pnpm run e2e:live',
+    'npm test',
+    'corepack pnpm@12.4.1 test',
+    'CONTENT_ROOT=x pnpm exec astro build',
+    'npx astro build',
+    'node_modules/.bin/astro build',
+    'pnpm exec playwright test e2e/a.spec.ts',
+    'cd packages/engine && pnpm exec vitest run',
+    'nice -n 15 sh -c "pnpm typecheck; pnpm test"',
+    'xcodebuild build-for-testing -project a -scheme b',
+    'xcodebuild -project a -scheme b',
+    'xcodebuild archive -scheme b -archivePath x',
+    'lockf -k ~/.cache/aquatome/other.lock pnpm test',
+  ]) expect(sentToQueue(c), c).toBe(true)
+  for (const c of [
+    'lockf -k ~/.cache/aquatome/checks.lock pnpm test',
+    'lockf -k "$HOME/.cache/aquatome/checks.lock" nice -n 10 pnpm -r --if-present test',
+    'lockf -t 600 -k ~/.cache/aquatome/checks.lock pnpm --filter site build',
+    'lockf -k ~/.cache/aquatome/checks.lock nice -n 15 sh -c "pnpm typecheck > a.log; pnpm test > b.log"',
+    'lockf -k ~/.cache/aquatome/checks.lock nice -n 10 xcodebuild build-for-testing -project a',
+    'apps/ios/scripts/sim-run.py xcodebuild test -project a',
+    'pnpm exec vitest run test/sim-run.test.ts',
+    'pnpm --filter @aq/engine exec vitest run test/a.test.ts -t name',
+    'pnpm typecheck',
+    'pnpm install --frozen-lockfile',
+    'pnpm engine sweep',
+    'xcodebuild -list',
+    'xcodebuild -showBuildSettings -scheme b',
+    'xcodebuild clean -project a',
+    'swift test --filter ChatTests',
+    'git commit -m "pnpm test passes"',
+    'rg "pnpm build" AGENTS.md',
+    "cat > x.sh <<'EOF'\npnpm test\nEOF",
+    'gh pr create --body "ran (pnpm test)"',
+  ]) expect(hook(c).status, c).toBe(0)
+  // A simulator run in the checks queue is still the simulator queue's.
+  expect(hook('lockf -k ~/.cache/aquatome/checks.lock xcodebuild test').stderr).toContain('sim-run.py')
+})
+
+// Simulator.app's window is WindowServer's to draw every frame, on top of the simulator's own rendering (2026-11-08: the
+// screen's compositing was a third of the GPU through a heavy thermal hour). Simulators run headless.
+test('a session boots simulators headless, never in Simulator.app', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  for (const c of [
+    'open -a Simulator',
+    'open -a Simulator.app',
+    'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app',
+    'xcrun simctl boot "iPhone 17" && open -a Simulator',
+  ]) {
+    const r = hook(c)
+    expect(r.status, c).toBe(2)
+    expect(r.stderr, c).toContain('headless')
+  }
+  for (const c of ['xcrun simctl boot "iPhone 17"', 'open https://aquatome.com', 'open -a Preview shot.png', 'rg "open -a Simulator" docs']) {
+    expect(hook(c).status, c).toBe(0)
+  }
+})

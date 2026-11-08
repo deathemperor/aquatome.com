@@ -1,0 +1,66 @@
+{
+  "id": "esmaeilius-vladykovi",
+  "native": {
+    "input": "933a6515e2027e54",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "IR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Zagros toothcarp, Esmaeilius vladykovi, is restricted to a small area of the Zagros mountains in Chahārmahāl o Bakhtiyārī province, Iran.",
+        "words": "Iran",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Karun",
+        "source": "seriouslyfish",
+        "quote": "The type locality is close to the town of Boldaji in the upper Karun River basin and it has been recorded from nearby wetlands at Chagha Khur and Gandoman plus a few other localities in the region.",
+        "ok": true
+      },
+      {
+        "name": "Zagros",
+        "source": "seriouslyfish",
+        "quote": "Restricted to a small area of the Zagros mountain range in Chahārmahāl o Bakhtiyārī province, Iran.",
+        "country": "IR",
+        "ok": true
+      },
+      {
+        "name": "Khersan",
+        "source": "seriouslyfish",
+        "quote": "Some aspects of its distribution remain unclear but it is thought to occur in the upper Khersan River within the Karun drainage as well as the upper Marun River, a tributary of the Karun that also arises in the Zagros.",
+        "ok": true
+      },
+      {
+        "name": "Marun",
+        "source": "seriouslyfish",
+        "quote": "Some aspects of its distribution remain unclear but it is thought to occur in the upper Khersan River within the Karun drainage as well as the upper Marun River, a tributary of the Karun that also arises in the Zagros.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Esmaeilius vladykovi",
+    "status": "ACCEPTED",
+    "taxonKey": 11473103,
+    "datasets": [
+      [
+        "250e7bdf-217c-4480-974b-e80b926f3326",
+        1
+      ]
+    ],
+    "native": [
+      "IR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

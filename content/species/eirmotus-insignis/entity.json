@@ -10,6 +10,54 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo",
+        "Belitung Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo",
+            "Belitung Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359309,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -5,13 +5,22 @@
   "File:FMIB 38608 Chalceus macrolepidotus.jpeg",
   "File:Bueng chawag Aquarium - panoramio.jpg",
   "File:Charles Alexandre Lesueur, C. Macrolepidotus, 1817-1821, NGA 49110.jpg",
-  "File:Characidae Chalceus erythrurus 1.jpg"
+  "File:Characidae Chalceus erythrurus 1.jpg",
+  "inat:589718941"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/b45e612513fc1f97.webp": "00001d1f5f1e0000",
   "https://media.aquatome.com/commons/f8e2d24fc093ee5c.webp": "00000c0d431d0000",
   "https://media.aquatome.com/commons/38a115b2433c65a4.webp": "b49dbbba9c342634",
-  "https://media.aquatome.com/commons/9ab00579dbdebd70.webp": "13030711190b0f0d"
+  "https://media.aquatome.com/commons/9ab00579dbdebd70.webp": "13030711190b0f0d",
+  "https://media.aquatome.com/inaturalist/589718941.webp": "67078caa9ecf4fcf"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 342461,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 403954954
+  }
+ }
 }

@@ -243,28 +243,6 @@
         }
       }
     },
-    "%@ đến %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ sampai %2$@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ hingga %2$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ ถึง %2$@"
-          }
-        }
-      }
-    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
@@ -283,28 +261,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
-          }
-        }
-      }
-    },
-    "%@: mới nhất %@, thấp nhất %@, cao nhất %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: terbaru %2$@, terendah %3$@, tertinggi %4$@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: terkini %2$@, terendah %3$@, tertinggi %4$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: ล่าสุด %2$@, ต่ำสุด %3$@, สูงสุด %4$@"
           }
         }
       }
@@ -1031,6 +987,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "AquaTome ไม่มีส่วนเกี่ยวข้องกับบริษัท Chihiros คำสั่ง Bluetooth อ้างอิงตามบันทึกโอเพนซอร์ส [chihiros-led-control](https://github.com/TheMicDiet/chihiros-led-control) (สัญญาอนุญาต MIT)"
+          }
+        }
+      }
+    },
+    "AquaTome tóm tắt từ các nguồn được liệt kê trên trang đầy đủ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome merangkum dari sumber yang tercantum di halaman lengkap."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome meringkaskan daripada sumber yang disenaraikan di halaman penuh."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome สรุปจากแหล่งข้อมูลที่ระบุไว้ในหน้าเต็ม"
           }
         }
       }
@@ -2263,6 +2241,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลิกบันทึก"
+          }
+        }
+      }
+    },
+    "Bỏ ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus foto"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buang gambar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอารูปออก"
           }
         }
       }
@@ -4357,28 +4357,6 @@
         }
       }
     },
-    "Các mục": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bagian"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bahagian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หมวด"
-          }
-        }
-      }
-    },
     "Các thay đổi vẫn lưu trên máy này": {
       "localizations": {
         "id": {
@@ -4925,28 +4903,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้นี้ต้องใช้ฮีตเตอร์กี่วัตต์ →"
-          }
-        }
-      }
-    },
-    "Cần bạn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perlu Anda"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perlu tindakan"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รอคุณจัดการ"
           }
         }
       }
@@ -6073,24 +6029,24 @@
         }
       }
     },
-    "Gửi thống kê ẩn danh": {
+    "Gửi thống kê": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kirim statistik anonim"
+            "value": "Kirim statistik"
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hantar statistik tanpa nama"
+            "value": "Hantar statistik"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ส่งสถิติแบบไม่ระบุตัวตน"
+            "value": "ส่งสถิติ"
           }
         }
       }
@@ -6777,28 +6733,6 @@
         }
       }
     },
-    "Không có việc gì cần bạn lúc này.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak ada yang perlu Anda tangani saat ini."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tiada apa-apa yang perlu anda uruskan buat masa ini."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตอนนี้ไม่มีอะไรรอคุณจัดการ"
-          }
-        }
-      }
-    },
     "Không cần châm": {
       "localizations": {
         "id": {
@@ -6905,28 +6839,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปไม่สำเร็จ โปรดลองอีกครั้ง"
-          }
-        }
-      }
-    },
-    "Không hoàn tác được.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak bisa dibatalkan."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak boleh dibuat asal."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ย้อนกลับไม่ได้"
           }
         }
       }
@@ -7147,6 +7059,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "โหลดคู่มือไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต แล้วดึงลงเพื่อลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không tải được trang. Kiểm tra kết nối mạng rồi thử lại, hoặc xem trang đầy đủ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuat. Periksa koneksi lalu coba lagi, atau lihat halaman lengkap."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuatkan. Semak sambungan internet dan cuba lagi, atau lihat halaman penuh."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดหน้านี้ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง หรือดูหน้าเต็ม"
           }
         }
       }
@@ -10161,28 +10095,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ออกจากโหมดเต็มจอ"
-          }
-        }
-      }
-    },
-    "Thu gọn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ciutkan"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tunjuk kurang"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แสดงน้อยลง"
           }
         }
       }
@@ -13267,28 +13179,6 @@
         }
       }
     },
-    "chưa hết ngày": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "hari belum selesai"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "hari belum tamat"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ยังไม่หมดวัน"
-          }
-        }
-      }
-    },
     "chậm": {
       "localizations": {
         "id": {
@@ -13395,28 +13285,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความยาวด้านที่ 2"
-          }
-        }
-      }
-    },
-    "cần chú ý": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu perhatian"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu perhatian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ต้องให้ความสนใจ"
           }
         }
       }
@@ -13619,28 +13487,6 @@
         }
       }
     },
-    "so với %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "dibandingkan %@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "berbanding %@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เทียบกับ %@"
-          }
-        }
-      }
-    },
     "sáng %lld%%": {
       "localizations": {
         "id": {
@@ -13725,28 +13571,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
-          }
-        }
-      }
-    },
-    "tốt": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "baik"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "baik"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ดี"
           }
         }
       }
@@ -14675,6 +14499,28 @@
         }
       }
     },
+    "Đã mở rộng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diluaskan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikembangkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขยายแล้ว"
+          }
+        }
+      }
+    },
     "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.": {
       "localizations": {
         "id": {
@@ -14715,6 +14561,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลบโคมไฟออกจากเครื่องนี้แล้ว"
+          }
+        }
+      }
+    },
+    "Đã thu gọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diciutkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikuncupkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยุบแล้ว"
           }
         }
       }
@@ -16303,6 +16171,28 @@
         }
       }
     },
+    "Độ cứng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kesadahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kekerasan air"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกระด้าง"
+          }
+        }
+      }
+    },
     "Độ cứng (dGH)": {
       "localizations": {
         "id": {
@@ -16787,6 +16677,28 @@
         }
       }
     },
+    "Ảnh và giấy phép": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dan lisensi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dan lesen"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปภาพและสัญญาอนุญาต"
+          }
+        }
+      }
+    },
     "Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.": {
       "localizations": {
         "id": {
@@ -16805,6 +16717,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพจะผ่านการตรวจสอบก่อนแสดง รูปที่มีคน ไม่ตรงสายพันธุ์ หรือไม่เหมาะสมจะถูกตัดออก ตำแหน่ง GPS และข้อมูลกล้องในรูปจะถูกลบก่อนส่ง"
+          }
+        }
+      }
+    },
+    "Ảnh đại diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto profil"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar profil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปโปรไฟล์"
           }
         }
       }
@@ -17069,50 +17003,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "“%1$@” มีผลลัพธ์ใน %2$@"
-          }
-        }
-      }
-    },
-    "Nhận thông báo báo cáo trên máy này": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terima notifikasi laporan di perangkat ini"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terima pemberitahuan laporan pada peranti ini"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รับการแจ้งเตือนรายงานบนเครื่องนี้"
-          }
-        }
-      }
-    },
-    "Thông báo của AquaTome đang tắt trong Cài đặt.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notifikasi AquaTome dimatikan di Pengaturan."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pemberitahuan AquaTome dimatikan dalam Seting."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "การแจ้งเตือนของ AquaTome ปิดอยู่ในการตั้งค่า"
           }
         }
       }

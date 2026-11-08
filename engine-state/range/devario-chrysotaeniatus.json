@@ -1,0 +1,80 @@
+{
+  "id": "devario-chrysotaeniatus",
+  "native": {
+    "input": "cc12fb1d256e59e0",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from waters close to Manzhuo and Jinghong, Xishuangbanna Dai autonomous prefecture, Yunnan Province, southwestern China, and subsequently recorded from the Nam Youan River basin in Louang Namtha province, northern Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from waters close to Manzhuo and Jinghong, Xishuangbanna Dai autonomous prefecture, Yunnan Province, southwestern China, and subsequently recorded from the Nam Youan River basin in Louang Namtha province, northern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Nam Youan drains into Yunnan, and all known localities for this species fall within the upper Mekong watershed with populations also having been discovered in Chiang Mai province, northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "The Nam Youan drains into Yunnan, and all known localities for this species fall within the upper Mekong watershed with populations also having been discovered in Chiang Mai province, northern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Nam Youan",
+        "source": "seriouslyfish",
+        "quote": "Described from waters close to Manzhuo and Jinghong, Xishuangbanna Dai autonomous prefecture, Yunnan Province, southwestern China, and subsequently recorded from the Nam Youan River basin in Louang Namtha province, northern Laos.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario chrysotaeniatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2361506,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "CN",
+      "LA",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

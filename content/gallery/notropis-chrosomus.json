@@ -23,7 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/289156200",
       "caption": "Cá rainbow shiner bơi trên nền sỏi rong dưới suối",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/289156200-large.webp",
+        "width": 1920,
+        "height": 1080
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/289154653.webp",
@@ -35,7 +40,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/289154653",
       "caption": "Cá rainbow shiner có ánh xanh đỏ trong hộp quan sát",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/289154653-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/487219627.webp",
@@ -47,7 +57,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/487219627",
       "caption": "Cá rainbow shiner đực màu đỏ rực trong hộp quan sát bên suối",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/487219627-large.webp",
+        "width": 1200,
+        "height": 1600
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/345078269.webp",
@@ -60,18 +75,6 @@
       "caption": "Cá rainbow shiner nhìn nghiêng trong bể chụp nền trắng",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/487219656.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/487219656-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "will shepard",
-      "sourceUrl": "https://www.inaturalist.org/photos/487219656",
-      "caption": "Cá rainbow shiner đực màu đỏ tím bơi trong hộp ở suối",
-      "best": true,
-      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/594690233.webp",
@@ -95,7 +98,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/669262813",
       "caption": "Cá rainbow shiner đực ánh xanh tím trong bể kính",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/669262813-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/198085365.webp",

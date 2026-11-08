@@ -8,7 +8,7 @@
   "mentions": [
     "carassius-auratus"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "6497twA1KLg",
     "title": "Which One Cycles Your Aquarium Faster? [Data Nerd Video]",
@@ -39,8 +39,8 @@
       {
         "category": "khac",
         "brand": "Fritz",
-        "model": "Zyme 7",
-        "t": 2
+        "model": "Zyme 7 Live Bacteria",
+        "t": 3
       },
       {
         "category": "khac",
@@ -52,15 +52,22 @@
         "category": "test-nuoc",
         "type": "test",
         "brand": "Aquarium Co-Op",
-        "model": "ammonia test strips",
-        "t": 270
+        "model": "Ammonia test strips",
+        "t": 284
       },
       {
         "category": "test-nuoc",
         "type": "test",
         "brand": "Aquarium Co-Op",
-        "model": "multi test strips",
-        "t": 270
+        "model": "Multi test strips",
+        "t": 284
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "brand": "Aquarium Co-Op",
+        "model": "Instant Cycle Active Betta Gravel",
+        "t": 816
       },
       {
         "category": "loc",
@@ -68,26 +75,25 @@
         "t": 150
       },
       {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 810
+        "category": "suoi",
+        "t": 571
       }
     ],
     "figures": [
       {
-        "heading": "Thử nghiệm được bố trí ra sao",
+        "heading": "Thử nghiệm được bố trí thế nào",
         "moments": [
           {
             "t": 10,
-            "url": "https://media.aquatome.com/video/6497twA1KLg/t10.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể nuôi cá có lọc xốp và lớp sứ lọc trắng dưới đáy."
+            "url": "https://media.aquatome.com/video/6497twA1KLg/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá có sủi khí và sứ lọc rải dưới đáy."
           }
         ]
       },
       {
-        "heading": "Đợt 2: nước ấm và liều amoniac 1 ppm hay 2 ppm",
+        "heading": "Đợt 2: nước ấm khoảng 25°C và thử liều amoniac",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/6497twA1KLg/p2-ha3dhcml1bS5qcGc.webp",
@@ -97,20 +103,22 @@
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Máy sưởi bể cá dạng thanh có giác hút, dùng giữ nước ấm ổn định."
+          "caption": "Máy sưởi bể cá có giác hút, dùng giữ nước ấm ổn định quanh 25°C."
         }
       },
       {
-        "heading": "Đợt 3: so với vi sinh chai và nền có sẵn vi sinh",
-        "moments": [
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/6497twA1KLg/t20.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá vàng với nền sỏi trắng và hai ống lọc đen."
-          }
-        ]
+        "heading": "Những điều còn bỏ ngỏ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6497twA1KLg/p5-ZXppX21hbGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/6497twA1KLg/p5-ZXppX21hbGUuanBn-480.webp",
+          "width": 960,
+          "height": 695,
+          "licence": "CC BY-SA 4.0",
+          "author": "Sven Kullander",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mikrogeophagus_ramirezi_male.jpg",
+          "caption": "Cá ram xanh đực màu rực, nhìn rõ nét, loài hay nuôi ở nước ấm."
+        }
       }
     ]
   }

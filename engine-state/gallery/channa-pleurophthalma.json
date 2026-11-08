@@ -20,7 +20,10 @@
   "File:Düsseldorf - Aquazoo - Channa pleurophthalma 02 ies.jpg",
   "File:Düsseldorf - Aquazoo - Channa pleurophthalma 03 ies.jpg",
   "File:Düsseldorf - Aquazoo - Channa pleurophthalma 04 ies.jpg",
-  "File:Channidae - Channa pleurophthalma.JPG"
+  "File:Channidae - Channa pleurophthalma.JPG",
+  "inat:414503264",
+  "inat:414503463",
+  "inat:414503896"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/792346a42eaa0b6e.webp": "98c43e2e1fc325db",
@@ -37,5 +40,13 @@
   "https://media.aquatome.com/commons/9c569b34301dcc7e.webp": "391399c8585e2434",
   "https://media.aquatome.com/commons/caae28f89f1ed9d7.webp": "fbe96c1e0f07b82e"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 610089,
+  "pass": "done",
+  "after": {
+   "research": 233246009,
+   "agree": 183286921
+  }
+ }
 }

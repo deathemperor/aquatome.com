@@ -2,6 +2,42 @@
   "id": "channa-maculata",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/682126123.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/682126123-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC0",
+      "author": "observe-syz",
+      "sourceUrl": "https://www.inaturalist.org/photos/682126123",
+      "caption": "Hai cá lóc đốm bơi trên đáy đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/513666208.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/513666208-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "林正文",
+      "sourceUrl": "https://www.inaturalist.org/photos/513666208",
+      "caption": "Cá lóc đốm bơi trong nước nông gần cây dương xỉ",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/170712814.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/170712814-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Meng-Chi Hung",
+      "sourceUrl": "https://www.inaturalist.org/photos/170712814",
+      "caption": "Cá lóc đốm sống trong khay nhựa xanh, thân có đốm rõ",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/3d9bdbb968b50c68.webp",
       "thumb": "https://media.aquatome.com/commons/3d9bdbb968b50c68-480.webp",
       "width": 1200,
@@ -12,9 +48,21 @@
       "caption": "Cá lóc đốm bơi trong ao nuôi gần lưới",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/19905260.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/19905260-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Lin Scott",
+      "sourceUrl": "https://www.inaturalist.org/photos/19905260",
+      "caption": "Cá lóc đốm bơi chếch trong nước đục ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 2,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 15,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

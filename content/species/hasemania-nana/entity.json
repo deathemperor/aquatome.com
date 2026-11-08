@@ -19,7 +19,8 @@
         "Rio São Francisco"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumcoop"
       ],
       "quotes": [
         {
@@ -174,11 +175,25 @@
           "min": 23,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumcoop",
         "value": {
           "min": 6,
           "max": 8
@@ -198,6 +213,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -210,6 +229,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ]
   },
@@ -221,10 +244,22 @@
       "html": "<p>The silvertip tetra, Hasemania nana, is a characid from the Rio São Francisco basin in Brazil. It inhabits creeks and tributaries away from the main river channels. Hasemania is one of the few characid genera whose members lack an adipose fin. All the fish in the trade are captive bred and unfussy about water chemistry and diet, and it is sometimes sold as the 'copper tetra'.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>Hasemania nana is a 5 cm schooling fish from the rivers and streams of Brazil. It is hardy and very active, which makes it a good choice for beginners. Most silver tip tetras in the aquarium trade are captive-bred at fish farms, and an albino version has also been developed.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
       "html": "<p>Rio São Francisco basin, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>Rivers and streams of Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -239,6 +274,12 @@
       "html": "<p>Standard length: 50 mm (2.0 in). Aquarium base: 60 × 38 cm (24 × 15 in). Volume: ~68 litres (~18 US gal).</p><p>It's an active species, so a small shoal will need a tank of at least 60 × 38 × 30 cm (24 × 15 × 12 in), about 68 litres.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>Keep a group of at least 8–10 silver tip tetras in a tank of 75 litres or larger, which gives them more space to zoom around. A bigger group of 20 in a 208-litre tank will shoal together in a visually pleasing manner. Keeping only a few may lead them to nip the fins of other fish.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
@@ -251,51 +292,183 @@
       "html": "<ul><li>Temperature: 23–28 °C (73–82 °F)</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>Unlike some South American fish, silver tip tetras live in a wide variety of environments and easily tolerate 23–28°C, pH 6–8, and soft to hard water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>Keep them with lots of live aquarium plants. Tall background plants and decorations that block the line of sight help give females a break from the males.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
       "html": "<p>Easy to feed. It will readily accept just about anything offered. For the best condition and colours, offer regular meals of small live and frozen foods such as bloodworm, Daphnia and brine shrimp, along with dried flakes and granules.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>This omnivore eagerly eats everything offered. Offer a variety of foods that provide all the essential nutrients and are small enough to fit in their mouths.</p><ul><li>Prepared foods: flake foods, nano pellets, and freeze-dried foods such as tubifex worms.</li><li>Frozen foods: daphnia, cyclops or rotifers for extra variety.</li><li>Live foods: live baby brine shrimp and daphnia as enrichment.</li></ul>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hasemania-nana",
       "html": "<p>One of the best tetras for the 'general' community setup. It is lively, quite colourful and peaceful. It's a good tankmate for most livebearers, danios, rasboras, other tetras and peaceful bottom dwellers such as Corydoras or smaller Loricariids. It can also be kept with the majority of commonly available gouramis and dwarf cichlids. Obviously, it shouldn't be combined with larger species that may see it as food, such as angel fish. While some individuals can be a little nippy if kept alone, this behaviour is reduced dramatically when it is maintained in a group. It's therefore recommended to buy no less than 6 of these, preferably 10 or more.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>This schooling species is very lively and social, with a bold, outgoing nature and a high activity level. At mealtimes they swarm together in a feeding frenzy. A big enough group will follow a finger traced along the outside of the glass. Minor squabbling is typical as they establish a hierarchy.</p><p>As an active community fish, they do best with similar-sized, speedy fish that will not be outcompeted at mealtime. Do not mix them with slow, delicate or long-finned fish such as bettas. They will eat any dwarf shrimp or baby fish they come across. They do well with many types of barbs, zebra danios, platies, mollies and dwarf gouramis, and with bottom dwellers such as corydoras, plecos, kribensis and dwarf cichlids like Apistogramma.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>Adult males deepen into a coppery-orange color, whereas adult females and juveniles have a translucent, lemon-yellow hue. The common name comes from the white tips on the fins, and the forked tail has a short, black stripe in the middle.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "html": "<p>As an egg scatterer, it is not particularly hard to spawn, but the parents are prone to eating their own eggs and offspring. Many hobbyists have accidentally spawned a few fry in a colony setting with a seasoned tank with lots of mulm, plenty of food, and dense foliage such as water sprite, java moss and Pogostemon stellatus 'octopus'.</p><p>To increase the survival rate, use a mature 38-litre tank with lots of aquarium plants, mulm and microfauna. Cover the ground completely with plastic craft mesh and place some spawning mops and java moss underneath it, so the eggs fall through while the parents cannot reach them. The young may be light-sensitive, so keep the lights completely off, and consider adding catappa leaves under the mesh to tint the water and grow biofilm for the fry to eat.</p><p>Feed the adults well until the females become swollen with eggs, then add one male and one female to the breeding tank. If you cannot easily sex them, add a group of at least six adults. The adults should spawn quickly, so remove them within a day or two. The eggs hatch within 1–1.5 days, and the newborns become free-swimming 3–4 days later.</p><p>Feed the fry multiple small meals a day of live vinegar eels, infusoria and powdered foods. Do small water changes to keep water quality high, and move the fry to live baby brine shrimp as soon as possible.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/7bb530a5ab22ea78.webp",
+      "thumb": "https://media.aquatome.com/commons/7bb530a5ab22ea78-480.webp",
       "width": 940,
       "height": 615,
       "licence": "CC BY-SA 3.0",
       "author": "Malene Thyssen (User Malene)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobbertetra_Hasemania_nana.jpg",
-      "caption": "Cupper tetra (Hasemania nana)",
-      "thumb": "https://media.aquatome.com/commons/7bb530a5ab22ea78-480.webp"
+      "caption": "Cupper tetra (Hasemania nana)"
     },
     {
       "url": "https://media.aquatome.com/commons/a6bf512005c4b2f3.webp",
+      "thumb": "https://media.aquatome.com/commons/a6bf512005c4b2f3-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 3.0",
       "author": "Hasemania_4.jpg: Filtropat derivative work: Kyknos",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hasemania_4_cropped.jpg",
-      "caption": "Hasemania nana.",
-      "thumb": "https://media.aquatome.com/commons/a6bf512005c4b2f3-480.webp"
+      "caption": "Hasemania nana."
     },
     {
       "url": "https://media.aquatome.com/commons/2a4b5de304e67272.webp",
+      "thumb": "https://media.aquatome.com/commons/2a4b5de304e67272-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 3.0",
       "author": "Juan R. Lascorz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:04.Hasemania_nana.JPG",
-      "caption": "Hasemania nana",
-      "thumb": "https://media.aquatome.com/commons/2a4b5de304e67272-480.webp"
+      "caption": "Hasemania nana"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c3b1d361eef2b4b3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c3b1d361eef2b4b3-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "caption": "Care Guide for Silver Tip Tetras — Fun and Interactive Schooling Fish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/4f3842a03d454d25.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/4f3842a03d454d25-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "caption": "male silver tip tetra",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/f1aad3e507340750.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/f1aad3e507340750-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "caption": "silver tip tetra and cherry barb",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c2d48243157c5f85.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c2d48243157c5f85-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/silver-tip-tetras",
+      "caption": "silver tip tetras - male and female",
+      "source": "aquariumcoop"
     }
   ],
-  "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "videos": [
+    {
+      "youtubeId": "Z8vHtmwjrEI",
+      "title": "silvertip tetra (hasemania nana) care",
+      "durationSec": 173,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CYNHzgBJ83k",
+      "title": "Silver Tip Tetra Guide - Hasemania nana - Silver Tip Tetra School size.",
+      "durationSec": 198,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_G1WbF9Jayg",
+      "title": "A Hardy Tetra! Silver Tip Tetra Care and Breeding",
+      "durationSec": 535,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tRV48fsAOZU",
+      "title": "BEGINNER FISH:  Silvertip Tetra ( Hasemania nana )",
+      "durationSec": 441,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nền",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng mảnh",
+        "cám nano cho cá tetra"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
 }

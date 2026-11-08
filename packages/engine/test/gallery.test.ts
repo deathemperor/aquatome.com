@@ -174,6 +174,27 @@ test('gallery: a photo blocked after it moved to our bucket (a watermark) is kno
   expect(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8').then(t => JSON.parse(t).photos)).toEqual([])
 })
 
+test("gallery: a photo the photo check took off this page is never put back, from the queue or a search; another page's verdict doesn't count", async () => {
+  const r = await root()
+  const inat1 = 'https://inaturalist-open-data.s3.amazonaws.com/photos/1/large.jpg'
+  const commonsA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/A.jpg/1280px-A.jpg'
+  const queued = { url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/77/original.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/77/medium.jpg', width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: 'https://www.inaturalist.org/photos/77', key: 'inat:77' }
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [queued], judged: [], hashes: {} }))
+  const verdict = (ok: string) => ({ ok, typical: false, note: 'looked at by eye' })
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [`https://media.aquatome.com/${mirrorPlan(queued.url)!.key}`]: { 'betta-splendens': verdict('other') },
+    [`https://media.aquatome.com/${mirrorPlan(inat1)!.key}`]: { 'betta-splendens': verdict('none') },
+    // Off another page only: fine here.
+    [`https://media.aquatome.com/${mirrorPlan(commonsA)!.key}`]: { 'betta-imbellis': verdict('other') },
+  }))
+  await galleries(r, deps(), { sheets: 5 })
+  const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(shown).not.toContain(queued.sourceUrl)
+  expect(shown).not.toContain('https://www.inaturalist.org/photos/1')
+  expect(shown.some(u => u.includes('commons.wikimedia.org'))).toBe(true)
+})
+
 test('gallery: the sheet budget stops the run; the next run continues from the queue and the cursor', async () => {
   const r = await root()
   await writeFile(join(r, 'content/species/betta-splendens/entity.json'), JSON.stringify({ scientificName: 'Betta splendens', photos: [] }))

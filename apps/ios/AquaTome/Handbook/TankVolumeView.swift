@@ -241,7 +241,7 @@ struct TankVolumeView: View {
 
   /// A number as the site's pages write it: at most `digits` decimals, halves up, in the reader's language.
   private func number(_ x: Double, _ digits: Int) -> String {
-    x.formatted(.number.precision(.fractionLength(0...digits)).rounded(rule: .toNearestOrAwayFromZero))
+    x.formatted(.number.locale(.app).precision(.fractionLength(0...digits)).rounded(rule: .toNearestOrAwayFromZero))
   }
 
   private func shapeName(_ s: TankShape) -> String {

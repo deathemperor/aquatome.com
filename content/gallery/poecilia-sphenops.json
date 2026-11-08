@@ -23,7 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/6286600",
       "caption": "Hai cá molly trong bể nuôi nền xanh",
       "best": true,
-      "kind": "pair"
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/6286600-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/611221064.webp",
@@ -36,6 +41,18 @@
       "caption": "Cá molly ngoài tự nhiên bơi gần đáy sỏi",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/6702014271.webp",
+      "thumb": "https://media.aquatome.com/flickr/6702014271-480.webp",
+      "width": 1024,
+      "height": 685,
+      "licence": "CC BY-SA 2.0",
+      "author": "GonzalezNovo",
+      "sourceUrl": "https://www.flickr.com/photos/35407568@N06/6702014271",
+      "caption": "Cá molly màu cam đỏ bơi trong bể nền đá",
+      "best": true,
+      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/commons/f89391c4e5bf15da.webp",
@@ -178,7 +195,7 @@
       "caption": "Cá molly bạc nhạt trong bể cây thủy sinh xanh"
     }
   ],
-  "seen": 98,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 99,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

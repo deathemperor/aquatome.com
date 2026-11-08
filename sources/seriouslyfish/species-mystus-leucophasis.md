@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/mystus-leucophasis
 title: Mystus leucophasis (Asian Upside Down Catfish) · Seriously Fish
-fetchedAt: 2026-11-07T03:53:24.194Z
+fetchedAt: 2026-11-07T18:21:53.924Z
 hash: 0c856a9af288a715686ed41357bfe4cda090b399225551773e4e8167ce0f63eb
 ---
 

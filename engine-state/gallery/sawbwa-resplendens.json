@@ -3,7 +3,6 @@
  "judged": [],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/f13d63f1dff880b6.webp": "b6a41c4e1fcb9e9f",
-  "https://media.aquatome.com/seriouslyfish/65599e4303a8f14d.webp": "6f152740906e92d3",
   "https://media.aquatome.com/seriouslyfish/8076caeb217eda05.webp": "00002c3c171b2927",
   "https://media.aquatome.com/seriouslyfish/0163d581381f756e.webp": "3a34b4cccd6b6a69"
  },
@@ -15,5 +14,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2363712,
+  "next": null
  }
 }

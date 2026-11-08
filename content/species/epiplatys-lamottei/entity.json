@@ -12,6 +12,76 @@
     "liberia",
     "lofa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "LR"
+      ],
+      "regions": [
+        "Lofa",
+        "Saint Paul",
+        "Saint John"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+          "countries": [
+            "GN",
+            "LR"
+          ],
+          "regions": [
+            "Lofa",
+            "Saint Paul",
+            "Saint John"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348836,
+      "total": 5,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GN",
+          3
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "LR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -82,7 +152,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-lamottei",
-      "html": "<p>Standard length: 60 mm SL (6 cm). Aquarium base: 80 × 30 cm. Volume: ~72 litres.</p><p>Minimum base dimensions of 80 × 30 cm or equivalent are recommended although smaller aquaria can be used for breeding purposes.</p>"
+      "html": "<p>Minimum base dimensions of 80 × 30 cm or equivalent are recommended (about 72 litres) although smaller aquaria can be used for breeding purposes.</p>"
     },
     {
       "key": "maintenance",
@@ -112,7 +182,7 @@
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-lamottei",
-      "html": "<p>Etymology: Epiplatys: from the Greek epi, meaning 'above, on top of', and platys, meaning 'flat, broad', in reference to the flat dorsal surface of the anterior half of the body in members of this genus. lamottei: named for M. Lamott who first collected the species.</p><p>Following the key of Romand (1992) this species can be told apart from congeners by the following combination of characters: adult size &gt; 40 mm (1.6 in) SL; large, dark, transverse bars and some reddish-brown pigmentation on flanks; longitudinal bands more-or-less defined; longitudinal bands composed of small red spots; caudal-fin subquadrangular caudal fin; 11-13 anal-fin rays; 16-17 dorsal-fin rays; 7-8 anal-fin rays located anterior to dorsal-fin origin.</p><p>Epiplatys is the most widely-distributed genus of West African aplocheiloid killifish with a range overlapping that of the other genera native to the region which are more restricted and split into eastern and western groups based on their respective patterns of distribution.</p><p>For example, Callopanchax is restricted to coastal lowlands of far Western Africa with Scriptaphyosemion and Archiaphyosemion known only from the interior of the Western rainforest, whereas Aphyosemion and Fundulopanchax present more easterly ranges extending south and eastward from Nigeria.</p><p>Although previously considered closely-related to the genus Aplocheilus due to shared similarities such as possessing an upturned mouth and dwelling mostly near the water surface Epiplatys is in fact affiliated with the western group above, i.e., its closest relatives are Callopanchax, Scriptaphyosemion and Archiaphyosemion.</p><p>In addition the phylogenetic analysis of Collier et al. (2009) revealed the existence of two distinct clades within Epiplatys itself, one comprising those species restricted to the Western rainforest (the western/savanna clade) and other those inhabiting lowland (coastal) swamps and streams west of the Dahomey Gap.</p><p>Most members of the coastal clade have a colour pattern consisting of broad, dark vertical bars which are present in juveniles of those species which lack them as adults, plus many populations possess an asymmetric caudal-fin shape with an extended lower lobe, whereas western clade species tend to lack or only possess thin oblique dark bars on the body and have symmetrically-shaped caudal fins.</p>"
+      "html": "<p>Following the key of Romand (1992) this species can be told apart from congeners by the following combination of characters: adult size &gt; 40 mm SL; large, dark, transverse bars and some reddish-brown pigmentation on flanks; longitudinal bands more-or-less defined; longitudinal bands composed of small red spots; caudal-fin subquadrangular caudal fin; 11-13 anal-fin rays; 16-17 dorsal-fin rays; 7-8 anal-fin rays located anterior to dorsal-fin origin.</p><p>Epiplatys is the most widely-distributed genus of West African aplocheiloid killifish with a range overlapping that of the other genera native to the region which are more restricted and split into eastern and western groups based on their respective patterns of distribution.</p><p>For example, Callopanchax is restricted to coastal lowlands of far Western Africa with Scriptaphyosemion and Archiaphyosemion known only from the interior of the Western rainforest, whereas Aphyosemion and Fundulopanchax present more easterly ranges extending south and eastward from Nigeria.</p><p>Although previously considered closely-related to the genus Aplocheilus due to shared similarities such as possessing an upturned mouth and dwelling mostly near the water surface Epiplatys is in fact affiliated with the western group above, i.e., its closest relatives are Callopanchax, Scriptaphyosemion and Archiaphyosemion.</p><p>In addition the phylogenetic analysis of Collier et al. (2009) revealed the existence of two distinct clades within Epiplatys itself, one comprising those species restricted to the Western rainforest (the western/savanna clade) and other those inhabiting lowland (coastal) swamps and streams west of the Dahomey Gap.</p><p>Most members of the coastal clade have a colour pattern consisting of broad, dark vertical bars which are present in juveniles of those species which lack them as adults, plus many populations possess an asymmetric caudal-fin shape with an extended lower lobe, whereas western clade species tend to lack or only possess thin oblique dark bars on the body and have symmetrically-shaped caudal fins.</p>"
     },
     {
       "key": "references",
@@ -134,7 +204,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "SSpPx6Hmb9A",
+      "title": "Did He Die? The Craziest #killifish I have ever Kept! Epiplatys Lamottei #rare #fish #aquarium",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2M7QQ7c1AvI",
+      "title": "Epiplatys lamottei #Killifishes😌",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gtxconkRvS8",
+      "title": "The Craziest #killifish I have ever Kept! Epiplatys Lamottei #rare #fish #aquarium",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DOLf8cOZAS8",
+      "title": "Epiplatys Lamottei  \" The Red-Spotted Pachax\"",
+      "durationSec": 279,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -147,7 +242,9 @@
       "keywords": [
         "artemia",
         "bo bo đông lạnh",
-        "thức ăn cá killifish"
+        "thức ăn cá killifish",
+        "artemia đông lạnh",
+        "thức ăn cho cá killi"
       ]
     },
     {
@@ -161,6 +258,15 @@
       "keywords": [
         "cát nền bể cá",
         "lá bàng khô"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây dương xỉ java",
+        "rêu java",
+        "cây anubias",
+        "dương xỉ nổi"
       ]
     }
   ],

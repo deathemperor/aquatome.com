@@ -9,27 +9,33 @@ import SwiftUI
 @available(iOS 18, *)
 struct BrowseHome: View {
   @Binding var path: NavigationPath
-  /// The tab in front. "Đọc gần đây" is as it was when it came to the front, so a page just read stays where it was
-  /// tapped, for its zoom back, and the shelves don't move; it takes its new place next time.
+  /// The tab in front. "Đã lưu" and "Đọc gần đây" are as they were when it came to the front, so a page just read or saved
+  /// stays where it was tapped, for its zoom back, and the shelves don't move; it takes its new place next time.
   let front: Bool
   @State private var recentShown: [HandbookIndex.Item] = []
+  @State private var savedShown: [HandbookIndex.Item] = []
+  @State private var held = false
+  /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
+  /// title before this.
+  @State private var titleGone = false
+  @State private var refreshes = 0
+  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.colorScheme) private var scheme
   @Namespace private var zoom
   // Sizes growing with the text, so a tile's words stay whole at the larger sizes.
-  @ScaledMetric(relativeTo: .title3) private var featuredHeight: CGFloat = 230
+  @ScaledMetric(relativeTo: .title3) private var featuredHeight: CGFloat = 250
   @ScaledMetric(relativeTo: .subheadline) private var tileHeight: CGFloat = 104
-  @ScaledMetric(relativeTo: .subheadline) private var tileWidth: CGFloat = 168
   @ScaledMetric(relativeTo: .body) private var rowHeight: CGFloat = 76
-  @ScaledMetric(relativeTo: .subheadline) private var guideWidth: CGFloat = 250
-  @ScaledMetric(relativeTo: .headline) private var videoWidth: CGFloat = 200
   @ScaledMetric(relativeTo: .headline) private var videoHeight: CGFloat = 190
+  @ScaledMetric(relativeTo: .title3) private var toolSymbolHeight: CGFloat = 28
 
   var body: some View {
     let s = handbook.shelves
     let top = featuredItems(s)
-    let saved = handbook.saved(nil).filter { !top.map(\.path).contains($0.path) }
+    let saved = savedShown.filter { !top.map(\.path).contains($0.path) }
     let recent = recentShown.filter { r in !(top + saved).contains { $0.path == r.path } }
     // A page on one shelf only, the first it's on (its zoom starts there).
     let onTop = Set((top + saved + recent).map(\.path))
@@ -40,7 +46,7 @@ struct BrowseHome: View {
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
           }
-          featured(top)
+          if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved) }
           if !recent.isEmpty { columns("Đọc gần đây", recent) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
@@ -55,16 +61,27 @@ struct BrowseHome: View {
           let plants = s.easyPlants.filter { !onTop.contains($0.path) }
           if !plants.isEmpty || !s.placements.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
-              if !plants.isEmpty { columns("Cây thủy sinh", plants, more: Browse.plants(nil)) }
-              chips(s.placements.map { ($0.label, $0.count, Browse.plants($0.key)) })
+              // Its chips never without a heading.
+              if plants.isEmpty {
+                ShelfHeader(title: "Cây thủy sinh", more: size.isAccessibilitySize ? nil : Browse.plants(nil))
+              } else {
+                columns("Cây thủy sinh", plants, more: Browse.plants(nil))
+              }
+              if !s.placements.isEmpty { chips(s.placements.map { ($0.label, $0.count, Browse.plants($0.key)) }) }
             }
           }
           let first = s.firstGuides.filter { !onTop.contains($0.path) }
-          VStack(alignment: .leading, spacing: 12) {
-            if !first.isEmpty {
-              if size.isAccessibilitySize { columns("Bắt đầu từ đây", first, more: Browse.guides(nil)) } else { guides(first) }
+          if !first.isEmpty || !s.sections.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+              if first.isEmpty {
+                ShelfHeader(title: "Hướng dẫn", more: size.isAccessibilitySize ? nil : Browse.guides(nil))
+              } else if size.isAccessibilitySize {
+                columns("Bắt đầu từ đây", first, more: Browse.guides(nil))
+              } else {
+                guides(first)
+              }
+              if !s.sections.isEmpty { chips(s.sections.map { ($0.label, $0.count, Browse.guides($0.key)) }) }
             }
-            chips(s.sections.map { ($0.label, $0.count, Browse.guides($0.key)) })
           }
           let series = s.all(.video).filter { !onTop.contains($0.path) }
           if !series.isEmpty {
@@ -76,15 +93,40 @@ struct BrowseHome: View {
         }
         .padding(.vertical, 12)
       }
-      .modifier(HardTopEdge())
+      .v2ClearOfTheFade()
+      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
+      .modifier(ClearUnderTopBar(shown: titleGone))
+      .accessibilityIdentifier("v2-browse")
+      .v2ClearsFootGoingBack(path.count)
       .navigationTitle("Khám phá")
+      // Its own, not one iOS picks from what passes under the bar, as Hôm nay's.
+      .toolbarColorScheme(scheme, for: .navigationBar)
       .profileButton()
       .v2Destinations(zoom: zoom)
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
-      .refreshable { await handbook.load() }
-      .task(id: "\(front) \(handbook.status)") { recentShown = handbook.recent(nil) }
+      .refreshable {
+        await handbook.load()
+        holdShelves()
+        refreshes += 1
+      }
+      .environment(\.v2PhotoTries, refreshes)
     }
+    // On the stack, not its first screen, which disappears and comes back with a page pushed and popped. Never with a page
+    // open: for the zoom back to where it was tapped.
+    .onAppear {
+      if !held {
+        held = true
+        holdShelves()
+      }
+    }
+    .onChange(of: front) { if path.isEmpty { holdShelves() } }
+    .onChange(of: handbook.status) { if path.isEmpty { holdShelves() } }
+  }
+
+  private func holdShelves() {
+    recentShown = handbook.recent(nil)
+    savedShown = handbook.saved(nil)
   }
 
   /// The top's pages: the fish and guides the site puts first, with photos.
@@ -95,10 +137,10 @@ struct BrowseHome: View {
   /// The top: wide cards, the next one peeking.
   private func featured(_ items: [HandbookIndex.Item]) -> some View {
     ScrollView(.horizontal, showsIndicators: false) {
-      LazyHStack(spacing: 12) {
+      LazyHStack(alignment: .top, spacing: 12) {
         ForEach(items) { item in
           NavigationLink(value: item) {
-            FeaturedCard(item: item, height: featuredHeight).containerRelativeFrame(.horizontal) { w, _ in w - 72 }
+            FeaturedCard(item: item, height: featuredHeight).containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 12) }
           }
           .buttonStyle(CardPress())
           .matchedTransitionSource(id: item.path, in: zoom)
@@ -108,7 +150,7 @@ struct BrowseHome: View {
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
-    .scrollClipDisabled()
+    .v2ShelfEdge()
   }
 
   /// The fish groups as photo tiles, two rows that page sideways; at the accessibility sizes, the first five down the
@@ -120,9 +162,11 @@ struct BrowseHome: View {
           NavigationLink(value: Browse.fish(g.key)) {
             HStack(spacing: 12) {
               V2Photo(src: g.img).frame(width: 88, height: 88).clipShape(.rect(cornerRadius: 20, style: .continuous))
+                // No photo: the kind's mark, as a row's.
+                .overlay { if g.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: g.label).font(.body.weight(.semibold))
-                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.secondary)
+                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.v2Faint)
               }
               Spacer(minLength: 0)
             }
@@ -149,21 +193,8 @@ struct BrowseHome: View {
       LazyHGrid(rows: [GridItem(.fixed(tileHeight), spacing: 10), GridItem(.fixed(tileHeight))], spacing: 10) {
         ForEach(groups) { g in
           NavigationLink(value: Browse.fish(g.key)) {
-            V2Photo(src: g.img)
-              .frame(width: tileWidth, height: tileHeight)
-              .overlay {
-                // Enough under the words on a light photo: 4.5:1 for the count too.
-                LinearGradient(stops: [.init(color: .clear, location: 0.3), .init(color: .black.opacity(0.75), location: 0.85)], startPoint: .top, endPoint: .bottom)
-              }
-              .overlay(alignment: .bottomLeading) {
-                HStack(alignment: .firstTextBaseline) {
-                  Text(verbatim: g.label).font(.subheadline.weight(.semibold)).lineLimit(2)
-                  Spacer(minLength: 4)
-                  Text(g.count, format: .number).font(.caption)
-                }
-                .foregroundStyle(.white)
-                .padding(10)
-              }
+            GroupTile(group: g, height: tileHeight)
+              .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 2, spacing: 10) }
               .clipShape(.rect(cornerRadius: 14, style: .continuous))
           }
           .buttonStyle(CardPress())
@@ -173,6 +204,7 @@ struct BrowseHome: View {
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
+    .v2ShelfEdge()
   }
 
   /// Pages as lockups in columns of three that page sideways, each with its button, the next column peeking; at the
@@ -181,21 +213,25 @@ struct BrowseHome: View {
     VStack(alignment: .leading, spacing: 12) {
       ShelfHeader(title: title, more: size.isAccessibilitySize ? nil : more)
       if size.isAccessibilitySize {
-        VStack(alignment: .leading, spacing: 14) {
-          ForEach(items.prefix(more == nil ? items.count : 5)) { item in
-            Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
+        // A line between rows, as Hôm nay's lists: with each row's photo above its words, one ran into the next.
+        let shown = Array(items.prefix(more == nil ? items.count : 5))
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(shown) { item in
+            Lockup(item: item, line: factsLine(item, handbook.lang))
+              .padding(.vertical, 12)
               .matchedTransitionSource(id: item.path, in: zoom)
+            if item.path != shown.last?.path { Divider() }
           }
-          if let more { moreLink(more) }
+          if let more { moreLink(more).padding(.top, 4) }
         }
         .padding(.horizontal, 20)
       } else {
         ScrollView(.horizontal, showsIndicators: false) {
           LazyHGrid(rows: Array(repeating: GridItem(.fixed(rowHeight), spacing: 12), count: min(3, items.count)), spacing: 16) {
             ForEach(items) { item in
-              Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
-                // One column's worth: the whole width for the words, no next column to peek.
-                .containerRelativeFrame(.horizontal) { w, _ in items.count <= 3 ? w - 40 : w - 72 }
+              Lockup(item: item, line: factsLine(item, handbook.lang))
+                // One column's worth: the whole width for the words, no next column to peek (`w` is less the margins).
+                .containerRelativeFrame(.horizontal) { w, _ in items.count <= 3 ? w : shelfCard(w, across: 1, spacing: 16) }
                 .matchedTransitionSource(id: item.path, in: zoom)
             }
           }
@@ -203,6 +239,7 @@ struct BrowseHome: View {
         }
         .contentMargins(.horizontal, 20, for: .scrollContent)
         .scrollTargetBehavior(.viewAligned)
+        .v2ShelfEdge()
       }
     }
   }
@@ -215,7 +252,8 @@ struct BrowseHome: View {
           NavigationLink(value: p.to) {
             HStack(spacing: 6) {
               Text(verbatim: p.label)
-              Text(p.count, format: .number).foregroundStyle(.secondary)
+              // Less than the system's secondary, which measured 3.2:1 on the chip's fill (v1's KindChip the same).
+              Text(p.count, format: .number).opacity(0.6)
             }
             .font(.subheadline.weight(.semibold))
             .padding(.horizontal, 14)
@@ -227,6 +265,7 @@ struct BrowseHome: View {
       }
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
+    .v2ShelfEdge()
   }
 
   private func guides(_ items: [HandbookIndex.Item]) -> some View {
@@ -238,13 +277,14 @@ struct BrowseHome: View {
             NavigationLink(value: item) {
               VStack(alignment: .leading, spacing: 8) {
                 V2Photo(src: item.img)
-                  .frame(width: guideWidth, height: guideWidth * 0.62)
+                  .aspectRatio(1.8, contentMode: .fit)
+                  .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
                   .clipShape(.rect(cornerRadius: 16, style: .continuous))
                   .matchedTransitionSource(id: item.path, in: zoom)
                 Text(verbatim: item.name).font(.subheadline.weight(.semibold)).lineLimit(3)
                   .multilineTextAlignment(.leading)
               }
-              .frame(width: guideWidth, alignment: .leading)
+              .containerRelativeFrame(.horizontal, alignment: .leading) { w, _ in shelfCard(w, across: 1, spacing: 12) }
             }
             .buttonStyle(CardPress())
           }
@@ -253,6 +293,7 @@ struct BrowseHome: View {
       }
       .contentMargins(.horizontal, 20, for: .scrollContent)
       .scrollTargetBehavior(.viewAligned)
+      .v2ShelfEdge()
     }
   }
 
@@ -269,14 +310,13 @@ struct BrowseHome: View {
                   .frame(width: 36, height: 36).background(Circle().fill(.white.opacity(0.2)))
                 Text(verbatim: item.name).font(.headline).lineLimit(4).multilineTextAlignment(.leading)
                 Spacer(minLength: 0)
-                if let n = item.parts {
-                  SeriesTicks(count: n)
-                  Text("\(n) video").font(.caption.weight(.semibold)).opacity(0.8)
-                }
+                if let n = item.parts { Text("\(n) video").font(.caption.weight(.semibold)).opacity(0.8) }
               }
               .foregroundStyle(.white)
               .padding(14)
-              .frame(width: videoWidth, height: videoHeight, alignment: .topLeading)
+              .frame(maxWidth: .infinity, alignment: .topLeading)
+              .frame(height: videoHeight, alignment: .topLeading)
+              .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 2, spacing: 12) }
               .background(Self.tints[i % Self.tints.count], in: .rect(cornerRadius: 16, style: .continuous))
             }
             .buttonStyle(CardPress())
@@ -287,6 +327,7 @@ struct BrowseHome: View {
       }
       .contentMargins(.horizontal, 20, for: .scrollContent)
       .scrollTargetBehavior(.viewAligned)
+      .v2ShelfEdge()
     }
   }
 
@@ -347,7 +388,7 @@ struct BrowseHome: View {
   private func toolLabel(_ title: Text, _ symbol: String) -> some View {
     VStack(alignment: .leading, spacing: 10) {
       // One height for every symbol: the words start on one line across a row.
-      Image(systemName: symbol).font(.title3).foregroundStyle(Color.accentColor).frame(height: 28, alignment: .leading)
+      Image(systemName: symbol).font(.title3).foregroundStyle(Color.accentColor).frame(height: toolSymbolHeight, alignment: .leading)
       title.font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(3).multilineTextAlignment(.leading)
     }
     .frame(maxWidth: .infinity, minHeight: 84, alignment: .topLeading)
@@ -357,6 +398,37 @@ struct BrowseHome: View {
 }
 
 /// A featured page: a wide photo with its kind and name at the foot.
+/// A family of fish on its shelf: its words on its photo's colour, as the cards have them, not a dark scrim.
+private struct GroupTile: View {
+  let group: HandbookShelves.Shelf
+  let height: CGFloat
+  @State private var colour: Color
+
+  init(group: HandbookShelves.Shelf, height: CGFloat) {
+    self.group = group
+    self.height = height
+    _colour = State(initialValue: PhotoColour.cached(group.img) ?? PhotoColour.fallback)
+  }
+
+  var body: some View {
+    V2Photo(src: group.img, ground: colour) { colour = $0 }
+      // No photo: the kind's mark on the colour, as a row's, not an empty block.
+      .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
+      // No fade with no photo to fade: it dimmed the mark under a name on two lines.
+      .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: group.img == nil ? 0 : 20) {
+        HStack(alignment: .firstTextBaseline) {
+          Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
+          Spacer(minLength: 4)
+          Text(group.count, format: .number).font(.caption)
+        }
+        .foregroundStyle(.white)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+      })
+      .animation(.easeInOut(duration: 0.4), value: colour)
+  }
+}
+
 private struct FeaturedCard: View {
   let item: HandbookIndex.Item
   let height: CGFloat
@@ -374,18 +446,12 @@ private struct FeaturedCard: View {
       // At the accessibility sizes the words would cover the photo: they go under it, on its colour.
       if size.isAccessibilitySize {
         VStack(spacing: 0) {
-          V2Photo(src: item.img) { colour = $0 }.frame(height: 200)
+          V2Photo(src: item.img, ground: colour) { colour = $0 }.frame(height: 200)
           words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
         }
       } else {
-        V2Photo(src: item.img) { colour = $0 }
-          .frame(height: height)
-          .overlay {
-            // Opaque under the words: the small kind reads at 4.5:1 on a light photo too.
-            LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.35), .init(color: colour, location: 0.72)],
-                           startPoint: .top, endPoint: .bottom)
-          }
-          .overlay(alignment: .bottomLeading) { words }
+        V2Photo(src: item.img, ground: colour) { colour = $0 }
+          .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 44) { words })
       }
     }
     .animation(.easeInOut(duration: 0.4), value: colour)
@@ -399,12 +465,5 @@ private struct FeaturedCard: View {
     }
     .foregroundStyle(.white)
     .padding(16)
-  }
-}
-
-/// iOS 26's hard top edge, as on a fish's page: the words under the bar's title don't show through it.
-private struct HardTopEdge: ViewModifier {
-  func body(content: Content) -> some View {
-    if #available(iOS 26, *) { content.scrollEdgeEffectStyle(.hard, for: .top) } else { content }
   }
 }

@@ -23,7 +23,12 @@ const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficul
 /** `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from. */
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
+/**
+ * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
+ * show `url`, at most 1,200 wide.
+ */
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
+export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
@@ -264,6 +269,9 @@ const ProductCite = z.object({ url: WebUrl, t: z.number().int().nonnegative().op
 /** Plain text and the sources behind it: the site draws the marks. */
 const CitedText = z.object({ text: z.string().min(1), cites: z.array(ProductCite).min(1) })
 
+/** Why the reader-fit gate holds a page back in this language (the engine's gate.ts `Held`): the site leaves it out. */
+export const HeldSchema = z.object({ checks: z.array(z.string()), at: z.string() })
+
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
@@ -305,6 +313,8 @@ export const TranslationSchema = z.object({
    * until it passes the stricter reviewer (the engine's video-hold.ts); absent, it is fine.
    */
   quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional(), reason: z.enum(['thin', 'score']).optional(), chat: z.literal(false).optional() }),
+  /** Held back by the reader-fit gate in this language: the site leaves the page out until the gate lets it out (load.ts). */
+  held: HeldSchema.optional(),
 })
 
 export const ChangelogEntrySchema = z.object({

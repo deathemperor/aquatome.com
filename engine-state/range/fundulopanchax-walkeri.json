@@ -1,0 +1,73 @@
+{
+  "id": "fundulopanchax-walkeri",
+  "native": {
+    "input": "36a53edd517213bf",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ivory Coast and Ghana.",
+        "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ivory Coast and Ghana.",
+        "words": "Ghana",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Fundulopanchax walkeri",
+    "status": "ACCEPTED",
+    "taxonKey": 2348465,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        20
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        12
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CI",
+      "GH"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

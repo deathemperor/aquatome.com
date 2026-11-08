@@ -1,0 +1,125 @@
+{
+  "id": "enteromius-guirali",
+  "native": {
+    "input": "90dfb7bccd59075f",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African blackfin barb, Enteromius guirali, is a cyprinid recorded only from Cameroon and Gabon, including the Sanaga and Ogoué basins.",
+        "words": "Cameroon",
+        "ok": false,
+        "why": "not in the source's text"
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African blackfin barb, Enteromius guirali, is a cyprinid recorded only from Cameroon and Gabon, including the Sanaga and Ogoué basins.",
+        "words": "Gabon",
+        "ok": false,
+        "why": "not in the source's text"
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date this species has been recorded only from Cameroon and Gabon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date this species has been recorded only from Cameroon and Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sanaga",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from most of the major south and westerly river basins including the Ntem, Nyong, Dja and Sanaga.",
+        "ok": true
+      },
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "In Gabon it occurs in the great Ogooué River basin which drains virtually the entire country as well as the Ngouné and Ivindo, two of its main tributaries.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Ntem",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from most of the major south and westerly river basins including the Ntem, Nyong, Dja and Sanaga.",
+        "ok": true
+      },
+      {
+        "name": "Nyong",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from most of the major south and westerly river basins including the Ntem, Nyong, Dja and Sanaga.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Enteromius guirali",
+    "status": "ACCEPTED",
+    "taxonKey": 9364434,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        367
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        31
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        28
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "GA"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}
