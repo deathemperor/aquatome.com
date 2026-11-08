@@ -3,6 +3,7 @@
 // screen, where html2canvas drew a scrolled fish page's lines on top of each other. It's still a drawing, so the report
 // says so, and what it couldn't draw is marked as such: a false blank would send someone after a bug that isn't there.
 import { domToForeignObjectSvg } from 'modern-screenshot'
+import { photosShowing, type Shown } from './shown'
 
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
 /** In place of something on screen that couldn't be drawn. It can't pass for a blank on the page. */
@@ -12,9 +13,11 @@ const MEDIA = 'https://media.aquatome.com/'
 const PICTURE = /\.(webp|jpe?g|png|gif|avif)(\?|$)/i
 /** The widest blur WebKit still paints where it belongs when it draws a page at more than 1×. */
 const MAX_BLUR = 4
-/** How often, and how long apart, to draw the page again while a photo in it is still blank: up to 5 seconds in all. */
-const DRAWS = 20
+/** How long to keep drawing the page again while a photo in it is still blank, and how long apart. */
+const DRAW_FOR_MS = 5000
 const DRAW_GAP_MS = 250
+/** A photo that hasn't come in by then is marked, not waited for. */
+const FETCH_MS = 8000
 /** Colour steps across a photo's samples below which it's one flat colour. */
 const FLAT = 6
 
@@ -27,6 +30,11 @@ const toDataUrl = (blob: Blob) => new Promise<string>((ok, no) => {
 
 /** The address the page can read a picture from: the photo host sends no CORS header, so its photos come through the Worker, for the owner alone. */
 export const readable = (url: string) => (url.startsWith(MEDIA) ? `/api/feedback/media/${url.slice(MEDIA.length).split('?')[0]}` : url)
+
+const onScreen = (e: Element) => {
+  const r = e.getBoundingClientRect()
+  return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth
+}
 
 /**
  * A box-shadow's parts WebKit paints properly in a drawing. A wide blur at more than 1× comes out as a grey block beside
@@ -41,13 +49,28 @@ export function hardShadows(shadow: string): string {
 }
 
 /**
- * What's stuck to the screen would scroll away with the page in the picture, which moves the page by the scroll. Each is
- * marked with where it is now, the picture's copy put back there.
+ * One pass over the page, for what the picture would otherwise get wrong. What's stuck to the screen would scroll away with
+ * the page in the picture, which moves the page by the scroll: each is marked with where it is now, the picture's copy put
+ * back there. Photos as backgrounds on the screen are collected into `backgrounds`.
  */
-function markStuck(scroll: number): () => void {
+function markStuck(scroll: number, backgrounds: Set<string>): () => void {
   const marked: HTMLElement[] = []
   for (const e of document.querySelectorAll<HTMLElement>('body *')) {
-    const { position } = getComputedStyle(e)
+    // A row scrolled sideways (a page's section tabs, a strip of photos) would be drawn from its start: what's in it is
+    // moved by the scroll instead, as it is on the screen.
+    if ((e.scrollLeft || e.scrollTop) && onScreen(e)) {
+      for (const child of e.children) {
+        if (!(child instanceof HTMLElement)) continue
+        const own = getComputedStyle(child).transform
+        child.dataset.captureShift = `translate(${-e.scrollLeft}px,${-e.scrollTop}px)${own === 'none' ? '' : ` ${own}`}`
+        marked.push(child)
+      }
+    }
+    const { position, backgroundImage } = getComputedStyle(e)
+    // A photo as a background (a video's thumbnail) on the screen: read once over this same pass.
+    if (backgroundImage.includes('url(') && onScreen(e)) {
+      for (const [, url] of backgroundImage.matchAll(/url\("?([^")]+)"?\)/g)) if (url && !url.startsWith('data:')) backgrounds.add(url)
+    }
     if (position !== 'fixed' && position !== 'sticky') continue
     const now = e.getBoundingClientRect()
     if (now.bottom < 0 || now.top > innerHeight) continue
@@ -63,7 +86,12 @@ function markStuck(scroll: number): () => void {
     }
     marked.push(e)
   }
-  return () => { for (const e of marked) delete e.dataset.capturePosition }
+  return () => {
+    for (const e of marked) {
+      delete e.dataset.capturePosition
+      delete e.dataset.captureShift
+    }
+  }
 }
 
 /**
@@ -93,11 +121,6 @@ function pruneOffScreen(): { hollow: WeakSet<Node>; unmark: () => void } {
   return { hollow, unmark: () => { for (const e of marked) delete e.dataset.captureBox } }
 }
 
-const onScreen = (e: Element) => {
-  const r = e.getBoundingClientRect()
-  return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth
-}
-
 /** Whether a set of RGBA samples is all one colour. */
 const isFlat = (samples: Uint8ClampedArray[]) => {
   for (const channel of [0, 1, 2]) {
@@ -107,38 +130,57 @@ const isFlat = (samples: Uint8ClampedArray[]) => {
   return true
 }
 
-/** The part of a photo that shows: on the screen, and not under something else on the page. */
-function showing(img: HTMLImageElement) {
-  const r = img.getBoundingClientRect()
-  const x = Math.max(r.left, 0), y = Math.max(r.top, 0)
-  const width = Math.min(r.right, innerWidth) - x, height = Math.min(r.bottom, innerHeight) - y
-  if (width < 16 || height < 16) return null
-  const top = document.elementsFromPoint(x + width / 2, y + height / 2).find(e => !e.closest('[data-owner-report],[data-owner-bar]'))
-  return top === img ? { x, y, width, height } : null
+/** Where a point on the screen falls in the photo's own pixels, as its object-fit and object-position place it; null off it. */
+function inSource(p: Shown, x: number, y: number, size: [number, number]): [number, number] | null {
+  const [w, h] = p.natural
+  const { left, top, width, height } = p.box
+  let sx = width / w, sy = height / h
+  if (p.fit === 'cover') sx = sy = Math.max(sx, sy)
+  else if (p.fit === 'contain') sx = sy = Math.min(sx, sy)
+  else if (p.fit === 'none') sx = sy = 1
+  else if (p.fit === 'scale-down') sx = sy = Math.min(1, sx, sy)
+  const [ax = 0.5, ay = 0.5] = p.position.split(' ').map(v => (v.endsWith('%') ? parseFloat(v) / 100 : 0.5))
+  const u = (x - left - (width - w * sx) * ax) / sx, v = (y - top - (height - h * sy) * ay) / sy
+  return u >= 0 && v >= 0 && u < w && v < h ? [Math.floor((u * size[0]) / w), Math.floor((v * size[1]) / h)] : null
 }
 
-/** Is the source one flat colour? Then a flat drawing of it is right. A source that can't be read counts as not flat. */
-async function flatSource(blob: Blob): Promise<boolean> {
+/**
+ * 16 points across the part of a photo on the screen, with where each falls in the photo; points off the photo left out.
+ * None at the centre, where WebKit puts its small broken-picture sign: a photo that broke in the drawing reads as blank.
+ */
+async function checkPoints(p: Shown, blob: Blob) {
+  const points = Array.from({ length: 16 }, (_, i) => ({
+    x: p.visible.x + (p.visible.width * ((i % 4) + 0.5)) / 4,
+    y: p.visible.y + (p.visible.height * (Math.floor(i / 4) + 0.5)) / 4,
+  }))
   try {
     const bitmap = await createImageBitmap(blob)
     const c = document.createElement('canvas')
-    c.width = c.height = 5
+    c.width = bitmap.width
+    c.height = bitmap.height
     const x = c.getContext('2d', { willReadFrequently: true })!
-    // Single points, as the drawing is read: a mostly white photo stays mostly white, not an average of it.
-    x.imageSmoothingEnabled = false
-    x.drawImage(bitmap, 0, 0, 5, 5)
+    x.drawImage(bitmap, 0, 0)
+    const size: [number, number] = [bitmap.width, bitmap.height]
     bitmap.close()
-    const { data } = x.getImageData(0, 0, 5, 5)
-    return isFlat(Array.from({ length: 25 }, (_, i) => data.subarray(i * 4, i * 4 + 4)))
+    const inside = points.flatMap(pt => {
+      const at = inSource(p, pt.x, pt.y, size)
+      return at ? [{ ...pt, source: x.getImageData(at[0], at[1], 1, 1).data }] : []
+    })
+    // Flat where it shows (a white studio ground, open water): a flat drawing of it is right.
+    return isFlat(inside.map(pt => pt.source)) ? [] : inside
   } catch {
-    return false
+    // A photo the phone can't read here can't be checked against; any flat drawing of it is a blank.
+    return points
   }
 }
 
 const wait = (ms: number) => new Promise(ok => setTimeout(ok, ms))
 
-/** The picture, and how many things on the screen it has marked as not drawn. */
-export async function captureViewport(): Promise<{ blob: Blob; notDrawn: number }> {
+/**
+ * The picture, and how many things on the screen it has marked as not drawn. `shown`: the photos on top, measured before
+ * a modal sheet opened over the page (shown.ts).
+ */
+export async function captureViewport(shown: Shown[] = photosShowing()): Promise<{ blob: Blob; notDrawn: number }> {
   const root = document.documentElement
   const scroll = scrollY
   // Only what's on the screen and has loaded: a picture still loading shows nothing there either.
@@ -150,7 +192,8 @@ export async function captureViewport(): Promise<{ blob: Blob; notDrawn: number 
   const sources = new Map<string, Blob>()
   // Another site's frame can't be drawn from here.
   const frames = [...document.querySelectorAll('iframe')].filter(onScreen).length
-  const unmark = markStuck(scroll)
+  const backgrounds = new Set<string>()
+  const unmark = markStuck(scroll, backgrounds)
   const { hollow, unmark: unbox } = pruneOffScreen()
   try {
     const scale = Math.min(devicePixelRatio, 2)
@@ -163,12 +206,15 @@ export async function captureViewport(): Promise<{ blob: Blob; notDrawn: number 
       // The sheet and the bar aren't what they're reporting.
       filter: n => {
         if (n.parentNode && hollow.has(n.parentNode)) return false
+        // A <picture>'s other sources would win over the photo put in its <img>, and point where a drawing can't load.
+        if (n instanceof HTMLSourceElement && n.parentNode instanceof HTMLPictureElement) return false
         return !(n instanceof HTMLElement && ('ownerBar' in n.dataset || 'ownerReport' in n.dataset))
       },
       onCloneEachNode: clone => {
         if (!(clone instanceof HTMLElement)) return
         const css = [clone.dataset.capturePosition, clone.dataset.captureBox].filter(Boolean).join(';')
         if (css) clone.style.cssText += `;${css}`
+        if (clone.dataset.captureShift) clone.style.transform = clone.dataset.captureShift
         if (clone.style.boxShadow) clone.style.boxShadow = hardShadows(clone.style.boxShadow)
         if (clone instanceof HTMLIFrameElement) {
           clone.removeAttribute('src')
@@ -179,8 +225,8 @@ export async function captureViewport(): Promise<{ blob: Blob; notDrawn: number 
       // A picture off screen costs no fetch: on a list of hundreds, that's the difference between seconds and a minute.
       fetchFn: async url => {
         if (url.startsWith('data:')) return false
-        if (!seen.has(url)) return PICTURE.test(url) ? BLANK : false
-        const r = await fetch(readable(url)).catch(() => null)
+        if (!seen.has(url) && !backgrounds.has(url)) return PICTURE.test(url) ? BLANK : false
+        const r = await fetch(readable(url), { signal: AbortSignal.timeout(FETCH_MS) }).catch(() => null)
         if (!r?.ok) return NOT_DRAWN
         const blob = await r.blob()
         const data = await toDataUrl(blob)
@@ -193,42 +239,45 @@ export async function captureViewport(): Promise<{ blob: Blob; notDrawn: number 
     // Drawn here, not by the library: WebKit decodes the pictures inside a drawing in its own time, and a drawing made too
     // soon has them blank. So it's drawn until every photo that shows is there, and a photo still blank gets marked.
     const drawing = new Image()
-    drawing.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(new XMLSerializer().serializeToString(svg))}`
+    // A drawing that doesn't load is no picture: the sheet says so, rather than sending the page's background colour.
+    await new Promise<void>((ok, no) => {
+      drawing.onload = () => ok()
+      drawing.onerror = () => no(new Error('drawing'))
+      drawing.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(new XMLSerializer().serializeToString(svg))}`
+    })
     await drawing.decode().catch(() => {})
     const canvas = document.createElement('canvas')
     canvas.width = Math.floor(innerWidth * scale)
     canvas.height = Math.floor(innerHeight * scale)
     const context = canvas.getContext('2d', { willReadFrequently: true })!
-    const photos: { x: number; y: number; width: number; height: number }[] = []
-    for (const img of document.images) {
-      const blob = sources.get(img.currentSrc)
-      const part = blob && showing(img)
-      if (part && !(await flatSource(blob))) photos.push(part)
+    // Each photo on top, with the points to read it at: blank where the drawing is flat and the photo isn't.
+    const photos: { visible: Shown['visible']; points: { x: number; y: number }[] }[] = []
+    for (const p of shown) {
+      const blob = sources.get(p.src)
+      const points = blob ? await checkPoints(p, blob) : []
+      if (points.length) photos.push({ visible: p.visible, points })
     }
-    const blank = () => photos.filter(p => {
-      const samples = Array.from({ length: 25 }, (_, i) => context.getImageData(
-        Math.floor((p.x + (p.width * (i % 5 + 0.5)) / 5) * scale),
-        Math.floor((p.y + (p.height * (Math.floor(i / 5) + 0.5)) / 5) * scale), 1, 1).data)
-      return isFlat(samples)
-    })
+    const blank = () => photos.filter(p => isFlat(p.points.map(pt =>
+      context.getImageData(Math.floor(pt.x * scale), Math.floor(pt.y * scale), 1, 1).data)))
     let missing = photos
-    for (let i = 0; i < DRAWS; i++) {
+    const until = performance.now() + DRAW_FOR_MS
+    for (let i = 0; ; i++) {
       context.fillStyle = getComputedStyle(document.body).backgroundColor
       context.fillRect(0, 0, canvas.width, canvas.height)
       context.drawImage(drawing, 0, 0, canvas.width, canvas.height)
       missing = blank()
       // The fonts in a drawing come in the same way, so it's never just the first one.
-      if (i >= 2 && !missing.length) break
+      if ((i >= 2 && !missing.length) || performance.now() > until) break
       await wait(DRAW_GAP_MS)
     }
     if (missing.length) {
       const mark = new Image()
       mark.src = NOT_DRAWN
       await mark.decode().catch(() => {})
-      for (const p of missing) context.drawImage(mark, p.x * scale, p.y * scale, p.width * scale, p.height * scale)
+      for (const { visible: v } of missing) context.drawImage(mark, v.x * scale, v.y * scale, v.width * scale, v.height * scale)
     }
     const blob = await new Promise<Blob>((ok, no) => canvas.toBlob(b => (b ? ok(b) : no(new Error('toBlob'))), 'image/jpeg', 0.8))
-    return { blob, notDrawn: frames + missing.length + [...seen].filter(url => !sources.has(url)).length }
+    return { blob, notDrawn: frames + missing.length + [...seen, ...backgrounds].filter(url => !sources.has(url)).length }
   } finally {
     unmark()
     unbox()

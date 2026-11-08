@@ -92,6 +92,23 @@ test('a soft shadow paints no grey block beside its element', async ({ page }) =
   for (const k of [0, 1, 2]) expect(Math.abs(beside.first[k]! - across.first[k]!), `channel ${k}`).toBeLessThan(12)
 })
 
+test('a row scrolled sideways is drawn where it\'s scrolled to', async ({ page }) => {
+  await page.goto('/')
+  await page.evaluate(({ x, y, width, height }) => {
+    const row = document.createElement('div')
+    row.style.cssText = `position:absolute;left:${x}px;top:${y}px;width:${width}px;height:${height}px;z-index:9;overflow-x:auto;display:flex`
+    row.innerHTML = `<div style="flex:none;width:${width}px;background:#2f6b4f"></div><div style="flex:none;width:${width}px;background:#1d4ed8"></div>`
+    document.body.append(row)
+    row.scrollLeft = width
+    scrollTo(0, 0)
+  }, BOX)
+  await send(page)
+  // The second block, blue, is what shows; the first, green, is scrolled out of the row.
+  const [r, g, b] = (await read(page, { x: BOX.x + 20, y: BOX.y + 20, width: BOX.width - 40, height: BOX.height - 40 })).first
+  expect(b, `drew ${r},${g},${b}`).toBeGreaterThan(150)
+  expect(g).toBeLessThan(120)
+})
+
 test('a photo is in the picture, not a blank', async ({ page }) => {
   await page.route(url => url.hostname === 'media.aquatome.com', route => route.fulfill(webp))
   await page.route(url => url.pathname.startsWith('/api/feedback/media/'), route => route.fulfill(webp))
@@ -101,6 +118,18 @@ test('a photo is in the picture, not a blank', async ({ page }) => {
   expect(where.picture).toBe('drawn')
   expect(where.notDrawn, said!).toBeUndefined()
   expect((await read(page, BOX)).spread).toBeGreaterThan(40)
+})
+
+test('a photo that doesn\'t come out in the drawing is marked, with the sheet open over the page', async ({ page }) => {
+  // The page shows the photo; what the drawing gets of it breaks there, as a photo WebKit is late with comes out blank.
+  await page.route(url => url.hostname === 'media.aquatome.com', route => route.fulfill(webp))
+  await page.route(url => url.pathname.startsWith('/api/feedback/media/'), route => route.fulfill({ contentType: 'image/webp', body: 'not a photo' }))
+  await page.goto('/')
+  await addPhoto(page, 'https://media.aquatome.com/photo.webp')
+  const { where, said } = await send(page)
+  expect(said).toContain('thiếu 1 chỗ')
+  expect(where.notDrawn).toBe('1')
+  expect((await read(page, BOX)).red).toBe(true)
 })
 
 test('a photo it can\'t read is marked in the picture, and the sheet and the report say so', async ({ page }) => {

@@ -1,6 +1,8 @@
 // The owner's report from a page: words, a screenshot and what they were looking at, sent to /api/feedback
 // (protocols/owner-feedback.openapi.json). The sheet opens at once so the keyboard comes up in the same tap, dictation
 // key and all; the screenshot is taken behind it, and the library that takes it loads only then (capture.ts).
+import { photosShowing } from './shown'
+
 declare const __BUILD__: string
 
 const MAX_SIDE = 2000
@@ -55,6 +57,7 @@ export function openReport() {
   if (open) return
   open = true
   const at = where() // now, before the sheet takes the focus or the page moves
+  const shown = photosShowing() // and before the sheet makes the page inert, when what's on top can no longer be asked
   let image: Blob | null = null
   let capturing: Promise<void> | null = null
   let picked = false
@@ -131,7 +134,7 @@ export function openReport() {
 
   const failedShot = 'Không chụp được. Chọn ảnh vừa chụp nhé.'
   capturing = Promise.race([
-    import('./capture').then(m => m.captureViewport()),
+    import('./capture').then(m => m.captureViewport(shown)),
     new Promise<null>(ok => setTimeout(() => ok(null), CAPTURE_LIMIT_MS)),
   ]).then(drawn => {
     if (picked) return
