@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { CELL_DEG, countryName, PLACE_ALIASES, placeCountry, recordsInside, recordsOutside, slugify, type Content, type SourceId, type SpeciesRange } from '@aq/schema'
+import { CELL_DEG, countryName, markVietnameseNames, PLACE_ALIASES, placeCountry, recordsInside, recordsOutside, slugify, type Content, type SourceId, type SpeciesRange } from '@aq/schema'
 import { fmt } from './format'
 import { served, translator, type Lang } from './i18n'
 import { mapSvg, rangeMap, type RangeMap, type SquareKind } from './range-map'
@@ -146,9 +146,11 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
     native?.countries.length ? `<p><strong>${esc(t('Sống tự nhiên ở:'))}</strong> ${native.countries.map(country).join(', ')}${marks(q => q.countries.length > 0)}</p>` : '',
     native?.regions.length ? `<p><strong>${esc(t('Sông, hồ, vùng:'))}</strong> ${native.regions.map(r => esc(regionName(r))).join(', ')}${marks(q => q.regions.length > 0)}</p>` : '',
   ].join('')
+  // A source's sentence as it wrote it, in English; the Vietnamese names in it ("the Thái Bình, Sông Kỳ Cùng, Mã and
+  // Lam rivers") marked Vietnamese, as in a translated page's text.
   const said = quotes?.length ? {
     title: t('Nguồn ghi gì'),
-    html: `<ul>${quotes.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${esc(q.quote)}”</span></li>`).join('')}</ul>`,
+    html: `<ul>${quotes.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${markVietnameseNames(esc(q.quote))}”</span></li>`).join('')}</ul>`,
   } : undefined
 
   const inside = shown && native?.countries.length ? recordsInside(s.range!) : undefined
