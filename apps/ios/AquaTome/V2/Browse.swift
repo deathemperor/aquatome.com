@@ -414,7 +414,8 @@ private struct GroupTile: View {
     V2Photo(src: group.img, ground: colour) { colour = $0 }
       // No photo: the kind's mark on the colour, as a row's, not an empty block.
       .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
-      .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 20) {
+      // No fade with no photo to fade: it dimmed the mark under a name on two lines.
+      .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: group.img == nil ? 0 : 20) {
         HStack(alignment: .firstTextBaseline) {
           Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
           Spacer(minLength: 4)
