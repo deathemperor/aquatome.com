@@ -1,6 +1,6 @@
 {
   "id": "youtube-tqx3gJUkBDE",
-  "kind": "setup",
+  "kind": "aquascaping",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=tqx3gJUkBDE",
   "html": "",
@@ -13,9 +13,10 @@
     "cryptocoryne-wendtii",
     "poecilia-reticulata",
     "microdevario-kubotai",
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "paracheirodon-simulans"
   ],
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "tqx3gJUkBDE",
     "title": "NEON GREEN RASBORA AQUASCAPE TUTORIAL! STEP BY STEP PLANTED TANK GUIDE",
@@ -79,21 +80,20 @@
       "height": 720
     },
     "taxa": [
+      "Paracheirodon simulans",
+      "Poecilia reticulata",
       "Lilaeopsis brasiliensis",
       "Juncus repens",
       "Cryptocoryne legroi",
-      "Rotala sp.",
       "Micranthemum tweediei",
+      "Bucephalandra sp.",
       "Bucephalandra micrantha",
       "Salvinia auriculata",
       "Alternanthera reineckii",
       "Cryptocoryne wendtii",
-      "Poecilia reticulata",
-      "Microdevario kubotai",
       "Persicaria sp.",
       "Anubias sp.",
-      "Bucephalandra sp.",
-      "Ludwigia sp."
+      "Rotala sp."
     ],
     "gear": [
       {
@@ -101,13 +101,13 @@
         "type": "chuan",
         "brand": "Strideways",
         "model": "Douro 45P",
-        "t": 250
+        "t": 249
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Twinstar",
-        "model": "45C",
+        "model": "C series 45C",
         "t": 282
       },
       {
@@ -119,158 +119,59 @@
         "category": "phan-nen",
         "type": "phan",
         "brand": "Master Soil",
-        "t": 655
+        "t": 645
       },
       {
         "category": "co2",
-        "t": 1320
+        "t": 1322
       },
       {
         "category": "khac",
         "brand": "Entwood",
-        "t": 540
-      },
-      {
-        "category": "khac",
-        "brand": "Relief stones",
-        "t": 540
+        "t": 519
       }
     ],
     "figures": [
       {
-        "heading": "Thiết bị và kệ đặt bể",
-        "moments": [
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính cắt vát ở cạnh, có lọc treo gắn phía sau."
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thước thủy lên bể để kiểm tra kệ có phẳng không."
-          }
-        ]
-      },
-      {
-        "heading": "Làm nền phía sau bể",
-        "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống có lọc treo phía sau, thấy rõ nền tường sau bể."
-          },
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính trong suốt với lọc treo, thấy khoảng trống phía sau bể."
-          }
-        ]
-      },
-      {
-        "heading": "Dựng bố cục lũa và đá",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khúc lũa dựng cao cùng vài viên đá ở chân hồ."
-          },
-          {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục lũa entwood và đá đặt trên nền đất trong hồ nhỏ."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn nền",
-        "moments": [
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới setup với lớp nền soil đen và lũa đá."
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây theo từng khu",
-        "moments": [
-          {
-            "t": 1030,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at1030-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thảm Lilaeopsis đã trồng kín nền tiền cảnh quanh lũa."
-          },
-          {
-            "t": 1090,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at1090-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trồng thảm cây tiền cảnh bằng nhíp trong hồ có lũa."
-          }
-        ]
-      },
-      {
-        "heading": "Thử Monte Carlo bám lũa và những thứ chưa nên trồng",
-        "moments": [
-          {
-            "t": 1270,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at1270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Monte Carlo vừa được dán lên các chỗ trống trên lũa."
-          },
-          {
-            "t": 1290,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at1290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh các mảng Monte Carlo bám trên lũa trong hồ."
-          }
-        ]
-      },
-      {
-        "heading": "Chạy vi sinh trước khi thả cá",
-        "moments": [
-          {
-            "t": 1320,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at1320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ lọc và thiết bị CO2 đặt cạnh bể."
-          },
-          {
-            "t": 1330,
-            "url": "https://media.aquatome.com/video/tqx3gJUkBDE/at1330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh toàn cây với lũa, đang chạy vi sinh chờ thả cá."
-          }
-        ],
+        "heading": "Giữ lại vi sinh từ lọc cũ",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/tqx3gJUkBDE/p6-Z2VuQ3ljbGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/tqx3gJUkBDE/p6-Z2VuQ3ljbGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/tqx3gJUkBDE/p0-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/tqx3gJUkBDE/p0-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
-          "height": 619,
-          "licence": "CC BY 2.5",
-          "author": "w:pl:Wikipedysta:Lukas3",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
-          "caption": "Sơ đồ chu trình nitơ trong bể: NH3 thành NO2 rồi NO3 nhờ vi sinh."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, ống nối sang xô nước để giữ vi sinh."
+        }
+      },
+      {
+        "heading": "Chọn lũa, đá và lên bố cục",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/tqx3gJUkBDE/p3-YXJkc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/tqx3gJUkBDE/p3-YXJkc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
+          "caption": "Bể thủy sinh lớn bố cục lũa sẫm màu trên nền cát trắng."
+        }
+      },
+      {
+        "heading": "Thử Monte Carlo làm cây bám lũa và biết dừng đúng lúc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/tqx3gJUkBDE/p6-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/tqx3gJUkBDE/p6-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm Monte Carlo xanh mướt phủ kín nền, bên cạnh có đá và dương xỉ."
         }
       }
     ]

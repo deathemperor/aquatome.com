@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules: docs/governance.md, "Photos".
-4430 verdicts. Shows it: 3066; its habitat (asked again): 25; something else: 195; not a photo of it: 131; dead or as food: 200; a person in it: 40; a logo on it: 18; can't tell: 732.
+4377 verdicts. Shows it: 3064; its habitat (asked again): 44; something else: 151; not a photo of it: 120; dead or as food: 187; a person in it: 25; a logo on it: 18; can't tell: 743.
 
 ## Left with no photo (42)
 
@@ -48,7 +48,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (732)
+## Can't tell: still shown (743)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -67,11 +67,11 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/deee119c227bb1bf.webp) | blurry yellow-orange long-finned koi in murky water among small red goldfish |
 | breeds/crystal-red-shrimp | [photo](https://media.aquatome.com/commons/e4eb3a3787b65603.webp) | faded brownish-red banded shrimp with blotchy colour, poor colour; may be a low-grade or different bee shrimp |
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1465420824608-b6cb6dd080d2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTV8fGZ1bGwlMjByZWQlMjBndXBweXxlbnwxfHx8fDE3OTM0MTAyOTR8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | small red fish on a dark background, dim view, can't confirm they are full red guppies |
-| breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | blue long-finned betta at the surface, fins not spread so the tail spread can't be judged |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/561b4018211c8bee.webp) | long-finned blue-red betta with fins folded, so tail spread can't be judged |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/c116b39ef3658eb2.webp) | blue betta, fins only partly spread, so the 180° tail can't be confirmed |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/dc54b63a6b4a8e53.webp) | dark red long-finned male, fins not flared, oblique view |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/ecbee2ff318ed33f.webp) | Red-and-blue long-finned male betta seen at an angle with its tail not fully spread; can't confirm the 180° D-shaped hal |
+| breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/f60b7dede2a00e08.webp) | blue long-finned male, tail not fully spread so 180° spread can't be confirmed; could be delta/super delta |
 | breeds/mickey-mouse-platy | [photo](https://media.aquatome.com/commons/42458c3e4077f786.webp) | red platy in planted tank, tail mark not clearly visible |
 | breeds/mickey-mouse-platy | [photo](https://media.aquatome.com/commons/5351e9f1c2559785.webp) | two red platies in distant planted tank view, mark unclear |
 | breeds/pigeon-blood-discus | [photo](https://images.unsplash.com/photo-1785665615482-662c5313e713?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjJ8fHBpZ2VvbiUyMGJsb29kJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQzNzg0Nnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | small plain orange discus with faint bars, may be a juvenile or solid orange strain |
@@ -92,11 +92,9 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/paracheirodon-axelrodi (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/a17c77649a4cb40b.webp) | angelfish in planted tank; cardinals barely visible if at all |
 | species/paracheirodon-axelrodi | [photo](https://media.aquatome.com/seriouslyfish/1d17284367e74705.webp) | tiny fry/larva without adult colours, cannot confirm species |
 | species/trigonostigma-heteromorpha | [photo](https://media.aquatome.com/sprucepets/58663e83a1d25277.webp) | slender gold fish with narrow wedge; could be T. espei |
-| species/symphysodon-aequifasciatus (a guide photo) | [photo](https://media.aquatome.com/video/7ZVrhWkpFDE/p2-NfUGxhbnRzLmpwZw.webp) | aquascape with driftwood and mermaid statue, no discus visible |
-| species/neocaridina-davidi (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/ffe9a37b6b858876.webp) | snail with blue shrimp on plant; tank-mates caption |
-| species/neocaridina-davidi | [photo](https://media.aquatome.com/inaturalist/259004710.webp) | two brownish wild-coloured shrimp on gravel; could be wild-type Neocaridina, Caridina not ruled out |
-| species/neocaridina-davidi | [photo](https://media.aquatome.com/inaturalist/417540239.webp) | translucent brownish shrimp in a plastic container; species unclear |
-| species/puntius-titteya | [photo](https://media.aquatome.com/inaturalist/58825741.webp) | murky blurry view of small barb-like fish, cannot confirm |
+| species/neocaridina-davidi (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/ffe9a37b6b858876.webp) | snail tank mate with blue neocaridina above; caption about tank mates |
+| species/neocaridina-davidi | [photo](https://media.aquatome.com/inaturalist/259004710.webp) | two dark brown wild-type-looking shrimp on gravel; could be wild Neocaridina or another species |
+| species/neocaridina-davidi | [photo](https://media.aquatome.com/inaturalist/417540239.webp) | translucent greenish-brown shrimp in clear container; possibly wild-type Neocaridina, not certain |
 | species/puntius-titteya | [photo](https://media.aquatome.com/inaturalist/58825752.webp) | blurry wild shot of a small fish with a dark side stripe above a leaf in a stream; could be a cherry barb, but a rasbora |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/commons/f13a47373a975627.webp) | exposed lakeshore covered in low, fine turf mixed with other plants; possibly a hair grass lawn, but too distant to iden |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/161246957.webp) | dense fine-leaved clump without spikelets, hard to confirm |
@@ -754,7 +752,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/trichopsis-schalleri | [photo](https://media.aquatome.com/seriouslyfish/c0465c67f9822abd.webp) | green iridescent Trichopsis with a red eye; could be T. vittata |
 | species/trichopsis-schalleri | [photo](https://media.aquatome.com/seriouslyfish/f53f812606cbf003.webp) | golden Trichopsis with bold dark stripes; could be T. vittata |
 | species/trigonopoma-pauciperforatum | [photo](https://media.aquatome.com/inaturalist/377653440.webp) | blurry greenish view of a slim striped fish among plants, stripe colour hard to judge |
-| species/uaru-amphiacanthoides (a guide photo) | [photo](https://media.aquatome.com/video/KQPY_PVu6UM/p5-fbGV0dHVjZS5qcGc.webp) | romaine lettuce head, caption is about food not the fish |
 | species/yasuhikotakia-morleti | [photo](https://media.aquatome.com/seriouslyfish/310bafabb58bdd78.webp) | pale loach with dark band at the tail base but no visible dark stripe along the back; could be a faded skunk loach, but  |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/inaturalist/22989902.webp) | Small rosette among other marsh plants in shallow water; no flowers, so the species can't be confirmed |
 | plants/shinnersia-rivularis | [photo](https://media.aquatome.com/aquariumbreeder/564d939ab019f4eb.webp) | close-up of glossy, opposite, shallowly lobed leaves; looks like emersed Shinnersia, but other plants can't be ruled out |
@@ -785,7 +782,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 | species/apricaphanius-baeticus | [photo](https://media.aquatome.com/seriouslyfish/b874dd7f15a4ac8d.webp) | several small brownish fish in a pink net, seen from above; too small to tell from Gambusia |
 
-## Removed (582)
+## Removed (500)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -830,12 +827,12 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/betta-splendens | [photo](https://media.aquatome.com/commons/f7a43db1dedf2bb9.webp) | logo: close-up of blue halfmoon betta; blurred green logo top left |
 | species/trigonostigma-heteromorpha | [photo](https://media.aquatome.com/flickr/4126097617.webp) | logo: three harlequins in a planted tank; faint vertical watermark text at left edge |
 | species/trigonostigma-heteromorpha (a guide photo) | [photo](https://media.aquatome.com/video/TEZjYpuJFsU/p1-hZV90ZXRyYS5KUEc.webp) | serpae tetra (Hyphessobrycon eques), long-finned: black comma spot behind gill, black dorsal fin, red anal fin; no black |
-| species/symphysodon-aequifasciatus (a guide photo) | [photo](https://media.aquatome.com/video/7EUCwvZpKvg/p1-faGVhcnRfMS5qcGc.webp) | dead: raw whole beef heart on cutting board, food for discus as captioned |
+| species/symphysodon-aequifasciatus (a guide photo) | [photo](https://media.aquatome.com/video/7EUCwvZpKvg/p1-faGVhcnRfMS5qcGc.webp) | dead: raw beef heart on a cutting board, used as discus food |
 | species/pterophyllum-scalare | [photo](https://media.aquatome.com/commons/b1cfe1df20ed9810.webp) | Range map of the Amazon basin |
-| species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/4f7c3344040c33ac.webp) | neon tetra is the main subject; small cherry shrimp at top |
-| species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/966485ec23c313f3.webp) | empty shed moult (exoskeleton) on moss |
+| species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/4f7c3344040c33ac.webp) | neon tetra and yellow fish by a cave; red shrimp small in the background |
+| species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/966485ec23c313f3.webp) | empty moulted shrimp exoskeleton on moss |
 | species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/d29406f15faeec5e.webp) | product packshot of shrimp food jar |
-| species/astronotus-ocellatus | [photo](https://media.aquatome.com/commons/32dab8303dcedaa8.webp) | logo: tiger oscar side view on black background; small logo bottom right |
+| species/astronotus-ocellatus | [photo](https://media.aquatome.com/commons/32dab8303dcedaa8.webp) | logo: tiger-patterned oscar on black background; small logo bottom right |
 | species/puntius-titteya | [photo](https://media.aquatome.com/sprucepets/bc56e57aea7edc07.webp) | rosy barb: deep body, black spot near tail, no lengthwise stripe |
 | species/danio-rerio (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/1688a25bafe5d789.webp) | not leopard zebra danio: blue net-like spots and orange fins, likely Danio kyathit/similar spotted Danio |
 | species/danio-rerio (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/81b54d5a8bc4ebcf.webp) | likely spotted Danio kyathit, not leopard zebra danio: orange-red fins and a net of pale-ringed blue spots, where the le |
