@@ -10913,6 +10913,7 @@
         }
       }
     },
+    "Trả lời dựa trên cẩm nang AquaTome": {},
     "Trả lời hay": {
       "localizations": {
         "id": {
@@ -17425,50 +17426,6 @@
         }
       }
     },
-    "Claude, mô hình AI của Anthropic, trả lời chỉ từ cẩm nang AquaTome. Ảnh không được gửi.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI dari Anthropic, menjawab hanya dari panduan AquaTome. Foto tidak dikirim."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI daripada Anthropic, menjawab hanya berdasarkan buku panduan AquaTome. Foto tidak dihantar."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude โมเดล AI ของ Anthropic ตอบจากคู่มือ AquaTome เท่านั้น ไม่มีการส่งรูป"
-          }
-        }
-      }
-    },
-    "Claude, mô hình AI của Anthropic, trả lời chỉ từ cẩm nang AquaTome.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI dari Anthropic, menjawab hanya dari panduan AquaTome."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude, model AI daripada Anthropic, menjawab hanya berdasarkan buku panduan AquaTome."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude โมเดล AI ของ Anthropic ตอบจากคู่มือ AquaTome เท่านั้น"
-          }
-        }
-      }
-    },
     "Có cần CO₂ không?": {
       "localizations": {
         "id": {
@@ -17953,6 +17910,8 @@
         }
       }
     },
+    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá.": {},
+    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào cẩm nang chưa có thì Claude dùng kiến thức chung về nuôi cá. Ảnh của bạn không gửi kèm câu hỏi.": {},
     "Không có câu trả lời": {
       "localizations": {
         "id": {
@@ -18631,28 +18590,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ถามเกี่ยวกับ%@"
-          }
-        }
-      }
-    },
-    "Trả lời từ cẩm nang AquaTome": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dijawab dari panduan AquaTome"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dijawab daripada buku panduan AquaTome"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตอบจากคู่มือ AquaTome"
           }
         }
       }
