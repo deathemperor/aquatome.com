@@ -1,0 +1,131 @@
+{
+  "description": "The pictures a signed-in reader may choose for their account (the account keeps its id alone). Real photos, each public domain or CC0 on Wikimedia Commons with no credit line asked, checked one by one. `page` is the fish's page, `photo` our copy of it, `source` where it came from. The iOS app has each as a 300-pixel square (apps/ios/AquaTome/Assets.xcassets/ProfilePictures/profile-<id>), in this order.",
+  "pictures": [
+    {
+      "id": "halfmoon-betta",
+      "page": "/vi/ca/ca-betta-halfmoon/",
+      "photo": "https://media.aquatome.com/commons/4bf56d15bcdacdd1.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pexels-chevanon-325044.jpg"
+    },
+    {
+      "id": "corydoras-trilineatus",
+      "page": "/vi/ca/ca-chuot-ba-soc/",
+      "photo": "https://media.aquatome.com/commons/46588947d861dfce.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Corydoras_trilineatus3.jpg"
+    },
+    {
+      "id": "maylandia-callainos",
+      "page": "/vi/ca/ca-cichlid-zebra-cobalt/",
+      "photo": "https://media.aquatome.com/commons/f8d0b687908b2327.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Cobaltblue1.jpg"
+    },
+    {
+      "id": "dichotomyctere-nigroviridis",
+      "page": "/vi/ca/ca-noc-xanh-dom/",
+      "photo": "https://media.aquatome.com/commons/1275ad3e5b49f559.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Green_Spotted_Puffer.jpg"
+    },
+    {
+      "id": "blood-parrot-cichlid",
+      "page": "/vi/ca/ca-hong-ket/",
+      "photo": "https://media.aquatome.com/commons/a0d29f6fbdea344d.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Predator_marvin.jpg"
+    },
+    {
+      "id": "pterygoplichthys-joselimaianus",
+      "page": "/vi/ca/ca-lau-kieng-vay-buom-trang/",
+      "photo": "https://media.aquatome.com/commons/c2c7d0ccc820afd9.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Pleccoo_(4).JPG"
+    },
+    {
+      "id": "nannostomus-marginatus",
+      "page": "/vi/ca/ca-chi-lun/",
+      "photo": "https://media.aquatome.com/commons/1881b5ea5480ca6d.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nannostomus_marginatus-adultes_Weibchen.jpg"
+    },
+    {
+      "id": "cyphotilapia-gibberosa",
+      "page": "/vi/ca/ca-cyphotilapia-gibberosa/",
+      "photo": "https://media.aquatome.com/commons/34c6ff662dfec5d1.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Berlin_Zoo_03.jpg"
+    },
+    {
+      "id": "cambarellus-patzcuarensis",
+      "page": "/vi/ca/tom-cang-lun-mexico/",
+      "photo": "https://media.aquatome.com/commons/9790659b2d234f0d.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:CPO_male.jpg"
+    },
+    {
+      "id": "andinoacara-rivulatus",
+      "page": "/vi/ca/ca-khung-bo-xanh/",
+      "photo": "https://media.aquatome.com/commons/e4286ab1b51cff69.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch_-_portrait.jpg"
+    },
+    {
+      "id": "carnegiella-strigata",
+      "page": "/vi/ca/ca-riu-cam-thach/",
+      "photo": "https://media.aquatome.com/commons/89b7fdbb26188428.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Machadinha.JPG"
+    },
+    {
+      "id": "brachygobius-xanthozonus",
+      "page": "/vi/ca/ca-bong-ong-xanthozonus/",
+      "photo": "https://media.aquatome.com/commons/58fda37937215f3f.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Brachygobius_xanthozonus.jpg"
+    },
+    {
+      "id": "betta-tussyae",
+      "page": "/vi/ca/ca-betta-tussyae/",
+      "photo": "https://media.aquatome.com/commons/69d21ef4d95211e5.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Betta_tussyae_(male)_2010-04-01.JPG"
+    },
+    {
+      "id": "botia-kubotai",
+      "page": "/vi/ca/ca-heo-cham-bi/",
+      "photo": "https://media.aquatome.com/commons/34401fdec6e03865.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Botia_kubotai3.jpg"
+    },
+    {
+      "id": "apistogramma-macmasteri",
+      "page": "/vi/ca/ca-apisto-macmasteri/",
+      "photo": "https://media.aquatome.com/commons/9e30e9c250900726.webp",
+      "licence": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Macmast.jpg"
+    },
+    {
+      "id": "scatophagus-argus",
+      "page": "/vi/ca/ca-nhan/",
+      "photo": "https://media.aquatome.com/commons/3d4bff35a1715c40.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Scatophagus_argus_(Young_fish,_Takeshima_aquarium).jpg"
+    },
+    {
+      "id": "thorichthys-meeki",
+      "page": "/vi/ca/ca-cichlid-mieng-lua/",
+      "photo": "https://media.aquatome.com/commons/384ebc03e62438cd.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Thorichthys_meeki_-_Feuermaulbuntbarsch.jpg"
+    },
+    {
+      "id": "hyphessobrycon-erythrostigma",
+      "page": "/vi/ca/ca-tim-chay-mau/",
+      "photo": "https://media.aquatome.com/commons/4483fcdb3de0e5fb.webp",
+      "licence": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_erythrostigma_-_Kirschflecksalmer.jpg"
+    }
+  ]
+}

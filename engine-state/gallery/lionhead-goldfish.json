@@ -1,5 +1,17 @@
 {
- "queue": [],
+ "queue": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Lionheadgoldfish.JPG",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Lionheadgoldfish.JPG/500px-Lionheadgoldfish.JPG",
+   "width": 1280,
+   "height": 960,
+   "licence": "Public domain",
+   "author": "Orandic at en.wikipedia",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lionheadgoldfish.JPG",
+   "caption": "Oranda Goldfish (Lionhead Oranda)",
+   "key": "File:Lionheadgoldfish.JPG"
+  }
+ ],
  "judged": [
   "File:LionheadGoldfishSideviewRodsan18b.jpg",
   "File:The complete aquarium book; the care and breeding of goldfish and tropical fishes (1936) (20484916609).jpg",
@@ -13,6 +25,5 @@
  "commons": "2026-11-04",
  "openverse": {
   "next": null
- },
- "exhausted": "2026-11-04"
+ }
 }

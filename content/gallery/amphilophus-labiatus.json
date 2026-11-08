@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/569828374",
       "caption": "Cá red devil màu hoang dã trên nền đá trong bể",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/569828374-large.webp",
+        "width": 1200,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/89d4bb7e563f046d.webp",
@@ -31,7 +36,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "AtelierMonpli",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphilophus_labiatum,_yawning_in_aquarium.jpg",
-      "caption": "Cá red devil dạng vàng chanh trong bể nuôi"
+      "caption": "Cá red devil dạng vàng chanh trong bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/278c3bb48f9cc21a-large.webp",
+        "width": 1602,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fc9ccca176726701.webp",

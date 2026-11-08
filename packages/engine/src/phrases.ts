@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import type { WrittenLang } from '@aq/schema'
+import { SWAPPED, type SwappedName } from './names'
 
 /**
  * Per language the engine writes: words and turns it writes far more often than that language's hobbyists do, each with
@@ -65,6 +66,9 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"' }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
     { say: 'được xem là', instead: 'nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là"' }, // species 184, guides 44 | 7 | 4
     { say: 'ghi nhận', instead: '"có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó)' }, // species 1021, guides 104 | 12 | 4
+    { say: 'viên phân nền', instead: '"phân nhét" ("phân nền" là lớp đất trải đáy bể)' }, // 15 | 0 | 0; phân nhét 19 uses
+    { say: 'gỡ tay', instead: '"gỡ bằng tay", "chà rồi hút"' }, // 5.5 | 0 | 0
+    { say: 'máy tạo dòng', instead: '"thổi luồng"' }, // 4.8 | 0 | 0; thổi luồng 14 uses
     { say: 'không xương sống', instead: 'gọi tên con: "tép, ốc"' }, // species 242, guides 176 | 0.7 | 0
     { say: 'cá mê cung', find: '(?:cá|nhóm|họ|loài) mê cung', instead: 'gọi tên con: "cá sặc, cá betta"' }, // mê cung: species 263, guides 37 | 0.7 | 0
     { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"' }, // species 194, guides 59 | 7 | 0
@@ -116,6 +120,12 @@ export function phraseSlips(text: string, lang: WrittenLang, list?: Phrase[]): s
   })
 }
 
+/** Each listed phrase a text has, once, with the words as the text writes them. */
+export const phraseQuotes = (text: string, lang: WrittenLang, list?: Phrase[]) => listOf(lang, list).flatMap(p => {
+  const m = new RegExp(pattern(p, lang), 'iu').exec(text)
+  return m ? [{ say: p.say, quote: m[0], instead: p.instead }] : []
+})
+
 /** How many times a text has any listed phrase. */
 export const phraseCount = (text: string, lang: WrittenLang, list?: Phrase[]) =>
   listOf(lang, list).reduce((n, p) => n + [...text.matchAll(new RegExp(pattern(p, lang), 'giu'))].length, 0)
@@ -145,5 +155,12 @@ const viPrompt = (list: Phrase[]) => !list.length ? '' : [
   ...list.map(p => `- "${p.say}" → ${p.instead}`),
 ].join('\n')
 
-/** The style guide every Vietnamese writer reads (prompts/vi-style.md), with the Vietnamese list. */
-export const VI_STYLE = [readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8').trimEnd(), viPrompt(listOf('vi'))].filter(Boolean).join('\n\n')
+/** The owner's fish names (names.ts), as the writers read them: the fish, its name, the name it no longer has. */
+const q = (s: string) => `"${s}"`
+export const namesPrompt = (list: readonly SwappedName[] = SWAPPED) => [
+  'Tên cá chủ trang đã chốt. Gọi đúng tên này, kể cả khi nguồn hay bản dịch cũ gọi khác:',
+  ...list.map(r => `- ${r.fish.join(', ')}: ${r.now.split(', ').map(q).join(' hoặc ')}, không gọi là ${q(r.was)}${r.stillFor ? ` (${q(r.was)} là ${r.stillFor.join(', ')})` : ''}.`),
+].join('\n')
+
+/** The style guide every Vietnamese writer reads (prompts/vi-style.md), with the Vietnamese list and the owner's fish names. */
+export const VI_STYLE = [readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8').trimEnd(), viPrompt(listOf('vi')), namesPrompt()].filter(Boolean).join('\n\n')

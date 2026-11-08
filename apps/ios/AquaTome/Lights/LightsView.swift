@@ -330,7 +330,7 @@ private struct ScheduleColoursButton: View {
   /// "Đèn sáng từ bây giờ tới 20:00 (giờ tắt của lịch), 12 giờ."
   private var question: Text {
     guard let p = plans.first else { return Text(verbatim: "") }
-    let hours = (Double(p.minutesOn) / 60).formatted(.number.precision(.fractionLength(0...1)))
+    let hours = (Double(p.minutesOn) / 60).formatted(.number.locale(.app).precision(.fractionLength(0...1)))
     return Text("Đèn sáng từ bây giờ tới \(p.ends.description) (giờ tắt của lịch), \(hours) giờ.")
   }
 
@@ -547,7 +547,7 @@ private struct WriteBar: View {
 
   /// "12:00–20:00 · 70% · 8 tiếng", as the site's.
   private func summary(_ s: Schedule) -> String {
-    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.precision(.fractionLength(0...1)))) tiếng")
+    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.locale(.app).precision(.fractionLength(0...1)))) tiếng")
   }
 }
 
@@ -659,7 +659,7 @@ func label(_ s: Schedule) -> String { "\(s.on)–\(s.off) · \(s.top)%" }
 /// A day as the reader's language writes it (1/11/2026).
 private func day(_ timestamp: String) -> String {
   guard let ms = Timestamp.millis(timestamp) else { return "" }
-  return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(.dateTime.day().month(.defaultDigits).year())
+  return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(.dateTime.day().month(.defaultDigits).year().locale(.app))
 }
 
 /// "40 phút", "7 tiếng", "1,5 tiếng".

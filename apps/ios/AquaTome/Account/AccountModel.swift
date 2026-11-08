@@ -155,7 +155,7 @@ final class AccountModel {
     let names = ["apple": "Apple", "google": "Google", "email": "email", "passkey": "passkey"]
     var list: [String] = []
     for k in kinds { let w = names[k] ?? k; if !list.contains(w) { list.append(w) } }
-    return list.formatted(.list(type: .and, width: .narrow))
+    return list.formatted(.list(type: .and, width: .narrow).locale(.app))
   }
 
   /// Sends one of the reader's own posts to a page (a comment, a photo: protocols/talk.openapi.json) as this account,

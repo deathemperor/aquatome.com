@@ -19,7 +19,7 @@ type Vectors = { $comment: string; cases: Case[]; countries: Record<string, AppC
 
 const index: AppIndex = JSON.parse(readFileSync(`${DIST}/app/vi.json`, 'utf8'))
 const fixture = (id: string) => SpeciesSchema.parse(JSON.parse(readFileSync(new URL(`${id}/entity.json`, FIXTURE), 'utf8')))
-const regionName = regionNames((await getContent('vi')).places)
+const regionName = regionNames((await getContent('vi')).placeNames)
 const codesOf = (e?: AppRange) => [...(e?.native ?? []), ...(e?.records?.outside ?? []).map(([c]) => c)]
 
 /** The file as the site would write it now, from the hand-written notes, ranges and species ids of `kept`. */

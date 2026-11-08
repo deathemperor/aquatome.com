@@ -313,11 +313,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
+  // `only`: one page id, or several, comma-separated.
+  const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const queue = (want: (x: Shown) => boolean) => {
     const from = sheets.length
     for (const later of [false, true]) for (const s of all) {
       if (sheets.length >= o.limit) break
-      if (o.only && s.id !== o.only) continue
+      if (only && !only.has(s.id)) continue
       const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
       for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })

@@ -10,10 +10,17 @@ struct ProfileButton: View {
   var body: some View {
     let fault = account.fault
     Button { openScreen(.account) } label: {
-      Image(systemName: account.user == nil ? "person.crop.circle" : "person.crop.circle.fill")
-        .foregroundStyle(.primary)
+      // The account's fish once one's chosen (ProfilePictures).
+      AccountPictureMark {
+        Image(systemName: account.user == nil ? "person.crop.circle" : "person.crop.circle.fill")
+          .foregroundStyle(.primary)
+      }
         .overlay(alignment: .topTrailing) {
-          if fault { Circle().fill(.red).frame(width: 9, height: 9).offset(x: 2, y: -2) }
+          // Ringed in the bar's colour: it holds on a red fish too.
+          if fault {
+            Circle().fill(.red).frame(width: 9, height: 9).padding(2).background(Color(.systemBackground), in: .circle)
+              .offset(x: 4, y: -4)
+          }
         }
     }
     .accessibilityLabel(Text("Tài khoản"))
