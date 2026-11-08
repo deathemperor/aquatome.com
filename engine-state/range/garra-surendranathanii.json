@@ -1,0 +1,62 @@
+{
+  "id": "garra-surendranathanii",
+  "native": {
+    "input": "0892770fb9faf7e4",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Chalakkudy, Periyar, and Pamba river basins in the state of Kerala, southwestern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chalakkudy",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Chalakkudy, Periyar, and Pamba river basins in the state of Kerala, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Chalakkudy, Periyar, and Pamba river basins in the state of Kerala, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Pamba",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Chalakkudy, Periyar, and Pamba river basins in the state of Kerala, southwestern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra surendranathanii",
+    "status": "ACCEPTED",
+    "taxonKey": 2366840,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

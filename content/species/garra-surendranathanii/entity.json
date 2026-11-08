@@ -10,6 +10,66 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Chalakkudy",
+        "Periyar",
+        "Pamba"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Chalakkudy, Periyar, and Pamba river basins in the state of Kerala, southwestern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Chalakkudy",
+            "Periyar",
+            "Pamba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366840,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          75.9375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

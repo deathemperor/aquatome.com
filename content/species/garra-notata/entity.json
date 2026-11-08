@@ -13,6 +13,72 @@
     "china",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "CN",
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Tenasserim"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known with certainty from the Salween river basin in Myanmar, southern China (Yunnan province) and western Thailand, plus the Tenasserim (Tanintharyi) drainage in southern Myanmar and western Thailand.",
+          "countries": [
+            "MM",
+            "CN",
+            "TH"
+          ],
+          "regions": [
+            "Salween",
+            "Tenasserim"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366869,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          2
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

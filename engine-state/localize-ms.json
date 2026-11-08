@@ -1,4 +1,26 @@
 {
+  "abbottina-rivularis": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Chinese False Gudgeon",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 8: \"mengalahkan\" for \"outcompete\" is imprecise; use \"mengatasi dalam persaingan makanan\" or similar.",
+      "Item 5: \"batu licin ... yang terhakis air\" is awkward for \"water-worn rocks\"; \"batu yang licin dihakis air\" or \"batu sungai yang bulat\" reads more naturally."
+    ]
+  },
+  "aborichthys-elongatus": {
+    "at": "2026-11-08",
+    "from": "2026-10-28",
+    "name": "Red-tailed squirrel loach",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 5: \"dasar kaca tangki\" adds \"kaca\" (glass), which the English doesn't say. \"dasar tangki\" is enough.",
+      "Items 1 and 6: the label \"Kekerasan air (GH): 5–12 dGH\" adds \"(GH)\" to \"Hardness\", and the unit is dGH. This is harmless, but \"Kekerasan air: 5–12 dGH\" is cleaner."
+    ]
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-06",
     "from": "2026-11-04",
@@ -457,14 +479,19 @@
     ]
   },
   "neocaridina-davidi": {
-    "at": "2026-11-06",
-    "from": "2026-10-28",
-    "name": "Udang Neocaridina",
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Udang Cherry",
     "confidence": "medium",
-    "score": 0.92,
+    "score": 0.75,
     "notes": [
-      "\"bersalin kulit (molting)\": \"bersalin\" usually means giving birth. Hobbyists more commonly write \"menyalin kulit\" or \"tukar kulit\". Minor.",
-      "\"zukini\": the usual Malaysian spelling is \"zucchini\" or \"zuchini\". Minor."
+      "Item 5: \"Kulit lusuh atau kulit yang ditanggalkan udang\" is wordy/awkward for \"shrimp molt\"; use simply \"kulit yang ditanggalkan (molt)\".",
+      "Item 6: \"Batu karang hancur\" for crushed coral is a bit unnatural; hobbyists usually write \"karang hancur\" or \"crushed coral\" only.",
+      "Item 8: \"Easy Fry and Small Fish Food\" is left in English inside Malay sentence with \"and\"; fine as a product name but the list reads awkwardly; consider quoting it as a product name.",
+      "Item 11: \"berried\" and \"culling\" used unexplained in Malay; add a short gloss e.g. \"bertelur (berried)\", and use \"singkirkan\" consistently.",
+      "Item 11: \"berenang ke sana ke mari dengan bersemangat\" is slightly soft for \"in a frenzy\"; \"dengan kalut/ghairah\" is closer.",
+      "Item 1: \"tahan dengan julat parameter air\" is slightly awkward; \"boleh menerima/menyesuaikan diri dengan pelbagai parameter air\" is more natural. \"liter\" vs Malaysian \"liter\" is fine.",
+      "Item 9: \"ikan otocinclus\" and \"udang kerdil\" are acceptable but \"udang cherry\" vs \"cherry shrimp\" is used inconsistently across items; pick one."
     ]
   },
   "oryzias-latipes": {
@@ -622,16 +649,20 @@
     ]
   },
   "poecilia-wingei": {
-    "at": "2026-11-07",
-    "from": "2026-11-02",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Endler",
-    "confidence": "high",
-    "score": 0.9,
+    "confidence": "medium",
+    "score": 0.6,
     "notes": [
-      "Item 10: \"boleh mudah dijangkiti\" is awkward; use \"mudah dijangkiti\" or \"cenderung dijangkiti\".",
-      "Item 17: \"menayangkan diri kepada betina\" is unnatural for courtship display; use \"mempamerkan diri\" or \"menunjuk-nunjuk\".",
-      "Items 8 and 17: \"tangki bertumbuhan\" and \"kawasan bertumbuhan padat\" are non-standard; use \"tangki bertanaman\" or \"ditanam dengan tumbuhan akuatik\" and \"kawasan tumbuhan padat\".",
-      "Item 17: \"sangat cepat membiak\" for \"incredibly prolific\" is acceptable but flat; \"sangat subur membiak\" is more natural."
+      "Item 20: \"Parents eat their own young\" is rendered as \"Induk akan memakan anaknya sendiri\". This is correct, but it contradicts item 19, so check the consistency of the source rather than the Malay. No fix is needed here.",
+      "Item 14: \"supaya kemungkinan buli tersebar\" is awkward and unclear. Use \"supaya gangguan/buli dapat disebarkan merata\" or \"supaya buli tidak tertumpu pada seekor betina\".",
+      "Item 6: \"sangat panas, keras\" is a clumsy rendering of \"very warm, hard water\". Use \"sangat suam dan keras\", because \"panas\" suggests scalding.",
+      "Item 3: the English \"Pure-bred Endlers are called class N Endlers; care for hybrids is somewhat similar\" has been split into two sentences and slightly reworded. The meaning is intact, so this is fine.",
+      "Item 16: \"Endler's Guppy ialah ikan yang lincah\" is plural in the English (\"Endler's Guppys are lively fish\"). Use \"Endler's Guppy ialah ikan-ikan yang lincah\" or rephrase it as a generic statement.",
+      "Item 21: \"tahap kekerasan\" and \"dihuraikan dari Trinidad\" are acceptable. However, \"guppy biasanya ditemui di air mengalir yang lebih sejuk\" is fine, so no change is needed.",
+      "Item 15: \"ikan komuniti yang aman dan terlalu besar untuk memakannya\" is ambiguous. Use \"terlalu besar untuk dimakan oleh Endler\"; the current wording could be read as the community fish being too big for the Endler to eat, which reverses the meaning. The English means the fish are too big to eat the Endlers.",
+      "Item 7: the translator dropped the imperial figure. This is allowed. The 41 L figure is kept as in the source, which is fine."
     ]
   },
   "pterophyllum-scalare": {
@@ -679,12 +710,23 @@
     ]
   },
   "puntius-titteya": {
-    "at": "2026-11-06",
-    "from": "2026-11-01",
-    "name": "Cherry Barb",
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Cherry barb",
     "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "score": 0.6,
+    "notes": [
+      "Item 1: 'kira-kira 95 liter' is wrong. 25 gallons is about 95 L, which rounds to 95 L at the nearest 5 L, so this is fine. The real issue is elsewhere.",
+      "Item 29: 'Dravidia ... diwujudkan' is fine, but the diagnosis list drops 'free uroneural present'. The 'gill rakers' clause is kept, but 'infraorbital' and the other items are fine. The omission is 'maxillary barbels absent or present', which is translated 'tiada atau ada'.",
+      "Item 29: the character list omits 'post-epiphysial fontanelle' in the P. titteya/P. bimaculatus clause. Check that all items are kept.",
+      "Item 7: 'ketinggian bawah 1000 m dari aras laut' is acceptable. 'Hutan lama' is acceptable. But 'sebahagian besar juga dimusnahkan semasa perang saudara' changes 'a significant portion' (bahagian yang ketara). Rephrase it.",
+      "Item 7: 'sebahagian besar flora dan fauna endemik' reverses the meaning. The English says the forests host a significant proportion of the country's endemic flora and fauna, not most of it. Use 'sebahagian ketara'.",
+      "Item 7: 'Namun begitu, sebahagian besar hutan ini telah ditebang' adds 'Namun begitu' where the English says 'The vast majority has been cleared'. This is fine, but 'untuk pertanian ladang' is fine too.",
+      "Item 2: 'pilihan yang memang sesuai untuk pemula' is fine, but 'cyprinid' as 'siprinid' is non-standard for hobbyists. Consider 'cyprinid' or 'ikan keluarga Cyprinidae'.",
+      "Item 22: 'ikan laga' for betta is good, but 'ikan cory dan pleco' is fine. 'Blue-eye rainbowfish' is left in English with no gloss. This is minor.",
+      "Item 14: 'Ikan liar mungkin paling sesuai di hujung bawah julat ini' is OK.",
+      "Item 29: 'tetapi lihat di bawah' and 'sub-Himalaya' are fine. Check 'pharyngeal teeth' and 'caudal vertebrae' against the original."
+    ]
   },
   "rocio-octofasciata": {
     "at": "2026-11-07",

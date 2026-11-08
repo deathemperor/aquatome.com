@@ -10,6 +10,126 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Río Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Venezuelan portion of the upper Río Orinoco system where it's been recorded from various tributary drainages including the Ríos Caura, Cataniapo, Atacavi, Ocamo, Matacuni, Zoapore and Nichare.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Río Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208444,
+      "total": 68,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          67
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          4.21875,
+          13,
+          13
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          19,
+          19
+        ],
+        [
+          -67.5,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -64.6875,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

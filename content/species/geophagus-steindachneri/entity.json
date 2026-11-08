@@ -12,6 +12,187 @@
     "venezuela",
     "lake-maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Río Magdalena",
+        "Río Sinú",
+        "Río Limón",
+        "Lago de Maracaibo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread throughout the Río Magdalena drainage, Colombia, including its major tributary the Río Cauca, plus the Río Sinú drainage in northwestern Colombia and Río Limón basin, northwestern Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Río Magdalena",
+            "Río Sinú",
+            "Río Limón"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The latter drains into Lago de Maracaibo (Lake Maracaibo) close to the Caribbean Sea.",
+          "countries": [],
+          "regions": [
+            "Lago de Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208440,
+      "total": 1246,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          1243
+        ],
+        [
+          "VE",
+          2
+        ],
+        [
+          "PR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          17,
+          17
+        ],
+        [
+          -75.9375,
+          2.8125,
+          65,
+          65
+        ],
+        [
+          -75.9375,
+          4.21875,
+          327,
+          327
+        ],
+        [
+          -75.9375,
+          5.625,
+          159,
+          159
+        ],
+        [
+          -75.9375,
+          7.03125,
+          106,
+          106
+        ],
+        [
+          -75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          9.84375,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          5.625,
+          196,
+          196
+        ],
+        [
+          -74.53125,
+          7.03125,
+          55,
+          55
+        ],
+        [
+          -74.53125,
+          8.4375,
+          18,
+          18
+        ],
+        [
+          -74.53125,
+          9.84375,
+          20,
+          20
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          5.625,
+          249,
+          249
+        ],
+        [
+          -73.125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -73.125,
+          9.84375,
+          10,
+          10
+        ],
+        [
+          -67.5,
+          16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

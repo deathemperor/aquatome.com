@@ -9,6 +9,92 @@
     "north-america",
     "cuba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CU"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The metallic girardinus, Girardinus metallicus, is a small livebearer from Cuba.",
+          "countries": [
+            "CU"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350360,
+      "total": 33,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CU",
+          32
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          21.09375,
+          6,
+          6
+        ],
+        [
+          -84.375,
+          22.5,
+          14,
+          14
+        ],
+        [
+          -82.96875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          22.5,
+          8,
+          8
+        ],
+        [
+          -81.5625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

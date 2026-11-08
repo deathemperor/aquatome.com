@@ -10,6 +10,66 @@
     "myanmar",
     "thade"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known only from its type locality, a minor stream draining in to the Bay of Bengal from the western slope of the Rakhine Yoma mountain range in western Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366929,
+      "total": 9,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          6
+        ],
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          4,
+          0
+        ],
+        [
+          92.8125,
+          22.5,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          18.28125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,65 @@
+{
+  "id": "gastromyzon-extrorsus",
+  "native": {
+    "input": "5a3e06262f538a55",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the northern tip of Borneo where it's been recorded from the Kimanis and Petagas River basins which drain the western slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the northern tip of Borneo where it's been recorded from the Kimanis and Petagas River basins which drain the western slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kimanis",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the northern tip of Borneo where it's been recorded from the Kimanis and Petagas River basins which drain the western slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Petagas",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the northern tip of Borneo where it's been recorded from the Kimanis and Petagas River basins which drain the western slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Crocker Mountain Range",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the northern tip of Borneo where it's been recorded from the Kimanis and Petagas River basins which drain the western slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon extrorsus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358899,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}
