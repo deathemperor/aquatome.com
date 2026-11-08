@@ -24,7 +24,7 @@ test("a fish page's lead photo carries its large copy", async () => {
 })
 
 test('a large copy under 1,200 px on its short side is left out, so the app gives that photo the smaller layout', () => {
-  const photo = (width: number, height: number) => ({ url: 'https://x/p.webp', width: 1200, height: 800, large: { url: 'https://x/p-large.webp', width, height } })
+  const photo = (width: number, height: number) => ({ url: 'https://x/p.webp', width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://x/p', large: { url: 'https://x/p-large.webp', width, height } })
   expect(largeOf(photo(1520, 1200)).large).toEqual({ url: 'https://x/p-large.webp', width: 1520, height: 1200 })
   expect(largeOf(photo(999, 675)).large).toBeUndefined()
   expect(largeOf(photo(2400, 1165)).large).toBeUndefined()
