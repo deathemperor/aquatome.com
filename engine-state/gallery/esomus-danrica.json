@@ -1,67 +1,23 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225246636/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/225246636/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Sandipan Das",
-   "sourceUrl": "https://www.inaturalist.org/photos/225246636",
-   "key": "inat:225246636"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/327863550/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/327863550/medium.jpeg",
-   "width": 2048,
-   "height": 1827,
-   "licence": "CC BY",
-   "author": "Ankur Nandi",
-   "sourceUrl": "https://www.inaturalist.org/photos/327863550",
-   "key": "inat:327863550"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/327862602/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/327862602/medium.jpeg",
-   "width": 1524,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Ankur Nandi",
-   "sourceUrl": "https://www.inaturalist.org/photos/327862602",
-   "key": "inat:327862602"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/29982536/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/29982536/medium.jpg",
-   "width": 900,
-   "height": 937,
-   "licence": "CC BY",
-   "author": "Rejoice Gassah",
-   "sourceUrl": "https://www.inaturalist.org/photos/29982536",
-   "key": "inat:29982536"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/41892018/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/41892018/medium.jpg",
-   "width": 1080,
-   "height": 837,
-   "licence": "CC BY",
-   "author": "Rejoice Gassah",
-   "sourceUrl": "https://www.inaturalist.org/photos/41892018",
-   "key": "inat:41892018"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Flying barb (Esomus dandricus).jpg",
   "File:Flying barb (Esomus dandricus) and swamp barb.jpg",
   "File:Flying barb (Esomus dandricus) and swamp barb1.jpg",
   "File:Flying barb (Esomus dandricus) and swamp barb2.jpg",
   "File:Esomus Danrica in Assam.jpg",
-  "File:Esomus danrica (দাড়কিনা) - DSC02536.jpg"
+  "File:Esomus danrica (দাড়কিনা) - DSC02536.jpg",
+  "inat:225246636",
+  "inat:327863550",
+  "inat:327862602",
+  "inat:29982536",
+  "inat:41892018"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/9a5ab36e823b09fa.webp": "0082f2e08cd0e0c0",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Esomus_Danrica_in_Assam.jpg/1280px-Esomus_Danrica_in_Assam.jpg": "978f874f0f838347"
+  "https://media.aquatome.com/commons/372cb149c8c2f981.webp": "979f874f0f838767",
+  "https://media.aquatome.com/inaturalist/225246636.webp": "bb7b6fa4cbc8c706",
+  "https://media.aquatome.com/inaturalist/327862602.webp": "fdfde9e13ab92976"
  },
  "commons": "2026-11-08"
 }

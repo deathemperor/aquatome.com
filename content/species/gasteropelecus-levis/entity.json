@@ -10,6 +10,104 @@
     "brazil",
     "para"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Tocantins",
+        "Guamá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The silver hatchetfish (Gasteropelecus levis) is a freshwater hatchetfish found only in the lower Amazon basin in the state of Pará, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs only in the lower Amazon river basin in the state of Pará, Brazil, including the lower portions of the rios Tocantins and Guamá.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Tocantins",
+            "Guamá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355744,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          6
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

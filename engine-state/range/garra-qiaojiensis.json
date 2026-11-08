@@ -1,0 +1,86 @@
+{
+  "id": "garra-qiaojiensis",
+  "native": {
+    "input": "2b9565da5b301a5a",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Garra qiaojiensis occurs only very locally in the Irrawaddy system of China and Burma.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Garra qiaojiensis occurs only very locally in the Irrawaddy system of China and Burma.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the upper Irrawaddy (Yiluowadi Jiang) river basin in Yunnan province, China, although it may also occur in northern Myanmar.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the upper Irrawaddy (Yiluowadi Jiang) river basin in Yunnan province, China, although it may also occur in northern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "glaser",
+        "quote": "Garra qiaojiensis occurs only very locally in the Irrawaddy system of China and Burma.",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the upper Irrawaddy (Yiluowadi Jiang) river basin in Yunnan province, China, although it may also occur in northern Myanmar.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [
+      "MM"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra qiaojiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366802,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

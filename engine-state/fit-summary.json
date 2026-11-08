@@ -1,5 +1,5 @@
 {
- "day": "2026-11-08",
+ "day": "2026-11-09",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 2940,
-   "read": 2705,
-   "wrong": 1335,
-   "pct": 50,
-   "held": 0
+   "pages": 3083,
+   "read": 2929,
+   "wrong": 1360,
+   "pct": 47,
+   "held": 20
   },
   "id": {
-   "pages": 953,
-   "read": 929,
-   "wrong": 335,
-   "pct": 36,
-   "held": 0
+   "pages": 1018,
+   "read": 978,
+   "wrong": 314,
+   "pct": 32,
+   "held": 1
   },
   "th": {
-   "pages": 946,
-   "read": 922,
-   "wrong": 312,
-   "pct": 34,
-   "held": 0
+   "pages": 1011,
+   "read": 971,
+   "wrong": 299,
+   "pct": 31,
+   "held": 1
   },
   "ms": {
-   "pages": 127,
-   "read": 127,
-   "wrong": 64,
-   "pct": 50,
-   "held": 0
+   "pages": 147,
+   "read": 122,
+   "wrong": 47,
+   "pct": 38,
+   "held": 1
   }
  },
  "labels": {
@@ -49,6 +49,7 @@
   "words": "Chữ người chơi ở đây không dùng",
   "elsewhere": "Viết cho người đọc ở nước khác",
   "kit": "Bộ đồ hay danh mục của tiệm nước ngoài",
+  "harm": "Lời khuyên làm theo thì hại cá, con vật khác, cây hay người nuôi",
   "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
   "dose-purpose": "Liều không nói để trị gì",
   "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",
@@ -57,9 +58,49 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-ty-ba-buom-myersi/",
-   "url": "https://aquatome.com/ca/ca-ty-ba-buom-myersi/",
-   "title": "Cá tỳ bà bướm myersi",
+   "path": "/vi/ca/ca-rang-chep-zagros/",
+   "url": "https://aquatome.com/ca/ca-rang-chep-zagros/",
+   "title": "Cá răng chép Zagros",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "chúng tôi"
+    },
+    {
+     "check": "source",
+     "quote": "chúng tôi đặc biệt khuyên nên nuôi riêng"
+    },
+    {
+     "check": "source",
+     "quote": "(xem “thiết lập bể”)"
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-chach-suoi-schistura-aurantiaca/",
+   "url": "https://aquatome.com/ca/ca-chach-suoi-schistura-aurantiaca/",
+   "title": "Cá chạch suối Schistura aurantiaca",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "Con suối trong ảnh chảy qua một khu rừng có tán cây cao chừng 50 m."
+    },
+    {
+     "check": "units",
+     "quote": "bề rộng suối thay đổi theo mùa nhưng chưa bao giờ quá 9,1 mét"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-betta-foerschi/",
+   "url": "https://aquatome.com/ca/ca-betta-foerschi/",
+   "title": "Cá betta foerschi",
    "wrong": [
     {
      "check": "words",
@@ -67,38 +108,11 @@
     },
     {
      "check": "words",
-     "quote": "giới chơi"
-    },
-    {
-     "check": "words",
-     "quote": "thị trường cá cảnh"
-    }
-   ]
-  },
-  {
-   "lang": "ms",
-   "path": "/ms/ikan/ikan-toman/",
-   "url": "https://aquatome.com/ms/ikan/ikan-toman/",
-   "title": "Ikan toman",
-   "wrong": []
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "url": "https://aquatome.com/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "title": "Uốn cong tấm mica acrylic bằng lò nướng để tự làm bể mặt cong",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "nhiều khả năng"
+     "quote": "gần như không"
     },
     {
      "check": "words",
      "quote": "Dù vậy"
-    },
-    {
-     "check": "words",
-     "quote": "bắt buộc phải"
     }
    ]
   }

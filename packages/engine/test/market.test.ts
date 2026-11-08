@@ -68,7 +68,9 @@ test('a writer is told what each product is and what is on sale for the problem,
 })
 
 test('how keepers here treat new fish that look healthy reaches the writer on new fish, as the table\'s own line', () => {
-  expect(marketFor('vi', 'Ich-X', ['quarantine'])).toMatch(/Người chơi ở đây làm thế này[^\n]*\n[^\n]*nhiều người chơi chỉ cách ly và theo dõi/)
+  expect(marketFor('vi', 'Ich-X', ['quarantine'])).toMatch(/Người chơi ở đây làm thế này[^\n]*\n[^\n]*nhiều người chơi chỉ cách ly, theo dõi/)
+  // A product the source names for something else doesn't bring it in.
+  expect(marketFor('vi', 'Ich-X', ['ich'])).not.toContain('chỉ cách ly')
   expect(marketFor('vi', 'Hikari', ['cyanobacteria'])).not.toContain('chỉ cách ly')
   expect(marketFor('id', 'Ich-X', ['quarantine'])).not.toContain('chỉ cách ly')
 })

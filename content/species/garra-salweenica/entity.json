@@ -12,6 +12,92 @@
     "myanmar",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs throughout the Salween River system in Yunnan province, China, Myanmar, and western Thailand.",
+          "countries": [
+            "CN",
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366779,
+      "total": 71,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          65
+        ],
+        [
+          "MM",
+          3
+        ],
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          23.90625,
+          60,
+          60
+        ],
+        [
+          98.4375,
+          25.3125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

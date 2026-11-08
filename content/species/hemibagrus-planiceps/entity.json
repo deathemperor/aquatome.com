@@ -10,6 +10,88 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Java",
+        "Citarum",
+        "Ciliwung",
+        "Cimanuk",
+        "Cidurian",
+        "Cikeas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Java, Indonesia', and this species is known only from the Ciantern, Cidurian, Cikeas, Ciliwung, Cimanuk, Cisokan, and Citarum River systems in western Java.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java",
+            "Citarum",
+            "Ciliwung",
+            "Cimanuk",
+            "Cidurian",
+            "Cikeas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338184,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          6
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          108.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

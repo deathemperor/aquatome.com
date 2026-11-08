@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
+import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -15,8 +15,13 @@ import type { PhotoVerdict } from './photo-check'
  * and what's new, never the same fish twice in four weeks.
  */
 
-/** Card shapes, width over height: Hôm nay's cards are about 400×420 pt, Khám phá's top cards are wider than tall. */
-export const SLOT_RATIO = { square: 400 / 420, wide: 1.6 } as const
+/**
+ * Card shapes, width over height: Hôm nay's fish card is about 400×420 pt, its guide and story cards a 16:9 photo
+ * (400×225 pt at the widest, v2 Lab 2026-11-08: guide photos are video stills and banners), and Khám phá's top cards
+ * are wider than tall.
+ */
+export const SLOT_RATIO = { square: 400 / 420, guide: 16 / 9, wide: 1.6 } as const
+const SLOTS = Object.keys(SLOT_RATIO) as Slot[]
 export type Slot = keyof typeof SLOT_RATIO
 /** A large card is about 1,200 px across at 3×: this is the least a photo may give it after the crop (a 5% stretch). */
 export const LARGE_PX = 1140
@@ -69,7 +74,10 @@ export type Candidate = {
   /** Search Console impressions over its pages in every language. */
   demand: number
   updatedAt?: string
+  /** A fish's group (cichlids, goldfish…) or a guide's kind (disease, setup…): Hôm nay never shows the same two days running. */
   group?: string
+  /** A guide's source (a blog, a channel, AquaTome's own), likewise never two days running: a series came five in a row. */
+  source?: string
 }
 
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
@@ -106,9 +114,9 @@ export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Cand
   const photo: Candidate['photo'] = {}
   const checked: Candidate['checked'] = {}
   for (const p of photos.filter(ok)) {
-    for (const x of p.large ? [p, p.large] : [p]) checked[x.url] = { square: across(x, 'square'), wide: across(x, 'wide') }
+    for (const x of p.large ? [p, p.large] : [p]) checked[x.url] = Object.fromEntries(SLOTS.map(slot => [slot, across(x, slot)])) as Record<Slot, number>
     const big = p.large ?? p
-    for (const slot of ['square', 'wide'] as const) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
+    for (const slot of SLOTS) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
   }
   return { photo, checked }
 }
@@ -196,7 +204,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   for (const g of c.guides) {
     const ok = (p: Photo) => cardWorthy(p.url, g.id, v, avoid, true)
     out.push({
-      kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, ...photosFor(g.photos, ok),
+      kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok),
       ...(await fitOf('guides', g.id)), indexable: g.t.quality?.indexable ?? true, updatedAt: g.updatedAt, facts: { places: [], coldwater: false }, demand: demandOf('guides', g.id),
     })
   }
@@ -224,7 +232,7 @@ const score = (c: Candidate, w: CurationWeek | undefined, today: string) => {
   const tags = (w?.tags ?? []).filter(t => TAGS[t]?.(c.facts)).length
   const known = c.known === undefined ? 0 : 2 - c.known / 50
   const fresh = c.updatedAt && c.updatedAt >= addDays(today, -14) ? 0.5 : 0
-  const photo = (c.photo.square?.px ?? 0) >= LARGE_PX ? 1 : 0
+  const photo = (c.photo[c.kind === 'guides' ? 'guide' : 'square']?.px ?? 0) >= LARGE_PX ? 1 : 0
   return inList + tags * 2 + known + photo + Math.log1p(c.demand) + fresh + (c.indexable ? 0.5 : 0)
 }
 
@@ -253,29 +261,32 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
     for (const slot of ['fish', 'guide'] as const) {
       const ref = d[slot]
       const c = ref ? byRef.get(ref) : undefined
+      // A guide is kept or replaced by its page; its photo is the guide card's to set or drop (guidePhoto).
       const p = ref
-        ? (problem(c, 'square', slot === 'fish' ? d.img : d.guideImg, { photo: slot === 'fish' }) ??
-          (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined))
+        ? (slot === 'fish' ? problem(c, 'square', d.img) : problem(c, 'guide', undefined, { photo: false })) ??
+          (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined)
         : 'empty'
-      if (ref && !p) { report.kept.push(`${date} ${slot}`); continue }
+      if (ref && !p) {
+        report.kept.push(`${date} ${slot}`)
+        if (slot === 'guide') guidePhoto(d, c!)
+        continue
+      }
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
       const kind = slot === 'fish' ? ['species', 'breeds'] : ['guides']
       const pool = (slot === 'fish' ? w?.fish : w?.guides) ?? []
       const yesterday = out.get(addDays(date, -1))
       const best = cands
-        .filter(x => kind.includes(x.kind) && !problem(x, 'square', undefined, { photo: slot === 'fish' }) && !used(x.ref, date))
+        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? problem(x, 'square') : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
         .filter(x => slot !== 'fish' || fitsWeek(x, w))
-        // Not the same group two days running.
-        .filter(x => slot !== 'fish' || !x.group || x.group !== byRef.get(yesterday?.fish ?? '')?.group)
+        // Not the same group of fish, or kind or source of guide, two days running.
+        .filter(x => { const y = byRef.get(yesterday?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) })
         .map(x => ({ x, s: score(x, w, from) }))
         .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
       if (!best) { delete d[slot]; report.empty.push(`${date} ${slot}`); continue }
       d[slot] = best.ref
       // The card shows the best checked photo, and a guide's only when it is big enough for the card.
-      const ph = best.photo.square
-      const key = slot === 'fish' ? 'img' : 'guideImg'
-      if (ph && ph.px >= LARGE_PX) d[key] = ph.url
-      else delete d[key]
+      if (slot === 'fish') d.img = best.photo.square!.url
+      else { delete d.guideImg; guidePhoto(d, best) }
       delete d.fixed
       report.filled.push(`${date} ${slot}: ${best.ref}`)
       const reasons = [
@@ -286,12 +297,23 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       ]
       why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)
     }
+    // A story without a photo gets its page's best for the same card, when one is big enough.
+    const sc = d.story && !d.story.img ? byRef.get(d.story.page) : undefined
+    if (d.story && sc?.fit && (sc.photo.guide?.px ?? 0) >= LARGE_PX) d.story = { ...d.story, img: sc.photo.guide!.url }
     // One plain sentence for the owner's daily report.
     if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
     out.set(date, d)
   }
   const sorted = [...out.values()].sort((a, b) => a.date.localeCompare(b.date))
   return { calendar: { ...cur, days: sorted, off: offPages({ ...cur, days: sorted }, byRef, from) }, report }
+}
+
+/** A guide card's photo: the one set while it's big enough for the card, else the page's best that is, else none. */
+function guidePhoto(d: CurationDay, c: Candidate) {
+  if (d.guideImg && !problem(c, 'guide', d.guideImg)) return
+  const ph = c.photo.guide
+  if (ph && ph.px >= LARGE_PX) d.guideImg = ph.url
+  else delete d.guideImg
 }
 
 /** The pages the weeks' top cards and shelves and the days' stories name, from `from` on, that don't pass reader fit. */
@@ -310,20 +332,30 @@ function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): R
 }
 
 /** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
- * it's written in that the gate doesn't hold back. */
-export type CardShow = { show: CardEntity['show']; langs: string[] }
+ * it's written in that the gate doesn't hold back; or why its files don't parse, so one broken card is a problem the
+ * check lists rather than a planner run that stops (Site Lead, 2026-11-08). */
+export type CardShow = { show: CardEntity['show']; langs: string[] } | { bad: string }
 export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
   const dir = join(root, 'content', 'cards')
   const out = new Map<string, CardShow>()
   for (const id of await readdir(dir).catch(() => [] as string[])) {
-    const e = await json<unknown>(join(dir, id, 'entity.json'), null)
-    if (!e) continue
-    const langs: string[] = []
-    for (const lang of LANGS) {
-      const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
-      if (t && !t.held) langs.push(lang)
+    try {
+      const e = await json<unknown>(join(dir, id, 'entity.json'), null)
+      if (!e) continue
+      const parsed = CardSchema.safeParse(e)
+      if (!parsed.success) {
+        out.set(`cards/${id}`, { bad: parsed.error.issues.map(i => `${i.path.join('.') || 'entity'}: ${i.message}`).join('; ') })
+        continue
+      }
+      const langs: string[] = []
+      for (const lang of LANGS) {
+        const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
+        if (t && !t.held && cardShownIn(parsed.data, lang)) langs.push(lang)
+      }
+      out.set(`cards/${id}`, { show: parsed.data.show, langs })
+    } catch (err) {
+      out.set(`cards/${id}`, { bad: err instanceof Error ? err.message : String(err) })
     }
-    out.set(`cards/${id}`, { show: CardSchema.parse(e).show, langs })
   }
   return out
 }
@@ -344,15 +376,15 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
   for (const d of cur.days.filter(x => x.date >= from)) {
     const fish = d.fish && (d.img ? problem(byRef.get(d.fish), 'square', d.img) : 'no photo set for the card')
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
-    const guide = d.guide && problem(byRef.get(d.guide), 'square', d.guideImg, { photo: false })
+    const guide = d.guide && problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false })
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
     if (d.story && !cur.off[d.story.page]) {
-      const st = problem(byRef.get(d.story.page), 'square', d.story.img, { photo: false })
+      const st = problem(byRef.get(d.story.page), 'guide', d.story.img, { photo: false })
       if (st) out.push(`${d.date} story ${d.story.page}: ${st}`)
     }
     if (d.card) {
       const c = cards.get(d.card)
-      const p = !c ? 'no such card' : !c.langs.length ? 'held back or unwritten in every language'
+      const p = !c ? 'no such card' : 'bad' in c ? `its files don't parse: ${c.bad}` : !c.langs.length ? 'held back or unwritten in every language'
         : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : undefined
       if (p) out.push(`${d.date} card ${d.card}: ${p}`)
     }

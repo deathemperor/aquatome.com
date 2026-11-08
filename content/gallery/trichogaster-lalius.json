@@ -2,6 +2,18 @@
   "id": "trichogaster-lalius",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/cb58208be655b322.webp",
+      "thumb": "https://media.aquatome.com/commons/cb58208be655b322-480.webp",
+      "width": 769,
+      "height": 1024,
+      "licence": "CC BY-SA 4.0",
+      "author": "StefanoElli",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichogaster.jpg",
+      "caption": "Cá sặc lùn đực màu xanh đỏ bơi cạnh lũa trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/269339344.webp",
       "thumb": "https://media.aquatome.com/inaturalist/269339344-480.webp",
       "width": 768,
@@ -364,7 +376,7 @@
       "kind": "male"
     }
   ],
-  "seen": 72,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 73,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

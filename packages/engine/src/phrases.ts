@@ -88,6 +88,12 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'trị rộng', find: 'trị (?:diện )?rộng', instead: 'nói trị những gì: "trị luôn cả ba thứ"' }, // 0 | 0.7 | 0; both editors, rounds 9 and 10
     { say: 'chỗ bắt đầu', instead: '"để tham khảo"' }, // 1.6 | 0 | 0; tham khảo 192 in the forum
     { say: 'được cho là', instead: 'đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói"' }, // species 147, guides 30 | 3.3 | 0
+    // The editors' eleventh round (2026-11-08), each checked here.
+    { say: 'gần như không', instead: '"hầu như không", "ít khi", hoặc nói thẳng' }, // guides 142, species 168 | 4 | 15; hầu như không 18.5, ít khi 27.7 in the forum
+    { say: 'việc đầu tiên là', instead: '"đầu tiên là", "trước tiên", hoặc làm việc đó luôn' }, // guides 42 | 0 | 3.7; đầu tiên là 129 in the videos
+    { say: 'dây hơi', instead: '"dây oxy"' }, // guides 11 | 0 | 0; dây oxy 7.9 in the forum, 3.7 in the videos
+    { say: 'gầy rộc', instead: '"gầy", "gầy đi"' }, // species 14, guides 3.3 | 0 | 0; gầy 37 in the forum
+    { say: 'người cho đẻ', instead: '"trại", "người ép đẻ"' }, // species 8.6 | 0 | 0; ép đẻ 30 in the forum
     // The editors' second round (2026-11-07), each checked here: textbook words where a keeper says what happens.
     { say: 'trưởng thành sinh dục', instead: '"đủ lớn để đẻ", "bắt cặp được"' }, // 33 | 0 | 0
     { say: 'cá nhân giống', instead: '"cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân")' }, // 29 | 0 | 0

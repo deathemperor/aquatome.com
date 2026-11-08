@@ -1,146 +1,39 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443238304/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443238304/medium.jpeg",
-   "width": 2048,
-   "height": 1598,
-   "licence": "CC BY",
-   "author": "Joseph D Kurtz",
-   "sourceUrl": "https://www.inaturalist.org/photos/443238304",
-   "key": "inat:443238304"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443238335/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443238335/medium.jpeg",
-   "width": 2048,
-   "height": 1545,
-   "licence": "CC BY",
-   "author": "Joseph D Kurtz",
-   "sourceUrl": "https://www.inaturalist.org/photos/443238335",
-   "key": "inat:443238335"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/666844636/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/666844636/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "James-LaFontaine",
-   "sourceUrl": "https://www.inaturalist.org/photos/666844636",
-   "key": "inat:666844636"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/666844690/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/666844690/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "James-LaFontaine",
-   "sourceUrl": "https://www.inaturalist.org/photos/666844690",
-   "key": "inat:666844690"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/603844783/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/603844783/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Steven Wang",
-   "sourceUrl": "https://www.inaturalist.org/photos/603844783",
-   "key": "inat:603844783"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/603844785/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/603844785/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Steven Wang",
-   "sourceUrl": "https://www.inaturalist.org/photos/603844785",
-   "key": "inat:603844785"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/603844787/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/603844787/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Steven Wang",
-   "sourceUrl": "https://www.inaturalist.org/photos/603844787",
-   "key": "inat:603844787"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443238305/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443238305/medium.jpeg",
-   "width": 2048,
-   "height": 1503,
-   "licence": "CC BY",
-   "author": "Joseph D Kurtz",
-   "sourceUrl": "https://www.inaturalist.org/photos/443238305",
-   "key": "inat:443238305"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443237958/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443237958/medium.jpeg",
-   "width": 2048,
-   "height": 1495,
-   "licence": "CC BY",
-   "author": "Joseph D Kurtz",
-   "sourceUrl": "https://www.inaturalist.org/photos/443237958",
-   "key": "inat:443237958"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/642698894/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/642698894/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Dean Hester",
-   "sourceUrl": "https://www.inaturalist.org/photos/642698894",
-   "key": "inat:642698894"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443237955/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443237955/medium.jpeg",
-   "width": 2048,
-   "height": 1314,
-   "licence": "CC BY",
-   "author": "Joseph D Kurtz",
-   "sourceUrl": "https://www.inaturalist.org/photos/443237955",
-   "key": "inat:443237955"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443237946/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/443237946/medium.jpeg",
-   "width": 2048,
-   "height": 1292,
-   "licence": "CC BY",
-   "author": "Joseph D Kurtz",
-   "sourceUrl": "https://www.inaturalist.org/photos/443237946",
-   "key": "inat:443237946"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/15385499/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/15385499/medium.jpg",
-   "width": 1320,
-   "height": 990,
-   "licence": "CC BY",
-   "author": "Julien Renoult",
-   "sourceUrl": "https://www.inaturalist.org/photos/15385499",
-   "key": "inat:15385499"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/15385519/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/15385519/medium.jpg",
-   "width": 1055,
-   "height": 791,
-   "licence": "CC BY",
-   "author": "Julien Renoult",
-   "sourceUrl": "https://www.inaturalist.org/photos/15385519",
-   "key": "inat:15385519"
-  }
+ "queue": [],
+ "judged": [
+  "inat:15385499",
+  "inat:15385519",
+  "inat:443238304",
+  "inat:443238305",
+  "inat:443238335",
+  "inat:443237946",
+  "inat:443237955",
+  "inat:443237958",
+  "inat:603844783",
+  "inat:603844785",
+  "inat:603844787",
+  "inat:642698894",
+  "inat:666844636",
+  "inat:666844690"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/58e25849e193a901.webp": "070e2c3460248816",
+  "https://media.aquatome.com/scotcat/c13cad9cc9177916.webp": "63777fcfe5786383",
+  "https://media.aquatome.com/inaturalist/443237946.webp": "0f0f397aecf9d202",
+  "https://media.aquatome.com/inaturalist/603844787.webp": "686062723a3e776a",
+  "https://media.aquatome.com/inaturalist/642698894.webp": "f0f93bbd998dd999"
+ },
+ "inat": {
+  "taxon": 107277,
+  "pass": "done",
+  "after": {
+   "research": 365252550,
+   "agree": 0
+  }
+ },
+ "commons": "2026-11-08",
+ "gbif": {
+  "key": 2341031,
+  "next": null
+ }
 }

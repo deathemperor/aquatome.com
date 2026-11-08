@@ -37,6 +37,7 @@
     },
     "taxa": [
       "Bucephalandra sp.",
+      "Anubias sp.",
       "Eleocharis acicularis",
       "Hemianthus callitrichoides",
       "Hygrophila pinnatifida",
@@ -64,79 +65,82 @@
       {
         "category": "loc",
         "type": "thung",
-        "t": 114
+        "t": 81
       },
       {
         "category": "co2",
         "type": "binh",
-        "t": 503
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 240
+        "t": 115
       },
       {
         "category": "phan-nen",
         "type": "soi",
         "t": 179
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 240
       }
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những thiết bị gì",
+        "heading": "Chọn bể, đèn và lọc",
         "moments": [
+          {
+            "t": 50,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính 60p trống đặt trên bàn, kèm lọc, chuẩn bị setup."
+          },
           {
             "t": 95,
             "url": "https://media.aquatome.com/video/LKejVv01BDM/at95-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đèn LED nhiều màu chiếu sáng ngay trên đám cây thủy sinh."
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ châm CO2 có đồng hồ áp và dây dẫn cho bể thủy sinh."
+            "caption": "Đèn LED nhiều màu chiếu sáng thảm cây thủy sinh trong bể."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/LKejVv01BDM/p0-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/LKejVv01BDM/p0-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ dưới bể, bên cạnh là xô và ống nước."
+        }
       },
       {
-        "heading": "Chọn kiểu bố cục trước khi dựng đá lũa",
+        "heading": "Bí ý tưởng thì bắt đầu bố cục từ đâu",
         "moments": [
           {
             "t": 160,
             "url": "https://media.aquatome.com/video/LKejVv01BDM/at160-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đá lũa dồn cao về một phía, tạo bố cục hình tam giác."
+            "caption": "Bố cục dáng tam giác với lũa dựng nghiêng về một bên bể."
           },
           {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at165-hd.webp",
+            "t": 180,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at180-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bố cục lòng chảo: đá lũa cao hai bên, giữa để trống."
+            "caption": "Bể thủy sinh đã dựng đá và lũa hoàn chỉnh, dáng lồi ở giữa."
           }
         ]
       },
       {
-        "heading": "Dựng hardscape và đổ nền",
+        "heading": "Dựng đá lũa thế nào",
         "moments": [
           {
             "t": 225,
             "url": "https://media.aquatome.com/video/LKejVv01BDM/at225-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đặt từng viên đá lên đáy hồ trước khi đổ nền."
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục đá và lũa hoàn chỉnh trước phông nền hồng."
+            "caption": "Tay xếp những viên đá đầu tiên vào bể có phông nền hồng."
           }
         ],
         "photo": {
@@ -147,132 +151,131 @@
           "licence": "CC BY-SA 4.0",
           "author": "Lennart Jöhnk",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh bố cục đá phủ rêu và cây, nền cát phía trước."
+          "caption": "Bể thủy sinh xếp đá có rêu và cây xanh, bố cục sâu."
         }
       },
       {
-        "heading": "Dán keo cố định đá và lũa",
+        "heading": "Nền và cách dán cố định đá lũa",
         "moments": [
           {
             "t": 315,
             "url": "https://media.aquatome.com/video/LKejVv01BDM/at315-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng nhíp nhét miếng bông nhỏ vào khe giữa lũa và đá."
+            "caption": "Cận cảnh lũa đỏ dán cố định với đá trên nền dốc."
           },
           {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at325-hd.webp",
+            "t": 340,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tuýp keo siêu dính dạng lỏng và nhíp chuẩn bị để dán."
+            "caption": "Bố cục lũa và đá đã xong trên lớp phân nền đen."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LKejVv01BDM/p3-kzMDMyOTYpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/LKejVv01BDM/p3-kzMDMyOTYpLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 2.0",
-          "author": "Ben Sale from Stevenage, UK",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Super_super_Glue_(3329303296).jpg",
-          "caption": "Chai keo siêu dính đặt trên khúc gỗ, dùng để dán cố định lũa và đá."
-        }
+        ]
       },
       {
-        "heading": "Trồng cây thế nào",
+        "heading": "Chuẩn bị và trồng cây",
         "moments": [
           {
             "t": 395,
             "url": "https://media.aquatome.com/video/LKejVv01BDM/at395-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tay chia cây cấy mô thành cụm nhỏ, bên cạnh là các cốc cây."
+            "caption": "Tách cây cấy mô thành từng nhúm nhỏ trước khi trồng."
           },
           {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at410-hd.webp",
+            "t": 420,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at420-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng nhíp dài để trồng cây trong bể đã dựng xong hardscape."
+            "caption": "Dùng nhíp cắm cây xuống nền gần đá và lũa."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LKejVv01BDM/p4-BcXVhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/LKejVv01BDM/p4-BcXVhcml1bS5qcGc-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
-          "caption": "Dùng nhíp cắm cụm cây nhỏ vào gần khúc lũa trong hồ thủy sinh."
-        }
+        ]
       },
       {
-        "heading": "Châm nước, lắp lọc, CO2 và chỉnh đèn",
+        "heading": "Đổ nước, lắp CO2 và hẹn giờ đèn",
         "moments": [
-          {
-            "t": 475,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at475-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm nước chậm vào bể thủy sinh qua tấm đỡ, tránh làm bật cây."
-          },
           {
             "t": 520,
             "url": "https://media.aquatome.com/video/LKejVv01BDM/at520-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ van điều áp gắn trên bình CO2 với ống dẫn khí."
+            "caption": "Van chỉnh CO2 có đồng hồ lắp trên bình CO2, nối ống dẫn."
+          },
+          {
+            "t": 545,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at545-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn LED trên hồ thủy sinh đang bật, chiếu sáng nền và lũa."
           }
         ]
       },
       {
-        "heading": "Chăm bể trong mấy tuần đầu",
+        "heading": "Chăm bể mấy tuần đầu",
         "moments": [
           {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at560-hd.webp",
+            "t": 620,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at620-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh lũa đỏ và đá phủ rêu, cây thủy sinh mới lên."
+            "caption": "Cận cảnh cành lũa đỏ và thảm cây nền xanh mướt."
           },
           {
-            "t": 645,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at645-hd.webp",
+            "t": 625,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at625-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng dụng cụ chải màng trắng trên lũa trong bể thủy sinh."
+            "caption": "Bể thủy sinh lũa đỏ phủ rêu xanh, đang thay nước bằng ống xanh."
           }
         ]
       },
       {
-        "heading": "Cây bị nhũn và khi nào thả cá",
+        "heading": "Cây bị nhũn lá thì làm sao",
         "moments": [
           {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at690-hd.webp",
+            "t": 680,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at680-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thủy sinh trong bể có lá chỗ xơ xác, úa nhẹ."
+            "caption": "Cây thủy sinh lá tròn mọc dày bên lũa và đá trong bể."
           },
           {
-            "t": 725,
-            "url": "https://media.aquatome.com/video/LKejVv01BDM/at725-hd.webp",
+            "t": 685,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at685-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh với lũa và cây đã lên xanh."
+            "caption": "Thảm cây tiền cảnh xanh mướt cạnh đá và lũa."
+          }
+        ]
+      },
+      {
+        "heading": "Khi nào thả cá và thả con gì trước",
+        "moments": [
+          {
+            "t": 720,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at720-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép dọn bể bò trên thảm cỏ xanh mướt."
+          },
+          {
+            "t": 730,
+            "url": "https://media.aquatome.com/video/LKejVv01BDM/at730-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh đã lên rậm, đàn cá nhỏ bơi phía trên."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/LKejVv01BDM/p7-mdHdvb2RfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/LKejVv01BDM/p7-mdHdvb2RfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/LKejVv01BDM/p8-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/LKejVv01BDM/p8-mdHdvb2RfMy5qcGc-480.webp",
           "width": 960,
           "height": 540,
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otocinclus bám trên khúc lũa trong bể thủy sinh có cây xanh và rêu."
+          "caption": "Cá otto bám trên lũa phủ rêu trong bể thủy sinh, đang dọn màng bám."
         }
       }
     ]

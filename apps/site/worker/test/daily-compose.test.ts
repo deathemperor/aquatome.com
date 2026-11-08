@@ -231,6 +231,22 @@ test('built: deploys and the live version, content pushes with what they added, 
   expect(compose(input()).text).not.toContain('Added ')
 })
 
+test('content quality: how many pages each list holds, linked to the content page, and no page or name a reader typed', () => {
+  const row = { path: '/ca/x/', title: 'Cá x', section: 'fish·vi', score: 30, ranked: true, demand: 1, figures: {} as never, why: '' }
+  const quality = {
+    days: 28, scored: 40, ranked: 12, best: [], worst: [], rewrite: [row], decaying: [row],
+    gaps: [{ source: 'wanted' as const, name: 'Cá rồng đỏ', demand: 30, why: '' }], totals: { rewrite: 14, decaying: 3, gaps: 1 },
+  }
+  const { text, html } = compose(input({ quality }))
+  expect(text).toContain('Content quality: 14 pages to rewrite first, 3 decaying, 1 gap (asked for, not written).')
+  expect(html).toContain(`href="${dashboardUrl('/_ab/noi-dung/#chat-luong')}"`)
+  expect(text).not.toContain('Cá rồng đỏ')
+  expect(text).not.toContain('/ca/x/')
+  // Not loaded, or failed: no line (the content page says why).
+  expect(compose(input()).text).not.toContain('Content quality')
+  expect(compose(input({ quality: { failed: 'analytics engine sql 422' } })).text).not.toContain('Content quality')
+})
+
 test('what changed: the site\'s, the app\'s and the engine\'s lines, each newest first and once, then the change log; no PR number or link', () => {
   const changes = [
     { area: 'Engine', text: 'Guides keep their photos.', at: '2026-11-05T02:00:00Z' },
@@ -338,4 +354,11 @@ test("coming up in the app: Khám phá's week with its theme and the curator's n
   const bad = (c: unknown) => parseGitHubSide(JSON.stringify({ ...gh(), calendar: c }))
   expect(bad(calendar)?.calendar).toEqual(calendar)
   for (const c of [{ weeks: [], days: [{ date: 'soon' }] }, { weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: 1 }], days: [] }, { weeks: [], days: Array.from({ length: 15 }, () => ({ date: '2026-11-06' })) }, { days: [] }, 'x']) expect(bad(c), JSON.stringify(c).slice(0, 60)).toBeNull()
+})
+
+test('a burst of likely automated tabs yesterday is something to look at; today\'s, or none, isn\'t', () => {
+  // NOW is 07:00 on 6 Nov in Vietnam: yesterday is the 5th.
+  const care = (readers: Overview['readers']) => needsCare(input({ overview: { ...quiet(), readers } })).filter(c => c.title.startsWith('Likely automated'))
+  expect(care([{ day: '2026-11-05', sessions: 3, readers: 1, automated: 97 }])).toEqual([{ title: 'Likely automated visits yesterday: 97 fresh tabs', text: 'A burst of new tabs from one country, each opening a different page. Left out of the readers.', href: '/_ab/doc-gia/' }])
+  expect(care([{ day: '2026-11-06', sessions: 3, readers: 1, automated: 40 }, { day: '2026-11-05', sessions: 3, readers: 1 }])).toEqual([])
 })

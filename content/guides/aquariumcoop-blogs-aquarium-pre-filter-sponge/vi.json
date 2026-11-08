@@ -10,5 +10,13 @@
     "bySource": {
       "aquariumcoop": 0.9
     }
+  },
+  "held": {
+    "checks": [
+      "kit",
+      "shop",
+      "units"
+    ],
+    "at": "2026-11-08"
   }
 }

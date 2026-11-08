@@ -1,28 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Gobiopterus_chuno_hi_res.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Gobiopterus_chuno_hi_res.jpg/500px-Gobiopterus_chuno_hi_res.jpg",
-   "width": 6000,
-   "height": 4000,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobiopterus_chuno_hi_res.jpg",
-   "caption": "Gobiopterus chuno (Glass Goby)",
-   "key": "File:Gobiopterus chuno hi res.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Neostethus_lankesteri_DSC_2968.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Neostethus_lankesteri_DSC_2968.jpg/500px-Neostethus_lankesteri_DSC_2968.jpg",
-   "width": 1280,
-   "height": 767,
-   "licence": "CC BY-SA 3.0",
-   "author": "Mike Noren",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neostethus_lankesteri_DSC_2968.jpg",
-   "caption": "Aquarium photo of adult male _Neostethus lankesteri_ (Atheriniformes: Phallostethidae). Found as contaminant in aquarium trade shipment of _Gobiopterus chuno_.",
-   "key": "File:Neostethus lankesteri DSC 2968.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Neostethus lankesteri DSC 2968.jpg",
+  "File:Gobiopterus chuno hi res.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/6d3728dddcff2104.webp": "8fe5e19f77e57f7f"
+ },
+ "commons": "2026-11-08"
 }

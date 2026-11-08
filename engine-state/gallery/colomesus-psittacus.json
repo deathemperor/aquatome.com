@@ -1,163 +1,45 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64539598/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/64539598/medium.jpg",
-   "width": 1952,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Gerry van Tonder",
-   "sourceUrl": "https://www.inaturalist.org/photos/64539598",
-   "key": "inat:64539598"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/701012966/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/701012966/medium.jpg",
-   "width": 1827,
-   "height": 1827,
-   "licence": "CC BY",
-   "author": "B. Phalan",
-   "sourceUrl": "https://www.inaturalist.org/photos/701012966",
-   "key": "inat:701012966"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/701778029/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/701778029/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "zebedeugalinha",
-   "sourceUrl": "https://www.inaturalist.org/photos/701778029",
-   "key": "inat:701778029"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/701779406/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/701779406/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "zebedeugalinha",
-   "sourceUrl": "https://www.inaturalist.org/photos/701779406",
-   "key": "inat:701779406"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/701779413/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/701779413/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "zebedeugalinha",
-   "sourceUrl": "https://www.inaturalist.org/photos/701779413",
-   "key": "inat:701779413"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/465973361/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/465973361/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Guillaume Delaitre",
-   "sourceUrl": "https://www.inaturalist.org/photos/465973361",
-   "key": "inat:465973361"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/167719689/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/167719689/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC0",
-   "author": "Max G.W. Verheij",
-   "sourceUrl": "https://www.inaturalist.org/photos/167719689",
-   "key": "inat:167719689"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/469416496/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/469416496/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Alan Kneidel",
-   "sourceUrl": "https://www.inaturalist.org/photos/469416496",
-   "key": "inat:469416496"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61955232/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/61955232/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Gerry van Tonder",
-   "sourceUrl": "https://www.inaturalist.org/photos/61955232",
-   "key": "inat:61955232"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61955253/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/61955253/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Gerry van Tonder",
-   "sourceUrl": "https://www.inaturalist.org/photos/61955253",
-   "key": "inat:61955253"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/463806356/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/463806356/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Guillaume Delaitre",
-   "sourceUrl": "https://www.inaturalist.org/photos/463806356",
-   "key": "inat:463806356"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/463806382/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/463806382/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Guillaume Delaitre",
-   "sourceUrl": "https://www.inaturalist.org/photos/463806382",
-   "key": "inat:463806382"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/50311231/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/50311231/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY-SA",
-   "author": "Sidnei Dantas",
-   "sourceUrl": "https://www.inaturalist.org/photos/50311231",
-   "key": "inat:50311231"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/700950928/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/700950928/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "B. Phalan",
-   "sourceUrl": "https://www.inaturalist.org/photos/700950928",
-   "key": "inat:700950928"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/700950826/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/700950826/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "B. Phalan",
-   "sourceUrl": "https://www.inaturalist.org/photos/700950826",
-   "key": "inat:700950826"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Colomesus psittacus.jpg",
   "File:PSM V68 D522 Calomesus psittacus.png",
-  "File:Colomesus psittacus 263802561.jpeg"
+  "File:Colomesus psittacus 263802561.jpeg",
+  "inat:64539598",
+  "inat:701012966",
+  "inat:701778029",
+  "inat:701779406",
+  "inat:701779413",
+  "inat:465973361",
+  "inat:167719689",
+  "inat:469416496",
+  "inat:61955232",
+  "inat:61955253",
+  "inat:463806356",
+  "inat:463806382",
+  "inat:50311231",
+  "inat:700950928",
+  "inat:700950826",
+  "inat:12434157",
+  "inat:61955110",
+  "inat:179274732",
+  "inat:179275604",
+  "inat:263802561",
+  "inat:700950825",
+  "inat:714708164",
+  "inat:714708171"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/6e3bf91357d80665.webp": "4f6fe8e8f1e3e503"
+  "https://media.aquatome.com/commons/6e3bf91357d80665.webp": "4f6fe8e8f1e3e503",
+  "https://media.aquatome.com/inaturalist/714708171.webp": "901418f666c4c470",
+  "https://media.aquatome.com/inaturalist/714708164.webp": "64ecf6b467676181"
  },
- "commons": "2026-11-07"
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 1508364,
+  "pass": "done",
+  "after": {
+   "research": 383427818,
+   "agree": 255002397
+  }
+ }
 }

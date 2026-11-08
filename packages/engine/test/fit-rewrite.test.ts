@@ -31,7 +31,7 @@ const found = (p: Page) => [
 ]
 
 /** A stand-in for the rewriter (each part it's given, changed) and its reviewer (a score). */
-const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?: number } = {}) => {
+const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?: number; hedges?: { from: string; to: string }[] } = {}) => {
   const calls: string[] = []
   const llm = (async ({ prompt, schema }: { prompt: string; schema: object }) => {
     if ((schema as { required: string[] }).required.includes('parts')) {
@@ -40,7 +40,7 @@ const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?:
       return { parts: [...prompt.matchAll(/### (\S+)\n(?:EN:\n[\s\S]*?\n)?VI:\n([\s\S]*?)(?=\n\n### |$)/g)].map(m => ({ id: m[1]!, vi: rewrite(m[2]!.trim()) })) }
     }
     calls.push('review')
-    return { score, notes: [] }
+    return { score, notes: [], hedges: o.hedges ?? [] }
   }) as Llm
   return { llm, calls }
 }
@@ -98,4 +98,24 @@ test('stopped part way, a page keeps the parts already kept, and is tried again 
   expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Vũng nước cạn, nhiều cỏ')
   expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/rewritten.json'), 'utf8')))).toEqual(['vi/species/danio-margaritatus'])
   expect(JSON.parse(await readFile(join(root, 'engine-state/_fit-rewrite.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test('a part said more surely than its English is not kept, however well its reviewer scores it', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  // The section's English hedges ("may"); a pair the reviewer makes from anything else counts for nothing.
+  const entityFile = join(root, 'content/species', ID, 'entity.json')
+  const entity = await readFile(entityFile, 'utf8')
+  await writeFile(entityFile, entity.replace('<p>[EN source text placeholder for habitat]</p>', '<p>Shallow, weedy ponds on the Shan Plateau, and may be rice paddies too.</p>'))
+  const p = await danio(root)
+  const before = await readFile(file, 'utf8')
+  const pair = { from: 'Shallow, weedy ponds on the Shan Plateau, and may be rice paddies too.', to: 'Vũng nước cạn, nhiều cỏ ở cao nguyên Shan, Myanmar.' }
+  const made = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.95, { hedges: [{ ...pair, from: 'Ponds, always.' }] })
+  expect((await fitRewrite(root, [p], reading(p, found(p)), { llm: made.llm, now: () => new Date() }, { limit: 5 })).rewritten).toHaveLength(1)
+  await writeFile(file, before)
+  const lost = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.95, { hedges: [pair] })
+  const r = await fitRewrite(root, [p], reading(p, found(p)), { llm: lost.llm, now: () => new Date() }, { limit: 5, retry: true })
+  expect(r.notKept).toHaveLength(1)
+  expect(r.notKept[0]).toContain('Said more surely than before')
+  expect(await readFile(file, 'utf8')).toBe(before)
 })

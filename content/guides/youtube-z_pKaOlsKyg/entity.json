@@ -9,7 +9,7 @@
     "pterophyllum-scalare",
     "astronotus-ocellatus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "z_pKaOlsKyg",
     "title": "HOW TO set up a saltwater aquarium as easy as a freshwater fish tank",
@@ -28,17 +28,14 @@
       "height": 720
     },
     "taxa": [
-      "Pseudotropheus saulosi",
-      "Tetraodon sp.",
+      "Tropheops sp.",
       "Arothron hispidus",
       "Amphiprion ocellaris",
       "Siganus vulpinus",
       "Zebrasoma desjardinii",
       "Paracanthurus hepatus",
-      "Balistidae sp.",
       "Pterapogon kauderni",
-      "Pterophyllum scalare",
-      "Astronotus ocellatus",
+      "Pangio sp.",
       "Polypterus sp."
     ],
     "gear": [
@@ -49,18 +46,13 @@
       },
       {
         "category": "loc",
-        "type": "bot-bien",
-        "t": 96
-      },
-      {
-        "category": "loc",
-        "type": "sump",
+        "type": "thung",
         "t": 128
       },
       {
         "category": "loc",
-        "type": "treo",
-        "t": 192
+        "type": "bot-bien",
+        "t": 128
       },
       {
         "category": "loc",
@@ -73,161 +65,176 @@
         "t": 648
       },
       {
-        "category": "khac",
-        "brand": "Aqua Decor",
-        "t": 668
-      },
-      {
-        "category": "khac",
-        "brand": "EcoTech Marine",
+        "category": "be-ca",
+        "brand": "Custom Aquariums",
         "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Bể ngọt, bể lợ và bể mặn khác nhau ở đâu",
+        "heading": "Bể ngọt, bể lợ và bể biển khác nhau ở đâu",
         "moments": [
           {
             "t": 10,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t10.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá lớn với đá và cá cảnh bơi phía trên lớp cát."
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá cảnh nước ngọt với cá lớn bơi trên nền đá."
           },
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t35.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá dài bày đá, cây và nền cát trắng."
+            "t": 45,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cá cichlid màu sặc sỡ giữa đá trong bể."
           }
         ]
       },
       {
-        "heading": "Đèn và lọc cho bể biển fish-only",
+        "heading": "Đèn và lọc có cần khác bể nước ngọt không",
         "moments": [
           {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t99.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dãy đèn thả pendant LED chiếu sáng phía trên bể cá biển."
+            "t": 125,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn lọc liền bể chứa sứ lọc vi sinh sau lớp mút."
           },
           {
-            "t": 124,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t124.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ngăn lọc chứa vật liệu lọc sinh học bằng gốm dạng viên tròn."
+            "t": 155,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn lọc nằm ngang có mút và sứ lọc, phía trên có đèn thả."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/z_pKaOlsKyg/p1-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/z_pKaOlsKyg/p1-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Bể lọc phụ tự làm bằng mica nhiều ngăn, có skimmer đặt trong ngăn lọc."
+        }
       },
       {
-        "heading": "Châm nước bay hơi và thay nước",
+        "heading": "Châm nước bay hơi và thay nước bể biển",
         "moments": [
           {
-            "t": 153,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t153.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ngăn lọc tràn với vật liệu lọc xếp hàng trong bể phụ."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thiết bị lọc gắn ở thành bể, mực nước thấp hơn mép bể."
           },
           {
-            "t": 158,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t158.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá và đá trong bể chính, nơi nước bay hơi cần châm bù."
+            "t": 235,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nước được châm vào bể qua thiết bị gắn trên thành bể."
           }
         ]
       },
       {
-        "heading": "Skimmer tách đạm hoạt động thế nào",
+        "heading": "Skimmer hoạt động thế nào và vì sao chỉ hợp với nước mặn",
         "moments": [
           {
-            "t": 218,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t218.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Skimmer treo sau bể, nằm sát mép kính phía trên mực nước."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thiết bị lọc gắn bên hông bể, cận cảnh."
           }
         ]
       },
       {
-        "heading": "Cho nước chảy chậm qua nhiều vật liệu lọc",
+        "heading": "Lọc chạy chậm, vi khuẩn kỵ khí và chuyện đỡ phải thay nước",
         "moments": [
           {
-            "t": 223,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t223.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bộ lọc gắn bên thành bể, nước chảy qua khối vật liệu lọc."
+            "t": 385,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn lọc tràn dài chất đầy vật liệu lọc dạng khối."
           },
           {
-            "t": 233,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t233.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nước từ lọc chảy ra mặt bể, tạo bọt trắng."
+            "t": 390,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at390-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hàng vật liệu lọc xếp dài trong hộp lọc tràn."
           }
         ]
       },
       {
-        "heading": "Chọn cá và chuyện hòa thuận",
+        "heading": "Trang trí bể biển theo kiểu bể nước ngọt",
         "moments": [
           {
-            "t": 693,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t693.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá đuôi gai buồm và cá hề sọc đen trắng bơi gần đá."
+            "t": 655,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at655-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể biển xếp đá rời cùng màu, có cá hề và cá nóc."
           },
           {
-            "t": 698,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t698.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá nóc chấm trắng bơi giữa đá cùng vài con cá hề nhỏ."
+            "t": 660,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đá rời và lớp cát san hô vụn trắng rải trên nền bể."
           }
         ]
       },
       {
-        "heading": "Khi nào cần nghĩ đến san hô",
+        "heading": "Chọn cá và nuôi chung trong bể chỉ nuôi cá",
         "moments": [
           {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t540.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể fish-only nền cát trắng, đá nhiều, có cá nóc và cá tang."
+            "t": 705,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at705-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nóc đốm bơi gần đá, có cá hề nhỏ bơi bên cạnh."
           },
           {
-            "t": 723,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t723.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá tang sọc bơi gần tảng đá trong bể fish-only."
+            "t": 710,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at710-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nóc sao sọc màu trắng vàng bơi giữa hốc đá, cạnh cá hề."
           }
         ]
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Muốn nuôi san hô thì cần gì thêm",
         "moments": [
           {
             "t": 520,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t520.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá nóc cùng vài loài cá khác bơi trong bể đá nền cát trắng."
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể cá có nền cát trắng và các tảng đá lớn."
           },
           {
-            "t": 535,
-            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/t535.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá nóc bơi gần hốc đá, bể fish-only bày đá gọn gàng."
+            "t": 525,
+            "url": "https://media.aquatome.com/video/z_pKaOlsKyg/at525-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể biển chỉ nuôi cá với đá dựng cao, cá nóc và cá cảnh bơi quanh."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/z_pKaOlsKyg/p7-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/z_pKaOlsKyg/p7-BcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "EgorovaSvetlana",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sea_anemones_New_England_Aquarium.jpg",
+          "caption": "Bể san hô với nhiều hải quỳ đủ màu mọc dày trên đá."
+        }
       }
     ]
   }

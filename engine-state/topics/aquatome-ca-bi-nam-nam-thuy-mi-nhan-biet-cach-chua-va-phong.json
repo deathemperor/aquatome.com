@@ -17,7 +17,7 @@
     {
       "url": "https://en.engormix.com/aquaculture/aquaculture-health/aquaculture-health-management-fungal_a34057/",
       "title": "Saprolegniasis (UF Florida Cooperative Extension Fact Sheet VM 97, Klinger & Francis-Floyd), republished on Engormix",
-      "kind": "university"
+      "kind": "farm"
     },
     {
       "url": "https://www.practicalfishkeeping.co.uk/features/the-a-z-of-fish-health-part-4-s-z/",
@@ -32,17 +32,22 @@
     {
       "url": "https://tepbac.com/disease/full/101/benh-nam-thuy-mi-tren-ca",
       "title": "Bệnh nấm thuỷ mi trên cá (Tepbac)",
-      "kind": "article"
+      "kind": "farm"
     },
     {
       "url": "https://thuysanvietnam.com.vn/phong-benh-nam-thuy-mi-cho-ca-nuoi/",
       "title": "Phòng bệnh nấm thủy mi cho cá nuôi (Tạp chí Thủy sản Việt Nam)",
-      "kind": "article"
+      "kind": "farm"
     },
     {
       "url": "https://www.aquariadise.com/columnaris/",
       "title": "Columnaris (Aquariadise)",
       "kind": "article"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/dips-to-remove-ectoparasites",
+      "title": "Table: Dips to Remove Ectoparasites-Merck Veterinary Manual",
+      "kind": "vet"
     }
   ],
   "facts": [
@@ -228,11 +233,6 @@
     },
     {
       "section": "treatment",
-      "fact": "Bath in NaCl 2–3% for 15–30 minutes, or malachite green 0.1 ppm.",
-      "source": 4
-    },
-    {
-      "section": "treatment",
       "fact": "For sick farmed fish, bathe in formalin at 200–250 ml/m³ for about 30 minutes.",
       "source": 5
     },
@@ -335,6 +335,11 @@
       "section": "other",
       "fact": "Malachite green is now used less because of restrictions in several regions, though some preparations still contain it.",
       "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "A salt dip for freshwater fish, as the Merck Veterinary Manual gives it to remove external parasites: usually 30 g/L for 0.5–10 minutes, depending on species. A fish in distress, commonly rolling onto its side, is taken out of the bath at once.",
+      "source": 7
     }
   ]
 }

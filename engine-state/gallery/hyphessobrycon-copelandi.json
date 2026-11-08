@@ -1,38 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11754219/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/11754219/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Julien Renoult",
-   "sourceUrl": "https://www.inaturalist.org/photos/11754219",
-   "key": "inat:11754219"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Hyphessobrycon_copelandi_%28MZUEL_7814%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Hyphessobrycon_copelandi_%28MZUEL_7814%29.png/500px-Hyphessobrycon_copelandi_%28MZUEL_7814%29.png",
-   "width": 1700,
-   "height": 625,
-   "licence": "CC BY 4.0",
-   "author": "Lucas Ribeiro Jarduli, Alexander Claro-García, Oscar Akio Shibatta",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_copelandi_(MZUEL_7814).png",
-   "caption": "Hyphessobrycon copelandi, 17.8 mm, MZUEL 7814.",
-   "key": "File:Hyphessobrycon copelandi (MZUEL 7814).png"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/1018-5674-fa-32-02-e32682-gf4.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/1018-5674-fa-32-02-e32682-gf4.jpg/500px-1018-5674-fa-32-02-e32682-gf4.jpg",
-   "width": 658,
-   "height": 826,
-   "licence": "CC BY 4.0",
-   "author": "Morgan RUIZ-TAFUR, Edgard Leonardo DÁVILA-PANDURO, Ivon CISNEROS-ORTIZ, Junior C",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:1018-5674-fa-32-02-e32682-gf4.jpg",
-   "caption": "Figura 4 Huachana lake fish species. (A) Acestrorhynchus heterolepis, (B) Serrasalmus sanchezi, (C) Ctenobrycon hauxwellianus, (D) Hemigrammus hyanuary, (E) Hem",
-   "key": "File:1018-5674-fa-32-02-e32682-gf4.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "inat:11754219",
+  "File:Hyphessobrycon copelandi (MZUEL 7814).png",
+  "File:1018-5674-fa-32-02-e32682-gf4.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {},
+ "commons": "2026-11-08"
 }

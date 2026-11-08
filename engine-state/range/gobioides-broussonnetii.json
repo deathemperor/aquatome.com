@@ -1,0 +1,317 @@
+{
+  "id": "gobioides-broussonnetii",
+  "native": {
+    "input": "3b67caaae4bab164",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "KY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Cayman Islands",
+        "ok": true
+      },
+      {
+        "code": "TC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Turks Caicos",
+        "ok": false,
+        "why": "\"Turks Caicos\" is not TC"
+      },
+      {
+        "code": "CU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Cuba",
+        "ok": true
+      },
+      {
+        "code": "HT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Haiti",
+        "ok": true
+      },
+      {
+        "code": "DO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Dominican Republic",
+        "ok": true
+      },
+      {
+        "code": "JM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Jamaica",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+        "words": "Puerto Rico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF",
+        "TC"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gobioides broussonnetii",
+    "status": "ACCEPTED",
+    "taxonKey": 2379131,
+    "datasets": [
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        30
+      ],
+      [
+        "cd31232e-57a9-4777-ab9d-406333c42769",
+        29
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        7
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        7
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        4
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        4
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        4
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        1
+      ],
+      [
+        "80540bc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "969d55f6-ed52-4be9-a6dd-7afeccdfde76",
+        1
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        1
+      ],
+      [
+        "d22863c3-aff9-4f91-b727-dc3ece083694",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "ee21cfcd-9f34-47f0-ab46-9b21e9db5c5a",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "US",
+      "MX",
+      "BZ",
+      "GY",
+      "VE",
+      "CO",
+      "BR",
+      "KY",
+      "CU",
+      "HT",
+      "DO",
+      "JM",
+      "PR"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

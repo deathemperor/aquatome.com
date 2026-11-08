@@ -13,6 +13,104 @@
     "thailand",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "KH",
+        "TH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given simply as 'Cambodia' but this species has been recorded throughout the middle and lower Mekong river system in Laos, Cambodia and Thailand.",
+          "countries": [
+            "LA",
+            "KH",
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338248,
+      "total": 18,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          9
+        ],
+        [
+          "KH",
+          8
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -76,6 +174,39 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-filamentus",
       "caption": "Subadult specimen from the Mekong basin in Thailand.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/e769d969c113133c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e769d969c113133c-480.webp",
+      "width": 500,
+      "height": 238,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_filamentus.htm",
+      "caption": "Hemibagrus filamentus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ab7aceb6488c2d3e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ab7aceb6488c2d3e-480.webp",
+      "width": 500,
+      "height": 216,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_filamentus.htm",
+      "caption": "Hemibagrus filamentus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1b915fcff0d701c8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1b915fcff0d701c8-480.webp",
+      "width": 500,
+      "height": 272,
+      "licence": "dùng với sự cho phép",
+      "author": "Dr. Nasser Halaweh / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_filamentus.htm",
+      "caption": "Hemibagrus filamentus: In Siam Aquarium, Thailand 2006",
+      "source": "scotcat"
     }
   ],
   "videos": [],

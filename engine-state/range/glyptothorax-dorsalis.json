@@ -1,0 +1,86 @@
+{
+  "id": "glyptothorax-dorsalis",
+  "native": {
+    "input": "d4e4e408bf05b45e",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Glyptothorax dorsalis Vinciguerra, 1890. Type locality: Meetan, Upper Myanmar. Size: 120 mm (4.7\") SL. Distinguished by its cream-colored nuchal plate (bone at the base of the dorsal spine).",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Manipur Valley, India and Myanmar. Salween basin. Manipur.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Manipur Valley, India and Myanmar. Salween basin. Manipur.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "planetcatfish",
+        "quote": "Asia: Manipur Valley, India and Myanmar. Salween basin. Manipur.",
+        "ok": true
+      },
+      {
+        "name": "Manipur Valley",
+        "source": "planetcatfish",
+        "quote": "Asia: Manipur Valley, India and Myanmar. Salween basin. Manipur.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptothorax dorsalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2341419,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

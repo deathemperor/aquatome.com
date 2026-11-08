@@ -1,90 +1,19 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/417534815/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/417534815/medium.jpg",
-   "width": 2048,
-   "height": 2024,
-   "licence": "CC BY",
-   "author": "Rejoice Gassah",
-   "sourceUrl": "https://www.inaturalist.org/photos/417534815",
-   "key": "inat:417534815"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64089989/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/64089989/medium.jpg",
-   "width": 2048,
-   "height": 1604,
-   "licence": "CC BY",
-   "author": "Rejoice Gassah",
-   "sourceUrl": "https://www.inaturalist.org/photos/64089989",
-   "key": "inat:64089989"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280289073/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/280289073/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Swarochi Tathagath",
-   "sourceUrl": "https://www.inaturalist.org/photos/280289073",
-   "key": "inat:280289073"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280289032/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/280289032/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Swarochi Tathagath",
-   "sourceUrl": "https://www.inaturalist.org/photos/280289032",
-   "key": "inat:280289032"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/280289057/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/280289057/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Swarochi Tathagath",
-   "sourceUrl": "https://www.inaturalist.org/photos/280289057",
-   "key": "inat:280289057"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46249661/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/46249661/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Rohit Naniwadekar",
-   "sourceUrl": "https://www.inaturalist.org/photos/46249661",
-   "key": "inat:46249661"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/417534696/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/417534696/medium.jpg",
-   "width": 2048,
-   "height": 1492,
-   "licence": "CC BY",
-   "author": "Rejoice Gassah",
-   "sourceUrl": "https://www.inaturalist.org/photos/417534696",
-   "key": "inat:417534696"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/153148620/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/153148620/medium.jpeg",
-   "width": 1152,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Anirban Datta-Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/153148620",
-   "key": "inat:153148620"
-  }
+ "queue": [],
+ "judged": [
+  "inat:417534815",
+  "inat:64089989",
+  "inat:280289073",
+  "inat:280289032",
+  "inat:280289057",
+  "inat:46249661",
+  "inat:417534696",
+  "inat:153148620"
  ],
- "judged": [],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/24447672c47ab58e.webp": "e43cdcc937965418",
-  "https://media.aquatome.com/seriouslyfish/b725af3de65460dd.webp": "0706030387063c27"
+  "https://media.aquatome.com/seriouslyfish/b725af3de65460dd.webp": "0706030387063c27",
+  "https://media.aquatome.com/inaturalist/64089989.webp": "da48251647c7ca26"
  },
  "commons": "2026-11-08"
 }

@@ -2,7 +2,12 @@
   "id": "microrasbora-rubescens",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 10,
+  "schoolMin": 8,
   "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-04T16:28:07.625Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T14:13:15.430Z"
 }

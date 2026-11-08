@@ -428,7 +428,7 @@ public enum PageRoute: Equatable, Sendable {
     return .outside
   }
 
-  private static func bare(_ host: String?) -> String? {
+  static func bare(_ host: String?) -> String? {
     guard let h = host?.lowercased() else { return nil }
     return h.hasPrefix("www.") ? String(h.dropFirst(4)) : h
   }
@@ -447,6 +447,20 @@ enum AboutTheSite {
     var lang = SiteLanguage.vietnamese
     if let l = SiteLanguage.served(parts.first ?? "") { lang = l; parts.removeFirst() }
     return parts.first.map { first in sections.contains { lang.word($0) == first } } ?? false
+  }
+}
+
+/// A page of the site that our own copies of the app open in the browser, marked (`aqcheck=1`): the site then leaves that
+/// browser's visits out of its reader stats, as it leaves out the app's own web view under `AccountsClient.ourCopy`.
+public enum SiteMark {
+  public static let item = URLQueryItem(name: "aqcheck", value: "1")
+
+  /// `url` with the mark when it's on the site (www. or not); anything else as it is.
+  public static func marked(_ url: URL, site: URL) -> URL {
+    guard ["http", "https"].contains(url.scheme?.lowercased() ?? ""), PageRoute.bare(url.host) == PageRoute.bare(site.host),
+          var parts = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return url }
+    parts.queryItems = (parts.queryItems ?? []) + [item]
+    return parts.url ?? url
   }
 }
 

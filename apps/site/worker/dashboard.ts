@@ -18,6 +18,8 @@ import { listReports } from './daily/log'
 import { clicksByKind, listSnapshots, loadContentStats, loadLowScores, pagesByRef, queryContentReads, talkByPage } from './admin/content'
 import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
+import { loadGsc, loadSignals, qualityJson, queryQuality } from './admin/quality'
+import type { ContentStats } from './admin/content-shape'
 import { commentItem, COMMENTS_FORM, COMMENTS_PATH, commentsPage, commentsSection, commentWeek, decideComment, EXPIRED, GONE, listComments, readCursor, stateOf, type CommentItem, type CommentState } from './admin/comments'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
 import { appPage, appSection, queryApp } from './admin/app'
@@ -171,6 +173,11 @@ async function markCommentPhotos(env: AdminEnv, origin: string, photos: (RecentP
     if (page) p.comment = { page, ...(paths?.get(page) ? { path: paths.get(page)!.path } : {}) }
   }
 }
+/** The content page's quality part (admin/quality.ts): the beacon's last 28 days, Search Console's figures in KV, this build's page signals and the names readers asked for. */
+export async function loadQuality(env: AdminEnv, origin: string, a: { account: string; token: string }, stats: ContentStats) {
+  const [gsc, signals, wanted] = await Promise.all([loadGsc(env.AB), env.ASSETS ? loadSignals(env.ASSETS, origin) : undefined, listWanted(env.AB).then(w => w.names, () => [])])
+  return queryQuality(a.account, a.token, stats, gsc ?? undefined, signals, wanted)
+}
 export const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
 type Load<T> = (env: AdminEnv, url: URL, now: Date, tz: string) => Promise<T>
@@ -268,12 +275,13 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     const a = ae(env)
     const [stats, low, snapshots] = await Promise.all([contentOf(env, url.origin), env.ASSETS ? soft('reviews', loadLowScores(env.ASSETS, url.origin)) : undefined, soft('snapshots', listSnapshots(env.AB))])
     const off = (what: string): Soft<never> => (isFailed(stats) ? { failed: 'Không có content.json.' } : unset(what))
-    const [reads, talk, clicks] = await Promise.all([
+    const [reads, talk, clicks, quality] = await Promise.all([
       a && !isFailed(stats) ? soft('content reads', queryContentReads(a.account, a.token, stats, 30)) : off(NO_AE),
       env.DB && !isFailed(stats) ? soft('content talk', talkByPage(env.DB, stats)) : off('D1'),
       env.DB && !isFailed(stats) ? soft('content clicks', clicksByKind(env.DB, stats, now)) : off('D1'),
+      a && !isFailed(stats) ? soft('quality', loadQuality(env, url.origin, a, stats)) : off(NO_AE),
     ])
-    return { now, tz, stats, low, reads, talk, clicks, snapshots }
+    return { now, tz, stats, low, reads, talk, clicks, snapshots, quality }
   }, contentPage, contentSection),
   '/_ab/doc-gia/': view(async (env, _url, now, tz) => {
     const a = ae(env)
@@ -367,6 +375,14 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     // The build reads this (Bearer token) to drop hidden pages from lists, sitemap and search.
     if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
     return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
+  }
+  if (path === '/_ab/noi-dung/quality.json') {
+    // The quality lists for the writers' rewrite queue (Bearer token) as for the owner.
+    if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
+    const a = ae(env)
+    const stats = env.ASSETS ? await loadContentStats(env.ASSETS, url.origin) : undefined
+    if (!a || !stats) return Response.json({ error: 'not_configured' }, { status: 503, headers: { 'cache-control': 'no-store' } })
+    return Response.json(qualityJson(await loadQuality(env, url.origin, a, stats)), { headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
   }
   if (path === '/_ab/thanh-cong.json') {
     // The scoreboard as data, for the site lead (Bearer token) as for the owner; only its counts, nobody's details.

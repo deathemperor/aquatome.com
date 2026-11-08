@@ -13,6 +13,128 @@
     "vietnam",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Garra fuliginosa is a cyprinid from the Mekong basin in Thailand, Laos, Vietnam and Cambodia, and the Chao Phraya and Mae Klong in Thailand.",
+          "countries": [
+            "TH",
+            "LA",
+            "VN",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in the Mekong river basin in Thailand, Laos, Vietnam, and Cambodia, the Chao Phraya and Mae Klong systems in central and western Thailand, and some smaller drainages in peninsular Thailand.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366747,
+      "total": 15,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          9
+        ],
+        [
+          "LA",
+          3
+        ],
+        [
+          "VN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

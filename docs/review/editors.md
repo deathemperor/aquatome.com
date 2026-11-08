@@ -5,6 +5,15 @@ naturalness findings, and how many the corpus check held (the phrase is far rare
 the site, and hobbyists use the replacement). A seat that judges a language well has most of its findings held over two
 rounds or more; the skill's "Weighing the seats" says what that changes.
 
+## To read again with all four seats, after 16 Nov 2026
+
+Until 16 Nov the editors sit with Anthropic and xAI only (the owner, 2026-11-08). What first shipped on those two-editor
+scores, to be read again by all four:
+- the app's card copy: the calendar's themes, shelf titles and story cards (`content/curation.json`);
+- the first two Hôm nay cards, medaka and climbing perch (`content/cards`);
+- the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`chat-brief.md`);
+- the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
+
 ## The app's card copy (2026-11-08)
 
 Seven rounds on the calendar's themes, shelf titles and story cards (`content/curation.json`), with the Anthropic and
@@ -23,9 +32,38 @@ xAI seats only; OpenAI and Google were out on the Cursor limit. These aren't in 
     which round 4 had brought in.
   - The beginners' shelf in two beats (xAI alone): "cocok untuk pemula" and "sesuai untuk pemula", both the site's own
     words.
+- **Week 4, African fish (rounds 12 and 14).** Vietnamese 9 from both seats in round 12. Two findings came from one
+  seat each, and neither held:
+  - Indonesian "Ikan aneh" for "Ikan unik" (xAI): the site's pages say "ikan unik (oddball)", never "ikan aneh".
+  - Thai "ปลาหมอสี…" for the lakes shelf (Anthropic): the shelf holds a catfish, so "ปลาหมอสี" would be wrong once its
+    Thai page exists.
+  With those reasons given, both seats scored all three at 9 in round 14.
 - **Labels, not wording.** Most findings were labels that promised more than the pages say: goldfish on a cold shelf,
   a Thai betta on a native one, a ram among small schooling fish. Each became a planner rule
   (`packages/engine/src/curation.ts`), so they're not counted against the seats.
+
+## The app's trivia cards (2026-11-08)
+
+Rounds 8–11 on the first two Hôm nay cards (`content/cards`), Vietnamese, each one fact from dated papers. The Anthropic
+and xAI seats only; OpenAI and Google were out on the Cursor limit. Lowest of four, Anthropic then xAI: medaka 8/7, 9/7,
+8/9, 9/9; climbing perch 6/6, 9/7, 9/9. Round 11's last finding (xAI: "Hai trong 8 con nở" read as only two
+hatching, which Anthropic also stopped on) was taken after both scored 9. Not in the tallies below.
+- **Faithfulness, both seats, every round:** a detail from the fish's page cited as the paper's ("vài trăm mét", "có
+  gai", "thân sau", "xòe"); a hedge tightened ("chỉ" for the paper's "predominantly"); one clause carrying two facts,
+  so the limit on one stuck to the other (the 43 eggs read as the first week's); a conclusion left outside its citation,
+  so it read as ours. A card's every sentence now sits on the source it names.
+- **Held, one seat:** "bắt cặp" for a third "giao phối" (Anthropic; 37 a million words in the forum, against 16); "hạ
+  cánh" for "về mặt đất" (Anthropic); the hatch's second half, so 8 of 43 doesn't read as a failure (xAI).
+- **The eyebrow:** both seats found "Có thể bạn chưa biết" a stale banner, close to the style guide's "bạn có biết".
+  "Chuyện ít ai biết" (Anthropic) held; "Chuyện ít kể" (xAI) wasn't taken. Neither is in the references: a rubric.
+- **The glass catfish's name (rounds 13 and 14):** 7 and 8, then 9 and 9. Both seats raised the same four, all taken:
+  - "chứng minh" became "cho thấy", the paper's "indicates" (faithful);
+  - "nhà ngư học" became "nhà khoa học" (0 in the forum, against 11 a million words);
+  - "gọi nhầm bằng tên của … và" became "gọi nhầm là … hoặc";
+  - "sách báo cũ vẫn" became "sách báo in trước năm 2013 thường", the page's "phần lớn tài liệu".
+  No pronoun for the two authors, so as not to guess their gender.
+- **Split:** "tạp chí" before a journal's name (Anthropic: always; xAI: never before "Journal of…", which stutters).
+  It stays before a name that doesn't say it's a journal.
 
 ## Vietnamese
 
@@ -38,12 +76,12 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3–10 | 106 | 75 | 14 | 17 | yes, but check every name it offers |
+| Anthropic (`claude-opus-5-5`) | 3–11 | 117 | 80 | 18 | 19 | yes, but check every name it offers |
 | OpenAI (`gpt-5.6-sol`) | 3–8 | 41 | 31 | 4 | 6 | yes |
 | Google (`gemini-4-argon`) | 3–8 | 72 | 58 | 9 | 5 | yes, but check every name it offers |
-| xAI (`grok-4.7`) | 3–10 | 82 | 56 | 11 | 15 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3–11 | 91 | 62 | 12 | 17 | yes, but check every name it offers |
 
-Of the findings the check settled, every seat's held three times in four or better over six rounds (eight for
+Of the findings the check settled, every seat's held three times in four or better over six rounds (nine for
 Anthropic and xAI). Where Anthropic, Google and xAI went wrong, it was mostly a name: a fish or a term they offered that
 no hobbyist writes. A name a seat offers is checked in the references before it goes anywhere.
 
@@ -141,3 +179,31 @@ word, Anthropic calls it Northern now, and neither reference has it: open.
 Both seats found the summary and a section's first line firmer than the facts ("thường do", "cá nào cũng chịu", "dễ
 nhận nhất", "thì nó mới không quay lại"). Anthropic found the salt table's "không dùng muối biển" next to "muối hột",
 which a Vietnamese reader takes for sea salt; the source means marine-tank salt.
+
+Round 11 (2026-11-08), the same three guides written again after the facts step kept its hedges, the Maracyn 2 warning
+reached the writer, preventive treatment became one way by each label, and a note that could harm fish began to hold a
+guide (#869). The engine kept none of the three: quarantine for a hardened "can", algae for a safety claim that reads
+as true of any shop product, the shopping list as a kit. Scores, lowest of four: blue-green algae 7, 6; quarantine 7,
+6; shopping list 7, 7 (Anthropic, xAI). Faithfulness set every score: with the facts in the packet, both seats found the
+"can"s the hedge check missed ("cũng yếu dần", "xử nốt phần chưa trị: tẩy giun", "cũng bị hại theo"), so the
+reviewer is now handed the hedged facts by the code rather than left to find them. On the same three texts it then found
+6 hardened sentences in quarantine (5 before, "xử nốt phần chưa trị: tẩy giun" among the new) and 4 in algae (1
+before). Three of algae's were list items under "Nước có thể bị đọng trong mấy trường hợp sau:", whose lead-in carries
+the hedge, so an item now takes its list's lead-in's hedge.
+
+Held by the references, both seats: "kém chịu kháng sinh" (0), "bỏng pH" (0; the replacement is open: "sốc pH" 1.3 is
+another harm, "bỏng da" 1.3), "gầy rộc" (0 in either reference, the species pages' 14; "gầy" 37), and "ăn đèn" (0;
+"chiếu đèn" 16), which Anthropic left open in round 10. One seat: "gần như không" (4 in the forum against the pages'
+142 to 168; "hầu như không" 18.5, "ít khi" 28) and "việc đầu tiên là" (0; "đầu tiên là" 129 in the videos), both xAI;
+"dây hơi" (0; "dây oxy" 7.9) and "người cho đẻ" (0; "ép đẻ" 30), both Anthropic. The five not already on the list are
+on it now. Dropped: "có dịp" (both; 93 in the forum, as in round 9), "căng thẳng" (Anthropic; 65 in the forum against
+"bị stress" 21), "không bị ảnh hưởng", as in round 6, and "nhớt xanh" (Anthropic; 30 in the videos). Open: "đúng từng
+chữ", "đi kèm" (Anthropic); "cuống" for "hoảng", "ngấm" (xAI).
+
+Both seats: the safety claim placed beside "Ở tiệm có bán…", which the engine had already held; the plain "or" written
+"một thứ hoặc cả hai", now the rule only for the facts' "and/or"; and the shopping list's merged tanks (two lids, the
+1.2 m tanks' heaters and filters), which stays held as a kit. Anthropic found the prompt's own words in the prose ("theo
+nhãn của chính thuốc đó", "mỗi thuốc theo liều và lịch trên nhãn của nó"), and the market table's house line on new
+fish brought into the shopping list, whose facts never take it up: the writer now writes "Liều và lịch theo nhãn.", the
+house line is a note, not a sentence, and it's written only where the facts take up that topic.
+

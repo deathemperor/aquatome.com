@@ -1,0 +1,58 @@
+{
+  "id": "geophagus-brokopondo",
+  "native": {
+    "input": "e7159f0516223328",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Suriname River drainage, Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Suriname River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Suriname River drainage, Suriname.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Brokopondo Reservoir",
+        "source": "seriouslyfish",
+        "quote": "When described it was known only from Brokopondo Reservoir, a large artificial lake in the northwest of the country formed by a dam constructed in the 1960s and officially named 'Prof. Dr. Ir. W.J. van Blommestein Meer'.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus brokopondo",
+    "status": "ACCEPTED",
+    "taxonKey": 5208429,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

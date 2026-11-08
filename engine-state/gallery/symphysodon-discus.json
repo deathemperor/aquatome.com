@@ -1,16 +1,5 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/409250999/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/409250999/medium.jpg",
-   "width": 1332,
-   "height": 1776,
-   "licence": "CC BY",
-   "author": "Igor Balashov",
-   "sourceUrl": "https://www.inaturalist.org/photos/409250999",
-   "key": "inat:409250999"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Blue Discus.jpg",
   "File:Symphysodon discus 01.jpg",
@@ -42,7 +31,8 @@
   "File:Symphysodon discus center4.jpg",
   "File:Symphysodon discus orange6.jpg",
   "File:Symphysodon, Acará disco A74260220241123.jpg",
-  "inat:745126079"
+  "inat:745126079",
+  "inat:409250999"
  ],
  "hashes": {},
  "inat": {

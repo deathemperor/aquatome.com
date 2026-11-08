@@ -10,6 +10,59 @@
     "suriname",
     "suriname-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR"
+      ],
+      "regions": [
+        "Suriname River",
+        "Brokopondo Reservoir"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Suriname River drainage, Suriname.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Suriname River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "When described it was known only from Brokopondo Reservoir, a large artificial lake in the northwest of the country formed by a dam constructed in the 1960s and officially named 'Prof. Dr. Ir. W.J. van Blommestein Meer'.",
+          "countries": [],
+          "regions": [
+            "Brokopondo Reservoir"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208429,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "SR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

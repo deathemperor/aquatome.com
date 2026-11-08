@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { cp, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -12,7 +12,7 @@ const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candida
   const px = o.px ?? 1200
   return {
     kind: 'species', id, ref: `species/${id}`, path: `/vi/ca/${id}/`, name: id, fit: true, indexable: true, demand: 0,
-    facts: { places: [], coldwater: false }, photo: { square: { url, px }, wide: { url, px } }, checked: { [url]: { square: px, wide: px } }, ...o,
+    facts: { places: [], coldwater: false }, photo: { square: { url, px }, guide: { url, px }, wide: { url, px } }, checked: { [url]: { square: px, guide: px, wide: px } }, ...o,
   }
 }
 const guide = (id: string, o: Partial<Candidate> = {}): Candidate => ({ ...fish(id, { px: 600 }), kind: 'guides', ref: `guides/${id}`, path: `/vi/huong-dan/${id}/`, ...o })
@@ -22,6 +22,38 @@ test('a photo fills a card by its pixels across once cropped to the card\'s shap
   expect(across({ width: 1200, height: 800 }, 'square')).toBe(762)
   expect(across({ width: 1200, height: 800 }, 'wide')).toBe(1200)
   expect(across({ width: 1200, height: 1280 }, 'square')).toBe(1200)
+})
+
+test('a guide or story card takes a 16:9 photo: a video still fills it that a fish card would crop to half', async () => {
+  const still = { width: 1280, height: 720 }
+  expect(across(still, 'guide')).toBe(1280)
+  expect(across(still, 'square')).toBe(686)
+  const { photosFor } = await import('../src/curation')
+  const ph = (n: number) => ({ url: big(n), ...still, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'https://example.org' })
+  const g = { ...guide('g1'), ...photosFor([ph(7)], () => true) }
+  const small = { ...guide('g2'), ...photosFor([{ ...ph(8), width: 640, height: 360 }], () => true) }
+  // A guide kept from an earlier plan gets its photo; one whose photos are all too small is kept, without one.
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [
+    { date: '2026-11-09', guide: 'guides/g1', story: { page: 'guides/g1' } },
+    { date: '2026-11-10', guide: 'guides/g2', guideImg: big(8) },
+  ] })
+  const { calendar, report } = plan(cur, [fish('a'), fish('b'), g, small], '2026-11-09', 2)
+  expect(report.replaced).toEqual([])
+  expect(calendar.days[0]).toMatchObject({ guide: 'guides/g1', guideImg: big(7), story: { page: 'guides/g1', img: big(7) } })
+  expect(calendar.days[1]!.guide).toBe('guides/g2')
+  expect(calendar.days[1]!.guideImg).toBeUndefined()
+  expect(checkCalendar(calendar, [fish('a'), fish('b'), g, small], '2026-11-09', 2)).toEqual([])
+})
+
+test('two guides of the same kind or source never run on consecutive days', () => {
+  const g = (id: string, group: string) => guide(id, { group })
+  const cands = [fish('a'), fish('b'), fish('c'), g('d1', 'disease'), g('d2', 'disease'), g('s1', 'setup')]
+  const { calendar } = plan(empty, cands, '2026-11-09', 3)
+  const kinds = calendar.days.map(d => cands.find(c => c.ref === d.guide)?.group)
+  expect(kinds).toEqual(['disease', 'setup', 'disease'])
+  // Nor two from one source, whatever their kinds.
+  const blog = [fish('a'), fish('b'), guide('b1', { group: 'care', source: 'blog' }), guide('b2', { group: 'setup', source: 'blog' }), guide('v1', { group: 'disease', source: 'video' })]
+  expect(plan(empty, blog, '2026-11-09', 2).calendar.days.map(d => d.guide)).toEqual(['guides/b1', 'guides/v1'])
 })
 
 test('a page is featured only if it passes reader fit and has a checked photo big enough for the card', () => {
@@ -85,16 +117,30 @@ test('a day\'s card is there to show: written in a language the gate lets out, w
   ])
   await card('ok', { vi: {}, th: { held: { checks: ['elsewhere'], at: '2026-11-08' } } })
   await card('held', { vi: { held: { checks: ['source'], at: '2026-11-08' } } })
+  // A card whose files don't parse is listed, and the rest still read.
+  await mkdir(join(root, 'content', 'cards', 'broken'), { recursive: true })
+  await writeFile(join(root, 'content', 'cards', 'broken', 'entity.json'), JSON.stringify({ id: 'broken', type: 'trivia', show: { from: '2026-11-10', until: '2026-11-11' }, updatedAt: '2026-11-08' }))
+  await mkdir(join(root, 'content', 'cards', 'not-json'), { recursive: true })
+  await writeFile(join(root, 'content', 'cards', 'not-json', 'entity.json'), '{')
   const cards = await cardsOf(root)
+  expect(cards.get('cards/broken')).toEqual({ bad: 'sources: Invalid input: expected array, received undefined' })
+  expect(cards.get('cards/not-json')).toMatchObject({ bad: expect.stringMatching(/JSON/) })
   expect(cards.get('cards/ok')).toEqual({ show: { from: '2026-11-10', until: '2026-11-11' }, langs: ['vi'] })
+  // A fair in Bangkok shows only in Thai: its Vietnamese card is the translators' source.
+  const e = JSON.parse(await readFile(join(root, 'content', 'cards', 'ok', 'entity.json'), 'utf8'))
+  await mkdir(join(root, 'content', 'cards', 'fair'), { recursive: true })
+  await writeFile(join(root, 'content', 'cards', 'fair', 'entity.json'), JSON.stringify({ ...e, id: 'fair', type: 'event', event: { start: '2026-11-10', end: '2026-11-11', place: 'Bangkok', country: 'TH', organiser: 'A club' } }))
+  for (const lang of ['vi', 'th']) await writeFile(join(root, 'content', 'cards', 'fair', `${lang}.json`), JSON.stringify({ eyebrow: 'e', title: 't', body: '<p>b</p>' }))
+  expect((await cardsOf(root)).get('cards/fair')).toMatchObject({ langs: ['th'] })
   const cands = [fish('a'), guide('g')]
   const day = (date: string, card: string) => ({ date, fish: 'species/a', img: cands[0]!.photo.square!.url, guide: 'guides/g', card })
-  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none')] })
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none'), day('2026-11-15', 'cards/broken')] })
   // 10 Nov's card passes; the others don't.
   expect(checkCalendar(cur, cands, '2026-11-10', 1, cards)).toEqual([
     '2026-11-12 card cards/ok: outside its days, 2026-11-10 to 2026-11-11',
     '2026-11-13 card cards/held: held back or unwritten in every language',
     '2026-11-14 card cards/none: no such card',
+    "2026-11-15 card cards/broken: its files don't parse: sources: Invalid input: expected array, received undefined",
   ])
   expect(plan(cur, cands, '2026-11-10', 1).calendar.days[0]!.card).toBe('cards/ok')
 })

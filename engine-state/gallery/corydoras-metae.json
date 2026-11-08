@@ -6,8 +6,15 @@
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/070c6cfd9ff5d2ab.webp": "031f0f3f3f0f1703",
-  "https://media.aquatome.com/commons/a351faef04b179b0.webp": "7979131f2d2791b3",
-  "https://media.aquatome.com/commons/bd5f672e76319a4c.webp": "c5c5d79dcc6ac696"
+  "https://media.aquatome.com/commons/a351faef04b179b0.webp": "7979131f2d2791b3"
  },
- "commons": "2026-11-07"
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 1560836,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

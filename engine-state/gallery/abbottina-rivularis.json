@@ -23,7 +23,6 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/8b7c3bf72f866d67.webp": "d3f3534bd164701e",
-  "https://media.aquatome.com/commons/733e9f790e1f030d.webp": "251337239e261cd1",
   "https://media.aquatome.com/commons/dc5c273c1e5cf880.webp": "00084d1f3f6c1404",
   "https://media.aquatome.com/commons/4d64fdc0876bd773.webp": "8cc40418343c46c1",
   "https://media.aquatome.com/commons/7bcad46462ab6493.webp": "db0dbb3a392de632",
@@ -40,5 +39,9 @@
    "research": 353519496,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5206304,
+  "next": null
  }
 }

@@ -1,112 +1,20 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Altifrons.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Altifrons.jpg/500px-Altifrons.jpg",
-   "width": 5184,
-   "height": 3456,
-   "licence": "CC BY-SA 4.0",
-   "author": "DIFish",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altifrons.jpg",
-   "caption": "\"Tocantins\" Altifron",
-   "key": "File:Altifrons.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/459156281/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/459156281/medium.jpeg",
-   "width": 2048,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Huey",
-   "sourceUrl": "https://www.inaturalist.org/photos/459156281",
-   "key": "inat:459156281"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Geophagus_altifrons_3.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Geophagus_altifrons_3.jpg/500px-Geophagus_altifrons_3.jpg",
-   "width": 2592,
-   "height": 1944,
-   "licence": "CC BY-SA 4.0",
-   "author": "Emőke Dénes",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_altifrons_3.jpg",
-   "caption": "Geophagus altifrons in the Blue Reef Aquarium, in Newquay, Cornwall, England.",
-   "key": "File:Geophagus altifrons 3.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Geophagus_altifrons_4.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Geophagus_altifrons_4.jpg/500px-Geophagus_altifrons_4.jpg",
-   "width": 2592,
-   "height": 1944,
-   "licence": "CC BY-SA 4.0",
-   "author": "Emőke Dénes",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_altifrons_4.jpg",
-   "caption": "Geophagus altifrons in the Blue Reef Aquarium, in Newquay, Cornwall, England.",
-   "key": "File:Geophagus altifrons 4.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/459156296/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/459156296/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Huey",
-   "sourceUrl": "https://www.inaturalist.org/photos/459156296",
-   "key": "inat:459156296"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Threadfin_Eartheater%2C_Central_Water_Catchment%2C_Singapore_imported_from_iNaturalist_photo_459156281.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Threadfin_Eartheater%2C_Central_Water_Catchment%2C_Singapore_imported_from_iNaturalist_photo_459156281.jpg/500px-Threadfin_Eartheater%2C_Central_Water_Catchment%2C_Singapore_imported_from_iNaturalist_photo_459156281.jpg",
-   "width": 2048,
-   "height": 2048,
-   "licence": "CC BY 4.0",
-   "author": "(c) Huey, some rights reserved (CC BY)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Threadfin_Eartheater,_Central_Water_Catchment,_Singapore_imported_from_iNaturalist_photo_459156281.jpg",
-   "caption": "Photo of Threadfin Eartheater uploaded from iNaturalist.",
-   "key": "File:Threadfin Eartheater, Central Water Catchment, Singapore imported from iNaturalist photo 459156281.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Cichlidae_-_Geophagus_altifrons.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Cichlidae_-_Geophagus_altifrons.JPG/500px-Cichlidae_-_Geophagus_altifrons.JPG",
-   "width": 2505,
-   "height": 1882,
-   "licence": "CC BY-SA 3.0",
-   "author": "Hectonichus",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_-_Geophagus_altifrons.JPG",
-   "caption": "Male of Geophagus altifrons, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
-   "key": "File:Cichlidae - Geophagus altifrons.JPG"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169568077/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/169568077/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY-SA",
-   "author": "Ong Jyh Seng",
-   "sourceUrl": "https://www.inaturalist.org/photos/169568077",
-   "key": "inat:169568077"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Geophagus_altifron.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Geophagus_altifron.jpg/500px-Geophagus_altifron.jpg",
-   "width": 800,
-   "height": 529,
-   "licence": "CC BY-SA 4.0",
-   "author": "DIFish",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_altifron.jpg",
-   "caption": "An adult Geophagus altifron",
-   "key": "File:Geophagus altifron.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/273921271/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/273921271/medium.jpg",
-   "width": 2048,
-   "height": 1155,
-   "licence": "CC BY-SA",
-   "author": "Ong Jyh Seng",
-   "sourceUrl": "https://www.inaturalist.org/photos/273921271",
-   "key": "inat:273921271"
-  }
+ "queue": [],
+ "judged": [
+  "File:Perciformes - Pterophyllum scalare 1.jpg",
+  "File:Geophagus altifrons 3.jpg",
+  "File:Geophagus altifrons 4.jpg",
+  "File:Perciformes - Copadichromis borleyi - 1.jpg",
+  "File:Cichlidae - Geophagus altifrons.JPG",
+  "File:Geophagus altifron.jpg",
+  "File:Altifrons.jpg",
+  "File:Threadfin Eartheater, Central Water Catchment, Singapore imported from iNaturalist photo 459156281.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/b25b12d0eb727097.webp": "c9323f1f7f1d8c54",
+  "https://media.aquatome.com/commons/d342678896330751.webp": "2c650d1f1e3e8712",
+  "https://media.aquatome.com/commons/88fd200d542df808.webp": "030a0f071a181307",
+  "https://media.aquatome.com/commons/5c0d0e7225cb1e82.webp": "23070e1f1f070601"
+ },
+ "commons": "2026-11-08"
 }

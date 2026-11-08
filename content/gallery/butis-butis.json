@@ -1,7 +1,80 @@
 {
   "id": "butis-butis",
-  "photos": [],
-  "seen": 6,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/14060021.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/14060021-480.webp",
+      "width": 1200,
+      "height": 799,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/14060021",
+      "caption": "Cá bống mắt tre đầu vịt bám trên trụ mầm đước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/376663091.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/376663091-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/376663091",
+      "caption": "Cá bống mắt tre đầu vịt dưới mặt nước, nhìn từ bên dưới",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/25407251.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/25407251-480.webp",
+      "width": 1200,
+      "height": 799,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/25407251",
+      "caption": "Cá bống mắt tre đầu vịt nằm trên lá đỏ trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/376663094.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/376663094-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/376663094",
+      "caption": "Cá bống mắt tre đầu vịt bơi sát mặt nước dưới rễ cây",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/28971815.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28971815-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/28971815",
+      "caption": "Cá bống mắt tre đầu vịt nhỏ bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/14308845.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/14308845-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/14308845",
+      "caption": "Cá bống mắt tre đầu vịt bơi gần giá thể trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    }
+  ],
+  "seen": 34,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

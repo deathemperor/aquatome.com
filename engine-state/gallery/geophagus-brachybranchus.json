@@ -1,17 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Geophagus_brachybranchus.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Geophagus_brachybranchus.jpg/500px-Geophagus_brachybranchus.jpg",
-   "width": 4608,
-   "height": 3456,
-   "licence": "CC BY-SA 4.0",
-   "author": "Chrumps",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geophagus_brachybranchus.jpg",
-   "caption": "Geophagus brachybranchus",
-   "key": "File:Geophagus brachybranchus.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Geophagus brachybranchus.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/10a35327f6341146.webp": "159c4c072768f87a",
+  "https://media.aquatome.com/seriouslyfish/357c94ea80f38ab4.webp": "1f3fffffc7e3e3c3",
+  "https://media.aquatome.com/commons/7594f986ff356593.webp": "dadade070f675feb"
+ },
+ "commons": "2026-11-08"
 }

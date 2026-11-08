@@ -7,14 +7,21 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: các lưu vực sông đổ ra biển ở vùng Guiana, từ sông Oyapock trải về phía tây tới lưu vực sông Maroni. Loài này có mặt ở các con sông ven biển của Guyane thuộc Pháp (Oyapock, Mana và Approuague) và Suriname (Marowijne).</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa ai ghi nhận loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Từ nguyên: tên chi ghép từ tiếng Hy Lạp hypo (bên dưới) và stoma (miệng). Tên loài nói về cái mõm trần của cá, ghép từ gymnos (trần, trụi) và rhynkus (mõm, mũi).</p>",
-    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 9) v. 18 (no. 103), pp 95.</p>"
+    "references:planetcatfish": "<p>Annals and Magazine of Natural History (Series 9) v. 18 (no. 103), pp 95.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm (2023)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: các lưu vực sông đổ ra biển ở vùng Guiana, từ sông Oyapock về phía tây tới lưu vực sông Maroni, Guyane thuộc Pháp. Nơi thu mẫu chuẩn là suối Iponcin, một nhánh đổ vào sông Approuague, Guyane thuộc Pháp.</p>",
+    "aquariumSize:scotcat": "<p>Đây là một trong những loài nhỏ của chi, nhưng cũng như các loài khác trong chi, nó vẫn sống khỏe hơn trong bể lớn. Bể phải có lọc tốt.</p>",
+    "waterConditions:scotcat": "<p>Các loài trong chi này sống được ở nhiều kiểu thông số nước khá khác nhau.</p>",
+    "diet:scotcat": "<p>Loài này ăn tạp. Nó thích rau xanh, thức ăn viên chìm và thức ăn đông lạnh.</p>",
+    "notes:scotcat": "<p>Loài này với Hypostomus surinamensis rất khó phân biệt. Năm 2012, Weber và cs. đã xếp H. surinamensis thành tên đồng nghĩa của H. gymnorhynchus, nhưng một số nhà nghiên cứu chưa chấp nhận cách xếp này. Thân cá phủ đốm sẫm, lên tới vùng đầu thì đốm nhỏ lại một chút. Hai mút kéo dài của vây đuôi có màu đen. Cá trong chi Hypostomus có 7 tia vây lưng. Các loài Pterygoplichthys trông giống chúng thì có 10 tia vây lưng.</p><p>Nguồn gốc tên: tên loài gymnorhynchus nghĩa là \"mõm trần\", ghép từ gymnós (trần, trụi) và rhýnchos (mõm). Tên này chỉ \"phần rìa mõm trần khá rộng\" của cá.</p>",
+    "references:scotcat": "<p>Ballen, G.A. 2023. Hypostomus gymnorhynchus. The IUCN Red List of Threatened Species 2023.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2016 ).</p><p>Mol, H.A. Jan, The Freshwater Fishes of Suriname. BRILL, Leiden Boston, 2012. 889 p.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.8
+    }
   }
 }

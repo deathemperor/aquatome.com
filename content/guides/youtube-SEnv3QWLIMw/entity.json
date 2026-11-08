@@ -18,9 +18,18 @@
     "pterophyllum-scalare",
     "oryzias-latipes",
     "misgurnus-anguillicaudatus",
-    "heteranthera-zosterifolia"
+    "heteranthera-zosterifolia",
+    "xiphophorus-maculatus",
+    "glossostigma-elatinoides",
+    "betta-splendens",
+    "gambusia-affinis",
+    "pangasianodon-hypophthalmus",
+    "poecilia-latipinna",
+    "paracheirodon-axelrodi",
+    "pethia-conchonius",
+    "pseudomugil-gertrudae"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "SEnv3QWLIMw",
     "title": "How to Breed Tropical Fish in Outdoor Mini Ponds [Presentation]",
@@ -117,34 +126,40 @@
     },
     "taxa": [
       "Poecilia reticulata",
-      "Neocaridina davidi",
       "Xiphophorus variatus",
       "Xiphophorus hellerii",
-      "Eichhornia crassipes",
+      "Xiphophorus maculatus",
+      "Neocaridina davidi",
+      "Tanichthys albonubes",
+      "Pontederia crassipes",
       "Pistia stratiotes",
       "Egeria najas",
-      "Daphnia sp.",
-      "Poecilia sp.",
+      "Heteranthera zosterifolia",
+      "Hemianthus callitrichoides",
+      "Glossostigma elatinoides",
+      "Caridina multidentata",
       "Heterandria formosa",
+      "Cipangopaludina japonica",
+      "Daphnia sp.",
+      "Oryzias sp.",
+      "Betta splendens",
       "Carassius auratus",
       "Cyprinus rubrofuscus",
-      "Tanichthys albonubes",
-      "Caridina multidentata",
-      "Pterophyllum scalare",
-      "Oryzias latipes",
-      "Barbonymus sp.",
-      "Trichopodus sp.",
-      "Gambusia affinis",
-      "Misgurnus anguillicaudatus",
       "Nelumbo nucifera",
       "Iris sp.",
-      "Lemna minor",
-      "Heteranthera zosterifolia",
-      "Cryptocoryne sp.",
-      "Nymphaea sp.",
-      "Pangasius sp.",
-      "Puntigrilus sp.",
-      "Pethia sp."
+      "Lemna sp.",
+      "Gambusia affinis",
+      "Pterophyllum scalare",
+      "Pangasianodon hypophthalmus",
+      "Poecilia latipinna",
+      "Misgurnus anguillicaudatus",
+      "Pangio sp.",
+      "Corydoras sp.",
+      "Paracheirodon axelrodi",
+      "Oreochromis sp.",
+      "Pethia conchonius",
+      "Pseudomugil gertrudae",
+      "Melanotaenia sp."
     ],
     "gear": [
       {
@@ -155,48 +170,43 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 1267
-      },
-      {
-        "category": "loc",
-        "type": "thung",
-        "t": 1358
+        "t": 1297
       },
       {
         "category": "suoi",
         "type": "chinh-nhiet",
-        "t": 1915
+        "t": 1870
       },
       {
         "category": "be-ca",
         "type": "chuan",
-        "t": 1264
+        "t": 890
       },
       {
         "category": "phan-nen",
         "type": "soi",
         "t": 3180
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 1000
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 1020
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 1342
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao cá nuôi ngoài trời đẹp hơn",
-        "moments": [
-          {
-            "t": 637,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t637.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá con bơi giữa lớp rêu và cây nổi xanh um trong hồ ngoài trời."
-          },
-          {
-            "t": 817,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t817.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dãy hồ nuôi cá ngoài trời đặt giữa cây cối xanh tốt."
-          }
-        ],
+        "heading": "Nuôi ngoài trời được lợi gì",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p0-U2hyaW1wXzIuanBn.webp",
           "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p0-U2hyaW1wXzIuanBn-480.webp",
@@ -205,11 +215,11 @@
           "licence": "CC BY-SA 4.0",
           "author": "Corydoras-adolfoi",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Cherry_Shrimp_2.jpg",
-          "caption": "Tép đỏ rực nổi bật giữa đám rong xanh mượt trong hồ."
+          "caption": "Tép đỏ cherry lên màu đỏ rực giữa đám rong xanh mướt."
         }
       },
       {
-        "heading": "Chọn thùng và chỗ đặt",
+        "heading": "Chọn thùng chứa và chỗ đặt hồ",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p1-83NDQwNzc1LmpwZw.webp",
@@ -219,122 +229,173 @@
           "licence": "CC BY-SA 2.0",
           "author": "Dave Croker",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Livestock_water_trough_-_geograph.org.uk_-_7440775.jpg",
-          "caption": "Máng nước gia súc bằng bê tông đặt ngoài trời, nước xanh rêu."
+          "caption": "Máng nước cho gia súc đầy nước, có thể tận dụng làm hồ nuôi cá."
         }
       },
       {
-        "heading": "Lọc và sủi khí: càng đơn giản càng tốt",
+        "heading": "Cần gì để set một hồ nhỏ",
         "moments": [
           {
-            "t": 1504,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t1504.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Miếng mút lọc gắn vào đoạn ống nhựa PVC làm lọc vi sinh."
-          },
-          {
-            "t": 1524,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t1524.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lọc mút sủi khí đặt trong thùng nhựa nuôi cá con."
+            "t": 1290,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lọc mút màu đen đặt cạnh chai phân nước và vài hộp máy sủi."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p2-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p2-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p2-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p2-uZF9zdG9uZS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Cận cảnh miếng mút lọc xốp màu đen, dùng làm lọc vi sinh."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sủi khí nhỏ kèm ống dẫn khí và đá sủi cho hồ nhỏ."
         }
       },
       {
-        "heading": "Khởi động hồ",
+        "heading": "Làm lọc thế nào để không hút mất cá con",
         "moments": [
           {
-            "t": 2102,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t2102.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bèo phủ kín mặt hồ ngoài trời, che mát cho cá."
+            "t": 1510,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mút lọc đen gắn vào ống nâng nước bằng ống PVC trắng."
           },
           {
-            "t": 2161,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t2161.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hoa bèo tây (lục bình) màu tím nhạt nở đẹp trong hồ."
+            "t": 1520,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Van xả màu đỏ gắn ngoài thùng chứa, nước chảy ra ngoài."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p3-b3dlcl8oMSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p3-b3dlcl8oMSkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p3-JfZm9hbV8yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p3-JfZm9hbV8yLmpwZw-480.webp",
           "width": 960,
-          "height": 642,
-          "licence": "CC BY 3.0",
-          "author": "Challiyan at Malayalam Wikipedia",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_hyacinth_flower_(1).jpg",
-          "caption": "Hoa bèo tây (lục bình) nở tím giữa tán lá xanh mướt."
-        }
-      },
-      {
-        "heading": "Nuôi loài nào ngoài trời",
-        "moments": [
-          {
-            "t": 1195,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t1195.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khu vườn ngoài trời đầy hoa, không gian để đặt hồ nuôi cá."
-          },
-          {
-            "t": 1653,
-            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/t1653.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá cầu vồng với thân ánh xanh và đuôi vàng, nhìn rất rõ."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p4-lbWFsZV8wMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p4-lbWFsZV8wMS5qcGc-480.webp",
-          "width": 960,
-          "height": 640,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Wojciech J. Płuciennik",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_red_wagtail_female_01.jpg",
-          "caption": "Cá platy đỏ bơi trong hồ cây thủy sinh, một loài cá đẻ con dễ nuôi."
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
+          "caption": "Khối mút lọc hình nón dùng làm lọc mút cho hồ cá nhỏ."
         }
       },
       {
-        "heading": "Kẻ săn mồi và cách che chắn",
+        "heading": "Những loài hợp nuôi ngoài trời",
+        "moments": [
+          {
+            "t": 1580,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1580-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá platy variatus màu vàng cam, loài chịu lạnh khá."
+          },
+          {
+            "t": 1610,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá medaka bơi giữa đám cây thủy sinh xanh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p4-X21hc2NoaW8uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p4-X21hc2NoaW8uanBn-480.webp",
+          "width": 960,
+          "height": 566,
+          "licence": "CC BY-SA 3.0",
+          "author": "Marrabbio2",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xipho_variatus_maschio.jpg",
+          "caption": "Cá platy variatus vàng cam bơi giữa đám cây thủy sinh."
+        }
+      },
+      {
+        "heading": "Nhiệt độ, mùa nuôi và sưởi",
+        "moments": [
+          {
+            "t": 1860,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1860-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh một con cá vàng mắt lồi màu nhạt trong bể."
+          },
+          {
+            "t": 1870,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at1870-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá cichlid nhỏ bơi trong bể, nền nước tối."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p5-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p5-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Một chiếc sưởi bể cá có dây điện và giác hút gắn kính."
+        }
+      },
+      {
+        "heading": "Qua đông ngoài trời",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p5-ZV9pbnN0YXIuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p5-ZV9pbnN0YXIuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p6-uX1RhY29tYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p6-uX1RhY29tYS5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Acobster",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frozen_Pond_in_Tacoma.jpg",
+          "caption": "Hồ nhỏ ngoài trời đóng một lớp băng mỏng trên mặt nước vào mùa đông."
+        }
+      },
+      {
+        "heading": "Kẻ săn mồi và cách che hồ",
+        "moments": [
+          {
+            "t": 2520,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at2520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ấu trùng chuồn chuồn cận cảnh, kẻ săn cá nhỏ trong hồ."
+          },
+          {
+            "t": 2600,
+            "url": "https://media.aquatome.com/video/SEnv3QWLIMw/at2600-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hồ ngoài trời được che bằng vỉ lưới sắt để chặn thú đến bắt cá."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p7-ZV9pbnN0YXIuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p7-ZV9pbnN0YXIuSlBH-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "Charles J. Sharp",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brown_hawker_dragonfly_(Aeshna_grandis)_dragonfly_nymph_late_instar.JPG",
-          "caption": "Ấu trùng chuồn chuồn lẫn trong cây thủy sinh, kẻ săn cá nhỏ trong hồ."
+          "caption": "Ấu trùng chuồn chuồn, kẻ săn cá nhỏ có thể lẫn theo tép vào hồ."
         }
       },
       {
-        "heading": "Cuối mùa và khi trời lạnh",
+        "heading": "Điện, lá rụng và lăng quăng",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p6-sbHBvbmRfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p6-sbHBvbmRfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/SEnv3QWLIMw/p8-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/SEnv3QWLIMw/p8-uZF9zdG9uZS5qcGc-480.webp",
           "width": 960,
-          "height": 1259,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "W.carter",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Broken_ice_on_Holma_Millpond_3.jpg",
-          "caption": "Mép ao đóng băng vào mùa đông lạnh, nước còn lại bên ngoài."
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sủi khí nhỏ kèm dây hơi và đá sủi, dùng cho hồ ngoài trời."
         }
       }
     ]

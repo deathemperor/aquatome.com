@@ -3,7 +3,7 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { isSearch } from '../readers'
 import { BEACON_SQL, GROUPS, isAnswered, mondayOf, scoreboardBlock, scoreboardPage, summariseScoreboard, visitsOf, WEEKS, weeksTo, windowStart, type BeaconRow, type CheckIssue, type ScoreboardInput } from '../admin/scoreboard'
-import { COUNTED } from '../admin/ae'
+import { SINCE_RESET, WHO_RANK } from '../admin/ae'
 import { NAV, SCOREBOARD_PATH, unset } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { SECTIONS } from '../dashboard'
@@ -205,7 +205,7 @@ test('the page: Vietnamese, each metric this week against last with its 12 weeks
   expect(html).toContain('Cùng lúc tuần trước')
   expect(html).toContain('class="spark"')
   expect(html).toContain('Chưa đo được')
-  expect(html).toContain('Search Console')
+  expect(html).toContain('AdSense')
   expect(html).toContain('aria-current="page">Thành công<')
   // A chart over weeks says weeks.
   expect(html).toContain('12 tuần')
@@ -232,7 +232,9 @@ test('the dashboard\'s absolute address is built in one place, worker/paths.ts d
 
 test('the beacon\'s query keeps to the count and the kinds of event readers send', () => {
   const sql = BEACON_SQL(windowStart(NOW))
-  expect(sql).toContain(COUNTED)
+  // From the reset, with each tab's mark, so visitsOf leaves ours out (us.test.ts).
+  expect(sql).toContain(SINCE_RESET)
+  expect(sql).toContain(WHO_RANK)
   expect(sql).toContain("toDateTime('2026-08-30 17:00:00')")
   expect(sql).toContain("blob2 IN ('view', 'time', 'scroll', 'aff')") // not the language chooser's `lang`
 })

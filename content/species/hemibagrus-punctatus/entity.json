@@ -10,6 +10,62 @@
     "india",
     "cauvery"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Cauvery"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The porthole bagrid, Hemibagrus punctatus, is a catfish known only from the Cauvery (Kaveri) river system in southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Cavery River and its principal tributaries, southern India', and this species is known only from the Cauvery (aka Kaveri) river system in southern India.",
+          "countries": [],
+          "regions": [
+            "Cauvery"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338243,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          11.25,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -129,6 +185,28 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/hemibagrus-punctatus",
       "caption": "This species appears restricted to the Cauvery river system in southern India.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f0173b5ccf4f5f54.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f0173b5ccf4f5f54-480.webp",
+      "width": 500,
+      "height": 257,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_punctatus.htm",
+      "caption": "Hemibagrus punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a3235746d4be372c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a3235746d4be372c-480.webp",
+      "width": 500,
+      "height": 181,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_punctatus.htm",
+      "caption": "Hemibagrus punctatus: Caught in the Cauvery River, India in 1996.",
+      "source": "scotcat"
     }
   ],
   "videos": [

@@ -1,58 +1,26 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63207166/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/63207166/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Claude Kolwelter",
-   "sourceUrl": "https://www.inaturalist.org/photos/63207166",
-   "key": "inat:63207166"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/453019764/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/453019764/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Michael Bakker Paiva",
-   "sourceUrl": "https://www.inaturalist.org/photos/453019764",
-   "key": "inat:453019764"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/453019671/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/453019671/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Michael Bakker Paiva",
-   "sourceUrl": "https://www.inaturalist.org/photos/453019671",
-   "key": "inat:453019671"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Pachypanchax_playfairii_SEY_05%2C_La_Digue.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Pachypanchax_playfairii_SEY_05%2C_La_Digue.jpg/500px-Pachypanchax_playfairii_SEY_05%2C_La_Digue.jpg",
-   "width": 1959,
-   "height": 1292,
-   "licence": "CC BY-SA 4.0",
-   "author": "KillisBS",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pachypanchax_playfairii_SEY_05,_La_Digue.jpg",
-   "caption": "Ein ausgewachsenes Männchen",
-   "key": "File:Pachypanchax playfairii SEY 05, La Digue.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Killifish_playfairii_Gouzon_FD88CA7C-11FD-4210-AA0A-92F68842F078.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Killifish_playfairii_Gouzon_FD88CA7C-11FD-4210-AA0A-92F68842F078.jpg/500px-Killifish_playfairii_Gouzon_FD88CA7C-11FD-4210-AA0A-92F68842F078.jpg",
-   "width": 3439,
-   "height": 1797,
-   "licence": "CC BY-SA 4.0",
-   "author": "Linro1",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Killifish_playfairii_Gouzon_FD88CA7C-11FD-4210-AA0A-92F68842F078.jpg",
-   "caption": "Seychelles pachypanchax local name Gouzon",
-   "key": "File:Killifish playfairii Gouzon FD88CA7C-11FD-4210-AA0A-92F68842F078.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "inat:63207166",
+  "inat:453019764",
+  "inat:453019671",
+  "File:Killifish playfairii Gouzon FD88CA7C-11FD-4210-AA0A-92F68842F078.jpg",
+  "File:Pachypanchax playfairii SEY 05, La Digue.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/9e51d382c0c44882.webp": "07070747b9ed3dcd"
+ },
+ "inat": {
+  "taxon": 341073,
+  "pass": "done",
+  "after": {
+   "research": 253044499,
+   "agree": 355509166
+  }
+ },
+ "commons": "2026-11-08",
+ "gbif": {
+  "key": 2347797,
+  "next": null
+ }
 }
