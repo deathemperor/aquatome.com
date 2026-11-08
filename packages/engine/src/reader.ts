@@ -167,7 +167,7 @@ export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o
   return { html: root.toString(), score: r.score, notes: r.notes }
 }
 
-const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
+export const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
   field === 'body' ? t.body : field === 'definition' ? t.definition : t.sections?.[field.replace(/^sections\./, '')]
 
 const TITLE = { type: 'object', additionalProperties: false, required: ['title'], properties: { title: { type: 'string' } } }

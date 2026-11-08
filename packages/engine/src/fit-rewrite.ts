@@ -6,7 +6,7 @@ import { FIT_TITLE, fitFindings, fitKey, fitText, type FitCheck, type FitFinding
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
 import { loadPages, type Page } from './pages'
-import { norm, rewritePart, type ReaderFinding } from './reader'
+import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
 
 /**
  * The collection rewrite: Vietnamese pages the reader-fit read (fit.ts) found wrong for their reader, written again.
@@ -50,8 +50,6 @@ const asNote = (f: FitFinding): ReaderFinding => ({
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.` : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
-const partOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
-  field === 'body' ? t.body : field === 'definition' ? t.definition : t.sections?.[field.replace(/^sections\./, '')]
 
 export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string }
 
