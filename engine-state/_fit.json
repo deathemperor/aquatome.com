@@ -902,7 +902,7 @@
  },
  "id/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "df23d9ab757c4be5",
+  "hash": "8491ad6146fb8c5a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -918,19 +918,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "0,15 ppm ion tembaga; takaran tembaga sulfat (mg/L) = alkalinitas total (mg/L) ÷ 100"
-   },
-   {
-    "treatment": "copper sulfate with citric acid",
-    "strength": "",
-    "amount": 0.15,
-    "amountMax": 0,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "",
-    "quote": "takaran dihitung dari berat tembaga sulfat saja, hasilnya 0,15 ppm ion tembaga"
+    "quote": "Tembaga sulfat (rendaman)\n| 0,15 ppm ion tembaga"
    },
    {
     "treatment": "chelated copper",
@@ -941,20 +929,20 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "",
-    "quote": "tembaga kelat menjaga kadar tembaga total 1,5–2,0 ppm"
+    "method": "wholeTank",
+    "quote": "Tembaga terkelat yang dipakai sesuai labelnya menjaga kadar tembaga total 1,5–2,0 ppm."
    },
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 1,
+    "amount": 240,
     "amountMax": 0,
-    "unit": "cup",
-    "per": 76,
+    "unit": "ml",
+    "per": 75,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "1 cup per 76 liter"
+    "quote": "Sekitar 1 cangkir (240 ml) per 75 liter"
    },
    {
     "treatment": "salinomycin",
@@ -1225,18 +1213,10 @@
  },
  "id/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "54d2bcf486278890",
+  "hash": "24bc51c6186a8484",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Di Amerika Serikat obat ini belum disetujui resmi untuk ikan, jadi harus diresepkan dokter hewan.",
-    "why": "US drug-approval rules are presented as if they applied to the reader.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -1249,7 +1229,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "10 mg/L selama 3 jam"
+    "quote": "10 mg/L"
    },
    {
     "treatment": "praziquantel",
@@ -1261,7 +1241,7 @@
     "perUnit": "kg",
     "use": "parasites",
     "method": "food",
-    "quote": "35–125 mg/kg selama maksimal 3 hari"
+    "quote": "35–125 mg/kg"
    },
    {
     "treatment": "formalin",
@@ -1273,7 +1253,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "0,15–0,25 ml/L selama 30–60 menit"
+    "quote": "0,15–0,25 ml/L"
    },
    {
     "treatment": "formaldehyde",
@@ -1285,19 +1265,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "rendaman formaldehida 0,17 ml/l selama 15 menit"
-   },
-   {
-    "treatment": "fenbendazole",
-    "strength": "",
-    "amount": 25,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "fenbendazole 25 mg/l (2 × 12 jam dengan jeda 24 jam)"
+    "quote": "0,17 ml/l"
    },
    {
     "treatment": "ivermectin",
@@ -1322,42 +1290,6 @@
     "use": "parasites",
     "method": "bath",
     "quote": "mebendazole 1 mg/l selama 12 jam"
-   },
-   {
-    "treatment": "levamisole",
-    "strength": "",
-    "amount": 50,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "levamisole 50 mg/l selama 2 jam atau 3 × 1 jam"
-   },
-   {
-    "treatment": "hydrogen peroxide",
-    "strength": "",
-    "amount": 300,
-    "amountMax": 560,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Hidrogen peroksida 300–560 mg/L selama 10 menit"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 25,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Garam 25 g/L selama 15 menit membasmi 100% Gyrodactylus turnbulli"
    }
   ],
   "sourceRead": true
@@ -2639,61 +2571,23 @@
  },
  "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "ca1199e4a91bc7da",
+  "hash": "5111ada0b7cd264e",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "Jumlah kutu ikan biasanya naik tajam di musim panas dan musim gugur",
-    "why": "Summer and autumn are a temperate country's seasons; Indonesia has no autumn.",
+    "quote": "Jumlah kutu ikan biasanya naik tajam pada musim panas dan musim gugur.",
+    "why": "Indonesia has no autumn; this seasonal pattern comes from a temperate-climate source.",
     "by": "model"
    }
   ],
-  "products": [
-   "Betadine"
-  ],
+  "products": [],
   "doses": [
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "tablespoon",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "quarantine",
-    "method": "wholeTank",
-    "quote": "Sekitar 1 sendok makan per 20 liter"
-   },
-   {
-    "treatment": "salt",
-    "strength": "3%",
-    "amount": 3,
-    "amountMax": 0,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "Celup 3%"
-   },
-   {
-    "treatment": "salt",
-    "strength": "0.2%",
-    "amount": 0.2,
-    "amountMax": 0,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "lalu rendaman 0,2%"
-   },
-   {
-    "treatment": "salt",
-    "strength": "0.02–0.2%",
     "amount": 0.02,
     "amountMax": 0.2,
     "unit": "%",
@@ -2701,7 +2595,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "0,02–0,2%"
+    "quote": "Rendaman garam jangka panjang 0,02–0,2% bisa membantu mengendalikan infeksi ulang kutu ikan."
    },
    {
     "treatment": "potassium permanganate",
@@ -14268,7 +14162,7 @@
  },
  "ms/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "348ac1aa1803da21",
+  "hash": "0fc1eb8e8d1321d8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14283,8 +14177,8 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "bath",
-    "quote": "Kuprum sulfat (rendaman)\n| 0.15 ppm ion kuprum"
+    "method": "wholeTank",
+    "quote": "0.15 ppm ion kuprum"
    },
    {
     "treatment": "chelated copper",
@@ -14295,20 +14189,20 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "",
-    "quote": "mengekalkan jumlah kuprum 1.5–2.0 ppm apabila diguna mengikut label"
+    "method": "wholeTank",
+    "quote": "Penternak itu menyasarkan kira-kira 1.5–2.0 ppm kuprum."
    },
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 1,
+    "amount": 240,
     "amountMax": 0,
-    "unit": "cup",
-    "per": 76,
+    "unit": "ml",
+    "per": 75,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "1 cawan bagi setiap 76 liter"
+    "quote": "Natrium klorida biasa (bukan garam laut), kira-kira 1 cawan (240 ml) bagi setiap 75 liter"
    },
    {
     "treatment": "salinomycin",
@@ -14475,24 +14369,12 @@
  },
  "ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "800c7634e3cdc0b5",
+  "hash": "05724d6891853f5e",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [],
   "doses": [
-   {
-    "treatment": "malachite green",
-    "strength": "",
-    "amount": 0.1,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "fungus",
-    "method": "bath",
-    "quote": "Rendaman malachite green\n| 0.10 mg/liter"
-   },
    {
     "treatment": "malachite green",
     "strength": "",
@@ -14503,7 +14385,19 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "spot",
-    "quote": "Sapuan terus pada luka (malachite green pekat)\n| 100 mg/liter"
+    "quote": "Larutan pekat 100 mg/liter untuk membersihkan luka"
+   },
+   {
+    "treatment": "malachite green",
+    "strength": "",
+    "amount": 0.1,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "fungus",
+    "method": "bath",
+    "quote": "0.10 mg/liter"
    },
    {
     "treatment": "salt",
@@ -14515,31 +14409,7 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "Rendaman garam jangka panjang\n| 1–5 g/liter"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "fungus",
-    "method": "",
-    "quote": "Garam akuarium (untuk ikan yang tahan garam sahaja)\n| 1–3 g/liter"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 3,
-    "amountMax": 0,
-    "unit": "ppt",
-    "per": 0,
-    "perUnit": "",
-    "use": "fungus",
-    "method": "",
-    "quote": "Berkesan dari kira-kira 3 ppt"
+    "quote": "1–5 g/liter"
    },
    {
     "treatment": "hydrogen peroxide",
@@ -14550,46 +14420,18 @@
     "per": 3.5,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "other",
-    "quote": "Kira-kira 1 ml bagi setiap 3.5 liter"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "biasanya 30 g/L selama 0.5–10 minit"
+    "method": "bath",
+    "quote": "Lebih kurang 1 ml per 3.5 liter"
    }
   ],
   "sourceRead": true
  },
  "ms/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "0f0d61aa18d009cc",
+  "hash": "cc768e5bd2e05dcf",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Jangan sekali-kali guna dalam tangki pameran yang ada tumbuhan atau invertebrata",
-    "why": "Calque of English 'display tank'; local keepers say main tank.",
-    "by": "model",
-    "fix": "tangki utama"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "rendaman formaldehid 0.17 ml/l selama 15 minit",
-    "why": "the source warns about invertebrates: \"Never use it in display tanks with plants or invertebrates.\"",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -14602,7 +14444,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "10 mg/L selama 3 jam."
+    "quote": "10 mg/L"
    },
    {
     "treatment": "praziquantel",
@@ -14614,7 +14456,7 @@
     "perUnit": "kg",
     "use": "parasites",
     "method": "food",
-    "quote": "35–125 mg/kg selama sehingga 3 hari."
+    "quote": "35–125 mg/kg"
    },
    {
     "treatment": "formalin",
@@ -14626,7 +14468,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "0.15–0.25 ml/L selama 30–60 minit, hanya dalam tangki hospital"
+    "quote": "0.15–0.25 ml/L"
    },
    {
     "treatment": "formaldehyde",
@@ -14638,19 +14480,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "rendaman formaldehid 0.17 ml/l selama 15 minit"
-   },
-   {
-    "treatment": "fenbendazole",
-    "strength": "",
-    "amount": 25,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "fenbendazole 25 mg/l (2 × 12 jam dengan rehat 24 jam)"
+    "quote": "0.17 ml/l"
    },
    {
     "treatment": "ivermectin",
@@ -14689,18 +14519,6 @@
     "quote": "levamisole 50 mg/l selama 2 jam atau 3 × 1 jam"
    },
    {
-    "treatment": "hydrogen peroxide",
-    "strength": "",
-    "amount": 300,
-    "amountMax": 560,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Hidrogen peroksida: 300–560 mg/L selama 10 minit."
-   },
-   {
     "treatment": "trichlorfon",
     "strength": "",
     "amount": 0.5,
@@ -14708,21 +14526,9 @@
     "unit": "ppm",
     "per": 0,
     "perUnit": "",
-    "use": "other",
-    "method": "",
-    "quote": "Trichlorfon pada 0.5–2 ppm dikaitkan dengan kecacatan tulang belakang"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 25,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
     "use": "parasites",
-    "method": "dip",
-    "quote": "garam 25 g/L selama 15 minit membuang 100% Gyrodactylus turnbulli"
+    "method": "",
+    "quote": "Trichlorfon pada 0.5–2 ppm"
    },
    {
     "treatment": "praziquantel",
@@ -14734,7 +14540,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "Sesetengah spesies tahan dos kumulatif sehingga 10 mg/L."
+    "quote": "Sesetengah spesies tahan jumlah dos terkumpul sehingga 10 mg/L."
    }
   ],
   "sourceRead": true
@@ -17187,19 +16993,10 @@
  },
  "th/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "3bd10863530f0d43",
+  "hash": "db569ac4353f60f0",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "ห้ามใช้มาลาไคต์กรีนกับปลาแมว (catfish)",
-    "why": "ปลาแมว is a literal calque of 'catfish' and names a different fish in Thai.",
-    "by": "model",
-    "fix": "ปลาหนัง / แคทฟิช"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -17212,19 +17009,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "ทองแดงไอออน 0.15 ppm ขนาดเป็น mg/L = ค่าความเป็นด่างรวม (mg/L) ÷ 100"
-   },
-   {
-    "treatment": "chelated copper",
-    "strength": "",
-    "amount": 1.5,
-    "amountMax": 2,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "จะคงระดับทองแดงรวมไว้ที่ 1.5–2.0 ppm"
+    "quote": "ทองแดงอิออน 0.15 ppm"
    },
    {
     "treatment": "salt",
@@ -17232,11 +17017,11 @@
     "amount": 1,
     "amountMax": 0,
     "unit": "cup",
-    "per": 76,
+    "per": 75,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "1 ถ้วยต่อ 76 ลิตร"
+    "quote": "ประมาณ 1 ถ้วย (240 ml) ต่อ 75 ลิตร"
    },
    {
     "treatment": "salinomycin",
@@ -17248,7 +17033,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "food",
-    "quote": "มีการผสมซาลิโนมัยซินในอาหารที่ 60 หรือ 90 ppm ให้กินทุกวันนาน 16 หรือ 19 วัน"
+    "quote": "60 หรือ 90 ppm ในอาหาร"
    }
   ],
   "sourceRead": true
@@ -17418,7 +17203,7 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "spot",
-    "quote": "ทาแผลด้วย malachite green เข้มข้น (แหล่งที่ 1)\n| 100 mg/ลิตร"
+    "quote": "100 mg/ลิตร"
    },
    {
     "treatment": "malachite green",
@@ -17477,7 +17262,7 @@
     "per": 3.5,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "bath",
+    "method": "other",
     "quote": "hydrogen peroxide (35%) ประมาณ 1 ml ต่อ 3.5 ลิตรในวันแรก"
    }
   ],
@@ -17485,11 +17270,13 @@
  },
  "th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "9e2730a26f042bcf",
+  "hash": "84750ca020ac9c5b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": [],
+  "products": [
+   "Dactycid"
+  ],
   "doses": [
    {
     "treatment": "praziquantel",
@@ -17501,7 +17288,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "10 mg/L นาน 3 ชั่วโมง"
+    "quote": "10 มก./ลิตร"
    },
    {
     "treatment": "praziquantel",
@@ -17510,10 +17297,22 @@
     "amountMax": 125,
     "unit": "mg",
     "per": 1,
-    "perUnit": "kg of food",
+    "perUnit": "kg food",
     "use": "parasites",
     "method": "food",
-    "quote": "35–125 mg/kg ในอาหาร นานไม่เกิน 3 วัน"
+    "quote": "35–125 มก./กก. ในอาหาร"
+   },
+   {
+    "treatment": "praziquantel",
+    "strength": "",
+    "amount": 50,
+    "amountMax": 75,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "kg food",
+    "use": "parasites",
+    "method": "food",
+    "quote": "พราซิควอนเทลผสมอาหาร 50–75 มก. ต่ออาหาร 1 กก. นาน 3–5 วัน"
    },
    {
     "treatment": "formalin",
@@ -17525,7 +17324,19 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "0.15–0.25 ml/L นาน 30–60 นาที"
+    "quote": "0.15–0.25 มล./ลิตร นาน 30–60 นาที"
+   },
+   {
+    "treatment": "hydrogen peroxide",
+    "strength": "",
+    "amount": 300,
+    "amountMax": 560,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "300–560 มก./ลิตร นาน 10 นาที"
    },
    {
     "treatment": "formaldehyde",
@@ -17537,7 +17348,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "การแช่ฟอร์มาลดีไฮด์ 0.17 ml/l นาน 15 นาที"
+    "quote": "การแช่ฟอร์มาลดีไฮด์ 0.17 มล./ลิตร นาน 15 นาที"
    },
    {
     "treatment": "fenbendazole",
@@ -17549,7 +17360,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "เฟนเบนดาโซล (fenbendazole) 25 mg/l (2 × 12 ชั่วโมง"
+    "quote": "เฟนเบนดาโซล 25 มก./ลิตร (แช่ 2 ครั้ง ครั้งละ 12 ชม. เว้น 24 ชม. ระหว่างครั้ง)"
    },
    {
     "treatment": "ivermectin",
@@ -17561,7 +17372,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "ไอเวอร์เมกติน (ivermectin) 0.031 mg/l นาน 1 ชั่วโมง"
+    "quote": "ไอเวอร์เมกติน 0.031 มก./ลิตร นาน 1 ชม."
    },
    {
     "treatment": "mebendazole",
@@ -17573,31 +17384,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "มีเบนดาโซล (mebendazole) 1 mg/l นาน 12 ชั่วโมง"
-   },
-   {
-    "treatment": "hydrogen peroxide",
-    "strength": "",
-    "amount": 300,
-    "amountMax": 560,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "ไฮโดรเจนเปอร์ออกไซด์ 300–560 mg/L นาน 10 นาที"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 25,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "เกลือ 25 g/L นาน 15 นาที กำจัด Gyrodactylus turnbulli ได้ 100%"
+    "quote": "มีเบนดาโซล 1 มก./ลิตร นาน 12 ชม."
    },
    {
     "treatment": "trichlorfon",
@@ -17609,7 +17396,7 @@
     "perUnit": "",
     "use": "other",
     "method": "",
-    "quote": "ทริคลอร์ฟอน 0.5–2 ppm มีรายงานว่าเกี่ยวข้องกับกระดูกสันหลังผิดรูป"
+    "quote": "ไตรคลอร์ฟอนที่ 0.5–2 ppm"
    }
   ],
   "sourceRead": true
@@ -17729,7 +17516,7 @@
  },
  "th/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": {
   "at": "2026-11-08",
-  "hash": "a30d0817dfda2eb8",
+  "hash": "3cfe6c3e8e5eb010",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -17744,8 +17531,8 @@
     "per": 40,
     "perUnit": "litre",
     "use": "parasites",
-    "method": "wholeTank",
-    "quote": "250 mg ต่อ 40 ลิตร ทุก 48 ชั่วโมง รวมสามครั้ง"
+    "method": "bath",
+    "quote": "250 มก. ต่อ 40 ลิตร ทุก 48 ชั่วโมง รวม 3 ครั้ง"
    },
    {
     "treatment": "metronidazole",
@@ -17757,7 +17544,7 @@
     "perUnit": "ml",
     "use": "parasites",
     "method": "food",
-    "quote": "ละลายเมโทรนิดาโซล 500 mg ในน้ำจากตู้ 30 มล. แช่อาหาร"
+    "quote": "ละลายยา 500 มก. ในน้ำจากตู้ 30 มล. แช่อาหารในน้ำยานี้"
    },
    {
     "treatment": "metronidazole",
@@ -17765,23 +17552,11 @@
     "amount": 1,
     "amountMax": 0,
     "unit": "g",
-    "per": 76,
+    "per": 75,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "1 กรัม ต่อ 76 ลิตร ติดต่อกัน 10 วัน"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "tablet",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "1 เม็ด ต่อ 20 ลิตร แช่ 2 วัน"
+    "quote": "1 กรัม ต่อประมาณ 75 ลิตร ติดต่อกัน 10 วัน"
    }
   ],
   "sourceRead": true
@@ -39241,26 +39016,10 @@
  },
  "vi/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "0ed5332251b763c8",
+  "hash": "80bafa85e0410ec8",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Thỉnh thoảng thức ăn tươi sống đông lạnh cũng mang theo dạng ngủ của ký sinh trùng",
-    "why": "Calque; frozen food is not called 'tươi sống' by local keepers.",
-    "by": "model",
-    "fix": "thức ăn đông lạnh"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "khoảng 1 muỗng cà phê muối cho 10 L nước để phòng thường xuyên",
-    "why": "the source warns about anchor catfish: \"Anchor catfish are extremely sensitive to salt.\"",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -39273,7 +39032,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "0,15 ppm ion đồng. Tính liều: đồng sunfat (mg/L) = độ kiềm tổng (mg/L) ÷ 100"
+    "quote": "0,15 ppm ion đồng. Lượng đồng sunfat (mg/L) = độ kiềm tổng (mg/L) ÷ 100"
    },
    {
     "treatment": "chelated copper",
@@ -39285,19 +39044,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "Thuốc đồng chelate (loại giữ tổng đồng 1,5–2,0 ppm)"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Tắm muối 30 g/L trong 5–15 phút"
+    "quote": "Dùng đúng nhãn thì đồng tổng giữ ở 1,5–2,0 ppm"
    },
    {
     "treatment": "salt",
@@ -39305,11 +39052,11 @@
     "amount": 1,
     "amountMax": 0,
     "unit": "cup",
-    "per": 76,
+    "per": 75,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "1 cup cho 76 lít, không dùng muối biển"
+    "quote": "khoảng 1 cốc (240 ml) cho 75 lít"
    },
    {
     "treatment": "salinomycin",
@@ -39333,7 +39080,7 @@
     "perUnit": "litre",
     "use": "other",
     "method": "wholeTank",
-    "quote": "khoảng 1 muỗng cà phê muối cho 10 L nước để phòng thường xuyên"
+    "quote": "khoảng 1 muỗng cà phê muối cho mỗi 10 lít để phòng bệnh hằng ngày"
    }
   ],
   "sourceRead": true
@@ -39644,38 +39391,21 @@
  },
  "vi/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "c954d491bf99bc8c",
+  "hash": "a2fa72258a8a62ab",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
-  "products": [
-   "Dactycid"
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Dùng thuốc khử nước chỉ khử clo mà không khử chloramine.",
+    "why": "\"Thuốc khử nước\" is a calque of \"water conditioner\" and literally means dehydrating agent.",
+    "by": "model",
+    "fix": "thuốc khử clo"
+   }
   ],
+  "products": [],
   "doses": [
-   {
-    "treatment": "praziquantel",
-    "strength": "",
-    "amount": 2.5,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "2,5 mg/L trong 24 giờ, sau đó thay 50% nước. Lặp lại vào ngày 7 và ngày 14"
-   },
-   {
-    "treatment": "praziquantel",
-    "strength": "",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "tổng liều cộng dồn đến 10 mg/L"
-   },
    {
     "treatment": "praziquantel",
     "strength": "",
@@ -39686,7 +39416,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "10 mg/L trong 3 giờ."
+    "quote": "10 mg/L"
    },
    {
     "treatment": "praziquantel",
@@ -39698,7 +39428,7 @@
     "perUnit": "kg",
     "use": "parasites",
     "method": "food",
-    "quote": "35–125 mg/kg trộn vào thức ăn, tối đa 3 ngày."
+    "quote": "35–125 mg/kg"
    },
    {
     "treatment": "formalin",
@@ -39710,7 +39440,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "0,15–0,25 ml/L trong 30–60 phút"
+    "quote": "0,15–0,25 ml/L"
    },
    {
     "treatment": "formaldehyde",
@@ -39722,7 +39452,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "tắm formaldehyde 0,17 ml/l trong 15 phút"
+    "quote": "Tắm formaldehyde 0,17 ml/l trong 15 phút"
    },
    {
     "treatment": "fenbendazole",
@@ -39734,7 +39464,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "fenbendazole 25 mg/l, ngâm 2 lần, mỗi lần 12 giờ"
+    "quote": "Fenbendazole 25 mg/l, ngâm 2 lần, mỗi lần 12 giờ"
    },
    {
     "treatment": "ivermectin",
@@ -39761,42 +39491,6 @@
     "quote": "mebendazole 1 mg/l trong 12 giờ"
    },
    {
-    "treatment": "levamisole",
-    "strength": "",
-    "amount": 50,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "levamisole 50 mg/l trong 2 giờ hoặc 3 lần × 1 giờ"
-   },
-   {
-    "treatment": "hydrogen peroxide",
-    "strength": "",
-    "amount": 300,
-    "amountMax": 560,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Oxy già (hydrogen peroxide) 300–560 mg/L trong 10 phút"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 25,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "dùng muối 25 g/L trong 15 phút diệt sạch Gyrodactylus turnbulli"
-   },
-   {
     "treatment": "trichlorfon",
     "strength": "",
     "amount": 0.5,
@@ -39804,9 +39498,9 @@
     "unit": "ppm",
     "per": 0,
     "perUnit": "",
-    "use": "",
+    "use": "parasites",
     "method": "",
-    "quote": "trichlorfon 0,5–2 ppm đi kèm dị tật cột sống"
+    "quote": "Trichlorfon ở 0,5–2 ppm"
    }
   ],
   "sourceRead": true
