@@ -105,6 +105,57 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
   }
 
+  /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
+  /// and the neon guide under its own title), and the story opens its page.
+  func testHomNayShowsTheEditorsDay() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Cách hạn chế rêu hại")).firstMatch
+    repeatUntil(guide.exists && guide.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(guide.exists, "not the editors' guide")
+    let story = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch
+    repeatUntil(story.exists && story.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(story.exists, "no story in the editors' words")
+    XCTAssertTrue(story.label.contains("Cho người mới") && story.label.contains("Sáu con trở lên"), story.label)
+    XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch.exists,
+                   "the story's page on a card under its own title too")
+    story.tap()
+    XCTAssertTrue(app.staticTexts["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the story's page didn't open")
+  }
+
+  /// A day the editors planned without a fish has no fish card: not one of Hôm nay's own picks in its place.
+  func testADayPlannedWithoutAFishShowsNone() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14")
+    app.launchForFlow()
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    XCTAssertTrue(guide.waitForExistence(timeout: 10), "not the editors' guide")
+    XCTAssertFalse(app.buttons["v2-fish-of-the-day"].exists, "a fish on a day planned without one")
+  }
+
+  /// A date the editors haven't planned has Hôm nay's own picks: for a reader with no fish yet, Cá neon.
+  func testADayNotPlannedHasHomNaysOwnPicks() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-15")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on a day not planned")
+    XCTAssertTrue(fish.label.contains("Cá neon"), fish.label)
+  }
+
+  /// On a phone whose calendar counts the Buddhist era (a Thai phone's own: 2569), the editors' day is still found by
+  /// the date they wrote.
+  func testHomNayFindsTheEditorsDayOnAThaiCalendar() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "th_TH@calendar=buddhist", "-fixed-handbook", "-reset-defaults",
+                           "-v2", "YES", "-plan", "-today", "2026-11-13"]
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+  }
+
   func testALinkFromOutsideOpensItsPageOnKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
