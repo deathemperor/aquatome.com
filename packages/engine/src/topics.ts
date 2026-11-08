@@ -107,8 +107,58 @@ const WRITE_SCHEMA = {
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A medicine or product the facts give no dose for, dosed "by the label", is the writer's rule, not a claim.
+const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
+By the label: the writer's rules make it dose every medicine, product or salt the facts give no dose for by its label or its maker's directions ("theo nhãn", "sesuai label", "ikut label", "ตามฉลาก"). That counts as supported, whether or not the facts mention a label: score it as a supported line, and it is never one of the notes.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
+
+type Grounded = { score: number; notes: string[] }
+/** A guide in `lang` (the language's English name) checked against the facts its writer had. */
+async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
+  const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+  return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
+}
+
+/**
+ * The facts the Vietnamese guide is written from, and its references. Only web links are kept as sources, each page once
+ * (a fact citing a page listed twice cites its first listing); a fact whose source was dropped goes with it, and the rest
+ * are renumbered.
+ */
+function viFacts(researched: TopicFacts) {
+  const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
+  const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
+  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
+  const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
+  return { facts, refs }
+}
+
+/**
+ * The facts a guide in another language is written from, and its references. Facts about Vietnam itself stay on the
+ * Vietnamese page; the page cites only the sources its facts come from (in the Vietnamese page's order), numbered afresh.
+ */
+function localFacts(researched: TopicFacts, entity: GuideEntity) {
+  const kept = researched.facts.filter(f => f.section !== 'vietnam' && usableFact(researched, f) && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
+  const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
+  const facts = kept.map(f => ({ section: f.section, fact: f.fact, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
+  return { facts, refs }
+}
+
+/**
+ * A guide on the site checked against its facts again as it is, nothing rewritten (review-backfill.ts), after the
+ * checker's prompt changed. It reads the facts its writer had, and the check's score is the guide's, so a guide the old
+ * prompt marked down is indexed once it passes.
+ */
+export async function recheckTopic(root: string, llm: Llm, id: string, lang: 'vi' | TargetLang): Promise<Grounded> {
+  const dir = join(root, 'content/guides', id)
+  const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
+  const researched = await read<TopicFacts>(join(root, 'engine-state/topics', `${id}.json`))
+  const entity = await read<GuideEntity>(join(dir, 'entity.json'))
+  const t = await read<Translation>(join(dir, `${lang}.json`))
+  const vi = lang === 'vi' ? t : await read<Translation>(join(dir, 'vi.json'))
+  const { facts } = lang === 'vi' ? viFacts(researched) : localFacts(researched, entity)
+  const r = await checkGuide(llm, lang === 'vi' ? 'Vietnamese' : TARGETS[lang].lang, { topic: vi.name, kind: entity.kind, facts }, { name: t.name, summary: t.summary ?? [], body: t.body ?? '', faq: t.faq ?? [] })
+  await writeFile(join(dir, `${lang}.json`), `${JSON.stringify({ ...t, quality: { ...t.quality, score: r.score, indexable: r.score >= QUALITY_THRESHOLD } }, null, 2)}\n`)
+  return r
+}
 
 /** Scientific name → page id, for the species and plants we have. */
 async function idsByName(content: string): Promise<Map<string, string>> {
@@ -160,12 +210,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 
-  // Only web links are kept as sources, each page once (a fact citing a page listed twice cites its first listing); a
-  // fact whose source was dropped goes with it, and the rest are renumbered.
-  const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
-  const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
-  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
-  const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
+  const { facts, refs } = viFacts(researched)
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts` }
 
   const forWriter = { topic: a.topic, kind: a.kind, facts }
@@ -173,10 +218,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     system: 'You write Vietnamese aquarium guides from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
     prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
-  const check = async (x: Written) => {
-    const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
-    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
+  const check = (x: Written) => checkGuide(d.llm, 'Vietnamese', forWriter, x)
   // A redo starts from what the last review of the guide on the site found, as the rewrite below does.
   const before = kept ? await lastKept(root, { id: `guides/${id}`, lang: 'vi' }, ['topic']) : undefined
   let w = await write(before?.notes)
@@ -235,20 +277,13 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
   const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
   const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
-  // Facts about Vietnam itself stay on the Vietnamese page; this page cites only the sources its facts come from
-  // (in the Vietnamese page's order), numbered afresh.
-  const kept = researched.facts.filter(f => f.section !== 'vietnam' && usableFact(researched, f) && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
-  const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
-  const facts = kept.map(f => ({ section: f.section, fact: f.fact, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
+  const { facts, refs } = localFacts(researched, entity)
   if (!facts.length) return { id, skipped: 'no facts' }
   const forWriter = { topic: vi.name, kind: entity.kind, facts }
   const T = TARGETS[lang]
   const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
   const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
-  const check = async (x: Written) => {
-    const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${T.lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
-    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
+  const check = (x: Written) => checkGuide(llm, T.lang, forWriter, x)
   // A redo starts from what the last review of the guide on the site found.
   const before = o.redo ? await lastKept(root, { id: `guides/${id}`, lang }, ['topic']) : undefined
   let w = await write(before?.notes)
