@@ -103,7 +103,8 @@ struct AccountPictureRow: View {
   }
 }
 
-/// The set, as a grid of round photos with their fish's names: the chosen one ringed and ticked; "Bỏ ảnh" for none.
+/// The set, as a grid of round photos with their fish's names, or at the accessibility text sizes a list (a photo beside
+/// each name, which a grid's narrow columns broke mid-word): the chosen one ringed and ticked; "Bỏ ảnh" for none.
 struct ProfilePicturePicker: View {
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
@@ -112,28 +113,20 @@ struct ProfilePicturePicker: View {
 
   var body: some View {
     let chosen = AccountPicture.chosen(stored, by: account.user)
+    let list = size.isAccessibilitySize
     ScrollView {
-      // Fewer to a row at the accessibility text sizes, for the names.
-      LazyVGrid(columns: [GridItem(.adaptive(minimum: size.isAccessibilitySize ? 150 : 100), spacing: 12)], spacing: 22) {
+      LazyVGrid(columns: list ? [GridItem(.flexible())] : [GridItem(.adaptive(minimum: 100), spacing: 12)], spacing: list ? 16 : 22) {
         ForEach(ProfilePicture.all) { picture in
           let on = chosen == picture
           Button {
             if let user = account.user { stored = AccountPicture.stored(picture, by: user) }
           } label: {
-            VStack(spacing: 8) {
-              picture.image.resizable().scaledToFill()
-                .frame(width: 84, height: 84)
-                .clipShape(.circle)
-                .padding(4)
-                .overlay { Circle().strokeBorder(on ? Color.accentColor : .clear, lineWidth: 3) }
-                .overlay(alignment: .bottomTrailing) {
-                  if on {
-                    Image(systemName: "checkmark.circle.fill").font(.title2).symbolRenderingMode(.palette)
-                      .foregroundStyle(.white, Color.accentColor)
-                  }
-                }
-              Text(verbatim: picture.name(handbook)).font(.caption).lineLimit(size.isAccessibilitySize ? 4 : 2)
-                .multilineTextAlignment(.center).foregroundStyle(.secondary)
+            let layout = list ? AnyLayout(HStackLayout(spacing: 16)) : AnyLayout(VStackLayout(spacing: 8))
+            layout {
+              photo(picture, on: on)
+              Text(verbatim: picture.name(handbook)).font(list ? .body : .caption).lineLimit(list ? nil : 2)
+                .multilineTextAlignment(list ? .leading : .center).foregroundStyle(list ? .primary : .secondary)
+              if list { Spacer(minLength: 0) }
             }
             // A row's photos in line whether its names take one line or two.
             .frame(maxHeight: .infinity, alignment: .top)
@@ -155,5 +148,20 @@ struct ProfilePicturePicker: View {
         }
       }
     }
+  }
+
+  /// The photo, ringed and ticked when chosen; the tick at one size, so the largest text doesn't cover the fish with it.
+  private func photo(_ picture: ProfilePicture, on: Bool) -> some View {
+    picture.image.resizable().scaledToFill()
+      .frame(width: 84, height: 84)
+      .clipShape(.circle)
+      .padding(4)
+      .overlay { Circle().strokeBorder(on ? Color.accentColor : .clear, lineWidth: 3) }
+      .overlay(alignment: .bottomTrailing) {
+        if on {
+          Image(systemName: "checkmark.circle.fill").font(.system(size: 24)).symbolRenderingMode(.palette)
+            .foregroundStyle(.white, Color.accentColor)
+        }
+      }
   }
 }
