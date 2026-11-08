@@ -40,10 +40,13 @@ export function appRange(range: SpeciesRange | undefined, regionName: (name: str
 /** A place's name where it starts a chip, a heading or a list item: stored as written in a sentence ("sông Hồng"). */
 export const capitalized = (name: string) => name.charAt(0).toLocaleUpperCase('vi') + name.slice(1)
 
-/** A region's name in this language: the site's place of that name (a river or region page's own name), else as written. */
-export function regionNames(places: Content['places']): (name: string) => string {
-  const byId = new Map(places.map(p => [p.id, p.t.name]))
-  return name => byId.get(PLACE_ALIASES[slugify(name)] ?? slugify(name)) ?? name
+/**
+ * A region's name in this language: the site's place of that name (a river or region's own name), else as written. Every
+ * place written in this language (`placeNames`), not only those with a page here: a Thai fish page named the Thái Bình,
+ * Kỳ Cùng, Mã and Lam rivers in Vietnamese while their Thai names sat unread (2026-11-08).
+ */
+export function regionNames(placeNames: Content['placeNames']): (name: string) => string {
+  return name => placeNames[PLACE_ALIASES[slugify(name)] ?? slugify(name)] ?? name
 }
 
 /**
@@ -129,7 +132,7 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   const { num } = fmt(lang)
   const origins = originPages(lang, c)
   const nameOf = countryNames(lang, c.places, new Set(origins.map(p => p.id)))
-  const regionName = regionNames(c.places)
+  const regionName = regionNames(c.placeNames)
   const country = (code: string) => {
     const { name, place } = nameOf(code)
     const p = place ? origins.find(x => x.id === place) : undefined
