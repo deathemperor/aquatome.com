@@ -80,3 +80,12 @@ test('the calendar in the repository parses, and names no page twice on Hôm nay
   // Every day has its fish's card photo.
   for (const d of cur.days) if (d.fish) expect(d.img, d.date).toBeDefined()
 })
+
+test('a week with tags takes only fish that match one, or that are on its own list', () => {
+  const nano = (id: string) => fish(id, { facts: { places: [], coldwater: false, sizeMax: 3 } })
+  const cands = [nano('a'), fish('big', { facts: { places: [], coldwater: false, sizeMax: 30 } }), fish('listed', { facts: { places: [], coldwater: false, sizeMax: 40 } }), guide('g1'), guide('g2'), guide('g3')]
+  const cur = CurationSchema.parse({ version: 1, weeks: [{ from: '2026-11-16', to: '2026-11-22', theme: { vi: 'Bể nhỏ' }, tags: ['nano'], fish: ['species/listed'] }], days: [] })
+  const { calendar, report } = plan(cur, cands, '2026-11-16', 3)
+  expect(calendar.days.map(d => d.fish)).toEqual(['species/listed', 'species/a', undefined])
+  expect(report.empty).toContain('2026-11-18 fish')
+})

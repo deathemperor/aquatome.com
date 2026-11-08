@@ -57,10 +57,10 @@
    ],
    "shelves": [
     {
-     "id": "khong-can-suoi",
+     "id": "chiu-lanh",
      "title": {
-      "vi": "Không cần sưởi",
-      "th": "ไม่ต้องใช้ฮีตเตอร์"
+      "vi": "Cá chịu lạnh",
+      "th": "ปลาที่ทนหนาวได้"
      },
      "pages": [
       "breeds/oranda-goldfish",
@@ -78,7 +78,7 @@
      "id": "can-suoi",
      "title": {
       "vi": "Cần sưởi khi trời lạnh",
-      "th": "ต้องใช้ฮีตเตอร์เมื่ออากาศเย็น"
+      "th": "ต้องใช้ฮีตเตอร์ตอนอากาศหนาว"
      },
      "pages": [
       "species/symphysodon-aequifasciatus",
@@ -99,22 +99,19 @@
    "to": "2026-11-22",
    "theme": {
     "vi": "Bể nhỏ, cá đàn nhỏ",
-    "id": "Akuarium kecil, ikan gerombolan kecil",
+    "id": "Akuarium kecil, ikan kecil bergerombol",
     "th": "ตู้เล็ก ปลาฝูงตัวเล็ก",
-    "ms": "Akuarium kecil, ikan berkawan kecil"
+    "ms": "Akuarium kecil, ikan kecil berkumpulan"
    },
    "tags": [
-    "nano",
-    "beginner"
+    "nano"
    ],
    "fish": [
     "species/boraras-maculatus",
     "species/nannostomus-marginatus",
     "species/anentome-helena",
     "species/pristella-maxillaris",
-    "species/nematobrycon-palmeri",
-    "species/synodontis-eupterus",
-    "species/datnioides-pulcher"
+    "species/nematobrycon-palmeri"
    ],
    "guides": [
     "guides/youtube-CSLWc2X7VFE",
@@ -153,10 +150,10 @@
     {
      "id": "ca-dan-nho",
      "title": {
-      "vi": "Cá đàn nhỏ cho bể cây",
-      "id": "Ikan gerombolan kecil untuk akuarium tanaman",
+      "vi": "Cá đàn nhỏ cho bể thủy sinh",
+      "id": "Ikan kecil bergerombol untuk akuarium tanaman",
       "th": "ปลาฝูงตัวเล็กสำหรับตู้ไม้น้ำ",
-      "ms": "Ikan berkawan kecil untuk akuarium tanaman"
+      "ms": "Ikan kecil berkumpulan untuk akuarium tanaman"
      },
      "pages": [
       "species/paracheirodon-axelrodi",
@@ -172,20 +169,19 @@
     {
      "id": "de-nuoi",
      "title": {
-      "vi": "Dễ nuôi cho bể đầu tiên",
-      "id": "Mudah dipelihara untuk akuarium pertama",
-      "th": "เลี้ยงง่ายสำหรับตู้แรก",
-      "ms": "Mudah dijaga untuk akuarium pertama"
+      "vi": "Dễ nuôi cho người mới",
+      "id": "Mudah dipelihara untuk pemula",
+      "th": "ปลาเลี้ยงง่ายสำหรับมือใหม่",
+      "ms": "Mudah dijaga untuk pemula"
      },
      "pages": [
       "species/poecilia-reticulata",
-      "species/paracheirodon-axelrodi",
       "species/oryzias-latipes",
-      "species/xiphophorus-hellerii",
-      "species/pethia-conchonius",
+      "species/tanichthys-albonubes",
+      "species/thayeria-boehlkei",
       "species/corydoras-aeneus",
-      "species/poecilia-sphenops",
-      "species/thayeria-boehlkei"
+      "species/corydoras-panda",
+      "species/corydoras-hastatus"
      ]
     }
    ],
@@ -198,20 +194,19 @@
    "story": {
     "page": "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua",
     "eyebrow": {
-     "vi": "Mùa lạnh",
-     "th": "หน้าหนาว"
+     "vi": "Hướng dẫn"
     },
     "title": {
      "vi": "Trời lạnh, bể cá cần gì"
     },
     "dek": {
-     "vi": "Giữ nhiệt, giữ oxy, và làm gì khi mất điện."
+     "vi": "Giữ ấm cho bể, đặt sưởi đúng chỗ và xử lý khi mất điện"
     }
    },
    "fish": "breeds/ryukin-goldfish",
    "img": "https://media.aquatome.com/commons/186c58df38d6deb7.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater",
-   "why": "Fish: Cá vàng Lưu kim (Ryukin), on this week's list, fine without a heater, well known. Guide: Cách chọn máy sưởi hồ cá phù hợp, on this week's list, 3 search impressions."
+   "why": "Fish: Cá vàng Lưu kim (Ryukin), on this week's list, tolerates cold, well known. Guide: Cách chọn máy sưởi hồ cá phù hợp, on this week's list, 3 search impressions."
   },
   {
    "date": "2026-11-10",
@@ -225,14 +220,14 @@
    "fish": "breeds/butterfly-koi",
    "img": "https://media.aquatome.com/commons/643145c43d453de9.webp",
    "guide": "guides/youtube-DZ0JTLYiawU",
-   "why": "Fish: Koi bướm (Butterfly koi), on this week's list, fine without a heater, well known, 1 search impression. Guide: Dưỡng cá thủy sinh mùa giao mùa: bệnh hay gặp, đánh thuốc, bể dưỡng, on this week's list."
+   "why": "Fish: Koi bướm (Butterfly koi), on this week's list, tolerates cold, well known, 1 search impression. Guide: Dưỡng cá thủy sinh mùa giao mùa: bệnh hay gặp, đánh thuốc, bể dưỡng, on this week's list."
   },
   {
    "date": "2026-11-12",
    "fish": "breeds/bubble-eye-goldfish",
    "img": "https://media.aquatome.com/commons/fe61173833b53e0d.webp",
    "guide": "guides/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do",
-   "why": "Fish: Cá vàng mắt bong bóng (Bubble eye goldfish), on this week's list, fine without a heater, well known, 1 search impression. Guide: Nuôi cá koi bể kính, hồ nhỏ: thể tích, lọc, thức ăn và mật độ, on this week's list."
+   "why": "Fish: Cá vàng mắt bong bóng (Bubble eye goldfish), on this week's list, tolerates cold, well known, 1 search impression. Guide: Nuôi cá koi bể kính, hồ nhỏ: thể tích, lọc, thức ăn và mật độ, on this week's list."
   },
   {
    "date": "2026-11-13",
@@ -260,13 +255,13 @@
    "story": {
     "page": "guides/youtube-CSLWc2X7VFE",
     "eyebrow": {
-     "vi": "Bể đầu tiên"
+     "vi": "Cho người mới"
     },
     "title": {
-     "vi": "Set bể thủy sinh từ nền đến tuần đầu"
+     "vi": "Set bể thủy sinh và chăm hai tuần đầu"
     },
     "dek": {
-     "vi": "Chọn bể, trải nền, dựng lũa đá, trồng cây, rồi chăm hai tuần đầu."
+     "vi": "Chọn bể, trải nền, dựng lũa đá, trồng cây, rồi chăm hai tuần đầu"
     }
    },
    "fish": "species/boraras-maculatus",
@@ -293,14 +288,12 @@
    "fish": "species/pristella-maxillaris",
    "img": "https://media.aquatome.com/commons/8bcda1de30433fcd.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
-   "why": "Fish: Cá tetra tia X, on this week's list, easy to keep. Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list."
+   "why": "Fish: Cá tetra tia X, on this week's list. Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list."
   },
   {
    "date": "2026-11-20",
-   "fish": "species/synodontis-eupterus",
-   "img": "https://media.aquatome.com/commons/9a37e31a3fd5dc78.webp",
    "guide": "guides/youtube-ahN0nP8HLaI",
-   "why": "Fish: Cá nheo lông vũ, on this week's list, easy to keep, 1 search impression. Guide: Set bể betta trồng cây low tech không CO2 cho bể 35 lít, on this week's list."
+   "why": "Guide: Set bể betta trồng cây low tech không CO2 cho bể 35 lít, on this week's list."
   },
   {
    "date": "2026-11-21",
@@ -311,10 +304,8 @@
   },
   {
    "date": "2026-11-22",
-   "fish": "species/datnioides-pulcher",
-   "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
    "guide": "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
-   "why": "Fish: Cá thái hổ Siam, on this week's list, 1 search impression. Guide: Thả cá mới mua vào bể: cách thuần nước đúng để cá không sốc, on this week's list."
+   "why": "Guide: Thả cá mới mua vào bể: cách thuần nước đúng để cá không sốc, on this week's list."
   }
  ],
  "loops": {},

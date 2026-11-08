@@ -11,7 +11,7 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 
 | In the calendar | In the index | What the app does with it |
 | --- | --- | --- |
-| `days[]`: `date`, `fish`, `img`, `guide`, `guideImg`, `story`, `by.<lang>` | `home.days[]`, from yesterday on | shows the day matching the reader's date; a missing day or slot falls back to its own rotation |
+| `days[]`: `date`, `fish`, `img`, `guide`, `guideImg`, `story`, `by.<lang>` | `home.days[]`, from yesterday on | shows the day matching the reader's date; a day the index doesn't have falls back to the app's own rotation, but a listed day without a fish shows no fish card, since nothing passed both checks that day |
 | `weeks[]`: `from`, `to`, `theme` | `home.week` | an eyebrow over the week's cards |
 | `weeks[].hero` | `home.hero` | Khám phá's top cards, in order |
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |

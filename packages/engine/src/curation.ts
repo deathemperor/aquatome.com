@@ -27,7 +27,7 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 export const REPEAT_DAYS = 28
 
 /** Each tag as the owner's daily report says it, in the day's `why`. */
-const TAG_WORDS: Record<string, string> = { cold: 'fine without a heater', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'small', local: 'native to Vietnam' }
+const TAG_WORDS: Record<string, string> = { cold: 'tolerates cold', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'small', local: 'native to Vietnam' }
 
 /** What a week can ask its fish to be (a week's `tags`): how the planner reads each from a page's figures. */
 export const TAGS: Record<string, (f: Facts) => boolean> = {
@@ -247,6 +247,9 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const yesterday = out.get(addDays(date, -1))
       const best = cands
         .filter(x => kind.includes(x.kind) && !problem(x, 'square', undefined, { photo: slot === 'fish' }) && !used(x.ref, date))
+        // A week with tags takes only fish that match one, or that are on its own list (editors, 2026-11-08: a 30 cm
+        // catfish and a 40 cm predator had filled small-tank days).
+        .filter(x => slot !== 'fish' || !w?.tags.length || w.fish.includes(x.ref) || w.tags.some(t => TAGS[t]?.(x.facts)))
         // Not the same group two days running.
         .filter(x => slot !== 'fish' || !x.group || x.group !== byRef.get(yesterday?.fish ?? '')?.group)
         .map(x => ({ x, s: score(x, w, from) }))
