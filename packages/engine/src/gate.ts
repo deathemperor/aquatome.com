@@ -157,8 +157,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   // text, and a new or held one waits, held. The run still publishes the rest; only a crash in the gate stops it.
   const unread = (f: string, p: Page, held: boolean) => {
     report.unread.push(p.path)
-    if (held) pending.push(f)
-    else reverts.push(f)
+    if (held) { pending.push(f); return }
+    reverts.push(f)
+    // The text put back is held if its own saved read has a fault that holds a page.
+    const old = head.pages.get(fitKey(p)), e = state[fitKey(p)]
+    const back = old && e?.hash === fitText(old).hash ? [...gateChecks(old, e)].sort() : []
+    if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
   }
   const pending: string[] = []
   let next = 0

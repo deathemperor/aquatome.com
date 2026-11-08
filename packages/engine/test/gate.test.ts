@@ -217,6 +217,18 @@ test('a live page that harm was found on is held, changed or not; one a cycle ma
   const r = await gate(fresh, { llm: reader(), now })
   expect(r.report.revert).toHaveLength(1)
   expect(await readFile(join(fresh, GUIDE), 'utf8')).toBe(before)
+  expect((await readJson(fresh, GUIDE)).held).toBeUndefined()
+
+  // With the accounts out, a changed page is put back, and held when its old text was read as harmful.
+  const out = await repo()
+  const committed = (await loadPages(join(out, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(out, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(committed)]: { at: '2026-11-09', hash: fitText(committed).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  const text = await readFile(join(out, GUIDE), 'utf8')
+  await edit(out, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+  const none = (async () => { throw new LlmError('usage limit reached') }) as Llm
+  const o = await gate(out, { llm: none, now })
+  expect(o.report.unread).toHaveLength(1)
+  expect(JSON.parse(await readFile(join(out, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(text), held: { checks: ['harm'], at: '2026-11-09' } })
 })
 
 test('a text put back that no rewording fixes is held', async () => {
