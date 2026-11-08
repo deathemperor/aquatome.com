@@ -122,6 +122,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -130,6 +137,13 @@
         "value": {
           "min": 6,
           "max": 7.2
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6.4,
+          "max": 7.5
         }
       }
     ],
@@ -145,6 +159,10 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
+        "value": 2.5
+      },
+      {
+        "source": "aquariumcoop",
         "value": 2.5
       }
     ],
@@ -163,10 +181,22 @@
       "html": "<ul><li>Adult size: approximately 2.0–2.5 cm (0.8–1.0 in) total length</li><li>Temperature: 22–26 °C (72–79 °F)</li><li>pH 6.0–7.2</li><li>GH 1–8 dGH, KH 0–4 dKH</li><li>TDS 50–150 ppm</li><li>IUCN Red List: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>A tiny South American schooling catfish that grows to about 2.5 cm. Silvery body with a thin, horizontal black stripe. Peaceful, and unusual among corydoras for hovering midwater.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-pygmaeus-pygmy-cory",
       "html": "<p>Corydoras pygmaeus is native to the slow-moving tributaries and floodplain systems of the Madeira River basin in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>Pygmy corydoras were originally discovered in the river basins of Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -175,10 +205,28 @@
       "html": "<p>In the wild, they inhabit soft, shallow waters rich in submerged grasses, fine roots, and leaf litter. Unlike most Corydoras that remain close to the substrate, C. pygmaeus frequently forms midwater schools, moving in tight, shimmering groups as they forage. Widespread but vulnerable to habitat degradation in parts of its range.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>In the wild they are prone to predation and therefore like to hide amongst the tree roots and vegetation along the riverbanks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>While a small group could technically fit in a 20-litre nano tank, they can be a bit shy. Instead, get a tank of 40 litres or larger so that you can keep a bigger school of at least 8–12 fish that will be less afraid to come out.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-pygmaeus-pygmy-cory",
       "html": "<p>Soft, slightly acidic to neutral water is ideal: pH 6.0–7.2, GH 1–8 dGH, KH 0–4 dKH, TDS 50–150 ppm. Temperature: 22–26 °C (72–79 °F); stable mid-range temperatures encourage active schooling and healthy foraging behaviour.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>They are used to a pH of 6.4–7.5 and moderately soft water. They also appreciate slightly cooler temperatures between 22–26°C.</p>"
     },
     {
       "key": "equipment",
@@ -187,10 +235,22 @@
       "html": "<p>Provide fine sand substrate, gentle flow, and both open schooling areas and shaded zones created by plants or botanicals. A fine sand substrate prevents barbel damage.</p>"
     },
     {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>To make them feel more comfortable, add plenty of plants and hardscape for cover. They are often found perched on anubias leaves and driftwood branches, giving them a bird's eye view of the tank.</p>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-pygmaeus-pygmy-cory",
       "html": "<p>Micro-carnivores and detritus grazers. Offer:</p><ul><li>Baby brine shrimp</li><li>Frozen cyclops, daphnia, and microfoods</li><li>High-quality micro-pellets and finely crushed flakes</li><li>Repashy gel foods</li></ul><p>Their small mouths require tiny particle sizes for proper feeding. Stable, clean water and small, frequent feedings support long-term health and strong activity.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>As a species that hangs out in the lower half of the aquarium, they prefer to graze off the ground or on the surfaces of plant leaves. Their little, downturned mouths are best suited to sinking foods that are either tiny or soft enough to nibble on.</p><ul><li>Frozen bloodworms are often too big to swallow easily, but frozen daphnia, cyclops and baby brine shrimp are perfectly bite-sized.</li><li>Dry foods: nano pellets, freeze-dried tubifex worms and sinking wafers are all good options.</li><li>Repashy gel food is one of their favourites.</li></ul>"
     },
     {
       "key": "behaviour",
@@ -199,58 +259,126 @@
       "html": "<p>Extremely peaceful; best kept in groups of 10 or more to reduce stress and promote natural midwater schooling behaviour. Suitable tankmates include:</p><ul><li>Boraras species</li><li>Sundadanio</li><li>Pseudomugil species</li><li>Small rasboras and tetras</li><li>Licorice gouramis (Parosphromenus)</li></ul><p>Avoid larger or aggressive fish that may intimidate or outcompete them.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>Like most cory catfish, pygmy corys are very peaceful community fish. Because they are fairly petite, do not pair them with anything big enough to eat them. They are not fast eaters, so make sure they are not outcompeted for food. They do well with other nano species such as neon tetras, chili rasboras, celestial pearl danios, otocinclus and even a calm betta. They will not bother snails or adult-sized dwarf shrimp, although they may accidentally eat a baby shrimp while foraging.</p><p>Like many cory catfish, they \"wink\" by quickly looking down and will dart up to the water surface to take the occasional gulp of air. Unlike most corydoras, which are bottom dwellers, pygmy corys have the unusual habit of hovering midwater by flapping their fins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>Females are slightly rounder and longer than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-pygmaeus-pygmy-cory",
       "html": "<p>Egg-scattering species. Spawning occurs through the typical Corydoras \"T-position\", after which females attach adhesive eggs to plant leaves, glass, or fine root structures. Adults do not provide parental care and may consume eggs, so a dedicated breeding setup is recommended. Eggs hatch in 3–4 days; fry require infusoria at first, then baby brine shrimp and microworms.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>Pygmy corys may not be as easy to breed as bronze or albino corys (C. aeneus), but many hobbyists have had success in home aquariums. Use a mature tank of about 40 litres full of plants, mulm and microfauna for the fry to feed on. Add a colony of at least six corys to increase the chance of having both males and females, and feed them well. Be patient, as newly purchased juveniles may take a while to mature.</p><p>When the female is ready and full of eggs, she is often followed by an entourage of smaller males. Unlike other corys that usually lay a cluster of eggs in one spot, the female pygmy deposits a single sticky egg, about 1 mm in diameter, on a strand of java moss or the roots of floating water sprite. She then swims to another location to place the next egg, repeating this until tens of eggs have been laid.</p><p>Reports vary on whether the parents eat their own eggs, so some breeders gently remove the eggs with their fingers and place them in a well-aerated spawning container. They may add a few drops of methylene blue, some alder cones, or even dwarf shrimp to clean off fungal growth. Eggs start off translucent white. Fertilized eggs become a translucent yellow-tan, whereas unfertilized eggs turn solid white and should be removed to prevent fungus from spreading.</p><p>Depending on water temperature, eggs usually hatch within 2–5 days. The newborn fry have a translucent body, two black eyes and a black band behind the head. Within a couple of days they develop three more black dots down the back, which eventually become a fully mottled pattern for camouflage, and later combine to form the classic black stripe along the lateral line. This transformation happens within a month or so, so juveniles look like miniature adults.</p><p>Start the fry on nearly microscopic foods such as vinegar eels, infusoria and 5–50 micron golden pearls until they are big enough to eat live baby brine shrimp and Repashy gel food. Provide frequent small meals and frequent small water changes to keep water quality high.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/corydoras-pygmaeus-pygmy-cory",
       "html": "<p>These Corydoras pygmaeus are captive-bred, making them more tolerant of a wider range of water conditions and easier to acclimate than wild-caught individuals.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "html": "<p>Similar dwarf corydoras can be told apart by pattern:</p><ul><li>C. habrosus (salt and pepper cory): silvery body with an uneven, horizontal black stripe, a striped tail and darker splotches on the head and back.</li><li>C. hastatus (tail spot cory): silvery body with a big black spot at the base of the tail, flanked by small white dots.</li><li>C. pygmaeus (pygmy cory): silvery body with a thin, horizontal black stripe.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/5bbe859bbaa1c404.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/5bbe859bbaa1c404-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "caption": "Care Guide for Pygmy Corydoras – The World’s Tiniest Cory Catfish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/d638ed415bf8cc55.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/d638ed415bf8cc55-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "caption": "Pygmy corydoras on scarlet temple",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/757d9a3453c3d32f.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/757d9a3453c3d32f-480.webp",
+      "width": 1200,
+      "height": 399,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "caption": "habrosus, hastatus, and pygmy cory",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/a88d7887bd484cf0.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a88d7887bd484cf0-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pygmy-corydoras",
+      "caption": "Pygmy corys swimming with lambchop rasboras",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/48cf2672196a8c25.webp",
+      "thumb": "https://media.aquatome.com/commons/48cf2672196a8c25-480.webp",
       "width": 960,
       "height": 590,
       "licence": "CC BY-SA 3.0",
       "author": "Birger A",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pygmaeus5333.jpg",
-      "caption": "Corydoras pygmaeus",
-      "thumb": "https://media.aquatome.com/commons/48cf2672196a8c25-480.webp"
+      "caption": "Corydoras pygmaeus"
     },
     {
       "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9.webp",
+      "thumb": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-480.webp",
       "width": 960,
       "height": 511,
       "licence": "CC0",
       "author": "Softepaul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PXL_20260810_003453528~2.jpg",
-      "caption": "Pygmy Corydoras resting on coarse sand",
-      "thumb": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-480.webp"
+      "caption": "Pygmy Corydoras resting on coarse sand"
     },
     {
       "url": "https://media.aquatome.com/commons/e859ed68ed635a33.webp",
+      "thumb": "https://media.aquatome.com/commons/e859ed68ed635a33-480.webp",
       "width": 960,
       "height": 802,
       "licence": "CC0",
       "author": "Softepaul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PXL_20260618_224801427.MP~2.jpg",
-      "caption": "Pygmy Corydoras fry",
-      "thumb": "https://media.aquatome.com/commons/e859ed68ed635a33-480.webp"
+      "caption": "Pygmy Corydoras fry"
     },
     {
       "url": "https://media.aquatome.com/commons/2fbadc543ab05a5b.webp",
+      "thumb": "https://media.aquatome.com/commons/2fbadc543ab05a5b-480.webp",
       "width": 960,
       "height": 960,
       "licence": "CC BY 2.0",
       "author": "Carnat Joel",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pygmaeus_carnat_joel_2_(clipped).png",
-      "caption": "Corydoras pygmaeus",
-      "thumb": "https://media.aquatome.com/commons/2fbadc543ab05a5b-480.webp"
+      "caption": "Corydoras pygmaeus"
     }
   ],
   "videos": [
@@ -310,5 +438,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-08"
 }

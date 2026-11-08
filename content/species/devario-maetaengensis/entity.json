@@ -1,0 +1,125 @@
+{
+  "id": "devario-maetaengensis",
+  "scientificName": "Devario maetaengensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "thailand",
+    "nam-mae-taeng"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>The small Danio D. maetaengensis originates from Thailand and was only scientifically described in 1997. It has been classified in three genera: originally Danio, then Devario, then Inlecypris, and finally Devario again. From an aquarium point of view this does not really matter. They are very pretty, lively Danios that can reach a maximum length of 5 cm, but usually remain somewhat smaller.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>The species was discovered in 1933 by R. M. de Schauensee about 50 km north of Chiang Mai. D. maetaengensis occurs exclusively in the drainage of the Nam Mae Taeng River in northern Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>In the wild, these Danios inhabit small flowing waters without underwater plants.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>Any drinking water is suitable for keeping them. The water temperature should be in the room temperature range (20-26°C) and not permanently high.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>The animals love to play in the current.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>Care and breeding do not differ from other Danios.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/devario-maetaengensis-danio-m-inlecypris-m-2/",
+      "html": "<p>The Danios are a very species-rich group of small to medium-sized carp fish, usually less than 10 cm in length. For a long time no genera were distinguished and all Danios were assigned to Danio; small species with an incomplete lateral line were sometimes placed in Brachydanio, which was later merged with Danio again. The often somewhat larger species without conspicuous barbels were separated into Devario, and particularly conspicuously vertically striped species into Inlecypris. As no study examines all species comparatively, there is no consensus on genus classification. Two genera are recognized as the minimum compromise: Danio and Devario.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "WYX7FAtNJ8s",
+      "title": "Devario maetaengensis (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ov01vwNxLW0",
+      "title": "A New Danio Fish Species! -The Tiger Danio / Nano Fire Bar Danio AKA Devario maetaengensis",
+      "durationSec": 839,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gtOhLT7gpyY",
+      "title": "devario maetaengensis ปลาซิวใบไผ่แม่แตง #ตู้ลำธาร #hillstreamtank #devariomaetaengensis #ใบไผ่แม่แตง",
+      "durationSec": 11,
+      "lang": "th"
+    },
+    {
+      "youtubeId": "XB4pvh8dQ1M",
+      "title": "ปลาซิวใบไผ่แม่แตง #hillstreamtank #ตู้ลำธาร #ปลาบู่แคระ #devariomaetaengensis #ปลาซิวใบไผ่แม่แตง",
+      "durationSec": 21,
+      "lang": "th"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn cá danio"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

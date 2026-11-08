@@ -4,7 +4,10 @@
   "altNames": [
     "Dwarf Hoplosternum",
     "Cá chuột hoplo lùn",
-    "Dwarf Hoplo"
+    "Dwarf Hoplo",
+    "Cá chuột giáp lùn",
+    "Armoured Catfish",
+    "Chaco Catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Nhóm Hoplosternum thuộc họ cá da trơn có giáp, nên có họ hàng gần với Corydoras và các loài cùng nhóm. Cũng như Corydoras, chúng là cá cảnh dễ nuôi và xem rất thú vị. Tiếc là phần lớn các loài trong nhóm này lớn khá to. Vì vậy, với bể nhỏ thì các loài thuộc chi Lepthoplosternum là lựa chọn hợp nhất. Cá trong chi này dài tối đa khoảng 8 cm, nhưng mới 5 cm (tính cả đuôi) là chúng đã trưởng thành hoàn toàn.</p><p>Kích thước cá thường bán: 4-5 cm.</p>",
@@ -20,14 +23,22 @@
     "reproduction:scotcat": "<p>Đây là loài làm tổ bọt. Cá cái đẻ trứng vào đám cây thủy sinh nổi hoặc vào một tấm nắp xốp polystyrene thả nổi trên mặt nước. Cá vẫn có thể tìm cách đẻ ngay trong bể cộng đồng. Nếu thấy chúng đẻ, bạn nên chuyển cặp cá sang bể sinh sản riêng. Có như vậy cá bột mới sống sót được trước những bạn cùng bể đang dòm ngó.</p>",
     "dimorphism:scotcat": "<p>Cá đực có gai vây ngực dày hơn cá cái.</p>",
     "notes:scotcat": "<p>Về hình dáng, loài này trông giống Callichthys callichthys nhưng nhỏ hơn. Thân nó không dẹt bằng, còn mắt thì to hơn.</p><p>Tên loài pectorale nói đến bộ vây ngực dài ở cá trưởng thành.</p><p>Thông tin về loài này còn ít. Dù vậy, nó phân bố rộng và khó có khả năng gặp mối đe dọa nghiêm trọng. Vì thế IUCN xếp loài này vào mức Ít quan ngại (IUCN 2023).</p>",
-    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Lepthoplosternum pectorale. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 30. Dec. 1998.</p>"
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Lepthoplosternum pectorale. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 30. Dec. 1998.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Lepthoplosternum pectorale (Boulenger, 1895)</li><li>Tên thường gọi: Armoured Catfish, Chaco Catfish, Chaco-pansermalle (Đan Mạch), Dwarf Hoplo</li><li>Nơi thu mẫu chuẩn: Monte Sociedad, tỉnh Chaco, Paraguay.</li><li>Danh sách Đỏ IUCN: Ít quan tâm (đánh giá lần gần nhất năm 2020).</li><li>Nguồn gốc tên gọi: Lepthoplosternum ghép từ chữ Hy Lạp leptos (nhỏ) với hoplosternum, ý nói kích thước nhỏ của cá. Hoplosternum ghép từ chữ Hy Lạp hoplon (khiên) và sternum (ngực), ý nói cặp xương coracoid nổi rõ ở ngực.</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Paraguay. La Plata, Paraná, Paraguay.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 5,8 - 7,8</li><li>Nhiệt độ: 20,0-22,0°C</li><li>Thông số khác: dH 25°</li></ul>",
+    "dimorphism:planetcatfish": "<p>Ở các chi Callichthys, Dianema, Hoplosternum, Lepthoplosternum và Megalechis, con đực trưởng thành có một khối mỡ dày ở mặt dưới vây ngực. Ở Dianema, Hoplosternum, Lepthoplosternum và Megalechis, xương coracoid lộ ra ngoài ít nhất một phần và nở rộng vào phía giữa thân. Callichthys thì không có đặc điểm này. Riêng ở Dianema, Hoplosternum và Megalechis, phần xương nở rộng này phát triển rất mạnh. Nó che gần hết vùng da giữa hai vây ngực, và ở những con đực đã trưởng thành hoàn toàn thì hai bên đôi khi chồng lên nhau ngay đường giữa bụng. Còn ở Lepthoplosternum, có vẻ xương coracoid không nở rộng theo kiểu khác biệt giữa đực và cái như vậy.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Hiện mới chỉ có đúng một báo cáo về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Các loài Lepthoplosternum là nhỏ nhất trong phân họ Callichthyinae (SL tối đa 60,3 mm). Có hai đặc điểm chỉ chi này mới có. Thứ nhất, môi dưới có một khía sâu ở giữa và một khía nhỏ hơn ở bên, tạo thành hai mấu thịt gần hình tam giác ở mỗi bên đường giữa. Thứ hai, vây hậu môn có một tia không phân nhánh nằm trước các tia phân nhánh.</p><p>Người ta đôi khi nhầm loài này với Callichthys callichthys. Nếu nhìn thấy xương coracoid lộ ra cạnh vây ngực thì đó là một loài Hoplosternum hoặc Lepthoplosternum. Ở Callichthys, vùng này có da phủ kín nên không thấy xương, dù cá vẫn có xương đó. Thân Callichthys nhìn chung cũng dẹt hơn.</p>",
+    "references:planetcatfish": "<p>Proceedings of the Zoological Society of London 1895 (pt 3), pp 525.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "glaser": 0.8,
-      "scotcat": 0.9
+      "scotcat": 0.9,
+      "planetcatfish": 0.93
     }
   }
 }

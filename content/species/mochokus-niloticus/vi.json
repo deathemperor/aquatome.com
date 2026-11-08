@@ -1,0 +1,20 @@
+{
+  "slug": "ca-mochokus-song-nile",
+  "name": "Cá mochokus sông Nile",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<p>Tên khoa học: Mochokus niloticus Joannis, 1835.</p><p>Kích thước: 65 mm SL (chiều dài chuẩn, không tính vây đuôi).</p><p>Danh sách Đỏ IUCN: Ít quan tâm (lần đánh giá gần nhất năm 2019).</p>",
+    "distribution:planetcatfish": "<p>Châu Phi: lưu vực sông Nile và sông Niger. Cũng có ghi nhận loài này ở lưu vực Chad.</p><p>Nơi thu mẫu chuẩn: sông Nile, gần Thebes, Ai Cập. Hiện không rõ mẫu chuẩn nằm ở đâu.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,8 - 7,5</li><li>Nhiệt độ: 18,0-28,0°C</li><li>Độ cứng: 15 dH</li></ul>",
+    "reproduction:planetcatfish": "<p>Chưa ai ghi nhận loài này sinh sản trong bể nuôi. Hiện cũng chưa có báo cáo nào về việc cho chúng đẻ.</p>",
+    "references:planetcatfish": "<p>Magasin de Zoologie 1835 (5 anneé), pp không có số trang, Pl. 8.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.6
+    },
+    "reason": "thin"
+  }
+}
