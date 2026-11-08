@@ -50,6 +50,10 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
   expect(worktreeVerdict({ ...week, dirty: true, liveCwd: true })).not.toBe('archive')
   expect(worktreeVerdict({ ...week, dirty: true, liveThread: true })).not.toBe('archive')
   expect(worktreeVerdict({ ...week, unpushed: NaN, prs: [] })).not.toBe('archive')
+  // What the leads keep, in ~/.cache/aquatome since the restart of 2026-11-08 emptied /private/tmp: never swept.
+  for (const kept of [{ ...wt, unpushed: 0, prs: [] }, { ...week, dirty: true }]) {
+    expect(worktreeVerdict({ ...kept, path: join(homedir(), '.cache/aquatome/design/prototype') })).toBe('not a worktree this sweep looks after')
+  }
   // Other projects, the main checkout, a thread's scratchpad.
   for (const path of [`${homedir()}/.infinitus/projects/aquatome.com`, `${homedir()}/.infinitus/worktrees/aq-breed-vectors`, '/private/tmp/claude-501/x/scratchpad/y'])
     expect(worktreeVerdict({ ...wt, path })).not.toBe('remove')
