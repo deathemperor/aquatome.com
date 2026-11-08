@@ -400,7 +400,8 @@ final class AccountFlowTests: XCTestCase {
   /// The account is in the profile button's sheet, from every tab: an empty "Bể của tôi" offers a hint that opens it,
   /// and a tank list signed in shows none of the account but where the tanks are kept.
   func testTheAccountIsInTheProfileSheetFromEveryTab() {
-    let app = launch(resetServer: true)
+    // The old look's tabs: v2's are Hôm nay's and Khám phá's (V2FlowTests).
+    let app = launch(resetServer: true, "-v2", "NO")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "no sign-in in the Tài khoản sheet")
     XCTAssertTrue(element(app, "account-header").exists, "no account section in the Tài khoản sheet")
     // Each tab's first screen has the button, and it opens the same sheet.

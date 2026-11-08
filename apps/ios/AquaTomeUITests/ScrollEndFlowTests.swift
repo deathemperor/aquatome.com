@@ -31,7 +31,7 @@ final class ScrollEndFlowTests: XCTestCase {
   func testAKindOfKitEndsAboveTheTabBar() { pageEnds("loc", "Lọc", "a kind of kit", ["-equipment"]) }
 
   func testALongListEndsAboveTheTabBar() {
-    let app = launch(["-equipment"])
+    let app = launch(["-v2", "NO", "-equipment"])
     open(app, "loc", "Lọc")
     let all = app.descendants(matching: .any)["pages-all"]
     repeatUntil(all.exists && all.isHittable, times: 12) { app.swipeUp() }
@@ -51,21 +51,21 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   func testTheFishIdToolEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     open(app, "nhan dien", "Đây là cá gì?")
     XCTAssertTrue(app.descendants(matching: .any)["fish-id"].waitForExistence(timeout: 10), "not the fish-ID screen")
     ends(app, "the fish-ID tool")
   }
 
   func testTheTankVolumeToolEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     open(app, "the tich be", "Bể bao nhiêu lít?")
     XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5), "the tool's screen didn't open")
     ends(app, "the tank volume tool")
   }
 
   func testTheTankMatesToolEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     open(app, "ca neon", "Cá neon")
     let link = app.links["Kiểm tra nuôi chung với loài khác →"].firstMatch
     repeatUntil(link.exists && link.isHittable, times: 12) { app.swipeUp() }
@@ -172,7 +172,7 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   private func pageEnds(_ query: String, _ name: String, _ screen: String, _ more: [String] = []) {
-    let app = launch(more)
+    let app = launch(["-v2", "NO"] + more)
     open(app, query, name)
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 10), "\(screen) didn't open")
     ends(app, screen)

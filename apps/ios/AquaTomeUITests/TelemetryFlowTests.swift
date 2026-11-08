@@ -10,14 +10,14 @@ final class TelemetryFlowTests: XCTestCase {
 
   func testNothingIsSentUntilTheSiteSaysItTakesItThenThePageOpenedIs() {
     // The fixed index says nothing of telemetry: as the site before it's live.
-    var app = launch()
+    var app = launch("-v2", "NO")
     openGuide(app)
     leaveAndComeBack(app)
     let quiet = expectation(for: NSPredicate(format: "label != 'none'"), evaluatedWith: received(app))
     XCTAssertEqual(XCTWaiter.wait(for: [quiet], timeout: 5), .timedOut, "sent without the site's flag: \(received(app).label)")
     app.terminate()
 
-    app = launch("-site-telemetry")
+    app = launch("-v2", "NO", "-site-telemetry")
     openGuide(app)
     leaveAndComeBack(app)
     expectSent(app, #""path":"/vi/huong-dan/nuoi-ca-neon/","t":"view""#)
@@ -27,7 +27,7 @@ final class TelemetryFlowTests: XCTestCase {
   func testTheFlagOfTheIndexKeptFromBeforeSendsNothingWhileTheSitesDoesntCome() {
     // The index kept from an earlier launch says the site takes it, and the site's own never comes (offline, or slow):
     // the site may have turned it off since.
-    let app = launch("-site-telemetry", "-index-kept-only")
+    let app = launch("-v2", "NO", "-site-telemetry", "-index-kept-only")
     openGuide(app)
     leaveAndComeBack(app)
     let quiet = expectation(for: NSPredicate(format: "label != 'none'"), evaluatedWith: received(app))
