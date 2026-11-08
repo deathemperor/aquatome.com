@@ -179,8 +179,17 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['Half a capful per 40 litres.', 1],
     ['One tablet per 20 litres.', 1],
     ['Oxygen above 5 ppm with treatment at 25 ppm.', 1],
+    // Milligrams per so many litres, or per kg of food or fish, are a dose; per litre alone, the water's level.
+    ['Florfenicol 10 mg/kg thức ăn, cho ăn 5 ngày.', 0],
+    ['Neomycin 250 mg cho 40 lít nước.', 1],
+    ['Pha 500 mg mỗi 20 lít, lặp lại sau 3 ngày.', 1],
+    ['Neomycin 250 mg per 40 litres.', 1],
+    ['Berikan 10 mg per kg berat badan ikan selama 5 hari.', 0],
+    // A fish's weight elsewhere in the fact leaves the dose a dose.
+    ['Cho 2 g/kg thức ăn, cá nặng 1 kg ăn 30 g mỗi ngày.', 0],
+    ['Add a pinch of salt to the bath.', 1],
   ] as const) expect(usable(fact, source), fact).toBe(false)
-  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.']) expect(usable(fact), fact).toBe(true)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.', 'Feed a pinch of flakes twice a day.']) expect(usable(fact), fact).toBe(true)
   expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
   // Another page of the same forum is no second source: its addresses can't tell a thread's pages from its posts.
   const second = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
@@ -200,6 +209,11 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['https://www.fishforum.com./t/1', 'https://fishforum.com/t/2'],
   ]) expect(second(a!, b!), b).toBe(false)
   expect(second('https://forum.a.com.vn/t/1', 'https://b.com.vn/x')).toBe(true)
+  // A blog host's blogs are each their own site.
+  expect(second('https://a.blogspot.com/x', 'https://b.blogspot.com/y')).toBe(true)
+  expect(second('https://a.wordpress.com/x', 'https://b.wordpress.com/y')).toBe(true)
+  expect(second('https://a.github.io/x', 'https://b.github.io/y')).toBe(true)
+  expect(second('https://a.blogspot.com/x', 'https://a.blogspot.com/y')).toBe(false)
   expect(second('https://forum.example/viewtopic.php?t=1', 'https://other.example/threads/ich.5/')).toBe(true)
 })
 
