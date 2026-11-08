@@ -115,9 +115,9 @@ function fileLedger(path = LEDGER) {
 /** Failing this long, and over this many runs, the thread hears of it, once. */
 export const ALERT_AFTER_MS = 15 * 60_000
 const ALERT_RUNS = 3
-/** Longer than a failed run and its message can take (three minutes each at most): a gap like this was sleep, and a fault
- * goes on only from the run after it. */
-const ASLEEP_MS = 10 * 60_000
+/** Far longer than a failed run and its message can take (each send's t3 calls have three minutes apiece): a gap like this
+ * between two runs' starts was sleep, and a fault goes on only from the run after it. */
+const ASLEEP_MS = 30 * 60_000
 
 /** An error's first line, the t3 CLI's arguments left out: the log has the rest. */
 const firstLine = e =>
