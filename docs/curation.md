@@ -35,8 +35,14 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 2. **A checked photo big enough for its card.**
    - "Checked" means judged the right subject and typical, with no person, logo, face or watermark (the engine's photo
      checks), and not on the `avoid` list.
-   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's cards are about 400×420 pt, and
-     Khám phá's top cards are wider than tall.
+   - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's fish card is about 400×420 pt, its
+     guide and story cards a 16:9 photo (400×225 pt at the widest, which a 1280×720 video still fills), and Khám phá's
+     top cards are wider than tall. A guide without one is still picked, and drawn without a photo; the planner gives
+     a kept guide or story a photo when its page gets one.
+   - A guide's photo has passed only the face and watermark checks, so the editor looks at each before the week goes
+     out, and puts a diagram, a photo with words on it or two photos joined in `avoid`.
+3. **Variety.** No fish or guide comes back within four weeks, and no two days running show the same group of fish, or
+   guides of the same kind or from the same source.
 
 Among the pages that pass, it scores:
 - the week's own lists first, in their order;

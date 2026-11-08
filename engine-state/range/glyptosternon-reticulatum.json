@@ -1,0 +1,118 @@
+{
+  "id": "glyptosternon-reticulatum",
+  "native": {
+    "input": "cdaa41684ab5b4a3",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "AF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Afghanistan, Pakistan, India and Tibet.",
+        "words": "Afghanistan",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Afghanistan, Pakistan, India and Tibet.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Afghanistan, Pakistan, India and Tibet.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "KG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "The habitat pictures were taken at approximately 1800 m above sea level in the Fergana mountain range in southern Kyrgyzstan in April 2009.",
+        "words": "Kyrgyzstan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kabul River",
+        "source": "planetcatfish",
+        "quote": "Glyptosternon reticulatum McClelland, 1842. Common name: Turkestan Catfish. Type locality: Sir-i-Chusma, source of the Kabul River, Afghanistan. Size: 24 cm SL. Identification: depressed head and body, enlarged paired fins without an ossified first pectoral-fin element (pectoral spine). Gill openings are relatively wide and extend to the ventral surface of the head.",
+        "country": "AF",
+        "ok": true
+      },
+      {
+        "name": "Fergana mountain range",
+        "source": "planetcatfish",
+        "quote": "The habitat pictures were taken at approximately 1800 m above sea level in the Fergana mountain range in southern Kyrgyzstan in April 2009.",
+        "country": "KG",
+        "ok": true
+      },
+      {
+        "name": "Kyzylungugir River",
+        "source": "planetcatfish",
+        "quote": "The name of the river isn't recorded, but it is a tributary of the Kyzylungugir River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptosternon reticulatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2341221,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ],
+      [
+        "ad7e6390-0b99-4c70-bfb5-e86f1b325bfc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "AF",
+      "PK",
+      "IN",
+      "KG"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

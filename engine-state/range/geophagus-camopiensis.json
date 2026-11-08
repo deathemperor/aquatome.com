@@ -1,0 +1,118 @@
+{
+  "id": "geophagus-camopiensis",
+  "native": {
+    "input": "3ef1a77a52dff100",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock (aka Oiapoque) river basin which forms much of the border between Amapá state, Brazil and eastern French Guiana, plus the Approuage system in French Guiana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock (aka Oiapoque) river basin which forms much of the border between Amapá state, Brazil and eastern French Guiana, plus the Approuage system in French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock (aka Oiapoque) river basin which forms much of the border between Amapá state, Brazil and eastern French Guiana, plus the Approuage system in French Guiana.",
+        "ok": true
+      },
+      {
+        "name": "Approuage",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Oyapock (aka Oiapoque) river basin which forms much of the border between Amapá state, Brazil and eastern French Guiana, plus the Approuage system in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Camopi River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Camopi River, Oyapock basin, French Guiana'.",
+        "country": "GF",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus camopiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208436,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        75
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        55
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        14
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

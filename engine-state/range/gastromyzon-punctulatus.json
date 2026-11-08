@@ -1,0 +1,42 @@
+{
+  "id": "gastromyzon-punctulatus",
+  "native": {
+    "input": "98a9015eb8e7f7f8",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "In 2006 the next revision of these fishes from Borneo appeared.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon punctulatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358893,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

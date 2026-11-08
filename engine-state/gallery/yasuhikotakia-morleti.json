@@ -2,7 +2,8 @@
  "queue": [],
  "judged": [
   "File:Yasuhikotakia morleti.jpg",
-  "inat:252058511"
+  "inat:252058511",
+  "gbif:1322030217:d9575abd39a81e37"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/9dea70656f148f4d.webp": "0c1e2c9e34462c01",
@@ -17,5 +18,9 @@
    "research": 146590182,
    "agree": 339406160
   }
+ },
+ "gbif": {
+  "key": 2367782,
+  "next": null
  }
 }

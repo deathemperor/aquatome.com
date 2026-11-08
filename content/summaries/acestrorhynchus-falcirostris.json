@@ -1,12 +1,16 @@
 {
   "id": "acestrorhynchus-falcirostris",
-  "summary": "Cá cachorro mắt to (Acestrorhynchus falcirostris) hợp với người đã nuôi cá săn mồi lớn, có chỗ đặt bể dài 250 cm. Cá lớn tới 35 cm, cần nước 22–28 °C, pH 6–7,5, độ cứng 1–12 dGH, bể đã chạy xong chu trình nitơ và lọc mạnh. Độ khó 7/8, khó nhất là bể dài, nắp kín vì cá hay nhảy, và cá ăn cá bắt buộc nên chuyển sang thức ăn chết khá vất vả.",
+  "summary": "Loài này hợp với người có chỗ đặt bể dài 250 cm và muốn nuôi một loài cá săn mồi cỡ lớn, trưởng thành 35 cm. Cá bơi nhanh, cần nhiều khoảng trống để bơi, nước 22–28 °C, pH 6–7,5, độ cứng 1–12 dGH. Lọc phải thật khỏe và thay nước 30–50% mỗi tuần. Độ khó 6/8 vì cần bể dài và bể phải chạy ổn định lâu rồi mới thả cá.",
   "mistakes": [
-    "Thả cá vào bể chưa ổn định vi sinh; chờ bể chạy xong chu trình nitơ rồi mới thả.",
-    "Để nắp bể hở; dùng nắp đậy thật khít vì cá nhảy rất mạnh.",
-    "Cho ăn tim bò, thịt gà hoặc cá mồi như cá đẻ con, cá vàng nhỏ; tập cá sang thức ăn chết phù hợp."
+    "Để bể hở hoặc đậy nắp không khít, trong khi cá nhảy rất mạnh. Nên dùng nắp thật khít và đậy kín mọi lúc.",
+    "Thả cá vào bể chưa chạy xong chu trình nitơ. Cá nhạy với chất ô nhiễm hữu cơ và thông số nước đổi đột ngột, nên chờ bể ổn định vi sinh rồi mới thả.",
+    "Cho ăn tim bò, thịt gà hoặc cá mồi như cá đẻ con, cá vàng nhỏ. Thịt gia súc, gia cầm làm cá tích mỡ, còn cá mồi dễ mang ký sinh trùng và bệnh. Nên tập cá sang mồi chết."
   ],
   "speciesUpdatedAt": "2026-10-28",
-  "generatedAt": "2026-10-31T17:23:11.713Z",
-  "review": "pending"
+  "generatedAt": "2026-11-08T14:35:40.738Z",
+  "review": "pending",
+  "problems": [
+    "\"Cá nhạy với chất ô nhiễm hữu cơ và thông số nước đổi đột ngột\": the page hedges with \"có thể nhạy\" (may be sensitive), but the summary states it as a certainty.",
+    "\"Thịt gia súc, gia cầm làm cá tích mỡ\": the page says \"lâu dần cá có thể bị tích mỡ thừa\" (over time it may build up fat), so the hedge becomes a certainty."
+  ]
 }

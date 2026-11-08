@@ -1,0 +1,80 @@
+{
+  "id": "geophagus-taeniopareius",
+  "native": {
+    "input": "a7af9e357ef26d97",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Venezuelan portion of the upper Río Orinoco system where it's been recorded from various tributary drainages including the Ríos Caura, Cataniapo, Atacavi, Ocamo, Matacuni, Zoapore and Nichare.",
+        "words": "Venezuelan",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "At one locality close to the city of Puerto Ayacucho in Amazonas state, Venezuela this species was observed in a pool of the Orinoco's flood zone containing clear, still water and surrounded by marginal vegetation.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to the Venezuelan portion of the upper Río Orinoco system where it's been recorded from various tributary drainages including the Ríos Caura, Cataniapo, Atacavi, Ocamo, Matacuni, Zoapore and Nichare.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus taeniopareius",
+    "status": "ACCEPTED",
+    "taxonKey": 5208444,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        32
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        16
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

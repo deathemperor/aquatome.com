@@ -1,7 +1,7 @@
 import Foundation
 import os
 
-/// The app's anonymous telemetry (the privacy policy's "Gửi thống kê ẩn danh"): usage events and iOS's crash and
+/// The app's telemetry (the privacy policy's "Gửi thống kê"): usage events and iOS's crash and
 /// performance reports, sent to aquatome.com's own Worker, never to anyone else.
 ///
 /// - Two switches, both needed: the site's (`siteAllows`, its index's flag, read fresh this launch: nothing is sent
@@ -31,16 +31,20 @@ public final class Telemetry: Sendable {
   /// Random, made anew at each launch and never reused for another launch (a batch waiting in the queue keeps its own).
   public let session = UUID().uuidString.lowercased()
   private let about: About
+  /// nil: no install id sent.
+  private let install: Install?
   private let started = ContinuousClock.now
   private let waiting: OSAllocatedUnfairLock<Waiting>
   private let outbox: Outbox
 
-  /// `file`: where the queue is kept between launches (nil: on the phone only). `userAgent`: asked at each send, since
-  /// whether this copy is one of ours is learnt after launch.
+  /// `file`: where the queue is kept between launches (nil: on the phone only). `userAgent`: asked at each send.
+  /// `install`: where this install's id is kept (nil: none sent).
   public init(about: About, readerAllows: Bool, file: URL?, site: URL, send: @escaping Send,
-              userAgent: @escaping @Sendable () -> String? = { nil },
+              userAgent: @escaping @Sendable () -> String? = { nil }, install: Install? = nil,
               now: (@Sendable () -> Double)? = nil) {
     self.about = about
+    self.install = install
+    if !readerAllows { install?.forget() }
     let waiting = OSAllocatedUnfairLock(initialState: Waiting(reader: readerAllows))
     self.waiting = waiting
     outbox = Outbox(file: file, site: site, send: send, userAgent: userAgent, now: now ?? { Telemetry.seconds() },
@@ -77,9 +81,15 @@ public final class Telemetry: Sendable {
   @discardableResult
   public func siteAllows(_ on: Bool) -> Task<Void, Never>? { set { $0.site = on } }
 
-  /// The reader's switch.
+  /// The reader's switch. Off, the install id is deleted too.
   @discardableResult
-  public func readerAllows(_ on: Bool) -> Task<Void, Never>? { set { $0.reader = on } }
+  public func readerAllows(_ on: Bool) -> Task<Void, Never>? {
+    let install = install
+    return set { w in
+      w.reader = on
+      if !on { install?.forget() }
+    }
+  }
 
   /// A switch set, at once: from here on, off, nothing more is recorded or sent, and what waits on the phone is
   /// dropped. The queue's file is emptied by the task returned (nil when on).
@@ -91,14 +101,16 @@ public final class Telemetry: Sendable {
 
   /// Moves what was recorded to the queue and sends what's due, when both switches are on.
   public func flush() async {
-    let taken: (events: [Event], diagnostics: [Diagnostic])? = waiting.withLock { w in
+    // The install id asked under the lock, so a switch turned off meanwhile can't leave one made.
+    let install = install
+    let taken: (events: [Event], diagnostics: [Diagnostic], install: String?)? = waiting.withLock { w in
       guard w.allowed else { return nil }
       defer { w.events = []; w.diagnostics = [] }
-      return (w.events, w.diagnostics)
+      return (w.events, w.diagnostics, w.events.isEmpty ? nil : install?.id())
     }
     guard let taken else { return }
     // A switch turned off since: the queue takes none of it (`Outbox.add`), and sends nothing.
-    await outbox.add(taken.events, about: about, session: session)
+    await outbox.add(taken.events, about: about, session: session, install: taken.install)
     await outbox.add(taken.diagnostics)
     await outbox.flush()
   }

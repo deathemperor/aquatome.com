@@ -1,0 +1,48 @@
+{
+  "id": "gastromyzon-farragus",
+  "native": {
+    "input": "5e921f74318fba72",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Restricted to tributaries of the Sadong River basin in southern Sarawak state, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sadong River",
+        "source": "seriouslyfish",
+        "quote": "Restricted to tributaries of the Sadong River basin in southern Sarawak state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Restricted to tributaries of the Sadong River basin in southern Sarawak state, Malaysian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon farragus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358877,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

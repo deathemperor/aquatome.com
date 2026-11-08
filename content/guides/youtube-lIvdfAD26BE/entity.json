@@ -13,9 +13,10 @@
     "pterophyllum-scalare",
     "scleropages-formosus",
     "astronotus-ocellatus",
-    "cyprinus-rubrofuscus"
+    "cyprinus-rubrofuscus",
+    "cyphotilapia-frontosa"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "lIvdfAD26BE",
     "title": "I RIPPED the 2,000G aquarium APART!!!",
@@ -35,145 +36,171 @@
     },
     "transcribed": true,
     "taxa": [
-      "Potamotrygon motoro",
-      "Pangasianodon hypophthalmus",
+      "Potamotrygon sp.",
+      "Cyprinus rubrofuscus",
       "Heros severus",
+      "Cyphotilapia frontosa",
       "Monodactylus argenteus",
       "Pterophyllum scalare",
-      "Phractocephalus hemioliparus",
+      "Phractocephalus hemioliptertus",
       "Scleropages formosus",
+      "Astronotus ocellatus",
+      "Polypterus sp.",
       "Symphysodon sp.",
       "Pterois sp.",
-      "Astronotus ocellatus",
-      "Cyprinus rubrofuscus"
+      "Anubias sp."
     ],
     "gear": [
       {
         "category": "loc",
         "type": "sump",
-        "t": 330
+        "t": 401
       },
       {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 490
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 515
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 0
+        "category": "khac",
+        "brand": "Aqua Decor Backgrounds",
+        "t": 386
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao không nối thẳng lỗ đáy xuống sump",
+        "heading": "Thay nắp bằng tấm lợp polycarbonate",
+        "moments": [
+          {
+            "t": 236,
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at236.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Đặt tấm polycarbonate lên miệng bể, thấy rõ các gân sóng của tấm."
+          },
+          {
+            "t": 265,
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at265.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Nắp polycarbonate gợn sóng phủ kín mặt bể, trông cứng và phẳng."
+          }
+        ]
+      },
+      {
+        "heading": "Lỗ khoan đáy gây tràn nước khi mất điện thế nào",
         "moments": [
           {
             "t": 393,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t393.webp",
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at393.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đường ống thoát nước từ lỗ đáy chạy dọc tường xuống phía dưới bể."
+            "caption": "Đường ống đen chạy dọc sau bể dẫn nước xuống sump."
           },
           {
             "t": 432,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t432.webp",
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at432.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ống nước đen nằm ngang nối vào ống đứng dẫn xuống sump."
+            "caption": "Cận cảnh hệ ống đứng và ống ngang phía sau bể."
           }
         ]
       },
       {
-        "heading": "Ống tràn ngoài hoạt động thế nào",
+        "heading": "Ống tràn đứng bên ngoài bể hoạt động ra sao",
         "moments": [
           {
-            "t": 451,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t451.webp",
+            "t": 481,
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at481.webp",
             "width": 160,
             "height": 90,
-            "caption": "Đoạn ống đứng màu đen của ống tràn đặt ngoài bể."
-          }
-        ]
-      },
-      {
-        "heading": "Sắp xếp sump lọc ra sao",
-        "moments": [
-          {
-            "t": 491,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t491.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Xô trắng đặt trong sump, nước đổ xuống từ ống phía trên."
+            "caption": "Tay cầm đoạn ống cong màu đỏ nối vào hệ ống tràn."
           },
           {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t510.webp",
+            "t": 550,
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at550.webp",
             "width": 160,
             "height": 90,
-            "caption": "Xô lọc cơ học kê trên khối vật liệu vi sinh trong sump."
+            "caption": "Hai ống đứng màu đen đặt sát tường phía sau bể."
+          }
+        ]
+      },
+      {
+        "heading": "Xếp vật liệu lọc trong sump",
+        "moments": [
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at510.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Xô trắng đặt trên khối vật liệu lọc trong bể sump."
+          },
+          {
+            "t": 530,
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at530.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Toàn cảnh sump với xô lọc và vật liệu vi sinh bên dưới."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lIvdfAD26BE/p2-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/lIvdfAD26BE/p2-TmV3X1N1bXAuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/lIvdfAD26BE/p3-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/lIvdfAD26BE/p3-TmV3X1N1bXAuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Bể sump acrylic chia nhiều ngăn, có thiết bị lọc đặt bên trong."
+          "caption": "Bể sump bằng acrylic nhiều ngăn đang lắp, chưa cho vật liệu lọc vào."
         }
       },
       {
-        "heading": "Bố trí nhiều ống đứng trong một bể",
+        "heading": "Bộ ống tràn của bể 1.400 lít: ống chính và ống Durso",
         "moments": [
           {
             "t": 677,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t677.webp",
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at677.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cụm ống dẫn nước có van đỏ chạy dọc theo tường."
+            "caption": "Hệ ống dẫn nước có van đỏ chạy dọc trên tường."
           },
           {
             "t": 707,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t707.webp",
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at707.webp",
             "width": 160,
             "height": 90,
-            "caption": "Hai ống đứng thấp màu trắng đặt trong ngăn tràn của bể."
+            "caption": "Các ống đứng trắng trong góc bể tràn, nhìn gần."
           }
         ]
       },
       {
-        "heading": "Nối vào thay nước tự động",
-        "moments": [
-          {
-            "t": 608,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t608.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tủ dưới bể chứa sump và thiết bị nước bên trong."
-          }
-        ]
-      },
-      {
-        "heading": "Áp dụng cho giàn bể nhỏ",
+        "heading": "Thay nước tự động sẽ chạy thế nào",
         "moments": [
           {
             "t": 814,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t814.webp",
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at814.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dãy giàn kệ nhiều tầng đặt dọc hành lang, bên cạnh là bể cá."
+            "caption": "Dãy bể và kệ bể nhỏ đặt dọc theo phòng."
           },
           {
             "t": 834,
-            "url": "https://media.aquatome.com/video/lIvdfAD26BE/t834.webp",
+            "url": "https://media.aquatome.com/video/lIvdfAD26BE/at834.webp",
             "width": 160,
             "height": 90,
-            "caption": "Một bể kính trống nằm trên giàn, có cây xanh xung quanh."
+            "caption": "Một bể kính trống dùng làm sump cho hệ nước mặn."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/lIvdfAD26BE/p5-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/lIvdfAD26BE/p5-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Sump acrylic nhiều ngăn đặt dưới bể, nơi nước dư tràn xuống."
+        }
       }
     ]
   }

@@ -10,6 +10,102 @@
     "panama",
     "chagres"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA"
+      ],
+      "regions": [
+        "Chagres",
+        "Bayano",
+        "Tuira",
+        "Sambú"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Isthmus of Panama near Candelaria' and this species is endemic to the Pacific and Atlantic slopes of central and eastern Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known localities include the ríos Chagres, Cupe, Missimbi, Platenal, Frijoles, Bayano, Ipeti, Sucubti, Sabalo, Pirra, Pepé, Sambú, Morti, Uruseca, Meteti and Tuira.",
+          "countries": [],
+          "regions": [
+            "Chagres",
+            "Bayano",
+            "Tuira",
+            "Sambú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208427,
+      "total": 106,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          99
+        ],
+        [
+          "CO",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          8.4375,
+          64,
+          64
+        ],
+        [
+          -78.75,
+          7.03125,
+          18,
+          18
+        ],
+        [
+          -78.75,
+          8.4375,
+          15,
+          15
+        ],
+        [
+          -77.34375,
+          4.21875,
+          6,
+          0
+        ],
+        [
+          -77.34375,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

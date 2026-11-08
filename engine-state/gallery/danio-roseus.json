@@ -1,19 +1,9 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/475681605/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/475681605/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "dhfischer",
-   "sourceUrl": "https://www.inaturalist.org/photos/475681605",
-   "key": "inat:475681605"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Danio roseus.jpg",
-  "File:Danio roseus (cropped).jpg"
+  "File:Danio roseus (cropped).jpg",
+  "inat:475681605"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/74092b4e0c9e3b61.webp": "4e1f83c31ff1f99d",

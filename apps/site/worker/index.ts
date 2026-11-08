@@ -13,6 +13,7 @@ import { feedbackQueue, sendFeedback } from './feedback'
 import { ownerApi } from './owner-api'
 import { ourNetworkRoute, usLinkRoute, whoIs, type Who } from './us'
 import { APP_STORE_FROM } from './readers'
+import { searchConsoleRoute } from './admin/quality'
 import { recordSnapshot } from './admin/content'
 import { ownReferrer, parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
@@ -258,6 +259,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
   // The daily report's GitHub half, from daily-report.yml (worker/daily): the dashboard token only.
   if (url.pathname === '/_ab/our-network') return ourNetworkRoute(req, env)
+  if (url.pathname === '/_ab/search-console') return searchConsoleRoute(req, env.AB, bearerOk(req, env))
   if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
   // The owner's reports waiting for the Mac (worker/feedback.ts): the dashboard token only.
   if (url.pathname === '/_ab/feedback' || url.pathname.startsWith('/_ab/feedback/')) return finish(await feedbackQueue(req, url, env), env)

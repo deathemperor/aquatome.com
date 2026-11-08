@@ -21,6 +21,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -28,6 +35,13 @@
         "source": "planetcatfish",
         "value": {
           "min": 6.8,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
           "max": 7.5
         }
       }
@@ -45,6 +59,10 @@
       {
         "source": "planetcatfish",
         "value": 6.5
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
       }
     ]
   },
@@ -56,10 +74,28 @@
       "html": "<p>Scientific name: Mochokus niloticus Joannis, 1835.</p><p>Size: 65 mm (2.6\") SL.</p><p>IUCN Red List: Least Concern (last assessed 2019).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>Common name: Dwarf Nile catfish.</p><p>Family: Mochokidae.</p><p>Size: 6.5 cm.</p><p>Temperature: 18-28°C.</p><p>pH: 6.5-7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
       "html": "<p>Africa: Nile and Niger basins. Reported from the Chad basin.</p><p>Type locality: Nile River near Thebes, Egypt. No type known.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>Africa: Nile and Niger basins. Type locality: Nile.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>This is a demersal, potamodromous fish found in lakes and major rivers in shallow waters and marginal vegetation.</p>"
     },
     {
       "key": "waterConditions",
@@ -68,16 +104,40 @@
       "html": "<ul><li>pH: 6.8 - 7.5</li><li>Temperature: 18.0-28.0°C</li><li>Hardness: 15 dH</li></ul>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>It probably feeds on mollusc and insect larvae.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
       "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>Oviparous. Distinct pairing during breeding.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>M. niloticus is the type species of this genus.</p><p>Description: Dorsal spines (total): 1. Diagnosis: body elongate and slender, its depth comprised 5.4-6.3 times in standard length; head as long as broad, its dorsal surface rough; maxillary barbels non-membranous and unbranched, up to 2 times longer than head; mandibular barbels with long, simple ramifications; humeral process long, slender and pointed; 1st dorsal-fin spine weakly denticulate on anterior margin; 2nd dorsal fin with 10-13 rays; pectoral-fin spines more strongly denticulate on inner than on outer margin; caudal fin deeply forked, its lobes equally long.</p><p>Colouration: Ground colour yellowish or ochre, with brown or blackish marbled areas, largest 2 below 1st and 2nd dorsal fins respectively; fins covered with brown or black dots; 1st dorsal fin with transversally aligned spots.</p><p>Etymology: Genus name of Mochokus is the latinisation of Mouchchouéké, Arabic name for M. niloticus, roughly translating as “don’t get stung or jabbed by it,” referring to its dangerously sharp spines, which local fishermen try to avoid. Specific name of niloticus –icus, belonging to the Nile River near Thebes, Egypt, the type locality.</p><p>IUCN Red List: This species has a wide distribution, with no known major widespread threats. It is therefore listed as Least Concern. It has also been assessed regionally as Least Concern for eastern, north eastern and western Africa. In north Africa, the species is assessed as Vulnerable (IUCN 2020).</p><p>Synonyms: Rhinoglanis typus, Rhinoglanis Vannutellii.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
       "html": "<p>Magasin de Zoologie 1835 (5 anneé), pp no page number, Pl. 8.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/mochokidae/mochokus_niloticus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 07/2023 ).</p><p>Olaosebikan, B.D., Akinyi, E., Awaïss, A., Azeroual, A., Getahun, A. &amp; Lalèyè, P. 2020. Mochokus niloticus. The IUCN Red List of Threatened Species 2020.</p><p>Paugy, D. and T.R. Roberts, 2003. Mochokidae. p. 195-268 In C. Lévêque, D. Paugy and G.G. Teugels (eds.) Faune des poissons d'eaux douce et saumâtres de l'Afrique de l'Ouest, Tome 2. Coll. Faune et Flore tropicales 40. Musée Royal de l'Afrique Centrale, Tervuren, Belgique, Museum National d'Histoire Naturalle, Paris, France and Institut de Recherche pour le Développement, Paris, France. 815 p.</p><p>Seegers, L., 2008. The catfishes of Africa: A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p>"
     }
   ],
   "photos": [
