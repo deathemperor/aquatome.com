@@ -107,6 +107,9 @@ REACH = {
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     # The photo picker both screens open (the flows hand them a photo, as picked).
     APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
+    # The waits a flow moves on itself (`-test-gates`): only the fish-ID flows open them (the page shots' fish-ID screens
+    # get the plain wait it replaced, as with FakeServer's).
+    APP + 'TestGate.swift': ['FishIdFlowTests'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     # Its flows, and a fish page's link that opens it.
     APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
@@ -279,6 +282,7 @@ def check(runs, left, reached):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
+    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests'}
     # The chat's contract, before its screen: the kit's tests only.
     for p in (KIT + 'Sources/Handbook/Chat.swift', KIT + 'Sources/Handbook/ServerEvents.swift'):
         assert reached([p]) == set(), p
