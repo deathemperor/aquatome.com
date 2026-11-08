@@ -34,6 +34,8 @@ extension Chat {
     public let id: UUID
     /// Its first question, as asked.
     public let question: String
+    /// Its short title, from its first answered question; none from before titles, or with nothing answered on topic.
+    public let title: String?
     public let from: From?
     /// The page it started from; from fish ID, only its first guess's, for the row's name. In the language it was asked in.
     public let about: Linked?
@@ -46,8 +48,9 @@ extension Chat {
     public let open: Bool
     public let continues: UUID?
 
-    public init(id: UUID, question: String, from: From?, about: Linked?, identified: Identified?, started: Date, last: Date, n: Int, open: Bool, continues: UUID?) {
-      self.id = id; self.question = question; self.from = from; self.about = about; self.identified = identified
+    public init(id: UUID, question: String, title: String? = nil, from: From?, about: Linked?, identified: Identified?, started: Date, last: Date, n: Int,
+                open: Bool, continues: UUID?) {
+      self.id = id; self.question = question; self.title = title; self.from = from; self.about = about; self.identified = identified
       self.started = started; self.last = last; self.n = n; self.open = open; self.continues = continues
     }
   }
@@ -56,8 +59,11 @@ extension Chat {
   public struct Row: Sendable, Hashable, Identifiable {
     public let conversations: [Summary]
     public var id: UUID { conversations[0].id }
-    /// Its first conversation: the row's title and subject.
+    /// Its first conversation: the row's subject, and its words when none has a title.
     public var first: Summary { conversations[0] }
+    /// The first title in the row, oldest first: a first conversation opened off topic and carried on after a day has none,
+    /// though one carrying it on may. None: the row shows its first question's opening words.
+    public var title: String? { conversations.lazy.compactMap(\.title).first }
     /// The one to carry on: in itself while `open`, else in a new one that continues it.
     public var last: Summary { conversations[conversations.count - 1] }
     /// Its questions, over all its conversations.
@@ -154,7 +160,8 @@ extension Chat {
   private static func summary(_ o: [String: Any]) -> Summary? {
     guard let id = (o["id"] as? String).flatMap(UUID.init(uuidString:)), let question = o["question"] as? String, let started = date(o["started"]),
           let last = date(o["last"]), let n = o["n"] as? Int, let open = o["open"] as? Bool else { return nil }
-    return Summary(id: id, question: question, from: (o["from"] as? String).flatMap(From.init(rawValue:)), about: linked(o["about"]),
+    return Summary(id: id, question: question, title: (o["title"] as? String).flatMap { $0.isEmpty ? nil : $0 },
+                   from: (o["from"] as? String).flatMap(From.init(rawValue:)), about: linked(o["about"]),
                    identified: identified(o["identified"]), started: started, last: last, n: n, open: open,
                    continues: (o["continues"] as? String).flatMap(UUID.init(uuidString:)))
   }

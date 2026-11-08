@@ -597,6 +597,23 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   #expect(!chain.holds(UUID()))
 }
 
+@Test func aRowTakesTheFirstTitleInItsChainOldestFirst() throws {
+  // The first conversation opened off topic and was carried on a day later: no title of its own, its successors have.
+  let body = Data("""
+  {"rows":[{"conversations":[
+    {"id":"11111111-1111-4111-8111-111111111111","question":"Hôm nay trời đẹp nhỉ?","started":"2026-11-01T08:00:00Z","last":"2026-11-01T08:00:00Z","n":1,"open":false},
+    {"id":"22222222-2222-4222-8222-222222222222","question":"Cá đĩa ăn gì?","title":"Thức ăn hằng ngày","started":"2026-11-02T09:00:00Z","last":"2026-11-02T09:00:00Z","n":1,"open":false,"continues":"11111111-1111-4111-8111-111111111111"},
+    {"id":"33333333-3333-4333-8333-333333333333","question":"Bao lâu thay nước?","title":"Lịch thay nước","started":"2026-11-03T09:00:00Z","last":"2026-11-03T09:00:00Z","n":1,"open":true,"continues":"22222222-2222-4222-8222-222222222222"}]},
+   {"conversations":[{"id":"44444444-4444-4444-8444-444444444444","question":"Neon sống bao lâu?","title":"","started":"2026-11-04T09:00:00Z","last":"2026-11-04T09:00:00Z","n":1,"open":true}]}]}
+  """.utf8)
+  let rows = try #require(Chat.history(body, status: 200)).rows
+  #expect(rows[0].first.title == nil)
+  #expect(rows[0].title == "Thức ăn hằng ngày")
+  // None, or an empty one: the row says its first question's words, as before.
+  #expect(rows[1].first.title == nil)
+  #expect(rows[1].title == nil)
+}
+
 @Test func carryingARowOnSendsWhatItsFirstQuestionSent() throws {
   let (body, status) = try answer("chat-conversations.json")
   let rows = try #require(Chat.history(body, status: status)).rows

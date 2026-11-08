@@ -450,7 +450,7 @@ private struct EarlierRow: View {
         Image(systemName: "clock.arrow.circlepath").foregroundStyle(.secondary).accessibilityHidden(true)
         VStack(alignment: .leading, spacing: 2) {
           Text("Cuộc trước về \(name)").font(.subheadline.weight(.semibold))
-          Text(verbatim: (justNow ? String(localized: "Vừa rồi") : ChatTimes.day(row.last.last)) + " · " + row.first.question)
+          Text(verbatim: (justNow ? String(localized: "Vừa rồi") : ChatTimes.day(row.last.last)) + " · " + (row.title ?? row.first.question))
             .font(.footnote)
             .foregroundStyle(.secondary)
             .lineLimit(1)
