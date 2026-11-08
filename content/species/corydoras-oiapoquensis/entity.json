@@ -14,13 +14,16 @@
   "range": {
     "native": {
       "countries": [
-        "GF"
+        "GF",
+        "BR"
       ],
       "regions": [
-        "Oyapock"
+        "Oyapock",
+        "Rio Oyapock"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -30,6 +33,16 @@
             "GF"
           ],
           "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Oyapock in French Guiana and Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Oyapock"
+          ]
         },
         {
           "source": "planetcatfish",
@@ -44,7 +57,7 @@
     "records": {
       "taxonKey": 2342699,
       "total": 59,
-      "fetched": "2026-11-07",
+      "fetched": "2026-11-08",
       "countries": [
         [
           "GF",
@@ -70,19 +83,19 @@
           -53.4375,
           1.40625,
           23,
-          5
+          23
         ],
         [
           -53.4375,
           2.8125,
           32,
-          23
+          32
         ],
         [
           -52.03125,
           2.8125,
           2,
-          1
+          2
         ]
       ]
     }

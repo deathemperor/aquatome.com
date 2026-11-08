@@ -13,6 +13,94 @@
     "guyana",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "SR"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The spotted cory, Hoplisoma brevirostre, long known as Corydoras brevirostris, is an armoured catfish usually said to occur in the Orinoco system in Venezuela and coastal Suriname.",
+          "countries": [
+            "VE",
+            "SR"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342751,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GF",
+          11
+        ],
+        [
+          "GY",
+          6
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          2,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          11,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

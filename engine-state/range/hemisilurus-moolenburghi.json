@@ -1,0 +1,63 @@
+{
+  "id": "hemisilurus-moolenburghi",
+  "native": {
+    "input": "3fa2b821f43a6832",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Batang Hari River, Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Batang Hari",
+        "source": "planetcatfish",
+        "quote": "Type locality: Batang Hari River, Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra and western Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra and western Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "scotcat",
+        "quote": "This species is reported only from the Batang Hari drainage in Sumatra and the Kapuas River drainage in Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemisilurus moolenburghi",
+    "status": "ACCEPTED",
+    "taxonKey": 2337585,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

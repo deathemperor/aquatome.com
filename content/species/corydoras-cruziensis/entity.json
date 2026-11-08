@@ -10,6 +10,66 @@
     "bolivia",
     "madeira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO"
+      ],
+      "regions": [
+        "Río Madeira",
+        "Mamoré",
+        "Beni"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Santa Cruz cory, Hoplisoma cruziense, long known as Corydoras cruziensis, is an armoured catfish from the Bolivian portion of the Río Madeira basin.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The precise extent of its range is unclear but it appears restricted to the Bolivian portion of the Río Madeira basin, and possibly the Mamoré and Beni tributary drainages.",
+          "countries": [],
+          "regions": [
+            "Río Madeira",
+            "Mamoré",
+            "Beni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342780,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BO",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -16.875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

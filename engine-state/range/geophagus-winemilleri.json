@@ -1,0 +1,89 @@
+{
+  "id": "geophagus-winemilleri",
+  "native": {
+    "input": "accf69246dc04279",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Negro",
+        "source": "seriouslyfish",
+        "quote": "Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.",
+        "ok": true
+      },
+      {
+        "name": "Río Siapa",
+        "source": "seriouslyfish",
+        "quote": "Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus winemilleri",
+    "status": "ACCEPTED",
+    "taxonKey": 5208415,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}
