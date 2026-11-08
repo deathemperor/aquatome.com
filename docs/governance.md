@@ -900,7 +900,9 @@ The layers above still check the result.
   every served guide, species, plant and breed page for what shows it was written for a reader somewhere else: the
   source's own talk, imperial or converted units, a foreign shop, price or product (the market table, `market.ts`, says
   what's sold here, never the model), a dose tied to a product, a dose that doesn't say what it's for or lacks its
-  source's caution for shrimp and others, and a shop abroad's kit, which no rewording fixes. Rules run on every page;
+  source's caution for shrimp and others, a shop abroad's kit, which no rewording fixes, and advice that, followed as
+  written, would hurt the fish, other animals, plants or the keeper (a video guide's catching fish by raising CO₂ and
+  switching the filter off). Rules run on every page;
   Opus reads for the rest, and a finding counts only with a quote on the page. Reads are kept by page and text hash
   (`engine-state/_fit.json`), so a page is read again only when its text changes (`pnpm engine fit`, in batches).
   - Doses on different pages for the same treatment, strength, use and method at rates that can't both be right are
@@ -909,7 +911,8 @@ The layers above still check the result.
     and three random pages a day, is `engine-state/fit-summary.json`, which the daily report shows.
   - The gate (`pnpm engine gate`, last in a cycle) reads the pages the cycle changed: a new page that fails is held
     (`held` in its language file, which the build leaves out), a live page whose new text fails a check its old text
-    passed gets its committed text back, a page built on a shop abroad's kit is held, and a held page that changes and
+    passed gets its committed text back, a page built on a shop abroad's kit or giving advice that would hurt is held
+    (changed or not; a live page whose new text brought it gets its old text back), and a held page that changes and
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
     its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
     (`gate.test.ts`).
@@ -917,7 +920,7 @@ The layers above still check the result.
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was
     written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
-    the phrase list and the gate. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
+    the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a

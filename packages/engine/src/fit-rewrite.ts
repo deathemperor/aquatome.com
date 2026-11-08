@@ -15,8 +15,8 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  *   findings as notes (reader.ts rewritePart; a section with its English against that English), kept only when its
  *   reviewer passes it.
  * Left to others: units, which the code rounds (round.ts), words, which the phrase list carries, a kit, which no rewording
- * fixes (the gate holds it), and the doses compared across pages, which a person settles. A title, a summary line or a
- * question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
+ * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
+ * compared across pages, which a person settles. A title, a summary line or a question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
  * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
  */
