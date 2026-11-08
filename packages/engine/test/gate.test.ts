@@ -7,6 +7,7 @@ import { LlmError, type Llm } from '../src/claude'
 import { fitKey, fitText, type FitState } from '../src/fit'
 import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, wrongChecks } from '../src/gate'
 import { loadPages, type Page } from '../src/pages'
+import { lastKept, logReviews, readReviews } from '../src/review-log'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
 const GUIDE = 'content/guides/youtube-r53ZQW0m8VM/vi.json'
@@ -85,6 +86,25 @@ test('a live page that got worse gets its committed text back; one no worse keep
   const again = await gate(root, { llm: reader(), now })
   expect(again.report.pass).toHaveLength(1)
   expect(await readFile(join(root, GUIDE), 'utf8')).toContain('Thay nước mỗi tuần')
+})
+
+test('a text put back is the page\'s again in the review log: reviews of the text it replaced stop counting', async () => {
+  const root = await repo()
+  const guide = { id: 'guides/youtube-r53ZQW0m8VM', lang: 'vi' }
+  const other = { id: 'species/betta-splendens', lang: 'vi' }
+  const old = { score: 0.8, notes: ['the text readers have'] }
+  await logReviews(root, 'video-guide', guide, [old], old, { now: new Date('2026-11-01T00:00:00Z') })
+  git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'reviews')
+  // This run rewrites the guide and reviews it, and reviews another page it doesn't put back.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const rewritten = { score: 0.9, notes: ['the rewrite'] }
+  await logReviews(root, 'video-guide', guide, [rewritten], rewritten, { now: new Date('2026-11-09T00:00:00Z') })
+  await logReviews(root, 'translation', other, [rewritten], rewritten, { now: new Date('2026-11-09T00:00:00Z') })
+
+  expect((await gate(root, { llm: reader(), now })).report.revert).toHaveLength(1)
+  expect((await lastKept(root, guide, ['video-guide']))?.notes).toEqual(['the text readers have'])
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-r53ZQW0m8VM']!.map(t => t.kept)).toEqual([false, true])
+  expect((await lastKept(root, other, ['translation']))?.notes).toEqual(['the rewrite'])
 })
 
 test('a fault the old text had too, found again on a fresh read, is not worse', async () => {

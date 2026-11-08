@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -7,6 +8,7 @@ import { LlmError, type Llm } from './claude'
 import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
 import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
+import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
 
 /**
  * Every page passes the checklist (fit.ts) before readers get it. Run last in each cycle, after everything that writes
@@ -232,7 +234,17 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     }
   }))
   // One checkout for all of them, after the reads.
-  if (reverts.length) git(root, ['checkout', 'HEAD', '--', ...reverts])
+  if (reverts.length) {
+    git(root, ['checkout', 'HEAD', '--', ...reverts])
+    // The reviews of the texts they replaced are no longer the pages'.
+    const back = reverts.map(f => FILE.exec(f)!).map(m => ({ lang: m[3]!, id: `${m[1]}/${m[2]}` }))
+    const committed = new Set(git(root, ['ls-tree', '--name-only', 'HEAD', '--', 'engine-state/reviews/']).split('\n'))
+    for (const kind of REVIEW_KINDS) {
+      const f = `engine-state/reviews/${kind}.json`
+      if (!existsSync(reviewFile(root, kind))) continue
+      await unkeep(root, kind, back, committed.has(f) ? JSON.parse(git(root, ['show', `HEAD:${f}`])) as Store : {})
+    }
+  }
   for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
   // Harm in any language, from the texts the run ends with, holds the page in each: one that passed, or that would have
