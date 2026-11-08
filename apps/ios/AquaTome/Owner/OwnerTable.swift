@@ -38,6 +38,7 @@ struct OwnerTable: View {
           }
           .font(.callout)
         }
+        .clearOfOwnerReport(.trailing)
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("owner-table")
       }
@@ -100,6 +101,7 @@ struct OwnerTableScreen: View {
       }
       .padding()
     }
+    .clearOfOwnerReport()
     .background(Color(uiColor: .systemGroupedBackground))
     .navigationTitle(Text(verbatim: route.title))
     .navigationBarTitleDisplayMode(.inline)
