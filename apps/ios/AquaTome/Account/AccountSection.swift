@@ -33,6 +33,7 @@ struct AccountSection: View {
     case .signedIn(let user):
       Section {
         Who(user: user)
+        AccountPictureRow()
         SyncRow()
         PasskeyRows()
         AccountMessage()
