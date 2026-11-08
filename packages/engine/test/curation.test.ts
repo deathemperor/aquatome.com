@@ -85,16 +85,24 @@ test('a day\'s card is there to show: written in a language the gate lets out, w
   ])
   await card('ok', { vi: {}, th: { held: { checks: ['elsewhere'], at: '2026-11-08' } } })
   await card('held', { vi: { held: { checks: ['source'], at: '2026-11-08' } } })
+  // A card whose files don't parse is listed, and the rest still read.
+  await mkdir(join(root, 'content', 'cards', 'broken'), { recursive: true })
+  await writeFile(join(root, 'content', 'cards', 'broken', 'entity.json'), JSON.stringify({ id: 'broken', type: 'trivia', show: { from: '2026-11-10', until: '2026-11-11' }, updatedAt: '2026-11-08' }))
+  await mkdir(join(root, 'content', 'cards', 'not-json'), { recursive: true })
+  await writeFile(join(root, 'content', 'cards', 'not-json', 'entity.json'), '{')
   const cards = await cardsOf(root)
+  expect(cards.get('cards/broken')).toEqual({ bad: 'sources: Invalid input: expected array, received undefined' })
+  expect(cards.get('cards/not-json')).toMatchObject({ bad: expect.stringMatching(/JSON/) })
   expect(cards.get('cards/ok')).toEqual({ show: { from: '2026-11-10', until: '2026-11-11' }, langs: ['vi'] })
   const cands = [fish('a'), guide('g')]
   const day = (date: string, card: string) => ({ date, fish: 'species/a', img: cands[0]!.photo.square!.url, guide: 'guides/g', card })
-  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none')] })
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none'), day('2026-11-15', 'cards/broken')] })
   // 10 Nov's card passes; the others don't.
   expect(checkCalendar(cur, cands, '2026-11-10', 1, cards)).toEqual([
     '2026-11-12 card cards/ok: outside its days, 2026-11-10 to 2026-11-11',
     '2026-11-13 card cards/held: held back or unwritten in every language',
     '2026-11-14 card cards/none: no such card',
+    "2026-11-15 card cards/broken: its files don't parse: sources: Invalid input: expected array, received undefined",
   ])
   expect(plan(cur, cands, '2026-11-10', 1).calendar.days[0]!.card).toBe('cards/ok')
 })
