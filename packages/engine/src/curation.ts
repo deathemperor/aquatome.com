@@ -310,20 +310,30 @@ function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): R
 }
 
 /** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
- * it's written in that the gate doesn't hold back. */
-export type CardShow = { show: CardEntity['show']; langs: string[] }
+ * it's written in that the gate doesn't hold back; or why its files don't parse, so one broken card is a problem the
+ * check lists rather than a planner run that stops (Site Lead, 2026-11-08). */
+export type CardShow = { show: CardEntity['show']; langs: string[] } | { bad: string }
 export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
   const dir = join(root, 'content', 'cards')
   const out = new Map<string, CardShow>()
   for (const id of await readdir(dir).catch(() => [] as string[])) {
-    const e = await json<unknown>(join(dir, id, 'entity.json'), null)
-    if (!e) continue
-    const langs: string[] = []
-    for (const lang of LANGS) {
-      const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
-      if (t && !t.held) langs.push(lang)
+    try {
+      const e = await json<unknown>(join(dir, id, 'entity.json'), null)
+      if (!e) continue
+      const parsed = CardSchema.safeParse(e)
+      if (!parsed.success) {
+        out.set(`cards/${id}`, { bad: parsed.error.issues.map(i => `${i.path.join('.') || 'entity'}: ${i.message}`).join('; ') })
+        continue
+      }
+      const langs: string[] = []
+      for (const lang of LANGS) {
+        const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
+        if (t && !t.held) langs.push(lang)
+      }
+      out.set(`cards/${id}`, { show: parsed.data.show, langs })
+    } catch (err) {
+      out.set(`cards/${id}`, { bad: err instanceof Error ? err.message : String(err) })
     }
-    out.set(`cards/${id}`, { show: CardSchema.parse(e).show, langs })
   }
   return out
 }
@@ -352,7 +362,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     }
     if (d.card) {
       const c = cards.get(d.card)
-      const p = !c ? 'no such card' : !c.langs.length ? 'held back or unwritten in every language'
+      const p = !c ? 'no such card' : 'bad' in c ? `its files don't parse: ${c.bad}` : !c.langs.length ? 'held back or unwritten in every language'
         : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : undefined
       if (p) out.push(`${d.date} card ${d.card}: ${p}`)
     }
