@@ -72,6 +72,7 @@ struct V2Photo: View {
         guard let loaded else { if shown == nil { missing = src }; return }
         // Faded in as it comes; one in its place already, swapped.
         withAnimation(shown == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
+        missing = nil
         if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
       }
   }
@@ -228,7 +229,7 @@ struct Lockup: View {
             V2Photo(src: item.img, colour: item.kind == .fish ? { _ in } : nil)
               .frame(width: side, height: side)
               .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
-              .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary) } }
+              .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {

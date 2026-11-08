@@ -55,6 +55,12 @@ struct SpeciesPage: View {
   @State private var saveStart: CGFloat = 0
   @State private var shareStart: CGFloat = 0
   @State private var nameWidth: CGFloat = 0
+  /// Where the name in the bar sits, held from when it comes: the glass coming behind the buttons moves them a few points,
+  /// which moved a name near the limit from the room's middle to the screen's.
+  @State private var held: BarPlace?
+  private struct BarPlace: Equatable { let x, room: CGFloat }
+  /// An edge swipe's start and the furthest it went, so one that turned back before lifting doesn't go back.
+  @State private var swipe = (start: CGPoint.zero, furthest: CGFloat(0))
   /// The bar's foot on the screen.
   @State private var barFoot: CGFloat = 106
   /// Where the page's colour reaches: still under the top bar, and down into the fade over the tab bar.
@@ -88,8 +94,9 @@ struct SpeciesPage: View {
       VStack(spacing: 0) {
         if let hero {
           V2Photo(src: hero, ground: colour) { colour = $0 }
-            // Less on a small phone, so the name and figures still show under it.
-            .containerRelativeFrame(.vertical) { h, _ in min(420, h * 0.46) }
+            // Less on a small phone, so the name and figures still show under it; less again at the accessibility sizes, so
+            // "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
+            .containerRelativeFrame(.vertical) { h, _ in size.isAccessibilitySize ? h * 0.34 : min(420, h * 0.46) }
             .overlay(alignment: .bottom) {
               LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
             }
@@ -205,10 +212,16 @@ struct SpeciesPage: View {
     // The edge swipe back, whatever iOS's own does with its back button hidden and a zoom: under test, none of its gestures
     // went back from a zoomed page. A drag from the left edge, across; alongside the page's own scrolling, so a thumb that
     // starts on the edge and goes down the page scrolls it, and a tap there lands.
-    .simultaneousGesture(DragGesture(minimumDistance: 12).onEnded {
+    .simultaneousGesture(DragGesture(minimumDistance: 12).onChanged { drag in
+      // Only a drag from the edge: the page's own scrolling doesn't redraw it.
+      guard drag.startLocation.x < 16 else { return }
+      if drag.startLocation != swipe.start { swipe = (drag.startLocation, 0) }
+      swipe.furthest = max(swipe.furthest, drag.translation.width)
+    }.onEnded {
       let t = $0.translation
-      // Not when the finger turns back before it lifts: that's changing one's mind, as with iOS's own.
-      if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2,
+      // Not when the finger turned back before it lifted, still moving or stopped: that's changing one's mind, as with
+      // iOS's own.
+      if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2, t.width >= swipe.furthest * 0.7,
         $0.predictedEndTranslation.width >= t.width - 4 { goBack() }
     })
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
@@ -219,7 +232,7 @@ struct SpeciesPage: View {
     // own size, as iOS's title is. Not read: the page's name is, as its heading.
     .overlay(alignment: .top) {
       if nameGone, barMid > 0 {
-        let place = barName
+        let place = held ?? barName ?? BarPlace(x: width / 2, room: max(60, width - 290))
         Text(verbatim: item.name).font(.headline).lineLimit(1).dynamicTypeSize(.large)
           .foregroundStyle(colourAt.top ? Color.white : Color.primary)
           .frame(maxWidth: place.room)
@@ -229,6 +242,8 @@ struct SpeciesPage: View {
           .accessibilityIdentifier("v2-bar-name")
       }
     }
+    .onChange(of: nameGone) { if nameGone, held == nil { held = barName } }
+    .onChange(of: width) { held = nameGone ? barName : nil }
     // The name's width on one line, for `barName`.
     .background {
       Text(verbatim: item.name).font(.headline).dynamicTypeSize(.large).fixedSize().hidden()
@@ -290,14 +305,14 @@ struct SpeciesPage: View {
   }
 
   /// Where the name in the bar sits and how wide it may be, as iOS places its title: in the screen's middle when it fits
-  /// there between the buttons, else in the middle of the room between them. Before the buttons are measured, 145 points
-  /// left each side.
-  private var barName: (x: CGFloat, room: CGFloat) {
-    let middle = width / 2, gap: CGFloat = 8
+  /// there between the buttons, else in the middle of the room between them; 16 points clear of them, their glass too.
+  /// None before the buttons are measured (then 145 points are left each side).
+  private var barName: BarPlace? {
+    let middle = width / 2, gap: CGFloat = 16
     let lead = backEnd - origin.x, trail = min(saveStart, shareStart) - origin.x
-    guard backEnd > 0, saveStart > 0, shareStart > 0, trail - lead > 2 * gap + 60 else { return (middle, max(60, width - 290)) }
+    guard backEnd > 0, saveStart > 0, shareStart > 0, trail - lead > 2 * gap + 60 else { return nil }
     let even = 2 * (min(middle - lead, trail - middle) - gap)
-    return nameWidth <= even ? (middle, even) : ((lead + trail) / 2, trail - lead - 2 * gap)
+    return nameWidth <= even ? BarPlace(x: middle, room: even) : BarPlace(x: (lead + trail) / 2, room: trail - lead - 2 * gap)
   }
 
   private func standOnColour() {
@@ -395,6 +410,8 @@ struct SpeciesPage: View {
               V2Photo(src: p.thumb ?? p.src, ground: colour)
                 .aspectRatio(1.6, contentMode: .fit)
                 .clipShape(.rect(cornerRadius: 16, style: .continuous))
+                // Its edge on a dark page, as a row's photo has, for a photo on black.
+                .overlay { RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
             }
             .buttonStyle(CardPress())
             .accessibilityLabel(Text(verbatim: p.alt ?? item.name))
@@ -678,6 +695,7 @@ private struct MatesRow: View {
         V2Photo(src: src, colourKey: item?.img, colour: item?.kind == .fish ? { _ in } : nil)
           .frame(width: lines == nil ? photo * 1.5 : nil, height: photo)
           .clipShape(.rect(cornerRadius: 14, style: .continuous))
+          .overlay { RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           // A third of the fish have no photo: the tile says what it is, not an empty box.
           .overlay { if src == nil { Image(systemName: item?.kind.symbol ?? "fish").font(.title2).foregroundStyle(.secondary) } }
         Text(verbatim: m.name).font(.subheadline.weight(.semibold)).lineLimit(lines == nil ? nil : 2)
