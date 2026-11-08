@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, TITLE_RULE, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, TITLE_FORM, TITLE_RULE, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MAX_TITLE, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, TITLED_SCHEMA, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -848,19 +848,33 @@ test('a conversation\'s first answer brings its title, in the same call: the tit
   const titled = await asked({ title: true })
   expect(titled.body.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: TITLED_SCHEMA } })
   expect(titled.said).toContain(JSON.stringify(TITLE_RULE('vi')).slice(1, -1))
-  expect(TITLE_RULE('th')).toContain('In Thai')
+  // Each language's rule gives its own form and examples, never another's: with every language's in it, a title could slip.
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    const rule = TITLE_RULE(lang)
+    for (const [other, f] of Object.entries(TITLE_FORM)) for (const ex of f.examples) expect(rule.includes(ex), `${lang}: ${ex}`).toBe(other === lang)
+  }
+  expect(TITLE_RULE('th')).toContain('in Thai')
   expect(titled.out.answer?.title).toBe('Cá betta bỏ ăn')
+  // Fish ID unsure: beside its guesses, the title names their group; sure, or with no title asked, nothing.
+  const told = (results: { scientificName: string; confidence: number }[], title = true) => JSON.stringify(firstMessage('vi', 'Nuôi mấy con?', [], { from: 'fish-id', identified: { verdict: 'fish', results } }, h, title).content)
+  expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.55 }, { scientificName: 'Corydoras paleatus', confidence: 0.3 }])).toContain('Fish ID is unsure')
+  expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.6 }])).toContain('Fish ID is unsure')
+  expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.91 }])).not.toContain('Fish ID is unsure')
+  expect(told([{ scientificName: 'Corydoras aeneus', confidence: 0.55 }], false)).not.toContain('Fish ID is unsure')
   const not = await asked({})
   expect(not.body.output_config!.format).toEqual({ type: 'json_schema', schema: ANSWER_SCHEMA })
   expect(not.said).not.toContain('title')
 })
 
 test('a title as the list shows it: one line, no quotes or stop; one that isn\'t a title is left out, never the answer with it', () => {
-  const said = (title: unknown, offTopic = false) => readAnswer(message([{ type: 'text', text: JSON.stringify({ offTopic, text: 'Cá betta bỏ ăn thường do nước lạnh.', covered: true, blocks: [], suggestions: [], title }) }]))
+  const said = (title: unknown, offTopic = false, lang?: 'vi' | 'th') => readAnswer(message([{ type: 'text', text: JSON.stringify({ offTopic, text: 'Cá betta bỏ ăn thường do nước lạnh.', covered: true, blocks: [], suggestions: [], title }) }]), lang)
   expect(said(' "Cá betta bỏ ăn,\n nằm đáy." ')?.title).toBe('Cá betta bỏ ăn, nằm đáy')
   expect(said('«Rêu tóc trong bể mới»')?.title).toBe('Rêu tóc trong bể mới')
   // A question keeps its mark: without it, Indonesian and Malay read as a statement.
   expect(said('Akuarium 4 liter, 7-8 ikan aman?')?.title).toBe('Akuarium 4 liter, 7-8 ikan aman?')
+  // But not in Thai, where ไหม asks and a "?" looks foreign.
+  expect(said('ปลากัดเลี้ยงในโหลได้ไหม?', false, 'th')?.title).toBe('ปลากัดเลี้ยงในโหลได้ไหม')
+  expect(said('Cá vàng mùa đông cần sưởi không?', false, 'vi')?.title).toBe('Cá vàng mùa đông cần sưởi không?')
   // Counted as the reader sees it: "กิ่" is three code points and one character, so 60 of them are a title, 61 none.
   expect([...'กิ่'].length).toBe(3)
   expect(said('กิ่'.repeat(MAX_TITLE))?.title).toBe('กิ่'.repeat(MAX_TITLE))

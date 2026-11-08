@@ -75,7 +75,7 @@ export const TITLED_SCHEMA = {
   required: [...ANSWER_SCHEMA.required, 'title'],
   properties: {
     ...ANSWER_SCHEMA.properties,
-    title: { type: 'string', description: 'The conversation\'s title, for the reader\'s list of past chats: in their language, at most six words naming the fish or plant and the problem or what they ask. Nothing personal from their message: no name, place or shop.' },
+    title: { type: 'string', description: 'The conversation\'s title, for the reader\'s list of past chats, as the first message says: one phone line in their language and their own words, with the detail the answer depends on; a yes-or-no question asks. Nothing personal from their message: no name, place or shop.' },
   },
 } as const
 
@@ -100,11 +100,11 @@ export const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))]
 export const MAX_TITLE = 60
 /**
  * The title Claude wrote, as the list shows it: on one line, without quotes around it or a stop at its end. A question
- * mark stays: "aman?" or "ke?" asks, and without it reads as a statement. None when it's empty or longer than a title
- * (`MAX_TITLE`).
+ * mark stays: "aman?" or "ke?" asks, and without it reads as a statement; but not in Thai, where ไหม or กี่ asks and a
+ * "?" looks foreign. None when it's empty or longer than a title (`MAX_TITLE`).
  */
-export function titleOf(raw: string): string | undefined {
-  const t = raw.normalize('NFC').replace(/\s+/g, ' ').trim().replace(/^["'“”«»]+|["'“”«»]+$/g, '').replace(/[.,;:!…。]+$/, '').trim()
+export function titleOf(raw: string, lang?: Lang): string | undefined {
+  const t = raw.normalize('NFC').replace(/\s+/g, ' ').trim().replace(/^["'“”«»]+|["'“”«»]+$/g, '').replace(lang === 'th' ? /[.,;:!?？…。]+$/ : /[.,;:!…。]+$/, '').trim()
   return t && charsOf(t) <= MAX_TITLE ? t : undefined
 }
 
@@ -112,7 +112,7 @@ export function titleOf(raw: string): string | undefined {
 export const MIN_TEXT = 10
 
 /** The answer in Claude's message: its JSON (the schema's), or undefined for a refusal, one cut short, or one with no text. */
-export function readAnswer(m: Anthropic.Message): Answer | undefined {
+export function readAnswer(m: Anthropic.Message, lang?: Lang): Answer | undefined {
   if (m.stop_reason === 'refusal' || m.stop_reason === 'max_tokens') return undefined
   const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
   try {
@@ -121,7 +121,7 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
     if (!(typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions))) return undefined
     // A title that isn't one is left out, never the answer with it: the list shows the first words instead.
     const { title: raw, ...rest } = a
-    const title = typeof raw === 'string' ? titleOf(raw) : undefined
+    const title = typeof raw === 'string' ? titleOf(raw, lang) : undefined
     return { ...rest, offTopic: false, ...(title ? { title } : {}) }
   } catch {
     return undefined

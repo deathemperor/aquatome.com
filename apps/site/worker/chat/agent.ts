@@ -59,8 +59,33 @@ export function shown(b: ChatBlock): string {
   }
 }
 
+/**
+ * The title's form in each language (the editors' round 1, docs in ~/.cache/aquatome/evals/titles/editors-r1/): how a
+ * yes-or-no question asks, the case, and two titles, a problem and a question, of fish and tanks the sample doesn't
+ * hold, so the sample isn't scored on its own answers. Only the reader's language goes in the prompt.
+ */
+export const TITLE_FORM: Record<Lang, { asks: string; case: string; examples: [string, string] }> = {
+  vi: { asks: 'with its question word and "?" ("… được không?", "… chưa?")', case: 'Sentence case: a capital only at the start and for a proper name.', examples: ['Cá molly bỏ ăn, đứng im một góc', 'Bể 40 lít nuôi 3 con ali được không?'] },
+  id: { asks: 'ending with "?"', case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Dutch); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.', examples: ['Molly diam di pojok, tidak mau makan', 'Akuarium 40 liter cukup buat satu louhan?'] },
+  th: { asks: 'with ไหม, กี่ or ยังไง, and never a "?"', case: '', examples: ['ปลาสอดไม่กินอาหาร นิ่งอยู่มุมตู้', 'ตู้ 40 ลิตรเลี้ยงปลาหมอสี 3 ตัวได้ไหม'] },
+  ms: { asks: 'ending with "?", as "… tak?" or "… ke?"', case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Java); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.', examples: ['Ikan molly tak makan, diam di sudut', 'Tangki 3 kaki cukup untuk seekor louhan tak?'] },
+}
+/** Fish ID is unsure of the photo: more than one guess, or the first under 70%. */
+const unsure = (i: NonNullable<Start['identified']>) => i.results.length > 1 || (i.results[0]?.confidence ?? 0) < 0.7
 /** What the first message asks for the conversation's title (`ChatOptions.title`). */
-export const TITLE_RULE = (lang: Lang) => `This question starts the conversation: give it a title too (title), for the reader's list of past chats. In ${LANGS[lang]}, at most six words: the fish, shrimp or plant and the problem or what they ask, as a heading (in English it would read "Betta not eating, lying on the bottom"). Never a person's name, a place, a shop or anything else personal from their message.`
+export const TITLE_RULE = (lang: Lang) => {
+  const f = TITLE_FORM[lang]
+  return [
+    `This question starts the conversation: give it a title too (title), for the reader's list of past chats, in ${LANGS[lang]}: one line on a phone, at most about 36 characters.`,
+    '- Their own words for the fish and the problem, and the detail the answer depends on: the tank\'s size, how many fish, no filter or no CO₂, the change they\'re weighing.',
+    '- Nothing they didn\'t say, and what they said as they said it ("a little", "even though", "must"). Fish and plants as keepers name them, never a piece of a name (not "Java" for Java fern) and without the handbook\'s variety tags.',
+    '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics.',
+    `- When they ask yes or no, the title asks it, ${f.asks}. One question at most.`,
+    ...(f.case ? [`- ${f.case}`] : []),
+    '- Never a person\'s name, a place, a shop or anything else personal from their message.',
+    `For example: "${f.examples[0]}"; "${f.examples[1]}".`,
+  ].join('\n')
+}
 
 /** The first message: the start, the earlier turns, then the question, in the reader's language. */
 export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook, title = false): Anthropic.MessageParam {
@@ -69,6 +94,8 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
   if (start.from === 'fish-id' && start.identified) {
     const guesses = start.identified.results.map(r => `${r.scientificName}${r.id ? ` (id ${r.id})` : ''}, ${Math.round(r.confidence * 100)}%`).join('; ')
     parts.push(`They come from AquaTome's fish ID, which named their photo (${start.identified.verdict}): ${guesses || 'nothing it could name'}.`)
+    // Beside the guesses, where Claude reads them: in the title's rule, far from them, half the titles named the first guess.
+    if (title && unsure(start.identified)) parts.push('Fish ID is unsure of it: the title names the group its guesses share (their genus, or what keepers call them all), not one of them.')
   }
   if (about) parts.push(`The chat is about ${about.name}${about.sub ? ` (${about.sub})` : ''}, id ${about.id}, page ${about.path}.${start.from === 'species' ? ' They opened it from that page, so they have seen its card: it counts as shown.' : ''}`)
   if (earlier.length) {
@@ -164,7 +191,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     clock: o.clock,
   })
   // An off-topic question gets the Worker's own line in the reader's language, and nothing else Claude wrote.
-  const read = run.message ? readAnswer(run.message) : undefined
+  const read = run.message ? readAnswer(run.message, o.lang) : undefined
   const answer = read?.offTopic ? { ...read, text: OFF_TOPIC[o.lang] } : read
   const startedOn = o.start.from === 'species' ? o.start.about : undefined
   const filled = answer ? await fill(answer, o.handbook, checks, o.earlier.flatMap(t => t.blocks), startedOn) : { blocks: [], dropped: [] }

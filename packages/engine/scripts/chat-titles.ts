@@ -87,7 +87,8 @@ function sender(healthy: KeyEntry[], store: HealthStore): Send {
 const leaksIn = (title: string, q: Question) => (q.private ?? []).filter(p => title.normalize('NFC').toLowerCase().includes(p.normalize('NFC').toLowerCase()))
 
 async function main() {
-  const questions = (JSON.parse(await readFile(args.questions!, 'utf8')) as Question[]).filter(q => !args.only || args.only.split(',').includes(q.id))
+  const questionsAll = JSON.parse(await readFile(args.questions!, 'utf8')) as Question[]
+  const questions = questionsAll.filter(q => !args.only || args.only.split(',').includes(q.id))
   const indexText = await (await fetch(new URL('/app/vi.json', args.site))).text()
   siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText)}`)
   await mkdir(siteDir, { recursive: true })
@@ -119,8 +120,13 @@ async function main() {
   }), Number(args.concurrency))
 
   await mkdir(args.out!, { recursive: true })
+  // With --only, the other questions keep the results they had: a question asked again joins the sample it is part of.
+  const before = args.only ? (JSON.parse(await readFile(join(args.out!, 'titles.json'), 'utf8').catch(() => '[]')) as Result[]) : []
+  const asked = new Set(results.map(r => r.id))
+  results.unshift(...before.filter(r => !asked.has(r.id)))
+  results.sort((a, b) => questionsAll.findIndex(q => q.id === a.id) - questionsAll.findIndex(q => q.id === b.id))
   await writeFile(join(args.out!, 'titles.json'), `${JSON.stringify(results, null, 2)}\n`)
-  for (const lang of new Set(questions.map(q => q.lang))) await writeFile(join(args.out!, `titles.${lang}.md`), report(lang, questions.filter(q => q.lang === lang), results))
+  for (const lang of new Set(questions.map(q => q.lang))) await writeFile(join(args.out!, `titles.${lang}.md`), report(lang, questionsAll.filter(q => q.lang === lang), results))
   const missing = results.filter(r => !r.title).length
   const leaks = results.filter(r => r.leaks.length).length
   console.log(`${results.length - missing}/${results.length} titled, ${leaks} with a personal detail, $${results.reduce((a, r) => a + r.usd, 0).toFixed(3)}. Written: ${args.out}`)
