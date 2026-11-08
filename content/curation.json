@@ -65,7 +65,9 @@
       "breeds/bubble-eye-goldfish",
       "species/oryzias-latipes",
       "species/tanichthys-albonubes",
-      "species/macropodus-opercularis"
+      "species/macropodus-opercularis",
+      "breeds/oranda-goldfish",
+      "breeds/lionhead-goldfish"
      ]
     },
     {
@@ -152,7 +154,8 @@
       "species/boraras-merah",
       "species/boraras-maculatus",
       "species/nannostomus-marginatus",
-      "species/pristella-maxillaris"
+      "species/pristella-maxillaris",
+      "species/danio-erythromicron"
      ]
     },
     {
@@ -234,7 +237,8 @@
       "species/channa-asiatica",
       "species/channa-gachua",
       "species/channa-lucius",
-      "species/channa-maculata"
+      "species/channa-maculata",
+      "species/channa-marulius"
      ]
     },
     {
@@ -247,7 +251,8 @@
      "pages": [
       "species/anabas-testudineus",
       "species/trichopodus-trichopterus",
-      "species/macropodus-opercularis"
+      "species/macropodus-opercularis",
+      "species/trichopodus-pectoralis"
      ]
     }
    ],
@@ -257,9 +262,9 @@
  "days": [
   {
    "date": "2026-11-09",
-   "fish": "breeds/ryukin-goldfish",
-   "img": "https://media.aquatome.com/commons/186c58df38d6deb7.webp",
-   "guide": "guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater",
+   "fish": "breeds/flowerhorn-cichlid",
+   "img": "https://media.aquatome.com/commons/19baaafa3f516888-large.webp",
+   "guide": "guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu",
    "story": {
     "page": "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua",
     "eyebrow": {
@@ -272,14 +277,14 @@
      "vi": "Chọn sưởi khoảng 1 W mỗi lít, đặt ở chỗ nước lưu thông tốt, ốp xốp quanh bể và sắm sẵn máy sủi chạy pin phòng khi mất điện"
     }
    },
-   "why": "Fish: Cá vàng Lưu kim (Ryukin), on this week's list, tolerates cold, well known. Guide: Cách chọn máy sưởi hồ cá phù hợp, on this week's list, 3 search impressions."
+   "why": "Fish: Cá La Hán (Flowerhorn), needs a heater when it turns cold, well known, 8 search impressions. Guide: Cho cá ăn bao nhiêu, mấy lần một ngày: cách tránh cho ăn quá nhiều, on this week's list."
   },
   {
    "date": "2026-11-10",
    "fish": "species/pterophyllum-altum",
    "img": "https://media.aquatome.com/commons/302997e125c7870b.webp",
-   "guide": "guides/youtube-7l1Ja0NL_UQ",
-   "why": "Fish: Cá ông tiên altum, on this week's list, needs a heater when it turns cold. Guide: Làm nắp giữ nhiệt cho chậu nuôi cá ngoài trời mùa lạnh, on this week's list."
+   "guide": "guides/sprucepets-platy-types-1381066",
+   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
   },
   {
    "date": "2026-11-11",
@@ -292,36 +297,35 @@
    "date": "2026-11-12",
    "fish": "breeds/bubble-eye-goldfish",
    "img": "https://media.aquatome.com/commons/fe61173833b53e0d.webp",
-   "guide": "guides/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do",
-   "why": "Fish: Cá vàng mắt bong bóng (Bubble eye goldfish), on this week's list, tolerates cold, well known, 1 search impression. Guide: Nuôi cá koi bể kính, hồ nhỏ: thể tích, lọc, thức ăn và mật độ, on this week's list."
+   "guide": "guides/aquariumbreeder-why-do-shrimp-change-color",
+   "why": "Guide: Vì sao tép đổi màu?, 3 search impressions."
   },
   {
    "date": "2026-11-13",
-   "fish": "species/poecilia-reticulata",
-   "img": "https://media.aquatome.com/inaturalist/27484738-large.webp",
-   "guide": "guides/aquariumcoop-blogs-aquarium-goldfish-food",
-   "why": "Fish: Cá bảy màu, takes cool water, well known, 6 search impressions."
+   "fish": "species/xiphophorus-hellerii",
+   "img": "https://media.aquatome.com/inaturalist/268032912-large.webp",
+   "guide": "guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua",
+   "why": "Fish: Cá kiếm xanh, takes cool water, 8 search impressions. Guide: Cá đĩa đi phân trắng: dấu hiệu, nguyên nhân và cách chữa trùng roi Hexamita, 3 search impressions."
   },
   {
    "date": "2026-11-14",
    "fish": "species/betta-anabatoides",
    "img": "https://media.aquatome.com/bwaquatics/ee2c04cb1a2140b8.webp",
-   "guide": "guides/youtube-AdOl8K9Ri4Q",
-   "why": "Fish: Cá betta khổng lồ, on this week's list, needs a heater when it turns cold. Guide: Ghép sưởi inline tự chế vào lọc thùng DIY cho bể cá, on this week's list."
+   "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
+   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
   },
   {
    "date": "2026-11-15",
    "fish": "species/monodactylus-sebae",
    "img": "https://media.aquatome.com/commons/f951f81ed157dba7.webp",
-   "guide": "guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao",
-   "why": "Fish: Cá mono châu Phi, needs a heater when it turns cold. Guide: Bể cá bị mất điện: cách giữ cá sống và làm gì khi có điện lại, on this week's list."
+   "guide": "guides/aquatome-ca-bo-an-khong-chiu-an-nguyen-nhan-va-cach-xu-ly",
+   "why": "Guide: Cá bỏ ăn, không chịu ăn: nguyên nhân và cách xử lý, 2 search impressions."
   },
   {
    "date": "2026-11-16",
-   "fish": "species/boraras-maculatus",
    "img": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
-   "guide": "guides/aquariumcoop-blogs-aquarium-beginner-planted-aquarium",
-   "why": "Fish: Cá rasbora lùn, on this week's list, small. Guide: Hướng dẫn set up bể thủy sinh low tech cho người mới bắt đầu, on this week's list."
+   "guide": "guides/aquariumcoop-blogs-aquarium-aquarium-filter-upgrade",
+   "why": "Guide: Cách tối ưu bộ lọc hồ cá (và tiết kiệm tiền về lâu dài), 1 search impression."
   },
   {
    "date": "2026-11-17",
@@ -332,7 +336,6 @@
   },
   {
    "date": "2026-11-18",
-   "fish": "species/corydoras-pygmaeus",
    "img": "https://media.aquatome.com/commons/40a970f67cc6e69d-large.webp",
    "guide": "guides/youtube-cGTFcYJ_BQs",
    "story": {
@@ -358,21 +361,18 @@
   },
   {
    "date": "2026-11-20",
-   "fish": "species/oryzias-latipes",
    "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
-   "guide": "guides/youtube-ahN0nP8HLaI",
-   "why": "Fish: Cá medaka Nhật, a small fish for a small tank, 5 search impressions."
+   "guide": "guides/aquariumcoop-blogs-aquarium-mulm",
+   "why": "Guide: Mulm trong bể cá bẩn: Mulm là gì và có nên loại bỏ không, 1 search impression."
   },
   {
    "date": "2026-11-21",
-   "fish": "species/hemigrammus-erythrozonus",
    "img": "https://media.aquatome.com/commons/92deb889aca4d02a-large.webp",
-   "guide": "guides/youtube-YLGv95LMF6c",
-   "why": "Fish: Cá neon đèn lồng, a small fish for a small tank, 1 search impression."
+   "guide": "guides/aquariumcoop-blogs-aquarium-pest-snails",
+   "why": "Guide: 5 cách dễ dàng để loại bỏ ốc hại trong bể cá, 1 search impression."
   },
   {
    "date": "2026-11-22",
-   "fish": "species/boraras-brigittae",
    "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
    "guide": "guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung",
    "why": "Fish: Cá rasbora muỗi, a small fish for a small tank."
@@ -381,22 +381,22 @@
    "date": "2026-11-23",
    "fish": "species/datnioides-pulcher",
    "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
-   "guide": "guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms",
-   "why": "Guide: Các loài cá chạch Botiidae thuộc 'phức hợp Modesta' – phân tích về lịch sử tự nhiên và tập tính, on this week's list."
+   "guide": "guides/aquariumcoop-blogs-aquarium-repashy-gel-fish-food",
+   "why": "Guide: Cách làm thức ăn dạng gel cho cá cảnh trong 7 phút, 1 search impression."
   },
   {
    "date": "2026-11-24",
    "fish": "species/macropodus-opercularis",
    "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp",
-   "guide": "guides/loachesonline-articles-a-river-runs-through-it",
-   "why": "Fish: Cá cờ, on this week's list, native to Vietnam, 1 search impression."
+   "guide": "guides/aquatome-ap-trung-artemia-lam-thuc-an-cho-ca-con-cach-lam-tai-nha",
+   "why": "Guide: Ấp trứng artemia cho cá con tại nhà: cách làm từng bước, thu và bảo quản, 1 search impression."
   },
   {
    "date": "2026-11-25",
-   "fish": "species/channa-micropeltes",
-   "img": "https://media.aquatome.com/commons/004b2d13f73b52b4-large.webp",
-   "guide": "guides/youtube-cJLZq603RAY",
-   "why": "Fish: Cá lóc bông, on this week's list, native to Vietnam, 32 search impressions."
+   "fish": "species/channa-marulius",
+   "img": "https://media.aquatome.com/commons/407a83407c0434ed-large.webp",
+   "guide": "guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong",
+   "why": "Fish: Cá Channa marulius, native to Vietnam. Guide: Cá bị sán mang: dấu hiệu, cách chữa và phòng, 1 search impression."
   },
   {
    "date": "2026-11-26",
@@ -407,18 +407,15 @@
   },
   {
    "date": "2026-11-27",
-   "fish": "species/pangasianodon-hypophthalmus",
    "img": "https://media.aquatome.com/commons/f29e8529f2571332-large.webp",
-   "guide": "guides/aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam",
-   "guideImg": "https://media.aquatome.com/commons/e15dbfab9fbaa170.webp",
-   "why": "Fish: Cá tra, native to Vietnam, picked by hand: whether Channa marulius is native to Vietnam is in doubt."
+   "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
+   "why": "Guide: 11 loài cá da trơn phù hợp cho bể cá tại nhà, 1 search impression."
   },
   {
    "date": "2026-11-28",
-   "fish": "species/trichopodus-trichopterus",
    "img": "https://media.aquatome.com/commons/d6469d9d31e58aa4-large.webp",
-   "guide": "guides/sprucepets-why-do-betta-fish-fight-5183979",
-   "why": "Fish: Cá sặc bướm, on this week's list, native to Vietnam, 5 search impressions."
+   "guide": "guides/sprucepets-fish-species-heated-fish-tanks-4797120",
+   "why": "Guide: Những loài cá nước ngọt nào phù hợp nhất cho bể có sưởi?, 1 search impression."
   },
   {
    "date": "2026-11-29",
@@ -462,5 +459,27 @@
   "https://media.aquatome.com/commons/f8dffac3dfb62633.webp": "fish out of water",
   "https://media.aquatome.com/seriouslyfish/df72499a9847ce5d.webp": "another subject",
   "https://media.aquatome.com/commons/fc9ccca176726701.webp": "red devil: looks like a juvenile or another cichlid, not the adult's look"
+ },
+ "off": {
+  "breeds/black-moor-goldfish": "reader fit: units",
+  "breeds/blue-diamond-discus": "reader fit: units",
+  "breeds/ranchu-goldfish": "reader fit: source, units",
+  "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": "reader fit: units, elsewhere, source",
+  "species/betta-splendens": "reader fit: elsewhere",
+  "species/boraras-maculatus": "reader fit: source",
+  "species/boraras-merah": "reader fit: elsewhere, source",
+  "species/channa-asiatica": "reader fit: source",
+  "species/channa-gachua": "reader fit: source",
+  "species/channa-micropeltes": "reader fit: elsewhere",
+  "species/hemigrammus-erythrozonus": "reader fit: units, elsewhere",
+  "species/mikrogeophagus-ramirezi": "reader fit: source",
+  "species/oryzias-latipes": "reader fit: elsewhere",
+  "species/poecilia-reticulata": "reader fit: units, elsewhere",
+  "species/pristella-maxillaris": "reader fit: elsewhere",
+  "species/pterophyllum-scalare": "reader fit: source",
+  "species/symphysodon-aequifasciatus": "reader fit: source",
+  "species/tanichthys-albonubes": "reader fit: source, elsewhere",
+  "species/thayeria-boehlkei": "reader fit: units, elsewhere",
+  "species/trichopodus-trichopterus": "reader fit: elsewhere"
  }
 }

@@ -99,6 +99,19 @@ test('a day\'s card is there to show: written in a language the gate lets out, w
   expect(plan(cur, cands, '2026-11-10', 1).calendar.days[0]!.card).toBe('cards/ok')
 })
 
+test('a page the top cards, shelves or a story name that fails reader fit is listed off, and comes back once it passes', () => {
+  const cands = [fish('a'), fish('b'), fish('c'), fish('bad', { fit: false, fitWhy: 'units' }), guide('g1'), guide('g2', { fit: false, fitWhy: 'source' })]
+  const week = { from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, hero: [{ page: 'species/a' }, { page: 'species/bad' }], shelves: [{ id: 's', title: { vi: 'y' }, pages: ['species/a', 'species/b', 'species/bad', 'species/gone'] }] }
+  const old = { from: '2026-11-02', to: '2026-11-08', theme: { vi: 'z' }, hero: [{ page: 'species/bad' }] }
+  const cur = CurationSchema.parse({ version: 1, weeks: [old, week], days: [{ date: '2026-11-09', story: { page: 'guides/g2' } }] })
+  const { calendar } = plan(cur, cands, '2026-11-09', 1)
+  // A past week's picks aren't read.
+  expect(calendar.off).toEqual({ 'guides/g2': 'reader fit: source', 'species/bad': 'reader fit: units', 'species/gone': 'no such page' })
+  expect(checkCalendar(calendar, cands, '2026-11-09', 1).filter(x => !x.includes(': no '))).toEqual([])
+  const fixed = cands.map(c => (c.fit ? c : { ...c, fit: true, fitWhy: undefined }))
+  expect(plan(calendar, fixed, '2026-11-09', 1).calendar.off).toEqual({ 'species/gone': 'no such page' })
+})
+
 test('the calendar in the repository parses, and names no page twice on Hôm nay within four weeks', () => {
   const cur = CurationSchema.parse(JSON.parse(readFileSync(new URL('../../../content/curation.json', import.meta.url), 'utf8')))
   const picks = cur.days.flatMap(d => [d.fish, d.guide].filter((x): x is string => !!x).map(ref => ({ ref, t: Date.parse(d.date) })))

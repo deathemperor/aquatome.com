@@ -96,3 +96,11 @@ test('a day\'s card is in each index whose language it is written in, within its
   const ms = await getContent('ms')
   expect(appIndex('ms', ms, new Map(), (await getContent('vi')).species, { calendar: cal, today: '2026-11-10' }).home.days).toBeUndefined()
 })
+
+test('a page the planner found failing reader fit is left out of the top cards, the shelves and a story', async () => {
+  const off = CurationSchema.parse({ ...calendar, off: { 'species/apistogramma-cacatuoides': 'reader fit: units', 'guides/setup-be-dau-tien': 'reader fit: source' } })
+  const vi = appIndex('vi', await getContent('vi'), new Map(), (await getContent('vi')).species, { calendar: off, today: '2026-11-10' })
+  expect(vi.home.hero?.map(h => h.path)).toEqual([pathOf(vi, 'paracheirodon-axelrodi')])
+  expect(vi.home.shelves?.[0]?.paths).not.toContain(pathOf(vi, 'apistogramma-cacatuoides'))
+  expect(vi.home.days?.find(d => d.date === '2026-11-10')).toEqual({ date: '2026-11-10', fish: pathOf(vi, 'flowerhorn-cichlid'), img: IMG })
+})

@@ -56,7 +56,8 @@ const SHELF_MIN = 3
  */
 export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = []): AppCuration {
   const word = (c?: CurationCopy) => c?.[lang]
-  const page = (ref?: string) => (ref ? pathOf(ref) : undefined)
+  // A page the planner found failing reader fit (`off`) is left out, as one this language has no page for.
+  const page = (ref?: string) => (ref && !cur.off[ref] ? pathOf(ref) : undefined)
   const clean = <T extends object>(o: T) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined)) as T
   const days: AppDay[] = []
   for (const d of cur.days) {

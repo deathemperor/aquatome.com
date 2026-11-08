@@ -45,6 +45,9 @@ test("a card: an event names its event, a product card its product, and no windo
   expect(CardSchema.safeParse(base).success).toBe(true)
   for (const bad of [{ type: 'event' }, { type: 'product' }, { show: { from: '2026-11-10', until: '2026-11-01' } }, { sources: [] }, { type: 'quiz' }, { about: ['places/hanoi'] }, { event: { start: '2026-11-16', end: '2026-11-15', place: 'x', country: 'VN', organiser: 'y' } }]) expect(CardSchema.safeParse({ ...base, ...bad }).success, JSON.stringify(bad)).toBe(false)
   expect(CardSchema.safeParse({ ...base, type: 'product', product: 'products/a-heater' }).success).toBe(true)
+  // A source is dated as precisely as it is: a paper often only by its year.
+  for (const date of ['1998', '2024-06', '2025-07-23']) expect(CardSchema.safeParse({ ...base, sources: [{ ...base.sources[0], date }] }).success, date).toBe(true)
+  for (const date of ['98', '2024-6', 'n.d.']) expect(CardSchema.safeParse({ ...base, sources: [{ ...base.sources[0], date }] }).success, date).toBe(false)
   const held = { checks: ['words'], at: '2026-11-08T00:00:00Z' }
   expect(CardTextSchema.parse({ eyebrow: 'e', title: 't', body: '<p>b</p>', held }).held).toEqual(held)
   // The eyebrow and title fit Hôm nay's card at the largest text size.

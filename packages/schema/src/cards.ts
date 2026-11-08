@@ -10,7 +10,9 @@ export const CARD_TYPES = ['trivia', 'new-species', 'trend', 'event', 'product']
 const Day = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
 /** A page the card is about, by its kind and content id, as the calendar names pages. */
 const About = z.string().regex(/^(species|breeds|guides|plants|products)\/[A-Za-z0-9_-]+$/)
-const Source = z.object({ url: z.string().url(), title: z.string().min(1), publisher: z.string().min(1), date: Day, accessed: Day })
+/** A source's own date, as precise as it gives it: a paper's year ("1998"), a month ("2024-06") or a day. */
+const SourceDate = z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/)
+const Source = z.object({ url: z.string().url(), title: z.string().min(1), publisher: z.string().min(1), date: SourceDate, accessed: Day })
 
 export const CardSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),

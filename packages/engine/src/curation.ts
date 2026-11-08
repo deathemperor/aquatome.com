@@ -290,7 +290,23 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
     if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
     out.set(date, d)
   }
-  return { calendar: { ...cur, days: [...out.values()].sort((a, b) => a.date.localeCompare(b.date)) }, report }
+  const sorted = [...out.values()].sort((a, b) => a.date.localeCompare(b.date))
+  return { calendar: { ...cur, days: sorted, off: offPages({ ...cur, days: sorted }, byRef, from) }, report }
+}
+
+/** The pages the weeks' top cards and shelves and the days' stories name, from `from` on, that don't pass reader fit. */
+function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): Record<string, string> {
+  const refs = [
+    ...cur.weeks.filter(w => w.to >= from).flatMap(w => [...w.hero.map(h => h.page), ...w.shelves.flatMap(s => s.pages)]),
+    ...cur.days.filter(d => d.date >= from).flatMap(d => (d.story ? [d.story.page] : [])),
+  ]
+  const off: Record<string, string> = {}
+  for (const ref of [...new Set(refs)].sort()) {
+    const c = byRef.get(ref)
+    if (!c) off[ref] = 'no such page'
+    else if (!c.fit) off[ref] = `reader fit: ${c.fitWhy}`
+  }
+  return off
 }
 
 /** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
@@ -314,7 +330,7 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
 
 /**
  * Everything wrong with the calendar from `from` on: each pick that can't be featured, each day of `days` with no pick,
- * and each card that isn't there to show that day.
+ * and each card that isn't there to show that day. A page in `off` isn't one: the build leaves it out.
  */
 export function checkCalendar(cur: Curation, cands: Candidate[], from: string, days: number, cards: Map<string, CardShow> = new Map()): string[] {
   const byRef = new Map(cands.map(c => [c.ref, c]))
@@ -330,7 +346,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && problem(byRef.get(d.guide), 'square', d.guideImg, { photo: false })
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
-    if (d.story) {
+    if (d.story && !cur.off[d.story.page]) {
       const st = problem(byRef.get(d.story.page), 'square', d.story.img, { photo: false })
       if (st) out.push(`${d.date} story ${d.story.page}: ${st}`)
     }
@@ -342,11 +358,11 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     }
   }
   for (const w of cur.weeks.filter(x => x.to >= from)) {
-    for (const h of w.hero) {
+    for (const h of w.hero.filter(h => !cur.off[h.page])) {
       const p = problem(byRef.get(h.page), 'wide', h.img)
       if (p) out.push(`week ${w.from} hero ${h.page}: ${p}`)
     }
-    for (const s of w.shelves) for (const ref of s.pages) {
+    for (const s of w.shelves) for (const ref of s.pages.filter(r => !cur.off[r])) {
       const c = byRef.get(ref)
       if (!c) out.push(`week ${w.from} shelf ${s.id} ${ref}: no such page`)
       else if (!c.fit) out.push(`week ${w.from} shelf ${s.id} ${ref}: reader fit: ${c.fitWhy}`)

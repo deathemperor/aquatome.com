@@ -92,6 +92,12 @@ export const CurationSchema = z.object({
   loops: z.record(z.string(), LoopSchema).default({}),
   /** Photos never to lead a card, with why (a sick fish, a dark tank where the fish is small). */
   avoid: z.record(z.string(), z.string()).default({}),
+  /**
+   * Pages the weeks' top cards, shelves or days' stories name that don't pass reader fit now, with why. The planner
+   * writes it afresh on each run and the build leaves them out, so the editor's picks come back once they pass. A day's
+   * fish and guide are replaced instead.
+   */
+  off: z.record(z.string(), z.string()).default({}),
 })
 
 export type Curation = z.infer<typeof CurationSchema>

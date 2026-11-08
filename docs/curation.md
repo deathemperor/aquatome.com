@@ -18,6 +18,7 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |
 | `loops.<id>` | `items[].loop` | a fish's short silent loop, wherever its card is |
 | `avoid` | none | photos that never lead a card, with the reason |
+| `off` | none: the build leaves these pages out | the pages the top cards, shelves and stories name that don't pass reader fit now, with why; the planner writes it afresh each run, so a page comes back once it passes |
 
 - **Pages are named by content id** (`species/<id>`, `breeds/<id>`, `guides/<id>`), so one pick serves every language.
   The build drops a pick that a language has no page for. `by.<lang>` gives that language its own fish or guide.
@@ -66,8 +67,9 @@ copy goes through the editors (`.claude/skills/editors`) before it ships.
   photo checks (`scripts/engine-cycle.sh`); the file changes when a new day comes in or a pick fails.
 - **Weekly**: the next theme two to three weeks ahead, its lists, top cards, shelves and copy, through the editors, in a
   pull request. The owner's daily report gets a few lines on what's planned.
-- **When a page changes**: a pick that stops passing is replaced on the next daily run, so nothing held back is ever
-  featured.
+- **When a page changes**: a day's fish or guide that stops passing is replaced on the next daily run, and a top card,
+  shelf page or story that stops passing goes in `off` until it passes again, so nothing failing reader fit is ever
+  featured. A shelf left with under three pages isn't shown; the editor tops it up from pages that pass.
 
 ## New kinds of Hôm nay card (owner, 2026-11-08)
 
