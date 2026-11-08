@@ -22,9 +22,10 @@ import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
  *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
- * "Passed before" counts the old text's saved read, a fault whose quoted words the old text has too, and, when the new
- * text still looks worse, a fresh read of the old one: a model reading the same text twice doesn't always find the same
- * things, and a page isn't put back for that. So a change that only takes words out is never put back.
+ * "Passed before" counts the old text's saved read, a check whose every fault is quoted from a sentence the old text has
+ * word for word, and, when the new text still looks worse, a fresh read of the old one: a model reading the same text twice
+ * doesn't always find the same things, and a page isn't put back for that. So taking a sentence out isn't put back for a
+ * fault in the sentences left, though it is for a dose's caution or purpose it took out.
  */
 export const GATE_KINDS = ['guides', 'species', 'plants', 'breeds'] as const
 /** What the gate reads: those, and the app's short cards (content/cards), which the owner's number and the report don't count. */
@@ -54,8 +55,23 @@ const marketKnown = (lang: Lang) => PRODUCTS.some(x => x.market[lang])
  */
 const gateFindings = (p: Page, e?: FitEntry) => fitFindings(p, e).filter(f => f.check !== 'words' && !((f.check === 'product' || f.check === 'dose') && (!marketKnown(p.lang) || productOf(f.product ?? f.quote, p.lang)?.status === 'no data')))
 export const gateChecks = (p: Page, e?: FitEntry) => new Set(gateFindings(p, e).map(f => f.check))
-/** The new text's faults whose quoted words the old text has too: the change didn't bring them, whether a read of the old text found them or not. */
-const carried = (p: Page, e: FitEntry | undefined, old: Page) => { const was = norm(fitText(old).text); return gateFindings(p, e).filter(f => was.includes(norm(f.quote))).map(f => f.check) }
+/** A text's sentences, a table row or a heading each one too: what a fault's quote is matched to in the old text. */
+const sentences = (text: string) => text.split(/(?<=[.!?])\s+|\n+/).map(norm).filter(Boolean)
+/** Faults of something left out: their quote is the words that stay (the dose), not what went. */
+const LEFT_OUT: readonly FitCheck[] = ['dose-caution', 'dose-purpose']
+/**
+ * The checks whose every fault in the new text the old text has too, each quoted in a sentence the old text has word for
+ * word: the change didn't bring them, whether a read of the old text found them or not.
+ */
+const carried = (p: Page, e: FitEntry | undefined, old: Page) => {
+  const was = new Set(sentences(fitText(old).text)), now = sentences(fitText(p).text)
+  const all = new Map<FitCheck, boolean>()
+  for (const f of gateFindings(p, e)) {
+    const q = norm(f.quote), at = now.filter(x => x.includes(q))
+    all.set(f.check, (all.get(f.check) ?? true) && !LEFT_OUT.includes(f.check) && at.length > 0 && at.every(x => was.has(x)))
+  }
+  return [...all].filter(([, had]) => had).map(([c]) => c)
+}
 
 /** What the gate does with one changed page, from its checks now and, for a live page, its old text's. */
 export function gateCall(now: Set<FitCheck>, o: { isNew: boolean; wasHeld: boolean; before?: Set<FitCheck> }): GateCall {

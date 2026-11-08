@@ -120,19 +120,60 @@ test('a fault the old text had too, found again on a fresh read, is not worse', 
   expect(await readFile(join(root, GUIDE), 'utf8')).toContain('Thay nước mỗi tuần')
 })
 
-test('a change that only takes words out is never put back: a fault whose words the old text has is the old text\'s', async () => {
+test('a sentence taken out isn\'t put back for a fault in the sentences left, which a read of the old text can miss', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Ngâm cá trong nước biển.</p>${t.body as string}` })
-  git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'seawater')
+  commit(root, 'seawater')
   await edit(root, GUIDE, t => { t.body = (t.body as string).replace('<p>Ngâm cá trong nước biển.</p>', '') })
-  // Its first read, the new text's, finds a fault in words both texts have; a read of the old text misses it, as a
+  // Its first read, the new text's, finds a fault in a sentence both texts have; a read of the old text misses it, as a
   // second read can.
   const calls: string[] = []
-  const llm = (async (a: { prompt: string }) => { calls.push(a.prompt); return { findings: calls.length === 1 ? [{ ...ELSEWHERE, fix: '', product: '' }] : [], products: [], doses: [] } }) as Llm
+  const llm = (async (a: { prompt: string }) => { calls.push(a.prompt); return { findings: calls.length === 1 ? [{ ...ELSEWHERE, fix: '', product: '' }] : [], products: [], doses: [], cautions: [] } }) as Llm
   const r = await gate(root, { llm, now })
   expect(r.report.pass).toHaveLength(1)
   expect(calls).toHaveLength(1)
   expect(await readFile(join(root, GUIDE), 'utf8')).not.toContain('nước biển')
+})
+
+/** A reader that finds what `first` gives on its first read, the new text's, and nothing on later ones. */
+const firstOnly = (first: { findings?: object[]; doses?: object[] }, calls: string[] = []) => (async (a: { prompt: string }) => {
+  calls.push(a.prompt)
+  return { findings: [], products: [], doses: [], cautions: [], ...(calls.length === 1 ? first : {}) }
+}) as Llm
+
+test('a fault the old text has doesn\'t excuse a new one of the same check', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `<p>Ở Mỹ người ta hay dùng phân này.</p>${t.body as string}` })
+  commit(root, 'abroad')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng từ Anh cho nhanh.</p>` })
+  const f = (quote: string) => ({ check: 'elsewhere', part: 'P1', quote, why: 'abroad', fix: '', product: '' })
+  const r = await gate(root, { llm: firstOnly({ findings: [f('Ở Mỹ người ta hay dùng phân này'), f('Đặt hàng từ Anh cho nhanh')] }), now })
+  expect(r.report.revert).toHaveLength(1)
+  expect(await readFile(join(root, GUIDE), 'utf8')).not.toContain('Đặt hàng từ Anh')
+})
+
+test('a sentence that loses its "not" is a new fault, though its words are in the old text: the old text goes back, not held', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `<p>Không tắt lọc khi bắt cá.</p>${t.body as string}` })
+  commit(root, 'filter')
+  await edit(root, GUIDE, t => { t.body = (t.body as string).replace('Không tắt lọc', 'Tắt lọc') })
+  const r = await gate(root, { llm: firstOnly({ findings: [{ check: 'harm', part: 'P1', quote: 'Tắt lọc khi bắt cá', why: 'fish suffocate', fix: '', product: '' }] }), now })
+  expect(r.report.revert).toHaveLength(1)
+  expect(r.report.hold).toEqual([])
+  const t = await readJson(root, GUIDE)
+  expect(t.body).toContain('Không tắt lọc khi bắt cá.')
+  expect(t.held).toBeUndefined()
+})
+
+test('a sentence taken out that gave a dose its purpose is put back: the fault quotes the dose, which stays', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `<p>Dùng xanh methylen 1 ml cho 10 lít. Cách này trị nấm.</p>${t.body as string}` })
+  commit(root, 'dose')
+  await edit(root, GUIDE, t => { t.body = (t.body as string).replace(' Cách này trị nấm.', '') })
+  const dose = { treatment: 'xanh methylen', strength: '', amount: 1, amountMax: 1, unit: 'ml', per: 10, perUnit: 'l', use: '', method: 'bath', quote: 'Dùng xanh methylen 1 ml cho 10 lít' }
+  const r = await gate(root, { llm: firstOnly({ doses: [dose] }), now })
+  expect(r.report.revert).toHaveLength(1)
+  expect(await readFile(join(root, GUIDE), 'utf8')).toContain('Cách này trị nấm.')
 })
 
 test('a held page that changed and passes is let out; a kit holds a page the cycle didn\'t touch', async () => {
