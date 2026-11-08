@@ -1,29 +1,13 @@
 ---
 import Browse from '../../layouts/Browse.astro'
 import SaveToTank from '../../components/SaveToTank.astro'
-import { POPULAR, slugify, STAPLE_SPECIES } from '@aq/schema'
-import { getContent } from '../../lib/content'
-import { toIndexItem } from '../../lib/species-index'
-import { jsonForScript } from '../../lib/json'
-import { getTraits } from '../../lib/traits'
-import { cleanPhoto } from '../../lib/home'
-import { smallSrc } from '../../lib/img'
 import { i18n } from '../../lib/i18n'
-import type { MateItem } from '../../scripts/tankmates'
 
 const { lang, t } = i18n(Astro.url)
-const c = await getContent(lang)
-const traits = await getTraits()
-// Among equally good matches the fish readers keep most come first: the staples, then the popular list (as on the home page).
-const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
-const index: MateItem[] = c.species.map(s => {
-  const p = cleanPhoto(s.photos), pop = known.indexOf(s.id)
-  return { ...toIndexItem(s, traits.get(s.id)), id: s.id, ...(p ? { img: smallSrc(p) } : {}), ...(s.t.altNames.length ? { aka: s.t.altNames } : {}), ...(pop >= 0 ? { pop } : {}) }
-}).sort((a, b) => a.name.localeCompare(b.name, lang))
 ---
 <Browse title={t('Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con')} heading={t('Nuôi chung được không? Thả bao nhiêu con?')} intro={t('Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.')}>
   <div class="tm">
-    <form id="tm-form" class="pick" novalidate>
+    <form id="tm-form" class="pick" novalidate data-src={`/data/${lang}/tank-mates.json`}>
       <label for="tm-input">{t('Thêm loài')}</label>
       <div class="field">
         <div class="combo">
@@ -51,7 +35,6 @@ const index: MateItem[] = c.species.map(s => {
     </section>
     <SaveToTank />
   </div>
-  <script type="application/json" id="species-index" set:html={jsonForScript(index)} />
 </Browse>
 <script>
   import { checkTankmates, exactMatch, rankMatches, TEMPERAMENT_LABELS, verdictOf, type MateItem, type Verdict } from '../../scripts/tankmates'
@@ -62,7 +45,8 @@ const index: MateItem[] = c.species.map(s => {
   import { initSaveToTank, withSpecies } from '../../scripts/save-to-tank'
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
-  const items: MateItem[] = JSON.parse($('species-index').textContent!)
+  // The species come as their own file (lib/list-data.ts mateList), after the page shows: the list is filled in once it's here.
+  let items: MateItem[] = [], ready = false
   const fmt = (n: number, d = 1) => new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: d }).format(n)
   const esc = (s: string) => s.replace(/[&<>"']/g, ch => `&#${ch.charCodeAt(0)};`)
   const cap = (s: string) => s.charAt(0).toLocaleUpperCase() + s.slice(1)
@@ -83,7 +67,8 @@ const index: MateItem[] = c.species.map(s => {
   // Chosen species and their numbers live in the address (?ca=slug:6,slug:2) so a result can be shared; ?l=&w=&h= is the tank (cm).
   const params = new URLSearchParams(location.search)
   const counts = new Map<string, number>()
-  const chosen: MateItem[] = (params.get('ca') ?? '').split(',').map(s => {
+  const chosen: MateItem[] = []
+  const fromAddress = () => (params.get('ca') ?? '').split(',').map(s => {
     const [slug, n] = s.split(':')
     const hit = items.find(i => i.slug === slug)
     if (hit && Math.round(Number(n)) > 0) counts.set(hit.slug, Math.min(200, Math.round(Number(n))))
@@ -110,6 +95,7 @@ const index: MateItem[] = c.species.map(s => {
     if (!on) setActive(-1)
   }
   function suggest() {
+    if (!ready) return
     const q = input.value.trim()
     shown = q ? rankMatches(q, items) : []
     list.innerHTML = shown.map((s, i) => {
@@ -165,6 +151,7 @@ const index: MateItem[] = c.species.map(s => {
     const q = input.value.trim()
     input.focus()
     if (!q) return say(ct('Gõ tên loài cá muốn thêm.'))
+    if (!ready) return void load().then(ok => { if (ok) form.requestSubmit() })
     const hit = exactMatch(q, items)
     if (hit) return pick(hit)
     suggest()
@@ -275,7 +262,25 @@ const index: MateItem[] = c.species.map(s => {
   })
   $('vol-form').addEventListener('input', renderStocking)
   $('vol-form').addEventListener('submit', e => e.preventDefault())
-  render()
+  // With no fish in the address, the page reads as it will before the file comes (its hint line).
+  if (!params.has('ca')) render()
+
+  // The species' file, fetched at once; then the fish in the address, and what was typed while it came. A failed fetch is
+  // tried again on the next "Thêm".
+  let loading: Promise<boolean> | undefined
+  const load = () => (loading ??= fetch(form.dataset.src!).then(r => (r.ok ? r.json() : Promise.reject(new Error(String(r.status))))).then((all: MateItem[]) => {
+    items = all
+    ready = true
+    chosen.push(...fromAddress())
+    render()
+    if (document.activeElement === input && input.value.trim()) suggest()
+    return true
+  }, () => {
+    loading = undefined
+    say(ct('Chưa tải được danh sách. Kiểm tra mạng rồi thử lại.'))
+    return false
+  }))
+  void load()
 </script>
 <style>
   /* A screen tall: the footer starts below the fold, so the result appearing (or a web font arriving) moves nothing in view. */
