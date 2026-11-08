@@ -34,10 +34,10 @@ test('an engine run waits while the Mac is hot, and goes ahead once it eases or 
 })
 
 test('every engine and video run waits for a cooler Mac right after its start from main, before its work', () => {
-  for (const [f, work] of [['engine-cycle.sh', 'pnpm install'], ['video-cycle.sh', 'pnpm install'], ['video-recheck.sh', 'pnpm install']]) {
+  for (const f of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh']) {
     const s = script(f)
     const at = s.search(/^cool$/m)
     expect(at, f).toBeGreaterThan(s.indexOf('from_main "$@"'))
-    expect(at, f).toBeLessThan(s.indexOf(work, s.indexOf('from_main "$@"')))
+    expect(at, f).toBeLessThan(s.indexOf('pnpm install', s.indexOf('from_main "$@"')))
   }
 })
