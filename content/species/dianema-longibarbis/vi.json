@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "harm"
+    ],
+    "at": "2026-11-08"
   }
 }
