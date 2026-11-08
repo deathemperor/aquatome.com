@@ -417,7 +417,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": true,
-      "note": "orange common goldfish, clear side view"
+      "note": "common goldfish side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumbreeder/1ef6ab49becf8b81.webp": {
@@ -467,8 +469,10 @@
   "https://media.aquatome.com/aquariumbreeder/341ee5480ddd176e.webp": {
     "bolbitis-heteroclita": {
       "ok": "yes",
-      "typical": false,
-      "note": "finely divided aquarium 'mini'/difformis form growing on driftwood"
+      "typical": true,
+      "note": "finely divided mini/difformis form growing on driftwood in an aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumbreeder/44f699fa6760746f.webp": {
@@ -528,6 +532,15 @@
       "typical": true,
       "note": "live spiny brown pagoda snail crawling on a stone in a planted tank",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/5870f8c93f8f46c1.webp": {
+    "lobelia-cardinalis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "submerged bright green rounded leaves, aquarium form (likely 'Mini')",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumbreeder/691c830756af95c4.webp": {
@@ -694,6 +707,16 @@
       "note": "closer crop of water wisteria in planted tank",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/00c35400c3eb6ca3.webp": {
+    "corydoras-sterbai": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same image as photo 5, cory on gravel, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/aquariumcoop/01979e55160d41db.webp": {
@@ -922,7 +945,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "adult panda cory, side view: eye mask, black dorsal fin and black spot at tail base",
+      "note": "panda cory on white sand beside snail shell",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1435,6 +1460,16 @@
       "ok": "yes",
       "typical": false,
       "note": "school of small tetras over planted aquascape, distant",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/44daeede4b78aefd.webp": {
+    "xiphophorus-maculatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two orange sunset platies, an aquarium colour form, not the wild type",
       "logo": false,
       "person": false,
       "guide": true
@@ -2358,8 +2393,10 @@
   "https://media.aquatome.com/aquariumcoop/99da0287123885d4.webp": {
     "corydoras-panda": {
       "ok": "yes",
-      "typical": true,
-      "note": "panda cory in open water: black eye patch, black dorsal fin and black spot at the base of the tail",
+      "typical": false,
+      "note": "pale yellowish panda cory swimming at odd angle, dark background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3337,7 +3374,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "adult Sterba's cory side view on gravel: dark body with white spots, spotted head, striped tail",
+      "note": "spotted cory on gravel, matches caption; pectoral fins not clearly orange",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3670,15 +3709,19 @@
   "https://media.aquatome.com/commons/00b64e596a77e9a4.webp": {
     "cyprinus-rubrofuscus": {
       "ok": "unsure",
-      "typical": true,
-      "note": "wild-type bronze carp underwater; can't rule out common carp (C. carpio) from this view"
+      "typical": false,
+      "note": "wild-type bronze carp, may be common carp rather than koi",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/00bad1cdc2cdd6cc.webp": {
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "group of orange half-black mollies in planted tank"
+      "note": "group of orange-and-black tuxedo mollies in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/00bf8bec5be8fe32.webp": {
@@ -3771,7 +3814,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "silver arowana at the surface, mirrored in the water above it"
+      "note": "silver arowana at surface with its mirror reflection",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/01fc0643b790a517.webp": {
@@ -3792,7 +3837,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "yellow koi with black speckles in a tank, barbels visible"
+      "note": "yellow-orange koi with black speckles, side view in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/020e6b40adbb582c.webp": {
@@ -3887,7 +3934,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": true,
-      "note": "wild-type grey-olive Senegal bichir on gravel"
+      "note": "grey-olive Senegal bichir resting on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/038fd41622de2f10.webp": {
@@ -4010,7 +4059,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult grey-brown Senegal bichir, side view on black"
+      "note": "Senegal bichir side view on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/04e0bb72e1d74506.webp": {
@@ -4524,7 +4575,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "adult side view on dark gravel: white-spotted dark head, orange pectoral spines"
+      "note": "Sterba's cory side view on dark gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0d0275362610aa62.webp": {
@@ -4620,7 +4673,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "orange and blue-grey scaled koi, Shusui-like, in a tank"
+      "note": "orange doitsu-scaled koi in dark tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0f3ca67306c21b19.webp": {
@@ -4648,7 +4703,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on gravel, spotted head and orange pectoral spine"
+      "note": "Sterba's cory on gravel, orange pectoral spines",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp": {
@@ -5031,6 +5088,14 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/152050227c838485.webp": {
+    "hypselecara-coryphaenoides": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Astronotus ocellatus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/153dc626e9a8ea38.webp": {
     "satanoperca-acuticeps": {
       "ok": "dead",
@@ -5085,7 +5150,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": false,
-      "note": "Close-up of red arowana head under pink lighting, only part of fish shown"
+      "note": "close-up of head of super red Asian arowana",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/15c75103a5320e32.webp": {
@@ -5488,7 +5555,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": false,
-      "note": "two albino Senegal bichirs, composite image"
+      "note": "two albino bichirs, composite of two shots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1b000f0cad93e9af.webp": {
@@ -5700,6 +5769,14 @@
       "ok": "yes",
       "typical": true,
       "note": "yellow-orange red zebra with bluish dorsal edge and egg spots, no black dorsal band of yellow lab"
+    }
+  },
+  "https://media.aquatome.com/commons/1d6d874985b49ace.webp": {
+    "kryptopterus-bicirrhis": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Kryptopterus vitreolus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/1d7cc28b34b9354b.webp": {
@@ -6222,6 +6299,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/24c1648410e5de5d.webp": {
+    "malapterurus-microstoma": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Malapterurus electricus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/2506688ec64435b7.webp": {
     "hyphessobrycon-herbertaxelrodi": {
       "ok": "yes",
@@ -6457,7 +6542,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "silver arowana in full side view, blue lighting"
+      "note": "silver arowana side view over gravel",
+      "logo": false,
+      "person": false
     },
     "scleropages-formosus": {
       "ok": "other",
@@ -6600,7 +6687,9 @@
     "fissidens-fontanus": {
       "ok": "unsure",
       "typical": false,
-      "note": "emersed moss mat on a wet rock; can't be told apart from other mosses"
+      "note": "emersed moss mat on rock, could be another moss",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2b6b392b944e74e5.webp": {
@@ -6637,7 +6726,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": false,
-      "note": "Golden Asian arowana, front half of body only"
+      "note": "close-up of front half of a golden Asian arowana",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2c864fd1faff8fcc.webp": {
@@ -6709,7 +6800,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": false,
-      "note": "albino Senegal bichir on gravel"
+      "note": "albino Senegal bichir on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2d833d8483277784.webp": {
@@ -6729,9 +6822,11 @@
   },
   "https://media.aquatome.com/commons/2dc6180128240a53.webp": {
     "scleropages-jardinii": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "Dark arowana in a dim public tank; can't rule out Asian arowana"
+      "ok": "yes",
+      "typical": true,
+      "note": "saratoga swimming, another fish at bottom left",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2dd2721ca073d2b8.webp": {
@@ -6825,7 +6920,9 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "dense wild clump on rocks, wavy-edged pinnae and long rooting frond tips"
+      "note": "dense clump growing among rocks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2f06e503b293c8ae.webp": {
@@ -7160,7 +7257,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "orange koi with black spots, seen from above"
+      "note": "orange koi with black spots in murky pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/33974eccda9606a7.webp": {
@@ -7257,6 +7356,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/3577abb180b2f8c8.webp": {
+    "labeo-pierrei": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Hypsibarbus pierrei",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/35857eb1c8cb97b7.webp": {
     "pterophyllum-altum": {
       "ok": "yes",
@@ -7310,7 +7417,9 @@
     "channa-andrao": {
       "ok": "yes",
       "typical": true,
-      "note": "adult side view in aquarium, blue-striped dorsal and anal fins, mottled brown body"
+      "note": "blotched fish with blue-striped fins over gravel",
+      "logo": false,
+      "person": false
     },
     "channa-baramensis": {
       "ok": "other",
@@ -7512,7 +7621,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": true,
-      "note": "plain bichir under warm light, dorsal finlets visible"
+      "note": "bichir under warm light on dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/38ccce4c480fc134.webp": {
@@ -7526,7 +7637,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Red Asian arowana swimming in planted tank, with a tigerfish (Datnioides) behind it"
+      "note": "red Asian arowana swimming in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3952b2b5e57850d6.webp": {
@@ -7961,7 +8074,9 @@
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "yellow and black balloon-bodied aquarium molly"
+      "note": "yellow and black colour-form molly",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/407a83407c0434ed.webp": {
@@ -8409,7 +8524,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "Panda cory on gravel: black eye mask, black dorsal and black spot at tail base"
+      "note": "panda cory on gravel, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4761e598fd560fed.webp": {
@@ -8587,7 +8704,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": false,
-      "note": "Close-up of the head of a super red Asian arowana"
+      "note": "close-up of head of a red Asian arowana",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/49e5bc8eda17c0f2.webp": {
@@ -8826,7 +8945,9 @@
     "lilaeopsis-brasiliensis": {
       "ok": "yes",
       "typical": true,
-      "note": "labelled Lilaeopsis brasiliensis carpet in planted tank foreground"
+      "note": "low grassy Lilaeopsis clump in a display tank with a name label; Echinodorus behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4e16c3be6be70077.webp": {
@@ -9294,7 +9415,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "Panda cory on gravel, side view"
+      "note": "panda cory on pebbles",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/550b7a4323ad6001.webp": {
@@ -9448,7 +9571,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": false,
-      "note": "albino Senegal bichir head close-up"
+      "note": "albino bichir head close-up among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/579b202140466936.webp": {
@@ -9486,7 +9611,9 @@
     "lilaeopsis-brasiliensis": {
       "ok": "yes",
       "typical": false,
-      "note": "emersed plant flowering, small white umbel flowers among linear leaves"
+      "note": "emersed leaves with small white flowers, close-up",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5862689f364b51b5.webp": {
@@ -9857,7 +9984,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "group of mixed-colour koi in a pond, seen from above"
+      "note": "group of colourful koi in green pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5f31b4c45af13577.webp": {
@@ -9982,7 +10111,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "unsure",
       "typical": false,
-      "note": "greenish arowana in dim light; could be an Asian green arowana"
+      "note": "greenish arowana in dim tank, shape suggests possible Asian arowana",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/61ef762fa6ff6440.webp": {
@@ -10693,7 +10824,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": false,
-      "note": "Red Asian arowana in close-up: the head and front of the body only. It's a bred red colour form, not the wild green type"
+      "note": "close-up of front half of red Asian arowana",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6d999f573f778012.webp": {
@@ -11986,7 +12119,9 @@
     "fissidens-fontanus": {
       "ok": "unsure",
       "typical": false,
-      "note": "long submerged moss strands in a stream with leaves; might be F. fontanus but too blurry to confirm"
+      "note": "submerged trailing moss in stream, fine branched look, ID unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/81dc699b3b2e85a2.webp": {
@@ -12024,7 +12159,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": false,
-      "note": "albino form on gravel"
+      "note": "albino Senegal bichir on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/82b28ac86538c14c.webp": {
@@ -12183,7 +12320,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "adult silver arowana, clear side view with barbels"
+      "note": "adult silver arowana side view, warm lighting, small fish below",
+      "logo": false,
+      "person": false
     },
     "scleropages-formosus": {
       "ok": "other",
@@ -12414,7 +12553,9 @@
     "lilaeopsis-brasiliensis": {
       "ok": "yes",
       "typical": false,
-      "note": "flowering emersed plant on wet sand"
+      "note": "flowering emersed plant on wet substrate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/889d6007f3a606a9.webp": {
@@ -12544,7 +12685,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Golden (crossback-type) Asian arowana, full side view in aquarium"
+      "note": "red-tail golden Asian arowana, same shot as photo 1",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8c4366dad342612c.webp": {
@@ -12666,7 +12809,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "scarlet flower spike of cardinal flower on black background"
+      "note": "red flower spike on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8f01c81106778f93.webp": {
@@ -12825,8 +12970,10 @@
   "https://media.aquatome.com/commons/91b357ffbffb4870.webp": {
     "corydoras-panda": {
       "ok": "yes",
-      "typical": false,
-      "note": "single panda cory on gravel in planted tank; small, distant view, body looks darker"
+      "typical": true,
+      "note": "panda cory on dark gravel in planted tank, small in frame",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/91b5cf422b300263.webp": {
@@ -12957,8 +13104,10 @@
   "https://media.aquatome.com/commons/936cbc8d6b4ca69c.webp": {
     "cyprinus-rubrofuscus": {
       "ok": "yes",
-      "typical": false,
-      "note": "orange long-finned (butterfly) koi with doitsu-type scales"
+      "typical": true,
+      "note": "close-up of orange doitsu koi",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/936f63ab8128658c.webp": {
@@ -13261,7 +13410,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "cut-out adult side view against white, clear sterbai pattern"
+      "note": "Sterba's cory cut out on white background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/976a0ca9a5a13619.webp": {
@@ -14034,7 +14185,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "flowering stem among pitcher plants in a bog garden"
+      "note": "flowering stem in bog garden with pitcher plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a5d1a3a1decf2e29.webp": {
@@ -14213,9 +14366,11 @@
   },
   "https://media.aquatome.com/commons/a96f10a210cb97aa.webp": {
     "corydoras-sterbai": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "pale head with dark wavy lines and faint orange on the fins; could be C. haraldschultzi"
+      "ok": "yes",
+      "typical": true,
+      "note": "Sterba's cory on white sand by a rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a982b1984350a3e8.webp": {
@@ -14347,8 +14502,10 @@
   "https://media.aquatome.com/commons/abc7f85db0d600c0.webp": {
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
-      "typical": false,
-      "note": "silver arowana under orange light, tail cut off"
+      "typical": true,
+      "note": "silver arowana close side view, orange-tinted lighting",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/abcf0766c52c515e.webp": {
@@ -14423,7 +14580,9 @@
     "scleropages-jardinii": {
       "ok": "yes",
       "typical": true,
-      "note": "Saratoga with red-spotted tail fin and spotted scales, side view"
+      "note": "saratoga side view, spotted tail fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/acefb626c97d639d.webp": {
@@ -14878,7 +15037,9 @@
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": true,
-      "note": "wild-type mollies with spotted fins in planted tank"
+      "note": "wild-type mollies with spotted tails in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b3e5501c4979e5ab.webp": {
@@ -15314,7 +15475,9 @@
     "cryptocoryne-beckettii": {
       "ok": "unsure",
       "typical": false,
-      "note": "emersed crypt mass, olive leaves; species can't be confirmed"
+      "note": "emersed crypt mat over water, could be another Cryptocoryne",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bb4b9374c622f46a.webp": {
@@ -15406,14 +15569,18 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "carpet of wild plants with elongated walking frond tips"
+      "note": "carpet of fronds with long proliferous tips",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bc6d7868f4a60995.webp": {
     "poecilia-sphenops": {
-      "ok": "yes",
+      "ok": "dead",
       "typical": false,
-      "note": "wild-type molly specimen laid out of water on stones"
+      "note": "wild-type molly lying out of water on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bc71efb3654c8fd4.webp": {
@@ -15465,7 +15632,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "single red-and-black koi swimming in a pond"
+      "note": "red koi with black markings in pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bd0739f031614449.webp": {
@@ -15750,7 +15919,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of red flowers and lanceolate leaves"
+      "note": "red flowers and lanceolate leaves in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c0bf0e408694a742.webp": {
@@ -16131,7 +16302,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "group of sterbai on gravel, orange pectoral spines visible"
+      "note": "two Sterba's cories on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c58b9359825a4664.webp": {
@@ -16393,6 +16566,12 @@
       "ok": "yes",
       "typical": true,
       "note": "adult mad barb in public aquarium with a golden barb below"
+    },
+    "leptobarbus-rubripinna": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Leptobarbus hoevenii",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/c8d13c629e973821.webp": {
@@ -16552,6 +16731,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/cc5f6632ab6f69cc.webp": {
+    "boraras-urophthalmoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "colourful adult side view, padded grey bars",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/ccc7e347a7908023.webp": {
     "corydoras-trilineatus": {
       "ok": "yes",
@@ -16561,9 +16749,11 @@
   },
   "https://media.aquatome.com/commons/ccd6c50890efdf3c.webp": {
     "corydoras-panda": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "Cory with a dark band along the rear body and no clear spot at the tail base; doesn't look like a panda"
+      "note": "different Corydoras: no black eye mask or tail-base spot, dark lateral band instead",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cceeb3c4188aa82d.webp": {
@@ -16592,8 +16782,10 @@
   "https://media.aquatome.com/commons/cd15fb87ae088bf3.webp": {
     "scleropages-jardinii": {
       "ok": "unsure",
-      "typical": true,
-      "note": "Plain greenish-gold arowana in a tank; no clear red scale spots, so it could be an Asian arowana"
+      "typical": false,
+      "note": "large arowana, plain scales without clear spots; could be another Scleropages",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cd1e543b8a4d408c.webp": {
@@ -16627,7 +16819,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": false,
-      "note": "albino form in tank"
+      "note": "albino Senegal bichir in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cd86158850e0d909.webp": {
@@ -16926,7 +17120,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "adult sterbai close-up: white dots on dark body, orange-white pectoral spine"
+      "note": "close-up of a Sterba's cory on gravel, bluish colour cast, second fish behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d1c60c67b32ca2b4.webp": {
@@ -17360,7 +17556,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "Panda cory close-up, clear side view, more in background"
+      "note": "same image as 1, panda cory on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d772e10cea2d661a.webp": {
@@ -17391,7 +17589,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": true,
-      "note": "wild-type Senegal bichir by cave, head and front of body"
+      "note": "grey Senegal bichir by a cave ornament on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d7d6e40b3b086302.webp": {
@@ -17733,9 +17933,11 @@
   },
   "https://media.aquatome.com/commons/de048b7682a01b6b.webp": {
     "cryptocoryne-beckettii": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "dense emersed stand of Cryptocoryne leaves above water"
+      "note": "dense emersed crypt stand, species not clear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/de2313866c6bc21d.webp": {
@@ -17988,6 +18190,14 @@
       "note": "several harlequins over white and black substrate",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/e21d878bee64002f.webp": {
+    "julidochromis-ornatus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Julidochromis regani",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/e21efd5ada54a064.webp": {
@@ -18650,7 +18860,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "Two panda corys on sand"
+      "note": "two panda corys on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/efea54b33eb3309d.webp": {
@@ -19285,7 +19497,9 @@
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "black lyretail molly, sepia-toned photo"
+      "note": "black lyretail molly, sepia-toned photo",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f8d0b687908b2327.webp": {
@@ -19483,7 +19697,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "white koi with a red head and black spots, dark background"
+      "note": "red-headed koi with white body and black marks in dark tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fce97c2921ba0eb6.webp": {
@@ -19529,7 +19745,9 @@
     "lilaeopsis-brasiliensis": {
       "ok": "yes",
       "typical": false,
-      "note": "emersed plant with tiny white flowers on wet substrate"
+      "note": "flowering emersed plant on wet substrate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fdee6793f5bf37e7.webp": {
@@ -19689,21 +19907,27 @@
     "cryptocoryne-beckettii": {
       "ok": "unsure",
       "typical": false,
-      "note": "green spathe with brown collar; can't confirm it is beckettii"
+      "note": "close-up of green spathe with reddish petioles",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/cryptspages/bec_x_B622_1592.webp": {
     "cryptocoryne-beckettii": {
       "ok": "yes",
       "typical": true,
-      "note": "plant with dark green leaves, reddish undersides and a yellow spathe"
+      "note": "crypt rosette with green-red leaves and a spathe",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/cryptspages/bec_x_B622_1594.webp": {
     "cryptocoryne-beckettii": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of yellow-green spathe limb with dark collar"
+      "note": "close-up of twisted green spathe (flower)",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/cryptspages/cri_LK5602A_B1272_5322.webp": {
@@ -19923,7 +20147,18 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Golden Asian arowana, full side view on black background"
+      "note": "red-tail golden Asian arowana on dark background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/14436045529.webp": {
+    "boraras-urophthalmoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "least rasbora among plants; title text top, copyright text left edge",
+      "logo": true,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/14513471362.webp": {
@@ -19932,6 +20167,24 @@
       "typical": false,
       "note": "close-up of red cap oranda head and wen",
       "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/14619429711.webp": {
+    "boraras-urophthalmoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two least rasboras in planted tank; title text top, copyright text left edge",
+      "logo": true,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/14620558614.webp": {
+    "boraras-urophthalmoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "fish among plants; caption text at top and copyright along left edge",
+      "logo": true,
       "person": false
     }
   },
@@ -19949,6 +20202,33 @@
       "ok": "yes",
       "typical": true,
       "note": "amano shrimp on lava rock, side view",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/15395977000.webp": {
+    "corydoras-panda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "panda cory on plant leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/15439449509.webp": {
+    "corydoras-panda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "panda cory among plants, warm lighting",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/15894924088.webp": {
+    "corydoras-panda": {
+      "ok": "yes",
+      "typical": true,
+      "note": "panda cory on gravel, eye mask, dark dorsal and tail spot",
       "logo": false,
       "person": false
     }
@@ -20025,11 +20305,29 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/flickr/24486132179.webp": {
+    "taxiphyllum-alternans": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "wild moss carpet with grass stems; looks like a different moss with swollen shoot tips",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/flickr/24694220282.webp": {
     "caridina-multidentata": {
       "ok": "yes",
       "typical": true,
       "note": "amano shrimp on plants, dashed line markings",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/24760273561.webp": {
+    "taxiphyllum-alternans": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "wild terrestrial moss mat with leaf litter; species can't be confirmed",
       "logo": false,
       "person": false
     }
@@ -20182,7 +20480,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Greyish-green Asian arowana with large scales, front-side view"
+      "note": "green Asian arowana in a bare tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/flickr/5110296885.webp": {
@@ -20344,6 +20644,15 @@
       "typical": true,
       "note": "dense Marsilea mat; leaves look smooth, so the species can't be confirmed",
       "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/6702014271.webp": {
+    "poecilia-sphenops": {
+      "ok": "other",
+      "typical": false,
+      "note": "red platy (Xiphophorus maculatus): short, deep body with a small mouth; faint signature bottom right",
+      "logo": true,
       "person": false
     }
   },
@@ -20737,14 +21046,18 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "full red flower raceme against green background"
+      "note": "dense red flower spike close-up",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/1034084.webp": {
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "two tall flower spikes, emersed plants"
+      "note": "two tall flowering spikes by water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/103441873.webp": {
@@ -20840,7 +21153,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of the red flowers only"
+      "note": "close-up of red flower cluster only",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/111135866.webp": {
@@ -21136,7 +21451,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": true,
-      "note": "two orange goldfish over pebble bottom, murky water"
+      "note": "two orange common goldfish over pebbles in a pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/131701420.webp": {
@@ -21500,7 +21817,9 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "wild plant by a log, trifoliate fronds with long tip"
+      "note": "wild plant beside a log on the forest floor",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/1682695.webp": {
@@ -21562,7 +21881,9 @@
     "carassius-auratus": {
       "ok": "unsure",
       "typical": false,
-      "note": "very blurry pinkish fish in cloudy water"
+      "note": "very blurry red fish in murky water, can't identify",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/173260370.webp": {
@@ -21721,7 +22042,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": true,
-      "note": "bronze wild-coloured goldfish in tank"
+      "note": "bronze wild-type goldfish in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/183488460.webp": {
@@ -21991,14 +22314,18 @@
     "fissidens-fontanus": {
       "ok": "yes",
       "typical": false,
-      "note": "flattened two-ranked fronds covered in detritus and algae"
+      "note": "sediment-covered fronds underwater, unclear view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/208567000.webp": {
     "fissidens-fontanus": {
       "ok": "yes",
       "typical": false,
-      "note": "dirty fronds coated with debris, partly blurred view"
+      "note": "Fissidens fronds in a white dish, covered in debris and dirt",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/209443512.webp": {
@@ -22135,7 +22462,9 @@
     "carassius-auratus": {
       "ok": "unsure",
       "typical": false,
-      "note": "pale orange and dark fish in murky pond from above; koi not ruled out"
+      "note": "pond fish in orange, pale and dark colours, could be koi",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/221942872.webp": {
@@ -22158,21 +22487,27 @@
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "gold molly with white balloon molly, GloFish tetra and barb in tank"
+      "note": "gold molly with a white molly and GloFish tetras",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/221943574.webp": {
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "marbled lyretail domestic molly, tetra behind"
+      "note": "lyretail colour-form molly with a GloFish tetra",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/221944040.webp": {
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "gold/orange molly, aquarium form"
+      "note": "gold molly",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/222093287.webp": {
@@ -22249,7 +22584,9 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "single wild frond on a soil bank, toothed pinnae and long terminal pinna"
+      "note": "single wild plant on a soil bank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/228372262.webp": {
@@ -22302,8 +22639,10 @@
   "https://media.aquatome.com/inaturalist/232992959.webp": {
     "carassius-auratus": {
       "ok": "yes",
-      "typical": false,
-      "note": "orange comet-type goldfish over algae in pond, distant"
+      "typical": true,
+      "note": "orange goldfish swimming over pond weed",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/233486434.webp": {
@@ -22324,7 +22663,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "flower spike with scarlet flowers"
+      "note": "sunlit flowering spike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/235208167.webp": {
@@ -22390,7 +22731,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": true,
-      "note": "orange-red comet-type goldfish side view over weedy pond bottom"
+      "note": "red comet-type goldfish over weed",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/24437573.webp": {
@@ -22613,9 +22956,11 @@
   },
   "https://media.aquatome.com/inaturalist/251523954.webp": {
     "boraras-urophthalmoides": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "Faded fish in a shallow container with murky water"
+      "note": "orange fish with dark stripe in photo tank; markings not clear enough to confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/25158995.webp": {
@@ -22769,9 +23114,11 @@
   },
   "https://media.aquatome.com/inaturalist/257979017.webp": {
     "lilaeopsis-brasiliensis": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "a few yellowing strap leaves in a carpet of a different fine-leaved plant"
+      "note": "mostly a carpet of a different small-leaved whorled plant, with a few Lilaeopsis-like leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/258028860.webp": {
@@ -23022,8 +23369,10 @@
   "https://media.aquatome.com/inaturalist/268520112.webp": {
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
-      "typical": false,
-      "note": "close-up of head and front of body"
+      "typical": true,
+      "note": "close-up of silver arowana head and front body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/269003251.webp": {
@@ -23477,7 +23826,9 @@
     "lilaeopsis-brasiliensis": {
       "ok": "unsure",
       "typical": false,
-      "note": "tall, narrow leaves divided into sections, growing in dark water with pennywort; could be another Lilaeopsis species"
+      "note": "tall septate rush-like leaves in water with pennywort; may be a larger Lilaeopsis species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/313654351.webp": {
@@ -23662,7 +24013,9 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "close view of glossy wavy-margined fronds in leaf litter"
+      "note": "close view of wavy-edged trifoliate fronds in leaf litter",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/321175142.webp": {
@@ -23927,7 +24280,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of head and front body, partial view"
+      "note": "close partial view of silver arowana with pacus behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/337801605.webp": {
@@ -24009,22 +24364,28 @@
   "https://media.aquatome.com/inaturalist/339901810.webp": {
     "corydoras-sterbai": {
       "ok": "yes",
-      "typical": false,
-      "note": "blurry shot with a warm colour cast; spotted head and orange pectoral fin"
+      "typical": true,
+      "note": "Sterba's cory with spotted body and orange pectoral spine, swimming near plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/339901824.webp": {
     "corydoras-sterbai": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "blurry, dim view of a lined cory among plants; head spots and orange pectoral spines not clear enough to confirm sterbai"
+      "ok": "yes",
+      "typical": true,
+      "note": "Sterba's cory swimming among plants, slightly blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/340114393.webp": {
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "wild terrestrial plant on forest floor: pinnate fronds, few pinna pairs, long wavy-edged terminal pinna"
+      "note": "wild Bolbitis fern clump on forest floor, wavy-edged pinnae",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/340586690.webp": {
@@ -24251,7 +24612,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "silver arowana near the surface, side view"
+      "note": "silver arowana near surface, glare from lights",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/353160567.webp": {
@@ -24351,7 +24714,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "adult silver arowana, side view"
+      "note": "silver arowana by driftwood in display tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/360109705.webp": {
@@ -24976,7 +25341,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "two silver arowanas in a display tank"
+      "note": "two silver arowanas in planted public aquarium tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/430158356.webp": {
@@ -25227,14 +25594,18 @@
     "scleropages-jardinii": {
       "ok": "yes",
       "typical": true,
-      "note": "Deep-bodied saratoga with dark-edged scales, seen through aquarium glass"
+      "note": "Gulf saratoga in tank; person reflected in glass at top",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/454535028.webp": {
     "scleropages-jardinii": {
       "ok": "yes",
       "typical": true,
-      "note": "Saratoga beside Australian snake-necked turtles, side view"
+      "note": "saratoga with snake-necked turtles; person reflected in glass",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/454557581.webp": {
@@ -25485,7 +25856,9 @@
     "taxiphyllum-alternans": {
       "ok": "unsure",
       "typical": false,
-      "note": "Yellow-green terrestrial moss mat on soil with twigs; can't confirm it is Taxiphyllum alternans rather than another moss"
+      "note": "yellow-green wild moss on the ground; can't confirm the species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/474883874.webp": {
@@ -25497,11 +25870,22 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/inaturalist/4755037.webp": {
+    "lobelia-cardinalis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "flowering plant beside a stream",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/inaturalist/476204.webp": {
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "single flowering stem with red flowers"
+      "note": "flowering spike, emersed, wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/47643334.webp": {
@@ -25549,7 +25933,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "flowering spike of cardinal flower in the wild, red flowers with buds above"
+      "note": "flowering plant in woodland",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/480358034.webp": {
@@ -25565,7 +25951,9 @@
     "scleropages-jardinii": {
       "ok": "yes",
       "typical": true,
-      "note": "Saratoga resting near driftwood; hazy shot with a visitor's shoe visible"
+      "note": "hazy view of saratoga; shoe of a person at top right",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/486322104.webp": {
@@ -25665,7 +26053,9 @@
     "fissidens-fontanus": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of green feather-like fronds with leaves in two flat rows"
+      "note": "close-up of Fissidens fronds with two rows of leaves growing in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/497708173.webp": {
@@ -25815,7 +26205,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "two silver arowanas in a public aquarium"
+      "note": "silver arowanas near surface in large tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/512357919.webp": {
@@ -25862,7 +26254,9 @@
     "fissidens-fontanus": {
       "ok": "yes",
       "typical": true,
-      "note": "underwater fronds with leaves in two flat rows, the typical Fissidens fontanus look"
+      "note": "flattened pinnate fronds underwater, close-up",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/518720329.webp": {
@@ -26477,7 +26871,9 @@
     "lobelia-cardinalis": {
       "ok": "yes",
       "typical": true,
-      "note": "group of flowering spikes among shrubs"
+      "note": "several flowering spikes in the wild among shrubs",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/569742325.webp": {
@@ -26580,8 +26976,10 @@
   "https://media.aquatome.com/inaturalist/571662198.webp": {
     "polypterus-senegalus": {
       "ok": "yes",
-      "typical": false,
-      "note": "distant small grey bichir swimming in planted tank"
+      "typical": true,
+      "note": "grey bichir swimming, small in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/571784489.webp": {
@@ -26936,14 +27334,18 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "dense wild patch with fronds whose tips extend into long tails; clear view"
+      "note": "dense wild stand with elongated rooting frond tips",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/611221064.webp": {
     "poecilia-sphenops": {
       "ok": "unsure",
       "typical": false,
-      "note": "slender olive livebearer, could be wild-type molly or Gambusia; blurry"
+      "note": "blurry slender fish over gravel, possibly a topminnow or mosquitofish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/612365509.webp": {
@@ -27066,14 +27468,18 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile grey bichir on dark gravel"
+      "note": "juvenile grey bichir on dark gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/617423382.webp": {
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": false,
-      "note": "group of sterbai-patterned cories on gravel near a filter, seen from far off"
+      "note": "group of Sterba's corys at a sponge filter, distant view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/617710483.webp": {
@@ -27155,7 +27561,9 @@
     "polypterus-senegalus": {
       "ok": "yes",
       "typical": true,
-      "note": "plain grey adult resting on sand, dim light"
+      "note": "grey bichir on sand in a dim tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/625755496.webp": {
@@ -27214,7 +27622,9 @@
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": true,
-      "note": "two wild-type grey-gold mollies in a container"
+      "note": "two wild-type mollies in a blue container",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/628894758.webp": {
@@ -27496,16 +27906,20 @@
   },
   "https://media.aquatome.com/inaturalist/660001611.webp": {
     "fissidens-fontanus": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "bright green feathery moss clump on sand; could be Fissidens but a look-alike can't be ruled out"
+      "ok": "yes",
+      "typical": true,
+      "note": "tuft of flat two-ranked fronds underwater on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/660002030.webp": {
     "fissidens-fontanus": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "small tuft of fine spiky moss on rock; flattened two-ranked Fissidens fronds not clearly visible"
+      "ok": "yes",
+      "typical": true,
+      "note": "small tuft growing on rock underwater",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/661489443.webp": {
@@ -27647,8 +28061,10 @@
   "https://media.aquatome.com/inaturalist/68322296.webp": {
     "carassius-auratus": {
       "ok": "yes",
-      "typical": true,
-      "note": "orange common/comet goldfish from above in a pond, hazy water"
+      "typical": false,
+      "note": "orange goldfish in murky water, blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/6860110.webp": {
@@ -27669,7 +28085,9 @@
     "bolbitis-heteroclita": {
       "ok": "yes",
       "typical": true,
-      "note": "wild plant on forest floor, trifoliate fronds with long terminal lobe"
+      "note": "wild plant with trifoliate fronds on a forest floor",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/68858616.webp": {
@@ -27967,9 +28385,11 @@
   },
   "https://media.aquatome.com/inaturalist/73215815.webp": {
     "carassius-auratus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "red fish in pond seen through rippled surface; goldfish or koi unclear"
+      "note": "two red goldfish in dark rippled pond, poor view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/733956018.webp": {
@@ -28054,7 +28474,9 @@
     "lilaeopsis-brasiliensis": {
       "ok": "yes",
       "typical": true,
-      "note": "close view of a carpet of short leaves with flat, spoon-shaped tips on wet soil"
+      "note": "emersed carpet with spatulate leaf tips on soil",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/7571227.webp": {
@@ -28070,14 +28492,18 @@
     "lilaeopsis-brasiliensis": {
       "ok": "yes",
       "typical": true,
-      "note": "dense emersed lawn of short, spoon-tipped leaves at the base of a mossy bank"
+      "note": "dense emersed carpet of narrow leaves beside moss-covered rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/7571435.webp": {
     "lilaeopsis-brasiliensis": {
       "ok": "unsure",
       "typical": false,
-      "note": "dense fine grassy mat outdoors, species can't be confirmed"
+      "note": "dense fine-leaved grassy turf in the wild; can't confirm the species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/757259951.webp": {
@@ -28154,7 +28580,9 @@
     "channa-andrao": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of rear body, caudal and anal fins with blue rays and orange edges"
+      "note": "close-up of tail and fins only; camera EXIF text bottom left",
+      "logo": true,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/80648161.webp": {
@@ -28535,6 +28963,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "small reddish barb with dark-edged scales seen from above in a shallow rocky stream; too small and distant to confirm",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/panitvong/inat-179590023.webp": {
+    "cyprinus-rubrofuscus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dense school of dark fish in shallow stream with one orange fish; species unclear",
       "logo": false,
       "person": false
     }
@@ -31480,6 +31917,15 @@
       "note": "grey Labeo with dark band across tail base; may be another Labeo species"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/15a667b04899675e.webp": {
+    "hypoptopoma-incognitum": {
+      "ok": "dead",
+      "typical": false,
+      "note": "small Hypoptopoma-like otothrichin catfish caught and held up between fingers",
+      "logo": false,
+      "person": true
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/166845e1f89de9ae.webp": {
     "corydoras-eques": {
       "ok": "yes",
@@ -31559,6 +32005,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "distant murky wild view of a fish grazing on a log, marks unclear",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/19ce309bb50c7acc.webp": {
+    "hydrolycus-tatauaia": {
+      "ok": "dead",
+      "typical": false,
+      "note": "dead payara-type fish lying on a white surface",
       "logo": false,
       "person": false
     }
@@ -31753,7 +32208,9 @@
     "boraras-urophthalmoides": {
       "ok": "yes",
       "typical": false,
-      "note": "Close-up of the head eating a bloodworm"
+      "note": "close-up of head with bloodworm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/25ebcd2d35c1baa2.webp": {
@@ -31768,7 +32225,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Golden (red-tail golden type) Asian arowana, side view in tank"
+      "note": "red-tail golden Asian arowana, full side view in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/25f6e2b745411b9e.webp": {
@@ -31940,7 +32399,9 @@
     "boraras-urophthalmoides": {
       "ok": "yes",
       "typical": true,
-      "note": "Paler fish (likely female) with stripe and tail spot, eating a bloodworm"
+      "note": "side view eating a bloodworm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/2d90d8379b5f5942.webp": {
@@ -32521,7 +32982,9 @@
     "corydoras-sterbai": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult Sterba's cory on sand: dark body with white spots, orange pectoral fins, barred tail"
+      "note": "Sterba's cory front view on sand, spotted head, orange pectorals",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/4995e7560c629be1.webp": {
@@ -32755,7 +33218,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "Panda cories on gravel: black eye band, black dorsal fin and black spot at the base of the tail"
+      "note": "two panda corys on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/5436c0d7b5947eba.webp": {
@@ -32924,6 +33389,15 @@
       "note": "two fish on pebbles, side view"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/5d2f93e690ee97d4.webp": {
+    "channa-andrao": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult dwarf snakehead with blue-striped dorsal, yellow-edged fins",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/5d5cb3629c2fe56f.webp": {
     "pseudohomaloptera-leonardi": {
       "ok": "unsure",
@@ -32943,7 +33417,9 @@
     "boraras-urophthalmoides": {
       "ok": "yes",
       "typical": false,
-      "note": "Front-on view of fish chasing a small crustacean"
+      "note": "front view catching a small crustacean",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/5e639942d4675957.webp": {
@@ -32974,6 +33450,15 @@
       "typical": false,
       "note": "slender long-snouted cory; thin stripe along the side doesn't reach the eye, unlike arcuatus's arched stripe",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/5f524c328b1f3e3e.webp": {
+    "channa-andrao": {
+      "ok": "yes",
+      "typical": false,
+      "note": "small fish seen from afar in a tank with roots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/5feb9610ef01df72.webp": {
@@ -33359,6 +33844,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Young fish with clean, wide dark bands on a golden body and banded fins"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/7b0da118d55416d0.webp": {
+    "hyphessobrycon-stegemanni": {
+      "ok": "none",
+      "typical": false,
+      "note": "savanna landscape with palms and mesa, no fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/7bd971af90551404.webp": {
@@ -35199,6 +35693,15 @@
       "note": "wild-type guppies, males and female, in a biotope tank with roots and leaves"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/e426d1480521c30b.webp": {
+    "channa-andrao": {
+      "ok": "yes",
+      "typical": true,
+      "note": "fish resting on sand, side view",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/e5ceec99b866809f.webp": {
     "acanthocobitis-botia": {
       "ok": "yes",
@@ -35413,7 +35916,9 @@
     "boraras-urophthalmoides": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult side view: dark stripe with blue sheen, red-orange line above, spot at tail base"
+      "note": "adult with dark lateral stripe, red line above, caudal spot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/eeb0c620f8c32168.webp": {
@@ -35815,7 +36320,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "Two silver arowana swimming near the surface among plants, matching the caption",
+      "note": "two silver arowana among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -35884,7 +36391,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "adult panda cory on sand: eye mask, black dorsal fin and black spot at tail base",
+      "note": "panda cory on sand, black eye patch, dorsal and tail-base spots",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -35901,6 +36410,15 @@
       "ok": "yes",
       "typical": false,
       "note": "orange-gold rosy barb, probably a bred colour form; tail spot not clearly visible"
+    }
+  },
+  "https://media.aquatome.com/sprucepets/2981b9430064b24e.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "common goldfish swimming in aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/sprucepets/3213eda1134f0646.webp": {
@@ -35940,6 +36458,15 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/sprucepets/3ab0cbb4dc8816b4.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "two fancy fantail/ryukin-type goldfish",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/sprucepets/3bc2bc33eb430538.webp": {
     "tanichthys-albonubes": {
       "ok": "yes",
@@ -35956,11 +36483,29 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/sprucepets/44cbe19d8d11c686.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "bubble-eye fancy goldfish variety",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/sprucepets/4bbad808767dd038.webp": {
     "caridina-multidentata": {
       "ok": "yes",
       "typical": true,
       "note": "Amano shrimp side view above plant",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/sprucepets/4cea8e44ba82a914.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "group of fancy fantail goldfish in tank",
       "logo": false,
       "person": false
     }
@@ -36010,6 +36555,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/sprucepets/537fb666e5ad628e.webp": {
+    "cyprinus-rubrofuscus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of varied koi varieties from above, dark water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/sprucepets/565b2d8c0a3368d9.webp": {
@@ -36076,7 +36630,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "panda cory on substrate with plants: eye patch and tail-base spot, pale dorsal fin",
+      "note": "panda cory on gravel with plants behind",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -36298,6 +36854,15 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/sprucepets/b3f5400a77c0f709.webp": {
+    "cyprinus-rubrofuscus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellow/gold ogon-type koi in pond",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/sprucepets/b553d4b3e2f1e8c1.webp": {
     "balantiocheilos-melanopterus": {
       "ok": "yes",
@@ -36405,7 +36970,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "red veiltail/fantail fancy goldfish in aquarium, matches caption",
+      "note": "red long-finned fancy goldfish in an aquarium",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -36458,7 +37025,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "two silver arowana swimming among plants and branches, clear side view",
+      "note": "two silver arowana swimming among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -36499,7 +37068,9 @@
     "corydoras-panda": {
       "ok": "yes",
       "typical": true,
-      "note": "panda cory on gravel, side view: eye patch and tail-base spot, dorsal fin only lightly marked",
+      "note": "panda cory on gravel, eye mask and tail-base blotch",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -36749,7 +37320,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "calico long-finned goldfish in gravel tank with plants",
+      "note": "calico and orange fancy goldfish over gravel, with driftwood-like ornament",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -36966,6 +37539,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/BiNf-SlKfLI/p0-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "calico goldfish in a home tank with a gravel bottom",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/CSLWc2X7VFE/p3-phdmFtb29zLmpwZw.webp": {
     "taxiphyllum-barbieri": {
       "ok": "yes",
@@ -37044,7 +37627,9 @@
     "cyprinus-rubrofuscus": {
       "ok": "yes",
       "typical": true,
-      "note": "Several koi (yellow, orange, mottled) in a large glass tank; the glass walls and bottom edge are visible, as the caption",
+      "note": "several koi in a large glass tank, glass walls and bottom visible",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37164,6 +37749,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/K972tk73JpU/p7-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "calico goldfish in a greenish, slightly murky tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/KQPY_PVu6UM/p0-aWxlOlVhcnUuanBn.webp": {
     "uaru-amphiacanthoides": {
       "ok": "yes",
@@ -37201,8 +37796,20 @@
   "https://media.aquatome.com/video/LU_y6OK2qK0/p5-ZV8yMDEyXzEuanBn.webp": {
     "scleropages-formosus": {
       "ok": "yes",
-      "typical": false,
-      "note": "Asian arowana, gold/red-tail colour form, side view in a dark bare tank with light from above; a little floating leaf at",
+      "typical": true,
+      "note": "golden/red-tail Asian arowana in bare tank under top light",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/LsQQ1yVFsBQ/p2-ZV8yMDEyXzMuanBn.webp": {
+    "scleropages-formosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pale golden Asian arowana in tank with green plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37245,6 +37852,26 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/N6OtIWIEQs4/p3-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "goldfish in a tank with clean gravel and plants",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/Nh_24hIm4sA/p6-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "calico long-finned goldfish and orange goldfish in gravel tank with plants and driftwood",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/Nh_24hIm4sA/p7-bV9maXNoZXMuanBn.webp": {
     "carassius-auratus": {
       "ok": "yes",
@@ -37257,7 +37884,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "Silver arowana in a tank, close side view showing the body and large scales; other fish below",
+      "note": "silver arowana in tank, warm lighting, small fish below",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37265,7 +37894,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Green Asian arowana swimming in a blue-lit tank, full side view",
+      "note": "green Asian arowana in tank with blue background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37273,23 +37904,29 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": false,
-      "note": "Close-up of a red Asian arowana's head, showing its barbels and orange-red scales",
+      "note": "close-up of head of red-orange Asian arowana",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
   "https://media.aquatome.com/video/Omxb5ByqLMs/p5-ZV8yMDEyXzMuanBn.webp": {
     "scleropages-formosus": {
       "ok": "yes",
-      "typical": false,
-      "note": "Gold-form Asian arowana with large golden scales in a planted tank",
+      "typical": true,
+      "note": "silvery-gold Asian arowana in planted tank, side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
   "https://media.aquatome.com/video/Omxb5ByqLMs/p6-ZV8yMDEyXzMuanBn.webp": {
     "scleropages-formosus": {
       "ok": "yes",
-      "typical": false,
-      "note": "Gold-form Asian arowana in a planted tank; same image as photo 3",
+      "typical": true,
+      "note": "same arowana photo as 2, slightly cropped",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37364,7 +38001,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "Calico long-finned goldfish (shubunkin-type) and orange goldfish over colored gravel, plants behind; matches caption",
+      "note": "same tank image: calico goldfish over gravel with driftwood",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37432,6 +38071,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/SVgc_g2T47Y/p5-RFNDMDAyNjEuSlBH.webp": {
+    "lilaeopsis-brasiliensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "labelled Lilaeopsis brasiliensis carpet in tank foreground, broad-leaved plants behind",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/TEZjYpuJFsU/p0-RfZmVtYWxlLmpwZw.webp": {
     "trigonostigma-heteromorpha": {
       "ok": "other",
@@ -37484,7 +38133,19 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "Same scene: goldfish over multicolored gravel with aquatic plants; matches caption",
+      "note": "same tank image: goldfish over multicoloured gravel, plants behind",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/UhGWKDI8qn8/p0-ZV8yMDEyXzMuanBn.webp": {
+    "scleropages-formosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same arowana photo as 2",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37536,8 +38197,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "live Asian arowana swimming in a tank, silvery-gold scales clearly visible",
+      "note": "same arowana photo as 3",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37545,7 +38207,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "gravel tank with plants, a calico goldfish and a smaller orange goldfish",
+      "note": "same tank image: small goldfish, gravel and plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37593,7 +38257,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "same scene: calico goldfish swimming over gravel with aquatic plants, matches caption",
+      "note": "same tank image: goldfish swimming over gravel near driftwood",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37601,7 +38267,9 @@
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
       "typical": true,
-      "note": "Silver arowana in a dark tank, long silvery body with large scales and chin barbels",
+      "note": "silver arowana in large dark tank, side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37610,6 +38278,16 @@
       "ok": "yes",
       "typical": false,
       "note": "several colour-bred platies (orange, red, tuxedo-like) in a planted tank, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/Z5YNg3LzZpk/p3-pc19oYWJpdC5qcGc.webp": {
+    "lobelia-cardinalis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "flowering emersed cardinal flower growing in the wild, red flower spikes",
       "logo": false,
       "person": false,
       "guide": true
@@ -37629,7 +38307,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "Same scene: goldfish tank with gravel substrate and plants; matches caption",
+      "note": "same tank image: goldfish tank with clean gravel and plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37801,7 +38481,9 @@
     "scleropages-formosus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult green Asian arowana, side view against a black tank background, as the caption says",
+      "note": "green-gold Asian arowana on black background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37858,6 +38540,16 @@
       "ok": "yes",
       "typical": true,
       "note": "Frontosa with black and white bars swimming by rocks in a Tanganyika-style tank, a second one behind it; matches caption",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/jvEJpkByqJ0/p6-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "long-finned calico goldfish over coloured gravel with driftwood and plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37929,8 +38621,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": true,
-      "note": "crowded tank of many goldfish, common/comet and calico forms",
+      "note": "crowded tank of comet-type goldfish in many colours",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37954,7 +38647,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "Calico and orange fancy goldfish swimming over coloured gravel in a clear tank, as the caption says",
+      "note": "same calico goldfish over coloured gravel, clear water",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37962,7 +38657,19 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "Same scene: goldfish swimming over gravel bottom; matches caption",
+      "note": "calico goldfish swimming above gravel bottom",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/qkPw1VQ9A90/p0-ZV8yMDEyXzMuanBn.webp": {
+    "scleropages-formosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "golden Asian arowana swimming in a tank with aquatic plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -37990,7 +38697,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "Orange-white long-finned goldfish over gravel with plants and driftwood-like ornament",
+      "note": "calico goldfish in tank with gravel, plants and driftwood",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38034,7 +38743,9 @@
     "carassius-auratus": {
       "ok": "yes",
       "typical": false,
-      "note": "goldfish tank with slotted overflow boxes on both sides; mixed fancy goldfish incl. black moors, orandas",
+      "note": "fancy goldfish and black moors in tank with slotted overflow boxes",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38077,8 +38788,10 @@
   "https://media.aquatome.com/video/viG-wVICUZo/p1-lzaF9UYW5rLmpwZw.webp": {
     "carassius-auratus": {
       "ok": "yes",
-      "typical": false,
-      "note": "store tank crowded with small feeder goldfish (comets), matches caption",
+      "typical": true,
+      "note": "shop tank crowded with small common goldfish, matches caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38110,12 +38823,23 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/z3PJqCTO8uQ/p0-dsb25neXUzLmpwZw.webp": {
+    "scleropages-formosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "green Asian arowana swimming alone against a dark, bare background",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/zikyuEMALJE/p1-1fb2ZfQXJ0LmpwZw.webp": {
     "carassius-auratus": {
       "ok": "none",
       "typical": false,
-      "note": "photo of a framed painting (Matisse-style) of a goldfish bowl on a table, not a photo of real fish; the signature is pai",
+      "note": "painting (Matisse-style still life) of a goldfish bowl on a table, not a photo; painted figures and the painter's signat",
       "logo": false,
+      "person": false,
       "guide": true
     }
   }

@@ -52733,29 +52733,29 @@
   },
   "vi/guides/youtube-eKREW6KPMh4": {
     "at": "2026-11-08",
-    "hash": "1d5d843901d5d21b",
+    "hash": "0718451a4dae4262",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
+        "check": "price",
         "part": "P1",
-        "quote": "75–115 lít",
-        "why": "This range is 20–30 US gallons converted to litres, not a tank size people talk about in Vietnam.",
+        "quote": "một túi 12 con nghêu có giá khoảng 7 đô",
+        "why": "Price given in US dollars, meaningless for a buyer in Vietnam.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "475–750 lít",
-        "why": "This range is 125–200 gallons converted to litres.",
+        "quote": "75–115 lít, không phải bể nuôi cả đời",
+        "why": "75–115 litres is a converted 20–30 gallon range nobody in Vietnam would use.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "L10",
-        "quote": "bể phải từ 475 lít trở lên",
-        "why": "475 litres is 125 gallons converted, not a figure a keeper in Vietnam would use.",
+        "part": "P1",
+        "quote": "475 lít đến gần 750 lít",
+        "why": "475 and 750 litres are converted 125 and 200 gallon tank sizes.",
         "by": "model"
       }
     ],
@@ -53286,37 +53286,59 @@
   },
   "vi/guides/youtube-FbX_XvXFmW0": {
     "at": "2026-11-08",
-    "hash": "6bc09299d8bb60ea",
+    "hash": "f85266b75aa8e1c4",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Một con thường có giá khoảng 20–30 USD, mua online thì còn tốn thêm phí ship.",
-        "why": "Price given in US dollars with online shipping costs, as for a buyer abroad.",
+        "quote": "Ngoài tiệm cá địa phương có thể gặp con giá khoảng 20 USD.",
+        "why": "Price given in US dollars from a foreign market.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Đặt online thì khoảng 25 USD, chưa kể tiền ship.",
+        "why": "Online price and shipping in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Nhìn chung cứ chuẩn bị khoảng 20–30 USD một con.",
+        "why": "Budget in US dollars, not đồng.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "dễ tìm ở tiệm cá cảnh địa phương hơn là ở các chuỗi cửa hàng thú cưng lớn",
-        "why": "Compares local fish shops with big pet store chains, a US retail setting.",
+        "quote": "dễ tìm ở tiệm cá nhỏ hơn là ở các chuỗi cửa hàng thú cưng lớn",
+        "why": "Refers to big pet-store chains of the source country as the reader's shops.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "nên tính bể khoảng 570–760 lít",
-        "why": "570–760 litres is a conversion of 150–200 gallons, not a size anyone in Vietnam would quote.",
+        "quote": "muốn cá sống khỏe thì cần bể khoảng 570–760 lít",
+        "why": "Converted from 150–200 gallons; not a size anyone in Vietnam would quote.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "units",
         "part": "P1",
-        "quote": "Con mình từng thấy ngoài tiệm chỉ khoảng 20 cm",
-        "why": "First-person story from the original writer that the reader doesn't know.",
+        "quote": "gần bằng chiều dài một bể 79 cm",
+        "why": "Tank length converted from inches, an odd figure for Vietnam.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Nó thích trùn chỉ (bloodworm)",
+        "why": "Bloodworm is mistranslated as trùn chỉ (tubifex); keepers call bloodworm trùn huyết.",
+        "by": "model",
+        "fix": "trùn huyết"
       }
     ],
     "products": []
@@ -56985,33 +57007,70 @@
   },
   "vi/guides/youtube-lnOoJm-b5vs": {
     "at": "2026-11-08",
-    "hash": "555b8bc57d01411d",
+    "hash": "8721a9a2cbceedb8",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
+        "check": "source",
         "part": "P1",
-        "quote": "Bể cỡ khoảng 680 lít có thể giữ hai hoặc ba con trống",
-        "why": "680 litres is a converted 180-gallon tank size, not one a Vietnamese keeper would name.",
+        "quote": "Bể cichlid Tanganyika ở đây xếp nhiều đá to",
+        "why": "Presents the source owner's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Con số này chủ bể cũng không chắc lắm.",
+        "why": "Introduces an unknown tank owner from the original video.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể được dỡ vì mấy lý do riêng của chủ bể",
+        "why": "Narrates the source owner's personal reasons and plans.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "đây là cách chủ bể làm gần như thường xuyên",
+        "why": "Source owner's own habit given as the basis for advice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nhét thật nhiều trong lọc của bể 7.600 lít và để đầy một xô",
+        "why": "Refers to the source owner's other tank, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Khi gỡ đá, chủ bể thấy một miếng tôm cho ăn tối hôm trước còn nổi lềnh bềnh",
+        "why": "First-hand anecdote from the original video.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "L13",
-        "quote": "Bể khoảng 680 lít có thể giữ hai hoặc ba trống",
-        "why": "680 litres is a converted 180-gallon tank size, not one a Vietnamese keeper would name.",
+        "part": "P1",
+        "quote": "Vì bể rộng khoảng 680 lít",
+        "why": "680 litres is a converted 180-gallon tank size.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "vỏ ốc sên escargot cỡ lớn, mua ở tiệm đồ thủ công hoặc mua online",
-        "why": "Buying escargot shells at craft stores is a habit of the source's country, not Vietnam.",
+        "quote": "vỏ ốc sên escargot cỡ lớn, kín nước, mua ở tiệm đồ thủ công hoặc trên mạng",
+        "why": "Buying escargot shells at craft stores is a US shopping habit.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "Aqua Decor"
+    ]
   },
   "vi/guides/youtube-lnOzt5QoSzY": {
     "at": "2026-11-08",
@@ -57449,7 +57508,7 @@
   },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-08",
-    "hash": "7e32696fc01dfa21",
+    "hash": "dbf5654dd19c7e22",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -62895,17 +62954,17 @@
   },
   "vi/guides/youtube-vV7WbCVTnHs": {
     "at": "2026-11-08",
-    "hash": "dc71e5915866bdc3",
+    "hash": "d9e571b2702ead66",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P1",
-        "quote": "Nó giống cá xiêm (tiger barb) hay cá betta ở chỗ hay cắn đuôi cá khác.",
-        "why": "In Vietnam \"cá xiêm\" means the betta; the tiger barb is called cá tứ vân, so this is a mistranslation.",
+        "quote": "Trùn chỉ (bloodworm) đông lạnh hoặc sấy khô.",
+        "why": "Bloodworm is called trùn huyết in Vietnam; trùn chỉ means tubifex, a different food.",
         "by": "model",
-        "fix": "cá tứ vân"
+        "fix": "trùn huyết"
       }
     ],
     "products": [
@@ -62979,33 +63038,64 @@
   },
   "vi/guides/youtube-wfG_EzUX04s": {
     "at": "2026-11-08",
-    "hash": "8cbf1b5da176214f",
+    "hash": "025b6f938490d059",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "price",
+        "check": "source",
         "part": "P1",
-        "quote": "Với bể dài 2,4 m, chi phí vào khoảng 200 USD hoặc ít hơn.",
-        "why": "Cost given in US dollars, a foreign currency.",
+        "quote": "Nhưng con cá rồng trong bể này lại chịu chuyển rất kém.",
+        "why": "Refers to the source writer's own tank and fish as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "khoảng 1.420 lít, dài 244 cm, cao 61 cm",
+        "why": "Converted from a 375-gallon, 8 x 2 ft tank; not a size given in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "lực đè cỡ vài trăm pound (hơn trăm kg)",
+        "why": "Uses pounds as the reader's unit.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Phủ diện tích 240 x 60 cm bằng sợi thủy tinh tốn gần 400 USD",
-        "why": "Cost given in US dollars, a foreign currency.",
+        "quote": "làm phông xốp xi măng cho bể này hết khoảng 200 USD hoặc ít hơn",
+        "why": "Price in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Khoảng 368 USD",
-        "why": "Retail price of a ready-made background in US dollars, a foreign price.",
+        "quote": "chi phí đội lên nhanh, cho bể này là gần 400 USD",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "dài 244 cm, cao 61 cm, giá khoảng 368 USD",
+        "why": "Price in US dollars for a product bought abroad.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Nhiều nơi bán phông 3D không giao hàng sang Canada, nơi bể này đặt.",
+        "why": "Shopping situation of a keeper in Canada given as the context.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "Universal Rocks",
+      "Crystal"
+    ]
   },
   "vi/guides/youtube-wHma4dxeecU": {
     "at": "2026-11-08",
@@ -64951,69 +65041,95 @@
   },
   "vi/guides/youtube-z3PJqCTO8uQ": {
     "at": "2026-11-08",
-    "hash": "41bc0677c8d3025a",
+    "hash": "624d94b6dfe12629",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Giá (đô Canada)",
-        "why": "Cost table is priced in Canadian dollars.",
+        "quote": "Giá dưới đây tính bằng đô Canada, làm tròn đến 5 đô.",
+        "why": "The cost table is in Canadian dollars, and the total is also given in USD.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "khoảng 3.000 (khoảng 2.300 USD)",
-        "why": "Total given in Canadian and US dollars.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "trung bình khoảng 5.000 đô, chưa tính thuế và phí vận chuyển",
-        "why": "Comparison price is in foreign dollars and counts tax and shipping abroad.",
+        "quote": "giá trung bình đã khoảng 5.000 đô, chưa tính thuế và vận chuyển",
+        "why": "The quote for a workshop-built tank is in dollars from abroad.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L6",
-        "quote": "hết khoảng 3.000 đô Canada",
-        "why": "Summary gives the cost in Canadian dollars.",
+        "quote": "Cả hệ thống tự làm tốn khoảng 3.000 đô Canada",
+        "why": "The summary gives the cost in Canadian dollars.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nếu được làm lại thì sump là thứ duy nhất của bể này mà người làm muốn đổi",
+        "why": "This refers to the original builder, a person the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dự định sắp tới là đi dây về phía cửa ra vào và lắp một công tắc âm tường",
+        "why": "This is the builder's own house plans, told as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L5",
+        "quote": "Đây là phần duy nhất của hệ thống mà người làm muốn làm khác.",
+        "why": "This refers to the unknown original builder.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "dài 244 cm, rộng 91 cm, cao 64 cm",
-        "why": "An 8 ft × 3 ft × 25 in tank converted to cm; nobody here would give these figures.",
+        "quote": "Bể dài 240 cm, cao 64 cm, rộng 90 cm, chứa khoảng 1.420 lít nước.",
+        "why": "These tank sizes and the volume are converted from feet/inches and gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ống chính là ống 2,5 cm, còn khe hộp tràn chỉ khoảng 1,3 cm",
+        "why": "These are 1 inch and 1/2 inch measurements converted to cm.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể này nhỏ giọt khoảng 7,5 lít/giờ, tức khoảng 190 lít/ngày.",
+        "why": "These are 2 gal/h and 50 gal/day converted; 7.5 × 24 is not 190.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Hãy hình dung một căn nhà kín chỉ có lò sưởi ở một đầu: đầu kia sẽ lạnh",
-        "why": "A heated house in a cold climate isn't something a reader in Vietnam lives with.",
+        "quote": "Có thể hình dung bể như một căn nhà kín, lò sưởi đặt ở một đầu thì đầu kia lạnh",
+        "why": "The comparison assumes a house heated by a furnace in a cold climate, which doesn't fit Vietnam.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "words",
         "part": "P1",
-        "quote": "Đây là phần duy nhất của hệ thống mà chủ bể sẽ làm khác nếu làm lại",
-        "why": "Speaks for an unnamed tank owner from the source as if the reader knew them.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Lớp gạch lót đáy màu xám trước đây đã gỡ ra để sau này thay màu sáng hơn",
-        "why": "The source tank's own history and plans, told as if the reader knew it.",
-        "by": "model"
+        "quote": "Bơm thổi luồng: hai bơm không dây RW-15",
+        "why": "'Bơm thổi luồng' is a translated term; keepers in Vietnam call this a wave maker.",
+        "by": "model",
+        "fix": "máy tạo sóng"
       }
     ],
     "products": [
-      "K1"
+      "RW-15",
+      "Loc-Line",
+      "K1 Kaldnes",
+      "DCT 8000",
+      "Pondmaster AP-60"
     ]
   },
   "vi/guides/youtube-Z3xZC2Z6o4A": {
