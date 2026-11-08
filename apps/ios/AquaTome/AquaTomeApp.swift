@@ -112,6 +112,9 @@ struct AquaTomeApp: App {
       // Whatever tab or page is showing, for the video tests: the pages' players still alive.
       .background { PlayerCount() }
       #endif
+      // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone. Inside the
+      // environment below, which it reads the account from.
+      .ownerReports { OwnerReportHere.place(tab: tab.screen.rawValue, account: showingAccount, lang: handbook.lang) }
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
