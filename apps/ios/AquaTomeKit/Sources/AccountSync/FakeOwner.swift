@@ -13,8 +13,8 @@ import Tanks
 public final class FakeOwner {
   /// The owner's accounts, by their key in FakeAccounts (an Apple sub, or `email:<address>`).
   public var owners: Set<String>
-  /// The overview's reply, by its vector's name: "dashboard", "dashboard: nothing needs you" or "dashboard: the readers'
-  /// beacon down".
+  /// The overview's reply, by its vector's name: "dashboard", "dashboard: nothing needs you", "dashboard: the readers'
+  /// beacon down" or "dashboard: the AI spend near its cap".
   public var overview = "dashboard"
   /// The reports sent, each as the form it came as.
   public var reports: [Data] = []
