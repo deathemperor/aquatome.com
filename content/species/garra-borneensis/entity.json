@@ -13,6 +13,112 @@
     "malaysia",
     "sabah"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BN",
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Kalimantan",
+        "Mendawai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Garra borneensis is a member of the family Cyprinidae endemic to northern and western Borneo, in Kalimantan, Brunei, Sabah and Sarawak.",
+          "countries": [
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to northern and western Borneo, where it has been recorded from numerous river basins in Kalimantan, the Indonesian portion of the island, with additional records from Brunei Darussalam and the Malaysian provinces of Sabah and Sarawak.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "At a habitat in the Mendawai river basin in central Kalimantan, H. borneensis was collected from a foothill stream running swiftly over a rock and gravel substrate with clear water of pH 6.4.",
+          "countries": [],
+          "regions": [
+            "Mendawai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366939,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          12
+        ],
+        [
+          "ID",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          112.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          115.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          116.71875,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -148,6 +148,41 @@
     ],
     "ruled": "0440db2ab84bb080"
   },
+  "vi/guides/2hraquarist-blogs-algae-control-prevent-algae-growth": {
+    "at": "2026-11-08",
+    "hash": "33cf0ff235bc96d2",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể mới muốn hạn chế kích tảo thì nên chiếu tối thiểu 5-6 giờ.",
+        "problem": "To limit algae in a new tank the advice is to keep the photoperiod short, so 'tối thiểu' (at least) reverses the advice. It should be an upper limit.",
+        "fix": "Bể mới muốn hạn chế rêu thì chỉ nên chiếu khoảng 5-6 giờ.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thủ phạm gây tảo là chuyện đổi qua đổi lại nhanh giữa mức dinh dưỡng hoặc CO2 cao và thấp",
+        "problem": "The page leans on stock phrases from the house list ('thủ phạm', 'phần lớn', 'nhiều khả năng', 'dù vậy', 'nhờ vậy', 'bắt buộc phải', 'lý do là', 'cột nước'), so it reads like a translation.",
+        "fix": "Rêu bùng lên là do đổi qua đổi lại nhanh giữa mức dinh dưỡng hoặc CO2 cao và thấp",
+        "rule": "Flag Vietnamese pages that use words from the house's overused-word list, such as 'thủ phạm', 'cột nước' or 'bắt buộc phải'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây lấy nitơ và phốt phát hoàn toàn từ nền qua rễ",
+        "problem": "The same nutrient is called 'phốt pho' elsewhere on the page and 'phốt phát' here.",
+        "fix": "Cây lấy nitơ và phốt pho hoàn toàn từ nền qua rễ",
+        "field": "body"
+      }
+    ],
+    "ruled": "33cf0ff235bc96d2"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -4174,6 +4209,22 @@
     "findings": [],
     "ruled": "536cc8aa4f4419ef"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-where-to-buy-pet-fish": {
+    "at": "2026-11-08",
+    "hash": "204c605d0f69f38b",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Where is the Best Place to Buy Live Aquarium Fish? - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and says nothing about what the photo shows.",
+        "rule": "a caption identical to the source article's title",
+        "field": "caption"
+      }
+    ],
+    "ruled": "204c605d0f69f38b"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you": {
     "at": "2026-11-06",
     "hash": "93ac2eea3ba12a07",
@@ -4862,6 +4913,22 @@
       }
     ],
     "ruled": "19e5b32f554edf2a"
+  },
+  "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": {
+    "at": "2026-11-08",
+    "hash": "30652775e079305a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dùng sủi đá hoặc lọc bông, cho bọt lên tới mặt nước.",
+        "problem": "Sponge filter is called \"lọc mút\" by Vietnamese hobbyists, not \"lọc bông\".",
+        "fix": "Dùng sủi đá hoặc lọc mút, cho bọt lên tới mặt nước.",
+        "field": "body"
+      }
+    ],
+    "ruled": "30652775e079305a"
   },
   "vi/guides/aquatome-cho-ca-betta-sinh-san-chon-cap-ep-de-to-bot-va-cham-ca-bot": {
     "at": "2026-11-04",
@@ -6032,6 +6099,12 @@
     "hash": "bebc7b73bc412139",
     "findings": [],
     "ruled": "bebc7b73bc412139"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-procatopus-aberrans-and-p-nototaenia-en": {
+    "at": "2026-11-08",
+    "hash": "317ec3d3496848eb",
+    "findings": [],
+    "ruled": "317ec3d3496848eb"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en": {
     "at": "2026-11-07",
@@ -9360,6 +9433,22 @@
     ],
     "ruled": "74ce5bfdf0c283b3"
   },
+  "vi/guides/youtube-_0xNpxtU9J0": {
+    "at": "2026-11-08",
+    "hash": "0b4676a52eed3a92",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cây vẫn lên nhưng bể trông khá tệ, vì không chăm thì rêu hại sẽ lên",
+        "problem": "The paragraph repeats the opening clause about algae almost word for word, and it reads like a careless repeat.",
+        "fix": "cây vẫn lên nhưng bể trông khá tệ, rêu hại bám khắp nơi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0b4676a52eed3a92"
+  },
   "vi/guides/youtube-_6NIHP9P5jw": {
     "at": "2026-11-07",
     "hash": "86e26f83b06851ea",
@@ -9845,6 +9934,22 @@
     ],
     "ruled": "769e5615886e405f"
   },
+  "vi/guides/youtube-526gTi2z3WQ": {
+    "at": "2026-11-08",
+    "hash": "2886fe52c6f6da37",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Bể khoảng 125 lít (70 × 50 × 36 cm)",
+        "problem": "The summary gives about 125 litres, while the body gives 100–125 litres for the same tank.",
+        "fix": "Bể khoảng 100–125 lít (70 × 50 × 36 cm)",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "2886fe52c6f6da37"
+  },
   "vi/guides/youtube-5ajPkl9rhKQ": {
     "at": "2026-11-07",
     "hash": "3583581ecf34d7ea",
@@ -9975,6 +10080,12 @@
       }
     ],
     "ruled": "62cf0c49f7178c1e"
+  },
+  "vi/guides/youtube-5tzwDaGhtGs": {
+    "at": "2026-11-08",
+    "hash": "e3ed200a786ad525",
+    "findings": [],
+    "ruled": "e3ed200a786ad525"
   },
   "vi/guides/youtube-5uUPuLt0j2s": {
     "at": "2026-11-03",
@@ -10592,6 +10703,23 @@
     "findings": [],
     "ruled": "10ed593883e280b2"
   },
+  "vi/guides/youtube-aGrKKWNFl2k": {
+    "at": "2026-11-08",
+    "hash": "cd6eb11759469465",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bể nano 30 x 30 x 30 cm (khoảng 38 lít)",
+        "problem": "A 30 x 30 x 30 cm tank holds 27 litres, not 38.",
+        "fix": "bể nano 30 x 30 x 30 cm (khoảng 27 lít)",
+        "rule": "Check that a litre figure matches the product of the cm dimensions given beside it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "cd6eb11759469465"
+  },
   "vi/guides/youtube-ahN0nP8HLaI": {
     "at": "2026-11-07",
     "hash": "5a6579cd57492639",
@@ -10664,6 +10792,90 @@
     "hash": "9dd719dbb1cdadc6",
     "findings": [],
     "ruled": "9dd719dbb1cdadc6"
+  },
+  "vi/guides/youtube-awWblosRzrQ": {
+    "at": "2026-11-08",
+    "hash": "8928bb0eff730db3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Thời điểm\n| TDS\n| Nước ở cửa hàng\n| khoảng 55",
+        "problem": "The TDS table is broken: its cells come out one per line, so the readings don't line up with their labels.",
+        "fix": "Nước ở cửa hàng: khoảng 55. Bể trước lần thay cuối: khoảng 133. Bể sau lần thay cuối: 76.",
+        "rule": "Lines that start with '|' and hold only one cell each, with no separator row.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vẫn còn mang vẻ \\\"sắp đặt\\\"",
+        "problem": "Escaping backslashes were left in the text around the quotation marks.",
+        "fix": "vẫn còn mang vẻ \"sắp đặt\"",
+        "rule": "A backslash directly before a quotation mark in the body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8928bb0eff730db3"
+  },
+  "vi/guides/youtube-aXWDAuISGKs": {
+    "at": "2026-11-08",
+    "hash": "20ff5a45e86de2f4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thêm vài nhúm cỏ thảm (dwarf hair grass)",
+        "problem": "Vietnamese hobbyists call dwarf hair grass 'ngưu mao chiên', and 'cỏ thảm' is vague.",
+        "fix": "Thêm vài nhúm ngưu mao chiên (dwarf hair grass)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhỏ một chút keo siêu dính (super glue) lên",
+        "problem": "The site's style asks for 'keo 502' instead of 'keo siêu dính'.",
+        "fix": "nhỏ một chút keo 502 lên",
+        "rule": "The phrase 'keo siêu dính' appears anywhere on a Vietnamese page.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L10",
+        "quote": "dán từng mẩu lên đá bằng keo siêu dính",
+        "problem": "The site's style asks for 'keo 502' instead of 'keo siêu dính'.",
+        "fix": "dán từng mẩu lên đá bằng keo 502",
+        "rule": "The phrase 'keo siêu dính' appears anywhere on a Vietnamese page.",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rải những viên đá đã gắn rêu một cách ngẫu nhiên khắp bể.",
+        "problem": "The 'một cách + adjective' pattern reads as translated English.",
+        "fix": "Rải lung tung những viên đá đã gắn rêu khắp bể.",
+        "rule": "The phrase 'một cách' followed by an adjective appears in a Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-08",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "Algae wafer is a sinking wafer made of algae, not food 'for nuisance algae'. This is a mistranslation."
+        ]
+      }
+    ],
+    "ruled": "20ff5a45e86de2f4"
   },
   "vi/guides/youtube-B1T0GU56ETo": {
     "at": "2026-11-01",
@@ -10934,6 +11146,12 @@
       }
     ],
     "ruled": "999ccb9f216c85c0"
+  },
+  "vi/guides/youtube-Cr4Nc5F_3as": {
+    "at": "2026-11-08",
+    "hash": "a5049c182ef1f948",
+    "findings": [],
+    "ruled": "a5049c182ef1f948"
   },
   "vi/guides/youtube-CSLWc2X7VFE": {
     "at": "2026-11-08",
@@ -11782,6 +12000,22 @@
     ],
     "ruled": "50ab3c38ec2e1583"
   },
+  "vi/guides/youtube-HTK7T82MAWE": {
+    "at": "2026-11-08",
+    "hash": "3befdcd20c1ee762",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trừ phần khoảng khô thì còn tầm 600 lít nước.",
+        "problem": "Typo: 'khoảng khô' should be 'khoang khô' (the dry chamber), as written elsewhere on the page.",
+        "fix": "Trừ phần khoang khô thì còn tầm 600 lít nước.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3befdcd20c1ee762"
+  },
   "vi/guides/youtube-HuWHarbSQUk": {
     "at": "2026-11-05",
     "hash": "7f72237640161b62",
@@ -11884,6 +12118,12 @@
       }
     ],
     "ruled": "abdd0752c0c57d18"
+  },
+  "vi/guides/youtube-IJxYhZygwKc": {
+    "at": "2026-11-08",
+    "hash": "e0055f72507bfffd",
+    "findings": [],
+    "ruled": "e0055f72507bfffd"
   },
   "vi/guides/youtube-iS8fJvjUa1Q": {
     "at": "2026-11-07",
@@ -12489,6 +12729,31 @@
     ],
     "ruled": "0b5099e3a6a6970d"
   },
+  "vi/guides/youtube-lDqnNTTsymk": {
+    "at": "2026-11-08",
+    "hash": "bd6dfa5e3e8a55d7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá mây trắng (White Cloud Mountain Minnow), loài này có vài biến thể màu khác nhau",
+        "problem": "The page translates White Cloud Mountain Minnow word for word as 'cá mây trắng', but Vietnamese hobbyists call it 'cá kim tơ'.",
+        "fix": "Cá kim tơ (White Cloud Mountain Minnow), loài này có vài biến thể màu khác nhau",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L14",
+        "quote": "kiếm và cá mây trắng (White Cloud Mountain Minnow)",
+        "problem": "The page translates White Cloud Mountain Minnow word for word as 'cá mây trắng', but Vietnamese hobbyists call it 'cá kim tơ'.",
+        "fix": "kiếm và cá kim tơ (White Cloud Mountain Minnow)",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "bd6dfa5e3e8a55d7"
+  },
   "vi/guides/youtube-LFIB7o9BnFA": {
     "at": "2026-11-02",
     "hash": "4b725d9b27967785",
@@ -12586,6 +12851,32 @@
     "hash": "2db72c8dbd9e35b2",
     "findings": [],
     "ruled": "2db72c8dbd9e35b2"
+  },
+  "vi/guides/youtube-LWCAnbfgtcE": {
+    "at": "2026-11-08",
+    "hash": "81d4327afb4cffba",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Mép ngoài các viên đá, dưới gốc lũa\n| Cryptocoryne parva\n| Góc trước",
+        "problem": "The Cryptocoryne parva row has no 'Ghi chú' cell, so 'Góc trước' falls into its note column and every row after it is shifted by one cell.",
+        "fix": "| Mép ngoài các viên đá, dưới gốc lũa | Cryptocoryne parva | (ghi chú) |\n| Góc trước | Marsilea hirsuta | Lá giống cỏ bốn lá, dự kiến sẽ mọc lẫn vào cỏ tóc và parva |",
+        "rule": "A table whose cell count after the header is not a multiple of the header's column count.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dù vậy, nó có cá tính riêng, nhìn nó lượn quanh bể rất vui mắt.",
+        "problem": "'Dù vậy' is a stiff, translated-sounding connector here. 'Nhưng' reads more naturally.",
+        "fix": "Nhưng nó có cá tính riêng, nhìn nó lượn quanh bể rất vui mắt.",
+        "field": "body"
+      }
+    ],
+    "ruled": "81d4327afb4cffba"
   },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-02",
@@ -12702,6 +12993,12 @@
       }
     ],
     "ruled": "3f9688cef07ed488"
+  },
+  "vi/guides/youtube-MxPCBXJtPTM": {
+    "at": "2026-11-08",
+    "hash": "9aa86475a8cb8cc6",
+    "findings": [],
+    "ruled": "9aa86475a8cb8cc6"
   },
   "vi/guides/youtube-mY_9yWKaAFc": {
     "at": "2026-11-07",
@@ -12835,6 +13132,12 @@
     ],
     "ruled": "3f6ee92f7f401acf"
   },
+  "vi/guides/youtube-nljikQSpjL4": {
+    "at": "2026-11-08",
+    "hash": "1c6cd12ee206fb90",
+    "findings": [],
+    "ruled": "1c6cd12ee206fb90"
+  },
   "vi/guides/youtube-NNbR0grp8iE": {
     "at": "2026-11-02",
     "hash": "cc7d99ab51d8a6e5",
@@ -12954,6 +13257,12 @@
       }
     ],
     "ruled": "e4a46e44bb884f6f"
+  },
+  "vi/guides/youtube-Ojpc5djfQ9U": {
+    "at": "2026-11-08",
+    "hash": "ca390a7961ce4397",
+    "findings": [],
+    "ruled": "ca390a7961ce4397"
   },
   "vi/guides/youtube-Omxb5ByqLMs": {
     "at": "2026-11-03",
@@ -14074,6 +14383,12 @@
     ],
     "ruled": "eb14aac5b0ca1563"
   },
+  "vi/guides/youtube-vGvzzEQQxDA": {
+    "at": "2026-11-08",
+    "hash": "8c04faadb4507db8",
+    "findings": [],
+    "ruled": "8c04faadb4507db8"
+  },
   "vi/guides/youtube-viG-wVICUZo": {
     "at": "2026-11-06",
     "hash": "672a75b5900db6b6",
@@ -14163,6 +14478,42 @@
       }
     ],
     "ruled": "c28c19e3449e077c"
+  },
+  "vi/guides/youtube-VtUOcuH3tNg": {
+    "at": "2026-11-08",
+    "hash": "5145d912bc6a011e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá được để trong hồ cho quen dần với nước lạnh hơn rồi mới thả ra.",
+        "problem": "The sentence doesn't say the fish stay in their bag floating in the pond, so it reads as if they are already loose in the pond before being 'released'.",
+        "fix": "Để nguyên túi cá nổi trong hồ một lúc cho cá quen dần với nước lạnh hơn rồi mới thả ra.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên chuyển sang hồ mới là lựa chọn của người làm hồ trong hoàn cảnh đó",
+        "problem": "The phrase is awkward and reads like a translation, and it refers to the pond's builder (the source author), which the house style says not to do.",
+        "fix": "nên chuyển sang hồ mới sớm vẫn tốt hơn để chúng ở lại.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-08",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The sentence doesn't say the fish stay in their bag floating in the pond, so it reads as if they are already loose in the pond before being 'released'."
+        ]
+      }
+    ],
+    "ruled": "5145d912bc6a011e"
   },
   "vi/guides/youtube-vuxSFbYgmtg": {
     "at": "2026-11-02",

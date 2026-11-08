@@ -11,6 +11,100 @@
     "republic-of-the-congo",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Euchilichthys guentheri is a mochokid catfish from the Democratic Republic of Congo, where it inhabits fast-flowing areas of rivers.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344163,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          14
+        ],
+        [
+          "CG",
+          3
+        ],
+        [
+          "ZM",
+          2
+        ],
+        [
+          "AO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          9,
+          8
+        ],
+        [
+          14.0625,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          16.875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          23.90625,
+          0,
+          3,
+          3
+        ],
+        [
+          26.71875,
+          0,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -11.25,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

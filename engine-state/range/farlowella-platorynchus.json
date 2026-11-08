@@ -1,0 +1,109 @@
+{
+  "id": "farlowella-platorynchus",
+  "native": {
+    "input": "5a264a333f60a082",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Yarinachocha, Río Ucayali drainage, Ucayali Dept., Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Peru, Ucayali Department, Pucallpa, Yari-nachocha, Río Ucayali drainage, 8º23'S, 74º32'W.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali.",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "planetcatfish",
+        "quote": "South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali.",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "planetcatfish",
+        "quote": "South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper and lower Amazon River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Farlowella platorynchus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340432,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        27
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}
