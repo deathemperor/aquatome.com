@@ -39,8 +39,8 @@ public final class FakeOwner {
   /// The private addresses of the photos removed.
   private var removed: Set<String> = []
 
-  /// "Đã duyệt" in the Worker's words, on a waiting photo the owner approved.
-  static let approved = "Đã duyệt · đăng trong lượt duyệt tới"
+  /// "Approved" in the Worker's words, on a waiting photo the owner approved.
+  static let approved = "Approved · goes up at the next pass"
   /// A small picture for every photo the server has: two squares in the dashboard's colours.
   static let picture = Data(base64Encoded: "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAE0lEQVR4nGPQKVvMk+nCAMRAFgAalAP9u388bQAAAABJRU5ErkJggg==")!
   static let sectionsPath = "/api/owner/sections/"
@@ -290,17 +290,17 @@ public final class FakeOwner {
   /// words (daily/page.ts).
   private func reportShown() {
     guard var s = sections["bao-cao"]?.object, let blocks = s["blocks"]?.array else { return }
-    let phone = report.push ? "đang bật, gửi đến 1 điện thoại." : "đang tắt."
+    let phone = report.push ? "on, to 1 phone." : "off."
     let button = { (label: String, key: String, on: Bool) -> JSON in
       .object(["label": .string(label), "method": .string("POST"), "path": .string("/api/owner/report-settings"), "body": .object([key: .bool(on)])])
     }
     s["blocks"] = .array(blocks.map { b in
       guard var o = b.object else { return b }
       if o["kind"]?.string == "note", o["text"]?.string?.hasPrefix("Email:") == true {
-        o["text"] = .string("Email: \(report.email ? "đang bật" : "đang tắt"). Thông báo trên điện thoại: \(phone)")
+        o["text"] = .string("Email: \(report.email ? "on" : "off"). Phone notifications: \(phone)")
       } else if o["kind"]?.string == "actions", o["actions"]?.array?.first?.object?["path"]?.string == "/api/owner/report-settings" {
-        o["actions"] = .array([button(report.email ? "Tắt email" : "Bật email", "email", !report.email),
-                               button(report.push ? "Tắt thông báo" : "Bật thông báo", "push", !report.push)])
+        o["actions"] = .array([button(report.email ? "Turn off email" : "Turn on email", "email", !report.email),
+                               button(report.push ? "Turn off notifications" : "Turn on notifications", "push", !report.push)])
       }
       return .object(o)
     })
@@ -335,9 +335,9 @@ public final class FakeOwner {
     blocks("an-trang", "hidden") { items in
       var out = items.filter { $0.object?["path"]?.string != page }
       if let note {
-        let back: [String: JSON] = ["label": .string("Hiện lại"), "method": .string("POST"), "path": .string("/api/owner/hidden"),
+        let back: [String: JSON] = ["label": .string("Show again"), "method": .string("POST"), "path": .string("/api/owner/hidden"),
                                     "body": .object(["path": .string(page), "hide": .bool(false)])]
-        var o: [String: JSON] = ["path": .string(page), "since": .string("04/11 16:00"), "actions": .array([.object(back)])]
+        var o: [String: JSON] = ["path": .string(page), "since": .string("Wed 4 Nov, 16:00"), "actions": .array([.object(back)])]
         if !note.isEmpty { o["note"] = .string(note) }
         out.insert(.object(o), at: 0)
       }

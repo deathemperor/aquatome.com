@@ -173,8 +173,8 @@ REACH = {
     # sends its commands.
     KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
-    # The owner's dashboard's flows read it: the stand-in server serves its replies.
-    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
+    # The owner's dashboard's flows read it: the stand-in server serves its replies, and the owner's row counts its to-dos.
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request.
     'apps/ios/scripts/check-strings.py': NONE,
@@ -244,9 +244,9 @@ def check(runs, left, reached):
     assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests',
                                                           'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'}
     # The owner's dashboard: its flows and its page shots, and the tanks tab's with them where its row is; its vectors
-    # reach them too.
+    # reach them too, and the owner's row, which counts the overview's to-dos.
     assert reached([APP + 'Owner/OwnerBlocks.swift']) == {'OwnerFlowTests', 'PageShotsFlowTests'}
-    assert reached(['protocols/owner-dashboard-vectors.json']) == reached([APP + 'Owner/OwnerText.swift'])
+    assert reached(['protocols/owner-dashboard-vectors.json']) == reached([APP + 'Owner/OwnerText.swift']) | {'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'}
     # The tanks list takes the page shots; the Tài khoản sheet and its button, every flow that goes through the sheet and
     # the page shots too; the account's other files, its flows alone.
     assert 'PageShotsFlowTests' in reached([APP + 'Tanks/TanksView.swift'])
