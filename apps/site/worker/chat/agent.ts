@@ -95,9 +95,11 @@ export const lastWordFor = (question: string) =>
  * time): 1 turn in 10 at 1.75 times slower, and at normal speed none in one run of 96, 4 in another. On the 96 hard
  * questions: at normal speed 0 failed and 4 answered from no page, against 2 and 16 with main's rule before (`quick`
  * 5.5 from the first call); at 1.75 times slower 7 failed and 17 from no page, against 6 and 47, or 13 and 12 with
- * nothing forced before the third call.
+ * nothing forced before the third call. `answer` 11: with the reader's whole message again on the forced call, medium effort
+ * thought past the 20 s left on 4 of 33 forum posts (at 7); at low none failed, and the judges scored it the same
+ * (-0.31 ± 0.64 on the tuning set). At normal speed the forced call is now nearly always at low.
  */
-export const CHAT_PACE = { answer: 7, quick: 6.5, first: 4 }
+export const CHAT_PACE = { answer: 11, quick: 6.5, first: 4 }
 /**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
