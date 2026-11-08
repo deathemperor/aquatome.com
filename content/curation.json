@@ -198,7 +198,28 @@
     "guides/loachesonline-articles-a-river-runs-through-it",
     "guides/youtube-cJLZq603RAY"
    ],
-   "hero": [],
+   "hero": [
+    {
+     "page": "species/channa-micropeltes",
+     "img": "https://media.aquatome.com/commons/004b2d13f73b52b4-large.webp"
+    },
+    {
+     "page": "species/macropodus-opercularis",
+     "img": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp"
+    },
+    {
+     "page": "species/datnioides-pulcher",
+     "img": "https://media.aquatome.com/commons/8bac445743996b73.webp"
+    },
+    {
+     "page": "species/mastacembelus-erythrotaenia",
+     "img": "https://media.aquatome.com/commons/66c8bc640e4b6617.webp"
+    },
+    {
+     "page": "species/dichotomyctere-nigroviridis",
+     "img": "https://media.aquatome.com/commons/dc869ceba62259ce-large.webp"
+    }
+   ],
    "shelves": [
     {
      "id": "ca-loc",
