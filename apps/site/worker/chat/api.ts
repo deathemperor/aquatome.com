@@ -63,7 +63,8 @@ export type ChatDeps = { fetch?: typeof fetch; random?: () => number; clock?: ()
 const PER_ACCOUNT = 30
 const PER_DAY = 1000
 const MAX_TURNS = 20
-const MAX_CHARS = 500
+/** The longest question: a reader's whole forum post, as they paste it (14 of 30 real ones were over 500; the longest, 1,414). The chief of staff's call. */
+const MAX_CHARS = 1500
 const CONVERSATION_MS = 24 * 3600_000
 /** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
  * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
@@ -204,11 +205,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const idem = req.headers.get('idempotency-key')?.trim().toLowerCase() ?? ''
   if (idem && !UUID.test(idem)) return json({ error: 'bad idempotency-key' }, 400)
   const raw = await req.text().catch(() => '')
-  if (raw.length > MAX_BODY) return json({ error: 'too long' }, 413)
+  if (raw.length > MAX_BODY) return json({ error: 'too long', limit: maxChars }, 413)
   let body: unknown
   try { body = JSON.parse(raw) } catch { return json({ error: 'bad request' }, 400) }
   const q = questionOf(body, maxChars)
-  if (q === 'too long') return json({ error: 'too long' }, 413)
+  if (q === 'too long') return json({ error: 'too long', limit: maxChars }, 413)
   if (!q) return json({ error: 'bad request' }, 400)
   const stream = /(^|[\s,])text\/event-stream\b/i.test(req.headers.get('accept') ?? '')
 

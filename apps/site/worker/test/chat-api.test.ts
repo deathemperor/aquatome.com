@@ -114,7 +114,7 @@ test('GET: off without the flag or what it needs; on, its limits; through the Wo
     expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: false })
   }
   const { e } = env()
-  expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 500 })
+  expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 1500 })
   const viaWorker = await handle(new Request('https://x.test/api/chat'), e as never)
   expect(await viaWorker.json()).toMatchObject({ on: true })
   const off = await run(ask({}), env({ CHAT: undefined }).e, {})
@@ -143,7 +143,9 @@ test('who may ask: an app session as a bearer, or a site session from the site\'
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [], photo: 'x' } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
-  expect(await status(ask(bearer(app.token), { question: 'á'.repeat(501) }))).toEqual([413, 'too long'])
+  // One character past the limit (a whole forum post fits: maxChars) is refused, saying the limit, so the client keeps the text and says it.
+  expect(await status(ask(bearer(app.token), { question: 'á'.repeat(1501) }))).toEqual([413, 'too long'])
+  expect((await run(ask(bearer(app.token), { question: 'á'.repeat(1501) }), e, deps(c.fetch))).body).toEqual({ error: 'too long', limit: 1500 })
   expect(c.bodies).toHaveLength(0)
   expect(await status(ask({ cookie: `${COOKIE}=${web.token}`, origin: 'https://x.test' }))).toEqual([200, undefined])
 })
