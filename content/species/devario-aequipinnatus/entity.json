@@ -472,7 +472,12 @@
       "author": "Faucon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_aequipinnatus.JPG",
       "caption": "Giant Danio, Devario aequipinnatus",
-      "thumb": "https://media.aquatome.com/commons/797ee380743fcf6a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/797ee380743fcf6a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/797ee380743fcf6a-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

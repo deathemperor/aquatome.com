@@ -989,7 +989,12 @@
       "author": "Dnoerholm",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PoeciliaSphenops.jpg",
       "caption": "Poecilia sphenops wild form",
-      "thumb": "https://media.aquatome.com/commons/b3c484e83af5b774-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b3c484e83af5b774-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b3c484e83af5b774-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/bc6d7868f4a60995.webp",
