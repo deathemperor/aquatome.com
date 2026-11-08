@@ -10,6 +10,7 @@ import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
 import { deleteUser, InUse, methodsOf, removeMethod, signInWith } from './users'
+import PICTURES from '../../../../protocols/profile-pictures.json'
 
 /**
  * /api/v1/*: optional accounts for "Bể của tôi" (sign in, sync saved tanks, export, delete). Contract:
@@ -123,9 +124,12 @@ window.again = () => { if (widget === undefined) post({ error: 'none' }); else t
 const rpOf = (env: Live, url: URL): Rp | undefined =>
   env.PASSKEYS === 'on' && (!env.CANONICAL_HOST || url.hostname === env.CANONICAL_HOST) ? { id: url.hostname, origin: url.origin } : undefined
 
+/** The pictures an account may choose (protocols/profile-pictures.json): it keeps the id alone, never a photo of its own. */
+const PICTURE_IDS = new Set(PICTURES.pictures.map(p => p.id))
+
 async function userView(db: D1Database, userId: string) {
-  const u = await db.prepare(`SELECT created_at FROM users WHERE id = ?`).bind(userId).first<{ created_at: string }>()
-  return { id: userId, createdAt: u?.created_at ?? null, methods: await methodsOf(db, userId) }
+  const u = await db.prepare(`SELECT created_at, picture FROM users WHERE id = ?`).bind(userId).first<{ created_at: string; picture: string | null }>()
+  return { id: userId, createdAt: u?.created_at ?? null, methods: await methodsOf(db, userId), ...(u?.picture ? { picture: u.picture } : {}) }
 }
 
 /** The JSON object a POST carries; requires application/json, which a form on another site can't send without asking. */
@@ -314,6 +318,15 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     if (!body) return fail('bad_request', 400)
     const added = await addPasskey(db, rp, session.userId, body.response, now)
     if (added !== 'ok') return added === 'in_use' ? fail('credential_in_use', 409) : fail('bad_passkey', 400)
+    return json({ user: await userView(db, session.userId) })
+  }
+  // The account's picture: an id from the set, or null for none (the session's user and the export carry it).
+  if (route === 'POST /api/v1/account/picture') {
+    const body = await bodyOf(req)
+    if (body === 'too_large') return fail('too_large', 413)
+    const picture = body?.picture
+    if (picture !== null && !(typeof picture === 'string' && PICTURE_IDS.has(picture))) return fail('bad_picture', 400)
+    await db.prepare(`UPDATE users SET picture = ? WHERE id = ?`).bind(picture, session.userId).run()
     return json({ user: await userView(db, session.userId) })
   }
   if (route === 'POST /api/v1/tanks/sync') {
