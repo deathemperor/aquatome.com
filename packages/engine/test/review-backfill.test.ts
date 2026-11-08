@@ -179,14 +179,15 @@ test('a guide read near the bar is read twice more and gets the median read; one
   await put(root, `engine-state/topics/${g}.json`, { found: true, species: [], sources: [{ url: 'https://a.example/x', title: 'A' }], facts: [{ section: 'what', fact: 'A fact.', source: 0 }] })
   await put(root, `content/guides/${g}/entity.json`, { id: g, kind: 'disease', source: 'aquatome', refs: [{ url: 'https://a.example/x', title: 'A' }] })
   await put(root, `content/guides/${g}/vi.json`, { slug: 'mang', name: 'Mang', summary: [], body: '<p>Thân.</p>', faq: [], sections: {}, quality: { score: 0.5, indexable: false } })
-  let scores = [0.7, 0.9, 0.6]
+  // The median is the third read, so its notes are the third read's.
+  let scores = [0.6, 0.9, 0.8]
   const llm: Llm = async <T,>() => { const s = scores.shift()!; return { score: s, notes: [`read ${s}`] } as T }
   const d = { root, llm, now: () => new Date('2026-11-09T10:00:00Z') }
 
   await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`vi/guides/${g}`] })
   expect(scores).toEqual([])
-  expect(JSON.parse(await readFile(join(root, `content/guides/${g}/vi.json`), 'utf8')).quality).toEqual({ score: 0.7, indexable: false })
-  expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]![0]).toMatchObject({ score: 0.7, notes: ['read 0.7'], reads: [0.7, 0.9, 0.6], kept: true })
+  expect(JSON.parse(await readFile(join(root, `content/guides/${g}/vi.json`), 'utf8')).quality).toEqual({ score: 0.8, indexable: true })
+  expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]![0]).toMatchObject({ score: 0.8, notes: ['read 0.8'], reads: [0.6, 0.9, 0.8], kept: true })
 
   scores = [0.97, 0.5]
   await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`vi/guides/${g}`] })

@@ -136,6 +136,17 @@ test('a rewrite below the bar gets one more try with the reviewer notes; the bet
   expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>lần 2</p>')
 })
 
+test('a species part a person fixed is not rewritten; the source\'s other parts are', async () => {
+  const root = await setup()
+  const e = await read(root, 'species/x/entity.json')
+  e.sections.find((x: { key: string; source: string }) => x.key === 'habitat' && x.source === 'seriouslyfish').fixed = true
+  await put(root, 'species/x/entity.json', e)
+  await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10, kinds: ['species'] })
+  const sp = await read(root, 'species/x/vi.json')
+  expect(sp.sections['habitat:seriouslyfish']).toBe('<p>cũ</p>')
+  expect(sp.sections['diet:seriouslyfish']).toBe('<p>mới diet:seriouslyfish</p>')
+})
+
 test('a guide fixed by hand is not rewritten, even when asked for by --match: not its body, its summary or its FAQ', async () => {
   const root = await setup()
   await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>người sửa, theo tác giả</p>', bodyFixed: true, summary: ['Theo tác giả, rêu do thừa phân.'], quality: { score: 0.85, indexable: true } })
