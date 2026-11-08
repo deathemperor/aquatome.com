@@ -1,7 +1,7 @@
 import { spawn, spawnSync } from 'node:child_process'
-import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 
@@ -51,6 +51,8 @@ spec = importlib.util.spec_from_file_location("sim_run", ${JSON.stringify(SIM_RU
 sim_run = importlib.util.module_from_spec(spec); spec.loader.exec_module(sim_run)
 real = subprocess.Popen
 def starting(argv, *a, **k):
+    if argv[:1] != ["sh"]:  # sim-run's own calls (ps), not the command
+        return real(argv, *a, **k)
     p = real(argv, *a, **k)
     open(${JSON.stringify(`${dir}/pid`)}, "w").write(str(p.pid))
     while not os.path.exists(${JSON.stringify(`${dir}/up`)}): time.sleep(0.01)
@@ -70,39 +72,69 @@ sim_run.main()
   expect(existsSync(`${dir}/stopped`)).toBe(true)
 }, 30_000)
 
-// A stand-in for macOS's notifyutil: the thermal pressure levels it reads out, one a call, the last one kept.
-const hot = (levels: number[]) => {
+// A stand-in for macOS's sysctl: a 16-core Mac, and the cores it leaves to work, one reading a call, the last one kept.
+const hot = (masks: number[]) => {
   const dir = home()
-  writeFileSync(join(dir, 'levels'), levels.join('\n') + '\n')
-  writeFileSync(join(dir, 'notifyutil'), `#!/bin/sh
+  writeFileSync(join(dir, 'masks'), masks.join('\n') + '\n')
+  writeFileSync(join(dir, 'sysctl'), `#!/bin/sh
+[ "$2" = hw.ncpu ] && { echo 16; exit 0; }
 n=$(cat "${dir}/calls" 2>/dev/null || echo 0); n=$((n + 1)); echo $n > "${dir}/calls"
-level=$(sed -n "\${n}p" "${dir}/levels"); [ -n "$level" ] || level=$(tail -1 "${dir}/levels")
-echo "com.apple.system.thermalpressurelevel $level"
+mask=$(sed -n "\${n}p" "${dir}/masks"); [ -n "$mask" ] || mask=$(tail -1 "${dir}/masks")
+echo $mask
 `)
-  chmodSync(join(dir, 'notifyutil'), 0o755)
+  chmodSync(join(dir, 'sysctl'), 0o755)
   const calls = () => (existsSync(join(dir, 'calls')) ? Number(readFileSync(join(dir, 'calls'), 'utf8')) : 0)
   const run = (env: Record<string, string>) => spawnSync(SIM_RUN, ['true'], { env: { ...process.env, HOME: dir, PATH: `${dir}:${process.env.PATH}`, SIM_RUN_COOL_PAUSE: '0', ...env }, encoding: 'utf8' })
   return { run, calls }
 }
 
-// Main's iOS runs back on this Mac (2026-11-08) wait while it's hot, as the engine's runs do. Leads' runs don't wait here,
-// nor do pull requests' jobs on GitHub's Macs, which run sim-run too.
-test("this Mac's runner's simulator run waits while the Mac is hot, and a lead's or GitHub's Macs' doesn't", () => {
-  const runner = hot([2, 3, 2, 1])
+// Main's iOS runs back on this Mac (2026-11-08) wait while macOS has taken cores away, as the engine's runs do. Its heat
+// level alone said less: heavy with all 16 cores at work. Leads' runs don't wait here, nor do pull requests' jobs on
+// GitHub's Macs, which run sim-run too.
+test("this Mac's runner's simulator run waits while cores are taken away, and a lead's or GitHub's Macs' doesn't", () => {
+  const all = 0xffff
+  const runner = hot([0x41f, 0xc3f, 0x7fff, all]) // 6, 8, then 15 of 16 cores, then all
   const r = runner.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted' })
   expect(r.status).toBe(0)
   expect(runner.calls()).toBe(4)
-  expect(r.stdout).toContain('the Mac is hot')
+  expect(r.stdout).toContain('10 of its cores taken away')
+  expect(hot([all]).run({ RUNNER_ENVIRONMENT: 'self-hosted' }).stdout).not.toContain('hot')
   for (const env of [{ GITHUB_ACTIONS: '', RUNNER_ENVIRONMENT: '' }, { GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'github-hosted' }]) {
-    const other = hot([2])
+    const other = hot([0x41f])
     expect(other.run({ ...env, SIM_RUN_COOL_MINUTES: '0.0001' }).status).toBe(0) // a short wait, should it wrongly wait
     expect(other.calls()).toBe(0)
   }
-  // Still hot at the end of the wait: it goes on.
-  const stuck = hot([2])
+  // Still taken away at the end of the wait: it goes on.
+  const stuck = hot([0x41f])
   const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
   expect(s.status).toBe(0)
   expect(s.stdout).toContain('went on after')
+}, 30_000)
+
+// 2026-11-08: after main's simulator booted, its mediaanalysisd took 3.4 cores at normal priority for 8 min, and a 0.4 s job
+// on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it. macOS's
+// alone, as simulators and taskpolicy are (and nice goes to 20 there, 19 on Linux): CI's Linux skips it, the Mac's cycles run it.
+test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
+  const dir = home()
+  const daemon = (path: string) => {
+    mkdirSync(dirname(join(dir, path)), { recursive: true })
+    symlinkSync('/bin/sleep', join(dir, path))
+    return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
+  }
+  const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
+  const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
+  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+  try {
+    await wait(200)
+    const before = nice(mac.pid)
+    expect(nice(sim.pid)).toBe(before)
+    expect(spawnSync(SIM_RUN, ['sleep', '1'], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+    expect(nice(sim.pid)).toBe(20)
+    expect(nice(mac.pid)).toBe(before)
+  } finally {
+    sim.kill()
+    mac.kill()
+  }
 }, 30_000)
 
 test("the runner's second ask ends the command, so nothing is left running when the turn passes on", async () => {
