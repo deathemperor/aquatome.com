@@ -19,6 +19,279 @@
     "ghana",
     "volta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA",
+        "GQ",
+        "CM",
+        "NG",
+        "BJ",
+        "TG",
+        "GH"
+      ],
+      "regions": [
+        "Niger River delta",
+        "Cross River",
+        "Gabon Estuary",
+        "Togo Hills"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Distributed throughout coastal regions north and westwards from Gabon through Equatorial Guinea, Cameroon, Nigeria, Benin and Togo as far as Ghana although some consider it restricted to northwestern Gabon and Equatorial Guinea with the remaining populations representing various subspecies (see 'Notes').",
+          "countries": [
+            "GA",
+            "GQ",
+            "CM",
+            "NG",
+            "BJ",
+            "TG",
+            "GH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "E. s. togolensis has a relatively wide distribution extending eastwards from the Togo Hills in southeastern Ghana and southwestern Togo through southern Benin and southern Nigeria, including the Niger River delta, to the Cross River in southeastern Nigeria.",
+          "countries": [],
+          "regions": [
+            "Niger River delta",
+            "Cross River",
+            "Togo Hills"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Gaboon River', which presumably refers to one or more of the rivers entering what is now referred to as the Gabon Estuary in Gabon, western Africa.",
+          "countries": [],
+          "regions": [
+            "Gabon Estuary"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348801,
+      "total": 276,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          125
+        ],
+        [
+          "GQ",
+          42
+        ],
+        [
+          "GA",
+          39
+        ],
+        [
+          "NG",
+          39
+        ],
+        [
+          "BJ",
+          15
+        ],
+        [
+          "TG",
+          8
+        ],
+        [
+          "CG",
+          3
+        ],
+        [
+          "GH",
+          3
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          0,
+          5.625,
+          9,
+          9
+        ],
+        [
+          0,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          0,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          5.625,
+          9,
+          9
+        ],
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          4.21875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          20,
+          20
+        ],
+        [
+          5.625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          7.03125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          0,
+          9,
+          9
+        ],
+        [
+          8.4375,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          8.4375,
+          2.8125,
+          13,
+          13
+        ],
+        [
+          8.4375,
+          4.21875,
+          35,
+          35
+        ],
+        [
+          8.4375,
+          5.625,
+          8,
+          8
+        ],
+        [
+          9.84375,
+          -2.8125,
+          21,
+          21
+        ],
+        [
+          9.84375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          9.84375,
+          0,
+          9,
+          9
+        ],
+        [
+          9.84375,
+          1.40625,
+          83,
+          83
+        ],
+        [
+          9.84375,
+          2.8125,
+          17,
+          17
+        ],
+        [
+          9.84375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

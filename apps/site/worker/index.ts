@@ -11,9 +11,11 @@ import { dashboardHostRoute } from './dashboard-host'
 import { dailyReportRoute } from './daily/api'
 import { feedbackQueue, sendFeedback } from './feedback'
 import { ownerApi } from './owner-api'
-import { isOwnerVisit } from './owner'
+import { ourNetworkRoute, usLinkRoute, whoIs, type Who } from './us'
+import { APP_STORE_FROM } from './readers'
+import { searchConsoleRoute } from './admin/quality'
 import { recordSnapshot } from './admin/content'
-import { parseEvent, toDataPoint } from './events'
+import { ownReferrer, parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
 import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
 import { appPageClosed } from './app-switch'
@@ -77,18 +79,18 @@ function finish(res: Response, env: Env, extra: Record<string, string> = {}): Re
   return out
 }
 
-/** Beacon intake: same-origin only, bots and the owner dropped, small bodies only. */
-async function events(req: Request, env: Env): Promise<Response> {
+/** Beacon intake: same-origin only, bots (our checks among them) dropped, small bodies only; us marked, not dropped (us.ts). */
+async function events(req: Request, url: URL, env: FullEnv): Promise<Response> {
+  if (req.method === 'GET') return usLinkRoute(url) ?? new Response(null, { status: 405 })
   if (req.method !== 'POST') return new Response(null, { status: 405 })
   if (Number(req.headers.get('content-length') ?? 0) > MAX_EVENT_BYTES) return new Response(null, { status: 413 })
   const origin = req.headers.get('origin')
   const site = req.headers.get('sec-fetch-site')
   if ((origin && origin !== new URL(req.url).origin) || (site && site !== 'same-origin')) return new Response(null, { status: 403 })
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
-  if (isOwnerVisit(req)) return new Response(null, { status: 204 })
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e) return new Response(null, { status: 400 })
-  env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? '')))
+  env.EVENTS?.writeDataPoint(toDataPoint(ownReferrer(e, url.hostname), String((req as { cf?: { country?: string } }).cf?.country ?? ''), await whoIs(req, env)))
   return new Response(null, { status: 204 })
 }
 
@@ -101,8 +103,11 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   // The catalog is an upgrade, never a dependency: any D1 problem falls back to the search link.
   if (env.DB) target = await resolveGo(p, env.DB, env, now).catch(() => target)
   const { location, productId } = target
-  const click = req.method === 'GET' && fromOurPage(req) && !isOwnerVisit(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
-  if (env.DB && click) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
+  const click = req.method === 'GET' && fromOurPage(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  // A reader's click only, as the readers page counts them (us.ts): not ours, and not the app's until it is on the App Store.
+  const theirs = (who: Who) => who === '' || (who === 'app' && APP_STORE_FROM !== null && now.getTime() >= Date.parse(APP_STORE_FROM))
+  const db = env.DB
+  if (db && click) wait(whoIs(req, env).then(who => (theirs(who) ? recordClick(db, p, productId, now) : undefined)).catch(() => {}))
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
@@ -226,7 +231,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     const lang = chosen ?? rootLang(al, country)
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `${homeOf(lang)}${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
-  if (url.pathname === '/_e') return events(req, env)
+  if (url.pathname === '/_e') return events(req, url, env)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
@@ -253,6 +258,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
   // The daily report's GitHub half, from daily-report.yml (worker/daily): the dashboard token only.
+  if (url.pathname === '/_ab/our-network') return ourNetworkRoute(req, env)
+  if (url.pathname === '/_ab/search-console') return searchConsoleRoute(req, env.AB, bearerOk(req, env))
   if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
   // The owner's reports waiting for the Mac (worker/feedback.ts): the dashboard token only.
   if (url.pathname === '/_ab/feedback' || url.pathname.startsWith('/_ab/feedback/')) return finish(await feedbackQueue(req, url, env), env)

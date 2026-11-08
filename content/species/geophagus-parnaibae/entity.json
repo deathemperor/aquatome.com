@@ -10,6 +10,146 @@
     "brazil",
     "parnaiba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Parnaíba"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the rio Parnaíba drainage in the states of Piauí and Maranhão, northeastern Brazil with type locality 'Richao Ponti near Timon, drainage of the rio Parnaía, Estado Maranhão, northeastern Brazil'.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Parnaíba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208423,
+      "total": 87,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          87
+        ]
+      ],
+      "cells": [
+        [
+          -47.8125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -9.84375,
+          9,
+          9
+        ],
+        [
+          -46.40625,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -46.40625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -46.40625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -45,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -45,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -45,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -45,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -7.03125,
+          15,
+          15
+        ],
+        [
+          -43.59375,
+          -5.625,
+          10,
+          10
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -42.1875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -7.03125,
+          8,
+          8
+        ],
+        [
+          -42.1875,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

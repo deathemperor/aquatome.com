@@ -12,6 +12,150 @@
     "sierra-leone",
     "liberia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GW",
+        "GN",
+        "SL",
+        "LR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The banded epiplatys, Epiplatys fasciolatus, is a killifish from coastal Guinea-Bissau, Guinea and Sierra Leone to western Liberia.",
+          "countries": [
+            "GW",
+            "GN",
+            "SL",
+            "LR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348859,
+      "total": 95,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "SL",
+          36
+        ],
+        [
+          "LR",
+          23
+        ],
+        [
+          "CI",
+          21
+        ],
+        [
+          "GN",
+          8
+        ],
+        [
+          "BR",
+          6
+        ],
+        [
+          "BJ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -45,
+          -22.5,
+          6,
+          0
+        ],
+        [
+          -15.46875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -14.0625,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -14.0625,
+          8.4375,
+          14,
+          14
+        ],
+        [
+          -14.0625,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -11.25,
+          5.625,
+          17,
+          17
+        ],
+        [
+          -11.25,
+          7.03125,
+          14,
+          14
+        ],
+        [
+          -9.84375,
+          5.625,
+          4,
+          2
+        ],
+        [
+          -8.4375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -8.4375,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -7.03125,
+          4.21875,
+          13,
+          0
+        ],
+        [
+          -7.03125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -64,7 +208,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-fasciolatus",
-      "html": "<p>The banded epiplatys, Epiplatys fasciolatus, is a killifish from coastal Guinea-Bissau, Guinea and Sierra Leone to western Liberia. It mostly inhabits freshwater swamps and minor tributary streams, in grassy savannah at some localities and rainforest at others. Males carry metallic blue or green pigmentation on the body and fins, with a red submarginal band on the anal and lower caudal fins.</p>"
+      "html": "<p>The banded epiplatys, Epiplatys fasciolatus, is a killifish from coastal Guinea-Bissau, Guinea and Sierra Leone to western Liberia. It mostly inhabits freshwater swamps and minor tributary streams, in grassy savannah at some localities and rainforest at others. Males carry metallic blue or green pigmentation on the body and fins, with a red submarginal band on the anal and lower caudal fins.</p><ul><li>Social: needs to be in a group</li><li>Compatibility: fine with others</li></ul>"
     },
     {
       "key": "distribution",
@@ -82,7 +226,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-fasciolatus",
-      "html": "<p>Minimum base dimensions of 80 × 30 cm or equivalent (about 72 litres) are recommended although smaller aquaria can be used for breeding purposes.</p>"
+      "html": "<p>Minimum base dimensions of 80 × 30 cm or equivalent are recommended (about 72 litres) although smaller aquaria can be used for breeding purposes.</p>"
     },
     {
       "key": "maintenance",
@@ -145,7 +289,20 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-bPKo_FTog4",
+      "title": "Epiplatys fasciolatus fasciolatus \"Conakry\"",
+      "durationSec": 102,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XJVE2_Gz-Hk",
+      "title": "Epiplatys fasciolatus fasciolatus \"Conakry\" 7 weeks old",
+      "durationSec": 105,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -165,13 +322,22 @@
       "category": "phan-nen",
       "keywords": [
         "cát nền bể cá",
-        "lá bàng khô"
+        "lá bàng khô",
+        "cát nền thủy sinh"
       ]
     },
     {
       "category": "den",
       "keywords": [
         "đèn led bể cá ánh sáng dịu"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias",
+        "dương xỉ java",
+        "rêu java"
       ]
     }
   ],

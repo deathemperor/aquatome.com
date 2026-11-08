@@ -4,7 +4,7 @@ import type { FishIdStatus } from '../fishid/api'
 import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
 import { isViPage, withoutVi } from '../paths'
-import type { Readers } from '../readers'
+import type { Excluded, Readers } from '../readers'
 import type { LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
 import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, lastDays, rankTable, spark, tiles, usd, usdEn, fmtEn, type Chip, type DayChart, type Ranked, type Tile } from './chart'
@@ -428,9 +428,10 @@ function runTiles(k: FishIdStatus): Tile[] {
     { label: 'Lần gọi sau bị API từ chối (400)', value: fmt(c.later400) },
     { label: 'Không đọc được dữ kiện trang', value: fmt(c.facts) },
     { label: 'Lượt trả lại cho người đọc', value: fmt(c.refunds), ...(k.mostRefunds ? { sub: `nhiều nhất một người: ${fmt(k.mostRefunds)}` } : {}) },
+    { label: 'Câu hỏi ngoài chuyện nuôi cá', value: fmt(c.offTopic) },
   ]
 }
-const RUNS_NOTE = 'Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.'
+const RUNS_NOTE = 'Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính. Câu hỏi ngoài chuyện nuôi cá: chat trả lời một câu cố định và trả lại lượt, tối đa bằng số lượt một ngày của người đó.'
 const KEYS_NOTE = 'Lần gọi API: mọi lần thử bằng key này, kể cả lần lỗi (một lượt nhận diện có thể thử vài key). Claude trả lời: những lần trong số đó Claude đã trả lời.'
 /** The keys by number and hash, never the key: the line over the table, its head and its rows. */
 function keysParts(k: FishIdStatus, now: Date, tz: string) {
@@ -488,6 +489,38 @@ const NO_AE = 'Chưa cấu hình AE_API_TOKEN và CF_ACCOUNT_ID: chưa đọc đ
 const SOURCE_HEAD = ['Nguồn', 'Phiên', 'Người đọc']
 const PAGE_VIEWS_HEAD = ['Trang', 'Lượt xem']
 const COUNTRY_HEAD = ['Nước', 'Người đọc']
+// Who the count leaves out (worker/us.ts), in English as the dashboard is to be.
+const WHO_LABEL: Record<Excluded['who'], string> = {
+  owner: 'The owner’s browsers',
+  team: 'Our marked browsers and test copies of the app',
+  net: 'Our network (the agents’ Mac, its simulators and preview browser)',
+  app: 'Web pages inside the iOS app (counted with app reads)',
+}
+const LEFT_OUT_TITLE = 'Left out of the count'
+const LEFT_OUT_HEAD = ['Left out', 'Tabs', 'Would-be readers']
+const SIDE_TITLE = 'Web and app'
+const SIDE_HEAD = ['Where', 'Tabs', 'Readers']
+/** The web's and the app's reads side by side, and what the count left out: our own visits by mark, and automated bursts. */
+function leftOutParts(r: Readers, tz: string, now: Date) {
+  const auto = r.automated
+  const rows: Ranked[] = [
+    ...(r.excluded ?? []).map(x => ({ label: WHO_LABEL[x.who], value: x.sessions, cells: [fmt(x.readers)] })),
+    ...(auto ? [{ label: 'Likely automated: bursts of fresh tabs, one new page each', value: auto.sessions, cells: [fmt(auto.readers)] }] : []),
+  ]
+  const bursts = (auto?.bursts ?? []).map(b => `${esc(b.cc || '??')}: ${fmt(b.sessions)} tabs, ${timeTag(`${b.from.replace(' ', 'T')}Z`, tz, now)} to ${timeTag(`${b.to.replace(' ', 'T')}Z`, tz, now)}`)
+  const app = r.app
+  const side: Ranked[] = [
+    { label: 'Web (browsers)', value: r.sessions, cells: [fmt(r.readers)] },
+    ...(app ? [{ label: app.onStore ? 'iOS app' : 'iOS app (not on the App Store yet: every copy is ours)', value: app.sessions, cells: [fmt(app.readers)] }] : []),
+  ]
+  return {
+    lede: 'Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link), and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.',
+    rows, bursts,
+    side,
+    sideNote: `A reader is a tab that scrolled half a page or stayed 30 s, in the browser or the app alike. ${app ? `Our own app sessions (TestFlight, simulators): ${fmt(app.ours.sessions)}, ${fmt(app.ours.readers)} of them would-be readers.` : 'The app’s figures didn’t load.'}`,
+  }
+}
+
 /** What the readers page draws: its line, its tiles, its chart and its three rankings. */
 function readersParts(now: Date, r: Readers, tz: string) {
   const days = lastDays(now, r.days, tz)
@@ -525,6 +558,9 @@ ${tiles(p.tiles)}
 <figure class="chart" aria-labelledby="r-src"><figcaption><h3 id="r-src">Nguồn truy cập</h3></figcaption>${rankTable(p.sources, SOURCE_HEAD, undefined, { part: 'Người đọc' })}</figure></div>
 <div class="split"><section><h2>Trang người đọc xem nhiều nhất</h2>${rankTable(p.pages, PAGE_VIEWS_HEAD)}</section>
 <section><h2>Quốc gia (người đọc)</h2>${rankTable(p.countries, COUNTRY_HEAD)}</section></div>`
+    const o = leftOutParts(r, tz, now)
+    body += `<h2>${SIDE_TITLE}</h2><p class="lede">${o.sideNote}</p>${rankTable(o.side, SIDE_HEAD)}
+<h2>${LEFT_OUT_TITLE}</h2><p class="lede">${o.lede}</p>${rankTable(o.rows, LEFT_OUT_HEAD)}${o.bursts.length ? `<ul>${o.bursts.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}`
   }
   if (asks && isFailed(asks)) body += `<h2>${ASKS_TITLE}</h2>${failedBox('trang chọn ngôn ngữ (Analytics Engine)', asks)}`
   else if (asks) {
@@ -542,6 +578,8 @@ export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOM
     const p = readersParts(now, r, tz)
     blocks.push(note(textOf(p.lede)), figures(p.tiles), heading('Theo ngày và nguồn'), chart(p.chart), heading('Nguồn truy cập', 3), rankBlock(p.sources, SOURCE_HEAD),
       heading('Trang người đọc xem nhiều nhất'), rankBlock(p.pages, PAGE_VIEWS_HEAD), heading('Quốc gia (người đọc)'), rankBlock(p.countries, COUNTRY_HEAD))
+    const o = leftOutParts(r, tz, now)
+    blocks.push(heading(SIDE_TITLE), note(o.sideNote), rankBlock(o.side, SIDE_HEAD), heading(LEFT_OUT_TITLE), note(o.lede), rankBlock(o.rows, LEFT_OUT_HEAD), ...o.bursts.map(b => note(textOf(b), 'muted')))
   }
   if (asks && isFailed(asks)) blocks.push(heading(ASKS_TITLE), failedNote('trang chọn ngôn ngữ (Analytics Engine)', asks))
   else if (asks) {

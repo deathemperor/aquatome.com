@@ -55,16 +55,18 @@
     ]
   },
   "alternanthera-reineckii-mini": {
-    "at": "2026-10-30",
-    "from": "2026-10-28",
-    "name": "Alternanthera reineckii 'Mini'",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "Alternanthera reineckii Mini",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.6,
     "notes": [
-      "\"Asal\" for Origin is slightly off; prefer \"Asal-usul\" or \"Asal tanaman\".",
-      "\"cup tertutup\": prefer \"cup tertutup\" in italics or \"wadah/cup kedap\"; fine but could use \"kemasan cup tertutup\".",
-      "\"Tanaman batang (stem)\": the common hobby term is \"tanaman batang\" or \"stem plant\"; the bracket is redundant.",
-      "\"Laju pertumbuhan\": \"Kecepatan tumbuh\" is more natural for hobbyists."
+      "Item 2: the source text is Vietnamese, not English. The ID follows that Vietnamese, so check it against the real English original. The ID adds 'Alternanthera reineckii 'Mini'' where the source only says 'Rau dền đỏ mini'. Confirm that the Latin name appears in the original.",
+      "Item 2: 'Cây ở đây là cây nuôi cấy mô' is rendered as 'Tanaman ini berupa tanaman kultur jaringan'. It is repetitive. Use 'Tanaman ini merupakan hasil kultur jaringan dalam cup tertutup'.",
+      "Item 2: 'Gel nutrisi' for 'thạch dinh dưỡng' is fine, but 'agar nutrisi' is the more common hobby term.",
+      "Item 3: the first sentence has no verb ('Tanaman air hasil kultur jaringan dalam cup tertutup'). That matches the English fragment, but a full sentence would read better.",
+      "Item 3: 'Intensitas cahaya yang tinggi dan penambahan CO2 membuat pertumbuhan ... lebih baik' is slightly stronger than 'improves'. Use 'dapat meningkatkan pertumbuhan'.",
+      "Item 1: 'Tanaman batang (stem)' is fine. Item 1 has no real problems."
     ]
   },
   "ammannia-crassicaulis": {
@@ -143,16 +145,14 @@
     ]
   },
   "anubias-barteri-var-caladiifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "Anubias Caladiifolia",
-    "confidence": "high",
-    "score": 0.8,
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "Anubias barteri var. caladiifolia",
+    "confidence": "medium",
+    "score": 0.92,
     "notes": [
-      "\"Berrimpang\" is a non-standard/awkward term for \"Rhizomatous\"; use \"Berakar rimpang\" or \"Berrimpang (rhizomatous)\".",
-      "\"Tipe\" for plant type could be \"Tipe tanaman\"; minor.",
-      "\"bukanlah hal yang aneh\" is stiff; use \"bukan hal yang luar biasa/jarang terjadi\".",
-      "\"Tanaman induk\" for motherplant is OK, but \"pot persegi 9 cm\" could be clearer as \"pot persegi berukuran 9 cm\"."
+      "Item 1: \"Berimpang (rhizoma)\" is slightly awkward; hobbyists more often write \"Berrimpang\" or \"Rimpang (rhizome)\". Meaning is intact.",
+      "Item 2: the source is Vietnamese, not English. The translation is faithful. The only small loss is that \"lá tim\" (heart-shaped leaf) is dropped and the name is expanded to the full Latin \"Anubias barteri var. caladiifolia\"."
     ]
   },
   "anubias-barteri-var-coffeifolia": {
@@ -256,14 +256,21 @@
     ]
   },
   "aponogeton-madagascariensis": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-07",
     "name": "Madagascar Lace",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.72,
     "notes": [
-      "\"menjadi koleksi istimewa di kebun raya\": \"speciality\" is rendered a bit loosely; \"kebun botani\" or \"menjadi tanaman istimewa/khas di kebun botani\" would follow the source more closely.",
-      "\"Asal: Afrika\" is fine, but \"Asal\" could be \"Asal daerah\" or \"Daerah asal\" to read more naturally."
+      "Item 6 'Pembusukan terjadi karena akarnya yang sangat besar': fine, but 'Cleaning the bulb' says 'Crush activated carbon... apply to the treated surface' → 'permukaan yang sudah dibersihkan' is okay; however 'Keeping it at 28 °C can lead to the destruction' was rendered 'rusak dan mati' (added 'dan mati'); use 'bisa menyebabkan tanaman rusak/hancur'.",
+      "Item 7 'Memeliharanya pada suhu 28 °C bisa membuat tanaman ini rusak dan mati': 'and mati' is an added claim not in the source.",
+      "Item 10 'Corydoras pygmy', 'platy sunburst', 'tetra Buenos Aires': word order is unnatural; use 'Corydoras pygmy' / 'platy sunburst' consistently or 'tetra Buenos Aires' as 'Buenos Aires tetra'. Inconsistent mix of English and Indonesian ordering.",
+      "Item 10 'Bila tumbuh hingga di atas permukaan air di akuarium': 'emersed' growth is more naturally 'Bila tumbuh sampai muncul di atas permukaan air'.",
+      "Item 10 'lobster air tawar' for crayfish: use 'lobster air tawar (crayfish)' fine, but 'botia (clown loach)' is okay; 'ikan rainbow' should be 'rainbowfish' as hobbyists write.",
+      "Item 10 'Jangan biarkan ... Beri pupuk secara rutin' for 'Feed regularly': 'Pasok nutrisi secara rutin' is closer; 'Beri pupuk' narrows the meaning.",
+      "Item 10 'Umbi jelek' for 'Bad bulbs': prefer 'Umbi berkualitas buruk'.",
+      "Item 8 'diuntungkan dengan pemberian root tab': unnatural; use 'mendapat manfaat dari'.",
+      "Item 10 'Daunnya tersusun dari jaringan urat-urat kecil... yang mengurung segmen': 'mengurung' is odd; use 'mengelilingi/membatasi'."
     ]
   },
   "aponogeton-ulvaceus": {
@@ -1274,6 +1281,21 @@
       "Item 2: \"each stem up to 15 cm wide\" is translated as \"lebar tiap batang sampai 15 cm\". This is ambiguous, since a stem does not have a width of 15 cm. The source is also odd, so keep the meaning but consider \"lebar rumpun\"."
     ]
   },
+  "limnophila-aromatica": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Limnophila aromatica",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"dipakai sebagai daun aromatik\" – source says aromatic herb; use \"herba/sayuran beraroma\" or \"bumbu\" instead of \"daun aromatik\".",
+      "Item 1: \"diameter antara 5 dan 6 cm\" is faithful but the original is odd (likely stem/cluster width); acceptable, but \"Bentuk emersed/submersed\" could use \"emers/submers\" or Indonesian terms \"tumbuh di atas air / terendam\".",
+      "Item 2: \"Potong batang tepat di ruas\" – \"agak jauh di bawah tinggi akhir\" is a bit awkward; clearer: \"Potong batang pada ruas yang berada cukup jauh di bawah tinggi akhir yang diinginkan\".",
+      "Item 2: \"kemiringan yang cantik\" – \"slope\" is better as \"kontur miring yang rapi\"; \"cantik\" is slightly off.",
+      "Item 2: \"tahan terhadap naungan oleh dirinya sendiri\" is clumsy; use \"tahan terhadap saling menaungi antar-batang (self-shading)\".",
+      "Item 3: \"Nitrat rendah membuat ... jauh lebih merah\" fine; \"Pilih varietas\" fine. \"Spektrum cahaya merah/biru yang lebih kuat\" is OK."
+    ]
+  },
   "limnophila-hippuridoides": {
     "at": "2026-11-04",
     "from": "2026-10-30",
@@ -1341,6 +1363,23 @@
     "notes": [
       "Item 1: \"Ludwigia daun jarum\" is not in the English \"Other names\" list. Remove it, or leave it out unless it is an established local name.",
       "Item 2: \"sekitar 5–10 cm\" renders \"a few inches\" a little loosely. \"sekitar 5–8 cm\" is closer."
+    ]
+  },
+  "ludwigia-brevipes": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Ludwigia brevipes",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"a few inches below\" became \"beberapa sentimeter\" – vague but acceptable; better give an approximate figure, e.g. \"sekitar 5–8 cm\".",
+      "\"Pemangkasan sebaiknya dibuat miring, makin rendah ke arah depan\" adds detail not in source (\"sloped to the front\"); rephrase more literally, e.g. \"miring ke arah depan\".",
+      "\"dengan percabangan dan warna yang lebih sedikit\": coloration is lessened, not fewer; use \"percabangan lebih jarang dan warna lebih pudar\".",
+      "\"Laju pertumbuhannya sedikit lebih sedang dibanding tanaman yang tumbuh lebih cepat\" is awkward; use \"laju pertumbuhannya sedang, sedikit lebih lambat dibanding...\".",
+      "\"kontras dengan baik terhadap\" is unnatural; use \"berkontras indah dengan\".",
+      "\"tanaman ini juga cukup tahan ditanam terlalu rapat\" is awkward; use \"cukup toleran terhadap tanaman yang terlalu rapat\".",
+      "\"rumpun yang lebih rimbun\" and \"lebih kurus\" for \"thinner\" – use \"lebih jarang/ramping\"; \"defisiensi\" should be \"kekurangan nutrisi\".",
+      "\"Tanaman batang\" for stem plant is fine, but \"air sadah\" for hard water is OK; \"tangguh\" for hardier – prefer \"lebih mudah dirawat/tahan\"."
     ]
   },
   "ludwigia-glandulosa": {
@@ -1465,6 +1504,20 @@
       "\"Asal\" in the spec list is slightly terse; \"Asal daerah\" or \"Asal negara/benua\" reads more naturally; minor."
     ]
   },
+  "micranthemum-tweediei": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "Micranthemum tweediei",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Aquarist punya dua pilihan\" leaves 'Aquarist' in English; use \"Penghobi akuarium\" or \"Aquascaper\".",
+      "\"pearling\" is left untranslated; add the local term, e.g. \"mengeluarkan gelembung oksigen (pearling)\".",
+      "\"per helai\" / \"Helaiannya\" for 'strands' is slightly awkward; \"batang\" or \"stek\" is more natural for stem plants.",
+      "\"menarik alga\" (attract algae) is a little literal; \"mengundang alga\" is more natural.",
+      "\"tahan air sadah\" is fine, but \"Tanam dalam rumpun sekecil yang bisa Anda tangani\" is slightly stiff; \"sekecil yang masih nyaman Anda tanam\" reads better."
+    ]
+  },
   "micranthemum-tweediei-monte-carlo": {
     "at": "2026-11-07",
     "from": "2026-11-07",
@@ -1507,16 +1560,20 @@
     ]
   },
   "microsorum-pteropus-narrow": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Java Fern Narrow",
-    "confidence": "high",
-    "score": 0.85,
+    "confidence": "medium",
+    "score": 0.3,
     "notes": [
-      "\"berimpang (rizoma)\": \"berimpang\" is awkward; use \"Berrimpang (rizoma)\" or simply \"Rizoma\" (e.g. \"Tipe: rizomatosa/berrizoma\").",
-      "\"dibiakkan di penangkaran\": \"penangkaran\" is used for animals; for plants use \"dibudidayakan\" or \"dalam budidaya\".",
-      "\"dari batangnya\": the source says stem, but the plant has a rhizome and leaf stalks; consider \"dari tangkai/rimpang\" (minor).",
-      "\"Tanaman hias yang juga cocok...\": sentence fragment, better \"Tanaman hias ini juga cocok untuk akuarium kecil\"; \"rimpangnya 10–15 cm\" lacks \"panjang\" (minor)."
+      "Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error.",
+      "Item 1: 'berrimpang (rhizome)' is not standard. Use 'berimpang (rhizoma)' or 'berrimpang' consistently with 'rimpang' in the other items. 'Jenis' for 'Type' (growth type) is acceptable, but 'Tipe' is clearer.",
+      "Item 2: 'Java Fern Narrow' is left in English with a wrong word order. Use 'Paku Jawa (Java Fern) Narrow' or 'Microsorum pteropus Narrow'.",
+      "Item 2: 'midground' is left untranslated. Use 'tanaman area tengah (midground)'.",
+      "Item 2: 'ikat pelan-pelan' loses the meaning of 'lightly'. Use 'ikat longgar' or 'ikat dengan lembut'.",
+      "Item 2: 'rimpang mudah membusuk perlahan' adds 'perlahan', which the source only implies. Use 'mudah membusuk'.",
+      "Item 3: 'varietas baru mudah dibiakkan' is fine, but 'sudut yang tidak selancip' is awkward. Use 'sudut yang kurang tajam'.",
+      "Item 3: 'Daunnya bisa mencapai 10–20 cm dan rimpangnya 10–15 cm' is fine, but the final sentence fragment 'Tanaman yang dekoratif dan juga cocok...' is better as 'Tanaman hias yang juga cocok untuk akuarium yang lebih kecil.'"
     ]
   },
   "microsorum-pteropus-trident": {
@@ -1915,6 +1972,21 @@
       "\"Runner (geragih)\" in item 2 but plain \"runner\" in item 3: keep the term consistent. \"stolon\" is a common alternative.",
       "\"tidak rewel\" is slightly colloquial. \"mudah dirawat\" would be more standard in a handbook.",
       "\"cup tertutup\" leaves \"cup\" in English. \"wadah/cup tertutup\" or \"kemasan cup tertutup\" would read more naturally."
+    ]
+  },
+  "salvinia-auriculata": {
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "Kiambang",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 5: \"Pecah dan disinfeksi dengan benar tanaman yang baru dibeli\" is awkward; better \"Pisahkan tanaman yang baru dibeli, lalu desinfeksi dengan benar\".",
+      "Item 3: \"tahan terhadap kondisi iklim sedang yang tidak terlalu dingin\" adds \"tidak terlalu dingin\" and is clumsy; use \"iklim sedang yang ringan (mild temperate)\".",
+      "Item 4: \"cenderung makan banyak tempat\" is colloquial; use \"memakan banyak ruang\" or \"cenderung memenuhi banyak ruang\".",
+      "Item 5: \"Tanaman ini bisa membuat akuarium terlalu teduh\" mistranslates 'cast too much shade' mildly; better \"menimbulkan bayangan terlalu banyak\".",
+      "Item 8: \"burayak\" for fry is rarely used by hobbyists; \"anakan ikan\" is more common. \"Ikan mas koki\" should be \"ikan mas koki/goldfish\" (fine), but \"Penyaring cahaya ... lampu jadi lebih tersebar\" is a loose rendering of 'diffusing'.",
+      "Item 8: \"tertukar\" for 'confused with' is slightly off; use \"sering disalahartikan/dikira sama dengan\". \"Rootstock\" as \"batang bawah\" is unclear."
     ]
   },
   "salvinia-minima": {

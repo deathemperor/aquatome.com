@@ -1,0 +1,93 @@
+{
+  "id": "cirrhinus-caudimaculatus",
+  "native": {
+    "input": "0dca0e05e2ba15a8",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the middle to lower Mekong River basin in southern China (Yunnan province), Laos, Thailand, and Cambodia, plus the Chao Phraya watershed in central Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cirrhinus caudimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5206468,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "LA",
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

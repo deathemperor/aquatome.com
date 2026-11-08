@@ -8,9 +8,16 @@
   "mentions": [
     "betta-splendens",
     "limnophila-sessiliflora",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "eleocharis-acicularis",
+    "eleocharis-parvula",
+    "helanthium-tenellum",
+    "micranthemum-tweediei-monte-carlo",
+    "marsilea-hirsuta",
+    "limnobium-laevigatum",
+    "caridina-multidentata"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "ahN0nP8HLaI",
     "title": "Low Tech Planted Betta Tank For Rare Betta! NO CO2 AQUASCAPE!",
@@ -42,7 +49,7 @@
       "Caridina multidentata",
       "Otocinclus sp.",
       "Neocaridina davidi",
-      "Trichopsis pumila"
+      "Trichopodus sp."
     ],
     "gear": [
       {
@@ -57,21 +64,21 @@
         "type": "thuy-sinh",
         "brand": "Dennerle",
         "model": "Trocal LED 40",
-        "t": 249
+        "t": 227
       },
       {
         "category": "loc",
         "type": "treo",
         "brand": "Dennerle",
-        "model": "Nano corner filter",
-        "t": 262
+        "model": "Nano Corner Filter",
+        "t": 240
       },
       {
         "category": "suoi",
         "type": "mini",
         "brand": "Dennerle",
-        "model": "Nano heater",
-        "t": 275
+        "model": "Nano Heater",
+        "t": 262
       },
       {
         "category": "khac",
@@ -84,62 +91,45 @@
         "type": "phan",
         "brand": "Dennerle",
         "model": "Scapers Soil",
-        "t": 227
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 452
+        "t": 420
       }
     ],
     "figures": [
       {
-        "heading": "Bể và thiết bị cần những gì",
+        "heading": "Bể và thiết bị dùng những gì",
         "moments": [
           {
-            "t": 278,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t278.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nhỏ có lọc góc nano đặt trong bể, cây thủy sinh xanh tốt."
+            "t": 280,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn từ trên xuống bể nano với cây thủy sinh xanh tốt và thiết bị."
           }
         ]
       },
       {
-        "heading": "Đèn mạnh mà không CO2 thì chống rêu hại thế nào",
-        "moments": [
-          {
-            "t": 338,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t338.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây rong mọc dày xanh tốt bên cạnh lũa."
-          },
-          {
-            "t": 343,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t343.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây mọc nhanh sát mặt nước dưới đèn mạnh."
-          }
-        ]
+        "heading": "Không có CO2 thì chống rêu hại thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ahN0nP8HLaI/p1-vbV9KYXBhbi5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/ahN0nP8HLaI/p1-vbV9KYXBhbi5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "S.Tanaka",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:-Limnophila_sessiliflora-_from_Japan.JPG",
+          "caption": "Cây rong la hán mọc trong bể thủy sinh, lá xẻ mảnh xếp vòng."
+        }
       },
       {
-        "heading": "Rêu hại vẫn lên thì xử lý ra sao",
+        "heading": "Rêu hại lên lúc đầu thì xử lý ra sao",
         "moments": [
           {
-            "t": 357,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t357.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh rêu tóc xanh bám trên lũa và cây trong bể."
-          },
-          {
-            "t": 402,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t402.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh đang bị rêu hại phủ lên cây và lũa."
+            "t": 360,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bể thủy sinh có rêu hại bám trên lũa và cây."
           }
         ],
         "photo": {
@@ -150,73 +140,66 @@
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otocinclus bám trên khúc lũa rêu xanh trong bể thủy sinh."
+          "caption": "Cá otocinclus bám trên khúc lũa trong bể thủy sinh có rêu và cây."
         }
       },
       {
-        "heading": "Bố cục: đồng cỏ cao với thân cây đổ",
+        "heading": "Bố cục: cánh đồng cỏ cao với cây đổ",
         "moments": [
           {
-            "t": 417,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t417.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh hồ có lũa spider wood đen nổi trên thảm cỏ xanh."
+            "t": 420,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cỏ rậm với thân lũa đen đổ và lối cát."
           },
           {
-            "t": 462,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t462.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thân lũa đen nằm giữa đồng cỏ xanh với lối cát phía trước."
+            "t": 450,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa spider wood đen và đá dragon stone trên nền cát lúc mới setup."
           }
         ]
       },
       {
-        "heading": "Betta ở chung với tép và cá khác được không",
+        "heading": "Nuôi chung betta với tép và cá khác",
         "moments": [
           {
-            "t": 134,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t134.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Con betta đen bơi gần khúc lũa trong bể thủy sinh nhiều cây."
+            "t": 490,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at490-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc gần bể với lũa và cây rậm, nơi tép cherry ẩn nấp."
           },
           {
-            "t": 531,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t531.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh cây xanh um, nơi betta ở chung với tép."
+            "t": 530,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh nhiều cây xanh, lũa và nền cát."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/ahN0nP8HLaI/p4-RlbnNfMDA5LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/ahN0nP8HLaI/p4-RlbnNfMDA5LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/ahN0nP8HLaI/p4-yLXNha3VyYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/ahN0nP8HLaI/p4-yLXNha3VyYS5qcGc-480.webp",
           "width": 960,
-          "height": 699,
-          "licence": "CC BY 2.0",
-          "author": "Daniella Vereeken",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:DVJ_Betta_splendens_009.jpg",
-          "caption": "Một con betta plakat màu xanh ngọc, bơi trong bể, nhìn rõ thân và vây."
+          "height": 653,
+          "licence": "CC BY-SA 3.0",
+          "author": "DirkBlankenhaus",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina-heteropoda-var-sakura.jpg",
+          "caption": "Một con tép cherry đỏ bò trên thảm rêu trong bể thủy sinh."
         }
       },
       {
-        "heading": "Sau hai tháng cây lên thế nào và cần chăm gì",
+        "heading": "Cây lên ra sao sau gần hai tháng không CO2",
         "moments": [
           {
-            "t": 586,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t586.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây xanh mướt trong bể không CO2 với cá betta và tép."
-          },
-          {
-            "t": 591,
-            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/t591.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc bể có cây thủy sinh mọc dày bên cạnh lối cát sáng."
+            "t": 535,
+            "url": "https://media.aquatome.com/video/ahN0nP8HLaI/at535-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh không CO2 với cây mọc xanh dày quanh lũa."
           }
         ],
         "photo": {
@@ -227,7 +210,7 @@
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, lên tốt, có đàn cá neon bơi giữa."
+          "caption": "Bể thủy sinh cây rậm rạp, lên xanh tốt với cá neon bơi giữa các bụi cây."
         }
       }
     ]

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/epiplatys-lamottei
 title: Epiplatys lamottei (Red-spotted Panchax) · Seriously Fish
-fetchedAt: 2026-11-07T06:02:39.495Z
+fetchedAt: 2026-11-07T20:35:22.352Z
 hash: 12796d8fe4fd757ce5460c5df75e5d3c8bccf1a3a35c940aee84ce73812f9f9b
 ---
 

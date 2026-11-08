@@ -1,0 +1,291 @@
+{
+  "id": "geophagus-crassilabris",
+  "scientificName": "Geophagus crassilabris",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Geophagus",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "panama",
+    "chagres"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA"
+      ],
+      "regions": [
+        "Chagres",
+        "Bayano",
+        "Tuira",
+        "Sambú"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Isthmus of Panama near Candelaria' and this species is endemic to the Pacific and Atlantic slopes of central and eastern Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known localities include the ríos Chagres, Cupe, Missimbi, Platenal, Frijoles, Bayano, Ipeti, Sucubti, Sabalo, Pirra, Pepé, Sambú, Morti, Uruseca, Meteti and Tuira.",
+          "countries": [],
+          "regions": [
+            "Chagres",
+            "Bayano",
+            "Tuira",
+            "Sambú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208427,
+      "total": 106,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          99
+        ],
+        [
+          "CO",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          8.4375,
+          64,
+          64
+        ],
+        [
+          -78.75,
+          7.03125,
+          18,
+          18
+        ],
+        [
+          -78.75,
+          8.4375,
+          15,
+          15
+        ],
+        [
+          -77.34375,
+          4.21875,
+          6,
+          0
+        ],
+        [
+          -77.34375,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 24
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<ul><li>Needs a very large tank; fights its own kind; one male with several females; choose tankmates carefully; needs a well-established tank</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<ul><li>Needs a soft, sandy substrate. The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</li></ul><p>The Panamanian eartheater, Geophagus crassilabris, is a cichlid endemic to the Pacific and Atlantic slopes of central and eastern Panama. Rarely traded, it belongs to the 'G.' steindachneri group with 'G.' steindachneri and 'G.' pellegrini, and adults have a more reddish colour pattern than either, especially in the fins. Adult males are aggressive towards one another, and a single male is best kept with two or more females.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Type locality is 'Isthmus of Panama near Candelaria' and this species is endemic to the Pacific and Atlantic slopes of central and eastern Panama.</p><p>Known localities include the ríos Chagres, Cupe, Missimbi, Platenal, Frijoles, Bayano, Ipeti, Sucubti, Sabalo, Pirra, Pepé, Sambú, Morti, Uruseca, Meteti and Tuira.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Inhabits pristine steams and rivers with moderate water flow and substrates of sand or gravel, with submerged woody structures such as driftwood or tree roots also common features.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Standard length: 24 cm SL.</p><p>Aquarium base: 180 × 60 cm. Volume: ~648 litres.</p><p>Minimum base dimensions of 180 × 60 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Coarser materials such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage or blockages.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>Leaf litter is a typical feature of the natural environment but not really recommended in aquaria because the feeding behaviour of Geophagus spp. tends to cause an excess of partially-decomposed material in suspension which not only looks unsightly but can block filter and pump mechanisms.</p><p>One or two flattish, water-worn rocks can also be included to provide potential spawning sites if you wish.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality and swings in chemical parameters so should never be introduced to a biologically immature aquarium.</p><p>The best way to achieve the desired stability is to over-filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50-70%.</p><p>If the maintenance regime is insufficient health issues such as head and lateral line erosion or stunted growth can occur.</p><p>Mechanical filtration should also be tailored to trap small particles stirred up by the fish as sand can cause blockages and wearing issues with filter mechanisms if allowed to continually run through the system.</p><p>High flow rates should be avoided so position filter returns accordingly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<ul><li>Temperature: 22–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>'Geophagus' steindachneri group spp. are benthophagous by nature and mostly employ a feeding strategy whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gills and mouth.</p><p>For this reason they're commonly termed 'eartheaters' and the provision of a suitable substrate is essential to their long-term well-being.</p><p>Once settled they readily rise into the water column when food is introduced but continue to browse normally at other times.</p><p>The stomach contents of wild specimens mostly comprise small aquatic and terrestrial invertebrates, plant material in the form of seeds, organic detritus and sediment.</p><p>Even as adults these cichlids seem unable to properly ingest larger food items meaning the diet should contain a variety of high quality, fine-grade prepared foods plus small live or frozen bloodworm, Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p><p>Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Adult males are typically aggressive towards one another, especially when courting or spawning and only one should be housed in all but the largest aquaria.</p><p>This species cannot be described as predatory but very small tankmates may nevertheless be eaten.</p><p>This species apparently practices polygyny meaning a single male should ideally be provided with a group of 2 or more females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Adult males are larger in size and have longer unpaired fin lobes than females. Sexually mature males usually develop a nuchal hump which can be very pronounced in some individuals.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Ovophilous, maternal mouthbrooder forming weak pair bonds during the spawning process only.</p><p>Most breeders recommend isolating holding females as they're often subject to harassment from conspecifics.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<p>Etymology: crassilabris, from the Latin crassus, meaning 'thick', and labrum, meaning 'lip'.</p><p>This rarely-traded species belongs to the 'G.' steindachneri group of closely-related species with unresolved taxonomic placement, and which currently also includes 'G.' steindachneri and 'G.' pellegrini.</p><p>It exists in a number of colour forms which vary with locality, but adults can generally be told apart from the other two species by their overall more reddish colour pattern, especially in the fins.</p><p>The genus Geophagus was rediagnosed by Kullander (1986) who restricted it to include only those species with paired caudal extensions to the swimbladder lined by 6-12 epihemal ribs plus a greater number of caudal than abdominal vertebrae.</p><p>Some former species were moved into the resurrected genus Satanoperca while others, such as the 'Geophagus' brasiliensis and 'G.' steindachneri groups represent distinct groupings still in need of definitive classification.</p><p>Geophagus and a number of related genera are often included in the putative subfamily Geophaginae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "html": "<ul><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytrochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Steindachner, F. (1876). Ichthyologische Beiträge (V). Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), 49-240</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/87cf96dfe94bd360.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/87cf96dfe94bd360-480.webp",
+      "width": 800,
+      "height": 561,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "caption": "Subadult specimens of unconfirmed origin.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1f4b394bd8aaddce.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1f4b394bd8aaddce-480.webp",
+      "width": 799,
+      "height": 558,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-crassilabris",
+      "caption": "Another subadult.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "thùng lọc ngoài cho bể lớn",
+        "hệ thống lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nuôi cá",
+        "cát nền bể cá cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên mịn cho cichlid",
+        "thức ăn spirulina cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

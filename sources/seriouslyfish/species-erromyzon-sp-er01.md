@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/erromyzon-sp-er01
 title: Erromyzon sp. 'ER01' · Seriously Fish
-fetchedAt: 2026-11-07T06:22:46.553Z
+fetchedAt: 2026-11-07T20:42:30.468Z
 hash: 1eb4c47af2ddcde0fca4149b549ce0a9eec38d848458e12ba415d66a767e8ee0
 ---
 

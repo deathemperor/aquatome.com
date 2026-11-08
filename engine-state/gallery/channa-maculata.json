@@ -2,10 +2,35 @@
  "queue": [],
  "judged": [
   "File:Channa maculata 170712814.jpg",
-  "File:Channa maculata 279979517.jpg"
+  "File:Channa maculata 279979517.jpg",
+  "inat:682126123",
+  "inat:601180297",
+  "inat:660615754",
+  "inat:170712814",
+  "inat:285879064",
+  "inat:285879097",
+  "inat:285879121",
+  "inat:279979517",
+  "inat:536872882",
+  "inat:19905260",
+  "inat:513666208",
+  "inat:633538618",
+  "inat:633538619"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/3d9bdbb968b50c68.webp": "5ff3f3e160f0c089"
+  "https://media.aquatome.com/commons/3d9bdbb968b50c68.webp": "5ff3f3e160f0c089",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/682126123/original.jpg": "bf3f3fdfef37bf7f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/170712814/original.jpeg": "54460711050d1d06",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/19905260/original.jpeg": "84a8105020200080",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/513666208/original.jpg": "81010a82f0f5899b"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 128291,
+  "pass": "done",
+  "after": {
+   "research": 373255679,
+   "agree": 412897498
+  }
+ }
 }

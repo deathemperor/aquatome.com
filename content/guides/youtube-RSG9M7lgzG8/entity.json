@@ -10,7 +10,7 @@
     "vesicularia-montagnei",
     "poecilia-sphenops"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "RSG9M7lgzG8",
     "title": "How to Fight Fungus on Aquarium Fish",
@@ -42,22 +42,22 @@
       "height": 720
     },
     "taxa": [
-      "Poecilia sphenops",
+      "Poecilia sp.",
       "Betta splendens",
-      "Vesicularia montagnei"
+      "Vesicularia sp."
     ],
     "gear": [
       {
         "category": "khac",
         "brand": "Aquarium Solutions",
         "model": "Ich-X",
-        "t": 170
+        "t": 157
       },
       {
         "category": "khac",
         "brand": "Mardel",
         "model": "Maracyn",
-        "t": 170
+        "t": 157
       },
       {
         "category": "khac",
@@ -84,7 +84,7 @@
       },
       {
         "category": "loc",
-        "t": 61
+        "t": 91
       },
       {
         "category": "thuc-an",
@@ -98,84 +98,124 @@
         "moments": [
           {
             "t": 5,
-            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t5-hd.webp",
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at5-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá molly yếu, thân đốm trắng, bơi trong bể nước ngọt."
+            "caption": "Cá molly đốm trông yếu, bơi trong bể nước ngọt."
           },
           {
             "t": 29,
-            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t29.webp",
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at29.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cá molly đốm bơi giữa bụi cây thủy sinh xanh."
+            "caption": "Cá molly đốm bơi giữa bụi cây thủy sinh xanh trong bể."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/RSG9M7lgzG8/p0-lfZmVtYWxlLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/RSG9M7lgzG8/p0-lfZmVtYWxlLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Gourami Watcher",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly_female.jpg",
-          "caption": "Cá molly đốm trong bể nước ngọt, loài hay yếu và dễ bị nấm."
-        }
+        ]
       },
       {
-        "heading": "Bước đầu tiên: dọn bể thật kỹ",
+        "heading": "Cải thiện bể và nước để cá đỡ stress",
         "moments": [
           {
-            "t": 181,
-            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t181.webp",
+            "t": 88,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at88-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể betta lớn có cây thật, lũa và hệ thống lọc."
+          },
+          {
+            "t": 93,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at93.webp",
             "width": 160,
             "height": 90,
-            "caption": "Dùng ống siphon hút nước và cặn ra khỏi bể."
+            "caption": "Cận cảnh cây thật, sưởi và đèn trong bể trồng cây."
+          }
+        ]
+      },
+      {
+        "heading": "Cho cá ăn đa dạng và giữ thức ăn tươi",
+        "moments": [
+          {
+            "t": 152,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at152.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cất túi thức ăn đã chia vào ngăn đá tủ lạnh."
+          },
+          {
+            "t": 162,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at162.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Nhiều loại thức ăn cho cá được chia ra các túi nhỏ."
+          }
+        ]
+      },
+      {
+        "heading": "Bước đầu tiên khi thấy cá bệnh: dọn bể",
+        "moments": [
+          {
+            "t": 196,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at196.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh bể cây thủy sinh xanh tốt, đang thao tác bên trong bể."
           },
           {
             "t": 201,
-            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t201.webp",
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at201.webp",
             "width": 160,
             "height": 90,
-            "caption": "Ống hút đáy đang hút cặn bẩn trong bể cây thủy sinh."
+            "caption": "Bể thủy sinh có sủi khí và dụng cụ đưa vào hút dọn."
           }
         ]
       },
       {
-        "heading": "Nấm ở miệng: chữa bằng kháng sinh",
+        "heading": "Mảng trắng quanh miệng: chữa bằng kháng sinh",
         "moments": [
           {
             "t": 216,
-            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t216.webp",
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at216.webp",
             "width": 160,
             "height": 90,
-            "caption": "Cá vàng bơi gần cây thủy sinh, vùng quanh miệng cần được kiểm tra."
+            "caption": "Cá vàng bơi gần cây thủy sinh, vùng miệng cần được quan sát kỹ."
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at240.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Thùng nước sạch dùng để xử lý, chuẩn bị cho cá trước khi cho thuốc."
           }
         ]
       },
       {
-        "heading": "Nấm trên thân và vây: dùng cả thuốc nấm lẫn kháng sinh",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/RSG9M7lgzG8/p3-zNTQxMTUwKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/RSG9M7lgzG8/p3-zNTQxMTUwKS5qcGc-480.webp",
-          "width": 960,
-          "height": 483,
-          "licence": "Public domain",
-          "author": "Internet Archive Book Images",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20483541150).jpg",
-          "caption": "Tranh minh họa cá vàng bị nấm bám trắng trên thân và vây."
-        }
+        "heading": "Nấm thân và nấm vây: dùng chung thuốc nấm và kháng sinh",
+        "moments": [
+          {
+            "t": 299,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at299.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Thuốc tan trong thùng nhựa chứa cây thủy sinh để ngâm trị bệnh."
+          }
+        ]
       },
       {
-        "heading": "Không có thuốc thì dùng muối thế nào",
+        "heading": "Không mua được thuốc thì dùng muối bể cá",
         "moments": [
           {
             "t": 343,
-            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t343.webp",
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at343.webp",
             "width": 160,
             "height": 90,
-            "caption": "Gói muối dùng cho bể cá, phía sau là bể thủy sinh."
+            "caption": "Gói muối bể cá được cầm lên giới thiệu."
+          },
+          {
+            "t": 426,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/at426.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cá molly bơi giữa đám cây thủy sinh xanh trong bể."
           }
         ]
       }

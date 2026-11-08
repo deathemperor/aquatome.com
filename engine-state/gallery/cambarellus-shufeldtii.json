@@ -3,12 +3,25 @@
  "judged": [
   "File:FMIB 53514 Cambarus Shufeltii Fax Female New Orleans, La.jpeg",
   "File:Cambarellus shufeldtii.jpg",
-  "File:Cambarellus shufeldtii - inat 53939299.jpg"
+  "File:Cambarellus shufeldtii - inat 53939299.jpg",
+  "inat:53939299",
+  "inat:62882083",
+  "inat:62882095",
+  "inat:62882108"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/3c29051aa0fcaf26.webp": "c94a0e3e2cf26606",
   "https://media.aquatome.com/commons/a14d23024729cc20.webp": "d786e6f2f2220341",
-  "https://media.aquatome.com/commons/c1ff35f22f37f580.webp": "c3296561b433e2c3"
+  "https://media.aquatome.com/commons/c1ff35f22f37f580.webp": "c3296561b433e2c3",
+  "https://media.aquatome.com/inaturalist/53939299.webp": "5786e6f2f2220341"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 96523,
+  "pass": "done",
+  "after": {
+   "research": 39624940,
+   "agree": 0
+  }
+ }
 }

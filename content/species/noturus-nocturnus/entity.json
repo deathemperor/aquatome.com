@@ -1,0 +1,97 @@
+{
+  "id": "noturus-nocturnus",
+  "scientificName": "Noturus nocturnus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
+      "html": "<p>Noturus nocturnus Jordan &amp; Gilbert, 1886. Common names: Freckled Madtom, Fregnet Giftmalle (Denmark). Family: Ictaluridae. Size: 15 cm SL. IUCN Red List category: Least Concern (last assessed 2012).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
+      "html": "<p>North America: Mississippi River basin from northern Illinois to Louisiana, and from eastern Kentucky to central Kansas and Oklahoma in the USA; Gulf Slope drainages from Mobile Bay in Alabama to Guadalupe River in Texas, USA.</p><p>Type locality: Saline River, near Benton railroad bridge, at Benton, Saline County, Arkansas, U.S.A.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The specific epithet refers to its black (nocturnus = night) colour.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1247",
+      "html": "<p>Proceedings of the United States National Museum v. 9 (no. 549) (for 14 Aug. 1886), pp 6.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/1bf6fdd484ed2b8a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1bf6fdd484ed2b8a-480.webp",
+      "width": 500,
+      "height": 202,
+      "licence": "dùng với sự cho phép",
+      "author": "Larry M. Page / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "caption": "Noturus nocturnus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8634d5136de536c3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8634d5136de536c3-480.webp",
+      "width": 500,
+      "height": 226,
+      "licence": "dùng với sự cho phép",
+      "author": "jasonrl / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_nocturnus.htm",
+      "caption": "Noturus nocturnus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3bdad73f52ea8ca3.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson from RAF Lakenheath, UK & San Marcos, TX, USA & UK",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freckled_madtom_(Noturus_nocturnus)_(4015394815).jpg",
+      "caption": "Freckled madtom (Noturus nocturnus)",
+      "thumb": "https://media.aquatome.com/commons/3bdad73f52ea8ca3-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "TahiVQ3IvIU",
+      "title": "Albino Freckled Madtom! (RARE!)",
+      "durationSec": 55,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-08"
+}

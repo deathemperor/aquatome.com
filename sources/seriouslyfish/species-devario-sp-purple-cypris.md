@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-sp-purple-cypris
 title: Devario sp. 'purple cypris' · Seriously Fish
-fetchedAt: 2026-11-07T04:56:14.292Z
+fetchedAt: 2026-11-07T19:37:50.423Z
 hash: 674c3fddb9b65714c46e924e894d537de8bbed3985215f3e9945c50f84b18cf4
 ---
 

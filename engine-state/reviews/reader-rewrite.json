@@ -145,6 +145,19 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-1MBa4r8jhFs#body": [
+    {
+      "at": "2026-11-08T11:26:39Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "Minor: \"vẫn chưa có con\" became \"thì chưa có con\" (loses \"still\" nuance)",
+        "\"tắm cá\" rendered as \"cho cá làm quen nước\" is acceptable plain wording"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -153,6 +166,62 @@
       "notes": [
         "Dropped the parenthetical '(đổi ra khoảng 15 cm, chỉ là quy đổi gần đúng)'. It was a redundant, awkward conversion note, so removing it is harmless.",
         "'tính theo' became 'tùy vào', and 'Lượng ống' became 'Số ống'. These are minor wording changes with the same meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-C3jPFBWzK68#body": [
+    {
+      "at": "2026-11-08T11:28:30Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Added: \"rồi đặt quanh lũa đá\" – BEFORE gives no placement instruction for the moss ball pieces.",
+        "Changed: BEFORE says to use a few small pieces and then split the moss ball apart into moss pads; AFTER only says to split it into a few small pieces, so the procedure is slightly altered.",
+        "\"Chỉ cần một ít là đủ\" is a slight strengthening of \"Chỉ cần ít thôi\", but it is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-JQiui3Wmurs#body": [
+    {
+      "at": "2026-11-08T11:25:45Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Said more surely than before: \"Cá golden dwarf barb nhìn thì nhỏ, nhưng có tiệm lại bán những con khá to, không hợp với bể nano.\" (was: \"Cá golden dwarf barb trông thì nhỏ, nhưng ở một tiệm có thể gặp những con khá to, không hợp bể nano.\")",
+        "Added \"(Trichopsis pumila)\": species name not in BEFORE",
+        "\"ở một tiệm có thể gặp những con khá to\" (may encounter) became \"có tiệm lại bán những con khá to\": hedge turned into a flat statement, and \"gặp\" became \"bán\""
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-VtUOcuH3tNg#body": [
+    {
+      "at": "2026-11-08T07:34:01Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "'Để nguyên túi cá nổi trong hồ một lúc' adds a floating-bag method; BEFORE says only that fish are kept in the tank to acclimate (no bag, no 'một lúc').",
+        "'Châm vi sinh mỗi ngày' drops 'có lợi' (beneficial bacteria).",
+        "'Cá được để trong hồ' becomes a bag floating in the tank, which changes the procedure."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-aXWDAuISGKs#body": [
+    {
+      "at": "2026-11-08T07:36:47Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"viên thức ăn chìm cho rêu hại (algae wafer)\" became \"viên tảo chìm (algae wafer)\": drops the idea of food for algae-eaters and implies the wafer is made of algae; minor nuance shift",
+        "\"Một cách dụ\" (one way) became \"Muốn dụ cua ra thì\" (to lure the crab out): slightly less hedged, as it no longer presents this as just one option",
+        "\"ngay lập tức\" is a slight intensification of \"ngay\"; negligible"
       ],
       "attempt": "first",
       "kept": true

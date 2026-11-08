@@ -5,15 +5,15 @@ import Observation
 import Telemetry
 import UIKit
 
-/// The app's anonymous telemetry, as the privacy policy says it (AquaTomeKit's `Telemetry`): the reader's switch,
-/// "Gửi thống kê ẩn danh", on unless they turn it off; the site's flag (its index's `telemetry`), without which nothing
+/// The app's telemetry, as the privacy policy says it (AquaTomeKit's `Telemetry`): the reader's switch,
+/// "Gửi thống kê", on unless they turn it off; the site's flag (its index's `telemetry`), without which nothing
 /// is sent; iOS's crash and performance reports (MetricKit); and the sending, every 30 s and when the app goes to the
 /// background. Models record where an outcome is known (`Telemetry.record`).
 @Observable
 @MainActor
 final class TelemetryModel {
-  /// "Gửi thống kê ẩn danh". Off, at once, nothing more is recorded or sent, and what waits is dropped (the queue's
-  /// file a moment later).
+  /// "Gửi thống kê". Off, at once, nothing more is recorded or sent, and what waits is dropped (the queue's file a
+  /// moment later), and the install id deleted.
   var readerOn: Bool {
     didSet {
       UserDefaults.standard.set(readerOn, forKey: Self.key)
@@ -60,7 +60,8 @@ final class TelemetryModel {
     if ProcessInfo.processInfo.arguments.contains("-reset-defaults") { try? FileManager.default.removeItem(at: Self.file) }
     send = { try await fake.send($0) }
     #endif
-    telemetry = Telemetry(about: about, readerAllows: on, file: Self.file, site: AccountsClient.site, send: send, userAgent: mark)
+    telemetry = Telemetry(about: about, readerAllows: on, file: Self.file, site: AccountsClient.site, send: send, userAgent: mark,
+                          install: Install())
     readerOn = on
     #if DEBUG && targetEnvironment(simulator)
     relay.model = self

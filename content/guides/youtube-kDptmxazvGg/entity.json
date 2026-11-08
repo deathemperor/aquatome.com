@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "danio-margaritatus",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "trigonostigma-espei",
+    "eleocharis-acicularis"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "kDptmxazvGg",
     "title": "EP:7 Complete Aquascaping Beginners Guide - Total Cost + Q&A",
@@ -28,13 +30,14 @@
       "height": 720
     },
     "taxa": [
+      "Trigonostigma espei",
       "Danio margaritatus",
-      "Boraras brigittae",
+      "Paracheirodon simulus",
       "Neocaridina davidi",
       "Hemianthus callitrichoides",
       "Eleocharis acicularis",
-      "Hemianthus sp.",
-      "Rotala sp."
+      "Ludwigia sp.",
+      "Hemianthus sp."
     ],
     "gear": [
       {
@@ -42,13 +45,13 @@
         "type": "chuan",
         "brand": "Dennerle",
         "model": "Scaper's Tank 55L",
-        "t": 120
+        "t": 90
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
-        "model": "B series 45B",
+        "model": "45B series",
         "t": 60
       },
       {
@@ -60,10 +63,10 @@
       },
       {
         "category": "loc",
-        "type": "bot-bien",
+        "type": "treo",
         "brand": "Superfish",
         "model": "Aquaflow 200",
-        "t": 124
+        "t": 120
       },
       {
         "category": "loc",
@@ -77,123 +80,155 @@
         "type": "mini",
         "brand": "Dennerle",
         "model": "Compact heater",
-        "t": 124
+        "t": 120
       },
       {
         "category": "co2",
         "type": "binh",
-        "t": 240
+        "t": 217
+      },
+      {
+        "category": "loc",
+        "t": 217
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "brand": "ADA",
-        "model": "Aqua Soil",
-        "t": 150
+        "t": 140
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 160
-      },
-      {
-        "category": "khac",
-        "brand": "Chihiros",
-        "model": "Flexible filter tubing",
-        "t": 217
-      },
-      {
-        "category": "khac",
-        "brand": "EA",
-        "model": "Algae scraper",
-        "t": 560
+        "t": 155
       },
       {
         "category": "test-nuoc",
         "type": "tds",
-        "t": 470
+        "t": 465
       },
       {
         "category": "test-nuoc",
         "type": "test",
-        "t": 624
+        "t": 623
       }
     ],
     "figures": [
       {
-        "heading": "Set hai bể 55 lít hết bao nhiêu tiền",
+        "heading": "Bể low-tech 55 lít tốn bao nhiêu",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/kDptmxazvGg/t0.webp",
+            "t": 89,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at89.webp",
             "width": 320,
             "height": 180,
-            "caption": "Hai bể kính 55 lít đặt cạnh nhau, một bể đã có nền."
+            "caption": "Hai bể thủy sinh đặt cạnh nhau, bể bên phải cây xanh rực."
           },
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/kDptmxazvGg/t10.webp",
+            "t": 188,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at188.webp",
             "width": 320,
             "height": 180,
-            "caption": "Bể thủy sinh có lũa, đá và cây mọc phủ nền."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/kDptmxazvGg/p0-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p0-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, có ống mềm và xô nước bên cạnh."
-        }
-      },
-      {
-        "heading": "Cân bằng đèn, phân và CO2 cho bể mới",
-        "moments": [
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/kDptmxazvGg/t20.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây thủy sinh lá mảnh và dương xỉ mọc xanh tốt trong bể."
-          },
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/kDptmxazvGg/t30.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá nhỏ bơi cạnh lũa và lá cây xanh trong bể trồng cây."
+            "caption": "Bể thủy sinh 55 lít với lũa, đá và nhiều loại cây xanh tốt."
           }
         ]
       },
       {
-        "heading": "Bể có CO2 và không CO2 khác nhau ra sao",
+        "heading": "Bể high-tech 55 lít tốn bao nhiêu",
+        "moments": [
+          {
+            "t": 257,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at257.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hai bể kính siêu trong trống, một bể đã gắn đèn LED phía trên."
+          }
+        ]
+      },
+      {
+        "heading": "Dùng nước RO thế nào",
+        "moments": [
+          {
+            "t": 464,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at464.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bộ lọc nước RO thẩm thấu ngược lắp trong nhà."
+          },
+          {
+            "t": 513,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at513.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể cây đang được châm nước, thay nước bằng ống."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/kDptmxazvGg/p3-kcy1tZXRlci5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p3-kcy1tZXRlci5qcGc-480.webp",
+          "width": 960,
+          "height": 1707,
+          "licence": "CC BY-SA 3.0",
+          "author": "Spotless property",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tds-meter.jpg",
+          "caption": "Bút TDS đang nhúng trong cốc nước để đo lượng khoáng."
+        }
+      },
+      {
+        "heading": "Khi nào thả đội dọn bể, nitrit và nitrat bao nhiêu là ổn",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/kDptmxazvGg/p3-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p3-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/kDptmxazvGg/p4-AxOF9hXzAyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p4-AxOF9hXzAyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lamiot",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flore_subaquatique_d%27une_mare_citerne_en_vall%C3%A9e_de_l%27Esteron_fin_avril_2018_a_02.jpg",
+          "caption": "Bể thủy sinh cây mọc dày xanh tốt, kiểu bể high-tech chạy ổn định."
+        }
+      },
+      {
+        "heading": "Bể có cần CO2 không",
+        "moments": [
+          {
+            "t": 1125,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at1125.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể thủy sinh kín cây xanh tốt, nổi bật trong nền tối."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/kDptmxazvGg/p6-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p6-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
           "height": 338,
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh trồng dày nhiều loại cây thân, có cá neon bơi giữa."
+          "caption": "Bể thủy sinh kín cây dễ và trung bình, cá neon bơi giữa các tầng cây."
         }
       },
       {
-        "heading": "Thả cá và đội dọn bể khi nào",
-        "moments": [],
+        "heading": "Bảo dưỡng: lọc, lịch chăm, số cá, nhiệt độ",
+        "moments": [
+          {
+            "t": 1184,
+            "url": "https://media.aquatome.com/video/kDptmxazvGg/at1184.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể thủy sinh cây xanh um với lũa, đèn trên và bộ lọc ở góc bể."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/kDptmxazvGg/p6-l0aF9lZ2dzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p6-l0aF9lZ2dzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/kDptmxazvGg/p7-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/kDptmxazvGg/p7-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
-          "height": 1280,
-          "licence": "CC BY-SA 3.0",
-          "author": "Pristigaster",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina_heteropoda_red_cherry_female_with_eggs.jpg",
-          "caption": "Tép và ốc đang bò trên nền bể, đúng đội dọn bể."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống hút nước."
         }
       }
     ]

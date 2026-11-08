@@ -1,3 +1,4 @@
+import { APP_INSTALL_ID } from '../stats-switch'
 import { LANGS, SEGMENTS } from '@aq/schema/langs'
 import { readCapped } from '../comments/api'
 import { VI_SECTIONS, withoutVi } from '../paths'
@@ -31,7 +32,8 @@ const SECONDS = [30, 60, 180]
 const MAX_AT = 30 * 86_400_000
 
 export type AppEvent = { t: 'view' | 'scroll' | 'time' | 'aff' | 'action'; at: number; path: string; screen: string; shop: string; href: string; name: string; kind: string; value: number }
-export type Batch = Meta & { lang: string; session: string; events: AppEvent[]; dropped: number }
+/** `install`: the app's install code (protocols/app-telemetry.openapi.json), '' without one. */
+export type Batch = Meta & { lang: string; session: string; install: string; events: AppEvent[]; dropped: number }
 
 const int = (v: unknown, min: number, max: number): v is number => Number.isInteger(v) && (v as number) >= min && (v as number) <= max
 
@@ -68,17 +70,19 @@ export function parseEvent(x: unknown): AppEvent | null {
 
 /** The envelope as the contract describes it, else null (nothing is stored); its events that break it are dropped and counted. */
 export function parseBatch(text: string): Batch | null {
-  const b = objectOf(text, ['app', 'os', 'device', 'lang', 'session', 'events'])
+  const b = objectOf(text, ['app', 'os', 'device', 'lang', 'session', 'install', 'events'])
   const meta = b && metaOf(b)
   if (!b || !meta) return null
   if (typeof b.lang !== 'string' || !(LANGS as readonly string[]).includes(b.lang) || typeof b.session !== 'string' || !UUID.test(b.session)) return null
+  if (b.install !== undefined && (typeof b.install !== 'string' || !UUID.test(b.install))) return null
   if (!Array.isArray(b.events) || b.events.length < 1 || b.events.length > MAX_EVENTS) return null
   const events = b.events.map(parseEvent).filter((e): e is AppEvent => e !== null)
-  return { ...meta, lang: b.lang, session: b.session.toLowerCase(), events, dropped: b.events.length - events.length }
+  return { ...meta, lang: b.lang, session: b.session.toLowerCase(), install: typeof b.install === 'string' ? b.install.toLowerCase() : '', events, dropped: b.events.length - events.length }
 }
 
-export const eventPoint = (b: Batch, e: AppEvent, country: string, test: boolean) => ({
-  blobs: [e.t, e.path, e.screen, e.shop, e.href, e.name, e.kind, b.app, b.os, b.device, b.lang, country, b.session, test ? '1' : '', ''],
+/** `install`: whether the install code is kept (stats-switch.ts APP_INSTALL_ID): until then it is accepted and dropped. */
+export const eventPoint = (b: Batch, e: AppEvent, country: string, test: boolean, install = APP_INSTALL_ID) => ({
+  blobs: [e.t, e.path, e.screen, e.shop, e.href, e.name, e.kind, b.app, b.os, b.device, b.lang, country, b.session, test ? '1' : '', '', install ? b.install : ''],
   doubles: [e.value, e.at],
   indexes: [b.session],
 })

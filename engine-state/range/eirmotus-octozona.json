@@ -1,0 +1,67 @@
+{
+  "id": "eirmotus-octozona",
+  "native": {
+    "input": "c8a2d19e0bb65239",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Eirmotus octozona is a small cyprinid with eight dark body bars, known from Johor state in Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The type series came from aquarium fish said to originate at Bueng Boraphet in Thailand, where it has never been recorded since, and if it occurs in Thailand it is probably restricted to the peninsula.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Eirmotus octozona is a small cyprinid with eight dark body bars, known from Johor state in Peninsular Malaysia.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Eirmotus octozona",
+    "status": "ACCEPTED",
+    "taxonKey": 2359308,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

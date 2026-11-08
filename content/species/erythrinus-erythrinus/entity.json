@@ -1,0 +1,1342 @@
+{
+  "id": "erythrinus-erythrinus",
+  "scientificName": "Erythrinus erythrinus",
+  "order": "Characiformes",
+  "family": "Erythrinidae",
+  "genus": "Erythrinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "peru",
+    "french-guiana",
+    "venezuela",
+    "trinidad-and-tobago",
+    "brazil",
+    "guyana",
+    "suriname"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "GF",
+        "VE",
+        "TT",
+        "BR",
+        "GY",
+        "SR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Peru, French Guiana, Venezuela, Trinidad and Tobago and Brazil.",
+          "countries": [
+            "PE",
+            "GF",
+            "VE",
+            "TT",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Also recorded from Guyana and Suriname.",
+          "countries": [
+            "GY",
+            "SR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352207,
+      "total": 870,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          433
+        ],
+        [
+          "GF",
+          192
+        ],
+        [
+          "GY",
+          76
+        ],
+        [
+          "PE",
+          64
+        ],
+        [
+          "SR",
+          45
+        ],
+        [
+          "EC",
+          21
+        ],
+        [
+          "VE",
+          10
+        ],
+        [
+          "BO",
+          9
+        ],
+        [
+          "CO",
+          9
+        ],
+        [
+          "PY",
+          8
+        ],
+        [
+          "AR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          13,
+          0
+        ],
+        [
+          -75.9375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          6,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          -74.53125,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          4,
+          1
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -15.46875,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          3,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          9,
+          9
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          0,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          9,
+          9
+        ],
+        [
+          -60.46875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          4.21875,
+          46,
+          46
+        ],
+        [
+          -60.46875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -28.125,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          5,
+          2
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -59.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -57.65625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          4.21875,
+          18,
+          18
+        ],
+        [
+          -56.25,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          -4.21875,
+          44,
+          44
+        ],
+        [
+          -56.25,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          13,
+          12
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          -54.84375,
+          1.40625,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          2.8125,
+          34,
+          34
+        ],
+        [
+          -54.84375,
+          4.21875,
+          28,
+          28
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          13,
+          13
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          0,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -53.4375,
+          2.8125,
+          74,
+          74
+        ],
+        [
+          -53.4375,
+          4.21875,
+          58,
+          58
+        ],
+        [
+          -52.03125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -50.625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -22.5,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          15,
+          15
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          12,
+          12
+        ],
+        [
+          -46.40625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -37.96875,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -36.5625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Make sure the cover is very tightly fitting as it can and will escape if given the opportunity.</li></ul><p>The red wolf fish, Erythrinus erythrinus, is a predatory erythrinid from Peru, French Guiana, Venezuela, Trinidad and Tobago and Brazil. Colour and pattern vary with collection locality, and genetic differences between populations suggest it is a species complex. A modified swim bladder lets it breathe in oxygen-deficient, stagnant water. It is very intolerant of conspecifics, often fighting them to the death, and will strike at nets and siphon tubes with its sharp teeth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Peru, French Guiana, Venezuela, Trinidad and Tobago and Brazil. Also recorded from Guyana and Suriname.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Small tributaries, swamps, marshes, pools, ditches and the margins of forest lakes. It is often found in very shallow water or lurking among surface vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Standard length: 20 cm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Ideally keep it in a heavily planted tank with plenty of floating vegetation, which will allow it to exhibit its natural behaviour. In a brightly lit or sparsely decorated tank, it tends to spend a lot of its time hidden away. It can be kept in unplanted tanks, but at the very least provide lots of hiding places and refuges. Make sure the cover is very tightly fitting as it can and will escape if given the opportunity.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: very adaptable and unfussy regarding water chemistry. Anywhere in the range 5.5–7.5 is OK.</li><li>Hardness: 2–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Feeds on both insects and fish in nature. In the aquarium its diet should consist of meaty fare such as earthworms, prawns, mussels and white fish such as lancefish. It usually refuses dried foods, although some specimens have been known to accept them over time. Many hobbyists feed predatory species such as this on large quantities of live 'feeder' fish, but there is no real benefit to this. Also, there is always the risk of introducing disease or parasites when feeding live fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Despite its fearsome appearance, it can be combined with other similarly-sized species in a large tank. In order to see it act naturally, though, it's much better off when kept alone as a single specimen. Smaller fish will be eaten and it's very intolerant of conspecifics, often fighting with them to the death.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Unknown. Mature females are likely to be rounder in the belly than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>Has not been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erythrinus-erythrinus",
+      "html": "<p>A species for the specialist, E. erythrinus is also known as the rainbow wolf fish or red hi-fin wolf fish. It is quite variable in colour and pattern depending on collection locality. There is a variant from Peru that has a bright orange belly. Recent studies have highlighted genetic differences in these different populations, suggesting that E. erythrinus is actually a species complex, rather than a single species. There is currently one other recognised species in the genus, E. kessleri, but it's virtually unheard of in the hobby.</p><p>All the variants have a modified swim bladder that acts as an accessory breathing organ, allowing the fish to survive in oxygen-deficient and stagnant waters. It's also been known to travel over land for short distances to new habitats when seasonal waters begin to dry up.</p><p>Interestingly, in French Guiana, juvenile specimens are known to mimic the colour pattern of the female of a particular species of Rivulus killifish, which shares its habitat. Male Rivulus are attracted to the mimic, only to meet with an untimely demise. As the Erythrinus grows it develops more colour and ceases this strategy.</p><p>Take care when performing tank maintenance of this species, as its mouth is filled with sharp teeth, and the fish show no fear, often striking at any new object placed in the tank, such as siphon tubes or nets.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d131ad97e8563e19.webp",
+      "width": 960,
+      "height": 611,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erythrinus_erythrinus.jpg",
+      "caption": "Erythrinus erythrinus",
+      "thumb": "https://media.aquatome.com/commons/d131ad97e8563e19-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5ab56ae9128e4b98.webp",
+      "width": 960,
+      "height": 978,
+      "licence": "CC BY-SA 4.0",
+      "author": "Didier Descouens",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carpodacus_erythrinus_erythrinus_MHNT.ZOO.2010.11_Vyborg.jpg",
+      "caption": "Egg of Common Rosefinch (Carpodacus erythrinus). Collection of Perrin de Brichambaut.",
+      "thumb": "https://media.aquatome.com/commons/5ab56ae9128e4b98-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "SUyWDLgY6Jc",
+      "title": "Erythrinus erythrinus PERU",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TsRj2RmS554",
+      "title": "1 year of Erythrinus Wolf fish growth in One Video!",
+      "durationSec": 607,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EQov3javjG0",
+      "title": "Red Wolf Fish Gets a New Home !",
+      "durationSec": 781,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qhPRuZ_DKiQ",
+      "title": "Erythrinus Erythrinus RED WOLF FISH",
+      "durationSec": 7,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy bơm lọc"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 150w",
+        "máy sưởi điều chỉnh nhiệt độ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá săn mồi",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

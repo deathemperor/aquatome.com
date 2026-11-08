@@ -14,19 +14,31 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/76ead7216b8a7406.webp",
-      "thumb": "https://media.aquatome.com/commons/76ead7216b8a7406-480.webp",
-      "width": 1200,
-      "height": 755,
-      "licence": "CC0",
-      "author": "H. H. Tan and S. H. Tan",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Image_of_Malayan_Penang_Betta.png",
-      "caption": "Cá betta pugnax trong bể kính, thân nâu vây xòe",
+      "url": "https://media.aquatome.com/inaturalist/125779421.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125779421-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "syuhada",
+      "sourceUrl": "https://www.inaturalist.org/photos/125779421",
+      "caption": "Cá betta pugnax bơi trên nền sỏi trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/537430537.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/537430537-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/537430537",
+      "caption": "Cá betta pugnax thân cam trong bể chụp ảnh tạm thời",
       "best": true,
       "kind": "other"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 21,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

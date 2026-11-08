@@ -30,11 +30,13 @@ deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aqua
 push() {
   for _ in 1 2 3; do
     if ! git pull -q --rebase; then
-      log "another part changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
+      local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+      log "another part changed the same files: $clash"
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
       if git pull -q --rebase -X theirs; then
+        replan_merged "$clash"
         sweep_merged
         verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
@@ -51,7 +53,8 @@ push() {
 # block the schedule forever.
 # Its process must still be a cycle script: the file outlives a restart, and its number can go to another process.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
-if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
+# Not this run's own number: from_main starts it again as the same process.
+if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'cycle\.sh'; then log "previous cycle (pid $(cat "$PIDFILE")) still running"; exit 0; fi
 echo $$ > "$PIDFILE"
 # On the Mac, a failed cycle is reported on GitHub: engine-mac.yml fails, naming the step or the log line it stopped at.
 trap 'FAILED="$BASH_COMMAND"' ERR
@@ -69,6 +72,10 @@ CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
   CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job. On
+# GitHub the run keeps it as an artifact (engine.yml).
+if [ -n "${GITHUB_ACTIONS:-}" ]; then COST_DIR=/tmp; else COST_DIR="$HOME/Library/Logs"; fi
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 
 # shellcheck disable=SC1091
 [ -n "${CI:-}" ] || { . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"; } # CI: setup-node
@@ -77,13 +84,14 @@ if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"*
   # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
   # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone.
   [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
-  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  from_main "$@"
   git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
 else
   # Any other checkout: nothing in it is dropped.
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
   git checkout -q main && git pull -q --ff-only
 fi
+cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -223,7 +231,8 @@ if part rewrite; then
   for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
   # Rivers and regions under the names Vietnamese readers use, before the other languages name them.
   pnpm engine name-places-vi || log "name-places-vi: failed"
-  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions and buying guides in both: only what is new or whose source changed.
+  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions, buying guides and the app's
+  # short cards in both: only what is new or whose source changed.
   for lang in id th; do
     pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
     pnpm engine localize-glossary --lang "$lang" || log "localize-glossary $lang: failed"
@@ -232,6 +241,7 @@ if part rewrite; then
     pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}" || log "localize-breeds $lang: failed"
     pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}" || log "localize-captions $lang: failed"
     pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
+    pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
   done
   # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
   # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
@@ -273,6 +283,7 @@ if part rewrite; then
     ahead pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"
     ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
+    ahead pnpm engine localize-cards --lang "$lang"
   done
 fi
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
@@ -289,6 +300,10 @@ if part photos; then
   # What the quality reviews found (engine-state/reviews/): pages under the bar and their most common faults, per kind
   # (docs/review/reviews.md), what prompt fixes start from.
   pnpm engine reviews || log "reviews: failed"
+  # The app's Hôm nay and Khám phá calendar (content/curation.json, docs/curation.md), from this cycle's photo verdicts:
+  # the next 21 days filled and any pick that stopped passing replaced. No model calls; a run changes the file only when
+  # a new Vietnamese day comes in or a pick fails, so about once a day.
+  pnpm engine curate || log "curate: failed"
 fi
 if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next

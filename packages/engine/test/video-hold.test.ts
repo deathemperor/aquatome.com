@@ -49,7 +49,7 @@ test('the mark stays through the steps that rewrite a guide\'s files: the schema
   await metricPages(join(root, 'content'), root)
   await sweep(root)
   const after = await read(root, 'content/guides/youtube-meds/vi.json')
-  expect(after.body).toContain('19 lít') // the guide was rewritten
+  expect(after.body).toContain('20 lít') // the guide was rewritten: 5 gallons, converted and rounded
   expect(after.quality.chat).toBe(false)
   expect((await read(root, 'content/guides/youtube-meds/id.json')).quality.chat).toBe(false)
 })

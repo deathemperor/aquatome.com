@@ -2,16 +2,28 @@
   "id": "channa-baramensis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/3657ec5c87f20a04.webp",
-      "thumb": "https://media.aquatome.com/commons/3657ec5c87f20a04-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/312481967.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/312481967-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_andrao_im_Aquarium.jpg",
-      "caption": "Cá lóc Baram với vây xanh lam óng ánh trong bể nuôi",
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/312481967",
+      "caption": "Cá lóc Baram trong môi trường tự nhiên, nước suối có lá mục",
       "best": true,
-      "kind": "other"
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/342586710.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/342586710-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY",
+      "author": "Jay Pruett",
+      "sourceUrl": "https://www.inaturalist.org/photos/342586710",
+      "caption": "Cá lóc Baram màu vàng nâu bơi trên nền lá mục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/f1cf8895771162e6.webp",
@@ -26,7 +38,7 @@
       "kind": "other"
     }
   ],
-  "seen": 2,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 5,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

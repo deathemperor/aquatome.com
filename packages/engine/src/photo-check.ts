@@ -7,7 +7,7 @@ import { galleryPlan } from './gallery-plan'
 import { contactSheet } from './video-images'
 import { LOGO_FOLDERS, stripPhotos } from './watermarks'
 
-type Photo = { url: string; caption?: string; author?: string }
+type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string }
 /**
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
@@ -18,9 +18,10 @@ type Photo = { url: string; caption?: string; author?: string }
  * watermark step's text reader can miss (since 2026-11-05). `person`: a person or any part of one in the photo; every
  * verdict since 2026-11-07 has it, so one without it is from before the check asked about people, and is asked again.
  * `guide`: judged against a guide photo's caption, which lets other fish into the shot, so it doesn't stand for the page's
- * own stricter look.
+ * own stricter look. `file`: "other" from the photo's Commons file name, which names another species with a page
+ * (fileNamesOther), with no model call.
  */
-export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; logo?: boolean; person?: boolean; guide?: boolean }
+export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; logo?: boolean; person?: boolean; guide?: boolean; file?: true }
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
@@ -31,7 +32,7 @@ export const PHOTO_CHECK_SCHEMA = {
   properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },
 }
 /** Verdicts that take a photo off its page. */
-const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
 /**
  * Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, a person or part
  * of one ("Photos never show people (hands count)", PRODUCT.md), or a logo.
@@ -45,7 +46,8 @@ const blockedFor = (by: Record<string, PhotoVerdict> = {}) => {
 }
 
 /** A page whose photos show one subject: a species, a plant (a cultivar is named in its scientific name), or a breed. */
-export type Subject = { id: string; kind: 'species' | 'plants' | 'breeds'; sci: string; names: string[]; breed?: string }
+/** `latin`: a species' or plant's synonyms. */
+export type Subject = { id: string; kind: 'species' | 'plants' | 'breeds'; sci: string; names: string[]; breed?: string; latin?: string[] }
 
 const PER_SHEET = 6
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
@@ -91,16 +93,41 @@ const ascii = (n: string) => /^[\x20-\x7e]+$/.test(n)
  * Species, plant and breed pages. A breed is judged against what sets it apart and its base species, or a hybrid's
  * parents; a transgenic line (GloFish: danios, tetras, barbs, bettas) against its own names only.
  */
+const words = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim()
+
+/**
+ * The other species a Commons file's name names, when the site has a page for it and the name doesn't name this page's
+ * own too (its scientific name or a synonym). The gallery step writes captions in Vietnamese, so the file name is often
+ * all that says which fish a photo is, and the model takes look-alikes for the page's: a Dario dario male judged a Badis
+ * badis, a Channa andrao "can't tell" on two snakehead pages (the v2 Lab, 2026-11-08). A species and its varieties count
+ * as one (Anubias barteri on the var. glabra page), and a plant named on a fish's photo is in its tank; breeds' photos
+ * are filed under their species, so none for them.
+ * `byName`: species and plants by each Latin name, as `words` gives it.
+ */
+export function fileNamesOther(source: string | undefined, s: Subject, byName: Map<string, Subject>): Subject | undefined {
+  const file = source?.match(/commons\.wikimedia\.org\/wiki\/File:([^?#]+)/)?.[1]
+  if (!file || s.kind === 'breeds') return undefined
+  let name: string
+  try { name = decodeURIComponent(file) } catch { return undefined }
+  const w = words(name.replace(/\.[a-z0-9]+$/i, '')).split(' ')
+  const named = new Set<Subject>()
+  for (let i = 0; i < w.length; i++) for (let n = 2; n <= 4 && i + n <= w.length; n++) { const x = byName.get(w.slice(i, i + n).join(' ')); if (x) named.add(x) }
+  if (named.has(s)) return undefined
+  const own = words(s.sci)
+  // Only its own kind: a fish's photo may name the plants in the tank.
+  return [...named].find(o => { const a = words(o.sci); return o.kind === s.kind && !a.startsWith(`${own} `) && !own.startsWith(`${a} `) })
+}
+
 async function subjects(content: string): Promise<Subject[]> {
   const out: Subject[] = []
   const sci = new Map<string, string>()
   for (const kind of ['species', 'plants', 'breeds'] as const) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
-      const e = await readJson<{ scientificName?: string; kind?: string; basedOn?: string; parents?: { name: string; species?: string }[] }>(join(content, kind, id, 'entity.json'))
+      const e = await readJson<{ scientificName?: string; synonyms?: string[]; kind?: string; basedOn?: string; parents?: { name: string; species?: string }[] }>(join(content, kind, id, 'entity.json'))
       if (!e) continue
       const t = (await readJson<{ name?: string; altNames?: string[]; body?: string }>(join(content, kind, id, 'vi.json'))) ?? {}
       const names = [t.name, ...(t.altNames ?? []).filter(ascii)].filter((n): n is string => !!n)
-      if (kind !== 'breeds') { sci.set(id, e.scientificName ?? id); out.push({ id, kind, sci: e.scientificName ?? id, names }); continue }
+      if (kind !== 'breeds') { sci.set(id, e.scientificName ?? id); out.push({ id, kind, sci: e.scientificName ?? id, names, ...(e.synonyms?.length ? { latin: e.synonyms } : {}) }); continue }
       const base = e.basedOn ? sci.get(e.basedOn) : e.kind === 'hybrid' ? (e.parents ?? []).map(p => (p.species && sci.get(p.species)) || p.name.match(/\(([A-Z][a-z]+ [a-z]+)\)/)?.[1]).filter(Boolean).join(' × ') : undefined
       const marks = t.body?.match(/<h3>Nhận biết[^<]*<\/h3>\s*<p>([\s\S]*?)<\/p>/)?.[1]
       out.push({ id, kind, sci: base ?? '', names, ...(marks ? { breed: text(marks).slice(0, 300) } : {}) })
@@ -205,7 +232,7 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 }
 
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; source?: string }
 
 /**
  * Every photo on a species, plant or breed page (its own photos and its gallery) must show that page's subject, judged
@@ -246,7 +273,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const shown: Shown[] = []
   for (const s of all) {
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      for (const [i, p] of ((await readJson<{ photos?: Photo[] }>(file))?.photos ?? []).entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}) })
+      for (const [i, p] of ((await readJson<{ photos?: Photo[] }>(file))?.photos ?? []).entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}) })
     }
   }
   const index = nameIndex(all)
@@ -266,18 +293,33 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     return (v && !(strict && v.guide) ? v : undefined) ?? (legacy[url] && legacy[url].ok !== 'unsure' && pagesOf.get(url)?.size === 1 ? legacy[url] : undefined)
   }
 
+  // 0. A Commons photo whose file name names another species with a page is "other" there, with no model call, whatever
+  // the model said; a file verdict that no longer holds (the page's names changed) goes, and the model judges the photo.
+  const byName = new Map<string, Subject>()
+  for (const s of all) if (s.kind !== 'breeds') for (const n of [s.sci, ...(s.latin ?? [])]) if (!byName.has(words(n))) byName.set(words(n), s)
+  for (const x of shown) {
+    const s = x.page && !x.guide ? byId.get(x.page) : undefined
+    if (!s) continue
+    const other = fileNamesOther(x.source, s, byName)
+    const v = cache[x.url]?.[s.id]
+    if (other) cache[x.url] = { ...cache[x.url], [s.id]: { ...v, ok: 'other', typical: false, note: `its Commons file names ${other.sci}`, file: true } }
+    else if (v?.file) cache[x.url] = Object.fromEntries(Object.entries(cache[x.url]!).filter(([id]) => id !== s.id))
+  }
+
   // 1. The model judges photos not judged yet or judged before the check asked about people (with `recheck`, only those
   // named there), most-read pages first: what each page shows itself (its photos, its gallery strip, guide photos naming
   // it), then the rest of each gallery.
-  const stale = (x: Shown) => verdict(x.url, x.page!, !x.guide)?.person === undefined
+  const stale = (x: Shown) => { const v = verdict(x.url, x.page!, !x.guide); return v?.person === undefined && !v?.file }
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
+  // `only`: one page id, or several, comma-separated.
+  const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const queue = (want: (x: Shown) => boolean) => {
     const from = sheets.length
     for (const later of [false, true]) for (const s of all) {
       if (sheets.length >= o.limit) break
-      if (o.only && s.id !== o.only) continue
+      if (only && !only.has(s.id)) continue
       const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
       for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
@@ -351,7 +393,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const why = url in rejected ? undefined : blockedFor(cache[url])
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
-  for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
+  // Not one its file name took off: a photo of the species it names, which that species' page may still take.
+  const named = (url: string) => Object.values(cache[url] ?? {}).some(v => v.file)
+  for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && !named(url) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   const blocked = (file: string) => (url: string) => url in rejected || url in added || offAt.has(`${file}\n${url}`)
   for (const file of [...new Set(shown.map(x => x.file))]) {

@@ -1,0 +1,43 @@
+{
+  "id": "fundulopanchax-gresensi",
+  "native": {
+    "input": "a5427a2cd8fb95b0",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a relatively small area near the villages of Takwai I and II, Atebong Wire and Edjuingan in western Cameroon, with records existing from the Bagwor and Mack river systems both of which are tributaries within the upper Cross River basin, western Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cross River",
+        "source": "seriouslyfish",
+        "quote": "Known only from a relatively small area near the villages of Takwai I and II, Atebong Wire and Edjuingan in western Cameroon, with records existing from the Bagwor and Mack river systems both of which are tributaries within the upper Cross River basin, western Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Fundulopanchax gresensi",
+    "status": "ACCEPTED",
+    "taxonKey": 2348513,
+    "datasets": [],
+    "native": [
+      "CM"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

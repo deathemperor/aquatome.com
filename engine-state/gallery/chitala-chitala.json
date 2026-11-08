@@ -29,7 +29,10 @@
   "File:Chitala Fish and Wallago attu Fish in a Bangladeshi market.jpg",
   "File:Chitala hypselonotus 263843390.jpg",
   "File:Chitala chitala in Dong Nai river, Vietnam.jpg",
-  "File:Chital (a type of Fish).jpg"
+  "File:Chital (a type of Fish).jpg",
+  "inat:245796580",
+  "inat:52760917",
+  "inat:540538204"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/66be7c0556572082.webp": "b8988ebf67f3e0e0",
@@ -43,5 +46,13 @@
   "https://media.aquatome.com/commons/44fd2dd118ae9262.webp": "e1e160c1a1a09081",
   "https://media.aquatome.com/commons/9015915f8118080d.webp": "2c6e0e1e0e3d2f4d"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 97543,
+  "pass": "done",
+  "after": {
+   "research": 300016764,
+   "agree": 0
+  }
+ }
 }

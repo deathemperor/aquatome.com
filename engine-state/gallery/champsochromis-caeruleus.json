@@ -2,8 +2,15 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/commons/d05cd999b6b5623c.webp": "1330f8ccea2c3531",
   "https://media.aquatome.com/commons/923375d0c0e161e3.webp": "4998220d170f0e16"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 97261,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

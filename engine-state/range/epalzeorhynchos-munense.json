@@ -1,0 +1,100 @@
+{
+  "id": "epalzeorhynchos-munense",
+  "native": {
+    "input": "c749db75dcbf4207",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Epalzeorhynchos munense is a cyprinid from the Mun river and other tributaries of the middle Mekong in Thailand and Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Epalzeorhynchos munense is a cyprinid from the Mun river and other tributaries of the middle Mekong in Thailand and Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as \"Thailand: Menam Mun at Tha Chang, East of Korat\".",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Both the type series and the fish in the page's image were collected from the Mun, but it has been recorded from some other tributaries of the middle Mekong in both Thailand and Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's unclear whether a record from the Tonlé Sap lake/river system is correct or refers to the congener E. frenatum, so it may occur in Cambodia as well.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Epalzeorhynchos munense is a cyprinid from the Mun river and other tributaries of the middle Mekong in Thailand and Laos.",
+        "ok": true
+      },
+      {
+        "name": "Mun",
+        "source": "seriouslyfish",
+        "quote": "Epalzeorhynchos munense is a cyprinid from the Mun river and other tributaries of the middle Mekong in Thailand and Laos.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Epalzeorhynchos munense",
+    "status": "ACCEPTED",
+    "taxonKey": 2360406,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

@@ -4,6 +4,7 @@ import { dayChart, dayLabel, esc, fmt, lastDays, meter, rankTable, tiles, type D
 import { cellOf, chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
 import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, hourMinute, localDay, sameClock, timeTag } from './time'
+import { qualityBlocks, qualityHtml, type Quality } from './quality'
 
 /** The dashboard's Nội dung page: what the site holds (the build's content.json), how it grows, what the engine is doing, what's missing, and how readers use it. */
 
@@ -44,21 +45,28 @@ export function perDay(snaps: Snapshot[], days: string[], pick: (t: Totals) => n
   })
 }
 /** The nightly totals are kept at 20:17 UTC (wrangler.jsonc's cron) under that UTC day: when that is for the viewer. */
-const SAVED = '20:17'
+export const SAVED = '20:17'
+const savedAt = (now: Date) => `${now.toISOString().slice(0, 10)}T${SAVED}:00Z`
 const savedNote = (now: Date, tz: string) => {
+  const at = savedAt(now)
+  return `lúc ${hourMinute(at, tz)} ${localDay(at, tz) > now.toISOString().slice(0, 10) ? 'sáng hôm sau' : 'cùng ngày'}`
+}
+/** The day the next save is kept under, the one still being counted: today's UTC day until the save, then tomorrow's. */
+export const openDay = (now: Date) => {
   const day = now.toISOString().slice(0, 10)
-  const at = `${day}T${SAVED}:00Z`
-  return `lúc ${hourMinute(at, tz)} ${localDay(at, tz) > day ? 'sáng hôm sau' : 'cùng ngày'}`
+  return now.getTime() < Date.parse(savedAt(now)) ? day : new Date(Date.parse(`${day}T00:00:00Z`) + 86_400_000).toISOString().slice(0, 10)
 }
 
 export type ContentPage = {
   now: Date; stats: Soft<ContentStats>; reads: Soft<ContentReads>; talk: Soft<Talk>; clicks: Soft<KindClicks>; snapshots: Soft<Snapshot[]>
   /** The pages out of search for their score (dist/_ab/reviews.json); none drawn without it, as a build before it. */
   low?: Soft<LowScores | undefined>
+  /** Each page's quality score and the lists out of it (quality.ts), first on the page. */
+  quality?: Soft<Quality>
   /** The viewer's time zone (admin/time.ts). */ tz?: string
 }
 
-const JUMP = [['tong', 'Tổng'], ['tang', 'Tăng thêm'], ['engine', 'Engine'], ['thieu', 'Còn thiếu'], ['anh', 'Ảnh'], ['doc', 'Người đọc'], ['binh-luan', 'Bình luận'], ['affiliate', 'Affiliate'], ['nguon', 'Nguồn']] as const
+const JUMP = [['chat-luong', 'Quality'], ['tong', 'Tổng'], ['tang', 'Tăng thêm'], ['engine', 'Engine'], ['thieu', 'Còn thiếu'], ['anh', 'Ảnh'], ['doc', 'Người đọc'], ['binh-luan', 'Bình luận'], ['affiliate', 'Affiliate'], ['nguon', 'Nguồn']] as const
 const link = (path: string, title: string) => `<a href="${esc(path)}">${esc(title)}</a>`
 
 const contentLede = (s: ContentStats, now: Date, tz: string) => `Từ bản build lúc ${timeTag(s.builtAt, tz, now)}${s.publicBuild ? '' : ', không phải bản công khai'}. Engine cập nhật nội dung 3 giờ một lần; mỗi lần đăng, số liệu này đổi theo.`
@@ -71,7 +79,7 @@ export function contentPage(c: ContentPage): string {
   const s = c.stats
   body += `<p class="lede">${contentLede(s, c.now, tz)}</p>
 <nav class="jump" aria-label="Các phần của trang"><ul>${JUMP.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul></nav>`
-  body += totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s, c.low, c.reads, tz) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
+  body += qualityHtml(c.quality) + totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s, c.low, c.reads, tz) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
   return page('/_ab/noi-dung/', 'Nội dung', body, c.now, tz)
 }
 
@@ -82,7 +90,7 @@ export function contentSection(c: ContentPage): Section {
   const s = c.stats
   return {
     title: 'Nội dung',
-    blocks: [note(textOf(contentLede(s, c.now, tz))), ...totalsBlocks(s), ...growthBlocks(c.now, s, c.snapshots, tz), ...engineBlocks(c.now, s, tz), ...gapsBlocks(s, c.low, c.reads, tz), ...photosBlocks(s), ...readsBlocks(c.reads), ...talkBlocks(c.talk), ...clicksBlocks(c.clicks, c.now, tz), ...sourcesBlocks(s)],
+    blocks: [note(textOf(contentLede(s, c.now, tz))), ...qualityBlocks(c.quality), ...totalsBlocks(s), ...growthBlocks(c.now, s, c.snapshots, tz), ...engineBlocks(c.now, s, tz), ...gapsBlocks(s, c.low, c.reads, tz), ...photosBlocks(s), ...readsBlocks(c.reads), ...talkBlocks(c.talk), ...clicksBlocks(c.clicks, c.now, tz), ...sourcesBlocks(s)],
   }
 }
 
@@ -123,17 +131,22 @@ const signed = (n: number) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${fmt(Math.abs
 const BY_SOURCE_HEAD = ['Nguồn', 'Bài thêm']
 /** What "Tăng thêm" draws once two nights are kept: two charts, what each source added, and the note on how it's kept. */
 function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) {
-  const days = lastDays(now, 30, tz)
+  const open = openDay(now)
+  // From the first day with a save before it (earlier ones aren't days of this count) to the day the next save closes.
+  const days = lastDays(new Date(`${open}T00:00:00Z`), 30).filter(d => d > snaps[0]!.day)
+  // That day so far: the running build's totals, which are what the next save keeps, less the last save.
+  const kept = snaps.some(x => x.day === open) ? snaps : [...snaps, { day: open, totals: s.totals }]
+  const closes = { partialLast: true, ...(open === localDay(now, tz) ? {} : { lastSays: `sẽ chốt lúc ${hourMinute(savedAt(now), tz)}` }) }
   const v = (k: EntityKind) => (t: Totals) => t.kinds[k]?.vi ?? 0
   const missing = 'chưa lưu số liệu ngày này'
   // New translations come in bursts: columns per day, not lines drawn between days as if they flowed.
   const charts: DayChart[] = [{
-    id: 'n-added', title: 'Bài mới mỗi ngày (tiếng Việt)', days, partialLast: true, missing,
-    series: [{ label: 'Cá', values: perDay(snaps, days, v('fish')) }, { label: 'Cây', values: perDay(snaps, days, v('plant')) }, { label: 'Bài viết, bài từ video', values: perDay(snaps, days, t => v('guide')(t) + v('videoGuide')(t)) }],
+    id: 'n-added', title: 'Bài mới mỗi ngày (tiếng Việt)', days, ...closes, missing,
+    series: [{ label: 'Cá', values: perDay(kept, days, v('fish')) }, { label: 'Cây', values: perDay(kept, days, v('plant')) }, { label: 'Bài viết, bài từ video', values: perDay(kept, days, t => v('guide')(t) + v('videoGuide')(t)) }],
     empty: 'Chưa có bài mới nào trong những ngày đã lưu.',
   }, {
-    id: 'n-langs', title: 'Bài tiếng Indonesia và tiếng Thái mới mỗi ngày', days, partialLast: true, missing,
-    series: OTHER_LANGS.map(l => ({ label: LANG_VI[l], values: perDay(snaps, days, t => inLang(t, l)) })),
+    id: 'n-langs', title: 'Bài dịch mới mỗi ngày', days, ...closes, missing,
+    series: OTHER_LANGS.map(l => ({ label: LANG_VI[l], values: perDay(kept, days, t => inLang(t, l)) })),
     empty: 'Chưa có bài dịch mới nào trong những ngày đã lưu.',
   }]
   // What each source added over the last 7 days kept (or since the first day kept).
@@ -145,7 +158,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
     charts,
     sourceTitle: `Theo nguồn, từ ${esc(from.day.slice(8, 10))}/${esc(from.day.slice(5, 7))}`,
     sources: bySource.map(x => ({ label: esc(s.sources[x.id]?.name ?? x.id), value: x.n })) as Ranked[],
-    note: `Mỗi đêm lưu tổng số một lần, ${savedNote(now, tz)} (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.`,
+    note: `Mỗi đêm lưu tổng số một lần, ${savedNote(now, tz)} (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Cột cuối là phần thêm từ lần lưu trước tới giờ, theo bản đang chạy trên site. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.`,
   }
 }
 

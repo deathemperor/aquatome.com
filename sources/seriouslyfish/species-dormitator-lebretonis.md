@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/dormitator-lebretonis
 title: Dormitator lebretonis (Clay Goby) · Seriously Fish
-fetchedAt: 2026-11-07T05:08:33.882Z
+fetchedAt: 2026-11-07T19:50:10.347Z
 hash: 946fe4f741a896ec9c3ce3dfe24028f1ccb6edc11ad027bba109c3133d66e749
 ---
 

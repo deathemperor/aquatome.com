@@ -1,0 +1,98 @@
+{
+  "id": "noturus-leptacanthus",
+  "scientificName": "Noturus leptacanthus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<ul><li>Scientific name: Noturus leptacanthus Jordan, 1877</li><li>Common names: Speckled Madtom; Småplettet Giftmalle (Denmark)</li><li>Synonym: Schilbeodes leptacanthus</li><li>Etymology: From the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins.</li><li>IUCN Red List category: Least Concern (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<p>North America: North American Atlantic drainages, Florida waters and Gulf Coast drainages.</p><p>Type locality: Silver Creek, 1 mile above its junction with Etowah River, near Rome, Floyd County, Georgia, U.S.A.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<p>Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 352.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e4e6e9c757d53479.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e4e6e9c757d53479-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Tim Aldridge / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "caption": "Noturus leptacanthus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/77d3abce046040da.webp",
+      "thumb": "https://media.aquatome.com/scotcat/77d3abce046040da-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "nv_multispeciesfishing / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "caption": "Noturus leptacanthus: US-1, Ridge Spring, SC 29129, USA",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "uQ4IhRQlsdQ",
+      "title": "Speckled Madtom eating a snack #catfish #aquarium #cool #like #subscribe #share #watch",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OoX_I1UST78",
+      "title": "Fish Friday #84 - Speckled Madtom",
+      "durationSec": 796,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3zM3XZ4YtDk",
+      "title": "Speckled Madtom Eats Earthworm",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v6EexCHDy0M",
+      "title": "Microfishing: Jaded Micros, Day 1, Part 2",
+      "durationSec": 1191,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-08"
+}

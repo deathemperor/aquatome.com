@@ -5,7 +5,8 @@
   "File:Betta tussyae (female) 2010-04-01.JPG",
   "File:Betta tussyae (male) 2010-05-09.jpg",
   "File:Betta tussyae (male) 2010-05-09 2.jpg",
-  "File:Betta tussyae 251681092.jpg"
+  "File:Betta tussyae 251681092.jpg",
+  "inat:251681092"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/7d2937d52666ab8e.webp": "69796b070be2da7e",
@@ -14,5 +15,13 @@
   "https://media.aquatome.com/commons/985e9c53e3ada97f.webp": "deadc58d37af8f4b",
   "https://media.aquatome.com/commons/83c72d6148c7aadb.webp": "a56373379b0f0c85"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 618888,
+  "pass": "done",
+  "after": {
+   "research": 146396079,
+   "agree": 0
+  }
+ }
 }

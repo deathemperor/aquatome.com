@@ -1,0 +1,359 @@
+{
+  "id": "esomus-longimanus",
+  "scientificName": "Esomus longimanus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Esomus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong",
+    "laos",
+    "cambodia",
+    "tonle-sap",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Mekong river basin in Thailand, Laos, Cambodia, and Vietnam, the Tonlé Sap river and lake system in Cambodia, and smaller, coastal drainages in southeast Thailand.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364610,
+      "total": 31,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KH",
+          15
+        ],
+        [
+          "TH",
+          11
+        ],
+        [
+          "LA",
+          3
+        ],
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          9,
+          9
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. It is an accomplished jumper and able to escape through the tiniest of gaps.</p><p>The Mekong flying barb, Esomus longimanus, is a cyprinid from the Mekong basin in Thailand, Laos, Cambodia and Vietnam, and the Tonlé Sap system. It favours shallow, slow-moving and standing waters with dense aquatic vegetation, such as ditches, marshes and rice paddies. Like other Esomus it has greatly enlarged pectoral fins and very long maxillary barbels, and it jumps well enough to escape through the tiniest gaps.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Known from the Mekong river basin in Thailand, Laos, Cambodia, and Vietnam, the Tonlé Sap river and lake system in Cambodia, and smaller, coastal drainages in southeast Thailand. Records from Peninsular Malaysia are likely to refer to other species.</p><p>Type locality is given simply as 'Cambodia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Found in various types of habitat but shows a marked preference for shallow, slow-moving and standing waters with dense aquatic vegetation such as ditches, marshes, rice paddies and other temporally-inundated environments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>An aquarium with base dimensions of 120 × 30 cm (about 108 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Choice of décor is not as critical as water quality. The addition of some floating plants and driftwood roots or branches to diffuse the light seems to reduce skittish behaviour as well as adding a more natural feel.</p><p>Water movement does not need to be particularly strong as it mostly hails from sluggish waters, and do not add this fish to a biologically-immature tank as it can be susceptible to swings in water chemistry. Also be sure to add a tightly-fitting cover as it's an accomplished jumper and able to escape through the tiniest of gaps.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Feeds on terrestrial and aquatic invertebrates and their larvae in nature. In the aquarium it will accept dried foods of a suitable size but should also be offered live and frozen Daphnia, Artemia, chironomid larvae (bloodworm), etc., on a regular basis.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Adult males are noticeably slimmer and usually a little smaller than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<p>There currently exist a dozen described Esomus species, although few are seen in the ornamental trade and none are especially popular. Most are commonplace in their native countries but are generally overlooked by collectors due to their relatively plain colouration. Their most common use in some areas is actually as a feeder fish in the aquaculture of larger species. They are characterised by greatly-enlarged pectoral fins and two pairs of barbels, of which the maxillary pair are extremely long and usually reach the pectoral fins.</p><p>In recent years a number of phylogenetic studies involving Esomus and its near relatives have been conducted and conflicting results published. For example a 2003 study by Fang et al. concluded that the genus is the sister group, i.e., most closely-related to, Danio whereas Mayden et al. (2007) placed the genera Chela, Microrasbora, Devario and Inlecypris as sisters to Danio with Esomus as a basal sister group to that larger clade.</p><p>A further analysis by Fang et al. published in 2009 recovered Esomus as sister to Danio but noted that its exact placement is uncertain due to conflicting results depending on the type of analysis performed. The authors go on to state that more detailed studies into the molecular and morphological characters of the genus are needed in order to identify its exact relationships with its closest relatives.</p><p>Some aquarium hobbyists have recorded a type of wasting disease that can appear in Esomus spp. characterised by a rapid reduction in body mass of affected specimens. The problem manifests itself as an initial thinning of the ventral part of the body just behind the gills and usually results in death within a couple of weeks. As yet no treatment is known.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "html": "<ul><li>Lunel, G. (1881). Mélanges ichthyologiques. Liste de quelques espèces de poissons, nouvelles pour la faune de l'île Maurice. Mémoires de la Société de Physique et d'Histoire Naturelle de Genève 27(2), 266-303</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f0e6145fbf3a196a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f0e6145fbf3a196a-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "caption": "Individual collected from the Tonlé Sap lake, Cambodia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d24628073acc1aba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d24628073acc1aba-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "caption": "Detail of head and body.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6f4498949638c14c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6f4498949638c14c-480.webp",
+      "width": 800,
+      "height": 556,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/esomus-longimanus",
+      "caption": "This species is known from the Tonlé Sap lake, Cambodia.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "lũa thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

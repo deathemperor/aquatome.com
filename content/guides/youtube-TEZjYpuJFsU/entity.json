@@ -1,6 +1,6 @@
 {
   "id": "youtube-TEZjYpuJFsU",
-  "kind": "care",
+  "kind": "discovery",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=TEZjYpuJFsU",
   "html": "",
@@ -13,9 +13,11 @@
     "xiphophorus-hellerii",
     "xiphophorus-maculatus",
     "pterophyllum-scalare",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "trigonostigma-heteromorpha",
+    "hyphessobrycon-eques"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "TEZjYpuJFsU",
     "title": "Top các loại cá phù hợp cho bể Thuỷ Sinh Bền Vững",
@@ -72,97 +74,168 @@
     },
     "lang": "vi",
     "taxa": [
-      "Trigonostigma sp.",
+      "Trigonostigma heteromorpha",
       "Poecilia reticulata",
       "Tanichthys albonubes",
       "Otocinclus sp.",
-      "Poecilia sphenops",
-      "Poecilia latipinna",
-      "Xiphophorus hellerii",
       "Xiphophorus maculatus",
-      "Pterophyllum scalare",
-      "Neocaridina davidi"
+      "Poecilia sphenops",
+      "Xiphophorus hellerii",
+      "Hyphessobrycon eques",
+      "Pterophyllum scalare"
     ],
     "gear": [],
     "figures": [
       {
-        "heading": "Tam giác hoang dã: lựa chọn an toàn nhất",
+        "heading": "Cá tam giác hoang dã: một lựa chọn an toàn",
         "moments": [
           {
-            "t": 46,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t46.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh xanh um, vài chú cá nhỏ bơi lẫn trong cây."
+            "t": 44,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at44-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vài con cá tam giác đỏ bơi trong bể thủy sinh lên cây rậm."
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t69.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn tam giác hoang dã đỏ rực bơi giữa cây thủy sinh."
+            "t": 54,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at54-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá tam giác bơi phía trên đám cây thủy sinh xanh."
           }
         ]
       },
       {
-        "heading": "Bảy màu rừng và diếc anh đào: muốn bể có màu",
+        "heading": "Bảy màu rừng: chơi dòng đơn giản cho bền",
         "moments": [
           {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t105.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh nhiều cây và đá, có đàn cá nhỏ bơi trong bể."
+            "t": 94,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at94-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bảy màu đỏ trong bể cây rậm, nhìn khỏe và bền."
           },
           {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t115.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá bảy màu đỏ bơi phía trên đám cây thủy sinh xanh tốt."
-          }
-        ]
-      },
-      {
-        "heading": "Otto: thợ dọn rêu của bể",
-        "moments": [
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t145.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá nhỏ bơi giữa bể thủy sinh cây xanh, sạch rêu hại."
+            "t": 116,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at116-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bảy màu đỏ bơi phía trên bể thủy sinh nhiều cây."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/TEZjYpuJFsU/p3-mdHdvb2RfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/TEZjYpuJFsU/p3-mdHdvb2RfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/TEZjYpuJFsU/p1-Bob18wMDQ4LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/TEZjYpuJFsU/p1-Bob18wMDQ4LmpwZw-480.webp",
           "width": 960,
-          "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Evan Baldonado",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otto nhỏ bám trên khúc lũa, gặm rêu trong bể thủy sinh."
+          "height": 493,
+          "licence": "CC BY 3.0",
+          "author": "Per Harald Olsen",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guppy_pho_0048.jpg",
+          "caption": "Bảy màu rừng bản gốc, thân mảnh, màu giản dị nhưng khỏe."
         }
       },
       {
-        "heading": "Những nhóm cá nuôi được nhưng cần cân nhắc",
+        "heading": "Diếc anh đào siêu đỏ: đẹp, khỏe, hơi rỉa tép",
         "moments": [
           {
-            "t": 181,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t181.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá mún đỏ và cá bình bơi sát kính trong bể thủy sinh."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ màu đỏ bơi trong bể thủy sinh nhiều cây và đá."
           },
           {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/t200.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể nuôi nhiều cá với lũa và nước ngả vàng cam."
+            "t": 146,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at146-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đỏ bơi gần cây thủy sinh và tép đỏ trong bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TEZjYpuJFsU/p2-X3RpdHRleWEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/TEZjYpuJFsU/p2-X3RpdHRleWEuanBn-480.webp",
+          "width": 960,
+          "height": 574,
+          "licence": "CC BY 2.0",
+          "author": "Brian Gratwicke",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_barb,_Puntius_titteya.jpg",
+          "caption": "Diếc anh đào đỏ rực bơi giữa bụi cây thủy sinh xanh."
+        }
+      },
+      {
+        "heading": "Cá otto: dọn rêu cho bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TEZjYpuJFsU/p3-dmVzdGl0dXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/TEZjYpuJFsU/p3-dmVzdGl0dXMuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fremen",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
+          "caption": "Cá otto với sọc đen dọc thân đang bơi trong bể thủy sinh."
+        }
+      },
+      {
+        "heading": "Mún, bình tích, molly, kiếm: dễ nuôi nhưng thải và đẻ nhiều",
+        "moments": [
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bình tích đỏ bơi trong bể thủy sinh nhiều cây."
+          },
+          {
+            "t": 176,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at176-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con cá molly, bình tích đỏ bơi sát kính bể."
           }
         ]
+      },
+      {
+        "heading": "Cầu vồng Việt, kim tơ, sóc đầu đỏ: khỏe nhưng có thể hơi hung",
+        "moments": [
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nước ngả đỏ với nhiều cá nhỏ bơi giữa lũa."
+          }
+        ]
+      },
+      {
+        "heading": "Cánh buồm, xecan, thần tiên: hay gây lộn và rỉa cây",
+        "moments": [
+          {
+            "t": 206,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at206-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hồ thủy sinh có lũa và cá bơi giữa đám cây."
+          },
+          {
+            "t": 216,
+            "url": "https://media.aquatome.com/video/TEZjYpuJFsU/at216-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đỏ bơi giữa các bụi cây thủy sinh xanh trong hồ."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TEZjYpuJFsU/p6-FsYXJlXzAzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/TEZjYpuJFsU/p6-FsYXJlXzAzLmpwZw-480.webp",
+          "width": 960,
+          "height": 986,
+          "licence": "CC BY 4.0",
+          "author": "Versions111",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_03.jpg",
+          "caption": "Cá thần tiên vàng bơi cạnh bụi cây thủy sinh lá dài trong bể."
+        }
       }
     ]
   }

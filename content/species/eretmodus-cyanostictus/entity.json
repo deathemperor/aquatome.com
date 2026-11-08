@@ -12,6 +12,107 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369849,
+      "total": 163,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ZM",
+          55
+        ],
+        [
+          "CD",
+          52
+        ],
+        [
+          "TZ",
+          45
+        ],
+        [
+          "BI",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -14.0625,
+          1
+        ],
+        [
+          28.125,
+          -7.03125,
+          10
+        ],
+        [
+          28.125,
+          -5.625,
+          6
+        ],
+        [
+          28.125,
+          -4.21875,
+          29
+        ],
+        [
+          29.53125,
+          -9.84375,
+          16
+        ],
+        [
+          29.53125,
+          -8.4375,
+          23
+        ],
+        [
+          29.53125,
+          -7.03125,
+          25
+        ],
+        [
+          29.53125,
+          -5.625,
+          18
+        ],
+        [
+          30.9375,
+          -9.84375,
+          31
+        ],
+        [
+          30.9375,
+          -8.4375,
+          3
+        ],
+        [
+          33.75,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -64,13 +165,13 @@
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eretmodus-cyanostictus",
-      "html": "<p>Needs a soft, sandy substrate: a sandy substrate is essential as it is thought that sand may aid the digestion in this species.</p><p>The striped goby cichlid, Eretmodus cyanostictus, is one of the goby cichlids endemic to Lake Tanganyika, living in the surge zone of rocky shores. It scrapes algae from the rocks with specialised teeth and has a swim bladder rendered useless to reduce buoyancy. Delicate in aquaria, it needs the highest water quality, a higher pH than many Tanganyikans and a specialised diet, and is not recommended for beginners.</p>"
+      "html": "<p>Needs a soft, sandy substrate. A sandy substrate is essential as it is thought that sand may aid the digestion in this species.</p><p>The striped goby cichlid, Eretmodus cyanostictus, is one of the goby cichlids endemic to Lake Tanganyika, living in the surge zone of rocky shores. It scrapes algae from the rocks with specialised teeth and has a swim bladder rendered useless to reduce buoyancy. Delicate in aquaria, it needs the highest water quality, a higher pH than many Tanganyikans and a specialised diet, and is not recommended for beginners.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eretmodus-cyanostictus",
-      "html": "<p>Endemic to Lake Tanganyika (DR Congo, Tanzania, Zambia).</p>"
+      "html": "<p>Endemic to Lake Tanganyika.</p>"
     },
     {
       "key": "habitat",
@@ -118,13 +219,13 @@
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eretmodus-cyanostictus",
-      "html": "<p>Difficult. Bi-parental mouthbrooder. It is suggested that a group of young fish be purchased and allowed to pair off naturally. Once a pair forms, the other fish should be removed from the aquarium. Buying an adult male and female will not guarantee a pair and often results in the female being harassed to death. The aquarium itself should be at least 90 cm in length and set up as suggested above, with the addition of some flat rocks to act as spawning sites. These should be placed at varying heights in the tank. The pH should be around 8.2-9.0 and the temperature 25–26.5°C. Strong oxygenation is essential. The female will select one of the rocks as the spawning site and will proceed to clean the surface of it thoroughly. The pair then circle the site, before the female lays 1-2 eggs, immediately picking them up in her mouth. The male fish has egg-shaped spots on his anal fin and the female is attracted to these. When she tries to add them to the brood in her mouth she actually receives sperm from the male, thus fertilising the eggs. This process is repeated until 10-30 eggs have been fertilised. The female may carry the brood for over 2 weeks. She will not eat during this period and can be easily spotted by her distended mouth. When the eggs hatch she then transfers the fry to the mouth of the male. This usually occurs back at the spawning site, with 1-2 fry being gently blown out by the female and picked up by the male at a time. The fry will still have their yolk sacs at this point. He then continues to incubate the fry for 7-14 days before releasing them over a period of several hours in different areas around the pair's territory. There is no need to remove either the adult fish or their young (the adults ignore them) but if you intend the pair to breed again it is better to remove the fry to a separate raising tank. The fry will accept brine shrimp nauplii and powdered spirulina flake from the first day. As with many Tanganyikan species growth is slow.</p>"
+      "html": "<p>Difficult. Bi-parental mouthbrooder. It is suggested that a group of young fish be purchased and allowed to pair off naturally. Once a pair forms, the other fish should be removed from the aquarium. Buying an adult male and female will not guarantee a pair and often results in the female being harassed to death. The aquarium itself should be at least 90 cm in length and set up as suggested above, with the addition of some flat rocks to act as spawning sites. These should be placed at varying heights in the tank. The pH should be around 8.2–9.0 and the temperature 25–26.5°C. Strong oxygenation is essential.</p><p>The female will select one of the rocks as the spawning site and will proceed to clean the surface of it thoroughly. The pair then circle the site, before the female lays 1–2 eggs, immediately picking them up in her mouth. The male fish has egg-shaped spots on his anal fin and the female is attracted to these. When she tries to add them to the brood in her mouth she actually receives sperm from the male, thus fertilising the eggs. This process is repeated until 10–30 eggs have been fertilised. The female may carry the brood for over 2 weeks. She will not eat during this period and can be easily spotted by her distended mouth.</p><p>When the eggs hatch she then transfers the fry to the mouth of the male. This usually occurs back at the spawning site, with 1–2 fry being gently blown out by the female and picked up by the male at a time. The fry will still have their yolk sacs at this point. He then continues to incubate the fry for 7–14 days before releasing them over a period of several hours in different areas around the pair's territory. There is no need to remove either the adult fish or their young (the adults ignore them) but if you intend the pair to breed again it is better to remove the fry to a separate raising tank. The fry will accept brine shrimp nauplii and powdered spirulina flake from the first day. As with many Tanganyikan species growth is slow.</p>"
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eretmodus-cyanostictus",
-      "html": "<p>Also known as the Tanganyikan Clown, this is one of the so-called Tanganyikan goby cichlids. They occur only in the upper few feet of water (about 1 m) around rocky shores, also known as the surge zone, where they scrape algae from the rocks with their specialised teeth. This habitat is typified by breaking waves and strong currents. They have a few adaptations allowing them to inhabit such an environment. The swim bladder is rendered useless to reduce their buoyancy. They also have a long dorsal fin and a laterally compressed body shape to allow them to cope with the strong water movement. The dorsal is also very spiny to protect against predation by birds. The mouth of the fish is underslung, meaning the fish can remain in a flat position against the rocks whilst scraping them for algae. Eretmodus are quite delicate in aquaria, requiring the highest water quality, a higher minimum pH than many Tanganyikans (the pH in the natural habitat of these fish is often higher than in the rest of the lake due to the release of oxygen from the turbulent water) and a specialised diet. Several colour forms of E. cyanostictus are available, depending on where the fish was collected. It makes a superb addition to a well-maintained Tanganyikan tank and will always provide interest with its characteristic 'hopping' around the rocks. However it is not recommended for beginners due to its sensitivity and specific requirements.</p>"
+      "html": "<p>Also known as the Tanganyikan Clown, this is one of the so-called Tanganyikan goby cichlids. They occur only in the upper few metres of water around rocky shores, also known as the surge zone, where they scrape algae from the rocks with their specialised teeth. This habitat is typified by breaking waves and strong currents. They have a few adaptations allowing them to inhabit such an environment. The swim bladder is rendered useless to reduce their buoyancy. They also have a long dorsal fin and a laterally compressed body shape to allow them to cope with the strong water movement. The dorsal is also very spiny to protect against predation by birds. The mouth of the fish is underslung, meaning the fish can remain in a flat position against the rocks whilst scraping them for algae.</p><p>Eretmodus are quite delicate in aquaria, requiring the highest water quality, a higher minimum pH than many Tanganyikans (the pH in the natural habitat of these fish is often higher than in the rest of the lake due to the release of oxygen from the turbulent water) and a specialised diet. Several colour forms of E. cyanostictus are available, depending on where the fish was collected. It makes a superb addition to a well-maintained Tanganyikan tank and will always provide interest with its characteristic 'hopping' around the rocks. However it is not recommended for beginners due to its sensitivity and specific requirements.</p>"
     },
     {
       "key": "references",
@@ -134,7 +235,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Upw09j68ktc",
+      "title": "Fincasters Episode 53 Eretmodus cyanostictus the Tanganyikan goby cichlid",
+      "durationSec": 236,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fcUpQDb5Z7E",
+      "title": "Tanganyika Tank Tropheus Moliro , Eretmodus Cyanostictus",
+      "durationSec": 76,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RWkmz7GPPZQ",
+      "title": "Eretmodus cyanostictus fry transfer",
+      "durationSec": 207,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "w5XBCWjmLxw",
+      "title": "Eretmodus cyanostictus zâmbia",
+      "durationSec": 101,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -153,14 +279,25 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn spirulina",
-        "thức ăn cá cichlid Tanganyika"
+        "thức ăn cá cichlid Tanganyika",
+        "thức ăn spirulina cho cá",
+        "thức ăn cá cichlid ăn tảo"
       ]
     },
     {
       "category": "phan-nen",
       "keywords": [
         "cát bể cá mịn",
-        "cát nền cho cichlid"
+        "cát nền cho cichlid",
+        "cát nền cho cá Tanganyika",
+        "cát san hô tăng pH"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy sục khí",
+        "lọc thùng cho bể cá 90cm"
       ]
     }
   ],

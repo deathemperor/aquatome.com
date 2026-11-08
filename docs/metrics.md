@@ -127,13 +127,35 @@ GitHub's API. GitHub allows 60 unauthenticated requests an hour per address and 
 keeps the answer for 10 minutes. If the block says GitHub refused, a read-only token as a Worker secret is the fix. A deploy
 that fails while one is already open updates that issue, so this counts incidents and not attempts.
 
+## Content quality
+
+Not on the scoreboard: per page, on the content page (`/_ab/noi-dung/`, `worker/admin/quality.ts`), which states its own
+formula. Five lists come out of it: rewrite first, decaying, gaps, best and worst. Writing Lead's rewrite queue reads the
+same lists from `/_ab/noi-dung/quality.json`, and the daily report says how many each holds.
+
+- **Reading**, from the beacon's last 28 days, with our own tabs and likely automated ones left out, as on the readers page.
+  It's the average of three shares of a page's tabs: those that scrolled half the page, stayed 30 s, or went on to another
+  page. Until a page has data, it's pulled towards its section's average as if it had 20 more tabs.
+- **Search**, from Google Search Console (`scripts/search-console.mjs`, daily in `search-console.yml`). It's the page's
+  click rate against what its position usually gets, at most 1, pulled towards one half as if it had 100 more impressions.
+  The job reads through a service account that's a restricted, read-only user of the domain property. Its key is in the
+  `GSC_SERVICE_ACCOUNT` secret, and the site keeps only the latest figures, in KV.
+- **Score** = 100 × (2 × reading + search) ÷ 3, or whichever part there is. A page is ranked once it has 20 tabs or 100
+  impressions in 28 days.
+- **What the engine knows** comes beside the score (`dist/_ab/page-signals.json`): the page's own quality score, the
+  reader-fit checks it fails, the reader review's findings and its last review's score. A page fixed by hand, or one the
+  writers rewrote in the last 28 days (`engine-state/rewritten.json`), is on no list to rewrite.
+
+Search Console's figures run two days behind, and the 28 days before them say what's decaying. The gaps are searches Google
+shows us for only past position 15, and names readers looked for. The click rates expected at each position are a common
+industry curve, not ours. Recalibrate them against our own figures once a few months of data exist.
+
 ## Not measurable yet
 
 Each of these needs the owner.
 
 | What | Why it matters | What it needs |
 | --- | --- | --- |
-| Google Search Console: impressions, clicks, position | Tells a page that ranks and doesn't get clicked apart from a page that doesn't rank. It's the input to the north star | Verify the site and grant read access through the API |
 | AdSense earnings | The first half of the money | Read access to the AdSense Management API, or a weekly export |
 | Affiliate commissions | Whether shop clicks become purchases | A network account and its order reports |
 | App installs and active devices | The app's reach, which our telemetry can't count | Read access to App Store Connect analytics, after launch |

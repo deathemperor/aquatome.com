@@ -11,9 +11,9 @@ import { sanitizeHtml } from './sanitize'
 import { makeSpecies, pageVideo, reviewed, speciesTaxon, videoBlock, watchUrl, withNames, type SpeciesDeps, type VideoSource } from './species-research'
 import type { Finder, Found } from './video-discovery'
 import { throttled, type YouTube } from './youtube'
+import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/species-video.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 
 /**
  * Channels with a regular series of species profiles (the species' scientific name in the title), by YouTube handle, each

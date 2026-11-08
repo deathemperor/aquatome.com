@@ -587,3 +587,29 @@ test('the real deps follow the environment: email sign-in only with the EMAIL bi
   const withMail = await session({ ...env, EMAIL: { send: async () => ({ messageId: 'x' }) } })
   expect(withMail.providers).toMatchObject({ email: true, google: { clientId: 'g.apps.googleusercontent.com' } })
 })
+
+test("the account's picture: an id from the set or none, kept as the id alone; the session, the export and deleting the account carry it", async () => {
+  const { db, call, google } = setup()
+  const ids = (readJson('../../../../protocols/profile-pictures.json') as { pictures: { id: string }[] }).pictures.map(p => p.id)
+  expect(ids.length).toBeGreaterThan(0)
+  expect((await call('POST', '/api/v1/account/picture', { body: { picture: ids[0] } })).json).toEqual({ error: 'signed_out' })
+  const { cookie, json: { user } } = await google('g-1')
+  expect(user.picture).toBeUndefined()
+  const set = await call('POST', '/api/v1/account/picture', { cookie, body: { picture: ids[0] } })
+  expect(set.status).toBe(200)
+  expect(set.json.user).toMatchObject({ id: user.id, picture: ids[0], methods: [{ kind: 'google' }] })
+  expect((await call('GET', '/api/v1/session', { cookie })).json.user.picture).toBe(ids[0])
+  expect((await call('GET', '/api/v1/account/export', { cookie })).json.user.picture).toBe(ids[0])
+  for (const picture of ['not-in-the-set', '', 7, { id: ids[0] }, undefined]) {
+    const r = await call('POST', '/api/v1/account/picture', { cookie, body: picture === undefined ? {} : { picture } })
+    expect([r.status, r.json], JSON.stringify(picture)).toEqual([400, { error: 'bad_picture' }])
+  }
+  expect((await db.prepare('SELECT picture FROM users').first<{ picture: string }>())!.picture).toBe(ids[0])
+  // A change needs this site's origin (CSRF), as every other.
+  expect((await call('POST', '/api/v1/account/picture', { cookie, body: { picture: null }, origin: 'https://evil.test' })).status).toBe(403)
+  const none = await call('POST', '/api/v1/account/picture', { cookie, body: { picture: null } })
+  expect(none.json.user.picture).toBeUndefined()
+  await call('POST', '/api/v1/account/picture', { cookie, body: { picture: ids[1] ?? ids[0] } })
+  expect((await call('DELETE', '/api/v1/account', { cookie })).status).toBe(204)
+  expect((await db.prepare('SELECT COUNT(*) AS n FROM users').first<{ n: number }>())!.n).toBe(0)
+})

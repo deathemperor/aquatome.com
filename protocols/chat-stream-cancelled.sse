@@ -1,0 +1,8 @@
+event: step
+data: {"kind":"search","query":"cá betta bỏ ăn"}
+
+: ping
+
+event: error
+data: {"error":"cancelled","counted":false,"freeLeft":9}
+

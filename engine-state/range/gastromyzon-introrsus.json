@@ -1,0 +1,73 @@
+{
+  "id": "gastromyzon-introrsus",
+  "native": {
+    "input": "4fff190dfd2b71b8",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Padas and Labuk river basins which drain the eastern slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Padas",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Padas and Labuk river basins which drain the eastern slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Labuk",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Padas and Labuk river basins which drain the eastern slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Crocker Mountain Range",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Padas and Labuk river basins which drain the eastern slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Padas and Labuk river basins which drain the eastern slopes of the Crocker Mountain Range, western Sabah state, Malaysian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon introrsus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358884,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

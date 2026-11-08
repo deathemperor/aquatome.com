@@ -14,6 +14,213 @@
     "bangladesh",
     "pakistan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "NP",
+        "PK",
+        "BT"
+      ],
+      "regions": [
+        "Mahanadi River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Northern India, south to the Mahanadi River, Bangladesh, Nepal and Pakistan.",
+          "countries": [
+            "IN",
+            "BD",
+            "NP",
+            "PK"
+          ],
+          "regions": [
+            "Mahanadi River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Eutropiichthys vacha was described from the larger freshwater rivers of the Gangetic provinces (Hamilton 1822) in India, Nepal, Bhutan and Bangladesh (Ferraris and Vari 2007).",
+          "countries": [
+            "BT"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341568,
+      "total": 80,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          61
+        ],
+        [
+          "BD",
+          11
+        ],
+        [
+          "MM",
+          4
+        ],
+        [
+          "PK",
+          3
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          73.125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          73.125,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          25.3125,
+          11,
+          11
+        ],
+        [
+          81.5625,
+          25.3125,
+          12,
+          12
+        ],
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          22.5,
+          3,
+          3
+        ],
+        [
+          87.1875,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          6,
+          6
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          14,
+          14
+        ],
+        [
+          92.8125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          94.21875,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          10,
+          10
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -80,17 +287,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/f70d0b44c71cf739.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f70d0b44c71cf739-480.webp",
-      "width": 500,
-      "height": 281,
-      "licence": "dùng với sự cho phép",
-      "author": "Andrew Rao / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
-      "caption": "Eutropiichthys vacha",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/261ce2a86725c3f6.webp",
       "thumb": "https://media.aquatome.com/scotcat/261ce2a86725c3f6-480.webp",
       "width": 500,
@@ -99,17 +295,6 @@
       "author": "Mostafa Hossain / ScotCat",
       "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
       "caption": "Eutropiichthys vacha",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/ec05e1323c4e1dfa.webp",
-      "thumb": "https://media.aquatome.com/scotcat/ec05e1323c4e1dfa-480.webp",
-      "width": 500,
-      "height": 281,
-      "licence": "dùng với sự cho phép",
-      "author": "Andrew Rao / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ailiidae/eutropiichthys_vacha.htm",
-      "caption": "Eutropiichthys vacha: head view",
       "source": "scotcat"
     }
   ],

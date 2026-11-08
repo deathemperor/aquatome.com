@@ -3,18 +3,20 @@
   "name": "Anubias Caladiifolia",
   "altNames": [
     "Anubias barteri var. caladiifolia",
-    "Anubias Barteri Caladiifolia",
-    "Anubias Caladifolia"
+    "Anubias barteri Caladiifolia",
+    "Anubias Heart Leaf"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Berizom</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Kadar pertumbuhan:</strong> Perlahan</li><li><strong>Ketinggian:</strong> 10–15+ cm (purata ketinggian selepas dua bulan dalam tangki)</li><li><strong>Keperluan cahaya:</strong> Rendah</li><li><strong>CO2:</strong> Rendah</li></ul>",
-    "notes:tropica": "<p>Pokok induk yang besar, ditanam dalam pasu segi empat 9 cm. Anubias barteri var. caladiifolia berasal dari makmal pembiakan tisu di Australia. Varieti ini sangat cantik dengan daun berbentuk hati. Daunnya boleh hidup selama beberapa tahun, jadi Anubias barteri var. caladiifolia mudah membentuk rumpun yang besar walaupun pertumbuhannya perlahan. Rumpun Anubias barteri var. caladiifolia yang melebar lebih daripada 50 cm dalam beberapa tahun bukanlah sesuatu yang luar biasa.</p>"
+    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Berizom</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Kadar pertumbuhan:</strong> Perlahan</li><li><strong>Ketinggian:</strong> 10 - 15+ cm (purata ketinggian selepas dua bulan dalam tangki)</li><li><strong>Keperluan cahaya:</strong> Rendah</li><li><strong>CO2:</strong> Rendah</li></ul>",
+    "maintenance:aquatome": "<p>Anubias caladiifolia sesuai untuk bahagian tengah (midground) dan hidup melekat pada kayu hanyut atau batu. Seperti anubias lain, ia biasanya diikat pada kayu hanyut dan tidak ditanam dalam substrat. Setiap daun boleh hidup bertahun-tahun, jadi walaupun tumbuhan ini tumbuh perlahan, rumpun yang lebarnya lebih 50 cm selepas beberapa tahun bukanlah sesuatu yang luar biasa.</p><ul><li>Rumpun yang besar biasanya mempunyai akar yang sangat panjang. Potong pendek sedikit akarnya supaya tumbuhan dapat melekat rapat pada kayu hanyut. Jika kayu hanyutnya besar, potong rumpun kepada beberapa bahagian untuk diletakkan di beberapa tempat, daripada menumpukan seluruh rumpun di satu tempat sahaja.</li><li>Semasa mengikat, tumbuhan berada di luar air agak lama. Sediakan botol semburan dan sembur tumbuhan setiap kali ia mula kelihatan kering.</li><li>Cuba letakkan tumbuhan pada kayu hanyut sehingga berpuas hati dengan kedudukannya, baru diikat. Lilit tali tangsi dengan perlahan-lahan kerana tarikan yang kuat mudah mematahkan daun. Simpulan mesti simpulan berganda, kerana simpulan tunggal mudah terlerai sehingga tumbuhan menjadi longgar dan senget.</li><li>Di celah sempit yang tidak boleh dimasukkan tali tangsi, gunakan gam jenis gel (superglue gel) untuk melekatkan tumbuhan.</li></ul>",
+    "notes:tropica": "<p>Pokok induk yang besar, ditanam dalam pasu segi empat 9 cm. Anubias barteri var. caladiifolia berasal dari makmal pembiakan tisu di Australia. Ia varieti yang sangat cantik dengan daun berbentuk hati. Daunnya hidup selama beberapa tahun, jadi Anubias barteri var. caladiifolia mudah membentuk rumpun besar walaupun pertumbuhannya perlahan. Rumpun Anubias barteri var. caladiifolia yang tumbuh lebih 50 cm lebar dalam beberapa tahun bukanlah sesuatu yang luar biasa.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "tropica": 0.85
+      "tropica": 0.95,
+      "aquatome": 0.95
     }
   }
 }

@@ -12,6 +12,172 @@
     "bolivia",
     "madre-de-dios"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Río Ucayali"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Puinagua, mouth of Río Pacaya, Río Ucayali system, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Ucayali"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338717,
+      "total": 33,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          18
+        ],
+        [
+          "PE",
+          8
+        ],
+        [
+          "VE",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

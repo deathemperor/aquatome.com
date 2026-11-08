@@ -8,7 +8,8 @@
   "File:Channa orientalis1.jpg",
   "File:Channa orientalis2.jpg",
   "File:Channa Orientalis.jpg",
-  "File:Channa orientalis (তেলেটাকি) - DSC02500.jpg"
+  "File:Channa orientalis (তেলেটাকি) - DSC02500.jpg",
+  "inat:606852191"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/9519010ac0f65212.webp": "b83aea211a0c0e16",
@@ -19,5 +20,13 @@
   "https://media.aquatome.com/seriouslyfish/0ce369febb7029f2.webp": "a3a6d29bebdbcfc7",
   "https://media.aquatome.com/seriouslyfish/496a93009e9ec010.webp": "d1f3f33e3f8be77e"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 483073,
+  "pass": "done",
+  "after": {
+   "research": 334199833,
+   "agree": 0
+  }
+ }
 }

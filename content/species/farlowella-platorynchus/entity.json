@@ -10,6 +10,179 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Marañón",
+        "Ucayali"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Yarinachocha, Río Ucayali drainage, Ucayali Dept., Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Marañón",
+            "Ucayali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340432,
+      "total": 53,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PE",
+          38
+        ],
+        [
+          "BR",
+          11
+        ],
+        [
+          "EC",
+          2
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -75.9375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          23,
+          23
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -155,17 +328,6 @@
       "author": "Lars Jamne / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
       "caption": "Farlowella platorynchus: Eggs on glass cared for by the male",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/61e13c1eba3c259d.webp",
-      "thumb": "https://media.aquatome.com/scotcat/61e13c1eba3c259d-480.webp",
-      "width": 500,
-      "height": 165,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm",
-      "caption": "Farlowella platorynchus",
       "source": "scotcat"
     },
     {

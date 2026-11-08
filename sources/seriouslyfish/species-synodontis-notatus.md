@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/synodontis-notatus
 title: Synodontis notatus (One-spot Synodontis) · Seriously Fish
-fetchedAt: 2026-11-07T03:58:37.793Z
+fetchedAt: 2026-11-07T18:26:20.587Z
 hash: 1671014aa2893ae8bf47c457207d9f0ecd93535a79202c7b9edd71322190ec7f
 ---
 

@@ -1,0 +1,84 @@
+{
+  "id": "callichthys-serralabium",
+  "native": {
+    "input": "4d77a6ad26986237",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Callichthys serralabium",
+    "status": "ACCEPTED",
+    "taxonKey": 5202880,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

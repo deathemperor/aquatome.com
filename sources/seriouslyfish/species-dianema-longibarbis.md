@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/dianema-longibarbis
 title: Dianema longibarbis (Porthole Catfish) · Seriously Fish
-fetchedAt: 2026-11-07T04:59:19.497Z
+fetchedAt: 2026-11-07T19:39:45.810Z
 hash: 066ee18ddaad2815bfa22bcf51f6643be0142444e7bc775a4a512c7a9d933916
 ---
 

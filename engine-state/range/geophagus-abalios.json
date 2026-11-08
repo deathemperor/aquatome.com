@@ -1,0 +1,156 @@
+{
+  "id": "geophagus-abalios",
+  "native": {
+    "input": "797f5d9bdca88f04",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Apure",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' but this species known to have a wider distribution within both black and clear water tributary systems of the río Orinoco throughout the Venezuelan Llanos including the ríos Apure, Cinaruco, Capanaparo, Aguaro and Guariquito.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Caura",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the río Caura on the Guyana Shield plus the Ventuari and Mavaca drainages in the middle and upper Orinoco where it's also known from some white water, referring to turbidity rather than turbulence, habitats.",
+        "ok": true
+      },
+      {
+        "name": "Río Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
+        "ok": true
+      },
+      {
+        "name": "Llanos",
+        "source": "seriouslyfish",
+        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CO"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Geophagus abalios",
+    "status": "ACCEPTED",
+    "taxonKey": 5208435,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        160
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        33
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        29
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        16
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

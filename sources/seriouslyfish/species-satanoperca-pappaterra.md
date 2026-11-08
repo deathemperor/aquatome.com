@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/satanoperca-pappaterra
 title: Satanoperca pappaterra (Pantanal Eartheater) · Seriously Fish
-fetchedAt: 2026-11-07T04:14:41.664Z
+fetchedAt: 2026-11-07T18:44:51.316Z
 hash: cdebe2b27f539ce3f06cdc696395146a93a3f48eed88e7305c6d272dd5ac35d2
 ---
 

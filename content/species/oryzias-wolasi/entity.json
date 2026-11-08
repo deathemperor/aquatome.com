@@ -1,0 +1,227 @@
+{
+  "id": "oryzias-wolasi",
+  "scientificName": "Oryzias wolasi",
+  "order": "Beloniformes",
+  "family": "Adrianichthyidae",
+  "genus": "Oryzias",
+  "group": "killifish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/small_neon_ricefish_en/",
+      "html": "<p>Wild-collected Neon Ricefish are available at a size of 1.5-2 cm. The fish are very lively and healthy. They belong to the species O. wolasi, which was known in the hobby as O. cf. woworae before its scientific description. The final size of the fish will be around 4 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>The Wolasi ricefish, Oryzias wolasi, is known from four localities south of Kendari in Southeast Sulawesi, Indonesia. Discovered in 2009, it was referred to as O. sp. 'Kendari', O. sp. 'neon' or O. sp. 'Sulawesi' before description. A member of the O. woworae species group, it lives in karstic streams ranging from swift waterfalls to the remnant pools of an ephemeral river.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Known from four localities in the Regency of South Konawe (Konawe Selatan), south of Kendari, the capital of South East Sulawesi (Sulawesi Tenggara) province, Sulawesi, Indonesia including the rivers Wolasi and Andambao, the waterfalls at Sumbersari in Moramo District, and a spring-fed coastal stream in Laeya district.</p><p>Sulawesi represents a particular centre of diversity for the genus, with 17 endemic Oryzias species described to date.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>In 2010 the type locality on the Andambao river was a slow to fast-flowing freshwater stream with a substrate of mud, small rocks, and plant debris with emergent grasses and a shore of mud, rocks and grass.</p><p>At the Sumbersari waterfalls the water was flowing more swiftly and had a temperature of 24 °C.</p><p>In 2009 the habitat near Wolasi comprised the bed of a near-dessicated, ephemeral river which contained only some permanent, remnant pools at the height of summer but is likely to flow freely during rainier months.</p><p>These localities lie within a karstic zone and pH varied between 7.5-8.5, conductivity was measured at 40 - 120 µS/cm and water temperature 22 – 29 °C.</p><p>The only sympatric fish species recorded was the predatory hemiramphid Nomorhamphus ebrardtii.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Standard length: 3.5 cm SL. Aquarium base: 45 × 30 cm. Volume: ~41 litres.</p><p>An aquarium with base dimensions of 45 × 30 cm or more is recommended for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Best maintained in a heavily planted set-up, ideally with a dark substrate, patches of dense vegetation, and some open areas.</p><p>Additional décor can consist of twisted roots and pieces of bogwood, while surface vegetation is also appreciated by the fish.</p><p>When maintained under such conditions they're more likely to display their best colours, plus planted aquaria also offer fry a more favourable chance of survival alongside the adults.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.0–8.0</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Unfussy but must be provided with foods of a suitable size.</p><p>A combination of crushed or small-grade, high quality dried foods plus live microworm, Artemia nauplii or similar appears to be ideal and adults have also been observed grazing from solid surfaces, so the natural diet may also contain an algal component.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Very peaceful but doesn't make an ideal addition to many communities due to its small size.</p><p>Should you wish to maintain it alongside other fishes other diminutive species such as Microdevario, Pseudomugil and smaller Danio comprise the best options, while freshwater shrimp of the genera Caridina and Neocaridina should also be suitable.</p><p>If the intention is breeding then obviously it should ideally be maintained alone, and we don't recommend keeping it with other Oryzias spp. due to the potential of hybridisation, already proven in laboratory experiments.</p><p>It's mostly non-aggressive towards conspecifics, and tends to look most effective and behave more confidently in a group of 8 or more.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Adult males are more colourful, possess longer dorsal/anal fins and have a slimmer body shape than females.</p><p>The genital papilla in males forms a short, slightly conical tube, while in females it is bilobed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphyllum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependant to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults tank.</p><p>Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<p>This species was discovered in 2009 and as far as we know it has only been collected for the aquarium hobby on a single occasion to date, by Jeffrey Christian of Maju Aquarium, Frank Evers and Hans-Georg Evers.</p><p>Prior to description it was referred to as O. sp. 'Kendari', O. sp. 'neon' or O. sp. 'Sulawesi'.</p><p>It's included in the O. woworae species group (Parenti et al., 2013) within the genus of which members possess orange to deep red pigmentation on the caudal-fin margins, ventral margin of the caudal peduncle and at least the posterior portion of the base of the anal-fin, plus a bluish sheen on the body that is most pronounced in live adult males.</p><p>The group also contains O. asinua which like O. wolasi differs from O. woworae by possessing elongate medial dorsal-fin rays in males extending to the posterior extent of the first principal caudal-fin ray plus an orange-coloured olfactory epithelium on each nasal organ in at least females in life.</p><p>O. wolasi can be told apart from O. asinua and O. woworae by having a golden, relatively deep body, with depth reaching 32% SL, versus reaching 25% in O. asinua and 30% in O. woworae, and caudal peduncle depth (11–12% SL, mean 11.2%, versus 9–11%, mean 10%, in O. asinua and 8–11%, mean 9.2%, in O. woworae. Only females possess orange olfactory epithelia on the nasal organs.</p><p>In addition nuptial males display a darker, more purplish colour pattern than O. woworae and these two can actually be told apart from a size of just 10 mm SL since in O. woworae orange pigment is visible along the base of the anal-fin and into the caudal-fin whereas in O. wolasi the same areas are colourless (P. Liptrot, pers. comm.).</p><p>Members of the family Adrianichthyidae are often referred to collectively as 'ricefishes' and were traditionally considered to be members of the family Cyprinodontiformes and thus closely-related to toothcarps.</p><p>This misconception is sometimes still upheld despite the fact that Rosen and Parenti reclassified them within the cyprinodontiform sister group Beloniformes as long ago as 1981.</p><p>The best-known member of the family is the medaka or Japanese ricefish, Oryzias latipes, which has been widely used as a model organism in genomic and experimental biology for well over a century and was the first vertebrate animal to mate in space during the mid-1990s.</p><p>There are currently just two genera included in the family, Oryzias and Adrianichthys, with the historically-recognised groupings Xenopoecilus and Horaichthys having been synonymised with Oryzias by Parenti (2008).</p><p>Of the three species previously included in the paraphyletic Xenopoecilus, X. oophorus and X. poptae were moved into Adrianichthys with the third, X. sarasinorum currently recognised as Oryzias sarasinorum.</p><p>In addition the formerly monotypic Indian species Horaichthys setnai is currently classified as O. setnai.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Parenti, L. R., R. K. Hadiaty, D. Lumbantobing, and F. Herder (2013). Two New Ricefishes of the Genus Oryzias (Atherinomorpha: Beloniformes: Adrianichthyidae) Augment the Endemic Freshwater Fish Fauna of Southeastern Sulawesi, Indonesia. Copeia 2013(3), 403-414</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0a8702f64eb949a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0a8702f64eb949a7-480.webp",
+      "width": 865,
+      "height": 605,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b47dd8b56bbb4038.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b47dd8b56bbb4038-480.webp",
+      "width": 872,
+      "height": 572,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9abf2aa4d19d4a69.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9abf2aa4d19d4a69-480.webp",
+      "width": 872,
+      "height": 580,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "caption": "One population of this fish was collected at Sumbersari waterfalls, Southeast Sulawesi province.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d228973d0ea2c033.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d228973d0ea2c033-480.webp",
+      "width": 800,
+      "height": 611,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-wolasi",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "uKB68CBKxnM",
+      "title": "Oryzias wolasi bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Crv0VP7KNVs",
+      "title": "Akvaryum Vlog #313 (Pirinç Balığı Yumurtaları)",
+      "durationSec": 570,
+      "lang": "tr"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thả bể nhỏ",
+        "lọc sponge cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng bột",
+        "artemia ấp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}
