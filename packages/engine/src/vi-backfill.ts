@@ -31,7 +31,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       const dir = join(contentRoot, kind, slug)
       const vi = await json<Vi>(join(dir, 'vi.json')).catch(() => null)
       if (!vi || (match && !match.test(JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq])))) continue
-      const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
+      const e = await json<{ source?: string; sections?: { key: string; source: string; html: string; fixed?: boolean }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
         // A translated guide's English article is kept (sources/<source>/<slug>.md): the rewrite is checked against it, as a
@@ -48,7 +48,8 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       else {
         for (const source of [...new Set((e.sections ?? []).map(s => s.source))]) {
           let g: Group = { source, parts: [] }
-          for (const s of (e.sections ?? []).filter(x => x.source === source && x.key !== 'references')) {
+          // A part a person fixed is theirs (schemas.ts Section.fixed).
+          for (const s of (e.sections ?? []).filter(x => x.source === source && x.key !== 'references' && !x.fixed)) {
             const id = `${s.key}:${s.source}`
             if (!vi.sections?.[id]) continue
             if (g.parts.length && g.parts.reduce((n, p) => n + (p.en?.length ?? 0), 0) + s.html.length > CHUNK) { groups.push(g); g = { source, parts: [] } }

@@ -39,16 +39,18 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   const research: Llm = async () => facts as never
   const llm: Llm = async ({ prompt }) => {
     prompts.push(prompt)
-    if (prompt.startsWith('Below are FACTS')) return (++checks === 1 ? { score: 0.7, notes: ['"3 ngày" is not in the facts'] } : { score: 0.92, notes: [] }) as never
+    // The first write's read is near the bar, so it is read three times; the rewrite's is well clear of it.
+    if (prompt.startsWith('Below are FACTS')) return (++checks <= 3 ? { score: 0.7, notes: ['"3 ngày" is not in the facts'] } : { score: 0.97, notes: [] }) as never
     return { name: 'Cá bị lồi mắt: nguyên nhân và cách chữa', summary: ['Mắt cá lồi ra.'], body: '<h3>Dấu hiệu</h3><p>Mắt lồi, cả ở Blue Diamond.</p><p>Muối Epsom 1 thìa cho mỗi 5 gallon.</p><script>x</script>', faq: [{ q: 'Có lây không?', a: 'Không rõ.' }, { q: ' ', a: 'x' }] } as never
   }
   const r = await makeTopic(root, { research, llm }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' }, { now: () => new Date('2026-10-31T00:00:00Z') })
-  expect(r).toMatchObject({ id: 'aquatome-ca-bi-loi-mat-popeye', score: 0.92, refs: 2 })
+  expect(r).toMatchObject({ id: 'aquatome-ca-bi-loi-mat-popeye', score: 0.97, refs: 2 })
   // The writer saw only cited facts, renumbered; the rewrite carried the checker's note.
   expect(prompts[0]).toContain('Epsom salt 1 tablespoon per 5 gallons')
   expect(prompts[0]).not.toContain('Poor water quality')
   expect(prompts[0]).toMatch(/"Popeye is a symptom, not a disease",\s*"source": 0/)
-  expect(prompts[2]).toContain('"3 ngày" is not in the facts')
+  expect(checks).toBe(4)
+  expect(prompts[4]).toContain('"3 ngày" is not in the facts')
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e).toMatchObject({ kind: 'disease', source: 'aquatome', html: '', photos: [], mentions: ['carassius-auratus', 'betta-splendens', 'blue-diamond-discus'], updatedAt: '2026-10-31' })
   expect(e.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }, { url: 'https://example.org/epsom', title: 'Epsom' }])
@@ -57,7 +59,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(vi.body).not.toContain('<script')
   expect(vi.body).toContain('<p>Muối Epsom 1 thìa cho mỗi 19 lít.</p>') // the facts' gallons, written in litres
   expect(vi.faq).toHaveLength(1)
-  expect(vi.quality).toEqual({ score: 0.92, indexable: true })
+  expect(vi.quality).toEqual({ score: 0.97, indexable: true })
   expect(e.sourceUrl).toBe('https://aquatome.com/vi/huong-dan/ca-bi-loi-mat-huong-dan/')
 
   // A rewrite from the kept research keeps the photos a later step put on the guide.

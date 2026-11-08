@@ -768,25 +768,10 @@
  },
  "id/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": {
   "at": "2026-11-08",
-  "hash": "653e987ce4ab5eee",
+  "hash": "089765d796202b69",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "sekitar 13 cm ikan per 3,8 liter",
-    "why": "This is the 'one inch of fish per gallon' rule converted to metric; nobody in Indonesia says 3.8 litres.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "3,8 liter air beratnya sekitar 3,6 kg",
-    "why": "This is 'a gallon weighs about 8 pounds' converted; a metric reader would say 1 litre weighs about 1 kg.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "id/guides/aquatome-be-ca-nuoi-bao-nhieu-con-la-vua-cach-tinh-mat-do-tha-ca-theo-the-tich-va-loai": {
@@ -902,7 +887,7 @@
  },
  "id/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "8491ad6146fb8c5a",
+  "hash": "5bfee325b106e6b6",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -918,31 +903,19 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "Tembaga sulfat (rendaman)\n| 0,15 ppm ion tembaga"
-   },
-   {
-    "treatment": "chelated copper",
-    "strength": "",
-    "amount": 1.5,
-    "amountMax": 2,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Tembaga terkelat yang dipakai sesuai labelnya menjaga kadar tembaga total 1,5–2,0 ppm."
+    "quote": "0,15 ppm ion tembaga. Dosis tembaga sulfat (mg/L) = alkalinitas total (mg/L) ÷ 100"
    },
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 240,
+    "amount": 1,
     "amountMax": 0,
-    "unit": "ml",
+    "unit": "cup",
     "per": 75,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "Sekitar 1 cangkir (240 ml) per 75 liter"
+    "quote": "Natrium klorida murni (bukan garam laut) sekitar 1 cangkir (240 ml) per 75 liter"
    },
    {
     "treatment": "salinomycin",
@@ -954,7 +927,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "food",
-    "quote": "60 atau 90 ppm dalam pakan"
+    "quote": "salinomycin dicampur ke pakan dengan kadar 60 atau 90 ppm"
    }
   ],
   "sourceRead": true
@@ -1213,7 +1186,7 @@
  },
  "id/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "24bc51c6186a8484",
+  "hash": "0607f5ee324e01e5",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -1290,6 +1263,18 @@
     "use": "parasites",
     "method": "bath",
     "quote": "mebendazole 1 mg/l selama 12 jam"
+   },
+   {
+    "treatment": "levamisole",
+    "strength": "",
+    "amount": 50,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "levamisole 50 mg/l selama 2 jam atau 3 × 1 jam"
    }
   ],
   "sourceRead": true
@@ -2208,18 +2193,10 @@
  },
  "id/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "1a5c1db5813854b5",
+  "hash": "3ff82fbe853ce473",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "biasanya setelah ukurannya sekitar 16–18\", dan jarang pada arwana Asia kecuali yang di atas 24\"",
-    "why": "Fish sizes are given in inches, an imperial unit Indonesian keepers don't use.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "id/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
@@ -2571,15 +2548,15 @@
  },
  "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "5111ada0b7cd264e",
+  "hash": "9ff8420c70d81cf5",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "Jumlah kutu ikan biasanya naik tajam pada musim panas dan musim gugur.",
-    "why": "Indonesia has no autumn; this seasonal pattern comes from a temperate-climate source.",
+    "quote": "Parasit ini umum pada ikan mas koki dan koi, terutama di musim panas.",
+    "why": "Indonesia has no summer season; this assumes a temperate-climate reader.",
     "by": "model"
    }
   ],
@@ -2595,7 +2572,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "Rendaman garam jangka panjang 0,02–0,2% bisa membantu mengendalikan infeksi ulang kutu ikan."
+    "quote": "0,02–0,2%"
    },
    {
     "treatment": "potassium permanganate",
@@ -14162,7 +14139,7 @@
  },
  "ms/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "0fc1eb8e8d1321d8",
+  "hash": "de2b2169457aee61",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14181,18 +14158,6 @@
     "quote": "0.15 ppm ion kuprum"
    },
    {
-    "treatment": "chelated copper",
-    "strength": "",
-    "amount": 1.5,
-    "amountMax": 2,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Penternak itu menyasarkan kira-kira 1.5–2.0 ppm kuprum."
-   },
-   {
     "treatment": "salt",
     "strength": "",
     "amount": 240,
@@ -14202,7 +14167,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "Natrium klorida biasa (bukan garam laut), kira-kira 1 cawan (240 ml) bagi setiap 75 liter"
+    "quote": "kira-kira 1 cawan (240 ml) bagi setiap 75 liter"
    },
    {
     "treatment": "salinomycin",
@@ -14221,7 +14186,7 @@
  },
  "ms/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "b7e6d3a718b484c8",
+  "hash": "c0413eea85633c5d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14232,26 +14197,14 @@
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "other",
-    "method": "wholeTank",
-    "quote": "Garam rutin dalam tangki\n| 1–3 g/L"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
     "amount": 10,
     "amountMax": 0,
     "unit": "g",
     "per": 1,
     "perUnit": "litre",
-    "use": "",
+    "use": "finRot",
     "method": "bath",
-    "quote": "Rendaman garam\n| 10 g/L\n| 20–30 minit"
+    "quote": "spesies yang tahan garam boleh direndam selama 20–30 minit dalam air bergaram 10 g/L"
    },
    {
     "treatment": "tea tree oil",
@@ -14263,7 +14216,7 @@
     "perUnit": "",
     "use": "other",
     "method": "wholeTank",
-    "quote": "1–2 titis dalam tangki"
+    "quote": "minyak tea tree (1–2 titis dalam tangki)"
    }
   ],
   "sourceRead": true
@@ -14428,7 +14381,7 @@
  },
  "ms/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "cc768e5bd2e05dcf",
+  "hash": "4298f21424e6e0a2",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14529,18 +14482,6 @@
     "use": "parasites",
     "method": "",
     "quote": "Trichlorfon pada 0.5–2 ppm"
-   },
-   {
-    "treatment": "praziquantel",
-    "strength": "",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Sesetengah spesies tahan jumlah dos terkumpul sehingga 10 mg/L."
    }
   ],
   "sourceRead": true
@@ -17270,7 +17211,7 @@
  },
  "th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "84750ca020ac9c5b",
+  "hash": "dbd30541be2404ee",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -17385,18 +17326,6 @@
     "use": "parasites",
     "method": "bath",
     "quote": "มีเบนดาโซล 1 มก./ลิตร นาน 12 ชม."
-   },
-   {
-    "treatment": "trichlorfon",
-    "strength": "",
-    "amount": 0.5,
-    "amountMax": 2,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "other",
-    "method": "",
-    "quote": "ไตรคลอร์ฟอนที่ 0.5–2 ppm"
    }
   ],
   "sourceRead": true
@@ -18670,34 +18599,62 @@
  },
  "th/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "647f32d293dbaceb",
+  "hash": "f6e4d235b42c72f8",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "dose",
     "part": "P1",
-    "quote": "10 มล. ต่อน้ำ 364 ลิตร",
-    "why": "Dose given as an amount of the branded product Argusol per volume, a UK-market product.",
+    "quote": "Dimilin 25W แช่ยาว (กรณีการระบาดเห็บปลาในอะควาเรียม) | 0.01 mg/L",
+    "why": "Gives a per-volume dose of a named commercial product.",
     "by": "model",
-    "product": "Argusol"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "จำนวนเห็บปลามักเพิ่มขึ้นมากในหน้าร้อนและฤดูใบไม้ร่วง",
-    "why": "Thailand has no autumn; the seasons come from a temperate-country source.",
-    "by": "model"
+    "product": "Dimilin 25W"
    }
   ],
   "products": [
-   "Dimilin 25W",
-   "Argusol"
+   "Dimilin 25W"
   ],
   "doses": [
    {
-    "treatment": "salt",
+    "treatment": "dimilin 25w",
     "strength": "",
+    "amount": 0.01,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "wholeTank",
+    "quote": "0.01 mg/L"
+   },
+   {
+    "treatment": "salt",
+    "strength": "3%",
+    "amount": 3,
+    "amountMax": 0,
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
+    "use": "parasites",
+    "method": "dip",
+    "quote": "3% แล้วต่อด้วย 0.2%"
+   },
+   {
+    "treatment": "salt",
+    "strength": "0.2%",
+    "amount": 0.2,
+    "amountMax": 0,
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "แช่ระยะสั้นที่ 3% ก่อน แล้วแช่ยาวที่ 0.2%"
+   },
+   {
+    "treatment": "salt",
+    "strength": "0.02–0.2%",
     "amount": 0.02,
     "amountMax": 0.2,
     "unit": "%",
@@ -18718,30 +18675,6 @@
     "use": "parasites",
     "method": "bath",
     "quote": "10–25 g/m³"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "",
-    "amount": 0.01,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "0.01 มก./ลิตร"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "291.2มก./100มล.",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 364,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "10 มล. ต่อน้ำ 364 ลิตร"
    }
   ],
   "sourceRead": true
@@ -39024,10 +38957,19 @@
  },
  "vi/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "80bafa85e0410ec8",
+  "hash": "c83232cb1e4a272e",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Thức ăn tươi sống đông lạnh thỉnh thoảng cũng mang theo dạng nằm nghỉ của ký sinh trùng.",
+    "why": "\"Tươi sống đông lạnh\" is a translated phrase that mixes live and frozen; keepers just say frozen food.",
+    "by": "model",
+    "fix": "thức ăn đông lạnh"
+   }
+  ],
   "products": [],
   "doses": [
    {
@@ -39040,19 +38982,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "0,15 ppm ion đồng. Lượng đồng sunfat (mg/L) = độ kiềm tổng (mg/L) ÷ 100"
-   },
-   {
-    "treatment": "chelated copper",
-    "strength": "",
-    "amount": 1.5,
-    "amountMax": 2,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Dùng đúng nhãn thì đồng tổng giữ ở 1,5–2,0 ppm"
+    "quote": "Đồng sunfat, tắm thuốc | 0,15 ppm ion đồng"
    },
    {
     "treatment": "salt",
@@ -39064,7 +38994,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "khoảng 1 cốc (240 ml) cho 75 lít"
+    "quote": "Khoảng 1 cốc (240 ml) natri clorua thường cho 75 lít"
    },
    {
     "treatment": "salinomycin",
@@ -39087,42 +39017,20 @@
     "per": 10,
     "perUnit": "litre",
     "use": "other",
-    "method": "wholeTank",
-    "quote": "khoảng 1 muỗng cà phê muối cho mỗi 10 lít để phòng bệnh hằng ngày"
+    "method": "other",
+    "quote": "pha khoảng 1 muỗng cà phê muối cho 10 lít để phòng bệnh hằng ngày"
    }
   ],
   "sourceRead": true
  },
  "vi/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "7366059225e42cf2",
+  "hash": "d53c24f664f87f32",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "LiveAquaria kể Aeromonas, Pseudomonas và Flexibacter.",
-    "why": "Cites a US retail shop's article as a source the reader doesn't know.",
-    "by": "model"
-   }
-  ],
-  "products": [
-   "Purigen"
-  ],
+  "findings": [],
+  "products": [],
   "doses": [
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "wholeTank",
-    "quote": "| Cho cả bể, dùng thường xuyên\n| 1–3 g/L"
-   },
    {
     "treatment": "salt",
     "strength": "",
@@ -39133,31 +39041,19 @@
     "perUnit": "litre",
     "use": "finRot",
     "method": "bath",
-    "quote": "| Tắm riêng\n| 10 g/L"
+    "quote": "10 g/L, tắm 20–30 phút"
    },
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 17,
-    "amountMax": 0,
+    "amount": 1,
+    "amountMax": 3,
     "unit": "g",
     "per": 1,
     "perUnit": "litre",
     "use": "other",
     "method": "",
-    "quote": "| Mức chịu tối đa của cá cầu vồng lớn\n| 17 g/L"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 12,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "other",
-    "method": "",
-    "quote": "| Mức chịu tối đa của cá cầu vồng con\n| 12 g/L"
+    "quote": "Cá nhiệt đới thường chịu được muối ở mức 1–3 g/L"
    },
    {
     "treatment": "tea tree oil",
@@ -39399,19 +39295,10 @@
  },
  "vi/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "a2fa72258a8a62ab",
+  "hash": "b13f42967e7e6637",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Dùng thuốc khử nước chỉ khử clo mà không khử chloramine.",
-    "why": "\"Thuốc khử nước\" is a calque of \"water conditioner\" and literally means dehydrating agent.",
-    "by": "model",
-    "fix": "thuốc khử clo"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -39424,7 +39311,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "10 mg/L"
+    "quote": "Tắm riêng\n| 10 mg/L"
    },
    {
     "treatment": "praziquantel",
@@ -39459,7 +39346,7 @@
     "per": 1,
     "perUnit": "litre",
     "use": "parasites",
-    "method": "bath",
+    "method": "dip",
     "quote": "Tắm formaldehyde 0,17 ml/l trong 15 phút"
    },
    {
@@ -40354,10 +40241,26 @@
  },
  "vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "b5f5c9ea29fbee2e",
+  "hash": "850d1db458b9672d",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "một con cá rồng bạc trưởng thành cần bể 240 x 90 x 90 cm",
+    "why": "An 8 × 3 × 3 ft tank converted to cm, a size no keeper in Vietnam would name.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Mắt sụp (drop eye)",
+    "why": "A calque of the English 'drop eye'; arowana keepers in Vietnam call it lé mắt.",
+    "by": "model",
+    "fix": "lé mắt"
+   }
+  ],
   "products": []
  },
  "vi/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
@@ -40794,19 +40697,10 @@
  },
  "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "21b643ff7c33590f",
+  "hash": "86177129336b6073",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Trùng mỏ neo, ở cá thực phẩm chịu được mặn",
-    "why": "\"Cá thực phẩm\" is a word-for-word rendering of English \"food fish\"; keepers in Vietnam don't say it.",
-    "by": "model",
-    "fix": "cá nuôi lấy thịt"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -40831,7 +40725,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "Tắm muối 3%, sau đó ngâm muối 0,2%"
+    "quote": "Tắm muối 3%"
    },
    {
     "treatment": "salt",
@@ -40847,7 +40741,7 @@
    },
    {
     "treatment": "salt",
-    "strength": "0.02–0.2%",
+    "strength": "",
     "amount": 0.02,
     "amountMax": 0.2,
     "unit": "%",
@@ -40864,7 +40758,7 @@
     "amountMax": 25,
     "unit": "g",
     "per": 1,
-    "perUnit": "m³",
+    "perUnit": "cubic metre",
     "use": "parasites",
     "method": "bath",
     "quote": "10–25 g/m³"
@@ -80319,29 +80213,15 @@
  },
  "vi/species/dianema-longibarbis": {
   "at": "2026-11-08",
-  "hash": "721b41600731e222",
+  "hash": "a2388651771dd684",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "harm",
-    "part": "P10",
-    "quote": "Muốn làm tới nơi tới chốn thì bạn có thể tháo lọc ra và tăng nhẹ độ cứng của nước.",
-    "why": "Taking the filter out for several weeks while the fish are starved in warmer, shallower water lets ammonia build up and can kill them.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P5",
-    "quote": "rải vài nắm lá sồi hoặc lá dẻ gai khô lên đáy bể",
-    "why": "Oak and beech leaves are what keepers in temperate countries use; keepers in Vietnam use Indian almond leaves.",
-    "by": "model"
-   },
-   {
     "check": "words",
     "part": "P7",
     "quote": "trùn chỉ huyết",
-    "why": "A translation that mixes up tubifex (trùn chỉ) and bloodworm; keepers in Vietnam call bloodworm trùn huyết.",
+    "why": "Mixes two different foods: tubifex (trùn chỉ) and bloodworm (trùn huyết); keepers in Vietnam would not say this.",
     "by": "model",
     "fix": "trùn huyết"
    }

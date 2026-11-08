@@ -20,8 +20,12 @@ const Range = z.object({ min: z.number(), max: z.number() })
 const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
-/** `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from. */
-const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional() })
+/**
+ * `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from.
+ * `fixed`: a person rewrote this part, in English and in the Vietnamese beside it, and reading its source again never
+ * replaces it, as `nameFixed` holds a name.
+ */
+const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional(), fixed: z.literal(true).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
 /**
  * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
