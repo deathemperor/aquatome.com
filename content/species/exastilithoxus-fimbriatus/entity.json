@@ -1,0 +1,80 @@
+{
+  "id": "exastilithoxus-fimbriatus",
+  "scientificName": "Exastilithoxus fimbriatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Exastilithoxus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "caroni"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1320",
+      "html": "<ul><li>Scientific name: Exastilithoxus fimbriatus (Steindachner, 1915)</li><li>Synonym: Pseudacanthicus fimbriatus</li><li>Type locality: Río Coquenan, Venezuela</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1320",
+      "html": "<p>South America: Caroni and Matacuni River basins in the Orinoco drainage.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1320",
+      "html": "<p>Temperature: 25.0–28.0°C.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1320",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1320",
+      "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 52 (no. 17), pp 201.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc nước bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

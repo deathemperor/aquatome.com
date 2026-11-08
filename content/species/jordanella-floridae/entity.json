@@ -8,7 +8,8 @@
   "places": [
     "north-america",
     "united-states",
-    "st-johns"
+    "st-johns",
+    "florida"
   ],
   "dataCard": {
     "tempC": [
@@ -18,11 +19,25 @@
           "min": 18,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 18,
+          "max": 30
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
         "value": {
           "min": 6.5,
           "max": 8.5
@@ -42,6 +57,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -54,6 +73,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ]
   },
@@ -63,6 +86,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
       "html": "<p>The Florida flagfish, Jordanella floridae, is a cyprinodontid endemic to peninsular Florida in the United States. It lives in shallow, weedy backwaters, marshes, canals and ditches. A long-standing aquarium favourite, it is produced commercially and wild fish are very rare outside the U.S.A. Contrary to many reports it does not dig pits or exhibit extended parental care, and breeds as a fractional spawner like other cyprinodontids.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p><em>Jordanella floridae</em> is a North American pupfish (a type of killifish) that reaches 5–6 cm. It is not an annual killifish: it lives longer than one year and does not need to be bred immediately to maintain the population. The name comes from the male's red and blue horizontal striping with a yellow shoulder patch, which resembles the US flag. It is very active and constantly darts around looking for algae and leftover crumbs.</p>"
     },
     {
       "key": "distribution",
@@ -77,10 +106,22 @@
       "html": "<p>Mostly inhabits shallow, weedy freshwater habitats including backwaters, marshes, canals and ditches and has occasionally been recorded in lightly brackish water.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>In the wild they come from swampy Floridian marshes full of vegetation, with harder or mildly brackish water.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
       "html": "<p>An aquarium with base dimensions of 60 × 30 cm (24 × 12 in) or equivalent (~54 litres) is just about acceptable for a single pair but like most members of the family Cyprinodontidae this species does best when maintained as a group in a larger tank or container.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>A pair of flagfish can live in a 80-litre aquarium, but increase the tank size for each additional male so that each can establish their own space.</p>"
     },
     {
       "key": "maintenance",
@@ -95,10 +136,22 @@
       "html": "<ul><li>Temperature: 18–30°C (64–86°F)</li><li>pH: 6.5–8.5</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>Extremely hardy; they handle a wide range of parameters: pH 6.5–8.5, soft to hard water, and 18–30°C. As a North American species, flagfish can thrive in unheated aquariums with a tight-fitting lid to prevent escape. Some people keep them in outdoor mini ponds in summer to eat algae and mosquito larvae.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
       "html": "<p>Chiefly a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton although algae and other plant material is taken as well.</p><p>In the aquarium dried foods are accepted in most cases but regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm should also be offered.</p><p>If the aquarium or container doesn't contain filamentous algae introduce a good quality dried product with added vegetable, ideally algal, content to the diet.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>Omnivores that enjoy both meaty foods and plant matter, such as freshwater plankton, small crustaceans, insect larvae and algae. They are not picky and readily take pellets, freeze-dried foods, frozen foods and live foods. Because of their love of algae, add vegetables and greenery to the diet, such as spirulina flakes, Repashy Soilent Green gel food and blanched (or lightly boiled) zucchini slices.</p>"
     },
     {
       "key": "behaviour",
@@ -107,16 +160,34 @@
       "html": "<p>Best-maintained alone, especially if the intention is for the fish to breed, but can be maintained in a well-researched community provided sufficient space is available.</p><p>Individual males require space to form territories but in most cases two or more can be kept in the same aquarium.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>Similar to dwarf cichlids, males can be quite territorial towards one another, whereas females tend to be more docile. A ratio of one male to two to three females is recommended.</p><p>Plants: lots of live plants help block line of sight and reduce fighting. However, in their eagerness to eat algae, flagfish can accidentally tear delicate plant leaves. They do well with tougher plants like java fern, fast-growing plants and java moss. Keeping them well fed may minimise nibbling on leaves.</p><p>Tank mates: because of their feisty personalities, keep them with other fast-swimming, boisterous fish of similar size. Zebra danios, corydoras catfish, loaches and livebearers have got along well with them. They are likely to prey on dwarf shrimp such as cherry shrimp and ghost shrimp.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
       "html": "<p>Adult males possess more-extended dorsal and anal fins and are significantly more colorful than females, more so when in spawning condition.</p><p>Adult females tend to be rounder-bellied than males, particularly when gravid, and possess a dark blotch in the posterior portion of the dorsal-fin which is not present in males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>Males have rows of red and blue horizontal striping with a yellow shoulder patch. Females are smaller, less colourful and have a rounder abdomen when carrying eggs. Both sexes show a prominent black spot on the sides, but females often have another small black dot on the back edge of the dorsal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/jordanella-floridae",
       "html": "<p>Contrary to many reports, including a number of scientific papers, this species breeds in the same way as other cyprinodontids and does not dig pits or exhibit extended parental care.</p><p>It's a fractional spawner with females depositing eggs on a more-or-less continuous basis when a warm temperature is maintained though ideally it should be permitted to breed on a seasonal basis in spring and late summer as it would in nature.</p><p>Males form temporary territories which they defend against rivals while attempting to entice females to spawn, dominant individuals showing more intense colouration.</p><p>Eggs are released singly or in small batches and attached to algae or other surfaces by means of small filaments, and there is no additional care from either male or female once they're deposited.</p><p>While some may be eaten if left in situ this species isn't especially voracious and if plenty of cover is present fry will appear in with the adults although the most productive method is to remove the eggs and hatch them in a separate tank containing water of the same chemistry and temperature as that of the adults.</p><p>The incubation period is influenced by temperature but usually 7 - 14 days with the fry large enough to accept Artemia nauplii, microworm, etc., as soon as they become free-swimming.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "html": "<p>Not too difficult to breed; they tend to spawn in spring and summer when the water is warmer. Mating behaviour consists of nipping and chasing until the pair embrace and the female releases her eggs over several days. Provide spawning mops, java moss and other dense foliage as spawning sites and cover for the newborns.</p><p>Some biologists report that the male shows parental care by chasing intruders from the spawning site, fanning the eggs to increase water flow and oxygenation, and eating eggs infected with fungus. Breeders often move the eggs to a separate hatching bin to increase yield and prevent predation. Depending on temperature, eggs may hatch within a week or two.</p><p>Once free-swimming, feed the fry several small meals a day of live vinegar eels and powdered fry food until they are big enough for live baby brine shrimp and micro worms.</p>"
     },
     {
       "key": "notes",
@@ -131,7 +202,19 @@
       "html": "<ul><li>Goode, G. B. (1879). A preliminary catalogue of the fishes of the St. John's River and the east coast of Florida, with descriptions of a new genus and three new species. Proceedings of the United States National Museum v. 2 (no. 73), 108-121</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/a3a5c03bbb571b73.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a3a5c03bbb571b73-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/flagfish",
+      "caption": "Pogostemon Stellatus 'Octopus' - Aquarium Co - Op",
+      "source": "aquariumcoop"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -162,5 +245,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-08"
 }

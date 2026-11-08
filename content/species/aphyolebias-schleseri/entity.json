@@ -1,0 +1,82 @@
+{
+  "id": "aphyolebias-schleseri",
+  "scientificName": "Aphyolebias schleseri",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Aphyolebias",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "peru",
+    "loreto"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_schleseri_en/",
+      "html": "<p>A very unusual killifish that can be recognised by its unique sword. It grows to 4-5 cm. It is a typical annual species. In the aquarium it might reach an age of 1.5 years, but it hardly ever reaches that age in the wild.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_schleseri_en/",
+      "html": "<p>Until now this species is known only from very few places in the north of Peru. The type location is about 1 km upstream from Tacshacuraray in the Loreto province.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_schleseri_en/",
+      "html": "<p>It is a typically annual species that dives deep into the ground for spawning. The eggs have to be incubated for about 10 months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyolebias_schleseri_en/",
+      "html": "<p>The species was described only in 2003 and initially was thought to be a new species of Micromoema. Members of the German killifish association (DKG) helped to trace the correct name.</p><p>Etymology: Aphyolebias comes from the anterior part of the word Aphyosemion and from Lebias. Aphyosemion is a genus of killifish from Africa, somewhat similar to Aphyolebias. Lebias is an ancient fish name, formerly used for what is now Aphanius. The word is part of many genus names of South American killifish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 20 lít",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "than bùn cho cá killi",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng chỉ đông lạnh",
+        "artemia cho cá killi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

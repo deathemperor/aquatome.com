@@ -7,13 +7,36 @@
   "group": "catfish",
   "places": [
     "north-america",
-    "united-states"
+    "united-states",
+    "florida"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 9.4
+      },
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -25,10 +48,40 @@
       "html": "<ul><li>Scientific name: Noturus leptacanthus Jordan, 1877</li><li>Common names: Speckled Madtom; Småplettet Giftmalle (Denmark)</li><li>Synonym: Schilbeodes leptacanthus</li><li>Etymology: From the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins.</li><li>IUCN Red List category: Least Concern (last assessed 2012)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<ul><li>Common name: Speckled madtom</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
       "html": "<p>North America: North American Atlantic drainages, Florida waters and Gulf Coast drainages.</p><p>Type locality: Silver Creek, 1 mile above its junction with Etowah River, near Rome, Floyd County, Georgia, U.S.A.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>North America: Atlantic and Gulf Slope drainages from Edisto River in South Carolina, USA to Amite-Comite River in Louisiana, USA; south in peninsular Florida to St. John's River drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Inhabits gravel-sand runs and rocky riffles of creeks and small to medium rivers, near vegetation.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>The Madtoms are well suited to aquarium life. Provide river gravel and smooth rounded stones for hiding places during the day. A power filter at one end of the tank will provide the conditions of a flowing stream for these catfish. Can be housed with other North American fishes such as minnows, darters and shiners.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Feeds on midge larvae. They like most meaty food, such as cut-up earth worms, frozen blood worm and prawns. They will also take tablet and pellet foods. A varied diet will keep them in optimum health.</p>"
     },
     {
       "key": "reproduction",
@@ -37,10 +90,22 @@
       "html": "<p>There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Description: The head is narrow, the eyes small and the upper jaw overhangs the lower. 4 pairs barbels. Pectoral spine has poison glands at the base so with most of this genera, handle with care.</p><p>Colouration: This species is slender built with a dark brown to russet back; sides brownish yellow. The back, sides, median fins have scattered grey black blotches, belly whitish.</p><p>Etymology: The specific name leptacanthus: leptós, thin or slender; acanthus (L.), from ákantha, thorn or spine, referring to “small and slender dorsal and pectoral spines which are devoid of internal serratures”.</p><p>IUCN Red List: Least Concern in view of the large extent of occurrence, large number of subpopulations, large population size, and lack of major threats.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
       "html": "<p>Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 352.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2012). The Audubon Society Field guide to North American Fishes, Whales &amp; Dolphins. Alfred A. Knopf, New York. 848 p. Schleser David M.; North American Native Fishes for the Home Aquarium. Barron's Educational Series. Inc. 1998. 169 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -93,6 +158,35 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác",
+        "máy lọc tạo dòng chảy cho bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội tròn trang trí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm cho cá trê"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-08"
 }

@@ -1,0 +1,51 @@
+{
+  "id": "metaloricaria-nijsseni",
+  "scientificName": "Metaloricaria nijsseni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Metaloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 29.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<ul><li>Scientific name: Metaloricaria nijsseni (Boeseman, 1976)</li><li>Type locality: Sipaliwini River, southwestern Suriname.</li><li>IUCN Red List: Least Concern (last assessed 2021).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<p>South America: Suriname, Saramacca, Nickerie and Corantijn River basins. Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<p>Zoologische Mededelingen (Leiden) v. 50 (no. 11), pp170, Pl. 8</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-08"
+}
