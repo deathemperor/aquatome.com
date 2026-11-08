@@ -231,7 +231,8 @@ if part rewrite; then
   for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
   # Rivers and regions under the names Vietnamese readers use, before the other languages name them.
   pnpm engine name-places-vi || log "name-places-vi: failed"
-  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions and buying guides in both: only what is new or whose source changed.
+  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions, buying guides and the app's
+  # short cards in both: only what is new or whose source changed.
   for lang in id th; do
     pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
     pnpm engine localize-glossary --lang "$lang" || log "localize-glossary $lang: failed"
@@ -240,6 +241,7 @@ if part rewrite; then
     pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}" || log "localize-breeds $lang: failed"
     pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}" || log "localize-captions $lang: failed"
     pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
+    pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
   done
   # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
   # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
@@ -281,6 +283,7 @@ if part rewrite; then
     ahead pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"
     ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
+    ahead pnpm engine localize-cards --lang "$lang"
   done
 fi
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
