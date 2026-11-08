@@ -1,5 +1,5 @@
 export type EventType = 'view' | 'scroll' | 'time' | 'aff'
-/** `r`: the referring site's host on a page's first event, '' when direct or internal. */
+/** `r`: the referring site's host on a page's view, '' when none; the Worker keeps one of our own pages as '=' (ownReferrer). */
 export type AbEvent = { p: string; t: EventType; v: number; sid: string; r?: string }
 const TYPES = new Set<string>(['view', 'scroll', 'time', 'aff'])
 
@@ -18,5 +18,10 @@ export function parseEvent(body: string): AbEvent | null {
   return { p, t: t as EventType, v, sid, ...(r ? { r } : {}) }
 }
 
-/** Analytics Engine layout: blob1 unused (was the A/B skin), blob2 type, blob3 path, blob4 session, blob5 referrer host, blob6 country; double1 value; index session. */
-export const toDataPoint = (e: AbEvent, country = '') => ({ blobs: ['', e.t, e.p, e.sid, e.r ?? '', country], doubles: [e.v], indexes: [e.sid] })
+/**
+ * Analytics Engine layout: blob1 who, when not a reader (us.ts: owner, team, net, app; '' for a reader; the A/B skin
+ * until 2026-10), blob2 type, blob3 path, blob4 session, blob5 referrer host ('=' our own site), blob6 country; double1 value; index session.
+ */
+/** A view whose referrer is this site (a tab a reader opened from one of our pages) keeps '=': a referrer, but not a source. */
+export const ownReferrer = (e: AbEvent, host: string): AbEvent => (e.r && e.r === host ? { ...e, r: '=' } : e)
+export const toDataPoint = (e: AbEvent, country = '', who = '') => ({ blobs: [who, e.t, e.p, e.sid, e.r ?? '', country], doubles: [e.v], indexes: [e.sid] })
