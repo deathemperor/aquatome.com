@@ -417,6 +417,28 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
   #expect(foldedAt == 3 && r.steps.count == 3)
 }
 
+@Test func textInDozensOfPiecesIsJoinedAsItComesThenDoneReplacesIt() async throws {
+  // The Worker streams the text as Claude writes it: dozens of pieces, some cut mid-word. Before `done`, the screen holds
+  // all of them so far, never only the last.
+  let t = try #require(try await chat("chat-stream-species.sse").lazy.compactMap { if case .done(let t) = $0 { t } else { nil } }.first)
+  let words = Array(t.text)
+  var r = Chat.Reply()
+  // About thirty pieces, whatever the recorded answer's length.
+  let size = max(1, words.count / 30)
+  var at = 0, pieces = 0
+  while at < words.count {
+    let end = min(at + size, words.count)
+    r.take(.text(String(words[at..<end])))
+    pieces += 1
+    #expect(r.text == String(words[..<end]), "piece \(pieces) didn't join what came before it")
+    at = end
+  }
+  #expect(pieces >= 24)
+  #expect(r.turn == nil && r.writing)
+  r.take(.done(t))
+  #expect(r.text == t.text && r.turn != nil)
+}
+
 @Test func eachPageShowsOnceATurnAndNoStepAfterTheText() {
   var r = Chat.Reply()
   r.take(.step(.read(neonPage)))
