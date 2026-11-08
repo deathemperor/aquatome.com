@@ -348,36 +348,73 @@ private struct AnswerText: View {
   /// Motion.
   let animate: Bool
   @ScaledMetric private var number: CGFloat = 22
+  /// The pieces still fading in (Chat.Pieces): only their opacity moves, so the words already there stay still.
+  @State private var pieces = Chat.Pieces()
+
+  private enum Drawn {
+    case text(Text)
+    case list([(n: Int, text: Text, words: String)])
+  }
 
   var body: some View {
-    let parts = Chat.paragraphs(text)
-    VStack(alignment: .leading, spacing: 12) {
-      ForEach(Array(parts.enumerated()), id: \.offset) { _, p in
-        switch p {
-        case .text(let s):
-          Text(s).frame(maxWidth: .infinity, alignment: .leading)
-        case .list(let items):
-          VStack(alignment: .leading, spacing: 6) {
-            ForEach(Array(items.enumerated()), id: \.offset) { i, item in
-              HStack(alignment: .firstTextBaseline, spacing: 6) {
-                Text(verbatim: "\(item.n).").monospacedDigit().frame(minWidth: number, alignment: .trailing)
-                Text(item.text).frame(maxWidth: .infinity, alignment: .leading)
+    TimelineView(.animation(paused: pieces.isEmpty)) { time in
+      VStack(alignment: .leading, spacing: 12) {
+        ForEach(Array(drawn(at: time.date).enumerated()), id: \.offset) { _, p in
+          switch p {
+          case .text(let t):
+            t.frame(maxWidth: .infinity, alignment: .leading)
+          case .list(let items):
+            VStack(alignment: .leading, spacing: 6) {
+              ForEach(Array(items.enumerated()), id: \.offset) { i, item in
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                  Text(verbatim: "\(item.n).").monospacedDigit().frame(minWidth: number, alignment: .trailing)
+                  item.text.frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text(item.words))
+                .accessibilityValue(Text("\(i + 1) trên \(items.count)"))
               }
-              .accessibilityElement(children: .ignore)
-              .accessibilityLabel(Text(item.text))
-              .accessibilityValue(Text("\(i + 1) trên \(items.count)"))
             }
           }
         }
       }
     }
     .textSelection(.enabled)
-    .contentTransition(.opacity)
-    .animation(animate ? .easeOut(duration: 0.15) : nil, value: text)
+    .onChange(of: text) { old, new in pieces.changed(from: old, to: new, at: .now, fading: animate && !whole) }
+    // The last fade over: the redrawing stops.
+    .task(id: pieces.newest) {
+      guard !pieces.isEmpty else { return }
+      try? await Task.sleep(for: .seconds(Chat.Pieces.fade))
+      pieces.settle(at: .now)
+    }
     .accessibilityElement(children: .contain)
     .accessibilityHidden(!whole)
     .accessibilityIdentifier("chat-answer")
     .onChange(of: whole) { _, w in if w { AccessibilityNotification.Announcement(text).post() } }
+  }
+
+  /// The text's parts as drawn at `now`, each piece still fading in at its own opacity.
+  private func drawn(at now: Date) -> [Drawn] {
+    let parts = Chat.paragraphs(text)
+    let words = parts.flatMap { p -> [String] in
+      switch p {
+      case .text(let s): [s]
+      case .list(let items): items.map(\.text)
+      }
+    }
+    var runs = pieces.runs(of: words, in: text, at: now).makeIterator()
+    func next() -> Text {
+      (runs.next() ?? []).reduce(Text(verbatim: "")) { t, r in
+        let piece = Text(verbatim: r.words)
+        return t + (r.opacity < 1 ? piece.foregroundStyle(Color.primary.opacity(r.opacity)) : piece)
+      }
+    }
+    return parts.map { p in
+      switch p {
+      case .text: .text(next())
+      case .list(let items): .list(items.map { (n: $0.n, text: next(), words: $0.text) })
+      }
+    }
   }
 }
 

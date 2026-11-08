@@ -118,3 +118,77 @@ extension Chat {
     return utc.date(byAdding: .day, value: 1, to: utc.startOfDay(for: now))!
   }
 }
+
+extension Chat {
+  /// The pieces of a streaming answer still fading in: where each starts in the text (in UTF-16) and when it came. A
+  /// piece is what the text gained between two draws, so pieces coming within one frame fade in as one. Only their
+  /// opacity changes, never the text laid out, so the words already there don't move or flicker, and `done`, the same
+  /// text, changes nothing.
+  public struct Pieces: Sendable {
+    public static let fade: TimeInterval = 0.15
+    private var list: [(at: Int, came: Date)] = []
+
+    public init() {}
+
+    public var isEmpty: Bool { list.isEmpty }
+    /// When the newest piece came: its fade, the last, ends `fade` later.
+    public var newest: Date? { list.last?.came }
+
+    /// The text went from `old` to `new` at `now`. The same text (done's) changes nothing; only a piece added to the end
+    /// fades in; anything else, or text not `fading` (drawn at once), ends every fade. Compared by scalars: a piece may
+    /// start inside a letter (its marks).
+    public mutating func changed(from old: String, to new: String, at now: Date, fading: Bool) {
+      if new.unicodeScalars.elementsEqual(old.unicodeScalars) { return }
+      guard fading, new.unicodeScalars.starts(with: old.unicodeScalars) else {
+        list = []
+        return
+      }
+      settle(at: now)
+      list.append((old.utf16.count, now))
+    }
+
+    /// Fades over by `now` are let go.
+    public mutating func settle(at now: Date) { list.removeAll { now.timeIntervalSince($0.came) >= Self.fade } }
+
+    /// A run of words drawn at one opacity.
+    public struct Run: Sendable, Equatable {
+      public let words: String
+      public let opacity: Double
+      public init(_ words: String, _ opacity: Double = 1) { self.words = words; self.opacity = opacity }
+    }
+
+    /// Each part's words (a paragraph's, or a step's, as `paragraphs` left them), in order, cut where the pieces still
+    /// fading at `now` start. A part's lines are found in `text` in order, since `paragraphs` trims them and takes a
+    /// step's number off; a line not found is drawn whole.
+    public func runs(of parts: [String], in text: String, at now: Date) -> [[Run]] {
+      let fading = list.map { (at: $0.at, opacity: max(0, now.timeIntervalSince($0.came)) / Self.fade) }.filter { $0.opacity < 1 }
+      guard !fading.isEmpty else { return parts.map { [Run($0)] } }
+      var cursor = text.startIndex
+      return parts.map { words in
+        var out: [Run] = []
+        func add(_ s: String, _ opacity: Double) {
+          guard !s.isEmpty else { return }
+          if let last = out.last, last.opacity == opacity { out[out.count - 1] = Run(last.words + s, opacity) } else { out.append(Run(s, opacity)) }
+        }
+        for (k, line) in words.split(separator: "\n", omittingEmptySubsequences: false).enumerated() {
+          if k > 0 { add("\n", out.last?.opacity ?? 1) }
+          guard let r = text.range(of: line, options: .literal, range: cursor..<text.endIndex) else {
+            add(String(line), 1)
+            continue
+          }
+          cursor = r.upperBound
+          let start = text.utf16.distance(from: text.startIndex, to: r.lowerBound)
+          let u = Array(line.utf16)
+          var from = 0, opacity = 1.0
+          for f in fading where f.at < start + u.count {
+            let cut = max(from, f.at - start)
+            add(String(decoding: u[from..<cut], as: UTF16.self), opacity)
+            (from, opacity) = (cut, f.opacity)
+          }
+          add(String(decoding: u[from...], as: UTF16.self), opacity)
+        }
+        return out
+      }
+    }
+  }
+}
