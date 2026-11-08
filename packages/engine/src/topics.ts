@@ -8,6 +8,7 @@ import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
+import { NAMES_TREATMENT } from './fit'
 import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
@@ -52,16 +53,20 @@ Rules: facts in your own words, short, one claim each. Keep numbers and units as
  * after guides gave a fish farm's salt dips and a forum post's quinine to aquarium keepers: "a dose taken from a source
  * written for farmed food fish, or from a single forum post, needs a second source before it's used."
  */
-const DOSE_FACT = /\d\s*(?:mg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|cc)(?![\p{L}])|\d\s*%\s*(?:salt|muối|NaCl)|(?:salt|muối|NaCl)[^.;]{0,20}?\d\s*%/iu
-/** A level in ppm is a dose unless it's the water's own (nitrate below 20 ppm). */
-const LEVEL_FACT = /\d\s*(?:ppm|ppt)(?![\p{L}])/iu
+const AMOUNT = /\d\s*(?:mg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|ppm|ppt|‰|%|percent|phần trăm|persen)(?![\p{L}])/iu
+/** So much in so much water: "per 40 litres", "/L", "mỗi m³". */
+const PER_VOLUME = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3)(?![\p{L}])/iu
+/** The water's own levels: a figure for these is the water's, not a dose. */
 const WATER = /nitrat|nitrit|ammonia|amoni|oxygen|\boxy\b|TDS|CO2|CO₂|\bKH\b|\bGH\b/iu
-const isDose = (fact: string) => DOSE_FACT.test(fact) || (LEVEL_FACT.test(fact) && !WATER.test(fact))
+/** An amount that names a medicine, copper or salt, or is so much per litre of something not the water's own. */
+const isDose = (fact: string) => AMOUNT.test(fact) && (NAMES_TREATMENT.test(fact) || (PER_VOLUME.test(fact) && !WATER.test(fact)))
+/** A page's address without its query or anchor: another page of the same thread is the same source. */
+const pageOf = (url: string) => url.replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase()
 /** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
 export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
   const s = r.sources[f.source]
   if (!s || (s.kind !== 'farm' && s.kind !== 'forum') || !isDose(f.fact)) return true
-  return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && o.url !== s.url && o.kind !== 'farm' })
+  return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && pageOf(o.url) !== pageOf(s.url) && o.kind !== 'farm' })
 }
 
 const WRITE_SCHEMA = {

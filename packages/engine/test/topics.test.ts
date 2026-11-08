@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, usableFact, type TopicFacts } from '../src/topics'
 
 const facts: TopicFacts = {
   found: true,
@@ -127,6 +127,26 @@ test('localizeTopic in Malay: addressed by its name, and a name another guide ha
   expect(prompts[0]).toContain('Malay')
   expect(prompts[0]).toContain('Malaysia')
   expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
+})
+
+test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is so much per litre of something not the water\'s own; another page of the same thread is no second source', () => {
+  const sources: TopicFacts['sources'] = [
+    { url: 'https://farm.example/ca', title: 'Nuôi cá', kind: 'farm' },
+    { url: 'https://forum.example/t/1', title: 'Thread', kind: 'forum' },
+    { url: 'https://forum.example/t/1?page=2', title: 'Thread, page 2', kind: 'forum' },
+  ]
+  const usable = (fact: string, source = 0, also?: number[]) => usableFact({ found: true, species: [], sources, facts: [] }, { section: 'treatment', fact, source, ...(also ? { also } : {}) })
+  for (const [fact, source] of [
+    ['Formalin at 25 ppm; add aeration because it lowers oxygen', 1],
+    ['Copper sulfate at 1 ppm only when KH is above 5', 1],
+    ['A 3% saline solution', 0],
+    ['Salt bath at 3 percent', 0],
+    ['20–30‰ salt water', 0],
+    ['Tắm nước muối 20‰', 0],
+    ['1 capful per 40 litres', 1],
+  ] as const) expect(usable(fact, source), fact).toBe(false)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week']) expect(usable(fact), fact).toBe(true)
+  expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
 })
 
 test('a dose from a fish farm\'s page or a forum post is written only when another page, not a farm\'s, gives it too', async () => {

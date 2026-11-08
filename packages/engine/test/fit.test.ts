@@ -19,6 +19,71 @@ test('the chief\'s samples: each is found, by the check it belongs to', () => {
   expect(found('price', '<p>Tiền ship và phí vận chuyển bằng đường hàng không từ Canada.</p>')).toEqual(['phí vận chuyển'])
 })
 
+test('harmful doses as other pages write them; and what is not one: a water change, another medicine\'s ppm, a stock solution, another line', () => {
+  const harm = (html: string, lang: Page['lang'] = 'vi') => found('harm', html, { lang })
+  for (const [html, lang] of [
+    // A salt dip by g/L or ‰, the time first, an hour as "tiếng" or "ชม."
+    ['<p>Tắm muối 30 g/L trong 20 phút.</p>', 'vi'],
+    ['<p>Ngâm 20–30‰ trong 15–30 phút.</p>', 'vi'],
+    ['<p>Tắm cá 15–30 phút trong nước muối 2–3%.</p>', 'vi'],
+    ['<p>Rendam ikan 15 menit dalam larutan garam 3%.</p>', 'id'],
+    ['<p>Tắm muối 2% trong 1 tiếng.</p>', 'vi'],
+    ['<p>แช่เกลือ 3% นาน 1 ชม.</p>', 'th'],
+    // Grams per litre with other joining words, or the medicine after the unit; local spellings.
+    ['<p>Pha kanamycin 2 g cho 1 lít nước.</p>', 'vi'],
+    ['<p>Hòa 0,8 g quinine trong 1 lít.</p>', 'vi'],
+    ['<p>Larutkan kanamisin 2 gram dalam 1 liter.</p>', 'id'],
+    ['<p>ควินิน 0.8 กรัมต่อน้ำ 1 ลิตร</p>', 'th'],
+    ['<p>Ngâm 2–5 g/L kanamycin.</p>', 'vi'],
+    ['<p>คานามัยซิน 2–5 กรัมต่อลิตร</p>', 'th'],
+    ['<p>Rendam kanamisin 2–5 g/L.</p>', 'id'],
+    // Copper as a formula, a table cell, another name; a chelate named in another clause.
+    ['<p>Dùng CuSO4 1,5 ppm.</p>', 'vi'],
+    ['<p>Cho 2 mg/L CuSO4 vào bể.</p>', 'vi'],
+    ['<p>Cu 1,5 ppm là đủ.</p>', 'vi'],
+    ['<p>Đồng sunphat 1,5 ppm.</p>', 'vi'],
+    ['<p>Sunfat đồng 1,5–2 ppm.</p>', 'vi'],
+    ['<table><tr><td>Đồng</td><td>1,5–2 ppm</td></tr></table>', 'vi'],
+    ['<p>จุนสี 1.5 ppm</p>', 'th'],
+    ['<p>Đồng chelate an toàn hơn; còn đồng sunfat thì giữ 1,5–2 ppm.</p>', 'vi'],
+    // One table row, or list item, can't lend the one after it a label.
+    ['<table><tr><td>Thuốc tím</td><td>theo nhãn</td></tr><tr><td>Đồng sunfat</td><td>2 ppm</td></tr></table>', 'vi'],
+    ['<ul><li>Xanh methylen: theo nhãn</li><li>Đồng sunfat: 2 ppm</li></ul>', 'vi'],
+  ] as const) expect(harm(html, lang), html).toHaveLength(1)
+  for (const [html, lang] of [
+    ['<p>Sau khi tắm muối, thay 30% nước sau 24 giờ.</p>', 'vi'],
+    ['<p>Setelah perawatan garam, ganti 30% air setiap 24 jam.</p>', 'id'],
+    ['<p>หลังแช่เกลือ เปลี่ยนน้ำ 30% ทุก 24 ชั่วโมง</p>', 'th'],
+    ['<p>Tắm muối giúp giảm 70% ký sinh trùng chỉ sau 30 phút.</p>', 'vi'],
+    ['<p>Tép rất nhạy với thuốc đồng, nên dùng formalin 25 ppm.</p>', 'vi'],
+    ['<p>Udang sensitif terhadap tembaga, jadi gunakan formalin 15–25 ppm.</p>', 'id'],
+    ['<p>Đồng sunfat độc với tép, nên thay bằng thuốc tím 2 ppm.</p>', 'vi'],
+    ['<p>Nồng độ đồng đều trong bể, giữ 2 ppm thuốc tím.</p>', 'vi'],
+    ['<p>Xanh methylen bán ở dạng dung dịch 1% (10 g/L), dùng 2 ml cho 10 lít.</p>', 'vi'],
+    ['<p>Formalin là dung dịch formaldehyde 37% (khoảng 370 g/L), dùng theo nhãn.</p>', 'vi'],
+    ['<p>Thuốc tím: pha dung dịch gốc 10 g/L rồi lấy 1 ml cho 5 lít.</p>', 'vi'],
+    ['<ul><li>Kanamycin: liều theo nhãn</li><li>Baking soda 1 g/L</li></ul>', 'vi'],
+    ['<p>Hidrasi kista dulu selama sekitar 1 jam dalam air dengan kadar garam di bawah 100 g/l, diaerasi.</p>', 'id'],
+    ['<p>ผสมเกลือ: สูตรหลักคือเกลือเม็ดไม่เสริมไอโอดีน 30 กรัมต่อน้ำ 1 ลิตร เปิดลมไว้ราว 24 ชั่วโมงให้ไข่อาร์ทีเมียฟัก</p>', 'th'],
+    ['<p>จุ่มเกลือ 30–35 g/L นาน 3–5 นาที ถ้าอาการไม่เฉียบพลัน แช่เกลือเจือจาง 5 g/L นาน 90 นาที</p>', 'th'],
+    ['<p>เริ่มจากละลายเกลือไม่เสริมไอโอดีนประมาณ 30 กรัมต่อน้ำ 1 ลิตร ใส่ไข่ในปริมาณพอดี คุมอุณหภูมิราว 25–28 °C แล้วรอ 20–24 ชั่วโมง</p>', 'th'],
+  ] as const) expect(harm(html, lang), html).toEqual([])
+})
+
+test('a fact\'s source number copied into the text is found; a count of sources or a table of them is not', () => {
+  const id = { lang: 'id' as const }, ms = { lang: 'ms' as const }, th = { lang: 'th' as const }
+  expect(found('source', '<p>Yang paling sering ditemukan adalah Lernaea cyprinacea (sumber 8).</p>', id)).toEqual(['(sumber 8)'])
+  expect(found('source', '<p>Penyakit bintik putih dan Costia (sumber 2, 3, 9).</p>', id)).toEqual(['(sumber 2, 3, 9)'])
+  expect(found('source', '<p>Sumber 0 menyebut parasit ini memerlukan cahaya.</p><ul><li>Sumber 1: suhu tinggi mempercepat kitaran hidup.</li></ul>', ms)).toEqual(['Sumber 0', 'Sumber 1'])
+  expect(found('source', '<p>รักษาแยกจากตู้หลัก (แหล่งที่ 3)</p><p>แหล่งที่ 2 ระบุว่าปรสิตต้องใช้แสง</p>', th)).toEqual(['(แหล่งที่ 3)', 'แหล่งที่ 2'])
+  expect(found('source', '<p>Cá bị nấm thứ phát (nguồn 4). Nguồn 1 cho rằng muối giúp được.</p>')).toEqual(['(nguồn 4)', 'Nguồn 1'])
+  expect(found('source', '<p>Dua sumber memberi 22–28 °C, satu sumber 24–29 °C.</p>', ms)).toEqual([])
+  expect(found('source', '<p>Panjang ikan menurut satu sumber 4–7 cm.</p>', id)).toEqual([])
+  expect(found('source', '<p>Cắm bộ đổi nguồn 12 v vào máy sục. Nguồn điện yếu thì dùng pin.</p>')).toEqual([])
+  expect(found('source', '<table><tr><th>Thông số</th><th>Nguồn 1</th><th>Nguồn 2</th></tr><tr><td>nhiệt độ</td><td>24 °C</td><td>26 °C</td></tr></table>')).toEqual([])
+  expect(found('source', '<table><tr><th>หัวข้อ</th><th>แหล่งที่ 1</th><th>แหล่งที่ 2</th></tr><tr><td>อุณหภูมิ</td><td>24 °C</td><td>26 °C</td></tr></table>', th)).toEqual([])
+})
+
 test('a sentence opening on "mình" and a verb is the writer\'s voice; a fish\'s body is not', () => {
   expect(found('source', '<p>Không biết cá bị gì. Mình chỉ thấy cá có gì đó không ổn.</p>')).toEqual(['Mình chỉ'])
   expect(found('source', '<p>Thân dài. Mình cá dẹp, cá cọ mình vào đá.</p>')).toEqual([])
