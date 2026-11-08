@@ -131,7 +131,6 @@ struct AquaTomeApp: App {
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
-      .task { await OwnCopy.check() }
       // After the first screen: iOS's reports, and sending every 30 s once the site (its index read fresh this launch)
       // and the reader allow it.
       .task { await telemetry.start() }
