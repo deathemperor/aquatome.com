@@ -32,15 +32,17 @@ chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện ch�
   và không có bình luận, ảnh bạn đã gửi."
 - What deleting an account removes, adding: "các cuộc trò chuyện cùng nhật ký của chúng".
 - Under "6. Thời gian lưu": "Câu hỏi, câu trả lời và nhật ký khi hỏi về cá: đến khi bạn xóa tài khoản."
-- In the new section, after the paragraph on "Ẩn", for "Báo sai" (the chief's wording, 2026-11-08): "Khi bạn báo
-  một câu trả lời sai, chúng tôi lưu câu trả lời đó, báo cáo và lý do bạn ghi (nếu có) để xem lại và cải thiện câu trả
-  lời. Khi bạn xóa tài khoản, chúng tôi xóa luôn dữ liệu này." The Writing Lead's translations, to go in as they are:
+- In the new section, after the paragraph on "Ẩn", for "Báo sai" (the chief's wording, 2026-11-08): "Khi bạn báo câu
+  trả lời sai, chúng tôi lưu câu trả lời đó, báo cáo và lý do bạn ghi (nếu có) để xem lại và cải thiện các câu trả lời
+  sau này. Khi bạn xóa tài khoản, chúng tôi xóa luôn dữ liệu này." The Writing Lead's translations, to go in as they are:
   - id: "Saat Anda melaporkan jawaban yang salah, kami menyimpan jawaban tersebut, laporannya, dan alasan yang Anda tulis
-    (jika ada) untuk ditinjau dan untuk memperbaiki jawaban. Saat Anda menghapus akun, data ini juga kami hapus."
+    (jika ada) untuk ditinjau dan untuk meningkatkan kualitas jawaban berikutnya. Saat Anda menghapus akun, data ini juga
+    kami hapus."
   - th: "เมื่อคุณรายงานว่าคำตอบผิด เราจะเก็บคำตอบนั้น รายงาน และเหตุผลที่คุณระบุ (ถ้ามี) ไว้เพื่อตรวจสอบและปรับปรุงคำตอบ
-    เมื่อคุณลบบัญชี เราจะลบข้อมูลเหล่านี้ด้วย"
+    ในอนาคต เมื่อคุณลบบัญชี เราจะลบข้อมูลเหล่านี้ด้วย"
   - ms: "Apabila anda melaporkan jawapan yang salah, kami menyimpan jawapan itu, laporan anda dan sebab yang anda tulis
-    (jika ada) untuk disemak dan untuk menambah baik jawapan. Apabila anda memadam akaun, kami turut memadam data ini."
+    (jika ada) untuk disemak dan untuk menambah baik jawapan pada masa hadapan. Apabila anda memadam akaun, kami turut
+    memadam data ini."
 
 ## The chat screen
 

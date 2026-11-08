@@ -1834,7 +1834,9 @@
           },
           "reason": {
             "type": "string",
-            "pattern": "^[^\\r\\n]*$"
+            "pattern": "^[^\\r\\n]*$",
+            "x-maxCharacters": 140,
+            "description": "One line, trimmed by the client. `x-maxCharacters` counts characters as the reader sees them (grapheme clusters, Swift's `count`), past it the reply is `400 too long`. Not `maxLength`, which counts code points: a Thai or decomposed Vietnamese reason has more of those than characters."
           }
         },
         "additionalProperties": false
