@@ -26,6 +26,9 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 /** No fish or guide comes back on Hôm nay within this many days. */
 export const REPEAT_DAYS = 28
 
+/** Each tag as the owner's daily report says it, in the day's `why`. */
+const TAG_WORDS: Record<string, string> = { cold: 'fine without a heater', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'small', local: 'native to Vietnam' }
+
 /** What a week can ask its fish to be (a week's `tags`): how the planner reads each from a page's figures. */
 export const TAGS: Record<string, (f: Facts) => boolean> = {
   /** Fine without a heater in a northern Vietnamese winter. */
@@ -257,9 +260,16 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       else delete d[key]
       delete d.fixed
       report.filled.push(`${date} ${slot}: ${best.ref}`)
-      why.push(`${slot}: ${[...(pool.includes(best.ref) ? ['week list'] : []), ...(w?.tags ?? []).filter(t => TAGS[t]?.(best.facts)), ...(best.known !== undefined ? ['well known'] : []), ...(best.demand ? [`${best.demand} searches`] : [])].join(', ') || 'best photo left'}`)
+      const reasons = [
+        ...(pool.includes(best.ref) ? ["on this week's list"] : []),
+        ...(w?.tags ?? []).filter(t => TAGS[t]?.(best.facts)).map(t => TAG_WORDS[t] ?? t),
+        ...(best.known !== undefined ? ['well known'] : []),
+        ...(best.demand ? [`${best.demand} search impression${best.demand === 1 ? '' : 's'}`] : []),
+      ]
+      why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)
     }
-    if (why.length) d.why = [d.why, ...why].filter(Boolean).join('; ').slice(0, 300)
+    // One plain sentence for the owner's daily report.
+    if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
     out.set(date, d)
   }
   return { calendar: { ...cur, days: [...out.values()].sort((a, b) => a.date.localeCompare(b.date)) }, report }
