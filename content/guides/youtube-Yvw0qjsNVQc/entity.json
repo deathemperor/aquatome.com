@@ -62,8 +62,8 @@
         "t": 135
       },
       {
-        "category": "loc",
-        "type": "thung",
+        "category": "be-ca",
+        "type": "chuan",
         "t": 0
       },
       {
@@ -72,86 +72,38 @@
         "t": 0
       },
       {
-        "category": "be-ca",
+        "category": "loc",
         "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Bài học lớn nhất: bể high-tech cần phân nước",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai bể high-tech cạnh nhau trên kệ, cây xanh tốt và đỏ rực."
-          },
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh cây rậm rạp, lên rất mạnh nhờ châm phân nước."
-          }
-        ]
-      },
-      {
-        "heading": "Bể aquasoil sau 3 tháng",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể aquasoil sau 3 tháng, cây lên màu đỏ xanh đẹp."
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể phủ kín cây, thảm tiền cảnh dày và rêu phủ lũa."
-          }
-        ]
-      },
-      {
         "heading": "Bể nền đất sau 3 tháng",
-        "moments": [
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nền đất phủ kín cây, rotala đỏ rực vươn lên mặt nước."
-          },
-          {
-            "t": 265,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at265-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thảm Monte Carlo gần kín nền bể, lũa có chút rêu chổi đen."
-          }
-        ]
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/p2-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Yvw0qjsNVQc/p2-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cụm Rotala lên màu đỏ hồng, mọc um tùm cạnh nhánh lũa trong bể."
+        }
       },
       {
-        "heading": "Sai lầm khi set bể nền đất",
-        "moments": [
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể nền đất với thảm cỏ xanh và cây thân đỏ."
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thảm Monte Carlo trên nền đất, sát mặt kính phía trước bể."
-          }
-        ]
+        "heading": "Vậy nền nào tốt hơn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Yvw0qjsNVQc/p5-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Yvw0qjsNVQc/p5-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây rậm rạp, lên màu đẹp, có cá neon bơi giữa bể."
+        }
       }
     ]
   }
