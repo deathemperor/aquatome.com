@@ -166,7 +166,6 @@
      "pages": [
       "species/poecilia-reticulata",
       "species/thayeria-boehlkei",
-      "species/corydoras-aeneus",
       "species/pristella-maxillaris"
      ]
     }
@@ -179,7 +178,7 @@
    "theme": {
     "vi": "Cá bản địa Việt Nam",
     "id": "Ikan asli Asia Tenggara",
-    "th": "ปลาท้องถิ่นอาเซียน",
+    "th": "ปลาพื้นเมืองอาเซียน",
     "ms": "Ikan asli Asia Tenggara"
    },
    "tags": [
@@ -195,9 +194,9 @@
     "species/betta-siamorientalis"
    ],
    "guides": [
-    "guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens",
-    "guides/aquatome-cho-ca-betta-sinh-san-chon-cap-ep-de-to-bot-va-cham-ca-bot",
-    "guides/aquariumcoop-blogs-aquarium-betta-tank-mates"
+    "guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms",
+    "guides/loachesonline-articles-a-river-runs-through-it",
+    "guides/youtube-cJLZq603RAY"
    ],
    "hero": [],
    "shelves": [
@@ -206,12 +205,12 @@
      "title": {
       "vi": "Cá lóc",
       "id": "Ikan channa",
-      "th": "ปลาช่อน",
+      "th": "ปลาช่อนและปลาชะโด",
       "ms": "Ikan channa"
      },
      "pages": [
-      "species/channa-asiatica",
       "species/channa-micropeltes",
+      "species/channa-asiatica",
       "species/channa-gachua",
       "species/channa-lucius",
       "species/channa-maculata"
@@ -221,15 +220,13 @@
      "id": "ro-sac-co",
      "title": {
       "vi": "Cá rô, cá sặc, cá cờ",
-      "id": "Betok, sepat dan ikan paradise",
-      "th": "ปลาหมอ ปลากระดี่ และปลาพาราไดซ์",
-      "ms": "Puyu, sepat dan ikan paradise"
+      "id": "Betok, sepat, dan ikan paradise",
+      "th": "ปลาหมอไทย ปลากระดี่ และปลาพาราไดซ์"
      },
      "pages": [
       "species/anabas-testudineus",
       "species/trichopodus-trichopterus",
-      "species/macropodus-opercularis",
-      "species/trichopsis-vittata"
+      "species/macropodus-opercularis"
      ]
     }
    ],
@@ -251,7 +248,7 @@
      "vi": "Trời lạnh, bể cá cần gì"
     },
     "dek": {
-     "vi": "Sưởi khoảng 1 W mỗi lít, đặt chỗ nước chảy, ốp xốp quanh bể và chuẩn bị sẵn cho lúc mất điện"
+     "vi": "Chọn sưởi khoảng 1 W mỗi lít, đặt ở chỗ nước chảy, ốp xốp quanh bể và sắm sẵn máy sủi chạy pin phòng mất điện"
     }
    },
    "why": "Fish: Cá vàng Lưu kim (Ryukin), on this week's list, tolerates cold, well known. Guide: Cách chọn máy sưởi hồ cá phù hợp, on this week's list, 3 search impressions."
@@ -265,9 +262,10 @@
   },
   {
    "date": "2026-11-11",
-   "img": "https://media.aquatome.com/commons/f27b1295f7044218.webp",
+   "img": "https://media.aquatome.com/commons/5c695b18592945a0.webp",
    "guide": "guides/youtube-DZ0JTLYiawU",
-   "why": "Fish: Cá tai tượng đuôi đỏ khổng lồ, on this week's list."
+   "why": "Fish: Cá vàng Oranda (Oranda goldfish), takes cool water, well known, 11 search impressions.",
+   "fish": "breeds/oranda-goldfish"
   },
   {
    "date": "2026-11-12",
@@ -323,7 +321,7 @@
      "vi": "Set bể thủy sinh cubic 30 để bàn"
     },
     "dek": {
-     "vi": "Bể 27 lít có CO2: dựng đá lũa, trải nền dốc về sau, trồng cây, rồi chạy lọc một ngày mới châm vi sinh"
+     "vi": "Bể 27 lít có CO2: dựng đá lũa, trải nền cao dần về phía sau, trồng cây, rồi chạy lọc một ngày mới châm vi sinh"
     }
    },
    "why": "Guide: Set bể thủy sinh nano 20 lít cho cá betta, từ nền đến thả cá, on this week's list."
@@ -354,39 +352,39 @@
    "date": "2026-11-23",
    "fish": "species/datnioides-pulcher",
    "img": "https://media.aquatome.com/commons/8bac445743996b73.webp",
-   "guide": "guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens",
-   "why": "Fish: Cá thái hổ Siam, on this week's list, native to Vietnam, 1 search impression. Guide: Cách chăm sóc cá betta (cá chọi Xiêm) - Betta splendens, on this week's list."
+   "why": "Guide: Các loài cá chạch Botiidae thuộc 'phức hợp Modesta' – phân tích về lịch sử tự nhiên và tập tính, on this week's list.",
+   "guide": "guides/seriouslyfish-articles-botiid-fishes-of-the-modesta-complex-an-analysis-of-natural-history-and-behaviorisms"
   },
   {
    "date": "2026-11-24",
-   "guide": "guides/aquariumcoop-blogs-aquarium-betta-tank-mates",
-   "why": "Guide: 5 loài bạn cùng bể tốt nhất cho cá betta trong bể cộng đồng, on this week's list."
+   "why": "Guide: Dòng sông chảy qua bể – Thiết kế bể River-Tank cho cá suối, on this week's list.",
+   "guide": "guides/loachesonline-articles-a-river-runs-through-it"
   },
   {
    "date": "2026-11-25",
-   "guide": "guides/aquariumbreeder-snails-external-anatomy",
-   "why": "Guide: Giải phẫu ngoại hình của ốc, 8 search impressions."
+   "why": "Guide: Cách nuôi cá sặc trân châu (pearl gourami) cho người mới, on this week's list.",
+   "guide": "guides/youtube-cJLZq603RAY"
   },
   {
    "date": "2026-11-26",
-   "guide": "guides/aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam",
-   "guideImg": "https://media.aquatome.com/commons/e15dbfab9fbaa170.webp",
-   "why": "Guide: Phân loại cá dĩa: 14 lớp NADA, can, vùng D và tên gọi tiếng Việt, 2 search impressions."
+   "why": "Guide: Giải phẫu ngoại hình của ốc, 8 search impressions.",
+   "guide": "guides/aquariumbreeder-snails-external-anatomy"
   },
   {
    "date": "2026-11-27",
-   "guide": "guides/sprucepets-why-do-betta-fish-fight-5183979",
-   "why": "Guide: Hành vi của cá betta: hiểu về tính hung hăng và cách phòng tránh đánh nhau, 6 search impressions."
+   "why": "Guide: Phân loại cá dĩa: 14 lớp NADA, can, vùng D và tên gọi tiếng Việt, 2 search impressions.",
+   "guide": "guides/aquatome-phan-loai-ca-dia-14-lop-nada-mau-goc-mau-ao-can-vung-d-va-ten-goi-viet-nam",
+   "guideImg": "https://media.aquatome.com/commons/e15dbfab9fbaa170.webp"
   },
   {
    "date": "2026-11-28",
-   "guide": "guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con",
-   "why": "Guide: Cá bảy màu sắp đẻ: dấu hiệu, cách tách cá mẹ và nuôi cá con, 5 search impressions."
+   "why": "Guide: Hành vi của cá betta: hiểu về tính hung hăng và cách phòng tránh đánh nhau, 6 search impressions.",
+   "guide": "guides/sprucepets-why-do-betta-fish-fight-5183979"
   },
   {
    "date": "2026-11-29",
-   "guide": "guides/sprucepets-platy-types-1381066",
-   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
+   "why": "Guide: Cá bảy màu sắp đẻ: dấu hiệu, cách tách cá mẹ và nuôi cá con, 5 search impressions.",
+   "guide": "guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con"
   }
  ],
  "loops": {},
