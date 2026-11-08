@@ -125,6 +125,13 @@ final class ScrollEndFlowTests: XCTestCase {
     app.titleReadsCleanly("Đèn, the largest text")
   }
 
+  // v2, the app's look (the owner, 8 Nov): its Hôm nay and Khám phá lay their own band behind the bar
+  // (ClearUnderTopBar); its other tabs hold v1's screens, which keep this edge.
+  func testV2sTodayTitleReadsCleanly() { v2TitleReads("Hôm nay", "v2's Hôm nay") }
+  func testV2sBrowseTitleReadsCleanly() { v2TitleReads("Khám phá", "v2's Khám phá") }
+  func testV2sTanksTitleReadsCleanly() { v2TitleReads("Bể của tôi", "v2's Bể của tôi", ["-seed-tanks", "many"]) }
+  func testV2sLightsTitleReadsCleanlyAtTheLargestText() { v2TitleReads("Đèn", "v2's Đèn, the largest text", Self.largest) }
+
   // MARK: Helpers
 
   private static let largest = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
@@ -144,6 +151,14 @@ final class ScrollEndFlowTests: XCTestCase {
     let app = launch(more)
     open(app, "ca neon", "Cá neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 10), "\(screen) didn't open", file: file, line: line)
+    downAWay(app)
+    app.titleReadsCleanly(screen, file: file, line: line)
+  }
+
+  /// A tab of v2's, part-way down.
+  private func v2TitleReads(_ tab: String, _ screen: String, _ more: [String] = [], file: StaticString = #filePath, line: UInt = #line) {
+    let app = launch(["-v2", "YES"] + more)
+    app.openTab(tab)
     downAWay(app)
     app.titleReadsCleanly(screen, file: file, line: line)
   }
