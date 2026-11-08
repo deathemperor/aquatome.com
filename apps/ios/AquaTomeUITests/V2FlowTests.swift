@@ -119,10 +119,8 @@ final class V2FlowTests: XCTestCase {
   func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
     let app = launch()
     app.launchForFlow()
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 10), "no handbook")
-    let all = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
-    all.tap()
+    XCTAssertTrue(app.handbookShown(timeout: 10), "no handbook")
+    app.homeRow("all-guides").tap()
     XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
     app.buttons["keep-offline"].tap()
     XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
