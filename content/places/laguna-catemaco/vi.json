@@ -1,10 +1,13 @@
 {
   "slug": "laguna-catemaco",
-  "name": "Laguna Catemaco",
-  "altNames": [],
+  "name": "hồ Catemaco",
+  "altNames": [
+    "Laguna Catemaco"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -10,6 +10,48 @@
     "myanmar",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Salween",
+        "Tennasserim Hills",
+        "Bilauktaung"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tenasserim, Myanmar' which at time of description was used to refer to the portion of Myanmar lying to the south and east of the Ayeyarwaddy/Irrawaddy river delta, including present-day Kayah, Kayin, and Mon states, Bago Division, and possibly the southern Tanintharyi Region.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Instead, fish appearing in the aquarium trade have been collected in Dawei District, Tanintharyi Region, southern Myanmar, and it appears to occur in rivers draining the western face of the Bilauktaung subrange of the Tennasserim Hills mountain range, plus the lower Salween river basin.",
+          "countries": [],
+          "regions": [
+            "Salween",
+            "Tennasserim Hills",
+            "Bilauktaung"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361542,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

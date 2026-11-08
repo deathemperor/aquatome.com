@@ -1,0 +1,54 @@
+{
+  "id": "epiplatys-chevalieri",
+  "native": {
+    "input": "6fff67ee7b09fdd9",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "This killifish originates from the central Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Epiplatys chevalieri",
+    "status": "ACCEPTED",
+    "taxonKey": 2348924,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        73
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

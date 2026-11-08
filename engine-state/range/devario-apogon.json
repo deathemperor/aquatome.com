@@ -1,0 +1,63 @@
+{
+  "id": "devario-apogon",
+  "native": {
+    "input": "3d18f75bde823315",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Jiucheng, Yunnan Province, China' which could refer to one of several places with the same name in southwestern Yunnan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fang (200) states that it may also occur in northeastern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Daying",
+        "source": "seriouslyfish",
+        "quote": "It's also been collected in Tengchong and Lianghe districts, Yingjiang county, and all known localities are within the Daying river (Dayingjiang) watershed, a major tributary of the larger Irrawaddy/Ayeyarwady river system.",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "It's also been collected in Tengchong and Lianghe districts, Yingjiang county, and all known localities are within the Daying river (Dayingjiang) watershed, a major tributary of the larger Irrawaddy/Ayeyarwady river system.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario apogon",
+    "status": "ACCEPTED",
+    "taxonKey": 2361481,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        20
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

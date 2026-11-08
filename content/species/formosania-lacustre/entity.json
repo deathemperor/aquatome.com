@@ -12,6 +12,77 @@
     "china",
     "fujian"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "CN"
+      ],
+      "regions": [
+        "Lake Candidius"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Lake Candidius, Nantou County, Taiwan and has since been recorded from various parts of the island including the counties of Taipei, Ilan, Yilan, Hsinchu, Miaoli and Taichung.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Lake Candidius"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "More recently it's been discovered in some coastal drainages of Fujian Province, mainland China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5733763,
+      "total": 993,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TW",
+          993
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          22.5,
+          55,
+          55
+        ],
+        [
+          119.53125,
+          23.90625,
+          214,
+          214
+        ],
+        [
+          120.9375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          23.90625,
+          723,
+          723
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

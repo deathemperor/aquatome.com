@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { CurationSchema, type Curation } from '@aq/schema'
+import { CardSchema, CurationSchema, type Curation } from '@aq/schema'
 import { appIndex } from '../src/lib/app-index'
 import { getContent } from '../src/lib/content'
 
@@ -8,7 +8,7 @@ import { getContent } from '../src/lib/content'
 const IMG = 'https://media.aquatome.com/commons/0000000000000001.webp'
 const LOOP = {
   src: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.mp4', poster: 'https://media.aquatome.com/loops/apistogramma-cacatuoides-1.webp',
-  w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
+  w: 1080, h: 1080, seconds: 6, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
 }
 const calendar: Curation = CurationSchema.parse({
   version: 1,
@@ -28,7 +28,7 @@ const calendar: Curation = CurationSchema.parse({
     { date: '2026-11-09', fish: 'species/paracheirodon-axelrodi', img: IMG, guide: 'guides/aquariumcoop-blogs-aquarium-5-gallon-fish', by: { ms: { fish: 'species/apistogramma-cacatuoides', img: IMG } } },
     { date: '2026-11-10', fish: 'breeds/flowerhorn-cichlid', img: IMG, guide: 'guides/setup-be-dau-tien', story: { page: 'guides/setup-be-dau-tien', eyebrow: { vi: 'Bể đầu tiên' }, title: { vi: 'Set bể từ đầu' } } },
   ],
-  loops: { 'apistogramma-cacatuoides': LOOP },
+  loops: { 'apistogramma-cacatuoides': { ...LOOP, replace: 'when better footage comes' } },
 })
 const index = async (lang: 'vi' | 'ms', today = '2026-11-10') => appIndex(lang, await getContent(lang), new Map(), (await getContent('vi')).species, { calendar, today })
 const pathOf = (ix: Awaited<ReturnType<typeof index>>, id: string) => ix.items.find(i => i.id === id)?.path
@@ -70,7 +70,7 @@ test('Khám phá gets this week\'s theme, top cards and shelves, in its language
   expect((await index('vi', '2026-11-30')).home.week).toBeUndefined()
 })
 
-test('a fish with a loop carries it in every language that lists it', async () => {
+test('a fish with a loop carries it in every language that lists it, without the media lead\'s note on replacing it', async () => {
   for (const lang of ['vi', 'ms'] as const) expect((await index(lang)).items.find(i => i.id === 'apistogramma-cacatuoides')?.loop, lang).toEqual(LOOP)
   expect((await index('vi')).items.filter(i => i.loop).length).toBe(1)
 })
@@ -78,4 +78,29 @@ test('a fish with a loop carries it in every language that lists it', async () =
 test('without a calendar the index has none of it', async () => {
   const ix = appIndex('vi', await getContent('vi'))
   for (const k of ['days', 'week', 'hero', 'shelves'] as const) expect(ix.home[k]).toBeUndefined()
+})
+
+test('a day\'s card is in each index whose language it is written in, within its days, with its sources and the pages it is about', async () => {
+  const source = { url: 'https://example.org/paper', title: 'A paper', publisher: 'A journal', date: '2001-05-01', accessed: '2026-11-08' }
+  const entity = CardSchema.parse({ id: 'trivia-x', type: 'trivia', about: ['species/paracheirodon-axelrodi', 'species/no-such-fish'], sources: [source], show: { from: '2026-11-09', until: '2026-11-10' }, updatedAt: '2026-11-08' })
+  const t = { eyebrow: 'Có thể bạn chưa biết', title: 'Một điều về cá', body: '<p>Theo một bài báo năm 2001.</p>' }
+  const cal = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-10', card: 'cards/trivia-x' }, { date: '2026-11-11', card: 'cards/trivia-x' }] })
+  const vi = { ...(await getContent('vi')), cards: [{ ...entity, t }] }
+  const ix = appIndex('vi', vi, new Map(), vi.species, { calendar: cal, today: '2026-11-10' })
+  // 11 Nov is past its days: that day has nothing left, and isn't listed.
+  expect(ix.home.days).toEqual([{
+    date: '2026-11-10',
+    card: { id: 'trivia-x', type: 'trivia', ...t, sources: [{ title: 'A paper', publisher: 'A journal', date: '2001-05-01', url: 'https://example.org/paper' }], about: [pathOf(ix, 'paracheirodon-axelrodi')] },
+  }])
+  // A language it isn't written in (or where the gate holds it back, which the loader leaves out) has no card.
+  const ms = await getContent('ms')
+  expect(appIndex('ms', ms, new Map(), (await getContent('vi')).species, { calendar: cal, today: '2026-11-10' }).home.days).toBeUndefined()
+})
+
+test('a page the planner found failing reader fit is left out of the top cards, the shelves and a story', async () => {
+  const off = CurationSchema.parse({ ...calendar, off: { 'species/apistogramma-cacatuoides': 'reader fit: units', 'guides/setup-be-dau-tien': 'reader fit: source' } })
+  const vi = appIndex('vi', await getContent('vi'), new Map(), (await getContent('vi')).species, { calendar: off, today: '2026-11-10' })
+  expect(vi.home.hero?.map(h => h.path)).toEqual([pathOf(vi, 'paracheirodon-axelrodi')])
+  expect(vi.home.shelves?.[0]?.paths).not.toContain(pathOf(vi, 'apistogramma-cacatuoides'))
+  expect(vi.home.days?.find(d => d.date === '2026-11-10')).toEqual({ date: '2026-11-10', fish: pathOf(vi, 'flowerhorn-cichlid'), img: IMG })
 })

@@ -12,6 +12,109 @@
     "moka",
     "liberia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "SL",
+        "LR"
+      ],
+      "regions": [
+        "Moka"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The clown killifish, Epiplatys annulatus, is a small killifish from coastal lowlands of southern Guinea, Sierra Leone and northwestern Liberia.",
+          "countries": [
+            "GN",
+            "SL",
+            "LR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Boulenger gave the type locality as 'Matea, Sierra Leone' with this assumed to refer to a settlement currently known as 'Maka' in the Moka river system, southern Sierra Leone.",
+          "countries": [],
+          "regions": [
+            "Moka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348780,
+      "total": 16,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "SL",
+          7
+        ],
+        [
+          "GN",
+          5
+        ],
+        [
+          "LR",
+          3
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          -11.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

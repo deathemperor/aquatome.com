@@ -14,7 +14,7 @@ const remedies = REMEDIES.vi!
  * After that a rewrite can change a guide's words, and this test must not stop a cycle over it (RATCHETED's comment says
  * why): the command leaves the guides whose note needs those words, and says so (`a figure gone from its file`, below).
  */
-const TABLE_READ = '7dd9ac22157d0e71'
+const TABLE_READ = '85bd26cddff4740f'
 
 test('every figure in the table is word for word in the file it cites, read whenever the table changes', async () => {
   const hash = createHash('sha256').update(JSON.stringify(remedies)).digest('hex').slice(0, 16)
@@ -65,4 +65,10 @@ test('a writer is told what each product is and what is on sale for the problem,
   // A product no one checked is never a thing to buy, and a language with no data has no remedies.
   expect(marketFor('vi', 'Hikari', [])).toContain('chưa ai kiểm tra')
   expect(marketFor('id', 'Ich-X', ['ich'])).not.toContain('muỗng canh')
+})
+
+test('how keepers here treat new fish that look healthy reaches the writer on new fish, as the table\'s own line', () => {
+  expect(marketFor('vi', 'Ich-X', ['quarantine'])).toMatch(/Người chơi ở đây làm thế này[^\n]*\n[^\n]*nhiều người chơi chỉ cách ly và theo dõi/)
+  expect(marketFor('vi', 'Hikari', ['cyanobacteria'])).not.toContain('chỉ cách ly')
+  expect(marketFor('id', 'Ich-X', ['quarantine'])).not.toContain('chỉ cách ly')
 })

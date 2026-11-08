@@ -1,0 +1,261 @@
+{
+  "id": "electrophorus-electricus",
+  "native": {
+    "input": "89220db7db077514",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Electrophorus electricus",
+    "status": "ACCEPTED",
+    "taxonKey": 2401958,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        72
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        67
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        35
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        30
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        25
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        24
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        17
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        11
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        6
+      ],
+      [
+        "0086f7d6-07a1-40b4-a20c-bca803162788",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        3
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "19828488-7ebf-43f8-88af-6461d8afef9e",
+        1
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        1
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        1
+      ],
+      [
+        "5e018b4b-530a-41ea-b5c5-91dd76e86db0",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "97c46b50-34bd-47e9-baa4-7a1709472af2",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "PE",
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

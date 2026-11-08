@@ -10,6 +10,64 @@
     "nigeria",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nigeria and Cameroon.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348554,
+      "total": 11,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "NG",
+          7
+        ],
+        [
+          "DE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          4.21875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          9.84375,
+          50.625,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

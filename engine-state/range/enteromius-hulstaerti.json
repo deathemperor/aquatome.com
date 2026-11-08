@@ -1,0 +1,90 @@
+{
+  "id": "enteromius-hulstaerti",
+  "native": {
+    "input": "26f3a6caff93cddc",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: D. R. Congo",
+        "words": "D. R. Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African butterfly barb, Enteromius hulstaerti, is a cyprinid endemic to DR Congo, in rainforest south and east of the main Congo River channel.",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparently preserved material from both these areas and northeastern Gabon exists but is not clearly identifiable.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Democratic Republic of Congo in central Africa where it has been recorded from central parts of the Congo River drainage within the great area of equatorial rainforest situated south and east of the main river channel.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Momboyo River",
+        "source": "seriouslyfish",
+        "quote": "Specific localities include the Momboyo River, the settlements of Bokuma and Bonguma, the town of Boende on the Tshuapa River, the Bowa River (a tributary of the Maringa River) and the Pimo River close to Opala.",
+        "ok": true
+      },
+      {
+        "name": "Tshuapa River",
+        "source": "seriouslyfish",
+        "quote": "Specific localities include the Momboyo River, the settlements of Bokuma and Bonguma, the town of Boende on the Tshuapa River, the Bowa River (a tributary of the Maringa River) and the Pimo River close to Opala.",
+        "ok": true
+      },
+      {
+        "name": "Maringa River",
+        "source": "seriouslyfish",
+        "quote": "Specific localities include the Momboyo River, the settlements of Bokuma and Bonguma, the town of Boende on the Tshuapa River, the Bowa River (a tributary of the Maringa River) and the Pimo River close to Opala.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Enteromius hulstaerti",
+    "status": "ACCEPTED",
+    "taxonKey": 9553669,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        25
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

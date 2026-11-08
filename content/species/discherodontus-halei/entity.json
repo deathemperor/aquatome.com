@@ -12,6 +12,94 @@
     "thailand",
     "mae-klong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mae Klong",
+        "Pahang River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Pahang River, Kuala Tembeling, eastern slope of Sangka Dua Pass, Malaysia, elevation about 610 metres'.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Pahang River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to have a disjunct range with records from Pahang state in central Peninsular Malaysia, plus the Mae Klong and Chao Phraya river systems in Thailand, but it has not been recorded in Peninsular Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364553,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

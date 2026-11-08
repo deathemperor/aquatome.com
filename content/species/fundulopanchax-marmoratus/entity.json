@@ -9,6 +9,66 @@
     "africa",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348481,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          5
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

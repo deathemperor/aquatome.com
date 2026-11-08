@@ -6,7 +6,7 @@ import { LANGS, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
 import { PRODUCTS } from './market'
-import { loadPages, pageUrl, type Page } from './pages'
+import { loadCards, loadPages, pageUrl, type Page } from './pages'
 
 /**
  * Every page passes the checklist (fit.ts) before readers get it. Run last in each cycle, after everything that writes
@@ -21,6 +21,8 @@ import { loadPages, pageUrl, type Page } from './pages'
  * same text twice doesn't always find the same things, and a page isn't put back for that.
  */
 export const GATE_KINDS = ['guides', 'species', 'plants', 'breeds'] as const
+/** What the gate reads: those, and the app's short cards (content/cards), which the owner's number and the report don't count. */
+export const GATED_KINDS = [...GATE_KINDS, 'cards'] as const
 /** Faults no rewording fixes: a page with one is held back, whether or not the cycle changed it. */
 export const HOLD_ALWAYS: readonly FitCheck[] = ['kit']
 /** Pages wrong for the reader on 8 Nov 2026, when the checklist first read the site: the owner's number starts here. */
@@ -53,14 +55,14 @@ export function gateCall(now: Set<FitCheck>, o: { isNew: boolean; wasHeld: boole
 }
 
 const git = (root: string, args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 64 << 20 })
-const FILE = new RegExp(`^content/(${GATE_KINDS.join('|')})/([^/]+)/([a-z]{2})\\.json$`)
+const FILE = new RegExp(`^content/(${GATED_KINDS.join('|')})/([^/]+)/([a-z]{2})\\.json$`)
 const fileOf = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => `content/${p.kind}/${p.id}/${p.lang}.json`
 const json = async <T>(path: string): Promise<T | undefined> => JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) ?? undefined
 const heldOf = async (path: string) => (await json<{ held?: Held }>(path))?.held
 
-/** The served pages' language files the working tree changed against HEAD, new ones included. */
+/** The served pages' and cards' language files the working tree changed against HEAD, new ones included. */
 export function changedFiles(root: string): string[] {
-  const out = git(root, ['status', '--porcelain', '-z', '--untracked-files=all', '--', ...GATE_KINDS.map(k => `content/${k}`)]).split('\0')
+  const out = git(root, ['status', '--porcelain', '-z', '--untracked-files=all', '--', ...GATED_KINDS.map(k => `content/${k}`)]).split('\0')
   const files: string[] = []
   for (let i = 0; i < out.length; i++) {
     const e = out[i]!
@@ -82,7 +84,7 @@ async function headPages(root: string, files: string[]): Promise<{ pages: Map<st
   try {
     execFileSync('sh', ['-c', 'git archive HEAD -- "$@" | tar -x -C "$0"', dir, ...there], { cwd: root })
     const keys = new Set(files)
-    const pages = new Map((await loadPages(join(dir, 'content'))).filter(p => keys.has(fileOf(p))).map(p => [fitKey(p), p]))
+    const pages = new Map([...await loadPages(join(dir, 'content')), ...await loadCards(join(dir, 'content'))].filter(p => keys.has(fileOf(p))).map(p => [fitKey(p), p]))
     const held = new Map<string, Held>()
     for (const f of files) { const h = await heldOf(join(dir, f)); if (h) held.set(f, h) }
     return { pages, held }
@@ -94,7 +96,7 @@ async function headPages(root: string, files: string[]): Promise<{ pages: Map<st
 /** Every held page in the working tree, by its language file. */
 async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
   const out = new Map<string, Held>()
-  for (const p of pages) if ((GATE_KINDS as readonly string[]).includes(p.kind)) { const h = await heldOf(join(root, fileOf(p))); if (h) out.set(fileOf(p), h) }
+  for (const p of pages) if ((GATED_KINDS as readonly string[]).includes(p.kind)) { const h = await heldOf(join(root, fileOf(p))); if (h) out.set(fileOf(p), h) }
   return out
 }
 
@@ -112,8 +114,10 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   const statePath = join(root, 'engine-state/_fit.json')
   const state: FitState = (await json<FitState>(statePath)) ?? {}
   const pages = (await loadPages(join(root, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
-  const byFile = new Map(pages.map(p => [fileOf(p), p]))
-  const held = await heldNow(root, pages)
+  // The cards are read and held like pages; what it returns, for the report and the owner's number, is the pages.
+  const all = [...pages, ...await loadCards(join(root, 'content'))]
+  const byFile = new Map(all.map(p => [fileOf(p), p]))
+  const held = await heldNow(root, all)
   const changed = new Set(changedFiles(root))
   // Every held page is looked at again: one left unread (the accounts out) is read now, and one a batch read has since
   // passed is let out. A saved read costs no call.
@@ -202,9 +206,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
   // A fault no rewording fixes holds a page whether or not this cycle changed it.
-  for (const p of pages) {
+  for (const p of all) {
     const f = fileOf(p), e = saved(p)
-    if (!changed.has(f) && (GATE_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && e) {
+    if (!changed.has(f) && (GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && e) {
       const checks = [...gateChecks(p, e)].sort()
       if (checks.some(c => HOLD_ALWAYS.includes(c))) await apply(f, { action: 'hold', checks })
     }

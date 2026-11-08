@@ -6,7 +6,7 @@ const thumbKey = (key: string) => key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)
 const thumb = (bytes: Uint8Array) => sharp(bytes).rotate().resize({ width: THUMB_WIDTH, withoutEnlargement: true }).webp({ quality: 75 }).toBuffer()
 
 /** Cloudflare R2 bucket behind a public custom domain; images are normalised to ≤1200px WebP plus a 480px card thumb, cached a year (a key is never reused for other content). */
-export function r2Media(opts: { accountId: string; token: string; bucket: string; publicBase: string }): Media & { putThumb: (key: string, bytes: Uint8Array) => Promise<void>; putRaw: (key: string, bytes: Uint8Array, contentType: string) => Promise<string> } {
+export function r2Media(opts: { accountId: string; token: string; bucket: string; publicBase: string }): Media & { putThumb: (key: string, bytes: Uint8Array) => Promise<void>; putRaw: (key: string, bytes: Uint8Array, contentType: string) => Promise<string>; putLarge: (key: string, bytes: Uint8Array, width: number) => Promise<{ url: string; width: number; height: number }> } {
   const urlFor = (key: string) => `${opts.publicBase}/${key}`
   async function upload(key: string, data: Uint8Array, contentType = 'image/webp') {
     const put = () => fetch(`https://api.cloudflare.com/client/v4/accounts/${opts.accountId}/r2/buckets/${opts.bucket}/objects/${key}`, {
@@ -26,6 +26,12 @@ export function r2Media(opts: { accountId: string; token: string; bucket: string
       await upload(key, data)
       await upload(thumbKey(key), await thumb(bytes))
       return { url: urlFor(key), thumb: urlFor(thumbKey(key)), width: info.width, height: info.height }
+    },
+    /** The app's large copy, `width` across (large-photos.ts largeSize), with no thumb. */
+    async putLarge(key, bytes, width) {
+      const { data, info } = await sharp(bytes).rotate().resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toBuffer({ resolveWithObject: true })
+      await upload(key, data)
+      return { url: urlFor(key), width: info.width, height: info.height }
     },
     /** Backfill: the thumb for an already-stored photo. */
     putThumb: async (key, bytes) => upload(thumbKey(key), await thumb(bytes)),

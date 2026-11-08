@@ -1,0 +1,89 @@
+{
+  "id": "epiplatys-lamottei",
+  "native": {
+    "input": "6a17b697e25708e1",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+        "words": "Liberia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Lofa",
+        "source": "seriouslyfish",
+        "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Saint Paul",
+        "source": "seriouslyfish",
+        "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Saint John",
+        "source": "seriouslyfish",
+        "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Epiplatys lamottei",
+    "status": "ACCEPTED",
+    "taxonKey": 2348836,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "GN",
+      "LR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

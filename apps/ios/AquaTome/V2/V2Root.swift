@@ -225,9 +225,10 @@ extension EnvironmentValues {
   @Entry var v2PhotoTries = 0
 }
 
-/// The colour a page has the tab stand on, and whose it is: two pages can have the same one.
+/// The colour a page has the tab stand on, and whose it is: two pages can have the same one. Whose by the page itself, not
+/// its fish: the same fish can be open twice, one over the other (a link to it from outside).
 struct FootGround: Equatable {
-  let page: String
+  let page: UUID
   let colour: Color
 }
 

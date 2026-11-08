@@ -59,7 +59,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/570340073",
       "caption": "Cá sặc bướm trưởng thành với đốm đen thân, chụp trong bể nhỏ",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/570340073-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/601435004.webp",
@@ -83,7 +88,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/565684230",
       "caption": "Cá sặc bướm bơi trong hộp trong suốt, thấy rõ vây và đốm thân",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/565684230-large.webp",
+        "width": 1802,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/618952563.webp",
@@ -467,7 +477,12 @@
       "licence": "CC BY",
       "author": "Diogo Luiz",
       "sourceUrl": "https://www.inaturalist.org/photos/56732221",
-      "caption": "Cá sặc bướm màu bạc với đốm đen thân trong bể"
+      "caption": "Cá sặc bướm màu bạc với đốm đen thân trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/56732221-large.webp",
+        "width": 1032,
+        "height": 581
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406164838.webp",

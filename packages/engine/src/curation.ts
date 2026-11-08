@@ -1,6 +1,6 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, CurationSchema, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
+import { addDays, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -26,18 +26,26 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 /** No fish or guide comes back on Hôm nay within this many days. */
 export const REPEAT_DAYS = 28
 
+/** Each tag as the owner's daily report says it, in the day's `why`. */
+const TAG_WORDS: Record<string, string> = { cold: 'takes cool water', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small schooling fish for a small tank', local: 'native to Vietnam' }
+
 /** What a week can ask its fish to be (a week's `tags`): how the planner reads each from a page's figures. */
 export const TAGS: Record<string, (f: Facts) => boolean> = {
-  /** Fine without a heater in a northern Vietnamese winter. */
-  cold: f => f.coldwater || (f.tempMin !== undefined && f.tempMin <= 18),
+  /** Takes cooler water than tropical fish: by the page's own lowest temperature, and by its kind only when the page
+   * gives none (editors, 2026-11-08: a koi whose page says 20–27 °C was on the cold shelf). */
+  cold: f => (f.tempMin !== undefined ? f.tempMin <= 18 : f.coldwater),
   /** Needs a heater when the north turns cold. */
   heater: f => f.tempMin !== undefined && f.tempMin >= 24,
   beginner: f => f.difficulty !== undefined && f.difficulty <= 3,
-  nano: f => f.sizeMax !== undefined && f.sizeMax <= 4,
-  local: f => f.places.includes('vietnam'),
+  /** A fish (not a snail or shrimp) of 4 cm at most, kept in a group of 5 or more, whose page asks for a tank of 60 cm at
+   * most: the small-tank week is "small schooling fish" (a ram, small but no schooler, had filled one of its days). */
+  nano: f => !f.invert && f.sizeMax !== undefined && f.sizeMax <= 4 && (f.schoolMin ?? 0) >= 5 && (f.tankCm ?? 0) <= 60,
+  /** Native to Vietnam by the page's native range; by where it's recorded only when the page has no native range
+   * (editors, 2026-11-08: Betta splendens is recorded in Vietnam, but its page says native to Thailand only). */
+  local: f => (f.native ? f.native.includes('VN') : f.places.includes('vietnam')),
 }
 
-export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; places: string[]; coldwater: boolean }
+export type Facts = { tempMin?: number; difficulty?: number; sizeMax?: number; tankCm?: number; schoolMin?: number; places: string[]; native?: string[]; coldwater: boolean; invert?: boolean }
 export type Candidate = {
   kind: 'species' | 'breeds' | 'guides'
   id: string
@@ -67,7 +75,17 @@ export type Candidate = {
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
 const COLDWATER_OF = ['carassius-auratus', 'cyprinus-rubrofuscus', 'cyprinus-carpio']
 
-type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number> }
+export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number> }
+/** The photo checks' verdicts (engine-state), as cardWorthy reads them. */
+export const readVerdicts = async (root: string): Promise<Verdicts> => {
+  const state = join(root, 'engine-state')
+  return {
+    subjects: await json(join(state, '_photo-subjects.json'), {}),
+    legacy: await json(join(state, '_photo-check.json'), {}),
+    rejected: await json(join(state, '_photo-rejected.json'), {}),
+    faces: await json(join(state, '_photo-faces.json'), {}),
+  }
+}
 
 /** Whether a photo may lead a card for this page: judged the right subject and typical, with no person or logo. */
 export function cardWorthy(url: string, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
@@ -80,13 +98,17 @@ export function cardWorthy(url: string, page: string, v: Verdicts, avoid: Record
   return !!verdict && verdict.ok === 'yes' && verdict.typical && !verdict.person && !verdict.logo
 }
 
-/** A page's checked photos: the best for each card shape, and every one with its size across each. */
+/**
+ * A page's checked photos: the best for each card shape, and every one with its size across each. A photo with a large
+ * copy (large-photos.ts) leads by that copy, the address the app loads; its page copy stays one a calendar may name.
+ */
 export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Candidate, 'photo' | 'checked'> {
   const photo: Candidate['photo'] = {}
   const checked: Candidate['checked'] = {}
   for (const p of photos.filter(ok)) {
-    checked[p.url] = { square: across(p, 'square'), wide: across(p, 'wide') }
-    for (const slot of ['square', 'wide'] as const) if (!photo[slot] || across(p, slot) > photo[slot].px) photo[slot] = { url: p.url, px: across(p, slot) }
+    for (const x of p.large ? [p, p.large] : [p]) checked[x.url] = { square: across(x, 'square'), wide: across(x, 'wide') }
+    const big = p.large ?? p
+    for (const slot of ['square', 'wide'] as const) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
   }
   return { photo, checked }
 }
@@ -120,12 +142,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   const content = join(root, 'content')
   const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true })
   const state = join(root, 'engine-state')
-  const v: Verdicts = {
-    subjects: await json(join(state, '_photo-subjects.json'), {}),
-    legacy: await json(join(state, '_photo-check.json'), {}),
-    rejected: await json(join(state, '_photo-rejected.json'), {}),
-    faces: await json(join(state, '_photo-faces.json'), {}),
-  }
+  const v = await readVerdicts(root)
   const fitState = await json<FitState>(join(state, '_fit.json'), {})
   const pages = new Map((await loadPages(content, ['vi'])).map(p => [`${p.kind}/${p.id}`, p]))
   const avoid = o.avoid ?? {}
@@ -151,12 +168,17 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const t = resolveDataCard(s.dataCard.tempC ?? [], 'tempC')?.value
     const size = resolveDataCard(s.dataCard.sizeCm ?? [], 'sizeCm')?.value
     const diff = resolveDataCard(s.dataCard.difficulty ?? [], 'difficulty')?.value
+    const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
+    // The group size the page asks for, as read from its text for the tank-mates checker (traits.ts).
+    const school = (await json<{ schoolMin?: number | null }>(join(content, 'traits', `${s.id}.json`), {})).schoolMin ?? undefined
     out.push({
       kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok),
       ...(await fitOf('species', s.id)), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
-        difficulty: typeof diff === 'number' ? diff : diff?.max, places: s.places, coldwater: COLDWATER_OF.includes(s.id),
+        difficulty: typeof diff === 'number' ? diff : diff?.max, tankCm: typeof tank === 'number' ? tank : tank?.min, schoolMin: school, places: s.places,
+        native: s.range?.native?.countries,
+        coldwater: COLDWATER_OF.includes(s.id), invert: s.group === 'snails' || s.group === 'shrimp',
       },
       known: known.includes(s.id) ? known.indexOf(s.id) : undefined, demand: demandOf('species', s.id),
     })
@@ -165,7 +187,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const ok = (p: Photo) => cardWorthy(p.url, b.id, v, avoid)
     const t = b.care.tempC?.[0]?.value
     out.push({
-      kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(b.photos, ok),
+      kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok),
       ...(await fitOf('breeds', b.id)), indexable: b.t.quality?.indexable ?? true, updatedAt: b.updatedAt,
       facts: { tempMin: typeof t === 'number' ? t : t?.min, places: [], coldwater: COLDWATER_OF.includes(b.basedOn ?? '') || /goldfish|koi/.test(b.id) },
       known: known.includes(b.id) ? known.indexOf(b.id) : undefined, demand: demandOf('breeds', b.id),
@@ -206,6 +228,10 @@ const score = (c: Candidate, w: CurationWeek | undefined, today: string) => {
   return inList + tags * 2 + known + photo + Math.log1p(c.demand) + fresh + (c.indexable ? 0.5 : 0)
 }
 
+/** A week with tags takes only fish that match one, or that are on its own list (editors, 2026-11-08: a 30 cm catfish and
+ * a 40 cm predator had filled small-tank days). */
+const fitsWeek = (c: Candidate, w: CurationWeek | undefined) => !w?.tags.length || w.fish.includes(c.ref) || w.tags.some(t => TAGS[t]?.(c.facts))
+
 export type PlanReport = { kept: string[]; filled: string[]; replaced: { date: string; slot: string; was: string; why: string }[]; empty: string[] }
 
 /**
@@ -227,7 +253,10 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
     for (const slot of ['fish', 'guide'] as const) {
       const ref = d[slot]
       const c = ref ? byRef.get(ref) : undefined
-      const p = ref ? problem(c, 'square', slot === 'fish' ? d.img : d.guideImg, { photo: slot === 'fish' }) : 'empty'
+      const p = ref
+        ? (problem(c, 'square', slot === 'fish' ? d.img : d.guideImg, { photo: slot === 'fish' }) ??
+          (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined))
+        : 'empty'
       if (ref && !p) { report.kept.push(`${date} ${slot}`); continue }
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
       const kind = slot === 'fish' ? ['species', 'breeds'] : ['guides']
@@ -235,6 +264,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const yesterday = out.get(addDays(date, -1))
       const best = cands
         .filter(x => kind.includes(x.kind) && !problem(x, 'square', undefined, { photo: slot === 'fish' }) && !used(x.ref, date))
+        .filter(x => slot !== 'fish' || fitsWeek(x, w))
         // Not the same group two days running.
         .filter(x => slot !== 'fish' || !x.group || x.group !== byRef.get(yesterday?.fish ?? '')?.group)
         .map(x => ({ x, s: score(x, w, from) }))
@@ -248,16 +278,61 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       else delete d[key]
       delete d.fixed
       report.filled.push(`${date} ${slot}: ${best.ref}`)
-      why.push(`${slot}: ${[...(pool.includes(best.ref) ? ['week list'] : []), ...(w?.tags ?? []).filter(t => TAGS[t]?.(best.facts)), ...(best.known !== undefined ? ['well known'] : []), ...(best.demand ? [`${best.demand} searches`] : [])].join(', ') || 'best photo left'}`)
+      const reasons = [
+        ...(pool.includes(best.ref) ? ["on this week's list"] : []),
+        ...(w?.tags ?? []).filter(t => TAGS[t]?.(best.facts)).map(t => TAG_WORDS[t] ?? t),
+        ...(best.known !== undefined ? ['well known'] : []),
+        ...(best.demand ? [`${best.demand} search impression${best.demand === 1 ? '' : 's'}`] : []),
+      ]
+      why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)
     }
-    if (why.length) d.why = [d.why, ...why].filter(Boolean).join('; ').slice(0, 300)
+    // One plain sentence for the owner's daily report.
+    if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
     out.set(date, d)
   }
-  return { calendar: { ...cur, days: [...out.values()].sort((a, b) => a.date.localeCompare(b.date)) }, report }
+  const sorted = [...out.values()].sort((a, b) => a.date.localeCompare(b.date))
+  return { calendar: { ...cur, days: sorted, off: offPages({ ...cur, days: sorted }, byRef, from) }, report }
 }
 
-/** Everything wrong with the calendar from `from` on: each pick that can't be featured, and each day of `days` with no pick. */
-export function checkCalendar(cur: Curation, cands: Candidate[], from: string, days: number): string[] {
+/** The pages the weeks' top cards and shelves and the days' stories name, from `from` on, that don't pass reader fit. */
+function offPages(cur: Curation, byRef: Map<string, Candidate>, from: string): Record<string, string> {
+  const refs = [
+    ...cur.weeks.filter(w => w.to >= from).flatMap(w => [...w.hero.map(h => h.page), ...w.shelves.flatMap(s => s.pages)]),
+    ...cur.days.filter(d => d.date >= from).flatMap(d => (d.story ? [d.story.page] : [])),
+  ]
+  const off: Record<string, string> = {}
+  for (const ref of [...new Set(refs)].sort()) {
+    const c = byRef.get(ref)
+    if (!c) off[ref] = 'no such page'
+    else if (!c.fit) off[ref] = `reader fit: ${c.fitWhy}`
+  }
+  return off
+}
+
+/** The app's short cards (content/cards) by how the calendar names them: the days each may show, and the served languages
+ * it's written in that the gate doesn't hold back. */
+export type CardShow = { show: CardEntity['show']; langs: string[] }
+export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
+  const dir = join(root, 'content', 'cards')
+  const out = new Map<string, CardShow>()
+  for (const id of await readdir(dir).catch(() => [] as string[])) {
+    const e = await json<unknown>(join(dir, id, 'entity.json'), null)
+    if (!e) continue
+    const langs: string[] = []
+    for (const lang of LANGS) {
+      const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
+      if (t && !t.held) langs.push(lang)
+    }
+    out.set(`cards/${id}`, { show: CardSchema.parse(e).show, langs })
+  }
+  return out
+}
+
+/**
+ * Everything wrong with the calendar from `from` on: each pick that can't be featured, each day of `days` with no pick,
+ * and each card that isn't there to show that day. A page in `off` isn't one: the build leaves it out.
+ */
+export function checkCalendar(cur: Curation, cands: Candidate[], from: string, days: number, cards: Map<string, CardShow> = new Map()): string[] {
   const byRef = new Map(cands.map(c => [c.ref, c]))
   const out: string[] = []
   for (let i = 0; i < days; i++) {
@@ -271,17 +346,23 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && problem(byRef.get(d.guide), 'square', d.guideImg, { photo: false })
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
-    if (d.story) {
+    if (d.story && !cur.off[d.story.page]) {
       const st = problem(byRef.get(d.story.page), 'square', d.story.img, { photo: false })
       if (st) out.push(`${d.date} story ${d.story.page}: ${st}`)
     }
+    if (d.card) {
+      const c = cards.get(d.card)
+      const p = !c ? 'no such card' : !c.langs.length ? 'held back or unwritten in every language'
+        : d.date < c.show.from || d.date > c.show.until ? `outside its days, ${c.show.from} to ${c.show.until}` : undefined
+      if (p) out.push(`${d.date} card ${d.card}: ${p}`)
+    }
   }
   for (const w of cur.weeks.filter(x => x.to >= from)) {
-    for (const h of w.hero) {
+    for (const h of w.hero.filter(h => !cur.off[h.page])) {
       const p = problem(byRef.get(h.page), 'wide', h.img)
       if (p) out.push(`week ${w.from} hero ${h.page}: ${p}`)
     }
-    for (const s of w.shelves) for (const ref of s.pages) {
+    for (const s of w.shelves) for (const ref of s.pages.filter(r => !cur.off[r])) {
       const c = byRef.get(ref)
       if (!c) out.push(`week ${w.from} shelf ${s.id} ${ref}: no such page`)
       else if (!c.fit) out.push(`week ${w.from} shelf ${s.id} ${ref}: reader fit: ${c.fitWhy}`)

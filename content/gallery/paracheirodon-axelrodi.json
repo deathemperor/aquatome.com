@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/365422173",
       "caption": "Đàn cá neon vua trong bể có đá và lũa",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/365422173-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/258997729.webp",
@@ -23,7 +28,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/258997729",
       "caption": "Cá neon vua bơi giữa cây thủy sinh trong bể",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/258997729-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/258997770.webp",
@@ -35,7 +45,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/258997770",
       "caption": "Cá neon vua thân đỏ xanh óng ánh giữa rêu và cây",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/258997770-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/c8379e1afca4db8b.webp",
@@ -65,7 +80,12 @@
       "licence": "CC BY 2.0",
       "author": "Henrique Pinto",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waking_up.jpg",
-      "caption": "Hai cá neon vua bơi trên nền cát trong bể thủy sinh"
+      "caption": "Hai cá neon vua bơi trên nền cát trong bể thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5e3ed6f031bf4b3f-large.webp",
+        "width": 1695,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/9bd71e9d262fdea2.webp",
@@ -75,7 +95,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "CHUCAO",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(2).jpg",
-      "caption": "Cá neon vua trưởng thành với sọc xanh và thân đỏ trong bể"
+      "caption": "Cá neon vua trưởng thành với sọc xanh và thân đỏ trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp",
+        "width": 1440,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d474796f2324dd00.webp",
@@ -85,7 +110,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "CHUCAO",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg",
-      "caption": "Hai cá neon vua bơi trên nền sỏi trong bể nuôi"
+      "caption": "Hai cá neon vua bơi trên nền sỏi trong bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d474796f2324dd00-large.webp",
+        "width": 1521,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a0335cf1db5fa3db.webp",

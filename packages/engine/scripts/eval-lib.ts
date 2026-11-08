@@ -1,7 +1,11 @@
 /** Shared bits of the Vietnamese writing evals: cached steps, a small worker pool, a blind pairwise tally. */
 import { readFile, writeFile } from 'node:fs/promises'
+import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { LlmError } from '../src/claude'
+
+/** An eval's folder for its cached calls and report: kept across restarts, which empty /tmp (the chat evals' place too). */
+export const evalDir = (name: string) => join(homedir(), '.cache/aquatome', name)
 
 export const cachedIn = (dir: string) => async <T>(file: string, make: () => Promise<T>): Promise<T> => {
   try { return JSON.parse(await readFile(join(dir, file), 'utf8')) } catch { /* not yet */ }

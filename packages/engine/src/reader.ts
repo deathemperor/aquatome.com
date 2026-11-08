@@ -12,6 +12,7 @@ import { LANG_NAME, pageUrl, type Page } from './pages'
 import { reviewRewrite, reviewTranslation } from './quality'
 import { snapshotName } from './snapshot'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
+import { VI_STYLE } from './phrases'
 
 /**
  * A reader's eye: each cycle the model reads a few published pages the way a careful reader would, against a rubric
@@ -23,7 +24,6 @@ import { rewriteVi, VI_WRITE } from './vi-rewrite'
  */
 const RUBRIC = readFileSync(new URL('./prompts/reader.md', import.meta.url), 'utf8')
 /** How the site writes Vietnamese: what "natural" means on a Vietnamese page. */
-const VI_STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 export const FINDING_KINDS = ['structure', 'contradiction', 'numbers', 'language', 'caption', 'unsupported', 'other'] as const
 const SEVERITIES = ['high', 'medium', 'low'] as const
 const SCHEMA = {
@@ -167,7 +167,7 @@ export async function rewritePart(llm: Llm, html: string, fs: ReaderFinding[], o
   return { html: root.toString(), score: r.score, notes: r.notes }
 }
 
-const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
+export const fieldOf = (t: { sections?: Record<string, string>; body?: string; definition?: string }, field: string) =>
   field === 'body' ? t.body : field === 'definition' ? t.definition : t.sections?.[field.replace(/^sections\./, '')]
 
 const TITLE = { type: 'object', additionalProperties: false, required: ['title'], properties: { title: { type: 'string' } } }

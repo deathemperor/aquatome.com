@@ -12,6 +12,76 @@
     "liberia",
     "lofa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "LR"
+      ],
+      "regions": [
+        "Lofa",
+        "Saint Paul",
+        "Saint John"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has a relatively restricted distribution in southeastern Guinea and northern Liberia where it's known from the upper Niger, upper Lofa, Saint Paul and Saint John river drainages.",
+          "countries": [
+            "GN",
+            "LR"
+          ],
+          "regions": [
+            "Lofa",
+            "Saint Paul",
+            "Saint John"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348836,
+      "total": 5,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GN",
+          3
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "LR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

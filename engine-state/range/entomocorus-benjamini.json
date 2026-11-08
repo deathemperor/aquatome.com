@@ -1,0 +1,108 @@
+{
+  "id": "entomocorus-benjamini",
+  "native": {
+    "input": "cc68c3d72dac17a0",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: San Joaquin, Bolivia",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: upper Madeira River basin, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Madeira River",
+        "source": "planetcatfish",
+        "quote": "South America: upper Madeira River basin (Amazon, Middle Amazon (Solimoes), Madeira).",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: upper Madeira River basin (Amazon, Middle Amazon (Solimoes), Madeira).",
+        "ok": true
+      },
+      {
+        "name": "Madeira River",
+        "source": "scotcat",
+        "quote": "South America: upper Madeira River basin, Bolivia.",
+        "country": "BO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Entomocorus benjamini",
+    "status": "ACCEPTED",
+    "taxonKey": 2344620,
+    "datasets": [
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        22
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BO"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

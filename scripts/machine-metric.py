@@ -2,7 +2,8 @@
 """One reading of this Mac, every 10 minutes (install-machine-sweep.sh), a line in ~/.cache/aquatome/machine-metrics.jsonl.
 The measures: how long the same small job takes at normal priority (1.9 s with no copies of a simulator up, 20.6 s at its
 worst on 2026-11-08), how many jobs wait for a lock, and how long. Load is kept as background only: a booted simulator
-alone reads about 65, and past about 1,000 the counter wraps to near 0."""
+alone reads about 65, and past about 1,000 the counter wraps to near 0. Heat too: under thermal pressure macOS runs work on
+fewer cores (6 of 16 at "heavy" after the restart of 2026-11-08, when the job took 7-54 s with the CPU half idle)."""
 import json
 import os
 import re
@@ -57,8 +58,12 @@ def main():
     checks, sim, longest, sims = waiting()
     swap = re.search(r"used = ([\d.]+)M", run("/usr/sbin/sysctl", "-n", "vm.swapusage"))
     load = run("/usr/sbin/sysctl", "-n", "vm.loadavg").split()[1]
+    # 0 nominal, 1 moderate, 2 heavy, 3 trapping, 4 sleeping; and the cores the scheduler may use, a mask.
+    thermal = re.search(r"(\d+)\s*$", run("/usr/bin/notifyutil", "-g", "com.apple.system.thermalpressurelevel"))
+    cores = run("/usr/sbin/sysctl", "-n", "kern.sched_recommended_cores").strip()
     line = {"at": time.strftime("%Y-%m-%dT%H:%M:%S"), "small_job_s": job, "waiting_checks": checks, "waiting_sim": sim, "longest_wait_min": longest,
-            "simulators": sims, "swap_gb": round(float(swap.group(1)) / 1024, 1) if swap else None, "load1": float(load)}
+            "simulators": sims, "swap_gb": round(float(swap.group(1)) / 1024, 1) if swap else None, "load1": float(load),
+            "thermal": int(thermal.group(1)) if thermal else None, "cores": bin(int(cores)).count("1") if cores.isdigit() else None}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "a") as f:
         f.write(json.dumps(line) + "\n")
