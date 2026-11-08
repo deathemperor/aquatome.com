@@ -7,6 +7,8 @@ import { DIST, page } from './dist'
 const facts = await loadFacts(process.env.CONTENT_ROOT!)
 
 // Every page of the fixture build passes every check. A real exception goes into the check, with its reason.
+// 2026-11-08, #818: two videos that show one Commons photo in a section, each in its own file, gave their cards on a page
+// that names both the same picture. The fixture's two videos share one (picture-hashes.json) and name red cherry shrimp.
 test('no built page shows a picture twice, a wrong fish, a wrong link, a fish without its photo, wrong contents or an empty section', () => {
   expect(checkDist(DIST, facts)).toEqual([])
 })

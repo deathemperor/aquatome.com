@@ -10,6 +10,7 @@ import { getContent } from '../../lib/content'
 import { categoryLabel } from '../../lib/format'
 import { dmy, priceRange, productMark, vnd, videosUsing, type Product } from '../../lib/products'
 import { i18n, langOf } from '../../lib/i18n'
+import { pagePictures, videoGuidePhotos } from '../../lib/pictures'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.products.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
@@ -25,6 +26,7 @@ const keys = [...new Set(p.variants.flatMap(v => v.specs.map(s => s.key)))]
 const name = `${p.brand} ${p.model}`
 const buy = [{ category: p.category, label: t(categoryLabel(p.category)), name, keyword: name }]
 const vids = videosUsing(c, p)
+const vidPhotos = videoGuidePhotos(c, pagePictures(c), vids)
 // Control comes from the code that controls it (@aq/schema devices), never from the page's text, so it stays true.
 const control = controlOf(p.brand, p.model)
 const channelWords: Record<string, string> = { red: t('đỏ'), green: t('xanh lá'), blue: t('xanh dương'), white: t('trắng') }
@@ -150,7 +152,7 @@ const jsonld = [
 
   <GearList rows={buy} heading={t('Mua ở đâu')} entity={`product:${p.id}`} />
   <AppProductInvite product={p} />
-  <VideoGuideGrid guides={vids} heading={t('Có trong video hướng dẫn')} />
+  <VideoGuideGrid guides={vids} photos={vidPhotos} heading={t('Có trong video hướng dẫn')} />
 
   <section class="sources" aria-labelledby="src-h" data-pagefind-ignore>
     <h2 id="src-h">{t('Nguồn')}</h2>

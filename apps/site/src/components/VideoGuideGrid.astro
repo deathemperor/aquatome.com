@@ -1,17 +1,21 @@
 ---
-import type { GuideEntity, Localized } from '@aq/schema'
+import type { GuideEntity, Localized, Photo } from '@aq/schema'
 import GuideCard from './GuideCard.astro'
 import { i18n } from '../lib/i18n'
-/** Video guides as cards, the first `max`. A phone shows two, with a button for the rest (without the script, all of them). */
-interface Props { guides: Localized<GuideEntity>[]; heading: string; max?: number }
-const { guides, heading, max = 6 } = Astro.props
+import { VIDEO_GUIDES } from '../lib/pictures'
+/**
+ * Video guides as cards, the first VIDEO_GUIDES. A phone shows two, with a button for the rest (without the script, all
+ * of them). `photos`: each card's picture, as its page chose them (videoGuidePhotos: none the page shows already, none twice).
+ */
+interface Props { guides: Localized<GuideEntity>[]; photos: (Photo | null)[]; heading: string }
+const { guides, photos, heading } = Astro.props
 const { t } = i18n(Astro.url)
-const shown = guides.slice(0, max)
+const shown = guides.slice(0, VIDEO_GUIDES)
 ---
 {guides.length > 0 && (
   <section class="wrap vg" aria-label={heading} data-pagefind-ignore data-vg>
     <h2>{heading}</h2>
-    <div class="grid">{shown.map(g => <GuideCard g={g} />)}</div>
+    <div class="grid">{shown.map((g, i) => <GuideCard g={g} photo={photos[i] ?? null} />)}</div>
     {shown.length > 2 && <p class="all"><button type="button" data-vg-all hidden>{t('Xem cả {n} video', { n: shown.length })}</button></p>}
   </section>
 )}
