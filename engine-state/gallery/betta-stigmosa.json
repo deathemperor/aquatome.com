@@ -2,11 +2,20 @@
  "queue": [],
  "judged": [
   "File:Betta stigmosa 251817350.jpg",
-  "File:Betta stigmosa (10.3897-BDJ.11.e100337) Figure 25.jpg"
+  "File:Betta stigmosa (10.3897-BDJ.11.e100337) Figure 25.jpg",
+  "inat:251817350"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/13360f9f5bd6581c.webp": "18581d8ecf83939a",
   "https://media.aquatome.com/seriouslyfish/e7731c2d1410885e.webp": "4849236727766063"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 618885,
+  "pass": "done",
+  "after": {
+   "research": 146465751,
+   "agree": 0
+  }
+ }
 }

@@ -2,6 +2,30 @@
   "id": "marsilea-hirsuta",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/228372262.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/228372262-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Thomas Mesaglio",
+      "sourceUrl": "https://www.inaturalist.org/photos/228372262",
+      "caption": "Hai cây Cỏ ba lá nước Marsilea hirsuta mọc trên đất đỏ",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/11774108084.webp",
+      "thumb": "https://media.aquatome.com/flickr/11774108084-480.webp",
+      "width": 1024,
+      "height": 372,
+      "licence": "CC BY 2.0",
+      "author": "greenink@ukaps",
+      "sourceUrl": "https://www.flickr.com/photos/38175094@N02/11774108084",
+      "caption": "Cây Marsilea hirsuta non mọc trên nền sỏi trong bể",
+      "best": true,
+      "kind": "emersed"
+    },
+    {
       "url": "https://media.aquatome.com/commons/98ebe29575cc024d.webp",
       "thumb": "https://media.aquatome.com/commons/98ebe29575cc024d-480.webp",
       "width": 1200,
@@ -14,14 +38,14 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/228372262.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/228372262-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/264246084.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/264246084-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 683,
       "licence": "CC BY",
       "author": "Thomas Mesaglio",
-      "sourceUrl": "https://www.inaturalist.org/photos/228372262",
-      "caption": "Hai cây Cỏ ba lá nước Marsilea hirsuta mọc trên đất đỏ",
+      "sourceUrl": "https://www.inaturalist.org/photos/264246084",
+      "caption": "Thảm Marsilea hirsuta phủ dày trên nền đất ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -38,14 +62,14 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/264246084.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/264246084-480.webp",
+      "url": "https://media.aquatome.com/flickr/6260053443.webp",
+      "thumb": "https://media.aquatome.com/flickr/6260053443-480.webp",
       "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Thomas Mesaglio",
-      "sourceUrl": "https://www.inaturalist.org/photos/264246084",
-      "caption": "Thảm Marsilea hirsuta phủ dày trên nền đất ngoài tự nhiên",
+      "height": 681,
+      "licence": "CC BY-SA 2.0",
+      "author": "Doug Beckers",
+      "sourceUrl": "https://www.flickr.com/photos/37103729@N02/6260053443",
+      "caption": "Thảm Cỏ ba lá nước Marsilea hirsuta mọc dày ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -122,7 +146,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 24,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 31,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }
