@@ -34,7 +34,7 @@ chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện ch�
 - Under "6. Thời gian lưu": "Câu hỏi, câu trả lời và nhật ký khi hỏi về cá: đến khi bạn xóa tài khoản."
 - In the new section, after the paragraph on "Ẩn", for "Báo sai" (approved 2026-11-08, the editors' wording): "Khi bạn
   báo một câu trả lời sai, chúng tôi lưu câu trả lời đó, báo cáo và lý do bạn ghi (nếu có) để xem lại. Khi bạn xóa tài
-  khoản, chúng tôi xóa luôn những dữ liệu này." The Writing Lead's translations, to go in as they are:
+  khoản, chúng tôi xóa luôn dữ liệu này." The Writing Lead's translations, to go in as they are:
   - id: "Saat Anda melaporkan jawaban yang salah, kami menyimpan jawaban tersebut, laporannya, dan alasan yang Anda tulis
     (jika ada) untuk ditinjau. Saat Anda menghapus akun, data ini juga kami hapus."
   - th: "เมื่อคุณรายงานว่าคำตอบผิด เราจะเก็บคำตอบนั้น รายงาน และเหตุผลที่คุณระบุ (ถ้ามี) ไว้เพื่อตรวจสอบ เมื่อคุณลบบัญชี
