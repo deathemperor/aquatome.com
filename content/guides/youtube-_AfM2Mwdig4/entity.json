@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "_AfM2Mwdig4",
     "title": "Các bệnh thường gặp ở cá đĩa| cách chữa cá đĩa | Nguyễn du aqua",
@@ -30,93 +30,87 @@
     ],
     "gear": [
       {
+        "category": "suoi",
+        "t": 95
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 347
+      },
+      {
         "category": "thuc-an",
         "type": "kho",
         "brand": "Tetra",
         "model": "TetraColor",
-        "t": 569
+        "t": 567
       },
       {
         "category": "thuc-an",
         "type": "dong-lanh",
-        "t": 590
+        "t": 580
       },
       {
         "category": "thuc-an",
         "type": "song",
         "t": 600
-      },
-      {
-        "category": "loc",
-        "type": "sump",
-        "t": 343
-      },
-      {
-        "category": "suoi",
-        "t": 95
       }
     ],
     "figures": [
       {
-        "heading": "Cá đĩa hay mắc những bệnh gì",
+        "heading": "Nấm trắng: dấu hiệu và nguyên nhân",
         "moments": [
           {
-            "t": 769,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t769.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá đĩa nhiều màu bơi trong bể, nhìn rõ thân và vây."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_AfM2Mwdig4/p0-hc2NpYXR1cy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/_AfM2Mwdig4/p0-hc2NpYXR1cy5qcGc-480.webp",
-          "width": 960,
-          "height": 627,
-          "licence": "CC BY 2.0",
-          "author": "Brian Gratwicke",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Discus_fish_Symphysodon_aequifasciatus.jpg",
-          "caption": "Cá đĩa cam khỏe mạnh, vây nguyên vẹn, mắt sáng, bơi trong bể trồng cây."
-        }
-      },
-      {
-        "heading": "Nấm trắng: nhận biết và ngâm thuốc tím",
-        "moments": [
-          {
-            "t": 227,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t227.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Xô nước pha thuốc tím màu tím để ngâm cá bị nấm trắng."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_AfM2Mwdig4/p1-dHRLR01VMTkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/_AfM2Mwdig4/p1-dHRLR01VMTkuanBn-480.webp",
-          "width": 960,
-          "height": 1280,
-          "licence": "CC BY 4.0",
-          "author": "AnastasGatt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:GattKGMU19.jpg",
-          "caption": "Dung dịch thuốc tím màu tím đậm pha trong bình thủy tinh."
-        }
-      },
-      {
-        "heading": "Nấm ăn vây xử lý ra sao",
-        "moments": [
-          {
-            "t": 286,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t286.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá dĩa bơi gần nhau, thân bình thường, vây rõ để quan sát."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá dĩa nhiều màu bơi trong bể, quan sát thân cá."
           },
           {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t305.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá dĩa màu hồng bơi nghiêng, thấy rõ vây lưng và vây đuôi."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh đàn cá dĩa trong bể có lũa và đá."
+          }
+        ]
+      },
+      {
+        "heading": "Ngâm thuốc tím chữa nấm trắng thế nào",
+        "moments": [
+          {
+            "t": 210,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay khuấy cho thuốc tím tan trong bát nước màu tím."
+          },
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bát nước thuốc tím đã chuyển màu tím đậm, sẵn sàng ngâm cá."
+          }
+        ]
+      },
+      {
+        "heading": "Nấm ăn vây nhận ra thế nào và chữa ra sao",
+        "moments": [
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá dĩa khỏe mạnh bơi trong bể, vây nhìn rõ."
+          },
+          {
+            "t": 310,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá dĩa hồng bơi gần, thân và các vây hiện rõ."
           }
         ],
         "photo": {
@@ -127,58 +121,90 @@
           "licence": "CC BY-SA 4.0",
           "author": "Dizzy Respect",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fin_Rot_on_Betta_Fish.jpg",
-          "caption": "Cá betta bị hỏng vây đuôi, vùng mép vây bị ăn mòn được khoanh tròn."
+          "caption": "Cá betta bị nấm ăn vây, phần vây đuôi bị cụt và rách dần."
         }
       },
       {
-        "heading": "Lở loét: chấm metronidazole lên vết thương",
+        "heading": "Lở loét trên thân: vì sao bị và cách bôi metronidazole",
         "moments": [
           {
-            "t": 434,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t434.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay chấm thuốc lên cá đĩa được giữ trong lưới."
+            "t": 440,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at440-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầm cá trong lưới để bôi thuốc lên chỗ lở loét."
           },
           {
-            "t": 453,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t453.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá đĩa nhiều màu bơi trong bể cảnh."
+            "t": 450,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Giữ cá đĩa trong khay nước để xử lý vết loét."
           }
         ]
       },
       {
-        "heading": "Bệnh đường tiêu hóa: bắt đầu từ thức ăn",
+        "heading": "Bệnh đường tiêu hóa: phòng bằng thức ăn sạch, chữa bằng ngâm thuốc",
         "moments": [
           {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t660.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Giun được rửa sạch trong rổ lọc trước khi cho cá đĩa ăn."
+            "t": 650,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at650-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tô giun tươi đã rửa sạch để cho cá đĩa ăn."
           }
         ]
       },
       {
-        "heading": "Tiêu đen: không phải bệnh mà là sắc tố",
+        "heading": "Tiêu đen: thay đổi sắc tố, không phải bệnh",
         "moments": [
           {
-            "t": 798,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t798.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá đĩa đỏ thân sạch, không có vệt tiêu đen."
+            "t": 780,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at780-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá đĩa nhiều dòng màu bơi trong hồ, thấy rõ thân và vây."
           },
           {
-            "t": 887,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/t887.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá đĩa nhiều dòng màu bơi chung trong bể."
+            "t": 800,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at800-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đĩa đỏ và cá đĩa xanh lam bơi gần nhau trong hồ."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/_AfM2Mwdig4/p6-hc2NpYXR1cy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/_AfM2Mwdig4/p6-hc2NpYXR1cy5qcGc-480.webp",
+          "width": 960,
+          "height": 627,
+          "licence": "CC BY 2.0",
+          "author": "Brian Gratwicke",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Discus_fish_Symphysodon_aequifasciatus.jpg",
+          "caption": "Cá đĩa vàng cam mắt đỏ, màu sạch, không có vệt đen trên thân."
+        }
+      },
+      {
+        "heading": "Gốc của nhiều bệnh là nước chưa tốt",
+        "moments": [
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hệ thống lọc đặt trong tủ bể, nơi cần nâng cấp."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/_AfM2Mwdig4/p7-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/_AfM2Mwdig4/p7-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể và xô nước dùng để thay nước."
+        }
       }
     ]
   }
