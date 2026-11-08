@@ -243,28 +243,6 @@
         }
       }
     },
-    "%@ đến %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ sampai %2$@"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ hingga %2$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ ถึง %2$@"
-          }
-        }
-      }
-    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
