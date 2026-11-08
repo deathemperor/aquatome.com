@@ -39107,6 +39107,42 @@
     "quote": "10 g/L, tắm 20–30 phút"
    },
    {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 3,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "Cá nhiệt đới thường chịu được muối ở mức 1–3 g/L"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 17,
+    "amountMax": 0,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "",
+    "quote": "cá cầu vồng thì con lớn chịu được đến 17 g/L"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 12,
+    "amountMax": 0,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "",
+    "quote": "cá con đến 12 g/L"
+   },
+   {
     "treatment": "tea tree oil",
     "strength": "",
     "amount": 1,

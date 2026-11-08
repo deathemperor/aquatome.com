@@ -2255,6 +2255,37 @@
   ],
   "vi/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
     {
+      "at": "2026-11-08T19:16:34Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Vi khuẩn Flavobacterium columnare cũng gây bệnh thối miệng (columnaris)\": the facts list columnaris among KanaPlex targets and call it highly contagious. They never name F. columnare as its cause, so the guide adds this link itself.",
+        "Opening paragraph: \"Một bác sĩ thú y thủy sản cho rằng sửa môi trường là cách chữa tốt nhất, thuốc chỉ tính đến khi cá không đỡ\". The 'medicate only if the fish doesn't improve' rule comes from Mytour in the facts, not from the vet, so it is credited to the wrong source.",
+        "Table row \"Muối hột (khi không có erythromycin) – Liều theo nhãn\": the facts give no salt dose and no product label for plain salt. The 'by the label' rule is the writer's own, and the facts do not support it for salt.",
+        "Table row \"Xanh malachite – Liều theo nhãn\": the facts give no dose or label for malachite green, so 'by the label' is again the writer's rule.",
+        "\"tháo than hoạt tính và vật liệu lọc hút thuốc ra\": the facts say to remove carbon or Purigen. The generic wording 'vật liệu lọc hút thuốc' is a small generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T19:16:34Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Xanh malachite ... Liều theo nhãn\" – facts only say ANGFA lists it as effective in some cases; the table row is the writer's rule and acceptable, but \"Hội này nhắc nồng độ thuốc bán sẵn mỗi loại một khác\" is fine.",
+        "\"Tím gentian ... Chấm thẳng lên chỗ thối\" – facts say dabbed on the lesion; fine, but attributed to \"một hướng dẫn nuôi cá\" whereas it is a list of options (source 3), minor.",
+        "\"Cá bị thối miệng (columnaris) thì phải chuyển sang bể trị riêng ... thuốc kanamycin của họ trị được\" – facts say Seachem lists mouth rot among KanaPlex targets; fine, but placing it inside the fin rot treatment section is a stretch.",
+        "\"Thuốc kháng khuẩn ... Cá không đỡ sau vài ngày sửa nước\" – fine; but \"Thêm sủi khí\" in the erythromycin row is generic, not tied to erythromycin in the facts.",
+        "\"Mô đỏ mới là dấu hiệu bệnh còn đang tiến triển\" and \"Nhiễm trùng dai dẳng ... Vết thối lan sang thân, chảy máu hoặc lộ xương\" as vet-visit triggers – the third trigger (spread to body, bleeding, exposed skeleton) is not in the facts as a vet criterion; it is the writer's own recommendation.",
+        "\"Vây dài và mỏng ... khiến cá bơi vụng\" – facts say long delicate fins are awkward to use; \"mỏng\" is slightly added, minor.",
+        "\"nên ở nhà mình chỉ dựa vào dấu hiệu bên ngoài\" – writer's inference, not in the facts.",
+        "\"Điểm này khác với ý bác sĩ thú y ở trên\" – the guide's own comparison; the vet spoke about water-column medications in general, not KanaPlex specifically."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T18:53:30Z",
       "model": "sonnet",
       "score": 0.62,
@@ -2321,33 +2352,6 @@
       ],
       "attempt": "first",
       "kept": true
-    },
-    {
-      "at": "2026-11-08T13:59:23Z",
-      "model": "sonnet",
-      "score": 0.9,
-      "notes": [
-        "\"Hội cá cầu vồng ANGFA\" and \"một nhà bán cá cảnh\" (for Aquarium Co-Op) are source descriptions the facts don't give. The facts only say \"ANGFA\" and \"Aquarium Co-Op\". This is a minor invented attribution.",
-        "\"thuốc chỉ dùng khi cần\" in the intro is a mild paraphrase. The facts support this only for the vet's view and Mytour, not as a general rule.",
-        "\"Than hoạt tính cùng các vật liệu lọc hút hóa chất\" generalises the facts, which name only carbon or Purigen. It is a small generalisation."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T13:59:23Z",
-      "model": "sonnet",
-      "score": 0.88,
-      "notes": [
-        "\"Bệnh nhẹ thường khỏi khi nước sạch và điều kiện nuôi tốt lên\" (intro): the facts only say better conditions are the best treatment. They don't say mild cases usually clear up this way.",
-        "\"Nước máy ở Việt Nam có clo\": the facts only say to dechlorinate tap water. They don't say Vietnamese tap water contains chlorine.",
-        "\"ở nhà chỉ đoán được qua dấu hiệu\": this is the writer's inference from the necropsy and culture fact. The facts don't state it.",
-        "\"Với các con này nên nhìn kỹ hơn lúc cho ăn\": the facts give daily checks at feeding time as general prevention. They don't give this advice for halfmoon bettas.",
-        "\"Còn không thì tách cá bệnh sang bể cách ly mà chữa\" (FAQ on tanks with shrimp and snails): the facts don't offer isolation as the answer for tanks with invertebrates.",
-        "\"Làm kỹ bước này vì nhiều loại thuốc yêu cầu không thay nước\": this is close to the facts, but the guide uses it to justify a thorough clean, which is a small addition."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ],
   "vi/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
