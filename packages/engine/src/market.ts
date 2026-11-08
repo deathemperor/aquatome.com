@@ -26,7 +26,7 @@ export type Product = {
     ingredient?: string
     /** No source names one: what the writers are told instead. */
     noIngredient?: string
-    /** Treatments: the note's sentence on what it is. */
+    /** Treatments: what it is, and what it's mistaken for here, which the writer puts beside the medicine (marketFor). */
     says?: string
   }>>
   /** Treatments: the problems its source uses it for, which a remedy in the note may answer. */
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     market: { vi: hard({ ingredient: 'formaldehyde và xanh malachite (malachite green chloride)', says: 'Ich-X có hoạt chất là formaldehyde và xanh malachite (malachite green chloride).' }) } },
   { name: 'Maracyn', match: /\bmaracyn(?![\s-]*(?:2|two|ii)\b)/i, kind: 'treatment', problems: ['fungus', 'finRot', 'cyanobacteria', 'quarantine'],
     ingredient: { en: 'erythromycin', ref: MARACYN_LABEL },
-    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Maracyn là kháng sinh erythromycin. Maracyn Two là thuốc khác, hoạt chất là minocycline.' }) } },
+    market: { vi: hard({ ingredient: 'kháng sinh erythromycin', says: 'Maracyn là kháng sinh erythromycin. Maracyn Two là thuốc khác, hoạt chất là minocycline, và có bán ở đây: ai cần erythromycin thì đừng mua nhầm Maracyn Two.' }) } },
   { name: 'ParaCleanse', match: /\bpara[\s-]?cleanse\b/i, kind: 'treatment', problems: ['parasites'],
     ingredient: { en: 'praziquantel and metronidazole; amounts per packet not read', ref: PARASITES_ARTICLE },
     market: { vi: hard({ ingredient: 'praziquantel và metronidazole', says: 'ParaCleanse có praziquantel để trị giun sán và metronidazole để diệt một số vi khuẩn và đơn bào.' }) } },
@@ -261,7 +261,7 @@ export function marketFor(lang: Lang, source: string, problems: ProblemId[]): st
   const named = PRODUCTS.filter(p => mentions(p, source))
   const lines = named.map(p => {
     const m = p.market[lang]
-    return `- ${p.name}: ${MARKET_LINE[m?.status ?? 'unknown']}. ${m?.ingredient ? `Hoạt chất: ${m.ingredient}.` : m?.noIngredient ?? ''}`.trim()
+    return `- ${p.name}: ${MARKET_LINE[m?.status ?? 'unknown']}. ${m?.ingredient ? `Hoạt chất: ${m.ingredient}.` : m?.noIngredient ?? ''} ${m?.says ?? ''}`.trim()
   })
   const unlisted = 'Sản phẩm khác trong dữ kiện chưa ai kiểm tra: nói loại sản phẩm hoặc hoạt chất, không đưa tên hãng làm thứ cần mua, liều theo nhãn.'
   const wanted = new Set([...problems, ...named.flatMap(p => p.problems ?? [])])

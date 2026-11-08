@@ -13,7 +13,7 @@ import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
  * A guide written for its reader. Translating a foreign article and patching it after keeps it written for someone else:
  * its products, its shops, its gallons, its sentences. So the source goes through a list of facts the writer works from
  * alone, the market table says what can be bought here, and what comes out passes the same checks every page does
- * (fit.ts), one more try with their notes, or it isn't kept.
+ * (fit.ts) and says nothing more surely than its facts (hedgesLost), one more try with their notes, or it isn't kept.
  */
 const FACTS = readFileSync(new URL('./prompts/guide-facts.md', import.meta.url), 'utf8')
 const WRITE = readFileSync(new URL('./prompts/guide-write.md', import.meta.url), 'utf8')
@@ -40,8 +40,30 @@ const WRITE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['name', 'summary', 'body', 'faq'],
   properties: { name: { type: 'string' }, summary: { type: 'array', items: { type: 'string' } }, body: { type: 'string' }, faq: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } } },
 }
-const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. Reply only with JSON.`
-const REVIEW_SCHEMA = { type: 'object', additionalProperties: false, required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
+const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. hedges: every fact in FACTS that says how often or how sure (may, can, could, often, usually, sometimes, a lot of times, likely, probably), copied exactly, each with the one GUIDE sentence that says that fact, copied exactly ("" if the guide leaves the fact out). Reply only with JSON.`
+const REVIEW_SCHEMA = {
+  type: 'object', additionalProperties: false, required: ['score', 'notes', 'hedges'],
+  properties: {
+    score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } },
+    hedges: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['fact', 'quote'], properties: { fact: { type: 'string' }, quote: { type: 'string' } } } },
+  },
+}
+
+/** How often and how sure, as the facts say it in English (guide-facts.md keeps it word for word)… */
+const HEDGE_EN = /\b(?:may|might|can|could|often|usually|typically|generally|sometimes|occasionally|a lot of times|many times|most of the time|in some cases|likely|probably|possibly|tends? to|i think|seems?)\b/i
+/** …and as a Vietnamese sentence carries it. "Thường" in "bình thường" is "normal", and "dễ" alone "easy". */
+const HEDGE_VI = /(?<!\p{L})(?:có thể|(?<!bình )thường|đôi khi|nhiều khi|có khi|có lúc|lắm lúc|thỉnh thoảng|có lẽ|chắc là|hình như|nghe nói|dễ (?:bị|nhiễm|chết|lây|mắc)|hay (?:bị|gặp|có|mọc|bùng|làm|thấy)|tùy|chưa chắc|không phải lúc nào|phần lớn|đa số|hầu hết)(?!\p{L})/iu
+const squash = (s: string) => s.replace(/\s+/g, ' ').trim()
+/**
+ * Facts the guide says more surely than they do: "a lot of times a fungal infection means an open wound" written "nấm chỉ
+ * mọc trên vết thương hở". The reviewer pairs each hedged fact with the guide's sentence for it; the code holds the pair to
+ * the facts and the page (a fact it didn't copy, or a sentence that isn't there, counts for nothing) and decides whether
+ * the sentence still says how often or how sure.
+ */
+export function hedgesLost(pairs: { fact: string; quote: string }[], facts: string[], page: string): { fact: string; quote: string }[] {
+  const known = new Set(facts.map(squash)), text = squash(page)
+  return pairs.filter(x => x.quote.trim() && known.has(squash(x.fact)) && HEDGE_EN.test(x.fact) && text.includes(squash(x.quote)) && !HEDGE_VI.test(x.quote))
+}
 
 /** The amounts in a text, as numbers with their units: what a guide may not make up. */
 const AMOUNTS = /(\d+(?:[.,]\d+)?)\s*(ml|mg|g|lít|l|gói|viên|thìa|muỗng|giọt|nắp|%|ppm|ngày|tuần|giờ|phút)(?![\p{L}\p{N}])/giu
@@ -97,15 +119,17 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     const findings = fitFindings(page, made)
     const wrong = findings.filter(f => f.check !== 'words')
     const outside = amountsOutside(plain(clean), input)
-    const r = await d.llm<{ score: number; notes: string[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
+    const r = await d.llm<{ score: number; notes: string[]; hedges?: { fact: string; quote: string }[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
     const score = Math.min(1, Math.max(0, Number(r.score) || 0))
+    const lost = hedgesLost(r.hedges ?? [], facts.facts.map(f => f.fact), plain(clean))
     const notes = [
       ...wrong.map(f => `${f.check}: "${f.quote}": ${f.why}`),
       ...findings.filter(f => f.check === 'words').map(f => `Chữ người chơi ít dùng: "${f.quote}"${f.fix ? ` (${f.fix})` : ''}`),
       ...outside.map(a => `Con số không có trong dữ kiện: ${a}`),
+      ...lost.map(h => `Nói chắc hơn dữ kiện: "${h.quote}" (dữ kiện: "${h.fact}"). Giữ đúng mức như dữ kiện: "có thể", "thường", "nhiều khi"…`),
       ...(r.notes ?? []),
     ]
-    return { written: clean, findings, score, notes, ok: !wrong.length && !outside.length && score >= QUALITY_THRESHOLD }
+    return { written: clean, findings, score, notes, ok: !wrong.length && !outside.length && !lost.length && score >= QUALITY_THRESHOLD }
   }
   // A draft with notes goes back once to mend those sentences. Writing it afresh only swapped one run's slips for another's.
   let best = await check(await write())
