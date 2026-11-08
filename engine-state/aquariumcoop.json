@@ -164,6 +164,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/5-ways-to-cool-aquarium-water": {
+    "lastmod": "2025-12-18T13:57:02-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-5-ways-to-cool-aquarium-water"
+    ],
+    "updatedAt": "2026-11-08T13:00:25.851Z",
+    "hash": "322685e9216ace6ae4383a1fb8b44c56c88391f2592a1dfc55ef5e5594ade3e8",
+    "processedHash": "322685e9216ace6ae4383a1fb8b44c56c88391f2592a1dfc55ef5e5594ade3e8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/55-gallon-fish": {
     "lastmod": "2025-12-18T13:55:52-08:00",
     "entityIds": [
@@ -260,6 +271,17 @@
     "updatedAt": "2026-10-30T23:23:02.568Z",
     "hash": "23ff2c62cc5fc12547c2adab2f6544c4f0e6d616a480b50c6ce03f5e979a012e",
     "processedHash": "23ff2c62cc5fc12547c2adab2f6544c4f0e6d616a480b50c6ce03f5e979a012e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/apistogramma-dwarf-cichlid": {
+    "lastmod": "2026-10-28T13:40:27-07:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-apistogramma-dwarf-cichlid"
+    ],
+    "updatedAt": "2026-11-08T13:02:21.597Z",
+    "hash": "fbbe7c4c4a740619089c076c6cab24bc82d1f9374fb43ac2fab93456349e721e",
+    "processedHash": "fbbe7c4c4a740619089c076c6cab24bc82d1f9374fb43ac2fab93456349e721e",
     "status": "processed",
     "attempts": 0
   },
@@ -592,6 +614,14 @@
     "processedHash": "4885910ea04f53093362b57ca7a86a958e4779ddd45b8fa517d5b05fd63278e4",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/bubbles-in-fish-tank-water": {
+    "lastmod": "2025-12-18T13:56:56-08:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-08T12:45:50.354Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.aquariumcoop.com/blogs/aquarium/bubbles-in-fish-tank-water\", waiting until \"domcontentloaded\"\n"
   },
   "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra": {
     "lastmod": "2025-12-18T13:56:01-08:00",
@@ -1330,6 +1360,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/how-to-clean-aquarium-filter": {
+    "lastmod": "2025-12-18T13:56:58-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-how-to-clean-aquarium-filter"
+    ],
+    "updatedAt": "2026-11-08T12:46:36.598Z",
+    "hash": "7cba6a05f4169b2e2c6bcdc44d39cb1378cef68865212fb8ccde8e66e2b23ccd",
+    "processedHash": "7cba6a05f4169b2e2c6bcdc44d39cb1378cef68865212fb8ccde8e66e2b23ccd",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/how-to-drill-glass-aquariums": {
     "lastmod": "2025-12-18T13:55:49-08:00",
     "entityIds": [
@@ -1649,6 +1690,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/mystery-snail": {
+    "lastmod": "2025-12-18T13:56:59-08:00",
+    "entityIds": [
+      "species/pomacea-diffusa"
+    ],
+    "updatedAt": "2026-11-08T12:53:18.533Z",
+    "hash": "c7a618961748013ce119d344b278e6c4c34d38770eee662a2a55e919b3d6ad3f",
+    "processedHash": "c7a618961748013ce119d344b278e6c4c34d38770eee662a2a55e919b3d6ad3f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/nano-fish": {
     "lastmod": "2025-12-18T13:54:51-08:00",
     "entityIds": [
@@ -1723,6 +1775,17 @@
     "updatedAt": "2026-11-06T12:29:34.579Z",
     "hash": "766c64e2d7962ed63e1a38e32acff57e6f29d57c31d5742a4133b8d20ae93b19",
     "processedHash": "766c64e2d7962ed63e1a38e32acff57e6f29d57c31d5742a4133b8d20ae93b19",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/otocinclus-catfish": {
+    "lastmod": "2025-12-18T13:56:55-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-otocinclus-catfish"
+    ],
+    "updatedAt": "2026-11-08T12:41:35.698Z",
+    "hash": "038f5daa302cbb4114d1d8bebe4a59a0bc86a63844f40b9ec10ea015c356c1f3",
+    "processedHash": "038f5daa302cbb4114d1d8bebe4a59a0bc86a63844f40b9ec10ea015c356c1f3",
     "status": "processed",
     "attempts": 0
   },
@@ -2326,6 +2389,17 @@
     "updatedAt": "2026-10-30T20:21:44.783Z",
     "hash": "0503e1b8d07f91f4f1eb8028e22551288b9b70ea8452d533972675b624edbb4a",
     "processedHash": "0503e1b8d07f91f4f1eb8028e22551288b9b70ea8452d533972675b624edbb4a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/warm-water-fish": {
+    "lastmod": "2025-12-18T13:57:00-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-warm-water-fish"
+    ],
+    "updatedAt": "2026-11-08T12:56:57.695Z",
+    "hash": "507ada930243a6cc172053aa9f2389f0e5a402fc65ef9359e8ba56f3dd05f545",
+    "processedHash": "507ada930243a6cc172053aa9f2389f0e5a402fc65ef9359e8ba56f3dd05f545",
     "status": "processed",
     "attempts": 0
   },

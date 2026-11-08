@@ -1,0 +1,71 @@
+{
+  "id": "exostoma-labiatum",
+  "scientificName": "Exostoma labiatum",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Exostoma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
+      "html": "<ul><li>Scientific name: Exostoma labiatum (McClelland, 1842)</li><li>Common name: Burmese Bat Catfish</li><li>Type locality: Mishmee Hills [Mishmi Mountains], Arunachal Pradesh, India.</li><li>Etymology: Greek, exos = outside + Greek, stoma = mouth</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
+      "html": "<p>Asia: India. Reported from the Brahmaputra River in Tibet and the upper Salween basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
+      "html": "<p>Found in mountain rapids.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=131",
+      "html": "<p>Calcutta Journal of Natural History v. 2 (no. 8), pp 588.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thác bể cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}
