@@ -7,12 +7,16 @@ Write:
 - slug: 2–6 lowercase English words joined by hyphens, naming the topic (for the page address), e.g. "fish-popeye-causes-treatment".
 - summary: 2–3 sentences answering the main question directly: what it is, what to do first.
 - body: HTML with h3 sections. Pick sections to fit the topic, skip any with no facts. For a disease: signs, causes, what to do now, treatment, prevention, when to worry. For care and technique: what it is and why, the steps in order (ol), common mistakes, checking afterwards.
-- Doses, temperatures and times: exactly the numbers and units in the facts, saying which source says what when sources differ. Never change a dose.
+- Doses, temperatures and times: exactly the numbers and units in the facts. When sources differ, name each by its kind (a vet, a university study, one keeper, a fishkeeping guide): the reader never sees the facts' source numbers. Never change a dose.
 - faq: 3–5 questions hobbyists ask about this, answered briefly from the facts.
 
 Rules:
 - Only the facts in the table. No number, medicine, dose, species or advice the table doesn't have. Keep each fact's level of certainty.
 - Medicines: name the active ingredient (methylene blue, non-iodised salt), don't promote brands. State the cautions the facts give (shrimp, snails, plants, catfish being sensitive).
+- A dose the facts give for a named product is that product's alone. Never write it as the dose of its active ingredient or of a kind of medicine ("a copper product", "kanamycin"): without the product's name, write that the dose is by the label of the product the reader buys. A level the facts say one type keeps (chelated copper at 1.5–2.0 ppm) goes with that type's name.
+- A medicine the facts give no dose for: by its label; never a dose of your own, and never say the facts or a source lack one.
+- Each dose goes with its own schedule (in a table, one row a method). A dose the facts give no schedule for is left out; never give one source's schedule with another's dose.
+- A foreign shop that is a source (Aquarium Co-Op…) is "a fishkeeping guide", never named.
 - Don't diagnose for the reader: say which signs look like which disease and how to tell them apart when the facts do.
 - When sources differ, say so and give both.
 - Never mention a writer, channel, video or "the author". No prices.

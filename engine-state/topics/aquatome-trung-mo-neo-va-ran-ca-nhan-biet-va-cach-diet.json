@@ -41,7 +41,7 @@
     {
       "url": "https://snnmt.thanhhoa.gov.vn/chan-nuoi-thu-y-150696/benh-trung-mo-neo-va-bien-phap-phong-dieu-tri-benh-tren-ca-nuoi-ca-canh-698721",
       "title": "Sở NN&MT Thanh Hóa – Bệnh trùng mỏ neo và biện pháp phòng, điều trị trên cá nuôi, cá cảnh",
-      "kind": "other"
+      "kind": "farm"
     },
     {
       "url": "https://dylanvina.com/trung-mo-neo-tren-ca-nuoc-ngot-lernaeosis-nguyen-nhan-trieu-chung-va-cach-phong-tri-hieu-qua",
@@ -62,6 +62,11 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4675570",
       "title": "Prevalence of Argulus on ornamental fish (goldfish, koi) in Iran – PMC",
       "kind": "paper"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/dips-to-remove-ectoparasites",
+      "title": "Table: Dips to Remove Ectoparasites-Merck Veterinary Manual",
+      "kind": "vet"
     }
   ],
   "facts": [
@@ -452,11 +457,6 @@
     },
     {
       "section": "prevention",
-      "fact": "Tắm muối định kỳ 2–3% trong 15–20 phút để diệt trứng trùng; mua cá ở nơi uy tín và cách ly cá mới.",
-      "source": 6
-    },
-    {
-      "section": "prevention",
       "fact": "Thức ăn sống như bo bo có thể mang rận cá vào bể.",
       "source": 3
     },
@@ -519,6 +519,16 @@
       "section": "other",
       "fact": "Thuốc ức chế kitin như diflubenzuron về nguyên lý gây hại cho giáp xác; báo cáo ổ dịch ở thủy cung không có dữ liệu theo dõi riêng cho động vật không xương sống.",
       "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Mua cá ở nơi uy tín và cách ly cá mới.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "A salt dip for freshwater fish, as the Merck Veterinary Manual gives it to remove external parasites: usually 30 g/L for 0.5–10 minutes, depending on species. A fish in distress, commonly rolling onto its side, is taken out of the bath at once.",
+      "source": 11
     }
   ]
 }
