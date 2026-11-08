@@ -71,8 +71,21 @@ test('switch on: no code with Global Privacy Control or Do Not Track, none when 
   expect(blocked.sent[0]!.u).toBe('')
 })
 
-test('switch on: «Không đếm tôi» (aq_nocount) stops every event', () => {
+test('switch on: «Không đếm tôi» (aq_nocount) stops every event, in a tab already open too', () => {
   const { sent, click } = run(true, { local: { [NOCOUNT]: '1' } })
   click({ dataset: { ev: 'tank' } })
   expect(sent).toEqual([])
+  // Pressed while a page is open: its next events aren't sent; pressed again, they are, without the deleted code.
+  const open = run(true, { local: {} })
+  open.local!.set(NOCOUNT, '1')
+  open.local!.delete(VID)
+  open.click({ dataset: { ev: 'tank' } })
+  expect(open.sent.map(s => s.t)).toEqual(['view'])
+  open.local!.delete(NOCOUNT)
+  open.click({ dataset: { ev: 'src' } })
+  expect(open.sent.map(s => [s.t, s.u])).toEqual([['view', open.sent[0]!.u], ['src', '']])
+  // A code made before Global Privacy Control was turned on is never sent.
+  const gpc = run(true, { local: { [VID]: `abcd1234.${Date.parse('2026-11-01T00:00:00Z')}` }, gpc: true })
+  gpc.click({ dataset: { ev: 'tank' } })
+  expect(gpc.sent.map(s => s.u)).toEqual(['', ''])
 })
