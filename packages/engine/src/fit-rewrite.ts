@@ -91,7 +91,8 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         const r = await rewritePart(d.llm, html, fs.map(asNote), { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }
-        if (r.score < QUALITY_THRESHOLD) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
+        // Kept at the bar, and saying nothing more surely than before (hedges.ts).
+        if (r.score < QUALITY_THRESHOLD || r.lost.length) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
         if (r.html === html) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
         if (field === 'body') t.body = r.html
         else if (field === 'definition') t.definition = r.html

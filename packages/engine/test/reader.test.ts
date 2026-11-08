@@ -10,7 +10,7 @@ const page = (o: Partial<Page>): Page => ({ lang: 'vi', kind: 'guides', id: 'g',
 const GUIDE = '<p>Cá cần ăn đủ.</p><p>Cho ăn hai lần một ngày là được rồi đó nha bạn.</p><h3>Kết luận</h3><p>Hết.</p>'
 
 /** A stand-in for the model: the reader's answer, a rewrite of each part it is given, a review score. */
-function fakeLlm(o: { findings?: object[]; rewrite?: (vi: string) => string; score?: number; fail?: boolean }) {
+function fakeLlm(o: { findings?: object[]; rewrite?: (vi: string) => string; score?: number; fail?: boolean; hedges?: { from: string; to: string }[] }) {
   const calls: string[] = []
   const llm: Llm = async <T>({ prompt, schema }: { prompt: string; schema: object }) => {
     const need = (schema as { required: string[] }).required
@@ -20,8 +20,8 @@ function fakeLlm(o: { findings?: object[]; rewrite?: (vi: string) => string; sco
       const parts = [...prompt.matchAll(/### (\S+)\n(?:EN:\n[\s\S]*?\n)?VI:\n([\s\S]*?)(?=\n\n### |$)/g)].map(m => ({ id: m[1]!, vi: (o.rewrite ?? (v => v))(m[2]!.trim()) }))
       return { parts } as T
     }
-    calls.push('review')
-    return { score: o.score ?? 0.9, notes: [] } as T
+    calls.push(need.includes('hedges') ? 'review with hedges' : 'review')
+    return { score: o.score ?? 0.9, notes: [], hedges: o.hedges ?? [] } as T
   }
   return { llm, calls }
 }
@@ -76,8 +76,8 @@ test('what the engine rewrites: Vietnamese wording anywhere, facts only against 
 test('a guide is rewritten only in the block a finding quotes, and checked against its old wording', async () => {
   const { llm, calls } = fakeLlm({ rewrite: vi => vi.replace('là được rồi đó nha bạn', 'là đủ'), score: 0.92 })
   const r = await rewritePart(llm, GUIDE, [{ kind: 'language', severity: 'medium', part: 'P1', quote: 'là được rồi đó nha bạn', problem: 'Too chatty.' }], {})
-  expect(r).toEqual({ html: '<p>Cá cần ăn đủ.</p><p>Cho ăn hai lần một ngày là đủ.</p><h3>Kết luận</h3><p>Hết.</p>', score: 0.92, notes: [] })
-  expect(calls).toEqual(['rewrite', 'review'])
+  expect(r).toEqual({ html: '<p>Cá cần ăn đủ.</p><p>Cho ăn hai lần một ngày là đủ.</p><h3>Kết luận</h3><p>Hết.</p>', score: 0.92, notes: [], lost: [] })
+  expect(calls).toEqual(['rewrite', 'review with hedges'])
   // A quote not in any one block: nothing is rewritten.
   expect(await rewritePart(llm, GUIDE, [{ kind: 'language', severity: 'medium', part: 'P1', quote: 'không có', problem: 'x' }], {})).toBeUndefined()
 })
@@ -167,7 +167,7 @@ test('"Trang lưu ý…" goes to the writer with the reader\'s findings: a page 
   // The reader itself finds nothing; the rule's finding is rewritten and kept.
   const { llm, calls } = fakeLlm({ findings: [], rewrite: v => v.replace('Trang lưu ý rằng chúng', 'Chúng'), score: 0.9 })
   const { report, state: after } = await readPages(root, [p], { llm, now: () => new Date('2026-11-01T00:00:00Z') }, { limit: 20, rewrites: 3 })
-  expect(calls).toEqual(['read', 'rewrite', 'review'])
+  expect(calls).toEqual(['read', 'rewrite', 'review with hedges'])
   expect(report.rewritten).toEqual(['vi/species/s sections.notes:sprucepets (0.90)'])
   const stored = JSON.parse(await readFile(join(root, 'content', 'species', 's', 'vi.json'), 'utf8')).sections['notes:sprucepets']
   expect(stored).toBe('<p>Cá hiền. Chúng không thực sự làm sạch bể.</p>')
@@ -202,4 +202,12 @@ test("the reader's pages are the served languages': Malay's among them since it 
   expect(new Set(pages.map(p => p.lang))).toEqual(new Set(['vi', 'ms']))
   // At Malay's addresses, as the site has them (src/lib/i18n.ts SECTIONS).
   expect(pages.filter(p => p.lang === 'ms').map(p => p.path)).toEqual(expect.arrayContaining(['/ms/ikan/baka-uji-melayu/', '/ms/istilah/istilah-uji-melayu/', '/ms/peralatan/loc/']))
+})
+
+test('a part said more surely than before is not kept, however well it scores', async () => {
+  const html = '<p>Cá có thể nhảy khỏi bể, nhất là lúc mới thả.</p>'
+  const { llm } = fakeLlm({ rewrite: v => v.replace('Cá có thể nhảy', 'Cá nhảy'), score: 0.95, hedges: [{ from: 'Cá có thể nhảy khỏi bể, nhất là lúc mới thả.', to: 'Cá nhảy khỏi bể, nhất là lúc mới thả.' }] })
+  const r = await rewritePart(llm, html, [{ kind: 'language', severity: 'high', part: 'P1', quote: 'nhảy khỏi bể', problem: 'x' }], {})
+  expect(r!.lost).toHaveLength(1)
+  expect(r!.notes[0]).toContain('Said more surely than before: "Cá nhảy khỏi bể')
 })

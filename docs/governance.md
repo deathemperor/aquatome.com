@@ -915,7 +915,8 @@ The layers above still check the result.
     (`gate.test.ts`).
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
-    each part a finding quotes, kept only when its reviewer passes it. Units, words and a kit are left to the rounding,
+    each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was
+    written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
     the phrase list and the gate. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`).
