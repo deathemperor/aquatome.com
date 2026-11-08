@@ -12,7 +12,15 @@
     "malaysia",
     "peninsular-malaysia",
     "indonesia",
-    "sumatra"
+    "sumatra",
+    "chao-phraya",
+    "laos",
+    "cambodia",
+    "tonle-sap",
+    "vietnam",
+    "rajang",
+    "kalimantan",
+    "brunei"
   ],
   "dataCard": {
     "tempC": [
@@ -20,6 +28,13 @@
         "source": "planetcatfish",
         "value": {
           "min": 22,
+          "max": 27
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
           "max": 27
         }
       }
@@ -31,12 +46,44 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 70
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 70
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -48,10 +95,46 @@
       "html": "<ul><li><strong>Scientific name:</strong> Phalacronotus apogon (Bleeker, 1851)</li><li><strong>Type locality:</strong> Bandjarmasin, Borneo, Indonesia.</li><li><strong>Etymology:</strong> From the Greek a- meaning without and pogon, meaning beard, in reference to the very small barbels in this species.</li><li><strong>Size:</strong> 700 mm (27.6\") SL.</li><li><strong>Identification:</strong> No dorsal fin; greatly reduced barbels (smaller than eye diameter or absent); body depth 5.7-7.0 times in SL; vomerine teeth in angular band; 75-91 anal-fin rays.</li><li><strong>IUCN Red List status:</strong> Least Concern</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<ul><li>Difficulty: Difficult. Rated difficult because it needs a tank at least 2 m long.</li></ul><p>Phalacronotus apogon is a large silurid catfish from much of Southeast Asia, including Thailand, the Mekong basin and the Greater Sunda Islands. It reaches 700 mm and arguably should not be considered a home aquarium subject at all, but juveniles are sometimes sold as 'blue neon sheatfish' or 'metallic cheatfish' without adequate information on long-term care. It is an important food fish across much of its native range.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
       "html": "<p>Widely distributed throughout Southeast Asia: Mekong, Thailand waters, Chao Praya, Peninsular Malaysia, Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>This species is currently understood to occur throughout much of Southeast Asia including major river systems in Thailand, Laos, Cambodia, Vietnam and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java.</p><p>Type locality is 'Bandjarmasin, southern Kalimantan, Borneo, Indonesia' which corresponds to a town located on the Barito River and now more commonly referred to as 'Banjarmasin' in South Kalimantan (Kalimantan Selatan) province, Indonesia (Borneo).</p><p>It's possible that the mainland and Sundaic populations may represent separate species but this remains to be confirmed, and the species also exists in both mottled and laterally-striped colour forms.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Pelagic and inhabits main river channels and large streams which are often murky due to suspended sediment, and moves into temporarily-flooded zones during the wet season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Standard length: 700 mm SL (28 in SL). Suitable only for public installations or the very largest private aquaria. The page states a tank at least 2 m long is needed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Décor is relatively unimportant although this species prefers weakly-lit conditions.</p><p>Do not add introduce it to a biologically immature aquarium as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -66,10 +149,22 @@
       "html": "<p>Readily feeds on live/frozen foods and other prepared foods such as pellets. Will also eat fishes/shrimps.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>An obligate but generalised piscivore which hunts pelagic fishes in the middle-and-upper water column in nature.</p><p>Newly-imported specimens often refuse to accept anything but live fishes but most can be weaned onto dead alternatives once recognised as edible.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat like beef heart or chicken, and similarly there is no benefit in the long-term use of ‘feeder’ fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
       "html": "<p>A predatory fish best kept alone.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Best kept alone or with similarly-sized, non-aggressive fishes since it's actually quite peaceful with species too large to be considered food and can apparently be maintained in a group in a suitably-sized aquarium.</p>"
     },
     {
       "key": "dimorphism",
@@ -78,16 +173,40 @@
       "html": "<p>Males are more slender and have strong serrations on the posterior edge of the pectoral spine (females lack these serrations).</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Adult males are noticeably slimmer than females and the posterior edge of the pectoral-fin spine is serrated (vs. smooth in females).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
       "html": "<p>Not reported in captivity. In mainland South-east Asia, this species spawns just prior to the rise in water levels and moves into the flooded riparian forests and probably out into the floodplains during high water levels. Young of the year are first seen in July and start to move back to the rivers in October, where they remain common until January.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Unrecorded in aquaria but in nature spawning coincides with the onset of the wet season and associated seasonal floods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<p>Arguably should not be considered a home aquarium subject at all given its eventual size and natural behaviour, and only a handful of private aquarists are known to have the facilities required to house it long-term.</p><p>Unfortunately, juveniles are sometimes seen for sale under names such as 'blue neon sheatfish' or 'metallic cheatfish', and most often without adequate information regarding long-term care.</p><p>P. apogon has formerly been placed within the genera Kryptopterus, Micronema (Rainboth, 1996) and more recently Phalacronotus (Ferraris, 2007) and is an important food fish across much of its native range.</p><p>It's very similar to P. micronema but can be told apart by its longer head (HL fits 4.6–5.3 times in SL vs 5.3–5.7).</p><p>The genus currently contains four species which are separated from other silurids by a combination of the following characters: absence of dorsal-fin; 9-10 pelvic-fin rays; maxillary barbels short (not extending beyond the opercle).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1049",
       "html": "<p>Natuurkd. Tijdschr. Neder. Indiëv. 2 - pp67</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-apogon",
+      "html": "<ul><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Tan, H. H. and H. H. Ng (2000). The catfishes (Teleostei: Siluriformes) of central Sumatra. Journal of Natural History 34(2), 267-303</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Ng, H. H., S. Wirjoatmodjo and R. K. Hadiaty (2004). Kryptopterus piperatus, a new species of silurid catfish (Teleostei: Siluridae) from northern Sumatra. Ichthyological Exploration of Freshwaters 15(1), 91-95</li><li>van Oijen, M. J. P., G. M. P. Loots and F. J. G. Limburg (2009). English translation of: P. Bleeker, A Precursor of the Fishes of the Indian Archipelago. Part 1 -- Siluri. Zoologische Mededelingen (Leiden) No. 83, iii-xi + 1-317</li></ul>"
     }
   ],
   "photos": [
@@ -126,23 +245,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/a1260a411df6a0a5.webp",
+      "thumb": "https://media.aquatome.com/commons/a1260a411df6a0a5-480.webp",
       "width": 800,
       "height": 800,
       "licence": "CC BY-SA 4.0",
       "author": "Abu Hamas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalacronotusapogon_2.jpg",
-      "caption": "Phalacronotus apogon from Riau, Indonesia.",
-      "thumb": "https://media.aquatome.com/commons/a1260a411df6a0a5-480.webp"
+      "caption": "Phalacronotus apogon from Riau, Indonesia."
     },
     {
       "url": "https://media.aquatome.com/commons/1d7b7bb9bc650812.webp",
+      "thumb": "https://media.aquatome.com/commons/1d7b7bb9bc650812-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Abu Hamas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalacronotusapogon_1.jpg",
-      "caption": "Phalacronotus apogon from Riau, Indonesia.",
-      "thumb": "https://media.aquatome.com/commons/1d7b7bb9bc650812-480.webp"
+      "caption": "Phalacronotus apogon from Riau, Indonesia."
     }
   ],
   "videos": [
@@ -175,8 +294,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 200cm",
-        "bể cá 300 lít"
+        "bể cá 200cm"
       ]
     },
     {
@@ -193,5 +311,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-08"
 }
