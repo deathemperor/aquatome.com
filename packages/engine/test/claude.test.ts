@@ -3,7 +3,7 @@ import { mkdtemp, readdir, readFile, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { PassThrough } from 'node:stream'
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 // A `claude` that answers at once with what the CLI prints: the structured output, its cost and tokens.
 const spawned = vi.hoisted(() => [] as { cwd: string }[])
@@ -22,7 +22,11 @@ const { claudeCli, claudeResearch } = await import('../src/claude')
 const { resetAccounts, tokenHash } = await import('../src/claude-accounts')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
 
-afterEach(() => { delete process.env.ENGINE_COST_LOG; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() })
+// No account but a test's own: the engine's runs have theirs in the environment (on 8 November GitHub's
+// CLAUDE_CODE_OAUTH_TOKEN made a line name it, and the rewrite part's cycle didn't publish).
+const noAccounts = () => { delete process.env.CLAUDE_CODE_OAUTH_TOKEN; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() }
+beforeEach(noAccounts)
+afterEach(() => { delete process.env.ENGINE_COST_LOG; noAccounts() })
 
 test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
   spawned.length = 0
