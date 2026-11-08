@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { CardTextSchema, QUALITY_THRESHOLD, type CardText } from '@aq/schema'
+import { cardShownIn, CardTextSchema, QUALITY_THRESHOLD, type CardText } from '@aq/schema'
 import type { Llm } from './claude'
 import { sanitizeHtml, unescapePlain } from './sanitize'
 import { TARGETS, type TargetLang } from './localize'
@@ -50,6 +50,9 @@ export async function localizeCard(root: string, llm: Llm, id: string, lang: Tar
   const dir = join(root, 'content/cards', id)
   const file = join(dir, `${lang}.json`), key = `${lang}/${id}`
   const vi = CardTextSchema.parse(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')))
+  const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as { event?: { country: string } }
+  // An event in another reader's country shows only there: a betta show in Hà Nội isn't translated.
+  if (!cardShownIn(entity, lang)) return { id, skipped: `an event in ${entity.event!.country}, shown only in its country's language` }
   const made = JSON.parse(await readFile(join(root, MADE), 'utf8').catch(() => '{}')) as Record<string, string>
   const save = () => writeFile(join(root, MADE), `${JSON.stringify(Object.fromEntries(Object.entries(made).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
   const had = await exists(file)

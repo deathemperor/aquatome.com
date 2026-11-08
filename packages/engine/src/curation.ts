@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
+import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo } from '@aq/schema'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -328,7 +328,7 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
       const langs: string[] = []
       for (const lang of LANGS) {
         const t = await json<{ held?: unknown } | null>(join(dir, id, `${lang}.json`), null)
-        if (t && !t.held) langs.push(lang)
+        if (t && !t.held && cardShownIn(parsed.data, lang)) langs.push(lang)
       }
       out.set(`cards/${id}`, { show: parsed.data.show, langs })
     } catch (err) {

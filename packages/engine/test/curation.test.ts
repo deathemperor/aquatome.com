@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { cp, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -94,6 +94,12 @@ test('a day\'s card is there to show: written in a language the gate lets out, w
   expect(cards.get('cards/broken')).toEqual({ bad: 'sources: Invalid input: expected array, received undefined' })
   expect(cards.get('cards/not-json')).toMatchObject({ bad: expect.stringMatching(/JSON/) })
   expect(cards.get('cards/ok')).toEqual({ show: { from: '2026-11-10', until: '2026-11-11' }, langs: ['vi'] })
+  // A fair in Bangkok shows only in Thai: its Vietnamese card is the translators' source.
+  const e = JSON.parse(await readFile(join(root, 'content', 'cards', 'ok', 'entity.json'), 'utf8'))
+  await mkdir(join(root, 'content', 'cards', 'fair'), { recursive: true })
+  await writeFile(join(root, 'content', 'cards', 'fair', 'entity.json'), JSON.stringify({ ...e, id: 'fair', type: 'event', event: { start: '2026-11-10', end: '2026-11-11', place: 'Bangkok', country: 'TH', organiser: 'A club' } }))
+  for (const lang of ['vi', 'th']) await writeFile(join(root, 'content', 'cards', 'fair', `${lang}.json`), JSON.stringify({ eyebrow: 'e', title: 't', body: '<p>b</p>' }))
+  expect((await cardsOf(root)).get('cards/fair')).toMatchObject({ langs: ['th'] })
   const cands = [fish('a'), guide('g')]
   const day = (date: string, card: string) => ({ date, fish: 'species/a', img: cands[0]!.photo.square!.url, guide: 'guides/g', card })
   const cur = CurationSchema.parse({ version: 1, weeks: [], days: [day('2026-11-10', 'cards/ok'), day('2026-11-12', 'cards/ok'), day('2026-11-13', 'cards/held'), day('2026-11-14', 'cards/none'), day('2026-11-15', 'cards/broken')] })
