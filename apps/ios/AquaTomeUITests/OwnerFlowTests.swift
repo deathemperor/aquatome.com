@@ -36,6 +36,17 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "owner-page").count, 14, "every page")
   }
 
+  /// v2, the app's look (the owner, 8 Nov): the dashboard opens from its profile button, as from v1's.
+  func testTheDashboardOpensInV2() {
+    let app = launch("-v2", "YES")
+    signIn(app)
+    open(app, "owner-dashboard")
+    XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not the dashboard")
+    for key in ["needs", "answers", "shipped", "cost"] { XCTAssertTrue(app.buttons["owner-tile-" + key].exists, "no \(key) tile") }
+    app.buttons["owner-tile-cost"].tap()
+    XCTAssertTrue(becomesHittable(app.buttons["owner-keys"]), "the cost tile didn't go to the costs")
+  }
+
   func testNothingNeedingTheOwnerSaysSoInOneLine() {
     let app = launch("-owner-overview", "dashboard: nothing needs you")
     signIn(app)
