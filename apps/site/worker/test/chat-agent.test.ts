@@ -596,9 +596,10 @@ test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time
     },
     model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => now,
   })
-  // Calls of 4 s: after one, another would leave 27 - 4 - 4 = 19 s, under 5.5 × 4 = 22 s.
+  // Calls of 4 s: after one, another leaves 27 - 4 - 4 = 19 s, over 4 × 4 = 16 s, so the second reads; after two, 15 s,
+  // under 6.5 × 4 = 26 s, so the third answers, at low: 19 s is under 7 × 4 = 28 s.
   expect(out.stopped).toBe('time')
-  expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort])).toEqual([['auto', 'medium'], ['none', 'low']])
+  expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort])).toEqual([['auto', 'medium'], ['auto', 'medium'], ['none', 'low']])
 })
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {

@@ -173,9 +173,9 @@ test('27 s from the first call: no call gets past it, and with under 12 s left t
 })
 
 test('pace: a slow run keeps the answer\'s time from its own calls, so it answers sooner, at the quick effort, with all the time left', async () => {
-  // Calls of 3.4 s: after two, a third reading call would leave 27 - 6.8 - 3.4 = 16.8 s, under 5.5 × 3.4 = 18.7 s, so the
+  // Calls of 3.4 s: after two, a third reading call would leave 27 - 6.8 - 3.4 = 16.8 s, under 6.5 × 3.4 = 22.1 s, so the
   // third call is the answer; 20.2 s is left, under 7 × 3.4 = 23.8 s, so it is a quick one. Without pace it would read on.
-  const pace = { answer: 7, quick: 5.5 }
+  const pace = { answer: 7, quick: 6.5, first: 4 }
   const reads = () => [() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()]
   const clock = { now: 0, per: [3_400, 3_400, 15_000] }
   const c = script(reads(), clock)
@@ -187,12 +187,21 @@ test('pace: a slow run keeps the answer\'s time from its own calls, so it answer
   const d = script(reads(), before)
   await runAgent(input(d.send, { clock: () => before.now, effort: 'medium', lastEffort: 'low' }))
   expect(d.calls[2]!.body.tool_choice!.type).toBe('auto')
+
+  // One slow first call isn't a slow hour: after 4 s, another call leaves 27 - 4 - 4 = 19 s, over 4 × 4 = 16 s, so the
+  // second call still reads. A very slow one is: after 6 s, 15 s, under 4 × 6 = 24 s, and the second call answers.
+  for (const [ms, types] of [[4_000, ['auto', 'auto', 'none']], [6_000, ['auto', 'none']]] as const) {
+    const first = { now: 0, per: [ms, 2_000, 8_000] }
+    const e = script(reads(), first)
+    await runAgent(input(e.send, { clock: () => first.now, effort: 'medium', lastEffort: 'low', pace }))
+    expect(e.calls.map(x => x.body.tool_choice!.type), `${ms} ms`).toEqual(types)
+  }
 })
 
 test('pace: a run at normal speed reads on to its limits, and its forced answer keeps its effort and may take all the time left', async () => {
   const clock = { now: 0, per: [1_000, 1_000, 5_000] }
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()], clock)
-  const r = await runAgent(input(c.send, { clock: () => clock.now, effort: 'medium', lastEffort: 'low', pace: { answer: 7, quick: 5.5 }, limits: { calls: 3 } }))
+  const r = await runAgent(input(c.send, { clock: () => clock.now, effort: 'medium', lastEffort: 'low', pace: { answer: 7, quick: 6.5, first: 4 }, limits: { calls: 3 } }))
   expect(c.calls.map(x => [x.body.tool_choice!.type, x.body.output_config!.effort, x.timeoutMs])).toEqual([['auto', 'medium', 20_000], ['auto', 'medium', 20_000], ['none', 'medium', 25_000]])
   expect(r.stopped).toBe('calls')
 

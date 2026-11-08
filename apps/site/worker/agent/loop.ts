@@ -65,13 +65,14 @@ export type AgentInput<Step> = {
   lastEffort?: 'low' | 'medium' | 'high'
   /**
    * The last call's time from the run's pace: its calls so far, averaged. Another call is made only while it would leave
-   * `quick` times that (and `lastCallMs`), so a slow run answers sooner. The forced call is at `effort` when the time
-   * left holds `answer` times it, else at `lastEffort` (always, when the pace forced it), and it may take all the time
-   * left, not only `callMs`. The first call counts: in a slow hour it is the first sign (left out, 20 of 96 hard
-   * questions failed at 1.75 times slower, not 6). A first call that tried a failing key first counts that time too,
-   * and the run then answers a call sooner, never later.
+   * `quick` times that (and `lastCallMs`), so a slow run answers sooner; after the first call alone, `first` times it,
+   * since one slow call isn't yet a slow hour. The forced call is at `effort` when the time left holds `answer` times
+   * it, else at `lastEffort` (always, when the pace forced it), and it may take all the time left, not only `callMs`.
+   * A first call that tried a failing key first counts that time too. On the chat's hard questions, 96 turns each: at
+   * normal speed 0 failed and 4 answered from no page, against 2 and 16 with `quick` from the first call; at 1.75 times
+   * slower 7 failed and 17 answered from no page, against 6 and 47, or 13 and 12 with nothing forced before the third.
    */
-  pace?: { answer: number; quick: number }
+  pace?: { answer: number; quick: number; first: number }
   /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */
   thinking?: Anthropic.ThinkingConfigParam
   maxTokens: number
@@ -128,7 +129,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   for (;;) {
     const left = deadline - clock()
     const each = run.calls ? took / run.calls : 0
-    const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < a.pace.quick * each)
+    const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
     const forced: Stopped | undefined = run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined
     if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }

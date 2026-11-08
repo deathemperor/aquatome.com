@@ -80,9 +80,11 @@ export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as y
 /**
  * The chat's pace (loop.ts `pace`), from its calls' times on the hard questions (chat-vs-plain.ts `--answers-only`):
  * the call that writes the answer took 5.1 times the run's average call at the median and 6.7 at the 90th percentile at
- * medium effort, 4.0 and 5.7 at low, at normal speed; a little less at 1.75 times slower.
+ * medium effort, 4.0 and 5.7 at low, at normal speed; a long forum post's, 6 times a reading call at 1.75 times slower,
+ * hence `quick`. `first` answers at the second call only after a first call over 4.5 s (27 / (2 + 4)): 1 turn in 10 at
+ * 1.75 times slower, and at normal speed none in one run of 96, 4 in another.
  */
-export const CHAT_PACE = { answer: 7, quick: 5.5 }
+export const CHAT_PACE = { answer: 7, quick: 6.5, first: 4 }
 /**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
