@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# The engine cycle's and the video job's checks before they publish (sourced by engine-cycle.sh and video-cycle.sh, which
-# define log and TEST_LOG).
+# The engine cycle's and the video jobs' checks before they publish, and their start from main (sourced by engine-cycle.sh,
+# video-cycle.sh and video-recheck.sh, which define log and TEST_LOG).
 # The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
 # slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
 # The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
@@ -9,9 +9,10 @@
 # waiter that is stopped keeps its place, holding up everyone behind it. Each step of the checks (the build, then the
 # tests) takes the lock on its own, so whoever waits goes in between: on 2026-11-07, at a load of 300 to 600, one part's
 # build and tests held it for 3 h 23 min, with four jobs waiting behind them, another lead's iOS build for 80 min.
-# Other jobs on this Mac: take the lock only to run tests (vitest, xcodebuild test), which time out when another suite
-# runs beside them. A build that only compiles (xcodebuild build, a site build) has no timeouts and doesn't need it: in
-# the queue, it only holds up the tests behind it. The engine takes it only for its tests too (verify_cycle).
+# Other jobs on this Mac: take the lock only to run tests (vitest), which time out when another suite runs beside them.
+# A simulator run takes its turn in its own queue instead (apps/ios/scripts/sim-run.py). A build that only compiles
+# (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
+# behind it. The engine takes it only for its tests too (verify_cycle).
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
 # One step, under the lock on the Mac (GitHub: a runner of its own).
 checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
@@ -56,4 +57,15 @@ catch_up() {
   git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
+}
+# Start from GitHub's main, this very script too. git writes main's version as a new file, and bash keeps reading the one it
+# started with, so a run went on with its old script against main's code: on 2026-11-08 a video run tested before it
+# committed, as its old script did, though main's now commits first, and its failed tests left its work uncommitted. The
+# run starts again from the top of main's script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as
+# `from_main "$@"`.
+from_main() {
+  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
+  AQ_SCRIPT_HEAD="$(git rev-parse HEAD)"; export AQ_SCRIPT_HEAD
+  exec bash "$0" "$@"
 }

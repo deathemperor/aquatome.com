@@ -2,6 +2,30 @@
   "id": "boraras-urophthalmoides",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/14620558614.webp",
+      "thumb": "https://media.aquatome.com/flickr/14620558614-480.webp",
+      "width": 1024,
+      "height": 776,
+      "licence": "CC BY 2.0",
+      "author": "Joel Carnat",
+      "sourceUrl": "https://www.flickr.com/photos/21708387@N02/14620558614",
+      "caption": "Cá trâm Boraras urophthalmoides bơi trong bể thủy sinh có lũa",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/14619429711.webp",
+      "thumb": "https://media.aquatome.com/flickr/14619429711-480.webp",
+      "width": 1024,
+      "height": 776,
+      "licence": "CC BY 2.0",
+      "author": "Joel Carnat",
+      "sourceUrl": "https://www.flickr.com/photos/21708387@N02/14619429711",
+      "caption": "Cá trâm Boraras urophthalmoides bơi giữa bể cây thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/251523954.webp",
       "thumb": "https://media.aquatome.com/inaturalist/251523954-480.webp",
       "width": 1024,
@@ -12,9 +36,21 @@
       "caption": "Cá trâm Boraras urophthalmoides thân đỏ cam bơi trong bể kính",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/14436045529.webp",
+      "thumb": "https://media.aquatome.com/flickr/14436045529-480.webp",
+      "width": 1024,
+      "height": 776,
+      "licence": "CC BY 2.0",
+      "author": "Joel Carnat",
+      "sourceUrl": "https://www.flickr.com/photos/21708387@N02/14436045529",
+      "caption": "Cá trâm Boraras urophthalmoides trong bể thủy sinh nền xanh",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 6,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 11,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

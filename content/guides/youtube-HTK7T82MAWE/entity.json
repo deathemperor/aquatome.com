@@ -14,7 +14,7 @@
     "juncus-repens",
     "cryptocoryne-parva"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "HTK7T82MAWE",
     "title": "Building a Special 6ft Aquascape In a Dental Clinic! With @JurijsJutjajevs",
@@ -33,150 +33,70 @@
       "height": 720
     },
     "taxa": [
-      "Anubias barteri",
-      "Microsorum pteropus",
-      "Bolbitis heudelotii",
       "Eleocharis parvula",
       "Eleocharis vivipara",
-      "Riccardia chamedryfolia",
+      "Riccardia sp.",
       "Juncus repens",
       "Cryptocoryne parva",
       "Cryptocoryne lutea",
-      "Cryptocoryne walkeri"
+      "Cryptocoryne walkeri",
+      "Anubias barteri",
+      "Microsorum pteropus",
+      "Bolbitis heudelotii"
     ],
     "gear": [
       {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 180
+      },
+      {
         "category": "phan-nen",
         "type": "cat",
-        "t": 150
+        "t": 160
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "ADA",
         "model": "Super Jet 1200",
-        "t": 583
+        "t": 585
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "ADA",
         "model": "Super Jet 2400",
-        "t": 583
+        "t": 585
       },
       {
         "category": "co2",
         "type": "binh",
         "t": 651
-      },
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 220
-      },
-      {
-        "category": "khac",
-        "brand": "Dennerle",
-        "model": "Dennerle plants epiphyte decor",
-        "t": 62
       }
     ],
     "figures": [
       {
-        "heading": "Kích thước bể và điều cần tính trước",
+        "heading": "Lũa ancient juniper có gì đáng chú ý",
         "moments": [
           {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at260-hd.webp",
+            "t": 15,
+            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at15-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh khoang khô đen giữa các cành lũa, cần chừa lối với tay vào."
+            "caption": "Khúc lũa juniper nhiều nhánh xoắn, có chỗ còn dính vỏ."
           }
         ]
       },
       {
-        "heading": "Lũa bách xù cổ có ảnh hưởng nước không",
+        "heading": "Trồng cây bám theo thứ tự nào",
         "moments": [
           {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at125-hd.webp",
+            "t": 20,
+            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at20-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thùng đầy các nhánh lũa bách xù nhỏ, đan xen nhau."
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhiều nhánh lũa bách xù cổ xoắn vặn, nhỏ, bày trên bàn."
-          }
-        ]
-      },
-      {
-        "heading": "Xếp lũa thế nào cho bể nhìn bốn phía",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt rổ trồng cây màu đen cạnh khúc lũa nhiều nhánh trong bể."
-          },
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa dày ở giữa, thưa dần hai bên, rổ trồng cây đen đặt xen kẽ."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/HTK7T82MAWE/p2-YXJkc2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/HTK7T82MAWE/p2-YXJkc2NhcGUuanBn-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
-          "caption": "Các khúc lũa được xếp trong bể trống trên nền cát trắng."
-        }
-      },
-      {
-        "heading": "Chọn đá và nền",
-        "moments": [
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá samurai đỏ được xếp quanh chân lũa trong bể."
-          },
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ cát vào bể, đá đỏ nằm quanh chân lũa."
-          }
-        ]
-      },
-      {
-        "heading": "Thứ tự gắn cây bám",
-        "moments": [
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các mảnh lũa và đá đã đặt sẵn cây bám xanh trên nền cát."
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt thêm cây bám trên lũa vào tiền cảnh hồ."
+            "caption": "Bể đã đặt các mẩu lũa có cây bám sẵn làm cảnh."
           }
         ],
         "photo": {
@@ -187,27 +107,22 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Ráy Anubias bám trên lũa ở tiền cảnh bể, nền cát trắng."
+          "caption": "Lũa có Anubias bám sẵn đặt trên nền cát trắng trong bể."
         }
       },
       {
-        "heading": "Hệ thống thiết bị tự động dưới tủ",
-        "moments": [
-          {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai lọc thùng inox và thùng chứa nước dưới tủ bể."
-          },
-          {
-            "t": 645,
-            "url": "https://media.aquatome.com/video/HTK7T82MAWE/at645-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy lọc nước RO với các cốc lọc dưới tủ bể."
-          }
-        ]
+        "heading": "Thiết bị và tự động hóa dưới tủ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HTK7T82MAWE/p5-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/HTK7T82MAWE/p5-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Khoang tủ dưới bể với lọc thùng và xô nước nối ống."
+        }
       }
     ]
   }

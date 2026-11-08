@@ -1,0 +1,178 @@
+{
+  "id": "corydoras-gracilis",
+  "scientificName": "Corydoras gracilis",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Gastrodermus gracilis, long known as Corydoras gracilis, is a small armoured catfish from the central Amazon basin in Brazil, known from the rio Juriti in Pará to the rio Juma in Amazonas. Sometimes called 'shy cory' in the hobby, it has a lightish body with a dark arched stripe along the upper flank, a pattern shared with Brochis arcuata, C. narcissus and Hoplisoma urucu. Only in G. gracilis does the stripe end at the base of the upper caudal-fin rays. It apparently favours minor tributaries with dense riparian vegetation and acidic, tannin-stained water.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state. The confluence of the Madeira with the Amazon is a few hundred kilometres upstream from the Juriti.</p><p>The corrected type locality (originally given as a tributary of the rio Tapajós) is 'Rio Jauna at Trans-Amazonica highway, about 6°09'S, 59°55'W, tributary of Rio Aripuaña, Amazonas, Brazil', which corresponds to the rio Juma.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Apparently displays a preference for minor tributaries with dense riparian vegetation including submerged leaves and branches, and acidic, tannin-stained water.</p><p>Since the 1990s at least some of its habitats have been destroyed due to conversion to farmland and dam construction, particularly around the town of Pôrto Velho on the rio Madeira, Rondônia state.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Minimum base dimensions of 60 × 30 cm are recommended (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided that it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security. In the case of Gastrodermus gracilis, the addition of some driftwood roots and branches and a layer of dried leaf litter is likely to prove useful, considering its natural habitat.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Corydoras spp. are foraging omnivores, and most will accept most sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably broader and deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of two or more males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<p>Gastrodermus gracilis is sometimes referred to as 'shy cory' in the aquarium hobby.</p><p>It can be distinguished from the majority of other Corydoras species by its distinctive colour pattern, comprising a uniform, lightish base pigmentation with a dark arched stripe extending over the upper portion of each flank, from the tip of the snout to the caudal-fin base. This is shared with a few congeners, however, including Brochis arcuata, C. narcissus, and Hoplisoma urucu.</p><p>Among these, G. gracilis is immediately distinguished since it is the only species in which the arched stripe terminates at the base of the upper caudal-fin rays; it extends onto the lower portion of the caudal peduncle and lower caudal-fin lobe in the other species. H. urucu can be identified in a similar way since the arched stripe uniquely does not pass through the eye, instead terminating posterior to the orbit. In addition, B. arcuata and C. narcissus grow larger and exhibit a paler base body colouration than G. gracilis.</p><p>Some authors have placed G. gracilis in the putative 'C. elegans group', which contains a number of species exhibiting similarities in morphology and colour pattern, some of which remain unidentified in scientific terms. The group currently includes G. elegans, G. bilineatus, G. gracilis, G. nanus, G. napoensis, G. nijsseni, and G. undulatus, plus fishes of uncertain taxonomic status which have been assigned the 'C' numbers C041, C088, C089, C123, C126, and C132, plus the 'CW' numbers CW008, CW018, CW019, CW022, CW029, CW033, CW044, CW048, CW056, CW064, and CW085, respectively.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "html": "<ul><li>Nijssen, H. and I. J. H. Isbrücker (1976). A new callichthyid catfish, Corydoras gracilis, from Brazil. Tropical Fish Hobbyist 25(1), 90-98</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Britto, M. R., W. B. Wosiacki, and L. F. A. Montag (2009). A new species of Corydoradinae catfish (Ostariophysi: Siluriformes: Callichthyidae) from Rio Solimões Basin, Brazil. Copeia 2009(4), 684-689</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2316d5e46c622b7a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2316d5e46c622b7a-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-gracilis",
+      "caption": "Specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

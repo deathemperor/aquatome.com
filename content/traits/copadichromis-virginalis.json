@@ -2,7 +2,12 @@
   "id": "copadichromis-virginalis",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 4,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-07T03:44:27.112Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T02:10:08.019Z"
 }

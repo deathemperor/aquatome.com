@@ -1,6 +1,6 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-07). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-07). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 77 | 24 | 30 | 202 |
 | popular | 40 | 19 | 0 | 0 | 1 | 18 |
 | covered | 30 | 406 | 14 | 9 | 13 | 416 |
-| rest | 20 | 1125 | 84 | 0 | 7 | 1202 |
+| rest | 20 | 1130 | 84 | 0 | 9 | 1205 |
 
-## Short of target: every source read (103)
+## Short of target: every source read (113)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -22,7 +22,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/symphysodon-aequifasciatus | staple | 69 | 100 |
 | species/neocaridina-davidi | staple | 52 | 100 |
 | species/puntius-titteya | staple | 9 | 100 |
-| species/danio-rerio | staple | 35 | 100 |
+| species/danio-rerio | staple | 34 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
@@ -115,6 +115,16 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/melanotaenia-praecox | shop | 5 | 60 |
 | plants/ludwigia-glandulosa | shop | 9 | 60 |
 | species/dario-dario | shop | 1 | 60 |
+| plants/utricularia-graminifolia | shop | 10 | 60 |
+| species/poropanchax-normani | shop | 6 | 60 |
+| species/hasemania-nana | shop | 1 | 60 |
+| plants/marsilea-hirsuta | shop | 12 | 60 |
+| species/gyrinocheilus-aymonieri | shop | 15 | 60 |
+| species/erpetoichthys-calabaricus | shop | 3 | 60 |
+| plants/sagittaria-subulata | shop | 9 | 60 |
+| species/trichopsis-vittata | shop | 11 | 60 |
+| plants/lilaeopsis-brasiliensis | shop | 6 | 60 |
+| species/boraras-urophthalmoides | shop | 5 | 60 |
 | species/scleropages-jardinii | shop | 8 | 60 |
 | species/channa-asiatica | shop | 5 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |

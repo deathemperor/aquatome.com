@@ -17,7 +17,8 @@ TEST_LOG=/tmp/aquatome-video-recheck-test.log
 source scripts/cycle-checks.sh
 # A run that outlasts the hour is left to finish: the next start finds it and goes.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
-if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'video-recheck\.sh'; then log "the last run (pid $(cat "$PIDFILE")) is still going"; exit 0; fi
+# Not this run's own number: from_main starts it again as the same process.
+if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'video-recheck\.sh'; then log "the last run (pid $(cat "$PIDFILE")) is still going"; exit 0; fi
 echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
 # shellcheck disable=SC1091
@@ -27,14 +28,17 @@ COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 [ -s "$COOKIES" ] && { YT_COOKIES_FROM="$(cat "$COOKIES")"; export YT_COOKIES_FROM; }
 # Claude: the engine's accounts, one token a line, each used up before the next (as engine-cycle.sh), not the owner's own
 # login. With every account at its usage limit, both steps stop and what they did is published.
+# Token 2 first here, then token 1: token 1 also carries the Mac's other jobs, and on 2026-11-08 it ran behind its week's
+# pace with this re-check ($6-8 an hour) most of what it spent, while token 2 had room. awk, so a file whose last line has
+# no newline still gives one token a line.
 CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
 if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
-  CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
+  CLAUDE_CODE_OAUTH_TOKENS="$(awk 'NR == 1 { first = $0; next } { print } END { print first }' "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
 fi
 # A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
-git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+from_main "$@"
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
