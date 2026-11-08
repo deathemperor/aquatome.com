@@ -6,11 +6,11 @@ Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gall
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
-| popular | 40 | 19 | 0 | 0 | 1 | 18 |
-| covered | 30 | 420 | 17 | 9 | 13 | 433 |
-| rest | 20 | 1223 | 83 | 0 | 15 | 1291 |
+| popular | 40 | 20 | 0 | 0 | 1 | 19 |
+| covered | 30 | 428 | 17 | 9 | 13 | 441 |
+| rest | 20 | 1270 | 83 | 0 | 15 | 1338 |
 
-## Short of target: every source read (141)
+## Short of target: every source read (145)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -109,7 +109,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/thayeria-boehlkei | shop | 5 | 60 |
 | species/labidochromis-caeruleus | shop | 16 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
-| species/notropis-chrosomus | shop | 16 | 60 |
+| species/notropis-chrosomus | shop | 15 | 60 |
 | plants/pogostemon-stellatus | shop | 11 | 60 |
 | species/brachygobius-doriae | shop | 4 | 60 |
 | species/monodactylus-sebae | shop | 8 | 60 |
@@ -143,12 +143,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |
+| species/atractosteus-spatula | shop | 42 | 60 |
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
 | plants/vesicularia-montagnei | shop | 1 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
 | plants/micranthemum-callitrichoides | shop | 6 | 60 |
 | species/trigonostigma-hengeli | shop | 2 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
+| plants/eleocharis-parvula | shop | 20 | 60 |
 | species/gymnarchus-niloticus | shop | 7 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
 | species/chitala-ornata | shop | 10 | 60 |
@@ -156,4 +158,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apteronotus-leptorhynchus | shop | 2 | 60 |
 | species/myxocyprinus-asiaticus | shop | 7 | 60 |
 | species/gnathonemus-petersii | shop | 11 | 60 |
+| species/cyphotilapia-frontosa | shop | 28 | 60 |
+| plants/cryptocoryne-nurii | shop | 0 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |
