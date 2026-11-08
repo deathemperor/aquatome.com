@@ -7,6 +7,7 @@ import { LANGS, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
+import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
 import { snapshotName } from './snapshot'
 
@@ -69,7 +70,7 @@ export const fitPrompt = (lang: Lang) => TEMPLATE
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
   .replace('{{PRICE_NOTE}}', lang === 'vi' ? '' : ' Vietnamese đồng counts too.')
-  .replace('{{WORDS_NOTE}}', '')
+  .replace('{{WORDS_NOTE}}', PHRASES[lang]?.length ? ` Another check counts these, so leave them out: ${PHRASES[lang]!.map(p => p.say).join(', ')}.` : '')
 
 /** The text a reader gets, in numbered parts, without what comes from elsewhere as it is (photo captions, reference lists). */
 export function fitText(p: Page): { parts: { id: string; field: string; text: string }[]; text: string; hash: string } {
@@ -135,6 +136,7 @@ export function fitRules(p: Page): FitFinding[] {
       const x = foreign.find(y => mentions(y, s))
       if (x && s.match(DOSE)) say('dose', id, s, `a dose tied to ${x.name}`, { product: x.name })
     }
+    for (const q of phraseQuotes(text, p.lang)) say('words', id, q.quote, `listed: ${q.instead}`, { fix: q.instead })
   }
   return dedupe(out)
 }

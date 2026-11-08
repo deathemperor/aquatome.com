@@ -50,6 +50,7 @@ test('a page\'s reader decides: a Vietnamese shop or price is foreign in Indones
   expect(fitRules(page('<p>Pakai Seachem Prime.</p>', id)).find(f => f.check === 'product')?.why).toContain('market unknown')
   expect(fitPrompt('id')).toContain('Pharmacity')
   expect(fitPrompt('vi')).not.toContain('Pharmacity')
+  expect(fitPrompt('vi')).toContain('lọc bọt biển')
 })
 
 test('Thai: no spaces between words', () => {
@@ -127,8 +128,7 @@ test('the counts: pages with a finding by check, and in all with words apart', (
   const a = page('<p>Mua trên Amazon. Dù vậy vẫn được.</p>', { id: 'a' })
   const b = page('<p>Dù vậy vẫn được.</p>', { id: 'b' })
   const c = page('<p>Ổn.</p>', { id: 'c' })
-  const words = { check: 'words' as const, part: 'P1', quote: 'Dù vậy', why: 'x', by: 'model' as const }
-  const entry = (p: Page) => ({ at: '2026-11-08', hash: fitText(p).hash, model: 'm', findings: [words], products: [] })
+  const entry = (p: Page) => ({ at: '2026-11-08', hash: fitText(p).hash, model: 'm', findings: [], products: [] })
   const n = fitCounts([a, b, c], { 'vi/guides/a': entry(a), 'vi/guides/b': entry(b) }, 'vi')
   expect(n).toMatchObject({ pages: 3, read: 2, wrongReader: 1, by: { shop: 1, words: 2, price: 0 } })
 })

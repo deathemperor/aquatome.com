@@ -7,6 +7,7 @@ import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
+import { SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
 
 /**
@@ -699,30 +700,7 @@ export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC
   return false
 }))]
 
-/** A fish's old name: in a sentence that names one of `fish`, `was` is its old name and `now` its name. */
-export type SwappedName = {
-  was: string
-  fish: readonly string[]
-  now: string
-  /** Only in the name's own brackets: "cá bám đá" still names the family. */
-  brackets?: true
-  /** `fish` is a group, and `now` its genera's names: the words don't say which one, so the sweep leaves it. */
-  group?: true
-  /** The fish the old name belongs to now: a sentence naming them may be right, so it is neither listed nor renamed. */
-  stillFor?: readonly string[]
-}
-const SIAMESE = ['Crossocheilus', 'algae eater']
-const PARADISE = ['Macropodus', 'paradise fish']
-/** The owner's names of 2026-11-07. The writers' prompts read this list, the sweep writes it, and the swapped-name rule holds it. */
-export const SWAPPED: readonly SwappedName[] = [
-  { was: 'cá bút chì', fish: ['Nannostomus', 'pencilfish', 'pencil fish'], now: 'cá chì', stillFor: SIAMESE },
-  { was: 'cá bám đá', fish: ['Beaufortia', 'Sewellia', 'Gastromyzon', 'Pseudogastromyzon', 'Sinogastromyzon'], now: 'cá tỳ bà bướm', brackets: true },
-  { was: 'cá cờ', fish: ['Jordanella', 'flagfish'], now: 'cá flagfish', stillFor: PARADISE },
-  { was: 'cá cờ', fish: ['Mesonauta'], now: 'cá Mesonauta', stillFor: PARADISE },
-  { was: 'cá cờ', fish: ['Laetacara'], now: 'cá Laetacara', stillFor: PARADISE },
-  { was: 'cá cờ', fish: ['flag cichlid'], now: 'cá Mesonauta, cá Laetacara', group: true },
-  { was: 'cá thiên đường', fish: ['Macropodus opercularis'], now: 'cá cờ' },
-]
+export { SWAPPED, type SwappedName } from './names'
 const word = (w: string) => `(?<!\\p{L})${w}(?!\\p{L})`
 const TAG = /<[^>]+>/g
 const SENTENCE_END = /(?<=[.!?])\s+|\n/
