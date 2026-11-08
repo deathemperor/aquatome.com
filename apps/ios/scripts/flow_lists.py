@@ -174,7 +174,9 @@ REACH = {
     KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
     # The owner's dashboard's flows read it: the stand-in server serves its replies, and the owner's row counts its to-dos.
-    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos'],
+    # The sample's waiting photos, which the stand-in server serves to the dashboard's flows.
+    'apps/site/e2e/photos/': ['OwnerFlowTests', 'PageShotsFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request.
     'apps/ios/scripts/check-strings.py': NONE,

@@ -105,7 +105,7 @@ final class OwnerFlowTests: XCTestCase {
     bars.coordinate(withNormalizedOffset: CGVector(dx: 1.5 / 7, dy: 0.7)).tap()
     let read = app.staticTexts["owner-bars-day"]
     XCTAssertTrue(read.waitForExistence(timeout: 5), "the tap read nothing")
-    XCTAssertEqual(read.label, "3 found an answer · Tue 3 Nov · 7 readers · 0 shop clicks")
+    XCTAssertEqual(read.label, "4 found an answer · Tue 3 Nov · 8 readers · 1 shop click")
     XCTAssertTrue(app.buttons["owner-tile-needs"].isHittable, "the tap scrolled away")
 
     let columns = app.descendants(matching: .any).matching(identifier: "owner-chart-columns").firstMatch
@@ -115,9 +115,9 @@ final class OwnerFlowTests: XCTestCase {
     repeatUntil(shown(), times: 6) { app.swipeUp(velocity: .slow) }
     XCTAssertTrue(shown(), "the chart isn't on screen")
     // Untouched: today, Wednesday, so far.
-    XCTAssertTrue(reads(day, "4 found an answer", "Wed 4 Nov, so far"), day.label)
+    XCTAssertTrue(reads(day, "5 found an answer", "Wed 4 Nov, so far"), day.label)
     columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5 / 7, dy: 0.8)).tap()
-    XCTAssertTrue(reads(day, "6 found an answer", "Mon 2 Nov · 9 readers · 1 shop click"), day.label)
+    XCTAssertTrue(reads(day, "3 found an answer", "Mon 2 Nov · 6 readers · 0 shop clicks"), day.label)
   }
 
   /// A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
@@ -180,11 +180,11 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     section(app, "Calls and keys")
-    XCTAssertTrue(folded(app, "Every period side by side").waitForExistence(timeout: 10), "no folded table")
+    XCTAssertTrue(folded(app, "Since 7:00, in detail").waitForExistence(timeout: 10), "no folded table")
     app.scrollToAndTap("owner-folded")
-    XCTAssertTrue(app.navigationBars["Every period side by side"].waitForExistence(timeout: 10), "its page didn't open")
+    XCTAssertTrue(app.navigationBars["Since 7:00, in detail"].waitForExistence(timeout: 10), "its page didn't open")
     XCTAssertTrue(app.descendants(matching: .any)["owner-table"].waitForExistence(timeout: 10), "its rows weren't read")
-    XCTAssertTrue(app.staticTexts["20,400"].exists, "not its rows")
+    XCTAssertTrue(app.staticTexts["Fell back to one call"].exists, "not its rows")
     back(app)
 
     // Every request this week: 50, then the other 9.

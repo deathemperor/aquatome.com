@@ -23,6 +23,9 @@ public final class FakeOwner {
   public var sessionEndsAtNextSection = false
   /// The next read of a section answers 503 `unavailable`, as the Worker does while its storage doesn't answer.
   public var storageDownAtNextSection = false
+  /// Photos' own pictures (WebP), by their private address: the sample's waiting photos, as the site's checks serve them
+  /// (apps/site/e2e/photos/). Any other photo is `picture`.
+  public var webp: [String: Data] = [:]
   /// The phones the daily report's notifications go to: each token given, with its APNs (`sandbox` or `production`).
   public private(set) var pushTokens: [String: String] = [:]
   private let replies: [[String: JSON]]
@@ -79,7 +82,8 @@ public final class FakeOwner {
     if path.hasPrefix("/_ab/") {
       // One a section shows, or a waiting one the overview lists.
       let shown = account.map(owners.contains) == true && !removed.contains(path) && (photos.contains { $0["src"]?.string == path } || waiting.contains(path))
-      return shown ? (200, Self.picture, "image/png") : (404, Data("Not found".utf8), "text/plain")
+      guard shown else { return (404, Data("Not found".utf8), "text/plain") }
+      return webp[path].map { (200, $0, "image/webp") } ?? (200, Self.picture, "image/png")
     }
     // The owner's report (protocols/owner-feedback.openapi.json): kept here, as the site keeps it for the Mac.
     if path == "/api/feedback", method == "POST" {

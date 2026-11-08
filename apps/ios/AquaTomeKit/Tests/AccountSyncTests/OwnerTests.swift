@@ -534,13 +534,17 @@ func standInWhoGetsIn() async throws {
   #expect(await failure { _ = try await mine.section("no-such-section") } == "notFound")
 
   let src = try #require(photos(try await mine.section("anh-ban-doc")).first?.src ?? nil)
-  #expect(await mine.image(src) != nil)
+  #expect(await mine.image(src) == FakeOwner.picture)
+  #expect(await theirs.image(src) == nil)
+  // Its own picture, once the stand-in has it: to the owner only.
+  fake.owner?.webp[src] = Data("koi".utf8)
+  #expect(await mine.image(src) == Data("koi".utf8))
   #expect(await theirs.image(src) == nil)
   #expect(await gone.image(src) == nil)
   #expect(await theirs.image("https://media.aquatome.com/p/c3d4-thumb.webp") != nil)
   // Each private photo went with the owner's bearer, the public one without.
   let images = fake.requests.filter { $0.url?.path.hasPrefix("/_ab/") == true || $0.url?.host != "aquatome.com" }
-  #expect(images.map { $0.value(forHTTPHeaderField: "Authorization") != nil } == [true, true, true, false])
+  #expect(images.map { $0.value(forHTTPHeaderField: "Authorization") != nil } == [true, true, true, true, true, false])
 }
 
 @MainActor @Test("A waiting photo the overview lists is the owner's to see even where no section shows it, and no one else's")
@@ -710,10 +714,10 @@ func standInTables() async throws {
   let s = try await mine.section("nhan-dien-ca")
   let tables = s.blocks.compactMap { if case .table(let t) = $0, t.id != nil { t } else { nil } }
   let folded = try #require(tables.first { $0.folded != nil }), long = try #require(tables.first { $0.folded == "Every request" })
-  #expect(folded.id == "t3" && folded.rows.isEmpty && folded.count == 5 && long.id == "t7" && long.rows.isEmpty && long.count == 59)
+  #expect(folded.id == "t2" && folded.rows.isEmpty && folded.count == 6 && long.id == "t8" && long.rows.isEmpty && long.count == 59)
   // Read for the section's period as it was read: its first, the same as none.
   let rows = try await mine.table("nhan-dien-ca", folded.id!, cursor: nil, period: s.period)
-  #expect(same(rows, Owner.Page<[Owner.Link]>(rows: dict(named(#"table: fish ID's folded "Every period side by side""#)["body"]!))))
+  #expect(same(rows, Owner.Page<[Owner.Link]>(rows: dict(named(#"table: fish ID's folded "Since 7:00, in detail""#)["body"]!))))
   #expect(rows.items.count == folded.count && rows.next == nil)
   let firstPage = try await mine.table("nhan-dien-ca", long.id!, cursor: nil, period: s.period)
   #expect(firstPage.items.count == 50 && firstPage.next == "50")
