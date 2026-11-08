@@ -2,16 +2,18 @@ import Handbook
 import SwiftUI
 import Telemetry
 
-/// v1's page for a fish or plant, as v2's species page links to it ("Xem trang đầy đủ"): the whole page as the app
-/// draws it, with every part v2's doesn't show yet.
+/// v1's page for a fish or plant, as v2's species page offers it where it holds a part this build can't draw ("Xem phần
+/// này ở trang đầy đủ"): the whole page as v1 draws it, or the site's.
 struct FullPage: Hashable {
   let item: HandbookIndex.Item
 }
 
-/// A fish's page, as an app's page in the App Store: its photo across the top and the photo's colour washing down
+/// A fish's or plant's page, as an app's page in the App Store: its photo across the top and the photo's colour washing down
 /// behind the name, "Thêm vào bể", the facts strip and the rest of its photos (each full screen, tapped); then the
-/// summary with its common mistakes, the tank-mates shelves with the tank-mates tool, and the whole page (v1's) one tap
-/// away.
+/// summary with its common mistakes, a northern winter, the tank-mates shelves with the tank-mates tool, and the rest of
+/// the page in its own order (PagePart): its sections, a long one folded to its first lines over "thêm", its breeds,
+/// the guides that mention it, its videos, its readers' photos and comments, and its sources. All of it here: a part
+/// this build can't draw offers v1's page at that point.
 @available(iOS 18, *)
 struct SpeciesPage: View {
   let item: HandbookIndex.Item
@@ -34,6 +36,14 @@ struct SpeciesPage: View {
   /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
   @State private var reading: PageReading?
   @State private var doc: PageDoc?
+  /// Its parts and their pieces, worked out once when it comes, not on each redraw while it scrolls.
+  @State private var whole: WholeParts?
+  /// Its videos' player, one at a time, as v1's page has it.
+  @State private var player = PagePlayer()
+  /// A word's tip shown, tapped in the text.
+  @State private var tip: Tip?
+  /// A page of the site's the app can't show itself, in the app.
+  @State private var onSite: URL?
   /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
   @State private var asked = false
   /// "Thử lại" pressed, so many times.
@@ -93,6 +103,7 @@ struct SpeciesPage: View {
   private var facts: HandbookIndex.Facts { item.facts.any ? item.facts : item.card ?? item.facts }
 
   var body: some View {
+    ScrollViewReader { proxy in
     ScrollView {
       VStack(spacing: 0) {
         if let hero {
@@ -127,42 +138,12 @@ struct SpeciesPage: View {
         let end = g.frame(in: .scrollView).maxY
         return ColourAt(top: end > barFoot, foot: end > g.bounds(of: .scrollView)?.height ?? .infinity)
       } action: { colourAt = $0 }
-      VStack(alignment: .leading, spacing: 28) {
-        if asked && doc == nil {
-          VStack(alignment: .leading, spacing: 4) {
-            // The handbook's status says nothing here: it stays online from launch, whatever the signal is now. And it may be a
-            // page this build can't read, which "Xem trang đầy đủ" reaches.
-            Text("Không tải được trang. Kiểm tra kết nối mạng rồi thử lại, hoặc xem trang đầy đủ.").font(.footnote).foregroundStyle(.v2Faint)
-            Button("Thử lại") {
-              asked = false
-              retries += 1
-            }
-            .frame(minHeight: 44)
-            .accessibilityIdentifier("v2-retry")
-          }
-          .padding(.horizontal, 20)
-        }
-        if hasSummary { summary } else { firstParagraph }
-        climate
-        mates
-        Button { openFull(item) } label: {
-          HStack {
-            Text("Xem trang đầy đủ").font(.body.weight(.semibold))
-            Spacer()
-            Image(systemName: "chevron.right").foregroundStyle(.tertiary)
-          }
-          .padding(16)
-          .background(.fill.quaternary, in: .rect(cornerRadius: 14))
-          .contentShape(.rect)
-        }
-        .buttonStyle(.plain)
-        .accessibilityIdentifier("v2-full-page")
-        .padding(.horizontal, 20)
-        matesCredits
-      }
-      .padding(.top, 24)
-      .padding(.bottom, 40)
+      rest(proxy)
     }
+    .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+    }
+    .environment(player)
+    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
     .v2ClearOfTheFade()
     .ignoresSafeArea(edges: .top)
     // Once its text is in: the photo and name alone fit the screen, "read to the end" at once.
@@ -294,7 +275,7 @@ struct SpeciesPage: View {
     }
     .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
-      GalleryViewer(title: galleryTitle, note: "", photos: photos, readers: nil, index: viewing ?? 0)
+      GalleryViewer(title: galleryTitle, note: galleryNote, photos: photos, readers: nil, index: viewing ?? 0)
     }
     // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
     // "Thử lại" asks its photos again too.
@@ -304,6 +285,7 @@ struct SpeciesPage: View {
       // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
       if retries > 0, !handbook.drawsItself(item) { await handbook.load() }
       doc = await handbook.doc(item)
+      whole = doc.map(WholeParts.init)
       asked = true
       if doc != nil { handbook.read(item) }
     }
@@ -410,6 +392,11 @@ struct SpeciesPage: View {
     return item.name
   }
 
+  /// Where the galleries' photos come from and on what licences, under them full screen.
+  private var galleryNote: String {
+    (doc?.blocks ?? []).compactMap { if case let .gallery(_, note, _, _, _) = $0, !note.isEmpty { note } else { nil } }.joined(separator: "\n")
+  }
+
   /// The page's other photos as a carousel, each opening full screen.
   private var gallery: some View {
     ScrollView(.horizontal, showsIndicators: false) {
@@ -460,19 +447,6 @@ struct SpeciesPage: View {
     doc?.blocks.contains { if case let .summary(_, items, text, _, _) = $0 { text != nil || !items.isEmpty } else { false } } == true
   }
 
-  /// A page with no summary (none approved yet): its text's first real paragraph, so it isn't figures alone. Not a short
-  /// one: those are notes (a source's figure that differs from the table's), which say nothing without the table beside
-  /// them. Its sources' numbers left out: they mark the page's own list, not shown here.
-  @ViewBuilder private var firstParagraph: some View {
-    if let text = doc?.blocks.lazy.compactMap({ b -> String? in
-      guard case let .paragraph(runs) = b else { return nil }
-      let text = runs.filter { !$0.isSourceMark }.map(\.text).joined()
-      return text.count >= 140 ? text : nil
-    }).first {
-      Text(verbatim: text).font(.body).lineSpacing(3).padding(.horizontal, 20)
-    }
-  }
-
   /// The page's answer: its paragraph, or its points where it has no paragraph.
   @ViewBuilder private var summary: some View {
     if let doc, let s = doc.blocks.lazy.compactMap({ b -> (title: String, text: String?, items: [String], mistakes: (title: String, items: [String])?, by: String?)? in
@@ -490,8 +464,8 @@ struct SpeciesPage: View {
           Text(verbatim: mistakes.title).font(.headline).accessibilityAddTraits(.isHeader).padding(.top, 8)
           ForEach(mistakes.items, id: \.self) { bullet($0) }
         }
-        // Not the page's own line, "các nguồn bên dưới": here they're on the whole page.
-        if s.by != nil { Text("AquaTome tóm tắt từ các nguồn được liệt kê trên trang đầy đủ.").font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
+        // The page's own line: its sources are at its foot, here too.
+        if let by = s.by { Text(verbatim: by).font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
       }
       .padding(.horizontal, 20)
     }
@@ -597,17 +571,123 @@ struct SpeciesPage: View {
   /// A link of the page's to one of the app's screens (the tank-mates tool), as v1's page opens it.
   private func open(_ href: String) {
     guard let url = URL(string: href, relativeTo: handbook.site)?.absoluteURL else { return }
-    if let screen = AppScreen.of(url, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
+    open(url)
+  }
+
+  /// A link in the page, as v1's page follows it: one of the app's screens, a shop outside (counted), a page of the site's
+  /// the app doesn't list in the app, another site in the browser.
+  private func open(_ url: URL) {
+    let u = url.scheme == nil ? URL(string: url.relativeString, relativeTo: handbook.site)?.absoluteURL ?? url : url
+    if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
                                  group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
       openScreen(screen)
+    } else if ShopLink.is(u, site: handbook.site) {
+      reading?.tapped(u)
+      Task { await OwnCopy.open(u, site: handbook.site) }
+    } else if PageRoute.of(u, site: handbook.site, mainFrame: true, newWindow: false) == .app {
+      onSite = u
     } else {
-      openURL(url)
+      openURL(u)
     }
+  }
+
+  /// A link in the text: `#id` scrolls to it, a word's tip shows, a video's moment plays it in its place on the page (one
+  /// the page doesn't show, on YouTube), the rest as `open`.
+  private func follow(_ url: URL, _ proxy: ScrollViewProxy) -> OpenURLAction.Result {
+    switch url.scheme {
+    case "page-anchor":
+      let id = String(url.absoluteString.dropFirst("page-anchor:".count)).removingPercentEncoding ?? ""
+      withAnimation { proxy.scrollTo(id, anchor: .top) }
+    case "page-tip":
+      tip = Tip(url)
+    case "page-video":
+      guard let (id, at) = PagePlayer.asked(url) else { break }
+      if whole?.videos.contains(id) == true { player.ask(id, at: at, lang: handbook.lang, site: handbook.site) } else { openURL(youtube(id, at: at)) }
+    default:
+      open(url)
+    }
+    return .handled
+  }
+
+  /// Under the photos: the page that didn't come, or its parts; then the tank-mates' photos' credits.
+  private func rest(_ proxy: ScrollViewProxy) -> some View {
+    VStack(alignment: .leading, spacing: 28) {
+      if asked && doc == nil {
+        VStack(alignment: .leading, spacing: 4) {
+          // The handbook's status says nothing here: it stays online from launch, whatever the signal is now.
+          Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.v2Faint)
+          Button("Thử lại") {
+            asked = false
+            retries += 1
+          }
+          .frame(minHeight: 44)
+          .accessibilityIdentifier("v2-retry")
+        }
+        .padding(.horizontal, 20)
+      }
+      if let doc, let whole {
+        // Its readers before the sources behind its figures and its sources, its last parts.
+        let readersAt = whole.parts.firstIndex { if case .trust = $0 { true } else if case .refs = $0 { true } else { false } } ?? whole.parts.count
+        ForEach(whole.parts.indices, id: \.self) { i in
+          if i == readersAt { readers(doc) }
+          part(i, whole, doc)
+        }
+        if readersAt == whole.parts.count { readers(doc) }
+      }
+      matesCredits
+    }
+    // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows, a video's
+    // moment plays it here.
+    .environment(\.openURL, OpenURLAction { follow($0, proxy) })
+    .padding(.top, 24)
+    .padding(.bottom, 40)
+    .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
+      if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { open(u) } }
+      Button("Đóng", role: .cancel) {}
+    } message: { t in
+      Text(t.text)
+    }
+  }
+
+  /// One of the page's parts, after its photos: its answer, a winter, its tank-mates, as v2 has drawn them; the rest, each
+  /// under its heading, folded when long.
+  @ViewBuilder private func part(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> some View {
+    switch whole.parts[i] {
+    case .photos: EmptyView()
+    case .summary: summary
+    case .climate: climate
+    // The tool's link where the page lists no tank-mates: drawn where they would be.
+    case .mates: mates
+    case .toolLink: if !hasMates { mates }
+    case let .pages(b):
+      // Only those the index lists: none, no heading over nothing.
+      if case let .pages(_, paths) = doc.blocks[b], paths.contains(where: { handbook.item(at: $0) != nil }) { section(i, whole) }
+    default:
+      // A heading over only what's drawn in its own place (its tank-mates): nothing under it here.
+      if !whole.pieces[i].isEmpty { section(i, whole) }
+    }
+  }
+
+  private func section(_ i: Int, _ whole: WholeParts) -> some View {
+    V2Section(title: whole.titles[i], anchor: whole.anchors[i], folds: {
+      switch whole.parts[i] { case .section, .trust, .refs: true; default: false }
+    }()) {
+      VStack(alignment: .leading, spacing: 14) {
+        ForEach(whole.pieces[i].indices, id: \.self) { j in
+          V2Piece(piece: whole.pieces[i][j], open: { open($0) }, full: { openFull(item) })
+        }
+      }
+    }
+  }
+
+  /// Its readers' photos and comments, as v1's page has them.
+  @ViewBuilder private func readers(_ doc: PageDoc) -> some View {
+    if let talk = doc.talk { ReadersPart(talk: talk, name: doc.title).padding(.horizontal, 20) }
   }
 }
 
-/// A row that opens what's under it, its chevron as quiet as the "Xem trang đầy đủ" card's above it and in line with it
-/// (16 in), not iOS's own bold one, louder than its words.
+/// A row that opens what's under it, its chevron quiet and 16 in, as a list row's, not iOS's own bold one, louder than its
+/// words.
 private struct QuietDisclosure: DisclosureGroupStyle {
   func makeBody(configuration: Configuration) -> some View {
     VStack(alignment: .leading, spacing: 0) {

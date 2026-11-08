@@ -52,7 +52,7 @@ final class V2FlowTests: XCTestCase {
   }
 
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
-    let app = launch()
+    let app = launch("-newer-part")
     app.launchForFlow()
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
     flip(app)
@@ -60,9 +60,9 @@ final class V2FlowTests: XCTestCase {
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
     fish.tap()
-    let full = app.buttons["v2-full-page"]
-    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
-    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
+    let full = app.buttons["v2-part-elsewhere"]
+    repeatUntil(full.exists && full.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(full.isHittable, "no Xem phần này ở trang đầy đủ on the fish's page")
     full.tap()
     app.openTab("Hôm nay")
     flip(app)
@@ -117,7 +117,7 @@ final class V2FlowTests: XCTestCase {
 
   /// The row replaces Khám phá's path with one of the same length, from another tab that shares v1's: still it shows.
   func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
-    let app = launch()
+    let app = launch("-newer-part")
     app.launchForFlow()
     XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 10), "no handbook")
     let all = app.descendants(matching: .any)["all-guides"]
@@ -135,10 +135,10 @@ final class V2FlowTests: XCTestCase {
     neon.tap()
     XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
     // Two screens deep there: the row's one is a shorter path, not a longer one.
-    let whole = app.buttons["v2-full-page"]
+    let whole = app.buttons["v2-part-elsewhere"]
     repeatUntil(whole.exists && whole.isHittable, times: 8) { app.swipeUp() }
     whole.tap()
-    XCTAssertFalse(app.buttons["v2-full-page"].waitForExistence(timeout: 2), "the whole page didn't open")
+    XCTAssertFalse(app.buttons["v2-part-elsewhere"].waitForExistence(timeout: 2), "the whole page didn't open")
     app.openTab("Hôm nay")
     app.openAccount()
     let row = app.buttons["kept-row"]
@@ -174,13 +174,55 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
   }
 
+  /// v2's fish page carries the whole page, in its order, with no row sending the reader to v1's page for the rest: its
+  /// sections, its breeds, the guides that mention it, its videos, its readers' comments and its sources.
+  func testAFishsPageCarriesTheWholePage() {
+    let app = openNeon()
+    for part in ["Tóm tắt nhanh", "Nuôi ở Việt Nam", "Nuôi chung", "Thông tin nhanh", "Nước cần thế nào?", "Cho ăn gì?", "Sinh sản ra sao?",
+                 "Các dòng và cá lai từ Cá neon", "Bài viết nhắc đến loài này", "Video"] {
+      reveal(app, app.staticTexts[part])
+    }
+    reveal(app, app.descendants(matching: .any).matching(identifier: "comment").firstMatch)
+    reveal(app, app.staticTexts["Nguồn và độ tin cậy"])
+    reveal(app, app.staticTexts["Nguồn"])
+    XCTAssertFalse(app.buttons["v2-full-page"].exists, "a row to the whole page")
+    XCTAssertFalse(app.buttons["v2-part-elsewhere"].exists, "a part left to v1's page")
+  }
+
+  /// A long part shows its first lines over "thêm", which opens the rest in place, as an app's description in the App Store.
+  func testALongPartFoldsAndOpensInPlace() {
+    let app = openNeon()
+    let trust = app.staticTexts["Nguồn và độ tin cậy"], next = app.staticTexts["Nguồn"]
+    reveal(app, trust)
+    let more = app.buttons["v2-more"].firstMatch
+    XCTAssertTrue(more.exists, "the long part isn't folded")
+    let folded = next.frame.minY - trust.frame.minY
+    more.tap()
+    let opened = expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: app.buttons["v2-more"])
+    XCTAssertEqual(XCTWaiter.wait(for: [opened], timeout: 3), .completed, "thêm stayed")
+    XCTAssertGreaterThan(next.frame.minY - trust.frame.minY, folded + 40, "the part didn't open")
+  }
+
+  /// A part this build can't draw (a newer site's) offers v1's page there, never missing; v1's page opens from it.
+  func testAPartV2CantDrawOffersTheWholePageThere() {
+    let app = openNeon("-newer-part")
+    let feeding = app.staticTexts["Cho ăn gì?"], elsewhere = app.buttons["v2-part-elsewhere"]
+    reveal(app, feeding)
+    reveal(app, elsewhere)
+    XCTAssertGreaterThan(elsewhere.frame.minY, feeding.frame.minY, "the offer isn't in its part")
+    XCTAssertLessThan(elsewhere.frame.minY, app.staticTexts["Sinh sản ra sao?"].frame.minY, "the offer isn't in its part")
+    elsewhere.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "v1's page didn't open")
+  }
+
   func testAFishsPageReportsHowFarItIsRead() {
     let app = launch("-site-telemetry", "-v2", "YES")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    for _ in 0..<4 { app.swipeUp() }
+    // To its foot: the whole page is a long one.
+    for _ in 0..<10 { app.swipeUp() }
     // Sent when the app goes to the background.
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
@@ -514,6 +556,28 @@ final class V2FlowTests: XCTestCase {
     app.openTab("Hôm nay")
     app.openTab("Khám phá")
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
+  }
+
+  /// The neon's page on v2, opened from a link.
+  private func openNeon(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + args
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    return app
+  }
+
+  /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past; only down, so parts found
+  /// one after another are in that order on the page.
+  private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
+    repeatUntil(e.exists && e.isHittable, times: 30) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
   }
 
   /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.

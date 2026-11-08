@@ -411,7 +411,8 @@ struct NativePage: View {
     }
   }
 
-  private static func add(_ b: PageDoc.Block, to out: inout [Piece]) {
+  /// A block as pieces, for v1's page and v2's (SpeciesPage), which draws a page's sections from them.
+  static func add(_ b: PageDoc.Block, to out: inout [Piece]) {
     switch b {
     case let .heading(text, id):
       out.append(.text(styled(text, .pageHeading), anchor: id, look: .heading))
@@ -530,7 +531,7 @@ struct NativePage: View {
 }
 
 /// A word's explanation (a glossary term, a citation), shown when its link is tapped.
-private struct Tip {
+struct Tip {
   let term: String
   let text: String
   let href: String?
@@ -563,7 +564,7 @@ func credit(_ c: PageDoc.Image.Credit, photo: Bool = true) -> AttributedString {
   return line
 }
 
-private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
+func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
   var a = AttributedString(s)
   a.font = font
   if secondary { a.foregroundColor = .secondary }
@@ -572,7 +573,7 @@ private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -
 
 /// Runs as styled text; links as URLs the page's `openURL` understands (a site path is left relative). A source's number
 /// after a sentence is raised and small, as a printed note's; `secondary`, the words but its links.
-private func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = false) -> AttributedString {
+func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = false) -> AttributedString {
   runs.reduce(into: AttributedString()) { s, r in
     var a = AttributedString(r.text)
     a.font = font
@@ -614,7 +615,7 @@ private extension Font {
 
 /// Other pages as rows in one panel (tank-mates, breeds), each with its photo, opening in the app or else on the web;
 /// under the rows, the photos' credits, linking each photo's own page (a link inside a row would be the row).
-private struct CardsPart: View {
+struct CardsPart: View {
   let title: String?
   let cards: [NativePage.Card]
   /// Tank-mates' "Hợp với" (true) or "Tránh" (false), marked so for the eye.
@@ -725,9 +726,11 @@ private struct CardsPart: View {
 }
 
 /// Other pages the index lists, each opening in the app.
-private struct PagesBlock: View {
+struct PagesBlock: View {
   let title: String
   let paths: [String]
+  /// Its own heading, set apart from what's above it, as v1's page has it; v2's page gives it its own.
+  var titled = true
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
@@ -735,7 +738,7 @@ private struct PagesBlock: View {
     if !items.isEmpty {
       let shown = PageList.inPlace(items.count)
       VStack(alignment: .leading, spacing: 8) {
-        Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
+        if titled { Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader) }
         // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one. In one panel, as the
         // page's other rows of pages (CardsPart) are.
         VStack(alignment: .leading, spacing: 0) {
@@ -761,7 +764,7 @@ private struct PagesBlock: View {
         }
         .background(.fill.quaternary, in: .rect(cornerRadius: 12))
       }
-      .padding(.top, 40)
+      .padding(.top, titled ? 40 : 0)
     }
   }
 }
@@ -825,7 +828,7 @@ private struct GalleryRow: View {
 /// A page's readers' photos and comments (Readers), read when it opens: shown once the site has some, as its web page
 /// shows those sections only once the site answers; with accounts on, also with none yet, and a reader signed in posts
 /// to them (ReaderPost). The photos are a gallery's row, each credited with the reader's name.
-private struct ReadersPart: View {
+struct ReadersPart: View {
   let talk: PageDoc.Talk
   let name: String
   @Environment(HandbookModel.self) private var handbook
@@ -940,7 +943,7 @@ private struct ReadersPart: View {
   }
 }
 
-private func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
+func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
 
 /// 75 → "1:15", 3725 → "1:02:05", as the site writes a video's times (lib/video.ts), in every language: not the
 /// phone's own time style, which writes "1.15" in Indonesian.
@@ -996,7 +999,7 @@ private struct PutButton: View {
 /// A table as the site's, in a panel: a grid with its columns' names over them while they fit side by side; else each
 /// row's cells one under another, each under its column's name. No cell is shown without its column's name, the first
 /// column's too (a pros-and-cons table's "Ưu điểm").
-private struct TablePart: View {
+struct TablePart: View {
   let head: [AttributedString]?
   let rows: [[AttributedString]]
 

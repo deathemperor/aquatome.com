@@ -380,8 +380,11 @@ final class HandbookModel {
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
       let launch = ProcessInfo.processInfo.arguments
+      // `-newer-part`: the neon's page holds a part from a newer site, which this build can't draw.
       let pages = launch.contains("-equipment") ? HandbookIndex.fixtureKitPages
-        : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
+        : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot
+        : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
+        : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong : HandbookIndex.fixturePages
       return PageCache(dir: dir, site: site, fetch: { _ in pages })
     }
     #endif
@@ -539,6 +542,22 @@ extension HandbookIndex {
   }()
   static let fixturePagesAtRoot = Data(String(decoding: atRoot(fixturePages), as: UTF8.self)
     .replacingOccurrences(of: #"{"path":"/huong-dan/cach-han-che-reu-hai/""#, with: #"{"path":"/vi/huong-dan/cach-han-che-reu-hai/""#).utf8)
+  /// UI tests (`-newer-part`): the fixture's pages, the neon's with a part from a newer site after its feeding.
+  static let fixturePagesWithANewerPart = Data(String(decoding: fixturePages, as: UTF8.self)
+    .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
+                          with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]},{"t":"quiz","q":"Cá neon ăn gì?"}"#).utf8)
+  /// Performance tests (`-long-page`): the fixture's pages, the neon's with its text twelve times over, a long page.
+  static let fixturePagesLong: Data = {
+    var all = try! JSONSerialization.jsonObject(with: fixturePages) as! [String: Any]
+    var pages = all["pages"] as! [String: Any]
+    var neon = pages["/vi/ca/ca-neon/"] as! [String: Any]
+    let blocks = neon["blocks"] as! [[String: Any]]
+    let text = blocks.filter { ["h", "p", "list"].contains($0["t"] as? String) }
+    neon["blocks"] = blocks + Array(Array(repeating: text, count: 12).joined())
+    pages["/vi/ca/ca-neon/"] = neon
+    all["pages"] = pages
+    return try! JSONSerialization.data(withJSONObject: all)
+  }()
   /// Only a string that starts with the path: not the "/vi/" in a YouTube picture's address.
   private static func atRoot(_ json: Data) -> Data {
     Data(String(decoding: json, as: UTF8.self).replacingOccurrences(of: #""/vi/"#, with: #""/"#).utf8)

@@ -32,4 +32,25 @@ final class PerformanceTests: XCTestCase {
       for _ in 0..<3 { list.swipeDown(velocity: .fast) } // back to the top for the next run
     }
   }
+
+  /// A long fish page on v2, whole, at the largest text: the app's CPU time and its memory while flinging down through it.
+  func testFlingingThroughALongFishPageAtTheLargestText() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-long-page", "-v2", "YES",
+                           "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    XCUIDevice.shared.system.open(URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    let ask = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
+    if ask.waitForExistence(timeout: 2) { ask.buttons.element(boundBy: ask.buttons.count - 1).tap() }
+    let page = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(page.waitForExistence(timeout: 10), "the fish's page didn't open")
+    let options = XCTMeasureOptions()
+    options.invocationOptions = [.manuallyStop]
+    measure(metrics: [XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+      for _ in 0..<3 { page.swipeUp(velocity: .fast) }
+      stopMeasuring()
+      for _ in 0..<3 { page.swipeDown(velocity: .fast) } // back to the top for the next run
+    }
+  }
 }

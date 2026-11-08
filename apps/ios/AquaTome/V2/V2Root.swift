@@ -217,8 +217,8 @@ private struct ClearUnderTabBar: ViewModifier {
 }
 
 extension EnvironmentValues {
-  /// A fish's whole page (v1's, FullPage) pushed on the stack in front ("Xem trang đầy đủ"), counted for switching back
-  /// to v1 (V2Root).
+  /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
+  /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
   @Entry var v2FootGround: Binding<FootGround?>?
@@ -242,7 +242,8 @@ private struct Destinations: ViewModifier {
     content
       .navigationDestination(for: HandbookIndex.Item.self) { item in
         Group {
-          if item.kind == .fish { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade() }
+          // A fish's or a plant's: v2's own, the whole page.
+          if item.kind == .fish || item.kind == .plant { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade() }
         }
         .navigationTransition(.zoom(sourceID: item.path, in: zoom))
       }
