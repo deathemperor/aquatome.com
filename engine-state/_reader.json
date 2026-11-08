@@ -148,6 +148,41 @@
     ],
     "ruled": "0440db2ab84bb080"
   },
+  "vi/guides/2hraquarist-blogs-algae-control-prevent-algae-growth": {
+    "at": "2026-11-08",
+    "hash": "33cf0ff235bc96d2",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể mới muốn hạn chế kích tảo thì nên chiếu tối thiểu 5-6 giờ.",
+        "problem": "To limit algae in a new tank the advice is to keep the photoperiod short, so 'tối thiểu' (at least) reverses the advice. It should be an upper limit.",
+        "fix": "Bể mới muốn hạn chế rêu thì chỉ nên chiếu khoảng 5-6 giờ.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thủ phạm gây tảo là chuyện đổi qua đổi lại nhanh giữa mức dinh dưỡng hoặc CO2 cao và thấp",
+        "problem": "The page leans on stock phrases from the house list ('thủ phạm', 'phần lớn', 'nhiều khả năng', 'dù vậy', 'nhờ vậy', 'bắt buộc phải', 'lý do là', 'cột nước'), so it reads like a translation.",
+        "fix": "Rêu bùng lên là do đổi qua đổi lại nhanh giữa mức dinh dưỡng hoặc CO2 cao và thấp",
+        "rule": "Flag Vietnamese pages that use words from the house's overused-word list, such as 'thủ phạm', 'cột nước' or 'bắt buộc phải'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây lấy nitơ và phốt phát hoàn toàn từ nền qua rễ",
+        "problem": "The same nutrient is called 'phốt pho' elsewhere on the page and 'phốt phát' here.",
+        "fix": "Cây lấy nitơ và phốt pho hoàn toàn từ nền qua rễ",
+        "field": "body"
+      }
+    ],
+    "ruled": "33cf0ff235bc96d2"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -940,6 +975,31 @@
     ],
     "ruled": "f7c6775aa42867dd"
   },
+  "vi/guides/aquariumbreeder-most-popular-questions-about-crayfish": {
+    "at": "2026-11-08",
+    "hash": "3c73e3d78a838e2b",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 9. Tôm hùm đất nuôi bể lớn được tới cỡ nào?",
+        "problem": "The numbered questions jump from 7 to 9. Question 8 (whether crayfish feel pain when boiled) is missing, so the numbering is broken.",
+        "rule": "Numbered headings whose numbers are not consecutive.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tôm hùm đất, tôm hùm và tôm hùm squat",
+        "problem": "'Squat lobster' is left half in English, which reads unnaturally.",
+        "fix": "tôm hùm đất, tôm hùm và tôm hùm ngồi xổm (squat lobster)",
+        "field": "body"
+      }
+    ],
+    "ruled": "3c73e3d78a838e2b"
+  },
   "vi/guides/aquariumbreeder-optimize-your-biofilter-a-guide-to-ideal-biological-filtration": {
     "at": "2026-11-07",
     "hash": "05f35ba5cc76203f",
@@ -1062,6 +1122,12 @@
       }
     ],
     "ruled": "1db5169b1042095f"
+  },
+  "vi/guides/aquariumbreeder-protein-skimmer-for-a-nano-reef-aquarium": {
+    "at": "2026-11-08",
+    "hash": "56cd2ab3cf234b8c",
+    "findings": [],
+    "ruled": "56cd2ab3cf234b8c"
   },
   "vi/guides/aquariumbreeder-questions-about-crabs": {
     "at": "2026-11-07",
@@ -1676,6 +1742,18 @@
       }
     ],
     "ruled": "eb6d13662c03bef9"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-red-plants": {
+    "at": "2026-11-08",
+    "hash": "4fd3d71013793814",
+    "findings": [],
+    "ruled": "4fd3d71013793814"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-simple-tricks-to-improve-aquarium-filters": {
+    "at": "2026-11-08",
+    "hash": "bbed7075e7f02d51",
+    "findings": [],
+    "ruled": "bbed7075e7f02d51"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
     "at": "2026-11-05",
@@ -2583,6 +2661,12 @@
     "findings": [],
     "ruled": "8cf57a13e1147a8c"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-easy-20-gallon-fish-breeding-ideas": {
+    "at": "2026-11-08",
+    "hash": "60d6737f3f5c7763",
+    "findings": [],
+    "ruled": "60d6737f3f5c7763"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants": {
     "at": "2026-11-01",
     "hash": "68f6a900f943199f",
@@ -2669,6 +2753,22 @@
       }
     ],
     "ruled": "128e03e00354c197"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-food-types": {
+    "at": "2026-11-08",
+    "hash": "af868a7a4b689ff8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cũng như một người ngày nào cũng chỉ ăn hamburger.",
+        "problem": "The comparison is a sentence fragment with no main clause, split off from the sentence that completes it.",
+        "fix": "Cũng như một người ngày nào cũng chỉ ăn hamburger thì không ốm ngay, nhưng lâu dài có thể sinh bệnh.",
+        "field": "body"
+      }
+    ],
+    "ruled": "af868a7a4b689ff8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-fish-for-profit": {
     "at": "2026-11-03",
@@ -2949,6 +3049,12 @@
     "hash": "39742946ffab9e95",
     "findings": [],
     "ruled": "39742946ffab9e95"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-balance-aquarium-lighting": {
+    "at": "2026-11-08",
+    "hash": "b587c63077b4ede8",
+    "findings": [],
+    "ruled": "b587c63077b4ede8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-care-for-aquarium-fish-while-on-vacation": {
     "at": "2026-11-02",
@@ -3317,6 +3423,12 @@
     "findings": [],
     "ruled": "b25a84a7250aebe5"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-money-saving-tips-for-aquariums": {
+    "at": "2026-11-08",
+    "hash": "ccb70ef55f009e0b",
+    "findings": [],
+    "ruled": "ccb70ef55f009e0b"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-mulm": {
     "at": "2026-11-06",
     "hash": "ff0c484585a80efa",
@@ -3510,6 +3622,12 @@
     "hash": "15cc566a47fef903",
     "findings": [],
     "ruled": "15cc566a47fef903"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-power-outage": {
+    "at": "2026-11-08",
+    "hash": "f2815a578e543455",
+    "findings": [],
+    "ruled": "f2815a578e543455"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-pre-filter-sponge": {
     "at": "2026-11-06",
@@ -3860,6 +3978,22 @@
     "findings": [],
     "ruled": "d88b624e30b9c5ef"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-colorful-fish": {
+    "at": "2026-11-08",
+    "hash": "f9bad597408f011c",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Colorful Fish to Brighten Up Your Next Freshwater Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name, so the photo is likely a title banner rather than a photo of a fish on the page.",
+        "rule": "A caption that contains the source site's name or matches the article title pattern 'Top N ... - Site'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "f9bad597408f011c"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-easy-beginner-fish": {
     "at": "2026-11-02",
     "hash": "e386b8d2762f1d80",
@@ -3891,6 +4025,22 @@
       }
     ],
     "ruled": "49db4e51a6d4befe"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-fish-for-planted-tanks": {
+    "at": "2026-11-08",
+    "hash": "e744490dd094177a",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Fish That Are Perfect for Planted Aquariums - Aquarium Co-Op",
+        "problem": "This caption is the article's title and does not describe what is in the photo.",
+        "rule": "A caption that matches the source article's title or contains a site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "e744490dd094177a"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-rainbowfish": {
     "at": "2026-11-07",
@@ -4058,6 +4208,22 @@
     "hash": "536cc8aa4f4419ef",
     "findings": [],
     "ruled": "536cc8aa4f4419ef"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-where-to-buy-pet-fish": {
+    "at": "2026-11-08",
+    "hash": "204c605d0f69f38b",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Where is the Best Place to Buy Live Aquarium Fish? - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and says nothing about what the photo shows.",
+        "rule": "a caption identical to the source article's title",
+        "field": "caption"
+      }
+    ],
+    "ruled": "204c605d0f69f38b"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you": {
     "at": "2026-11-06",
@@ -4747,6 +4913,22 @@
       }
     ],
     "ruled": "19e5b32f554edf2a"
+  },
+  "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": {
+    "at": "2026-11-08",
+    "hash": "30652775e079305a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dùng sủi đá hoặc lọc bông, cho bọt lên tới mặt nước.",
+        "problem": "Sponge filter is called \"lọc mút\" by Vietnamese hobbyists, not \"lọc bông\".",
+        "fix": "Dùng sủi đá hoặc lọc mút, cho bọt lên tới mặt nước.",
+        "field": "body"
+      }
+    ],
+    "ruled": "30652775e079305a"
   },
   "vi/guides/aquatome-cho-ca-betta-sinh-san-chon-cap-ep-de-to-bot-va-cham-ca-bot": {
     "at": "2026-11-04",
@@ -5865,6 +6047,37 @@
     ],
     "ruled": "f089ab1ed3b3aac8"
   },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-double-sword-guppys-en": {
+    "at": "2026-11-08",
+    "hash": "08440cc11bdbbaad",
+    "findings": [],
+    "ruled": "08440cc11bdbbaad"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en": {
+    "at": "2026-11-08",
+    "hash": "082ffeb6b33401b8",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mọi loài Limia đều rất hiền và hợp với bể cộng đồng.",
+        "problem": "This care and breeding advice covers all Limia species, but it sits under the Poecilia nigrofasciata heading, so a reader would take it as advice for that one species.",
+        "fix": "## Cách nuôi chung cho các loài Limia",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Số cá này là cá nhân giống tại Đức.",
+        "problem": "This sentence comes from the dealer's stock note. On a handbook page, 'số cá này' (these fish) points to no particular fish.",
+        "fix": "Cá trên thị trường hiện nay thường là cá nhân giống tại Đức.",
+        "field": "body"
+      }
+    ],
+    "ruled": "082ffeb6b33401b8"
+  },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-endler-sports-en": {
     "at": "2026-11-07",
     "hash": "59d0c5368cc11e7e",
@@ -5880,6 +6093,18 @@
       }
     ],
     "ruled": "59d0c5368cc11e7e"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-nothos-en": {
+    "at": "2026-11-08",
+    "hash": "bebc7b73bc412139",
+    "findings": [],
+    "ruled": "bebc7b73bc412139"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-procatopus-aberrans-and-p-nototaenia-en": {
+    "at": "2026-11-08",
+    "hash": "317ec3d3496848eb",
+    "findings": [],
+    "ruled": "317ec3d3496848eb"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en": {
     "at": "2026-11-07",
@@ -9208,6 +9433,22 @@
     ],
     "ruled": "74ce5bfdf0c283b3"
   },
+  "vi/guides/youtube-_0xNpxtU9J0": {
+    "at": "2026-11-08",
+    "hash": "0b4676a52eed3a92",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cây vẫn lên nhưng bể trông khá tệ, vì không chăm thì rêu hại sẽ lên",
+        "problem": "The paragraph repeats the opening clause about algae almost word for word, and it reads like a careless repeat.",
+        "fix": "cây vẫn lên nhưng bể trông khá tệ, rêu hại bám khắp nơi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0b4676a52eed3a92"
+  },
   "vi/guides/youtube-_6NIHP9P5jw": {
     "at": "2026-11-07",
     "hash": "86e26f83b06851ea",
@@ -9693,6 +9934,22 @@
     ],
     "ruled": "769e5615886e405f"
   },
+  "vi/guides/youtube-526gTi2z3WQ": {
+    "at": "2026-11-08",
+    "hash": "2886fe52c6f6da37",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Bể khoảng 125 lít (70 × 50 × 36 cm)",
+        "problem": "The summary gives about 125 litres, while the body gives 100–125 litres for the same tank.",
+        "fix": "Bể khoảng 100–125 lít (70 × 50 × 36 cm)",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "2886fe52c6f6da37"
+  },
   "vi/guides/youtube-5ajPkl9rhKQ": {
     "at": "2026-11-07",
     "hash": "3583581ecf34d7ea",
@@ -9823,6 +10080,12 @@
       }
     ],
     "ruled": "62cf0c49f7178c1e"
+  },
+  "vi/guides/youtube-5tzwDaGhtGs": {
+    "at": "2026-11-08",
+    "hash": "e3ed200a786ad525",
+    "findings": [],
+    "ruled": "e3ed200a786ad525"
   },
   "vi/guides/youtube-5uUPuLt0j2s": {
     "at": "2026-11-03",
@@ -10440,6 +10703,23 @@
     "findings": [],
     "ruled": "10ed593883e280b2"
   },
+  "vi/guides/youtube-aGrKKWNFl2k": {
+    "at": "2026-11-08",
+    "hash": "cd6eb11759469465",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bể nano 30 x 30 x 30 cm (khoảng 38 lít)",
+        "problem": "A 30 x 30 x 30 cm tank holds 27 litres, not 38.",
+        "fix": "bể nano 30 x 30 x 30 cm (khoảng 27 lít)",
+        "rule": "Check that a litre figure matches the product of the cm dimensions given beside it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "cd6eb11759469465"
+  },
   "vi/guides/youtube-ahN0nP8HLaI": {
     "at": "2026-11-07",
     "hash": "5a6579cd57492639",
@@ -10489,6 +10769,12 @@
     ],
     "ruled": "0a1d572197935d2c"
   },
+  "vi/guides/youtube-an_VB8nHpk4": {
+    "at": "2026-11-08",
+    "hash": "ce75c0e7434f5fbf",
+    "findings": [],
+    "ruled": "ce75c0e7434f5fbf"
+  },
   "vi/guides/youtube-AnakIetIR0U": {
     "at": "2026-11-02",
     "hash": "4717c782dad068f3",
@@ -10506,6 +10792,90 @@
     "hash": "9dd719dbb1cdadc6",
     "findings": [],
     "ruled": "9dd719dbb1cdadc6"
+  },
+  "vi/guides/youtube-awWblosRzrQ": {
+    "at": "2026-11-08",
+    "hash": "8928bb0eff730db3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Thời điểm\n| TDS\n| Nước ở cửa hàng\n| khoảng 55",
+        "problem": "The TDS table is broken: its cells come out one per line, so the readings don't line up with their labels.",
+        "fix": "Nước ở cửa hàng: khoảng 55. Bể trước lần thay cuối: khoảng 133. Bể sau lần thay cuối: 76.",
+        "rule": "Lines that start with '|' and hold only one cell each, with no separator row.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vẫn còn mang vẻ \\\"sắp đặt\\\"",
+        "problem": "Escaping backslashes were left in the text around the quotation marks.",
+        "fix": "vẫn còn mang vẻ \"sắp đặt\"",
+        "rule": "A backslash directly before a quotation mark in the body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8928bb0eff730db3"
+  },
+  "vi/guides/youtube-aXWDAuISGKs": {
+    "at": "2026-11-08",
+    "hash": "20ff5a45e86de2f4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thêm vài nhúm cỏ thảm (dwarf hair grass)",
+        "problem": "Vietnamese hobbyists call dwarf hair grass 'ngưu mao chiên', and 'cỏ thảm' is vague.",
+        "fix": "Thêm vài nhúm ngưu mao chiên (dwarf hair grass)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhỏ một chút keo siêu dính (super glue) lên",
+        "problem": "The site's style asks for 'keo 502' instead of 'keo siêu dính'.",
+        "fix": "nhỏ một chút keo 502 lên",
+        "rule": "The phrase 'keo siêu dính' appears anywhere on a Vietnamese page.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L10",
+        "quote": "dán từng mẩu lên đá bằng keo siêu dính",
+        "problem": "The site's style asks for 'keo 502' instead of 'keo siêu dính'.",
+        "fix": "dán từng mẩu lên đá bằng keo 502",
+        "rule": "The phrase 'keo siêu dính' appears anywhere on a Vietnamese page.",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rải những viên đá đã gắn rêu một cách ngẫu nhiên khắp bể.",
+        "problem": "The 'một cách + adjective' pattern reads as translated English.",
+        "fix": "Rải lung tung những viên đá đã gắn rêu khắp bể.",
+        "rule": "The phrase 'một cách' followed by an adjective appears in a Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-08",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "Algae wafer is a sinking wafer made of algae, not food 'for nuisance algae'. This is a mistranslation."
+        ]
+      }
+    ],
+    "ruled": "20ff5a45e86de2f4"
   },
   "vi/guides/youtube-B1T0GU56ETo": {
     "at": "2026-11-01",
@@ -10565,6 +10935,12 @@
       }
     ],
     "ruled": "e39f0222b70a4a7f"
+  },
+  "vi/guides/youtube-c2RrfFVcJew": {
+    "at": "2026-11-08",
+    "hash": "865d572ab94564a4",
+    "findings": [],
+    "ruled": "865d572ab94564a4"
   },
   "vi/guides/youtube-C4W86NMP3CU": {
     "at": "2026-11-05",
@@ -10771,6 +11147,28 @@
     ],
     "ruled": "999ccb9f216c85c0"
   },
+  "vi/guides/youtube-Cr4Nc5F_3as": {
+    "at": "2026-11-08",
+    "hash": "a5049c182ef1f948",
+    "findings": [],
+    "ruled": "a5049c182ef1f948"
+  },
+  "vi/guides/youtube-CSLWc2X7VFE": {
+    "at": "2026-11-08",
+    "hash": "9cad6049bd0cabd1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể được tấm này làm nổi bật hơn hẳn.",
+        "problem": "This passive sentence uses 'được' and is built like an English sentence, so it reads as machine translation.",
+        "fix": "Tấm này làm bể nổi bật hơn hẳn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9cad6049bd0cabd1"
+  },
   "vi/guides/youtube-CteRIdT1Ous": {
     "at": "2026-11-05",
     "hash": "6803a0bd77ac3435",
@@ -10792,6 +11190,12 @@
       }
     ],
     "ruled": "b6d78afe00497a7a"
+  },
+  "vi/guides/youtube-CzyeWSYmJaQ": {
+    "at": "2026-11-08",
+    "hash": "8378cbcb39e245c5",
+    "findings": [],
+    "ruled": "8378cbcb39e245c5"
   },
   "vi/guides/youtube-D8ZPJeMEXiY": {
     "at": "2026-11-04",
@@ -11333,6 +11737,12 @@
     "findings": [],
     "ruled": "1ad03b0b0e8a7d18"
   },
+  "vi/guides/youtube-fxi-Vt9xrDM": {
+    "at": "2026-11-08",
+    "hash": "57caea994c9cae49",
+    "findings": [],
+    "ruled": "57caea994c9cae49"
+  },
   "vi/guides/youtube-g6kNBCl1hl0": {
     "at": "2026-11-04",
     "hash": "925887ad637c04db",
@@ -11478,6 +11888,12 @@
       }
     ]
   },
+  "vi/guides/youtube-hFE1mUn-MY8": {
+    "at": "2026-11-08",
+    "hash": "b6c9d162ae3794b2",
+    "findings": [],
+    "ruled": "b6c9d162ae3794b2"
+  },
   "vi/guides/youtube-hL920TrlANg": {
     "at": "2026-11-07",
     "hash": "59f19a470910b4dd",
@@ -11584,6 +12000,22 @@
     ],
     "ruled": "50ab3c38ec2e1583"
   },
+  "vi/guides/youtube-HTK7T82MAWE": {
+    "at": "2026-11-08",
+    "hash": "3befdcd20c1ee762",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trừ phần khoảng khô thì còn tầm 600 lít nước.",
+        "problem": "Typo: 'khoảng khô' should be 'khoang khô' (the dry chamber), as written elsewhere on the page.",
+        "fix": "Trừ phần khoang khô thì còn tầm 600 lít nước.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3befdcd20c1ee762"
+  },
   "vi/guides/youtube-HuWHarbSQUk": {
     "at": "2026-11-05",
     "hash": "7f72237640161b62",
@@ -11686,6 +12118,12 @@
       }
     ],
     "ruled": "abdd0752c0c57d18"
+  },
+  "vi/guides/youtube-IJxYhZygwKc": {
+    "at": "2026-11-08",
+    "hash": "e0055f72507bfffd",
+    "findings": [],
+    "ruled": "e0055f72507bfffd"
   },
   "vi/guides/youtube-iS8fJvjUa1Q": {
     "at": "2026-11-07",
@@ -12291,6 +12729,31 @@
     ],
     "ruled": "0b5099e3a6a6970d"
   },
+  "vi/guides/youtube-lDqnNTTsymk": {
+    "at": "2026-11-08",
+    "hash": "bd6dfa5e3e8a55d7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá mây trắng (White Cloud Mountain Minnow), loài này có vài biến thể màu khác nhau",
+        "problem": "The page translates White Cloud Mountain Minnow word for word as 'cá mây trắng', but Vietnamese hobbyists call it 'cá kim tơ'.",
+        "fix": "Cá kim tơ (White Cloud Mountain Minnow), loài này có vài biến thể màu khác nhau",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L14",
+        "quote": "kiếm và cá mây trắng (White Cloud Mountain Minnow)",
+        "problem": "The page translates White Cloud Mountain Minnow word for word as 'cá mây trắng', but Vietnamese hobbyists call it 'cá kim tơ'.",
+        "fix": "kiếm và cá kim tơ (White Cloud Mountain Minnow)",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "bd6dfa5e3e8a55d7"
+  },
   "vi/guides/youtube-LFIB7o9BnFA": {
     "at": "2026-11-02",
     "hash": "4b725d9b27967785",
@@ -12388,6 +12851,32 @@
     "hash": "2db72c8dbd9e35b2",
     "findings": [],
     "ruled": "2db72c8dbd9e35b2"
+  },
+  "vi/guides/youtube-LWCAnbfgtcE": {
+    "at": "2026-11-08",
+    "hash": "81d4327afb4cffba",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Mép ngoài các viên đá, dưới gốc lũa\n| Cryptocoryne parva\n| Góc trước",
+        "problem": "The Cryptocoryne parva row has no 'Ghi chú' cell, so 'Góc trước' falls into its note column and every row after it is shifted by one cell.",
+        "fix": "| Mép ngoài các viên đá, dưới gốc lũa | Cryptocoryne parva | (ghi chú) |\n| Góc trước | Marsilea hirsuta | Lá giống cỏ bốn lá, dự kiến sẽ mọc lẫn vào cỏ tóc và parva |",
+        "rule": "A table whose cell count after the header is not a multiple of the header's column count.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dù vậy, nó có cá tính riêng, nhìn nó lượn quanh bể rất vui mắt.",
+        "problem": "'Dù vậy' is a stiff, translated-sounding connector here. 'Nhưng' reads more naturally.",
+        "fix": "Nhưng nó có cá tính riêng, nhìn nó lượn quanh bể rất vui mắt.",
+        "field": "body"
+      }
+    ],
+    "ruled": "81d4327afb4cffba"
   },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-02",
@@ -12504,6 +12993,12 @@
       }
     ],
     "ruled": "3f9688cef07ed488"
+  },
+  "vi/guides/youtube-MxPCBXJtPTM": {
+    "at": "2026-11-08",
+    "hash": "9aa86475a8cb8cc6",
+    "findings": [],
+    "ruled": "9aa86475a8cb8cc6"
   },
   "vi/guides/youtube-mY_9yWKaAFc": {
     "at": "2026-11-07",
@@ -12637,6 +13132,12 @@
     ],
     "ruled": "3f6ee92f7f401acf"
   },
+  "vi/guides/youtube-nljikQSpjL4": {
+    "at": "2026-11-08",
+    "hash": "1c6cd12ee206fb90",
+    "findings": [],
+    "ruled": "1c6cd12ee206fb90"
+  },
   "vi/guides/youtube-NNbR0grp8iE": {
     "at": "2026-11-02",
     "hash": "cc7d99ab51d8a6e5",
@@ -12756,6 +13257,12 @@
       }
     ],
     "ruled": "e4a46e44bb884f6f"
+  },
+  "vi/guides/youtube-Ojpc5djfQ9U": {
+    "at": "2026-11-08",
+    "hash": "ca390a7961ce4397",
+    "findings": [],
+    "ruled": "ca390a7961ce4397"
   },
   "vi/guides/youtube-Omxb5ByqLMs": {
     "at": "2026-11-03",
@@ -13876,6 +14383,12 @@
     ],
     "ruled": "eb14aac5b0ca1563"
   },
+  "vi/guides/youtube-vGvzzEQQxDA": {
+    "at": "2026-11-08",
+    "hash": "8c04faadb4507db8",
+    "findings": [],
+    "ruled": "8c04faadb4507db8"
+  },
   "vi/guides/youtube-viG-wVICUZo": {
     "at": "2026-11-06",
     "hash": "672a75b5900db6b6",
@@ -13965,6 +14478,42 @@
       }
     ],
     "ruled": "c28c19e3449e077c"
+  },
+  "vi/guides/youtube-VtUOcuH3tNg": {
+    "at": "2026-11-08",
+    "hash": "5145d912bc6a011e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá được để trong hồ cho quen dần với nước lạnh hơn rồi mới thả ra.",
+        "problem": "The sentence doesn't say the fish stay in their bag floating in the pond, so it reads as if they are already loose in the pond before being 'released'.",
+        "fix": "Để nguyên túi cá nổi trong hồ một lúc cho cá quen dần với nước lạnh hơn rồi mới thả ra.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên chuyển sang hồ mới là lựa chọn của người làm hồ trong hoàn cảnh đó",
+        "problem": "The phrase is awkward and reads like a translation, and it refers to the pond's builder (the source author), which the house style says not to do.",
+        "fix": "nên chuyển sang hồ mới sớm vẫn tốt hơn để chúng ở lại.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-08",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The sentence doesn't say the fish stay in their bag floating in the pond, so it reads as if they are already loose in the pond before being 'released'."
+        ]
+      }
+    ],
+    "ruled": "5145d912bc6a011e"
   },
   "vi/guides/youtube-vuxSFbYgmtg": {
     "at": "2026-11-02",

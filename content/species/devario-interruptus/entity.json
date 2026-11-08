@@ -10,6 +10,77 @@
     "china",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Hotha, Yunnan Province, China' which corresponds to the Hotha/Husa valley in Longchuan County, Dehong Prefecture, Yunnan province, southwestern China and appears endemic to the area with subsequent occurrence records from neighbouring Longling County (Baoshan Prefecture) and municipality of Ruili City.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All known localities are within the region bordering Myanmar and part of the upper Ayeyarwady/Irrawaddy River watershed.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361544,
+      "total": 27,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          23.90625,
+          7,
+          7
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          23.90625,
+          18,
+          18
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

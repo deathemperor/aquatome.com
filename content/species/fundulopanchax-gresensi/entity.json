@@ -10,6 +10,38 @@
     "cameroon",
     "cross-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a relatively small area near the villages of Takwai I and II, Atebong Wire and Edjuingan in western Cameroon, with records existing from the Bagwor and Mack river systems both of which are tributaries within the upper Cross River basin, western Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348513,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

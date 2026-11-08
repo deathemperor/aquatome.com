@@ -89,6 +89,7 @@ else
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
   git checkout -q main && git pull -q --ff-only
 fi
+cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The parts all add to the photo caches and the run records in engine-state.
@@ -294,6 +295,10 @@ if part photos; then
   # What the quality reviews found (engine-state/reviews/): pages under the bar and their most common faults, per kind
   # (docs/review/reviews.md), what prompt fixes start from.
   pnpm engine reviews || log "reviews: failed"
+  # The app's Hôm nay and Khám phá calendar (content/curation.json, docs/curation.md), from this cycle's photo verdicts:
+  # the next 21 days filled and any pick that stopped passing replaced. No model calls; a run changes the file only when
+  # a new Vietnamese day comes in or a pick fails, so about once a day.
+  pnpm engine curate || log "curate: failed"
 fi
 if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next

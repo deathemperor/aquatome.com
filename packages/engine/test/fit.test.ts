@@ -50,6 +50,7 @@ test('a page\'s reader decides: a Vietnamese shop or price is foreign in Indones
   expect(fitRules(page('<p>Pakai Seachem Prime.</p>', id)).find(f => f.check === 'product')?.why).toContain('market unknown')
   expect(fitPrompt('id')).toContain('Pharmacity')
   expect(fitPrompt('vi')).not.toContain('Pharmacity')
+  expect(fitPrompt('vi')).toContain('lọc bọt biển')
 })
 
 test('Thai: no spaces between words', () => {
@@ -127,8 +128,7 @@ test('the counts: pages with a finding by check, and in all with words apart', (
   const a = page('<p>Mua trên Amazon. Dù vậy vẫn được.</p>', { id: 'a' })
   const b = page('<p>Dù vậy vẫn được.</p>', { id: 'b' })
   const c = page('<p>Ổn.</p>', { id: 'c' })
-  const words = { check: 'words' as const, part: 'P1', quote: 'Dù vậy', why: 'x', by: 'model' as const }
-  const entry = (p: Page) => ({ at: '2026-11-08', hash: fitText(p).hash, model: 'm', findings: [words], products: [] })
+  const entry = (p: Page) => ({ at: '2026-11-08', hash: fitText(p).hash, model: 'm', findings: [], products: [] })
   const n = fitCounts([a, b, c], { 'vi/guides/a': entry(a), 'vi/guides/b': entry(b) }, 'vi')
   expect(n).toMatchObject({ pages: 3, read: 2, wrongReader: 1, by: { shop: 1, words: 2, price: 0 } })
 })
@@ -218,4 +218,17 @@ test('a caution the source gives and the page leaves out is flagged; one on the 
   const none = (async () => { calls++; return { findings: [], products: [], doses: [] } }) as Llm
   await readFit(none, p, 'm', new Date('2026-11-08'), source)
   expect(calls).toBe(1)
+})
+
+test("a card's checklist: its dated sources are expected, and its own check is read on cards only", async () => {
+  expect(fitPrompt('vi', 'cards')).toContain('- card: this one is a short card')
+  expect(fitPrompt('vi', 'cards')).toContain('theo …, 2026')
+  for (const kind of [undefined, 'guides'] as const) {
+    expect(fitPrompt('vi', kind)).not.toContain('- card:')
+    expect(fitPrompt('vi', kind)).not.toContain('{{CARD_NOTE}}')
+  }
+  const llm = (async () => ({ findings: [{ check: 'card', part: 'P1', quote: 'phát hiện', why: 'described, not discovered', fix: '', product: '' }], products: [] })) as Llm
+  const card = { ...page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), kind: 'cards' as const }
+  expect((await readFit(llm, card, 'm', new Date('2026-11-08'))).findings.map(f => f.check)).toEqual(['card'])
+  expect((await readFit(llm, page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), 'm', new Date('2026-11-08'))).findings).toEqual([])
 })

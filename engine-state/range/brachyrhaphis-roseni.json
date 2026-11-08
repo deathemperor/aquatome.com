@@ -1,0 +1,73 @@
+{
+  "id": "brachyrhaphis-roseni",
+  "native": {
+    "input": "5a62faa85efe091c",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "B. roseni originates from brooks running through woodland in Panama and Costa Rica.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "B. roseni originates from brooks running through woodland in Panama and Costa Rica.",
+        "words": "Costa Rica",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyrhaphis roseni",
+    "status": "ACCEPTED",
+    "taxonKey": 2350304,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "PA",
+      "CR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

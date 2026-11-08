@@ -22,6 +22,9 @@ struct V2Photo: View {
   @State private var pixels = CGSize.zero
   @Environment(\.displayScale) private var scale
   @Environment(\.v2PhotoTries) private var tries
+  /// Back in the app: a photo that didn't come asks again, as a page kept under another may have been shown offline.
+  @Environment(\.scenePhase) private var phase
+  @State private var again = 0
 
   /// What this address shows: what was decoded here, or what's in memory at any size, the full photo first, so a page
   /// zooming out of a card has it in its first frame.
@@ -37,8 +40,8 @@ struct V2Photo: View {
           Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
         } else {
           ZStack {
-            // No photo, or one that didn't come: in the colour around it, if any, not a grey band in it.
-            if src == nil || missing == src, let ground { ground }
+            // No photo yet, none at all, or one that didn't come: in the colour around it, if any, not a grey band in it.
+            if let ground { ground }
             // One that didn't come: a photo's place, not an empty box, as v1's pictures show it. Not read: what the photo
             // was of is in the page's or the row's own words. None for no photo at all: a row has its own mark.
             if let src, missing == src {
@@ -51,7 +54,8 @@ struct V2Photo: View {
       }
       .clipped()
       .onGeometryChange(for: CGSize.self) { $0.size } action: { pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
-      .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))|\(tries)") {
+      .onChange(of: phase) { if phase == .active, let src, missing == src { again += 1 } }
+      .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))|\(tries)|\(again)") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
         let full = V2Photo.full(src)
@@ -68,6 +72,7 @@ struct V2Photo: View {
         guard let loaded else { if shown == nil { missing = src }; return }
         // Faded in as it comes; one in its place already, swapped.
         withAnimation(shown == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
+        missing = nil
         if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
       }
   }
@@ -174,20 +179,20 @@ private func calmed(_ c: Scored) -> Scored {
   return (c.score, r, g, b)
 }
 
-/// A scientific name. At the accessibility sizes a word a line, each made smaller if it must to fit its line: a genus too
-/// long for one broke into a line that read as another word ("Paracheirod", "on innesi").
+/// A scientific name. At the accessibility sizes on one line if it fits, else a word a line, made smaller if it must to fit:
+/// a genus too long for one broke into a line that read as another word ("Paracheirod", "on innesi").
 struct LatinName: View {
   let text: String
   @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     if size.isAccessibilitySize {
-      VStack(alignment: .leading, spacing: 0) {
-        ForEach(Array(text.split(separator: " ").enumerated()), id: \.offset) { _, word in
-          Text(verbatim: String(word)).lineLimit(1).minimumScaleFactor(0.5)
-        }
+      // On one line when it fits; else a word a line, all made smaller alike if one must be to fit its line.
+      let words = text.split(separator: " ").map(String.init)
+      ViewThatFits(in: .horizontal) {
+        Text(verbatim: text).lineLimit(1)
+        Text(verbatim: words.joined(separator: "\n")).lineLimit(words.count).minimumScaleFactor(0.5)
       }
-      .accessibilityElement(children: .combine)
     } else {
       Text(verbatim: text)
     }
@@ -224,7 +229,7 @@ struct Lockup: View {
             V2Photo(src: item.img, colour: item.kind == .fish ? { _ in } : nil)
               .frame(width: side, height: side)
               .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
-              .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary) } }
+              .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {

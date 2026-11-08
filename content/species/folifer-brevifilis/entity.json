@@ -17,6 +17,159 @@
     "thailand",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM",
+        "TH",
+        "LA",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Salween",
+        "Ayeyarwaddy",
+        "Hainan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+          "countries": [
+            "CN",
+            "MM",
+            "TH",
+            "LA",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Salween",
+            "Ayeyarwaddy"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded from the islands of Hainan and Hong Kong.",
+          "countries": [],
+          "regions": [
+            "Hainan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364282,
+      "total": 21,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          14
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "LA",
+          2
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          29.53125,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          26.71875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

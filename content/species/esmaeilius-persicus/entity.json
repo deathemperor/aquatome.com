@@ -10,6 +10,59 @@
     "iran",
     "lake-maharlu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IR"
+      ],
+      "regions": [
+        "Lake Maharlu",
+        "Zagros Mountains"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Farsi toothcarp, Esmaeilius persicus, is endemic to the Lake Maharlu basin near Shiraz in Fars Province, southern Iran.",
+          "countries": [
+            "IR"
+          ],
+          "regions": [
+            "Lake Maharlu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Lake Maharlu basin close to the city of Shiraz in the Zagros Mountains, Fars Province, southern Iran.",
+          "countries": [],
+          "regions": [
+            "Zagros Mountains"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11625911,
+      "total": 5,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          52.03125,
+          28.125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "water": {
     "kind": "brackish",
     "source": "seriouslyfish",

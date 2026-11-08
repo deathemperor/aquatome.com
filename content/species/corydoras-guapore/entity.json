@@ -11,6 +11,85 @@
     "guapore",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "BR"
+      ],
+      "regions": [
+        "Rio Guaporé",
+        "Madeira",
+        "Río Paucerna"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Guaporé cory, Gastrodermus guapore, long known as Corydoras guapore, is an armoured catfish endemic to the rio Guaporé (Río Iténez) in northeastern Bolivia and western Brazil.",
+          "countries": [
+            "BO",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the rio Guaporé, a tributary system within the upper rio Madeira basin in northeastern Bolivia (where it is known as the Río Iténez) and western Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Guaporé",
+            "Madeira"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is likely to occur in various tributary drainages at least as far upstream as the Río Paucerna in Noel Kempff Mercado National Park.",
+          "countries": [],
+          "regions": [
+            "Río Paucerna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342752,
+      "total": 5,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BO",
+          3
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

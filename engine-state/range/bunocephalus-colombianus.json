@@ -1,0 +1,105 @@
+{
+  "id": "bunocephalus-colombianus",
+  "native": {
+    "input": "349e419c4eb3d83f",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Boca de Raspadura, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Atrato",
+        "source": "planetcatfish",
+        "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+        "ok": true
+      },
+      {
+        "name": "Magdalena",
+        "source": "planetcatfish",
+        "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bunocephalus colombianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340630,
+    "datasets": [
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        19
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        18
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        9
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

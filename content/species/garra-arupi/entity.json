@@ -10,6 +10,77 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Deopani River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Garra arupi is a cyprinid from the upper Brahmaputra River basin in Arunachal Pradesh, northern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the upper Brahmaputra River basin in Arunachal Pradesh state, northern India, with records from the lower Divang Valley and Lohit District.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Deopani River at Roing, Lower Divang Valley, Arunachal Pradesh, India'.",
+          "countries": [],
+          "regions": [
+            "Deopani River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366903,
+      "total": 14,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          3,
+          3
+        ],
+        [
+          95.625,
+          28.125,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

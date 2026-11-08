@@ -1,10 +1,13 @@
 {
   "slug": "nam-mae-taeng",
-  "name": "Nam Mae Taeng",
-  "altNames": [],
+  "name": "sông Mae Taeng",
+  "altNames": [
+    "Nam Mae Taeng"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

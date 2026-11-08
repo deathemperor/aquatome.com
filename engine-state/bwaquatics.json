@@ -1435,15 +1435,16 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/smaragdina-guitar": {
-    "lastmod": "2026-11-07T15:50:10-08:00",
+    "lastmod": "2026-11-08T00:37:02-08:00",
     "entityIds": [
       "species/betta-smaragdina"
     ],
-    "updatedAt": "2026-11-07T23:50:40.443Z",
+    "updatedAt": "2026-11-08T08:37:24.536Z",
     "hash": "d5bac2e8ea4a81d59bbea0f04ae2b665f0067c93e82d03e809feb629130001a6",
     "processedHash": "d5bac2e8ea4a81d59bbea0f04ae2b665f0067c93e82d03e809feb629130001a6",
-    "status": "processed",
-    "attempts": 0
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://bwaquatics.com/products/smaragdina-reg": {
     "lastmod": "2026-11-07T15:50:10-08:00",

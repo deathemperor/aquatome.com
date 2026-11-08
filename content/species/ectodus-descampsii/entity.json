@@ -13,6 +13,116 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika, between Moliro and Utinta Bay. Recorded in Burundi, DR Congo, Tanzania and Zambia.",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Descamp's strange-tooth cichlid, Ectodus descampsii, is a shy cichlid endemic to Lake Tanganyika, between Moliro and Utinta Bay.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370844,
+      "total": 100,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          26
+        ],
+        [
+          "TZ",
+          26
+        ],
+        [
+          "BI",
+          24
+        ],
+        [
+          "ZM",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          8,
+          8
+        ],
+        [
+          28.125,
+          -4.21875,
+          23,
+          23
+        ],
+        [
+          29.53125,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          29.53125,
+          -8.4375,
+          20,
+          20
+        ],
+        [
+          29.53125,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -5.625,
+          10,
+          10
+        ],
+        [
+          30.9375,
+          -9.84375,
+          14,
+          14
+        ],
+        [
+          30.9375,
+          -8.4375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

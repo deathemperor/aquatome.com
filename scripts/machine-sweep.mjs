@@ -7,6 +7,7 @@
 // - Agents: an install-*-schedule.sh plist that was newer than a running job gets loaded once the job ends.
 // - Worktrees, at 03:35 or with --worktrees: merged ones. One left alone for 7 days with no live thread is saved first
 //   (archiveWorktree: never pushed, kept 30 days), then removed. No --force without that copy.
+// - ~/.cache/aquatome is what the leads keep (AGENTS.md, This Mac): never touched, but for the archive's copies past 30 days.
 // --dry-run says what it would do, and does none of it. --archive <path>...: save and remove those worktrees now.
 import { execFileSync, spawnSync } from 'node:child_process'
 import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'

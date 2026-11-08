@@ -10,6 +10,47 @@
     "myanmar",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This beautiful danio comes from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361559,
+      "total": 21,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          19.6875,
+          21,
+          21
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

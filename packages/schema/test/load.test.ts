@@ -131,7 +131,11 @@ test('another language has only the places one of its fish comes from; Vietnames
     for (const l of ['vi', 'id']) await writeFile(join(dir, 'places', id, `${l}.json`), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
   }
   expect((await loadAll({ root: dir, lang: 'vi', publicBuild: false })).places.map(p => p.id).sort()).toEqual(['asia', 'europe'])
-  expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).places.map(p => p.id)).toEqual(['asia'])
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.places.map(p => p.id)).toEqual(['asia'])
+  // A place with no page in a language still has its name there: a fish's range names rivers no fish lists (a Thai
+  // page named four Vietnamese rivers in Vietnamese while their Thai names went unread, 2026-11-08).
+  expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
 })
 
 test('a translation whose entity was removed is no page, not a broken build', async () => {
@@ -238,3 +242,16 @@ test('a local note goes first in the text, as read everywhere; a guide without o
   expect(withLocalNote({ ...t, localNote }).body).toBe('<h3>Ở Việt Nam</h3><p>nguồn</p>')
   expect(withLocalNote(t)).toEqual(t)
 })
+
+test("the app's cards: those the gate holds back in a language are left out there, and a photo the build may not show goes, not the card", async () => {
+  const vi = await loadAll({ root, lang: 'vi', publicBuild: true })
+  expect(vi.cards.map(c => c.id)).toEqual(['betta-tet', 'new-rasbora'])
+  expect(vi.cards[0]!.t.title).toBe('Hội thi cá betta')
+  expect(vi.cards[0]!.photo?.licence).toBe('CC BY-SA 4.0')
+  expect(vi.cards[1]!.photo).toBeUndefined()
+  expect(vi.cards[1]!.about).toEqual([])
+  // Thai: held there; Indonesian: not written.
+  expect((await loadAll({ root, lang: 'th', publicBuild: true })).cards).toEqual([])
+  expect((await loadAll({ root, lang: 'id', publicBuild: true })).cards).toEqual([])
+})
+

@@ -21,7 +21,9 @@ const REDIRECT = 'http://127.0.0.1/owner-report'
 const SCOPES = ['orchestration:read', 'orchestration:operate', 'settings:write', 'source-control:write']
 
 const b64url = buf => Buffer.from(buf).toString('base64url')
-const t3 = async (...args) => (await run(T3, args, { maxBuffer: 1 << 20, timeout: 60_000 })).stdout
+/** A whole app to start: on a busy Mac at the agents' priority a whole send took over a minute and a half (8 Nov), so three
+ * minutes, not one. A pairing code's two minutes start once it's made. */
+const t3 = async (...args) => (await run(T3, args, { maxBuffer: 1 << 20, timeout: 180_000 })).stdout
 const postJson = (url, body) => fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
 
 /** A response's JSON, or an error with its status and none of its body (a sign-in's answers carry credentials). */

@@ -1,0 +1,99 @@
+{
+  "id": "devario-malabaricus",
+  "native": {
+    "input": "229c5a9f0c2fed17",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Malabar, India' and currently accepted to range throughout the Indian peninsula and Sri Lanka, though in reality it may be confined to western-flowing drainages of India, and possibly even to the state of Kerala (R. Kumar, pers. comm.).",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Malabar, India' and currently accepted to range throughout the Indian peninsula and Sri Lanka, though in reality it may be confined to western-flowing drainages of India, and possibly even to the state of Kerala (R. Kumar, pers. comm.).",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cauvery River",
+        "source": "seriouslyfish",
+        "quote": "In the Cauvery River, Karnataka state, southern India sympatric species include Opsarius gatensis, Puntius bimaculatus, Pethia conchonius, Rasbora daniconius, Schistura semiarmatus, Lepidocephalichthys thermalis, Aplocheilus blockii, A. lineatus, A. panchax, Badis sp., Channa gachua, C. punctata, Glossogobius giuris, Mastacembelus armatus, Oryzias dancena, and Chanda ranga.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Indian peninsula",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Malabar, India' and currently accepted to range throughout the Indian peninsula and Sri Lanka, though in reality it may be confined to western-flowing drainages of India, and possibly even to the state of Kerala (R. Kumar, pers. comm.).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario malabaricus",
+    "status": "ACCEPTED",
+    "taxonKey": 2361527,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        124
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        21
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        17
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        13
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "LK"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

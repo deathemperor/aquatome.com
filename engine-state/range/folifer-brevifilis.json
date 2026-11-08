@@ -1,0 +1,123 @@
+{
+  "id": "folifer-brevifilis",
+  "native": {
+    "input": "bdd16100f991de9a",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwaddy",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed in the Mekong river system in Thailand, Laos, and Vietnam, Salween and Ayeyarwaddy rivers in southern China, Myanmar, and Thailand, plus various smaller basins in Vietnam and China.",
+        "ok": true
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded from the islands of Hainan and Hong Kong.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "HK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Folifer brevifilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2364282,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM",
+      "TH",
+      "LA",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

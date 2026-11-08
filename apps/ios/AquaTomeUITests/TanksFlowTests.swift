@@ -100,6 +100,35 @@ final class TanksFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "tank").count, 1, "the edit made another tank")
   }
 
+  // A phone in a language the app doesn't have (English): the app's words are Vietnamese, and so are its numbers. Once the
+  // app had Malay, iOS made its locale Malay's (8 Nov): a decimal took Malay's point (64.8 lít), and the words looked up
+  // through a LocalizedStringResource (a field's prompt, Đèn's presets) came in Malay.
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimals() { phoneInEnglish() }
+  /// v2, the app's look (the owner, 8 Nov), whose tabs hold the same screens.
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimalsInV2() { phoneInEnglish(["-v2", "YES"]) }
+
+  private func phoneInEnglish(_ more: [String] = []) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-fixed-handbook", "-reset-defaults"] + more
+    app.launchForFlow()
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the empty state")
+    app.buttons["add-first"].tap()
+    let name = app.descendants(matching: .any)["name"].firstMatch
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no field name")
+    XCTAssertEqual(name.placeholderValue, "Ví dụ: Bể 60 phòng khách")
+    type(app, "name", "Bể 60")
+    type(app, "l", "60")
+    type(app, "w", "30")
+    type(app, "h", "36")
+    app.buttons["save"].tap()
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no tank listed")
+    XCTAssertTrue(row.label.contains("64,8 lít"), row.label)
+    app.openTab("Đèn")
+    XCTAssertTrue(app.staticTexts["Bể mới trồng"].waitForExistence(timeout: 5), "Đèn's presets not in the app's words")
+  }
+
   func testANewSizeDropsLitresGivenForTheOldOne() {
     let app = launch("-seed-tanks", "litres")
     let row = app.buttons["tank"].firstMatch

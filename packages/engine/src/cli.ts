@@ -5,7 +5,7 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { loadAll, SOURCE_IDS, type SourceId } from '@aq/schema'
+import { loadAll, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
@@ -21,15 +21,21 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
-import { FIT_KINDS, fitReport, runFit } from './fit'
+import { FIT_KINDS, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
+import { fitRewrite } from './fit-rewrite'
+import { candidates, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
+import { largePhotos } from './large-photos'
 import { mirrorPhotos } from './mirror-photos'
+import sharp from 'sharp'
+import { seedGalleries } from './gallery-seed'
 import { fishbasePhotos, inatPhotos } from './fishbase-photos'
 import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
@@ -122,7 +128,7 @@ const readersWanted = (() => {
   }
 })()
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, phrases: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -361,11 +367,38 @@ if (cmd === 'run' || cmd === 'card-fill') {
   } finally {
     await fetcher.close()
   }
+} else if (cmd === 'gallery-seed') {
+  // Candidates found by hand ({ <page id>: Candidate[] }, gallery.ts keys), at the front of each page's gallery queue,
+  // for the gallery step to screen next (gallery-seed.ts). pnpm engine gallery-seed --from <file>
+  if (!values.from) throw new Error('gallery-seed: --from <file>')
+  const r = await seedGalleries(ROOT, JSON.parse(await readFile(values.from, 'utf8')))
+  console.log(`gallery-seed: ${r.added} candidates queued on ${r.pages} pages, ${r.skipped} already known, shown, rejected or not licensed, ${r.invalid} malformed, ${r.unknown.length} pages not found${r.unknown.length ? ` (${r.unknown.slice(0, 10).join(', ')})` : ''}`)
 } else if (cmd === 'mirror-photos') {
   // Commons and iNaturalist photos served from our bucket (their hosts set third-party cookies; WebP, long cache). --limit N uploads; --dry-run counts.
   const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const r = await mirrorPhotos(ROOT, { bytes, media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined, dryRun: values['dry-run'] })
   console.log(`mirror-photos: ${r.mirrored} stored, ${r.files} files updated, ${r.pending} photos waiting, ${r.failed.length} failed`)
+  for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
+} else if (cmd === 'large-photos') {
+  // Copies 1,200 on the short side of the photos that may lead the app's large cards (large-photos.ts), for the fish and breed
+  // pages --only id,id, in that order. --limit N: photos fetched this run.
+  // pnpm engine large-photos --only betta-splendens,poecilia-reticulata [--limit 200]
+  const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const commons = async (file: string) => {
+    const u = new URL('https://commons.wikimedia.org/w/api.php')
+    for (const [k, v] of Object.entries({ action: 'query', format: 'json', titles: `File:${file}`, prop: 'imageinfo', iiprop: 'url|size', iiurlwidth: '2400' })) u.searchParams.set(k, v)
+    const res = await fetch(u, { headers: { 'user-agent': UA } })
+    if (!res.ok) return undefined
+    const pages = ((await res.json()) as { query?: { pages?: Record<string, { imageinfo?: { thumburl?: string; url?: string }[] }> } }).query?.pages ?? {}
+    const ii = Object.values(pages)[0]?.imageinfo?.[0]
+    return ii?.thumburl ?? ii?.url
+  }
+  // Turned the way it shows (EXIF orientations 5-8 are quarter turns).
+  const size = async (b: Uint8Array) => { const m = await sharp(b).metadata(); return (m.orientation ?? 1) >= 5 ? { width: m.height, height: m.width } : { width: m.width, height: m.height } }
+  const ids = (values.only ?? '').split(',').map(x => x.trim()).filter(Boolean)
+  if (!ids.length) throw new Error('large-photos: --only id,id')
+  const r = await largePhotos(ROOT, ids, { bytes, commons, size, put: media().putLarge, sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined })
+  console.log(`large-photos: ${r.added} added, ${r.smaller} with no larger size, ${r.skipped} from a source without one, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
 } else if (cmd === 'fishbase-photos') {
   // Nonn Panitvong's FishBase and iNaturalist photos (used with permission) on the pages of the species they show.
@@ -395,7 +428,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const added = await ownPhotos(ROOT, resolve(process.env.INIT_CWD ?? process.cwd(), list), media())
   console.log(`own-photos: ${added.length} added\n${added.join('\n')}`)
 } else if (cmd === 'metric') {
-  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or gallons.
+  // Fish, plant, breed and guide pages in metric only (°C, cm, litres), every language: what a writer left in °F, inches or
+  // gallons, and a figure only a conversion gives rounded to what a keeper here says (round.ts).
   const changed = await metricPages(join(ROOT, 'content'), ROOT)
   console.log(`metric: ${changed.length} pages${changed.length ? `: ${changed.slice(0, 20).join(', ')}${changed.length > 20 ? ', …' : ''}` : ''}`)
 } else if (cmd === 'sweep') {
@@ -443,16 +477,31 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'fit') {
   // Is each page written for its reader (fit.ts)? The model reads the pages due in a random order, so a run stopped part
   // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
-  // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th]. FIT_MODEL: the reading model. Opus by
+  // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…: these alone,
+  // the most-read first before a rewrite]. FIT_MODEL: the reading model. Opus by
   // default: on a test sample Sonnet missed about half of what's written for elsewhere and a quarter of the source talk.
   const all = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
-  const pages = all.filter(p => (!values.kind || values.kind.split(',').includes(p.kind)) && (!values.lang || values.lang.split(',').includes(p.lang)))
+  const only = values.only ? new Set(values.only.split(',')) : undefined
+  const pages = all.filter(p => (!values.kind || values.kind.split(',').includes(p.kind)) && (!values.lang || values.lang.split(',').includes(p.lang)) && (!only || only.has(fitKey(p))))
   const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20), root: ROOT })
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state))
   await writeFitSummary(ROOT, all, state)
   console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
+} else if (cmd === 'fit-rewrite') {
+  // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written
+  // again and kept only when their reviewers pass them; the most-read fish and plants first, then breeds, then guides.
+  // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order, tried before or not] [--kind species,guides]
+  const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
+  const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
+  const popular = popularityOrder(await popularFirst(ROOT))
+  const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
+  const only = values.only?.split(',')
+  const order = only ? only.flatMap(k => pages.filter(p => fitKey(p) === k)) : [...pages].sort((a, b) => rank(a) - rank(b))
+  const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only })
+  for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+  console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'gate') {
   // Last in each cycle (gate.ts): the pages whose text the cycle changed are read against the checklist; a new page that
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
@@ -463,6 +512,30 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const a of ['hold', 'release', 'revert', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
   console.log(`gate: ${r.pass.length} passed, ${r.hold.length} held, ${r.release.length} let out, ${r.revert.length} put back, ${r.unread.length} not read; ${r.reads} reads${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'curate') {
+  // The editorial calendar (curation.ts, content/curation.json): fill Hôm nay's next days and replace any pick that stopped
+  // passing (reader fit, a checked photo big enough for its card). --check only lists what's wrong and exits 1 if anything is.
+  // pnpm engine curate [--days 21] [--from YYYY-MM-DD] [--check] [--gsc <Search Console pages export>]
+  const days = Number(values.days ?? 21)
+  const today = values.from ?? vnDate(new Date())
+  const cur = await readCalendar(ROOT)
+  const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
+  const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  if (values.check) {
+    const wrong = checkCalendar(cur, cands, today, days)
+    for (const x of wrong) console.log(`  ${x}`)
+    console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
+    if (wrong.length) process.exitCode = 1
+  } else {
+    const { calendar, report: r } = plan(cur, cands, today, days)
+    await writeCalendar(ROOT, calendar)
+    for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
+    for (const x of r.filled) console.log(`  filled ${x}`)
+    for (const x of r.empty) console.log(`  empty ${x}`)
+    const left = checkCalendar(calendar, cands, today, days)
+    for (const x of left) console.log(`  still wrong: ${x}`)
+    console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty; ${left.length} problems`)
+  }
 } else if (cmd === 'traits') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.
@@ -746,10 +819,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'rewrite-vi') {
   // Existing Vietnamese rewritten in the site's style, worst-read kinds first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
+  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(values.match ? { match: new RegExp(values.match, 'i') } : {}) })
-  console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of r.done) console.log(`rewritten: ${x}`)
+  const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'] })
+  if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
+  else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)
   for (const x of r.kept) console.log(`kept: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'discover-videos') {

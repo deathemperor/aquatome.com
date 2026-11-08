@@ -1,0 +1,132 @@
+{
+  "id": "devario-regina",
+  "native": {
+    "input": "4cf8b4bfba65dd8d",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In Thailand records exist from Surat Thani (Ko Samui island), Nakhon Si Thammarat, Ranong, Trang, Phuket, Ratchaburi, Kanchanaburi, and Mae Hong Son provinces while in Peninsular Malaysia it's been collected from Perak and Kedah states, including the Langkawi arhipelago in the latter, plus some islands off the western coast.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Probably restricted to western and southern Thailand and northern Peninsular Malaysia plus some small surrounding islands.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's often said to occur in northern India, Myanmar and Laos but these records appear to refer to other species.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's often said to occur in northern India, Myanmar and Laos but these records appear to refer to other species.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's often said to occur in northern India, Myanmar and Laos but these records appear to refer to other species.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Probably restricted to western and southern Thailand and northern Peninsular Malaysia plus some small surrounding islands.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Ko Samui",
+        "source": "seriouslyfish",
+        "quote": "In Thailand records exist from Surat Thani (Ko Samui island), Nakhon Si Thammarat, Ranong, Trang, Phuket, Ratchaburi, Kanchanaburi, and Mae Hong Son provinces while in Peninsular Malaysia it's been collected from Perak and Kedah states, including the Langkawi arhipelago in the latter, plus some islands off the western coast.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Langkawi",
+        "source": "seriouslyfish",
+        "quote": "In Thailand records exist from Surat Thani (Ko Samui island), Nakhon Si Thammarat, Ranong, Trang, Phuket, Ratchaburi, Kanchanaburi, and Mae Hong Son provinces while in Peninsular Malaysia it's been collected from Perak and Kedah states, including the Langkawi arhipelago in the latter, plus some islands off the western coast.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario regina",
+    "status": "ACCEPTED",
+    "taxonKey": 2361572,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

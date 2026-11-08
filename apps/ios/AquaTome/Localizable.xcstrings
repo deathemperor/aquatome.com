@@ -2267,6 +2267,28 @@
         }
       }
     },
+    "Bỏ ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus foto"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buang gambar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอารูปออก"
+          }
+        }
+      }
+    },
     "CO2": {
       "localizations": {
         "id": {
@@ -14653,6 +14675,28 @@
         }
       }
     },
+    "Đã mở rộng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diluaskan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikembangkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขยายแล้ว"
+          }
+        }
+      }
+    },
     "Đã nhận ảnh, cảm ơn bạn! Ảnh sẽ hiện ở đây sau khi được duyệt, thường trong vòng một ngày.": {
       "localizations": {
         "id": {
@@ -14693,6 +14737,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลบโคมไฟออกจากเครื่องนี้แล้ว"
+          }
+        }
+      }
+    },
+    "Đã thu gọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diciutkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikuncupkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยุบแล้ว"
           }
         }
       }
@@ -16827,6 +16893,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพจะผ่านการตรวจสอบก่อนแสดง รูปที่มีคน ไม่ตรงสายพันธุ์ หรือไม่เหมาะสมจะถูกตัดออก ตำแหน่ง GPS และข้อมูลกล้องในรูปจะถูกลบก่อนส่ง"
+          }
+        }
+      }
+    },
+    "Ảnh đại diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto profil"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar profil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปโปรไฟล์"
           }
         }
       }

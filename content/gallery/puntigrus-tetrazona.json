@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/177678755",
       "caption": "Cá tứ vân trong bể có đá và cây giả màu hồng",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/177678755-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/505901851.webp",
@@ -23,7 +28,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/505901851",
       "caption": "Đàn cá tứ vân bơi giữa cây thủy sinh trong bể",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/505901851-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/2f41fe23061b89e3.webp",
@@ -43,7 +53,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "Faucon",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona001.JPG",
-      "caption": "Cá tứ vân màu vàng bơi trước lá thủy sinh xanh"
+      "caption": "Cá tứ vân màu vàng bơi trước lá thủy sinh xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/bd3cb84d6747be00-large.webp",
+        "width": 1921,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b.webp",
@@ -53,7 +68,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona_(aka).jpg",
-      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng"
+      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-large.webp",
+        "width": 1978,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/6cb220bf81038534.webp",
@@ -63,7 +83,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Editor General of Wiki",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiger_barb_fish.jpg",
-      "caption": "Đàn cá tứ vân trong bể thủy sinh cây xanh"
+      "caption": "Đàn cá tứ vân trong bể thủy sinh cây xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6cb220bf81038534-large.webp",
+        "width": 2133,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/514212391.webp",

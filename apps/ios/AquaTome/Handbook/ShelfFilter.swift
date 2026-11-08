@@ -210,4 +210,4 @@ private struct NumberField: View {
   private func parse(_ s: String) -> Double? { FishFilter.number(s, within: range) }
 }
 
-private func number(_ x: Double) -> String { x.formatted(.number.grouping(.never)) }
+private func number(_ x: Double) -> String { x.formatted(.number.locale(.app).grouping(.never)) }

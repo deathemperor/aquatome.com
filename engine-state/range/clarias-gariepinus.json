@@ -1,10 +1,75 @@
 {
   "id": "clarias-gariepinus",
   "native": {
-    "input": "51af6a176bf7d3ed",
-    "at": "2026-11-07T06:20:08.160Z",
-    "claims": [],
-    "regions": [],
+    "input": "51762156c6f084af",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "introduced",
+        "source": "scotcat",
+        "quote": "Africa: nearly Pan-African, as well as Asia Minor; introduced into Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "JO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Jordan, Israel, Lebanon, Syria and southern Turkey.",
+        "words": "Jordan",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Jordan, Israel, Lebanon, Syria and southern Turkey.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "LB",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Jordan, Israel, Lebanon, Syria and southern Turkey.",
+        "words": "Lebanon",
+        "ok": true
+      },
+      {
+        "code": "SY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Jordan, Israel, Lebanon, Syria and southern Turkey.",
+        "words": "Syria",
+        "ok": true
+      },
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Jordan, Israel, Lebanon, Syria and southern Turkey.",
+        "words": "Turkey",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Vaal River at Smidtsdrift, above the confluence with the Riet River, Cape Province, South Africa.",
+        "words": "South Africa",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Vaal River",
+        "source": "scotcat",
+        "quote": "Type locality: Vaal River at Smidtsdrift, above the confluence with the Riet River, Cape Province, South Africa.",
+        "country": "ZA",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -346,8 +411,15 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-07T06:20:08.160Z"
+    "native": [
+      "JO",
+      "IL",
+      "LB",
+      "SY",
+      "TR",
+      "ZA"
+    ],
+    "requests": 16,
+    "at": "2026-11-08T03:17:10.020Z"
   }
 }

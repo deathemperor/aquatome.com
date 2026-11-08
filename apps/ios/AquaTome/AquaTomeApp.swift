@@ -117,6 +117,8 @@ struct AquaTomeApp: App {
       .environment(account)
       .environment(plugs)
       .environment(telemetry)
+      // Dates and numbers in the app's language, as its words are (Locale.app).
+      .environment(\.locale, .app)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
       // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
@@ -131,7 +133,6 @@ struct AquaTomeApp: App {
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
-      .task { await OwnCopy.check() }
       // After the first screen: iOS's reports, and sending every 30 s once the site (its index read fresh this launch)
       // and the reader allow it.
       .task { await telemetry.start() }
@@ -297,6 +298,27 @@ struct AquaTomeApp: App {
 private extension View {
   @ViewBuilder func tabBarNeverMinimizes() -> some View {
     if #available(iOS 26.0, *) { tabBarMinimizeBehavior(.never) } else { self }
+  }
+}
+
+extension Locale {
+  /// The app's: its words' language (`Bundle.main.preferredLocalizations`, as SiteLanguage reads it), with the phone's own
+  /// locale when that's in the same language. A phone in a language the app doesn't have (English) shows the app's words
+  /// in Vietnamese, but once the app had Malay, iOS made `Locale.current` Malay's (ms_US, 8 Nov), and dates and decimals
+  /// followed it.
+  static let app: Locale = {
+    let code = SiteLanguage.of(Bundle.main.preferredLocalizations).code
+    return Locale.current.language.languageCode?.identifier == code ? .current : Locale(identifier: code)
+  }()
+}
+
+extension LocalizedStringResource {
+  /// Looked up in the app's language (Locale.app). A resource looks its words up in its own locale, `Locale.current`, so on
+  /// a phone in a language the app doesn't have, Đèn's presets read in Malay (8 Nov).
+  var inApp: LocalizedStringResource {
+    var r = self
+    r.locale = .app
+    return r
   }
 }
 

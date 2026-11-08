@@ -237,3 +237,33 @@ test('the owner\'s number: pages wrong for the reader, scaled kind by kind from 
   expect(s.labels.kit).toBeTruthy()
   expect(fitSummary(pages, state, new Map(), '2026-11-09').sample).toEqual(s.sample)
 })
+
+/** A card in the repository's working tree: its entity and one language's text. */
+async function card(root: string, id: string, text: Record<string, unknown>, lang = 'vi') {
+  await mkdir(join(root, 'content/cards', id), { recursive: true })
+  const entity = { id, type: 'trivia', about: [], sources: [{ url: 'https://example.org/a', title: 'A', publisher: 'P', date: '2026-11-01', accessed: '2026-11-08' }], show: { from: '2026-11-10', until: '2026-12-01' }, updatedAt: '2026-11-08' }
+  await writeFile(join(root, 'content/cards', id, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
+  await writeFile(join(root, 'content/cards', id, `${lang}.json`), `${JSON.stringify({ eyebrow: 'Có thể bạn chưa biết', title: 'Cá betta thở bằng mê lộ', ...text }, null, 2)}\n`)
+}
+
+test("a card is read and held like a page; the report and the owner's number leave it out", async () => {
+  const root = await repo()
+  await card(root, 'card-bad', { body: '<p>Mua ở Petco.</p>' })
+  await card(root, 'card-good', { body: '<p>Cá betta lên mặt nước đớp khí.</p>' })
+  expect(changedFiles(root)).toEqual(expect.arrayContaining(['content/cards/card-bad/vi.json', 'content/cards/card-good/vi.json']))
+  const r = await gate(root, { llm: reader(), now })
+  expect((await readJson(root, 'content/cards/card-bad/vi.json')).held).toEqual({ checks: ['shop'], at: '2026-11-09' })
+  expect((await readJson(root, 'content/cards/card-good/vi.json')).held).toBeUndefined()
+  expect(r.report.hold).toEqual(['/vi/cards/card-bad/ (shop)'])
+  expect(r.pages.some(p => p.kind === 'cards')).toBe(false)
+  expect(fitSummary(r.pages, r.state, r.held, '2026-11-09').langs.vi?.held).toBe(0)
+})
+
+test('a held card that passes now is let out: the gate sees held cards, which the build leaves out', async () => {
+  const root = await repo()
+  await card(root, 'card-held', { body: '<p>Cá betta lên mặt nước đớp khí.</p>', held: { checks: ['shop'], at: '2026-11-08' } })
+  git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'a held card')
+  const r = await gate(root, { llm: reader(), now })
+  expect((await readJson(root, 'content/cards/card-held/vi.json')).held).toBeUndefined()
+  expect(r.report.release).toEqual(['/vi/cards/card-held/'])
+})
