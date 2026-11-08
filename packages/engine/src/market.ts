@@ -149,7 +149,7 @@ const PEROXIDE_FILE = 'sources/aquariumbreeder/blue-green-algae-cyanobacteria-pr
 export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
   {
     id: 'salt', name: 'muối hột',
-    lead: { text: 'Có shop trong nước bán muối hột cho hồ cá, túi 1 kg. Các liều dưới đây dùng muối hồ cá thông thường hoặc muối mỏ NaCl. Đừng dùng muối ăn, muối biển hay muối Epsom.', figures: ['1 kg'],
+    lead: { text: 'Có shop trong nước bán muối hột dành cho bể cá, túi 1 kg. Các liều dưới đây dùng muối hột dành cho bể cá hoặc muối mỏ NaCl. Đừng dùng muối ăn, muối biển hay muối Epsom.', figures: ['1 kg'],
       refs: [{ url: 'https://thucanchoca.com/san-pham/muoi-hot-cho-ho-ca', title: 'Muối hột cho hồ cá, túi 1 kg (Thức Ăn Cho Cá, xem ngày 07/11/2026)' }] },
     uses: [
       { problem: 'ich', guide: SALT_GUIDE, quotes: [{ file: SALT_FILE, text: 'Use a concentration of 1 Tbsp of salt per 2 gallons of water' }, { file: SALT_FILE, text: 'you can use this recipe to treat ich (a common ailment also known as white spot disease) for a period of 10 days' }],
@@ -168,7 +168,7 @@ export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
     how: { guide: SALT_GUIDE, quotes: [{ file: SALT_FILE, text: 'aquarium salt does not evaporate or get filtered out' }],
       text: '1 muỗng canh vào khoảng 15 ml. Bạn đo muối cho cẩn thận vì rất dễ quá liều. Muối không bay hơi và lọc cũng không lọc nó ra được, nên bạn chỉ châm thêm muối khi thay nước, và chỉ châm đúng phần tương ứng với lượng nước thay.',
       words: ['1 muỗng canh vào khoảng 15 ml'] },
-    risks: 'Muối không dùng được với phần lớn cây thủy sinh và ốc. Cá da trơn anchor rất nhạy với muối, và các loài cá da trơn, cá chạch có thể nhạy cảm hơn với sự thay đổi độ mặn. Quá liều thì muối giết sạch mọi thứ trong bể.',
+    risks: 'Muối không dùng được với phần lớn cây thủy sinh và ốc. Có loài cá da trơn rất nhạy với muối, còn cá da trơn nói chung và cá chạch có thể chịu kém hơn cá khác khi độ mặn thay đổi. Quá liều thì muối giết sạch mọi thứ trong bể.',
     carried: /\d muỗng (?:canh|cà phê) muối cho/i,
     more: SALT_GUIDE,
     refs: [

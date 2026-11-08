@@ -78,6 +78,11 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'thành phần thực vật', instead: '"có rau", "có tảo"' }, // species 38 | 0 | 0
     { say: 'nuôi thương mại', instead: '"cá nuôi", "cá trại"' }, // species 15 | 0 | 0
     { say: 'nhắm tới', instead: '"để…", "dành cho…"' }, // guides 22 | 3 | 0: seven times the forum's
+    // The editors' ninth round (2026-11-08), voice A, checked here: names keepers don't write, and a hedge the source lacks.
+    { say: 'cá ram', instead: '"cá phượng hoàng" (Mikrogeophagus ramirezi)' }, // guides 57 | 0 | 0; phượng hoàng 23 in the forum
+    { say: 'quả sủi', instead: '"cục sủi"' }, // guides 24, video guides 98 | 2.6 | 3.7; cục sủi 18 in the forum
+    { say: 'nền trồng cây', instead: '"phân nền"' }, // guides 16 | 0 | 0; phân nền 24 in the forum, 255 in the videos
+    { say: 'được cho là', instead: 'đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói"' }, // species 147, guides 30 | 3.3 | 0
     // The editors' second round (2026-11-07), each checked here: textbook words where a keeper says what happens.
     { say: 'trưởng thành sinh dục', instead: '"đủ lớn để đẻ", "bắt cặp được"' }, // 33 | 0 | 0
     { say: 'cá nhân giống', instead: '"cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân")' }, // 29 | 0 | 0

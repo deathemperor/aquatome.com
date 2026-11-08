@@ -76,6 +76,10 @@ Per million words, site | forum | videos:
 | thành phần thực vật | species 38 | 0 | 0 | có rau, có tảo |
 | nuôi thương mại | species 15 | 0 | 0 | cá nuôi, cá trại |
 | nhắm tới | guides 22 | 3 | 0 | để…, dành cho… (seven times the forum's) |
+| cá ram | guides 57 | 0 | 0 | cá phượng hoàng (23 in the forum), the ram's own page's name |
+| quả sủi | guides 24, video guides 98 | 2.6 | 3.7 | cục sủi (18 in the forum) |
+| nền trồng cây | guides 16 | 0 | 0 | phân nền (24 in the forum, 255 in the videos) |
+| được cho là | species 147, guides 30 | 3.3 | 0 | the source's own certainty: say it plainly, or có lẽ, nghe nói when the source doubts |
 
 In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
 
