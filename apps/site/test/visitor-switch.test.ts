@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../worker/index'
 import { beaconScript, NOCOUNT, VID } from '../src/lib/beacon'
@@ -23,6 +24,30 @@ test('the privacy page says what the beacon does, in each language', () => {
   }
   // The app's install code: its paragraph only once the app sends it.
   expect(page('/chinh-sach-bao-mat/').html.includes('Ứng dụng tạo một mã ngẫu nhiên khi được cài')).toBe(APP_INSTALL_ID)
+  // With the visitor code on, events can be linked, so the app's events aren't called anonymous either ("as the website does").
+  const vi = page('/chinh-sach-bao-mat/').html
+  expect(vi.includes('gửi các sự kiện ẩn danh như trang web'), 'vi').toBe(!VISITOR_STATS)
+  expect(vi.includes('sends anonymous events, as the website does'), 'en').toBe(!VISITOR_STATS)
+  for (const [path, anon] of [['/id/kebijakan-privasi/', 'mengirim peristiwa anonim seperti situs web'], ['/th/privacy/', 'ส่งเหตุการณ์แบบไม่ระบุตัวตนเช่นเดียวกับเว็บไซต์'], ['/ms/dasar-privasi/', 'menghantar peristiwa tanpa nama sama seperti laman web']] as const) {
+    let html: string
+    try { html = page(path).html } catch { continue }
+    expect(html.includes(anon), path).toBe(!VISITOR_STATS)
+  }
+})
+
+test('the line on how to stop being counted names the button as each language shows it', () => {
+  const src = readFileSync(new URL('../src/pages/chinh-sach-bao-mat/index.astro', import.meta.url), 'utf8')
+  const button = (label: string) => src.includes(`<button type="button" data-nocount aria-pressed="false">${label}</button>`)
+  // Vietnamese, and the English part of the same page, which has its own button under "Cookies and storage".
+  expect(button("{t('Không đếm tôi')}")).toBe(true)
+  expect(src).toContain('Muốn không bị đếm nữa, bấm “Không đếm tôi” ở mục 3.')
+  expect(button("Don't count me")).toBe(true)
+  expect(src).toContain('To stop being counted, press \\"Don\'t count me\\" under Cookies and storage below.')
+  for (const lang of ['id', 'th', 'ms']) {
+    const words = JSON.parse(readFileSync(new URL(`../src/i18n/${lang}.json`, import.meta.url), 'utf8')) as Record<string, string>
+    const stats = Object.entries(words).find(([k]) => k.startsWith('Để biết trang nào hữu ích và người đọc có quay lại không'))![1]
+    expect(stats, lang).toContain(`“${words['Không đếm tôi']}”`)
+  }
 })
 
 test('the Worker keeps the visitor code as the switch says', async () => {
