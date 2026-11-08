@@ -14,7 +14,7 @@ import { allow, ipOf } from '../accounts/ratelimit'
  * double4 hangs, double5 launch time (the report's median, ms), double6 launches it counted, double7 peak memory (MB),
  * double8 foreground exits that weren't normal; index the report's id. 0 where a report doesn't say.
  * Both: blob8 app ("1.0 (114)"), blob9 os, blob10 device, blob11 lang (events), blob12 country, blob13 session (events),
- * blob14 '1' for our own copies (a test build), else ''.
+ * blob14 '1' for our own copies (a test build), else ''. Events: blob16 the install code (with APP_INSTALL_ID on), else ''.
  * Counts read through _sample_interval, as the other datasets do.
  */
 export type TelemetryEnv = { APP_EVENTS?: AnalyticsEngineDataset; DB?: D1Database; ACCOUNT_HMAC_KEY?: string; UPLOADS?: R2Bucket }
