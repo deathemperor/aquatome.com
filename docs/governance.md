@@ -214,7 +214,9 @@ that would have caught it).
     owner's words quoted apart from everything recorded with them, no report's words in its log
     (`test/owner-feedback-deliver.test.ts`). In the browser (`e2e/owner-report.spec.ts`): a reader loads none of it, the
     report's journey with the send a stand-in, a failed send keeping the words. The script in every page only loads the
-    bar and may not grow (`worker/test/owner.test.ts`).
+    bar and may not grow (`worker/test/owner.test.ts`). The picture, in iPhone WebKit (`e2e/owner-capture.spec.ts`): a
+    drawing has to show what's on the screen or say it doesn't, so a large photo is in it, a soft shadow paints no block, what
+    can't be drawn is marked and counted, and the message says whether it's a drawing or the screenshot the owner picked.
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
