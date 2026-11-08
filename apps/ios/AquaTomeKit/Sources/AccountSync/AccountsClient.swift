@@ -169,9 +169,9 @@ public struct AccountsClient: Sendable {
   /// What our own copies of the app (debug and test builds, TestFlight) add to their user agent, so the site leaves
   /// their visits, clicks and wanted names out of its reader stats (apps/site/worker/bots.ts). A reader's copy never does.
   public static let ourCopy = "AquaTomeCheck/1"
-  /// Whether a release build is one of our own copies, from what StoreKit's app transaction said of where it came from
-  /// (its environment's name; nil without a verified answer): anything but the App Store's own.
-  public static func isOurCopy(receipt: String?, storeKit: String?) -> Bool { storeKit.map { $0 != "Production" } ?? false }
+  /// Whether a release build is one of our own copies, by the name of its App Store receipt (`Bundle.appStoreReceiptURL`,
+  /// there before the receipt itself is): a TestFlight copy's is the sandbox's, a copy from the App Store has its own.
+  public static func isOurCopy(receipt: String?) -> Bool { receipt == "sandboxReceipt" }
   /// The app's Sign in with Apple client id (its bundle id), one of the server's APPLE_CLIENT_IDS.
   public static let appleClientId = "com.aquatome.app"
 
