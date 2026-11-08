@@ -290,6 +290,8 @@ private struct GuideCard: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
+  /// The mark's circle grows with its symbol, so the largest text doesn't clip it.
+  @ScaledMetric(relativeTo: .title3) private var mark: CGFloat = 48
 
   var body: some View {
     NavigationLink(value: item) {
@@ -301,7 +303,9 @@ private struct GuideCard: View {
               .overlay(alignment: .bottom) {
                 LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 40)
               }
-            cover.padding(20).frame(maxWidth: .infinity, alignment: .leading).background(colour)
+            // Its words their whole height, at any size: shared with the photo, they lost lines over an empty band.
+            cover.fixedSize(horizontal: false, vertical: true)
+              .padding(20).frame(maxWidth: .infinity, alignment: .leading).background(colour)
           }
         } else {
           // No photo: its words on a ground of its own, not the tank card's green, under a mark of what it is, as the video
@@ -309,7 +313,7 @@ private struct GuideCard: View {
           // a story both without one aren't one card twice.
           VStack(alignment: .leading, spacing: 14) {
             Image(systemName: item.kind == .plant ? "leaf.fill" : item.kind == .guide ? "book.pages.fill" : "fish.fill")
-              .font(.title3).frame(width: 48, height: 48).background(Circle().fill(.white.opacity(0.18)))
+              .font(.title3).frame(width: mark, height: mark).background(Circle().fill(.white.opacity(0.18)))
               .accessibilityHidden(true)
             cover
           }

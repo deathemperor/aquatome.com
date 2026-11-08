@@ -156,6 +156,21 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
   }
 
+  /// At the largest text, a guide's or a story's card with a photo grows to hold its words: none cut to one line over an
+  /// empty band between it and the next card ("Cách hạn…", council round 2). The cards stand the page's 28 pt apart.
+  func testAGuidesCardWithAPhotoHoldsItsWordsAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    func card(_ words: String) -> XCUIElement { app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch }
+    let guide = card("Cách hạn chế rêu hại"), story = card("Đàn neon đầu tiên"), tank = app.buttons["v2-first-tank"]
+    XCTAssertTrue(guide.waitForExistence(timeout: 10) && story.exists && tank.exists, "not the editors' day")
+    for (a, b, what) in [(guide, story, "the guide"), (story, tank, "the story")] {
+      let gap = b.frame.minY - a.frame.maxY
+      XCTAssertLessThan(gap, 40, "an empty band of \(Int(gap)) pt under \(what)'s card")
+    }
+  }
+
   func testALinkFromOutsideOpensItsPageOnKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
