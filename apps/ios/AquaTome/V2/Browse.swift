@@ -15,11 +15,18 @@ struct BrowseHome: View {
   @State private var recentShown: [HandbookIndex.Item] = []
   @State private var savedShown: [HandbookIndex.Item] = []
   @State private var held = false
-  /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
-  /// title before this.
+  /// The page has gone up under the bar, its large title shrunk into it: the page's words are under the bar from here.
   @State private var titleGone = false
+  // The movement being tried (`V2Motion`): the top card showing, when the top cards were last touched, and whether they
+  // and the page are on screen, as nothing moves on its own off it.
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @State private var heroCard: String?
+  @State private var touched = Date.distantPast
+  @State private var heroShown = false
+  @State private var pageShown = false
+  /// The profile pictures' prototype, opened by `-v2-picker` to show it.
+  @State private var picking = ProcessInfo.processInfo.arguments.contains("-v2-picker")
   @State private var refreshes = 0
-  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
@@ -46,6 +53,8 @@ struct BrowseHome: View {
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
           }
+          // The groups readers know, as the App Store's chips under its title.
+          FishChips()
           if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved) }
           if !recent.isEmpty { columns("Đọc gần đây", recent) }
@@ -94,14 +103,16 @@ struct BrowseHome: View {
         .padding(.vertical, 12)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
+      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 1 } action: { _, gone in titleGone = gone }
       .modifier(ClearUnderTopBar(shown: titleGone))
       .accessibilityIdentifier("v2-browse")
+      .onAppear { pageShown = true }
+      .sheet(isPresented: $picking) { ProfilePicturePicker() }
+      .onDisappear { pageShown = false }
       .v2ClearsFootGoingBack(path.count)
-      .navigationTitle("Khám phá")
+      .v2TabTitle("Khám phá")
       // Its own, not one iOS picks from what passes under the bar, as Hôm nay's.
       .toolbarColorScheme(scheme, for: .navigationBar)
-      .profileButton()
       .v2Destinations(zoom: zoom)
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
@@ -139,19 +150,42 @@ struct BrowseHome: View {
     ScrollView(.horizontal, showsIndicators: false) {
       LazyHStack(alignment: .top, spacing: 12) {
         ForEach(items) { item in
+          let inFront = item.id == (heroCard ?? items.first?.id)
           NavigationLink(value: item) {
-            FeaturedCard(item: item, height: featuredHeight).containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 12) }
+            FeaturedCard(item: item, height: featuredHeight,
+                         drift: moving && heroShown && (motion == .still || (motion == .hero && inFront)),
+                         parallax: motion == .scroll)
+              .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 12) }
           }
           .buttonStyle(CardPress())
           .matchedTransitionSource(id: item.path, in: zoom)
+          .v2SlideIn(motion == .scroll)
         }
       }
       .scrollTargetLayout()
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
+    .scrollPosition(id: $heroCard, anchor: .center)
+    .onScrollPhaseChange { _, phase in if phase != .idle { touched = .now } }
+    .onScrollVisibilityChange(threshold: 0.5) { heroShown = $0 }
+    // The top cards turn by themselves every 6 seconds, unless touched in the last 8, or off screen.
+    .task(id: motion == .hero && moving && heroShown) {
+      guard motion == .hero, moving, heroShown, items.count > 1 else { return }
+      while !Task.isCancelled {
+        try? await Task.sleep(for: .seconds(6))
+        guard !Task.isCancelled, Date.now.timeIntervalSince(touched) > 8 else { continue }
+        let i = items.firstIndex { $0.id == heroCard } ?? 0
+        withAnimation(.smooth(duration: 0.9)) { heroCard = items[(i + 1) % items.count].id }
+      }
+    }
     .v2ShelfEdge()
   }
+
+  /// The movement being tried, none with Reduce Motion.
+  private var motion: V2Motion { reduceMotion ? .none : V2Motion.chosen }
+  /// Movement on its own may run: the tab in front and the page on screen, not in Low Power Mode.
+  private var moving: Bool { front && pageShown && !LowPower.shared.on }
 
   /// The fish groups as photo tiles, two rows that page sideways; at the accessibility sizes, the first five down the
   /// screen, then the whole list.
@@ -191,9 +225,10 @@ struct BrowseHome: View {
   private func groupTiles(_ groups: [HandbookShelves.Shelf]) -> some View {
     ScrollView(.horizontal, showsIndicators: false) {
       LazyHGrid(rows: [GridItem(.fixed(tileHeight), spacing: 10), GridItem(.fixed(tileHeight))], spacing: 10) {
-        ForEach(groups) { g in
+        ForEach(Array(groups.enumerated()), id: \.element.id) { i, g in
           NavigationLink(value: Browse.fish(g.key)) {
-            GroupTile(group: g, height: tileHeight)
+            GroupTile(group: g, height: tileHeight, drift: moving && motion == .still, delay: Double(i % 4) * 2.2,
+                      parallax: motion == .scroll)
               .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 2, spacing: 10) }
               .clipShape(.rect(cornerRadius: 14, style: .continuous))
           }
@@ -205,11 +240,16 @@ struct BrowseHome: View {
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
     .v2ShelfEdge()
+    .v2RiseIn(motion == .scroll)
   }
 
   /// Pages as lockups in columns of three that page sideways, each with its button, the next column peeking; at the
   /// accessibility sizes, a list down the screen: the first five with a whole list to go to, else them all.
   private func columns(_ title: LocalizedStringKey, _ items: [HandbookIndex.Item], more: Browse? = nil) -> some View {
+    columnsBody(title, items, more: more).v2RiseIn(motion == .scroll)
+  }
+
+  private func columnsBody(_ title: LocalizedStringKey, _ items: [HandbookIndex.Item], more: Browse?) -> some View {
     VStack(alignment: .leading, spacing: 12) {
       ShelfHeader(title: title, more: size.isAccessibilitySize ? nil : more)
       if size.isAccessibilitySize {
@@ -402,16 +442,24 @@ struct BrowseHome: View {
 private struct GroupTile: View {
   let group: HandbookShelves.Shelf
   let height: CGFloat
+  var drift = false
+  var delay = 0.0
+  var parallax = false
   @State private var colour: Color
 
-  init(group: HandbookShelves.Shelf, height: CGFloat) {
+  init(group: HandbookShelves.Shelf, height: CGFloat, drift: Bool = false, delay: Double = 0, parallax: Bool = false) {
     self.group = group
     self.height = height
+    self.drift = drift
+    self.delay = delay
+    self.parallax = parallax
     _colour = State(initialValue: PhotoColour.cached(group.img) ?? PhotoColour.fallback)
   }
 
   var body: some View {
     V2Photo(src: group.img, ground: colour) { colour = $0 }
+      .v2Drift(drift && group.img != nil, delay: delay)
+      .v2Parallax(parallax && group.img != nil)
       // No photo: the kind's mark on the colour, as a row's, not an empty block.
       .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
       // No fade with no photo to fade: it dimmed the mark under a name on two lines.
@@ -432,12 +480,16 @@ private struct GroupTile: View {
 private struct FeaturedCard: View {
   let item: HandbookIndex.Item
   let height: CGFloat
+  var drift = false
+  var parallax = false
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
 
-  init(item: HandbookIndex.Item, height: CGFloat) {
+  init(item: HandbookIndex.Item, height: CGFloat, drift: Bool = false, parallax: Bool = false) {
     self.item = item
     self.height = height
+    self.drift = drift
+    self.parallax = parallax
     _colour = State(initialValue: PhotoColour.cached(item.img) ?? PhotoColour.fallback)
   }
 
@@ -451,6 +503,8 @@ private struct FeaturedCard: View {
         }
       } else {
         V2Photo(src: item.img, ground: colour) { colour = $0 }
+          .v2Drift(drift && item.img != nil)
+          .v2Parallax(parallax && item.img != nil)
           .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 44) { words })
       }
     }

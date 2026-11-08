@@ -1035,6 +1035,28 @@
         }
       }
     },
+    "Betta và cá sặc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cupang dan gurami"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan laga dan sepat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลากัดและปลากระดี่"
+          }
+        }
+      }
+    },
     "Biểu tượng ứng dụng": {
       "localizations": {
         "id": {
@@ -2263,6 +2285,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลิกบันทึก"
+          }
+        }
+      }
+    },
+    "Bỏ ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus foto"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buang gambar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอารูปออก"
           }
         }
       }
@@ -3543,6 +3587,50 @@
         }
       }
     },
+    "Cichlid châu Mỹ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cichlid Amerika"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cichlid Amerika"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาหมอสีอเมริกา"
+          }
+        }
+      }
+    },
+    "Cichlid châu Phi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cichlid Afrika"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cichlid Afrika"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาหมอสีแอฟริกา"
+          }
+        }
+      }
+    },
     "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn.": {
       "localizations": {
         "id": {
@@ -3763,6 +3851,28 @@
         }
       }
     },
+    "Cá chuột": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan corydoras"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan corydoras"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาแพะ"
+          }
+        }
+      }
+    },
     "Cá hề xanh ngọc": {
       "localizations": {
         "id": {
@@ -3869,6 +3979,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาแว่นขยาย"
+          }
+        }
+      }
+    },
+    "Cá lau kính": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan sapu-sapu"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan bandaraya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาซักเกอร์"
           }
         }
       }
@@ -16871,6 +17003,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพจะผ่านการตรวจสอบก่อนแสดง รูปที่มีคน ไม่ตรงสายพันธุ์ หรือไม่เหมาะสมจะถูกตัดออก ตำแหน่ง GPS และข้อมูลกล้องในรูปจะถูกลบก่อนส่ง"
+          }
+        }
+      }
+    },
+    "Ảnh đại diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto profil"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambar profil"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปโปรไฟล์"
           }
         }
       }

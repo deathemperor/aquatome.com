@@ -135,8 +135,6 @@ private extension View {
 
 enum V2Fade {
   static let height: CGFloat = 24
-  /// iOS stops growing a large title short of the largest text, so how far it takes to go up stops too.
-  static let largeTitleAtMost: CGFloat = 72
 }
 
 extension View {
@@ -247,6 +245,7 @@ private struct Destinations: ViewModifier {
       }
       .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item)).v2ClearOfTheFade() }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade() }
+      .navigationDestination(for: FishChip.self) { FishChipShelf(chip: $0).v2ClearOfTheFade() }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade() }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade() }
       .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url).v2ClearOfTheFade() }

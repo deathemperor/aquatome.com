@@ -12,10 +12,9 @@ struct TodayView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(\.colorScheme) private var scheme
   @Namespace private var zoom
-  /// The large title has gone up into the bar, as on Khám phá.
+  /// The page has gone up under the bar, its large title shrunk into it, as on Khám phá.
   @State private var titleGone = false
   @State private var refreshes = 0
-  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = Date.now
   /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
@@ -51,13 +50,12 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
+      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 1 } action: { _, gone in titleGone = gone }
       .modifier(ClearUnderTopBar(shown: titleGone))
-      .navigationTitle("Hôm nay")
+      .v2TabTitle("Hôm nay")
       // Its own, not one iOS picks from what passes under the bar: a dark card there turned the bar's words and the clock
       // white on the white band. As a fish's page pins its own.
       .toolbarColorScheme(scheme, for: .navigationBar)
-      .profileButton()
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2ClearsFootGoingBack(path.count)
       .v2Destinations(zoom: zoom)
