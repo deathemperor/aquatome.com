@@ -16,14 +16,14 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3, 4 | 18 | 13 | 2 | 3 | yes |
-| OpenAI (`gpt-5.6-sol`) | 3, 4 | 13 | 10 | 0 | 3 | yes: none dropped |
-| Google (`gemini-4-argon`) | 3, 4 | 24 | 17 | 4 | 3 | yes, but check every name it offers |
-| xAI (`grok-4.7`) | 3, 4 | 19 | 14 | 3 | 2 | yes, but check every name it offers |
+| Anthropic (`claude-opus-5-5`) | 3–10 | 106 | 75 | 14 | 17 | yes, but check every name it offers |
+| OpenAI (`gpt-5.6-sol`) | 3–8 | 41 | 31 | 4 | 6 | yes |
+| Google (`gemini-4-argon`) | 3–8 | 72 | 58 | 9 | 5 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3–10 | 82 | 56 | 11 | 15 | yes, but check every name it offers |
 
-Every seat's findings held four times in five or better over two rounds. Where Google and xAI went wrong, it was mostly
-a name: a fish or a term they offered that no hobbyist writes. A name a seat offers is checked in the references
-before it goes anywhere.
+Of the findings the check settled, every seat's held three times in four or better over six rounds (eight for
+Anthropic and xAI). Where Anthropic, Google and xAI went wrong, it was mostly a name: a fish or a term they offered that
+no hobbyist writes. A name a seat offers is checked in the references before it goes anywhere.
 
 Round 3 (2026-11-07), what was dropped:
 - Google: "cho thuốc" → "đánh thuốc" (the forum writes "cho thuốc" 33 times a million words, more than the site);
@@ -33,5 +33,89 @@ Round 3 (2026-11-07), what was dropped:
 
 Round 4 (2026-11-07), what was dropped:
 - Anthropic: "cá bình tích" for molly (the forum says "molly" three times as often); "có tiếng là" for "nổi tiếng là"
-  (rarer in the references than what it replaces).
+  (rarer in the references than what it replaces); "cá bạch vân" for the white cloud, first counted as held (the
+  owner locked "cá kim tơ", and the references' "bạch vân" is a street and a disease).
 - Google: "rễ gió" for the roots on a stem (in neither reference).
+- xAI: "cá bạch vân" for the white cloud, as Anthropic, first counted as held.
+
+Round 5 (2026-11-07), what was dropped:
+- Anthropic: "cây đứng" for a plant that stops growing (in neither reference); "giữ con" and "hồ sơ" (the forum writes them
+  as often as the site).
+- Google: "trùn huyết" or "sâu đỏ" for "trùng huyết" (the forum writes all three about as often); "cá hồng đào" for the
+  cherry barb (1.3 in the forum, 0 in the videos).
+- xAI: "yếm khí" (78 in the shop blogs), "bị ảnh hưởng", "tác dụng phụ", "vì vậy nên" (the references write them as
+  often as the site, or more).
+
+Round 6 (2026-11-08), the facts-first writer. Three guides and the angelfish paragraph. What was dropped:
+- Anthropic: "X thì Y" as a tic (guides 13–23% of sentences; forum 19%, videos 29%).
+- OpenAI: "Buce" for "Bucep" (every "buce" in the references is "bucep").
+- Google: "hên xui" in a warning about gill burns (the finding held, the offered words didn't).
+- xAI: "việc đầu tiên" as an English frame (9 in the references).
+
+Held by the references: "gỡ tay" (0; "gỡ bằng tay" 4), "viên phân nền" (0; "phân nhét" 19), "cá ram" (0; "phượng hoàng"
+37), "ngâm phòng" (0; "ngâm thuốc" 102), "máy tạo dòng" (0; "thổi luồng" 14). "Vẫn ăn thuốc": both uses in the forum mean
+feeding a fish a drug. "Bị bỏng do pH" stays open.
+
+The packets left out the market table, which is the writer's second source. OpenAI and xAI, which didn't look for it, marked
+the oxy già dose and the salt table as invented, and their faithful scores of 3–4 rest on that; those findings are dropped
+from the guides, not from the seats' record, since the fault was the packet's. A writer's packet carries its table from
+round 7.
+
+Round 7 (2026-11-08), the same three guides written again, the packets now with their market table. What was dropped:
+- Anthropic: "X thì Y" again, on the same counts as round 6.
+- Google: "Vẫn nên có." as a robotic fragment (Anthropic and xAI both quote it as the human part of the guide).
+
+Open: "Để thuốc nằm yên", "thuốc không ngấm vào được" (xAI); "nước an toàn" (OpenAI); a table's sentence on melting plants (Anthropic).
+
+Round 8 (2026-11-08), the mending writer. Scores, lowest of four: blue-green algae 8, 7.5, 9, 7; quarantine 7, 6.5, 8, 7;
+shopping list 8, 7, 8, 7 (Anthropic, OpenAI, Google, xAI). What was dropped:
+- Anthropic: "tép đỏ" for "tép cherry" (15 in the references, against 0); "X thì Y" again.
+- OpenAI: "rất sợ" (16 in the references); "cục sủi" for "đầu sủi" (33 against 6); "miếng mút" (Anthropic and xAI quote
+  that sentence as the human part).
+- Google: rounding the salt doses' 7,6 and 11,4 lít, which a dose may not be.
+
+Held by the references: "gom cặn" (0), "ổ cắm nối" (0), "trị phòng" (3, against "phòng bệnh" 64). Open: "xáo mặt nước"
+(xAI), "mùi rất riêng" (OpenAI), the bracketed "(Vallisneria)".
+
+Round 9 (2026-11-08), voice A, the owner's pick: a keeper talking to another, warm and direct, and readable in every
+region. The same three guides written again. OpenAI and Google sat out: the owner's Cursor plan reached its monthly
+limit (it resets on 16 Nov). The packets again lacked the market table; both seats found it (xAI in the writer's note,
+Anthropic in `market.ts`), so no finding rests on that. Scores, lowest of four: blue-green algae 7.5, 8; quarantine 7, 6;
+shopping list 7.5, 7 (Anthropic, xAI).
+
+The region: both seats keep "chả" out (Northern in speech; in the South it first means food), and Anthropic makes
+"không" the plain "not": the three guides wrote "chẳng" 1,700 to 2,800 times a million words, the forum 539. Held as
+one region's (a seat that judges Vietnamese well, and the neutral word as common in the references or more): "xổ giun"
+(1.3 in the forum; "tẩy giun" 2.6), "ăn hiếp" (4.6; "bắt nạt" 9.9), "thấy liền" (1.3; "thấy ngay" 5.3), "thả qua", and
+"hồ cá" on a page that says "bể". Kept: "sình bụng" (130 in the forum; "chướng bụng" 2), "muối hột", "muỗng canh".
+
+Held by the references: "cá ram" (0; the ram's own page says "cá phượng hoàng"), "quả sủi" (2.6; "cục sủi" 18),
+"nền trồng cây" (0; "phân nền" 24), "rải ra" (0; "chia ra" 22), "được cho là" (3.3, against the species pages' 147).
+Both seats: "yêu cầu khác", "và/hoặc", "đúng phần ứng với". What was dropped:
+- xAI: "hơn nữa" (99 in the forum); "người cho đẻ" (0, against "trại cá" 128).
+- Anthropic: "có dịp" (93 in the forum); "bị ảnh hưởng", as in round 6; "khuôn" (10 in the forum, as on the site).
+
+Open: "biết quang hợp", "bùn mốc", "hai vòi", "gầy nhom" (xAI); "trị diện rộng", "dáng lùn", "dứt" (Anthropic).
+"Đa dạng" is five times the forum's rate on the site (Anthropic): for the next pass over the list.
+
+Not the writer's doing: the facts step dropped "Maracyn Two", the wrong medicine the source warns about and the one
+sold here, and hardened "a lot of times" into "a fungal infection means an open wound" (Anthropic). The quarantine
+source tells readers to treat new fish that look healthy (xAI); the writer's rule on a hard-to-find product's schedule
+leaves that out, and the chief decides it.
+
+Round 10 (2026-11-08), the same three guides after round 9's fixes, the packets now with the facts and the market
+table. OpenAI and Google still out on the Cursor limit. Scores, lowest of four: blue-green algae 8, 8; quarantine 7.5,
+8; shopping list 7, 8 (Anthropic, xAI). Round 9's regional words were gone from all three; "coi bảng" (xAI) was the one
+left, and the style guide now says "coi" for "xem" is one region's while "coi như" isn't.
+
+Both seats: "người ta mô tả … là" (1.3 in the forum against the species pages' 34; "nghe nói" 138), "xao động" (0.7),
+"ngửi lại", "trị rộng" (as round 9's "trị diện rộng"), "chỗ bắt đầu" (0; "tham khảo" 192), "rất dễ chết với nó",
+"chấp nhận rủi ro" (0). Held by the references, one seat: "bể trồng cây", "đèn trồng cây" (0.7; "bể thủy sinh" 28, 841
+in the videos), "dựng bể" (0; "set bể"), "sửa gốc" (0; "tận gốc" 4), "vì vậy đừng" (0), all Anthropic. Dropped:
+"nhắc lại" (Anthropic; 18 in the forum). Open: "thay nước dày", "ăn đèn", "không nói được", "thừa dịp", "hàng" for a
+table's row, "phân nước tổng hợp" (Anthropic); "bông than" (xAI). "Gầy rộc": xAI offered it in round 9 as the neutral
+word, Anthropic calls it Northern now, and neither reference has it: open.
+
+Both seats found the summary and a section's first line firmer than the facts ("thường do", "cá nào cũng chịu", "dễ
+nhận nhất", "thì nó mới không quay lại"). Anthropic found the salt table's "không dùng muối biển" next to "muối hột",
+which a Vietnamese reader takes for sea salt; the source means marine-tank salt.

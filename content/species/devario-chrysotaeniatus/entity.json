@@ -14,6 +14,96 @@
     "thailand",
     "chiang-mai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Nam Youan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from waters close to Manzhuo and Jinghong, Xishuangbanna Dai autonomous prefecture, Yunnan Province, southwestern China, and subsequently recorded from the Nam Youan River basin in Louang Namtha province, northern Laos.",
+          "countries": [
+            "CN",
+            "LA"
+          ],
+          "regions": [
+            "Nam Youan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Nam Youan drains into Yunnan, and all known localities for this species fall within the upper Mekong watershed with populations also having been discovered in Chiang Mai province, northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361506,
+      "total": 16,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          9
+        ],
+        [
+          "LA",
+          6
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          21.09375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

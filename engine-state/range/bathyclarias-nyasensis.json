@@ -1,0 +1,46 @@
+{
+  "id": "bathyclarias-nyasensis",
+  "native": {
+    "input": "3a9e83a72bed5126",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "planetcatfish",
+        "quote": "Africa: Endemic to Lake Malawi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bathyclarias nyasensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342479,
+    "datasets": [
+      [
+        "9c2cc134-5b4c-497a-8445-c45610722317",
+        1119
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "id": "dormitator-lebretonis",
+  "native": {
+    "input": "0b47b3202213ff42",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "GM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Gambia",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Cote d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Namibia",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+        "words": "Angola",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dormitator lebretonis",
+    "status": "ACCEPTED",
+    "taxonKey": 2386413,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        51
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        3
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        3
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "SN",
+      "GM",
+      "GN",
+      "CI",
+      "GH",
+      "BJ",
+      "NG",
+      "NA",
+      "AO"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

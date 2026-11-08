@@ -760,6 +760,8 @@ The layers above still check the result.
     in a design lab (2026-11-07): that word in the tank-cycling guide, a translation's typo, and the least killifish's
     list of traits run together ("Sống bầy đàn: cóMức độ hoạt động…"), the only section in the content stored with no
     tags.
+    Words the language's hobbyists rarely write are counted (`phrases.ts`: per phrase, never held, since only a model can
+    mend one in its sentence; how the list is found: docs/review/phrases.md).
   - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
     `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
     becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its
@@ -911,6 +913,11 @@ The layers above still check the result.
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
     its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
     (`gate.test.ts`).
+  - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
+    dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
+    the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
+    gate sees it again each run. The job that writes cards runs `pnpm engine gate` before it commits one. Cards don't
+    count in the owner's number.
   - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
     product works like that nobody is able to check."
 

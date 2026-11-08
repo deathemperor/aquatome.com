@@ -1,9 +1,13 @@
-import { controlOf, LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang, type Translation, type WrittenLang } from '@aq/schema'
+import { readdir, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import { CardTextSchema, controlOf, LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang, type Translation, type WrittenLang } from '@aq/schema'
 import { LANG } from '@aq/schema/langs'
 
 /** The kinds of page that carry written text (places and taxa pages are lists). */
 export const PAGE_KINDS = ['species', 'plants', 'guides', 'breeds', 'glossary', 'products', 'equipment'] as const
-export type PageKind = (typeof PAGE_KINDS)[number]
+type SitePageKind = (typeof PAGE_KINDS)[number]
+/** A site page's kind, or the app's short cards (`loadCards`), which have no page on the site and are read like one. */
+export type PageKind = SitePageKind | 'cards'
 export type CardValue = { field: DataCardField; source: string; value: number | { min: number; max: number } }
 
 /** One published page as a reader gets it: its title, its text in reading order, its photo captions and data card. */
@@ -52,10 +56,10 @@ const SECTION: Record<Lang, Record<'ca' | 'cay' | 'huong-dan' | 'thuat-ngu' | 's
   th: { ca: 'fish', cay: 'plants', 'huong-dan': 'guides', 'thuat-ngu': 'glossary', 'san-pham': 'products', 'thiet-bi': 'equipment' },
   ms: { ca: 'ikan', cay: 'tumbuhan', 'huong-dan': 'panduan', 'thuat-ngu': 'istilah', 'san-pham': 'produk', 'thiet-bi': 'peralatan' },
 }
-const SECTION_OF: Record<PageKind, keyof (typeof SECTION)['vi']> = {
+const SECTION_OF: Record<SitePageKind, keyof (typeof SECTION)['vi']> = {
   species: 'ca', breeds: 'ca', plants: 'cay', guides: 'huong-dan', glossary: 'thuat-ngu', products: 'san-pham', equipment: 'thiet-bi',
 }
-export const pagePath = (lang: Lang, kind: PageKind, slug: string) => `${lang === 'vi' ? '/vi' : LANG[lang].prefix}/${SECTION[lang][SECTION_OF[kind]]}/${slug}/`
+export const pagePath = (lang: Lang, kind: SitePageKind, slug: string) => `${lang === 'vi' ? '/vi' : LANG[lang].prefix}/${SECTION[lang][SECTION_OF[kind]]}/${slug}/`
 /** A page's address on the site: Vietnamese pages are at the root ("/vi/ca/x/" → https://aquatome.com/ca/x/). */
 export const pageUrl = (p: Pick<Page, 'path'>) => `https://aquatome.com${p.path.replace(/^\/vi\//, '/')}`
 
@@ -89,7 +93,7 @@ export const reviewLines = (t: Pick<Translation, 'reviews' | 'tested'>) => [
 
 /** Every published page in a language, from the content a public build reads (loadAll), in a stable order. */
 export function pagesOf(lang: Lang, c: Content): Page[] {
-  const base = (kind: PageKind, id: string, slug: string, title: string) => ({ lang, kind, id, title, path: pagePath(lang, kind, slug) })
+  const base = (kind: SitePageKind, id: string, slug: string, title: string) => ({ lang, kind, id, title, path: pagePath(lang, kind, slug) })
   const card = (dc: Content['species'][number]['dataCard']): CardValue[] =>
     Object.entries(dc).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: v.source, value: v.value })))
   return [
@@ -139,5 +143,28 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
 export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
   const out: Page[] = []
   for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))
+  return out
+}
+
+/**
+ * The app's short cards (content/cards/<id>/<lang>.json, @aq/schema cards.ts) as pages the checker and the gate read:
+ * the title, the body and the eyebrow. Held ones too, which `loadAll` leaves out, so the gate can let one out once it
+ * passes. No page on the site: `path` (`/vi/cards/<id>/`) only names a card in a report.
+ */
+export async function loadCards(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
+  const out: Page[] = []
+  const dir = join(contentRoot, 'cards')
+  for (const id of (await readdir(dir).catch(() => [] as string[])).sort()) {
+    if ((await readFile(join(dir, id, 'entity.json'), 'utf8').catch(() => null)) === null) continue
+    for (const lang of langs) {
+      const raw = await readFile(join(dir, id, `${lang}.json`), 'utf8').catch(() => null)
+      if (raw === null) continue
+      const t = CardTextSchema.parse(JSON.parse(raw))
+      out.push({
+        lang, kind: 'cards', id, title: t.title, path: `${lang === 'vi' ? '/vi' : LANG[lang].prefix}/cards/${id}/`,
+        fields: [{ field: 'body', html: t.body }], lines: [{ field: 'eyebrow', text: t.eyebrow }], captions: [], latinNames: [], card: [],
+      })
+    }
+  }
   return out
 }

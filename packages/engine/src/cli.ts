@@ -24,13 +24,17 @@ import { loadPages } from './pages'
 import { FIT_KINDS, fitReport, runFit } from './fit'
 import { gate, writeFitSummary } from './gate'
 import { candidates, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
+import { largePhotos } from './large-photos'
 import { mirrorPhotos } from './mirror-photos'
+import sharp from 'sharp'
+import { seedGalleries } from './gallery-seed'
 import { fishbasePhotos, inatPhotos } from './fishbase-photos'
 import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
@@ -123,7 +127,7 @@ const readersWanted = (() => {
   }
 })()
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, phrases: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -362,11 +366,38 @@ if (cmd === 'run' || cmd === 'card-fill') {
   } finally {
     await fetcher.close()
   }
+} else if (cmd === 'gallery-seed') {
+  // Candidates found by hand ({ <page id>: Candidate[] }, gallery.ts keys), at the front of each page's gallery queue,
+  // for the gallery step to screen next (gallery-seed.ts). pnpm engine gallery-seed --from <file>
+  if (!values.from) throw new Error('gallery-seed: --from <file>')
+  const r = await seedGalleries(ROOT, JSON.parse(await readFile(values.from, 'utf8')))
+  console.log(`gallery-seed: ${r.added} candidates queued on ${r.pages} pages, ${r.skipped} already known, shown, rejected or not licensed, ${r.invalid} malformed, ${r.unknown.length} pages not found${r.unknown.length ? ` (${r.unknown.slice(0, 10).join(', ')})` : ''}`)
 } else if (cmd === 'mirror-photos') {
   // Commons and iNaturalist photos served from our bucket (their hosts set third-party cookies; WebP, long cache). --limit N uploads; --dry-run counts.
   const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const r = await mirrorPhotos(ROOT, { bytes, media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined, dryRun: values['dry-run'] })
   console.log(`mirror-photos: ${r.mirrored} stored, ${r.files} files updated, ${r.pending} photos waiting, ${r.failed.length} failed`)
+  for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
+} else if (cmd === 'large-photos') {
+  // Copies 1,200 on the short side of the photos that may lead the app's large cards (large-photos.ts), for the fish and breed
+  // pages --only id,id, in that order. --limit N: photos fetched this run.
+  // pnpm engine large-photos --only betta-splendens,poecilia-reticulata [--limit 200]
+  const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const commons = async (file: string) => {
+    const u = new URL('https://commons.wikimedia.org/w/api.php')
+    for (const [k, v] of Object.entries({ action: 'query', format: 'json', titles: `File:${file}`, prop: 'imageinfo', iiprop: 'url|size', iiurlwidth: '2400' })) u.searchParams.set(k, v)
+    const res = await fetch(u, { headers: { 'user-agent': UA } })
+    if (!res.ok) return undefined
+    const pages = ((await res.json()) as { query?: { pages?: Record<string, { imageinfo?: { thumburl?: string; url?: string }[] }> } }).query?.pages ?? {}
+    const ii = Object.values(pages)[0]?.imageinfo?.[0]
+    return ii?.thumburl ?? ii?.url
+  }
+  // Turned the way it shows (EXIF orientations 5-8 are quarter turns).
+  const size = async (b: Uint8Array) => { const m = await sharp(b).metadata(); return (m.orientation ?? 1) >= 5 ? { width: m.height, height: m.width } : { width: m.width, height: m.height } }
+  const ids = (values.only ?? '').split(',').map(x => x.trim()).filter(Boolean)
+  if (!ids.length) throw new Error('large-photos: --only id,id')
+  const r = await largePhotos(ROOT, ids, { bytes, commons, size, put: media().putLarge, sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined })
+  console.log(`large-photos: ${r.added} added, ${r.smaller} with no larger size, ${r.skipped} from a source without one, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
 } else if (cmd === 'fishbase-photos') {
   // Nonn Panitvong's FishBase and iNaturalist photos (used with permission) on the pages of the species they show.
@@ -771,10 +802,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'rewrite-vi') {
   // Existing Vietnamese rewritten in the site's style, worst-read kinds first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
+  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(values.match ? { match: new RegExp(values.match, 'i') } : {}) })
-  console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of r.done) console.log(`rewritten: ${x}`)
+  const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'] })
+  if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
+  else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)
   for (const x of r.kept) console.log(`kept: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'discover-videos') {

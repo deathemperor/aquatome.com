@@ -1,14 +1,22 @@
 {
   "id": "corydoras-pygmaeus",
   "native": {
-    "input": "2d8e662e88681b13",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "0aea2185535a7a6d",
+    "at": "2026-11-08T03:17:10.020Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "bwaquatics",
         "quote": "Corydoras pygmaeus is native to the slow-moving tributaries and floodplain systems of the Madeira River basin in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Pygmy corydoras were originally discovered in the river basins of Brazil.",
         "words": "Brazil",
         "ok": true
       }

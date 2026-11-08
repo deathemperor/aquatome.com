@@ -23,7 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/347574010",
       "caption": "Cá bắn cung nhìn từ trên xuống, sọc đen rõ",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/347574010-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/436160001.webp",
@@ -35,7 +40,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/436160001",
       "caption": "Cá bắn cung bơi trong nước xanh lam, vây đuôi vàng",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/436160001-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/376731436.webp",
@@ -71,7 +81,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/436160058",
       "caption": "Cá bắn cung bơi trong nước xanh, nhìn nghiêng rõ nét",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/436160058-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/376731428.webp",

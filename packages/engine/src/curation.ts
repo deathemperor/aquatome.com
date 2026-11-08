@@ -67,7 +67,17 @@ export type Candidate = {
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
 const COLDWATER_OF = ['carassius-auratus', 'cyprinus-rubrofuscus', 'cyprinus-carpio']
 
-type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number> }
+export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number> }
+/** The photo checks' verdicts (engine-state), as cardWorthy reads them. */
+export const readVerdicts = async (root: string): Promise<Verdicts> => {
+  const state = join(root, 'engine-state')
+  return {
+    subjects: await json(join(state, '_photo-subjects.json'), {}),
+    legacy: await json(join(state, '_photo-check.json'), {}),
+    rejected: await json(join(state, '_photo-rejected.json'), {}),
+    faces: await json(join(state, '_photo-faces.json'), {}),
+  }
+}
 
 /** Whether a photo may lead a card for this page: judged the right subject and typical, with no person or logo. */
 export function cardWorthy(url: string, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
@@ -80,13 +90,17 @@ export function cardWorthy(url: string, page: string, v: Verdicts, avoid: Record
   return !!verdict && verdict.ok === 'yes' && verdict.typical && !verdict.person && !verdict.logo
 }
 
-/** A page's checked photos: the best for each card shape, and every one with its size across each. */
+/**
+ * A page's checked photos: the best for each card shape, and every one with its size across each. A photo with a large
+ * copy (large-photos.ts) leads by that copy, the address the app loads; its page copy stays one a calendar may name.
+ */
 export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Candidate, 'photo' | 'checked'> {
   const photo: Candidate['photo'] = {}
   const checked: Candidate['checked'] = {}
   for (const p of photos.filter(ok)) {
-    checked[p.url] = { square: across(p, 'square'), wide: across(p, 'wide') }
-    for (const slot of ['square', 'wide'] as const) if (!photo[slot] || across(p, slot) > photo[slot].px) photo[slot] = { url: p.url, px: across(p, slot) }
+    for (const x of p.large ? [p, p.large] : [p]) checked[x.url] = { square: across(x, 'square'), wide: across(x, 'wide') }
+    const big = p.large ?? p
+    for (const slot of ['square', 'wide'] as const) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
   }
   return { photo, checked }
 }
@@ -120,12 +134,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   const content = join(root, 'content')
   const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true })
   const state = join(root, 'engine-state')
-  const v: Verdicts = {
-    subjects: await json(join(state, '_photo-subjects.json'), {}),
-    legacy: await json(join(state, '_photo-check.json'), {}),
-    rejected: await json(join(state, '_photo-rejected.json'), {}),
-    faces: await json(join(state, '_photo-faces.json'), {}),
-  }
+  const v = await readVerdicts(root)
   const fitState = await json<FitState>(join(state, '_fit.json'), {})
   const pages = new Map((await loadPages(content, ['vi'])).map(p => [`${p.kind}/${p.id}`, p]))
   const avoid = o.avoid ?? {}

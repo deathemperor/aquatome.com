@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/52464852",
       "caption": "Hai cá rô đồng trong bể thủy sinh có đá",
       "best": true,
-      "kind": "pair"
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/52464852-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/455287801.webp",
@@ -71,7 +76,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/52464343",
       "caption": "Cá rô đồng trưởng thành bơi trong bể nền sỏi",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/52464343-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/617710654.webp",
@@ -95,7 +105,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/101895423",
       "caption": "Cá rô đồng trưởng thành nằm trên nền đất ngoài tự nhiên",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/101895423-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/617719816.webp",

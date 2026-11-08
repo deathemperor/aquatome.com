@@ -13,6 +13,221 @@
     "orinoco",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Rio Orinoco",
+        "Rio Negro",
+        "Rio Inírida",
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The lyretail checkerboard cichlid, Dicrossus filamentosus, is a cichlid from the Rio Orinoco in Colombia and Venezuela and the Brazilian Rio Negro.",
+          "countries": [
+            "CO",
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Rio Orinoco",
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Ranges through Colombia and Venezuela, from the Rio Inírida to Maripa and in the Rio Orinoco.",
+          "countries": [],
+          "regions": [
+            "Rio Inírida"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It is found in Brazil (Rio Negro drainage) as well as in Colombia and Venezuela (Orinoco drainage).",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208251,
+      "total": 148,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          88
+        ],
+        [
+          "BR",
+          44
+        ],
+        [
+          "CO",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          28,
+          28
+        ],
+        [
+          -67.5,
+          2.8125,
+          47,
+          47
+        ],
+        [
+          -67.5,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          15,
+          15
+        ],
+        [
+          -66.09375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          12,
+          12
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

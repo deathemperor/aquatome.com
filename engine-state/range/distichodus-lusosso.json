@@ -1,0 +1,148 @@
+{
+  "id": "distichodus-lusosso",
+  "native": {
+    "input": "6abc3954f02f0e4e",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
+        "words": "Central African Republic",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Distichodus lusosso",
+    "status": "ACCEPTED",
+    "taxonKey": 2355923,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        131
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        22
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        10
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "CG",
+      "CD",
+      "AO",
+      "CF"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

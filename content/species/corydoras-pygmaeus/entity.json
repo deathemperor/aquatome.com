@@ -20,7 +20,8 @@
         "Madeira River"
       ],
       "sources": [
-        "bwaquatics"
+        "bwaquatics",
+        "aquariumcoop"
       ],
       "quotes": [
         {
@@ -406,7 +407,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Birger A",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pygmaeus5333.jpg",
-      "caption": "Corydoras pygmaeus"
+      "caption": "Corydoras pygmaeus",
+      "large": {
+        "url": "https://media.aquatome.com/commons/48cf2672196a8c25-large.webp",
+        "width": 978,
+        "height": 601
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9.webp",
@@ -416,7 +422,12 @@
       "licence": "CC0",
       "author": "Softepaul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PXL_20260810_003453528~2.jpg",
-      "caption": "Pygmy Corydoras resting on coarse sand"
+      "caption": "Pygmy Corydoras resting on coarse sand",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8e8ec8a041a9b6b9-large.webp",
+        "width": 1839,
+        "height": 978
+      }
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/5bbe859bbaa1c404.webp",

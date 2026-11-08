@@ -940,6 +940,31 @@
     ],
     "ruled": "f7c6775aa42867dd"
   },
+  "vi/guides/aquariumbreeder-most-popular-questions-about-crayfish": {
+    "at": "2026-11-08",
+    "hash": "3c73e3d78a838e2b",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 9. Tôm hùm đất nuôi bể lớn được tới cỡ nào?",
+        "problem": "The numbered questions jump from 7 to 9. Question 8 (whether crayfish feel pain when boiled) is missing, so the numbering is broken.",
+        "rule": "Numbered headings whose numbers are not consecutive.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tôm hùm đất, tôm hùm và tôm hùm squat",
+        "problem": "'Squat lobster' is left half in English, which reads unnaturally.",
+        "fix": "tôm hùm đất, tôm hùm và tôm hùm ngồi xổm (squat lobster)",
+        "field": "body"
+      }
+    ],
+    "ruled": "3c73e3d78a838e2b"
+  },
   "vi/guides/aquariumbreeder-optimize-your-biofilter-a-guide-to-ideal-biological-filtration": {
     "at": "2026-11-07",
     "hash": "05f35ba5cc76203f",
@@ -1062,6 +1087,12 @@
       }
     ],
     "ruled": "1db5169b1042095f"
+  },
+  "vi/guides/aquariumbreeder-protein-skimmer-for-a-nano-reef-aquarium": {
+    "at": "2026-11-08",
+    "hash": "56cd2ab3cf234b8c",
+    "findings": [],
+    "ruled": "56cd2ab3cf234b8c"
   },
   "vi/guides/aquariumbreeder-questions-about-crabs": {
     "at": "2026-11-07",
@@ -1676,6 +1707,18 @@
       }
     ],
     "ruled": "eb6d13662c03bef9"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-red-plants": {
+    "at": "2026-11-08",
+    "hash": "4fd3d71013793814",
+    "findings": [],
+    "ruled": "4fd3d71013793814"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-simple-tricks-to-improve-aquarium-filters": {
+    "at": "2026-11-08",
+    "hash": "bbed7075e7f02d51",
+    "findings": [],
+    "ruled": "bbed7075e7f02d51"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
     "at": "2026-11-05",
@@ -2583,6 +2626,12 @@
     "findings": [],
     "ruled": "8cf57a13e1147a8c"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-easy-20-gallon-fish-breeding-ideas": {
+    "at": "2026-11-08",
+    "hash": "60d6737f3f5c7763",
+    "findings": [],
+    "ruled": "60d6737f3f5c7763"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants": {
     "at": "2026-11-01",
     "hash": "68f6a900f943199f",
@@ -2669,6 +2718,22 @@
       }
     ],
     "ruled": "128e03e00354c197"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-food-types": {
+    "at": "2026-11-08",
+    "hash": "af868a7a4b689ff8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cũng như một người ngày nào cũng chỉ ăn hamburger.",
+        "problem": "The comparison is a sentence fragment with no main clause, split off from the sentence that completes it.",
+        "fix": "Cũng như một người ngày nào cũng chỉ ăn hamburger thì không ốm ngay, nhưng lâu dài có thể sinh bệnh.",
+        "field": "body"
+      }
+    ],
+    "ruled": "af868a7a4b689ff8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-fish-for-profit": {
     "at": "2026-11-03",
@@ -2949,6 +3014,12 @@
     "hash": "39742946ffab9e95",
     "findings": [],
     "ruled": "39742946ffab9e95"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-balance-aquarium-lighting": {
+    "at": "2026-11-08",
+    "hash": "b587c63077b4ede8",
+    "findings": [],
+    "ruled": "b587c63077b4ede8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-care-for-aquarium-fish-while-on-vacation": {
     "at": "2026-11-02",
@@ -3317,6 +3388,12 @@
     "findings": [],
     "ruled": "b25a84a7250aebe5"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-money-saving-tips-for-aquariums": {
+    "at": "2026-11-08",
+    "hash": "ccb70ef55f009e0b",
+    "findings": [],
+    "ruled": "ccb70ef55f009e0b"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-mulm": {
     "at": "2026-11-06",
     "hash": "ff0c484585a80efa",
@@ -3510,6 +3587,12 @@
     "hash": "15cc566a47fef903",
     "findings": [],
     "ruled": "15cc566a47fef903"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-power-outage": {
+    "at": "2026-11-08",
+    "hash": "f2815a578e543455",
+    "findings": [],
+    "ruled": "f2815a578e543455"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-pre-filter-sponge": {
     "at": "2026-11-06",
@@ -3860,6 +3943,22 @@
     "findings": [],
     "ruled": "d88b624e30b9c5ef"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-colorful-fish": {
+    "at": "2026-11-08",
+    "hash": "f9bad597408f011c",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Colorful Fish to Brighten Up Your Next Freshwater Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name, so the photo is likely a title banner rather than a photo of a fish on the page.",
+        "rule": "A caption that contains the source site's name or matches the article title pattern 'Top N ... - Site'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "f9bad597408f011c"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-easy-beginner-fish": {
     "at": "2026-11-02",
     "hash": "e386b8d2762f1d80",
@@ -3891,6 +3990,22 @@
       }
     ],
     "ruled": "49db4e51a6d4befe"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-fish-for-planted-tanks": {
+    "at": "2026-11-08",
+    "hash": "e744490dd094177a",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Fish That Are Perfect for Planted Aquariums - Aquarium Co-Op",
+        "problem": "This caption is the article's title and does not describe what is in the photo.",
+        "rule": "A caption that matches the source article's title or contains a site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "e744490dd094177a"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-rainbowfish": {
     "at": "2026-11-07",
@@ -5865,6 +5980,37 @@
     ],
     "ruled": "f089ab1ed3b3aac8"
   },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-double-sword-guppys-en": {
+    "at": "2026-11-08",
+    "hash": "08440cc11bdbbaad",
+    "findings": [],
+    "ruled": "08440cc11bdbbaad"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en": {
+    "at": "2026-11-08",
+    "hash": "082ffeb6b33401b8",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mọi loài Limia đều rất hiền và hợp với bể cộng đồng.",
+        "problem": "This care and breeding advice covers all Limia species, but it sits under the Poecilia nigrofasciata heading, so a reader would take it as advice for that one species.",
+        "fix": "## Cách nuôi chung cho các loài Limia",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Số cá này là cá nhân giống tại Đức.",
+        "problem": "This sentence comes from the dealer's stock note. On a handbook page, 'số cá này' (these fish) points to no particular fish.",
+        "fix": "Cá trên thị trường hiện nay thường là cá nhân giống tại Đức.",
+        "field": "body"
+      }
+    ],
+    "ruled": "082ffeb6b33401b8"
+  },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-endler-sports-en": {
     "at": "2026-11-07",
     "hash": "59d0c5368cc11e7e",
@@ -5880,6 +6026,12 @@
       }
     ],
     "ruled": "59d0c5368cc11e7e"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-nothos-en": {
+    "at": "2026-11-08",
+    "hash": "bebc7b73bc412139",
+    "findings": [],
+    "ruled": "bebc7b73bc412139"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en": {
     "at": "2026-11-07",
@@ -10489,6 +10641,12 @@
     ],
     "ruled": "0a1d572197935d2c"
   },
+  "vi/guides/youtube-an_VB8nHpk4": {
+    "at": "2026-11-08",
+    "hash": "ce75c0e7434f5fbf",
+    "findings": [],
+    "ruled": "ce75c0e7434f5fbf"
+  },
   "vi/guides/youtube-AnakIetIR0U": {
     "at": "2026-11-02",
     "hash": "4717c782dad068f3",
@@ -10565,6 +10723,12 @@
       }
     ],
     "ruled": "e39f0222b70a4a7f"
+  },
+  "vi/guides/youtube-c2RrfFVcJew": {
+    "at": "2026-11-08",
+    "hash": "865d572ab94564a4",
+    "findings": [],
+    "ruled": "865d572ab94564a4"
   },
   "vi/guides/youtube-C4W86NMP3CU": {
     "at": "2026-11-05",
@@ -10771,6 +10935,22 @@
     ],
     "ruled": "999ccb9f216c85c0"
   },
+  "vi/guides/youtube-CSLWc2X7VFE": {
+    "at": "2026-11-08",
+    "hash": "9cad6049bd0cabd1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể được tấm này làm nổi bật hơn hẳn.",
+        "problem": "This passive sentence uses 'được' and is built like an English sentence, so it reads as machine translation.",
+        "fix": "Tấm này làm bể nổi bật hơn hẳn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9cad6049bd0cabd1"
+  },
   "vi/guides/youtube-CteRIdT1Ous": {
     "at": "2026-11-05",
     "hash": "6803a0bd77ac3435",
@@ -10792,6 +10972,12 @@
       }
     ],
     "ruled": "b6d78afe00497a7a"
+  },
+  "vi/guides/youtube-CzyeWSYmJaQ": {
+    "at": "2026-11-08",
+    "hash": "8378cbcb39e245c5",
+    "findings": [],
+    "ruled": "8378cbcb39e245c5"
   },
   "vi/guides/youtube-D8ZPJeMEXiY": {
     "at": "2026-11-04",
@@ -11333,6 +11519,12 @@
     "findings": [],
     "ruled": "1ad03b0b0e8a7d18"
   },
+  "vi/guides/youtube-fxi-Vt9xrDM": {
+    "at": "2026-11-08",
+    "hash": "57caea994c9cae49",
+    "findings": [],
+    "ruled": "57caea994c9cae49"
+  },
   "vi/guides/youtube-g6kNBCl1hl0": {
     "at": "2026-11-04",
     "hash": "925887ad637c04db",
@@ -11477,6 +11669,12 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-hFE1mUn-MY8": {
+    "at": "2026-11-08",
+    "hash": "b6c9d162ae3794b2",
+    "findings": [],
+    "ruled": "b6c9d162ae3794b2"
   },
   "vi/guides/youtube-hL920TrlANg": {
     "at": "2026-11-07",

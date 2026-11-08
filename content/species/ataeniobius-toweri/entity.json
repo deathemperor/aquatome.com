@@ -10,6 +10,62 @@
     "mexico",
     "rio-verde"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Rio Verde"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is a true livebearer of the family Goodeidae, native to Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Its native range is the state of San Luis Potosí, within the Rio Verde drainage.",
+          "countries": [],
+          "regions": [
+            "Rio Verde"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347741,
+      "total": 54,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MX",
+          54
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          21.09375,
+          52,
+          52
+        ],
+        [
+          -99.84375,
+          21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

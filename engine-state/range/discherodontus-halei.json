@@ -1,0 +1,79 @@
+{
+  "id": "discherodontus-halei",
+  "native": {
+    "input": "f2f0e656e295e1b4",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pahang River, Kuala Tembeling, eastern slope of Sangka Dua Pass, Malaysia, elevation about 610 metres'.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to have a disjunct range with records from Pahang state in central Peninsular Malaysia, plus the Mae Klong and Chao Phraya river systems in Thailand, but it has not been recorded in Peninsular Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Appears to have a disjunct range with records from Pahang state in central Peninsular Malaysia, plus the Mae Klong and Chao Phraya river systems in Thailand, but it has not been recorded in Peninsular Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Appears to have a disjunct range with records from Pahang state in central Peninsular Malaysia, plus the Mae Klong and Chao Phraya river systems in Thailand, but it has not been recorded in Peninsular Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Pahang River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pahang River, Kuala Tembeling, eastern slope of Sangka Dua Pass, Malaysia, elevation about 610 metres'.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Discherodontus halei",
+    "status": "ACCEPTED",
+    "taxonKey": 2364553,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}
