@@ -3,8 +3,8 @@
 // 30 seconds (install-owner-feedback-schedule.sh). An empty queue is one request and no agent. A report that can't go stays
 // on the site for the next run, so a sleeping or busy Mac loses nothing; one delivered is deleted there.
 //
-// The log says which report and what went wrong, never what it says.
-import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises'
+// The log says which report and what went wrong, never what it says. Failing for 15 minutes, it tells the thread once.
+import { appendFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -13,6 +13,8 @@ import { sendToThread } from './infinitus-send.mjs'
 const SITE = 'https://aquatome.com'
 const CONFIG = join(homedir(), '.config/aquatome')
 const LEDGER = join(homedir(), '.local/share/aquatome/owner-feedback/delivered')
+/** A fault going on: since when, its last run, how many runs, its last error, and whether the thread has heard. */
+const FAULT = join(homedir(), '.local/share/aquatome/owner-feedback/fault.json')
 /** Enough to outlast any retry of a delete. */
 const KEEP = 500
 
@@ -110,9 +112,72 @@ function fileLedger(path = LEDGER) {
   }
 }
 
+/** Failing this long, and over this many runs, the thread hears of it, once. */
+export const ALERT_AFTER_MS = 15 * 60_000
+const ALERT_RUNS = 3
+/** Longer than a failed run and its message can take (three minutes each at most): a gap like this was sleep, and a fault
+ * goes on only from the run after it. */
+const ASLEEP_MS = 10 * 60_000
+
+/** An error's first line, the t3 CLI's arguments left out: the log has the rest. */
+const firstLine = e =>
+  String(e?.message ?? e).split('\n')[0].replace(/^(Command failed: \S+ auth \S+ \S+).*/, '$1').replace(homedir(), '~').slice(0, 200) +
+  (e?.killed ? ' (ran out of time)' : '')
+
+/** The fault's one message: our own words, and an error from this Mac's own steps in code quotes. */
+export function faultMessage({ since, runs, last }, now) {
+  return [
+    `Delivery fault, owner's reports: the job on the Mac has failed for ${Math.round((now - since) / 60_000)} minutes, ${runs} runs in a row.`,
+    `Last error: ${inCode(last)}`,
+    'Reports wait in the site\'s queue and go once it works again, so none are lost. Log: `~/Library/Logs/aquatome-owner-feedback.log`. One message per fault: the next comes only after a run has worked.',
+  ].join('\n')
+}
+
+/**
+ * One run, keeping count of a fault: once it has gone on ALERT_AFTER_MS, `alert` tells the thread, once. If that fails too
+ * (the fault may be the road into the thread itself), the next run tries again. A run that works ends the fault.
+ */
+export async function watchedRun({ run, alert, fault, now = Date.now(), log = console.error }) {
+  const was = await fault.read()
+  try {
+    const r = await run()
+    if (was) await fault.write(null)
+    return r
+  } catch (e) {
+    const going = was && now - was.at < ASLEEP_MS
+    const f = { since: going ? was.since : now, at: now, runs: going ? was.runs + 1 : 1, last: firstLine(e), told: going ? was.told : false }
+    if (!f.told && f.runs >= ALERT_RUNS && now - f.since >= ALERT_AFTER_MS) {
+      try {
+        await alert(faultMessage(f, now))
+        f.told = true
+        log(`${new Date(now).toISOString()} told the thread of the fault`)
+      } catch (a) {
+        log(`${new Date(now).toISOString()} the fault's message didn't go either: ${firstLine(a)}`)
+      }
+    }
+    await fault.write(f)
+    throw e
+  }
+}
+
+function fileFault(path = FAULT) {
+  return {
+    read: () => readFile(path, 'utf8').then(JSON.parse).catch(() => null),
+    write: async f => {
+      if (!f) return rm(path, { force: true })
+      await mkdir(dirname(path), { recursive: true })
+      await writeFile(path, JSON.stringify(f))
+    },
+  }
+}
+
 async function main() {
   const [token, threadId] = await Promise.all(['ab-dash-token', 'owner-report-thread'].map(async f => (await readFile(join(CONFIG, f), 'utf8')).trim()))
-  await deliverAll({ token, threadId, ...fileLedger() })
+  await watchedRun({
+    run: () => deliverAll({ token, threadId, ...fileLedger() }),
+    alert: message => sendToThread({ threadId, message }),
+    fault: fileFault(),
+  })
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
