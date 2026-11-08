@@ -119,6 +119,8 @@ struct AquaTomeApp: App {
       .environment(telemetry)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
+      // A link for the browser (About, Privacy, "Mở trong trình duyệt"…): our copies' to the site go marked (OwnCopy).
+      .environment(\.openURL, OpenURLAction { .systemAction(OwnCopy.marked($0, site: handbook.site)) })
       // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
       // Opening the app, before the index is read, it waits for it.
       .onOpenURL { url in
