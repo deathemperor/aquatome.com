@@ -807,7 +807,7 @@
           "title": {
             "type": "string",
             "minLength": 1,
-            "description": "The conversation's short title, for the list of past conversations: in its language, about six words naming the fish and the problem (\"Cá betta bỏ ăn, nằm đáy\"), never a name, place or other personal detail from the question. Written in the same call as the answer, so it costs no call or wait of its own. Only on the turn that titled the conversation: its first answered turn while it has no title, so after a question that isn't about fishkeeping (which gets none) the next one may. Missing on every other turn, on a conversation's turns from before titles, and until the Worker sets it: it comes once the editors pass a sample in each language."
+            "description": "The conversation's short title, for the list of past conversations: in its language, about six words naming the fish and the problem (\"Cá betta bỏ ăn, nằm đáy\"), never a name, place or other personal detail from the question. Written in the same call as the answer, so it costs no call or wait of its own. Only on the turn that titled the conversation: its first answered turn while it has no title, so after a question that isn't about fishkeeping (which gets none) the next one may. Missing on every other turn, on a conversation's turns from before titles, and when what Claude wrote isn't a title (empty, or over 60 characters as the reader sees them)."
           },
           "model": {
             "type": "string"
