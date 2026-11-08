@@ -3,7 +3,8 @@
 apps/ios/scripts/sim-run.py stops here and says so, and so does an Astro build, a full test suite, e2e or another xcodebuild
 build that isn't in the checks queue (lockf on ~/.cache/aquatome/checks.lock): on 2026-11-08 they ran side by side, the
 Mac went to heavy thermal pressure and a 0.4 s job took up to 54 s. It reads the command as a shell would: only what runs
-counts, not a heredoc's text, a commit message or a search for those words. What it can't read passes."""
+counts, not a heredoc's text, a commit message or a search for those words. What it can't read passes. Simulator.app
+isn't opened: simulators run headless."""
 import json
 import os
 import re
@@ -26,6 +27,8 @@ PM_VALUE = {"--filter", "-F", "-C", "--dir", "--prefix", "--workspace", "--repor
 # The root's test runs every package's; the site's test and build are Astro builds.
 HEAVY_SCRIPTS = {"build", "test", "e2e"}
 SIM = "One simulator test run at a time on this Mac: start it as apps/ios/scripts/sim-run.py xcodebuild test ..."
+HEADLESS = ("Simulators run headless on this Mac (AGENTS.md, This Mac): xcrun simctl boot, or let xcodebuild boot one; "
+            "watch one in the Device panel only while you need to, and close it.")
 QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as lockf -k ~/.cache/aquatome/checks.lock nice -n 10 "
          "<command>. One test file needs no turn: pnpm exec vitest run <file>.")
 
@@ -123,6 +126,9 @@ def bare_run(command, queued=False):
         locked = locked or queued
         if name == "xcodebuild" and runs_tests(args):
             return SIM
+        # Simulator.app's window is WindowServer's to draw, every frame, on top of the simulator's own rendering.
+        if name == "open" and any(re.fullmatch(r"(.*/)?Simulator(\.app)?/?", a) for a in args):
+            return HEADLESS
         if not locked and name and heavy(name, args):
             return QUEUE
         if name in SHELLS and "-c" in args[:-1]:
