@@ -257,6 +257,90 @@
     }
    ],
    "why": "Fish native to Vietnam by their pages, led by snakeheads, the fish readers find the site through most in search."
+  },
+  {
+   "from": "2026-11-30",
+   "to": "2026-12-06",
+   "theme": {
+    "vi": "Cá châu Phi",
+    "id": "Ikan Afrika",
+    "th": "ปลาจากแอฟริกา"
+   },
+   "tags": [],
+   "fish": [
+    "species/cyphotilapia-frontosa",
+    "species/polypterus-senegalus",
+    "species/labidochromis-caeruleus",
+    "species/synodontis-eupterus",
+    "species/pelvicachromis-pulcher",
+    "species/gnathonemus-petersii",
+    "species/maylandia-estherae",
+    "species/erpetoichthys-calabaricus",
+    "species/tropheus-duboisi",
+    "species/synodontis-petricola"
+   ],
+   "guides": [
+    "guides/youtube-ohUzvlrSQDs"
+   ],
+   "hero": [
+    {
+     "page": "species/cyphotilapia-frontosa",
+     "img": "https://media.aquatome.com/commons/bc4cff24b4e87dba-large.webp"
+    },
+    {
+     "page": "species/pelvicachromis-pulcher",
+     "img": "https://media.aquatome.com/commons/92d29fe557075047-large.webp"
+    },
+    {
+     "page": "species/labidochromis-caeruleus",
+     "img": "https://media.aquatome.com/commons/0eb6aa8510474bca-large.webp"
+    },
+    {
+     "page": "species/maylandia-estherae",
+     "img": "https://media.aquatome.com/commons/1f046c287b79d404-large.webp"
+    },
+    {
+     "page": "species/synodontis-eupterus",
+     "img": "https://media.aquatome.com/commons/246581693eccf859-large.webp"
+    }
+   ],
+   "shelves": [
+    {
+     "id": "ho-malawi-tanganyika",
+     "title": {
+      "vi": "Cá hồ Malawi và Tanganyika",
+      "id": "Ikan Danau Malawi dan Tanganyika",
+      "th": "ปลาจากทะเลสาบมาลาวีและแทนกันยิกา"
+     },
+     "pages": [
+      "species/labidochromis-caeruleus",
+      "species/maylandia-estherae",
+      "species/aulonocara-maylandi",
+      "species/cyphotilapia-frontosa",
+      "species/tropheus-duboisi",
+      "species/cyprichromis-leptosoma",
+      "species/altolamprologus-compressiceps",
+      "species/synodontis-petricola"
+     ]
+    },
+    {
+     "id": "ca-la-chau-phi",
+     "title": {
+      "vi": "Cá lạ châu Phi",
+      "id": "Ikan unik dari Afrika",
+      "th": "ปลาแปลกจากแอฟริกา"
+     },
+     "pages": [
+      "species/polypterus-senegalus",
+      "species/erpetoichthys-calabaricus",
+      "species/gnathonemus-petersii",
+      "species/ctenopoma-acutirostre",
+      "species/synodontis-eupterus",
+      "species/auchenoglanis-occidentalis"
+     ]
+    }
+   ],
+   "why": "Fish from Africa: the group with the most pages that pass reader fit and have a large photo. Cichlids from Lakes Malawi and Tanganyika, and Africa's odd fish (bichirs, ropefish, elephantnose, upside-down catfish). No Malay theme or shelves: most of these fish have no Malay page yet."
   }
  ],
  "days": [
@@ -376,7 +460,8 @@
    "date": "2026-11-20",
    "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
    "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
-   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
+   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions.",
+   "card": "cards/trivia-glass-catfish-name"
   },
   {
    "date": "2026-11-21",
