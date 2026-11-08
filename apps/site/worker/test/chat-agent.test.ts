@@ -907,12 +907,14 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
 test('a title that names a fish fish ID only guessed is left out: the row would show the guess as fact', async () => {
   const h = await hb()
   const photo = (confidence: number): Start => ({ from: 'fish-id', about: 'paracheirodon-innesi', identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'paracheirodon-innesi', confidence }] } })
-  expect(namesAGuess('Cá neon xanh nuôi mấy con?', photo(0.55), h)).toBe(true)
-  expect(namesAGuess('paracheirodon innesi nuôi mấy con?', photo(0.55), h)).toBe(true)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', 'Nuôi mấy con?', photo(0.55), h)).toBe(true)
+  expect(namesAGuess('paracheirodon innesi nuôi mấy con?', 'Nuôi mấy con?', photo(0.55), h)).toBe(true)
   // The group, or none, stays; so does the name when fish ID was almost certain, or the chat began on a species page.
-  expect(namesAGuess('Nuôi 2 con được không?', photo(0.55), h)).toBe(false)
-  expect(namesAGuess('Cá neon xanh nuôi mấy con?', photo(0.8), h)).toBe(false)
-  expect(namesAGuess('Cá neon xanh nuôi mấy con?', { from: 'species', about: 'paracheirodon-innesi' }, h)).toBe(false)
+  expect(namesAGuess('Nuôi 2 con được không?', 'Nuôi 2 con được không?', photo(0.55), h)).toBe(false)
+  // A name the reader wrote is theirs: when they ask which fish it is, that is the title.
+  expect(namesAGuess('Cá neon xanh hay neon đỏ?', 'Đây là cá neon xanh hay neon đỏ?', photo(0.55), h)).toBe(false)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', 'Nuôi mấy con?', photo(0.8), h)).toBe(false)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', 'Nuôi mấy con?', { from: 'species', about: 'paracheirodon-innesi' }, h)).toBe(false)
   const out = await answerQuestion({
     send: async () => ({ id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [{ type: 'text', text: JSON.stringify({ ...answer([], { text: 'Nuôi theo đàn từ 6 con.' }), title: 'Cá neon xanh nuôi mấy con?' }) }], stop_reason: 'end_turn', stop_sequence: null, usage: { input_tokens: 1, output_tokens: 1 } }) as unknown as Anthropic.Message,
     model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi mấy con?', earlier: [], start: photo(0.55), handbook: h, tanks: async () => [], title: true,
