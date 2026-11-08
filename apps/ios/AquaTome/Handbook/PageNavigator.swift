@@ -294,6 +294,9 @@ final class PageNavigator {
     stops = all.enumerated().filter { k, x in k == all.count - 1 || x.start < all[k + 1].start - 1 }.map(\.element)
     at = 0
     for (k, x) in stops.enumerated() where x.start <= s.contentOffset.y + 0.5 { at = k }
+    // The bubble starts on the title's part: a heading just under the bar already names the page there.
+    settleCurrent()
+    if let current, let k = stops.firstIndex(where: { $0.part == current }) { at = k }
     if let held, let k = stops.firstIndex(where: { $0.part == held }) { at = k }
     let above = at > 0 ? max(18, (y - top) / CGFloat(at)) : 0
     let below = stops.count - 1 - at > 0 ? max(18, (bottom - y) / CGFloat(stops.count - 1 - at)) : 0
@@ -607,7 +610,11 @@ struct PageRail: View {
     .padding(.bottom, 9)
     .background(.regularMaterial, in: .rect(cornerRadius: 20))
     .shadow(color: .black.opacity(0.18), radius: 14, y: 6)
-    .accessibilityHidden(true)
+    // As the tab: VoiceOver has the title's list instead; the flows read which part it names.
+    .accessibilityElement()
+    .accessibilityLabel(Text(verbatim: b.at))
+    .accessibilityIdentifier("page-rail-bubble")
+    .accessibilityHidden(voiceOver)
   }
 
   /// Above the finger, where it can be read; below it when there's no room.

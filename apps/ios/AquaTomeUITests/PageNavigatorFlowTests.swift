@@ -67,8 +67,12 @@ final class PageNavigatorFlowTests: XCTestCase {
     app.swipeDown()
     XCTAssertNotEqual(title(app).label, scrolled, "the page doesn't scroll off the tab")
     choose(app, "Như hiện tại")
-    wait(for: [expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: rail(app))], timeout: 5)
-    let name = app.staticTexts["Cá neon"].firstMatch
+    // The rail goes at once; on a busy machine the page's long accessibility tree takes a few seconds to say so.
+    wait(for: [expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: rail(app))], timeout: 15)
+    // The scientific name, under the page's title only: the fish's name is also the bar's title once the page scrolls.
+    let name = app.staticTexts["Paracheirodon innesi"].firstMatch
+    repeatUntil(name.isHittable, times: 6) { app.swipeDown() }
+    XCTAssertTrue(name.isHittable, "the page doesn't scroll back to its top once the trial is off")
     repeatUntil(!name.isHittable, times: 4) { app.swipeUp() }
     XCTAssertFalse(name.isHittable, "the page doesn't scroll once the trial is off")
   }
@@ -93,6 +97,10 @@ final class PageNavigatorFlowTests: XCTestCase {
       XCTAssertTrue(rail(app).waitForExistence(timeout: 5), "no rail")
       sleep(2)
       shot("held-\(look)")
+      // Grabbed with a heading just under the bar, the bubble names the part the title names.
+      let bubble = app.descendants(matching: .any)["page-rail-bubble"].firstMatch
+      XCTAssertTrue(bubble.waitForExistence(timeout: 5), "no bubble")
+      XCTAssertTrue(title(app).label.contains(bubble.label), "the bubble says \(bubble.label), the title \(title(app).label)")
       app.terminate()
     }
   }
