@@ -14,7 +14,7 @@ UI = 'AquaTomeUITests'
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
             'TankMatesFlowTests', 'VideoFlowTests',
-            'TelemetryFlowTests']
+            'TelemetryFlowTests', 'PageNavigatorFlowTests']
 
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
 # (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
@@ -32,7 +32,7 @@ FLOW_SECONDS = 45
 NONE, ALL = None, 'all'
 APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
-HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
+HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'PageNavigatorFlowTests', 'OfflineFlowTests',
                     'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests']
 # The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
@@ -41,7 +41,7 @@ HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTe
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
                                      'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
-PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
+PAGES = ['NativePageFlowTests', 'PageNavigatorFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests', 'TelemetryFlowTests']
 # The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
@@ -99,6 +99,7 @@ REACH = {
     # list is read there.
     APP + 'Handbook/HomeList.swift': HANDBOOK_SCREENS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'],
     APP + 'Handbook/PageView.swift': PAGES,
+    APP + 'Handbook/PageNavigator.swift': ['PageNavigatorFlowTests'],
     # Its pictures are kept for offline too (PageImages).
     APP + 'Handbook/NativePage.swift': PAGES + ['OfflineFlowTests'],
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests', 'PageShotsFlowTests'],
