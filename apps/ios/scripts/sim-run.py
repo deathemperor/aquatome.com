@@ -4,7 +4,7 @@
 Leads' runs and the runner's jobs share one queue (~/.cache/aquatome/sim.lock), separate from the checks lock, so vitest
 doesn't wait behind an hour of flows. A job's stop reaches the command, as `exec` does in ios.yml: lockf(1) wouldn't pass
 it on, which left xcodebuild running with no parent on 2026-11-04. Copies of the simulator are capped at MAX_COPIES. The
-runner's jobs on this Mac wait while it's hot before they take their turn (cool). While a run has its turn, its
+runner's jobs on this Mac wait while macOS has taken cores away from work, before they take their turn (cool). While a run has its turn, its
 simulator's photo and media analysis runs in the background (quiet).
 """
 import fcntl
@@ -18,9 +18,8 @@ import time
 
 LOCK = os.path.expanduser("~/.cache/aquatome/sim.lock")
 MAX_COPIES = 2
-# macOS's thermal pressure: 0 nominal, 1 moderate, 2 heavy, 3 trapping, 4 sleeping. At heavy it ran work on 6-8 of its 16
-# cores, and a 0.4 s job took up to 54 s (2026-11-08).
-HOT = 2
+# Under heat macOS takes cores away from work: on 2026-11-08 it ran work on 6-8 of its 16, and a 0.4 s job took up to 54 s.
+# Its heat level alone says less: it read heavy with all 16 cores at work and that job at 0.3 s.
 COOL_MINUTES = float(os.environ.get("SIM_RUN_COOL_MINUTES", 30))
 COOL_PAUSE = float(os.environ.get("SIM_RUN_COOL_PAUSE", 30))
 # A simulator's own analysis daemons, never the Mac's: their path is inside a simulator runtime's RuntimeRoot.
@@ -39,24 +38,25 @@ def capped(argv):
     return out
 
 
-def thermal():
+def cores_taken():
+    """How many of the Mac's cores macOS has taken away from work (kern.sched_recommended_cores). 0 where it can't say."""
     try:
-        out = subprocess.run(["notifyutil", "-g", "com.apple.system.thermalpressurelevel"], capture_output=True, text=True, timeout=10).stdout
-        return int(out.split()[-1])
-    except (OSError, ValueError, IndexError, subprocess.SubprocessError):
+        read = lambda name: int(subprocess.run(["sysctl", "-n", name], capture_output=True, text=True, timeout=10).stdout)
+        return max(0, read("hw.ncpu") - bin(read("kern.sched_recommended_cores")).count("1"))
+    except (OSError, ValueError, subprocess.SubprocessError):
         return 0
 
 
 def cool():
-    """This Mac's runner's jobs (main's iOS runs) wait while the Mac is hot, up to COOL_MINUTES, before they queue: the
+    """This Mac's runner's jobs (main's iOS runs) wait while cores are taken away, up to COOL_MINUTES, before they queue: the
     engine's runs do the same (cool, scripts/cycle-checks.sh). Leads' runs don't wait here, nor do jobs on GitHub's Macs,
     which run this script too and whose heat isn't this Mac's."""
     if os.environ.get("RUNNER_ENVIRONMENT") != "self-hosted":
         return
     waited = 0.0
-    while waited < COOL_MINUTES * 60 and thermal() >= HOT:
+    while waited < COOL_MINUTES * 60 and (taken := cores_taken()):
         if waited == 0:
-            print(f"sim-run: the Mac is hot: waiting up to {COOL_MINUTES:.0f} min before taking a turn", flush=True)
+            print(f"sim-run: the Mac is hot, {taken} of its cores taken away: waiting up to {COOL_MINUTES:.0f} min before taking a turn", flush=True)
         time.sleep(COOL_PAUSE)
         waited += max(COOL_PAUSE, 0.001)
     if waited:

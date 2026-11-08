@@ -72,36 +72,40 @@ sim_run.main()
   expect(existsSync(`${dir}/stopped`)).toBe(true)
 }, 30_000)
 
-// A stand-in for macOS's notifyutil: the thermal pressure levels it reads out, one a call, the last one kept.
-const hot = (levels: number[]) => {
+// A stand-in for macOS's sysctl: a 16-core Mac, and the cores it leaves to work, one reading a call, the last one kept.
+const hot = (masks: number[]) => {
   const dir = home()
-  writeFileSync(join(dir, 'levels'), levels.join('\n') + '\n')
-  writeFileSync(join(dir, 'notifyutil'), `#!/bin/sh
+  writeFileSync(join(dir, 'masks'), masks.join('\n') + '\n')
+  writeFileSync(join(dir, 'sysctl'), `#!/bin/sh
+[ "$2" = hw.ncpu ] && { echo 16; exit 0; }
 n=$(cat "${dir}/calls" 2>/dev/null || echo 0); n=$((n + 1)); echo $n > "${dir}/calls"
-level=$(sed -n "\${n}p" "${dir}/levels"); [ -n "$level" ] || level=$(tail -1 "${dir}/levels")
-echo "com.apple.system.thermalpressurelevel $level"
+mask=$(sed -n "\${n}p" "${dir}/masks"); [ -n "$mask" ] || mask=$(tail -1 "${dir}/masks")
+echo $mask
 `)
-  chmodSync(join(dir, 'notifyutil'), 0o755)
+  chmodSync(join(dir, 'sysctl'), 0o755)
   const calls = () => (existsSync(join(dir, 'calls')) ? Number(readFileSync(join(dir, 'calls'), 'utf8')) : 0)
   const run = (env: Record<string, string>) => spawnSync(SIM_RUN, ['true'], { env: { ...process.env, HOME: dir, PATH: `${dir}:${process.env.PATH}`, SIM_RUN_COOL_PAUSE: '0', ...env }, encoding: 'utf8' })
   return { run, calls }
 }
 
-// Main's iOS runs back on this Mac (2026-11-08) wait while it's hot, as the engine's runs do. Leads' runs don't wait here,
-// nor do pull requests' jobs on GitHub's Macs, which run sim-run too.
-test("this Mac's runner's simulator run waits while the Mac is hot, and a lead's or GitHub's Macs' doesn't", () => {
-  const runner = hot([2, 3, 2, 1])
+// Main's iOS runs back on this Mac (2026-11-08) wait while macOS has taken cores away, as the engine's runs do. Its heat
+// level alone said less: heavy with all 16 cores at work. Leads' runs don't wait here, nor do pull requests' jobs on
+// GitHub's Macs, which run sim-run too.
+test("this Mac's runner's simulator run waits while cores are taken away, and a lead's or GitHub's Macs' doesn't", () => {
+  const all = 0xffff
+  const runner = hot([0x41f, 0xc3f, 0x7fff, all]) // 6, 8, then 15 of 16 cores, then all
   const r = runner.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted' })
   expect(r.status).toBe(0)
   expect(runner.calls()).toBe(4)
-  expect(r.stdout).toContain('the Mac is hot')
+  expect(r.stdout).toContain('10 of its cores taken away')
+  expect(hot([all]).run({ RUNNER_ENVIRONMENT: 'self-hosted' }).stdout).not.toContain('hot')
   for (const env of [{ GITHUB_ACTIONS: '', RUNNER_ENVIRONMENT: '' }, { GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'github-hosted' }]) {
-    const other = hot([2])
+    const other = hot([0x41f])
     expect(other.run({ ...env, SIM_RUN_COOL_MINUTES: '0.0001' }).status).toBe(0) // a short wait, should it wrongly wait
     expect(other.calls()).toBe(0)
   }
-  // Still hot at the end of the wait: it goes on.
-  const stuck = hot([2])
+  // Still taken away at the end of the wait: it goes on.
+  const stuck = hot([0x41f])
   const s = stuck.run({ GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: 'self-hosted', SIM_RUN_COOL_MINUTES: '0.0001' })
   expect(s.status).toBe(0)
   expect(s.stdout).toContain('went on after')
