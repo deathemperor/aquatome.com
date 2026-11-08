@@ -1,4 +1,174 @@
 {
+  "id/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
+    {
+      "at": "2026-11-08T13:23:15Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Pemadaman singkat seperti ini umumnya aman tanpa filter\" is fine, but the table row \"Ikan mulai kurang aktif\" is OK; the \"8–24 jam\" and \">24 jam\" rows are fine. No issue there.",
+        "\"Kalau akuarium perlu dipindahkan, air bisa dibuang sampai 70%\" is in the facts, but it is placed under pond/other filter heading and has no relevance to outages; a minor misplacement.",
+        "\"Mengandalkan pompa baterai murah\" is framed as a mistake; the facts only report that cheap pumps can fail, not that relying on them is a mistake.",
+        "\"Kebanyakan ikan bisa bertahan sekitar seminggu tanpa pakan\" in the FAQ is stated as general fact, while one source says days to weeks; it is presented as consensus.",
+        "\"Jangan beri pakan ... Sisa pakan menambah nitrogen\" ties uneaten food to outage feeding, a link the facts do not make explicitly.",
+        "\"Memindahkan ikan antarakuarium atau antarkolam sebelum cara lain dicoba\" is a mild paraphrase of \"last resort\".",
+        "\"Pemadaman di bawah dua jam umumnya aman\" omits the condition that fish need aeration or circulation to get through the night; this is a slight overgeneralization.",
+        "\"Kalau memakai listrik cadangan, perhatikan watt heater\" is supported, but the UPS lines \"Jangan jalankan heater dari UPS\" in the prevention section sit alongside the genset advice without any tension noted."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:23:15Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Dosisnya ikuti label produk.\" – the facts give no dosage guidance for oxygen tablets; this is an added unsupported statement.",
+        "\"Siapkan pompa udara baterai.\" in the 8–24 hours row is acceptable, but the table row \"Lebih dari seminggu\" is merged into a timeline that the facts present separately; minor.",
+        "\"Gunakan UPS untuk filter.\" in the FAQ is an inference; the facts only say a UPS can run the filter and a heater should not be run from it.",
+        "\"Selama ada aerasi atau sirkulasi, ikan semestinya aman semalaman.\" slightly generalises: the facts apply this to short outages under two hours.",
+        "\"Memindahkan ikan antarakuarium ... terlalu cepat\" – the facts say moving fish should be a last resort, not that doing it \"too quickly\" is the problem.",
+        "\"Tutup akuarium, lalu bungkus dengan handuk, selimut, kantong tidur, koran\" is a merge of several sources; supported overall, but the 'Pantau termometer' placement is minor.",
+        "\"Kalau padamnya beberapa jam, panaskan air di kompor gas\" – the facts mention this under general outage, the guide places it under cold water; a small framing addition.",
+        "\"Akuarium besar lebih lama menahan suhunya\" and the other general points are supported; the 'Mulailah sebelum ikan megap-megap' advice is supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": [
+    {
+      "at": "2026-11-08T13:48:38Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Kematian biasanya karena sesak napas\" fine, but \"Ikan yang sakit masih sangat muda atau sudah tua, karena kelompok ini paling sering mati\" is a mild extension of the fact (high death rates), acceptable.",
+        "\"Lanjutkan pengobatan cukup lama, karena hanya tahap dinospora ... yang bisa dibunuh obat\" is a reasonable inference, but the intro says velvet looks \"kuning keemasan atau seperti karat\" – fine.",
+        "\"Sumber yang sama mencantumkan penambahan garam akuarium sebagai langkah berikutnya\" – the facts list salt as step 5 in the same source; OK. The guide says the dose is not given, which is true.",
+        "\"Redupkan atau matikan lampu. Ada perbedaan pendapat\" – supported by the facts.",
+        "\"Untuk obat yang dosisnya tidak tercantum di tabel, ikuti label produknya\" – a generic rule from the writer, not a claim from the facts (the facts do not give doses for methylene blue, formalin or acriflavine).",
+        "\"Dinospora mungkin bisa menyebar antarakuarium ... lewat percikan air\" – supported.",
+        "\"Pada kasus lanjut, ikan mati karena kekurangan oksigen akibat insang yang membusuk\" – supported by the facts (gill necrosis).",
+        "\"Ikan yang sakit masih sangat muda atau sudah tua\" is listed under 'Kapan harus khawatir', a section the facts do not give, though it is built from the facts.",
+        "\"Betta liar dan ikan blackwater\" – supported. \"Penyakit ini bisa tertukar\" – supported.",
+        "The table's \"Sumbernya tidak memberi jadwal\" for quinine and homemade copper is accurate."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:48:38Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "Minor: step 5 \"Tambahkan garam akuarium, kecuali untuk ikan yang tidak tahan garam\" gives no dose for the aquarium salt, and the exception is the writer's own addition. The facts give only the salt-bath dose and the Co-op method.",
+        "Minor: \"Penyakit ini sering dikira jamur\" is drawn from the claim about Vietnamese sources and stated a bit more broadly than the facts."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T15:20:22Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"keluarkan karbon atau resin penyerap\" – facts say remove carbon or Purigen; \"resin penyerap\" is a generalization of Purigen.",
+        "\"Rutin mencampur beberapa obat sekaligus\" – facts say routinely mixing medications should be avoided; wording is ok but the guide's \"Pilih produk yang tidak mengandung pewarna\" is fine. Minor: \"Gentian violet dioleskan langsung ke luka\" is OK (dabbed).",
+        "\"Antibiotik di akuarium karantina/pengobatan, bukan di akuarium utama\" – \"bukan di akuarium utama\" is added; facts only say antibiotics in a treatment tank.",
+        "\"Kalau ada tanda busuk mulut (columnaris)... ikan yang terinfeksi harus dipindah ke akuarium karantina\" – facts say hospital tank; fine, but the \"Kapan harus waspada\" section is largely the writer's framing (e.g., \"Busuk sudah mendekati pangkal sirip\" as an alert trigger).",
+        "\"Bakteri ini sering hidup normal di lendir kulit ikan atau di air\" – merges two sources; acceptable.",
+        "\"Ikuti dosis pada label produk yang dibeli\" for erythromycin/methylene blue – facts give no dose for these; this is the writer's rule.",
+        "\"Sirip panjang ... sulit digerakkan\" – facts say \"awkward to use\"; fine.",
+        "\"Obat baru dipakai kalau memang perlu\" in the intro – partly supported, but presented as a settled rule although sources disagree."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T15:20:22Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Bisa, selama busuknya belum sampai ke pangkal sirip\" is a mild inference; the facts only say that mild cases regrow and that tissue lost past the base cannot regrow.",
+        "\"Gunakan obat-obat ini sesuai label produknya\" is applied to malachite green, gentian violet and others. The facts give no label rule for gentian violet or a general rule for these.",
+        "\"Sumber lain menyarankan obat baru dipakai kalau ikan tidak membaik...\" is fine, but \"Pilih produk yang tidak mengandung pewarna\" is attributed correctly. No problem here.",
+        "\"Obat ini tidak merusak bakteri di media filter\" is a loose paraphrase of \"does not harm the filter bed\". It is acceptable.",
+        "\"Jauhkan ikan-ikan ini dari ikan yang rentan seperti guppy\" is supported. \"manfish (angelfish)\" is a translation addition and is minor.",
+        "\"Kalau perlu, beri obat\" and the line that salt \"umumnya bekerja lebih lambat daripada erythromycin\" are supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:02:14Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Produk ini juga bisa dicampur ke pakan sesuai label\" is fine, but \"Untuk produk lain, ikuti labelnya sendiri\" is the writer's own rule, not in the facts (minor).",
+        "\"Perlu dibedakan juga dengan busuk mulut (columnaris)... ikan yang terinfeksi sebaiknya dipindah ke akuarium pengobatan\": the facts say hospital tank; the guide frames columnaris as a differential diagnosis, which the facts do not state (minor generalization).",
+        "\"Antibiotik sebaiknya dipertimbangkan matang-matang\" is attributed generally. The facts attribute it to ANGFA, and the guide does not name the source (minor).",
+        "\"Pindahkan ikan yang suka menggigit sirip atau berkelahi\" is supported by the facts. But \"Pisahkan ikan yang sakit ke akuarium lain\" is placed in the first-aid list, while the facts say a separate tank for the sick fish (supported). No major invented claim was found."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:02:14Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Garam non-iodium\" – the facts never say non-iodized salt; invented specification.",
+        "\"Pindahkan ikan yang suka menggigit... lalu\" fine, but \"Obat baru dipakai kalau kondisi ikan tidak membaik\" in the intro is presented as the vet's view; it is actually Mytour's advice (minor attribution blur).",
+        "\"lepas karbon aktif atau resin penyerap\" – facts say remove carbon or Purigen; \"resin penyerap\" is a generalization of the product.",
+        "\"Malachite green ... Pakai sesuai label\" – the facts give no dose or label guidance for it; also no caveat given about it.",
+        "\"Bakteri ini biasanya memang hidup di air atau di lendir kulit ikan\" – merges two sources; acceptable but combined.",
+        "\"Pakan yang kurang baik dan stres\" and \"akar tanaman yang lunak\" fine; \"tetapi hanya kalau... obati ikan yang sakit di akuarium karantina\" in FAQ – the facts do not advise treating in a quarantine tank as a way to protect invertebrates (invented recommendation).",
+        "\"Sebagai patokan, ganti air tiap 3 hari ... 4 L\" is supported, but the guide's \"Pembusukan sudah mendekati pangkal sirip\" under 'when to worry' is the writer's inference.",
+        "\"Ekor tampak kemerahan dan ujung sirip keabu-abuan\" placed under Stage 2 – the facts list these as early signs, not stage 2 (stage assignment turned around).",
+        "\"Tes air... dokter hewan akuatik... hubungi dokter hewan\" fine; \"Kematian bisa terjadi dalam beberapa hari begitu bakteri masuk ke darah\" slightly reworded but OK."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "id/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T14:14:57Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Menurunkan suhu air juga tidak menghentikan columnaris\" — facts say cooler water does not halt columnaris, so it's supported; fine.",
+        "\"Obat jamur siap pakai ... jadi ikuti label produk yang Anda beli\" — writer's rule for undosed products, acceptable.",
+        "\"Pengobatan berlebihan ... penyebab yang belum dibereskan bisa membuat infeksi datang lagi\" — mostly supported; the facts only link overtreatment to recurring infection.",
+        "Intro claims \"Jamur pada ikan biasanya disebabkan Saprolegnia\" and the 'Apa itu jamur' text says \"organisme berbentuk benang yang umum ada di air tawar dan payau\" — supported, but 'biasanya' is a mild generalisation.",
+        "The guide's table says the salt/3 ppt row lists source 3 and 'Rendaman garam' source labels as numbers; the 'Sumber' column is fine.",
+        "\"Catfish ... dan ada ikan yang tidak tahan kenaikan kadar garam sekecil apa pun\" — facts say some fish will not tolerate 'even slightly raised salinity'; acceptable.",
+        "The salt dip fact (30 g/L for 0.5–10 min, remove fish in distress) is omitted; this is an omission, not an error.",
+        "\"Luka di kulit atau insang yang masih dangkal pun bisa berakibat fatal\" — supported, but repeated in 'Kapan harus khawatir' with the added \"Jangan tunggu sampai parah\", a mild unsupported advisory.",
+        "The \"Kapan harus khawatir\" section and the line \"Telur yang tidak dibuahi ... karena jamur menyebar dari telur mati ke telur sehat\" are supported.",
+        "Overall small unsupported generalities only; no invented doses found."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:14:57Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Celup garam untuk ikan air tawar (tujuannya membasmi parasit luar)\" with 30 g/L is placed in the antifungal treatment table, but the facts give this dip only for removing external parasites, not for fungus. The guide notes this, but listing it as a treatment option still implies it is an antifungal dose.",
+        "\"Bersihkan kotoran sebelum mengobati\" is not in the facts. They only say chemicals react with organic matter and lower the effective dose.",
+        "\"Perlukah karbon aktif dilepas saat mengobati? Perlu.\" Removal of carbon is an inference. The facts only say carbon absorbs the medication.",
+        "\"Kalau lukanya tidak membaik ... cek lagi apakah ada parasit atau columnaris\" is advice the facts do not give. They only say Saprolegnia often co-occurs with columnaris or parasites.",
+        "\"Apakah jamur pada ikan menular ke ikan lain?\" is answered with an inference. The facts do not discuss contagion between adult fish. They say only that spores are present everywhere and that it spreads between eggs.",
+        "\"obati jamurnya dengan garam, methylene blue (untuk telur), atau obat jamur sesuai label\" is partly the writer's rule. \"Sesuai label\" is acceptable for products with no dose in the facts.",
+        "\"Di kalangan hobiis sebutan 'jamur' sudah terlanjur umum\" is an unsupported generality."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:50:23Z",
@@ -91,6 +261,111 @@
       "kept": true
     }
   ],
+  "id/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": [
+    {
+      "at": "2026-11-08T15:04:54Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Setiap hari, terangkan ruangan secara bertahap\" – facts do not say to do this daily; added frequency.",
+        "\"Panjangnya bisa sekitar 90 cm\" in the intro is generalized to all arowanas; facts give 90 cm only for silver/black (Asian ~900 mm, wild silver 120 cm).",
+        "\"Penyakit seperti mata turun, sisik berdiri, dan tutup insang miring banyak dikaitkan dengan kualitas air, ruang yang sempit, dan cara memberi pakan\" – overgeneralised; drop eye causes are disputed and mostly not water quality.",
+        "\"Pasang tutup yang rapat\" listed in the pre-purchase planning as the setup order, and \"Pastikan akuarium sudah matang\" extended; minor. The facts only say not to add Asian arowana to an immature tank.",
+        "\"Bintik putih dan busuk insang\" is labelled as white spot, but the facts say \"ich and gill rot\" with quinine; fine, but \"Kina\" treatment presented without caveat of no dose.",
+        "\"Pencegahan: Berikan pakan di permukaan\" is framed as drop eye/disease prevention; facts only list this as feeding advice, with bottom feeding linked to drop eye by one source.",
+        "\"Waspadai... arwana yang tidak mau makan lebih dari sehari... perlu segera diperhatikan\" – 'segera' urgency is the writer's addition."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:04:54Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"takarannya ikuti label produk yang Anda beli\" for salt, copper sulfate and quinine: the facts give no dose, so this is the writer's own rule. Copper sulfate and quinine dosing by label is also a risky recommendation.",
+        "\"Lebih baik beri udang, kerang, potongan ikan, cacing tanah, atau serangga seperti jangkrik\" in the FAQ is a generic recommendation. Crickets are listed only for adult silver arowana, but the FAQ applies them to all arowanas.",
+        "\"Kutu ikan dan cacing jangkar kebanyakan datang dari pakan hidup\" is placed under the live-feeder mistake as general fact. The facts attribute it only to keeper reports, and the guide hedges this poorly.",
+        "\"Setelah itu baru nyalakan lampu akuarium\" and the FAQ \"terangkan ruangan secara bertahap sebelum menyalakan lampu\" are supported. However, \"Air harus stabil dan matang\" is added as a note on the Asian arowana table row, which is a mild extension.",
+        "\"Pastikan suhu tidak naik-turun terlalu cepat dan nitrit tetap mendekati nol\" and the daily-check list (\"posisi mata, sisik, dan tutup insang\") are the writer's own routine, not in the facts.",
+        "\"akuarium yang siklus nitrogennya belum matang\" reinterprets \"biologically immature tank\"; this is a small embellishment.",
+        "\"Tutup insang melengkung/terangkat\" attributes the cause to dirty water, cramped space and temperature swings. This is acceptable, but \"terangkat\" is not in the facts.",
+        "\"Jadi akuariumnya harus sangat besar dengan dasar yang luas\" and \"filter yang kuat dengan oksigen tinggi\" for all arowanas generalise from Asian-arowana-specific facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:36:06Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"kerang darah\" in adult silver arowana list: facts say cockles (kerang) — minor, possibly fine translation of cockles but \"kerang\" already listed separately as mussels",
+        "\"Sisik berdiri pada arwana muda\" etc. fine; but \"Pilih potongan ikan, udang, kerang, cacing tanah, atau serangga seperti jangkrik dan belalang\" in FAQ generalizes silver-arowana foods to all arowana as recommendation",
+        "\"Sumbernya tidak menyebut dosis ... jadi ikuti label produk yang Anda beli\" — writer's own rule, dosing by label for copper sulfate/quinine not supported",
+        "\"Sebelum ikan datang, siapkan akuarium yang siklus nitrogennya sudah matang\" generalizes the Asian-arowana-only fact to all arowana (intro)",
+        "\"Air untuk arwana Asia harus stabil dan matang\" — facts say keep stable and mature, ok; but intro \"filter kuat dengan oksigen tinggi\" for all arowana generalizes Asian-only oxygen fact",
+        "\"Ikan tidak makan lebih dari sehari termasuk tanda bahaya\" under 'kapan harus khawatir' is supported; \"Tutup insang ... harus dipotong lewat operasi\" okay",
+        "\"Bintik putih dan busuk insang\" row maps keeper's 'ich' to white spot — acceptable; \"Tidak ada jadwal\" fine",
+        "Ukuran 16–18\" etc. fine"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:36:06Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Intro: \"bisa mencapai sekitar 90 cm\" generalizes; Asian arowana reaches ~900 mm and wild silver 120 cm (minor).",
+        "\"Kim Long\"/\"Huyết Long\" rendered as \"arwana golden\"/\"arwana merah\" and tied to Asian arowana colour forms; facts do not link them to the listed forms (minor).",
+        "\"ganti air sesering mungkin dan sifon dasar akuarium itu wajib\": facts say frequent changes and siphoning are essential; \"sesering mungkin\" is a slight overstatement.",
+        "\"Beri pakan beragam di permukaan\" in the intro: the facts say floating food or surface feeding, but \"beragam\" is the writer's gloss.",
+        "Table cell \"Bintik putih dan busuk insang\" is labelled as ich/white spot; the facts say \"ich and gill rot\", which matches, but \"kina\" is the writer's translation of quinine (acceptable).",
+        "\"Pasang filter yang kuat dan tambahan aerasi\" and \"Siapkan akuarium dengan luas dasar yang cukup\" in the steps are the writer's ordering/synthesis, not stated as steps in the facts.",
+        "\"ikuti label produk yang Anda beli\" for salt, copper sulfate and quinine is the writer's rule (allowed), but \"Cara-cara berikut ... bukan protokol yang sudah teruji\" is an unsupported framing."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [
+    {
+      "at": "2026-11-08T14:28:14Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Rendaman jangka panjang dengan organofosfat seperti trichlorfon efektif untuk ikan hias\" is supported, but \"Pada ikan besar, cabut ... lalu pantau\" fine. No issue there.",
+        "\"Pernah ada akuarium yang dipenuhi kutu ikan padahal tidak ada ikan atau tanaman baru\": the facts say no fish or plants were added, which matches. Fine.",
+        "\"Kutu ini jarang ditemukan pada ikan hias akuarium tanaman\": the facts say 'cá cảnh thủy sinh' (aquarium fish in general), so 'akuarium tanaman' slightly narrows it.",
+        "\"Satu produk diflubenzuron ... memakai dosis sesuai labelnya\": the facts DO give a dose for Argusol (10 ml per 364 litres), but the guide leaves it out. This is an omission, not an invention.",
+        "\"Jangan memberi kalium permanganat melebihi dosis (sumber 8)\": the facts only list overdosing KMnO4 as a common mistake. The guide turns this into an instruction, which is a reasonable reading.",
+        "\"Obat dibiarkan 7 hari\" and \"Untuk dosisnya, ikuti label produk diflubenzuron\": the Dimilin 0.01 mg/L dose is in the facts but the guide tells readers to follow the label. This is the writer's rule rather than a claim.",
+        "\"Garam ikan di akuarium karantina ... Sekitar 1 sendok makan per 20 liter\": the facts say 'bể bệnh' (sick/hospital tank), so this is acceptable.",
+        "\"Kutu ikan berupa cakram pipih lonjong\" in the FAQ: 'lonjong' comes from source 2, but the answer cites source 3. This is a minor mix.",
+        "\"Tidak ada sumber yang memberi dosis trichlorfon, jadi ikuti label produknya\": this is the writer's rule, not a claim from the facts.",
+        "\"Sumber tersebut tidak menyebutkan obat biusnya\": this is a true statement about the facts, not an unsupported claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:28:14Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Tempat parasit menempel biasanya merah, meradang, atau bernanah\": facts say red, inflamed or ulcerated (loét); \"bernanah\" (pus) is not supported.",
+        "\"tambahkan vitamin C dan probiotik\": facts say vitamin C and digestive enzymes (men tiêu hóa), not probiotics.",
+        "\"Siput umumnya aman\" is supported, but \"Obat ini disebut efektif dan aman untuk ikan\" is attributed to chitin inhibitors in general. The facts say this only for Dimilin-type inhibitors against Argulus, so this is a slight generalisation.",
+        "\"Luka ... memerah, melebar, atau berjamur ... Biasanya ini berarti ada tahap yang masih hidup di lingkungan, jadi pengobatan perlu dilanjutkan sampai seluruh siklusnya putus\": this 'when to be alert' section is the writer's own rule. The facts give no such warning criteria.",
+        "\"Kutu ikan ... Kadang terlihat berenang dari satu ikan ke ikan lain\": acceptable, but \"Artinya, parasit bisa muncul lama setelah ikan baru masuk\" is the writer's inference. The facts only say the source was suspected to be barramundi added 12 weeks earlier.",
+        "\"Garam di akuarium karantina ... Panduan hobi\" and \"Toko koi\" source labels are not in the facts, which only give source numbers. The 'Merck' attribution for 30 g/L is supported.",
+        "\"Hindari garam untuk ikan lele dan ikan tak bersisik lainnya\": facts say avoid salt for scaleless catfish; this is roughly consistent, so it is a minor point."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "id/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
     {
       "at": "2026-11-08T08:52:32Z",
@@ -126,7 +401,141 @@
       "kept": true
     }
   ],
+  "ms/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
+    {
+      "at": "2026-11-08T13:29:34Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Angka yang lebih besar itu ditujukan untuk keadaan toksin sudah lama terkumpul tanpa sesiapa memantau. Angka yang lebih kecil pula untuk tangki yang sedang diuji dan dipantau.\" - invented explanation; the facts do not say why the figures differ.",
+        "\"tetapi tukar sedikit sahaja jika beza suhu antara air baru dengan air tangki besar\" - slightly garbled; facts say keep the change small if the temperature difference is large.",
+        "\"Cabut plag penapis sepenuhnya... Jika tidak, air tangki boleh tersedut keluar\" in the FAQ generalised: siphoning applies only to overflow filters (the guide notes this elsewhere, so it is minor).",
+        "\"Pastikan bilik ditutup\" is an interpretation of 'keep the room closed' and is only loosely supported.",
+        "\"Jangan ganggu ikan\" and \"Mula menambah oksigen sebelum ikan mula megap\" are supported, but the pairing 'UPS lebih sesuai untuk penapis' is an inference beyond the facts.",
+        "\"Botol air panas juga boleh digunakan\" - the facts say hot-water bottles are placed in the tank; the guide mixes this with the bottles-in-the-tank method, a minor blur.",
+        "\"Penyakit bintik putih (white spot)\" - the facts say 'Ich', which is fine, but the statement 'Ikan yang lembap' is a mistranslation of 'sluggish' (minor)."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:29:34Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Gunakan mengikut label produk yang dibeli\" (oxygen tablets): the facts give no dose, so this is the writer's own rule, not a claim. Minor.",
+        "\"Lebih baik guna UPS untuk penapis\" and \"pemanas bervoltan rendah seperti 10 watt\": the facts say only that a 10 W heater draws far less than a 100 W one. They do not recommend a UPS for the filter over the heater, and they never call it a 'low-voltage' heater. Voltage is the wrong term; it is wattage.",
+        "\"Lebih seminggu ... Minta kedai ikan hiasan\" in the table: the facts give this advice for outages of more than a week, so it is supported. It is placed in the duration table next to other rows, which is fine.",
+        "\"Kebanyakan ikan boleh bertahan sekurang-kurangnya kira-kira seminggu tanpa makanan\" (FAQ): the facts say 'about a week' and 'days or even weeks'. 'At least' is a slight shift.",
+        "\"pastikan bilik ditutup\" in the 4–8 hour row: the facts say 'keep the room closed' with no reason. This matches the source, but the guide adds no explanation.",
+        "\"Elektrik terputus sekejap begini biasanya tidak menjadi masalah walaupun tanpa penapis\" and \"ikan sepatutnya boleh bertahan semalaman\": the overnight claim in the facts depends on aeration or circulation being provided. The guide states it with that condition, so it is acceptable.",
+        "\"Kalau anda tiada di rumah... tukar 25–50% air\": supported by the facts, but it sits beside the 10–30% advice with no reconciliation. It is not invented."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": [
+    {
+      "at": "2026-11-08T13:55:48Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Opening: \"Teruskan rawatan sehingga kitaran hidup parasit itu putus\" is not in the facts (facts say continue until no symptoms / about a week).",
+        "\"Kuprum sulfat (rendaman)... Sehingga 10 hari\" is fine, but \"kuprum sulfat ... gunakan mengikut label produk yang dibeli\" for the listed drugs is the writer's rule, acceptable.",
+        "\"Dinospora: berenang bebas untuk mencari ikan baharu\" - slight embellishment, not stated in facts.",
+        "\"Velvet atau penyakit bintik putih? ... Tidak\" - the FAQ answer \"Tidak\" is implied only; facts just say it can be confused with ich.",
+        "\"Kuprum lebih toksik dalam air berasid, jadi kuprum terkelat lebih sesuai\" is supported; but \"Turutan langkah menurut sumber 6\" puts the temperature raise and a 'carbon removal reason' in a different order than the facts' listed steps (change water, raise temp, dim lights, remove carbon, salt) - minor.",
+        "\"Selamatkah kuprum untuk udang dan siput? Tidak.\" - a blunt conclusion beyond the facts, though consistent with the toxicity data.",
+        "\"Ikan keli anchor catfish\" - facts say only 'anchor catfish'; the 'keli' gloss is minor.",
+        "\"tumbuhan akuatik\" as a copper-sensitive group is an acceptable rendering of 'plants'."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:55:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Suhu jatuh kira-kira 8 °C dalam masa sejam, atau air di bawah kira-kira 23 °C\": facts say about 15°F and 73°F; the conversions are approximate and 15°F ≈ 8°C, 73°F ≈ 23°C, which is roughly fine, but this is a rewrite of the units.",
+        "\"Sumber 4 menyebut suhu melebihi kira-kira 29 °C memendekkan kitaran hidup\": facts say heat above 84°F, which is about 29°C. This is okay but 'sumber 4 ... 30 hari pada suhu kira-kira 29 °C atau lebih' is also converted.",
+        "\"1 cawan bagi setiap kira-kira 76 liter air\": facts say 1 cup per 20 gallons; the metric conversion is the writer's own.",
+        "\"Tambah garam akuarium mengikut label produk (sumber 6 tidak memberi dos)\": the dose-by-label rule for salt is the writer's own; the facts give no such product.",
+        "\"Sumber 4 merawat ikan laga liar dengan kuprum terkelat selama 30 dari\": garbled text, and the guide implies Mardel CopperSafe for 30 days at 'kira-kira 29 °C', where the facts say 84°F or above.",
+        "\"Sumber 0 dan sumber 1 menyebut parasit memerlukan cahaya\": the facts say Aquarium Co-op and Wikipedia (source 0) say the parasite needs light. Source 1 only says 7 days of darkness helps alongside drugs, so attributing the 'needs light' claim to source 1 is unsupported.",
+        "\"Selepas itu rawat tangki utama dan tangki kuarantin sekali\" and \"Ikan yang dijangkiti anak ikan yang sangat kecil\": minor paraphrases that turn the facts slightly (the intro says the parasite is still in the substrate even if the fish look recovered, which is supported only loosely).",
+        "\"Menurut sumber 3, kaedah air masin ini sepatutnya berkesan\": the facts attribute this to FAO and cite source 3. This is acceptable.",
+        "\"Velvet nampak seperti debu halus keemasan atau karat, bukan bintik-bintik yang jelas\": the facts give no description of ich spots, so this contrast is the writer's own. The guide also says \"Penyakit bintik putih pula berupa bintik-bintik\" without support.",
+        "\"Kadar kematian mereka tinggi\" / \"kematian akibat lemas\" are supported. The 'Bila perlu risau' section adds advice not in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "ms/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T15:23:30Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Gentian violet: disapu terus pada luka, mengikut label\" – facts only say dabbed on the lesion; 'mengikut label' is the writer's addition (minor).",
+        "\"keluarkan karbon atau media penjerap yang seumpamanya\" – facts say carbon or Purigen; generalised wording.",
+        "\"Reput sirip ... sering dilihat pada ikan laga dan ikan mas koki\" in the intro is ok, but \"Asingkan ikan penggigit sirip atau yang suka bergaduh\" is slight extension (facts say remove them).",
+        "\"Kereputan ... Kanamycin ... Ia juga boleh dicampur ke dalam makanan\" fine; but \"Gunakan mengikut label\" for malachite green is the writer's rule with no dose in facts (minor).",
+        "\"Kepercayaan ... tidak disokong oleh sebarang rujukan\" – facts say only that the claim lacks a citation on Wikipedia; slightly overstated.",
+        "\"columnaris (yang juga dikenali sebagai reput mulut)\" – facts say mouth rot (columnaris); acceptable but equated.",
+        "Intro says reput sirip \"biasanya oleh bakteria\" and \"boleh merebak ke badan\" – supported; the line about tank cleaning being 'menyatakan' that doctor and guide agree is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T15:23:30Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"ubat hanya digunakan jika ikan tidak pulih\" in the intro is attributed to the aquatic vet. That 'medicate only if no improvement' advice comes from Mytour, not the vet.",
+        "\"Ikan yang dijangkiti patut dipindahkan ke tangki rawatan\" is placed under columnaris. The facts say columnaris fish go to a hospital tank, which is nearly the same. The guide is also loose in presenting 'reput mulut' as a KanaPlex-listed item.",
+        "\"Lebih baik lagi, rawat ikan yang sakit di tangki berasingan\" in the shrimp/snail FAQ is the writer's own recommendation. The facts do not say this.",
+        "\"Kematian boleh berlaku dalam beberapa hari apabila bakteria masuk ke dalam darah\" is slightly twisted. The facts say mortality can come within days and rises sharply once bacteria reach the blood.",
+        "\"Reput sirip ialah jangkitan, biasanya oleh bakteria\" and \"Satu panduan menyebut tangki tanpa penapis\" are small paraphrases. They are acceptable and only minor.",
+        "\"Bila perlu risau\" is an invented section that adds interpretation, such as the claim that a fish going dark is a worry sign. The facts do not list these as warning triggers.",
+        "\"Sumber tidak sepakat tentang penggunaan ubat\" is the writer's framing of the sources as disagreeing. The facts do not say that.",
+        "\"pengeluar satu produk kanamycin ... khusus untuk produk tersebut\" is hedging added by the writer. It is harmless.",
+        "\"kualiti air yang teruk, termasuk air kotor\" and \"kecederaan, contohnya akibat bergaduh atau digigit\" are reasonable reworkings of the facts.",
+        "The \"Garam\" table is placed under treatment. The facts give routine salt as 1–3 g/L but do not tie it to fin rot. The 'Rutin' duration is the writer's addition."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:09:14Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "The intro says fin rot makes the edges \"makin pendek\" (shorter). The facts only describe ragged or discolored fins, plus loss of tissue in later stages. This is a small embellishment.",
+        "\"Ini maklumat tentang toleransi ikan, bukan rawatan reput sirip\" (about 1–3 g/L routine salt) is the writer's own framing. The facts list the 1–3 g/L figure under treatment and don't say it is not a treatment. It is a small interpretation, not an invented claim.",
+        "The table gives the dose for erythromycin, methylene blue, malachite green and gentian violet as \"ikut label produk yang dibeli\". The facts give no dose for these, so this is the writer's own rule and not a claim from the sources."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:09:14Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Malachite green disenaraikan berkesan dalam sesetengah kes. Ikut label.\" and \"Gentian violet disapu terus pada luka. Ikut label.\" – labelled as dosing by label is acceptable, but \"sering menyerang ikan laga dan ikan mas koki\" is fine; minor.",
+        "\"Ubat hanya digunakan jika ikan tidak pulih selepas air diperbaiki\" in the intro is stated as the general rule, but the facts show sources differ (Aquarium Co-Op recommends erythromycin directly); the guide later acknowledges the disagreement.",
+        "\"Bakteria ini sememangnya ada dalam air atau lendir kulit ikan\" merges two sources; acceptable.",
+        "\"Jangkitan merebak ke badan, ada pendarahan atau tulang mula kelihatan\" under 'Bila perlu risau' is the writer's own worry list, not a stated fact; similarly \"Reput sudah menghampiri pangkal sirip\" as a trigger to worry is inferred.",
+        "Table row \"Garam dalam tangki (rutin)\" with \"Sumber tidak memberi jadual\" presents salt as a treatment method; the facts only say routine salt is tolerated, not that it treats fin rot.",
+        "\"Ikan yang dijangkiti patut dipindahkan ke tangki rawatan\" is supported for columnaris only; fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-06T17:21:12Z",
       "model": "sonnet",
@@ -260,6 +669,39 @@
     }
   ],
   "ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T14:20:54Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ikut label produk yang anda beli\" is the writer's rule for undosed medicines; acceptable and not scored as a claim.",
+        "\"Ikan keli dan ikan catfish lain\": the facts only say catfish can be extremely sensitive to salt; naming ikan keli (Malaysian catfish) specifically is a small extension.",
+        "\"yang biasa hidup dalam air keras, beralkali atau payau\" is faithful to the facts.",
+        "\"Buang telur yang tidak disenyawakan dan telur yang sudah diselaputi kulat\" is supported.",
+        "\"Rawat dengan segera\": the facts say early diagnosis matters; the urgency framing is a mild generalisation.",
+        "\"Kulat ini jarang menyerang ikan yang sihat\" and the tank \"nampak bersih\" answer: attributing it to \"suhu yang terlalu rendah\" is supported in general terms, but \"walaupun tangki nampak bersih\" is the writer's framing.",
+        "\"Jika jangkitan berulang... pastikan ikan tidak dirawat secara berlebihan\" is a mild inference from the overtreatment fact.",
+        "\"Penyakit kulat... biasa terdapat dalam air tawar dan air payau\" is supported by source 1."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:20:54Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Saprolegnia boleh tumbuh pada suhu 0–35 °C, tetapi paling suka suhu 15–30 °C\": the facts give 32–95°F and 59–86°F. The guide's Celsius conversion is wrong. 32–95°F is 0–35°C and 59–86°F is 15–30°C, so it is roughly fine, but it is a writer's conversion.",
+        "\"Pada masa yang sama, rawat kulatnya dengan garam atau ubat kulat\": the intro recommends salt or antifungal as a general rule. The facts do not say this directly, and salt is not suitable for all fish.",
+        "\"Potassium permanganate, formalin, larutan povidone iodine ... Ikut label produk yang dibeli\": the facts give no dose, so 'by the label' is the writer's rule rather than a claim. This is acceptable.",
+        "\"Celup garam (dip) ... bagi membuang parasit luaran ... 30 g/L\": the Merck dip is for removing external parasites, not fungus. The guide says so but lists it as a fungus treatment option, which is a mild stretch.",
+        "\"Jika ramai ikan terkena serentak ... mungkin itu columnaris atau ada masalah lain\": the facts do not say that many affected fish indicates columnaris. This is an inference.",
+        "\"Sebab itu bersihkan tangki dahulu\": the facts do not say to clean the tank before treatment. This is a writer's addition.",
+        "\"Jika ada carbon dalam penapis, keluarkan semasa rawatan\": the facts only say carbon absorbs the medication. Removing it is a reasonable inference."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-07T08:28:55Z",
       "model": "sonnet",
@@ -403,6 +845,159 @@
       "kept": false
     }
   ],
+  "th/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
+    {
+      "at": "2026-11-08T14:57:25Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"กลับมาแล้วให้เปลี่ยนน้ำ 25–50%\": the facts say to change 25–50% if you are away from home during the outage. They don't say to do it after returning. This is a small added detail.",
+        "\"ย้ายปลาไปตู้หรือบ่ออื่นเร็วเกินไป\": the facts call moving fish a last resort. They don't say it is wrong only when done too early. This is a minor reframing."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:57:25Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"ใช้ตามฉลากของผลิตภัณฑ์\" (oxygen tablets): the facts give no dose, so this is the writer's rule rather than a claim. It is minor.",
+        "\"ปลาน่าจะผ่านคืนไปได้\" and \"ไม่ถึง 2 ชั่วโมงปลาอยู่ได้โดยไม่มีกรอง\": the facts say short outages are generally fine and fish should make it overnight if aeration or circulation is provided. The guide's wording is close but slightly merged.",
+        "\"ผู้ค้าปลารายหนึ่ง\": the facts say a Sri Lankan trade source. This is slightly generalized but acceptable.",
+        "\"ถ้าไฟดับนานเกินหนึ่งสัปดาห์ ให้ขอร้านปลา...ฝากเลี้ยง\": supported by the facts.",
+        "\"ปิดห้องไว้\" at 4–8 hours: supported by the facts. The facts do not explain why.",
+        "\"ซื้อปั๊มลมแบบชาร์จได้หรือแบบใส่ถ่าน\": supported. The guide leaves out the Hailea CP-60 example, which is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:26:29Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"ปริมาณให้ใช้ตามฉลากของผลิตภัณฑ์ที่ซื้อ\" (oxygen tablets: follow the label) is not in the facts.",
+        "\"ปลาน่าจะผ่านคืนไปได้\" is a softened version of the fact: fish should make it overnight if aeration or circulation is provided. The guide drops the condition in the table context.",
+        "\"ตรวจว่าฮีตเตอร์ทำงานปกติ\" is a loose rendering of the fact that says check the heaters.",
+        "The temperature section's \"กันความร้อนออก (อากาศเย็น)\" and the \"ปิดห้องไว้\" row are interpretive additions. The facts only say keep the room closed, with no stated reason.",
+        "\"ปลาคาร์ป\" for koi is a translation shift. The facts say koi.",
+        "\"ผู้เลี้ยงหลายคนเล่าว่า\" (many keepers) is slightly overstated. The facts say only that keepers report it.",
+        "\"ถ้าไฟดับนาน ... ในระบบกรอง\" is attributed to a canister filter, but the facts say this about filters in general during a long outage.",
+        "\"ถ้าไม่อยู่บ้านตอนไฟดับ เมื่อกลับมาให้เปลี่ยนน้ำ\" adds \"on return\" timing that is not in the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:26:29Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"ฮีตเตอร์ 10 วัตต์กินไฟน้อยกว่าแบบ 100 วัตต์มาก\" is supported, but the FAQ line \"ถ้าจำเป็นต้องใช้ไฟสำรองกับฮีตเตอร์ ให้เลือกตัวที่วัตต์ต่ำ\" is a recommendation not in the facts, which only say not to run the heater from a UPS.",
+        "\"ควรใช้ UPS กับระบบกรองแทน\" in the FAQ is an inference; the facts only say a UPS can run the filter.",
+        "\"ปลาส่วนใหญ่อดอาหารได้อย่างน้อยราวหนึ่งสัปดาห์\" is stronger than the facts, which say days to weeks or about a week.",
+        "\"อีกวิธีที่มีแหล่งแนะนำคือล้างวัสดุกรองด้วยน้ำจากตู้ แล้ววางกลับไว้ในตู้\" is supported but sits in tension with the sponge advice. It is a minor merge of two sources.",
+        "\"ปิดห้องไว้\" and \"ปิดฝาตู้ แล้วห่อตู้ด้วย... ผ้าห่ม ถุงนอน หนังสือพิมพ์\" are acceptable. However, \"เติมน้ำใหม่ให้เต็มกรองก่อน\" adds \"full\" where the facts only say to prime with new water.",
+        "\"ตู้ที่ปล่อยปลาน้อยกว่า ... แอมโมเนียจะขึ้นช้ากว่า\" is supported. \"ช่วงอากาศร้อนจึงต้องระวังเป็นพิเศษ\" is a mild unsupported generalization.",
+        "The guide's opening says to pour water or use a battery pump \"ก่อนที่ปลาจะเริ่มลอยหัว\", which is fine. However, \"ไฮโดรเจนซัลไฟด์สะสมอยู่\" in the canister FAQ is slightly generalized from the filter in general to canisters."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": [
+    {
+      "at": "2026-11-08T13:52:31Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"ลูกปลาและปลาแก้ว มีอัตราการตายสูง\": the facts say very young and very old fish die at high rates. Ambassis (glass fish) is only named in the copper toxicity data, so this is a mix-up.",
+        "\"ปลาที่ป่วยหนักส่วนใหญ่ตายเพราะขาดอากาศ\": the facts say death is usually from suffocation, so this is roughly fine. \"ส่วนใหญ่\" for severely ill fish is a slight overstatement.",
+        "\"เพราะยาจะฆ่าได้เฉพาะระยะที่ว่ายอยู่อิสระในน้ำเท่านั้น\" is given as the reason to treat both tanks. The facts give a different reason for that: the disease spreads easily.",
+        "\"ลอยหัวฮุบอากาศ\" is listed as a sign of fish crowding near the surface. The facts say sick fish stay near the surface gasping, so this is fine. Using it as a flat sign of heavily infected gills is a small extrapolation.",
+        "\"ให้ใช้ตามฉลากของผลิตภัณฑ์ที่ซื้อ\" for aquarium salt and for the other medicines is the writer's rule rather than a claim from the facts, so it is acceptable.",
+        "\"ปลาที่เล็กมากและแก่มากจะตายจากโรคนี้มากเป็นพิเศษ\" and the claim that the crucian carp is \"ปลาไนเงิน\" are fine. The \"คอปเปอร์ซัลเฟต (แช่)\" row and the \"คอปเปอร์คีเลตผสมเอง\" row's note on Amyloodinium follow the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:52:31Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"ยังไม่มีงานวิจัยยืนยัน\" (about the Aquarium Co-op salt-plus-darkness method): the facts only call it anecdotal. They don't say that no research confirms it.",
+        "\"ควรแยกปลาป่วยไปรักษาในตู้แยก\" (in the shrimp and snail copper answer): the facts say to isolate sick fish but to treat both tanks. They don't advise a separate-tank copper treatment to protect shrimp and snails, so this is a mild extrapolation.",
+        "\"ควรให้ยาต่อเนื่องอย่างน้อยราวหนึ่งสัปดาห์\": the facts say to treat for about a week, not \"at least\" a week. This is a minor wording drift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T14:05:44Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"หรือจะแยกปลาป่วยไปรักษาในตู้พยาบาลก็ได้\" in the shrimp/snail FAQ: the facts only say remove invertebrates or use medicated food; a hospital tank for this case is not stated.",
+        "\"ใช้ยาแบบผสมอาหารตามฉลากแทน\": fine, but the FAQ ties it to a hospital tank option that the facts do not support.",
+        "\"Gentian violet ... ตามฉลากผลิตภัณฑ์\" and \"Malachite green ... ตามฉลากผลิตภัณฑ์\": the facts give no dose or label guidance for these, and the guide adds a label rule. This is the writer's rule rather than a fact, and mildly risky.",
+        "\"ยาปฏิชีวนะในตู้พยาบาล ... รักษาในตู้แยก\": the facts say only 'antibiotics in a treatment tank'. This is a small extension.",
+        "\"แหล่งที่แนะนำไม่ได้ระบุระยะเวลา\" for erythromycin and methylene blue: this is the writer's commentary. It is harmless but not from the facts.",
+        "\"ควรกังวลเมื่อ ... แผลมีเลือดออก\": the facts list bleeding only in advanced cases. The 'when to worry' section is partly the writer's own synthesis.",
+        "\"ถ้าดูแลน้ำมาหลายวันแล้วยังไม่ดีขึ้นจึงค่อยพิจารณาใช้ยา\" in the intro: this is a Mytour recommendation stated as a general rule. It does not conflict with the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:05:44Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"ใช้เกลือรักษาครีบเปื่อยได้ ... เกลือ 1–3 กรัม/ลิตร\" and the table row \"เกลือแช่ในตู้ตามปกติ\" present the routine-salt figure as a fin-rot treatment. The facts give 1–3 g/L only as routine salt that most tropical fish tolerate. They give no salt dose for treating fin rot.",
+        "\"เอาคาร์บอนหรือเรซินดูดซับออก\": the facts say to remove carbon or Purigen. Calling Purigen a generic \"resin adsorbent\" is a small paraphrase beyond the facts.",
+        "\"ได้รับบาดเจ็บบ่อยกว่าปลาอื่น\": the facts say long, delicate fins are awkward to use and get injured often. They make no comparison with other fish.",
+        "The salt FAQ answer says salt works \"ช้ากว่ายา\". The facts say this only about salt compared with erythromycin, not compared with medicines in general."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T14:18:06Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "The source labels in the treatment table are inconsistent. Malachite green and the long-term salt bath come from source 0 but are labelled \"แหล่งที่ 1\". The 1–3 g/L aquarium salt is from source 2 but is labelled \"แหล่งที่ 2\". The 3 ppt salt figure is from source 3 and is labelled \"แหล่งที่ 3\". This is a small attribution slip, not an invented claim.",
+        "The 30 g/L salt dip is placed in the antifungal treatment table. The facts give it only for removing external parasites. The guide does say this, but putting it there could suggest it is a fungal treatment.",
+        "The advice to use the other medicines \"ตามฉลากของผลิตภัณฑ์\" is the writer's own rule. The facts give no doses for those medicines, so this is not a factual claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:18:06Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"ใช้เกลือที่ไม่มีไอโอดีน\" (non-iodised salt) – not in the facts; invented note.",
+        "\"oxytetracycline\" – facts name Terramycin, not oxytetracycline (brand/generic equivalence is the writer's addition).",
+        "\"ควรทำความสะอาดตู้ก่อนเริ่มรักษา\" – facts only say chemicals react with organic matter; the cleaning-before-treatment advice is not stated.",
+        "\"ถ้ารักษาในตู้ให้ถอดคาร์บอนออกก่อน\" – facts say carbon absorbs treatment and to treat eggs separately; removing carbon is a reasonable inference but not directly stated.",
+        "\"เปลี่ยนน้ำสม่ำเสมอ\" (regular water changes) – not in facts.",
+        "\"ปลาหนัง\" for catfish and \"ปลาป่วยหลายตัวพร้อมกัน ... ควรตรวจ\" – the multiple-fish worry section is the writer's extrapolation from 'typically only one fish'.",
+        "\"ราขึ้นที่เหงือก\" as a trigger to worry – extrapolated from the general fatal-if-untreated statement.",
+        "Claim that microscopy helps tell columnaris from Saprolegnia – facts only describe hyphae under microscope, not as a differentiator.",
+        "\"ราไม่มีทางหมดไปจากระบบได้ทั้งหมด\" is supported, but \"ถอดคาร์บอนออกตอนใส่ยา\" in FAQ is stated as a firm instruction rather than a fact-backed one."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "th/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:59:52Z",
@@ -497,6 +1092,123 @@
       "kept": false
     }
   ],
+  "th/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": [
+    {
+      "at": "2026-11-08T15:08:26Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "The intro says \"ออกซิเจนต้องสูง\" (oxygen must be high) for arowana in general. The facts give the high dissolved oxygen need only for Asian arowana. This is a small generalisation.",
+        "\"เพื่อลดโอกาสเกิดโรคและอาการตาตก\" (to reduce the chance of disease and drop eye) implies that temperature control, water changes and diet prevent drop eye. The facts give no proven cause or prevention for drop eye beyond tank size and fewer collisions, so this is a mild overreach."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:08:26Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"ใช้คอปเปอร์ซัลเฟตตามฉลาก\" / \"ใช้ควินินตามฉลาก\" / \"ยาและเกลือให้ใช้ตามฉลาก\": label dosing for products with no dose in the facts is the writer's rule (acceptable per instructions, minor)",
+        "\"เปลี่ยนน้ำ 1/4 ทุก 3 วัน\" for cloudy eye: roughly matches 'every third day' but fine",
+        "\"ผู้เลี้ยงหลายคนบอกว่าเห็บปลาและหนอนสมอส่วนใหญ่มากับอาหารมีชีวิต\" is placed in the feeder-fish mistakes section, tying it to livebearers/goldfish; facts only say live feeder foods generally (slight generalization)",
+        "\"ปลาโตเต็มวัยวันละครั้ง ปลาเล็กวันละ 2–3 ครั้ง\" is supported; \"ผู้เลี้ยงบางรายเห็นว่าตาตกไม่ใช่โรค\" is supported (one keeper)",
+        "\"ควรให้กุ้ง หอยแมลงภู่ เนื้อปลา ไส้เดือนดิน หรือแมลงอย่างจิ้งหรีดแทน\": the FAQ recommendation of alternatives is a synthesis from separate facts (crickets listed only for adult silver arowanas), a minor generalization",
+        "\"ฟาร์มบางแห่งย้ายปลาไปเลี้ยงในบ่อกลางแจ้ง\": facts say breeders move fish to outdoor ponds; fine",
+        "Intro \"ก่อนซื้อให้เตรียมตู้ ... ให้อาหารที่ผิวน้ำ\" and \"จึงต้องใช้ตู้ใหญ่\" are general statements loosely supported"
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:40:43Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"ถ้าเห็นอาการผิดปกติ ... ให้ดูคุณภาพน้ำและอุณหภูมิเป็นอย่างแรก\": the facts give no such general first-step rule. It is the writer's own advice.",
+        "\"ตอนเช้าให้เปิดไฟในห้องก่อน\": the facts say to light the room gradually before the tank lights. They don't limit this to the morning.",
+        "\"ปลาเอาตัวถูกับวัสดุในตู้ (flashing)\": the facts only list \"flashing\" as a sign. The guide's description of it is the writer's gloss.",
+        "\"ระบบกรองต้องแรง\" and \"ตู้ปลาจึงต้องกว้างและยาว\" in the intro are loose generalisations beyond the stated figures."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:40:43Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"ปลาอะโรวาน่าตัวโตเต็มที่ยาวได้ราว 90 ซม.\" in the intro generalises; the facts also give 120 cm for wild silvers and 900 mm for Asian.",
+        "\"แต่ทุกแหล่งเห็นตรงกันว่าอะโรวาน่าขับถ่ายมาก ต้องเปลี่ยนน้ำ...และไม่ควรเปลี่ยนน้ำทั้งหมดในครั้งเดียว\" says all sources agree; the facts give the waste point to one source and the no-full-change point to another.",
+        "\"ควรเลือกกุ้ง หอยแมลงภู่ ไส้เดือน เนื้อปลา และแมลงอย่างจิ้งหรีดแทน\" in the FAQ: this is a recommendation built from the facts, not stated in them.",
+        "\"ให้อาหารที่หลากหลายทางผิวน้ำ\" in the intro: surface feeding and variety are loosely implied, but the facts do not say variety is required.",
+        "\"ถ้าตาเริ่มตก ให้ลงมือแต่เนิ่น ๆ ... ให้เน้นลดการชนและทบทวนเรื่องการให้อาหาร\": the facts give no action for fish that have already begun to show drop eye; this is the writer's own advice.",
+        "\"ถ้าปลาไม่กินอาหารนานเกิน 1 วัน ... ให้ตรวจคุณภาพน้ำก่อน แล้วสังเกตอาการให้ละเอียด\": the facts name this as a warning sign but give no action.",
+        "\"จึงต้องใช้ตามฉลากของผลิตภัณฑ์ที่ซื้อมา\" for salt, copper sulfate and quinine: the facts give no doses, so this is a writer's rule. It is allowed here, but the guide stretches it to quinine and copper sulfate treatments that are risky.",
+        "\"ปลาที่เลี้ยงในบ่อแทบไม่เป็นตาตก\" is slightly overstated; the facts say only that drop eye is rarely seen in ponds."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "th/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [
+    {
+      "at": "2026-11-08T15:27:35Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "No invented dose, medicine or cause found. Every number, product and recommendation traces to the facts.",
+        "Minor: the guide puts the Dimilin 25W aquarium-outbreak dose in the table as one case. It is labelled that way, so this is fine.",
+        "Minor: 'ผลิตภัณฑ์ไดฟลูเบนซูรอนหรือลูเฟนูรอนอื่นๆ ... ตามฉลาก' is the writer's rule, not a claim from the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:27:35Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ให้ใช้เกลือที่ไม่มีไอโอดีน\" (use non-iodized salt): the facts never say this.",
+        "\"ให้วิตามินซีและจุลินทรีย์ช่วยย่อย\" (vitamin C and digestive microbes): the facts say vitamin C and digestive enzymes (men tiêu hóa), not microbes or probiotics.",
+        "The intro says to start treatment on seeing even one parasite, for both Lernaea and Argulus. The facts give that rule only for Argulus.",
+        "\"ระหว่างนั้นมันยังดูดเลือด\" (it keeps sucking blood meanwhile): the facts say only that it keeps feeding (hút) and releasing eggs. Blood is not mentioned."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:32:33Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"ไรแดง\" is used for Daphnia, but the facts say bo bo (Daphnia). Daphnia is usually a water flea, and ไรแดง is also the Thai name for it, so this is a minor translation point.",
+        "\"ใบเลี่ยน (Melia azedarach)\": the facts say only \"lá xoan\". The Latin species name is added without support.",
+        "\"ใช้ตามฉลากของผลิตภัณฑ์ที่ซื้อ\" for diflubenzuron/lufenuron and trichlorfon: the facts give no dose, so this is the writer's own rule. It is allowed.",
+        "\"การใช้เกินขนาดเป็นความผิดพลาดที่พบบ่อย\" for potassium permanganate: this is supported by the mistakes section.",
+        "\"เห็บปลาเป็นแผ่นกลมแบน\" in the how-to-tell section: the facts say a flat disc (đĩa dẹt), but \"round\" is added. This is minor.",
+        "\"ปลาที่เพิ่งปล่อยลงตู้มาหลายสัปดาห์แล้วก็อาจเป็นต้นทางได้\": the barramundi case was an aquarium outbreak and is reasonably generalised. The reply to \"ไม่ได้ซื้อปลาใหม่เลย\" contradicts the premise and goes beyond the facts.",
+        "\"ให้วิตามินซีกับจุลินทรีย์ช่วยย่อย\": the facts say digestive enzymes (men tiêu hóa), not microbes/probiotics. This turns the fact around.",
+        "\"แหล่งหนึ่งแนะนำให้เริ่มจากเพิ่มความเค็มก่อน\" is supported. \"ถ้าปลาตัวโตพอ ... ทาแผลทันที\" is supported.",
+        "The intro summary line says \"เพราะตัวอ่อนและไข่ที่อยู่ในน้ำ\" and the table says \"ฆ่าสัตว์จำพวกกุ้งกั้งปู\" for diflubenzuron. Both are consistent with the facts.",
+        "\"ตัวเต็มวัยอยู่ได้หลายวันโดยไม่ต้องมีปลา\" and similar details are supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:32:33Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "\"ผลิตภัณฑ์ diflubenzuron สำหรับบ่อปลา\": the facts name NT Labs Argusol and give 10 ml per 364 L. They don't say it is for ponds. The guide also says to dose \"ตามฉลาก\", which is the writer's rule, not a fact.",
+        "\"หนอนเกาะที่ปากหรือเหงือก จนปลากินอาหารไม่ได้\": the facts link feeding failure only to worms on the mouth. They don't link it to worms on the gills.",
+        "\"แผลบวมแดง เป็นแผลเปื่อย\" under the worry signs is the writer's own summary. The facts say red, inflamed or ulcerated, and don't mention swelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
     {
       "at": "2026-11-08T09:02:32Z",
@@ -530,6 +1242,245 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
+    {
+      "at": "2026-11-08T14:54:16Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"cá nhịn được ít nhất khoảng một tuần\" (FAQ): facts say most fish go about a week (or days to weeks), not \"at least\" a week.",
+        "\"Mất điện dưới 2 giờ thì thường không sao\" / \"cá chắc là qua được một đêm\": facts say fish should make it overnight if aeration or circulation is provided; the guide's 'chắc là' is a bit stronger.",
+        "\"loại thường bán phần lớn tự chuyển sang pin\": facts say most UPS switch to battery automatically, not about what is sold commonly.",
+        "\"Mất điện vài tiếng thì có thể đun nước bằng bếp ga\" matches, but \"Nhớ chừa chỗ cho thoáng khí\" is applied to the closed-lid wrap; fine, though 'đóng kín cửa phòng' is only from the timeline.",
+        "\"nước bên trong có thể đã hết oxy và chứa đầy chất độc\" (FAQ): 'full of toxins' is stronger than the facts' ammonia/hydrogen sulfide build-up in long outages.",
+        "\"Một người chơi ở TP.HCM kể rằng thay pin mới rẻ hơn mua máy mới\": supported; but 'Bộ lưu điện thì chạy lọc được lâu' is fine.",
+        "\"Để cá yên. Trong tối cá dùng ít oxy hơn\": supported; 'Lúc đó có ba mối nguy' fine.",
+        "\"Tạo oxy trước khi cá bắt đầu đớp khí\" step ordering: facts give this only for the scoop pour method, guide generalises to all methods."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:54:16Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Trên một tuần | Nhờ tiệm cá...\" is in the facts, fine; but \"Mất điện vài tiếng thì ... Túi chườm nước nóng cũng dùng được\" is OK. Problem: \"Có máy sủi chạy pin thì gắn cục sủi vào chạy luôn\" is fine.",
+        "\"Không có bộ lưu điện, mất điện khoảng 1 giờ\" is supported, but the table lists it under a keeper's suggestion mixed with the 'Mất điện quá 2 giờ' row; minor.",
+        "\"Bộ lưu điện thì để chạy lọc\" is an unsupported recommendation (facts only say a UPS can run the filter).",
+        "\"Mất điện lâu thì chạy máy sủi dùng pin\" in the intro is roughly supported by the timeline, but \"Một nguồn nói cá chủ yếu sống được vài ngày\" garbles \"Most fish can survive days or even weeks\" (minor).",
+        "\"Nếu có sủi hoặc có nước chuyển động thì cá thường qua được một đêm\" adds 'water movement' loosely; facts say 'aeration or circulation', acceptable.",
+        "\"Ở TP.HCM, một người chơi kể pin thay mới rẻ hơn mua máy mới\" is supported.",
+        "\"Rút hẳn phích lọc ra. Có điện lại mà lọc tự chạy...\" is supported.",
+        "\"Dưới 2 giờ ... không lọc cũng thường không sao\" is supported.",
+        "\"đóng kín cửa phòng\" for 4–8 hours: facts say 'keep the room closed', supported.",
+        "\"Cá chịu được vài tiếng\" and \"lọc coi như hết tác dụng\" are supported by the Sri Lankan source."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:20:29Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Nước mát giữ được nhiều oxy hơn\" appears in the shading advice; the facts tie it to the battery pump/cooler water, not shading. This is only a mild stretch.",
+        "\"vệ sinh lọc trước rồi đo amoniac\" in the intro: the facts say clean the filter, and test after power returns. The order and the pairing are loosely inferred.",
+        "\"Cúp quá một tuần: nhờ tiệm cá giữ cá giùm\" is supported, but the table's blank cells for 8–24h and 24h+ are fine. No issue.",
+        "\"Pin hết thì thay pin mới rẻ hơn mua máy mới\" is generalised from one keeper's prices (150k battery vs 350k pump).",
+        "\"Cá nhịn được khoảng một tuần\" in the FAQ is stated as fact. The sources differ (days to weeks, about a week).",
+        "\"Nếu có sủi hoặc có cách cho nước lưu thông thì cá chắc là qua được một đêm\" is stronger than the source, which says fish should make it overnight.",
+        "\"Có thể trữ sẵn viên oxy\" and the pond advice are supported. The \"Sưởi 10 W tốn điện ít hơn hẳn\" claim is also supported.",
+        "\"Bộ lưu điện chạy lọc thì được lâu\" in the FAQ is slightly stronger than \"can run the filter for a long time\". It is acceptable.",
+        "\"vì nước trong lọc có thể đã hết oxy và chứa amoniac, hydro sunfua\" combines two separate facts. It is a mild merge."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:20:29Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Bộ lưu điện chỉ nên để chạy lọc\": the facts only say not to run the heater from a UPS and that a UPS can run the filter. \"Only for the filter\" goes slightly beyond them.",
+        "\"Mua về thì chạy thử ngay và thỉnh thoảng kiểm tra lại\": the facts only report that not testing a new pump is a common mistake. \"Check it again from time to time\" is added advice.",
+        "\"khi về thì thay 25–50% nước\": the facts say to change 25–50% if you are away during the outage. They don't say to do it on returning home."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": [
+    {
+      "at": "2026-11-08T15:13:06Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Betta hoang chịu được nước ấm ở giữa dải 80–89°F\": facts only say mid-80s °F; the 80–89°F range is invented.",
+        "\"Ca nặng chết vì thiếu oxy do mang bị hoại tử\" is supported, but \"Đây là lúc mang đã bị phá nặng\" and \"Bệnh quay lại... là dấu hiệu trị chưa đủ lâu, hoặc bể chính chưa được trị\" are the writer's own inferences.",
+        "\"Đồng là thuốc chính để trị nhung\": the facts do not say copper is the main drug.",
+        "\"Một nguồn khác cũng nói 7 ngày tối hẳn có thể giúp thêm\" is attributed to a separate source, but it is the same claim as the Aquarium Co-op one; the facts don't present it as an independent confirmation.",
+        "\"Cho muối hột vào\" (step 5) and \"Muối ăn thường\" table row: the facts say \"aquarium salt\" and plain sodium chloride; \"muối hột\" is a different product.",
+        "\"Thuốc nào bảng dưới không ghi liều thì dùng liều theo nhãn\" and the Vietnamese-products section avoid names, which is fine. But the \"Ở Việt Nam\" section claims products are \"bán sẵn cho betta\" and that \"có loại dành cho cá chịu xanh malachite kém\", which is only loosely supported.",
+        "\"Nhiệt độ tụt khoảng 15°F trong vòng một giờ\" is fine, but \"Chúng... tự bơi đi tìm cá để bám\" and \"Có con nằm sát mặt nước đớp khí\" are mild embellishments.",
+        "\"Bệnh nhung có thể bám hình túi\" in the FAQ garbles the facts: it is the trophont that is sac-shaped.",
+        "The table attributes sources as \"FAO\" and \"Một nguồn thú y thủy sản\"; the facts give only source numbers, so these attributions are invented.",
+        "\"Cá vàng và cá ngựa vằn dễ mắc bệnh hơn\" is supported, but \"Betta hoang... cá nước đen\" is fine; \"Nên đưa cá sang bể riêng để trị\" for shrimp tanks is the writer's own recommendation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T15:13:06Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Betta hoang chịu được mức giữa 80 °F một thời gian\" – facts say mid-80s °F, not 80s/mid-80; this is a changed number.",
+        "\"Cá bị stress vì vậy cũng có thể yếu sức đề kháng đi\" – fine, but \"cá mè vinh con\" for Puntius gonionotus is a translation addition (minor, supported species).",
+        "\"Thuốc nào không có liều trong bảng dưới đây thì dùng liều theo nhãn\" – the writer's rule, acceptable; but listing methylene blue, formalin, acriflavine as drugs is supported.",
+        "\"Một nguồn chuyên betta hoang dùng cách này cho betta hoang, giữ nước từ 84 °F trở lên trong 30 ngày\" – facts tie 30 days at 84°F+ to CopperSafe at about 5 ml per 5 gallons; guide leaves out the dose but links it to chelated copper generally, a slight generalization.",
+        "\"Một hướng dẫn nuôi cá và Wikipedia nói ký sinh trùng cần ánh sáng\" – supported (source 0 says Aquarium Co-op and Wikipedia).",
+        "\"Thuốc chỉ giết được con non đang bơi... nên thường phải dùng thuốc nhiều lần\" – supported.",
+        "\"Giai đoạn nặng thì cá thở khó, bỏ ăn, có con nằm sát mặt nước đớp khí\" – supported.",
+        "\"Đây là dấu hiệu hay gặp\" and \"Cá cụp vây và lờ đờ\" – supported.",
+        "\"Khử trùng ống hút, vợt và bàn chải\" – supported.",
+        "\"Xem kỹ lại các dấu hiệu ở trên. Nếu có kính hiển vi thì soi mẫu...\" – first-aid step 4 is the writer's addition, not a fact-based claim; also the immediate action of raising the temperature to 29°C is listed in first aid, though facts place it under treatment steps (minor)."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:45:30Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Cho muối hột vào.\" and the first-aid step ordering: facts say 'aquarium salt'; 'muối hột' (coarse salt) is a different product; also placing 'add salt' as an immediate step sits against the sources saying salt has little effect.",
+        "\"Giảm đèn hoặc tắt hẳn đèn.\" in immediate steps: facts say 'dim or turn off lights' but the guide gives this as a plain action while also presenting darkness as disputed; minor tension.",
+        "\"Nước chua thì nên dùng đồng chelate.\" is supported, but \"Đồng độc hơn khi nước chua\" is stated generally and then linked to the 0.3 ppm Puntius example; the source only gives it for freshwater below pH 7.",
+        "\"Đã tách cá bệnh ra thì trị luôn cả hai bể.\" in the intro is fine, but \"Thấy cá ... thở gấp thì ... bắt đầu trị\" implies treating on sight without diagnosis; the facts stress confirming against ich by microscope (small generalisation).",
+        "\"Bệnh nặng thường giết cá vì ngạt, do mang bị hoại tử\" combines two sources; supported, but \"Cá con, cá già, betta hoang và cá nước đen là những con cần để mắt kỹ hơn\" is the writer's recommendation, not a fact.",
+        "\"Khi thả cá, ngâm bao khoảng 15 phút cho cân nhiệt\" adds the purpose 'cho cân nhiệt' (to equalise temperature) not stated in the facts.",
+        "\"Nâng nhiệt từ từ lên 29 °C ... Cách này dành cho bể cá nhiệt đới\" is supported; but \"cá bị sốc nhiệt thì sức đề kháng yếu đi\" turns 'the stress can weaken immunity' into thermal shock, a slight distortion.",
+        "\"Gọi là nấm cho quen miệng\" is the writer's speculation on why people use the name."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:45:30Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Giai đoạn bám trên cá: ký sinh trùng hút chất dinh dưỡng\" is fine, but \"Bệnh lây nhanh... nặng nhất là ở mang\" is OK. The claim \"tảo đơn bào\" is acceptable (dinoflagellate).",
+        "\"Nên vớt cá sang bể riêng mà trị\" and \"Bể có tép, ốc thì đừng cho đồng vào thẳng\" is the writer's own recommendation; the facts give no such advice.",
+        "\"Coi bệnh nhung là nấm... thuốc trị nấm không phải hướng đi\" is unsupported; the facts don't say antifungal drugs are wrong.",
+        "\"Đồng với tép... cá cầu vồng Melanotaenia\" and \"cá mè vinh con\" are details beyond the facts (Puntius gonionotus translated as mè vinh is a plausible rendering but not in the facts).",
+        "\"Xanh methylen, formalin, xanh malachite, acriflavine | Liều theo nhãn\" is the writer's rule, which is allowed; however \"Nguồn không ghi lịch riêng\" for homemade copper is fine.",
+        "\"cá betta hoang chịu được mức giữa 80 °F (khoảng 29–30 °C)\" turns the facts' \"mid-80s °F\" into 80 °F, which is wrong.",
+        "\"Hai bên chỉ thống nhất ở chỗ tắt đèn là phần phụ, không thay được thuốc\" is an invented claim about what the sources agree on.",
+        "\"Cá bệnh nặng thường chết vì ngạt\" and \"Cá bị thêm nấm hoặc nhiễm khuẩn thứ phát... cần lo\" are partly supported. The claim \"Đây là dấu hiệu mang đã bị phá nặng\" is a mild inference.",
+        "\"Nhiệt chỉ làm vòng đời chạy nhanh hơn\" is a slight overstatement, because the facts also report 33–34°C controlling infestations.",
+        "\"Vì nước dưới khoảng 73 °F đã có thể làm bệnh bùng lên, nên đừng lấy 21–26 °C làm mức trị\" is the writer's own reasoning. The \"không phải cách trị ở bể nhà\" remark on salinomycin is likewise unsupported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T15:17:24Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Xanh malachite | Liều theo nhãn\" – the facts give no malachite green dose or label instruction; this is the writer's rule (minor), and the claim is only that ANGFA lists it as effective in some cases.",
+        "\"Muối hột\" – facts say only \"aquarium salt\"; \"muối hột\" (coarse salt) is an unsupported specific product.",
+        "\"Tím gentian | Chấm thẳng lên vết bệnh\" – facts list it only as an option dabbed on the lesion; fine, but the table presents it as a recommended method with no caveats.",
+        "\"Chúng vốn sống sẵn trong nước và trong lớp nhớt trên da cá\" – merges two sources, acceptable but slightly blended.",
+        "\"Bệnh thường bắt đầu từ một vết thương bị nhiễm khi cá đang yếu\" – wound origin and weakened fish come from different facts; slight blending.",
+        "\"Cá cầu vồng lớn\" / \"Hiệp hội cá cầu vồng Úc (ANGFA)\" – facts say \"adult rainbowfish\" and give no expansion of ANGFA as the Australian rainbowfish association; the expansion is unsupported.",
+        "\"Kháng sinh có erythromycin... Dùng trong bể trị riêng\" – Mytour fact says nothing about a separate treatment tank (that comes from another source's \"antibiotics in a treatment tank\" option); blended.",
+        "\"Bệnh cũng có thể lan sang các vùng da khác và có khi lan ra khắp cơ thể\" – the facts say it can spread to other skin and sometimes becomes systemic; acceptable.",
+        "\"Nhà sản xuất nói thuốc không hại vi sinh trong lọc\" – the facts say it does not harm the filter bed; fine, but it contrasts with the vet's claim without the guide noting the conflict."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T15:17:24Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "\"Tách cá bệnh sang bể trị riêng cũng là một cách\" (for tanks with shrimp/snails) is the writer's inference. The facts only give removing invertebrates or using medicated food.",
+        "\"Xanh methylen: dùng khi có nấm đi kèm, liều theo nhãn\" and the erythromycin \"liều theo nhãn\" lines are the writer's own rule, not a claim in the facts. This is acceptable.",
+        "The guide treats the salt table (1–3 g/L, 10 g/L bath) as being for fin rot. The facts give these as general salt tolerances, not a fin-rot dose. This is a minor framing issue."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:59:23Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Hội cá cầu vồng ANGFA\" and \"một nhà bán cá cảnh\" (for Aquarium Co-Op) are source descriptions the facts don't give. The facts only say \"ANGFA\" and \"Aquarium Co-Op\". This is a minor invented attribution.",
+        "\"thuốc chỉ dùng khi cần\" in the intro is a mild paraphrase. The facts support this only for the vet's view and Mytour, not as a general rule.",
+        "\"Than hoạt tính cùng các vật liệu lọc hút hóa chất\" generalises the facts, which name only carbon or Purigen. It is a small generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:59:23Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Bệnh nhẹ thường khỏi khi nước sạch và điều kiện nuôi tốt lên\" (intro): the facts only say better conditions are the best treatment. They don't say mild cases usually clear up this way.",
+        "\"Nước máy ở Việt Nam có clo\": the facts only say to dechlorinate tap water. They don't say Vietnamese tap water contains chlorine.",
+        "\"ở nhà chỉ đoán được qua dấu hiệu\": this is the writer's inference from the necropsy and culture fact. The facts don't state it.",
+        "\"Với các con này nên nhìn kỹ hơn lúc cho ăn\": the facts give daily checks at feeding time as general prevention. They don't give this advice for halfmoon bettas.",
+        "\"Còn không thì tách cá bệnh sang bể cách ly mà chữa\" (FAQ on tanks with shrimp and snails): the facts don't offer isolation as the answer for tanks with invertebrates.",
+        "\"Làm kỹ bước này vì nhiều loại thuốc yêu cầu không thay nước\": this is close to the facts, but the guide uses it to justify a thorough clean, which is a small addition."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-08T14:12:38Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Tháo than ra trước khi cho thuốc.\" The facts say carbon absorbs treatment; they don't give this instruction. It's a reasonable inference but still the writer's own advice.",
+        "\"Mốc không bao giờ diệt sạch hẳn khỏi bể được, nên thuốc chỉ chặn được một lúc.\" The facts only say fungus cannot be fully eliminated. \"Thuốc chỉ chặn được một lúc\" is an added claim.",
+        "\"Cá khỏe đôi khi vẫn bị nhiễm trực tiếp... thường xảy ra khi nước lạnh\" is supported only loosely. The facts say primary infection is less common and usually happens at low temperatures.",
+        "\"Mốc quay lại sau mỗi đợt thuốc có thể do cho thuốc quá tay\" over-generalises. The facts only say overtreatment can lead to recurring infections.",
+        "\"Vớt bỏ thức ăn thừa, xác cá\" and \"Cho cá ăn đủ chất\": leftover food and dead fish are not in the facts. The facts say to remove decomposing organic matter and feed well.",
+        "\"Bệnh phát mạnh vào mùa lạnh\" and \"Nó bám vào cá ... sống trong nước bẩn và lạnh\" are loosely supported. The facts say cold water is a risk factor only when it is below the fish's tolerance range.",
+        "\"Vết mốc... Nếu là columnaris thì thuốc trị nấm không có tác dụng.\" The facts say columnaris is treated with antibacterials, not antifungals. They don't say antifungals have no effect."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:12:38Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"acriflavine hoặc oxytetracycline\" – facts say acriflavine or Terramycin; oxytetracycline is not in the facts (appears twice).",
+        "\"Trước khi cho thuốc, tháo than hoạt tính ra khỏi lọc\" – reasonable from facts, but fine; no issue.",
+        "\"Cá cá da trơn có thể rất nhạy với muối\" placed in the row for the 1–5 g/litre salt bath – facts do not tie the catfish warning to that source; minor.",
+        "\"Với bể cứ bị nấm hoài thì sửa môi trường là cách duy nhất để dứt hẳn\" – facts say environmental management is essential, not the only way.",
+        "\"Bắt cá, vệ sinh bể nhẹ tay để cá không bị thương\" – extends 'avoid injuring fish'; mild generalisation.",
+        "\"Nếu nhiều con cùng bị thì nên xem lại chất lượng nước, mật độ nuôi và nhiệt độ\" – not in facts.",
+        "\"Bể bẩn thì thuốc yếu\" – extrapolation from the organic-matter note; mild.",
+        "\"Đến lúc trời trở lạnh, nước bể hạ nhiệt thì nên để ý cá kỹ hơn\" – advice not in the facts; mild.",
+        "\"Soi kính hiển vi mà thấy sợi phân nhánh thì là Saprolegnia\" – facts only say hyphae are branching, not that this distinguishes it as a diagnostic rule; mild."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
@@ -640,6 +1591,159 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": [
+    {
+      "at": "2026-11-08T15:01:29Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Cá rồng bạc và cá rồng đen nuôi trong bể dài khoảng 90 cm\" – facts say they reach about 90 cm in aquaria (fish size), not the tank length.",
+        "\"sình bụng\" and \"đốm trắng\" listed as common illnesses, and \"thối đuôi\" – facts list dropsy and ich; \"sình bụng\" is a loose rendering of dropsy, and \"lồi mắt\" for pop eye is fine, but the list is slightly altered.",
+        "\"Xù vẩy (hay gặp ở cá nhỏ)\" – facts say raised scales in young arowanas; acceptable, but \"Nước bẩn\" etc. fine. However \"Lật mang\" and \"Đục mắt, mới chớm\" table row 'không ghi' for cause is fine.",
+        "\"Nitrit gần 0, nhiệt độ không dao động mạnh trong ngày\" – checklist is acceptable but \"không thay hết nước\" is fine; the invented overall tone is minor.",
+        "\"Thuốc nào không có liều thì dùng liều theo nhãn\" and \"thêm muối (liều theo nhãn)\" – writer's rule, not a claim, but salt for these treatments is given no dose in the facts.",
+        "\"Trước khi mua cá, lo xong bể và cho bể chạy ổn định đã\" and \"nhiệt độ ổn định... cho ăn đồ nổi\" – generic advice, only loosely supported.",
+        "\"Cá nuôi ao ít khi bị sụp mắt\" is supported, but \"Mỡ tích sau mắt ... thủy cung bên Anh\" is fine; \"Cá rồng bạc ... cận huyết\" ok.",
+        "\"Cá rồng bạc lớn: ăn được dế, châu chấu...\" supported; \"Mua cá con còn túi noãn hoàng... Cá như vậy chưa tự ăn được\" supported.",
+        "\"Mùa đông họ che bể và cắm sưởi\" supported; \"Với cá rồng châu Á thì kiểm tra thêm chip và giấy tờ\" supported.",
+        "\"Quá bối thuộc dòng cao cấp\" supported; \"Thanh Long (xanh)\" supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T15:01:29Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"kim long quá bối (crossback golden) và kim long hồng vĩ (red tail golden)\" - facts only list the English names; the Vietnamese names are added",
+        "\"Cá rồng bạc ... nuôi bể lớn tới khoảng 90 cm\" is fine, but the opening \"lớn tới khoảng 90 cm\" applied to all arowanas is a generalisation (Asian reaches 900 mm, wild silver 120 cm)",
+        "\"Cá rồng châu Á ... dài tới khoảng 900 mm tính từ mõm tới gốc đuôi\" - facts say standard length; 'from snout to base of tail' is an unsupported gloss",
+        "\"Một nguồn thú y\" / \"một nguồn chuyên về cá\" / \"một tạp chí cá cảnh\" / \"chuyên gia thủy sinh\" - source-type labels are not in the facts (PetMD vet label, Seriously Fish, Jay Hemdal as 'aquatic expert')",
+        "\"cá cứ quay mắt tránh ánh sáng\" and \"cá được hồi sức\" are close, but \"Đồ đông lạnh ... bắt buộc\" style additions like \"Cọ mình vào thành, nền\" go beyond 'flashing'",
+        "\"Người nuôi kể rận cá và trùng mỏ neo chủ yếu đến từ mồi sống\" is placed under mistakes about feeder fish; facts say live feeder foods generally, acceptable but mildly stretched",
+        "\"Thuốc dùng liều theo nhãn thuốc bạn mua\" - writer's own rule, not a fact (acceptable for no-dose products)",
+        "\"nấm râu\" mentioned as 'nỗi sợ lớn nhất' is supported, but \"Bệnh nấm và xù vẩy là hai bệnh họ nói là hay gặp\" is fine; \"sình bụng\" for dropsy and \"lồi mắt\" for pop eye are translations, 'đốm trắng' for ich ok",
+        "\"Nhiệt độ không dao động mạnh trong ngày\" in the checklist and \"Cá rồng bạc lớn: ăn được ... cá cắt miếng\" are fine; \"Một nguồn ... cá lớn cần ít nhất khoảng 1.000 lít\" fine",
+        "\"cá bắt ngoài tự nhiên cũng bị\" / \"Cá nuôi ao ngoài trời hiếm khi bị sụp mắt\" supported; \"bể kính trong suốt các mặt\" slightly embellishes 'clear-sided tanks'"
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T14:37:01Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Quinin (liều theo nhãn thuốc bạn mua)\": the facts give no quinine dose; this is the writer's label rule, which the instructions say is not a claim (minor).",
+        "\"Theo dõi mắt, vẩy, nắp mang và râu mỗi ngày\": daily checking is not in the facts.",
+        "\"Mức 30–33 °C và 32–34 °C cao hơn khoảng nhiệt nuôi bình thường ở bảng trên\": this is the writer's own comparison and is not stated in the facts.",
+        "\"Cá rồng bạc và cá rồng đen nuôi trong bể dài khoảng 90 cm\" and \"dài tới khoảng 900 mm, tính từ mõm đến gốc đuôi\": the facts say standard length, and \"from snout to base of tail\" is an added gloss.",
+        "\"Cá rồng giật mình là nhảy. Lúc sáng, bật đèn phòng lên từ từ\": the facts do not say \"in the morning\".",
+        "\"sình bụng\" and \"lồi mắt\" in the illness list: the facts give dropsy and pop eye, and the Vietnamese terms are the writer's translations (minor).",
+        "\"Cá lớn thường cho ăn trạch ngày hai bữa\" in the FAQ is fine, but \"Nên nhớ là có nguồn cho rằng nuôi chung với cá tầng đáy có thể dẫn tới sụp mắt\" ties cá sam and cá hổ to drop eye, and the facts do not say those fish are bottom-dwelling (a stretch).",
+        "\"Chờ bể có vi sinh rồi mới thả cá rồng châu Á... Nước cho nó phải ổn định\": it is loosely supported, but the facts say only not to add Asian arowana to a biologically immature tank.",
+        "\"bệnh lao cá (mycobacteriosis)\": the facts give only mycobacteriosis, and \"lao cá\" is a translation (minor).",
+        "\"Cá rồng nói chung\" row for 72–82 °F and pH 6.0–7.0: the facts attribute this to PetMD without limiting it to any species, so the label is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:37:01Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Với cá rồng châu Á, nước phải ổn định và bể phải là bể đã chạy lâu\" – facts say stable and mature water; \"chạy lâu\" is a mild extension.",
+        "\"Chờ bể chạy ổn định rồi mới thả cá\" / \"Bể đã chạy ổn định trước khi thả cá\" – facts only state this for Asian arowana; the guide generalizes it to all arowanas.",
+        "\"Cá nuôi hồ hiếm khi bị sụp mắt\" – facts say drop eye is rarely seen in ponds (ao/hồ ngoài trời); 'hồ' is ambiguous but roughly OK.",
+        "\"Bể có nắp đậy kín ... Trước khi mua, hãy chuẩn bị xong bể\" and \"Nhiệt độ ổn định, nitrite gần 0\" in the checklist – the checklist is a writer's synthesis, not a fact claim, mostly supported.",
+        "\"Cá nhỏ ăn tép sông nhỏ xé ra từng miếng... Lịch hai bữa này khác với mức một bữa mỗi ngày\" – the comparison is the writer's own inference, though consistent with the facts.",
+        "\"Ở đây cá được tính cỡ theo chiều dài từ râu đến đuôi\" – supported, but 'đèn quá sáng' for 'too much light' and 'bệnh lao cá' for mycobacteriosis are fine.",
+        "\"Cá rồng hay mắc: ... lồi mắt\" – facts list 'pop eye', fine; \"Mắt đục hoặc lồi\" fine.",
+        "\"Cá hợp pháp phải đến từ trại đã đăng ký CITES\" – facts say legal fish come from registered CITES breeders; fine.",
+        "\"Nó thích ở một mình, cần bể rất rộng, nước sạch và ổn định\" – general intro, mild generality."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:33:23Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Cá rồng bạc và cá rồng Nam Mỹ lúc nhỏ dễ nuôi\": the facts say only juvenile South American arowanas are easy; silver arowana is not named here.",
+        "\"Nước cho cá rồng châu Á phải ổn định và là nước bể đã chạy lâu\": the facts say stable and mature water, so this is roughly supported, but \"chạy lâu\" is an embellishment.",
+        "\"Cá còn túi noãn hoàng thì chưa biết ăn\": roughly supported (not yet feeding).",
+        "\"Đèn quá sáng\" is given as a cause of drop eye: the facts say \"too much light\", which is fine. The Nha Trang claim \"đèn bể đặt sai\" is also supported.",
+        "\"Cá cứ quay mắt tránh đèn\": supported by the Nha Trang source.",
+        "\"Cho ăn cá mồi chưa qua xử lý\": the facts say the feeders are not nutritious unless \"conditioned\" first. \"Chưa qua xử lý\" and the closing checklist item \"mồi sống chưa xử lý\" turn this into a rule about untreated live food. That is the writer's own gloss.",
+        "\"Nuôi chung với cá tầng đáy dễ làm cá lé mắt\" appears together with the advice that tankmates must be bottom-dwelling fish. The facts give both, but the guide's \"Cần nhớ\" framing is the writer's own synthesis.",
+        "\"Thả bóng bàn nổi ... nhiều người nuôi xác nhận cách này không sửa được\": the facts say \"MFK keepers also say they do not fix it\". This is fine.",
+        "\"Sau đó cứ 2–3 ngày thay 20% một lần và bỏ cát san hô vào lọc\" is supported.",
+        "\"Cá rồng bạc và cá rồng Nam Mỹ\" is mislabeled, and \"Cá lớn cho ăn ngày một lần\" is fine. The main unsupported parts are the silver-arowana mislabel and the \"xử lý\" gloss."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:33:23Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"tính từ mõm đến gốc đuôi\" – facts only say standard length; the measurement points are not given.",
+        "\"Cá rồng lớn tới khoảng 90 cm\" in the intro generalises; the facts give 90 cm for silver/black in aquaria and 900 mm for Asian, with wild silvers up to 120 cm.",
+        "\"thối vây, thối đuôi, sình bụng... lồi mắt\" – the facts list fin or tail rot, dropsy, ich and pop eye; \"sình bụng\" for dropsy and \"đốm trắng\" for ich are loose renderings.",
+        "\"Cọ mình vào thành bể, vào vật trong bể\" – the facts only say \"flashing\"; the added detail about rubbing on objects is not supported.",
+        "\"Vây teo lại\" is fine, but \"Xù vẩy ở cá nhỏ: do nhiệt độ thay đổi quá mạnh và nước bẩn\" is stated in the intro as the cause of \"nhiều bệnh hay gặp\", which overgeneralises the keepers' causes of two conditions.",
+        "\"Cá nhỏ thì không cho ăn côn trùng hay con vật có vỏ cứng\" – the facts say avoid hard-shelled insects or invertebrates for young fish; this is close, but the guide does not mention that it only applies to hard-shelled ones.",
+        "\"Mang mới bắt đầu cong... Sau đó cứ 2–3 ngày thay 20% một lần\" – supported. But \"Người nuôi có dùng thêm đồng sunfat, liều theo nhãn\" and \"quinine (liều theo nhãn)\" are the writer's own dosing rule, not facts.",
+        "\"Cá rồng giật mình là nhảy, nắp hở là cá có thể văng ra ngoài\" – the consequence of being thrown out of the tank is not in the facts.",
+        "\"Chuyên gia thủy cung\" for Jay Hemdal – the facts do not state his job title.",
+        "\"Muốn nuôi thì cần bể rất dài và rộng... nước ổn định\" and \"Với cá rồng châu Á, nước phải ổn định và bể phải là bể đã chạy lâu\" – the facts say \"stable and mature water\", which is slightly altered, but acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [
+    {
+      "at": "2026-11-08T14:24:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Tắm muối ... Thường là 30 g/L, tắm riêng\": the facts give the salt dip only generally; \"tắm riêng\" (bathing separately) is not in the facts.",
+        "\"Tắm thuốc tím ... tắm riêng\": 'separately' is the writer's addition; the facts give 10–25 g/m³ for 1 hour with no such instruction.",
+        "\"Trichlorfon ... Trùng mỏ neo, rận cá ... Liều theo nhãn, ngâm kéo dài\": the facts support trichlorfon for Lernaea in ornamental fish, but they say Dylox is discontinued and no product is approved for Argulus. Listing it as a treatment for rận cá is a stretch.",
+        "\"Diflubenzuron ... Giết tôm, tép\" and \"Phải chuyển tôm, tép ra chỗ khác\": the facts only say tôm (shrimp) must be moved. Adding tép is a small extension.",
+        "\"Trùng mỏ neo ... vẫn hút máu cá và nhả trứng\": the facts say they keep sucking and releasing eggs. 'Hút máu' (sucking blood) is not stated.",
+        "\"Dùng muối cho cá không vảy\": the facts say to avoid salt for scaleless catfish (cá da trơn không vảy). Generalising to all scaleless fish is a small overreach.",
+        "\"Thấy trùng mỏ neo thì tắm thuốc tím theo bảng ở trên\": the facts give permanganate for the juvenile fish being inspected, which fits. The table dose is described as for seed fish, so this is acceptable.",
+        "\"Chất ức chế kitin ... an toàn với cá\" next to the table row \"Giết tôm, tép\": the facts support both, but the guide gives no organophosphate or chitin-inhibitor dose by the label. This is the writer's own rule, not a claim."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T14:24:57Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Trong thời gian này nó đẻ liên tục\" is roughly supported (sinh sản liên tục), fine; but \"Sau khi lột xác, ấu trùng phải bám tạm lên cá để sống\" is OK.",
+        "\"Rận cá ... nhìn trên vây thì dễ thấy hơn\" fine; \"Chỗ rận hút có vết đỏ nhỏ\" - facts say 'vết đỏ khu trú', 'nhỏ' is minor addition.",
+        "\"Với rận, nhóm này được mô tả là hiệu quả và an toàn cho cá\" is supported; however the Argusol product is described as \"Nhãn sản phẩm đó ghi: để thuốc 7 ngày\" - the 10 ml per 364 L dose is omitted, which is fine, but 'Thuốc tím và diflubenzuron là hai thuốc khuyến nông Thanh Hóa nêu' - facts say Dimilin, acceptable.",
+        "\"Tắm thuốc tím... Quá liều thuốc tím là lỗi hay gặp\" is supported, but the table lists the KMnO4 dip under 'Khuyến nông' without distinguishing; minor.",
+        "\"Thấy trùng mỏ neo thì tắm thuốc tím theo bảng ở trên\" - the facts say tắm thuốc tím for fish seed; fine.",
+        "\"Trùng bám ở miệng hoặc trong mang, cá không ăn được\" - the facts say mouth attachment prevents feeding, not gills; the gill part is invented in the 'when to worry' section.",
+        "\"Vết bám đỏ, loét lan rộng, hhoặc thấy nấm, đốm trắng\" as warning triggers is the writer's own advice, not in the facts.",
+        "\"Cá lờ đờ, bỏ ăn. Đây là dấu hiệu bệnh đã nặng\" - facts say severe stage is lethargic/anorexic, so supported loosely.",
+        "\"Mỗi con cá chỉ nên giữ ngoài nước khoảng 2–3 phút\" - supported as handling time; ok.",
+        "\"Ốc thường chịu được các thuốc trị trùng mỏ neo\" slightly generalizes 'ốc nhìn chung an toàn với đa số thuốc'; minor."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [

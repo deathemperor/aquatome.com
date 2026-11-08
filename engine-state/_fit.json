@@ -884,7 +884,7 @@
  },
  "id/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": {
   "at": "2026-11-08",
-  "hash": "25c315f5327ba70b",
+  "hash": "653e987ce4ab5eee",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -892,27 +892,18 @@
     "check": "units",
     "part": "P1",
     "quote": "sekitar 13 cm ikan per 3,8 liter",
-    "why": "The 'one inch of fish per gallon' rule converted to metric; nobody in Indonesia says it this way.",
+    "why": "This is the 'one inch of fish per gallon' rule converted to metric; nobody in Indonesia says 3.8 litres.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "3,8 liter air beratnya sekitar 3,6 kg",
-    "why": "A gallon and its weight in pounds converted to metric; in metric, a litre of water weighs about 1 kg.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Mulailah menghangatkan air ketika suhu mencapai sekitar 13 °C.",
-    "why": "Assumes a cold-climate home where tank water can fall to 13 °C during an outage, which doesn't happen in Indonesia.",
+    "why": "This is 'a gallon weighs about 8 pounds' converted; a metric reader would say 1 litre weighs about 1 kg.",
     "by": "model"
    }
   ],
-  "products": [
-   "Hailea CP-60"
-  ]
+  "products": []
  },
  "id/guides/aquatome-be-ca-nuoi-bao-nhieu-con-la-vua-cach-tinh-mat-do-tha-ca-theo-the-tich-va-loai": {
   "at": "2026-11-08",
@@ -1027,18 +1018,10 @@
  },
  "id/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "f7628d416e4fd802",
+  "hash": "df23d9ab757c4be5",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "mengobati betta liar dengan produk tembaga komersial sekitar 5 ml per 19 liter, yang menurutnya setara kira-kira 1,5–2,0 ppm tembaga",
-    "why": "1.5–2.0 ppm copper for 30 days is about ten times the 0.15 ppm treatment level, and the page itself says over 0.3 ppm can kill fish in acidic water, which is where wild bettas are kept.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -1051,43 +1034,43 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "Tembaga sulfat: 0,15 ppm ion tembaga sebagai perendaman sampai 10 hari"
+    "quote": "0,15 ppm ion tembaga; takaran tembaga sulfat (mg/L) = alkalinitas total (mg/L) ÷ 100"
    },
    {
-    "treatment": "copper",
+    "treatment": "copper sulfate with citric acid",
     "strength": "",
-    "amount": 5,
+    "amount": 0.15,
     "amountMax": 0,
-    "unit": "ml",
-    "per": 19,
-    "perUnit": "litre",
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
     "use": "parasites",
     "method": "",
-    "quote": "produk tembaga komersial sekitar 5 ml per 19 liter"
+    "quote": "takaran dihitung dari berat tembaga sulfat saja, hasilnya 0,15 ppm ion tembaga"
    },
    {
-    "treatment": "salt",
+    "treatment": "chelated copper",
     "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
+    "amount": 1.5,
+    "amountMax": 2,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
     "use": "parasites",
-    "method": "bath",
-    "quote": "Rendam garam: natrium klorida 30 g/L selama 5–15 menit"
+    "method": "",
+    "quote": "tembaga kelat menjaga kadar tembaga total 1,5–2,0 ppm"
    },
    {
     "treatment": "salt",
     "strength": "",
     "amount": 1,
     "amountMax": 0,
-    "unit": "cangkir",
+    "unit": "cup",
     "per": 76,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "natrium klorida biasa (bukan garam laut) 1 cangkir per 76 liter"
+    "quote": "1 cup per 76 liter"
    },
    {
     "treatment": "salinomycin",
@@ -1099,36 +1082,29 @@
     "perUnit": "",
     "use": "parasites",
     "method": "food",
-    "quote": "salinomycin dicampur ke pakan dengan kadar 60 atau 90 ppm"
+    "quote": "60 atau 90 ppm dalam pakan"
    }
   ],
   "sourceRead": true
  },
  "id/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "62474a0ad80257e1",
+  "hash": "bc1411ec6dfd7840",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "harm",
+    "check": "words",
     "part": "P1",
-    "quote": "Rendaman: 2–5 g/L selama 4–5 hari, lalu ganti air 35–50%.",
-    "why": "A kanamycin bath of grams per litre for days is far above usual bath strengths (tens of mg/L) and would likely harm the fish.",
-    "by": "model"
-   },
-   {
-    "check": "dose",
-    "part": "P1",
-    "quote": "1 takar obat, 1 takar Focus, dan 1 sendok makan pakan",
-    "why": "Gives an amount of a named commercial product for medicated food.",
+    "quote": "tumbuhan baru yang bening atau putih di ekor itu normal",
+    "why": "Calque of English 'new growth'; 'tumbuhan' means a plant, keepers say 'pertumbuhan baru' for regrowing fin tissue.",
     "by": "model",
-    "product": "Focus"
+    "fix": "pertumbuhan baru"
    }
   ],
   "products": [
-   "Purigen",
-   "Focus"
+   "KanaPlex",
+   "Purigen"
   ],
   "doses": [
    {
@@ -1139,9 +1115,9 @@
     "unit": "g",
     "per": 1,
     "perUnit": "litre",
-    "use": "finRot",
+    "use": "other",
     "method": "wholeTank",
-    "quote": "Garam rutin\n| 1–3 g/L"
+    "quote": "Kadar garam rutin 1–3 g/L bisa ditoleransi sebagian besar ikan tropis"
    },
    {
     "treatment": "salt",
@@ -1153,91 +1129,31 @@
     "perUnit": "litre",
     "use": "finRot",
     "method": "bath",
-    "quote": "10 g/L selama 20–30 menit"
+    "quote": "| Mandi garam\n| 10 g/L\n| 20–30 menit"
    },
    {
     "treatment": "salt",
     "strength": "",
-    "amount": 30,
+    "amount": 17,
     "amountMax": 0,
     "unit": "g",
-    "per": 4,
+    "per": 1,
     "perUnit": "litre",
-    "use": "finRot",
+    "use": "other",
     "method": "",
-    "quote": "30 g per 4 L"
+    "quote": "Ikan rainbow dewasa tahan sampai 17 g/L"
    },
    {
-    "treatment": "kanamycin",
+    "treatment": "salt",
     "strength": "",
-    "amount": 200,
-    "amountMax": 300,
-    "unit": "mg",
-    "per": 100,
-    "perUnit": "g food",
-    "use": "finRot",
-    "method": "food",
-    "quote": "Lewat pakan: 200–300 mg per 100 g pakan."
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 1,
+    "amount": 12,
     "amountMax": 0,
-    "unit": "takar",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "wholeTank",
-    "quote": "Dosis di air 1 takar per 20 L, diulang tiap 48 jam, maksimal 3 dosis."
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "takar",
-    "per": 1,
-    "perUnit": "tablespoon food",
-    "use": "finRot",
-    "method": "food",
-    "quote": "1 takar obat, 1 takar Focus, dan 1 sendok makan pakan"
-   },
-   {
-    "treatment": "nalidixic acid",
-    "strength": "",
-    "amount": 13,
-    "amountMax": 0,
-    "unit": "mg",
+    "unit": "g",
     "per": 1,
     "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "rendaman 13 mg/L selama 1–4 jam"
-   },
-   {
-    "treatment": "malachite green",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
+    "use": "other",
     "method": "",
-    "quote": "Malachite green: 1–3 mg/L selama paling lama 1 jam."
-   },
-   {
-    "treatment": "tea tree oil",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 2,
-    "unit": "drop",
-    "per": 0,
-    "perUnit": "",
-    "use": "finRot",
-    "method": "wholeTank",
-    "quote": "Minyak tea tree (1–2 tetes di akuarium)"
+    "quote": "sedangkan yang remaja sampai 12 g/L"
    }
   ],
   "sourceRead": true
@@ -1252,7 +1168,7 @@
  },
  "id/guides/aquatome-ca-bi-lech-bong-bong-boi-nghieng-chui-dau-noi-bung-nguyen-nhan-va-cach-xu-ly": {
   "at": "2026-11-08",
-  "hash": "33331b209078b936",
+  "hash": "bc5b6f29cef075da",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -1260,24 +1176,12 @@
     "check": "units",
     "part": "P1",
     "quote": "Sumber lain menyarankan air hanya beberapa inci di atas tubuh ikan",
-    "why": "Inches are an imperial unit; an Indonesian keeper measures water depth in centimetres.",
+    "why": "Uses inches, an imperial unit, as the reader's unit for water depth.",
     "by": "model"
    }
   ],
   "products": [],
   "doses": [
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 8,
-    "amountMax": 0,
-    "unit": "teaspoon",
-    "per": 19,
-    "perUnit": "litre",
-    "use": "other",
-    "method": "wholeTank",
-    "quote": "menambahkan garam 8 sendok teh per 19 liter"
-   },
    {
     "treatment": "antibiotic",
     "strength": "",
@@ -1285,10 +1189,10 @@
     "amountMax": 0,
     "unit": "g",
     "per": 30,
-    "perUnit": "g food",
+    "perUnit": "g dry food",
     "use": "bacteria",
     "method": "food",
-    "quote": "30 g pakan kering, dan sekitar 0,5 g antibiotik"
+    "quote": "5 g gelatin, 60 g air panas, 30 g pakan kering, dan sekitar 0,5 g antibiotik"
    }
   ],
   "sourceRead": true
@@ -1354,18 +1258,10 @@
  },
  "id/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "b8fb8af83ea9e98b",
+  "hash": "62f3b325e52eaed0",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "merendam ikan muda dalam air garam 2–3% selama 5–10 menit",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -1378,10 +1274,10 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "1–5 g/liter sebagai rendaman jangka panjang, tanpa batas waktu"
+    "quote": "1–5 g/liter"
    },
    {
-    "treatment": "aquarium salt",
+    "treatment": "salt",
     "strength": "",
     "amount": 1,
     "amountMax": 3,
@@ -1390,7 +1286,7 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "",
-    "quote": "1–3 g/liter"
+    "quote": "1–3 gram per liter"
    },
    {
     "treatment": "salt",
@@ -1402,19 +1298,7 @@
     "perUnit": "",
     "use": "fungus",
     "method": "",
-    "quote": "Efektif melawan kapang air mulai sekitar 3 ppt"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "fungus",
-    "method": "bath",
-    "quote": "Rendam 2–3% selama 15–30 menit"
+    "quote": "Efektif mulai sekitar 3 ppt"
    },
    {
     "treatment": "malachite green",
@@ -1426,7 +1310,7 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "0,10 mg/liter, tiga kali dengan jarak tiga hari"
+    "quote": "0,10 mg/liter"
    },
    {
     "treatment": "malachite green",
@@ -1438,7 +1322,7 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "spot",
-    "quote": "Bersihkan luka dengan larutan pekat 100 mg/liter"
+    "quote": "Bersihkan luka dengan larutan malachite green pekat (100 mg/liter), lalu oleskan krim tahan air"
    },
    {
     "treatment": "hydrogen peroxide",
@@ -1449,32 +1333,8 @@
     "per": 3.5,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "other",
-    "quote": "hidrogen peroksida 35%, sekitar 1 ml per 3,5 liter pada hari pertama"
-   },
-   {
-    "treatment": "vitamin c",
-    "strength": "",
-    "amount": 200,
-    "amountMax": 300,
-    "unit": "g",
-    "per": 100,
-    "perUnit": "kg feed",
-    "use": "other",
-    "method": "food",
-    "quote": "vitamin C 200–300 g per 100 kg pakan"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "quarantine",
-    "method": "dip",
-    "quote": "merendam ikan muda dalam air garam 2–3% selama 5–10 menit"
+    "method": "",
+    "quote": "Sekitar 1 ml per 3,5 liter"
    }
   ],
   "sourceRead": true
@@ -1741,7 +1601,7 @@
  },
  "id/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": {
   "at": "2026-11-08",
-  "hash": "5acabf741f53df1c",
+  "hash": "2aadbe17dbe79908",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -1774,18 +1634,6 @@
    {
     "treatment": "metronidazole",
     "strength": "",
-    "amount": 500,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 40,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "500 mg per 40 liter, dilarutkan dulu di air hangat, dengan aerasi kuat"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
     "amount": 1,
     "amountMax": 0,
     "unit": "tablet",
@@ -1794,18 +1642,6 @@
     "use": "parasites",
     "method": "bath",
     "quote": "1 tablet per 20 liter direndam 2 hari"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "gram food",
-    "use": "parasites",
-    "method": "food",
-    "quote": "Sekitar 10 mg per gram pakan, selama 5 hari"
    },
    {
     "treatment": "metronidazole",
@@ -2556,22 +2392,15 @@
  },
  "id/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "8daab16c56a46ad3",
+  "hash": "1a5c1db5813854b5",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P1",
-    "quote": "misalnya minimal 2.300 liter/jam untuk akuarium 570 liter",
-    "why": "570 litres (150 gallons) and 2,300 L/h (600 gph) are converted US figures no Indonesian keeper would use.",
-    "by": "model"
-   },
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "garam 1% dengan kina 0,8 g per liter",
-    "why": "Quinine at 0.8 g per litre is many times the usual dose of a few tens of mg per litre and would likely kill the fish.",
+    "quote": "biasanya setelah ukurannya sekitar 16–18\", dan jarang pada arwana Asia kecuali yang di atas 24\"",
+    "why": "Fish sizes are given in inches, an imperial unit Indonesian keepers don't use.",
     "by": "model"
    }
   ],
@@ -2926,68 +2755,22 @@
  },
  "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "58b4e8a4d8021ee8",
+  "hash": "ca1199e4a91bc7da",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "Populasi kutu ikan biasanya melonjak di musim panas dan musim gugur.",
-    "why": "Autumn is a temperate-country season; Indonesia has no autumn.",
+    "quote": "Jumlah kutu ikan biasanya naik tajam di musim panas dan musim gugur",
+    "why": "Summer and autumn are a temperate country's seasons; Indonesia has no autumn.",
     "by": "model"
    }
   ],
-  "products": [],
+  "products": [
+   "Betadine"
+  ],
   "doses": [
-   {
-    "treatment": "diflubenzuron",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "m³",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Satu sumber memakai diflubenzuron 1 g/m³ sebanyak 4 kali dalam 15 hari"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "",
-    "amount": 0.01,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "diflubenzuron diberikan 0,01 mg/L sebagai rendaman jangka panjang"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "291,2mg/100ml",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 364,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Satu produk cair berisi diflubenzuron 291,2 mg/100 ml untuk kutu ikan dan cacing jangkar memakai dosis 10 ml untuk 364 liter"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 0.02,
-    "amountMax": 0.2,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Rendaman jangka panjang 0,02–0,2% bisa membantu mengendalikan infeksi ulang"
-   },
    {
     "treatment": "salt",
     "strength": "",
@@ -2998,23 +2781,23 @@
     "perUnit": "litre",
     "use": "quarantine",
     "method": "wholeTank",
-    "quote": "Sekitar 1 sendok makan per 20 liter di akuarium karantina"
+    "quote": "Sekitar 1 sendok makan per 20 liter"
    },
    {
     "treatment": "salt",
-    "strength": "",
+    "strength": "3%",
     "amount": 3,
     "amountMax": 0,
     "unit": "%",
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "bath",
-    "quote": "Rendaman singkat garam 3%, dilanjutkan rendaman jangka panjang 0,2%"
+    "method": "dip",
+    "quote": "Celup 3%"
    },
    {
     "treatment": "salt",
-    "strength": "",
+    "strength": "0.2%",
     "amount": 0.2,
     "amountMax": 0,
     "unit": "%",
@@ -3022,31 +2805,19 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "Rendaman singkat garam 3%, dilanjutkan rendaman jangka panjang 0,2%"
+    "quote": "lalu rendaman 0,2%"
    },
    {
     "treatment": "salt",
-    "strength": "0,3%",
-    "amount": 300,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 100,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Garam 0,3% (300 g/100 L) selama sekitar 1 minggu dengan suhu dinaikkan ke 32 °C untuk membunuh telur"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 2,
-    "amountMax": 3,
+    "strength": "0.02–0.2%",
+    "amount": 0.02,
+    "amountMax": 0.2,
     "unit": "%",
     "per": 0,
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "rendaman garam rutin 2–3% selama 15–20 menit untuk membunuh telur parasit"
+    "quote": "0,02–0,2%"
    },
    {
     "treatment": "potassium permanganate",
@@ -3058,19 +2829,7 @@
     "perUnit": "m³",
     "use": "parasites",
     "method": "bath",
-    "quote": "Satu sumber memakai rendaman 10–25 g/m³ selama 1 jam"
-   },
-   {
-    "treatment": "potassium permanganate",
-    "strength": "",
-    "amount": 0.6,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 8,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "Sumber lain memakai 0,6 g per 8 L air selama sekitar 5 menit"
+    "quote": "10–25 g/m³"
    }
   ],
   "sourceRead": true
@@ -14611,22 +14370,15 @@
  },
  "ms/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": {
   "at": "2026-11-08",
-  "hash": "92282c9f8d2cabd5",
+  "hash": "1e5207cdb224e10a",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "units",
-    "part": "P1",
-    "quote": "sumber menyebut kira-kira 13 cm ikan bagi setiap gelen",
-    "why": "Gallons are the reader's unit here, and 13 cm is a conversion from about 5 inches.",
-    "by": "model"
-   },
-   {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "Mulakan memanaskan air apabila suhunya mencecah sekitar 13 °C.",
-    "why": "Warming a tank that falls to about 13 °C without power assumes a cold climate, not Malaysia's.",
+    "quote": "Tutup penutup tangki dan balut tangki dengan tuala, selimut, beg tidur, surat khabar atau kepingan styrofoam.",
+    "why": "Insulating against a cold room during an outage assumes a cold climate, not a Malaysian home where overheating is the risk.",
     "by": "model"
    }
   ],
@@ -14716,7 +14468,7 @@
  },
  "ms/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "59194f0f167e397f",
+  "hash": "348ac1aa1803da21",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14732,43 +14484,19 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "Kuprum sulfat: mandian 0.15 ppm ion kuprum selama sehingga 10 hari, diulang jika perlu."
+    "quote": "Kuprum sulfat (rendaman)\n| 0.15 ppm ion kuprum"
    },
    {
     "treatment": "chelated copper",
     "strength": "",
-    "amount": 0.15,
-    "amountMax": 0,
+    "amount": 1.5,
+    "amountMax": 2,
     "unit": "ppm",
     "per": 0,
     "perUnit": "",
     "use": "parasites",
     "method": "",
-    "quote": "menghasilkan 0.15 ppm ion kuprum"
-   },
-   {
-    "treatment": "chelated copper",
-    "strength": "",
-    "amount": 5,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "ubat kuprum terkelat komersial pada kira-kira 5 ml bagi setiap kira-kira 20 liter"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "Mandian garam: 30 g/L natrium klorida selama 5–15 minit"
+    "quote": "mengekalkan jumlah kuprum 1.5–2.0 ppm apabila diguna mengikut label"
    },
    {
     "treatment": "salt",
@@ -14776,11 +14504,11 @@
     "amount": 1,
     "amountMax": 0,
     "unit": "cup",
-    "per": 80,
+    "per": 76,
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "sebanyak 1 cawan bagi setiap kira-kira 80 liter"
+    "quote": "1 cawan bagi setiap 76 liter"
    },
    {
     "treatment": "salinomycin",
@@ -14792,26 +14520,20 @@
     "perUnit": "",
     "use": "parasites",
     "method": "food",
-    "quote": "salinomycin dicampur dalam makanan pada 60 atau 90 ppm"
+    "quote": "60 atau 90 ppm dalam makanan"
    }
   ],
   "sourceRead": true
  },
  "ms/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "25fe5ad9f2c5e8a3",
+  "hash": "b7e6d3a718b484c8",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "Sumber ini juga menyenaraikan mandian kanamycin 2–5 g/L selama 4–5 hari",
-    "why": "Kanamycin baths are dosed in tens of mg per litre, so 2–5 g/L for days is a large overdose that would likely kill fish.",
-    "by": "model"
-   }
+  "findings": [],
+  "products": [
+   "Purigen"
   ],
-  "products": [],
   "doses": [
    {
     "treatment": "salt",
@@ -14823,7 +14545,7 @@
     "perUnit": "litre",
     "use": "other",
     "method": "wholeTank",
-    "quote": "garam pada kadar 1–3 g/L untuk kegunaan rutin"
+    "quote": "Garam rutin dalam tangki\n| 1–3 g/L"
    },
    {
     "treatment": "salt",
@@ -14833,69 +14555,9 @@
     "unit": "g",
     "per": 1,
     "perUnit": "litre",
-    "use": "finRot",
+    "use": "",
     "method": "bath",
-    "quote": "Spesies yang tahan garam boleh dimandikan selama 20–30 minit dalam larutan 10 g/L"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 4,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "",
-    "quote": "dos 30 g bagi setiap 4 liter, hanya untuk ikan air tawar yang tahan garam"
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "sukatan",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "wholeTank",
-    "quote": "1 sukatan bagi setiap 20 liter, diulang setiap 48 jam, maksimum 3 dos"
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 200,
-    "amountMax": 300,
-    "unit": "mg",
-    "per": 100,
-    "perUnit": "g food",
-    "use": "finRot",
-    "method": "food",
-    "quote": "dos kanamycin dalam makanan sebanyak 200–300 mg bagi setiap 100 g makanan"
-   },
-   {
-    "treatment": "nalidixic acid",
-    "strength": "",
-    "amount": 13,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "Nalidixic acid jenis larut air: mandian 13 mg/L selama 1–4 jam"
-   },
-   {
-    "treatment": "malachite green",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "Malachite green: 1–3 mg/L selama tidak lebih daripada 1 jam"
+    "quote": "Rendaman garam\n| 10 g/L\n| 20–30 minit"
    },
    {
     "treatment": "tea tree oil",
@@ -14907,7 +14569,7 @@
     "perUnit": "",
     "use": "other",
     "method": "wholeTank",
-    "quote": "Minyak tea tree (1–2 titis dalam tangki)"
+    "quote": "1–2 titis dalam tangki"
    }
   ],
   "sourceRead": true
@@ -14922,7 +14584,7 @@
  },
  "ms/guides/aquatome-ca-bi-lech-bong-bong-boi-nghieng-chui-dau-noi-bung-nguyen-nhan-va-cach-xu-ly": {
   "at": "2026-11-08",
-  "hash": "5aab0ad52ff8e64a",
+  "hash": "bfead19eca46dae5",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -14930,24 +14592,13 @@
     "check": "units",
     "part": "P1",
     "quote": "Biarkan air hanya beberapa inci di atas badan ikan",
-    "why": "Water depth is given in inches, an imperial unit, instead of centimetres.",
-    "by": "model"
+    "why": "Inches are an imperial unit carried over from the source; Malaysian keepers use centimetres.",
+    "by": "model",
+    "fix": "beberapa sentimeter"
    }
   ],
   "products": [],
   "doses": [
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 8,
-    "amountMax": 0,
-    "unit": "teaspoon",
-    "per": 19,
-    "perUnit": "litre",
-    "use": "other",
-    "method": "wholeTank",
-    "quote": "menambah garam sebanyak 8 sudu teh bagi setiap 19 liter"
-   },
    {
     "treatment": "antibiotic",
     "strength": "",
@@ -15024,60 +14675,12 @@
  },
  "ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "69e00bbca42360f8",
+  "hash": "800c7634e3cdc0b5",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "1–5 g/liter, tanpa had masa",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "1–3 g per liter",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "Berkesan terhadap kulat air bermula sekitar 3 ppt",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "2–3% selama 15–30 minit",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "direndam dalam air garam 2–3% selama 5–10 minit sebelum dimasukkan",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
-   {
-    "treatment": "malachite green",
-    "strength": "",
-    "amount": 100,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "fungus",
-    "method": "spot",
-    "quote": "Bersihkan luka dengan larutan pekat 100 mg/liter"
-   },
    {
     "treatment": "malachite green",
     "strength": "",
@@ -15088,7 +14691,19 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "0.10 mg/liter, tiga kali rawatan dengan selang tiga hari"
+    "quote": "Rendaman malachite green\n| 0.10 mg/liter"
+   },
+   {
+    "treatment": "malachite green",
+    "strength": "",
+    "amount": 100,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "fungus",
+    "method": "spot",
+    "quote": "Sapuan terus pada luka (malachite green pekat)\n| 100 mg/liter"
    },
    {
     "treatment": "salt",
@@ -15100,7 +14715,7 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "1–5 g/liter, tanpa had masa"
+    "quote": "Rendaman garam jangka panjang\n| 1–5 g/liter"
    },
    {
     "treatment": "salt",
@@ -15112,11 +14727,11 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "",
-    "quote": "1–3 g per liter"
+    "quote": "Garam akuarium (untuk ikan yang tahan garam sahaja)\n| 1–3 g/liter"
    },
    {
     "treatment": "salt",
-    "strength": "3ppt",
+    "strength": "",
     "amount": 3,
     "amountMax": 0,
     "unit": "ppt",
@@ -15124,19 +14739,7 @@
     "perUnit": "",
     "use": "fungus",
     "method": "",
-    "quote": "Berkesan terhadap kulat air bermula sekitar 3 ppt"
-   },
-   {
-    "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "fungus",
-    "method": "bath",
-    "quote": "2–3% selama 15–30 minit"
+    "quote": "Berkesan dari kira-kira 3 ppt"
    },
    {
     "treatment": "hydrogen peroxide",
@@ -15147,32 +14750,20 @@
     "per": 3.5,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "",
-    "quote": "Hidrogen peroksida (35%): kira-kira 1 ml per 3.5 liter pada hari pertama"
+    "method": "other",
+    "quote": "Kira-kira 1 ml bagi setiap 3.5 liter"
    },
    {
     "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "quarantine",
-    "method": "dip",
-    "quote": "direndam dalam air garam 2–3% selama 5–10 minit sebelum dimasukkan"
-   },
-   {
-    "treatment": "vitamin c",
     "strength": "",
-    "amount": 200,
-    "amountMax": 300,
+    "amount": 30,
+    "amountMax": 0,
     "unit": "g",
-    "per": 100,
-    "perUnit": "kg food",
-    "use": "other",
-    "method": "food",
-    "quote": "vitamin C dicampur ke dalam makanan pada kadar 200–300 g per 100 kg makanan"
+    "per": 1,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "dip",
+    "quote": "biasanya 30 g/L selama 0.5–10 minit"
    }
   ],
   "sourceRead": true
@@ -17902,47 +17493,10 @@
  },
  "th/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": {
   "at": "2026-11-08",
-  "hash": "0c5d83fc3ea9db17",
+  "hash": "10cb674de56a69fc",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "ให้เริ่มทำให้น้ำอุ่นขึ้นเมื่ออุณหภูมิลงไปถึงราว 13 °C",
-    "why": "Waiting until the water reaches 13 °C before warming it puts tropical fish at serious risk of chilling and dying.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "ถ้าอากาศหนาว อาจใช้ผ้าห่ม ถุงนอน หรือหนังสือพิมพ์หุ้มตู้",
-    "why": "Wrapping the tank against cold during a power cut is advice for a cold-winter country, not for a home in Thailand.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "ความยาวปลารวมราว 13 ซม.ต่อน้ำ 3.8 ลิตร",
-    "why": "This is the '5 inches of fish per gallon' rule converted to metric. No keeper in Thailand would put it this way.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "น้ำ 3.8 ลิตรหนักราว 3.6 กก.",
-    "why": "This is the 'a gallon weighs 8 pounds' rule converted to metric. A Thai page would just say 1 litre weighs about 1 kg.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "สำหรับกรองใต้กรวด",
-    "why": "Thai keepers call an undergravel filter 'กรองใต้ทราย'. 'กรองใต้กรวด' reads like a direct translation.",
-    "by": "model",
-    "fix": "กรองใต้ทราย"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "th/guides/aquatome-be-ca-nuoi-bao-nhieu-con-la-vua-cach-tinh-mat-do-tha-ca-theo-the-tich-va-loai": {
@@ -18024,14 +17578,23 @@
  },
  "th/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "a59548fed2d5f6e1",
+  "hash": "3bd10863530f0d43",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "ห้ามใช้มาลาไคต์กรีนกับปลาแมว (catfish)",
+    "why": "ปลาแมว is a literal calque of 'catfish' and names a different fish in Thai.",
+    "by": "model",
+    "fix": "ปลาหนัง / แคทฟิช"
+   }
+  ],
   "products": [],
   "doses": [
    {
-    "treatment": "copper",
+    "treatment": "copper sulfate",
     "strength": "",
     "amount": 0.15,
     "amountMax": 0,
@@ -18039,32 +17602,20 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "bath",
-    "quote": "แช่ปลาในทองแดงที่ระดับคอปเปอร์ไอออน 0.15 ppm นานสูงสุด 10 วัน"
+    "method": "wholeTank",
+    "quote": "ทองแดงไอออน 0.15 ppm ขนาดเป็น mg/L = ค่าความเป็นด่างรวม (mg/L) ÷ 100"
    },
    {
-    "treatment": "copper",
-    "strength": "1.5–2.0ppmcopper",
-    "amount": 5,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 19,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "",
-    "quote": "ใช้ยาทองแดงสำเร็จรูปประมาณ 5 มล. ต่อ 19 ลิตร ซึ่งร้านระบุว่าราว 1.5–2.0 ppm copper"
-   },
-   {
-    "treatment": "salt",
+    "treatment": "chelated copper",
     "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
+    "amount": 1.5,
+    "amountMax": 2,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
     "use": "parasites",
-    "method": "dip",
-    "quote": "แช่ในโซเดียมคลอไรด์ 30 g/L นาน 5–15 นาที"
+    "method": "wholeTank",
+    "quote": "จะคงระดับทองแดงรวมไว้ที่ 1.5–2.0 ppm"
    },
    {
     "treatment": "salt",
@@ -18076,7 +17627,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "ใช้โซเดียมคลอไรด์ธรรมดา (ไม่ใช่เกลือทะเล) 1 ถ้วยต่อ 76 ลิตร"
+    "quote": "1 ถ้วยต่อ 76 ลิตร"
    },
    {
     "treatment": "salinomycin",
@@ -18088,75 +17639,19 @@
     "perUnit": "",
     "use": "parasites",
     "method": "food",
-    "quote": "มีการผสม salinomycin ในอาหาร 60 หรือ 90 ppm ให้กินทุกวันนาน 16 หรือ 19 วัน"
+    "quote": "มีการผสมซาลิโนมัยซินในอาหารที่ 60 หรือ 90 ppm ให้กินทุกวันนาน 16 หรือ 19 วัน"
    }
   ],
   "sourceRead": true
  },
  "th/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "1b11aca27ddb7447",
+  "hash": "1ca95e0231b19210",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "Kanamycin แช่: 2–5 ก./ลิตร นาน 4–5 วัน แล้วเปลี่ยนน้ำ 35–50%",
-    "why": "A kanamycin bath of 2–5 grams per litre for days is far above usual bath strengths (milligrams per litre) and would likely poison the fish.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 200,
-    "amountMax": 300,
-    "unit": "mg",
-    "per": 100,
-    "perUnit": "g food",
-    "use": "finRot",
-    "method": "food",
-    "quote": "Kanamycin ผสมอาหาร: 200–300 มก. ต่ออาหาร 100 ก."
-   },
-   {
-    "treatment": "nalidixic acid",
-    "strength": "",
-    "amount": 13,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "Nalidixic acid ชนิดละลายน้ำ: แช่ 13 มก./ลิตร นาน 1–4 ชั่วโมง"
-   },
-   {
-    "treatment": "malachite green",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "Malachite green: 1–3 มก./ลิตร นานไม่เกิน 1 ชั่วโมง"
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "measure",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "wholeTank",
-    "quote": "ใส่ลงน้ำ 1 ช้อนตวง (measure) ต่อน้ำ 20 ลิตร ซ้ำทุก 48 ชั่วโมง"
-   },
    {
     "treatment": "salt",
     "strength": "",
@@ -18167,7 +17662,7 @@
     "perUnit": "litre",
     "use": "finRot",
     "method": "wholeTank",
-    "quote": "ใส่ในตู้ตามปกติ\n| 1–3 ก./ลิตร"
+    "quote": "เกลือ 1–3 กรัม/ลิตร เป็นระดับที่ปลาเขตร้อนส่วนใหญ่ทนได้และไม่ทำร้ายระบบกรองชีวภาพ"
    },
    {
     "treatment": "salt",
@@ -18179,31 +17674,7 @@
     "perUnit": "litre",
     "use": "finRot",
     "method": "bath",
-    "quote": "10 ก./ลิตร นาน 20–30 นาที"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 4,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "",
-    "quote": "30 ก. ต่อน้ำ 4 ลิตร"
-   },
-   {
-    "treatment": "tea tree oil",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 2,
-    "unit": "drop",
-    "per": 0,
-    "perUnit": "",
-    "use": "other",
-    "method": "wholeTank",
-    "quote": "น้ำมันทีทรี (tea tree oil) 1–2 หยดในตู้"
+    "quote": "การแช่เกลือ 10 กรัม/ลิตร นาน 20–30 นาที ใช้ได้เฉพาะปลาที่ทนเกลือ"
    }
   ],
   "sourceRead": true
@@ -18218,7 +17689,7 @@
  },
  "th/guides/aquatome-ca-bi-lech-bong-bong-boi-nghieng-chui-dau-noi-bung-nguyen-nhan-va-cach-xu-ly": {
   "at": "2026-11-08",
-  "hash": "85c2e06edd081dc4",
+  "hash": "0aa80d7f76665c3e",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -18226,32 +17697,20 @@
     "check": "units",
     "part": "P1",
     "quote": "ให้น้ำอยู่สูงกว่าตัวปลาเพียงไม่กี่นิ้ว",
-    "why": "Water depth is given in inches, an imperial unit, instead of centimetres.",
+    "why": "Water depth is given in inches, an imperial unit left over from the original.",
     "by": "model"
    }
   ],
   "products": [],
   "doses": [
    {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 8,
-    "amountMax": 0,
-    "unit": "teaspoon",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "other",
-    "method": "",
-    "quote": "ใส่เกลือ 8 ช้อนชาต่อน้ำ 20 ลิตร"
-   },
-   {
     "treatment": "antibiotic",
     "strength": "",
     "amount": 0.5,
     "amountMax": 0,
     "unit": "g",
-    "per": 30,
-    "perUnit": "g food",
+    "per": 0,
+    "perUnit": "",
     "use": "bacteria",
     "method": "food",
     "quote": "เจลาติน 5 ก. น้ำร้อน 60 ก. อาหารแห้ง 30 ก. และยาปฏิชีวนะราว 0.5 ก."
@@ -18332,76 +17791,25 @@
  },
  "th/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "b7f4a7b2b5fc90fa",
+  "hash": "cc73a58568ee6f93",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "2–3% นาน 15–30 นาที",
-    "why": "A 2–3% salt dip lasting 15–30 minutes is far longer than safe dips of a few minutes and can kill freshwater fish.",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "แช่น้ำเกลือ 2–3% นาน 5–10 นาที",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Terramycin"
   ],
   "doses": [
    {
-    "treatment": "salt",
+    "treatment": "malachite green",
     "strength": "",
-    "amount": 1,
-    "amountMax": 5,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "fungus",
-    "method": "wholeTank",
-    "quote": "1–5 กรัม/ลิตร แช่ไปเรื่อยๆ ไม่กำหนดระยะเวลา"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "fungus",
-    "method": "",
-    "quote": "1–3 กรัม/ลิตร"
-   },
-   {
-    "treatment": "salt",
-    "strength": "3ppt",
-    "amount": 3,
+    "amount": 100,
     "amountMax": 0,
-    "unit": "ppt",
-    "per": 0,
-    "perUnit": "",
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
     "use": "fungus",
-    "method": "",
-    "quote": "ได้ผลกับราน้ำตั้งแต่ประมาณ 3 ppt"
-   },
-   {
-    "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "fungus",
-    "method": "bath",
-    "quote": "2–3% นาน 15–30 นาที"
+    "method": "spot",
+    "quote": "ทาแผลด้วย malachite green เข้มข้น (แหล่งที่ 1)\n| 100 mg/ลิตร"
    },
    {
     "treatment": "malachite green",
@@ -18413,19 +17821,43 @@
     "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "0.10 มก./ลิตร 3 ครั้ง ห่างกันครั้งละ 3 วัน"
+    "quote": "0.10 mg/ลิตร"
    },
    {
-    "treatment": "malachite green",
-    "strength": "100mg/L",
-    "amount": 100,
-    "amountMax": 0,
-    "unit": "mg",
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 5,
+    "unit": "g",
     "per": 1,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "spot",
-    "quote": "ล้างแผลด้วยสารละลายเข้มข้น 100 มก./ลิตร แล้วทาครีมกันน้ำ"
+    "method": "bath",
+    "quote": "1–5 g/ลิตร"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 3,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "fungus",
+    "method": "wholeTank",
+    "quote": "1–3 กรัม/ลิตร"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 3,
+    "amountMax": 0,
+    "unit": "ppt",
+    "per": 0,
+    "perUnit": "",
+    "use": "fungus",
+    "method": "",
+    "quote": "ประมาณ 3 ppt ขึ้นไป"
    },
    {
     "treatment": "hydrogen peroxide",
@@ -18436,32 +17868,8 @@
     "per": 3.5,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "",
-    "quote": "ไฮโดรเจนเปอร์ออกไซด์ (35%) ประมาณ 1 มล. ต่อ 3.5 ลิตรในวันแรก"
-   },
-   {
-    "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "quarantine",
     "method": "bath",
-    "quote": "แช่น้ำเกลือ 2–3% นาน 5–10 นาที"
-   },
-   {
-    "treatment": "vitamin c",
-    "strength": "",
-    "amount": 200,
-    "amountMax": 300,
-    "unit": "g",
-    "per": 100,
-    "perUnit": "kg food",
-    "use": "other",
-    "method": "food",
-    "quote": "ผสมวิตามินซีในอาหาร 200–300 กรัม ต่ออาหาร 100 กก."
+    "quote": "hydrogen peroxide (35%) ประมาณ 1 ml ต่อ 3.5 ลิตรในวันแรก"
    }
   ],
   "sourceRead": true
@@ -18712,7 +18120,7 @@
  },
  "th/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": {
   "at": "2026-11-08",
-  "hash": "f5574bf4703fef38",
+  "hash": "a30d0817dfda2eb8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -18740,7 +18148,7 @@
     "perUnit": "ml",
     "use": "parasites",
     "method": "food",
-    "quote": "ละลายเมโทรนิดาโซล 500 mg ในน้ำจากตู้ 30 มล."
+    "quote": "ละลายเมโทรนิดาโซล 500 mg ในน้ำจากตู้ 30 มล. แช่อาหาร"
    },
    {
     "treatment": "metronidazole",
@@ -18765,30 +18173,6 @@
     "use": "parasites",
     "method": "bath",
     "quote": "1 เม็ด ต่อ 20 ลิตร แช่ 2 วัน"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
-    "amount": 500,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 40,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "500 mg ต่อ 40 ลิตร ละลายในน้ำอุ่นก่อน"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "g food",
-    "use": "parasites",
-    "method": "food",
-    "quote": "10 mg ต่ออาหาร 1 กรัม"
    }
   ],
   "sourceRead": true
@@ -19500,41 +18884,11 @@
  },
  "th/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "d01e516dcd957ad7",
+  "hash": "642895f072728284",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "เกลือ 1% ร่วมกับควินิน 0.8 กรัมต่อลิตร เพิ่มอุณหภูมิ 2-3 °C",
-    "why": "Quinine at 0.8 g per litre is many times the usual dose (tens of mg per litre) and would likely poison the fish.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "แหล่งหนึ่งให้ขนาดขั้นต่ำไว้ที่ 570 ลิตรขึ้นไป แล้วแต่ชนิด",
-    "why": "570 litres is a conversion of 150 US gallons, a tank size nobody in Thailand would quote.",
-    "by": "model"
-   }
-  ],
-  "products": [],
-  "doses": [
-   {
-    "treatment": "salt",
-    "strength": "1%",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "ich",
-    "method": "",
-    "quote": "เกลือ 1% ร่วมกับควินิน 0.8 กรัมต่อลิตร"
-   }
-  ],
-  "sourceRead": true
+  "findings": [],
+  "products": []
  },
  "th/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
   "at": "2026-11-08",
@@ -19932,43 +19286,54 @@
  },
  "th/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "273dfdc6d5c88552",
+  "hash": "647f32d293dbaceb",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "harm",
+    "check": "dose",
     "part": "P1",
-    "quote": "แนะนำให้แช่เกลือ 2–3% เป็นประจำครั้งละ 15–20 นาทีเพื่อฆ่าไข่",
-    "why": "A routine 3% salt dip lasting 15–20 minutes is far too long for many aquarium fish and can kill them.",
+    "quote": "10 มล. ต่อน้ำ 364 ลิตร",
+    "why": "Dose given as an amount of the branded product Argusol per volume, a UK-market product.",
+    "by": "model",
+    "product": "Argusol"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "จำนวนเห็บปลามักเพิ่มขึ้นมากในหน้าร้อนและฤดูใบไม้ร่วง",
+    "why": "Thailand has no autumn; the seasons come from a temperate-country source.",
     "by": "model"
    }
   ],
-  "products": [],
+  "products": [
+   "Dimilin 25W",
+   "Argusol"
+  ],
   "doses": [
    {
-    "treatment": "diflubenzuron",
+    "treatment": "salt",
     "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "cubic metre",
+    "amount": 0.02,
+    "amountMax": 0.2,
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
     "use": "parasites",
-    "method": "wholeTank",
-    "quote": "diflubenzuron 1 ก./ลบ.ม. ใช้ 4 ครั้งภายใน 15 วัน"
+    "method": "bath",
+    "quote": "0.02–0.2%"
    },
    {
-    "treatment": "diflubenzuron",
-    "strength": "291.2มก./100มล.",
+    "treatment": "potassium permanganate",
+    "strength": "",
     "amount": 10,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 364,
-    "perUnit": "litre",
+    "amountMax": 25,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "m³",
     "use": "parasites",
-    "method": "wholeTank",
-    "quote": "10 มล. ต่อ 364 ลิตร ทิ้งไว้ 7 วัน"
+    "method": "bath",
+    "quote": "10–25 g/m³"
    },
    {
     "treatment": "diflubenzuron",
@@ -19980,103 +19345,19 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "diflubenzuron 0.01 มก./ลิตร แช่ยาระยะยาว"
+    "quote": "0.01 มก./ลิตร"
    },
    {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "tablespoon",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "เกลือสำหรับตู้ปลาประมาณ 1 ช้อนโต๊ะต่อ 20 ลิตร ใช้ในตู้พยาบาล"
-   },
-   {
-    "treatment": "salt",
-    "strength": "3%",
-    "amount": 3,
-    "amountMax": 0,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "แช่เกลือ 3% ระยะสั้นก่อน"
-   },
-   {
-    "treatment": "salt",
-    "strength": "0.2%",
-    "amount": 0.2,
-    "amountMax": 0,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "ตามด้วยการแช่เกลือ 0.2% ระยะยาว"
-   },
-   {
-    "treatment": "salt",
-    "strength": "0.02–0.2%",
-    "amount": 0.02,
-    "amountMax": 0.2,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "การแช่เกลือ 0.02–0.2% ระยะยาวอาจช่วยคุมไม่ให้เห็บปลากลับมาเกาะซ้ำ"
-   },
-   {
-    "treatment": "salt",
-    "strength": "0.3%",
-    "amount": 300,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 100,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "แช่เกลือ 0.3% (300 ก./100 ลิตร) ประมาณ 1 สัปดาห์"
-   },
-   {
-    "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "dip",
-    "quote": "แช่เกลือ 2–3% เป็นประจำครั้งละ 15–20 นาที"
-   },
-   {
-    "treatment": "potassium permanganate",
-    "strength": "",
+    "treatment": "diflubenzuron",
+    "strength": "291.2มก./100มล.",
     "amount": 10,
-    "amountMax": 25,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "cubic metre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "แช่ 10–25 ก./ลบ.ม. นาน 1 ชั่วโมง"
-   },
-   {
-    "treatment": "potassium permanganate",
-    "strength": "",
-    "amount": 0.6,
     "amountMax": 0,
-    "unit": "g",
-    "per": 8,
+    "unit": "ml",
+    "per": 364,
     "perUnit": "litre",
     "use": "parasites",
-    "method": "dip",
-    "quote": "แช่ 0.6 ก. ต่อน้ำ 8 ลิตร ประมาณ 5 นาที"
+    "method": "wholeTank",
+    "quote": "10 มล. ต่อน้ำ 364 ลิตร"
    }
   ],
   "sourceRead": true
@@ -40242,25 +39523,10 @@
  },
  "vi/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": {
   "at": "2026-11-08",
-  "hash": "4ede2a04606919a1",
+  "hash": "37d4257fedbaac4b",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "khoảng 13 cm chiều dài cá cho mỗi 3,8 lít nước",
-    "why": "3,8 litres is one US gallon and 13 cm is about 5 inches, so this was converted from imperial units; a keeper in Vietnam would not measure it this way.",
-    "by": "model"
-   },
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "Khi nước xuống tới khoảng 13 °C thì phải bắt đầu làm ấm.",
-    "why": "If you wait until the water reaches 13 °C before warming it, many tropical fish could be badly hurt or die. The page itself says they only tolerate 14–17 °C.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/guides/aquatome-be-ca-nuoi-bao-nhieu-con-la-vua-cach-tinh-mat-do-tha-ca-theo-the-tich-va-loai": {
@@ -40350,56 +39616,22 @@
  },
  "vi/guides/aquatome-benh-nhung-velvet-benh-bui-vang-o-ca-canh-nhan-biet-va-cach-chua": {
   "at": "2026-11-08",
-  "hash": "bdee82286da2ddfa",
+  "hash": "0ed5332251b763c8",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "harm",
+    "check": "words",
     "part": "P1",
-    "quote": "Họ ước tính mức này vào khoảng 1,5–2,0 ppm đồng, giữ nước từ khoảng 29°C trở lên trong 30 ngày.",
-    "why": "Copper at 1.5–2.0 ppm for 30 days is over ten times the therapeutic 0.15 ppm and would likely kill fish.",
-    "by": "model"
+    "quote": "Thỉnh thoảng thức ăn tươi sống đông lạnh cũng mang theo dạng ngủ của ký sinh trùng",
+    "why": "Calque; frozen food is not called 'tươi sống' by local keepers.",
+    "by": "model",
+    "fix": "thức ăn đông lạnh"
    },
    {
     "check": "dose-caution",
     "part": "",
-    "quote": "Liều dùng là 0,15 ppm ion đồng, ngâm tối đa 10 ngày và lặp lại nếu cần.",
-    "why": "the source warns about Caridina shrimp, Denariusa bandata fish: \"Copper toxicity: Caridina shrimp are harmed at about 2 µg Cu/L, and 42 µg Cu/L is acutely toxic to Denariusa bandata.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "Liều dùng là 0,15 ppm ion đồng, ngâm tối đa 10 ngày và lặp lại nếu cần.",
-    "why": "the source warns about shrimp, snails, some fish (and plants): \"Copper sulphate can be dangerous to some fish, plants, shrimp and snails.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "Liều dùng là 0,15 ppm ion đồng, ngâm tối đa 10 ngày và lặp lại nếu cần.",
-    "why": "the source warns about Melanotaenia and Ambassis fish, Macrobrachium prawns, snails: \"Half of tested Melanotaenia and Ambassis died at 120–200 µg Cu/L, and half of Macrobrachium at 160 µg Cu/L. Snails are also very sensitive.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "liều khoảng 5 ml cho khoảng 19 lít nước",
-    "why": "the source warns about Caridina shrimp, Denariusa bandata fish: \"Copper toxicity: Caridina shrimp are harmed at about 2 µg Cu/L, and 42 µg Cu/L is acutely toxic to Denariusa bandata.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "liều khoảng 5 ml cho khoảng 19 lít nước",
-    "why": "the source warns about Melanotaenia and Ambassis fish, Macrobrachium prawns, snails: \"Half of tested Melanotaenia and Ambassis died at 120–200 µg Cu/L, and half of Macrobrachium at 160 µg Cu/L. Snails are also very sensitive.\"",
-    "by": "model"
-   },
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "khoảng 1 muỗng cà phê muối cho 10 L nước để phòng bệnh thường xuyên",
+    "quote": "khoảng 1 muỗng cà phê muối cho 10 L nước để phòng thường xuyên",
     "why": "the source warns about anchor catfish: \"Anchor catfish are extremely sensitive to salt.\"",
     "by": "model"
    }
@@ -40407,7 +39639,7 @@
   "products": [],
   "doses": [
    {
-    "treatment": "copper",
+    "treatment": "copper sulfate",
     "strength": "",
     "amount": 0.15,
     "amountMax": 0,
@@ -40415,32 +39647,20 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Liều dùng là 0,15 ppm ion đồng, ngâm tối đa 10 ngày và lặp lại nếu cần."
+    "method": "bath",
+    "quote": "0,15 ppm ion đồng. Tính liều: đồng sunfat (mg/L) = độ kiềm tổng (mg/L) ÷ 100"
    },
    {
-    "treatment": "copper",
+    "treatment": "chelated copper",
     "strength": "",
-    "amount": 5,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 19,
-    "perUnit": "litre",
+    "amount": 1.5,
+    "amountMax": 2,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "liều khoảng 5 ml cho khoảng 19 lít nước"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 240,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 75,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "liều 1 cốc (khoảng 240 ml) cho khoảng 75 lít nước"
+    "quote": "Thuốc đồng chelate (loại giữ tổng đồng 1,5–2,0 ppm)"
    },
    {
     "treatment": "salt",
@@ -40452,7 +39672,19 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "bath",
-    "quote": "Tắm muối bằng dung dịch natri clorua 30 g/L trong 5–15 phút."
+    "quote": "Tắm muối 30 g/L trong 5–15 phút"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "cup",
+    "per": 76,
+    "perUnit": "litre",
+    "use": "parasites",
+    "method": "wholeTank",
+    "quote": "1 cup cho 76 lít, không dùng muối biển"
    },
    {
     "treatment": "salinomycin",
@@ -40464,7 +39696,7 @@
     "perUnit": "",
     "use": "parasites",
     "method": "food",
-    "quote": "Salinomycin trộn vào thức ăn ở mức 60 hoặc 90 ppm"
+    "quote": "60 hoặc 90 ppm trong thức ăn"
    },
    {
     "treatment": "salt",
@@ -40476,26 +39708,28 @@
     "perUnit": "litre",
     "use": "other",
     "method": "wholeTank",
-    "quote": "khoảng 1 muỗng cà phê muối cho 10 L nước để phòng bệnh thường xuyên"
+    "quote": "khoảng 1 muỗng cà phê muối cho 10 L nước để phòng thường xuyên"
    }
   ],
   "sourceRead": true
  },
  "vi/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "5932b244da4bc399",
+  "hash": "7366059225e42cf2",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "harm",
+    "check": "source",
     "part": "P1",
-    "quote": "Kanamycin ngâm: 2–5 g/L trong 4–5 ngày",
-    "why": "A kanamycin bath is normally tens of mg per litre; grams per litre for days is many times that and would likely poison the fish.",
+    "quote": "LiveAquaria kể Aeromonas, Pseudomonas và Flexibacter.",
+    "why": "Cites a US retail shop's article as a source the reader doesn't know.",
     "by": "model"
    }
   ],
-  "products": [],
+  "products": [
+   "Purigen"
+  ],
   "doses": [
    {
     "treatment": "salt",
@@ -40507,7 +39741,7 @@
     "perUnit": "litre",
     "use": "finRot",
     "method": "wholeTank",
-    "quote": "Muối thường xuyên 1–3 g/L thì phần lớn cá nhiệt đới chịu được và không hại lọc"
+    "quote": "| Cho cả bể, dùng thường xuyên\n| 1–3 g/L"
    },
    {
     "treatment": "salt",
@@ -40519,7 +39753,7 @@
     "perUnit": "litre",
     "use": "finRot",
     "method": "bath",
-    "quote": "10 g/L trong 20–30 phút"
+    "quote": "| Tắm riêng\n| 10 g/L"
    },
    {
     "treatment": "salt",
@@ -40529,9 +39763,9 @@
     "unit": "g",
     "per": 1,
     "perUnit": "litre",
-    "use": "finRot",
+    "use": "other",
     "method": "",
-    "quote": "Tối đa 17 g/L (cá lớn), 12 g/L (cá con)"
+    "quote": "| Mức chịu tối đa của cá cầu vồng lớn\n| 17 g/L"
    },
    {
     "treatment": "salt",
@@ -40541,69 +39775,9 @@
     "unit": "g",
     "per": 1,
     "perUnit": "litre",
-    "use": "finRot",
+    "use": "other",
     "method": "",
-    "quote": "12 g/L (cá con)"
-   },
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 30,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 4,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "30 g cho 4 L nước"
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 200,
-    "amountMax": 300,
-    "unit": "mg",
-    "per": 100,
-    "perUnit": "g food",
-    "use": "finRot",
-    "method": "food",
-    "quote": "Kanamycin trộn thức ăn: 200–300 mg cho 100 g thức ăn."
-   },
-   {
-    "treatment": "nalidixic acid",
-    "strength": "",
-    "amount": 13,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "ngâm 13 mg/L trong 1–4 giờ"
-   },
-   {
-    "treatment": "malachite green",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 3,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "bath",
-    "quote": "Xanh malachite: 1–3 mg/L, tối đa 1 giờ."
-   },
-   {
-    "treatment": "kanamycin",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "muỗng đo",
-    "per": 20,
-    "perUnit": "litre",
-    "use": "finRot",
-    "method": "wholeTank",
-    "quote": "Liều châm vào nước là 1 muỗng đo cho 20 L, cứ 48 giờ châm lại một lần, tối đa 3 lần."
+    "quote": "| Mức chịu tối đa của cá cầu vồng con\n| 12 g/L"
    },
    {
     "treatment": "tea tree oil",
@@ -40615,7 +39789,7 @@
     "perUnit": "",
     "use": "other",
     "method": "wholeTank",
-    "quote": "Dầu tràm trà (tea tree oil, 1–2 giọt vào bể)"
+    "quote": "Tinh dầu tràm trà (1–2 giọt vào bể)"
    }
   ],
   "sourceRead": true
@@ -40630,24 +39804,12 @@
  },
  "vi/guides/aquatome-ca-bi-lech-bong-bong-boi-nghieng-chui-dau-noi-bung-nguyen-nhan-va-cach-xu-ly": {
   "at": "2026-11-08",
-  "hash": "f3c33c7aa757e67d",
+  "hash": "773f150fd9feea44",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [],
   "doses": [
-   {
-    "treatment": "salt",
-    "strength": "",
-    "amount": 8,
-    "amountMax": 0,
-    "unit": "teaspoon",
-    "per": 19,
-    "perUnit": "litre",
-    "use": "",
-    "method": "wholeTank",
-    "quote": "cho muối theo liều 8 muỗng cà phê cho khoảng 19 lít nước"
-   },
    {
     "treatment": "antibiotic",
     "strength": "",
@@ -40659,18 +39821,6 @@
     "use": "bacteria",
     "method": "food",
     "quote": "Chuẩn bị 5 g gelatin, 60 g nước nóng, 30 g thức ăn khô và khoảng 0,5 g kháng sinh."
-   },
-   {
-    "treatment": "metronidazole with chloramphenicol",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "tablet",
-    "per": 10,
-    "perUnit": "litre",
-    "use": "",
-    "method": "wholeTank",
-    "quote": "liều 1 viên cho 10 lít nước tinh khiết"
    }
   ],
   "sourceRead": true
@@ -40748,20 +39898,38 @@
  },
  "vi/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
   "at": "2026-11-08",
-  "hash": "4d321997b3fb74cd",
+  "hash": "b017832d8dd120da",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "dose-caution",
-    "part": "",
-    "quote": "tắm cho cá bằng nước muối 2–3% trong 5–10 phút",
-    "why": "the source warns about catfish: \"Catfish can be extremely sensitive to salt.\"",
-    "by": "model"
-   }
+  "findings": [],
+  "products": [
+   "Terramycin"
   ],
-  "products": [],
   "doses": [
+   {
+    "treatment": "lime",
+    "strength": "",
+    "amount": 7,
+    "amountMax": 10,
+    "unit": "kg",
+    "per": 100,
+    "perUnit": "m²",
+    "use": "disinfecting",
+    "method": "other",
+    "quote": "nạo vét bùn và bón vôi 7–10 kg/100 m²"
+   },
+   {
+    "treatment": "lime",
+    "strength": "",
+    "amount": 1.5,
+    "amountMax": 2,
+    "unit": "kg",
+    "per": 100,
+    "perUnit": "m³",
+    "use": "disinfecting",
+    "method": "wholeTank",
+    "quote": "bón vôi mỗi tháng hai lần với liều 1,5–2 kg/100 m³"
+   },
    {
     "treatment": "salt",
     "strength": "",
@@ -40800,15 +39968,15 @@
    },
    {
     "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
+    "strength": "",
+    "amount": 30,
+    "amountMax": 0,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
     "use": "fungus",
     "method": "bath",
-    "quote": "Nồng độ 2–3% trong 15–30 phút"
+    "quote": "30 g/lít, từ 30 giây đến 10 phút tùy loài"
    },
    {
     "treatment": "malachite green",
@@ -40819,24 +39987,12 @@
     "per": 1,
     "perUnit": "litre",
     "use": "fungus",
-    "method": "wholeTank",
+    "method": "bath",
     "quote": "0,10 mg/lít, ngâm 3 lần, mỗi lần cách nhau 3 ngày"
    },
    {
     "treatment": "malachite green",
     "strength": "",
-    "amount": 0.1,
-    "amountMax": 0,
-    "unit": "ppm",
-    "per": 0,
-    "perUnit": "",
-    "use": "fungus",
-    "method": "wholeTank",
-    "quote": "Một nguồn khác ghi 0,1 ppm"
-   },
-   {
-    "treatment": "malachite green",
-    "strength": "100mg/lít",
     "amount": 100,
     "amountMax": 0,
     "unit": "mg",
@@ -40857,30 +40013,6 @@
     "use": "fungus",
     "method": "other",
     "quote": "dùng oxy già loại đặc 35%, khoảng 1 ml cho 3,5 lít nước vào ngày đầu"
-   },
-   {
-    "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "quarantine",
-    "method": "bath",
-    "quote": "tắm cho cá bằng nước muối 2–3% trong 5–10 phút"
-   },
-   {
-    "treatment": "lime",
-    "strength": "",
-    "amount": 1.5,
-    "amountMax": 2,
-    "unit": "kg",
-    "per": 100,
-    "perUnit": "m³",
-    "use": "water",
-    "method": "wholeTank",
-    "quote": "bón vôi mỗi tháng hai lần với liều 1,5–2 kg/100 m³"
    }
   ],
   "sourceRead": true
@@ -41169,7 +40301,7 @@
  },
  "vi/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua": {
   "at": "2026-11-08",
-  "hash": "e500870dd4c8caee",
+  "hash": "e4a3a5c38ea90e13",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -41217,35 +40349,11 @@
     "amount": 500,
     "amountMax": 0,
     "unit": "mg",
-    "per": 40,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "500 mg cho 40 lít"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
-    "amount": 500,
-    "amountMax": 0,
-    "unit": "mg",
     "per": 30,
     "perUnit": "ml",
     "use": "parasites",
     "method": "food",
-    "quote": "Hòa 500 mg metronidazole trong 30 ml nước bể, ngâm thức ăn vào đó"
-   },
-   {
-    "treatment": "metronidazole",
-    "strength": "",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "gram food",
-    "use": "parasites",
-    "method": "food",
-    "quote": "10 mg thuốc cho mỗi gram thức ăn"
+    "quote": "Hòa 500 mg metronidazole trong 30 ml nước bể"
    }
   ],
   "sourceRead": true
@@ -41919,87 +41027,11 @@
  },
  "vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": {
   "at": "2026-11-08",
-  "hash": "3d43f048d354aed7",
+  "hash": "b5f5c9ea29fbee2e",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "harm",
-    "part": "P1",
-    "quote": "pha muối 1% cùng 0.8 g quinine mỗi lít",
-    "why": "0.8 g quinine per litre is many times a normal quinine dose and would likely poison the fish.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "Một nguồn cho mức tối thiểu từ khoảng 570 lít trở lên tùy loài",
-    "why": "570 litres is a conversion of 150 gallons, not a volume a Vietnamese keeper would quote.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "Ví dụ bể khoảng 570 lít thì cần lọc tối thiểu khoảng 2.270 lít/giờ",
-    "why": "2,270 L/h is converted from 600 gallons per hour.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "L4",
-    "quote": "Một nguồn cho mức tối thiểu là từ 570 lít trở lên tùy loài",
-    "why": "570 litres is converted from 150 gallons.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "trùn chỉ đỏ (bloodworm)",
-    "why": "Trùn chỉ is tubifex; Vietnamese keepers call bloodworm trùn huyết.",
-    "by": "model",
-    "fix": "trùn huyết"
-   }
-  ],
-  "products": [],
-  "doses": [
-   {
-    "treatment": "salt",
-    "strength": "1.004",
-    "amount": 0,
-    "amountMax": 0,
-    "unit": "",
-    "per": 0,
-    "perUnit": "",
-    "use": "water",
-    "method": "wholeTank",
-    "quote": "bạn giữ tỷ trọng ở mức 1.004 và không để nó thay đổi quá ±0.001 trong 24 giờ"
-   },
-   {
-    "treatment": "salt",
-    "strength": "1%",
-    "amount": 0,
-    "amountMax": 0,
-    "unit": "",
-    "per": 0,
-    "perUnit": "",
-    "use": "ich",
-    "method": "wholeTank",
-    "quote": "pha muối 1% cùng 0.8 g quinine mỗi lít"
-   },
-   {
-    "treatment": "quinine",
-    "strength": "",
-    "amount": 0.8,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "ich",
-    "method": "wholeTank",
-    "quote": "pha muối 1% cùng 0.8 g quinine mỗi lít"
-   }
-  ],
-  "sourceRead": true
+  "findings": [],
+  "products": []
  },
  "vi/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
   "at": "2026-11-08",
@@ -42435,24 +41467,20 @@
  },
  "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
   "at": "2026-11-08",
-  "hash": "4c1e855252242d71",
+  "hash": "21b643ff7c33590f",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "dose",
+    "check": "words",
     "part": "P1",
-    "quote": "Khuyến nông Thanh Hóa dùng Dimilin 1 g/m³, châm 4 lần trong 15 ngày",
-    "why": "An amount per volume of a named commercial product.",
+    "quote": "Trùng mỏ neo, ở cá thực phẩm chịu được mặn",
+    "why": "\"Cá thực phẩm\" is a word-for-word rendering of English \"food fish\"; keepers in Vietnam don't say it.",
     "by": "model",
-    "product": "Dimilin"
+    "fix": "cá nuôi lấy thịt"
    }
   ],
-  "products": [
-   "Betadine",
-   "Dimilin",
-   "Dylox 80"
-  ],
+  "products": [],
   "doses": [
    {
     "treatment": "salt",
@@ -42464,7 +41492,7 @@
     "perUnit": "litre",
     "use": "parasites",
     "method": "wholeTank",
-    "quote": "muối hồ cá khoảng 1 thìa canh cho 20 lít nước trong bể bệnh"
+    "quote": "Khoảng 1 muỗng canh/20 lít"
    },
    {
     "treatment": "salt",
@@ -42476,19 +41504,19 @@
     "perUnit": "",
     "use": "parasites",
     "method": "bath",
-    "quote": "tắm muối 3%, sau đó ngâm kéo dài ở 0,2%"
+    "quote": "Tắm muối 3%, sau đó ngâm muối 0,2%"
    },
    {
     "treatment": "salt",
-    "strength": "0.3%",
-    "amount": 300,
+    "strength": "0.2%",
+    "amount": 0.2,
     "amountMax": 0,
-    "unit": "g",
-    "per": 100,
-    "perUnit": "litre",
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
     "use": "parasites",
-    "method": "bath",
-    "quote": "ngâm muối 0,3% (300 g cho 100 lít) khoảng 1 tuần"
+    "method": "wholeTank",
+    "quote": "sau đó ngâm muối 0,2%"
    },
    {
     "treatment": "salt",
@@ -42499,44 +41527,8 @@
     "per": 0,
     "perUnit": "",
     "use": "parasites",
-    "method": "bath",
-    "quote": "ngâm kéo dài trong muối 0,02–0,2% có thể kìm bớt tái nhiễm"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "",
-    "amount": 1,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 1,
-    "perUnit": "m³",
-    "use": "parasites",
     "method": "wholeTank",
-    "quote": "Dimilin 1 g/m³, châm 4 lần trong 15 ngày"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "",
-    "amount": 0.01,
-    "amountMax": 0,
-    "unit": "mg",
-    "per": 1,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "ngâm kéo dài diflubenzuron 0,01 mg/L"
-   },
-   {
-    "treatment": "diflubenzuron",
-    "strength": "291,2mg/100ml",
-    "amount": 10,
-    "amountMax": 0,
-    "unit": "ml",
-    "per": 364,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "wholeTank",
-    "quote": "Liều là 10 ml cho 364 lít, để 7 ngày"
+    "quote": "0,02–0,2%"
    },
    {
     "treatment": "potassium permanganate",
@@ -42548,31 +41540,7 @@
     "perUnit": "m³",
     "use": "parasites",
     "method": "bath",
-    "quote": "dùng 10–25 g/m³, tắm cho cá trong 1 giờ"
-   },
-   {
-    "treatment": "potassium permanganate",
-    "strength": "",
-    "amount": 0.6,
-    "amountMax": 0,
-    "unit": "g",
-    "per": 8,
-    "perUnit": "litre",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "tắm 0,6 g cho 8 lít nước trong khoảng 5 phút"
-   },
-   {
-    "treatment": "salt",
-    "strength": "2–3%",
-    "amount": 2,
-    "amountMax": 3,
-    "unit": "%",
-    "per": 0,
-    "perUnit": "",
-    "use": "parasites",
-    "method": "bath",
-    "quote": "tắm muối 2–3% định kỳ, mỗi lần 15–20 phút, để diệt trứng trùng"
+    "quote": "10–25 g/m³"
    }
   ],
   "sourceRead": true
