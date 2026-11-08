@@ -18679,24 +18679,24 @@
         }
       }
     },
-    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn tới Claude.": {
+    "Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Claude, model AI dari Anthropic, menjawab berdasarkan panduan AquaTome. Untuk hal yang belum ada di panduan, Claude memakai pengetahuan umum tentang memelihara ikan. AquaTome tidak mengirim foto Anda ke Claude."
+            "value": "Claude, model AI dari Anthropic, menjawab berdasarkan panduan AquaTome. Untuk hal yang belum ada di panduan, Claude memakai pengetahuan umum tentang memelihara ikan. AquaTome tidak mengirim foto Anda bersama pertanyaan."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Claude, model AI daripada Anthropic, menjawab berdasarkan buku panduan AquaTome. Bagi perkara yang belum ada dalam buku panduan, Claude menggunakan pengetahuan am tentang memelihara ikan. AquaTome tidak menghantar foto anda kepada Claude."
+            "value": "Claude, model AI daripada Anthropic, menjawab berdasarkan buku panduan AquaTome. Bagi perkara yang belum ada dalam buku panduan, Claude menggunakan pengetahuan am tentang memelihara ikan. AquaTome tidak menghantar foto anda bersama soalan."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "Claude โมเดล AI ของ Anthropic ตอบโดยอิงจากคู่มือ AquaTome ส่วนที่คู่มือยังไม่มี Claude จะใช้ความรู้ทั่วไปเรื่องการเลี้ยงปลา AquaTome ไม่ได้ส่งรูปของคุณไปยัง Claude"
+            "value": "Claude โมเดล AI ของ Anthropic ตอบโดยอิงจากคู่มือ AquaTome ส่วนที่คู่มือยังไม่มี Claude จะใช้ความรู้ทั่วไปเรื่องการเลี้ยงปลา AquaTome ไม่ได้ส่งรูปของคุณไปพร้อมกับคำถาม"
           }
         }
       }
