@@ -21,6 +21,10 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   that aren't a simulator's take `~/.cache/aquatome/checks.lock` (`scripts/cycle-checks.sh`).
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - Remove your worktree when its PR merges (`git worktree remove <path>`).
+- Keep what's worth keeping (working folders, prototypes, eval caches, briefs, run progress) in `~/.cache/aquatome/<area>/`,
+  never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
+  another's eval caches. A worktree goes in `~/.infinitus/worktrees/aquatome.com/`. The sweep leaves `~/.cache/aquatome`
+  alone, but for its archive's copies past 30 days.
 - `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, and
   nightly the worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
   `~/.cache/aquatome/worktree-archive/` (30 days, never pushed).
