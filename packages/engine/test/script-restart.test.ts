@@ -8,8 +8,8 @@ const scripts = new URL('../../../scripts/', import.meta.url)
 const read = (f: string) => readFileSync(new URL(f, scripts), 'utf8')
 const git = (cwd: string, ...args: string[]) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', ...args], { cwd, stdio: 'pipe' })
 
-// 2026-11-08: a video run reset its clone to main, main had changed its script, and bash, which reads a script as it runs,
-// went on at the same byte in the new file: it skipped the commit lines and left its work uncommitted.
+// 2026-11-08: a video run reset its clone to main, where its script now committed before the tests, but bash goes on
+// reading the file it opened, which the reset replaces: the run went on without that commit and left its work uncommitted.
 test("a run whose script changed on main goes on with main's script from the top, once", () => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-restart-'))
   git(dir, 'init', '-q', '--bare', '-b', 'main', 'origin.git')
