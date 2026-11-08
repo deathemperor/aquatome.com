@@ -19,6 +19,10 @@
       {
         "source": "scotcat",
         "value": 8.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 6
       }
     ],
     "tempC": [
@@ -28,6 +32,13 @@
           "min": 20,
           "max": 23
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -36,6 +47,13 @@
         "value": {
           "min": 6,
           "max": 7
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.8
         }
       }
     ]
@@ -54,6 +72,12 @@
       "html": "<ul><li>Common name: Dwarf Hoplo</li><li>IUCN Red List: Least Concern (IUCN 2023)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<ul><li>Scientific name: Lepthoplosternum pectorale (Boulenger, 1895)</li><li>Common names: Armoured Catfish, Chaco Catfish, Chaco-pansermalle (Denmark), Dwarf Hoplo</li><li>Type locality: Monte Sociedad, Chaco Dept., Paraguay.</li><li>IUCN Red List: Least Concern (last assessed 2020).</li><li>Etymology: Lepthoplosternum: from the Greek leptos, meaning small, and hoplosternum, in reference to the small size. Hoplosternum: from the Greek hoplon, meaning shield, and sternum, meaning breast, in reference to the prominent coracoid bones on the breast.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/lepthoplosternum_pectorale_dwarf_hoplosternum_en/",
@@ -66,6 +90,12 @@
       "html": "<p>South America: Paraguay River basin. Type locality: Monte Sociedad, Paraguayan Chaco.</p><p>Unlike all other genera of the subfamily Callichthyinae, the species of Lepthoplosternum are absent from the northern portion of the South American continent, north of the Rio Amazonas. The species in the upper Rio Amazonas are: Peru (L. altamazonicum), middle Rio Madeira (L. beni), Rio Paraguay (L. pectorale), and in the laguna dos Patos drainage (L. tordilho) in southern Brazil (Roberto E. Reis).</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<p>South America: Paraguay River basin. La Plata, Paraná, Paraguay.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/lepthoplosternum_pectorale_dwarf_hoplosternum_en/",
@@ -76,6 +106,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
       "html": "<p>Being from the southern parts of the South American continent, it prefers temperatures on the lower side of tropical, i.e. under 24°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<ul><li>pH: 5.8 - 7.8</li><li>Temperature: 20.0-22.0°C</li><li>Other parameters: dH 25°</li></ul>"
     },
     {
       "key": "diet",
@@ -102,10 +138,22 @@
       "html": "<p>Males have thicker pectoral spines.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<p>Mature males of Callichthys, Dianema, Hoplosternum, Lepthoplosternum and Megalechis have a thick adipose body on the ventral surface of the pectoral fin. In Dianema, Hoplosternum, Lepthoplosternum and Megalechis (but not in Callichthys), the coracoid bones are at least partially exposed and expanded medially. In Dianema, Hoplosternum and Megalechis, these medial expansions of the coracoids are especially developed, covering most of the skin between the pectoral fins and sometimes overlapping at the midline in fully developed mature males; however, there does not appear to be a similar sexually dimorphic expansion of the coracoids in Lepthoplosternum.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
       "html": "<p>This is a bubble-nester, where the female deposits her eggs in floating plant material or a floating polystyrene lid. It will attempt to spawn in a community setup, but if it does, it is a good idea to move the pair to their own breeding tank so that the fry survive the attention of the other tank inmates.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<p>Breeding: unreported. There is a single breeding report.</p>"
     },
     {
       "key": "notes",
@@ -120,10 +168,22 @@
       "html": "<p>Description: Similar looking to Callichthys callichthys but smaller, with a body that is not as flattened and larger eyes.</p><p>Etymology: The specific name pectorale refers to the long pectoral fins in adult fish.</p><p>IUCN: Despite little information being available on this species, it has a wide range and is unlikely to face severe threats. It is therefore assessed as Least Concern (IUCN 2023).</p>"
     },
     {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<p>Lepthoplosternum species are the smallest of the Callichthyinae (maximum SL = 60.3 mm). They are distinguished by two unique traits: (1) a lower lip with a deep medial notch and a smaller lateral notch, forming two fleshy semi-triangular projections on each side of the midline, and (2) a single unbranched ray preceding the branched rays on the anal fin.</p><p>This species is sometimes confused with Callichthys callichthys. The visible coracoid bones by the pectoral fins are an indication that it is some form of Hoplosternum or Lepthoplosternum species. In Callichthys, this area is covered by skin and not visible (although the same bone is there in the fish). Callichthys also has a flatter overall body.</p>"
+    },
+    {
       "key": "references",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
       "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Lepthoplosternum pectorale. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 30. Dec. 1998.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=13",
+      "html": "<p>Proceedings of the Zoological Society of London 1895 (pt 3), pp 525.</p>"
     }
   ],
   "photos": [
@@ -210,5 +270,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-08"
 }

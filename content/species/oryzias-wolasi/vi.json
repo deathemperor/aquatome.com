@@ -1,0 +1,20 @@
+{
+  "slug": "ca-lua-neon",
+  "name": "Cá lúa neon",
+  "altNames": [
+    "Cá gạo neon",
+    "Neon Ricefish",
+    "Small Neon Ricefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá lúa neon bắt ngoài tự nhiên thường có sẵn ở cỡ 1,5-2 cm. Lứa cá này rất hiếu động và khỏe mạnh. Chúng thuộc loài O. wolasi. Trước khi loài này được mô tả khoa học, dân chơi cá vẫn gọi nó là O. cf. woworae. Khi trưởng thành, cá dài khoảng 4 cm.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

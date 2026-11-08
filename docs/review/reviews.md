@@ -8,8 +8,8 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 105 | 78 (vi 78) | 78 |
-| translation | 342 | 74 (vi 74) | 74 |
+| video-guide | 155 | 123 (vi 123) | 123 |
+| translation | 347 | 74 (vi 74) | 74 |
 | vi-rewrite | 102 | 0 | 0 |
 | reader-rewrite | 9 | 0 | 0 |
 | breed | 8 | 1 (ms 1) | 1 |
@@ -25,97 +25,98 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-78 of 105 pages under the bar.
+123 of 155 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| States as certain what the source hedges, or what garbled captions only hint at | 69 | 229 |
-| Says what the source doesn't (invented, added) | 66 | 211 |
-| Other | 65 | 196 |
-| A number, unit, dose or price | 34 | 46 |
-| Wording: unnatural, literal, stiff or chatty | 32 | 44 |
-| Meaning changed or wrong | 22 | 37 |
-| Repeats itself (intro, summary, steps and FAQ) | 20 | 25 |
-| Leaves out what the source says | 10 | 11 |
-| Names or points to the video, channel, creator or source | 6 | 6 |
-| Off the title's topic | 4 | 5 |
-| Hobby terms and names | 3 | 3 |
-| Copied from the transcript or source | 2 | 2 |
+| States as certain what the source hedges, or what garbled captions only hint at | 112 | 388 |
+| Other | 109 | 341 |
+| Says what the source doesn't (invented, added) | 98 | 266 |
+| A number, unit, dose or price | 52 | 74 |
+| Wording: unnatural, literal, stiff or chatty | 47 | 60 |
+| Repeats itself (intro, summary, steps and FAQ) | 29 | 38 |
+| Meaning changed or wrong | 25 | 29 |
+| Names or points to the video, channel, creator or source | 8 | 8 |
+| Leaves out what the source says | 6 | 6 |
+| Hobby terms and names | 5 | 5 |
+| Off the title's topic | 4 | 4 |
+| Copied from the transcript or source | 3 | 3 |
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
-- The whole section "Chọn ống dẫn nào cho an toàn" (lead, BPA/chì claims, 'nên mua loại ống ghi rõ dùng cho nước uống', 'xả nước nóng chỉ rửa trôi bụi bẩn', 'xả nước sạch qua vài lần'): contradicts the video, which says garden hose is perfec… — vi/guides/youtube-bd01CGGWwiE, 0.30
+- "Để hở càng nhiều thì nước càng bay hơi... Đó là lý do đậy một nửa chỉ giữ được chưa tới phân nửa lợi ích": the speaker only guesses ("I think there's a lot more to play there") about evaporative cooling, more air and surface area. Hedge i… — vi/guides/youtube-9i-EoBCBWR8, 0.30
 - "Loại thùng cỡ lớn bị rò nước khi đổ đầy ở nhiều nơi đã dùng thử" and "Loại nửa cỡ thì đến giờ chưa thấy gặp vấn đề" / "Thùng nửa cỡ thường giữ nước ổn hơn": the leak of larger tubs was found at multiple facilities and the half-size ones a… — vi/guides/youtube-bZn6Bx67-L8, 0.30
-- "Cách dễ nhất là nhờ thợ mộc cắt thanh ... và bào luôn cạnh": a superlative the video doesn't give; the speaker only says he had his carpenter cut and shave the wood. Hedge to "một cách là nhờ thợ mộc...". — vi/guides/youtube-gUa7q5RVW4A, 0.30
-
-### Says what the source doesn't (invented, added)
-
-- FAQ "Ống tưới vườn có dùng cho bể cá được không?" including "Tốt nhất là mua ống ghi rõ an toàn cho nước uống": contradicts the video and gives an invented 'best' ranking. Correct to: garden hose can be used after flushing with very hot wa… — vi/guides/youtube-bd01CGGWwiE, 0.30
-- "Lúc lau dọn nhớ đeo găng và nhìn kỹ, vì trong khe thùng có thể có nhện độc": the video only notes a black widow was spotted; the glove and cleaning advice is invented. Remove, or say only that a black widow was found in a tub. — vi/guides/youtube-bZn6Bx67-L8, 0.30
-- "nên nhiều người muốn tự đóng tủ gỗ thay vì mua tủ làm sẵn": the video never says many people want this or why; remove the sentence or reduce it to the plain fact that this is a DIY stand for a 60 cm tank. — vi/guides/youtube-gUa7q5RVW4A, 0.30
+- "Cách đáng làm hơn là mua bể không viền": this is the creator's personal preference ('I prefer'); hedge it as one choice (e.g. 'nếu thích thì') instead of the better way. — vi/guides/youtube-ddIenwrxWgU, 0.30
 
 ### Other
 
-- "Nên chọn ống dẫn loại dùng cho nước uống, vì ống tưới vườn thông thường có thể nhả chất độc vào nước" (summary bullet): the video says plain garden hose is fine after flushing with very hot water. Remove or replace with that. — vi/guides/youtube-bd01CGGWwiE, 0.30
+- "Nhiều người bỏ nắp bể vì muốn bể thoáng, nhìn đẹp, hoặc vì cho ăn nhiều bể mỗi ngày nên mở đóng thấy phiền": the speaker only says he himself leaves lids open to feed, and that some people use rimless tanks for looks. Rewrite as one perso… — vi/guides/youtube-9i-EoBCBWR8, 0.30
 - "là cách nhiều người chơi dùng để ươm cá, nhân cây và giải phóng chỗ trong nhà": the speaker only describes his own plan (and wholesale facilities using tubs); rewrite as one person's: "có thể dùng thùng ngoài trời vào mùa nắng để nuôi cá,… — vi/guides/youtube-bZn6Bx67-L8, 0.30
-- "nhiều người muốn thử một cây khó hơn một chút": the video only says the creator wants to change format and cover a more complex plant; remove it or make it one person's choice, e.g. "nếu muốn thử cây khó hơn thì...". — vi/guides/youtube-nFXsyqdY37s, 0.30
+- "nhiều người chơi khác thì vẫn thích lắp để dễ chỉnh": the video only says the creator doesn't need a bubble counter; remove the claim about many other people and the 'easier to adjust' reason. — vi/guides/youtube-ddIenwrxWgU, 0.30
+
+### Says what the source doesn't (invented, added)
+
+- "Đây là phần nhiều người bất ngờ": the video never says people are surprised. Remove the sentence. — vi/guides/youtube-9i-EoBCBWR8, 0.30
+- "Lúc lau dọn nhớ đeo găng và nhìn kỹ, vì trong khe thùng có thể có nhện độc": the video only notes a black widow was spotted; the glove and cleaning advice is invented. Remove, or say only that a black widow was found in a tub. — vi/guides/youtube-bZn6Bx67-L8, 0.30
+- "nên nhiều người muốn tự đóng tủ gỗ thay vì mua tủ làm sẵn": the video never says many people want this or why; remove the sentence or reduce it to the plain fact that this is a DIY stand for a 60 cm tank. — vi/guides/youtube-gUa7q5RVW4A, 0.30
 
 ### A number, unit, dose or price
 
-- "Ống dài khoảng 15 m" and "Mua ống dài 15 m, 23 m hoặc 30 m": the video gives a 50 ft hose, and 50, 75 or 100 ft options. 100 ft is about 30 m, so the 15 m figure is wrong. Correct to about 15 m (50 ft), 23 m (75 ft), 30 m (100 ft) consist… — vi/guides/youtube-bd01CGGWwiE, 0.30
 - "Bơm khí ấm vào dưới nắp thì gần như vô ích" and "nhiều khả năng là độ F, tức chưa tới nửa độ C": the video says warmer air doesn't make a big difference (about 1/4 to 1/2 degree); drop "gần như vô ích" and the F/C conversion guess; also t… — vi/guides/youtube-bZn6Bx67-L8, 0.30
+- "đèn gắn trên nắp thường yếu, trồng cây khó lên": the video only says the light in these units is usually not that powerful; remove 'trồng cây khó lên'. — vi/guides/youtube-ddIenwrxWgU, 0.30
 - "Bể cao 60 cm thì không nên trồng nếu chỉ dùng đèn thường": the video says 24 inches (60 cm) is not recommended, but "đèn thường" is invented; and "dễ trồng nhất" in the summary and "dễ trồng hơn nhiều" in the FAQ are stronger than "it'll … — vi/guides/youtube-nFXsyqdY37s, 0.30
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - Awkward/translation-like phrasing and off-topic content: the closing 'Bể 60 x 45 x 36 cm hợp với kiểu tủ này ra sao' section and FAQ 'khác bể 60P ở chỗ nào' drift to tank specs rather than the stand build; also the Eheim filter 'nằm ngay d… — vi/guides/youtube-gUa7q5RVW4A, 0.30
 - "Neon vua (cardinal tetra) to con hơn nên có thể sẽ ăn mất ít tép. Nếu bạn không đặt nặng chuyện cho tép sinh sản và bể có nhiều chỗ trốn thì cái giá này chấp nhận được.": the video doesn't say cardinal tetras are bigger and only gives the… — vi/guides/youtube-8B80s_qtzxA, 0.40
-- "Số muỗng ở trên áp cho bộ kit có muỗng đi kèm, nên bạn cứ làm theo hướng dẫn của bộ mình mua": an invented caveat, and "nên" here is a calque. Remove it. — vi/guides/youtube-eMnYeFx08_I, 0.40
-
-### Meaning changed or wrong
-
-- Drop checker table and FAQ: the colours are reversed. The video says yellow means not enough CO2, blue means too much, and green is just right. Fix the table and the FAQ answer to match. — vi/guides/youtube-09uEH7Mct1s, 0.35
-- "Đây là chỗ nhiều người mới hay sai.": the video doesn't say many beginners get this wrong; it is the creator's own advice. Remove the sentence or turn it into plain advice, e.g. "Không nên ép đỏ ngay khi mới set bể". — vi/guides/youtube-xuc03DuJ9o4, 0.45
-- "Cá đĩa đẹp nhưng khó tính với nước", "nhiệt độ tụt đột ngột" as a general cause, "vây bụng/vây ngực" and "Giun được ... sống khỏe được khoảng một tuần" are loosely added or distorted (the video says the worms had been stored nearly a week… — vi/guides/youtube-_AfM2Mwdig4, 0.50
+- "Vi sinh trong lọc còn sống, gắn lại vào bể mới sẽ giúp bể vào chu trình nhanh hơn": the video says he keeps the filters running to keep bacteria alive to help jump-start; phrase it as the creator's intent ("để giúp khởi động nhanh hơn") n… — vi/guides/youtube-Ci1I8TbZrK8, 0.40
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
-- "Cát này chỉ để trang trí" and "Cây phát triển chậm được đặt ở tiền cảnh. Cây cắt cắm thì để ở hậu cảnh, phía sau bố cục": padding that repeats the table. Remove the repeated sentences. — vi/guides/youtube-7UaAsA16woY, 0.40
+- "Cắt ống bằng dụng cụ cắt ống chuyên dùng" and "Khớp chưa vào hết thì ống rất dễ tuột hay xì khí" (also repeated in the FAQ as 'Vì sao ống... bị tuột hay xì'): the video says only that tubing must be seated fully, cut cleanly and not at an… — vi/guides/youtube-zdJPct8nY0g, 0.30
+- "Vì sao bể không lọc của mình bị hôi nước? Không có một nguyên nhân chắc chắn, nhưng ba điều sau thường giúp tránh được": the FAQ repeats the earlier section, and "thường giúp tránh được" is stronger than the video. Remove it, or hedge to … — vi/guides/youtube-sxmL1DxwnRg, 0.40
 - "Bạn nên tính trước công tỉa nếu trồng nhiều cây mọc nhanh", "Giờ bắt đầu có thể dời theo lịch sinh hoạt", "Cài công tắc... ngay từ ngày đầu", "Đun lũa... trước khi làm bất cứ việc gì khác": invented advice; remove. Also the summary "Bắt đ… — vi/guides/youtube-TRpaZNjeRE4, 0.40
-- "Mẻ cát dùng ở đây hơi bẩn nên phải rửa trước khi đổ vào" repeats the sand washing in the wrong context and presents it as a fixed step; hedge it or remove it. — vi/guides/youtube-c2RrfFVcJew, 0.50
 
-### Leaves out what the source says
+### Meaning changed or wrong
 
-- "Một số bộ có thêm chai sắt riêng... Chai micro đã có sẵn một ít sắt": the video says the kit lets you make an optional iron solution, and the creator skips it. "Một số bộ" generalises this, so reword it to describe that kit only. — vi/guides/youtube-eMnYeFx08_I, 0.40
-- "Chọn một khung giờ rảnh cố định trong tuần", "mua máy đo TDS và chọn một mức TDS để giữ ổn định" and "Gom đủ dụng cụ vào một chỗ" in "Bắt đầu từ đâu": the video doesn't give these steps. Remove or hedge them. Also drop the sentence "Rêu h… — vi/guides/youtube-wHma4dxeecU, 0.40
-- "Khi ba thứ này cân rồi thì BBA rất hiếm quay lại" and "Ngưng ngay mọi hóa chất đang châm quá liều" (summary step), "Kiểm tra nhãn phân nước... tính lại liều" for kali, and "Giai đoạn này không cần cho thêm thứ gì vào hồ": the video says i… — vi/guides/youtube-HQ_J1hv2Tyg, 0.50
+- "Mục tiêu mùa lạnh không cần cao. Chỉ cần nước khoảng 18°C chứ không phải 27°C. Nếu giữ được nước khoảng 21°C...": the transcript says he aims for about 65°F, not 80°F, and mentions 70°F with snow. The 27°C figure is converted wrongly. Fix… — vi/guides/youtube-zdJPct8nY0g, 0.30
+- "Gai cũng có thể mắc lại trong vết thương, và khi đó nọc tiếp tục đi vào": the speaker says it can lodge and "obviously" deliver more venom. This is acceptable in meaning, but "Lúc rút ra, nó có thể xé thịt rất nhiều" overstates "a lot of … — vi/guides/youtube--Rj-jBl65Mc, 0.50
+- "Ở ví dụ này, toàn bộ cây buộc bằng cước câu màu xanh lá": this contradicts the guide's own later text, because the golden Anubias was glued. Correct it to say the other plants were tied with green fishing line. — vi/guides/youtube-AnakIetIR0U, 0.50
 
 ### Names or points to the video, channel, creator or source
 
-- "Lịch này hợp với bể mẫu và đủ để cây phát triển tốt sau 2 tháng" and "Bạn cứ cố giữ lịch...": overclaims causation. The video only says it's suitable, and that the tank looked good after 2 months. Hedge it or remove "đủ để". Also "Sau 2 t… — vi/guides/youtube-7UaAsA16woY, 0.40
+- "Chính người làm cũng chưa chắc đặt ở góc là hợp lý" and "Nếu không cần quay phim thì đặt ở giữa cũng được": this refers to the creator and makes up advice. Remove the sentence about the maker; keep only that the corner placement was chose… — vi/guides/youtube-zdJPct8nY0g, 0.30
 - "Bể mẫu dùng minh họa ở đây là loại khoảng 75 lít, bạn có thể lấy đó làm ví dụ tham khảo.": this refers to the creator's own tank (20 gallons, about 76 L) as "bể mẫu ... ở đây", which points to the video; remove the sentence or rephrase it… — vi/guides/youtube-8B80s_qtzxA, 0.40
-- "Theo kinh nghiệm, lean dosing thường cho ít rêu hại hơn" / "Theo kinh nghiệm của người đã dùng" / "Từ kinh nghiệm thực tế": these hedges point to the creator indirectly; reword as a plain hedge ("có thể") without referring to someone's ex… — vi/guides/youtube-JlH-zeUbQB0, 0.50
+- "Rotala rotundifolia 'Orange Juice'" and "Monte Carlo (Micranthemum tweediei)": the video says only "rotala orange juice" and "monte carlo". Remove the added species names, or keep just the names the video gives. Also "Rêu và Bucephalandra… — vi/guides/youtube-sdYW9rupCa8, 0.40
 
-### Off the title's topic
+### Leaves out what the source says
 
-- The summary bullet "Bể nông 120 x 50 cm này có mặt nước rộng so với thể tích nên mất nhiều CO2, và lần set sau vẫn chưa chốt có dùng CO2 hay không" is about CO2 in a shallow tank, not about taking a tank down. Remove this bullet. — vi/guides/youtube-an_VB8nHpk4, 0.60
-- Wrong/unsupported: 'Vi sinh trong lọc... giúp bể vào chu trình nhanh hơn' and 'Tép: ... cherry cái đầu tiên đều ôm trứng' – video says full of babies (pregnant/carrying young), not eggs; also the shrimp passage is off-topic for the guide's… — vi/guides/youtube-Ci1I8TbZrK8, 0.60
-- Wrong/unsupported: 'Nền đất thì phải có lớp phủ' - the video does not say dirt needs capping; it said aquasoil needs no cap. Also 'Cyperus helferi ... gửi cá tạm sang bể khác đang ổn định' is unrelated drift (teardown logistics), consider … — vi/guides/youtube-Yvw0qjsNVQc, 0.60
+- "Thùng chính chứa vật liệu lọc, còn hai thùng phụ dùng bông": the transcript is garbled and doesn't clearly say which canister holds which media. Remove or hedge this split. "Lọc phụ vệ sinh định kỳ" also drops the video's "khoảng 3 tháng … — vi/guides/youtube-7ZVrhWkpFDE, 0.50
+- "Nếu ngại dòng nhạy cảm thì có thể bỏ qua Caridina" and "Neocaridina có các màu đỏ, xanh, vàng, cam": the video only says he skipped Caridina as too sensitive for him; hedge as his own choice and don't present the colour list as a full ran… — vi/guides/youtube-IJxYhZygwKc, 0.50
+- "5 thói quen" in the title and intro lists six points in the summary, and the section about the aquarium spot vacuum is rightly omitted, but the count is inconsistent. Fix the count to match the sections (five sections vs six bullets: merg… — vi/guides/youtube-YCvm1zTtY9c, 0.50
 
 ### Hobby terms and names
 
+- "Cây cắt cành" as a general term, "cây lớn nhanh", and "Hồ nature... Trồng sai thứ tự hoặc chăm sai cách... hồ dễ rối": the video does not say wrong order makes the tank messy. Remove it. Also say 'cây nhanh phát triển' not 'cây lớn nhanh'… — vi/guides/youtube-nSfYE7PXUmY, 0.50
 - "Cạo rêu trên kính trước bằng dao cạo rêu" and "Micranthemum umbrosum ... Lên ít hơn": the video says an algae scraper, which is a scraper not a razor blade, so fix the term; the low-budget umbrosum growth is only "a big difference", so do… — vi/guides/youtube-SjnaZ9ciCJk, 0.50
-- Missing a main point: the guide never says the creator is unsure of the soil quantity or that the light intensity looks brighter on camera; minor, but the planned floating plants/lighting detail is fine. Also 'sỏi tép nano' should be 'sỏi … — vi/guides/youtube-Ci1I8TbZrK8, 0.60
-- "muối hột dùng cho bể cá (aquarium salt) là phương án tốt kế tiếp": "muối hột" is a wrong term for aquarium salt and the line is repeated in the FAQ; use "muối bể cá" and drop the duplicate. — vi/guides/youtube-Jf2NkrQm6pg, 0.60
+- "Buộc bằng chỉ cotton chắc hơn, phù hợp với bố cục muốn để lâu năm" (FAQ): the video does not say tying suits long-term layouts or is firmer. It only says glue doesn't last long. Remove the "phù hợp với bố cục muốn để lâu năm" claim and "d… — vi/guides/youtube-srVrKlaur70, 0.50
+
+### Off the title's topic
+
+- "Nền đất rất dễ làm đục nước khi bị xới lên", "Cách này giữ được nước trong khá lâu" and "Nếu bể mới còn phải chờ chạy vi sinh vài ngày thì gửi cá tạm sang bể khác đang ổn định": this drifts into tear-down advice. The video only describes … — vi/guides/youtube-Yvw0qjsNVQc, 0.30
+- "Tép Neocaridina giúp giữ thảm rêu sạch" and "Hai con cá ember tetra... bắt sang bể khác": the summary and the section on keeping bacteria are fine, but the ember tetra detail is off-topic. Remove the ember tetra sentence, since the video … — vi/guides/youtube-srVrKlaur70, 0.50
+- The summary bullet "Bể nông 120 x 50 cm này có mặt nước rộng so với thể tích nên mất nhiều CO2, và lần set sau vẫn chưa chốt có dùng CO2 hay không" is about CO2 in a shallow tank, not about taking a tank down. Remove this bullet. — vi/guides/youtube-an_VB8nHpk4, 0.60
 
 ### Copied from the transcript or source
 
 - The FAQ section repeats the body almost word for word (tắt lọc, nước xanh, nuôi riêng 3–4 ngày, neon vua), and "Thuốc có ảnh hưởng một chút đến vi sinh nhưng không nhiều" adds "không nhiều", which the video does not say. Drop the FAQ, or a… — vi/guides/youtube-DZ0JTLYiawU, 0.60
 - "Thùng cách ly để không lâu ngày thì lấy lọc có vi sinh ở đâu?" and the duplicated FAQ answers (lọc, thuốc, cây, vệ sinh) repeat earlier sections word for word; trim the FAQ. — vi/guides/youtube-Jf2NkrQm6pg, 0.60
+- "Cứ hình dung mình ở trong một căn phòng mà chất thải nằm ngay bên cạnh" and the whole section "Vì sao bể cá cần vi sinh" follow the transcript's order and examples sentence by sentence (toilet flush, the disc-fish farms, 1.5 m or 2 m tank… — vi/guides/youtube-KjUE_aid3BI, 0.60
 
 ## translation: source pages translated into Vietnamese, against the English
 
-74 of 342 pages under the bar.
+74 of 347 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |

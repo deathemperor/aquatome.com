@@ -5,7 +5,7 @@ import { contract, type Op } from './contract'
 
 const { api, fixtures, misfits, streamMisfits } = contract('chat.openapi.json')
 const sse = (api.paths['/api/chat'].post as Op).responses['200']!.content['text/event-stream']!
-const recorded = ['chat-rate.json', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
+const recorded = ['chat-cancel-cancelled.json', 'chat-cancel-late.json', 'chat-cancelled.json', 'chat-conversation.json', 'chat-conversations.json', 'chat-hidden.json', 'chat-rate.json', 'chat-stream-cancelled.sse', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
 
 test('the recorded answers in protocols/ a fake server replays follow the chat contract, and the contract names each of them', () => {
   const checked = fixtures()
@@ -16,8 +16,27 @@ test('the recorded answers in protocols/ a fake server replays follow the chat c
   for (const f of recorded) expect(api.info.description, f).toContain(`protocols/${f}`)
 })
 
+test('the recorded list holds what the app\'s flows need: a chain, a species page\'s row still open and one that has ended, newest first', () => {
+  type Row = { conversations: { id: string; from?: string; last: string; open: boolean; continues?: string }[] }
+  const { rows } = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../../protocols/chat-conversations.json', import.meta.url).href), 'utf8')) as { body: { rows: Row[] } }).body
+  const lastOf = (r: Row) => r.conversations.at(-1)!
+  expect(rows.filter(r => r.conversations[0]!.from === 'species').map(r => lastOf(r).open).sort()).toEqual([false, true])
+  const chain = rows.find(r => r.conversations.length > 1)!.conversations
+  expect(chain[1]!.continues).toBe(chain[0]!.id)
+  const lasts = rows.map(r => lastOf(r).last)
+  expect(lasts).toEqual([...lasts].sort().reverse())
+})
+
+test('the account\'s export holds a conversation as the read-back has it, a hidden one marked', () => {
+  const accounts = contract('accounts.openapi.json')
+  const exported = accounts.api.paths['/api/v1/account/export'].get.responses['200'].content['application/json'].schema.properties.chatConversations
+  const { body } = JSON.parse(readFileSync(fileURLToPath(new URL('../../../../protocols/chat-conversation.json', import.meta.url).href), 'utf8')) as { body: object }
+  expect(accounts.misfits([body, { ...body, hidden: true }], exported)).toEqual([])
+  expect(accounts.misfits([{ ...body, hidden: false }], exported).join()).toMatch(/hidden: false is not true/)
+})
+
 test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then the text, then the blocks; done holds the same text, blocks and steps', () => {
-  for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse']) {
+  for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse', 'chat-stream-cancelled.sse']) {
     expect(streamMisfits(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8'), sse), f).toEqual([])
   }
   const ev = (name: string, v: object) => `event: ${name}\ndata: ${JSON.stringify(v)}\n\n`

@@ -2,7 +2,12 @@
   "id": "brotia-pagodula",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 4,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-06T13:53:28.145Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T02:08:16.853Z"
 }
