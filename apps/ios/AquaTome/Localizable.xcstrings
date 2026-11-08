@@ -18393,24 +18393,24 @@
         }
       }
     },
-    "Câu hỏi tối đa %@ ký tự. Bạn rút gọn bớt rồi gửi nhé.": {
+    "Câu hỏi đã quá %@ ký tự. Rút gọn rồi gửi nhé.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pertanyaan maksimal %@ karakter. Persingkat dulu, lalu kirim."
+            "value": "Pertanyaan sudah melebihi %@ karakter. Persingkat dulu, lalu kirim, ya."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Soalan paling banyak %@ aksara. Pendekkan dahulu, kemudian hantar."
+            "value": "Soalan sudah melebihi %@ aksara. Pendekkan dahulu, kemudian hantar, ya."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "คำถามยาวได้ไม่เกิน %@ ตัวอักษร ลองย่อให้สั้นลงแล้วค่อยส่ง"
+            "value": "คำถามยาวเกิน %@ ตัวอักษรแล้ว ลองย่อให้สั้นลงก่อนส่งนะ"
           }
         }
       }
