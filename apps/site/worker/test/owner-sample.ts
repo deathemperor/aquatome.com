@@ -2,7 +2,8 @@ import { lastDays } from '../admin/chart'
 import { summariseApp, type AppRows } from '../admin/app'
 import { cursorOf, type CommentRow, type CommentState, type CommentWeek } from '../admin/comments'
 import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
-import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
+import { cutWindows, fishSpan, RECENT_MAX, summariseFishId, type CallRow, type DayRow, type FishPeriodKey } from '../admin/fishid'
+import { dayStart, localDay } from '../admin/time'
 import type { Overview } from '../admin/pages'
 import type { Excluded } from '../readers'
 import type { Quality } from '../admin/quality'
@@ -29,7 +30,7 @@ export const READERS = {
   days: 14, sessions: 1240, readers: 610,
   daily: lastDays(NOW, 14, TZ).map((day, i) => ({ day, sessions: 70 + i * 3, readers: 30 + i * 2 })),
   pages: [{ path: '/ca/ca-neon-vua/', views: 320 }, { path: '/huong-dan/thay-nuoc/', views: 140 }, { path: '//other.site/x', views: 2 }],
-  sources: [{ source: 'Google', sessions: 800, readers: 420 }, { source: '(trực tiếp)', sessions: 300, readers: 120 }],
+  sources: [{ source: 'Google', sessions: 800, readers: 420 }, { source: '(direct)', sessions: 300, readers: 120 }],
   countries: [{ cc: 'VN', readers: 540 }, { cc: 'ID', readers: 40 }],
   // What the count left out (worker/us.ts) and the app beside the web (readers.ts).
   excluded: [{ who: 'owner', sessions: 12, readers: 9 }, { who: 'team', sessions: 30, readers: 6 }, { who: 'net', sessions: 90, readers: 10 }, { who: 'app', sessions: 4, readers: 2 }] as Excluded[],
@@ -47,24 +48,95 @@ const APP_ROWS: AppRows = {
 }
 export const APP = summariseApp(APP_ROWS, false)
 
-const fishDays: DayRow[] = lastDays(NOW, 62, TZ).flatMap((d, i) => [
-  { d, outcome: 'ok', n: 10 + (i % 5), called: 10 + (i % 5), tin: 12000, tout: 900, usd: 0.11, guessed: 9, linked: 7 },
-  { d, outcome: 'rate', n: i % 3, called: 0, tin: 0, tout: 0, usd: 0, guessed: 0, linked: 0 },
-])
-const call = (t: string, o: Partial<CallRow>): CallRow => ({ t, outcome: 'ok', model: 'claude-x', kh: 'aaaa1111', verdict: 'fish', sci: '', page: '', lang: 'vi', src: 'page', cc: 'VN', tin: 1200, tout: 90, usd: 0.0109, ms: 4200, attempts: 1, conf: 0.9, guesses: 3, ...o })
+/**
+ * Fish ID's requests, one by one, over the 62 days the section reads, in Vietnam's days: sixteen to twenty-four a day, a few
+ * without an answer or stopped before Claude, at one cost a call: more than a page of the app's table (50 rows) this week. The day rows, the cut days, a period's requests and its
+ * guesses without a page are all summed from them, as AE sums its rows, so every figure the samples show agrees with the
+ * others.
+ */
+const PER_CALL = { tin: 1200, tout: 90, usd: 0.0109 }
+const GUESS = [
+  { sci: 'Paracheirodon axelrodi', page: 'paracheirodon-axelrodi', conf: 0.92 },
+  { sci: 'Paracheirodon innesi', page: 'paracheirodon-innesi', conf: 0.88 },
+  { sci: 'Betta macrostoma', page: '', conf: 0.8 },
+  { sci: 'Trigonostigma heteromorpha', page: 'gone-page', conf: 0.7 },
+]
+/** Each day's requests: named, without an answer (Claude declined), and stopped before Claude (the reader's turns). */
+const perDay = (i: number) => ({ named: 16 + (i % 5) + (i % 7 === 3 ? 4 : 0), none: i % 3 ? 0 : 1, blocked: i % 4 ? 0 : 1 })
+const at = (ms: number) => new Date(ms).toISOString().slice(0, 19).replace('T', ' ')
+/** The keys' hashes: the first key until 05:00 UTC today, the second after (FISH.keys). */
+const KEY_SWITCH = Date.parse('2026-11-04T05:00:00Z')
+const CALLS: CallRow[] = lastDays(NOW, 62, TZ).flatMap((d, i) => {
+  const { named, none, blocked } = perDay(i)
+  const n = named + none + blocked
+  const from = Date.parse(dayStart(d, TZ))
+  const to = Math.min(from + 86_400_000, NOW.getTime() - 60_000)
+  // Spread over the day, oldest first; one without an answer a third of the way, one stopped two thirds of the way.
+  return Array.from({ length: n }, (_, k): CallRow => {
+    const t = at(from + ((k + 0.5) * (to - from)) / n)
+    const kh = Date.parse(`${t.replace(' ', 'T')}Z`) < KEY_SWITCH ? 'aaaa1111' : 'bbbb2222'
+    const where = { lang: k % 4 === 3 ? 'id' : 'vi', cc: k % 4 === 3 ? 'ID' : 'VN', src: k % 6 === 5 ? 'tank' : 'page' }
+    const base = { model: 'claude-x', ms: 4200, turns: 0, tools: 0, refs: 0, ...where }
+    if (blocked && k === Math.floor((2 * n) / 3)) return { t, outcome: 'rate', kh: '', verdict: '', sci: '', page: '', tin: 0, tout: 0, usd: 0, attempts: 0, conf: 0, guesses: 0, ...base, ms: 30 }
+    if (none && k === Math.floor(n / 3)) return { t, outcome: 'refused', kh, verdict: '', sci: '', page: '', ...PER_CALL, attempts: 1, conf: 0, guesses: 0, ...base }
+    const g = GUESS[(i + k) % GUESS.length]!
+    return { t, outcome: 'ok', kh, verdict: 'fish', sci: g.sci, page: g.page, ...PER_CALL, attempts: 1, conf: g.conf, guesses: 3, ...base }
+  })
+}).reverse()
+const msOfCall = (c: CallRow) => Date.parse(`${c.t.replace(' ', 'T')}Z`)
+/** AE's rows from the calls: by Vietnam's day and outcome. */
+function dayRows(calls: CallRow[]): DayRow[] {
+  const rows = new Map<string, DayRow>()
+  for (const c of calls) {
+    const d = localDay(msOfCall(c), TZ)
+    const r = rows.get(`${d} ${c.outcome}`) ?? { d, outcome: c.outcome, n: 0, called: 0, tin: 0, tout: 0, usd: 0, guessed: 0, linked: 0 }
+    r.n = Number(r.n) + 1
+    r.called = Number(r.called) + (Number(c.attempts) > 0 ? 1 : 0)
+    r.tin = Number(r.tin) + Number(c.tin)
+    r.tout = Number(r.tout) + Number(c.tout)
+    r.usd = Number(r.usd) + Number(c.usd)
+    r.guessed = Number(r.guessed) + (Number(c.guesses) > 0 ? 1 : 0)
+    r.linked = Number(r.linked) + (c.page ? 1 : 0)
+    rows.set(`${d} ${c.outcome}`, r)
+  }
+  return [...rows.values()]
+}
+const inWindow = (w: { from: string; to?: string }) => (c: CallRow) => msOfCall(c) >= Date.parse(w.from) && msOfCall(c) < (w.to ? Date.parse(w.to) : Infinity)
+/** The section's figures for a period, as queryFishId reads them: every day, the cut days, and the period's own requests and guesses without a page. */
+export function fishStats(period: FishPeriodKey) {
+  const span = fishSpan(period, NOW, TZ)
+  const mine = CALLS.filter(inWindow(span))
+  const early = CALLS.filter(c => cutWindows(NOW, TZ).some(w => inWindow(w)(c)))
+  const unmatched = new Map<string, { n: number; conf: number }>()
+  for (const c of mine) {
+    if (c.outcome !== 'ok' || !c.sci || c.page) continue
+    const u = unmatched.get(c.sci) ?? { n: 0, conf: 0 }
+    unmatched.set(c.sci, { n: u.n + 1, conf: u.conf + Number(c.conf) })
+  }
+  return summariseFishId(dayRows(CALLS), [...unmatched].map(([sci, u]) => ({ sci, n: String(u.n), conf: String(u.conf) })), mine.slice(0, RECENT_MAX), NOW, TZ, dayRows(early))
+}
+/** Calls since UTC midnight, the keys' day (fishid/ledger.ts), by key. */
+const sinceUtc = CALLS.filter(c => msOfCall(c) >= Date.parse('2026-11-04T00:00:00Z') && Number(c.attempts) > 0)
+const keyCalls = (kh: string) => sinceUtc.filter(c => c.kh === kh)
+/** The AI spend a UTC day: fish ID's calls, and chat's, a few cents more. */
+const fishUsd = (day: string) => CALLS.filter(c => c.t.startsWith(day)).reduce((a, c) => a + Number(c.usd), 0)
+const round2 = (x: number) => Math.round(x * 100) / 100
 export const FISH = {
   now: NOW, tz: TZ,
-  stats: summariseFishId(fishDays, [{ sci: 'Betta macrostoma', n: '6', conf: '4.8' }], [
-    call('2026-11-04 08:58:01', { sci: 'Paracheirodon axelrodi', page: 'paracheirodon-axelrodi' }),
-    call('2026-11-04 08:40:00', { sci: 'Betta macrostoma' }),
-    call('2026-11-04 08:30:00', { sci: 'Trigonostigma heteromorpha', page: 'gone-page' }),
-    call('2026-11-04 08:00:00', { outcome: 'rate', verdict: '', kh: '', tin: 0, tout: 0, usd: 0, guesses: 0, conf: 0, src: 'tank' }),
-    // Enough for more than one page of the app's table (50 rows a page).
-    ...Array.from({ length: 56 }, (_, i) => call(`2026-11-04 07:${String(59 - i).padStart(2, '0')}:00`, { sci: 'Paracheirodon innesi', page: 'paracheirodon-innesi' })),
-  ], NOW, TZ),
-  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'rate' as const, until: '2026-11-04T09:30:00.000Z', calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3, offTopic: 0 }, mostRefunds: 2, cap: 50, spend: [] },
+  stats: fishStats('week'),
+  // Every key resting: the first out of credit until tomorrow, the second rate limited for half an hour.
+  keys: {
+    rows: [
+      { n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: keyCalls('aaaa1111').length, answered: keyCalls('aaaa1111').filter(c => c.outcome === 'ok').length },
+      { n: 2, hash: 'bbbb2222', workspace: true, state: 'rate' as const, until: '2026-11-04T09:30:00.000Z', calls: keyCalls('bbbb2222').length, answered: keyCalls('bbbb2222').filter(c => c.outcome === 'ok').length },
+    ],
+    bad: 0, today: sinceUtc.length, model: 'claude-x', counts: { fallback: 2, callLimit: 1, later400: 1, facts: 0, refunds: 3, offTopic: 0 }, mostRefunds: 2,
+    cap: 50, spend: [{ day: '2026-11-04', usd: round2(fishUsd('2026-11-04') + 0.06) }, { day: '2026-11-03', usd: round2(fishUsd('2026-11-03') + 0.11) }],
+  },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
 }
+/** The same at 30 days to yesterday: its own requests. */
+export const FISH_30 = { ...FISH, stats: fishStats('d30'), period: 'd30' }
 
 export const KEPT_ID = '0b4c6a8e-1f2d-4c3b-9a8e-7d6c5b4a3f21'
 export const KEPT_ANON = '9e8d7c6b-5a4f-4e3d-8c2b-1a0f9e8d7c6b'
@@ -290,15 +362,19 @@ export const COMMENT_PAGES = new Map<string, PageInfo>([
 ])
 
 /**
- * The overview's version 2: a key resting and a source waiting on the owner (faults), today's AI spend past 80% of its
- * cap, the held comments (COMMENT_COUNTS) and two photos waiting.
+ * The overview's version 2: every key resting and a source waiting on the owner (faults), the held comments
+ * (COMMENT_COUNTS) and two photos waiting. The owner's last decisions: a comment hidden yesterday, and a page hidden
+ * this morning (HIDDEN), the newest.
  */
 export const TODAY: Today = {
-  ...OVERVIEW, keys: { ...FISH.keys, spend: [{ day: '2026-11-04', usd: 42.5 }, { day: '2026-11-03', usd: 18.2 }] }, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
+  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
   lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
+  acts: [{ kind: 'comment-hidden', at: '2026-11-03T06:00:00.000Z', ref: 'species:paracheirodon-axelrodi' }],
 }
 /** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
 export const CALM: Today = {
   ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
   waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
 }
+/** A day's AI spend near its cap: the cap set low ($2 a day), and a busy day of chat on top of fish ID. */
+export const SPENDING: Today = { ...CALM, keys: { ...CALM.keys!, cap: 2, spend: [{ day: '2026-11-04', usd: 1.7 }, ...FISH.keys.spend.slice(1)] } }

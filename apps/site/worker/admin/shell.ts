@@ -4,36 +4,36 @@ import { HOME_TZ, stamp } from './time'
 /** The admin pages' frame: one stylesheet in the site's world (light or dark as the phone is set), the nav, a section that failed to load. */
 
 /**
- * Every page, in the spec's groups' order (docs/design/dashboard.md): the web's rail, and, all but the overview, the
- * section list the iOS app draws (dashboard.ts SECTIONS, protocols/owner-dashboard*.json).
+ * Every page, in its group, in the spec's order (docs/design/dashboard.md): the web's rail, the overview's "Every page",
+ * and, all but the overview, the section list the iOS app draws (dashboard.ts SECTIONS, protocols/owner-dashboard*.json).
  */
 export const NAV = [
-  ['/_ab/', 'Tổng quan'],
-  ['/_ab/thanh-cong/', 'Thành công'],
-  ['/_ab/doc-gia/', 'Người đọc'],
-  ['/_ab/affiliate/', 'Affiliate'],
-  ['/_ab/noi-dung/', 'Nội dung'],
-  ['/_ab/muon-co/', 'Bạn đọc muốn có'],
-  ['/_ab/an-trang/', 'Ẩn trang'],
-  ['/_ab/binh-luan/', 'Comments'],
-  ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
-  ['/_ab/tai-khoan/', 'Tài khoản'],
-  ['/_ab/nhan-dien-ca/', 'Nhận diện cá'],
-  ['/_ab/anh-nhan-dien/', 'Ảnh nhận diện'],
-  ['/_ab/ung-dung/', 'Ứng dụng'],
-  ['/_ab/bao-cao/', 'Báo cáo hằng ngày'],
-  ['/_ab/thay-doi/', 'Thay đổi sản phẩm'],
+  ['/_ab/', 'Today', ''],
+  ['/_ab/thanh-cong/', 'Scoreboard', 'Growth'],
+  ['/_ab/doc-gia/', 'Readers', 'Growth'],
+  ['/_ab/affiliate/', 'Affiliate', 'Growth'],
+  ['/_ab/noi-dung/', 'Content and engine', 'Content'],
+  ['/_ab/muon-co/', 'Wanted by readers', 'Content'],
+  ['/_ab/an-trang/', 'Hidden pages', 'Content'],
+  ['/_ab/binh-luan/', 'Comments', 'Community'],
+  ['/_ab/anh-ban-doc/', 'Reader photos', 'Community'],
+  ['/_ab/tai-khoan/', 'Accounts', 'Community'],
+  ['/_ab/nhan-dien-ca/', 'Calls and keys', 'Fish ID'],
+  ['/_ab/anh-nhan-dien/', 'Kept photos', 'Fish ID'],
+  ['/_ab/ung-dung/', 'iPhone app', 'App'],
+  ['/_ab/bao-cao/', 'Daily reports', 'Records'],
+  ['/_ab/thay-doi/', 'Changelog', 'Records'],
 ] as const
 export type AdminPath = (typeof NAV)[number][0]
 export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
 /** The daily report's log and its delivery (worker/daily). */
 export const REPORT_PATH = '/_ab/bao-cao/'
-export const REPORT_NAME = 'Báo cáo hằng ngày'
+export const REPORT_NAME = 'Daily reports'
 /** The product change log (daily/changelog.ts), which the daily report adds to. */
 export const CHANGELOG_PATH = '/_ab/thay-doi/'
-export const CHANGELOG_NAME = 'Thay đổi sản phẩm'
+export const CHANGELOG_NAME = 'Changelog'
 export type WebPath = AdminPath
-const PAGE_NAV: readonly (readonly [WebPath, string])[] = NAV
+const PAGE_NAV: readonly (readonly [WebPath, string, string])[] = NAV
 /** Every page of the web dashboard. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
@@ -105,6 +105,7 @@ a:hover{text-decoration-color:currentColor;color:var(--moss)}
 .rail a{display:flex;align-items:center;gap:6px;white-space:nowrap;text-decoration:none;font-size:13.5px;color:var(--ink-2);border:1px solid var(--rule);border-radius:999px;padding:7px 12px;min-height:36px;background:var(--paper)}
 .rail a:hover{color:var(--ink);border-color:var(--axis)}
 .rail a[aria-current=page]{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:600}
+.rail .grp{display:none}
 .home .rail{display:none}
 main{min-width:0;padding:18px 16px 56px}
 h1{font:600 1.75rem/1.15 var(--serif);letter-spacing:-.01em;margin:4px 0 6px}
@@ -118,7 +119,7 @@ p{margin:0 0 12px;max-width:72ch}
 .badge{font:700 12px/1 var(--sans);background:var(--rust);color:var(--paper);border-radius:999px;padding:4px 8px}
 section>h2:first-child{margin-top:28px}
 .panel{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r)}
-/* Cần bạn */
+/* Needs you */
 .todo{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .todo li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;background:var(--rust-wash);border:1px solid color-mix(in srgb,var(--rust) 35%,var(--rule));border-radius:var(--r);padding:12px 12px 12px 14px}
 .todo svg{color:var(--rust)}
@@ -126,9 +127,11 @@ section>h2:first-child{margin-top:28px}
 .todo p{margin:2px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.4}
 .todo .act{font-size:13.5px;font-weight:600;color:var(--paper);background:var(--ink);border-radius:9px;padding:9px 12px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap}
 .todo .act:hover{background:var(--moss);color:var(--paper)}
+/* A phone: the button under the detail, so the title has the row and stays on one line */
+@media (max-width:480px){.todo li{grid-template-columns:auto 1fr;align-items:start}.todo .act{grid-column:2;justify-self:start}}
 .clear{display:flex;align-items:center;gap:10px;color:var(--ink-2);padding:12px 14px}
 .clear svg{color:var(--moss);flex:none}
-/* Các mục */
+/* The overview before version 2's areas */
 .areas{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
 .areas li+li{border-top:1px solid var(--rule)}
 .area{display:grid;grid-template-columns:minmax(0,1fr) auto 16px;align-items:center;gap:6px 12px;padding:13px 12px 13px 14px;text-decoration:none;color:inherit;min-height:64px}
@@ -152,7 +155,7 @@ section>h2:first-child{margin-top:28px}
 .chip{display:inline-block;font-size:12px;font-weight:600;line-height:1.3;padding:3px 8px;border-radius:999px;white-space:nowrap;background:var(--grid);color:var(--ink-2)}
 .chip.good{background:var(--moss-wash);color:var(--moss)}
 .chip.bad{background:var(--rust-wash);color:var(--rust)}
-/* Mấy ngày qua */
+/* The last three days */
 .log h3{font:600 1.05rem/1.2 var(--serif);display:flex;align-items:center;gap:10px;margin:18px 0 8px}
 .log h3:after{content:'';flex:1;border-top:1px solid var(--rule)}
 .log section:first-child h3{margin-top:4px}
@@ -163,7 +166,7 @@ section>h2:first-child{margin-top:28px}
 .log p{margin:1px 0 0;font-size:14px}
 .log small{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
 .home-grid{display:grid;gap:8px 32px}
-/* Nội dung */
+/* Content and engine */
 .jump ul{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
 .jump a{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid var(--rule);border-radius:999px;font-size:13.5px;color:var(--ink-2);text-decoration:none;background:var(--plate)}
 .jump a:hover{border-color:var(--axis);color:var(--ink)}
@@ -202,7 +205,7 @@ ol.pages li{break-inside:avoid;padding:2px 0}
 .low-t td.k{grid-column:1;font-size:13px}
 .low-t td.s{grid-column:2;grid-row:1}
 .low-t td.r{grid-column:2;grid-row:2;font-size:13px;color:var(--muted)}
-.low-t td.r:after{content:' người đọc'}
+.low-t td.r:after{content:' readers'}
 .low-t td.why{grid-column:1/-1;margin-top:8px;min-width:0}
 }
 .chart .kpis{border:0;border-radius:0;background:none}
@@ -248,9 +251,9 @@ summary:hover{color:var(--ink)}
 .readout .hint{display:none;flex:0 0 100%;font-size:.78rem;color:var(--muted)}
 .js .readout.first .hint{display:block}
 .js .readout.first.sel .hint{visibility:hidden}
-.js .readout .hint:before{content:'Chạm vào một cột để xem ngày đó.'}
-.js .readout.wk .hint:before{content:'Chạm vào một cột để xem tuần đó.'}
-@media (hover:hover){.js .readout .hint:before{content:'Trỏ vào một cột để xem ngày đó.'}.js .readout.wk .hint:before{content:'Trỏ vào một cột để xem tuần đó.'}}
+.js .readout .hint:before{content:'Tap a column for its day.'}
+.js .readout.wk .hint:before{content:'Tap a column for its week.'}
+@media (hover:hover){.js .readout .hint:before{content:'Point at a column for its day.'}.js .readout.wk .hint:before{content:'Point at a column for its week.'}}
 .key{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
 .cols .s1,.key.s1{background:var(--s1)}
 .cols .s2,.key.s2{background:var(--s2)}
@@ -361,6 +364,34 @@ button.bad{color:var(--rust)}
 /* A report as it was mailed: its own colours, inline, on the white a mail reads on */
 .mail{background:#fff;color:#1d2a22;border:1px solid var(--rule);border-radius:var(--r);overflow-x:auto;margin:16px 0}
 i.sci{font-style:italic}
+/* Today: four tiles (two a row on a phone), the needs, then every page by its group */
+.tiles4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tiles4 .kpi dt a{text-decoration:none}
+.tiles4 .spk{margin:2px 0 4px}
+.kpi.wait .v{color:var(--rust)}
+.kpi.bad .v{color:var(--rust)}
+.todo .ph{display:flex;gap:4px}
+.todo .ph img{width:36px;height:36px;object-fit:cover;border-radius:6px}
+.last{margin:8px 2px 0}
+.ship,.lines{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.ship li,.lines li{display:flex;gap:10px;align-items:baseline;padding:11px 14px}
+.ship li+li,.lines li+li{border-top:1px solid var(--rule)}
+.lines li{justify-content:space-between}
+.lines small{display:block;color:var(--muted);font-size:12.5px}
+.lines .fig{font-weight:600;white-space:nowrap}
+.lines .bad{color:var(--rust)}
+.groups{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.groups h3{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 14px 2px}
+.groups section{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r)}
+.groups ul{list-style:none;margin:0;padding:0 0 6px}
+.groups a{display:flex;justify-content:space-between;gap:12px;padding:8px 14px;min-height:40px;align-items:center;text-decoration:none}
+.groups .fig{color:var(--muted);font-size:13.5px;text-align:right}
+.groups .fig.wait,.groups .fig.bad{color:var(--rust);font-weight:600}
+details.fold{margin-top:8px;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);padding:0 14px}
+details.fold>summary{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--ink);font-size:.95rem;min-height:44px}
+details.fold .fig{color:var(--muted);font-variant-numeric:tabular-nums}
+details.fold .scroll{margin:0 -14px;border-width:1px 0 0;border-radius:0 0 var(--r) var(--r)}
+td.bad,th.bad{color:var(--rust)}
 @media (min-width:1000px){
 .frame{grid-template-columns:232px minmax(0,1fr);gap:0 8px}
 .rail,.home .rail{display:block;border:0;background:none;padding:20px 0 0 16px}
@@ -368,13 +399,16 @@ i.sci{font-style:italic}
 .rail a{border:0;background:none;border-radius:9px;padding:8px 12px;font-size:14px;justify-content:space-between}
 .rail a:hover{background:var(--plate)}
 .rail a[aria-current=page]{background:var(--plate);color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule)}
+.rail .grp{display:block;padding:14px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 main{padding:24px 24px 64px}
+.tiles4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.groups{grid-template-columns:repeat(3,minmax(0,1fr))}
 .home-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
 .home-grid>.side h2:first-child{margin-top:28px}
 }
 @media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 12px 4px}.rank th{min-width:7rem}}`
 
-const HEAD = (title: string, tz?: string) => `<!doctype html><html lang="vi"${tz ? ` data-tz="${esc(tz)}"` : ''}><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1a1d"><title>${esc(title)} · Quản trị AquaTome</title><link rel="preload" href="/_ab/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>${CSS}</style></head>`
+const HEAD = (title: string, tz?: string) => `<!doctype html><html lang="en"${tz ? ` data-tz="${esc(tz)}"` : ''}><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#0a1a1d"><title>${esc(title)} · AquaTome dashboard</title><link rel="preload" href="/_ab/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin><style>${CSS}</style></head>`
 
 /** Drawn icons, one stroke: the arrow on an area row, a to-do's mark, the all-clear. */
 export const ICON = {
@@ -392,9 +426,9 @@ const TIME_JS = `(()=>{const d=document.documentElement,z=Intl.DateTimeFormat().
 if(!z)return
 const c='aq_tz='+encodeURIComponent(z);document.cookie='aq_tz=; Path=/_ab; Max-Age=0; SameSite=Lax; Secure';document.cookie=c+'; Path=/; Max-Age=31536000; SameSite=Lax; Secure'
 if(z===d.dataset.tz)return
-const f=new Intl.DateTimeFormat('en-GB',{timeZone:z,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'}),p=t=>Object.fromEntries(f.formatToParts(t).map(x=>[x.type,x.value])),y=p(new Date()).year,W={Sun:'Chủ nhật',Mon:'Thứ Hai',Tue:'Thứ Ba',Wed:'Thứ Tư',Thu:'Thứ Năm',Fri:'Thứ Sáu',Sat:'Thứ Bảy'}
-for(const t of document.querySelectorAll('time[datetime]')){const q=p(new Date(t.dateTime)),hm=q.hour+':'+q.minute
-if(t.dataset.f==='stamp'){t.firstElementChild.textContent=W[q.weekday]+', ';t.lastChild.textContent=q.day+'/'+q.month+' · '+hm}else t.textContent=q.day+'/'+q.month+(q.year!==y?'/'+q.year:'')+' '+hm}
+const f=new Intl.DateTimeFormat('en-GB',{timeZone:z,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'}),p=t=>Object.fromEntries(f.formatToParts(t).map(x=>[x.type,x.value])),y=p(new Date()).year,M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+for(const t of document.querySelectorAll('time[datetime]')){const q=p(new Date(t.dateTime)),hm=+q.hour+':'+q.minute,dm=+q.day+' '+M[q.month-1]
+if(t.dataset.f==='stamp'){t.firstElementChild.textContent=q.weekday+' ';t.lastChild.textContent=dm+' · '+hm}else t.textContent=q.weekday+' '+dm+(q.year!==y?' '+q.year:'')+', '+hm}
 try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){sessionStorage.setItem('aq_tz',z);location.reload()}}catch{}})()`
 
 /**
@@ -432,18 +466,19 @@ s.addEventListener('click',e=>{if(touch)e.preventDefault()})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
-  const nav = PAGE_NAV.map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
+  // Each group's name over its pages: on a computer's rail only (a phone's row of chips has no room for them).
+  const nav = PAGE_NAV.map(([href, label, group], i) => `${group && group !== PAGE_NAV[i - 1]![2] ? `<li class="grp" aria-hidden="true">${esc(group)}</li>` : ''}<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
   const script = /data-(?:plot|spark)\b/.test(body) ? `<script>${CHART_JS}</script>` : ''
-  return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
+  return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Dashboard</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Dashboard pages"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }
 
 /** /_ab/ without a valid token: ask for it (POST /_ab/login). */
 /** Signed out, or `other`: signed in to an account that isn't the owner's. The site's own sign-in is on the My tanks page. */
 export function loginPage(other = false): string {
-  return `${HEAD('Đăng nhập')}<body><main style="max-width:28rem"><h1>Quản trị AquaTome</h1>${other ? '<p class="failed">Tài khoản đang đăng nhập không phải tài khoản chủ trang. Đăng xuất rồi đăng nhập bằng tài khoản chủ trang.</p>' : '<p class="lede">Đăng nhập bằng tài khoản AquaTome của chủ trang để xem số liệu.</p>'}
-<p><a class="go" href="/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Đổi tài khoản' : 'Đăng nhập'}</a></p>
-<p class="muted">Đăng nhập xong, mở lại <a href="/_ab/">/_ab/</a>.</p>
-<p><a href="/">Về trang chủ</a></p></main></body></html>`
+  return `${HEAD('Sign in')}<body><main style="max-width:28rem"><h1>AquaTome dashboard</h1>${other ? '<p class="failed">The account signed in isn’t the owner’s. Sign out, then sign in with the owner’s account.</p>' : '<p class="lede">Sign in with the owner’s AquaTome account to see the figures.</p>'}
+<p><a class="go" href="/cong-cu/be-cua-toi/#tai-khoan">${other ? 'Change account' : 'Sign in'}</a></p>
+<p class="muted">Once signed in, open <a href="/_ab/">/_ab/</a> again.</p>
+<p><a href="/">To the home page</a></p></main></body></html>`
 }
 
 /** A part that loads on its own: its data, or why it couldn't load (shown in its place, the rest of the page still renders). */
@@ -454,5 +489,5 @@ export const soft = <T>(what: string, p: Promise<T>): Promise<Soft<T>> => p.catc
   console.error(`admin ${what}:`, e)
   return { failed: String((e as Error)?.message ?? e).slice(0, 300) }
 })
-export const unset = (what: string): Failed => ({ failed: `Chưa cấu hình ${what}.` })
-export const failedBox = (what: string, f: Failed) => `<div class="failed" role="status">Không tải được ${esc(what)}.<code>${esc(f.failed)}</code></div>`
+export const unset = (what: string): Failed => ({ failed: `Not set up: ${what}.` })
+export const failedBox = (what: string, f: Failed) => `<div class="failed" role="status">Couldn’t load ${esc(what)}.<code>${esc(f.failed)}</code></div>`

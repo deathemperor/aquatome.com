@@ -1,4 +1,4 @@
-import { barWords, deltaOf, fmt, todayOf, type DashLang, type DayChart, type Delta, type Ranked, type Readout, type Series, type Tile } from './chart'
+import { barWords, deltaOf, esc, fmt, todayOf, type DayChart, type Delta, type Ranked, type Readout, type Series, type Tile } from './chart'
 import type { CommentsBlock } from './comments'
 import type { Failed } from './shell'
 
@@ -6,7 +6,7 @@ import type { Failed } from './shell'
  * The dashboard's pages as data, for the iOS app to draw natively (protocols/owner-dashboard.openapi.json): each /_ab/
  * page is a title and a list of blocks. A page's HTML and its blocks read the same loaded data (dashboard.ts), and
  * share what both draw: the same tiles, charts, ranked rows and texts. The rest is written twice from the same data,
- * and worker/test/owner-api.test.ts holds the two to each other. Text comes as the page writes it, in Vietnamese and
+ * and worker/test/owner-api.test.ts holds the two to each other. Text comes as the page writes it, in English and
  * the viewer's time zone; a chart's numbers stay raw.
  */
 
@@ -87,22 +87,22 @@ export const textOf = (html: string) =>
 export const heading = (text: string, level: 2 | 3 = 2, anchor?: string): Block => ({ kind: 'heading', text, level, ...(anchor ? { anchor } : {}) })
 export const note = (text: string, tone: TextTone = 'plain'): Block => ({ kind: 'note', text, tone })
 /** A part that didn't load, as failedBox says it. */
-export const failedNote = (what: string, f: Failed): Block => note(`Không tải được ${what}. ${f.failed}`, 'bad')
+export const failedNote = (what: string, f: Failed): Block => note(`Couldn’t load ${what}. ${f.failed}`, 'bad')
 
 /** A change as the app reads it: coloured past 5% where more is plainly better (deltaOf), muted otherwise. */
-export function deltaJson(d: Delta, lang: DashLang = 'vi'): NonNullable<Figure['delta']> {
-  const x = deltaOf(d, lang)
+export function deltaJson(d: Delta): NonNullable<Figure['delta']> {
+  const x = deltaOf(d)
   return { text: x.text, tone: x.tone === 'good' || x.tone === 'bad' ? x.tone : 'muted' }
 }
 
 /** KPI tiles as figures: the same tiles the page draws. */
-export function figures(xs: Tile[], lang: DashLang = 'vi'): Block {
+export function figures(xs: Tile[]): Block {
   return {
     kind: 'figures',
     items: xs.map(t => {
       const f: Figure = { label: t.label, value: t.value }
       if (t.sub) f.sub = t.sub
-      if (t.delta) f.delta = deltaJson(t.delta, lang)
+      if (t.delta) f.delta = deltaJson(t.delta)
       // Clamped as the page's meter() draws it.
       if (t.meter !== undefined && Number.isFinite(t.meter)) f.meter = Math.min(1, Math.max(0, t.meter))
       return f
@@ -111,14 +111,33 @@ export function figures(xs: Tile[], lang: DashLang = 'vi'): Block {
 }
 
 /** A chart: the same object the page draws, less its functions (a money chart says so with `unit`), with each bar's words. */
-export function chart(c: DayChart, lang: DashLang = 'vi', also: Series[] = []): Block {
+export function chart(c: DayChart, also: Series[] = []): Block {
   const { format: _f, tickPrefix: _t, lastSays: _l, ...data } = c
   const today = todayOf(c)
-  return { kind: 'chart', ...data, ...(today >= 0 ? { today } : {}), ...barWords(c, lang, also) }
+  return { kind: 'chart', ...data, ...(today >= 0 ? { today } : {}), ...barWords(c, also) }
 }
 
-export function table(columns: string[], rows: Cell[][], o: { empty?: string; folded?: string } = {}): Block {
-  return { kind: 'table', columns, rows, ...(o.empty ? { empty: o.empty } : {}), ...(o.folded ? { folded: o.folded } : {}) }
+type TableBlock = Extract<Block, { kind: 'table' }>
+export function table(columns: string[], rows: Cell[][], o: { empty?: string; folded?: string; figure?: string } = {}): TableBlock {
+  return { kind: 'table', columns, rows, ...(o.empty ? { empty: o.empty } : {}), ...(o.folded ? { folded: o.folded } : {}), ...(o.figure ? { figure: o.figure } : {}) }
+}
+/** Text that reads as a figure, set right: "1,234", "$0.11", "−4%", "—". */
+const figureLike = (s: string) => /^[−+±$]?[\d.,]+(%| pts)?$|^—$/.test(s)
+/**
+ * A table block as the page draws it: the first cell of a row its head, a cell's second line under it, its link, its
+ * tone; folded, a disclosure with its label and figure.
+ */
+export function tableHtml(t: TableBlock, o: { wide?: boolean } = {}): string {
+  const tone = (c: Cell) => (c.tone && c.tone !== 'plain' ? ` ${c.tone === 'wait' ? 'warn' : c.tone}` : '')
+  const cellHtml = (c: Cell, i: number) => {
+    const text = c.href ? `<a href="${esc(c.href)}">${esc(c.text)}</a>` : esc(c.text)
+    const tag = i ? 'td' : 'th'
+    const cls = `${figureLike(c.text) ? '' : 'l'}${tone(c)}`.trim()
+    return `<${tag}${cls ? ` class="${cls}"` : ''}>${text}${c.sub ? `<br><span class="muted">${esc(c.sub)}</span>` : ''}</${tag}>`
+  }
+  const rows = t.rows.map(r => `<tr>${r.map(cellHtml).join('')}</tr>`).join('')
+  const body = `<div class="scroll"><table${o.wide ? ' class="wide"' : ''}><thead><tr>${t.columns.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="${t.columns.length}" class="none">${esc(t.empty ?? 'None yet.')}</td></tr>`}</tbody></table></div>`
+  return t.folded ? `<details class="fold"><summary><span class="lb">${esc(t.folded)}</span>${t.figure ? ` <span class="fig">${esc(t.figure)}</span>` : ''}</summary>${body}</details>` : body
 }
 
 /** Cell text, and the page it links to when the HTML is one link. */
@@ -131,4 +150,4 @@ export function cellOf(html: string, more: Omit<Cell, 'text'> = {}): Cell {
 export type RankRow = Ranked & { cell?: Cell }
 /** A ranked table (rankTable) from the same rows: the label, the value as the page writes it, then the cells. */
 export const rankBlock = (rows: RankRow[], head: string[], format: (n: number) => string = n => fmt(n)): Block =>
-  table(head, rows.map(r => [r.cell ?? cellOf(r.label), { text: format(r.value) }, ...(r.cells ?? []).map(c => cellOf(c))]), { empty: 'Chưa có.' })
+  table(head, rows.map(r => [r.cell ?? cellOf(r.label), { text: format(r.value) }, ...(r.cells ?? []).map(c => cellOf(c))]), { empty: 'None yet.' })

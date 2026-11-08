@@ -83,7 +83,7 @@ test('dashboard: signed out, a page is the site\'s sign-in in its place, which c
     const html = await r.text()
     expect(signInFor(html)).toEqual({ next: '/_ab/', notOwner: false })
     expect(html).toContain('<meta name="robots" content="noindex')
-    expect(html).not.toContain('Các mục quản trị')
+    expect(html).not.toContain('Dashboard pages')
     // Never stored; noindex; the referrer the origin alone, which Google's button and Turnstile need (not no-referrer).
     expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag'), r.headers.get('referrer-policy')]).toEqual(['no-store', 'noindex, nofollow', 'strict-origin'])
     expect(r.headers.get('set-cookie')).toBeNull()
@@ -112,7 +112,7 @@ test('dashboard: a build that can\'t serve the sign-in page falls back to the pa
     }
     const other = await handle(get('/_ab/', { ...browser, cookie: reader }), e)
     expect(other.status).toBe(403)
-    expect(await other.text()).toContain('không phải tài khoản chủ trang')
+    expect(await other.text()).toContain('The account signed in isn’t the owner’s.')
   }
 })
 
@@ -132,7 +132,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
         // Every page: the sign-in in its place, back to it once signed in; another account is told it isn't the owner's.
         expect([r.status, r.headers.get('cache-control')], p).toEqual([h.cookie === reader ? 403 : 200, 'no-store'])
         expect(signInFor(body), p).toEqual({ next: path, notOwner: h.cookie === reader })
-        expect(body, p).not.toContain('Các mục quản trị')
+        expect(body, p).not.toContain('Dashboard pages')
         expect(r.headers.get('set-cookie'), p).toBeNull()
       }
     }
@@ -147,7 +147,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   const ok = await handle(get('/_ab/an-trang/', { ...browser, cookie: owner }), e)
   expect(ok.status).toBe(200)
   expect([ok.headers.get('cache-control'), ok.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
-  expect(await ok.text()).toContain('aria-current="page">Ẩn trang<')
+  expect(await ok.text()).toContain('aria-current="page">Hidden pages<')
   expect(ok.headers.getSetCookie()).toEqual([expect.stringMatching(/^aq_owner=1;/), expect.stringMatching(/^ab_token=; Path=\/_ab; Max-Age=0/)])
   // Not to the owner either: the dashboard reads the file itself, through ASSETS (admin/content.ts).
   for (const f of ['/_ab/content.json', '/_ab/reviews.json']) expect((await handle(get(f, { ...browser, cookie: owner }), e)).status, f).toBe(404)
@@ -172,13 +172,12 @@ test('dashboard: a part that can\'t load says why in its place; the rest of the 
     expect(r.status).toBe(200)
     const html = await r.text()
     expect(html).toContain('analytics engine sql 422: Unknown function')
-    expect(html).toContain('Không tải được người đọc')
-    expect(html).toContain('lượt bấm sang sàn · 7 ngày') // from D1, still counted
-    expect(html).toContain('4 lượt bấm sang sàn') // today's, in the log
+    expect(html).toContain('Readers didn’t load')
+    expect(html).toContain('4 shop clicks') // today's, from D1, in the last three days
     expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
     const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: owner }), e)).text()
-    expect(fish).toContain('Không tải được nhật ký nhận diện cá')
-    expect(fish).toContain('Key Anthropic')
+    expect(fish).toContain('Couldn’t load the fish ID log')
+    expect(fish).toContain('Anthropic keys')
   } finally {
     fetch.mockRestore()
     err.mockRestore()
@@ -567,10 +566,10 @@ test('fish-ID runs: the owner reads a day\'s list, one run\'s turns, and the day
   const list = await (await as('/_ab/nhan-dien-ca/luot/?ngay=2026-11-03')).text()
   expect(list).toContain(`href="/_ab/nhan-dien-ca/luot/2026-11-03/${id}/"`)
   expect(list).toContain('<i class="sci">Betta macrostoma</i>')
-  expect(list).toContain('tự trả lời · xem lại một lần')
+  expect(list).toContain('answered · checked again once')
   expect(list).toContain('href="/_ab/nhan-dien-ca/luot/2026-11-03.json"')
   const one = await (await as(`/_ab/nhan-dien-ca/luot/2026-11-03/${id}/`)).text()
-  for (const said of ['A red betta.', '<code>get_entry</code>', 'https://media.aquatome.com/m-480.webp', 'Your top guess is only 0.45 sure.', 'Red &lt;patch&gt;.', 'xem lại một lần']) expect(one).toContain(said)
+  for (const said of ['A red betta.', '<code>get_entry</code>', 'https://media.aquatome.com/m-480.webp', 'Your top guess is only 0.45 sure.', 'Red &lt;patch&gt;.', 'checked again once']) expect(one).toContain(said)
   const json = await as('/_ab/nhan-dien-ca/luot/2026-11-03.json')
   expect([json.status, json.headers.get('cache-control'), json.headers.get('x-robots-tag')]).toEqual([200, 'private, no-store', 'noindex, nofollow'])
   expect(await json.json()).toEqual([record])
@@ -586,7 +585,7 @@ test('fish-ID runs: the owner reads a day\'s list, one run\'s turns, and the day
   }
   // A day that isn't one shows today's (UTC), never an error.
   const odd = await as('/_ab/nhan-dien-ca/luot/?ngay=2026-13-45')
-  expect([odd.status, (await odd.text()).includes(`Lượt nhận diện ngày ${new Date().toISOString().slice(0, 10)}`)]).toEqual([200, true])
+  expect([odd.status, (await odd.text()).includes(`Fish ID requests on ${new Date().toISOString().slice(0, 10)}`)]).toEqual([200, true])
   // A run that isn't kept, or a path that isn't one: not found.
   expect((await as(`/_ab/nhan-dien-ca/luot/2026-11-03/${crypto.randomUUID()}/`)).status).toBe(404)
   expect((await as(`/_ab/nhan-dien-ca/luot/2026-11-3/${id}/`)).status).toBe(404)

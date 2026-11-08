@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome owner's dashboard",
     "version": "2",
-    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`. An actions block is buttons on their own.\n\nErrors are `{error, message?}`: `message`, when there is one, is English, to show the owner as it comes. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server.\n\nVersion 2 (2026-11-07, docs/design/dashboard.md): the overview's new parts (`asOf`, `tiles`, `needs`, `answers`, `shipped`, `costs`, `pages`), with `todos`, `areas` and `areasNote` kept for the app before it but deprecated; the `wait` tone, apart from `bad`; a chart's `labels` and `readouts`; folded tables sent without their rows, and long ones 50 rows at a time (GET /api/owner/sections/{key}/tables/{id}); a section's `periods`; the Comments section (`binh-luan`) and its actions; Scoreboard (`thanh-cong`) and Changelog (`thay-doi`) as sections. A series is never `bad` (a chart's series are never orange or red). Error messages are English. The new parts are written in English; the sections before them stay Vietnamese until they move to English."
+    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: English, numbers formatted (1,234, 12.5%, $0.11), days and times in the viewer's zone (the `Time-Zone` header), as \"Thu 5 Nov, 9:00\". The site's own words quoted in it (a page's title, a source's name) stay as the site writes them. A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`. An actions block is buttons on their own.\n\nErrors are `{error, message?}`: `message`, when there is one, is English, to show the owner as it comes. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server.\n\nVersion 2 (2026-11-07, docs/design/dashboard.md): the overview's new parts (`asOf`, `tiles`, `needs`, `answers`, `shipped`, `costs`, `pages`), with `todos`, `areas` and `areasNote` kept for the app before it but deprecated; the `wait` tone, apart from `bad`; a chart's `labels` and `readouts`; folded tables sent without their rows, and long ones 50 rows at a time (GET /api/owner/sections/{key}/tables/{id}); a section's `periods`; the Comments section (`binh-luan`) and its actions; Scoreboard (`thanh-cong`) and Changelog (`thay-doi`) as sections. A series is never `bad` (a chart's series are never orange or red). Error messages are English. Then, in the same version: every section in English (2026-11-08); the overview's `lastAction`; Fish ID's periods led by \"This week\" (`week`, Monday to now), with today, 7 days, 30 days and the month, each figure against the same point of the period before; a folded table's `figure`; a need's `text` one short line, its detail in `sub`."
   },
   "servers": [
     {
@@ -1168,7 +1168,8 @@
           "answers",
           "shipped",
           "costs",
-          "pages"
+          "pages",
+          "lastAction"
         ],
         "properties": {
           "tz": {
@@ -1179,7 +1180,7 @@
             "items": {
               "$ref": "#/components/schemas/Todo"
             },
-            "description": "What needs the owner now, most pressing first; empty when nothing does (the web page says \"Không có việc gì cần bạn lúc này.\"). Deprecated: the overview before version 2; read `needs` and `pages`.",
+            "description": "What needs the owner now, most pressing first; empty when nothing does (the web page says \"Nothing needs you right now.\"). Deprecated: the overview before version 2; read `needs` and `pages`.",
             "deprecated": true
           },
           "areas": {
@@ -1246,6 +1247,49 @@
               "$ref": "#/components/schemas/PageGroup"
             },
             "description": "Every page but the overview, grouped, each with its figure: the web's rail, and the overview's \"Every page\"."
+          },
+          "lastAction": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "title",
+                  "text",
+                  "when",
+                  "at",
+                  "section"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "\"Your last action\"."
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "What the owner did: \"Hid a comment on Cá neon vua\", \"Approved a reader photo\", \"Hid /id/ikan/y/\"."
+                  },
+                  "when": {
+                    "type": "string",
+                    "description": "When, in the viewer's zone: \"Wed 4 Nov, 8:00\"."
+                  },
+                  "at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The same moment, for the app's own use."
+                  },
+                  "section": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9-]+$",
+                    "description": "The section it happened in, to open."
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The owner's newest decision on record (a comment shown or hidden, a reader photo approved or removed, a page hidden), for under the all clear when `needs` is empty; the web page shows it there too. null: none on record, or the records couldn't be read."
           }
         }
       },
@@ -1386,7 +1430,7 @@
           },
           "vs": {
             "type": "string",
-            "description": "What it compares with, for VoiceOver: \"so với {vs}\"."
+            "description": "What it compares with, for VoiceOver: \"vs {vs}\"."
           }
         }
       },
@@ -1455,7 +1499,7 @@
         "properties": {
           "at": {
             "type": "string",
-            "description": "The day, written in the viewer's zone (\"Hôm nay · 04/11 · chưa hết ngày\", \"Hôm qua · 03/11\", \"Thứ Hai · 02/11\"); the same for every entry of that day."
+            "description": "The day, written in the viewer's zone (\"Today · 4 Nov · so far\", \"Yesterday · 3 Nov\", \"Mon 2 Nov\"); the same for every entry of that day."
           },
           "text": {
             "type": "string"
@@ -1657,7 +1701,7 @@
         "properties": {
           "text": {
             "type": "string",
-            "description": "\"+12% so với 7 ngày trước đó\""
+            "description": "\"+12% vs last week\", \"−3 pts vs the 7 days before\"."
           },
           "tone": {
             "$ref": "#/components/schemas/Tone"
@@ -1842,7 +1886,7 @@
           },
           "figure": {
             "type": "string",
-            "description": "A folded table's figure, on the right of its row: \"$0.77\", \"95\"."
+            "description": "A folded table's figure, on the right of its label: \"$0.77\", \"95\"."
           }
         },
         "description": "A table. One with more than 50 rows comes with its first 50 and `next`."
@@ -2490,11 +2534,12 @@
         "properties": {
           "key": {
             "type": "string",
-            "pattern": "^[a-z0-9-]+$"
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Fish ID's: week (this week, Monday to now: the first and default), today, d7 (7 days), d30 (30 days), month (this month). Others may come; send back the key as it comes."
           },
           "label": {
             "type": "string",
-            "description": "\"This week\", \"Today\", \"7 days\", \"30 days\", \"November\"."
+            "description": "\"This week\", \"Today\", \"7 days\", \"30 days\", \"November\" (the month by its name)."
           }
         }
       },
@@ -2760,11 +2805,11 @@
           },
           "text": {
             "type": "string",
-            "description": "\"2 comments held\", \"Key #2 resting until 14:00\"."
+            "description": "The thing, on one line at regular size (at most 36 characters): \"5 comments held for review\", \"Fish ID and chat are down\". Its detail is in `sub`."
           },
           "sub": {
             "type": "string",
-            "description": "A second line, smaller."
+            "description": "The detail, smaller, under it: \"Every key resting, the first until Wed 4 Nov, 16:30.\". Dates in it are \"Wed 4 Nov, 16:30\", in the viewer's zone."
           },
           "label": {
             "type": "string",

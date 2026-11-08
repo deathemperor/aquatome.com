@@ -1,10 +1,11 @@
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
 import { contentPage } from '../worker/admin/content-page'
-import { accountsPage, overviewPage, photosPage } from '../worker/admin/pages'
+import { accountsPage, photosPage } from '../worker/admin/pages'
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
-import { LOW_CONTENT, OVERVIEW } from '../worker/test/owner-sample'
+import { todayJson, todayPage } from '../worker/admin/today'
+import { LOW_CONTENT, SPENDING, TODAY } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -38,14 +39,14 @@ test('the scoreboard reads a week off its chart, and fits a 320 px screen', asyn
   test.skip(LIVE, 'the live dashboard opens only to the owner')
   await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
   await page.goto('/_ab/thanh-cong/')
-  await expect(page.getByRole('heading', { level: 1, name: 'Thành công' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Scoreboard' })).toBeVisible()
   const chart = page.locator('figure[aria-labelledby="w-star-t"]')
-  await expect(chart.locator('.readout .when')).toHaveText('12 tuần')
+  await expect(chart.locator('.readout .when')).toHaveText('12 weeks')
   await expect(chart.locator('.readout b')).toHaveText('18')
   const column = chart.locator('.cols li').nth(10)
   if (isMobile) await column.tap()
   else await column.hover()
-  await expect(chart.locator('.readout .when')).toHaveText('Tuần 09/11')
+  await expect(chart.locator('.readout .when')).toHaveText('Week of 9 Nov')
   await expect(chart.locator('.readout b')).toHaveText('6')
   // A week before the count began says so instead of a zero.
   await expect(chart.locator('.cols li').first()).toHaveClass(/\bmiss\b/)
@@ -60,16 +61,17 @@ test('a tap on any small column, on the overview and the scoreboard, shows its d
   test.skip(LIVE, 'the live dashboard opens only to the owner')
   // The owner (2026-11-07): a tap on a bar gave no number. The overview's columns sat inside their row's link, and
   // neither page's small columns said their values.
-  await serve(page, '/_ab/', () => overviewPage(OVERVIEW))
+  await serve(page, '/_ab/', () => todayPage(TODAY))
   await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
-  for (const [path, least] of [['/_ab/', 5], ['/_ab/thanh-cong/', 4]] as const) {
+  for (const [path, least] of [['/_ab/', 1], ['/_ab/thanh-cong/', 4]] as const) {
     await page.goto(path)
     const sparks = await page.locator('[data-spark]').all()
     expect(sparks.length, path).toBeGreaterThanOrEqual(least)
     for (const s of sparks) {
       const days = (await s.getAttribute('data-d'))!.split('|')
       const values = (await s.getAttribute('data-v'))!.split('|')
-      const i = days.length - 2
+      // The day (or week) before the last one counted: a week's days still to come have no value.
+      const i = values.findLastIndex(v => v !== '—') - 1
       await s.scrollIntoViewIfNeeded()
       const box = (await s.locator('svg').boundingBox())!
       const [x, y] = [box.x + (box.width * (i + 0.5)) / days.length, box.y + box.height / 2]
@@ -80,13 +82,36 @@ test('a tap on any small column, on the overview and the scoreboard, shows its d
       expect(new URL(page.url()).pathname).toBe(path)
     }
   }
-  // The readers' row, against the sample: 02/11, the day before yesterday, had 21 readers.
+  // The answers tile, Monday to Sunday: Tuesday, its second column, as the overview's reply counts it.
   await page.goto('/_ab/')
-  const readers = page.locator('.areas li').filter({ hasText: 'Người đọc' }).locator('[data-spark]')
-  const box = (await readers.locator('svg').boundingBox())!
-  if (isMobile) await page.touchscreen.tap(box.x + box.width * (28.5 / 30), box.y + box.height / 2)
-  else await page.mouse.move(box.x + box.width * (28.5 / 30), box.y + box.height / 2)
-  await expect(readers.locator('.so')).toHaveText('02/11: 21')
+  const answers = page.locator('.kpi').filter({ hasText: 'Found an answer' }).locator('[data-spark]')
+  const box = (await answers.locator('svg').boundingBox())!
+  if (isMobile) await page.touchscreen.tap(box.x + box.width * (1.5 / 7), box.y + box.height / 2)
+  else await page.mouse.move(box.x + box.width * (1.5 / 7), box.y + box.height / 2)
+  const tuesday = todayJson(TODAY).tiles.find(t => t.key === 'answers')!.bars!.values[1]
+  await expect(answers.locator('.so')).toHaveText(`3 Nov: ${tuesday}`)
+  expect(errors).toEqual([])
+})
+
+test('what needs you: each title on one line on a 390 px phone, the detail and the button under it', async ({ page, errors }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  // The Design Lead (2026-11-08): a need's title is the thing, on one line at regular size; its detail goes under it.
+  // The web's button beside the title wrapped "2Hr Aquarist needs a browser check" on a phone.
+  const failed = { failed: 'down' }
+  const all = [TODAY, SPENDING, { ...TODAY, beacon: failed, held: failed, waitingPhotos: failed, readers: failed, fish: failed, content: failed, accounts: failed }]
+  expect(Math.max(...all.flatMap(t => todayJson(t).needs.map(x => x.text.length)))).toBeGreaterThanOrEqual(34)
+  await page.setViewportSize({ width: 390, height: 844 })
+  for (const [i, t] of all.entries()) {
+    await serve(page, `/_ab/${i}/`, () => todayPage(t))
+    await page.goto(`/_ab/${i}/`)
+    const titles = page.locator('ul.todo b')
+    expect(await titles.count()).toBe(todayJson(t).needs.length)
+    for (const b of await titles.all()) {
+      const [height, line] = await b.evaluate(e => [e.getBoundingClientRect().height, parseFloat(getComputedStyle(e).lineHeight) || 1.5 * parseFloat(getComputedStyle(e).fontSize)])
+      expect(height, await b.innerText()).toBeLessThan(1.5 * line)
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+  }
   expect(errors).toEqual([])
 })
 
@@ -95,7 +120,7 @@ test('the content page\'s pages out of search: a page\'s notes open on a tap or 
   await serve(page, '/_ab/noi-dung/', tz => contentPage({ ...LOW_CONTENT, tz }))
   await page.goto('/_ab/noi-dung/')
   const low = page.locator('section.low')
-  await expect(low.getByRole('heading', { level: 3, name: 'Ẩn khỏi tìm kiếm vì điểm thấp' })).toBeVisible()
+  await expect(low.getByRole('heading', { level: 3, name: 'Out of search for a low score' })).toBeVisible()
   // The video guide's three notes: the first, cut to two lines, and how many there are; the rest once opened.
   const why = low.locator('tbody tr').nth(2).locator('td.why')
   const summary = why.locator('summary')
@@ -125,7 +150,7 @@ test.describe('in Vietnam', () => {
     const chart = page.locator('figure[aria-labelledby="u-daily-t"]')
     const when = chart.locator('.readout .when')
     const value = chart.locator('.readout b')
-    await expect(when).toHaveText('30 ngày')
+    await expect(when).toHaveText('30 days')
     await expect(value).toHaveText('10')
     // The page's first chart says how to read a day; picking one hides that line but keeps its room, so nothing under
     // it moves and the column stays under the pointer.
@@ -136,7 +161,7 @@ test.describe('in Vietnam', () => {
     const yesterday = chart.locator('.cols li').nth(28)
     if (isMobile) await yesterday.tap()
     else await yesterday.hover()
-    await expect(when).toHaveText('Hôm qua 03/11')
+    await expect(when).toHaveText('Yesterday 3 Nov')
     await expect(value).toHaveText('3')
     await expect(yesterday).toHaveClass(/\bon\b/)
     await expect(hint).toBeHidden()
@@ -144,15 +169,15 @@ test.describe('in Vietnam', () => {
     // Tapped again (or the pointer gone): the period's totals.
     if (isMobile) await yesterday.tap()
     else await page.mouse.move(0, 0)
-    await expect(when).toHaveText('30 ngày')
+    await expect(when).toHaveText('30 days')
     // The keys, from the latest day back.
     await chart.locator('[data-plot]').focus()
     await page.keyboard.press('ArrowLeft')
-    await expect(when).toHaveText('Hôm nay 04/11 · chưa hết ngày')
+    await expect(when).toHaveText('Today 4 Nov · so far')
     await page.keyboard.press('ArrowLeft')
-    await expect(when).toHaveText('Hôm qua 03/11')
+    await expect(when).toHaveText('Yesterday 3 Nov')
     await page.keyboard.press('Escape')
-    await expect(when).toHaveText('30 ngày')
+    await expect(when).toHaveText('30 days')
     // A finger that lands on the chart to scroll the page: the browser cancels it, and the readout stays as it was.
     await chart.locator('.area').evaluate(a => {
       const r = a.getBoundingClientRect()
@@ -160,7 +185,7 @@ test.describe('in Vietnam', () => {
       a.dispatchEvent(new PointerEvent('pointerdown', at))
       a.dispatchEvent(new PointerEvent('pointercancel', at))
     })
-    await expect(when).toHaveText('30 ngày')
+    await expect(when).toHaveText('30 days')
     expect(errors).toEqual([])
   })
 })
@@ -173,7 +198,7 @@ test.describe('on a phone set to Berlin', () => {
     await serve(page, '/_ab/anh-ban-doc/', tz => photosPage([PHOTO], [], NOW, tz))
     await page.goto('/_ab/anh-ban-doc/')
     // 08:34 UTC: 15:34 in Vietnam, where the first answer was drawn; 09:34 in Berlin.
-    await expect(page.locator('td time')).toHaveText(/^04\/11(\/2026)? 09:34$/)
+    await expect(page.locator('td time')).toHaveText(/^Wed 4 Nov(?: 2026)?, 9:34$/)
     await expect(page.locator('html')).toHaveAttribute('data-tz', 'Europe/Berlin')
     expect((await context.cookies()).find(c => c.name === 'aq_tz')?.value).toBe('Europe%2FBerlin')
     expect(errors).toEqual([])
