@@ -77,17 +77,20 @@ export const forWriter = (products: GuideFacts['products']) => products.map(x =>
 
 export type ForReader = { written: Written; facts: GuideFacts; market: string; score: number; notes: string[]; findings: FitFinding[]; tries: number; kept: boolean }
 
-/** A Vietnamese guide from its source's text. `voice`: another voice's rules, tried on the side before the owner picks one. */
-export async function writeForReader(d: { llm: Llm }, id: string, source: string, o: { factsModel?: string; writeModel?: string; checkModel?: string; fitModel?: string; voice?: string; now?: () => Date } = {}): Promise<ForReader> {
+/**
+ * A Vietnamese guide from its source's text. `voice`: another voice's rules, tried on the side before the owner picks one.
+ * `name`: a title the owner fixed (nameFixed), which the guide keeps and calls its subject by.
+ */
+export async function writeForReader(d: { llm: Llm }, id: string, source: string, o: { factsModel?: string; writeModel?: string; checkModel?: string; fitModel?: string; voice?: string; name?: string; now?: () => Date } = {}): Promise<ForReader> {
   const facts = await d.llm<GuideFacts>({ system: FACTS, prompt: source.slice(0, 120_000), schema: FACTS_SCHEMA, model: o.factsModel ?? 'sonnet' })
   const market = marketFor('vi', facts.products.map(x => x.name).join('\n'), facts.problems)
   const input = `--- DỮ KIỆN ---\n${JSON.stringify({ topic: facts.topic, facts: facts.facts, products: forWriter(facts.products) }, null, 1)}\n\n--- THỊ TRƯỜNG ---\n${market}`
   const write = (notes: string[] = [], draft?: Written) => d.llm<Written>({
     system: 'Bạn viết bài hướng dẫn cá cảnh bằng tiếng Việt. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
-    prompt: [WRITE, VI_STYLE, ...(o.voice ? [`Giọng của bài này:\n${o.voice}`] : []), ...(draft ? [`Bản nháp dưới đây bị trả lại vì các lý do sau. Sửa đúng những chỗ đó, bỏ điều dữ kiện không có, giữ nguyên mọi câu khác:\n${notes.map(n => `- ${n}`).join('\n')}\n\n--- BẢN NHÁP ---\n${JSON.stringify(draft)}`] : []), input].join('\n\n'),
+    prompt: [WRITE, VI_STYLE, ...(o.voice ? [`Giọng của bài này:\n${o.voice}`] : []), ...(o.name ? [`Tiêu đề bài đã chốt: "${o.name}". Giữ đúng tiêu đề này, và trong bài gọi thứ tiêu đề nói tới bằng đúng tên trong đó.`] : []), ...(draft ? [`Bản nháp dưới đây bị trả lại vì các lý do sau. Sửa đúng những chỗ đó, bỏ điều dữ kiện không có, giữ nguyên mọi câu khác:\n${notes.map(n => `- ${n}`).join('\n')}\n\n--- BẢN NHÁP ---\n${JSON.stringify(draft)}`] : []), input].join('\n\n'),
   })
   const check = async (w: Written) => {
-    const clean = { ...w, name: unescapePlain(w.name).trim(), body: sanitizeHtml(w.body) }
+    const clean = { ...w, name: o.name ?? unescapePlain(w.name).trim(), body: sanitizeHtml(w.body) }
     const page = asPage(id, clean)
     // The same checks every page passes (fit.ts), its cautions against the facts and the table the writer had.
     const made = await readFit(d.llm, page, o.fitModel ?? 'opus', o.now?.() ?? new Date(), `${JSON.stringify(facts)}\n${market}`)
@@ -132,7 +135,7 @@ export async function rewriteForReader(root: string, id: string, d: { llm: Llm }
   if (vi.bodyFixed && !o.force) return { id, skipped: 'a person fixed its text' }
   const source = await sourceOf(root, entity, vi)
   if (!source.trim()) return { id, skipped: 'no source kept' }
-  const r = await writeForReader(d, id, source, o)
+  const r = await writeForReader(d, id, source, { ...o, ...(vi.nameFixed ? { name: vi.name } : {}) })
   if (r.kept) {
     const { bodyFixed: _f, localNote: _n, ...rest } = vi
     const out = TranslationSchema.parse(metricPage({ ...rest, name: r.written.name, body: r.written.body, ...plainParts(r.written.summary, r.written.faq), quality: { score: r.score, indexable: true } }, 'vi'))
