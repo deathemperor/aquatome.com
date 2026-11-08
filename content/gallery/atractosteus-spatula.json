@@ -18,17 +18,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/11692087-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/11692087-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "CK2AZ",
       "sourceUrl": "https://www.inaturalist.org/photos/11692087",
       "caption": "Cá sấu hỏa tiễn bơi trong bể thủy sinh có cây",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/11692087-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/263380699.webp",
@@ -47,17 +47,17 @@
       "thumb": "https://media.aquatome.com/inaturalist/251152134-480.webp",
       "width": 1024,
       "height": 683,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/251152134-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Татьяна Максимова",
       "sourceUrl": "https://www.inaturalist.org/photos/251152134",
       "caption": "Cá sấu hỏa tiễn trưởng thành bơi trong bể kính lớn",
       "best": true,
-      "kind": "other",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/251152134-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/589928706.webp",
@@ -70,6 +70,18 @@
       "caption": "Cá sấu hỏa tiễn bơi gần mặt nước đục ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/3584837610.webp",
+      "thumb": "https://media.aquatome.com/flickr/3584837610-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY 2.0",
+      "author": "Kevin Krejci",
+      "sourceUrl": "https://www.flickr.com/photos/48889057888@N01/3584837610",
+      "caption": "Cá sấu hỏa tiễn bơi trong bể kính lớn của thủy cung",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/207230565.webp",
@@ -436,7 +448,7 @@
       "caption": "Cá sấu hỏa tiễn nổi gần mặt nước ngoài tự nhiên"
     }
   ],
-  "seen": 394,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 395,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

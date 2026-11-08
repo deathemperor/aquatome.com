@@ -1,42 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248508080/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/248508080/medium.jpg",
-   "width": 1152,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Павлик Лисицын",
-   "sourceUrl": "https://www.inaturalist.org/photos/248508080",
-   "key": "inat:248508080"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248508075/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/248508075/medium.jpg",
-   "width": 1152,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Павлик Лисицын",
-   "sourceUrl": "https://www.inaturalist.org/photos/248508075",
-   "key": "inat:248508075"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248508095/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/248508095/medium.jpg",
-   "width": 1152,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Павлик Лисицын",
-   "sourceUrl": "https://www.inaturalist.org/photos/248508095",
-   "key": "inat:248508095"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Carinotetraodon lorteti 248508080.jpg",
   "File:Carinotetraodon lorteti 248508108.jpg",
   "File:Carinotetraodon lorteti 248508826.jpg",
   "File:Carinotetraodon lorteti 248508857.jpg",
   "File:Carinotetraodon lorteti 248508857 2.jpg",
+  "inat:248508080",
+  "inat:248508075",
+  "inat:248508095",
   "inat:248508080",
   "inat:248508075",
   "inat:248508095"
@@ -47,7 +19,7 @@
   "https://media.aquatome.com/commons/52c7e1dc713947ab.webp": "2fc13c2fb319739f",
   "https://media.aquatome.com/commons/bcaed5380ed9c7bf.webp": "0101c10e0e400f0b",
   "https://media.aquatome.com/commons/94e1095b9b1f0202.webp": "3c5ccda7afcf9df8",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/248508095/large.jpg": "e3ebc9c643a38f87"
+  "https://media.aquatome.com/inaturalist/248508095.webp": "ebdb1dce43a38f83"
  },
  "commons": "2026-11-06",
  "inat": {

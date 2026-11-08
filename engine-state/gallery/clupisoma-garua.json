@@ -1,22 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/312503492/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/312503492/medium.jpeg",
-   "width": 2048,
-   "height": 1198,
-   "licence": "CC BY",
-   "author": "Sabarni Sarker",
-   "sourceUrl": "https://www.inaturalist.org/photos/312503492",
-   "key": "inat:312503492"
-  }
- ],
+ "queue": [],
  "judged": [
   "File:Clupisoma garua Thomas.jpg",
   "File:Clupisoma garua 20020400.jpg",
   "File:Clupisoma garua.jpg",
   "File:FMIB 46680 Pesudeutropius Garua.jpeg",
-  "File:Pseudotropius garua Day 109.jpg"
+  "File:Pseudotropius garua Day 109.jpg",
+  "inat:312503492"
  ],
  "hashes": {},
  "commons": "2026-11-07"
