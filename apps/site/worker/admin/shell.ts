@@ -120,15 +120,23 @@ p{margin:0 0 12px;max-width:72ch}
 section>h2:first-child{margin-top:28px}
 .panel{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r)}
 /* Needs you */
-.todo{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.todo li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;background:var(--rust-wash);border:1px solid color-mix(in srgb,var(--rust) 35%,var(--rule));border-radius:var(--r);padding:12px 12px 12px 14px}
-.todo svg{color:var(--rust)}
-.todo b{display:block;font-size:14.5px}
-.todo p{margin:2px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.4}
-.todo .act{font-size:13.5px;font-weight:600;color:var(--paper);background:var(--ink);border-radius:9px;padding:9px 12px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;white-space:nowrap}
-.todo .act:hover{background:var(--moss);color:var(--paper)}
-/* A phone: the button under the detail, so the title has the row and stays on one line */
-@media (max-width:480px){.todo li{grid-template-columns:auto 1fr;align-items:start}.todo .act{grid-column:2;justify-self:start}}
+/* One list in one card: each row its kind's icon (the triangle only for a fault), the thing, the pages it's on, and the
+   button that acts (filled for a review, outlined for a fault); on a phone, the whole row with a chevron */
+.todo{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.todo li+li{border-top:1px solid var(--rule)}
+.todo a{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:12px 14px;min-height:56px;color:inherit;text-decoration:none}
+.todo a:hover{background:color-mix(in srgb,var(--moss) 5%,var(--plate));color:inherit}
+.todo a:focus-visible{outline-offset:-3px}
+.todo .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;align-self:start;background:color-mix(in srgb,var(--ink) 7%,var(--plate));color:var(--ink-2)}
+.todo .bad .ic{background:var(--rust-wash);color:var(--rust)}
+.todo .tx{min-width:0}
+.todo b{display:block;font-size:14.5px;font-weight:600}
+.todo .sub{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
+.todo .act{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid var(--rule);border-radius:9px;background:var(--mat);color:var(--ink);font-size:13.5px;font-weight:600;white-space:nowrap}
+.todo .wait .act{background:var(--moss);border-color:var(--moss);color:var(--paper)}
+.todo a:hover .act{border-color:var(--ink-2)}
+.todo .chev{display:none;color:var(--axis)}
+@media (max-width:480px){.todo a{grid-template-columns:24px minmax(0,1fr) 16px}.todo .ic,.todo .bad .ic{width:24px;background:none}.todo b{font-weight:500}.todo .act{display:none}.todo .chev{display:block}}
 .clear{display:flex;align-items:center;gap:10px;color:var(--ink-2);padding:12px 14px}
 .clear svg{color:var(--moss);flex:none}
 /* The overview before version 2's areas */
@@ -148,6 +156,7 @@ section>h2:first-child{margin-top:28px}
 .spark .now{fill:var(--s1)}
 .spark .was{fill:color-mix(in srgb,var(--s1) 42%,var(--plate))}
 .spark .old{fill:color-mix(in srgb,var(--muted) 30%,var(--plate))}
+.spark .today{fill:color-mix(in srgb,var(--s1) 45%,var(--plate))}
 .spk{position:relative;display:block;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .spark .on{fill:var(--ink)}
 .spk .so{position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);padding:3px 8px;border-radius:6px;background:var(--ink);color:var(--plate);font:600 12.5px/1.3 var(--sans);font-variant-numeric:tabular-nums;white-space:nowrap;pointer-events:none;visibility:hidden;z-index:1}
@@ -284,6 +293,18 @@ summary:hover{color:var(--ink)}
 .cols i.neg.cap{border-radius:0 0 4px 4px}
 .cols .today i{opacity:.45}
 .cols .today.on i{opacity:.7}
+/* A section's main chart (chart.ts bare): no axis, each day named under its bar, a tap or the pointer shows the day over
+   the bars; the tip moves with its bar and stays inside the chart (it shifts by as much of its width as the bar is across) */
+.bare .plot{grid-template-columns:0 minmax(0,1fr);grid-template-rows:140px 26px;position:relative;margin-top:8px}
+.bare .cols i{width:min(56px,calc(100% - 8px))}
+.bare .cols li.on{background:none}
+.bare .plot:has(li.on) .cols li:not(.on) i{opacity:.35}
+.bare .xax span{top:9px;font-size:12.5px;color:var(--ink-2)}
+.bare .xax span.now{color:var(--muted)}
+.bare .tip{position:absolute;z-index:2;top:0;left:calc((var(--i,0) + .5) / var(--n) * 100%);transform:translateX(calc((var(--i,0) + .5) / var(--n) * -100%));margin:0;padding:6px 10px;border-radius:8px;background:var(--ink);color:var(--plate);font:12px/1.35 var(--sans);white-space:nowrap;pointer-events:none;visibility:hidden}
+.bare .tip.sel{visibility:visible}
+.bare .tip b{display:block;font-size:13px;font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 0;max-width:none;font-size:.85rem;color:var(--ink-2)}
 /* Ranked bars: each label over its bar, the numbers in their own column */
 .rank th{min-width:9rem;max-width:28rem;overflow-wrap:anywhere}
 .rank thead th+th{text-align:right}
@@ -348,6 +369,19 @@ a.go{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;b
 .filters{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;margin:6px 0 12px;background:var(--grid);border-radius:12px}
 .filters a{display:inline-flex;align-items:center;min-height:36px;padding:6px 14px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink-2);text-decoration:none}
 .filters a[aria-current=page]{background:var(--plate);color:var(--ink);box-shadow:0 0 0 1px var(--rule)}
+/* A section's periods: segmented from a tablet's width up; on a phone a menu button ("This week ▾") that opens them */
+.periods .seg{display:contents}
+.periods .pmenu{display:none}
+@media (max-width:599px){
+.filters.periods{display:block;padding:0;background:none}
+.periods .seg{display:none}
+.periods .pmenu{display:inline-block;position:relative}
+.periods .pmenu summary{list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--rule);border-radius:10px;background:var(--plate);color:var(--ink);font-size:14px;font-weight:600}
+.periods .pmenu summary::-webkit-details-marker{display:none}
+.periods .pmenu summary:after{content:'▾';color:var(--muted)}
+.periods .pmenu div{position:absolute;z-index:5;top:calc(100% + 6px);left:0;min-width:12rem;display:grid;gap:2px;padding:4px;background:var(--plate);border:1px solid var(--rule);border-radius:12px;box-shadow:0 8px 24px color-mix(in srgb,var(--water) 18%,transparent)}
+.periods .pmenu a{min-height:44px}
+}
 .cm{list-style:none;margin:0 0 10px;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
 .cm li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;padding:14px 16px}
 .cm li+li{border-top:1px solid var(--rule)}
@@ -370,8 +404,21 @@ i.sci{font-style:italic}
 .tiles4 .spk{margin:2px 0 4px}
 .kpi.wait .v{color:var(--rust)}
 .kpi.bad .v{color:var(--rust)}
-.todo .ph{display:flex;gap:4px}
+.todo .ph{display:flex;gap:4px;margin-top:6px}
 .todo .ph img{width:36px;height:36px;object-fit:cover;border-radius:6px}
+/* Readers who found an answer: one card, the week's figure and its change, the chart, then its three figures */
+.acard{padding:16px 16px 0}
+.acard .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0;max-width:none;color:var(--muted)}
+.acard .top b{font:600 2.4rem/1.05 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.acard .top .delta{margin-left:auto}
+.acard .chart{border:0;background:none;padding:0;margin-top:4px}
+.acard figcaption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.acard .kpis{border:0;border-top:1px solid var(--rule);border-radius:0;background:none;margin:6px -16px 0;grid-template-columns:repeat(3,minmax(0,1fr))}
+/* Its figures as drawn: the number, then "readers +2%" under it. */
+.acard .kpi{box-shadow:none;padding:12px 16px 14px;display:flex;flex-direction:column-reverse;justify-content:flex-end}
+.acard .kpi .v{font-size:1.5rem;margin:0 0 2px}
+.acard .kpi .delta{margin:0}
+@media (max-width:480px){.acard .top .delta{margin-left:0;flex-basis:100%}.acard .kpi{padding:10px 8px 12px 16px}}
 .last{margin:8px 2px 0}
 .ship,.lines{list-style:none;margin:0;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
 .ship li,.lines li{display:flex;gap:10px;align-items:baseline;padding:11px 14px}
@@ -412,6 +459,10 @@ const HEAD = (title: string, tz?: string) => `<!doctype html><html lang="en"${tz
 
 /** Drawn icons, one stroke: the arrow on an area row, a to-do's mark, the all-clear. */
 export const ICON = {
+  comment: '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 4.3c0-.9.7-1.6 1.6-1.6h8.8c.9 0 1.6.7 1.6 1.6v6.2c0 .9-.7 1.6-1.6 1.6H8.2L5 14.8v-2.7h-.4c-.9 0-1.6-.7-1.6-1.6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  photo: '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="2.4" y="3.4" width="13.2" height="11.2" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6.6" cy="7.4" r="1.3" fill="currentColor"/><path d="m3 13.2 3.9-3.5 2.9 2.5 2.3-1.9 2.9 2.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
+  key: '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="6" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.2 9H16m-2.4 0v2.6M15.8 9v1.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+  coin: '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 5.4v7.2m2-5.4c-.3-.7-1-1.1-2-1.1-1.2 0-2 .6-2 1.4 0 1.9 4.2 1 4.2 3 0 .9-.9 1.5-2.2 1.5-1.1 0-1.9-.4-2.2-1.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>',
   chevron: '<svg class="chev" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   alert: '<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 2.2 16.3 15H1.7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7v3.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="12.7" r=".95" fill="currentColor"/></svg>',
   check: '<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m6.4 10.2 2.4 2.4 4.8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -439,10 +490,11 @@ try{if(document.cookie.includes(c)&&sessionStorage.getItem('aq_tz')!==z){session
  * time on the page; a tap on them stays on the page instead of following the row's link.
  */
 const CHART_JS = `(()=>{document.documentElement.classList.add('js');let first=true
-for(const p of document.querySelectorAll('[data-plot]')){const out=p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=[when.textContent,...bs.map(b=>b.textContent)]
-if(first){out.classList.add('first');first=false}
+for(const p of document.querySelectorAll('[data-plot]')){const tip=p.querySelector('.tip'),out=tip||p.closest('figure').querySelector('.readout'),area=p.querySelector('.area'),when=out.querySelector('.when'),bs=[...out.querySelectorAll('b')],cols=[...p.querySelectorAll('.cols li')],init=tip?[]:[when.textContent,...bs.map(b=>b.textContent)]
+if(first&&!tip){out.classList.add('first');first=false}
 let on=-1,down=-1,was=-1
 const pick=i=>{cols[on]?.classList.remove('on');on=i;const li=cols[i];out.classList.toggle('sel',!!li)
+if(tip){if(li){li.classList.add('on');bs[0].textContent=li.dataset.t;tip.lastChild.textContent=li.dataset.x;tip.style.setProperty('--i',i)}return}
 if(!li){when.textContent=init[0];bs.forEach((b,k)=>{b.textContent=init[k+1]});return}
 li.classList.add('on');when.textContent=li.dataset.d;const v=li.dataset.v.split('|');bs.forEach((b,k)=>{b.textContent=v[k]??'—'})}
 const at=e=>{const r=area.getBoundingClientRect();return Math.max(0,Math.min(cols.length-1,Math.floor((e.clientX-r.left)/r.width*cols.length)))}

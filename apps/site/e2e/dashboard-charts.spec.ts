@@ -1,11 +1,13 @@
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
 import { contentPage } from '../worker/admin/content-page'
-import { accountsPage, photosPage } from '../worker/admin/pages'
+import { accountsPage, fishIdPage, photosPage } from '../worker/admin/pages'
 import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
 import { todayJson, todayPage } from '../worker/admin/today'
-import { LOW_CONTENT, SPENDING, TODAY } from '../worker/test/owner-sample'
+import { FISH, LOW_CONTENT, PHOTO_APPROVED, PHOTO_WAITING, SPENDING, TODAY } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -21,6 +23,16 @@ async function serve(page: Page, path: string, html: (tz: string) => string) {
   await page.route(url => url.pathname === path, async route => {
     const tz = viewerZone(new Request(route.request().url(), { headers: await route.request().allHeaders() }))
     await route.fulfill({ contentType: 'text/html; charset=utf-8', body: html(tz) })
+  })
+}
+
+/** The waiting photos' thumbnails, as the Worker serves them from the private bucket (`/_ab/anh/<id>`). */
+async function photos(page: Page) {
+  const file = (name: string) => readFileSync(fileURLToPath(new URL(`./photos/${name}`, import.meta.url)))
+  const by: Record<string, Buffer> = { [PHOTO_WAITING]: file('reader-photo-koi.webp'), [PHOTO_APPROVED]: file('reader-photo-halfmoon.webp') }
+  await page.route(url => url.pathname.startsWith('/_ab/anh/'), route => {
+    const body = by[new URL(route.request().url()).pathname.slice('/_ab/anh/'.length)]
+    return body ? route.fulfill({ contentType: 'image/webp', body }) : route.fulfill({ status: 404 })
   })
 }
 
@@ -90,10 +102,13 @@ test('a tap on any small column, on the overview and the scoreboard, shows its d
   else await page.mouse.move(box.x + box.width * (1.5 / 7), box.y + box.height / 2)
   const tuesday = todayJson(TODAY).tiles.find(t => t.key === 'answers')!.bars!.values[1]
   await expect(answers.locator('.so')).toHaveText(`3 Nov: ${tuesday}`)
+  // Today's column, the day not over, is drawn lighter than the days before it (the Design Lead, 2026-11-09).
+  const fill = (sel: string) => answers.locator(sel).first().evaluate(e => getComputedStyle(e).fill)
+  expect(await fill('rect.today')).not.toBe(await fill('rect.now:not(.today)'))
   expect(errors).toEqual([])
 })
 
-test('what needs you: each title on one line on a 390 px phone, the detail and the button under it', async ({ page, errors }) => {
+test('what needs you: each title on one line on a 390 px phone, its detail under it', async ({ page, errors }) => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
   // The Design Lead (2026-11-08): a need's title is the thing, on one line at regular size; its detail goes under it.
   // The web's button beside the title wrapped "2Hr Aquarist needs a browser check" on a phone.
@@ -111,6 +126,115 @@ test('what needs you: each title on one line on a 390 px phone, the detail and t
       expect(height, await b.innerText()).toBeLessThan(1.5 * line)
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+  }
+  expect(errors).toEqual([])
+})
+
+test('what needs you: one card, the whole row a link; on a phone a chevron in place of the button, and the photos load', async ({ page, errors }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  // The Design Lead (2026-11-09): one list in one card, a filled "Review" and outlined "See …" buttons; on a phone no
+  // button, the row is the link with a chevron. The photos' thumbnails were broken images in every shot.
+  await photos(page)
+  await serve(page, '/_ab/', () => todayPage(TODAY))
+  const needs = todayJson(TODAY).needs
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/_ab/')
+    await expect(page.locator('ul.todo')).toHaveCount(1)
+    const rows = page.locator('ul.todo > li')
+    await expect(rows).toHaveCount(needs.length)
+    for (const [i, row] of (await rows.all()).entries()) {
+      await expect(row.locator('a'), `${width} px, ${needs[i]!.text}`).toHaveCount(1)
+      if (width === 390) {
+        await expect(row.locator('.act')).toBeHidden()
+        await expect(row.locator('.chev')).toBeVisible()
+      } else {
+        await expect(row.locator('.act')).toBeVisible()
+        await expect(row.locator('.act')).toHaveText(needs[i]!.label)
+        await expect(row.locator('.chev')).toBeHidden()
+      }
+    }
+    const imgs = page.locator('ul.todo img')
+    expect(await imgs.count()).toBe(needs.find(x => x.kind === 'photos')!.photos!.length)
+    for (const img of await imgs.all()) {
+      await img.scrollIntoViewIfNeeded()
+      await expect.poll(() => img.evaluate((e: HTMLImageElement) => e.complete && e.naturalWidth), `${width} px`).toBeGreaterThan(0)
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `${width} px`).toBeLessThanOrEqual(0)
+  }
+  // "Review" filled (its border the colour of its fill), "See …" outlined.
+  const [filled, outlined] = await Promise.all(['li.wait', 'li:not(.wait)'].map(li => page.locator(`ul.todo ${li} .act`).first().evaluate(e => [getComputedStyle(e).backgroundColor, getComputedStyle(e).borderTopColor])))
+  expect(filled![0]).toBe(filled![1])
+  expect(outlined![0]).not.toBe(outlined![1])
+  expect(errors).toEqual([])
+})
+
+test('the day charts: a hover or a tap shows the day beside its bar, inside the card, and nothing else is drawn', async ({ page, errors, isMobile }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  // The Design Lead (2026-11-09): a day's name under each bar, no axis, no readout line over it; the overview's draws
+  // found an answer only, so it has no legend (Fish ID's three kinds of call keep theirs).
+  await serve(page, '/_ab/', () => todayPage(TODAY))
+  await serve(page, '/_ab/nhan-dien-ca/', tz => fishIdPage({ ...FISH, tz }))
+  for (const [path, at] of [['/_ab/', '.acard'], ['/_ab/nhan-dien-ca/', '.charts']] as const) {
+    for (const width of [390, 1280]) {
+      await page.setViewportSize({ width, height: 900 })
+      await page.goto(path)
+      const card = page.locator(at).first()
+      const chart = card.locator('figure.bare')
+      await expect(chart).toHaveCount(1)
+      await expect(chart.locator('.yax span, .readout')).toHaveCount(0)
+      await expect(chart.locator('.legend span')).toHaveCount(path === '/_ab/' ? 0 : 3)
+      const tip = chart.locator('.tip')
+      await expect(tip).toBeHidden()
+      const bars = chart.locator('.cols li')
+      const n = await bars.count()
+      const labels = await chart.locator('.xax span').allInnerTexts()
+      expect(labels.length, `${path} ${width} px`).toBe(n)
+      await chart.scrollIntoViewIfNeeded()
+      const area = (await chart.locator('.area').boundingBox())!
+      const cardBox = (await card.boundingBox())!
+      for (const i of [0, Math.floor(n / 2), n - 1]) {
+        const [x, y] = [area.x + (area.width * (i + 0.5)) / n, area.y + area.height / 2]
+        if (isMobile) await page.touchscreen.tap(x, y)
+        else await page.mouse.move(x, y)
+        const bar = bars.nth(i)
+        await expect(tip).toBeVisible()
+        await expect(tip.locator('b')).toHaveText((await bar.getAttribute('data-t'))!)
+        await expect(tip.locator('span')).toHaveText((await bar.getAttribute('data-x'))!)
+        const box = (await tip.boundingBox())!
+        expect(box.x, `${path} ${width} px, bar ${i}`).toBeGreaterThanOrEqual(cardBox.x - 0.5)
+        expect(box.x + box.width, `${path} ${width} px, bar ${i}`).toBeLessThanOrEqual(cardBox.x + cardBox.width + 0.5)
+        if (isMobile) await page.touchscreen.tap(x, y)
+      }
+    }
+  }
+  expect(errors).toEqual([])
+})
+
+test('Fish ID\'s periods: a menu button on a 390 px phone, a segmented control from a tablet\'s width up', async ({ page, errors, isMobile }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  await serve(page, '/_ab/nhan-dien-ca/', tz => fishIdPage({ ...FISH, tz }))
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/_ab/nhan-dien-ca/')
+  const nav = page.locator('nav.periods')
+  const segment = nav.locator('.seg a')
+  const n = await segment.count()
+  expect(n).toBeGreaterThanOrEqual(2)
+  const button = nav.locator('.pmenu summary')
+  await expect(button).toBeVisible()
+  await expect(button).toHaveText(await nav.locator('.seg a[aria-current="page"]').textContent() ?? '')
+  await expect(segment.first()).toBeHidden()
+  const items = nav.locator('.pmenu div a')
+  await expect(items.first()).toBeHidden()
+  if (isMobile) await button.tap()
+  else await button.click()
+  await expect(items).toHaveCount(n)
+  for (const a of await items.all()) await expect(a).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+  for (const width of [600, 1280]) {
+    await page.setViewportSize({ width, height: 900 })
+    await expect(button, `${width} px`).toBeHidden()
+    for (const a of await segment.all()) await expect(a, `${width} px`).toBeVisible()
   }
   expect(errors).toEqual([])
 })

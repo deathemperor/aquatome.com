@@ -74,6 +74,14 @@ export type DayChart = {
   empty?: string
   /** Why a day has no value, said in its readout ("not saved that day"). */
   missing?: string
+  /** Figures said with each day (on a tap, and in the table) but not drawn: readers beside the answers. */
+  also?: Series[]
+  /**
+   * A section's main chart, drawn as docs/design/img/dash-web.png: no axis and no totals line, a day's name under each
+   * bar (a week's seven: Mon … Sun, "Today"), and a tap, the pointer or the arrow keys show that day over the bars. A
+   * stack keeps its key, without totals (the figures above the chart give them).
+   */
+  bare?: boolean
 }
 
 /**
@@ -108,9 +116,10 @@ export function dayChart(c: DayChart): string {
   const half = top && !bottom && (c.format || money || (top / 2) % 1 === 0) ? [top / 2] : []
   const ticks = [...(bottom ? [-bottom] : []), 0, ...half, ...(top ? [top] : [])]
   const tickText = (t: number) => `${t < 0 ? '−' : ''}${prefix}${tick(Math.abs(t))}`
-  const gutter = Math.max(...ticks.map(t => tickText(t).length))
-  const yAxis = ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
-  const grid = ticks.map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
+  const bare = Boolean(c.bare)
+  const gutter = bare ? 0 : Math.max(...ticks.map(t => tickText(t).length))
+  const yAxis = bare ? '' : ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
+  const grid = (bare ? [0] : ticks).map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
 
   const last = n - 1
   const dm = (i: number) => dayLabel(c.days[i]!)
@@ -125,6 +134,8 @@ export function dayChart(c: DayChart): string {
   const when = (i: number) => `${named(i)}${i === now ? ` · ${c.lastSays ?? 'so far'}` : ''}${toCome(i) ? ' · still to come' : unrecorded(i) ? ` · ${c.missing ?? 'not recorded'}` : ''}`
   const shown = (v: number | null) => (v === null ? '—' : format(v))
 
+  const words = bare ? barWords(c) : undefined
+  const tip = (i: number) => (words ? ` data-t="${esc(words.readouts[i]!.title)}" data-x="${esc(words.readouts[i]!.detail)}"` : '')
   const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
   const cols = c.days.map((_, i) => {
     const vals = series.map(s => at(s, i))
@@ -151,14 +162,15 @@ export function dayChart(c: DayChart): string {
       }
     })
     const cls = [i === now ? 'today' : '', unrecorded(i) && !toCome(i) ? 'miss' : ''].filter(Boolean).join(' ')
-    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}">${marks}</li>`
+    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}"${tip(i)}>${marks}</li>`
   }).join('')
 
   // Every seventh day back from the last (the overview's weeks), or every fourth week, and the first when it stands clear of them.
   const labelled = new Set<number>()
   for (let i = last; i >= 0; i -= weekly ? 4 : 7) labelled.add(i)
   if (Math.min(...labelled) >= 3) labelled.add(0)
-  const xAxis = [...labelled].sort((a, b) => a - b).map(i => {
+  const named7 = bare && n <= 7
+  const xAxis = named7 ? words!.labels.map((l, i) => `<span${i === now ? ' class="now"' : ''} style="--x:${f2((100 * (i + 0.5)) / n)}">${esc(l)}</span>`).join('') : [...labelled].sort((a, b) => a - b).map(i => {
     const mid = (100 * (i + 0.5)) / n
     const [x, cls] = n > 1 && mid < 7 ? [(100 * i) / n, ' class="s"'] : n > 1 && mid > 93 ? [(100 * (i + 1)) / n, ' class="e"'] : [mid, '']
     return `<span${cls} style="--x:${f2(x)}">${esc(dm(i))}</span>`
@@ -172,11 +184,15 @@ export function dayChart(c: DayChart): string {
   const peak = heights.indexOf(Math.max(...heights))
   const gaps = c.days.filter((_, i) => unrecorded(i)).length
   const desc = `${n} ${per}${n === 1 ? '' : 's'}, from ${dm(0)} to ${dm(last)}. ${all.map((s, k) => `${s.label}: ${format(totals[k]!)} in all`).join('; ')}. Highest: ${weekly ? `the week of ${dm(peak)}` : dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per}${gaps === 1 ? '' : 's'} not recorded.` : ''} The arrow keys read each ${per}.`
-  const plot = `<div class="plot" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
+  const tipLine = bare ? '<p class="tip" aria-live="polite"><b></b><span></span></p>' : ''
+  const plot = `<div class="plot${named7 ? ' named' : ''}" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d">${tipLine}<div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
 
-  const rows = c.days.map((d, i) => [d, i] as const).reverse().filter(([, i]) => !toCome(i)).map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${i === now ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (this week)' : ' (today)') : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
-  const table = `<details><summary>The figures</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Week' : 'Day'}</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
-  return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
+  const listed = [...all, ...(c.also ?? [])]
+  const rows = c.days.map((d, i) => [d, i] as const).reverse().filter(([, i]) => !toCome(i)).map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${i === now ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (this week)' : ' (today)') : ''}</th>${listed.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
+  const table = `<details><summary>The figures</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Week' : 'Day'}</th>${listed.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
+  // Bare: a stack's key under the bars, without totals; one series needs none (the title, or the figure above, names it).
+  const legend = bare && all.length > 1 ? `<p class="legend" aria-hidden="true">${all.map((s, k) => `<span>${key(s, k)}${esc(s.label)}</span>`).join('')}</p>` : ''
+  return `<figure class="chart${bare ? ' bare' : ''}" aria-labelledby="${c.id}-t"><figcaption>${head}${bare ? '' : readout}</figcaption>${plot}${legend}${table}</figure>`
 }
 
 export type Readout = { title: string; detail: string }
@@ -189,7 +205,7 @@ export const todayOf = (c: Pick<DayChart, 'days' | 'today' | 'partialLast'>) => 
  * shows: the first series' figure ("21 named"), then its day and the other series ("Thu 5 Nov · 3 no answer"). Days
  * after today are still to come. `also`: figures said with each bar but not drawn.
  */
-export function barWords(c: DayChart, also: Series[] = []): { labels: string[]; readouts: Readout[] } {
+export function barWords(c: DayChart, also: Series[] = c.also ?? []): { labels: string[]; readouts: Readout[] } {
   const format = c.format ?? (c.unit === 'usd' ? usd : (n: number) => fmt(n))
   const weekly = c.period === 'week'
   const today = todayOf(c)
@@ -276,7 +292,7 @@ export function tiles(xs: Tile[]): string {
  * the chart (`format`, the page's script), and a tap there doesn't follow the row's link: the owner (2026-11-07)
  * couldn't read a column's number by touch.
  */
-export function spark(values: (number | null)[], recent = 7, o: { labels?: string[]; format?: (v: number) => string } = {}): string {
+export function spark(values: (number | null)[], recent = 7, o: { labels?: string[]; format?: (v: number) => string; today?: number } = {}): string {
   const n = values.length
   const max = Math.max(0, ...values.map(v => (known(v) ? v : 0)))
   if (n < 2 || !(max > 0)) return ''
@@ -286,7 +302,8 @@ export function spark(values: (number | null)[], recent = 7, o: { labels?: strin
   const bars = values.map((v, i) => {
     if (!known(v) || v <= 0) return ''
     const bh = Math.max(1.5, (v / max) * (h - 2))
-    const cls = i >= n - recent ? 'now' : i >= n - 2 * recent ? 'was' : 'old'
+    // Today's column, not over yet, lighter (`today`, on a week whose later days are still to come).
+    const cls = i === o.today ? 'now today' : i >= n - recent ? 'now' : i >= n - 2 * recent ? 'was' : 'old'
     return `<rect class="${cls}" data-i="${i}" x="${f2(i * band + 0.5)}" y="${f2(h - 1 - bh)}" width="${f2(Math.max(1, band - 1))}" height="${f2(bh)}" rx=".8"/>`
   }).join('')
   const svg = `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><line x1="0" x2="${w}" y1="${h - 0.5}" y2="${h - 0.5}"/>${bars}</svg>`

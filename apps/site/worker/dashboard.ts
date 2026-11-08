@@ -216,18 +216,25 @@ export const loadToday: Load<Today> = async (env, url, now, tz) => {
   const db = env.DB
   const from = lastMondayStart(now)
   const monday = mondayOf(localDay(now, HOME_TZ))
-  const [o, beacon, held, waiting, kept, crashes, lastReport, changes, acts] = await Promise.all([
+  const [o, beacon, held, heldPages, waiting, kept, crashes, lastReport, changes, acts] = await Promise.all([
     loadOverview(env, url, now, tz),
     a ? soft('beacon', queryBeacon(a.account, a.token, from)) : unset(NO_AE),
     db ? soft('held comments', db.prepare("SELECT COUNT(*) AS n FROM comments WHERE status = 'held'").first<{ n: number }>().then(r => r?.n ?? 0)) : unset('D1'),
-    photosLive(env) ? soft('waiting photos', waitingPhotos(env).then(xs => (xs ?? []).map(x => ({ id: x.id })))) : undefined,
+    // The pages they're on, newest first: the need names them.
+    db ? soft('held comments’ pages', db.prepare("SELECT entity_ref AS ref FROM comments WHERE status = 'held' GROUP BY entity_ref ORDER BY MAX(created_at) DESC LIMIT 6").all<{ ref: string }>().then(r => r.results.map(x => x.ref))) : unset('D1'),
+    // Each with the page it's for: a comment's photo, its comment's.
+    photosLive(env) ? soft('waiting photos', waitingPhotos(env).then(async xs => {
+      const ps = xs ?? []
+      const pages = db && ps.some(p => p.entity_ref.startsWith('comment:')) ? await commentPages(db, ps) : new Map<string, string>()
+      return ps.map(x => ({ id: x.id, ref: pages.get(x.id) ?? x.entity_ref }))
+    })) : undefined,
     env.UPLOADS ? soft('kept', recentKept(env.UPLOADS).then(xs => xs.length)) : undefined,
     a ? soft('app crashes', queryAppWeeks(a.account, a.token, from).then(x => x.crashes.filter(c => mondayOf(localDay(c.at, HOME_TZ)) === monday).reduce((k, c) => k + Number(c.n), 0))) : unset(NO_AE),
     soft('reports', listReports(env.AB).then(xs => xs[0] ?? null)),
     soft('change log', readChanges(env.AB)),
     db ? soft('owner acts', ownerActs(db, photosLive(env))) : unset('D1'),
   ])
-  return { ...o, beacon, countingFrom: READERS_FROM, held, waitingPhotos: waiting, kept, crashes, lastReport, changes, acts }
+  return { ...o, beacon, countingFrom: READERS_FROM, held, heldPages, waitingPhotos: waiting, kept, crashes, lastReport, changes, acts }
 }
 
 /**

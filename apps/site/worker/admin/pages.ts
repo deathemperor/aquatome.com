@@ -347,13 +347,19 @@ function keysTable(k: FishIdStatus, now: Date, tz: string) {
     { text: `${fmt(r.calls)} ${r.calls === 1 ? 'call' : 'calls'}`, sub: r.answered === r.calls ? 'all answered' : `${fmt(r.answered)} answered` },
   ])
   const c = k.counts
-  const ran = [
-    [c.fallback, 'fell back to one call'], [c.callLimit, 'hit the call limit'], [c.later400, 'refused on a later call'], [c.facts, 'couldn’t read a page’s facts'],
-    [c.refunds, `refunded${k.mostRefunds > 1 ? ` (${fmt(k.mostRefunds)} to one reader)` : ''}`], [c.offTopic, 'chat questions off the hobby'],
-  ].filter(([n]) => n).map(([n, what]) => `${fmt(n as number)} ${what}`)
+  const ran: [number, string, string?][] = [
+    [c.fallback, 'Fell back to one call'], [c.callLimit, 'Hit the call limit'], [c.later400, 'Refused on a later call'], [c.facts, 'Couldn’t read a page’s facts'],
+    [c.refunds, 'Refunded', k.mostRefunds > 1 ? `${fmt(k.mostRefunds)} to one reader` : undefined], [c.offTopic, 'Chat questions off the hobby'],
+  ]
+  // The day's detail, folded as a row of its own (docs/design: "Since 7:00, in detail"): the model, then each count.
+  const detail: Cell[][] = [
+    [{ text: 'Model' }, { text: k.model }],
+    [{ text: 'Identifications that called Claude' }, { text: fmt(k.today) }],
+    ...ran.filter(([n]) => n).map(([n, what, sub]): Cell[] => [{ text: what }, { text: fmt(n), ...(sub ? { sub } : {}) }]),
+  ]
   return {
     table: table(['Key', 'State', `Since ${since}`], rows, { empty: 'No keys.' }),
-    note: `Model ${k.model}. Since ${since}: ${fmt(k.today)} ${k.today === 1 ? 'identification' : 'identifications'} called Claude${ran.length ? `; ${ran.join(', ')}` : ''}.`,
+    detail: table(['What', 'Number'], detail, { folded: `Since ${since}, in detail`, figure: fmt(k.today) }),
     bad: k.bad ? `${fmt(k.bad)} ${k.bad === 1 ? 'line' : 'lines'} of ANTHROPIC_KEYS can’t be read and ${k.bad === 1 ? 'is' : 'are'} skipped: fix the secret.` : undefined,
   }
 }
@@ -419,11 +425,13 @@ function fishParts(f: FishPage) {
 export function fishIdPage(f: FishPage): string {
   const p = fishParts(f)
   const path = '/_ab/nhan-dien-ca/'
-  const menu = `<nav class="filters periods" aria-label="Period">${fishPeriods(f.now, p.tz).map(x => `<a href="${path}?period=${x.key}"${x.key === p.span.key ? ' aria-current="page"' : ''}>${esc(x.label)}</a>`).join('')}</nav>`
+  // The periods: a segmented control from a tablet's width up; on a phone a menu button, "This week ▾", that opens them.
+  const links = fishPeriods(f.now, p.tz).map(x => `<a href="${path}?period=${x.key}"${x.key === p.span.key ? ' aria-current="page"' : ''}>${esc(x.label)}</a>`).join('')
+  const menu = `<nav class="filters periods" aria-label="Period"><details class="pmenu"><summary>${esc(p.span.label)}</summary><div>${links}</div></details><span class="seg">${links}</span></nav>`
   let body = `<h1>Fish ID</h1>${menu}`
   if (isFailed(f.stats)) body += failedBox('the fish ID log', f.stats)
-  else body += `<h3>${esc(p.span.heading)}</h3>${tiles(p.figures!)}<div class="charts">${dayChart(p.chart!)}</div><p class="note">${esc(p.chartNote)}</p>`
-  body += `<h2 id="key">Anthropic keys</h2>${isFailed(f.keys) ? failedBox('the keys’ state', f.keys) : !p.keys ? `<p class="muted">${NO_KEYS}</p>` : `${tableHtml(p.keys.table)}<p class="note">${esc(p.keys.note)}</p>${p.keys.bad ? `<p class="failed">${esc(p.keys.bad)}</p>` : ''}`}`
+  else body += `<h3>${esc(p.span.heading)}</h3>${tiles(p.figures!)}<div class="charts">${dayChart({ ...p.chart!, bare: true })}</div><p class="note">${esc(p.chartNote)}</p>`
+  body += `<h2 id="key">Anthropic keys</h2>${isFailed(f.keys) ? failedBox('the keys’ state', f.keys) : !p.keys ? `<p class="muted">${NO_KEYS}</p>` : `${tableHtml(p.keys.table)}${tableHtml(p.keys.detail)}${p.keys.bad ? `<p class="failed">${esc(p.keys.bad)}</p>` : ''}`}`
   if (p.unmatched) body += `<h2>Guessed often, no page yet</h2>${rankTable(p.unmatched, UNMATCHED_HEAD)}`
   if (p.folded.length) body += `<h2>More figures</h2>${p.folded.map(x => tableHtml(x, { wide: true })).join('')}`
   body += `<p><a href="${RUNS_PATH}">Each run: what Claude thought and looked up (kept 365 days) →</a></p>`
@@ -438,7 +446,7 @@ export function fishIdSection(f: FishPage): Section {
   blocks.push(heading('Anthropic keys', 2, 'key'))
   if (isFailed(f.keys)) blocks.push(failedNote('the keys’ state', f.keys))
   else if (!p.keys) blocks.push(note(NO_KEYS, 'muted'))
-  else blocks.push(p.keys.table, note(p.keys.note, 'muted'), ...(p.keys.bad ? [note(p.keys.bad, 'bad')] : []))
+  else blocks.push(p.keys.table, p.keys.detail, ...(p.keys.bad ? [note(p.keys.bad, 'bad')] : []))
   if (p.unmatched) blocks.push(heading('Guessed often, no page yet'), rankBlock(p.unmatched, UNMATCHED_HEAD))
   if (p.folded.length) blocks.push(heading('More figures'), ...p.folded)
   return { title: 'Fish ID', blocks, periods: fishPeriods(f.now, p.tz), period: p.span.key }

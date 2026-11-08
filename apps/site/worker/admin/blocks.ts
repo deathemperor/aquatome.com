@@ -111,8 +111,8 @@ export function figures(xs: Tile[]): Block {
 }
 
 /** A chart: the same object the page draws, less its functions (a money chart says so with `unit`), with each bar's words. */
-export function chart(c: DayChart, also: Series[] = []): Block {
-  const { format: _f, tickPrefix: _t, lastSays: _l, ...data } = c
+export function chart(c: DayChart, also: Series[] = c.also ?? []): Block {
+  const { format: _f, tickPrefix: _t, lastSays: _l, also: _a, bare: _b, ...data } = c
   const today = todayOf(c)
   return { kind: 'chart', ...data, ...(today >= 0 ? { today } : {}), ...barWords(c, also) }
 }

@@ -5,11 +5,11 @@ import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snaps
 import { cutWindows, fishSpan, RECENT_MAX, summariseFishId, type CallRow, type DayRow, type FishPeriodKey } from '../admin/fishid'
 import { dayStart, localDay } from '../admin/time'
 import type { Overview } from '../admin/pages'
-import type { Excluded } from '../readers'
+import { isReader, type Excluded } from '../readers'
 import type { Quality } from '../admin/quality'
 import type { ReportsData } from '../daily/page'
 import type { Change } from '../daily/github'
-import { summariseScoreboard, type BeaconRow } from '../admin/scoreboard'
+import { summariseScoreboard, visitsOf, type BeaconRow } from '../admin/scoreboard'
 import type { Today } from '../admin/today'
 import type { Wanted } from '../wanted'
 
@@ -225,11 +225,33 @@ export const READS: ContentReads = {
 export const TALK: Talk = { comments: 20, photos: 6, byKind: [{ kind: 'fish', comments: 18, photos: 6 }], top: [{ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', comments: 7, photos: 2 }], elsewhere: { comments: 1, photos: 0 } } as Talk
 export const KIND_CLICKS: KindClicks = { days: 30, since: days30[0]!, clicks: 80, byKind: [{ kind: 'fish', clicks: 60 }], top: [{ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', clicks: 12 }], elsewhere: 4 }
 
-/** The overview with every part loaded. */
+/**
+ * The readers' beacon over the 31 days to now (Wednesday 4 Nov, 16:00 in Vietnam): each day, readers from search who
+ * stayed on the page they landed on (answers), readers who came straight in, and visits from search that left at once;
+ * a shop click every other day. The overview's days, its week, the scoreboard and the daily readers all read these rows,
+ * so their figures agree: a week has at least the readers of each of its days.
+ */
+export const BEACON: BeaconRow[] = days31.flatMap((day, i) => {
+  const at = (k: number) => `${day} ${day === '2026-11-04' ? '05' : '02'}:${String(k).padStart(2, '0')}:00`
+  const row = (sid: string, t: string, k: number, v = 1, o: Partial<BeaconRow> = {}): BeaconRow => ({ sid, t, p: '/ca/ca-neon-vua/', ref: '', cc: i % 5 ? 'VN' : 'ID', first: at(k), v, n: 1, ...o })
+  const google = { ref: 'www.google.com' }
+  return [
+    ...Array.from({ length: 3 + (i % 4) }, (_, k) => [row(`a${i}-${k}`, 'view', k, 1, google), row(`a${i}-${k}`, 'time', k, 45), ...(k === 0 && i % 2 ? [row(`a${i}-${k}`, 'aff', k)] : [])]).flat(),
+    ...Array.from({ length: 2 + (i % 3) }, (_, k) => [row(`d${i}-${k}`, 'view', 10 + k), row(`d${i}-${k}`, 'time', 10 + k, 60)]).flat(),
+    ...Array.from({ length: 4 }, (_, k) => row(`b${i}-${k}`, 'view', 20 + k, 1, google)),
+  ]
+})
+/** Each day's sessions and readers as Analytics Engine counts them, from the same rows (the readers' own rule). */
+const beaconDays = days31.map(day => {
+  const visits = visitsOf(BEACON.filter(r => r.first.startsWith(day)))
+  return { day, sessions: visits.length, readers: visits.filter(isReader).length, shop: visits.reduce((n, v) => n + v.shop, 0) }
+})
+
+/** The overview with every part loaded: its readers and shop clicks by day are the beacon's. */
 export const OVERVIEW: Overview = {
   now: NOW, tz: TZ,
-  readers: days31.map((day, i) => ({ day, sessions: 60 + i, readers: 20 + (i % 9) })),
-  clicks: { days: days31, clicks: wave(31, i => (i * 7) % 5) },
+  readers: beaconDays.map(({ day, sessions, readers }) => ({ day, sessions, readers })),
+  clicks: { days: days31, clicks: beaconDays.map(d => d.shop) },
   fish: FISH.stats, keys: FISH.keys, photos: 6,
   waiting: { comments: 2, photos: 2, oldest: '2026-11-04T07:00:00.000Z' },
   wanted: WANTED, accounts: ACCOUNTS, hidden: HIDDEN, content: STATS, snapshots: SNAPSHOTS,
@@ -293,21 +315,6 @@ export const REPORTS: ReportsData = {
   ],
 }
 
-/**
- * The readers' beacon from last week's Monday (26 Oct) to now (Wednesday 4 Nov, 16:00 in Vietnam): each day, readers from
- * search who stayed on the page they landed on (answers), readers who came straight in, and visits from search that left
- * at once; a shop click every other day. The scoreboard and the overview read the same rows.
- */
-export const BEACON: BeaconRow[] = lastDays(NOW, 10, TZ).flatMap((day, i) => {
-  const at = (k: number) => `${day} ${day === '2026-11-04' ? '05' : '02'}:${String(k).padStart(2, '0')}:00`
-  const row = (sid: string, t: string, k: number, v = 1, o: Partial<BeaconRow> = {}): BeaconRow => ({ sid, t, p: '/ca/ca-neon-vua/', ref: '', cc: i % 5 ? 'VN' : 'ID', first: at(k), v, n: 1, ...o })
-  const google = { ref: 'www.google.com' }
-  return [
-    ...Array.from({ length: 3 + (i % 4) }, (_, k) => [row(`a${i}-${k}`, 'view', k, 1, google), row(`a${i}-${k}`, 'time', k, 45), ...(k === 0 && i % 2 ? [row(`a${i}-${k}`, 'aff', k)] : [])]).flat(),
-    ...Array.from({ length: 2 + (i % 3) }, (_, k) => [row(`d${i}-${k}`, 'view', 10 + k), row(`d${i}-${k}`, 'time', 10 + k, 60)]).flat(),
-    ...Array.from({ length: 4 }, (_, k) => row(`b${i}-${k}`, 'view', 20 + k, 1, google)),
-  ]
-})
 /** Before the readers were counted (READERS_FROM): the sample counts them from October. */
 export const COUNTING_FROM = '2026-10-01T00:00:00Z'
 /** The product changes kept: three in the last 24 hours, one site, one app, one engine, and an older one. */
@@ -361,20 +368,31 @@ export const COMMENT_PAGES = new Map<string, PageInfo>([
   ['species:betta-splendens', { path: '/ca/ca-betta/', title: 'Cá betta (cá xiêm)', kind: 'fish', id: 'betta-splendens' }],
 ])
 
+/** The overview's content: STATS with the pages its needs and the owner's last action name (content.json's `pages`). */
+const NAMED = {
+  ...STATS,
+  pages: {
+    fish: [['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'], ['/ca/ca-betta/', 'Cá betta (cá xiêm)', 'betta-splendens'], ['/ca/ca-neon-xanh/', 'Cá neon xanh', 'paracheirodon-innesi'], ['/id/ikan/ikan-neon/', 'Ikan neon', 'paracheirodon-innesi']],
+    breed: [['/ca/ca-betta-halfmoon/', 'Betta halfmoon', 'betta-halfmoon']],
+  },
+} as ContentStats
 /**
  * The overview's version 2: every key resting and a source waiting on the owner (faults), the held comments
- * (COMMENT_COUNTS) and two photos waiting. The owner's last decisions: a comment hidden yesterday, and a page hidden
- * this morning (HIDDEN), the newest.
+ * (COMMENT_COUNTS, on the pages COMMENT_ROWS holds them on) and two photos waiting. The owner's last decisions: a
+ * comment hidden yesterday, a page hidden this morning (HIDDEN), and, a little after it, a comment hidden on the
+ * Indonesian neon page, the newest.
  */
 export const TODAY: Today = {
-  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
+  ...OVERVIEW, content: NAMED, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held,
+  heldPages: [...new Set(COMMENT_ROWS.filter(c => c.status === 'held').map(c => c.entity_ref))],
+  waitingPhotos: WAITING.map(w => ({ id: w.id, ref: w.entity_ref })), kept: KEPT.length, crashes: 3,
   lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
-  acts: [{ kind: 'comment-hidden', at: '2026-11-03T06:00:00.000Z', ref: 'species:paracheirodon-axelrodi' }],
+  acts: [{ kind: 'comment-hidden', at: '2026-11-03T06:00:00.000Z', ref: 'species:paracheirodon-axelrodi' }, { kind: 'comment-hidden', at: '2026-11-04T01:00:30.000Z', ref: 'id:species:paracheirodon-innesi' }],
 }
 /** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
 export const CALM: Today = {
   ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
-  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
+  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...NAMED, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
 }
 /** A day's AI spend near its cap: the cap set low ($2 a day), and a busy day of chat on top of fish ID. */
 export const SPENDING: Today = { ...CALM, keys: { ...CALM.keys!, cap: 2, spend: [{ day: '2026-11-04', usd: 1.7 }, ...FISH.keys.spend.slice(1)] } }

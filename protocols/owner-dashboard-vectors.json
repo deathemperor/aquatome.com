@@ -37,42 +37,42 @@
           {
             "name": "Readers",
             "section": "doc-gia",
-            "fig": "169",
-            "sub": "readers · 7 days · 602 sessions",
+            "fig": "53",
+            "sub": "readers · 7 days · 81 sessions",
             "spark": [
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8
             ],
             "chip": {
-              "text": "+2%",
+              "text": "+4%",
               "tone": "plain",
               "vs": "the 7 days before"
             },
@@ -170,43 +170,43 @@
           {
             "name": "Affiliate",
             "section": "affiliate",
-            "fig": "14",
+            "fig": "4",
             "sub": "shop clicks · 7 days",
             "spark": [
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1
             ],
             "chip": {
-              "text": "−13%",
-              "tone": "bad",
+              "text": "+1",
+              "tone": "good",
               "vs": "the 7 days before"
             },
             "warn": false
@@ -402,8 +402,8 @@
           "entries": [
             {
               "at": "Today · 4 Nov · so far",
-              "text": "23 readers",
-              "sub": "90 sessions",
+              "text": "7 readers",
+              "sub": "11 sessions",
               "section": "doc-gia"
             },
             {
@@ -436,13 +436,13 @@
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "22 readers",
-              "sub": "89 sessions",
+              "text": "8 readers",
+              "sub": "12 sessions",
               "section": "doc-gia"
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "3 shop clicks",
+              "text": "1 shop click",
               "section": "affiliate"
             },
             {
@@ -469,14 +469,9 @@
             },
             {
               "at": "Mon 2 Nov",
-              "text": "21 readers",
-              "sub": "88 sessions",
+              "text": "6 readers",
+              "sub": "10 sessions",
               "section": "doc-gia"
-            },
-            {
-              "at": "Mon 2 Nov",
-              "text": "1 shop click",
-              "section": "affiliate"
             },
             {
               "at": "Mon 2 Nov",
@@ -494,20 +489,20 @@
           "days": [
             {
               "title": "Today so far",
-              "figure": "23 readers",
+              "figure": "7 readers",
               "text": "17 fish ID calls ($0.19) · 2 new comments · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Yesterday",
-              "figure": "22 readers",
-              "text": "17 fish ID calls ($0.19) · 3 shop clicks · 1 new comment · 3 new accounts · 1 page hidden",
+              "figure": "8 readers",
+              "text": "17 fish ID calls ($0.19) · 1 shop click · 1 new comment · 3 new accounts · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Monday 2 Nov",
-              "figure": "21 readers",
-              "text": "24 fish ID calls ($0.26) · 1 shop click · 1 name wanted",
+              "figure": "6 readers",
+              "text": "24 fish ID calls ($0.26) · 1 name wanted",
               "section": "doc-gia"
             }
           ]
@@ -524,11 +519,11 @@
           {
             "key": "answers",
             "label": "Found an answer",
-            "value": "13",
+            "value": "12",
             "sub": "This week so far",
             "delta": {
-              "text": "+8% vs the same point last week",
-              "tone": "good"
+              "text": "−20% vs last week",
+              "tone": "bad"
             },
             "bars": {
               "days": [
@@ -541,9 +536,9 @@
                 "2026-11-08"
               ],
               "values": [
-                6,
                 3,
                 4,
+                5,
                 null,
                 null,
                 null,
@@ -551,16 +546,16 @@
               ],
               "readouts": [
                 {
-                  "title": "6 found an answer",
-                  "detail": "Mon 2 Nov · 9 readers · 1 shop click"
-                },
-                {
                   "title": "3 found an answer",
-                  "detail": "Tue 3 Nov · 7 readers · 0 shop clicks"
+                  "detail": "Mon 2 Nov · 6 readers · 0 shop clicks"
                 },
                 {
                   "title": "4 found an answer",
-                  "detail": "Wed 4 Nov, so far · 6 readers · 1 shop click"
+                  "detail": "Tue 3 Nov · 8 readers · 1 shop click"
+                },
+                {
+                  "title": "5 found an answer",
+                  "detail": "Wed 4 Nov, so far · 7 readers · 0 shop clicks"
                 },
                 {
                   "title": "Still to come",
@@ -617,6 +612,7 @@
           {
             "kind": "comments",
             "text": "5 comments held for review",
+            "sub": "Cá neon vua · Cá betta (cá xiêm)",
             "label": "Review",
             "tone": "wait",
             "section": "binh-luan"
@@ -624,6 +620,7 @@
           {
             "kind": "photos",
             "text": "2 reader photos to approve",
+            "sub": "Cá betta (cá xiêm) · Betta halfmoon",
             "label": "Review",
             "tone": "wait",
             "section": "anh-ban-doc",
@@ -636,20 +633,20 @@
         "needsEmpty": "Nothing needs you right now",
         "lastAction": {
           "title": "Your last action",
-          "text": "Hid /id/ikan/y/",
+          "text": "You hid a comment on Ikan neon (Indonesian)",
           "when": "Wed 4 Nov, 8:00",
-          "at": "2026-11-04T01:00:00.000Z",
-          "section": "an-trang"
+          "at": "2026-11-04T01:00:30.000Z",
+          "section": "binh-luan"
         },
         "answers": {
           "title": "Readers who found an answer",
           "figure": {
             "label": "Found an answer",
-            "value": "13",
+            "value": "12",
             "sub": "This week so far",
             "delta": {
-              "text": "+8% vs the same point last week",
-              "tone": "good"
+              "text": "−20% vs the same point last week",
+              "tone": "bad"
             }
           },
           "chart": {
@@ -670,9 +667,9 @@
               {
                 "label": "Found an answer",
                 "values": [
-                  6,
                   3,
                   4,
+                  5,
                   null,
                   null,
                   null,
@@ -680,18 +677,6 @@
                 ]
               }
             ],
-            "whole": {
-              "label": "Readers",
-              "values": [
-                9,
-                7,
-                6,
-                null,
-                null,
-                null,
-                null
-              ]
-            },
             "empty": "No readers counted this week yet.",
             "labels": [
               "Mon",
@@ -704,16 +689,16 @@
             ],
             "readouts": [
               {
-                "title": "6 found an answer",
-                "detail": "Mon 2 Nov · 9 readers · 1 shop click"
-              },
-              {
                 "title": "3 found an answer",
-                "detail": "Tue 3 Nov · 7 readers · 0 shop clicks"
+                "detail": "Mon 2 Nov · 6 readers · 0 shop clicks"
               },
               {
                 "title": "4 found an answer",
-                "detail": "Wed 4 Nov, so far · 6 readers · 1 shop click"
+                "detail": "Tue 3 Nov · 8 readers · 1 shop click"
+              },
+              {
+                "title": "5 found an answer",
+                "detail": "Wed 4 Nov, so far · 7 readers · 0 shop clicks"
               },
               {
                 "title": "Still to come",
@@ -736,26 +721,26 @@
           "figures": [
             {
               "label": "Readers",
-              "value": "22",
+              "value": "21",
               "delta": {
-                "text": "+5% vs the same point last week",
-                "tone": "muted"
+                "text": "−12% vs the same point last week",
+                "tone": "bad"
               }
             },
             {
               "label": "Sessions",
-              "value": "34",
+              "value": "33",
               "delta": {
-                "text": "+3% vs the same point last week",
+                "text": "−8% vs the same point last week",
                 "tone": "muted"
               }
             },
             {
               "label": "Shop clicks",
-              "value": "2",
+              "value": "1",
               "delta": {
-                "text": "+100% vs the same point last week",
-                "tone": "good"
+                "text": "−50% vs the same point last week",
+                "tone": "bad"
               }
             }
           ]
@@ -820,7 +805,7 @@
                 "key": "thanh-cong",
                 "name": "Scoreboard",
                 "figure": {
-                  "text": "13 answers",
+                  "text": "12 answers",
                   "tone": "plain"
                 }
               },
@@ -828,7 +813,7 @@
                 "key": "doc-gia",
                 "name": "Readers",
                 "figure": {
-                  "text": "169 · +2%",
+                  "text": "21 · −12%",
                   "tone": "plain"
                 }
               },
@@ -836,7 +821,7 @@
                 "key": "affiliate",
                 "name": "Affiliate",
                 "figure": {
-                  "text": "14 · −13%",
+                  "text": "1 · −50%",
                   "tone": "plain"
                 }
               }
@@ -1033,42 +1018,42 @@
           {
             "name": "Readers",
             "section": "doc-gia",
-            "fig": "169",
-            "sub": "readers · 7 days · 602 sessions",
+            "fig": "53",
+            "sub": "readers · 7 days · 81 sessions",
             "spark": [
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8
             ],
             "chip": {
-              "text": "+2%",
+              "text": "+4%",
               "tone": "plain",
               "vs": "the 7 days before"
             },
@@ -1166,43 +1151,43 @@
           {
             "name": "Affiliate",
             "section": "affiliate",
-            "fig": "14",
+            "fig": "4",
             "sub": "shop clicks · 7 days",
             "spark": [
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1
             ],
             "chip": {
-              "text": "−13%",
-              "tone": "bad",
+              "text": "+1",
+              "tone": "good",
               "vs": "the 7 days before"
             },
             "warn": false
@@ -1398,8 +1383,8 @@
           "entries": [
             {
               "at": "Today · 4 Nov · so far",
-              "text": "23 readers",
-              "sub": "90 sessions",
+              "text": "7 readers",
+              "sub": "11 sessions",
               "section": "doc-gia"
             },
             {
@@ -1432,13 +1417,13 @@
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "22 readers",
-              "sub": "89 sessions",
+              "text": "8 readers",
+              "sub": "12 sessions",
               "section": "doc-gia"
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "3 shop clicks",
+              "text": "1 shop click",
               "section": "affiliate"
             },
             {
@@ -1465,14 +1450,9 @@
             },
             {
               "at": "Mon 2 Nov",
-              "text": "21 readers",
-              "sub": "88 sessions",
+              "text": "6 readers",
+              "sub": "10 sessions",
               "section": "doc-gia"
-            },
-            {
-              "at": "Mon 2 Nov",
-              "text": "1 shop click",
-              "section": "affiliate"
             },
             {
               "at": "Mon 2 Nov",
@@ -1490,20 +1470,20 @@
           "days": [
             {
               "title": "Today so far",
-              "figure": "23 readers",
+              "figure": "7 readers",
               "text": "17 fish ID calls ($0.19) · 2 new comments · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Yesterday",
-              "figure": "22 readers",
-              "text": "17 fish ID calls ($0.19) · 3 shop clicks · 1 new comment · 3 new accounts · 1 page hidden",
+              "figure": "8 readers",
+              "text": "17 fish ID calls ($0.19) · 1 shop click · 1 new comment · 3 new accounts · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Monday 2 Nov",
-              "figure": "21 readers",
-              "text": "24 fish ID calls ($0.26) · 1 shop click · 1 name wanted",
+              "figure": "6 readers",
+              "text": "24 fish ID calls ($0.26) · 1 name wanted",
               "section": "doc-gia"
             }
           ]
@@ -1520,11 +1500,11 @@
           {
             "key": "answers",
             "label": "Found an answer",
-            "value": "13",
+            "value": "12",
             "sub": "This week so far",
             "delta": {
-              "text": "+8% vs the same point last week",
-              "tone": "good"
+              "text": "−20% vs last week",
+              "tone": "bad"
             },
             "bars": {
               "days": [
@@ -1537,9 +1517,9 @@
                 "2026-11-08"
               ],
               "values": [
-                6,
                 3,
                 4,
+                5,
                 null,
                 null,
                 null,
@@ -1547,16 +1527,16 @@
               ],
               "readouts": [
                 {
-                  "title": "6 found an answer",
-                  "detail": "Mon 2 Nov · 9 readers · 1 shop click"
-                },
-                {
                   "title": "3 found an answer",
-                  "detail": "Tue 3 Nov · 7 readers · 0 shop clicks"
+                  "detail": "Mon 2 Nov · 6 readers · 0 shop clicks"
                 },
                 {
                   "title": "4 found an answer",
-                  "detail": "Wed 4 Nov, so far · 6 readers · 1 shop click"
+                  "detail": "Tue 3 Nov · 8 readers · 1 shop click"
+                },
+                {
+                  "title": "5 found an answer",
+                  "detail": "Wed 4 Nov, so far · 7 readers · 0 shop clicks"
                 },
                 {
                   "title": "Still to come",
@@ -1595,20 +1575,20 @@
         "needsEmpty": "Nothing needs you right now",
         "lastAction": {
           "title": "Your last action",
-          "text": "Hid /id/ikan/y/",
+          "text": "You hid a comment on Ikan neon (Indonesian)",
           "when": "Wed 4 Nov, 8:00",
-          "at": "2026-11-04T01:00:00.000Z",
-          "section": "an-trang"
+          "at": "2026-11-04T01:00:30.000Z",
+          "section": "binh-luan"
         },
         "answers": {
           "title": "Readers who found an answer",
           "figure": {
             "label": "Found an answer",
-            "value": "13",
+            "value": "12",
             "sub": "This week so far",
             "delta": {
-              "text": "+8% vs the same point last week",
-              "tone": "good"
+              "text": "−20% vs the same point last week",
+              "tone": "bad"
             }
           },
           "chart": {
@@ -1629,9 +1609,9 @@
               {
                 "label": "Found an answer",
                 "values": [
-                  6,
                   3,
                   4,
+                  5,
                   null,
                   null,
                   null,
@@ -1639,18 +1619,6 @@
                 ]
               }
             ],
-            "whole": {
-              "label": "Readers",
-              "values": [
-                9,
-                7,
-                6,
-                null,
-                null,
-                null,
-                null
-              ]
-            },
             "empty": "No readers counted this week yet.",
             "labels": [
               "Mon",
@@ -1663,16 +1631,16 @@
             ],
             "readouts": [
               {
-                "title": "6 found an answer",
-                "detail": "Mon 2 Nov · 9 readers · 1 shop click"
-              },
-              {
                 "title": "3 found an answer",
-                "detail": "Tue 3 Nov · 7 readers · 0 shop clicks"
+                "detail": "Mon 2 Nov · 6 readers · 0 shop clicks"
               },
               {
                 "title": "4 found an answer",
-                "detail": "Wed 4 Nov, so far · 6 readers · 1 shop click"
+                "detail": "Tue 3 Nov · 8 readers · 1 shop click"
+              },
+              {
+                "title": "5 found an answer",
+                "detail": "Wed 4 Nov, so far · 7 readers · 0 shop clicks"
               },
               {
                 "title": "Still to come",
@@ -1695,26 +1663,26 @@
           "figures": [
             {
               "label": "Readers",
-              "value": "22",
+              "value": "21",
               "delta": {
-                "text": "+5% vs the same point last week",
-                "tone": "muted"
+                "text": "−12% vs the same point last week",
+                "tone": "bad"
               }
             },
             {
               "label": "Sessions",
-              "value": "34",
+              "value": "33",
               "delta": {
-                "text": "+3% vs the same point last week",
+                "text": "−8% vs the same point last week",
                 "tone": "muted"
               }
             },
             {
               "label": "Shop clicks",
-              "value": "2",
+              "value": "1",
               "delta": {
-                "text": "+100% vs the same point last week",
-                "tone": "good"
+                "text": "−50% vs the same point last week",
+                "tone": "bad"
               }
             }
           ]
@@ -1779,7 +1747,7 @@
                 "key": "thanh-cong",
                 "name": "Scoreboard",
                 "figure": {
-                  "text": "13 answers",
+                  "text": "12 answers",
                   "tone": "plain"
                 }
               },
@@ -1787,7 +1755,7 @@
                 "key": "doc-gia",
                 "name": "Readers",
                 "figure": {
-                  "text": "169 · +2%",
+                  "text": "21 · −12%",
                   "tone": "plain"
                 }
               },
@@ -1795,7 +1763,7 @@
                 "key": "affiliate",
                 "name": "Affiliate",
                 "figure": {
-                  "text": "14 · −13%",
+                  "text": "1 · −50%",
                   "tone": "plain"
                 }
               }
@@ -2011,42 +1979,42 @@
           {
             "name": "Readers",
             "section": "doc-gia",
-            "fig": "169",
-            "sub": "readers · 7 days · 602 sessions",
+            "fig": "53",
+            "sub": "readers · 7 days · 81 sessions",
             "spark": [
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8
             ],
             "chip": {
-              "text": "+2%",
+              "text": "+4%",
               "tone": "plain",
               "vs": "the 7 days before"
             },
@@ -2144,43 +2112,43 @@
           {
             "name": "Affiliate",
             "section": "affiliate",
-            "fig": "14",
+            "fig": "4",
             "sub": "shop clicks · 7 days",
             "spark": [
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1
             ],
             "chip": {
-              "text": "−13%",
-              "tone": "bad",
+              "text": "+1",
+              "tone": "good",
               "vs": "the 7 days before"
             },
             "warn": false
@@ -2376,8 +2344,8 @@
           "entries": [
             {
               "at": "Today · 4 Nov · so far",
-              "text": "23 readers",
-              "sub": "90 sessions",
+              "text": "7 readers",
+              "sub": "11 sessions",
               "section": "doc-gia"
             },
             {
@@ -2410,13 +2378,13 @@
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "22 readers",
-              "sub": "89 sessions",
+              "text": "8 readers",
+              "sub": "12 sessions",
               "section": "doc-gia"
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "3 shop clicks",
+              "text": "1 shop click",
               "section": "affiliate"
             },
             {
@@ -2443,14 +2411,9 @@
             },
             {
               "at": "Mon 2 Nov",
-              "text": "21 readers",
-              "sub": "88 sessions",
+              "text": "6 readers",
+              "sub": "10 sessions",
               "section": "doc-gia"
-            },
-            {
-              "at": "Mon 2 Nov",
-              "text": "1 shop click",
-              "section": "affiliate"
             },
             {
               "at": "Mon 2 Nov",
@@ -2468,20 +2431,20 @@
           "days": [
             {
               "title": "Today so far",
-              "figure": "23 readers",
+              "figure": "7 readers",
               "text": "17 fish ID calls ($0.19) · 2 new comments · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Yesterday",
-              "figure": "22 readers",
-              "text": "17 fish ID calls ($0.19) · 3 shop clicks · 1 new comment · 3 new accounts · 1 page hidden",
+              "figure": "8 readers",
+              "text": "17 fish ID calls ($0.19) · 1 shop click · 1 new comment · 3 new accounts · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Monday 2 Nov",
-              "figure": "21 readers",
-              "text": "24 fish ID calls ($0.26) · 1 shop click · 1 name wanted",
+              "figure": "6 readers",
+              "text": "24 fish ID calls ($0.26) · 1 name wanted",
               "section": "doc-gia"
             }
           ]
@@ -2545,6 +2508,7 @@
           {
             "kind": "comments",
             "text": "5 comments held for review",
+            "sub": "Cá neon vua · Cá betta (cá xiêm)",
             "label": "Review",
             "tone": "wait",
             "section": "binh-luan"
@@ -2552,6 +2516,7 @@
           {
             "kind": "photos",
             "text": "2 reader photos to approve",
+            "sub": "Cá betta (cá xiêm) · Betta halfmoon",
             "label": "Review",
             "tone": "wait",
             "section": "anh-ban-doc",
@@ -2564,10 +2529,10 @@
         "needsEmpty": "Nothing needs you right now",
         "lastAction": {
           "title": "Your last action",
-          "text": "Hid /id/ikan/y/",
+          "text": "You hid a comment on Ikan neon (Indonesian)",
           "when": "Wed 4 Nov, 8:00",
-          "at": "2026-11-04T01:00:00.000Z",
-          "section": "an-trang"
+          "at": "2026-11-04T01:00:30.000Z",
+          "section": "binh-luan"
         },
         "answers": {
           "title": "Readers who found an answer",
@@ -2645,7 +2610,7 @@
                 "key": "doc-gia",
                 "name": "Readers",
                 "figure": {
-                  "text": "169 · +2%",
+                  "text": "53 · +4%",
                   "tone": "plain"
                 }
               },
@@ -2653,7 +2618,7 @@
                 "key": "affiliate",
                 "name": "Affiliate",
                 "figure": {
-                  "text": "14 · −13%",
+                  "text": "4 · +1",
                   "tone": "plain"
                 }
               }
@@ -2859,42 +2824,42 @@
           {
             "name": "Readers",
             "section": "doc-gia",
-            "fig": "169",
-            "sub": "readers · 7 days · 602 sessions",
+            "fig": "53",
+            "sub": "readers · 7 days · 81 sessions",
             "spark": [
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              20,
-              21,
-              22
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8,
+              7,
+              9,
+              7,
+              6,
+              8,
+              10,
+              5,
+              7,
+              9,
+              8,
+              6,
+              8
             ],
             "chip": {
-              "text": "+2%",
+              "text": "+4%",
               "tone": "plain",
               "vs": "the 7 days before"
             },
@@ -2992,43 +2957,43 @@
           {
             "name": "Affiliate",
             "section": "affiliate",
-            "fig": "14",
+            "fig": "4",
             "sub": "shop clicks · 7 days",
             "spark": [
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3,
               0,
-              2,
-              4,
               1,
-              3
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1
             ],
             "chip": {
-              "text": "−13%",
-              "tone": "bad",
+              "text": "+1",
+              "tone": "good",
               "vs": "the 7 days before"
             },
             "warn": false
@@ -3224,8 +3189,8 @@
           "entries": [
             {
               "at": "Today · 4 Nov · so far",
-              "text": "23 readers",
-              "sub": "90 sessions",
+              "text": "7 readers",
+              "sub": "11 sessions",
               "section": "doc-gia"
             },
             {
@@ -3258,13 +3223,13 @@
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "22 readers",
-              "sub": "89 sessions",
+              "text": "8 readers",
+              "sub": "12 sessions",
               "section": "doc-gia"
             },
             {
               "at": "Yesterday · 3 Nov",
-              "text": "3 shop clicks",
+              "text": "1 shop click",
               "section": "affiliate"
             },
             {
@@ -3291,14 +3256,9 @@
             },
             {
               "at": "Mon 2 Nov",
-              "text": "21 readers",
-              "sub": "88 sessions",
+              "text": "6 readers",
+              "sub": "10 sessions",
               "section": "doc-gia"
-            },
-            {
-              "at": "Mon 2 Nov",
-              "text": "1 shop click",
-              "section": "affiliate"
             },
             {
               "at": "Mon 2 Nov",
@@ -3316,20 +3276,20 @@
           "days": [
             {
               "title": "Today so far",
-              "figure": "23 readers",
+              "figure": "7 readers",
               "text": "17 fish ID calls ($0.19) · 2 new comments · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Yesterday",
-              "figure": "22 readers",
-              "text": "17 fish ID calls ($0.19) · 3 shop clicks · 1 new comment · 3 new accounts · 1 page hidden",
+              "figure": "8 readers",
+              "text": "17 fish ID calls ($0.19) · 1 shop click · 1 new comment · 3 new accounts · 1 page hidden",
               "section": "doc-gia"
             },
             {
               "title": "Monday 2 Nov",
-              "figure": "21 readers",
-              "text": "24 fish ID calls ($0.26) · 1 shop click · 1 name wanted",
+              "figure": "6 readers",
+              "text": "24 fish ID calls ($0.26) · 1 name wanted",
               "section": "doc-gia"
             }
           ]
@@ -3346,11 +3306,11 @@
           {
             "key": "answers",
             "label": "Found an answer",
-            "value": "13",
+            "value": "12",
             "sub": "This week so far",
             "delta": {
-              "text": "+8% vs the same point last week",
-              "tone": "good"
+              "text": "−20% vs last week",
+              "tone": "bad"
             },
             "bars": {
               "days": [
@@ -3363,9 +3323,9 @@
                 "2026-11-08"
               ],
               "values": [
-                6,
                 3,
                 4,
+                5,
                 null,
                 null,
                 null,
@@ -3373,16 +3333,16 @@
               ],
               "readouts": [
                 {
-                  "title": "6 found an answer",
-                  "detail": "Mon 2 Nov · 9 readers · 1 shop click"
-                },
-                {
                   "title": "3 found an answer",
-                  "detail": "Tue 3 Nov · 7 readers · 0 shop clicks"
+                  "detail": "Mon 2 Nov · 6 readers · 0 shop clicks"
                 },
                 {
                   "title": "4 found an answer",
-                  "detail": "Wed 4 Nov, so far · 6 readers · 1 shop click"
+                  "detail": "Tue 3 Nov · 8 readers · 1 shop click"
+                },
+                {
+                  "title": "5 found an answer",
+                  "detail": "Wed 4 Nov, so far · 7 readers · 0 shop clicks"
                 },
                 {
                   "title": "Still to come",
@@ -3430,20 +3390,20 @@
         "needsEmpty": "Nothing needs you right now",
         "lastAction": {
           "title": "Your last action",
-          "text": "Hid /id/ikan/y/",
+          "text": "You hid a comment on Ikan neon (Indonesian)",
           "when": "Wed 4 Nov, 8:00",
-          "at": "2026-11-04T01:00:00.000Z",
-          "section": "an-trang"
+          "at": "2026-11-04T01:00:30.000Z",
+          "section": "binh-luan"
         },
         "answers": {
           "title": "Readers who found an answer",
           "figure": {
             "label": "Found an answer",
-            "value": "13",
+            "value": "12",
             "sub": "This week so far",
             "delta": {
-              "text": "+8% vs the same point last week",
-              "tone": "good"
+              "text": "−20% vs the same point last week",
+              "tone": "bad"
             }
           },
           "chart": {
@@ -3464,9 +3424,9 @@
               {
                 "label": "Found an answer",
                 "values": [
-                  6,
                   3,
                   4,
+                  5,
                   null,
                   null,
                   null,
@@ -3474,18 +3434,6 @@
                 ]
               }
             ],
-            "whole": {
-              "label": "Readers",
-              "values": [
-                9,
-                7,
-                6,
-                null,
-                null,
-                null,
-                null
-              ]
-            },
             "empty": "No readers counted this week yet.",
             "labels": [
               "Mon",
@@ -3498,16 +3446,16 @@
             ],
             "readouts": [
               {
-                "title": "6 found an answer",
-                "detail": "Mon 2 Nov · 9 readers · 1 shop click"
-              },
-              {
                 "title": "3 found an answer",
-                "detail": "Tue 3 Nov · 7 readers · 0 shop clicks"
+                "detail": "Mon 2 Nov · 6 readers · 0 shop clicks"
               },
               {
                 "title": "4 found an answer",
-                "detail": "Wed 4 Nov, so far · 6 readers · 1 shop click"
+                "detail": "Tue 3 Nov · 8 readers · 1 shop click"
+              },
+              {
+                "title": "5 found an answer",
+                "detail": "Wed 4 Nov, so far · 7 readers · 0 shop clicks"
               },
               {
                 "title": "Still to come",
@@ -3530,26 +3478,26 @@
           "figures": [
             {
               "label": "Readers",
-              "value": "22",
+              "value": "21",
               "delta": {
-                "text": "+5% vs the same point last week",
-                "tone": "muted"
+                "text": "−12% vs the same point last week",
+                "tone": "bad"
               }
             },
             {
               "label": "Sessions",
-              "value": "34",
+              "value": "33",
               "delta": {
-                "text": "+3% vs the same point last week",
+                "text": "−8% vs the same point last week",
                 "tone": "muted"
               }
             },
             {
               "label": "Shop clicks",
-              "value": "2",
+              "value": "1",
               "delta": {
-                "text": "+100% vs the same point last week",
-                "tone": "good"
+                "text": "−50% vs the same point last week",
+                "tone": "bad"
               }
             }
           ]
@@ -3614,7 +3562,7 @@
                 "key": "thanh-cong",
                 "name": "Scoreboard",
                 "figure": {
-                  "text": "13 answers",
+                  "text": "12 answers",
                   "tone": "plain"
                 }
               },
@@ -3622,7 +3570,7 @@
                 "key": "doc-gia",
                 "name": "Readers",
                 "figure": {
-                  "text": "169 · +2%",
+                  "text": "21 · −12%",
                   "tone": "plain"
                 }
               },
@@ -3630,7 +3578,7 @@
                 "key": "affiliate",
                 "name": "Affiliate",
                 "figure": {
-                  "text": "14 · −13%",
+                  "text": "1 · −50%",
                   "tone": "plain"
                 }
               }
@@ -3834,24 +3782,24 @@
             "items": [
               {
                 "label": "Readers who found their answer",
-                "value": "13",
+                "value": "12",
                 "sub": "Came from a search engine, then stayed 30 s on the first page or scrolled past half of it."
               },
               {
                 "label": "Readers",
-                "value": "22"
+                "value": "21"
               },
               {
                 "label": "Readers from search",
-                "value": "59.1%"
+                "value": "57.1%"
               },
               {
                 "label": "Sessions with a next step",
-                "value": "5.9%"
+                "value": "3.0%"
               },
               {
                 "label": "Shop clicks per 1,000 readers",
-                "value": "90.9"
+                "value": "47.6"
               }
             ]
           },
@@ -3892,7 +3840,7 @@
                   null,
                   null,
                   null,
-                  13
+                  12
                 ]
               }
             ],
@@ -3957,7 +3905,7 @@
                 "detail": "Week of 26 Oct"
               },
               {
-                "title": "13 readers who found their answer",
+                "title": "12 readers who found their answer",
                 "detail": "Week of 2 Nov, so far"
               }
             ]
@@ -3999,7 +3947,7 @@
                   null,
                   null,
                   null,
-                  22
+                  21
                 ]
               }
             ],
@@ -4017,7 +3965,7 @@
                 null,
                 null,
                 null,
-                34
+                33
               ]
             },
             "today": 11,
@@ -4081,8 +4029,8 @@
                 "detail": "Week of 26 Oct · sessions: not counted"
               },
               {
-                "title": "22 readers",
-                "detail": "Week of 2 Nov, so far · 34 sessions"
+                "title": "21 readers",
+                "detail": "Week of 2 Nov, so far · 33 sessions"
               }
             ]
           },
@@ -4107,7 +4055,7 @@
                   "sub": "Tabs that stayed 30 s or scrolled past half a page, on any page."
                 },
                 {
-                  "text": "22"
+                  "text": "21"
                 },
                 {
                   "text": "—"
@@ -4122,7 +4070,7 @@
                   "sub": "One a tab. Known bots, the site’s own checks and the owner left out."
                 },
                 {
-                  "text": "34"
+                  "text": "33"
                 },
                 {
                   "text": "—"
@@ -4136,7 +4084,7 @@
                   "text": "Readers from search"
                 },
                 {
-                  "text": "59.1%"
+                  "text": "57.1%"
                 },
                 {
                   "text": "—"
@@ -4150,7 +4098,7 @@
                   "text": "Readers · Vietnamese"
                 },
                 {
-                  "text": "22"
+                  "text": "21"
                 },
                 {
                   "text": "—"
@@ -4220,7 +4168,15 @@
                   "text": "VN"
                 },
                 {
-                  "text": "22"
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "text": "ID"
+                },
+                {
+                  "text": "7"
                 }
               ]
             ],
@@ -4243,7 +4199,7 @@
                   "text": "VN"
                 },
                 {
-                  "text": "37"
+                  "text": "46"
                 }
               ],
               [
@@ -4251,7 +4207,7 @@
                   "text": "ID"
                 },
                 {
-                  "text": "13"
+                  "text": "7"
                 }
               ]
             ],
@@ -4278,7 +4234,7 @@
                   "sub": "Clicked to a shop, opened a tool or read a second page."
                 },
                 {
-                  "text": "5.9%"
+                  "text": "3.0%"
                 },
                 {
                   "text": "—"
@@ -4292,7 +4248,7 @@
                   "text": "Sessions that clicked to a shop"
                 },
                 {
-                  "text": "5.9%"
+                  "text": "3.0%"
                 },
                 {
                   "text": "—"
@@ -4335,7 +4291,7 @@
                   "sub": "Counted by the beacon when a reader clicks, by the same rules as readers."
                 },
                 {
-                  "text": "2"
+                  "text": "1"
                 },
                 {
                   "text": "—"
@@ -4349,7 +4305,7 @@
                   "text": "Shop clicks per 1,000 readers"
                 },
                 {
-                  "text": "90.9"
+                  "text": "47.6"
                 },
                 {
                   "text": "—"
@@ -8528,9 +8484,16 @@
             "empty": "No keys."
           },
           {
-            "kind": "note",
-            "text": "Model claude-x. Since 7:00: 10 identifications called Claude; 2 fell back to one call, 1 hit the call limit, 1 refused on a later call, 3 refunded (2 to one reader).",
-            "tone": "muted"
+            "kind": "table",
+            "columns": [
+              "What",
+              "Number"
+            ],
+            "rows": [],
+            "folded": "Since 7:00, in detail",
+            "figure": "10",
+            "id": "t2",
+            "count": 6
           },
           {
             "kind": "heading",
@@ -8579,7 +8542,7 @@
             ],
             "rows": [],
             "folded": "Every period side by side",
-            "id": "t3",
+            "id": "t4",
             "count": 5
           },
           {
@@ -8592,7 +8555,7 @@
             "rows": [],
             "folded": "Cost by day",
             "figure": "$0.63",
-            "id": "t4",
+            "id": "t5",
             "count": 3
           },
           {
@@ -8604,7 +8567,7 @@
             "rows": [],
             "folded": "Tokens in by day",
             "figure": "69,600",
-            "id": "t5",
+            "id": "t6",
             "count": 3
           },
           {
@@ -8616,7 +8579,7 @@
             "rows": [],
             "folded": "Tokens out by day",
             "figure": "5,220",
-            "id": "t6",
+            "id": "t7",
             "count": 3
           },
           {
@@ -8641,7 +8604,7 @@
             "empty": "No requests in this period.",
             "folded": "Every request",
             "figure": "59",
-            "id": "t7",
+            "id": "t8",
             "count": 59
           }
         ],
@@ -9893,9 +9856,16 @@
             "empty": "No keys."
           },
           {
-            "kind": "note",
-            "text": "Model claude-x. Since 7:00: 10 identifications called Claude; 2 fell back to one call, 1 hit the call limit, 1 refused on a later call, 3 refunded (2 to one reader).",
-            "tone": "muted"
+            "kind": "table",
+            "columns": [
+              "What",
+              "Number"
+            ],
+            "rows": [],
+            "folded": "Since 7:00, in detail",
+            "figure": "10",
+            "id": "t2",
+            "count": 6
           },
           {
             "kind": "heading",
@@ -9944,7 +9914,7 @@
             ],
             "rows": [],
             "folded": "Every period side by side",
-            "id": "t3",
+            "id": "t4",
             "count": 5
           },
           {
@@ -9957,7 +9927,7 @@
             "rows": [],
             "folded": "Cost by day",
             "figure": "$6.21",
-            "id": "t4",
+            "id": "t5",
             "count": 30
           },
           {
@@ -9969,7 +9939,7 @@
             "rows": [],
             "folded": "Tokens in by day",
             "figure": "684,000",
-            "id": "t5",
+            "id": "t6",
             "count": 30
           },
           {
@@ -9981,7 +9951,7 @@
             "rows": [],
             "folded": "Tokens out by day",
             "figure": "51,300",
-            "id": "t6",
+            "id": "t7",
             "count": 30
           },
           {
@@ -10006,7 +9976,7 @@
             "empty": "No requests in this period.",
             "folded": "Every request",
             "figure": "578",
-            "id": "t7",
+            "id": "t8",
             "count": 578
           }
         ],
@@ -10036,10 +10006,75 @@
       }
     },
     {
+      "name": "table: fish ID's folded \"Since 7:00, in detail\"",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t2",
+        "headers": {
+          "Time-Zone": "Asia/Ho_Chi_Minh"
+        }
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "rows": [
+          [
+            {
+              "text": "Model"
+            },
+            {
+              "text": "claude-x"
+            }
+          ],
+          [
+            {
+              "text": "Identifications that called Claude"
+            },
+            {
+              "text": "10"
+            }
+          ],
+          [
+            {
+              "text": "Fell back to one call"
+            },
+            {
+              "text": "2"
+            }
+          ],
+          [
+            {
+              "text": "Hit the call limit"
+            },
+            {
+              "text": "1"
+            }
+          ],
+          [
+            {
+              "text": "Refused on a later call"
+            },
+            {
+              "text": "1"
+            }
+          ],
+          [
+            {
+              "text": "Refunded"
+            },
+            {
+              "text": "3",
+              "sub": "2 to one reader"
+            }
+          ]
+        ]
+      }
+    },
+    {
       "name": "table: fish ID's folded \"Every period side by side\"",
       "request": {
         "method": "GET",
-        "path": "/api/owner/sections/nhan-dien-ca/tables/t3",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t4",
         "headers": {
           "Time-Zone": "Asia/Ho_Chi_Minh"
         }
@@ -10215,7 +10250,7 @@
       "name": "table: fish ID's folded \"Cost by day\"",
       "request": {
         "method": "GET",
-        "path": "/api/owner/sections/nhan-dien-ca/tables/t4",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t5",
         "headers": {
           "Time-Zone": "Asia/Ho_Chi_Minh"
         }
@@ -10264,7 +10299,7 @@
       "name": "table: fish ID's folded \"Tokens in by day\"",
       "request": {
         "method": "GET",
-        "path": "/api/owner/sections/nhan-dien-ca/tables/t5",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t6",
         "headers": {
           "Time-Zone": "Asia/Ho_Chi_Minh"
         }
@@ -10304,7 +10339,7 @@
       "name": "table: fish ID's folded \"Tokens out by day\"",
       "request": {
         "method": "GET",
-        "path": "/api/owner/sections/nhan-dien-ca/tables/t6",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t7",
         "headers": {
           "Time-Zone": "Asia/Ho_Chi_Minh"
         }
@@ -10344,7 +10379,7 @@
       "name": "table: fish ID's folded \"Every request\"",
       "request": {
         "method": "GET",
-        "path": "/api/owner/sections/nhan-dien-ca/tables/t7",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t8",
         "headers": {
           "Time-Zone": "Asia/Ho_Chi_Minh"
         }
@@ -12611,7 +12646,7 @@
       "name": "table: fish ID's folded \"Every request\", the next page",
       "request": {
         "method": "GET",
-        "path": "/api/owner/sections/nhan-dien-ca/tables/t7?cursor=50",
+        "path": "/api/owner/sections/nhan-dien-ca/tables/t8?cursor=50",
         "headers": {
           "Time-Zone": "Asia/Ho_Chi_Minh"
         }

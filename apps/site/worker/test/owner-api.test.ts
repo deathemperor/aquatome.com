@@ -6,7 +6,7 @@ import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
 import { scoreboardPage, scoreboardSection, summariseScoreboard } from '../admin/scoreboard'
-import { todayJson, todayPage, PAGE_GROUPS } from '../admin/today'
+import { todayJson, todayPage, PAGE_GROUPS, type OwnerAct } from '../admin/today'
 import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
 import { dashboardJson } from '../owner-api'
 import { commentsPage, commentsSection, cursorOf, EXPIRED, GONE, type CommentItem, type CommentsBlock, type CommentsData, type CommentState } from '../admin/comments'
@@ -245,8 +245,10 @@ function formOf(f: HTMLElement): Form {
 function fromHtml(html: string) {
   const main = dom(html)
   const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], comments: undefined as Cm | undefined, links: main.querySelectorAll('a').filter(a => !a.closest('section.comments') && !a.closest('nav.periods')).map(a => a.getAttribute('href') ?? ''), text: txt(main),
-    // The period menu: each period's key and name, and the one shown.
-    periods: main.querySelectorAll('nav.periods a').map(a => ({ key: new URL(a.getAttribute('href')!, 'https://x.test').searchParams.get('period')!, label: txt(a), on: a.getAttribute('aria-current') === 'page' })) }
+    // The period menu: each period's key and name, and the one shown; a phone's menu button has the same links, under the one shown.
+    periods: main.querySelectorAll('nav.periods .seg a').map(a => ({ key: new URL(a.getAttribute('href')!, 'https://x.test').searchParams.get('period')!, label: txt(a), on: a.getAttribute('aria-current') === 'page' })),
+    periodMenu: { shown: txt(main.querySelector('nav.periods .pmenu summary')), links: main.querySelectorAll('nav.periods .pmenu a').map(a => [a.getAttribute('href'), txt(a)]) },
+    periodLinks: main.querySelectorAll('nav.periods .seg a').map(a => [a.getAttribute('href'), txt(a)]) }
   const cell = (c: HTMLElement) => {
     const a = c.querySelectorAll('a')
     return { text: txt(c), ...(a.length === 1 && txt(a[0]) === txt(c) ? { href: a[0]!.getAttribute('href')! } : {}) }
@@ -371,6 +373,7 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
       // The period menu is the section's periods, the one shown its period.
       const s = json()
       expect((s.periods ?? []).map(p => ({ ...p, on: p.key === s.period })), at).toEqual(h.periods)
+      if (s.periods) expect(h.periodMenu, at).toEqual({ shown: s.periods.find(p => p.key === s.period)!.label, links: h.periodLinks })
       // Every note is on the page, word for word.
       for (const n of j.notes) expect(h.text.replace(/\s/g, ''), `${at}: ${n}`).toContain(norm(n).replace(/\s/g, '').replace(/·/g, ''))
     }
@@ -400,16 +403,19 @@ test('the web overview draws what the app gets: the tiles, what needs you (or th
   for (const t of [S.TODAY, S.CALM, S.SPENDING, { ...S.TODAY, beacon: F }, { ...S.CALM, tz: 'America/New_York' }]) {
     const j = todayJson(t)
     const page = dom(todayPage(t))
-    expect(page.querySelectorAll('dl.tiles4 > .kpi').map(k => [txt(k.querySelector('dt')), txt(k.querySelector('dd.v')), txt(k.querySelector('dd.sub'))])).toEqual(j.tiles.map(x => [x.label, x.value, norm(x.sub)]))
-    expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), txt(li.querySelector('p')), txt(li.querySelector('a.act')), li.querySelector('a.act')!.getAttribute('href')]))
-      .toEqual(j.needs.map(x => [x.text, x.sub ?? '', x.label, placeHref(x)]))
+    // A tile: its label, figure, and the line under it; one with small columns says its change there instead, on one line.
+    expect(page.querySelectorAll('dl.tiles4 > .kpi').map(k => [txt(k.querySelector('dt')), txt(k.querySelector('dd.v')), txt(k.querySelector('dd.sub')), txt(k.querySelector('.delta'))]))
+      .toEqual(j.tiles.map(x => [x.label, x.value, x.bars && x.delta ? '' : norm(x.sub), norm(x.delta?.text ?? '')]))
+    // What needs you: one row each, the whole row its link; the thing, the pages it's on, and the button's words.
+    expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), txt(li.querySelector('.sub')), txt(li.querySelector('.act')), li.querySelector('a')!.getAttribute('href')]))
+      .toEqual(j.needs.map(x => [x.text, norm(x.sub ?? ''), x.label, placeHref(x)]))
     // The heading's count is the tile's.
     expect(txt(page.querySelector('#needs .badge'))).toBe(j.needs.length ? j.tiles[0]!.value : '')
-    // All clear: said so, then the owner's last decision, its page and when, as the app shows it.
+    // All clear: said so, then the owner's last decision in words, its page and when, as the app shows it.
     const last = page.querySelector('p.last')
     if (j.needs.length || !j.lastAction) expect(last).toBeNull()
     else {
-      expect(txt(last)).toBe(norm(`${j.lastAction.title}: ${j.lastAction.text} · ${j.lastAction.when}`))
+      expect(txt(last)).toBe(norm(`${j.lastAction.text} · ${j.lastAction.when}`))
       expect(last!.querySelector('a')!.getAttribute('href')).toBe(`/_ab/${j.lastAction.section}/`)
       expect(last!.querySelector('time')!.getAttribute('datetime')).toBe(j.lastAction.at)
     }
@@ -417,21 +423,96 @@ test('the web overview draws what the app gets: the tiles, what needs you (or th
     expect(page.querySelectorAll('section[aria-labelledby="pages"] section').map(g => [txt(g.querySelector('h3')), g.querySelectorAll('a').map(a => [a.getAttribute('href'), ...a.querySelectorAll('span').map(txt)])]))
       .toEqual(j.pages.map(g => [g.name, g.pages.map(p => [`/_ab/${p.key}/`, p.name, norm(p.figure.text)])]))
   }
-  expect(dom(todayPage(S.CALM)).querySelector('p.last')!.text).toBe('Your last action: Hid /id/ikan/y/ · Wed 4 Nov, 8:00')
+  expect(dom(todayPage(S.CALM)).querySelector('p.last')!.text).toBe('You hid a comment on Ikan neon (Indonesian) · Wed 4 Nov, 8:00')
 })
 
-test('the owner\'s last action: the newest of a comment shown or hidden, a photo approved or removed and a page hidden; none, or none readable, is null', () => {
-  expect(todayJson(S.CALM).lastAction).toEqual({ title: 'Your last action', text: 'Hid /id/ikan/y/', when: 'Wed 4 Nov, 8:00', at: '2026-11-04T01:00:00.000Z', section: 'an-trang' })
+test('what needs you is one card: each row its kind\'s icon (the triangle only for a fault), the pages it\'s on, and a button filled to review, outlined to fix', () => {
+  // The Design Lead (2026-11-08): a peach alert card a row made routine reviews look like outages.
+  const page = dom(todayPage(S.TODAY))
+  expect(page.querySelectorAll('ul.todo')).toHaveLength(1)
+  expect(page.querySelectorAll('ul.todo > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.ic')!.getAttribute('data-i'), li.querySelector('.sub')?.text ?? ''])).toEqual([
+    ['Fish ID and chat are down', 'bad', 'alert', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
+    ['2Hr Aquarist needs a browser check', 'bad', 'alert', 'Stopped Wed 4 Nov, 5:00.'],
+    ['5 comments held for review', 'wait', 'comment', 'Cá neon vua · Cá betta (cá xiêm)'],
+    ['2 reader photos to approve', 'wait', 'photo', 'Cá betta (cá xiêm) · Betta halfmoon'],
+  ])
+  // Each row is one link, with the chevron a phone shows in place of the button.
+  for (const li of parse(todayPage(S.TODAY)).querySelectorAll('ul.todo > li')) expect([li.querySelectorAll('a').length, li.querySelectorAll('svg.chev').length]).toEqual([1, 1])
+  // The spend near its cap waits, with its own icon; a held comment's pages past three say how many more; pages this build doesn't have aren't named.
+  expect(dom(todayPage(S.SPENDING)).querySelector('ul.todo > li .ic')!.getAttribute('data-i')).toBe('coin')
+  const many = { ...S.TODAY, heldPages: ['species:paracheirodon-axelrodi', 'species:betta-splendens', 'id:species:paracheirodon-innesi', 'species:paracheirodon-innesi', 'guide:gone'] }
+  expect(todayJson(many).needs.find(x => x.kind === 'comments')!.sub).toBe('Cá neon vua · Cá betta (cá xiêm) · Ikan neon (Indonesian) · 1 more')
+  expect(todayJson({ ...S.TODAY, heldPages: ['guide:gone'] }).needs.find(x => x.kind === 'comments')).not.toHaveProperty('sub')
+  expect(todayJson({ ...S.TODAY, heldPages: F }).needs.find(x => x.kind === 'comments')).not.toHaveProperty('sub')
+})
+
+test('readers who found an answer: one card, the week\'s figure once, the days found an answer only (readers and shop clicks on a tap), then readers, sessions and shop clicks', () => {
+  const j = todayJson(S.TODAY)
+  const card = dom(todayPage(S.TODAY)).querySelector('section[aria-labelledby="answers"]')!
+  // The drawn parts too (the page's dom() leaves out what only the eye reads).
+  const drawn = parse(todayPage(S.TODAY)).querySelector('section[aria-labelledby="answers"]')!
+  // The figure once in the card: its top line, "13 this week · +8% vs the same point last week".
+  expect(card.querySelectorAll('.acard')).toHaveLength(1)
+  expect(txt(card.querySelector('.acard .top'))).toBe(norm(`${j.answers.figure!.value} this week ${j.answers.figure!.delta!.text}`))
+  expect(card.querySelectorAll('dd.v').map(txt)).toEqual(j.answers.figures!.map(f => f.value))
+  // Under the chart, as drawn: "169", then "readers +2%" on one line; what it's against is there for a screen reader.
+  expect(card.querySelectorAll('.kpi dt').map(txt)).toEqual(j.answers.figures!.map(f => `${f.label.toLowerCase()} ${f.delta!.text.split(' ')[0]}`))
+  expect(drawn.querySelectorAll('.kpi dt').map(txt)).toEqual(j.answers.figures!.map(f => norm(`${f.label.toLowerCase()} ${f.delta!.text}`)))
+  // The chart: found an answer only, a day's name under each of the week's bars, no axis, no totals, no key.
+  const chart = j.answers.chart as Extract<Block, { kind: 'chart' }>
+  expect(chart.series.map(x => x.label)).toEqual(['Found an answer'])
+  expect(chart).not.toHaveProperty('whole')
+  expect(drawn.querySelectorAll('.xax span').map(txt)).toEqual(['Mon', 'Tue', 'Today', 'Thu', 'Fri', 'Sat', 'Sun'])
+  expect(drawn.querySelectorAll('.yax span, .readout, .legend')).toHaveLength(0)
+  expect(drawn.querySelectorAll('.cols li').map(li => li.getAttribute('data-x'))).toEqual(chart.readouts.map(r => r.detail))
+  expect(chart.readouts[1]!.detail).toMatch(/^Tue 3 Nov · \d+ readers · \d+ shop clicks?$/)
+  // The tile's small columns: all seven days, today lighter, and its change on one line.
+  const tile = j.tiles.find(x => x.key === 'answers')!
+  expect(tile.bars!.values).toHaveLength(7)
+  expect(tile.delta!.text).toMatch(/^[−+±]\d+% vs last week$/)
+  expect(parse(todayPage(S.TODAY)).querySelectorAll('dl.tiles4 .spark rect.today')).toHaveLength(1)
+})
+
+test('the sample\'s readers agree: the week has at least each of its days\' readers, its days are the last three days\' and the scoreboard\'s, and every page says the card\'s week', () => {
+  const j = todayJson(S.TODAY)
+  const chart = j.answers.chart as Extract<Block, { kind: 'chart' }>
+  const perDay = chart.readouts.slice(0, 3).map(r => Number(r.detail.match(/(\d+) readers?/)![1]))
+  const week = Number(j.answers.figures!.find(f => f.label === 'Readers')!.value)
+  expect(week).toBe(perDay.reduce((a, b) => a + b, 0))
+  expect(week).toBeGreaterThanOrEqual(Math.max(...perDay))
+  // The last three days, newest first, are the week's Wednesday, Tuesday and Monday.
+  expect(j.days.map(d => Number(d.figure.match(/^(\d+) readers?$/)![1]))).toEqual(perDay.slice().reverse())
+  // Every page's Readers and Affiliate say the card's week and its change, as the drawing's "169 · +2%" (2026-11-09).
+  const page = (key: string) => j.pages.flatMap(g => g.pages).find(p => p.key === key)!.figure.text
+  const said = (label: string) => {
+    const f = j.answers.figures!.find(x => x.label === label)!
+    return `${f.value} · ${f.delta!.text.split(' ')[0]}`
+  }
+  expect(page('doc-gia')).toBe(said('Readers'))
+  expect(page('affiliate')).toBe(said('Shop clicks'))
+  expect(page('thanh-cong')).toBe(`${j.answers.figure!.value} answers`)
+  // Without the beacon, the readers' and the shop's own 7 days.
+  const off = todayJson({ ...S.TODAY, beacon: { failed: 'down' } })
+  const sevenDays = S.OVERVIEW.readers as { day: string; readers: number }[]
+  expect(off.pages.flatMap(g => g.pages).find(p => p.key === 'doc-gia')!.figure.text).toMatch(new RegExp(`^${sevenDays.slice(-8, -1).reduce((a, d) => a + d.readers, 0)}\\b`))
+})
+
+test('the owner\'s last action, in words: the newest of a comment shown or hidden, a photo approved or removed and a page hidden; none, or none readable, is null', () => {
+  // The Design Lead (2026-11-08): "Hid /id/ikan/y/" said a path; the page by its name, and its language when it isn't Vietnamese.
+  expect(todayJson(S.CALM).lastAction).toEqual({ title: 'Your last action', text: 'You hid a comment on Ikan neon (Indonesian)', when: 'Wed 4 Nov, 8:00', at: '2026-11-04T01:00:30.000Z', section: 'binh-luan' })
+  const older = (S.CALM.acts as OwnerAct[]).slice(0, 1)
+  // Without it: the page hidden this morning, by its address when the build doesn't have it, else by its name.
+  expect(todayJson({ ...S.CALM, acts: older }).lastAction).toMatchObject({ text: 'You hid the page at /id/ikan/y/', when: 'Wed 4 Nov, 8:00', section: 'an-trang' })
+  expect(todayJson({ ...S.CALM, acts: older, hidden: { '/ca/ca-betta/': { at: '2026-11-04T01:00:00.000Z' } } }).lastAction!.text).toBe('You hid the page Cá betta (cá xiêm)')
   // Without the hidden pages: the comment hidden the day before, on its page when the build names it.
-  expect(todayJson({ ...S.CALM, hidden: {} }).lastAction).toMatchObject({ text: 'Hid a comment', when: 'Tue 3 Nov, 13:00', section: 'binh-luan' })
-  const named = { ...S.CALM, hidden: {}, content: { ...S.STATS, pages: { fish: [['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi']] } } as typeof S.STATS }
-  expect(todayJson(named).lastAction!.text).toBe('Hid a comment on Cá neon vua')
-  const act = (kind: 'comment-shown' | 'photo-approved' | 'photo-removed', at: string) => todayJson({ ...S.CALM, acts: [...(S.CALM.acts as { kind: 'comment-hidden'; at: string; ref: string }[]), { kind, at, ref: 'species:betta-splendens' }] }).lastAction
-  expect(act('photo-approved', '2026-11-04T08:00:00.000Z')).toMatchObject({ text: 'Approved a reader photo', when: 'Wed 4 Nov, 15:00', section: 'anh-ban-doc' })
-  expect(act('photo-removed', '2026-11-04T08:00:00.000Z')!.text).toBe('Removed a reader photo')
-  expect(act('comment-shown', '2026-11-04T02:00:00.000Z')!.text).toBe('Showed a comment')
+  expect(todayJson({ ...S.CALM, acts: older, hidden: {} }).lastAction).toMatchObject({ text: 'You hid a comment on Cá neon vua', when: 'Tue 3 Nov, 13:00', section: 'binh-luan' })
+  expect(todayJson({ ...S.CALM, acts: older, hidden: {}, content: S.STATS }).lastAction!.text).toBe('You hid a comment')
+  const act = (kind: 'comment-shown' | 'photo-approved' | 'photo-removed', at: string) => todayJson({ ...S.CALM, acts: [...(S.CALM.acts as OwnerAct[]), { kind, at, ref: 'species:betta-splendens' }] }).lastAction
+  expect(act('photo-approved', '2026-11-04T08:00:00.000Z')).toMatchObject({ text: 'You approved a reader photo on Cá betta (cá xiêm)', when: 'Wed 4 Nov, 15:00', section: 'anh-ban-doc' })
+  expect(act('photo-removed', '2026-11-04T08:00:00.000Z')!.text).toBe('You removed a reader photo on Cá betta (cá xiêm)')
+  expect(act('comment-shown', '2026-11-04T02:00:00.000Z')!.text).toBe('You showed a comment on Cá betta (cá xiêm)')
   // A time past now (a clock ahead) isn't the last action.
-  expect(act('photo-approved', '2026-11-05T08:00:00.000Z')!.text).toBe('Hid /id/ikan/y/')
+  expect(act('photo-approved', '2026-11-05T08:00:00.000Z')!.text).toBe('You hid a comment on Ikan neon (Indonesian)')
   expect(todayJson({ ...S.CALM, acts: [], hidden: {} }).lastAction).toBeNull()
   expect(todayJson({ ...S.CALM, acts: F, hidden: F }).lastAction).toBeNull()
 })
@@ -460,7 +541,8 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(t.tiles.map(x => x.key)).toEqual(['needs', 'answers', 'shipped', 'cost'])
   expect(t.tiles[1]).toMatchObject({ value: String(star.now), bars: { days: ch.days, values: ch.series[0]!.values, readouts: ch.readouts, today: ch.today } })
   expect(ch.series[0]!.values.reduce<number>((a, v) => a + (v ?? 0), 0)).toBe(star.now)
-  ch.series[0]!.values.forEach((v, i) => expect(v ?? 0).toBeLessThanOrEqual(ch.whole!.values[i] ?? 0))
+  // Readers are said with each day (not drawn): never fewer than the day's answers.
+  ch.series[0]!.values.forEach((v, i) => expect(v ?? 0).toBeLessThanOrEqual(Number(ch.readouts[i]!.detail.match(/(\d+) readers?/)?.[1] ?? 0)))
   expect(ch.today).toBe(2) // Wednesday: Thursday to Sunday still to come
   expect(ch.series[0]!.values.slice(3)).toEqual([null, null, null, null])
   // Needs: faults first, then what waits on the owner; the tile counts the items.
@@ -469,7 +551,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
   expect(t.needs.map(x => [x.text, x.sub])).toEqual([
     ['Fish ID and chat are down', 'Every key resting, the first until Wed 4 Nov, 16:30.'], ['2Hr Aquarist needs a browser check', 'Stopped Wed 4 Nov, 5:00.'],
-    ['5 comments held for review', undefined], ['2 reader photos to approve', undefined],
+    ['5 comments held for review', 'Cá neon vua · Cá betta (cá xiêm)'], ['2 reader photos to approve', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])
   // A day's AI spend near its cap waits on the owner: to review, not a fault.
   const spend = todayJson(S.SPENDING)
@@ -491,7 +573,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })
   expect(t.costs.keys).toMatchObject({ text: '2 of 2 resting', tone: 'bad', section: 'nhan-dien-ca', anchor: 'key' })
   // The last action: kept for the all clear, sent always.
-  expect(t.lastAction).toMatchObject({ text: 'Hid /id/ikan/y/', section: 'an-trang' })
+  expect(t.lastAction).toMatchObject({ text: 'You hid a comment on Ikan neon (Indonesian)', section: 'binh-luan' })
   // Every section once, in NAV's order; every place a section, an anchor one of its headings.
   expect(t.pages.flatMap(g => g.pages.map(p => p.key))).toEqual(KEYS)
   expect(PAGE_GROUPS.flatMap(([, ps]) => ps.map(([k]) => k))).toEqual(KEYS)
@@ -732,7 +814,7 @@ test('a reader\'s photo: approved (the next pass publishes it) or removed now, b
   expect(w.media.m.size).toBe(0)
   // The overview's last action is that removal, read back from what it kept.
   const dash = (await (await call(w.e, 'GET', '/api/owner/dashboard', bearer(w.ownerApp))).json()) as { lastAction: { text: string; section: string } | null }
-  expect(dash.lastAction).toMatchObject({ text: expect.stringMatching(/^Removed a reader photo/), section: 'anh-ban-doc' })
+  expect(dash.lastAction).toMatchObject({ text: expect.stringMatching(/^You removed a reader photo/), section: 'anh-ban-doc' })
   // Nothing left to do: said, not refused.
   expect(await (await post(S.PHOTO_LIVE, { action: 'remove' })).json()).toEqual({ ok: true, changed: false })
   expect(await (await post(S.PHOTO_LIVE, { action: 'approve' })).json()).toEqual({ ok: true, changed: false })

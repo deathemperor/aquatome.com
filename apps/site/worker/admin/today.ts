@@ -1,10 +1,10 @@
 import type { Change } from '../daily/github'
 import type { ReportMeta } from '../daily/log'
 import { chart, deltaJson, type Block, type Figure, type TextTone } from './blocks'
-import { barWords, chipOf, dayChart, dayLabel, dayName, esc, fmt, lastDays, spark, usd, weekdayOf, type DayChart, type Readout, type Series } from './chart'
+import { barWords, chipOf, dayChart, deltaOf, dayLabel, dayName, esc, fmt, lastDays, spark, usd, weekdayOf, type DayChart, type Readout, type Series } from './chart'
 import { HIDDEN_BY_OWNER, SHOWN_BY_OWNER } from './comments'
-import { pagesByRef } from './content'
-import { MAIN } from './content-page'
+import { langOfPath, pageIndex, pagesByRef } from './content'
+import { LANG_NAME, MAIN } from './content-page'
 import { fishSpan, periodTotals } from './fishid'
 import { ago, alignDaily, didntLoad, placeOf, todos, type Overview } from './pages'
 import { weekByDay, type BeaconRow, type WeekByDay } from './scoreboard'
@@ -24,8 +24,10 @@ export type Today = Overview & {
   countingFrom: string
   /** Comments held: they wait on the owner. */
   held: Soft<number>
-  /** Readers' photos waiting, newest first; undefined where readers' photos are off. */
-  waitingPhotos: Soft<{ id: string }[]> | undefined
+  /** The pages held comments are on (entity_ref, newest first, each once): named under the need. */
+  heldPages?: Soft<string[]>
+  /** Readers' photos waiting, newest first, each with the page it's for (`ref`, a comment's photo its comment's page); undefined where readers' photos are off. */
+  waitingPhotos: Soft<{ id: string; ref?: string }[]> | undefined
   /** Fish ID photos kept; undefined without R2. */
   kept: Soft<number> | undefined
   /** The app's crash reports this week. */
@@ -86,10 +88,27 @@ export function needsOf(t: Today): Need[] {
   for (const [what, part, section] of [['Readers’ beacon', t.beacon, 'thanh-cong'], ['Held comments', t.held, 'binh-luan'], ['Waiting photos', t.waitingPhotos, 'anh-ban-doc'], ['Kept photos', t.kept, 'anh-nhan-dien'], ['App crashes', t.crashes, 'ung-dung'], ['Daily reports', t.lastReport, 'bao-cao'], ['Changelog', t.changes, 'thay-doi']] as const) {
     if (isFailed(part)) out.push({ kind: 'failed', text: didntLoad(what), sub: 'Its page has the error.', label: 'Open', tone: 'bad', section })
   }
-  if (!isFailed(t.held) && t.held) out.push({ kind: 'comments', text: `${n(t.held, 'comment')} held for review`, label: 'Review', tone: 'wait', section: 'binh-luan' })
+  const named = (refs: string[]) => pageNames(t, refs)
+  if (!isFailed(t.held) && t.held) {
+    const sub = t.heldPages && !isFailed(t.heldPages) ? named(t.heldPages) : ''
+    out.push({ kind: 'comments', text: `${n(t.held, 'comment')} held for review`, ...(sub ? { sub } : {}), label: 'Review', tone: 'wait', section: 'binh-luan' })
+  }
   const photos = t.waitingPhotos && !isFailed(t.waitingPhotos) ? t.waitingPhotos : []
-  if (photos.length) out.push({ kind: 'photos', text: `${n(photos.length, 'reader photo')} to approve`, label: 'Review', tone: 'wait', section: 'anh-ban-doc', photos: photos.slice(0, 4).map(p => p.id) })
+  if (photos.length) {
+    const sub = named(photos.flatMap(p => (p.ref ? [p.ref] : [])))
+    out.push({ kind: 'photos', text: `${n(photos.length, 'reader photo')} to approve`, ...(sub ? { sub } : {}), label: 'Review', tone: 'wait', section: 'anh-ban-doc', photos: photos.slice(0, 4).map(p => p.id) })
+  }
   return out
+}
+
+/** A page by its title, and its language when it isn't Vietnamese: "Cá betta (cá xiêm)", "Ikan neon (Indonesian)". */
+const titled = (x: { path: string; title: string }) => `${x.title}${langOfPath(x.path) === 'vi' ? '' : ` (${LANG_NAME[langOfPath(x.path)]})`}`
+/** The pages a need is on, by D1's keys: the first three this build names, each once, then how many more. */
+function pageNames(t: Today, refs: string[]): string {
+  if (isFailed(t.content)) return ''
+  const byRef = pagesByRef(t.content)
+  const names = [...new Set(refs.flatMap(r => (byRef.get(r) ? [titled(byRef.get(r)!)] : [])))]
+  return [...names.slice(0, 3), ...(names.length > 3 ? [`${fmt(names.length - 3)} more`] : [])].join(' · ')
 }
 
 /**
@@ -99,14 +118,17 @@ export function needsOf(t: Today): Need[] {
 export function lastActionOf(t: Today): LastAction | null {
   const tz = t.tz ?? HOME_TZ
   const pages = isFailed(t.content) ? undefined : pagesByRef(t.content)
-  const on = (ref: string) => (pages?.get(ref) ? ` on ${pages.get(ref)!.title}` : '')
+  const byPath = isFailed(t.content) ? undefined : pageIndex(t.content)
+  const on = (ref: string) => (pages?.get(ref) ? ` on ${titled(pages.get(ref)!)}` : '')
   const said: Record<OwnerAct['kind'], [(ref: string) => string, string]> = {
-    'comment-shown': [ref => `Showed a comment${on(ref)}`, 'binh-luan'], 'comment-hidden': [ref => `Hid a comment${on(ref)}`, 'binh-luan'],
-    'photo-approved': [ref => `Approved a reader photo${on(ref)}`, 'anh-ban-doc'], 'photo-removed': [ref => `Removed a reader photo${on(ref)}`, 'anh-ban-doc'],
+    'comment-shown': [ref => `You showed a comment${on(ref)}`, 'binh-luan'], 'comment-hidden': [ref => `You hid a comment${on(ref)}`, 'binh-luan'],
+    'photo-approved': [ref => `You approved a reader photo${on(ref)}`, 'anh-ban-doc'], 'photo-removed': [ref => `You removed a reader photo${on(ref)}`, 'anh-ban-doc'],
   }
+  // A page hidden by its title; one this build doesn't have (gone since) by its address.
+  const hid = (path: string) => (byPath?.get(path) ? `You hid the page ${titled(byPath.get(path)!)}` : `You hid the page at ${path}`)
   const all = [
     ...(isFailed(t.acts) ? [] : t.acts.map(a => ({ at: a.at, text: said[a.kind][0](a.ref), section: said[a.kind][1] }))),
-    ...(isFailed(t.hidden) ? [] : Object.entries(t.hidden).map(([path, v]) => ({ at: v.at, text: `Hid ${path}`, section: 'an-trang' }))),
+    ...(isFailed(t.hidden) ? [] : Object.entries(t.hidden).map(([path, v]) => ({ at: v.at, text: hid(path), section: 'an-trang' }))),
   ].filter(a => Number.isFinite(Date.parse(a.at)) && Date.parse(a.at) <= t.now.getTime())
   const last = all.sort((a, b) => Date.parse(b.at) - Date.parse(a.at))[0]
   return last ? { title: 'Your last action', text: last.text, when: clock(last.at, tz, t.now), at: new Date(last.at).toISOString(), section: last.section } : null
@@ -119,9 +141,9 @@ function answersChart(w: WeekByDay): { chart: DayChart; also: Series[] } {
   return {
     chart: {
       id: 'answers', title: 'Found an answer, by day', days: w.days, today: w.today,
-      series: [{ label: 'Found an answer', values: w.answered }], whole: { label: 'Readers', values: w.readers }, empty: 'No readers counted this week yet.',
+      series: [{ label: 'Found an answer', values: w.answered }], empty: 'No readers counted this week yet.',
     },
-    also: [{ label: 'Shop clicks', values: w.shop }],
+    also: [{ label: 'Readers', values: w.readers }, { label: 'Shop clicks', values: w.shop }],
   }
 }
 
@@ -175,10 +197,15 @@ function figureOf(key: string, t: Today, w: WeekByDay | undefined): { text: stri
     const chip = chipText(ago(vals, 7, 1), ago(vals, 14, 8))
     return plain(`${fmt(ago(vals, 7, 1))}${chip ? ` · ${chip.text}` : ''}`)
   }
+  // This week so far against the same point last week: what the answers card says (docs/design: Readers "169 · +2%").
+  const week = (now: number, before: number | undefined) => {
+    const d = before === undefined ? undefined : changeOf(deltaOf({ now, before, vs: 'the same point last week' }).text)
+    return plain(`${fmt(now)}${d ? ` · ${d.change}` : ''}`)
+  }
   switch (key) {
     case 'thanh-cong': return w ? plain(n(w.now.answered, 'answer')) : failed
-    case 'doc-gia': return isFailed(t.readers) ? failed : sevenDays(alignDaily(lastDays(t.now, 31, tz), t.readers).readers)
-    case 'affiliate': return isFailed(t.clicks) ? failed : sevenDays(t.clicks.clicks)
+    case 'doc-gia': return w ? week(w.now.readers, w.lastSoFar?.readers) : isFailed(t.readers) ? failed : sevenDays(alignDaily(lastDays(t.now, 31, tz), t.readers).readers)
+    case 'affiliate': return w ? week(w.now.shop, w.lastSoFar?.shop) : isFailed(t.clicks) ? failed : sevenDays(t.clicks.clicks)
     case 'noi-dung': {
       if (isFailed(t.content)) return failed
       const c = t.content
@@ -244,7 +271,7 @@ export function todayJson(t: Today): TodayJson {
     tiles: [
       { key: 'needs', label: 'Needs you', value: needs.length ? fmt(review + fix) : 'All clear', sub: needs.length ? [review ? `${fmt(review)} to review` : '', fix ? `${fmt(fix)} to fix` : ''].filter(Boolean).join(' · ') : 'Nothing to review or fix', tone: fix ? 'bad' : review ? 'wait' : 'good' },
       w && a && bars
-        ? { key: 'answers', label: 'Found an answer', value: fmt(w.now.answered), sub: 'This week so far', ...(last ? { delta: fig('', w.now.answered, last.answered, { good: 'up' }).delta } : {}), bars: { days: w.days, values: w.answered, readouts: bars.readouts, today: w.today } }
+        ? { key: 'answers', label: 'Found an answer', value: fmt(w.now.answered), sub: 'This week so far', ...(last ? { delta: deltaJson({ now: w.now.answered, before: last.answered, vs: 'last week', good: 'up' }) } : {}), bars: { days: w.days, values: w.answered, readouts: bars.readouts, today: w.today } }
         : { key: 'answers', label: 'Found an answer', value: '—', sub: failedText('the readers’ beacon'), tone: 'bad' },
       { key: 'shipped', label: 'Shipped in 24 hours', value: isFailed(t.changes) ? '—' : fmt(lines.length), sub: isFailed(t.changes) ? failedText('the changelog') : byArea.length ? byArea.map(([x, k]) => `${fmt(k)} ${x}`).join(' · ') : 'Nothing new', ...(isFailed(t.changes) ? { tone: 'bad' as const } : {}) },
       week
@@ -284,25 +311,46 @@ export function todayJson(t: Today): TodayJson {
 // ——— The web's overview: the same parts as the app's, drawn as docs/design/img/dash-web.png ———
 
 const placeHref = (p: { section?: string; anchor?: string; url?: string }) => p.url ?? `/_ab/${p.section}/${p.anchor ? `#${p.anchor}` : ''}`
+/** A change's figure and what it's against: "−12%" and "vs the same point last week" (none for a change from nothing). */
+const changeOf = (text: string) => {
+  const m = /^([+−±]\S+) (vs .+)$/.exec(text)
+  return m ? { change: m[1]!, vs: m[2]! } : undefined
+}
 const deltaSpan = (d: NonNullable<Figure['delta']>) => `<span class="delta${d.tone === 'good' || d.tone === 'bad' ? ` ${d.tone}` : ''}">${esc(d.text)}</span>`
+/** The answers card's figures as drawn: "169", then "readers +2%" under it; what it's against, for a screen reader. */
+const cardFigHtml = (f: Figure) => {
+  const d = f.delta && changeOf(f.delta.text)
+  const change = f.delta ? (d ? ` ${deltaSpan({ ...f.delta, text: d.change })}<span class="vh"> ${esc(d.vs)}</span>` : ` ${deltaSpan(f.delta)}`) : ''
+  return `<div class="kpi"><dt>${esc(f.label.toLowerCase())}${change}</dt><dd class="v">${esc(f.value)}</dd></div>`
+}
 const figHtml = (f: Figure) => `<div class="kpi"><dt>${esc(f.label)}</dt><dd class="v">${esc(f.value)}</dd>${f.delta ? `<dd>${deltaSpan(f.delta)}</dd>` : ''}${f.sub ? `<dd class="sub">${esc(f.sub)}</dd>` : ''}</div>`
 const noteHtml = (n: NoteBlock) => `<p class="${n.tone === 'bad' ? 'failed' : 'note'}">${esc(n.text)}</p>`
 /** Where each tile leads on the page. */
 const TILE_TO: Record<TileJson['key'], string> = { needs: 'needs', answers: 'answers', shipped: 'shipped', cost: 'costs' }
 
+/** A need's icon: the warning triangle only for what's broken; else its kind's. */
+const needIcon = (x: Need): keyof typeof ICON => (x.tone === 'bad' ? 'alert' : ({ comments: 'comment', photos: 'photo', key: 'key', spend: 'coin' } as const)[x.kind as 'comments'] ?? 'alert')
+
 export function todayPage(t: Today): string {
   const j = todayJson(t)
   const tz = t.tz ?? HOME_TZ
+  // A tile's small columns: the week's seven days, today lighter, the days to come empty; the caption one line, its change.
   const tile = (x: TileJson) => {
-    const bars = x.bars ? spark(x.bars.values, 7, { labels: x.bars.days.map(d => dayLabel(d)) }) : ''
-    return `<div class="kpi${x.tone === 'wait' || x.tone === 'bad' ? ` ${x.tone}` : ''}"><dt><a href="#${TILE_TO[x.key]}">${esc(x.label)}</a></dt><dd class="v">${esc(x.value)}</dd>${bars ? `<dd>${bars}</dd>` : ''}${x.delta ? `<dd>${deltaSpan(x.delta)}</dd>` : ''}<dd class="sub">${esc(x.sub)}</dd></div>`
+    const bars = x.bars ? spark(x.bars.values, 7, { labels: x.bars.days.map(d => dayLabel(d)), ...(x.bars.today !== undefined ? { today: x.bars.today } : {}) }) : ''
+    return `<div class="kpi${x.tone === 'wait' || x.tone === 'bad' ? ` ${x.tone}` : ''}"><dt><a href="#${TILE_TO[x.key]}">${esc(x.label)}</a></dt><dd class="v">${esc(x.value)}</dd>${bars ? `<dd>${bars}</dd>` : ''}${x.delta ? `<dd>${deltaSpan(x.delta)}</dd>` : ''}${bars && x.delta ? '' : `<dd class="sub">${esc(x.sub)}</dd>`}</div>`
   }
+  // One list in one card (docs/design/img/dash-web.png): each row its kind's icon, the thing, the pages it's on, and the
+  // button that acts, filled for a review and outlined for a fault; on a phone the whole row is the link, with a chevron.
   const needs = j.needs.length
-    ? `<ul class="todo">${j.needs.map(x => `<li>${ICON.alert}<div><b>${esc(x.text)}</b>${x.sub ? `<p>${esc(x.sub)}</p>` : ''}${x.photos?.length ? `<span class="ph">${x.photos.map(id => `<img src="/_ab/anh/${esc(id)}" alt="" width="36" height="36" loading="lazy">`).join('')}</span>` : ''}</div><a class="act" href="${esc(placeHref(x))}">${esc(x.label)}</a></li>`).join('')}</ul>`
-    : `<p class="clear panel">${ICON.check}${esc(j.needsEmpty)}</p>${j.lastAction ? `<p class="note last">${esc(j.lastAction.title)}: <a href="/_ab/${j.lastAction.section}/">${esc(j.lastAction.text)}</a> · <time datetime="${j.lastAction.at}">${esc(j.lastAction.when)}</time></p>` : ''}`
+    ? `<ul class="todo">${j.needs.map(x => `<li class="${x.tone}"><a href="${esc(placeHref(x))}"><span class="ic" data-i="${needIcon(x)}">${ICON[needIcon(x)]}</span><span class="tx"><b>${esc(x.text)}</b>${x.sub ? `<span class="sub">${esc(x.sub)}</span>` : ''}${x.photos?.length ? `<span class="ph">${x.photos.map(id => `<img src="/_ab/anh/${esc(id)}" alt="" width="36" height="36" loading="lazy">`).join('')}</span>` : ''}</span><span class="act">${esc(x.label)}</span>${ICON.chevron}</a></li>`).join('')}</ul>`
+    : `<p class="clear panel">${ICON.check}${esc(j.needsEmpty)}</p>${j.lastAction ? `<p class="note last"><a href="/_ab/${j.lastAction.section}/">${esc(j.lastAction.text)}</a> · <time datetime="${j.lastAction.at}">${esc(j.lastAction.when)}</time></p>` : ''}`
+  // Readers who found an answer, one card: the week's figure and its change, the week by day (found an answer only;
+  // readers and shop clicks said on a tap), then readers, sessions and shop clicks.
   const a = j.answers
-  const answers = a.figure && a.chart
-    ? `<dl class="kpis">${figHtml(a.figure)}</dl><div class="charts">${dayChart(a.chart as Extract<Block, { kind: 'chart' }>)}</div><dl class="kpis">${(a.figures ?? []).map(figHtml).join('')}</dl><p class="note">${ANSWERS_NOTE}</p>`
+  const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
+  const ac = w ? answersChart(w) : undefined
+  const answers = a.figure && ac
+    ? `<div class="acard panel"><p class="top"><b>${esc(a.figure.value)}</b> this week${a.figure.delta ? ` ${deltaSpan(a.figure.delta)}` : ''}</p>${dayChart({ ...ac.chart, also: ac.also, bare: true })}<dl class="kpis">${(a.figures ?? []).map(cardFigHtml).join('')}</dl></div><p class="note">${ANSWERS_NOTE}</p>`
     : a.note ? noteHtml(a.note) : ''
   const sh = j.shipped
   const shipped = `${sh.lines.length ? `<ul class="ship">${sh.lines.map(l => `<li><span class="chip">${esc(l.label)}</span><span>${esc(l.text)}</span></li>`).join('')}</ul>` : sh.note ? noteHtml(sh.note) : `<p class="muted">${esc(sh.empty ?? '')}</p>`}<p><a href="/_ab/${sh.section}/">${esc(sh.link)} →</a></p>`
@@ -325,4 +373,4 @@ export function todayPage(t: Today): string {
 <section aria-labelledby="pages"><h2 id="pages">Every page</h2>${pages}</section>`
   return page('/_ab/', 'Today', body, t.now, tz)
 }
-const ANSWERS_NOTE = 'From search, then stayed 30 s or read half the page. Weeks run Monday to Sunday.'
+const ANSWERS_NOTE = 'From search, then stayed 30 s or read half the page. Weeks run Monday to Sunday. Hover or tap a day for its figures.'
