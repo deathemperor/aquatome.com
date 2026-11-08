@@ -21,7 +21,9 @@ count() { ffprobe -v error -count_frames -select_streams v:0 -show_entries strea
 
 # The source's own frame rate, up to 30: 25 fps footage stretched to 30 repeats every sixth frame, which shows as a
 # stutter (council, 2026-11-08).
-rate=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of csv=p=0 "$in" | awk -F/ '{ r = $1 / ($2 ? $2 : 1); print (r > 30 ? 30 : r) }')
+# Some containers give 0/0 for the average; then the stream's base rate, then 30.
+fps_of() { ffprobe -v error -select_streams v:0 -show_entries "stream=$1" -of csv=p=0 "$in" | awk -F/ '{ print ($2 + 0 ? $1 / $2 : 0) }'; }
+rate=$(printf '%s %s\n' "$(fps_of avg_frame_rate)" "$(fps_of r_frame_rate)" | awk '{ r = $1 > 0 ? $1 : ($2 > 0 ? $2 : 30); print (r > 30 ? 30 : r) }')
 # The square crop around (cx, cy), kept inside the frame, scaled to 1080.
 square="crop='min(iw,ih)':'min(iw,ih)':'max(0,min(iw-min(iw,ih),iw*$cx-min(iw,ih)/2))':'max(0,min(ih-min(iw,ih),ih*$cy-min(iw,ih)/2))',scale=1080:1080:flags=lanczos,fps=$rate,setsar=1"
 [ -n "$shake" ] && square="deshake,$square"
