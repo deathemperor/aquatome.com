@@ -146,17 +146,17 @@ const { lang, t } = i18n(Astro.url)
   })
   // A photo the network can't fetch leaves the drawn fish under it.
   list.addEventListener('error', e => { if (e.target instanceof HTMLImageElement) e.target.remove() }, true)
-  form.addEventListener('submit', e => {
-    e.preventDefault()
+  form.addEventListener('submit', e => { e.preventDefault(); add() })
+  function add() {
     const q = input.value.trim()
     input.focus()
     if (!q) return say(ct('Gõ tên loài cá muốn thêm.'))
-    if (!ready) return void load().then(ok => { if (ok) form.requestSubmit() })
+    if (!ready) return void load().then(ok => { if (ok) add() })
     const hit = exactMatch(q, items)
     if (hit) return pick(hit)
     suggest()
     if (shown.length) say(ct('Chưa thêm: chọn một loài trong danh sách gợi ý.'))
-  })
+  }
 
   // The chosen species: a row each, with the number of fish and a way to take it out.
   function renderChosen() {
