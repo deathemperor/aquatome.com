@@ -108,11 +108,19 @@ private struct AppSection: View {
 @available(iOS 18, *)
 private struct OldLookSection: View {
   @AppStorage(V2Switch.key) private var v2 = V2Switch.byDefault
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     Section {
       Toggle(isOn: Binding { !v2 } set: { v2 = !$0 }) {
-        Label { Text("Dùng giao diện cũ") } icon: { Tile(symbol: "clock.arrow.circlepath", color: .gray) }
+        let icon = Tile(symbol: "clock.arrow.circlepath", color: .gray)
+        // At the accessibility sizes the icon over the words, as the account's card has it: beside them, a longer
+        // language's first word ("Gunakan") broke in two.
+        if size.isAccessibilitySize {
+          VStack(alignment: .leading, spacing: 8) { icon; Text("Dùng giao diện cũ") }
+        } else {
+          Label { Text("Dùng giao diện cũ") } icon: { icon }
+        }
       }
       .accessibilityIdentifier("old-look-switch")
     } footer: {
