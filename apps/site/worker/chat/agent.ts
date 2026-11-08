@@ -64,8 +64,8 @@ export function shown(b: ChatBlock): string {
  * yes-or-no question asks, the case, and two titles, a problem and a question, of fish and tanks the sample doesn't
  * hold, so the sample isn't scored on its own answers. Only the reader's language goes in the prompt.
  */
-export const TITLE_FORM: Record<Lang, { asks: string; case: string; examples: [string, string] }> = {
-  vi: { asks: 'with its question word and "?" ("… được không?", "… chưa?")', case: 'Sentence case: a capital only at the start and for a proper name.', examples: ['Cá molly bỏ ăn, đứng im một góc', 'Bể 40 lít nuôi 3 con ali được không?'] },
+export const TITLE_FORM: Record<Lang, { asks: string; case: string; words?: string; examples: [string, string] }> = {
+  vi: { asks: 'with its question word and "?" ("… được không?", "… chưa?")', case: 'Sentence case: a capital only at the start and for a proper name.', words: 'Keepers say "tảo nâu" (not "rêu nâu"), "bể mới set" (not "bể trồng mới") and "dương xỉ Java" (never "Java" alone).', examples: ['Cá molly bỏ ăn, đứng im một góc', 'Bể 40 lít nuôi 3 con ali được không?'] },
   id: { asks: 'ending with "?"', case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Dutch); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.', examples: ['Molly diam di pojok, tidak mau makan', 'Akuarium 40 liter cukup buat satu louhan?'] },
   th: { asks: 'with ไหม, กี่ or ยังไง, and never a "?"', case: '', examples: ['ปลาสอดไม่กินอาหาร นิ่งอยู่มุมตู้', 'ตู้ 40 ลิตรเลี้ยงปลาหมอสี 3 ตัวได้ไหม'] },
   ms: { asks: 'ending with "?", as "… tak?" or "… ke?"', case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Java); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.', examples: ['Ikan molly tak makan, diam di sudut', 'Tangki 3 kaki cukup untuk seekor louhan tak?'] },
@@ -77,9 +77,10 @@ export const TITLE_RULE = (lang: Lang) => {
     `This question starts the conversation: give it a title too (title), for the reader's list of past chats, in ${LANGS[lang]}: one line on a phone, at most about 36 characters.`,
     '- Their own words for the fish and the problem, and the detail the answer depends on: the tank\'s size, how many fish, no filter or no CO₂, the change they\'re weighing. The fish the problem is about now, not one they had before.',
     '- Nothing they didn\'t say, and what they said as they said it ("a little", "even though", "must"). Fish and plants as keepers name them, never a piece of a name (not "Java" for Java fern) and without the handbook\'s variety tags.',
-    '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics.',
+    '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics. A post that asks several things: its main question, not a list of its topics.',
     `- When they ask yes or no, the title asks it, ${f.asks}. One question at most.`,
     ...(f.case ? [`- ${f.case}`] : []),
+    ...(f.words ? [`- ${f.words}`] : []),
     '- Never a person\'s name, a place, a shop or anything else personal from their message.',
     `For example: "${f.examples[0]}"; "${f.examples[1]}".`,
   ].join('\n')

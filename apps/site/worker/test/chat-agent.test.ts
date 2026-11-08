@@ -851,7 +851,7 @@ test('a conversation\'s first answer brings its title, in the same call: the tit
   // Each language's rule gives its own form and examples, never another's: with every language's in it, a title could slip.
   for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
     const rule = TITLE_RULE(lang)
-    for (const [other, f] of Object.entries(TITLE_FORM)) for (const ex of f.examples) expect(rule.includes(ex), `${lang}: ${ex}`).toBe(other === lang)
+    for (const [other, f] of Object.entries(TITLE_FORM)) for (const ex of [...f.examples, ...(f.words ? [f.words] : [])]) expect(rule.includes(ex), `${lang}: ${ex}`).toBe(other === lang)
   }
   expect(TITLE_RULE('th')).toContain('in Thai')
   expect(titled.out.answer?.title).toBe('Cá betta bỏ ăn')
