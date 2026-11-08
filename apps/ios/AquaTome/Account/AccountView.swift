@@ -70,7 +70,7 @@ struct Tile: View {
   }
 }
 
-/// "Ứng dụng": the app's icon (the current one beside it), its appearance, and the pages kept to read offline, how many,
+/// "Ứng dụng": the app's icon (the current one beside it), its appearance and language, and the pages kept to read offline, how many,
 /// which opens their shelf on the Tìm tab, where pages open.
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
@@ -78,13 +78,17 @@ private struct AppSection: View {
   /// The app's v2 in place of v1 (V2Root): debug and TestFlight builds only (V2Switch).
   @AppStorage("v2") private var v2 = false
 
+  /// "Ngôn ngữ" as kept, which the section's footer reads too.
+  @State private var language = AppLanguage.stored
+
   var body: some View {
-    Section("Ứng dụng") {
+    Section {
       NavigationLink { AppIconPicker() } label: {
         Label { Text("Biểu tượng ứng dụng") } icon: { CurrentIcon() }
       }
       .accessibilityIdentifier("app-icon-row")
       AppearanceRow()
+      LanguageRow(choice: $language)
       if #available(iOS 18, *), V2Switch.offered {
         Toggle(isOn: $v2) {
           Label { Text("Giao diện mới (thử nghiệm)") } icon: { Tile(symbol: "sparkles", color: Tile.green) }
@@ -105,6 +109,10 @@ private struct AppSection: View {
         }
         .accessibilityIdentifier("kept-row")
       }
+    } header: {
+      Text("Ứng dụng")
+    } footer: {
+      LanguageNote(choice: language)
     }
   }
 }

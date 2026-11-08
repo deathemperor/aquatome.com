@@ -322,7 +322,8 @@ Jobs `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac
 have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner runs,
 `aquatome-mac-1`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
 them overloaded it on 2026-11-05. Its service has `Nice` 10, which reaches its builds but not the simulator's processes:
-launchd starts those, at normal priority. Its flow jobs take their turn with everyone else's simulator runs through
+launchd starts those, at normal priority. Its flow jobs test on one simulator, with no copies: with two, a 0.4 s job on
+the Mac took 5 to 12 s (2026-11-08). They take their turn with everyone else's simulator runs through
 `scripts/sim-run.py` (one at a time, at most two copies of a simulator), so a job can wait for a lead's run and a lead's
 run for a job, and the job's time limit there is longer to allow for it. `aquatome-mac-2` stays registered, stopped and disabled, so a reboot doesn't
 start it (`launchctl disable gui/$(id -u)/actions.runner.deathemperor-aquatome.com.aquatome-mac-2`). A full run on main

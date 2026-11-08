@@ -11,4 +11,7 @@ page-shots
 apps/site/e2e-*.json
 apps/site/review-results.json
 ISSUE.md
+
+# Python bytecode (the iOS scripts run under python3)
 __pycache__/
+*.pyc

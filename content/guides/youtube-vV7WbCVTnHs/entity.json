@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "carinotetraodon-travancoricus",
-    "pethia-ticto"
+    "pethia-ticto",
+    "puntigrus-tetrazona",
+    "betta-splendens"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "vV7WbCVTnHs",
     "title": "INTERMEDIATE FISH:  Pea Puffer",
@@ -29,7 +31,8 @@
     },
     "taxa": [
       "Carinotetraodon travancoricus",
-      "Pethia ticto"
+      "Puntigrus tetrazona",
+      "Betta splendens"
     ],
     "gear": [
       {
@@ -46,12 +49,61 @@
         "category": "phan-nen",
         "type": "cat",
         "t": 419
+      },
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 419
       }
     ],
     "figures": [
       {
-        "heading": "Cá sống được bao lâu",
-        "moments": [],
+        "heading": "Cá nóc mini là cá gì, to cỡ nào",
+        "moments": [
+          {
+            "t": 125,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nhỏ có đá và cây, vài con cá nóc mini bơi lơ lửng."
+          },
+          {
+            "t": 135,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at135.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cá nóc mini bơi quanh hòn non bộ trong bể nhỏ."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p0-zX2hpX3Jlcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p0-zX2hpX3Jlcy5qcGc-480.webp",
+          "width": 960,
+          "height": 578,
+          "licence": "CC BY-SA 4.0",
+          "author": "Beta Mahatvaraj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_hi_res.jpg",
+          "caption": "Cá nóc mini với đôi mắt to ánh xanh nổi bật trong bể thủy sinh."
+        }
+      },
+      {
+        "heading": "Thông số nước",
+        "moments": [
+          {
+            "t": 115,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at115-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nhỏ trồng cây, bày đá, có vài con cá nóc mini bơi."
+          },
+          {
+            "t": 400,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc bể với đá xếp và cây thủy sinh, nước trong."
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p1-zX2hpX3Jlcy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p1-zX2hpX3Jlcy5qcGc-480.webp",
@@ -60,21 +112,77 @@
           "licence": "CC BY-SA 4.0",
           "author": "Beta Mahatvaraj",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_hi_res.jpg",
-          "caption": "Cá nóc lùn khỏe mạnh bơi giữa bể trồng cây xanh."
+          "caption": "Cá nóc mini khỏe mạnh bơi trong bể trồng cây nước xanh."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
+        "heading": "Bể cần to cỡ nào và bố trí ra sao",
+        "moments": [
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nền cát với đá xếp thành hang và cây trồng làm chỗ trốn."
+          },
+          {
+            "t": 430,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at430-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể nhỏ có hang đá, nền cát và đàn cá bơi."
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao gần như phải nuôi bể riêng",
+        "moments": [
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể riêng có hòn non bộ, cây thủy sinh và vài con cá nhỏ bơi."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p6-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p6-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p3-dmVzdGl0dXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p3-dmVzdGl0dXMuanBn-480.webp",
           "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bể nền cát trắng, trồng cây và lũa tạo nhiều chỗ trốn cho cá."
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fremen",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
+          "caption": "Cá otto (Otocinclus) với sọc đen dọc thân, bạn ở chung khả dĩ với cá nóc mini."
+        }
+      },
+      {
+        "heading": "Nuôi một con hay nhiều con",
+        "moments": [
+          {
+            "t": 350,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cảnh có đá xếp và cát sáng, vài con cá nhỏ bơi trong bể."
+          },
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/vV7WbCVTnHs/at360.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Toàn bể với đá, cây thấp và đàn cá nhỏ bơi giữa nước."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vV7WbCVTnHs/p4-zX2hpX3Jlcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vV7WbCVTnHs/p4-zX2hpX3Jlcy5qcGc-480.webp",
+          "width": 960,
+          "height": 578,
+          "licence": "CC BY-SA 4.0",
+          "author": "Beta Mahatvaraj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_hi_res.jpg",
+          "caption": "Một con cá nóc Ấn Độ thân vàng sọc đen bơi trong bể trồng cây."
         }
       }
     ]

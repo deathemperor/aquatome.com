@@ -10,6 +10,50 @@
     "brazil",
     "rio-jurua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Juruá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Acre cory, Hoplisoma acrense, long known as Corydoras acrensis, is an armoured catfish that appears to be endemic to the rio Juruá basin in Acre State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Juruá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342629,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

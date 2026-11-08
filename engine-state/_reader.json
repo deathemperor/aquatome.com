@@ -402,6 +402,56 @@
     ],
     "ruled": "33cf0ff235bc96d2"
   },
+  "vi/guides/2hraquarist-blogs-algae-control-solving-algae-issues-without-using-algicides": {
+    "at": "2026-11-08",
+    "hash": "eb51a25017546a97",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy mới luôn nói cây khỏe là cách phòng rêu tốt nhất.",
+        "problem": "The sentence has no subject because the source's 'we always state' was dropped, so it reads as broken.",
+        "fix": "Vì vậy, cây khỏe chính là cách phòng rêu tốt nhất.",
+        "field": "body"
+      }
+    ],
+    "ruled": "eb51a25017546a97"
+  },
+  "vi/guides/2hraquarist-blogs-algae-control-this-wouldnt-work": {
+    "at": "2026-11-08",
+    "hash": "75f5fed38ac5f859",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C1",
+        "quote": "Tackle algae....by doing nothing?",
+        "problem": "This caption is the title of a related article, so the photo comes from that article's link and does not show anything on this page.",
+        "rule": "A caption that matches a title from the source's 'Also in' or 'Recent Articles' list.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C2",
+        "quote": "How to get rid of cladophora algae",
+        "problem": "This caption is the title of another article (a related-post thumbnail), not a description of a photo for this page.",
+        "rule": "A caption that matches a title from the source's 'Also in' or 'Recent Articles' list.",
+        "field": "caption"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cái bể ở trên trông chắc ai cũng thấy quen.",
+        "problem": "The text points to a tank pictured 'above' (and later to a filter 'trong hình'), but the page has no photo of that tank.",
+        "fix": "Bể kiểu này chắc ai cũng thấy quen: bể nhỏ, lọc treo, nền cát hoặc sỏi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "75f5fed38ac5f859"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -1078,6 +1128,12 @@
     "hash": "a19cc7c35c0ebb23",
     "findings": [],
     "ruled": "a19cc7c35c0ebb23"
+  },
+  "vi/guides/aquariumbreeder-how-to-tell-if-a-crayfish-is-male-or-female": {
+    "at": "2026-11-08",
+    "hash": "9b75bfc1341a29f9",
+    "findings": [],
+    "ruled": "9b75bfc1341a29f9"
   },
   "vi/guides/aquariumbreeder-infusoria-profile-and-how-to-culture-as-live-food": {
     "at": "2026-11-05",
@@ -2101,6 +2157,12 @@
     "findings": [],
     "ruled": "bbed7075e7f02d51"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-ways-to-cool-aquarium-water": {
+    "at": "2026-11-08",
+    "hash": "c228b813564f6ef6",
+    "findings": [],
+    "ruled": "c228b813564f6ef6"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
     "at": "2026-11-05",
     "hash": "1e2606fb4c5bab65",
@@ -2269,6 +2331,12 @@
       }
     ],
     "ruled": "d78bf7c0c613c977"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-apistogramma-dwarf-cichlid": {
+    "at": "2026-11-08",
+    "hash": "0f67a76d6f332a75",
+    "findings": [],
+    "ruled": "0f67a76d6f332a75"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-air-pump": {
     "at": "2026-11-02",
@@ -3476,6 +3544,12 @@
     ],
     "ruled": "cb58436f0241c8ab"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-clean-aquarium-filter": {
+    "at": "2026-11-08",
+    "hash": "40face3aa740253c",
+    "findings": [],
+    "ruled": "40face3aa740253c"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-drill-glass-aquariums": {
     "at": "2026-11-04",
     "hash": "768f60acbd4bf4d2",
@@ -3887,6 +3961,12 @@
       }
     ],
     "ruled": "a1ea842667ad35f3"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-otocinclus-catfish": {
+    "at": "2026-11-08",
+    "hash": "9e7b4818e08c1f4d",
+    "findings": [],
+    "ruled": "9e7b4818e08c1f4d"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria": {
     "at": "2026-11-05",
@@ -6621,6 +6701,12 @@
     "hash": "08440cc11bdbbaad",
     "findings": [],
     "ruled": "08440cc11bdbbaad"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-dwarf-lampeyes-fluviphylax-from-venezuela-en": {
+    "at": "2026-11-08",
+    "hash": "afdb8fbc61f93994",
+    "findings": [],
+    "ruled": "afdb8fbc61f93994"
   },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en": {
     "at": "2026-11-08",
@@ -11063,6 +11149,12 @@
     ],
     "ruled": "71a753e3366751c1"
   },
+  "vi/guides/youtube-91QJpa6IAbU": {
+    "at": "2026-11-08",
+    "hash": "550bb6b4da088585",
+    "findings": [],
+    "ruled": "550bb6b4da088585"
+  },
   "vi/guides/youtube-9i-EoBCBWR8": {
     "at": "2026-11-06",
     "hash": "68ed3b0125d40eeb",
@@ -11562,6 +11654,12 @@
     "findings": [],
     "ruled": "9f8aea373799d355"
   },
+  "vi/guides/youtube-BTGMS7pm6zo": {
+    "at": "2026-11-08",
+    "hash": "754c7b87c4e0b7e5",
+    "findings": [],
+    "ruled": "754c7b87c4e0b7e5"
+  },
   "vi/guides/youtube-buMZbrbhJVs": {
     "at": "2026-11-04",
     "hash": "a06d673ce4833953",
@@ -11735,6 +11833,12 @@
     "hash": "9d20806d0f96925e",
     "findings": [],
     "ruled": "9d20806d0f96925e"
+  },
+  "vi/guides/youtube-CcJ24tAXjSQ": {
+    "at": "2026-11-08",
+    "hash": "b3ae105d3f3de656",
+    "findings": [],
+    "ruled": "b3ae105d3f3de656"
   },
   "vi/guides/youtube-CdDl8zqe1j8": {
     "at": "2026-11-01",
@@ -11990,6 +12094,31 @@
       }
     ],
     "ruled": "4a78bba81ec8dddc"
+  },
+  "vi/guides/youtube-DNIpE51gLwY": {
+    "at": "2026-11-08",
+    "hash": "d556076b2f57ccb0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L2",
+        "quote": "Một cách là đợi khoảng bốn tuần mới tỉa lớn.",
+        "problem": "The body says a four-week-old tank is still not fully stable and suggests waiting a bit longer than that, but the summary and FAQ make four weeks the waiting time.",
+        "fix": "Một cách là đợi lâu hơn bốn tuần một chút mới tỉa lớn.",
+        "field": "summary.1"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L12",
+        "quote": "Có thể tránh.",
+        "problem": "\"Có thể tránh\" is an odd answer to \"Có nên… không?\". The rest of the answer clearly advises against it, so it should say \"Nên tránh\".",
+        "fix": "Nên tránh.",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "d556076b2f57ccb0"
   },
   "vi/guides/youtube-dS6AJL3CAt0": {
     "at": "2026-11-04",
@@ -13030,6 +13159,12 @@
     ],
     "ruled": "bb9d783fd5f8c05c"
   },
+  "vi/guides/youtube-j794dsqnNJI": {
+    "at": "2026-11-08",
+    "hash": "91452371244a0035",
+    "findings": [],
+    "ruled": "91452371244a0035"
+  },
   "vi/guides/youtube-J7X8RsrXLWk": {
     "at": "2026-11-02",
     "hash": "42233d8e576f95c4",
@@ -13066,6 +13201,31 @@
       }
     ],
     "ruled": "42c9172a88246ae6"
+  },
+  "vi/guides/youtube-JiuUJE4ky1Y": {
+    "at": "2026-11-08",
+    "hash": "d7d51a91e435d739",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể có CO2 khác hẳn, như ngày và đêm.",
+        "problem": "This translates the English idiom \"like night and day\" word for word, which sounds unnatural in Vietnamese.",
+        "fix": "Bể có CO2 thì khác hẳn.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bể có CO2 cây lên nhanh và sạch rêu",
+        "problem": "The intro says the CO2 tank stayed free of algae, but later the page says that by day 15 both tanks had quite a lot of algae and the CO2 tank also got brown algae and string algae.",
+        "fix": "bể có CO2 cây lên nhanh và ít rêu hơn hẳn",
+        "field": "body"
+      }
+    ],
+    "ruled": "d7d51a91e435d739"
   },
   "vi/guides/youtube-JlH-zeUbQB0": {
     "at": "2026-11-01",
@@ -13440,6 +13600,21 @@
     ],
     "ruled": "ac3fb85d695cc9b4"
   },
+  "vi/guides/youtube-kkL39Gf6kwk": {
+    "at": "2026-11-08",
+    "hash": "5b0e462d9de20235",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "So với viên CO2 thì nước có ga cho kết quả tốt hơn nhiều.",
+        "problem": "The page compares with CO2 tablets that it never mentions anywhere else, and \"much better\" clashes with \"the difference isn't big\" in the same section.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5b0e462d9de20235"
+  },
   "vi/guides/youtube-km7iEo-NsD0": {
     "at": "2026-11-04",
     "hash": "158270047a71d7ed",
@@ -13773,6 +13948,22 @@
     "findings": [],
     "ruled": "57a998d70fc8400a"
   },
+  "vi/guides/youtube-MJ3fqxhMmxE": {
+    "at": "2026-11-08",
+    "hash": "77cf620e5ef2f753",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lúc này dễ nôn đổ cát cho xong",
+        "problem": "\"nôn\" (to vomit) is a slip for \"nôn nóng\" (impatient), so the sentence reads oddly.",
+        "fix": "Lúc này dễ nôn nóng đổ cát cho xong",
+        "field": "body"
+      }
+    ],
+    "ruled": "77cf620e5ef2f753"
+  },
   "vi/guides/youtube-MLFzjm6V9iU": {
     "at": "2026-11-06",
     "hash": "d1c8ad9b97463b6c",
@@ -13873,6 +14064,12 @@
       }
     ],
     "ruled": "3b0bb10ec3ee409e"
+  },
+  "vi/guides/youtube-ne5Z4ZvwxuU": {
+    "at": "2026-11-08",
+    "hash": "a045b76191c471b7",
+    "findings": [],
+    "ruled": "a045b76191c471b7"
   },
   "vi/guides/youtube-nFXsyqdY37s": {
     "at": "2026-11-04",
@@ -14341,6 +14538,12 @@
       }
     ],
     "ruled": "191e4c7d11371db8"
+  },
+  "vi/guides/youtube-PtOP1R4oYPY": {
+    "at": "2026-11-08",
+    "hash": "e12d538eb07a3ee5",
+    "findings": [],
+    "ruled": "e12d538eb07a3ee5"
   },
   "vi/guides/youtube-PVRlXXhdD7U": {
     "at": "2026-11-05",
@@ -14919,6 +15122,42 @@
     ],
     "ruled": "2e22384c0e3c85ad"
   },
+  "vi/guides/youtube-SVgc_g2T47Y": {
+    "at": "2026-11-08",
+    "hash": "3f449680676e09ae",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Dưới vòm thiếu sáng nên trồng Anubias và các loại Cryptocoryne nhỏ",
+        "problem": "The summary puts Anubias under the dome, but the body and FAQ L12 put Anubias mini in the shady spots on top of the dome, and only the small Cryptocoryne under it.",
+        "fix": "Dưới vòm thiếu sáng nên trồng các loại Cryptocoryne nhỏ, còn trên vòm thì gắn Anubias mini vào chỗ râm, cùng rêu và HC Cuba.",
+        "field": "summary.4"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lớp phân nền thành một cái đệm cho vòm ngồi lên.",
+        "problem": "The sentence is missing its verb (\"tạo thành\" / \"làm thành\").",
+        "fix": "Lớp phân nền tạo thành một cái đệm cho vòm ngồi lên.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-08",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "This clause is garbled and has no clear meaning, so a reader can't tell what advice it gives about skipping water changes."
+        ]
+      }
+    ],
+    "ruled": "3f449680676e09ae"
+  },
   "vi/guides/youtube-swFoi1J7YTk": {
     "at": "2026-11-04",
     "hash": "4b8e4439af76532a",
@@ -15019,6 +15258,12 @@
     "hash": "8c067b384c9ede29",
     "findings": [],
     "ruled": "8c067b384c9ede29"
+  },
+  "vi/guides/youtube-TCZ_HAx8EeI": {
+    "at": "2026-11-08",
+    "hash": "9371f3c52c98eef4",
+    "findings": [],
+    "ruled": "9371f3c52c98eef4"
   },
   "vi/guides/youtube-TeiNFp4uDB4": {
     "at": "2026-11-03",

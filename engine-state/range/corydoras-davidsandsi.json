@@ -1,0 +1,67 @@
+{
+  "id": "corydoras-davidsandsi",
+  "native": {
+    "input": "53712673bf0df0ed",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sand's cory, Hoplisoma davidsandsi, long known as Corydoras davidsandsi, is an armoured catfish apparently endemic to the rio Unini system in the lower rio Negro basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Unini, whitewater area of the Rio Negro, Brazil', and this species appears endemic to that tributary system located within the lower rio Negro.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Unini",
+        "source": "seriouslyfish",
+        "quote": "Sand's cory, Hoplisoma davidsandsi, long known as Corydoras davidsandsi, is an armoured catfish apparently endemic to the rio Unini system in the lower rio Negro basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Unini, whitewater area of the Rio Negro, Brazil', and this species appears endemic to that tributary system located within the lower rio Negro.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras davidsandsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342691,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

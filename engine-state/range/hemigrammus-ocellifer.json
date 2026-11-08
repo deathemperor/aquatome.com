@@ -1,9 +1,50 @@
 {
   "id": "hemigrammus-ocellifer",
   "native": {
-    "input": "8cb26946cb17c3c6",
-    "at": "2026-11-08T13:58:00.601Z",
-    "claims": [],
+    "input": "ca8d044d464e9f30",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Populations are known from parts of Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Populations are known from parts of Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Populations are known from parts of Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Populations are known from parts of Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Populations are known from parts of Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],
@@ -170,8 +211,14 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-08T13:58:00.601Z"
+    "native": [
+      "GY",
+      "SR",
+      "GF",
+      "PE",
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T18:57:48.756Z"
   }
 }

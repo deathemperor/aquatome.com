@@ -1,0 +1,122 @@
+{
+  "id": "rhinodoras-boehlkei",
+  "scientificName": "Rhinodoras boehlkei",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Rhinodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "bobonaza",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13.3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<ul><li>Common name: Fog Talking Catfish</li><li>Temperament: peaceful</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Eastern Ecuador and Peru. Amazon, Upper Amazon. Type locality: Río Bobonaza between Montalvo and Chicherato, Ecuador.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>A PVC pipe around about a third longer and wider the fish is ideal. Several fish will happily share a slightly larger pipe. Bogwood or stones can also be used. Care must be taken that the fish does not decide to hide too close to an unguarded heater.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>A typical doradid in that it will eat pretty much any food offered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Peaceful.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Unknown. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Etymology: Rhinodoras comes from the Greek rhinos, meaning nose, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the unusual snout morphology. Named for the American ichthyologist James Böhlke (1930–1982). Described by Glodek, Whitmire &amp; Orcés V., 1976.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Fieldiana Zoology v. 70 (no. 1), pp 3, Figs. 1-2, 3A.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

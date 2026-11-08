@@ -175,6 +175,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/5-wild-betta-species": {
+    "lastmod": "2026-10-28T11:52:10-07:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-5-wild-betta-species"
+    ],
+    "updatedAt": "2026-11-08T18:53:35.465Z",
+    "hash": "89c9462373eec10149c516d61b7215e4d0ac100ecc0ef4458a6c6343fa01e942",
+    "processedHash": "89c9462373eec10149c516d61b7215e4d0ac100ecc0ef4458a6c6343fa01e942",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/55-gallon-fish": {
     "lastmod": "2025-12-18T13:55:52-08:00",
     "entityIds": [
@@ -617,11 +628,14 @@
   },
   "https://www.aquariumcoop.com/blogs/aquarium/bubbles-in-fish-tank-water": {
     "lastmod": "2025-12-18T13:56:56-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-08T12:45:50.354Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.aquariumcoop.com/blogs/aquarium/bubbles-in-fish-tank-water\", waiting until \"domcontentloaded\"\n"
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-bubbles-in-fish-tank-water"
+    ],
+    "updatedAt": "2026-11-08T18:31:48.227Z",
+    "hash": "d5fa29b595bf997cd0291e464241348ce7486696c6206eb8f1a6b77ce25b8d9d",
+    "processedHash": "d5fa29b595bf997cd0291e464241348ce7486696c6206eb8f1a6b77ce25b8d9d",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.aquariumcoop.com/blogs/aquarium/bucephalandra": {
     "lastmod": "2025-12-18T13:56:01-08:00",
@@ -1093,6 +1107,17 @@
     "updatedAt": "2026-10-29T06:02:11.432Z",
     "hash": "8d753c99bae00357ba41fae834468965ffe2b762cb0270f8bdb783bf926eb41b",
     "processedHash": "8d753c99bae00357ba41fae834468965ffe2b762cb0270f8bdb783bf926eb41b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/flagfish": {
+    "lastmod": "2026-11-02T07:04:36-08:00",
+    "entityIds": [
+      "species/jordanella-floridae"
+    ],
+    "updatedAt": "2026-11-08T18:51:56.226Z",
+    "hash": "e38fa9e4ebbb8c9193e903f93505dbe6fe27ed7e83c351e3308bbd975c82cac5",
+    "processedHash": "e38fa9e4ebbb8c9193e903f93505dbe6fe27ed7e83c351e3308bbd975c82cac5",
     "status": "processed",
     "attempts": 0
   },
@@ -2053,6 +2078,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/seasoned-fish-tank": {
+    "lastmod": "2025-12-18T13:57:06-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-seasoned-fish-tank"
+    ],
+    "updatedAt": "2026-11-08T18:39:13.022Z",
+    "hash": "5ae257a9e1c830eeb656987543403be814fa70e88a721baa62b9a77ad5960fbe",
+    "processedHash": "5ae257a9e1c830eeb656987543403be814fa70e88a721baa62b9a77ad5960fbe",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/shell-dwellers": {
     "lastmod": "2025-12-18T13:55:17-08:00",
     "entityIds": [
@@ -2072,6 +2108,17 @@
     "updatedAt": "2026-10-31T20:11:23.976Z",
     "hash": "bcd068b2d5aba0249775afd1d7a13873e83e5c14685c536fb776e9773d327df2",
     "processedHash": "bcd068b2d5aba0249775afd1d7a13873e83e5c14685c536fb776e9773d327df2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/siamese-algae-eater": {
+    "lastmod": "2025-12-18T13:57:08-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-siamese-algae-eater"
+    ],
+    "updatedAt": "2026-11-08T18:42:01.440Z",
+    "hash": "1569baa437cdd792689e02b4409167516e280d3560ada2a808de7803c9d70f89",
+    "processedHash": "1569baa437cdd792689e02b4409167516e280d3560ada2a808de7803c9d70f89",
     "status": "processed",
     "attempts": 0
   },
@@ -2161,6 +2208,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumcoop.com/blogs/aquarium/time-saving-tips-for-aquariums": {
+    "lastmod": "2025-12-18T13:57:11-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-time-saving-tips-for-aquariums"
+    ],
+    "updatedAt": "2026-11-08T18:49:58.370Z",
+    "hash": "e08ef42395546c28b5074ac1fb9c2410f70af900de047d48874610e9b709ac51",
+    "processedHash": "e08ef42395546c28b5074ac1fb9c2410f70af900de047d48874610e9b709ac51",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumcoop.com/blogs/aquarium/top-10-barbs": {
     "lastmod": "2025-12-18T13:56:10-08:00",
     "entityIds": [
@@ -2246,6 +2304,28 @@
     "updatedAt": "2026-11-08T00:34:50.910Z",
     "hash": "57a58ef48fc2635cd2cec48f9e8eb42aea5dba381bbbb70e20d573ab70e057cc",
     "processedHash": "57a58ef48fc2635cd2cec48f9e8eb42aea5dba381bbbb70e20d573ab70e057cc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/top-10-livebearers": {
+    "lastmod": "2026-11-02T07:03:11-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-livebearers"
+    ],
+    "updatedAt": "2026-11-08T18:45:34.289Z",
+    "hash": "4f021044d8233c3bdea7aee6d21bf11988e99dfd28598b5205eccd3d26bb76b1",
+    "processedHash": "4f021044d8233c3bdea7aee6d21bf11988e99dfd28598b5205eccd3d26bb76b1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/top-10-pufferfish": {
+    "lastmod": "2025-12-18T13:57:04-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-pufferfish"
+    ],
+    "updatedAt": "2026-11-08T18:34:15.202Z",
+    "hash": "03e6be504913f3971226bcc76c63b1ffd6b8c46d9c07e08bd7a52ff2437bd7ec",
+    "processedHash": "03e6be504913f3971226bcc76c63b1ffd6b8c46d9c07e08bd7a52ff2437bd7ec",
     "status": "processed",
     "attempts": 0
   },

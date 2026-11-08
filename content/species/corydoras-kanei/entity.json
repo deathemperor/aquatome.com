@@ -11,6 +11,70 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "rio Negro",
+        "rio Branco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "rio Negro",
+            "rio Branco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342648,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
