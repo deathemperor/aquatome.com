@@ -1,0 +1,100 @@
+{
+  "id": "harttia-kronei",
+  "native": {
+    "input": "2980a7748f8aa1e7",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Bethary of Rio Ribeira, São Paulo, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Ribeira de Iguapé River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ribeira de Iguape",
+        "source": "planetcatfish",
+        "quote": "South America: Ribeira de Iguape River basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Bethary",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Bethary of Rio Ribeira, São Paulo, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paranapanema",
+        "source": "scotcat",
+        "quote": "Harttia kronei occurs in the Ribeira de Iguape and Paranapanema river basins, in the states of São Paulo and Paraná.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Harttia kronei",
+    "status": "ACCEPTED",
+    "taxonKey": 5202417,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        88
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        23
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        22
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

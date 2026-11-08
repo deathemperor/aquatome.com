@@ -32,6 +32,12 @@ xAI seats only; OpenAI and Google were out on the Cursor limit. These aren't in 
     which round 4 had brought in.
   - The beginners' shelf in two beats (xAI alone): "cocok untuk pemula" and "sesuai untuk pemula", both the site's own
     words.
+- **Week 4, African fish (rounds 12 and 14).** Vietnamese 9 from both seats in round 12. Two findings came from one
+  seat each, and neither held:
+  - Indonesian "Ikan aneh" for "Ikan unik" (xAI): the site's pages say "ikan unik (oddball)", never "ikan aneh".
+  - Thai "ปลาหมอสี…" for the lakes shelf (Anthropic): the shelf holds a catfish, so "ปลาหมอสี" would be wrong once its
+    Thai page exists.
+  With those reasons given, both seats scored all three at 9 in round 14.
 - **Labels, not wording.** Most findings were labels that promised more than the pages say: goldfish on a cold shelf,
   a Thai betta on a native one, a ram among small schooling fish. Each became a planner rule
   (`packages/engine/src/curation.ts`), so they're not counted against the seats.
@@ -50,6 +56,12 @@ hatching, which Anthropic also stopped on) was taken after both scored 9. Not in
   cánh" for "về mặt đất" (Anthropic); the hatch's second half, so 8 of 43 doesn't read as a failure (xAI).
 - **The eyebrow:** both seats found "Có thể bạn chưa biết" a stale banner, close to the style guide's "bạn có biết".
   "Chuyện ít ai biết" (Anthropic) held; "Chuyện ít kể" (xAI) wasn't taken. Neither is in the references: a rubric.
+- **The glass catfish's name (rounds 13 and 14):** 7 and 8, then 9 and 9. Both seats raised the same four, all taken:
+  - "chứng minh" became "cho thấy", the paper's "indicates" (faithful);
+  - "nhà ngư học" became "nhà khoa học" (0 in the forum, against 11 a million words);
+  - "gọi nhầm bằng tên của … và" became "gọi nhầm là … hoặc";
+  - "sách báo cũ vẫn" became "sách báo in trước năm 2013 thường", the page's "phần lớn tài liệu".
+  No pronoun for the two authors, so as not to guess their gender.
 - **Split:** "tạp chí" before a journal's name (Anthropic: always; xAI: never before "Journal of…", which stutters).
   It stays before a name that doesn't say it's a journal.
 

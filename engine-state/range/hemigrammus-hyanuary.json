@@ -1,0 +1,133 @@
+{
+  "id": "hemigrammus-hyanuary",
+  "native": {
+    "input": "2b2e6d8aa69579c4",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Otherwise the comparison with the neon or cardinal tetra can hardly be explained, because H. hyanuary – which by the way is named after Lake Hyanuary in Brazil – is really nicely colored, but it has little in common with a neon fish.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The January tetra, Hemigrammus hyanuary, is a small characin from the Amazon basin in Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The January tetra, Hemigrammus hyanuary, is a small characin from the Amazon basin in Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The January tetra, Hemigrammus hyanuary, is a small characin from the Amazon basin in Peru and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Lake Hyanuary",
+        "source": "seriouslyfish",
+        "quote": "The type specimen was collected from Lake Hyanuary, near the Brazilian city of Manaus.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The Neon Costello is widely distributed in the upper Amazon region.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus hyanuary",
+    "status": "ACCEPTED",
+    "taxonKey": 2354340,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        22
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        22
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

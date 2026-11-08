@@ -8,40 +8,40 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 288 | 240 (vi 240) | 240 |
-| translation | 516 | 101 (vi 101) | 101 |
-| vi-rewrite | 136 | 0 | 0 |
-| reader-rewrite | 11 | 0 | 0 |
+| video-guide | 379 | 322 (vi 322) | 322 |
+| translation | 597 | 109 (vi 109) | 109 |
+| vi-rewrite | 148 | 0 | 0 |
+| reader-rewrite | 13 | 0 | 0 |
 | title | 1 | 0 | 0 |
-| breed | 10 | 2 (ms 2) | 2 |
-| topic | 22 | 0 | 0 |
-| product | 5 | 0 | 0 |
-| product-reviews | 5 | 0 | 0 |
-| summary | 363 | 12 (vi 12) | 12 |
-| localize | 733 | 287 (id 146, ms 20, th 121) | 287 |
-| places | 3758 | 2184 (id 758, ms 651, th 676, vi 99) | 311 |
+| breed | 12 | 2 (ms 2) | 2 |
+| topic | 24 | 0 | 0 |
+| product | 6 | 0 | 0 |
+| product-reviews | 6 | 0 | 0 |
+| summary | 512 | 18 (vi 18) | 18 |
+| localize | 792 | 313 (id 152, ms 23, th 138) | 313 |
+| places | 3855 | 2256 (id 782, ms 675, th 700, vi 99) | 335 |
 | equipment | 5 | 0 | 0 |
 | planting | 15 | 0 | 0 |
-| species | 1 | 0 | 0 |
+| species | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-240 of 288 pages under the bar.
+322 of 379 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| States as certain what the source hedges, or what garbled captions only hint at | 225 | 720 |
-| Other | 219 | 697 |
-| Says what the source doesn't (invented, added) | 199 | 598 |
-| A number, unit, dose or price | 101 | 142 |
-| Wording: unnatural, literal, stiff or chatty | 75 | 96 |
-| Repeats itself (intro, summary, steps and FAQ) | 47 | 59 |
-| Meaning changed or wrong | 37 | 42 |
-| Leaves out what the source says | 18 | 20 |
-| Names or points to the video, channel, creator or source | 13 | 13 |
-| Hobby terms and names | 8 | 8 |
-| Copied from the transcript or source | 6 | 6 |
-| Off the title's topic | 6 | 6 |
+| States as certain what the source hedges, or what garbled captions only hint at | 297 | 955 |
+| Other | 296 | 895 |
+| Says what the source doesn't (invented, added) | 274 | 818 |
+| A number, unit, dose or price | 131 | 190 |
+| Wording: unnatural, literal, stiff or chatty | 98 | 127 |
+| Repeats itself (intro, summary, steps and FAQ) | 59 | 73 |
+| Meaning changed or wrong | 53 | 62 |
+| Leaves out what the source says | 22 | 24 |
+| Names or points to the video, channel, creator or source | 16 | 16 |
+| Hobby terms and names | 15 | 15 |
+| Copied from the transcript or source | 8 | 8 |
+| Off the title's topic | 7 | 7 |
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -65,19 +65,19 @@ under `<lang>/<path>`.
 
 - "Cửa nhà thường chỉ rộng khoảng 80 cm": the video says only that this building's doors are about 32 inches; write it as this building's doors (about 80 cm), not doors in general. — vi/guides/youtube-5IuztIYxONk, 0.30
 - "Bơm khí ấm vào dưới nắp thì gần như vô ích" and "nhiều khả năng là độ F, tức chưa tới nửa độ C": the video says warmer air doesn't make a big difference (about 1/4 to 1/2 degree); drop "gần như vô ích" and the F/C conversion guess; also t… — vi/guides/youtube-bZn6Bx67-L8, 0.30
-- "đèn gắn trên nắp thường yếu, trồng cây khó lên": the video only says the light in these units is usually not that powerful; remove 'trồng cây khó lên'. — vi/guides/youtube-ddIenwrxWgU, 0.30
+- "Bể cao 60 cm thì không nên trồng nếu chỉ dùng đèn thường": the video says 24 inches (60 cm) is not recommended, but "đèn thường" is invented; and "dễ trồng nhất" in the summary and "dễ trồng hơn nhiều" in the FAQ are stronger than "it'll … — vi/guides/youtube-nFXsyqdY37s, 0.30
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - Awkward/translation-like phrasing and off-topic content: the closing 'Bể 60 x 45 x 36 cm hợp với kiểu tủ này ra sao' section and FAQ 'khác bể 60P ở chỗ nào' drift to tank specs rather than the stand build; also the Eheim filter 'nằm ngay d… — vi/guides/youtube-gUa7q5RVW4A, 0.30
-- "Vi sinh trong lọc còn sống, gắn lại vào bể mới sẽ giúp bể vào chu trình nhanh hơn": the video says he keeps the filters running to keep bacteria alive to help jump-start; phrase it as the creator's intent ("để giúp khởi động nhanh hơn") n… — vi/guides/youtube-Ci1I8TbZrK8, 0.40
 - "Fahaka hung dữ, nên nuôi riêng một con là tốt nhất" (also "Đây là cách nên chọn nhất"): this is a ranking the speaker doesn't make, and "nên" is the calque. Hedge it as one option the speaker leans toward, e.g. "một cách là nuôi riêng". — vi/guides/youtube-eKREW6KPMh4, 0.40
+- Meta passages ("Phần hướng dẫn dừng ở bước chuẩn bị vật tư…", "phần hướng dẫn hiện có dừng lại trước khi giải thích", "không được trình bày"): these refer to the source material and are awkward. Delete them and simply state what the guide … — vi/guides/youtube-G2BKVhFgpVU, 0.40
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
+- "Lưu ý chung cho mọi hồ tự chế: nên dùng loại silicon dành cho bể cá, và bơm nước thử xem có rỉ chỗ nào không trước khi thả cá" (also repeated in the FAQ): invented tip; remove both places. — vi/guides/youtube-zYfpvGHYlxQ, 0.30
+- "Bạn nên tính kích thước kính theo cách này: lấy vùng nhìn mong muốn cộng thêm phần gờ" (and the FAQ repeat): this is a step the speaker doesn't give. Just state the panel size and viewing area as an example, or remove the formula. — vi/guides/youtube-nF0uT_39Ots, 0.40
 - "Vì sao bể không lọc của mình bị hôi nước? Không có một nguyên nhân chắc chắn, nhưng ba điều sau thường giúp tránh được": the FAQ repeats the earlier section, and "thường giúp tránh được" is stronger than the video. Remove it, or hedge to … — vi/guides/youtube-sxmL1DxwnRg, 0.40
-- "Bạn nên tính trước công tỉa nếu trồng nhiều cây mọc nhanh", "Giờ bắt đầu có thể dời theo lịch sinh hoạt", "Cài công tắc... ngay từ ngày đầu", "Đun lũa... trước khi làm bất cứ việc gì khác": invented advice; remove. Also the summary "Bắt đ… — vi/guides/youtube-TRpaZNjeRE4, 0.40
-- "Nếu không có lọc tràn, lọc thùng hay lọc treo nhiều khả năng vẫn dùng được... Lọc trong thì có lẽ nên tránh": the creator says "I'd probably stay away from internal filters" as a personal view; state it as the creator's own preference ("n… — vi/guides/youtube-z_pKaOlsKyg, 0.45
 
 ### Meaning changed or wrong
 
@@ -87,27 +87,27 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
+- Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+- "Cặn bẩn đọng dần trên mặt sỏi", "nhiều bể nước vẫn trong nhưng...cặn bốc lên mù mịt" and "Không có lịch cố định"/"thấy cặn bốc lên là lúc nên hút": generalisation and an FAQ answer the video doesn't give; limit to "sau khoảng 2–3 tháng" a… — vi/guides/youtube-43bSNzlX9Fo, 0.50
 - "Cá được thuần nước khoảng một tiếng rưỡi. Sau đó bật đèn lên và thả lần lượt tetra, Lampeye, cuối cùng là cặp Kribensis": the video does not show the acclimation method. It also drops the order "Jelly Bean first, then lampeyes, then krib"… — vi/guides/youtube-526gTi2z3WQ, 0.50
-- "Thùng chính chứa vật liệu lọc, còn hai thùng phụ dùng bông": the transcript is garbled and doesn't clearly say which canister holds which media. Remove or hedge this split. "Lọc phụ vệ sinh định kỳ" also drops the video's "khoảng 3 tháng … — vi/guides/youtube-7ZVrhWkpFDE, 0.50
-- "Nếu ngại dòng nhạy cảm thì có thể bỏ qua Caridina" and "Neocaridina có các màu đỏ, xanh, vàng, cam": the video only says he skipped Caridina as too sensitive for him; hedge as his own choice and don't present the colour list as a full ran… — vi/guides/youtube-IJxYhZygwKc, 0.50
 
 ### Names or points to the video, channel, creator or source
 
 - "Bể làm mẫu chạy ở pH 7,6" and "ngay từ đầu" in the last step, and "Kiểm tra sọc… trước khi mua": "bể làm mẫu" refers to the video's tank, and the "ngay từ đầu" and "before buying" steps are not given in the video. Remove or reword them (e… — vi/guides/youtube-hQgZb6U3iPw, 0.40
 - "Phụ đề không ghi rõ đó là loài gì": this refers to the video's captions. Delete the sentence. — vi/guides/youtube-XaHIqAHi4MU, 0.40
-- "Video giải thích chuyện này bằng sức căng bề mặt...": this mentions the video, which the guide must not do; rewrite as a plain statement ("nguyên nhân là sức căng bề mặt của nước mặn lớn hơn"). — vi/guides/youtube-z_pKaOlsKyg, 0.45
+- "Mình thấy dùng bộ mồi lâu ngày có vẻ làm lọc mau hỏng" and the FAQ "Có người thấy...": first-person voice and "Lọc lớn thường có sẵn nút hoặc bộ mồi nước"; rewrite neutrally as one possible approach ("một cách là đổ nước tay vì bộ mồi có … — vi/guides/youtube-ERomxf3YVHs, 0.50
 
 ### Hobby terms and names
 
 - "Ở Việt Nam và trên các diễn đàn nước ngoài, cái tên Fahaka vẫn phổ biến nhất": the speaker only says Fahaka is the most common name. The Vietnam and forum claims are invented. Reduce it to "tên Fahaka là phổ biến nhất". — vi/guides/youtube-eKREW6KPMh4, 0.40
+- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
 - "Dân chơi hay gọi lúc này là bể \"bung lụa\"": the creator only says his own tank "bung lụa hết cỡ" after 5 months. Do not present it as a hobby-wide term; remove it or write "có thể nói bể đã bung lụa". — vi/guides/youtube-s9MMmXyOyec, 0.45
-- "Mini fissidens: rêu fissidens loại nhỏ" and "loại lũa chùm cành mảnh": the explanations of the terms are loose. The video says only that mini fissidens is a popular moss sold as sheets or stone-attached. Remove 'rất hợp' style additions a… — vi/guides/youtube-IAGN8lN997s, 0.50
 
 ### Copied from the transcript or source
 
 - "Một cái lợi nữa là có thể dựng khối này bên ngoài rồi nhấc cả khối đặt vào bể": the video does not give this as a benefit of gluing. Remove it or just say the glued block was lifted into the tank. — vi/guides/youtube-5ajPkl9rhKQ, 0.50
-- "Bể nền đất trong thí nghiệm này dùng đất gì?" FAQ: it repeats the setup section word for word. It is also not a question the video raises. Remove it. — vi/guides/youtube-WMddjcmPwS4, 0.50
-- "Sau hai tháng không bật đèn... vì không chăm thì rêu hại sẽ lên" is repeated almost word for word in the intro paragraph ("không chăm thì rêu hại sẽ lên" twice); remove the duplicate. — vi/guides/youtube-_0xNpxtU9J0, 0.55
+- "Như vậy bạn cho cá ăn và vệ sinh bể dễ hơn": the video gives no reason like this for the removable lid. Remove the reason and only say the lid can be lifted off. — vi/guides/youtube-HwD_FoRC2Ig, 0.50
+- "Bể có nước vừa nặng vừa dễ nứt kính": the cracking risk isn't in the video. Delete it. The video only shows the tank emptied and cleaned before it is lifted. — vi/guides/youtube-qslR6wr0Rhk, 0.50
 
 ### Off the title's topic
 
@@ -117,20 +117,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-101 of 516 pages under the bar.
+109 of 597 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 98 | 310 |
-| Wording: unnatural, literal, stiff or chatty | 81 | 151 |
-| Says what the source doesn't (invented, added) | 80 | 172 |
-| Meaning changed or wrong | 70 | 115 |
-| Hobby terms and names | 52 | 70 |
-| Leaves out what the source says | 36 | 53 |
-| Text left in another language | 35 | 42 |
-| A number, unit, dose or price | 34 | 45 |
-| States as certain what the source hedges, or what garbled captions only hint at | 34 | 43 |
-| Repeats itself (intro, summary, steps and FAQ) | 30 | 39 |
+| Other | 106 | 342 |
+| Says what the source doesn't (invented, added) | 87 | 191 |
+| Wording: unnatural, literal, stiff or chatty | 87 | 159 |
+| Meaning changed or wrong | 74 | 122 |
+| Hobby terms and names | 54 | 73 |
+| Leaves out what the source says | 38 | 55 |
+| Text left in another language | 38 | 46 |
+| A number, unit, dose or price | 37 | 49 |
+| States as certain what the source hedges, or what garbled captions only hint at | 36 | 45 |
+| Repeats itself (intro, summary, steps and FAQ) | 31 | 40 |
 | Names or points to the video, channel, creator or source | 5 | 6 |
 | Copied from the transcript or source | 1 | 1 |
 
@@ -140,17 +140,17 @@ under `<lang>/<path>`.
 - Item 2: shop talk left in: "Dành cho khách hàng của chúng tôi: cá có mã 848131 trong danh sách hàng. Xin lưu ý rằng chúng tôi chỉ cung cấp cho kênh bán buôn." Drop this paragraph (stock code and wholesale-only notice). — vi/species/atractosteus-tristoechus (glaser), 0.55
 - Item 2: "nuôi lấy thịt" is acceptable, but fix 'food fish' as above. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 
-### Wording: unnatural, literal, stiff or chatty
-
-- Item 1: "Cá lớn rất to" is awkward and repeats itself. Use "Đây là loài cá phát triển rất lớn". — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 5: "formerly they are said to have reached even 3 m" and "ngày xưa thứ gì cũng tốt hơn" are rendered literally. The joke reads awkwardly. Smooth it, e.g. "trước đây được cho là tới 3 m, nhưng ngày xưa cái gì cũng hơn ;-)". — vi/species/atractosteus-tristoechus (glaser), 0.55
-- Item 1: "lớn rất to" is awkward; use 'kích thước trưởng thành lớn'. The same phrase recurs in items 5 and 11. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
-
 ### Says what the source doesn't (invented, added)
 
 - Item 4: the English says the name "shark" is a good description despite the zoological relationship. The Vietnamese adds "không có họ hàng gì với cá mập", which is slightly stronger and not quite the same meaning. Make it neutral, e.g. "Dù… — vi/species/labeo-chrysophekadion (glaser), 0.50
 - Item 4: the converted litre volume is kept but the duplicate 'Volume' is OK. 'Chiều dài chuẩn (SL) tối đa' adds 'tối đa', which is acceptable. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 - #7: 'lớp tảo, vi sinh bám trên đá, lũa' adds details ('đá, lũa') not in the source; keep 'aufwuchs' as 'lớp sinh vật bám (aufwuchs)'. — vi/species/ilyodon-furcidens (glaser), 0.55
+
+### Wording: unnatural, literal, stiff or chatty
+
+- Item 1: "Cá lớn rất to" is awkward and repeats itself. Use "Đây là loài cá phát triển rất lớn". — vi/species/labeo-chrysophekadion (glaser), 0.50
+- Item 5: "formerly they are said to have reached even 3 m" and "ngày xưa thứ gì cũng tốt hơn" are rendered literally. The joke reads awkwardly. Smooth it, e.g. "trước đây được cho là tới 3 m, nhưng ngày xưa cái gì cũng hơn ;-)". — vi/species/atractosteus-tristoechus (glaser), 0.55
+- Item 1: "lớn rất to" is awkward; use 'kích thước trưởng thành lớn'. The same phrase recurs in items 5 and 11. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 
 ### Meaning changed or wrong
 
@@ -206,11 +206,11 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-0 of 136 pages under the bar.
+0 of 148 pages under the bar.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 11 pages under the bar.
+0 of 13 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -218,7 +218,7 @@ under `<lang>/<path>`.
 
 ## breed: breed pages, against their research
 
-2 of 10 pages under the bar.
+2 of 12 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -243,39 +243,41 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-0 of 22 pages under the bar.
+0 of 24 pages under the bar.
 
 ## product: product pages, against their research
 
-0 of 5 pages under the bar.
+0 of 6 pages under the bar.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 5 pages under the bar.
+0 of 6 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-12 of 363 pages under the bar.
+18 of 512 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 7 | 7 |
-| States as certain what the source hedges, or what garbled captions only hint at | 4 | 5 |
-| Other | 4 | 4 |
-| A number, unit, dose or price | 2 | 2 |
+| Says what the source doesn't (invented, added) | 9 | 10 |
+| States as certain what the source hedges, or what garbled captions only hint at | 7 | 9 |
+| Other | 6 | 6 |
+| A number, unit, dose or price | 3 | 3 |
 | Leaves out what the source says | 2 | 2 |
+| Meaning changed or wrong | 1 | 1 |
+| Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
 
 ### Says what the source doesn't (invented, added)
 
 - "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
 - "Hợp với người đã quen cá săn mồi": the page never says the species suits keepers who already have experience with predatory fish. It only calls it an obligate predator, and the card rates difficulty as medium (4/8). This suitability claim… — vi/species/channa-orientalis, 0.00
-- "hợp với người đã quen killi đẻ nền": the page and card give no experience level or audience (no difficulty on the card), so this suitability claim is unsupported. — vi/species/moema-hellneri, 0.00
+- "loài mới phổ biến gần đây nên thông tin còn ít": the page only says hobbyists learned of the species recently. It never says information is scarce or that this is the hardest part, so the difficulty point is invented. — vi/species/limnopilos-naiyanetri, 0.00
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
+- "Cá nhạy với chất ô nhiễm hữu cơ và thông số nước đổi đột ngột": the page hedges with "có thể nhạy" (may be sensitive), but the summary states it as a certainty. — vi/species/acestrorhynchus-falcirostris, 0.00
 - Summary says "Cần ... nền cát" as a requirement, but the page only hedges: gravel is usable and sand is "có lẽ là lựa chọn tốt hơn" (probably better). The hedge became a certainty. — vi/species/butis-butis, 0.00
 - "thì cá tích mỡ, có thể thoái hóa nội tạng": the page hedges both effects ("lâu dần có thể làm cá tích mỡ thừa, thậm chí gây thoái hóa nội tạng"). The summary states fat build-up as certain and drops "lâu dần". — vi/species/channa-maculata, 0.00
-- Mistake 2: "cá ăn sạch cây và lao vỡ thiết bị" turns the page's hedge into a certainty. The page says a large fish "có thể dễ dàng làm vỡ" heaters and thermometers, not that it will break them. — vi/species/colossoma-macropomum, 0.00
 
 ### Other
 
@@ -285,6 +287,7 @@ under `<lang>/<path>`.
 
 ### A number, unit, dose or price
 
+- "38–48 °C": the card gives no temperature — vi/species/cyprinodon-julimes, 0.00
 - "Đừng chọn bể theo kích thước cá con mới nhập; hãy tính bể cho con trưởng thành 30 cm": the page gives no tank-sizing advice, so this mistake and fix are not on the page. The summary itself says the page gives no tank figures. — vi/species/synodontis-clarias, 0.00
 - "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
 
@@ -293,23 +296,31 @@ under `<lang>/<path>`.
 - Mistake 2: "nên làm lọc sump" drops the page's condition "Nếu được". The page gives sump as preferred if possible, and otherwise says to buy the biggest filter and change water often. — vi/species/colossoma-macropomum, 0.00
 - "thì cá tích mỡ, có thể thoái hóa nội tạng": the page hedges both effects ("lâu dần có thể làm cá tích mỡ thừa, thậm chí gây thoái hóa nội tạng"). The summary states fat build-up as certain and drops "lâu dần". — vi/species/channa-maculata, 0.00
 
+### Meaning changed or wrong
+
+- Mistake 1, "Để cá trong bể nước tĩnh, nền mịn: nên bố trí nền đá và sỏi, tạo dòng chảy": the page says nothing about still water or fine substrate being wrong, and the fix is not on the page. — vi/species/microsynodontis-hirsuta, 0.00
+
+### Repeats itself (intro, summary, steps and FAQ)
+
+- The page hedges: "có lẽ cứ chăm và cho ăn như tép là được". The summary states "chăm và cho ăn như tép Caridina là được" as certain, and the first mistake's fix repeats it ("nên cho ăn và chăm như tép Caridina"). — vi/species/limnopilos-naiyanetri, 0.00
+
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-287 of 733 pages under the bar.
+313 of 792 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 269 | 786 |
-| Wording: unnatural, literal, stiff or chatty | 249 | 533 |
-| Meaning changed or wrong | 172 | 281 |
-| Says what the source doesn't (invented, added) | 172 | 254 |
-| Hobby terms and names | 158 | 218 |
-| A number, unit, dose or price | 144 | 185 |
-| Text left in another language | 110 | 153 |
-| Leaves out what the source says | 90 | 106 |
-| States as certain what the source hedges, or what garbled captions only hint at | 75 | 84 |
-| Repeats itself (intro, summary, steps and FAQ) | 69 | 75 |
-| Copied from the transcript or source | 8 | 8 |
+| Other | 294 | 852 |
+| Wording: unnatural, literal, stiff or chatty | 272 | 581 |
+| Meaning changed or wrong | 190 | 309 |
+| Says what the source doesn't (invented, added) | 186 | 272 |
+| Hobby terms and names | 171 | 233 |
+| A number, unit, dose or price | 158 | 204 |
+| Text left in another language | 122 | 170 |
+| Leaves out what the source says | 96 | 113 |
+| States as certain what the source hedges, or what garbled captions only hint at | 81 | 90 |
+| Repeats itself (intro, summary, steps and FAQ) | 77 | 84 |
+| Copied from the transcript or source | 9 | 9 |
 
 ### Other
 
@@ -367,24 +378,24 @@ under `<lang>/<path>`.
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
+- Item 10: 'ปลาชนิดนี้น่าจะจับคู่กันเป็นคู่' is redundant, and 'ดูแลและปกป้องไข่และลูก' is fine. Reword the first to 'น่าจะจับคู่แบบคู่เดียว' or 'จับคู่'. — th/species/acanthodoras-cataphractus, 0.50
 - Item 3: 'Mae Khlong and Mae Klong' are the same river; the Thai 'ลุ่มน้ำแม่กลองและลุ่มน้ำสาขาของแม่กลอง' is fine in meaning, but check redundancy. Minor. — th/species/microdevario-kubotai, 0.50
 - Item 3: "Spesies ini tumbuh di tepi sungai kecil" is OK. "paya" is archaic; "rawa" and "paya" are near-synonyms. Use "lahan basah" or "rawa gambut" to avoid repetition. — id/plants/hygrophila-angustifolia, 0.55
-- Item 10: "pangkal awal sirip adiposa" is redundant. Use "pangkal sirip adiposa" for "adipose fin origin". — id/species/bagarius-suchus, 0.55
 
 ### Copied from the transcript or source
 
+- Item 11: 'A. longpinnis' is copied from the source typo, which is fine. — th/species/acanthocobitis-pavonacea, 0.55
 - Item 11: "Hrnek et al., 2002" is used in the text, while the source reference list says "Hrbek". Use "Hrbek et al., 2002" (the English text typo was copied). — id/species/anatolichthys-anatoliae, 0.60
 - Item 1/6: temperature "2–30 °C" matches the source, but the source's "2–30°C" is likely a typo for 20-30; consider flagging it rather than copying. — id/species/apricaphanius-baeticus, 0.60
-- Item 4: The original says "Peru. The Rio Jurua is the type locality." This contradicts item 3, which places the river in Brazil. The translation copies the contradiction. Keep it faithful, but "Rio Jurua" and "rio Juruá" are spelled incons… — id/species/brachyplatystoma-juruense, 0.60
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-2184 of 3758 pages under the bar.
+2256 of 3855 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 259 | 279 |
-| Leaves out what the source says | 26 | 26 |
+| Other | 281 | 301 |
+| Leaves out what the source says | 28 | 28 |
 | Meaning changed or wrong | 19 | 19 |
 | Hobby terms and names | 8 | 8 |
 | Wording: unnatural, literal, stiff or chatty | 8 | 8 |
@@ -448,4 +459,4 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 1 pages under the bar.
+0 of 2 pages under the bar.

@@ -38,9 +38,10 @@ describe('species page', () => {
     expect(top.querySelector('.facts > h2')?.text).toBe('Bảng dữ liệu')
     expect(top.querySelector('.facts > details.full > summary')?.text).toBe('Xem đủ bảng')
     expect(top.querySelector('.facts > details.full .datacard')).not.toBeNull()
-    // The photo column: the photo, then the gallery's thumbnails (a phone moves them after the care text).
+    // The photo column: the photo, then the gallery's thumbnails, there on a phone too (no script moves them).
     expect(order(top.querySelector('.side')!)).toEqual(['photo', 'strip'])
-    expect(dom.querySelector('#anh-dien-thoai')).not.toBeNull()
+    expect(dom.querySelectorAll('section.strip')).toHaveLength(1)
+    expect(dom.querySelector('#anh-dien-thoai')).toBeNull()
     const facts = top.querySelectorAll('.id .keyfacts > div')
     expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
     expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,30') // the card's resolved range, °F toggle too
@@ -782,6 +783,9 @@ describe('photo gallery', () => {
     // Its gallery has the readers' photos too (the gallery test below), and the link says so; a breed's has none yet.
     expect(strip.querySelector('.head a')!.textContent).toBe('Xem tất cả 45 ảnh và ảnh bạn đọc →')
     expect(page('/ca/ca-la-han/').dom.querySelector('section.strip .head a')!.textContent).not.toContain('bạn đọc')
+    // A phone's row hides the heading's link and ends with its own, short enough for a tile.
+    expect(strip.querySelector('a.all')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
+    expect(strip.querySelector('a.all')!.textContent).toBe('Xem tất cả 45 ảnh →')
     const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
     expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)

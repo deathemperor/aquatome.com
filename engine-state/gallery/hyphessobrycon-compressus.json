@@ -1,28 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Hyphessobrycon_compressus_%28Michael_Tobler%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Hyphessobrycon_compressus_%28Michael_Tobler%29.png/500px-Hyphessobrycon_compressus_%28Michael_Tobler%29.png",
-   "width": 4000,
-   "height": 1750,
-   "licence": "CC BY 4.0",
-   "author": "Carvalho, Malabarba, Endruweit, and Tobler",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_compressus_(Michael_Tobler).png",
-   "caption": "Hyphessobrycon compressus photographed live, female from river near Teapa, Tabasco, Mexico. Image taken by Michael Tobler.",
-   "key": "File:Hyphessobrycon compressus (Michael Tobler).png"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Hyphessobrycon_compressus_%28Marco_Endruweit%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Hyphessobrycon_compressus_%28Marco_Endruweit%29.png/500px-Hyphessobrycon_compressus_%28Marco_Endruweit%29.png",
-   "width": 4000,
-   "height": 1750,
-   "licence": "CC BY 4.0",
-   "author": "Carvalho, Malabarba, Endruweit, and Tobler",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_compressus_(Marco_Endruweit).png",
-   "caption": "Hyphessobrycon compressus photographed live, female from río Usumacinta basin, Chiapas Province, southern Mexico. Image taken by Marco Endruweit.",
-   "key": "File:Hyphessobrycon compressus (Marco Endruweit).png"
-  }
+ "queue": [],
+ "judged": [
+  "File:Hyphessobrycon compressus (Michael Tobler).png",
+  "File:Hyphessobrycon compressus (Marco Endruweit).png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/c9c6b0360aeedb33.webp": "4f070f1f33130b17"
+ },
+ "commons": "2026-11-08"
 }

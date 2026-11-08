@@ -65,7 +65,7 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
     <section class="refs" id="nguon" data-pagefind-ignore>
       <details>
         <summary><h2 id="nguon-h">{tr('Nguồn')}</h2> <span class="n">{biblio ? tr('{n} nguồn và tài liệu tham khảo', { n: refs.length }) : tr('{n} nguồn', { n: refs.length })}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
-        <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener">{r.name}</a> <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
+        <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener" data-ev="src">{r.name}</a> <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
         <p class="note">{note}</p>
         {biblio && (
           <section class="biblio" data-section="references" id="muc-references">

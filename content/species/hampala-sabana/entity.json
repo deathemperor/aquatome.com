@@ -10,6 +10,86 @@
     "malaysia",
     "sabah"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Kinabatangan River",
+        "Segama"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Malaysian state of Sabah, northern Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tributary of Kinabatangan River near Deramakot, Malaysia, Borneo'.",
+          "countries": [],
+          "regions": [
+            "Kinabatangan River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Sympatric fish species in the Segama river system include Luciosoma pellegrini, Nematabramis everetti, Garra borneensis, Gastromyzon lepidogaster, Mystus sabanus, and Pangasius tubbi.",
+          "countries": [],
+          "regions": [
+            "Segama"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367435,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          118.125,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -191,7 +191,7 @@ export const LOW: LowScores = {
   ],
 }
 /** The quality part (admin/quality.ts): a page each list, the gaps from Google and from readers. */
-const QFIG = { tabs: 40, half: 12, end: 6, s30: 14, next: 8, shop: 1, impressions: 900, clicks: 9, position: 4.2, impressionsBefore: 1400, clicksBefore: 30 }
+const QFIG = { tabs: 40, half: 12, end: 6, s30: 14, next: 8, shop: 1, tank: 2, src: 3, impressions: 900, clicks: 9, position: 4.2, impressionsBefore: 1400, clicksBefore: 30 }
 const qrow = (path: string, title: string, score: number, why: string) => ({ path, title, section: 'fish·vi', score, ranked: true, demand: 1300, figures: QFIG, why })
 export const QUALITY: Quality = {
   days: 28, search: { at: '2026-11-08T23:30:00Z', from: '2026-10-10', to: '2026-11-06' }, scored: 120, ranked: 34,

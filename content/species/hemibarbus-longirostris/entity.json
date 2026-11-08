@@ -13,6 +13,191 @@
     "north-korea",
     "japan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "RU",
+        "JP",
+        "KR"
+      ],
+      "regions": [
+        "Korean peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hemibarbus longirostris is a cyprinid native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula and Japan.",
+          "countries": [
+            "CN",
+            "RU",
+            "JP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Chong-ju, South Korea'.",
+          "countries": [
+            "KR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula, and Japan.",
+          "countries": [],
+          "regions": [
+            "Korean peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365991,
+      "total": 3400,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KR",
+          2981
+        ],
+        [
+          "JP",
+          418
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          123.75,
+          39.375,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          33.75,
+          3,
+          3
+        ],
+        [
+          126.5625,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          33.75,
+          140,
+          140
+        ],
+        [
+          126.5625,
+          35.15625,
+          890,
+          890
+        ],
+        [
+          126.5625,
+          36.5625,
+          905,
+          905
+        ],
+        [
+          126.5625,
+          37.96875,
+          269,
+          269
+        ],
+        [
+          127.96875,
+          35.15625,
+          162,
+          162
+        ],
+        [
+          127.96875,
+          36.5625,
+          517,
+          517
+        ],
+        [
+          127.96875,
+          37.96875,
+          92,
+          92
+        ],
+        [
+          129.375,
+          36.5625,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          33.75,
+          6,
+          6
+        ],
+        [
+          132.1875,
+          33.75,
+          26,
+          26
+        ],
+        [
+          133.59375,
+          33.75,
+          129,
+          129
+        ],
+        [
+          133.59375,
+          35.15625,
+          169,
+          169
+        ],
+        [
+          135,
+          33.75,
+          72,
+          72
+        ],
+        [
+          135,
+          35.15625,
+          11,
+          11
+        ],
+        [
+          137.8125,
+          33.75,
+          3,
+          3
+        ],
+        [
+          139.21875,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          140.625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
