@@ -4,8 +4,8 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, TITLE_RULE, type Start } from '../chat/agent'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MAX_TITLE, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, TITLED_SCHEMA, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
@@ -659,6 +659,7 @@ test('the answer\'s schema and every tool\'s input are what structured outputs t
     }
   }
   walk(ANSWER_SCHEMA as unknown as Record<string, unknown>, 'answer')
+  walk(TITLED_SCHEMA as unknown as Record<string, unknown>, 'titled')
   for (const t of chatTools({ handbook: {} as Handbook, tanks: async () => [] })) walk(t.input_schema as Record<string, unknown>, t.name)
   expect(problems).toEqual([])
 })
@@ -740,8 +741,10 @@ test('a call\'s JSON that doesn\'t open with the text gives nothing; space aroun
   expect(pieces(['{"te', 'xts":"Nuôi theo đàn."'])).toEqual(['', ''])
   expect(pieces(['Để tôi đọc trang cá neon.', '{"text":"x"'])).toEqual(['', ''])
   expect(pieces([' \n{ ', '"offTopic" ', ':\t', ' false ,', ' "text" ', ': ', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', '', '', '', 'Nuôi', ' theo đàn.', ''])
-  // The schema keeps offTopic, then the text, first: structured outputs write the keys in its order.
+  // The schema keeps offTopic, then the text, first: structured outputs write the keys in its order. The title comes
+  // last, so the text still streams first.
   expect(Object.keys(ANSWER_SCHEMA.properties).slice(0, 2)).toEqual(['offTopic', 'text'])
+  expect(Object.keys(TITLED_SCHEMA.properties)).toEqual([...Object.keys(ANSWER_SCHEMA.properties), 'title'])
 })
 
 test('an answer on fishkeeping streams after offTopic false; an off-topic one gives nothing, whatever its text', () => {
@@ -830,4 +833,41 @@ test('without onText a run is as before: no call is asked to stream, and a tool 
   })
   expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'call'], ['timeoutMs', 'call']])
   expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
+})
+
+test('a conversation\'s first answer brings its title, in the same call: the titled schema and the rule in the reader\'s language; other turns ask none', async () => {
+  const h = await hb()
+  const asked = async (o: { title?: boolean; lang?: 'vi' | 'th' }) => {
+    const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+    const out = await answerQuestion({
+      send: async body => { bodies.push(body); return message([{ type: 'text', text: JSON.stringify({ ...answer([], { text: 'Cá betta bỏ ăn thường do nước lạnh.' }), title: 'Cá betta bỏ ăn' }) }]) },
+      model: 'claude-opus-5-5', lang: o.lang ?? 'vi', question: 'Bé betta nhà em bỏ ăn 2 hôm nay', earlier: [], start: {}, handbook: h, tanks: async () => [], ...(o.title ? { title: true } : {}),
+    })
+    return { out, body: bodies[0]!, said: JSON.stringify(bodies[0]!.messages) }
+  }
+  const titled = await asked({ title: true })
+  expect(titled.body.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: TITLED_SCHEMA } })
+  expect(titled.said).toContain(JSON.stringify(TITLE_RULE('vi')).slice(1, -1))
+  expect(TITLE_RULE('th')).toContain('In Thai')
+  expect(titled.out.answer?.title).toBe('Cá betta bỏ ăn')
+  const not = await asked({})
+  expect(not.body.output_config!.format).toEqual({ type: 'json_schema', schema: ANSWER_SCHEMA })
+  expect(not.said).not.toContain('title')
+})
+
+test('a title as the list shows it: one line, no quotes or stop; one that isn\'t a title is left out, never the answer with it', () => {
+  const said = (title: unknown, offTopic = false) => readAnswer(message([{ type: 'text', text: JSON.stringify({ offTopic, text: 'Cá betta bỏ ăn thường do nước lạnh.', covered: true, blocks: [], suggestions: [], title }) }]))
+  expect(said(' "Cá betta bỏ ăn,\n nằm đáy." ')?.title).toBe('Cá betta bỏ ăn, nằm đáy')
+  expect(said('«Rêu tóc trong bể mới»')?.title).toBe('Rêu tóc trong bể mới')
+  // Counted as the reader sees it: "กิ่" is three code points and one character, so 60 of them are a title, 61 none.
+  expect([...'กิ่'].length).toBe(3)
+  expect(said('กิ่'.repeat(MAX_TITLE))?.title).toBe('กิ่'.repeat(MAX_TITLE))
+  expect(said('กิ่'.repeat(MAX_TITLE + 1))?.title).toBeUndefined()
+  for (const none of ['', '  ', '...', 'x'.repeat(MAX_TITLE + 1), 42, null]) {
+    const a = said(none)
+    expect(a?.text, String(none)).toBe('Cá betta bỏ ăn thường do nước lạnh.')
+    expect(a && 'title' in a, String(none)).toBe(false)
+  }
+  // An off-topic answer has none: its row keeps the first words, and the next question may give one.
+  expect(said('Bóng đá', true)).toEqual({ offTopic: true, text: '', covered: true, blocks: [], suggestions: [] })
 })

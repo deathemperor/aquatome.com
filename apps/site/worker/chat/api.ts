@@ -96,9 +96,9 @@ export function chatWorstCost(model: string): number {
 }
 
 /** The contract's `Turn`. */
-export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[] }
-/** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
-export type Conversation = { created: number; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
+export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; title?: string; model: string; steps?: Step[] }
+/** A conversation as kept (under its account's prefix): when it began, its title once a turn gave it one, its turns, and the question being answered. */
+export type Conversation = { created: number; title?: string; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on. */
 type Kept = { at: number } & ({ turn: Turn } | { status: number; error: string })
 
@@ -257,7 +257,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // `etagDoesNotMatch: '*'` is If-None-Match: * (workerd's r2-bucket.c++, buildSingleEtagArray), which R2 applies as a
   // create-once write only one of several at once wins (developers.cloudflare.com/r2/api/s3/extensions/, "Conditional
   // operations in PutObject"); a failed condition is null, not an error (developers.cloudflare.com/r2/api/workers/workers-api-reference/).
-  const mark: Conversation = { created: conv?.created ?? clock(), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
+  const mark: Conversation = { created: conv?.created ?? clock(), ...(conv?.title ? { title: conv.title } : {}), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
   const marked = await env.UPLOADS.put(convKey, JSON.stringify(mark), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: '*' } })
     .then(o => (o ? 'ok' : 'taken'), e => { console.error('chat mark:', e); return 'failed' })
   if (marked !== 'ok') {
@@ -315,7 +315,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
             throw e
           }
         },
-        model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
+        // The title comes with the first answer while the conversation has none (after an off-topic one, the next).
+        model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb, title: !mark.title,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
       })
@@ -334,7 +335,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       if (!out.answer) return { status: 502, body: { error: 'failed' } }
       const turn: Turn = {
         conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, text: out.answer.text, blocks: out.blocks,
-        suggestions: out.answer.suggestions.filter(s => s.trim()).slice(0, 3), covered: out.answer.covered, model,
+        suggestions: out.answer.suggestions.filter(s => s.trim()).slice(0, 3), covered: out.answer.covered,
+        ...(!mark.title && out.answer.title ? { title: out.answer.title } : {}), model,
         ...(out.steps.length ? { steps: out.steps } : {}),
       }
       return { status: 200, body: turn as unknown as Record<string, unknown> }
@@ -350,7 +352,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
    */
   const finish = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
-    const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
+    const title = mark.title ?? turn?.title
+    const next: Conversation = { created: mark.created, ...(title ? { title } : {}), turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.

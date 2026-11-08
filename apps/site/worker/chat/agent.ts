@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { ANSWER_SCHEMA, fill, OFF_TOPIC, readAnswer, textReader, type Answer, type ChatBlock } from './answer'
+import { ANSWER_SCHEMA, fill, OFF_TOPIC, readAnswer, textReader, TITLED_SCHEMA, type Answer, type ChatBlock } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { MatesCheck } from './mates'
 import { chatTools, type Step, type Tank } from './tools'
@@ -59,8 +59,11 @@ export function shown(b: ChatBlock): string {
   }
 }
 
+/** What the first message asks for the conversation's title (`ChatOptions.title`). */
+export const TITLE_RULE = (lang: Lang) => `This question starts the conversation: give it a title too (title), for the reader's list of past chats. In ${LANGS[lang]}, at most six words: the fish, shrimp or plant and the problem or what they ask, as a heading (in English it would read "Betta not eating, lying on the bottom"). Never a person's name, a place, a shop or anything else personal from their message.`
+
 /** The first message: the start, the earlier turns, then the question, in the reader's language. */
-export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook): Anthropic.MessageParam {
+export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook, title = false): Anthropic.MessageParam {
   const parts: string[] = [`The reader writes in ${LANGS[lang]}; answer in ${LANGS[lang]}, with the ${lang} pages the tools give. The site calls the handbook "${HANDBOOK[lang]}".`]
   const about = start.about ? hb.byId(start.about) : undefined
   if (start.from === 'fish-id' && start.identified) {
@@ -72,6 +75,7 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
     parts.push('Earlier in this conversation:')
     earlier.forEach((t, i) => parts.push(`${i + 1}. Reader: ${t.question}\nYou: ${t.text}${t.blocks.length ? `\nShown: ${t.blocks.map(shown).join('; ')}` : ''}`))
   }
+  if (title) parts.push(TITLE_RULE(lang))
   parts.push(`The reader asks:\n${question}`)
   return { role: 'user', content: [{ type: 'text', text: parts.join('\n\n') }] }
 }
@@ -115,6 +119,8 @@ export type ChatOptions = {
   /** The forced answer's effort when time is short (loop.ts `lastEffort`): low unless the eval asks otherwise. */
   lastEffort?: 'low' | 'medium' | 'high'
   limits?: Partial<Limits>
+  /** Ask for the conversation's title too, in the same call as the answer: its first answered turn while it has none. */
+  title?: boolean
   onStep?: (step: Step) => void
   /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
   onText?: (piece: string) => void
@@ -146,8 +152,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
-    first: firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook),
-    schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
+    first: firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook, o.title),
+    schema: (o.title ? TITLED_SCHEMA : ANSWER_SCHEMA) as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
     lastEffort: o.lastEffort ?? 'low',
     pace: CHAT_PACE,

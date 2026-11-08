@@ -197,6 +197,41 @@ test('the next question reads the turns before it, the start only once; an id an
   expect(store.m.size).toBeGreaterThan(0)
 })
 
+test('a conversation\'s title comes with its first answer, in the same call, and is kept: later questions ask none; after an off-topic one the next gives it; a failed question keeps it', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const schemaOf = (b: Record<string, unknown>) => JSON.stringify((b.output_config as { format: unknown }).format)
+  const c = claude([NEON[0]!, () => answers({ title: '"Cách nuôi cá neon xanh."' })])
+  const first = await run(ask(bearer(me.token)), e, deps(c.fetch))
+  expect(first.body).toMatchObject({ n: 1, title: 'Cách nuôi cá neon xanh' })
+  // Every call of the run could be the one that answers, so each asks for it: no call or wait of its own.
+  expect(c.bodies).toHaveLength(2)
+  for (const b of c.bodies) expect(schemaOf(b)).toContain('"title"')
+  expect(JSON.stringify(c.bodies[0]!.messages)).toContain('give it a title')
+  expect(store.read<Conversation>(await convKey(me))!.title).toBe('Cách nuôi cá neon xanh')
+  // The next question asks none, and its turn has none.
+  const next = claude([() => answers({})])
+  const second = await run(ask(bearer(me.token), { question: 'Bể 60 lít thả bao nhiêu con?' }), e, deps(next.fetch))
+  expect(second.body).toMatchObject({ n: 2 })
+  expect('title' in second.body).toBe(false)
+  expect(schemaOf(next.bodies[0]!)).not.toContain('"title"')
+  expect(JSON.stringify(next.bodies[0]!.messages)).not.toContain('give it a title')
+  // A question that fails leaves the title as it was.
+  const bad = await run(ask(bearer(me.token), { question: 'Còn tép thì sao?' }), e, deps(claude([() => msg([{ type: 'text', text: 'not json' }])]).fetch))
+  expect(bad.res.status).toBe(502)
+  expect(store.read<Conversation>(await convKey(me))).toMatchObject({ title: 'Cách nuôi cá neon xanh', turns: [{ n: 1 }, { n: 2 }] })
+  // An off-topic first question gets no title, so the next question gives it.
+  const other = { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }
+  const off = claude([() => msg([{ type: 'text', text: JSON.stringify({ offTopic: true, text: 'x', covered: true, blocks: [], suggestions: [], title: 'Bóng đá tối qua' }) }])])
+  const o = await run(ask(bearer(me.token), { ...other, question: 'Tối qua Real Madrid đá thế nào?' }), e, deps(off.fetch))
+  expect([o.body.n, 'title' in o.body]).toEqual([1, false])
+  const after = claude([() => answers({ title: 'Bể 60 lít thả bao nhiêu cá' })])
+  const a = await run(ask(bearer(me.token), { ...other, question: 'Bể 60 lít thả bao nhiêu con?' }), e, deps(after.fetch))
+  expect(a.body).toMatchObject({ n: 2, title: 'Bể 60 lít thả bao nhiêu cá' })
+  const otherKey = conversationKey(await chatAccount('k', me.id), other.conversation)
+  expect(store.read<Conversation>(otherKey)!.title).toBe('Bể 60 lít thả bao nhiêu cá')
+})
+
 test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unset, the default is Opus (the first question\'s model above)', () => {
   const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
   const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)?.[1]

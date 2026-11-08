@@ -66,8 +66,21 @@ export const ANSWER_SCHEMA = {
   },
 } as const
 
+/**
+ * The schema for a conversation's first answer, while it has no title: the same, and the title last, after the text,
+ * so the text still streams first (`textReader`) and the title costs no call of its own.
+ */
+export const TITLED_SCHEMA = {
+  ...ANSWER_SCHEMA,
+  required: [...ANSWER_SCHEMA.required, 'title'],
+  properties: {
+    ...ANSWER_SCHEMA.properties,
+    title: { type: 'string', description: 'The conversation\'s title, for the reader\'s list of past chats: in their language, at most six words naming the fish or plant and the problem or what they ask. Nothing personal from their message: no name, place or shop.' },
+  },
+} as const
+
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
-export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[] }
+export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[]; title?: string }
 
 /**
  * What an off-topic question gets, in the reader's language, whatever Claude wrote: one friendly line back to what the
@@ -80,6 +93,20 @@ export const OFF_TOPIC: Record<Lang, string> = {
   ms: 'Saya hanya boleh membantu tentang penjagaan ikan: ikan, udang, siput, tumbuhan akuatik, tangki, kolam, air dan peralatannya. Tanyalah tentang tangki anda, ya!',
 }
 
+/** Characters as the reader sees them (Swift's `count`): a Thai vowel or tone mark is part of its letter. */
+const graphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+export const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))].length
+/** The longest title kept: six words in any of the languages, with room. Longer, it is no title, and the list shows the first question's first words. */
+export const MAX_TITLE = 60
+/**
+ * The title Claude wrote, as the list shows it: on one line, without quotes around it or a stop at its end. None when
+ * it's empty or longer than a title (`MAX_TITLE`).
+ */
+export function titleOf(raw: string): string | undefined {
+  const t = raw.normalize('NFC').replace(/\s+/g, ' ').trim().replace(/^["'“”«»]+|["'“”«»]+$/g, '').replace(/[.,;:!?…。]+$/, '').trim()
+  return t && charsOf(t) <= MAX_TITLE ? t : undefined
+}
+
 /** Shorter than this, an answer's text is none: the eval saw "" and "x" from a last call a limit forced. */
 export const MIN_TEXT = 10
 
@@ -90,7 +117,11 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
   try {
     const a = JSON.parse(text) as Answer
     if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [] }
-    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? { ...a, offTopic: false } : undefined
+    if (!(typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions))) return undefined
+    // A title that isn't one is left out, never the answer with it: the list shows the first words instead.
+    const { title: raw, ...rest } = a
+    const title = typeof raw === 'string' ? titleOf(raw) : undefined
+    return { ...rest, offTopic: false, ...(title ? { title } : {}) }
   } catch {
     return undefined
   }
