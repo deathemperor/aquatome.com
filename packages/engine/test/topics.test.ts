@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, usableFact, type TopicFacts } from '../src/topics'
 
 const facts: TopicFacts = {
   found: true,
@@ -127,4 +127,115 @@ test('localizeTopic in Malay: addressed by its name, and a name another guide ha
   expect(prompts[0]).toContain('Malay')
   expect(prompts[0]).toContain('Malaysia')
   expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
+})
+
+test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a measure, a level not the water\'s own or a rate; another page of the same forum is no second source', () => {
+  const sources: TopicFacts['sources'] = [
+    { url: 'https://farm.example/ca', title: 'Nuôi cá', kind: 'farm' },
+    { url: 'https://forum.example/t/1', title: 'Thread', kind: 'forum' },
+    { url: 'https://forum.example/t/1?page=2', title: 'Thread, page 2', kind: 'forum' },
+  ]
+  const usable = (fact: string, source = 0, also?: number[]) => usableFact({ found: true, species: [], sources, facts: [] }, { section: 'treatment', fact, source, ...(also ? { also } : {}) })
+  for (const [fact, source] of [
+    ['Formalin at 25 ppm; add aeration because it lowers oxygen', 1],
+    ['Copper sulfate at 1 ppm only when KH is above 5', 1],
+    ['A 3% saline solution', 0],
+    ['Salt bath at 3 percent', 0],
+    ['20–30‰ salt water', 0],
+    ['Tắm nước muối 20‰', 0],
+    ['1 capful per 40 litres', 1],
+    // A treatment the rules have no name for, by its level, measure or rate.
+    ['Hydrogen peroxide at 25 ppm for 30 minutes', 1],
+    ['Ivermectin at 0.1 ppm kills worms', 1],
+    ['Dose Cupramine to 0.5 ppm', 1],
+    ['Dose 1 capful of Paraguard daily', 1],
+    ['Oxy già 3% liều 1 ml cho 4 lít', 1],
+    ['A 3% hydrogen peroxide dip for 5 minutes', 1],
+    ['Toltrazuril 10 mg per kg of food', 1],
+    ['Vitamin C 200–300 g per 100 kg of feed', 0],
+    // Measures, levels and rates in each language, and treatments by kind.
+    ['Maracyn: 1 packet per 10 gallons daily for 5 days', 1],
+    ['Emamectin benzoate 50 mcg/kg of fish for 7 days', 1],
+    ['Hòa 2 g thuốc Furan vào 10 lít nước', 1],
+    ['Larutkan 1 sendok makan garam dalam 10 liter', 1],
+    ['Teteskan 2 tetes per liter', 1],
+    ['Gunakan 1 bungkus per 40 liter', 1],
+    ['ใส่ยา 1 ซองต่อน้ำ 40 ลิตร', 1],
+    ['หยด 2 หยดต่อลิตร', 1],
+    ['ใช้ 1 เม็ดต่อน้ำ 20 ลิตร', 1],
+    ['Hydrogen peroxide 25 ppm; boost oxygen first', 1],
+    ['Ivermectin 0.1 ppm, keep oxygen high', 1],
+    ['Emamectin 0.05 ppm, keep oxygen high', 1],
+    ['Use half a teaspoon of Epsom salt per 5 gallons', 1],
+    ['A 1:2000 formalin bath for 30 minutes', 1],
+    // A mineral with its compound is a treatment; a measure in words; grams per volume beside a water level.
+    ['Magnesium sulfate at 1,000 ppm for dropsy.', 1],
+    ['Calcium hypochlorite at 5 ppm to disinfect.', 1],
+    ['Use 1 g per 10 litres; nitrate stays under 20 ppm.', 1],
+    ['Larutkan 2 sudu besar garam dalam 1 liter air untuk rendaman.', 1],
+    ['1 kapsul untuk setiap 20 liter.', 1],
+    ['Half a capful per 40 litres.', 1],
+    ['One tablet per 20 litres.', 1],
+    ['Oxygen above 5 ppm with treatment at 25 ppm.', 1],
+  ] as const) expect(usable(fact, source), fact).toBe(false)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.']) expect(usable(fact), fact).toBe(true)
+  expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
+  // Another page of the same forum is no second source: its addresses can't tell a thread's pages from its posts.
+  const second = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
+  for (const [a, b] of [
+    ['https://forum.example/threads/ich.9/', 'https://forum.example/threads/ich.9/page-2'],
+    ['https://forum.example/threads/ich.9/', 'https://forum.example/posts/123/'],
+    ['https://forum.example/viewtopic.php?t=1', 'https://forum.example/viewtopic.php?p=55#p55'],
+    ['https://forum.example/index.php?topic=12.0', 'https://forum.example/index.php?topic=12.15'],
+    ['https://www.reddit.com/r/Aquariums/comments/abc/ich/', 'https://old.reddit.com/r/Aquariums/comments/abc/ich/def456/'],
+    ['https://m.forum.example/t/ich/123', 'https://forum.example/t/ich/123/45'],
+    ['https://www.reddit.com/r/Aquariums/comments/abc/x/', 'https://redd.it/abc'],
+    ['https://www.reddit.com/r/Aquariums/comments/abc/x/', 'https://np.reddit.com/r/Aquariums/comments/abc/x/'],
+    ['https://www.facebook.com/groups/1/posts/2', 'https://vi-vn.facebook.com/groups/1/posts/2'],
+    ['https://www.facebook.com/groups/1/posts/2', 'https://fb.com/groups/1/posts/2'],
+    ['https://diendan.cacanh.vn/t/1', 'https://cacanh.vn/x'],
+    ['https://forum.example.com.vn/t/1', 'https://example.com.vn/bai-viet'],
+    ['https://www.fishforum.com./t/1', 'https://fishforum.com/t/2'],
+  ]) expect(second(a!, b!), b).toBe(false)
+  expect(second('https://forum.a.com.vn/t/1', 'https://b.com.vn/x')).toBe(true)
+  expect(second('https://forum.example/viewtopic.php?t=1', 'https://other.example/threads/ich.5/')).toBe(true)
+})
+
+test('a dose from a fish farm\'s page or a forum post is written only when another page, not a farm\'s, gives it too', async () => {
+  const research: TopicFacts = {
+    found: true,
+    species: [],
+    sources: [
+      { url: 'https://tepbac.example/nam', title: 'Bệnh nấm trên cá', kind: 'farm' },
+      { url: 'https://forum.example/arowana', title: 'Arowana diseases', kind: 'forum' },
+      { url: 'https://vet.example/dips', title: 'Dips', kind: 'vet' },
+      { url: 'https://farm2.example/dips', title: 'Tắm muối cho cá', kind: 'farm' },
+    ],
+    facts: [
+      { section: 'treatment', fact: 'Bath in NaCl 2–3% for 15–30 minutes', source: 0 },
+      { section: 'treatment', fact: '1% salt with 0.8 g quinine per liter', source: 1 },
+      { section: 'treatment', fact: 'Tắm muối định kỳ 2–3% trong 15–20 phút', source: 0, also: [3] }, // another farm: not enough
+      { section: 'treatment', fact: 'A 30 g/L salt dip for 0.5–10 minutes', source: 0, also: [2] }, // a vet gives it too
+      { section: 'signs', fact: 'White cotton-like tufts on the skin', source: 0 }, // no dose: kept
+      { section: 'treatment', fact: 'Keepers raise the temperature 2–3 °C and add aeration', source: 1 }, // no dose: kept
+      { section: 'prevention', fact: 'Keep nitrate below 20 ppm', source: 1 }, // the water's own level: kept
+      { section: 'treatment', fact: 'Copper at 0.2 ppm for two weeks', source: 1 }, // a medicine's level: a dose
+      { section: 'treatment', fact: 'Remove the fish if it rolls onto its side', source: 2 },
+    ],
+  }
+  const root = await site()
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.92, notes: [] } as never
+    return { name: 'Cá bị nấm', slug: 'fish-fungus', summary: ['x'], body: '<p>x</p>', faq: [] } as never
+  }
+  const r = await makeTopic(root, { research: async () => research as never, llm }, { topic: 'Cá bị nấm', kind: 'disease' })
+  const written = (p: string) => research.facts.filter(f => p.includes(f.fact)).map(f => f.fact)
+  const kept = ['A 30 g/L salt dip for 0.5–10 minutes', 'White cotton-like tufts on the skin', 'Keepers raise the temperature 2–3 °C and add aeration', 'Keep nitrate below 20 ppm', 'Remove the fish if it rolls onto its side']
+  expect(written(prompts[0]!)).toEqual(kept)
+  // Nor in another language, from the same research.
+  prompts.length = 0
+  await localizeTopic(root, llm, r.id, 'id')
+  expect(written(prompts[0]!)).toEqual(kept)
 })

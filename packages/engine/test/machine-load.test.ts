@@ -122,3 +122,12 @@ test('a reading of the Mac: the small job, the queues, and load only as backgrou
   expect(r.status, r.stderr).toBe(0)
   expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number) })
 }, 60_000)
+
+// 2026-11-08: main's run back on this Mac, two copies of its simulator: a 0.4 s job on the Mac took 5 to 12 s.
+test("main's flow jobs on this Mac test on its one simulator, with no copies", () => {
+  const ios = readFileSync(join(ROOT, '.github/workflows/ios.yml'), 'utf8')
+  const own = ios.match(/if \[ "\$LOCAL" = true \]; then\n([\s\S]*?)\n\s*else/)?.[1] ?? ''
+  expect(own).toContain('runner=["self-hosted","macOS","aquatome"]')
+  expect(own).toContain("parallel=-parallel-testing-enabled NO'")
+  expect(own).not.toContain('worker-count')
+})
