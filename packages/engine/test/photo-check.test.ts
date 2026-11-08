@@ -475,3 +475,11 @@ test('a Commons photo whose file name names another species with a page leaves t
   expect(d.seen.filter(s => s.prompt.includes('Badis badis')).flatMap(s => s.photos)).toEqual(['blue', 'both'])
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
 })
+
+test('--only takes several pages, comma-separated, and judges those alone', async () => {
+  // The Curation & Media Lead's 36 pages with unchecked gallery photos (2026-11-08): a list judged nothing.
+  const r = await root([{ id: 'a-fish', sci: 'A fish', gallery: ['a1'] }, { id: 'b-fish', sci: 'B fish', gallery: ['b1'] }, { id: 'c-fish', sci: 'C fish', gallery: ['c1'] }])
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10, only: 'a-fish, b-fish', today: '2026-11-08' })
+  expect(d.seen.flatMap(x => x.photos).sort()).toEqual(['a1', 'b1'])
+})
