@@ -129,7 +129,7 @@ test('localizeTopic in Malay: addressed by its name, and a name another guide ha
   expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
 })
 
-test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is so much per litre of something not the water\'s own; another page of the same thread is no second source', () => {
+test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a measure, a level not the water\'s own or a rate; another page of the same forum is no second source', () => {
   const sources: TopicFacts['sources'] = [
     { url: 'https://farm.example/ca', title: 'Nuôi cá', kind: 'farm' },
     { url: 'https://forum.example/t/1', title: 'Thread', kind: 'forum' },
@@ -153,14 +153,35 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is so
     ['A 3% hydrogen peroxide dip for 5 minutes', 1],
     ['Toltrazuril 10 mg per kg of food', 1],
     ['Vitamin C 200–300 g per 100 kg of feed', 0],
+    // Measures, levels and rates in each language, and treatments by kind.
+    ['Maracyn: 1 packet per 10 gallons daily for 5 days', 1],
+    ['Emamectin benzoate 50 mcg/kg of fish for 7 days', 1],
+    ['Hòa 2 g thuốc Furan vào 10 lít nước', 1],
+    ['Larutkan 1 sendok makan garam dalam 10 liter', 1],
+    ['Teteskan 2 tetes per liter', 1],
+    ['Gunakan 1 bungkus per 40 liter', 1],
+    ['ใส่ยา 1 ซองต่อน้ำ 40 ลิตร', 1],
+    ['หยด 2 หยดต่อลิตร', 1],
+    ['ใช้ 1 เม็ดต่อน้ำ 20 ลิตร', 1],
+    ['Hydrogen peroxide 25 ppm; boost oxygen first', 1],
+    ['Ivermectin 0.1 ppm, keep oxygen high', 1],
+    ['Emamectin 0.05 ppm, keep oxygen high', 1],
+    ['Use half a teaspoon of Epsom salt per 5 gallons', 1],
+    ['A 1:2000 formalin bath for 30 minutes', 1],
   ] as const) expect(usable(fact, source), fact).toBe(false)
-  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm']) expect(usable(fact), fact).toBe(true)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms']) expect(usable(fact), fact).toBe(true)
   expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
-  // Another page of the same thread is no second source; another thread is, whatever the forum's addresses.
-  const threads = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
-  expect(threads('https://forum.example/threads/ich.9/', 'https://forum.example/threads/ich.9/page-2')).toBe(false)
-  expect(threads('https://forum.example/viewtopic.php?t=1', 'https://forum.example/viewtopic.php?t=1&start=20#p5')).toBe(false)
-  expect(threads('https://forum.example/viewtopic.php?t=1', 'https://forum.example/viewtopic.php?t=2')).toBe(true)
+  // Another page of the same forum is no second source: its addresses can't tell a thread's pages from its posts.
+  const second = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
+  for (const [a, b] of [
+    ['https://forum.example/threads/ich.9/', 'https://forum.example/threads/ich.9/page-2'],
+    ['https://forum.example/threads/ich.9/', 'https://forum.example/posts/123/'],
+    ['https://forum.example/viewtopic.php?t=1', 'https://forum.example/viewtopic.php?p=55#p55'],
+    ['https://forum.example/index.php?topic=12.0', 'https://forum.example/index.php?topic=12.15'],
+    ['https://www.reddit.com/r/Aquariums/comments/abc/ich/', 'https://old.reddit.com/r/Aquariums/comments/abc/ich/def456/'],
+    ['https://m.forum.example/t/ich/123', 'https://forum.example/t/ich/123/45'],
+  ]) expect(second(a!, b!), b).toBe(false)
+  expect(second('https://forum.example/viewtopic.php?t=1', 'https://other.example/threads/ich.5/')).toBe(true)
 })
 
 test('a dose from a fish farm\'s page or a forum post is written only when another page, not a farm\'s, gives it too', async () => {

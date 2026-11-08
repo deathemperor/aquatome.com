@@ -53,41 +53,42 @@ Rules: facts in your own words, short, one claim each. Keep numbers and units as
  * after guides gave a fish farm's salt dips and a forum post's quinine to aquarium keepers: "a dose taken from a source
  * written for farmed food fish, or from a single forum post, needs a second source before it's used."
  */
-const AMOUNT = /\d\s*(?:mg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|ppm|ppt|‰|%|percent|phần trăm|persen)(?![\p{L}])/iu
-/** Something measured out, never a fish's weight: a spoon, a cap, a drop. */
-const MEASURE = /\d\s*(?:ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|sachets?)(?![\p{L}])/iu
-/** A level in the water: a treatment's, unless it is the water's own. */
-const LEVEL = /\d\s*(?:ppm|ppt|‰|mg\s*\/\s*l(?:ít|iters?|itres?)?)(?![\p{L}])/iu
+const AMOUNT = /\d\s*(?:(?:mg|mcg|µg|μg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|ppm|ppt|percent|phần trăm|persen|packets?|bungkus|sachets?|tetes|sendok)(?![\p{L}])|‰|%|ซอง|หยด|เม็ด|ช้อน|กรัม|มล)/iu
+/** Something measured out, never a fish's weight: a spoon, a cap, a drop, a packet, a ratio (1:2000). */
+const MEASURE = /(?<![\d.,])1\s*:\s*\d{2,}(?![\d.,])|(?:half|nửa|setengah)\s+(?:a\s+)?(?:teaspoon|tablespoon|thìa|muỗng|sendok)|\d\s*(?:(?:ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|sachets?|packets?|bungkus|tetes|sendok|sdt|sdm)(?![\p{L}])|ซอง|หยด|เม็ด|ช้อน|มล)/iu
+/** A level in the water. */
+const LEVEL = /\d[\d.,]*\s*(?:ppm|ppt|mg\s*\/\s*l(?:ít|iters?|itres?)?)(?![\p{L}])|\d[\d.,]*\s*‰/giu
 /** So much in so much water, food or fish: "per 40 litres", "/L", "mỗi m³", "per kg of food". */
-const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?)(?![\p{L}])/iu
-/** The water's own levels: a figure for these is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
-const WATER = /nitrat|nitrit|ammonia|amoni|oxygen|\boxy\b(?!\s*già)|TDS|CO2|CO₂|\bKH\b|\bGH\b/iu
+const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ(?:น้ำ)?)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(?:\d[\d.,–-]*\s*)?(?:l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?|ลิตร)(?![\p{L}])/iu
+/** The water's own levels, named just before a level's figure: that figure is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
+const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?:\s+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*$/iu
 /** A treatment the rules have no name for: a dose, a bath, a medicine by its kind. */
-const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา|รักษา|แช่/iu
+const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|emamectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา(?!ว)|รักษา|แช่/iu
+/** A level whose figure isn't the water's own. */
+const treatmentLevel = (fact: string) => [...fact.matchAll(LEVEL)].some(m => !WATER.test(fact.slice(Math.max(0, m.index - 40), m.index)))
 /**
  * An amount that names a treatment; a level not the water's own; something measured out; a weight per volume, food or
  * fish; a percentage of a bath or a solution. A fish's weight or a water change is not one.
  */
 const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fact) || TREATING.test(fact)))
-  || (LEVEL.test(fact) && !WATER.test(fact)) || MEASURE.test(fact) || (AMOUNT.test(fact) && PER.test(fact) && !WATER.test(fact))
+  || treatmentLevel(fact) || MEASURE.test(fact) || (AMOUNT.test(fact) && PER.test(fact) && ![...fact.matchAll(LEVEL)].length)
 /**
- * A page's address, as one source: another page of the same thread is the same one ("/page-2", "&start=20", an anchor),
- * and the query keeps only what names a thread or a post on its own ("?t=1" and "?t=2" are two threads).
+ * A site, as one source: another page of the same thread is the same one, and so is another thread of the same forum,
+ * whose members repeat each other's advice. Addresses can't tell a thread's pages from its posts (phpBB's "?p=", SMF's
+ * "topic=12.15", Reddit's comment links), so a second source must be another site.
  */
-const pageOf = (url: string) => {
+const siteOf = (url: string) => {
   try {
-    const u = new URL(url)
-    const query = [...u.searchParams].filter(([k]) => /^(?:t|topic|topicid|threadid|thread|tid|showtopic|id)$/i.test(k)).map(([k, v]) => `${k}=${v}`).sort().join('&')
-    return `${u.host}${u.pathname.replace(/\/page-?\d+\/?$/i, '').replace(/\/+$/, '')}${query ? `?${query}` : ''}`.toLowerCase()
+    return new URL(url).hostname.toLowerCase().replace(/^(?:www|m|old|mobile)\./, '')
   } catch {
-    return url.replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase()
+    return url.replace(/^\w+:\/\//, '').replace(/[/?#].*$/, '').toLowerCase().replace(/^(?:www|m|old|mobile)\./, '')
   }
 }
 /** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
 export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
   const s = r.sources[f.source]
   if (!s || (s.kind !== 'farm' && s.kind !== 'forum') || !isDose(f.fact)) return true
-  return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && pageOf(o.url) !== pageOf(s.url) && o.kind !== 'farm' })
+  return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && siteOf(o.url) !== siteOf(s.url) && o.kind !== 'farm' })
 }
 
 const WRITE_SCHEMA = {
