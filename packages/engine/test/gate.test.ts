@@ -231,6 +231,28 @@ test('a live page that harm was found on is held, changed or not; one a cycle ma
   expect(JSON.parse(await readFile(join(out, GUIDE), 'utf8'))).toEqual({ ...JSON.parse(text), held: { checks: ['harm'], at: '2026-11-09' } })
 })
 
+test('harm found in one language holds the page in every language, read there or not, and once held it stays held as it was', async () => {
+  const root = await repo()
+  const th = GUIDE.replace('/vi.json', '/th.json')
+  await writeFile(join(root, th), await readFile(join(root, GUIDE), 'utf8'))
+  git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'th')
+  const vi = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(vi)]: { at: '2026-11-09', hash: fitText(vi).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } }))
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  // The Thai page read since and passing: held still, while the Vietnamese one has it, from its first day.
+  const thPage = (await loadPages(join(root, 'content'), ['th'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  const state = await readJson(root, 'engine-state/_fit.json') as FitState
+  state[fitKey(thPage)] = { at: '2026-11-10', hash: fitText(thPage).hash, model: 'opus', checklist: 3, findings: [], products: [] }
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify(state))
+  const r = await gate(root, { llm: reader(), now: () => new Date('2026-11-10T00:00:00Z') })
+  expect(r.report.release).toEqual([])
+  expect((await readJson(root, th)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+})
+
 test('a text put back that no rewording fixes is held', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })

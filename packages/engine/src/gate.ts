@@ -14,7 +14,7 @@ import { loadCards, loadPages, pageUrl, type Page } from './pages'
  * - a new page that fails any check but words is held: kept in the repository with `held`, which the build leaves out;
  * - a live page whose new text fails a check its old text passed gets its committed text back;
  * - a page with a fault no rewording fixes or advice that would hurt (HOLD_ALWAYS) is held, changed or not, unless it's a
- *   live page whose new text brought it, which gets its old text back;
+ *   live page whose new text brought it, which gets its old text back; harm found in one language holds every language;
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
  *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
@@ -143,6 +143,11 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     }
   }
   const saved = (p: Page) => { const e = state[fitKey(p)]; return e?.hash === fitText(p).hash ? e : undefined }
+  // Advice that would hurt, found in one language, holds the page in every language: they're written from the same facts,
+  // and a read in one language can miss what a read in another found.
+  const harmedPages = () => new Set(all.filter(p => { const e = saved(p); return e && gateChecks(p, e).has('harm') }).map(p => `${p.kind}/${p.id}`))
+  let harmed = harmedPages()
+  const checksOf = (p: Page, e?: FitEntry) => { const c = gateChecks(p, e); if (harmed.has(`${p.kind}/${p.id}`)) c.add('harm'); return c }
   const reverts: string[] = [], holdAfter: [string, FitCheck[]][] = []
   const apply = async (f: string, call: GateCall) => {
     if (call.action === 'hold' && held.get(f)?.checks.join() === call.checks.join()) return // held already, for the same checks
@@ -161,7 +166,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     reverts.push(f)
     // The text put back is held if its own saved read has a fault that holds a page.
     const old = head.pages.get(fitKey(p)), e = state[fitKey(p)]
-    const back = old && e?.hash === fitText(old).hash ? [...gateChecks(old, e)].sort() : []
+    const back = old && e?.hash === fitText(old).hash ? [...checksOf(old, e)].sort() : []
     if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
   }
   const pending: string[] = []
@@ -181,8 +186,8 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
           continue
         }
         state[fitKey(p)] = entry
-        const nowChecks = gateChecks(p, entry)
-        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: gateChecks(old, oldSaved) } : {}) })
+        const nowChecks = checksOf(p, entry)
+        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: checksOf(old, oldSaved) } : {}) })
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
@@ -193,7 +198,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             unread(f, p, false)
             continue
           }
-          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)])
+          const before = new Set([...(oldSaved ? checksOf(old, oldSaved) : []), ...checksOf(old, fresh)])
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
             state[fitKey(p)] = fresh
@@ -214,11 +219,13 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   if (reverts.length) git(root, ['checkout', 'HEAD', '--', ...reverts])
   for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
-  // A fault no rewording fixes holds a page whether or not this cycle changed it.
+  // A fault no rewording fixes holds a page whether or not this cycle changed it, and harm in any language, with this
+  // run's reads, holds it in each.
+  harmed = harmedPages()
   for (const p of all) {
     const f = fileOf(p), e = saved(p)
-    if (!changed.has(f) && (GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && e) {
-      const checks = [...gateChecks(p, e)].sort()
+    if (!changed.has(f) && (GATED_KINDS as readonly string[]).includes(p.kind) && !held.has(f) && (e || harmed.has(`${p.kind}/${p.id}`))) {
+      const checks = [...checksOf(p, e)].sort()
       if (checks.some(c => HOLD_ALWAYS.includes(c))) await apply(f, { action: 'hold', checks })
     }
   }
