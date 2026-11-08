@@ -17,7 +17,8 @@ TEST_LOG=/tmp/aquatome-video-recheck-test.log
 source scripts/cycle-checks.sh
 # A run that outlasts the hour is left to finish: the next start finds it and goes.
 PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
-if [ -f "$PIDFILE" ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'video-recheck\.sh'; then log "the last run (pid $(cat "$PIDFILE")) is still going"; exit 0; fi
+# Not this run's own number: from_main starts it again as the same process.
+if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'video-recheck\.sh'; then log "the last run (pid $(cat "$PIDFILE")) is still going"; exit 0; fi
 echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
 # shellcheck disable=SC1091
@@ -34,7 +35,7 @@ fi
 # A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
 export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-video-recheck.jsonl}"
 
-git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+from_main "$@"
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
