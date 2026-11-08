@@ -24,6 +24,8 @@ struct NativePage: View {
   var path: String?
   /// The heading it opens at (a chat section's "Đọc tiếp"), a folded one open.
   var heading: String?
+  /// The owner's trial of a way round the page (PageNavigator); for everyone else, none, and nothing of it runs.
+  var navigator: PageNavigator?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
@@ -102,12 +104,20 @@ struct NativePage: View {
         VStack(alignment: .leading, spacing: 0) {
           ForEach(pieces.indices, id: \.self) { i in
             let hero = if case .photo(_, _, _, _, _, _, _, true) = pieces[i] { true } else { false }
-            piece(i).padding(.horizontal, hero ? 0 : nil).padding(.top, gap(i))
+            piece(i)
+              .background { if let navigator, let part = PageNavigator.part(pieces[i], at: i) { PagePlace(navigator: navigator, id: part.id) } }
+              .padding(.horizontal, hero ? 0 : nil).padding(.top, gap(i))
           }
         }
+        .coordinateSpace(.named(PageNavigator.space))
+        .background { if let navigator { PageNavigatorHook(navigator: navigator, pieces: pieces) } }
         .padding(.bottom, 32)
         .frame(maxWidth: .infinity, alignment: .leading)
       }
+      .scrollIndicators(navigator?.railOn == true ? .hidden : .automatic)
+      // Named before the rail goes over it: a name given to the whole would replace the rail's own.
+      .accessibilityIdentifier("native-page")
+      .overlay { if let navigator, navigator.railOn { PageRail(navigator: navigator) } }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
       // A chapter or a still tapped: its video in view.
@@ -119,10 +129,11 @@ struct NativePage: View {
         proxy.scrollTo(heading, anchor: .top)
         focus = heading
       }
+      // A part chosen from the title's list: as a `#id` link goes to it.
+      .onChange(of: navigator?.asked) { _, asked in if let asked, let u = URL(string: "page-anchor:\(asked.id)") { _ = open(u, proxy) } }
       .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
     .environment(player)
-    .accessibilityIdentifier("native-page")
     .onAppear {
       if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
       reading?.shown(true)
@@ -186,11 +197,11 @@ struct NativePage: View {
     case let .video(id, title, caption):
       VideoSlot(id: id, title: title, caption: caption)
     case let .pages(title, paths):
-      PagesBlock(title: title, paths: paths)
+      PagesBlock(title: title, paths: paths).id("piece-\(i)")
     case let .cards(title, cards, good):
       CardsPart(title: title, cards: cards, good: good) { _ = open($0, nil) }
     case let .gallery(title, note, photos, strip):
-      GalleryRow(title: title, note: note, photos: photos, strip: strip)
+      GalleryRow(title: title, note: note, photos: photos, strip: strip).id("piece-\(i)")
     case let .more(title, text):
       DisclosureGroup {
         Text(text).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)
