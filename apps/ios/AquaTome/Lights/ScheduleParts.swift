@@ -22,9 +22,9 @@ struct PresetGrid: View {
     let chosen = lights.matches(p)
     return Button { lights.applyPreset(p) } label: {
       VStack(alignment: .leading, spacing: 2) {
-        Text(p.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary)
+        Text(p.name.inApp).font(.subheadline.weight(.semibold)).foregroundStyle(.primary)
         Text(verbatim: "\(p.on)–\(p.off) · \(p.level)%").font(.caption).monospacedDigit().foregroundStyle(.secondary)
-        Text(p.why).font(.caption).foregroundStyle(.secondary)
+        Text(p.why.inApp).font(.caption).foregroundStyle(.secondary)
       }
       .frame(maxWidth: .infinity, minHeight: 44, alignment: .topLeading)
       .padding(10)
@@ -72,7 +72,7 @@ struct Readout: View {
   }
 
   /// "8", "7,5": to one decimal, in the reader's language.
-  private static func hours(_ h: Double) -> String { h.formatted(.number.precision(.fractionLength(0...1))) }
+  private static func hours(_ h: Double) -> String { h.formatted(.number.locale(.app).precision(.fractionLength(0...1))) }
 }
 
 /// The exact times and the ramp, following the timeline (the site's fields under it).

@@ -130,7 +130,7 @@ private struct Who: View {
 
   private var since: String {
     guard let made = Self.date(user.createdAt) else { return String(localized: "bằng \(account.ways)") }
-    return String(localized: "bằng \(account.ways) · từ tháng \(made.formatted(.dateTime.month(.defaultDigits).year()))")
+    return String(localized: "bằng \(account.ways) · từ tháng \(made.formatted(.dateTime.month(.defaultDigits).year().locale(.app)))")
   }
 
   /// The server's time (`2026-11-01T00:00:00.000Z`, or without the fraction).
@@ -241,10 +241,10 @@ private struct SyncRow: View {
 
   /// A sync's time: today's alone, yesterday's said so, an older one with its day.
   static func when(_ d: Date) -> String {
-    let time = d.formatted(date: .omitted, time: .shortened)
+    let time = d.formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))
     if Calendar.current.isDateInToday(d) { return time }
     if Calendar.current.isDateInYesterday(d) { return String(localized: "\(time) hôm qua") }
-    return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits)))")
+    return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits).locale(.app)))")
   }
 
   /// The UI tests wait here for the owner's dashboard to have asked about this account; nothing in a release build.
