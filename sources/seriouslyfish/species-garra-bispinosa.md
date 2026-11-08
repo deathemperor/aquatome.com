@@ -1,0 +1,97 @@
+---
+url: https://www.seriouslyfish.com/species/garra-bispinosa
+title: Garra bispinosa · Seriously Fish
+fetchedAt: 2026-11-08T00:39:25.680Z
+hash: b94150126cf31b26a289b67ae82651edae8437d8305b6a84e6d2faeb7dad14ac
+---
+
+On this page
+6 sections
+- Etymology
+- Distribution
+- Habitat
+- Notes
+- References
+- Images · 2
+Adult specimen in the aquarium.Zhou Hang
+## Quick factsEdit
+Max size
+130mm SL5in SL
+Aquarium size
+not recorded
+Temp
+not recorded
+pH
+not recorded
+Hardness
+not recorded
+## Difficulty3 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+unknown
+Temp
+unknown
+Diet
+unknown
+Temperament
+unknown
+Social
+needs to be in a group
+Compatibility
+fine with others
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+Garra bispinosa is a cyprinid known only from its type locality, the Daying Jiang in the Irrawaddy basin, Yunnan Province, China. It is distinguished from other Garra in Southeast Asia and China by a quadrate proboscis on the snout, each lobe tipped with a single large tubercle. Nothing specific is recorded of its habitat.
+## Etymology
+Edit
+Garra: vernacular Gangetic name for a particular species of “sand-digger,” which Francis Buchanan-Hamilton applied as a generic name for bottom-dwelling cyprinids “with no affinity to another genus”.
+bispinosa: from the Latin bi-, meaning 'two', and spinosus, meaning 'spiny', in allusion to the large, unicuspid, acanthoid, anteriorly-directed tubercle on the distal end of each lobe of the proboscis on the snout.
+## Distribution
+Edit
+This species is known only from the type locality, given as 'Daying Jiang, a tributary flowing to the Yiluowadi Jiang (Irrawaddy River) basin in Yingjiang, Yunnan Province, China'.
+## Habitat
+Write a note
+Edit
+No specific details, but likely to inhabit flowing water as per most other members of the genus.
+Other species occurring in the Daying River include the congener Garra rotundinasus, plus Lepidocephalichthys berdmorei, Devario apogon, Channa gachua, the introduced cyprinids Rhodeus sinensis and Abbottina rivularis, poeciliid Gambusia holbrooki, synbranchid Monopterus albus and cichlid Oreochromis mossambicus (tilapia).
+## Notes
+Edit
+G. bispinosa can be distinguished from all other congeners in Southeast Asia and China by the following combination of characters: a conspicuous, quadrate, anteriorly-directed proboscis orientated ventrally against the snout and anteriorly adorned with a single, large, uniscupid, acanthoid tubercle on the distal tip of each lobe; snout with a deep groove across its tip to form a transverse lobe; 34-35 lateral line scales; 16 circumpeduncular scales; a relatively small mental disc (length 38.1-43.8 % HL); an anterior position of anus (anus to anal distance 25.9-30.6 % of pelvic to anal distance); a slightly pointed snout.
+The genus Garra is a particularly enigmatic grouping with new taxa described on a regular basis, while many of the existing ones may represent cases of misidentification or synonyms of other species. Some of the revisions have also been called into question, which has added further confusion. A full generic review would be ideal but is unlikely to materialise given the extensive distribution of its members which range from southern China across much of southeast Asia, India and the Middle East as far as north/central Africa.
+Instead a number of less-extensive works published in recent years have resulted in a gradual, but continuing, improvement in knowledge, and it remains possible that the genus will be broken up into smaller taxa since the current assemblage is almost certainly polyphyletic.
+Garra species are usually included in the subfamily Labeoninae/Cyprininae or tribe Labeonini (name varies with author) which by recent thinking is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012)[5]. The putatively monophyletic Garraina comprises a number of genetic lineages including Garra sensu stricto (which also includes Horalabiosa, Phreatichthys and possibly other genera), a small clade comprising Garra cambodgiensis and G. fascicauda (thus rendering Garra polyphyletic), Paracrossocheilus, and Gonorhynchus (which includes Akrokolioplax).
+Two species, G. micropulvinus and Ageneiogarra imberba, are placed in the Semilabeoina assemblage. The generic name Ageneiogarra Garman, 1912 was suggested for both, and the Catalog of Fishes and FishBase now use it for A. imberba. In addition, some genera which were previously considered to be close relatives of Garra species such as Discogobio, Discocheilus and Placocheilus, are now also placed in this subtribe.
+All genera currently included in Garraina possess a lower lip modified to form a mental adhesive disc, allowing the fish to cling to surfaces in turbulent conditions. In most species the upper lip is almost entirely reduced and both the upper and lower jaw margins are keratinised, i.e., horny, and used to scrape food items from the substrate.
+Garra species are distinguished from other Garraina members by the first two pectoral-fin rays usually being thickened, fleshy and unbranched, possession of 10-11 dorsal-fin rays, and a combination of internal characters. Some species have evolved particular environmental specialisms such as highly reduced eyes in hypogean forms or the ability to survive in thermal springs.
+## References
+- Zhang, E. (2005). Garra bispinosa, a new species of cyprinid fish (Teleostei: Cypriniformes) from Yunnan, southwest China. Raffles Bulletin of Zoology Supplement 13, 9-15
+- Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663
+- Zhang, E. (2005). Phylogenetic relationships of labeonine cyprinids of the disc-bearing group (Pisces: Teleostei). Zoological Studies 44(1), 130-143
+- Stiassny, M. L. J. and A. Getahun (2007). An overview of labeonin relationships and the phylogenetic placement of the Afro-Asian genus Garra Hamilton, 1922 (Teleostei: Cyprinidae), with the description of five new species of Garra from Ethiopia, and a key to all African species. Zoological Journal of the Linnean Society 150(1), 41-83
+- Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379
+## Species images · 2
+Adult specimen in the aquarium.Zhou Hang
+Individual collected from the type locality.Zhou Hang
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- China
+- Myanmar
+- Ayeyarwady
+- Daying
+## Profile completeness12 of 24
+50% complete
+- Add water conditions
+- Add hardness
+- Add temperament
+Also missing: aquarium size, a common name, aquarium size notes, maintenance, water condition notes, diet, behaviour and compatibility, sexual dimorphism, reproduction.
+Report a mistake
+## Community
+Questions about Garra bispinosa?
+Ask on Discord
+→

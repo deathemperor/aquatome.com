@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/discherodontus-schroederi
 title: Discherodontus schroederi · Seriously Fish
-fetchedAt: 2026-11-07T05:03:47.168Z
+fetchedAt: 2026-11-07T19:45:21.788Z
 hash: 9fe5bf40b1d0a8ad2e3176c7265eef21e028293a0846a5cc412ea78531fcdef8
 ---
 

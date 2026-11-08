@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/enteromius-holotaenia
 title: Enteromius holotaenia (Spotscale Barb) · Seriously Fish
-fetchedAt: 2026-11-07T05:24:37.912Z
+fetchedAt: 2026-11-07T20:11:24.485Z
 hash: a23f4d90792129357965c7111e8352922343a937cadb3c5e2f2e0e2e72668231
 ---
 

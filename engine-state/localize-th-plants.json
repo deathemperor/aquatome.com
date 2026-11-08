@@ -62,15 +62,15 @@
     ]
   },
   "alternanthera-reineckii-mini": {
-    "at": "2026-10-30",
-    "from": "2026-10-28",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "อัลเทอร์แนนเทอร่า มินิ",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "Keep the Latin genus name unchanged: write \"Alternanthera\" instead of the Thai transliteration \"อัลเทอร์แนนเทอร่า\".",
-      "\"small aquariums\" became \"ตู้ปลาขนาดเล็ก\". In a plant context, \"ตู้ไม้น้ำขนาดเล็ก\" or \"ตู้ขนาดเล็ก\" is more natural.",
-      "\"ถิ่นกำเนิด: สายพันธุ์ปรับปรุง (cultivar)\" is a bit odd. Consider \"ถิ่นกำเนิด: พันธุ์ปลูกเลี้ยง (cultivar)\", or keep \"คัลติวาร์\"."
+      "Items 2 and 3: the Latin genus name \"Alternanthera\" is transliterated as \"อัลเทอร์แนนเทอร่า\". Keep it in Latin letters (Alternanthera), or give it in brackets after the Thai. Spellings of the transliteration vary among hobbyists.",
+      "Item 3: \"แสงที่มีความเข้มสูง\" is slightly stiff. \"แสงแรง\" or \"ความเข้มแสงสูง\" is more natural.",
+      "Item 3: the opening sentence \"อัลเทอร์แนนเทอร่าที่เป็นที่รู้จักกันดีในรูปแบบขนาดจิ๋วนี้\" is long and awkward. Split it or rephrase it, for example \"อัลเทอร์แนนเทอร่าสายพันธุ์จิ๋วที่รู้จักกันดี\"."
     ]
   },
   "ammannia-crassicaulis": {
@@ -141,15 +141,12 @@
     "notes": []
   },
   "anubias-barteri-var-caladiifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "อนูเบียส คาลาดิโฟเลีย",
     "confidence": "medium",
-    "score": 0.92,
-    "notes": [
-      "Item 2: \"เป็นสายพันธุ์ที่สวยงามมาก\" renders \"variety\" loosely; \"พันธุ์ไม้น้ำที่สวยงามมาก\" would be more natural, but the meaning is intact.",
-      "Item 2: \"ใบเป็นรูปหัวใจ ใบมีอายุอยู่ได้หลายปี\" repeats \"ใบ\" and reads choppy. Joining the clauses would read more smoothly, e.g. \"ใบรูปหัวใจและมีอายุหลายปี\"."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "anubias-barteri-var-coffeifolia": {
     "at": "2026-10-30",
@@ -245,13 +242,18 @@
     ]
   },
   "aponogeton-madagascariensis": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-07",
     "name": "อะโพโนจีตอน มาดากัสการ์",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.75,
     "notes": [
-      "Item 3: \"นิยมนำมาจัดแสดงเป็นพิเศษ\" adds \"popular\" and \"display\", which the English doesn't say. The source says it is a speciality of botanical gardens worldwide. Use something closer, such as \"เป็นพืชพิเศษ/โดดเด่นที่พบในสวนพฤกษศาสตร์ทั่วโลก\"."
+      "Item 8: 'ต้องการแสงเพียงปานกลางเป็นอย่างมาก' is a muddled rendering of 'moderate lighting at best'. Use 'ต้องการแสงปานกลางอย่างมากที่สุด' or 'แค่แสงปานกลางก็พอ'.",
+      "Item 10: 'mollies' became 'ปลาบลูมอลลี่', which adds 'blue' that is not in the source. Use 'ปลาโมลลี่'.",
+      "Item 3: 'naturalized' became 'พืชที่ตั้งถิ่นฐานในธรรมชาติ', which is stiff. Use 'กลายเป็นพืชต่างถิ่นที่ขยายพันธุ์เองในธรรมชาติ'.",
+      "Item 10: 'pygmy Corydoras' became 'แพะแคระ', which is ambiguous. Write 'ปลาแพะแคระ (pygmy Corydoras)'.",
+      "Item 10: 'Otocinclus catfish' became 'ปลาแคระโอโต้', which loses the catfish meaning. Use 'ปลาซัคเกอร์/ปลาโอโตซิงคลัส'.",
+      "Item 10: 'ช่วงพัก (ระยะพักตัว)' is redundant. 'Rest (dormancy) periods' can be simplified."
     ]
   },
   "aponogeton-ulvaceus": {
@@ -1240,6 +1242,21 @@
       "Item 2: \"nutritious bottom\" rendered as \"วัสดุปลูกที่มีธาตุอาหารสูง\" is fine, but \"each stem up to 15 cm wide\" -> \"แต่ละต้นกว้างได้ถึง 15 ซม.\" is a literal rendering; consider \"แต่ละกอ/ก้านแผ่กว้างได้\" to read more naturally (minor).",
       "Item 3: \"circled by ... leaves\" -> \"เรียงรอบลำต้น\" is acceptable, but \"แตกเป็นฝอยละเอียด\" is slightly awkward; \"ใบเป็นฝอยแตกแขนงละเอียด\" is more natural (minor).",
       "Item 3: \"In open aquariums\" -> \"ตู้ปลาแบบเปิดด้านบน\" is a bit wordy; \"ตู้เปิด\" is the common hobby term (minor)."
+    ]
+  },
+  "limnophila-aromatica": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
+    "name": "ผักแขยง",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"with a diameter of between 5 and 6 cm\" is rendered as \"พุ่มมีเส้นผ่านศูนย์กลางราว 5–6 ซม.\"; the added word \"พุ่ม\" (clump) is not in the source. The source says the stem diameter, or an unclear dimension, and the translation changes the meaning. Keep the wording neutral and close to the original.",
+      "Item 1: \"has more leaves (6-8) per node\" is rendered as \"ใบต่อข้อมากกว่า\". Make it clearer: \"มีใบต่อข้อมากกว่า\" or \"จำนวนใบต่อข้อมากกว่า\".",
+      "Item 1: \"Limnophila aromatica / hippuridoides เป็นไม้น้ำประเภทต้นที่เลี้ยงง่าย\" adds \"เลี้ยงง่าย\" to the first sentence. The source says \"simple stem plant\". Better: \"ไม้น้ำประเภทลำต้นที่ไม่ซับซ้อน\" or similar; the \"easy\" idea comes later in the source.",
+      "Item 1: \"will reach the water surface of most aquariums\" is rendered as \"สูงถึงผิวน้ำ\". This is fine, but \"emersed\" being in brackets is acceptable. \"สายพันธุ์\" for \"varieties\" is imprecise; use \"พันธุ์\" or \"วาไรตี้\".",
+      "Item 1: \"aggressive\" growth is rendered as \"แผ่ขยายเร็ว\". It is acceptable but loses the sense of vigorous growth; \"โตเร็วและรุกพื้นที่\" is closer.",
+      "Item 3: \"Stronger red/blue light spectrum\" is rendered as \"สเปกตรัมแสงสีแดง/น้ำเงินเข้มขึ้น\". Make it clearer by saying the red/blue portion of the spectrum is stronger, e.g. \"สัดส่วนแสงสีแดง/น้ำเงินมากขึ้น\"."
     ]
   },
   "limnophila-hippuridoides": {

@@ -10,9 +10,12 @@
     "neocaridina-davidi",
     "fissidens-fontanus",
     "bucephalandra-sp",
-    "boraras-brigittae"
+    "boraras-brigittae",
+    "boraras-merah",
+    "eleocharis-parvula",
+    "paracheirodon-innesi"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "aXWDAuISGKs",
     "title": "Thai Micro Crab Marimo Moss Ball Iwagumi! (Low Tech Aquascape Tutorial)",
@@ -31,30 +34,36 @@
       "height": 720
     },
     "taxa": [
-      "Boraras maculatus",
+      "Boraras merah",
       "Neocaridina davidi",
-      "Microdictyon sp.",
+      "Microdev laevis",
       "Cladophora aegagropila",
-      "Fissidens fontanus",
+      "Taxiphyllum sp.",
       "Bucephalandra sp.",
       "Anubias sp.",
-      "Eleocharis sp.",
-      "Devosia pinnipedia",
-      "Boraras brigittae"
+      "Eleocharis parvula",
+      "Danio choprai",
+      "Paracheirodon innesi"
     ],
     "gear": [
       {
         "category": "den",
-        "type": "diu",
         "brand": "Twinstar",
         "model": "B series",
+        "t": 125
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Stride ways",
+        "model": "30P",
         "t": 125
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "Mini Complete Tank",
-        "t": 540
+        "t": 570
       },
       {
         "category": "phan-nen",
@@ -65,20 +74,13 @@
         "category": "phan-nen",
         "type": "cat",
         "brand": "WIO",
-        "model": "Biotope bed",
+        "model": "Biotope Bed Ibon",
         "t": 340
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 270
-      },
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "brand": "Strideways",
-        "model": "30P",
-        "t": 125
+        "t": 290
       },
       {
         "category": "khac",
@@ -87,224 +89,182 @@
         "t": 800
       },
       {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 240
+        "category": "khac",
+        "brand": "Dennerle",
+        "model": "Slate rock with moss ball",
+        "t": 225
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 870
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao bể này cần lọc",
+        "heading": "Vì sao bể không lọc trước đây chạy được, còn bể này thì cần lọc",
         "moments": [
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at20-hd.webp",
+            "t": 30,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at30-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cây rậm rạp, nhiều cây mọc nhanh, không cần lọc nhưng phải tỉa liên tục."
+            "caption": "Bể cũ không lọc, trồng dày cây mọc nhanh xanh um tùm."
           },
           {
             "t": 540,
             "url": "https://media.aquatome.com/video/aXWDAuISGKs/at540-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ bố trí đá và rêu, cây mọc chậm, lớp nền mỏng."
+            "caption": "Bố cục mới với đá và rêu, cây mọc chậm."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p0-BcXVhcml1bS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p0-BcXVhcml1bS5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Tdwittt",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
+          "caption": "Bể nhỏ không lọc với lũa, nền đen dày và vài cây ráy Anubias."
+        }
       },
       {
-        "heading": "Chuẩn bị bể và nền",
+        "heading": "Lót nền bằng phân nền cũ",
         "moments": [
           {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at120-hd.webp",
+            "t": 260,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cũ nhiều cây rậm, nền cũ sẽ được lấy từ bể này."
+            "caption": "Đặt túi phân nền cũ xuống đáy bể trống."
           },
           {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at140-hd.webp",
+            "t": 270,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at270-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể kính trống cỡ nhỏ với đèn gắn phía trên, sẵn sàng setup."
+            "caption": "Túi nền đen đặt dưới đáy bể mới, kê cao dần về phía sau."
           }
         ]
       },
       {
-        "heading": "Xếp đá phiến",
+        "heading": "Xếp đá và rải cát trang trí",
         "moments": [
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at310-hd.webp",
+            "t": 240,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đá phiến dán rong cầu xếp trong bể, nhìn thấp và thiếu điểm nhấn."
+            "caption": "Mảnh đá phiến nhỏ có sẵn bóng rêu Marimo dán trên đá."
           },
           {
             "t": 340,
             "url": "https://media.aquatome.com/video/aXWDAuISGKs/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bố cục có thêm đá to, bể cao và có điểm nhấn hơn."
+            "caption": "Bố cục đá phiến và bóng rêu Marimo đã xếp trong bể."
           }
         ]
       },
       {
-        "heading": "Rải cát trang trí",
+        "heading": "Gắn rêu lên đá",
         "moments": [
           {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at350-hd.webp",
+            "t": 400,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cát trắng xám lẫn sỏi nhỏ màu xám trong túi."
+            "caption": "Bể thủy sinh với đá phiến đã gắn rêu Marimo xanh mướt."
           },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể sau khi rải cát, nền sáng tương phản với đá và rêu."
-          }
-        ]
-      },
-      {
-        "heading": "Dán rong cầu và rêu lên đá",
-        "moments": [
           {
             "t": 440,
             "url": "https://media.aquatome.com/video/aXWDAuISGKs/at440-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tay gỡ và ép dẹt mảnh rong cầu, bên cạnh có keo dán và đá phiến."
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đá với rong cầu và rêu đã dán rải rác trên đá."
+            "caption": "Tay xé nhỏ bóng rêu Marimo, bên cạnh là lọ keo và đá phiến."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p4-vLF9KYXBhbi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p4-vLF9KYXBhbi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p3-vLF9KYXBhbi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p3-vLF9KYXBhbi5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 2.0",
           "author": "bryan... from Taipei, Taiwan",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegagropila_linnaei,_Hokkaido,_Japan.jpg",
-          "caption": "Những quả rong cầu xanh nằm trên nền sỏi trong bể cá."
+          "caption": "Những bóng rêu Marimo xanh mướt nằm trên nền sỏi trong bể."
         }
       },
       {
-        "heading": "Thêm cây mọc chậm",
+        "heading": "Thêm vài cây nhỏ cho tự nhiên",
         "moments": [
           {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at470-hd.webp",
+            "t": 480,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at480-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh với đá, rêu và cây nhỏ đã bố trí."
+            "caption": "Tay cầm một bụi cây nhỏ chuẩn bị đặt vào hồ."
           },
           {
             "t": 530,
             "url": "https://media.aquatome.com/video/aXWDAuISGKs/at530-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh đá và rêu phủ, cây nhỏ trồng rải rác trong hồ."
+            "caption": "Cận cảnh bố cục đá với các nhúm cây nhỏ đặt rải rác."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p5-X2V4X3NpdHUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p5-X2V4X3NpdHUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p4-X2V4X3NpdHUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p4-X2V4X3NpdHUuanBn-480.webp",
           "width": 960,
           "height": 587,
           "licence": "CC BY-SA 4.0",
           "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
-          "caption": "Bể thủy sinh bố trí đá lũa, cây nhỏ trồng rải rác và cỏ tóc bên trái."
+          "caption": "Bể thủy sinh với đá lũa, vài cây ráy nhỏ và cỏ thảm rải rác."
         }
       },
       {
-        "heading": "Lắp lọc ngoài mini",
+        "heading": "Chọn lọc cho bể nhỏ",
         "moments": [
           {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at700-hd.webp",
+            "t": 740,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at740-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cốc lọc mini và dây nguồn USB đặt trên bàn, đang lắp bơm."
+            "caption": "Bể nhỏ gọn mắt, không thấy thiết bị lọc trong bể."
+          }
+        ]
+      },
+      {
+        "heading": "Khi nào thả cua và cua mới thả sẽ thế nào",
+        "moments": [
+          {
+            "t": 950,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at950-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con cua nhỏ bám gần mặt nền, cạnh khối rêu trong bể."
           },
           {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at710-hd.webp",
+            "t": 990,
+            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at990-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Gắn bơm vào cốc lọc mini, dây điện để bên cạnh."
+            "caption": "Một con cua nhỏ bò trên lũa giữa rêu và cây thủy sinh."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p6-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p6-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng ngoài đặt trong tủ, nối ống silicone dẫn nước ra xô."
-        }
-      },
-      {
-        "heading": "Khi nào thả cua",
-        "moments": [
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới setup với đá và rêu xanh, sẵn sàng để thả."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p7-yaV8tXygxKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p7-yaV8tXygxKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p6-yaV8tXygxKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p6-yaV8tXygxKS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 2.0",
           "author": "Sean Murray from Edinburgh, Scotland",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnopilos_naiyanetri_-_(1).jpg",
-          "caption": "Cua con nhỏ bò trên đám rêu trong bể, sau khi được thả vào."
-        }
-      },
-      {
-        "heading": "Cua mới thả cư xử thế nào",
-        "moments": [
-          {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at870-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhiều đá phủ rêu, chỗ cua dễ trốn."
-          },
-          {
-            "t": 890,
-            "url": "https://media.aquatome.com/video/aXWDAuISGKs/at890-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một con cua nhỏ nấp sát đáy, ngay dưới đám rêu."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/aXWDAuISGKs/p8-yaV8tXyg1KS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/aXWDAuISGKs/p8-yaV8tXyg1KS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 2.0",
-          "author": "Sean Murray from Edinburgh, Scotland",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnopilos_naiyanetri_-_(5).jpg",
-          "caption": "Cua Thái tí hon đang nấp trong đám rêu, đúng kiểu nhát gan."
+          "caption": "Một con cua nhỏ bám trên nền rêu trong bể, chụp rất rõ nét."
         }
       }
     ]

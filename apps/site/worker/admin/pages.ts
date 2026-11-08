@@ -428,9 +428,10 @@ function runTiles(k: FishIdStatus): Tile[] {
     { label: 'Lần gọi sau bị API từ chối (400)', value: fmt(c.later400) },
     { label: 'Không đọc được dữ kiện trang', value: fmt(c.facts) },
     { label: 'Lượt trả lại cho người đọc', value: fmt(c.refunds), ...(k.mostRefunds ? { sub: `nhiều nhất một người: ${fmt(k.mostRefunds)}` } : {}) },
+    { label: 'Câu hỏi ngoài chuyện nuôi cá', value: fmt(c.offTopic) },
   ]
 }
-const RUNS_NOTE = 'Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.'
+const RUNS_NOTE = 'Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính. Câu hỏi ngoài chuyện nuôi cá: chat trả lời một câu cố định và trả lại lượt, tối đa bằng số lượt một ngày của người đó.'
 const KEYS_NOTE = 'Lần gọi API: mọi lần thử bằng key này, kể cả lần lỗi (một lượt nhận diện có thể thử vài key). Claude trả lời: những lần trong số đó Claude đã trả lời.'
 /** The keys by number and hash, never the key: the line over the table, its head and its rows. */
 function keysParts(k: FishIdStatus, now: Date, tz: string) {

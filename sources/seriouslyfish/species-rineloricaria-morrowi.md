@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/rineloricaria-morrowi
 title: Rineloricaria morrowi · Seriously Fish
-fetchedAt: 2026-11-07T03:56:36.548Z
+fetchedAt: 2026-11-07T18:24:41.547Z
 hash: c99c4f2bd7ea57e16e6338521326ac8f4815246dd22e00685b51de30db93755b
 ---
 

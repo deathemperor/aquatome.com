@@ -10,6 +10,76 @@
     "sri-lanka",
     "nilwala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Nilwala River",
+        "Opatha Ela"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All known populations exist within the Nilwala River watershed, at least 70% of which is now cultivated and heavily mined for sand in some areas.",
+          "countries": [],
+          "regions": [
+            "Nilwala River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a series of small streams and tributaries exiting the Kanneliya Forest Reserve plus tributaries of the Opatha Ela (Opatha stream) near the village of the same name in southwestern Sri Lanka.",
+          "countries": [],
+          "regions": [
+            "Opatha Ela"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361592,
+      "total": 9,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "LK",
+          7
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          5.625,
+          7,
+          7
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

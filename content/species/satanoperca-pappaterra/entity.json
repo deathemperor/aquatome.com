@@ -64,13 +64,13 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-pappaterra",
-      "html": "<ul><li>Difficulty: 7 of 8 (difficult), rated so because it needs a tank at least 2 m long</li></ul>"
+      "html": "<ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-pappaterra",
-      "html": "<p>The Pantanal eartheater, Satanoperca pappaterra, is a cichlid from the rio Guaporé and upper rio Paraguai basins in Brazil, Bolivia and Paraguay. Relatively rare in the ornamental trade and much sought after, it is easily told from all known congeners by a series of prominent black blotches beneath the dorsal-fin and a well-defined dark band along the side of the body. It has been introduced to the upper rio Paraná in southeastern Brazil.</p><ul><li>Needs a tank at least 2 m long.</li><li>Needs a soft, sandy substrate so that the fish can browse naturally.</li></ul>"
+      "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>The Pantanal eartheater, Satanoperca pappaterra, is a cichlid from the rio Guaporé and upper rio Paraguai basins in Brazil, Bolivia and Paraguay. Relatively rare in the ornamental trade and much sought after, it is easily told from all known congeners by a series of prominent black blotches beneath the dorsal-fin and a well-defined dark band along the side of the body. It has been introduced to the upper rio Paraná in southeastern Brazil.</p>"
     },
     {
       "key": "distribution",
@@ -88,7 +88,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-pappaterra",
-      "html": "<ul><li>Standard length: 20 cm SL</li><li>Aquarium base: 210 × 60 cm</li><li>Volume: ~756 litres</li></ul><p>An aquarium with a base measuring at least 210 × 60 cm or equivalent is required.</p>"
+      "html": "<p>Standard length: 20 cm SL. Aquarium base: 210 × 60 cm. Volume: ~756 litres.</p><p>An aquarium with a base measuring at least 210 × 60 cm or equivalent is required.</p>"
     },
     {
       "key": "maintenance",
@@ -130,7 +130,7 @@
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/satanoperca-pappaterra",
-      "html": "<p>Etymology: Satanoperca: from the Ancient Greek Σατάν (Satán), meaning 'Satan' (the devil), and πέρκη (pérkē), meaning 'perch'. pappaterra: from a local vernacular name for the species, literally translating as 'earth eater'.</p><p>S. pappaterra is relatively rare in the ornamental trade and much sought after by enthusiasts.</p><p>It is easily distinguished from all known congeners by presence of a series of prominent black blotches beneath the dorsal-fin, plus a well-defined dark band extending along the side of the body. In recent genetic analyses its genetic distinctness was strongly supported, with S. jurupari and S. leucosticta its closest relatives.</p><p>Satanoperca was considered a synonym of Geophagus for a number of decades before being revalidated by Kullander (1986).</p><p>The genus is likely to contain additional species, and has been separated into three groups with distinctive morphology, namely the S. jurupari group, the S. daemon group, and the monotypic S. acuticeps group. The groups also differ in reproductive strategy, with the S. daemon and S. acuticeps assemblages being substrate spawners, and the S. jurupari group mouthbrooders.</p>"
+      "html": "<p>S. pappaterra is relatively rare in the ornamental trade and much sought after by enthusiasts.</p><p>It is easily distinguished from all known congeners by presence of a series of prominent black blotches beneath the dorsal-fin, plus a well-defined dark band extending along the side of the body. In recent genetic analyses its genetic distinctness was strongly supported, with S. jurupari and S. leucosticta its closest relatives.</p><p>Satanoperca was considered a synonym of Geophagus for a number of decades before being revalidated by Kullander (1986). It is separated from all other members of the putative cichlid subfamily Geophaginae by presence of a small ocellated spot at the upper caudal-fin base, and from Geophagus by a number of morphological characters.</p><p>The genus is likely to contain additional species, and has been separated into three groups with distinctive morphology, namely the S. jurupari group, the S. daemon group, and the monotypic S. acuticeps group.</p><p>The groups also differ in reproductive strategy, with the S. daemon and S. acuticeps assemblages being substrate spawners, and the S. jurupari group mouthbrooders.</p>"
     },
     {
       "key": "references",
@@ -140,7 +140,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "iLruwxhb_K4",
+      "title": "Satanoperca pappaterra",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PbXrB4x1YW4",
+      "title": "Satanoperca pappaterra",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_4KaOAEkHuU",
+      "title": "Satanoperca cf.pappaterra breeding 1",
+      "durationSec": 136,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kLH5XKxvIYM",
+      "title": "Satanoperca pappaterra in \" nature\" aquarium",
+      "durationSec": 138,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -159,14 +184,18 @@
       "category": "phan-nen",
       "keywords": [
         "cát mịn nuôi cá",
-        "nền cát cho cá cichlid"
+        "nền cát cho cá cichlid",
+        "cát mịn thủy sinh",
+        "nền cát cho cá"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá cichlid hạt mịn",
-        "thức ăn spirulina cho cá"
+        "thức ăn spirulina cho cá",
+        "thức ăn cho cá cichlid",
+        "thức ăn spirulina"
       ]
     }
   ],

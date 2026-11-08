@@ -34,179 +34,218 @@
       "height": 720
     },
     "taxa": [
+      "Cryptocoryne sp.",
+      "Rotala sp.",
+      "Ludwigia sp.",
       "Alternanthera reineckii",
       "Hygrophila lancea",
       "Ludwigia arcuata",
       "Ludwigia glandulosa",
-      "Ludwigia sp.",
-      "Rotala sp.",
-      "Cryptocoryne sp.",
-      "Brachythecium sp.",
-      "Trigonostigma espei"
+      "Rasbora kubotai",
+      "Bacopa sp."
     ],
-    "gear": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Dennerle",
+        "model": "Scapers tank 35L",
+        "t": 35
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "JBL",
+        "model": "e701",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "WRGB II Slim",
+        "t": 210
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Aquario",
+        "model": "NEO Soil",
+        "t": 280
+      }
+    ],
     "figures": [
       {
-        "heading": "Chuẩn bị bể và phông nền",
+        "heading": "Bể, nền dán và đèn",
         "moments": [
           {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at50-hd.webp",
+            "t": 0,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at0-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể Dennerle Scapers Tank 35 lít bo góc tròn đặt trống, chưa dán phông."
-          },
-          {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã dán phông nền đen ở mặt sau, nhìn rất gọn."
+            "caption": "Đang dán tấm nền đen lên mặt sau của bể."
           }
         ]
       },
       {
-        "heading": "Chọn đèn cho bể sâu",
+        "heading": "Nền: phân nền hay sỏi kèm phân nhét gốc",
         "moments": [
           {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at210-hd.webp",
+            "t": 320,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at320-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh nhỏ với cây hậu cảnh và lũa rêu xanh."
+            "caption": "Phân nền đổ thành đống trong bể kính trống, chuẩn bị tạo địa hình."
           },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn Chihiros gác cao trên thành kính của bể sâu."
-          }
-        ]
-      },
-      {
-        "heading": "Nền: phân nền dày hay sỏi với viên phân nhét gốc",
-        "moments": [
           {
             "t": 330,
             "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at330-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lớp phân nền dày được rải đều dưới đáy bể 35 lít."
+            "caption": "Lớp phân nền được san phẳng, đổ dày khắp đáy bể."
           }
         ]
       },
       {
-        "heading": "Danh sách cây và cách xếp theo tầng",
+        "heading": "Xếp sơ đồ trồng bằng nhãn cây",
         "moments": [
           {
             "t": 360,
             "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at360-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các thẻ tên cây cắm trên nền bể để làm sơ đồ trồng."
+            "caption": "Nhãn cây cắm trên nền đất, tạo sơ đồ trồng trong bể."
           },
           {
             "t": 400,
             "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh thẻ tên và cây trong cốc đặt trên nền bể."
+            "caption": "Cận cảnh nhãn cây và cốc cây cắm đúng chỗ định trồng."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p2-zMTA1NTE2KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p2-zMTA1NTE2KS5qcGc-480.webp",
+          "width": 960,
+          "height": 711,
+          "licence": "CC BY 2.0",
+          "author": "incidencematrix",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:That_Fishy_Plant_(23833105516).jpg",
+          "caption": "Nhãn cây cắm xuống nền đất ngay chỗ định trồng, giống cách làm sơ đồ trồng."
+        }
       },
       {
-        "heading": "Trình tự trồng cây",
+        "heading": "Chọn cây cho từng tầng",
         "moments": [
           {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at500-hd.webp",
+            "t": 390,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at390-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cụm AR mini đã trồng ở tiền cảnh, hai bên cân đối."
+            "caption": "Các chậu cây thủy sinh xếp sẵn trên nền bể trước khi trồng."
           },
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây đỏ Alternanthera đã trồng ở tiền cảnh, các chậu cây còn lại phía sau."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p3-0aWNvMTUwMC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p3-0aWNvMTUwMC5qcGc-480.webp",
+          "width": 960,
+          "height": 740,
+          "licence": "CC BY-SA 3.0",
+          "author": "Xema Romero",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jardinacuatico1500.jpg",
+          "caption": "Bể thủy sinh bố cục nhiều tầng, cây thấp phía trước và cây cao phía sau."
+        }
+      },
+      {
+        "heading": "Trồng từ trước ra sau",
+        "moments": [
           {
             "t": 550,
             "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at550-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hygrophila Araguaia được trồng xen vào các khoảng trống giữa các cụm."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p4-tyaXNobmFuLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p4-tyaXNobmFuLmpwZw-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "V C balakrishnan",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii_(2).JPG_-_Photo_by_V_C_Balakrishnan.jpg",
-          "caption": "Cụm AR Alternanthera đỏ tím mọc dày, lên màu đẹp."
-        }
-      },
-      {
-        "heading": "Vì sao bể mới set chưa đỏ",
-        "moments": [
-          {
-            "t": 800,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at800-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới set với các cây đỏ và xanh xen kẽ dưới đèn."
+            "caption": "Cây đã trồng thành cụm ở tiền cảnh, xen kẽ các khoảng trống."
           },
           {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at840-hd.webp",
+            "t": 600,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at600-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các cây thân đỏ, tím và xanh, chưa lên màu hoàn toàn."
+            "caption": "Dùng nhíp trồng thêm cây đỏ lấp dần nền bể."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p5-MDUzNzgtMikuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p5-MDUzNzgtMikuanBn-480.webp",
-          "width": 960,
-          "height": 692,
-          "licence": "CC BY 4.0",
-          "author": "Stajsic, V",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_arcuata_L._repens_Walter_(AM_AK305378-2).jpg",
-          "caption": "Cây Ludwigia lên màu đỏ rực ở thân và lá, khi đủ sáng."
-        }
+        ]
       },
       {
-        "heading": "Cây yếu trong vài tuần đầu",
+        "heading": "Vì sao cây chưa đỏ sau vài tuần",
         "moments": [
           {
-            "t": 860,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at860-hd.webp",
+            "t": 780,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at780-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh đám cây lá đỏ và xanh trồng trên nền sỏi đen."
+            "caption": "Toàn cảnh bể cây mới lên tốt, một số cây còn hơi xanh."
+          },
+          {
+            "t": 820,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at820-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thân đỏ và xanh mọc dày, màu chưa lên đỏ hoàn toàn."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p6-dWxhX2t6MDEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p6-dWxhX2t6MDEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p5-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p5-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Krzysztof Ziarnek, Kenraiz",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_crispatula_kz01.jpg",
-          "caption": "Cây mới trồng còn yếu, lá thưa và mỏng, đang thích nghi trong bể."
+          "height": 1280,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Rotala trong bể đang lên màu dần, ngọn đỏ nhưng thân vẫn còn xanh."
         }
       },
       {
-        "heading": "Thả gì cho bể toàn cây đỏ",
+        "heading": "Tăng đèn thế nào cho cây lên màu",
+        "moments": [
+          {
+            "t": 910,
+            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at910-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây đỏ và xanh lên màu đẹp dưới đèn mạnh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p6-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p6-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn LED gắn phía trên, cây xanh mọc dày."
+        }
+      },
+      {
+        "heading": "Thả gì vào bể cây đỏ",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p8-FpLWhpcmVzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p8-FpLWhpcmVzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/vGvzzEQQxDA/p7-FpLWhpcmVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/vGvzzEQQxDA/p7-FpLWhpcmVzLmpwZw-480.webp",
           "width": 800,
           "height": 415,
           "licence": "CC BY-SA 3.0",
           "author": "BottomDog",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microdevario_kubotai-hires.jpg",
-          "caption": "Cá Rasbora kubotai thân ánh xanh lục óng ánh, rất hợp làm điểm nhấn."
+          "caption": "Cá Rasbora kubotai ánh xanh lá óng ánh, rất hợp làm điểm nhấn."
         }
       }
     ]

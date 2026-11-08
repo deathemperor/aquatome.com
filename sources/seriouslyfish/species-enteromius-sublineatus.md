@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/enteromius-sublineatus
 title: Enteromius sublineatus · Seriously Fish
-fetchedAt: 2026-11-07T05:28:18.447Z
+fetchedAt: 2026-11-07T20:16:58.689Z
 hash: 36399439a19ffe11aa850f31fbf8e688e1401e54ce51cd9c8026b33aef3330d0
 ---
 

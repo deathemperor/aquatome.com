@@ -1,21 +1,23 @@
 {
   "slug": "alternanthera-reineckii-mini",
-  "name": "Alternanthera reineckii 'Mini'",
+  "name": "Alternanthera reineckii Mini",
   "altNames": [
     "Alternanthera Mini",
+    "Alternanthera reineckii 'Mini'",
     "AR Mini",
-    "Alternanthera reineckii Mini",
-    "Kremah Mini"
+    "Alternanthera Reineckii Mini Tropica"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Tipe:</strong> Tanaman batang (stem)</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Laju pertumbuhan:</strong> Sedang</li><li><strong>Tinggi:</strong> 5–10+ cm</li><li><strong>Kebutuhan cahaya:</strong> Sedang</li><li><strong>CO2:</strong> Sedang</li></ul>",
-    "notes:tropica": "<p>Tanaman air hasil kultur jaringan dalam cup tertutup. Versi mini dari Alternanthera yang sudah terkenal ini punya ciri pertumbuhan yang kompak dan lebih lambat. Tanaman ini sangat cocok untuk akuarium kecil atau sebagai tanaman latar depan (foreground) di aquascape yang lebih besar. Dengan pemangkasan yang cermat, tanaman ini bisa dibentuk menjadi karpet rapat berwarna merah keunguan setinggi kira-kira 5–10 cm. Intensitas cahaya yang tinggi dan penambahan CO2 membuat pertumbuhan dan tampilan tanaman secara keseluruhan jadi lebih baik.</p>"
+    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tanaman batang (stem)</li><li><strong>Asal:</strong> Kultivar</li><li><strong>Kecepatan tumbuh:</strong> Sedang</li><li><strong>Tinggi:</strong> 5–10+ cm</li><li><strong>Kebutuhan cahaya:</strong> Sedang</li><li><strong>CO2:</strong> Sedang</li></ul>",
+    "maintenance:aquatome": "<p>Alternanthera reineckii 'Mini' cocok untuk bagian depan (foreground) atau tengah (midground). Tanaman ini tumbuh lebih kompak dan lebih lambat daripada Alternanthera biasa, jadi sangat cocok untuk akuarium kecil, sedangkan di akuarium besar bisa dipakai sebagai tanaman foreground.</p><ul><li>Tanaman ini berupa tanaman kultur jaringan dalam cup tertutup dan tidak bisa langsung ditanam dari cup-nya. Gel nutrisi yang menempel di sekitar akar dan pangkalnya harus dicuci bersih dulu, lalu gumpalan tanaman dibagi menjadi beberapa bagian kecil sebelum ditancapkan ke substrat.</li><li>Pucuk hasil trimming nantinya bisa ditanam ulang sebagai tanaman baru. Cabut beberapa daun di ruas paling bawah, lalu tancapkan bagian batang yang gundul ke substrat, karena bagian batang yang gundul lebih cepat keluar akar.</li><li>Untuk mendapatkan karpet merah keunguan yang rapat setinggi sekitar 5–10 cm, trimming harus dilakukan dengan telaten dan hati-hati.</li></ul>",
+    "notes:tropica": "<p>Tanaman air hasil kultur jaringan dalam cup tertutup. Versi mini dari Alternanthera yang sudah terkenal ini memiliki ciri pertumbuhan yang kompak dan lebih lambat. Tanaman ini sangat cocok untuk akuarium kecil atau sebagai tanaman foreground di aquascape yang lebih besar. Dengan trimming yang hati-hati, bisa terbentuk karpet merah keunguan yang rapat setinggi sekitar 5–10 cm. Intensitas cahaya yang tinggi dan penambahan CO2 membuat pertumbuhan dan penampilan tanaman secara keseluruhan menjadi lebih baik.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": true,
+    "score": 0.6,
+    "indexable": false,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.6,
+      "aquatome": 0.6
     }
   }
 }

@@ -1,0 +1,62 @@
+{
+  "id": "devario-interruptus",
+  "native": {
+    "input": "c272b302adc8faf2",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Hotha, Yunnan Province, China' which corresponds to the Hotha/Husa valley in Longchuan County, Dehong Prefecture, Yunnan province, southwestern China and appears endemic to the area with subsequent occurrence records from neighbouring Longling County (Baoshan Prefecture) and municipality of Ruili City.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "All known localities are within the region bordering Myanmar and part of the upper Ayeyarwady/Irrawaddy River watershed.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "All known localities are within the region bordering Myanmar and part of the upper Ayeyarwady/Irrawaddy River watershed.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "MM"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Devario interruptus",
+    "status": "ACCEPTED",
+    "taxonKey": 2361544,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        19
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

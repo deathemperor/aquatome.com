@@ -1,0 +1,102 @@
+{
+  "id": "mochokus-niloticus",
+  "scientificName": "Mochokus niloticus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Mochokus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "egypt",
+    "nile",
+    "nigeria",
+    "niger",
+    "chad"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.8,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 15,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
+      "html": "<p>Scientific name: Mochokus niloticus Joannis, 1835.</p><p>Size: 65 mm (2.6\") SL.</p><p>IUCN Red List: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
+      "html": "<p>Africa: Nile and Niger basins. Reported from the Chad basin.</p><p>Type locality: Nile River near Thebes, Egypt. No type known.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
+      "html": "<ul><li>pH: 6.8 - 7.5</li><li>Temperature: 18.0-28.0°C</li><li>Hardness: 15 dH</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1246",
+      "html": "<p>Magasin de Zoologie 1835 (5 anneé), pp no page number, Pl. 8.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

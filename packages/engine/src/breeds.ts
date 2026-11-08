@@ -12,9 +12,9 @@ import { breedLeads, readForumState } from './forum'
 import { breedKin, breedNames, cleanBreedAltNames } from './alt-names'
 import { isMarketplace } from './marketplaces'
 import { BOUNDS } from './process'
+import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
 
 type Sourced = { fact: string; source: number }

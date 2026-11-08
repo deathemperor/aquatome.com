@@ -47,6 +47,11 @@
       "Eleocharis acicularis",
       "Eleocharis parvula",
       "Eleocharis vivipara",
+      "Cryptocoryne lutea",
+      "Cryptocoryne wendtii",
+      "Cryptocoryne lucens",
+      "Cryptocoryne parva",
+      "Cryptocoryne walkeri",
       "Taxiphyllum barbieri",
       "Bolbitis heudelotii",
       "Microsorum pteropus",
@@ -55,13 +60,9 @@
       "Hygrophila polysperma",
       "Ludwigia arcuata",
       "Myriophyllum sp.",
-      "Cryptocoryne lutea",
-      "Cryptocoryne wendtii",
-      "Cryptocoryne lucens",
-      "Cryptocoryne parva",
-      "Cryptocoryne walkeri",
       "Phyllanthus fluitans",
       "Juncus repens",
+      "Riccardia sp.",
       "Otocinclus sp.",
       "Caridina multidentata"
     ],
@@ -78,21 +79,20 @@
         "type": "thuy-sinh",
         "brand": "Chihiros",
         "model": "WRGB 2",
-        "t": 120
+        "t": 112
       },
       {
         "category": "co2",
         "type": "binh",
         "brand": "CO2Art",
         "model": "Pro-SE",
-        "t": 140
+        "t": 142
       },
       {
         "category": "loc",
-        "type": "thung",
         "brand": "Oase",
-        "model": "FiltoSmart 300",
-        "t": 170
+        "model": "FiltoSmart 300 Thermo",
+        "t": 172
       },
       {
         "category": "phan-nen",
@@ -105,108 +105,125 @@
         "category": "phan-nen",
         "type": "soi",
         "brand": "ADA",
-        "model": "Yamaya stone",
+        "model": "Yamaya Stone",
         "t": 367
       },
       {
         "category": "khac",
-        "brand": "Aquario",
-        "model": "Neo diffuser",
-        "t": 1190
+        "brand": "Fluxaqua",
+        "model": "Light screen Competition Edition",
+        "t": 205
       },
       {
         "category": "khac",
-        "brand": "Fluxaqua",
-        "model": "Competition Edition light screen",
-        "t": 205
+        "brand": "Aquario",
+        "model": "Neo Diffuser",
+        "t": 1200
       }
     ],
     "figures": [
       {
-        "heading": "Chọn bể và thiết bị thế nào",
+        "heading": "Chọn bể và thiết bị cho bể high-tech",
         "moments": [
           {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at40-hd.webp",
+            "t": 130,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at130-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể không viền trống, kính trong, gắn đèn phía trên."
+            "caption": "Bể không viền đã setup xong, có đá và thảm cỏ phủ nền."
+          },
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính không viền trống, có đèn treo phía trên."
           }
         ]
       },
       {
-        "heading": "Trải nền đúng cách",
+        "heading": "Trải nền thế nào",
         "moments": [
           {
             "t": 240,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Phân nền đổ xuống đáy bể kính tạo thành lớp mỏng."
+            "caption": "Đổ phân nền xuống đáy bể kính trống thành lớp mỏng."
           },
           {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at300-hd.webp",
+            "t": 250,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at250-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ tiếp phân nền phủ lên lớp dưới, nền dày dần lên."
+            "caption": "Dùng cọ sơn gạt phân nền cho đều trên đáy bể."
           }
         ]
       },
       {
-        "heading": "Dựng lũa đá và buộc rêu java",
+        "heading": "Dựng lũa đá và buộc rêu",
         "moments": [
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai nhánh lũa spiderwood đặt thử trên nền đất để tìm bố cục."
-          },
           {
             "t": 400,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lũa spiderwood được đặt thử trong bể trống, chưa có hậu cảnh."
+            "caption": "Các khúc lũa nhện được thử đặt trong bể trống để tìm bố cục."
+          },
+          {
+            "t": 620,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at620-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa nhện buộc rêu kết hợp đá Yamaya xám đậm đã dựng xong."
           }
         ]
       },
       {
-        "heading": "Giữ lũa không nổi bằng keo và giấy ăn",
+        "heading": "Giữ lũa không nổi bằng keo và giấy",
         "moments": [
           {
             "t": 640,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at640-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh với lũa spiderwood đã được cố định trên các hòn đá."
+            "caption": "Bố cục lũa nhện và đá trong hồ sau khi đã cố định."
           },
           {
             "t": 670,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at670-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhỏ keo vào chỗ lũa chạm đá để dán chắc lũa vào đá."
+            "caption": "Nhỏ keo lên chỗ lũa nhện chạm đá để dán cố định."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/CSLWc2X7VFE/p3-kzMDMyOTYpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/CSLWc2X7VFE/p3-kzMDMyOTYpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "Ben Sale from Stevenage, UK",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Super_super_Glue_(3329303296).jpg",
+          "caption": "Chai keo con voi dạng lỏng đặt trên khúc gỗ lũa."
+        }
       },
       {
-        "heading": "Trồng cây: chuẩn bị và sắp xếp",
+        "heading": "Trồng cây: chọn cây và sơ chế",
         "moments": [
           {
-            "t": 790,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at790-hd.webp",
+            "t": 810,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at810-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các chậu cây có nhãn xếp trong bể trước khi trồng."
+            "caption": "Các chậu cây đặt tạm trên nền bể để hình dung vị trí trồng."
           },
           {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at840-hd.webp",
+            "t": 890,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at890-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Glossostigma đã trồng thành thảm trên nền ướt, bên cạnh đá và lũa."
+            "caption": "Tỉa rễ và sơ chế cây trước khi trồng vào bể."
           }
         ],
         "photo": {
@@ -217,58 +234,97 @@
           "licence": "CC BY-SA 3.0",
           "author": "Billtsai1518",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%AE%E7%8F%8D%E7%8F%A0.jpg",
-          "caption": "Thảm cây tiền cảnh xanh dày trong bể thủy sinh, giống Glossostigma."
+          "caption": "Thảm cây thủy sinh xanh mướt, mọc dày và khỏe trong bể."
         }
       },
       {
-        "heading": "Đổ nước vào bể",
+        "heading": "Đổ nước mà không làm xáo nền",
         "moments": [
           {
             "t": 1120,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1120-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rót nước xuống tấm lót trắng để nước chảy nhẹ, không xới nền."
+            "caption": "Đổ nước qua tờ khăn giấy trải trên nền để nước không làm xáo cát."
           }
         ]
       },
       {
-        "heading": "Cài đặt hệ thống CO2",
+        "heading": "Cài đặt CO2",
         "moments": [
           {
-            "t": 1190,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1190-hd.webp",
+            "t": 1160,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1160-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Gắn van một chiều vào dây CO2 cạnh bộ điều áp."
+            "caption": "Tay đang lắp và chỉnh van bộ điều áp trên bình CO2."
           },
           {
             "t": 1230,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1230-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ điều áp CO2 gắn trên bình, có đồng hồ và dây CO2 xanh."
+            "caption": "Bộ điều áp CO2 gắn trên bình, có bộ đếm giọt và dây CO2."
           }
         ]
       },
       {
-        "heading": "Chăm bể trong mấy tuần đầu",
+        "heading": "Thay nước và châm phân mấy tuần đầu",
         "moments": [
           {
-            "t": 1400,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1400-hd.webp",
+            "t": 1260,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi nước đặt trong bể, lũa và cây thủy sinh phía sau."
+            "caption": "Bể thủy sinh với lũa và cây thủy sinh lên xanh tốt."
           },
           {
-            "t": 1410,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1410-hd.webp",
+            "t": 1290,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1290-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới với lũa, đá và thảm cỏ xanh mướt."
+            "caption": "Dùng ống xả nước cũ ra khỏi bể thủy sinh khi thay nước."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/CSLWc2X7VFE/p7-bV9GaXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/CSLWc2X7VFE/p7-bV9GaXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
+          "caption": "Bể cá có lớp sỏi nền sạch, nước trong, cá bơi thoải mái."
+        }
+      },
+      {
+        "heading": "Những vấn đề hay gặp trong hai tuần đầu",
+        "moments": [
+          {
+            "t": 1360,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa nhện đặt trong hồ thủy sinh, cây mọc quanh gốc lũa."
+          },
+          {
+            "t": 1430,
+            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1430-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh lũa nhện có lớp nhớt trắng, cây trồng sát bên."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/CSLWc2X7VFE/p8-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/CSLWc2X7VFE/p8-mdHdvb2RfMy5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Evan Baldonado",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
+          "caption": "Cá otocinclus bám trên khúc lũa, gặm lớp nhớt bám trên bề mặt."
+        }
       }
     ]
   }

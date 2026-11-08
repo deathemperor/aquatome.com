@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-interruptus
 title: Devario interruptus · Seriously Fish
-fetchedAt: 2026-11-07T04:33:41.390Z
+fetchedAt: 2026-11-07T19:13:55.929Z
 hash: c0891c5550e4b212aa81aa9e5ec7540b257e673728b456602f268d2eddd37582
 ---
 

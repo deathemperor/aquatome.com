@@ -143,7 +143,6 @@ struct AquaTomeApp: App {
         // Whether the chat is on: its entries show only then.
         Task { await chat.refresh(account: account, site: handbook.site) }
       }
-      .task { await OwnCopy.check() }
       // After the first screen: iOS's reports, and sending every 30 s once the site (its index read fresh this launch)
       // and the reader allow it.
       .task { await telemetry.start() }

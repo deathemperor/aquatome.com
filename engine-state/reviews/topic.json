@@ -397,6 +397,42 @@
       "kept": false
     }
   ],
+  "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
+    {
+      "at": "2026-11-08T05:35:05Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Mốc 1–3 ngày là mốc an toàn mà nhiều nguồn cùng nêu\" is a mild generalization; the sources differ (2–3 days vs 1–3 days).",
+        "\"Dù chọn mốc nào cũng đừng để dồn tới phút chót\" blends the last-minute-rush mistake into the timing advice. This is a small extension.",
+        "\"Có mẫu máy sục khí chạy pin... 20 tiếng\" drops the Aquarium Co-Op attribution. This is minor.",
+        "\"Bạn nên nhờ người ghé qua kiểm tra máy vài ngày một lần\" is fine, but \"Người chưa chơi cá thì đừng nhờ cạo rêu\" turns the beginner advice into a general one. This is minor.",
+        "The sitter step \"để người trông châm thêm khi nước bay hơi\" adds a purpose the facts do not give. The facts only say to leave buckets of treated water and mark the level.",
+        "\"Ở tiệm cá Việt Nam có bán hộp chia thức ăn theo ngày\" is supported. \"Thức ăn đông lạnh dạng viên\" is also fine.",
+        "In the power-cut steps, \"Trước khi cắm điện lại, vệ sinh lọc\" is consistent. But \"Dùng sủi khí hoặc lọc bio\" for 'sponge filter' is an acceptable paraphrase."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T05:35:05Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Cho ăn dư mới là thứ làm chết cá nhiều hơn chuyện cá bị lỡ bữa\" is supported, but the intro line \"cái hại lớn nhất là cho ăn quá nhiều\" is a mild generalisation.",
+        "\"Có nguồn cho rằng cá khỏe mạnh nhịn tới một tuần vẫn được\" overstates the facts. They say a trip of one week or less can be unfed (with Aquarium Co-Op's 7-day quarantine as the reason), but the other sources give 1-3 days.",
+        "\"Đi Tết cả tuần thì lượng nước hụt không nhỏ\" is an inference. The facts only give the Singapore figure of 2-3 L a day for a 120 L tank.",
+        "\"Bể cần ổn định trước khi bạn vắng nhà\" and \"Máy móc thì có lúc trục trặc\" are paraphrase-level additions, not in the facts.",
+        "\"Lá mục để lại trong bể sẽ làm amoniac tăng\" is roughly supported (dead leaves could raise ammonia). The advice to check by eye that the filter is running is an invented addition.",
+        "\"bám trên lũa, đá và lá cây\" for the biofilm is an unsupported detail.",
+        "\"Có nguồn khuyên đặt 6–8 tiếng\" is supported. \"Máy tốt phải giữ thức ăn tránh ánh sáng\" is a slight reframing of the facts.",
+        "The FAQ line \"Đi 4–7 ngày thì nên dùng máy ... với thức ăn khô\" is supported by the facts, though the pairing is a synthesis.",
+        "The FAQ says slow-dissolving blocks \"gây rêu, đục nước và tăng pH\" as if one source said all of it. This merges two different sources."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
     {
       "at": "2026-11-07T04:10:35Z",
@@ -466,6 +502,42 @@
         "\"Cách này thường dùng kèm với một trong hai cách trên\" (fine floss) - the facts don't say it is usually combined with blackout or UV.",
         "\"Không đặt bể ở chỗ nắng chiếu thẳng vào\" is listed under prevention - the facts give it only as a cause-cutting step, not as a prevention item. This is minor.",
         "\"tảo dùng cạn khoáng vi lượng hoặc dinh dưỡng trong nước\" - this is close to the facts, but they don't say it directly."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
+    {
+      "at": "2026-11-08T05:39:34Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Thông tin hiện có không cho biết loại bột này chứa gì... Riêng các chất tẩy cặn vôi... chắc chắn độc với cá\" is an unsupported framing: the facts only mention the powder, not its safety.",
+        "\"Vết xước nhẹ thì đánh bóng được\" is a mild generalisation not stated in the facts.",
+        "\"Mặt ngoài thì dùng được\" for household glass cleaner is slightly extended. The facts only say to spray it onto the cloth.",
+        "\"Kem đánh bóng\" for light glass scratches is described as polishing compound; this is fine, but the 'rửa sạch' step is slightly extended.",
+        "\"Thoa kem đánh bóng nhựa\" and the acrylic sand-then-polish step are supported, but \"Làm xước acrylic\" for Scotch-Brite is fine.",
+        "The final checklist item \"lưỡi dao còn bén không\" reverses the facts: a dull blade is what scratches, so the guide's wording is odd but consistent. Minor.",
+        "\"Rút hết nước\" and \"bắt cá ra\" for inside repairs are phrased as certain; the facts say \"may mean\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T05:39:34Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Kính bị xước là do lưỡi cùn chứ không phải do lưỡi bén\" overstates the fact: a dull blade scratches glass, but nothing says sharp blades don't scratch.",
+        "\"Móng không vướng thì tự đánh bóng được\" is not supported. The facts only say that a nail catching means the scratch is probably too deep.",
+        "\"Dao cạo lưỡi thép không gỉ, kể cả các loại dao cạo chuyên cho bể cá, chỉ dành cho bể kính\" generalises beyond the facts. They cover only the Tetra GS 45 and the ADA Pro Razor.",
+        "\"Các nguồn hướng dẫn khác nhau ở độ đậm của giấm... Cả hai nguồn đều thống nhất là chỉ dùng giấm trắng\" is invented framing. The facts do not say the sources agree.",
+        "\"Nam châm làm cho kính mỏng mà đem dùng cho kính dày\" is a slightly garbled paraphrase and adds nothing supported.",
+        "\"Lưỡi bắt đầu rít hoặc kéo nặng tay thì thay lưỡi mới\" changes \"drag\" to \"rít\" and adds \"kéo nặng tay\". It is minor.",
+        "\"Để nước qua đêm không làm mất chloramine được\" adds \"overnight\", but the facts say only that leaving the water to stand doesn't remove chloramine. The claim that many places have chloramine in tap water is also not in the facts.",
+        "\"Cá có thể bị stress... Vì vậy khi tẩy vôi ở mặt trong\" is acceptable. \"Cặn còn lại có thể làm chết cá\" is consistent with the facts.",
+        "The \"rửa sạch rồi làm lại\" and \"kem đánh bóng\" glass-scratch steps are supported. \"Bột tẩy rửa kính bể cá đa năng\" is presented without any caveat about whether it is safe."
       ],
       "attempt": "first",
       "kept": false

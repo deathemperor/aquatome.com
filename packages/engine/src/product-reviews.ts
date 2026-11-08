@@ -11,10 +11,10 @@ import { unescapePlain } from './sanitize'
 import type { Found } from './video-discovery'
 import { readKit } from './video-items'
 import { SOURCE_LANGS, throttled, VIDEO_GAP_MS, type VideoMeta, type YouTube } from './youtube'
+import { VI_STYLE as STYLE } from './phrases'
 
 const EXTRACT = readFileSync(new URL('./prompts/review-extract.md', import.meta.url), 'utf8')
 const WRITE = readFileSync(new URL('./prompts/review-write.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 
 /** What a video must be to hold findings: past a teaser, short of a stream. */
 export const MIN_SECONDS = 240

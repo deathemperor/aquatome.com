@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/epiplatys-dageti-dageti
 title: Epiplatys dageti (Red-chinned Panchax) · Seriously Fish
-fetchedAt: 2026-11-07T05:44:18.286Z
+fetchedAt: 2026-11-07T20:29:23.388Z
 hash: fe0b7d8aa3a854a4cde047dbc7101660f80ade4948ba5a55cb7d116315cfac98
 ---
 

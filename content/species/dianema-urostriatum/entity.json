@@ -10,6 +10,124 @@
     "brazil",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Amazon River"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parts of the Brazilian Amazon basin.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202859,
+      "total": 16,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          15
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

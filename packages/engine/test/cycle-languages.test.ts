@@ -27,11 +27,12 @@ test('they give first: after everything readers see, before the checks; the gate
   expect(at('scripts/translate-ui.ts /tmp/aq-i18n-missing.json')).toBeLessThan(at('for lang in ms; do'))
   expect(at('for lang in ms; do')).toBeLessThan(at('pnpm engine metric'))
   const gate = Number(/AHEAD_BEFORE_MINUTES:-(\d+)/.exec(script)![1])
-  const nextCycle = 170 // engine.yml's job `due`: 170 min since the last cycle started
+  // engine.yml's job `due`: ENGINE_EVERY_MINUTES since the last cycle started, 170 when unset. A longer one leaves more room.
+  const nextCycle = 170
   const longestStep = 20
   const buildTestPush = 6
   expect(gate + longestStep + buildTestPush).toBeLessThanOrEqual(nextCycle)
-  expect(readFileSync(new URL('../../../.github/workflows/engine.yml', import.meta.url), 'utf8')).toContain(`$((${nextCycle} * 60))`)
+  expect(readFileSync(new URL('../../../.github/workflows/engine.yml', import.meta.url), 'utf8')).toContain(`\${EVERY:-${nextCycle}} * 60`)
 })
 
 test("a cycle that changed only UI text still publishes it, or the next would drop it and pay for it again", () => {
@@ -44,4 +45,11 @@ test('their UI text goes first in the block, 500 strings a cycle: it decides whe
   const ui = script.indexOf('ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-500}"')
   expect(ui).toBeGreaterThan(script.indexOf('ahead() {'))
   expect(ui).toBeLessThan(script.indexOf('for lang in ms; do'))
+})
+
+test("the photos part plans the app's calendar after its photo steps, and before the commit that publishes it", () => {
+  const curate = script.indexOf('pnpm engine curate || log "curate: failed"')
+  expect(curate).toBeGreaterThan(script.indexOf('pnpm engine sweep'))
+  expect(script.lastIndexOf('if part photos; then', curate)).toBeGreaterThan(script.indexOf('pnpm engine sweep'))
+  expect(curate).toBeLessThan(script.indexOf('git add content sources engine-state docs/review apps/site/src/i18n'))
 })

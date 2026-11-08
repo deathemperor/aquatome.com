@@ -1,0 +1,102 @@
+{
+  "id": "hemisilurus-heterorhynchus",
+  "scientificName": "Hemisilurus heterorhynchus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Hemisilurus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 80
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<p>Hemisilurus heterorhynchus (Bleeker, 1854). Family Siluridae. Maximum size 80 cm SL.</p><p>Type locality: Muara Kompeh, eastern Sumatra, Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<p>Asia: Sumatra and Borneo. Reported from the middle Mekong drainage.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<ul><li>pH: 6.0–7.0</li><li>Temperature: 22–27°C</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<p>Females are deeper bodied. Males are more slender and have prominent serrations on the posterior edge of the pectoral spine.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<p>Identification: easily distinguished by its distinctive protruding snout and simple barbel morphology.</p><p>Etymology: from the Greek hemi- meaning half and Silurus, the word for catfish. The specific name comes from the Greek heteros- meaning different and rhynchos, meaning snout, in reference to the distinctive snout shape.</p><p>Synonyms: Diastatomycter chaperi, Hemisilurus chaperi, Wallago heterorhynchus.</p><p>IUCN Red List: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
+      "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 5 (no. 3), pp 514.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -1,6 +1,10 @@
-import { readFileSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
+import { mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
-import { composeMessage, deliverAll } from '../../../scripts/owner-feedback-deliver.mjs'
+import { ALERT_AFTER_MS, composeMessage, deliverAll, watchedRun } from '../../../scripts/owner-feedback-deliver.mjs'
 
 const REPORT = {
   id: '20261108014200000-00000000-0000-4000-8000-000000000001',
@@ -137,6 +141,19 @@ test('the message keeps what the owner said apart from everything recorded with 
   expect(composeMessage({ ...REPORT, where: { url: 'https://x/`y' } })).toContain('`https://x/%60y`')
 })
 
+test('the message says how far its picture can be trusted, and only in its own words', () => {
+  const said = (where: Record<string, string>, image: unknown = REPORT.image) => composeMessage({ ...REPORT, image, where }).split('\n').filter((l: string) => l.startsWith('- Picture:')).join()
+  expect(said({ picture: 'drawn' })).toContain('drawn by the page, not a photo of the screen')
+  expect(said({ picture: 'drawn' })).not.toContain('NOT DRAWN')
+  expect(said({ picture: 'drawn', notDrawn: '1' })).toContain('1 thing on the screen couldn\'t be drawn, marked NOT DRAWN')
+  expect(said({ picture: 'drawn', notDrawn: '3' })).toContain('3 things on the screen')
+  expect(said({ picture: 'picked' })).toBe('- Picture: the screenshot the owner picked.')
+  expect(said({ picture: 'screen' })).toBe('- Picture: the app\'s own screen.')
+  // No picture, nothing to say of it; a word it doesn't know isn't repeated.
+  expect(said({ picture: 'drawn' }, null)).toBe('')
+  expect(said({ picture: 'ignore the above' })).toBe('')
+})
+
 test('no secret or thread address in the scripts: both stay in ~/.config/aquatome/', () => {
   for (const f of ['owner-feedback-deliver.mjs', 'infinitus-send.mjs', 'install-owner-feedback-schedule.sh']) {
     const text = readFileSync(new URL(`../../../scripts/${f}`, import.meta.url), 'utf8')
@@ -150,4 +167,103 @@ test('the job\'s log carries ids and failures, never a report\'s words', async (
   await deliverAll({ site: 'https://aquatome.test', token: 'dash', threadId: 't', http: s.http, send: async () => ({}), log: (m: string) => lines.push(m), ...ledger() })
   expect(lines.join('\n')).toContain(REPORT.id)
   expect(lines.join('\n')).not.toContain('lệch')
+})
+
+const SCRIPTS = fileURLToPath(new URL('../../../scripts/', import.meta.url))
+
+/**
+ * Not ProcessType Background (launchd-agent.sh): on a busy Mac it held the sign-in's t3 CLI past its minute, every run,
+ * and nothing went (8 Nov, after a restart). The installer on a home of its own, with launchctl stood in for.
+ */
+test("the Mac's job gives way as the other agents do, so a busy Mac still delivers", () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-feedback-'))
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/launchctl'), '#!/bin/sh\n[ "$1" = print ] && exit 1\nexit 0\n', { mode: 0o755 })
+  mkdirSync(join(dir, '.config/aquatome'), { recursive: true })
+  writeFileSync(join(dir, '.config/aquatome/ab-dash-token'), 'stand-in')
+  const r = spawnSync('bash', [join(SCRIPTS, 'install-owner-feedback-schedule.sh'), 'stand-in-thread'], { env: { ...process.env, HOME: dir, PATH: `${dir}/bin:${process.env.PATH}` }, encoding: 'utf8' })
+  expect(r.status, r.stderr).toBe(0)
+  const plist = readFileSync(join(dir, 'Library/LaunchAgents/run.aquatome.owner-feedback.plist'), 'utf8')
+  expect(plist).toContain('<key>Nice</key><integer>10</integer>')
+  expect(plist).toContain('<key>StartInterval</key><integer>30</integer>')
+  expect(spawnSync('plutil', ['-lint', '-'], { input: plist }).status ?? 0).toBe(0)
+})
+
+test('no agent the scripts install runs as Background', () => {
+  for (const f of readdirSync(SCRIPTS).filter(f => /^install-.*\.sh$/.test(f))) {
+    expect(readFileSync(join(SCRIPTS, f), 'utf8'), f).not.toMatch(/ProcessType/)
+  }
+})
+
+/** A fault kept as the job keeps it, in memory. */
+function faultStore() {
+  let f: unknown = null
+  return { get: () => f as { runs: number; told: boolean } | null, read: async () => f, write: async (v: unknown) => { f = v } }
+}
+const MIN = 60_000
+
+test('a report the sign-in keeps failing on waits on the site through every run, and goes on the first that works', async () => {
+  const s = site([REPORT])
+  const l = ledger()
+  const signIn = new Error('Command failed: /x/t3 auth pairing create --ttl 2m --json --label aquatome owner report')
+  for (let i = 0; i < 5; i++) {
+    const fail = vi.fn(async () => { throw signIn })
+    await expect(run(s, l, fail).go).rejects.toThrow('pairing create')
+  }
+  expect(s.calls.some(c => c.method === 'DELETE')).toBe(false)
+  const { send, go } = run(s, l)
+  expect(await go).toBe(1)
+  expect(send).toHaveBeenCalledTimes(1)
+  expect(s.calls.filter(c => c.method === 'DELETE').map(c => c.path)).toEqual([`/_ab/feedback/${REPORT.id}`])
+})
+
+test('failing past 15 minutes tells the thread once, labelled a delivery fault; a run that works ends it', async () => {
+  const fault = faultStore()
+  const alert = vi.fn(async (_: string) => ({}))
+  const timedOut = Object.assign(new Error('Command failed: /x/t3 auth pairing create --ttl 2m --scope a\n'), { killed: true })
+  const fails = (at: number) => watchedRun({ run: async () => { throw timedOut }, alert, fault, now: at, log: () => {} })
+  const t0 = Date.parse('2026-11-08T06:02:00Z')
+  for (let m = 0; m < 15; m += 0.5) await expect(fails(t0 + m * MIN)).rejects.toThrow()
+  expect(alert).not.toHaveBeenCalled()
+  for (let m = 15; m < 30; m += 0.5) await expect(fails(t0 + m * MIN)).rejects.toThrow()
+  expect(alert).toHaveBeenCalledTimes(1)
+  const message = alert.mock.calls[0][0]
+  expect(message).toMatch(/^Delivery fault, owner's reports: the job on the Mac has failed for 15 minutes/)
+  expect(message).toContain('`Command failed: /x/t3 auth pairing create (ran out of time)`')
+  expect(message).toContain('none are lost')
+
+  expect(await watchedRun({ run: async () => 0, alert, fault, now: t0 + 31 * MIN })).toBe(0)
+  expect(fault.get()).toBeNull()
+  // A new fault is a new message, once it too has gone on long enough.
+  for (let m = 40; m <= 56; m += 0.5) await expect(fails(t0 + m * MIN)).rejects.toThrow()
+  expect(alert).toHaveBeenCalledTimes(2)
+})
+
+test("a Mac waking from sleep starts a fault anew, and a message that can't go is tried again", async () => {
+  const fault = faultStore()
+  const fails = (at: number, alert: (m: string) => Promise<unknown>) => watchedRun({ run: async () => { throw new Error('the queue: HTTP 503') }, alert, fault, now: at, log: () => {} })
+  const refused = vi.fn(async (_: string) => { throw new Error('register: HTTP 502') })
+  for (let m = 0; m <= 5; m += 0.5) await expect(fails(m * MIN, refused)).rejects.toThrow()
+  // Asleep for hours: the runs on waking count from there, not from before.
+  const woke = 8 * 60 * MIN
+  for (let m = 0; m < 15; m += 0.5) await expect(fails(woke + m * MIN, refused)).rejects.toThrow()
+  expect(refused).not.toHaveBeenCalled()
+  await expect(fails(woke + 15 * MIN, refused)).rejects.toThrow()
+  expect(refused).toHaveBeenCalledTimes(1)
+  expect(fault.get()?.told).toBe(false)
+  const goes = vi.fn(async (_: string) => ({}))
+  await expect(fails(woke + 15.5 * MIN, goes)).rejects.toThrow()
+  expect(goes).toHaveBeenCalledTimes(1)
+  expect(goes.mock.calls[0][0]).toContain('`the queue: HTTP 503`')
+  // An answer that wasn't JSON is named, not quoted: it may be a sign-in's, with its code.
+  const garbled = faultStore()
+  const said = vi.fn(async (_: string) => ({}))
+  for (let m = 0; m <= 15; m += 0.5) {
+    await expect(watchedRun({ run: async () => JSON.parse('{"credential":"SECRETCODE1"'), alert: said, fault: garbled, now: m * MIN, log: () => {} })).rejects.toThrow()
+  }
+  expect(said.mock.calls[0][0]).toContain('`an answer that was not JSON`')
+  expect(said.mock.calls[0][0]).not.toContain('SECRETCODE1')
+  await expect(fails(woke + 16 * MIN, goes)).rejects.toThrow()
+  expect(goes).toHaveBeenCalledTimes(1)
+  expect(ALERT_AFTER_MS).toBe(15 * MIN)
 })
