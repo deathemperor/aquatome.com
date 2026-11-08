@@ -8,7 +8,10 @@
   "places": [
     "oceania",
     "australia",
-    "papua-new-guinea"
+    "papua-new-guinea",
+    "new-guinea",
+    "asia",
+    "indonesia"
   ],
   "dataCard": {
     "tempC": [
@@ -18,12 +21,53 @@
           "min": 18,
           "max": 35
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 35
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 9.1
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -69,9 +113,69 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/hypseleotris_compressa_en/",
       "html": "<p>Lexicon: Hypseleotris: ancient Greek, means \"deep Eleotris\"; Eleotris is another genus of goby. compressa: Latin, means \"compressed\".</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<p>The empire gudgeon, Hypseleotris compressa, is an eleotrid from northern and eastern Australia and southern New Guinea. Breeding is rarely achieved in aquaria because of its complex amphidromous strategy: adults spawn in freshwater streams, but the larvae are washed downstream to the sea and develop there. Plenty of cover and broken lines of sight let weaker individuals escape the attention of dominant fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<p>Occurs in northern and eastern Australia and southern New Guinea.</p><p>In the former its range extends from the Pilbara and Kimberley regions of Western Australia state around the northern and eastern coastlines of the continent as far as the Towamba river system in New South Wales state.</p><p>Type locality is 'Clarence River and creeks near Port Denison, Australia'.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<p>Minimum base dimensions of 80 × 30 cm are recommended (around 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<p>Provide plenty of hiding places and cover, the idea being to create broken lines of sight to allow weaker individuals to escape continual attention from dominant fish.</p><p>Filtration need not be strong with an air-powered sponge-type unit ideal.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<ul><li>Temperature: 20–35°C</li><li>pH: 5.0–9.1</li><li>Hardness: 2–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<p>Feeds chiefly on a range of small invertebrates, crustaceans and similar in nature.</p><p>In the aquarium it should be offered small live or frozen foods such as chironomid (bloodworm) or mosquito larvae, Artemia, Daphnia, Mysis, etc., although dried foods are normally accepted as well.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<p>Rarely achieved in aquaria and this is undoubtedly attributable to its complex amphidromous breeding strategy.</p><p>In nature adults live and spawn in freshwater streams but the initially pelagic post-hatch larvae are washed downstream to the sea where the post-larval fry spend the first part of their life developing in marine conditions.</p><p>Once maturity is reached the fish will spawn readily in aquaria with males intensifying in colour and attempt to entice females to spawn with them whilst defending their chosen territory against other males.</p><p>Up to 3000 tiny eggs are laid on a pre-cleaned solid surface which may be a rock, piece of driftwood or even the aquarium glass.</p><p>Post-spawning the female is rejected and the male assumes sole responsibility for brood care.</p><p>Incubation is around 24 hours and in the natural life cycle the fry would now be carried to the sea, where they feed around the coast and in estuaries before returning to freshwater to spawn themselves.</p><p>Provision of such conditions plus the tiny size of the post-hatch larvae thus present serious problems for the aquarist.</p><p>The larvae initially have no alimentary tract or rayed fins initially and are even unable to accept infusoria-type foods.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "html": "<ul><li>Allen, G. R., H. Midgley, and M. Allen (2002). Field guide to the freshwater fishes of Australia. Western Australian Museum, i-xiv + 1-394</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f54fc62326b82faf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f54fc62326b82faf-480.webp",
+      "width": 798,
+      "height": 506,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
+      "caption": "Non-nuptial female.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "0PKQhuruFC4",
@@ -96,6 +200,12 @@
       "title": "Australian Native Fish - Wild caught Empire Gudgeons - Hypseleotris compressa",
       "durationSec": 120,
       "lang": "en"
+    },
+    {
+      "youtubeId": "mYY1mzQBHrk",
+      "title": "Empire Gudgeon(Hypseleotris compressa) spawning.        #fish #fishtank #aquarium #plantedtank",
+      "durationSec": 16,
+      "lang": "en"
     }
   ],
   "productSlots": [
@@ -103,21 +213,24 @@
       "category": "be-ca",
       "keywords": [
         "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá cộng đồng",
+        "bể cá 80cm"
       ]
     },
     {
       "category": "loc",
       "keywords": [
         "lọc thùng bể cá nhỏ",
-        "máy sục khí mini"
+        "máy sục khí mini",
+        "lọc bọt biển"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá nhỏ",
-        "artemia đông lạnh"
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh"
       ]
     }
   ],

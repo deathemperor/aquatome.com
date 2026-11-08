@@ -7,13 +7,62 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "vietnam"
+    "vietnam",
+    "mekong",
+    "laos",
+    "cambodia",
+    "thailand",
+    "chao-phraya",
+    "myanmar"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 30
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -35,9 +84,106 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/trichogaster-pectoralis-2/",
       "html": "<p>For years there has been a dispute about the correct genus name of the gourami. One camp of professional fishologists insists that, according to strict interpretation of the rules of naming, an old error from 1923 must not be maintained and all gourami, which were previously called Trichogaster, must now be called Trichopodus, while the genus name Trichogaster is correctly assigned to the species, which were previously called Colisa.</p><p>Another camp, the pragmatists, says that a easy-minded name change for economically important fishes such as the gouramis cannot be justified after 100 years, only because of an unnecessary, rigid application of rules that were made only to avoid confusion and to achieve the greatest possible stability of naming. These rules explicitly allow for exceptions, and in the case of gouramis, an exception is highly desirable.</p><p>This academic dispute is far from settled and there is no decision in sight in the near future. However, it is undisputed that the snakeskin gourami is a beautiful aquarium fish, no matter what you call it.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>The snakeskin gourami, Trichopodus pectoralis, is a large labyrinth fish from the Mekong and Chao Phraya drainages of Indochina and Myanmar. Growing to 30 cm, it is farmed as a food fish, and feral populations are established in several countries as a result. A very peaceful species for the larger community tank, it can produce 'cracking' noises during breeding or territorial exchanges.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>Occurs naturally in both the Mekong and Chao Phraya drainages in Vietnam, Laos, Cambodia, Thailand and Myanmar. It's a popular food fish and is farmed for the purpose in some countries. As a result feral populations are established in Malaysia, Philippines, Singapore, Indonesia, Papua New Guinea, Sri Lanka, New Caledonia and Colombia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>It's an adaptable species that can survive in a wide range of biotopes. However it tends to thrive best in slow-moving or still waters where marginal and submerged vegetation grows densely. In the lower Mekong it's known to move into areas of flooded forest or grassland during the wet season, returning to permanent bodies of water when the water level begins to drop.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>Standard length: 30 cm SL.</p><p>Aquarium base: 120 × 30 cm.</p><p>Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>A planted aquarium with floating vegetation and hiding places, as well as open water for swimming is ideal for this species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<ul><li>Temperature: 22–30°C</li><li>pH: 5.8–8.5</li><li>Hardness: 2–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>Omnivorous in nature, feeding mostly on plant matter, algae and other phytoplankton. It also preys on both terrestrial and aquatic invertebrates including insect larvae, slugs and spiders.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>A very peaceful gourami that can be kept with other peaceful fish that won't be intimidated by its eventual size. Males are relatively non-territorial compared to other gourami species. May eat smaller fish. Good tankmates include barbs, loaches, corydoras, loricariids, larger danios and rasboras and angelfish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>Males develop pointed dorsal and anal fins and their ventral fins are orange or red. Females are plumper.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>Easy. Bubblenester. The breeding tank should contain water of no more than 15–20 cm in depth with lots of floating plants. Filtration should be gentle and air-powered filters are ideal. Condition the fish with live food.</p><p>When the female becomes plump with eggs the male will construct a large bubble nest of up to 25 cm diameter amongst the floating plants. He will then begin to display to the female. As the female approaches the nest the fish can be seen touching each other with their modified ventral fins. Spawning occurs under the nest in the typical anabantoid embrace. The eggs float upwards and the male shepherds them into the nest. Several more spawnings occur and up to 5000 eggs may be produced.</p><p>When there are no more eggs the female is chased away. It is best to remove her at this point or she may be seriously harmed. The male then tends to the nest until the eggs hatch, usually in around 20–30 hours. The fry become free swimming in another 4–5 days, at which point the male should also be removed.</p><p>They should be fed infusoria or liquid fry food for the first week, after which they are large enough to accept brine shrimp nauplii, microworm and powdered flake. The fry grow very slowly and care must be exercised when doing water changes as they are very susceptible to changes in water temperature for the first 3 months or so.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-pectoralis",
+      "html": "<p>This species is not often seen for sale but is a very good addition to the larger community tank. It is cultured commercially for food in its native countries, and is used to make a particularly tasty fish soup! The snakeskin gourami can also produce 'cracking' noises, especially during breeding or territorial exchanges.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/b7fecfc9d85a83d2.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Bochr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snakeskin_gourami.jpg",
+      "caption": "Trichogaster pectoralis male caught in a flooded ricefield in Phrom Phiram, Thailand.",
+      "thumb": "https://media.aquatome.com/commons/b7fecfc9d85a83d2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f7e9649d06120d8c.webp",
+      "width": 960,
+      "height": 435,
+      "licence": "CC BY 4.0",
+      "author": "Wutthichai Rasvara Nangkasem",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_pectoralis_53635711.jpg",
+      "caption": "Snakeskin gourami (Trichopodus pectoralis)",
+      "thumb": "https://media.aquatome.com/commons/f7e9649d06120d8c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e380fd5d5d404690.webp",
+      "width": 860,
+      "height": 396,
+      "licence": "CC BY-SA 4.0",
+      "author": "Wie146",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tricho_pecto_060702_2557_jtgno_ed_resize.jpg",
+      "caption": "Foto Trichopodus pectoralis karya Wie146; diambil di Jatigono, id:Kunir, Lumajang, 02/Juli/2006",
+      "thumb": "https://media.aquatome.com/commons/e380fd5d5d404690-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "9O3uGIu70pg",
@@ -62,6 +208,12 @@
       "title": "The Striped Survivor of Tropical Wetlands 🌿 | Siamese Gourami",
       "durationSec": 27,
       "lang": "en"
+    },
+    {
+      "youtubeId": "BLCX6zNVhI8",
+      "title": "Trichopodus pectoralis aquarium fish",
+      "durationSec": 21,
+      "lang": "en"
     }
   ],
   "productSlots": [
@@ -75,14 +227,25 @@
     {
       "category": "loc",
       "keywords": [
-        "lọc thùng bể lớn"
+        "lọc thùng bể lớn",
+        "lọc thùng bể 120cm",
+        "máy sục khí bể cá"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá sặc",
-        "thức ăn viên cho cá lớn"
+        "thức ăn viên cho cá lớn",
+        "thức ăn cá gourami",
+        "thức ăn viên cho cá cảnh ăn tạp"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "bèo cho bể cá"
       ]
     }
   ],
