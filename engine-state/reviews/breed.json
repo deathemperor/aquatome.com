@@ -348,5 +348,65 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "ms/breeds/glofish": [
+    {
+      "at": "2026-11-08T15:54:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:54:14Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Penjagaannya mudah dan sama seperti spesies asalnya\" is a mild generalisation. The facts give difficulty 2 from one source and say the company claims the same care as other fish of the species.",
+        "\"Mereka membiak dalam hampir setiap tempoh persampelan\" is attributed to the Magalhães study. It is supported, but the page frames it as the same group's finding.",
+        "\"Lesennya juga melarang pembiakan dan penjualan anak, dan beberapa negara tidak membenarkan ikan ini langsung\" in the intro is an unsupported generalisation. The facts only name the EU, Brazil's import ban and California's earlier ban.",
+        "\"Jangan terkejut jika ikan nampak biasa sahaja di bawah lampu kedai\" is advice not in the facts, though it follows from them.",
+        "\"Idea menjualnya sebagai ikan hiasan datang kemudian\" is supported. \"Protein ... daripada haiwan laut\" in the intro is supported too.",
+        "The FAQ says \"Tidak susah\" and gives \"suhu sekitar 22–28 °C\". Both are acceptable summaries of the facts.",
+        "\"Penjagaannya ... sama seperti spesies asalnya\" in the FAQ states company-claimed care as plain fact. This is a minor unsupported generalisation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/halfmoon-betta": [
+    {
+      "at": "2026-11-08T15:56:02Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Sumber tidak sependapat tentang tahap kesukarannya. Ada yang memberinya penilaian 1 dan ada yang memberinya 4\": difficulty ratings are in the facts, but the page words them loosely as a general claim.",
+        "\"Ada kedai yang menjual bentuk warna seperti red dragon\": the facts say Vietnamese shops, and the page drops that.",
+        "\"Ada artikel kedai yang menyatakan ... dibiakkan di Thailand\": the facts say Vietnamese shop articles, and the page drops that. This is minor.",
+        "\"Ada penjaga yang membela ikan laga dalam tangki kecil tanpa pam udara\": the facts say Vietnamese keepers, and the page drops that. This is minor.",
+        "\"Satu sumber menyebut minimum kira-kira 15 liter\" and \"tangki 15 cm\": both are in the facts. The FAQ line about \"mangkuk plastik kecil tanpa penapis\" is also supported. Nothing is wrong here.",
+        "\"Rosetail dibangunkan oleh Masillamoni dan Chenot sekitar tahun 1989\": the facts say this about the feathertail, or the rosetail line in general, so the page may have shifted the attribution slightly. This is minor.",
+        "\"Ekor ... boleh layu\": the facts say the tail can collapse, so \"layu\" (wilt) is a slightly loose translation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T15:56:02Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Sumber tidak sependapat tentang tahap kesukarannya\" - the facts give difficulty ratings (1 and 4), but the page's follow-on claim \"Asas penjagaannya sama seperti ikan laga lain\" is not in the facts.",
+        "\"sirip yang besar dan berat lebih mudah rosak jika kualiti air tidak dijaga\" - this is a generalisation. The facts say dirty water harms fins and heavy tails tire the fish, but they don't say large fins are more prone to damage.",
+        "\"Ada juga artikel kedai yang menyatakan bahawa ikan laga halfmoon kini kebanyakannya dibiakkan di Thailand\" - the facts say it is \"mainly bred in Thailand\". The word \"kini\" (now) is added.",
+        "\"jantannya berhenti membina sarang buih\" - the facts say males stopped building nests. \"Buih\" (bubble) is an added detail.",
+        "\"Ikan laga halfmoon ialah bentuk ekor ... yang dibiakkan oleh penternak\" - this is generic and loosely supported. It is not a serious problem.",
+        "\"Ada penjaga yang membela ikan laga dalam tangki kecil tanpa pam udara, dan mereka mengelakkan hiasan yang tajam supaya sirip tidak koyak\" - the facts only say they avoid sharp decorations. The reason \"supaya sirip tidak koyak\" is inferred.",
+        "\"Halfmoon ialah ikan karnivor\" is supported, but \"jejari patah dan ekor boleh layu\" for \"tail can collapse\" is a loose rendering. It is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

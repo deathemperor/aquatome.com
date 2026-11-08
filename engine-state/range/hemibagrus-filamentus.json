@@ -1,0 +1,87 @@
+{
+  "id": "hemibagrus-filamentus",
+  "native": {
+    "input": "908e25f088b6b16b",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Cambodia' but this species has been recorded throughout the middle and lower Mekong river system in Laos, Cambodia and Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Cambodia' but this species has been recorded throughout the middle and lower Mekong river system in Laos, Cambodia and Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Cambodia' but this species has been recorded throughout the middle and lower Mekong river system in Laos, Cambodia and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Cambodia' but this species has been recorded throughout the middle and lower Mekong river system in Laos, Cambodia and Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus filamentus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338248,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "KH",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

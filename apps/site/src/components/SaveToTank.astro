@@ -11,7 +11,7 @@ const { shown = false } = Astro.props as { shown?: boolean }
       <select name="tank"><option value="">{t('Bể mới')}</option></select>
     </label>
     <label>{t('Tên bể')} <input name="name" maxlength="80" autocomplete="off" /></label>
-    <button type="submit">{t('Lưu')}</button>
+    <button type="submit" data-ev="tank">{t('Lưu')}</button>
   </form>
   <p class="msg" role="status"></p>
 </div>

@@ -79,9 +79,23 @@ export const LoopSchema = z.object({
   author: z.string().min(1),
   /** The original's page, for the credit. */
   source: z.string().url(),
+  /** The original's title, which the credit shows: CC BY 3.0, YouTube's Creative Commons licence, asks for it. */
+  title: z.string().min(1).optional(),
+  /** The record of what was taken, kept for the licence and not sent to the app: where in the original the loop was cut
+   * (seconds), the day the licence was read on the original's page, and a dated copy of that page (Internet Archive). */
+  cut: z.object({ from: z.number().nonnegative(), to: z.number().positive() }).refine(c => c.to > c.from, 'a cut ends after it starts').optional(),
+  checkedAt: Day.optional(),
+  snapshot: z.string().url().optional(),
   /** Set on a loop kept until better footage comes: what replaces it, and when. The media lead's to act on; the app
    * shows the loop as any other. */
   replace: z.string().min(1).optional(),
+}).superRefine((l, ctx) => {
+  // A loop cut from YouTube: only from a video its uploader released under YouTube's Creative Commons licence (CC BY
+  // 3.0), with the whole record, since a mark can be changed later (docs/curation.md, Video loops).
+  if (!/^https:\/\/www\.youtube\.com\/watch\?v=[\w-]{11}$/.test(l.source) && !/youtu\.?be/.test(l.source)) return
+  if (l.licence !== 'CC BY 3.0' || l.licenceUrl !== 'https://creativecommons.org/licenses/by/3.0/') ctx.addIssue({ code: 'custom', message: 'a YouTube loop is CC BY 3.0, the licence YouTube offers' })
+  if (!/^https:\/\/www\.youtube\.com\/watch\?v=[\w-]{11}$/.test(l.source)) ctx.addIssue({ code: 'custom', message: 'a YouTube loop names its video as https://www.youtube.com/watch?v=<id>' })
+  for (const k of ['title', 'cut', 'checkedAt', 'snapshot'] as const) if (l[k] === undefined) ctx.addIssue({ code: 'custom', message: `a YouTube loop records its ${k}` })
 })
 
 export const CurationSchema = z.object({
