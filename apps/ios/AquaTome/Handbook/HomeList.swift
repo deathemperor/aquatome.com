@@ -1,107 +1,396 @@
 import Handbook
 import SwiftUI
 
-/// The handbook before a search, as the site's home and lists arrange it: the tools first, fish ID leading them; what the
-/// reader saved and read last; fish by group, then the well-known ones; plants by where they go, then easy ones; the
-/// first guides, then guides by subject; the video series and every video guide; equipment; the glossary. Each way in
-/// leads to one shelf of pages (BrowseView), never to everything at once.
+/// The handbook before a search, about three screens of it (docs/design/tim.md): the tools first, fish ID leading them;
+/// what the reader read last and saved; then a shelf for each kind (fish, plants, guides, video series), each as one
+/// pattern (BrowseShelf); equipment as a grid; the glossary and what's new. Each way in leads to one shelf of pages
+/// (BrowseView), never to everything at once.
 struct HomeList: View {
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    let shelves = handbook.shelves
-    let saved = handbook.saved(nil), recent = handbook.recent(nil)
     // The kept copy in use, or none at all: said first. (Each shelf says how many pages it holds.)
     if handbook.status == .offline || handbook.status == .failed {
       Section { StatusText().font(.footnote) }
     }
     Tools()
-    if !saved.isEmpty {
-      Section("Đã lưu để đọc sau") {
-        ForEach(saved) { item in
-          Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
-        }
-      }
-      .accessibilityIdentifier("saved")
-    }
-    if !recent.isEmpty {
-      Section("Đọc gần đây") { ForEach(recent) { item in Row(item: item) } }
-    }
-    let kept = handbook.keptItems
-    if !kept.isEmpty {
-      Section { AllLink(browse: .kept, count: kept.count, title: "Đã tải để đọc offline", id: "all-kept") }
-    }
-
+    ReadOn()
     // Nothing yet (loading, or no copy and no network): the status alone, not shelves of nothing.
-    if handbook.count > 0 { Shelves(shelves: shelves) }
+    if handbook.count > 0 { Shelves(shelves: handbook.shelves) }
   }
 }
 
-/// The ways into each kind, as the site's home and lists arrange them.
+/// "Đọc tiếp", once something has been read: the last pages read as small cards in a row that scrolls sideways (three
+/// rows at the accessibility text sizes), then the pages saved to read later, how many, their list a tap away. A new
+/// phone has neither, and no section.
+private struct ReadOn: View {
+  @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let recent = handbook.recent(nil), saved = handbook.saved(nil)
+    if !recent.isEmpty || !saved.isEmpty {
+      Section("Đọc tiếp") {
+        if !recent.isEmpty {
+          if size.isAccessibilitySize {
+            ForEach(recent.prefix(3)) { Row(item: $0) }
+          } else {
+            Picks(items: recent, width: 130) { RecentCard(item: $0) }.accessibilityIdentifier("recent")
+          }
+        }
+        if !saved.isEmpty {
+          NavigationLink(value: Browse.saved) {
+            LabeledContent { Text(saved.count, format: .number).monospacedDigit() } label: {
+              Label { Text("Đã lưu để đọc sau") } icon: { Tile(symbol: "bookmark.fill", color: .orange) }
+            }
+          }
+          .accessibilityIdentifier("all-saved")
+        }
+      }
+    }
+  }
+}
+
+/// A shelf of each kind, as one pattern, then equipment and the closing card. A shelf with nothing in it isn't drawn
+/// (Indonesian and Thai have no videos).
 private struct Shelves: View {
   let shelves: HandbookShelves
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    Section {
-      if !shelves.groups.isEmpty {
-        Tiles(shelves.groups.map { ($0, Browse.fish($0.key)) })
-      }
-      AllLink(browse: .fish(nil), count: shelves.all(.fish).count, title: "Tất cả loài", id: "all-fish")
-    } header: {
-      Text("Loài cá")
+    let fish = shelves.all(.fish), plants = shelves.all(.plant), guides = shelves.all(.guide), series = shelves.all(.video)
+    if !fish.isEmpty {
+      BrowseShelf(title: "Cá", chips: shelves.groups.map { ($0, Browse.fish($0.key)) }, chipsTitle: "Nhóm cá", ways: .fish,
+                  caption: "Loài quen thuộc", picks: shelves.featuredFish, all: fish.count, allTitle: "Tất cả loài",
+                  allValue: Text(fish.count, format: .number), browse: .fish(nil), id: "all-fish") { Card(item: $0) }
     }
-    if !shelves.featuredFish.isEmpty {
-      Section("Loài quen thuộc") { Cards(items: shelves.featuredFish) }
-    }
-
-    Section("Cây thủy sinh") {
-      if !shelves.placements.isEmpty {
-        Tiles(shelves.placements.map { ($0, Browse.plants($0.key)) })
-      }
-      AllLink(browse: .plants(nil), count: shelves.all(.plant).count, title: "Tất cả", id: "all-plants")
-    }
-    if !shelves.easyPlants.isEmpty {
-      Section("Cây dễ trồng, không cần CO₂") { Cards(items: shelves.easyPlants) }
-    }
-
-    if !shelves.firstGuides.isEmpty {
-      Section("Bắt đầu từ đây") { ForEach(shelves.firstGuides) { Row(item: $0) } }
-    }
-    Section("Hướng dẫn") {
-      if !shelves.sections.isEmpty {
-        Tiles(shelves.sections.map { ($0, Browse.guides($0.key)) })
-      }
-      AllLink(browse: .guides(nil), count: shelves.all(.guide).count, title: "Tất cả hướng dẫn", id: "all-guides")
-    }
-    if !shelves.videoGuides.isEmpty {
-      Section("Video") {
-        ForEach(shelves.all(.video)) { Row(item: $0) }
-        AllLink(browse: .videos, count: shelves.videoGuides.count, title: "Tất cả", id: "all-videos")
+    if !plants.isEmpty {
+      BrowseShelf(title: "Cây thủy sinh", chips: shelves.placements.map { ($0, Browse.plants($0.key)) }, chipsTitle: "Vị trí trồng",
+                  ways: .plant, caption: "Dễ trồng, không cần CO₂", picks: shelves.easyPlants, all: plants.count,
+                  allTitle: "Tất cả cây", allValue: Text(plants.count, format: .number), browse: .plants(nil), id: "all-plants") {
+        Card(item: $0)
       }
     }
-
+    if !guides.isEmpty {
+      BrowseShelf(title: "Hướng dẫn", chips: shelves.sections.map { ($0, Browse.guides($0.key)) }, chipsTitle: "Chủ đề",
+                  ways: .guide, caption: "Bắt đầu từ đây", picks: shelves.firstGuides, width: 200, all: guides.count,
+                  allTitle: "Tất cả hướng dẫn", allValue: Text(guides.count, format: .number), browse: .guides(nil), id: "all-guides") {
+        GuideCard(item: $0)
+      }
+    }
+    if !series.isEmpty {
+      // Eight series as cards; the whole list counts series too, so its one number matches its label.
+      BrowseShelf(title: "Video hướng dẫn", chips: [], chipsTitle: nil, ways: .video, caption: nil, picks: Array(series.prefix(8)),
+                  width: 170, all: series.count, allTitle: "Tất cả video", allValue: Text("\(series.count) bộ"), browse: .videos,
+                  id: "all-videos") { SeriesCard(item: $0) }
+    }
     let kit = shelves.all(.equipment)
     if !kit.isEmpty {
-      Section("Thiết bị") { ForEach(kit) { Row(item: $0) } }
+      Section("Thiết bị") { KitGrid(items: kit) }
     }
+    Closing(glossary: shelves.all(.glossary).count)
+  }
+}
 
-    Section("Thuật ngữ") {
-      AllLink(browse: .glossary, count: shelves.all(.glossary).count, title: "Tất cả", id: "all-glossary")
-    }
-    // What's new on the site, as its menu and footer offer it, with the day of its newest: the list stops at the site's
-    // 200, so a count would say nothing.
-    if let newest = handbook.latest.first {
-      Section {
-        NavigationLink(value: Browse.latest) {
-          LabeledContent { Text(verbatim: newest.entry.shown).monospacedDigit() } label: { Text("Mới cập nhật") }
-        }
-        .accessibilityIdentifier("all-latest")
-      }
-    }
-    // How to reach AquaTome, signed in or not: the site's contact page, in the browser.
+/// One shelf, as every shelf on Tìm is (docs/design/tim.md): its chips that browse it, a named row of picks, and the whole
+/// shelf with its count, which isn't there when the picks are all of it. At the accessibility text sizes the chips are
+/// one row that lists them ("Nhóm cá · 14"), and the picks three rows.
+private struct BrowseShelf<Pick: View>: View {
+  let title: LocalizedStringKey
+  let chips: [(shelf: HandbookShelves.Shelf, browse: Browse)]
+  let chipsTitle: LocalizedStringKey?
+  let ways: HandbookIndex.Kind
+  let caption: LocalizedStringKey?
+  let picks: [HandbookIndex.Item]
+  var width: CGFloat = 150
+  let all: Int
+  let allTitle: LocalizedStringKey
+  let allValue: Text
+  let browse: Browse
+  let id: String
+  @ViewBuilder let pick: (HandbookIndex.Item) -> Pick
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let large = size.isAccessibilitySize
+    let shown = large ? Array(picks.prefix(3)) : picks
     Section {
-      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!).accessibilityIdentifier("contact")
+      if !chips.isEmpty, let chipsTitle {
+        if large {
+          NavigationLink(value: Browse.ways(ways)) {
+            LabeledContent { Text(chips.count, format: .number).monospacedDigit() } label: { Text(chipsTitle) }
+          }
+          .accessibilityIdentifier("ways")
+        } else {
+          Chips(chips)
+        }
+      }
+      if !shown.isEmpty {
+        if large {
+          if let caption { Text(caption).font(.subheadline.weight(.semibold)) }
+          ForEach(shown) { ShelfRow(item: $0) }
+        } else {
+          VStack(alignment: .leading, spacing: 8) {
+            if let caption { Text(caption).font(.subheadline.weight(.semibold)).accessibilityAddTraits(.isHeader) }
+            Picks(items: shown, width: width, pick: pick)
+          }
+          .listRowInsets(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 0))
+        }
+      }
+      if all > shown.count {
+        NavigationLink(value: browse) {
+          LabeledContent { allValue.monospacedDigit() } label: { Text(allTitle) }
+        }
+        .accessibilityIdentifier(id)
+      }
+    } header: {
+      Text(title)
+    }
+  }
+}
+
+/// A shelf's chips: each way into it (a group, where plants go, a subject), its word and how many pages it holds, with
+/// its photo when the site picked one, in a row that scrolls sideways.
+private struct Chips: View {
+  let chips: [(shelf: HandbookShelves.Shelf, browse: Browse)]
+  init(_ chips: [(shelf: HandbookShelves.Shelf, browse: Browse)]) { self.chips = chips }
+
+  var body: some View {
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack(spacing: 10) {
+        ForEach(chips, id: \.shelf.key) { t in
+          NavigationLink(value: t.browse) {
+            HStack(spacing: 8) {
+              if let img = t.shelf.img.flatMap(URL.init(string:)) {
+                AsyncImage(url: img) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.15) }
+                  .frame(width: 36, height: 36)
+                  .clipShape(Circle())
+              }
+              VStack(alignment: .leading, spacing: 0) {
+                Text(verbatim: t.shelf.label).font(.subheadline.weight(.semibold)).foregroundStyle(.primary)
+                Text(t.shelf.count, format: .number).font(.caption).foregroundStyle(.secondary).monospacedDigit()
+              }
+            }
+            .padding(.vertical, 6)
+            .padding(.leading, t.shelf.img == nil ? 12 : 6)
+            .padding(.trailing, 12)
+            .background(.quaternary.opacity(0.5), in: Capsule())
+          }
+          .buttonStyle(.plain)
+          .accessibilityElement(children: .combine)
+          .accessibilityIdentifier("shelf")
+        }
+      }
+      .padding(.vertical, 4)
+    }
+    .listRowInsets(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
+  }
+}
+
+/// Pages as cards in a row that scrolls sideways, each opening its page.
+private struct Picks<Pick: View>: View {
+  let items: [HandbookIndex.Item]
+  let width: CGFloat
+  @ViewBuilder let pick: (HandbookIndex.Item) -> Pick
+
+  var body: some View {
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack(alignment: .top, spacing: 12) {
+        ForEach(items) { item in
+          NavigationLink(value: item) { pick(item).frame(width: width, alignment: .leading) }.buttonStyle(.plain)
+        }
+      }
+      .padding(.trailing, 16)
+    }
+    .scrollClipDisabled()
+  }
+}
+
+/// A page of a shelf as a row, at the accessibility text sizes: its name with the row's width (ItemRow's, with no
+/// picture), its scientific name, or a series' count of videos as its card says (no channel: the series' page credits
+/// it); a kind of kit with its tile's symbol. No line saying what it is: the shelf's header says it.
+private struct ShelfRow: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    NavigationLink(value: item) {
+      HStack(spacing: 12) {
+        if item.kind == .equipment {
+          Image(systemName: KitGrid.symbol(item)).foregroundStyle(.tint).accessibilityHidden(true)
+        }
+        VStack(alignment: .leading, spacing: 2) {
+          Text(item.name).foregroundStyle(.primary)
+          if item.kind == .video {
+            if let n = item.parts { Text("\(n) video").font(.caption).foregroundStyle(.secondary) }
+          } else if let sub = item.sub {
+            Text(sub).font(.caption).italic().foregroundStyle(.secondary)
+          }
+        }
+      }
+      .accessibilityElement(children: .combine)
+      .accessibilityIdentifier("item")
+    }
+  }
+}
+
+/// A page as a card: its photo, its name and its scientific name.
+struct Card: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 4) {
+      Photo(item: item)
+      Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2)
+      if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary).lineLimit(1) }
+    }
+    .accessibilityElement(children: .combine)
+    .accessibilityIdentifier("item")
+  }
+}
+
+/// A page read lately: its photo, its name on two lines, and what it is.
+private struct RecentCard: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 4) {
+      Photo(item: item)
+      Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2, reservesSpace: true)
+      Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary)
+    }
+    .accessibilityElement(children: .combine)
+    .accessibilityIdentifier("item")
+  }
+}
+
+/// A guide to start from: its photo and its title on up to three lines.
+private struct GuideCard: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 6) {
+      Photo(item: item)
+      Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(3)
+    }
+    .accessibilityElement(children: .combine)
+    .accessibilityIdentifier("item")
+  }
+}
+
+/// A video series as a tinted card: a play symbol, its title on up to three lines, and how many videos it has. No
+/// thumbnail: YouTube's show faces, hands and channels' logos, which the site's photo rules keep off its pages
+/// (docs/governance.md, Photos). No channel: the series' page credits it.
+private struct SeriesCard: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Image(systemName: "play.rectangle.fill").font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
+      Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(3, reservesSpace: true)
+        .multilineTextAlignment(.leading)
+      if let n = item.parts { Text("\(n) video").font(.caption).foregroundStyle(.secondary) }
+    }
+    .padding(12)
+    .frame(maxWidth: .infinity, alignment: .topLeading)
+    .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    .accessibilityElement(children: .combine)
+    .accessibilityIdentifier("series")
+  }
+}
+
+/// A card's photo, 4:3; the kind's symbol where there's none.
+private struct Photo: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    Color.secondary.opacity(0.12)
+      .aspectRatio(4 / 3, contentMode: .fit)
+      .overlay {
+        AsyncImage(url: item.img.flatMap(URL.init(string:))) { $0.resizable().scaledToFill() } placeholder: {
+          Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary)
+        }
+      }
+      .clipShape(RoundedRectangle(cornerRadius: 10))
+  }
+}
+
+/// The kinds of kit, three to a row as small tiles, each its symbol and name (the index's photos of them don't show the
+/// kit); a list at the accessibility text sizes.
+private struct KitGrid: View {
+  let items: [HandbookIndex.Item]
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    if size.isAccessibilitySize {
+      ForEach(items) { ShelfRow(item: $0) }
+    } else {
+      LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8, alignment: .top), count: 3), spacing: 8) {
+        ForEach(items) { item in
+          NavigationLink(value: item) {
+            VStack(alignment: .leading, spacing: 6) {
+              Image(systemName: Self.symbol(item)).font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
+              Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2)
+                .multilineTextAlignment(.leading)
+            }
+            .frame(maxWidth: .infinity, minHeight: 64, alignment: .topLeading)
+            .padding(12)
+            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .contentShape(.rect)
+          }
+          .buttonStyle(.plain)
+          .accessibilityIdentifier("kit")
+        }
+      }
+      .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+      .listRowBackground(Color.clear)
+      .listRowSeparator(.hidden)
+      // A grid of one kind is a row with one link, which List gives its own chevron, outside the tile.
+      .navigationLinkIndicatorVisibility(.hidden)
+    }
+  }
+
+  /// A kind of kit's symbol, by its category (the last part of its path, the same in every language); a gear for one
+  /// the app doesn't know yet.
+  static func symbol(_ item: HandbookIndex.Item) -> String {
+    switch item.path.split(separator: "/").last.map(String.init) ?? "" {
+    case "be-ca": "cube"
+    case "cay-thuy-sinh": "leaf"
+    case "co2": "bubbles.and.sparkles"
+    case "den": "lightbulb"
+    case "loc": "arrow.triangle.2.circlepath"
+    case "phan-nen": "mountain.2"
+    case "suoi": "thermometer.medium"
+    case "test-nuoc": "testtube.2"
+    case "thuc-an": "fork.knife"
+    default: "gearshape"
+    }
+  }
+}
+
+/// The page's end: the glossary, with how many terms, and what's new on the site, as its menu and footer offer them.
+/// How to reach AquaTome is in the account sheet's "Về AquaTome".
+private struct Closing: View {
+  let glossary: Int
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    if glossary > 0 || !handbook.latest.isEmpty {
+      Section {
+        if glossary > 0 {
+          NavigationLink(value: Browse.glossary) {
+            LabeledContent { Text(glossary, format: .number).monospacedDigit() } label: {
+              Label { Text("Từ điển thuật ngữ") } icon: { Tile(symbol: "character.book.closed.fill", color: .blue) }
+            }
+          }
+          .accessibilityIdentifier("all-glossary")
+        }
+        if !handbook.latest.isEmpty {
+          NavigationLink(value: Browse.latest) {
+            Label { Text("Mới cập nhật") } icon: { Tile(symbol: "sparkles", color: Tile.green) }
+          }
+          .accessibilityIdentifier("all-latest")
+        }
+      }
     }
   }
 }
@@ -223,97 +512,5 @@ private struct ToolTile: View {
       let slug = item.path.split(separator: "/").last.map(String.init) ?? ""
       return ["du-toan-be", "anggaran-akuarium", "tank-budget"].contains(slug) ? "banknote" : "wrench.and.screwdriver"
     }
-  }
-}
-
-/// A shelf's way in: its word and how many pages it holds, with its photo when the site picked one, in a row that
-/// scrolls sideways.
-private struct Tiles: View {
-  let tiles: [(shelf: HandbookShelves.Shelf, browse: Browse)]
-  init(_ tiles: [(HandbookShelves.Shelf, Browse)]) { self.tiles = tiles.map { (shelf: $0.0, browse: $0.1) } }
-
-  var body: some View {
-    ScrollView(.horizontal, showsIndicators: false) {
-      HStack(spacing: 10) {
-        ForEach(tiles, id: \.shelf.key) { t in
-          NavigationLink(value: t.browse) {
-            HStack(spacing: 8) {
-              if let img = t.shelf.img.flatMap(URL.init(string:)) {
-                AsyncImage(url: img) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.15) }
-                  .frame(width: 36, height: 36)
-                  .clipShape(Circle())
-              }
-              VStack(alignment: .leading, spacing: 0) {
-                Text(verbatim: t.shelf.label).font(.subheadline.weight(.semibold)).foregroundStyle(.primary)
-                Text(verbatim: "\(t.shelf.count)").font(.caption).foregroundStyle(.secondary).monospacedDigit()
-              }
-            }
-            .padding(.vertical, 6)
-            .padding(.leading, t.shelf.img == nil ? 12 : 6)
-            .padding(.trailing, 12)
-            .background(.quaternary.opacity(0.5), in: Capsule())
-          }
-          .buttonStyle(.plain)
-          .accessibilityElement(children: .combine)
-          .accessibilityIdentifier("shelf")
-        }
-      }
-      .padding(.vertical, 4)
-    }
-    .listRowInsets(EdgeInsets(top: 6, leading: 12, bottom: 6, trailing: 12))
-  }
-}
-
-/// Pages the site leads with, as photo cards in a row that scrolls sideways.
-private struct Cards: View {
-  let items: [HandbookIndex.Item]
-
-  var body: some View {
-    ScrollView(.horizontal, showsIndicators: false) {
-      HStack(alignment: .top, spacing: 12) {
-        ForEach(items) { item in
-          NavigationLink(value: item) { Card(item: item).frame(width: 150) }.buttonStyle(.plain)
-        }
-      }
-      .padding(.vertical, 4)
-    }
-    .listRowInsets(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-  }
-}
-
-/// A page as a card: its photo, its name and its scientific name.
-struct Card: View {
-  let item: HandbookIndex.Item
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 4) {
-      Color.secondary.opacity(0.12)
-        .aspectRatio(4 / 3, contentMode: .fit)
-        .overlay {
-          AsyncImage(url: item.img.flatMap(URL.init(string:))) { $0.resizable().scaledToFill() } placeholder: {
-            Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary)
-          }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-      Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2)
-      if let sub = item.sub { Text(sub).font(.caption).italic().foregroundStyle(.secondary).lineLimit(1) }
-    }
-    .accessibilityElement(children: .combine)
-    .accessibilityIdentifier("item")
-  }
-}
-
-/// The whole shelf of a kind, with how many pages it holds.
-private struct AllLink: View {
-  let browse: Browse
-  let count: Int
-  let title: LocalizedStringKey
-  let id: String
-
-  var body: some View {
-    NavigationLink(value: browse) {
-      LabeledContent { Text(verbatim: "\(count)").monospacedDigit() } label: { Text(title) }
-    }
-    .accessibilityIdentifier(id)
   }
 }
