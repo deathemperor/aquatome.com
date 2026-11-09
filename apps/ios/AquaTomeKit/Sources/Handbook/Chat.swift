@@ -210,12 +210,14 @@ public enum Chat {
   /// The model's own limit on a turn: the contract's 60 s for the client (a turn ends on the Worker within 30).
   public static let turnSeconds: Double = 60
 
-  /// GET /api/chat.
-  public static func status(site: URL, version: String, ownCopy: String?) -> URLRequest {
+  /// GET /api/chat, as the account when signed in (`token`): chat may be on for some accounts alone (the owner's, at
+  /// first), and off to everyone else.
+  public static func status(site: URL, version: String, ownCopy: String?, token: String? = nil) -> URLRequest {
     var r = URLRequest(url: site.appending(path: "api/chat"))
     r.httpShouldHandleCookies = false
     // The app as `Readers` and fish ID name it, with our own copies' mark after it.
     r.setValue(["AquaTome-iOS/\(version)", ownCopy].compactMap { $0 }.joined(separator: " "), forHTTPHeaderField: "User-Agent")
+    if let token { r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization") }
     return r
   }
 
