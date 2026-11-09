@@ -196,15 +196,7 @@ struct NativePage: View {
         } else if hero, let gallery {
           // The page's own photo, carrying how many it has: the whole of it opens them all.
           Button { gridAt = .photos } label: {
-            image.overlay(alignment: .bottomTrailing) {
-              Text("\(gallery.photos.count) ảnh")
-                .font(.footnote.weight(.semibold))
-                .foregroundStyle(.white)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .background(.black.opacity(0.55), in: .capsule)
-                .padding(10)
-            }
+            image.overlay(alignment: .bottomTrailing) { PhotosBadge(count: gallery.photos.count).padding(12) }
           }
           .buttonStyle(.plain)
           .accessibilityLabel(Text(verbatim: (alt ?? gallery.title) + ", ") + Text("Xem tất cả \(gallery.photos.count) ảnh"))
@@ -808,6 +800,32 @@ private struct PagesBlock: View {
       }
       .padding(.top, 40)
     }
+  }
+}
+
+/// How many photos a page has, over its own photo, as the mock draws it: a photo's icon then "N ảnh", white on a dark
+/// rounded blur, the same over a light photo or a dark one. v2's banner shows this one too.
+struct PhotosBadge: View {
+  let count: Int
+  @Environment(\.dynamicTypeSize) private var type
+  @ScaledMetric(relativeTo: .subheadline) private var scale: CGFloat = 1
+
+  var body: some View {
+    // The mock's two sizes: 14 on 32 with 12 at the sides, and 28 on 52 with 18 at the accessibility sizes, past which
+    // it would cover the photo. The sizes between grow with the text.
+    let ax = type.isAccessibilitySize
+    HStack(spacing: 6) {
+      Image(systemName: "photo.on.rectangle").font(.system(size: ax ? 23 : 12.25 * scale, weight: .medium))
+      Text("\(count) ảnh")
+    }
+    .font(.system(size: ax ? 28 : 14 * scale, weight: .semibold))
+    .lineLimit(1)
+    .foregroundStyle(.white)
+    .padding(.horizontal, ax ? 18 : 12 * scale)
+    .frame(height: ax ? 52 : 32 * scale)
+    .background(.black.opacity(0.46), in: .capsule)
+    .background(.ultraThinMaterial, in: .capsule)
+    .environment(\.colorScheme, .dark)
   }
 }
 
