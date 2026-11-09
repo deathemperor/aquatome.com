@@ -7,13 +7,15 @@ const REACH: readonly RegExp[] = [
   // An email first: its domain is one too.
   /[^\s@,;]+@[^\s@,;]+\.\p{L}{2,}/gu,
   /https?:\/\/[^\s,;)]+|www\.[^\s,;)]+|[\p{L}\p{N}-]+\.(?:com|net|org|vn|id|th|my|io|co|xyz|top|shop|info|biz|me|ly|gg)(?![\p{L}\p{N}])[^\s,;)]*/giu,
-  // Any other domain, as links are typed: lower case after the dot ("linktr.ee", "abc.vip"; not "TP.HCM", "v.v.").
-  /[\p{L}\p{N}-]+\.\p{Ll}{2,}(?![\p{L}\p{N}])[^\s,;)]*/gu,
+  // Any other domain, as links are typed: plain lower-case letters after the dot ("linktr.ee", "abc.vip"; not "TP.HCM",
+  // "v.v.", nor two sentences run together, "cá khỏe.nước trong").
+  /[\p{L}\p{N}-]+\.[a-z]{2,}(?![\p{L}\p{N}])[^\s,;)]*/gu,
   /@[\p{L}\p{N}_]{2,}/gu,
   /(?<![\p{L}\p{N}])(?:zalo|telegram|whatsapp|wa\.me|line|facebook|fb|tiktok|shopee|lazada|tokopedia)\s*[:：]\s*[^\s,;]*/giu,
-  // A phone number: nine digits or more (a date has eight), in any script's digits (Thai's ๐–๙ too), with spaces, dots,
-  // dashes or slashes between them.
-  /(?:\+?\p{Nd}[\s.\-()/]*){8,}\p{Nd}/gu,
+  // A phone number: nine digits or more (a date has eight), starting as one does, with 0, + or the country code of Vietnam,
+  // Indonesia, Thailand or Malaysia (a light's schedule and levels, "13-21 80 80 80 80", don't), in any script's digits
+  // (Thai's ๐–๙ too), with spaces, dots, dashes or slashes between them.
+  /(?<![\p{Nd}\p{L}])(?:(?:\+\s*\p{Nd}|[0๐])(?:[\s.\-()/]*\p{Nd}){8,}|(?:84|62|66|60)(?:[\s.\-()/]*\p{Nd}){7,})/gu,
 ]
 /**
  * A street address: a number on a street or lane (Vietnamese), Jalan or Jl. and a name (Indonesian, Malay), a road or

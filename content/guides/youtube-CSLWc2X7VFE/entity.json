@@ -130,7 +130,9 @@
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at100-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể kính không viền với đá và nền đất, đèn gác phía trên."
+            "caption": "Bể kính không viền với đá và nền đất, đèn gác phía trên.",
+            "sharpness": 4391,
+            "person": false
           }
         ]
       },
@@ -142,14 +144,18 @@
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ lớp phân nền mỏng đầu tiên phủ kín đáy kính."
+            "caption": "Đổ lớp phân nền mỏng đầu tiên phủ kín đáy kính.",
+            "sharpness": 3514.9,
+            "person": false
           },
           {
             "t": 310,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ tiếp phân nền, nền dần nhô cao về phía sau."
+            "caption": "Đổ tiếp phân nền, nền dần nhô cao về phía sau.",
+            "sharpness": 4258.1,
+            "person": false
           }
         ]
       },
@@ -161,35 +167,24 @@
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lũa spider được đặt thử trong bể trống, chưa xếp đá."
+            "caption": "Lũa spider được đặt thử trong bể trống, chưa xếp đá.",
+            "sharpness": 1561,
+            "person": false
           },
           {
             "t": 620,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at620-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đá xám đậm xếp quanh gốc lũa spider, nhìn từ trên xuống."
+            "caption": "Đá xám đậm xếp quanh gốc lũa spider, nhìn từ trên xuống.",
+            "sharpness": 1740.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Quấn rêu lên lũa",
-        "moments": [
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Buộc rêu java vào lũa bằng chỉ, bên cạnh là đá và rêu."
-          },
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu java đã được quấn chặt lên nhánh lũa, đang tỉa sợi thừa."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/CSLWc2X7VFE/p3-phdmFtb29zLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/CSLWc2X7VFE/p3-phdmFtb29zLmpwZw-480.webp",
@@ -203,22 +198,7 @@
       },
       {
         "heading": "Giữ lũa không nổi",
-        "moments": [
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa spider đặt trên đá trong hồ, chuẩn bị cố định bằng keo."
-          },
-          {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa spider đặt tựa lên đá, chỗ tiếp xúc cần gắn keo."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/CSLWc2X7VFE/p4-Blcl9HbHVlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/CSLWc2X7VFE/p4-Blcl9HbHVlLmpwZw-480.webp",
@@ -234,18 +214,13 @@
         "heading": "Trồng cây theo từng tầng",
         "moments": [
           {
-            "t": 810,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các chậu cây xếp trên nền để hình dung vị trí trồng."
-          },
-          {
             "t": 840,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at840-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Glossostigma trồng thành thảm xanh ở tiền cảnh, phía trước đá."
+            "caption": "Glossostigma trồng thành thảm xanh ở tiền cảnh, phía trước đá.",
+            "sharpness": 6307.6,
+            "person": false
           }
         ],
         "photo": {
@@ -267,14 +242,18 @@
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1120-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nước chảy qua tờ giấy ăn trải trên nền để không xới đất."
+            "caption": "Nước chảy qua tờ giấy ăn trải trên nền để không xới đất.",
+            "sharpness": 4003.6,
+            "person": false
           },
           {
             "t": 1130,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1130-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Giấy ăn hứng nước đang đổ vào bể, nền và cây vẫn yên."
+            "caption": "Giấy ăn hứng nước đang đổ vào bể, nền và cây vẫn yên.",
+            "sharpness": 4261.5,
+            "person": false
           }
         ]
       },
@@ -282,18 +261,13 @@
         "heading": "Cài hệ thống CO2",
         "moments": [
           {
-            "t": 1180,
-            "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nước vào bộ đếm giọt của bộ điều áp CO2."
-          },
-          {
             "t": 1210,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1210-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ điều áp CO2 gắn trên bình, có bộ đếm giọt và dây xanh."
+            "caption": "Bộ điều áp CO2 gắn trên bình, có bộ đếm giọt và dây xanh.",
+            "sharpness": 2233.2,
+            "person": false
           }
         ]
       },
@@ -305,14 +279,18 @@
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1410-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới với lũa, đá và thảm cỏ phủ nền."
+            "caption": "Bể thủy sinh mới với lũa, đá và thảm cỏ phủ nền.",
+            "sharpness": 2499.3,
+            "person": false
           },
           {
             "t": 1470,
             "url": "https://media.aquatome.com/video/CSLWc2X7VFE/at1470-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các cây thân mọc dày trong bể mới."
+            "caption": "Cận cảnh các cây thân mọc dày trong bể mới.",
+            "sharpness": 2070.2,
+            "person": false
           }
         ],
         "photo": {

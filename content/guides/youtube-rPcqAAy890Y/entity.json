@@ -54,14 +54,18 @@
             "url": "https://media.aquatome.com/video/rPcqAAy890Y/at10-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ lọc rêu sáng đèn LED tím trong hệ thống bể."
+            "caption": "Bộ lọc rêu sáng đèn LED tím trong hệ thống bể.",
+            "sharpness": 111.8,
+            "person": false
           },
           {
             "t": 45,
             "url": "https://media.aquatome.com/video/rPcqAAy890Y/at45-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khung lưới của bộ lọc rêu đặt trên bàn, nhìn chính diện."
+            "caption": "Khung lưới của bộ lọc rêu đặt trên bàn, nhìn chính diện.",
+            "sharpness": 1397.4,
+            "person": false
           }
         ]
       },
@@ -73,7 +77,9 @@
             "url": "https://media.aquatome.com/video/rPcqAAy890Y/at535-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hộp lọc rêu đặt cạnh bể, đèn tím chiếu vào tấm lưới."
+            "caption": "Hộp lọc rêu đặt cạnh bể, đèn tím chiếu vào tấm lưới.",
+            "sharpness": 135.2,
+            "person": false
           },
           {
             "t": 545,
@@ -93,34 +99,12 @@
             "width": 159,
             "height": 90,
             "caption": "Hộp nhựa xanh đậm rẻ tiền dùng làm thân bộ lọc rêu."
-          },
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống khí cứng Hagen Elite Air Bubbler còn nguyên vỉ bên cạnh hộp nhựa."
           }
         ]
       },
       {
         "heading": "Làm phần thân và ống khí",
-        "moments": [
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống khí cứng và phụ kiện đặt cạnh hai hộp đã cắt."
-          },
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp nhựa xanh đã cắt đáy, bên cạnh là ống khí cứng."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/rPcqAAy890Y/p3-9hX3N0YWNrLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/rPcqAAy890Y/p3-9hX3N0YWNrLmpwZw-480.webp",
@@ -141,32 +125,6 @@
             "width": 159,
             "height": 90,
             "caption": "Tấm lưới nằm gọn trong lòng hộp, nhỏ hơn hộp một chút."
-          },
-          {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt tấm lưới đan lên lòng hộp để so kích thước cắt."
-          }
-        ]
-      },
-      {
-        "heading": "Làm phần đèn",
-        "moments": [
-          {
-            "t": 315,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at315-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp đã dán băng keo nhôm phản quang kín lòng hộp."
-          },
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bóng LED xếp thành vòng, sẵn sàng gắn vào hộp đèn."
           }
         ]
       },
@@ -178,7 +136,9 @@
             "url": "https://media.aquatome.com/video/rPcqAAy890Y/at525-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hộp đèn tím gắn ở mặt ngoài kính bể."
+            "caption": "Hộp đèn tím gắn ở mặt ngoài kính bể.",
+            "sharpness": 492.5,
+            "person": false
           },
           {
             "t": 540,

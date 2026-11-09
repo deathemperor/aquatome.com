@@ -83,46 +83,65 @@ export function tankFacts(t: PostTank): string {
   ].filter(Boolean).join('\n')
 }
 
+/**
+ * A card's labels in the reader's language, so a judge of a Thai answer doesn't read Vietnamese around it. Keyed by the app's
+ * own strings, and in id, th and ms its words (apps/ios/AquaTome/Localizable.xcstrings; a test holds them to it).
+ * Vietnamese keeps the words earlier evals were judged on.
+ */
+export const CARD_LABELS = {
+  vi: { 'Nhiệt độ': 'nhiệt độ', 'Độ cứng (dGH)': 'GH', 'Kích thước': 'dài', 'Bể tối thiểu': 'bể từ', 'Đàn tối thiểu': 'đàn từ', '%lld con': '%lld con', 'Tính cách': 'tính', 'Độ khó': 'độ khó', 'Ánh sáng': 'ánh sáng', 'Tốc độ mọc': 'tốc độ', 'Vị trí': 'vị trí' },
+  id: { 'Nhiệt độ': 'Suhu', 'Độ cứng (dGH)': 'Kesadahan (dGH)', 'Kích thước': 'Ukuran', 'Bể tối thiểu': 'Akuarium minimum', 'Đàn tối thiểu': 'Kelompok minimal', '%lld con': '%lld ekor', 'Tính cách': 'Perilaku', 'Độ khó': 'Tingkat kesulitan', 'Ánh sáng': 'Cahaya', 'Tốc độ mọc': 'Kecepatan tumbuh', 'Vị trí': 'Posisi' },
+  th: { 'Nhiệt độ': 'อุณหภูมิ', 'Độ cứng (dGH)': 'ความกระด้าง (dGH)', 'Kích thước': 'ขนาด', 'Bể tối thiểu': 'ตู้ขั้นต่ำ', 'Đàn tối thiểu': 'จำนวนฝูงขั้นต่ำ', '%lld con': '%lld ตัว', 'Tính cách': 'นิสัย', 'Độ khó': 'ความยาก', 'Ánh sáng': 'แสง', 'Tốc độ mọc': 'อัตราการเติบโต', 'Vị trí': 'ตำแหน่งปลูก' },
+  ms: { 'Nhiệt độ': 'Suhu', 'Độ cứng (dGH)': 'Kekerasan air (dGH)', 'Kích thước': 'Saiz', 'Bể tối thiểu': 'Tangki minimum', 'Đàn tối thiểu': 'Kumpulan minimum', '%lld con': '%lld ekor', 'Tính cách': 'Perangai', 'Độ khó': 'Tahap kesukaran', 'Ánh sáng': 'Pencahayaan', 'Tốc độ mọc': 'Kadar pertumbuhan', 'Vị trí': 'Kedudukan' },
+} as const
+
+/** The eval's own tags around a block, which the reader doesn't see: English for a judge of any other language. */
+const TAGS_VI = { card: 'Thẻ loài', compare: 'So sánh', from: 'Trích', more: 'chạm để đọc tiếp', tool: 'Công cụ', forTank: 'cho', filled: 'đã điền sẵn', empty: 'trống', stocking: 'Mức đầy bể', next: 'Gợi ý hỏi tiếp' }
+const TAGS_OTHER: typeof TAGS_VI = { card: 'Species card', compare: 'Comparison', from: 'From', more: 'tap to read on', tool: 'Tool', forTank: 'for', filled: 'filled in', empty: 'empty', stocking: 'Stocking', next: 'Suggested next questions' }
+const tagsIn = (lang: ReaderLang) => (lang === 'vi' ? TAGS_VI : TAGS_OTHER)
+
 const range = (r?: { min: number; max: number }) => (r ? (r.min === r.max ? `${r.min}` : `${r.min}–${r.max}`) : undefined)
-function card(c: Extract<ChatBlock, { t: 'species' }> | Extract<ChatBlock, { t: 'compare' }>['items'][number]): string {
+function card(c: Extract<ChatBlock, { t: 'species' }> | Extract<ChatBlock, { t: 'compare' }>['items'][number], lang: ReaderLang): string {
+  const w = CARD_LABELS[lang]
   const name = `${c.page.name}${c.page.sci ? ` (${c.page.sci})` : ''}`
   if ('plant' in c) {
     const p = c.plant
-    return `${name}: ${[p.difficulty ? `độ khó ${p.difficulty}/3` : null, p.light ? `ánh sáng ${p.light}` : null, p.co2 ? `CO₂ ${p.co2}` : null, p.growth ? `tốc độ ${p.growth}` : null, p.placement?.length ? `vị trí ${p.placement.join(', ')}` : null].filter(Boolean).join('; ')}`
+    return `${name}: ${[p.difficulty ? `${w['Độ khó']} ${p.difficulty}/3` : null, p.light ? `${w['Ánh sáng']} ${p.light}` : null, p.co2 ? `CO₂ ${p.co2}` : null, p.growth ? `${w['Tốc độ mọc']} ${p.growth}` : null, p.placement?.length ? `${w['Vị trí']} ${p.placement.join(', ')}` : null].filter(Boolean).join('; ')}`
   }
   const f = c.facts
-  return `${name}: ${[range(f.tempC) ? `nhiệt độ ${range(f.tempC)} °C` : null, range(f.ph) ? `pH ${range(f.ph)}` : null, range(f.gh) ? `GH ${range(f.gh)}` : null, f.sizeCm ? `dài ${f.sizeCm} cm` : null, f.tankCm ? `bể từ ${f.tankCm} cm` : null, f.schoolMin ? `đàn từ ${f.schoolMin} con` : null, f.temperament ? `tính ${f.temperament}` : null, f.difficulty ? `độ khó ${f.difficulty}/8` : null].filter(Boolean).join('; ')}`
+  return `${name}: ${[range(f.tempC) ? `${w['Nhiệt độ']} ${range(f.tempC)} °C` : null, range(f.ph) ? `pH ${range(f.ph)}` : null, range(f.gh) ? `${w['Độ cứng (dGH)']} ${range(f.gh)}` : null, f.sizeCm ? `${w['Kích thước']} ${f.sizeCm} cm` : null, f.tankCm ? `${w['Bể tối thiểu']} ${f.tankCm} cm` : null, f.schoolMin ? `${w['Đàn tối thiểu']} ${w['%lld con'].replace('%lld', String(f.schoolMin))}` : null, f.temperament ? `${w['Tính cách']} ${f.temperament}` : null, f.difficulty ? `${w['Độ khó']} ${f.difficulty}/8` : null].filter(Boolean).join('; ')}`
 }
 
 /** How much of a section the app shows before the reader taps (apps/ios chat screen: five lines, the fifth fading). */
 export const FOLDED = 220
 
 /** What a block shows the reader, as text: a card's figures, a section's words, a tool's check or what it's filled with. */
-export function blockText(b: ChatBlock): string {
+export function blockText(b: ChatBlock, lang: ReaderLang = 'vi'): string {
+  const tag = tagsIn(lang)
   switch (b.t) {
-    case 'species': return `[Thẻ loài] ${card(b)}`
-    case 'compare': return `[So sánh]\n${b.items.map(c => `- ${card(c)}`).join('\n')}`
+    case 'species': return `[${tag.card}] ${card(b, lang)}`
+    case 'compare': return `[${tag.compare}]\n${b.items.map(c => `- ${card(c, lang)}`).join('\n')}`
     case 'section': {
       // Folded, as the app draws it: about five lines of a phone's width, the rest a tap away.
       const all = textOf(b.blocks)
-      const shown = all.length <= FOLDED ? all : `${all.slice(0, all.lastIndexOf(' ', FOLDED) > 0 ? all.lastIndexOf(' ', FOLDED) : FOLDED)}… [chạm để đọc tiếp]`
-      return `[Trích: ${b.page.title}${b.heading ? ` › ${b.heading.text}` : ''}]\n${shown}`
+      const shown = all.length <= FOLDED ? all : `${all.slice(0, all.lastIndexOf(' ', FOLDED) > 0 ? all.lastIndexOf(' ', FOLDED) : FOLDED)}… [${tag.more}]`
+      return `[${tag.from}: ${b.page.title}${b.heading ? ` › ${b.heading.text}` : ''}]\n${shown}`
     }
     case 'tool': {
       const c = b.check
       const lines = c
-        ? [c.verdict?.text, ...c.warnings, c.stocking ? `Mức đầy bể: ${c.stocking.percent}% — ${c.stocking.text}${c.stocking.notes.length ? ` (${c.stocking.notes.join('; ')})` : ''}` : undefined, c.minTank, c.unsized, c.unchecked]
+        ? [c.verdict?.text, ...c.warnings, c.stocking ? `${tag.stocking}: ${c.stocking.percent}% — ${c.stocking.text}${c.stocking.notes.length ? ` (${c.stocking.notes.join('; ')})` : ''}` : undefined, c.minTank, c.unsized, c.unchecked]
         : []
-      const tank = b.tank ? ` cho ${b.tank.name}${b.tank.dims ? ` ${b.tank.dims.l}×${b.tank.dims.w}×${b.tank.dims.h} cm` : ''}` : ''
-      const filled = b.url && !c ? ` (đã điền sẵn: ${[...new URLSearchParams(b.url.split('?')[1] ?? '')].map(([k, v]) => `${k}=${v}`).join(', ') || 'trống'})` : ''
-      return [`[Công cụ: ${b.name}${tank}${filled}]`, ...lines.filter((l): l is string => Boolean(l))].join('\n')
+      const tank = b.tank ? ` ${tag.forTank} ${b.tank.name}${b.tank.dims ? ` ${b.tank.dims.l}×${b.tank.dims.w}×${b.tank.dims.h} cm` : ''}` : ''
+      const filled = b.url && !c ? ` (${tag.filled}: ${[...new URLSearchParams(b.url.split('?')[1] ?? '')].map(([k, v]) => `${k}=${v}`).join(', ') || tag.empty})` : ''
+      return [`[${tag.tool}: ${b.name}${tank}${filled}]`, ...lines.filter((l): l is string => Boolean(l))].join('\n')
     }
   }
 }
 
 /** Our turn as the reader sees it: the text, each block under it, then the suggested next questions. */
-export function seenOurs(text: string, blocks: ChatBlock[], suggestions: string[]): string {
-  return [text, ...blocks.map(blockText), ...(suggestions.length ? [`[Gợi ý hỏi tiếp] ${suggestions.join(' · ')}`] : [])].join('\n\n')
+export function seenOurs(text: string, blocks: ChatBlock[], suggestions: string[], lang: ReaderLang = 'vi'): string {
+  return [text, ...blocks.map(b => blockText(b, lang)), ...(suggestions.length ? [`[${tagsIn(lang).next}] ${suggestions.join(' · ')}`] : [])].join('\n\n')
 }
 
 /** The site's name and links out of both answers: the judge isn't told which answer is ours, and these would tell it. */

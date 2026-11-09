@@ -161,7 +161,9 @@
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at50-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây xanh um trước khi tháo dỡ để rescape."
+            "caption": "Bể thủy sinh cây xanh um trước khi tháo dỡ để rescape.",
+            "sharpness": 3086.3,
+            "person": false
           }
         ]
       },
@@ -173,27 +175,15 @@
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nước trong hồ đục ngầu sau khi nhổ hết cây."
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rút bớt nước ra can cho mực nước hồ xuống thấp."
+            "caption": "Nước trong hồ đục ngầu sau khi nhổ hết cây.",
+            "sharpness": 1363.6,
+            "person": false
           }
         ]
       },
       {
         "heading": "Dọn kính và làm sạch nền",
         "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã bỏ thảm cây, lớp nền đầy cặn bẩn và ống hút."
-          },
           {
             "t": 300,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at300.webp",
@@ -214,25 +204,6 @@
         }
       },
       {
-        "heading": "Tận dụng lũa cũ để dựng bố cục mới",
-        "moments": [
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm khúc lũa phủ đầy rêu và dương xỉ Java để dọn dẹp."
-          },
-          {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt khúc lũa phủ dương xỉ Java vào hồ để dựng bố cục mới."
-          }
-        ]
-      },
-      {
         "heading": "Đá, sỏi và cách kê lũa cao lên",
         "moments": [
           {
@@ -240,14 +211,18 @@
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at500-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai khúc lũa kê cao trên đá nham thạch, phía trước còn trống."
+            "caption": "Hai khúc lũa kê cao trên đá nham thạch, phía trước còn trống.",
+            "sharpness": 2778.2,
+            "person": false
           },
           {
             "t": 510,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at510-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đá và sỏi xếp thành đường chắn ở tiền cảnh, không trồng thảm."
+            "caption": "Đá và sỏi xếp thành đường chắn ở tiền cảnh, không trồng thảm.",
+            "sharpness": 2875.8,
+            "person": false
           }
         ]
       },
@@ -255,18 +230,13 @@
         "heading": "Trồng cây: dùng lại cây cũ và bổ sung cây dư",
         "moments": [
           {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây lấy từ bể cũ: Cyperus helferi, Rotala và các loại Crypt."
-          },
-          {
             "t": 600,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at600-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây đã trồng lại: Cyperus lá dài ló ra sau khối dương xỉ."
+            "caption": "Cây đã trồng lại: Cyperus lá dài ló ra sau khối dương xỉ.",
+            "sharpness": 1099,
+            "person": false
           }
         ],
         "photo": {
@@ -284,18 +254,13 @@
         "heading": "Thả honey gourami làm cá điểm nhấn",
         "moments": [
           {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at870-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi cá honey gourami đang được thả vào bể để thuần nước."
-          },
-          {
             "t": 970,
             "url": "https://media.aquatome.com/video/MxPCBXJtPTM/at970-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá honey gourami màu cam bơi giữa bể thủy sinh nhiều rêu và lũa."
+            "caption": "Cá honey gourami màu cam bơi giữa bể thủy sinh nhiều rêu và lũa.",
+            "sharpness": 1244.9,
+            "person": false
           }
         ],
         "photo": {

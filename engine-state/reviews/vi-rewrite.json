@@ -565,6 +565,292 @@
       "kept": true
     }
   ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong#2hraquarist": [
+    {
+      "at": "2026-11-09T06:15:51Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bóng vòm lũa đổ xuống khoảng giữa bể, nên phần giữa tối hơn\": 'nên' adds a causal link and repeats 'giữa'; the source just says the structure casts shadows in the middle, contrasting with the lit front and rear. Suggest 'tạo bóng đổ ở giữa, tương phản với phần trước và sau được chiếu sáng'.",
+        "\"Tất cả những lựa chọn trên cộng lại mới tạo ra cảm giác tỷ lệ\": 'mới' adds an emphasis that is not in the source. Use 'Tất cả những lựa chọn này góp phần tạo cảm giác tỷ lệ cho bể nhỏ'.",
+        "\"Bố cục dựa vào một vòm lũa cong\": 'making use of' is rendered loosely. Better: 'sử dụng một vòm lũa cong ấn tượng'.",
+        "\"fine leaved plants\" is rendered as \"cây lá nhỏ\". This is acceptable, but 'cây lá mảnh' is closer to 'fine-leaved'.",
+        "\"tối hơn\" in the middle is an interpretation. The source says only that shadows are cast and contrast with the lit areas.",
+        "The title 'Dennis Wong | Diorama' and the date/read time were dropped. This is acceptable, but a heading could be kept if the page needs one."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.9
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong-1#2hraquarist": [
+    {
+      "at": "2026-11-09T06:16:18Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"keo 502\" is a rendering of \"superglue\"; it is acceptable, but \"keo siêu dính (keo 502)\" would be more faithful.",
+        "\"nên nhìn vào thấy bể sâu hơn thật\" is slightly off. The source says the arrangement creates an illusion of depth, so use \"tạo cảm giác chiều sâu\" or \"ảo giác về chiều sâu\" instead of \"sâu hơn thật\", which suggests the tank really is deeper.",
+        "\"mimic a forested cliff edge\" becomes \"dựng lại cảnh một mép vách đá có rừng phủ\". This is fine, but \"mô phỏng\" would be closer to \"mimic\".",
+        "\"finer textures\" becomes \"loại lá nhỏ, mịn\". This is acceptable, but \"kết cấu mịn\" is nearer to the source.",
+        "\"foreground sand lines angle to meet at the center\" becomes \"đường cát ở tiền cảnh cùng chéo vào trong\". The wording is slightly awkward; use \"nghiêng/chạy chéo về phía trung tâm\".",
+        "The title \"Dennis Wong | Diorama\" is dropped. This is probably fine given the byline rule, but the scape name \"Diorama\" is kept only in the text.",
+        "Shop and navigation boilerplate is correctly omitted."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.85,
+        0.85
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok#2hraquarist": [
+    {
+      "at": "2026-11-09T06:16:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Title 'Dou Mok | Iwagumi' omitted; the translation has no heading or name for the aquascape.",
+        "'Bể này biến tấu từ kiểu Iwagumi cổ điển của Nhật, và biến tấu rất đẹp' repeats 'biến tấu' and is clumsy; try 'Bể này là một biến thể đẹp mắt của phong cách Iwagumi Nhật Bản cổ điển'.",
+        "'để cảnh trống trải' is slightly off: 'austere' means sparse or plain, not empty; try 'bố cục giản dị, tối giản'.",
+        "'lush vibrant greens' is rendered as 'mảng xanh rậm và tươi'; this is acceptable, but 'xanh tươi mướt' would be more natural.",
+        "'như trời đang vào xuân' is acceptable, but 'gợi cảm giác ấm áp của mùa xuân' is closer to the original 'sense of warmth and spring time'.",
+        "Date (February 15, 2024) and '1 min read' are metadata and can be dropped. Product and navigation lines are shop talk and rightly dropped."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.75,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-1#2hraquarist": [
+    {
+      "at": "2026-11-09T06:17:00Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"set theo phong cách thiên nhiên\": 'set' is English slang left in place; use 'bố cục/thiết kế theo phong cách thiên nhiên' (nature style).",
+        "\"Rêu và ráy anubias\": the English says 'anubias species'; use 'các loài anubias' (Anubias is a genus, and 'ráy' is a loose rendering). Keep the Latin name as Anubias.",
+        "\"không cần phân nền\": 'phân nền' means substrate fertiliser; use 'nền đất/đất trồng' (soil base) to match 'soil base'.",
+        "\"Cây trong bể toàn là loại mọc chậm\": 'toàn là' overstates the source, which says 'a selection of slower-growing plants'; use 'nhiều loại cây mọc chậm'.",
+        "\"dễ chăm hơn\": the source says 'easier to maintain' (dễ bảo trì); the meaning is fine. The 'excellent visual contrast' is rendered as 'làm nổi hẳn', which is acceptable but slightly loose.",
+        "The title 'Dou Mok | Nature Style' is dropped, which is fine as page boilerplate. Navigation and shop text were removed correctly."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-2#2hraquarist": [
+    {
+      "at": "2026-11-09T06:17:23Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "The meaning is intact. The shop and navigation boilerplate was correctly dropped.",
+        "\"Hai bên là hai rừng dương xỉ Java\" is clumsy. Use \"hai bên là những cụm/rừng dương xỉ Java\" or \"hai bên được bao bởi rừng dương xỉ Java\" (\"flanked by\").",
+        "\"Mấy khúc lũa nhỏ hơn\" is too colloquial for an encyclopedia. Use \"Những khúc lũa nhỏ hơn\".",
+        "\"đèn yếu vẫn lên tốt\" is colloquial. Use \"phát triển tốt trong điều kiện ánh sáng yếu\".",
+        "\"dẫn mắt người xem\" is acceptable. \"hướng tầm nhìn\" would be more natural.",
+        "The title \"Dou Mok | Nature Style\" (the aquascape name) is omitted. Consider keeping \"Nature Style\" as the layout's name if it is not a byline."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.72
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-4#2hraquarist": [
+    {
+      "at": "2026-11-09T06:17:55Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"đủ màu và đủ kiểu lá\" narrows \"colors and textures\" to leaf shape only. Use something like \"đa dạng về màu sắc và kết cấu\".",
+        "The title \"Dou Mok | Nature Style\" (style name) is dropped. Consider keeping \"phong cách tự nhiên (Nature Style)\" somewhere.",
+        "\"những viên đá tròn rất bình thường\" for \"humble round rocks\" sounds slightly dismissive. \"giản dị\" or \"mộc mạc\" would be more natural.",
+        "\"Nhìn chúng giống đá…\" is a bit choppy and loses the link to the previous sentence. Merge it as \"gợi nhớ đến đá ở các dòng sông chảy xiết\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.9,
+        0.88
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style#2hraquarist": [
+    {
+      "at": "2026-11-09T06:18:20Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Cả bể là một bản phối màu, có độ tương phản đậm\" – loses \"symphony of hues\" and \"rich contrasts\"; reads awkwardly, better: \"một bản hòa sắc phong phú, tương phản đậm nét\".",
+        "\"Rich greens are matched against...\" rendered as \"Những mảng xanh đậm\" – \"rich\" means lush, not dark; use \"xanh tươi/đậm đà\".",
+        "\"Bể Dutch\" – use the established term \"bể thủy sinh phong cách Hà Lan (Dutch)\" and add \"aquascape\" meaning.",
+        "\"phối cảnh\" for \"perspective\" is acceptable but \"chiều sâu và phối cảnh\" is stiff; consider \"chiều sâu và góc nhìn xa gần\".",
+        "\"Barclaya lonifolia red đỏ gỉ sắt\" – \"red\" duplicated; write \"Barclaya longifolia 'Red' đỏ gỉ sắt\" (source Latin spelling \"lonifolia\" is a typo, keep as the source or note it).",
+        "\"Bacopa colorata ánh hồng\" – \"Pinkish\" fine, but \"Pink/Yellow Ammania\" -> \"hồng pha vàng\" is OK.",
+        "\"Các khóm cao thấp khác nhau, kiểu lá cũng khác nhau, đặt cạnh nhau thành độ tương phản\" – wordy; condense to \"chiều cao và dạng lá đa dạng tạo nên sự tương phản thú vị\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-1#2hraquarist": [
+    {
+      "at": "2026-11-09T06:18:46Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"10am of tank length\" is an obvious typo in the source. \"10 cm\" is a reasonable reading, but it is a guess and should be checked.",
+        "\"Bể Hà Lan này\" drops \"aquascape\". Use \"bể thủy sinh phong cách Hà Lan\" for the Dutch-style aquascape.",
+        "\"tapestry of varied plant forms\" is rendered loosely as \"đan vào nhau\". Say more clearly that the tank has many different plant forms.",
+        "\"đúng chất bố cục kiểu Hà Lan\" is a bit loose. Use \"tiêu biểu cho phong cách thủy sinh Hà Lan\" to match \"exemplifies the Dutch Style of aquascaping\".",
+        "\"tỉa rất kỹ\" is fine, but \"chăm chút kỹ lưỡng\" would suit \"beautifully manicured\" better, since the English also stresses beauty."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.9,
+        0.85
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-2#2hraquarist": [
+    {
+      "at": "2026-11-09T06:19:01Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Title 'Gabor Vereb | Dutch Style' is dropped. Navigation, shop and product text were rightly removed, but the aquascaper's name and style could be kept as a heading.",
+        "'Bể này trồng cây dày và rất đẹp' is slightly colloquial. Prefer 'Bể thủy sinh trồng cây dày đặc, rất đẹp'.",
+        "'Cái hút mắt người xem là...' is too informal for an encyclopedia. Prefer 'Điểm nhấn chính là sự đa dạng của các dạng cây...'.",
+        "'nhiều kiểu đến không đếm xuể' overstates 'immense variety'. Use 'vô cùng đa dạng'.",
+        "'lũa' means driftwood only. 'Wood' is better as 'gỗ lũa'.",
+        "'Hiệp hội Người chơi cá cảnh Hà Lan (NBAT)' renders 'Dutch Society for Aquarists'. It is acceptable, but the Dutch full name could be kept.",
+        "'Dutch aquascape' is rendered as 'bể kiểu Hà Lan'. Use 'bể thủy sinh phong cách Hà Lan' for hobby terminology."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-mc#2hraquarist": [
+    {
+      "at": "2026-11-09T06:19:47Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Title 'Mark Crow | Dutch Style' was reduced to 'Bể thủy sinh phong cách Hà Lan'. Dropping the aquascaper's name is acceptable as byline-like content, but consider keeping it if it's the tank's credited name.",
+        "'tall stem plants' became 'các loại cây thân dài mọc cao'. This is slightly redundant, so use 'cây thân đứng cao' or 'cây thân dài'.",
+        "'Short carpets and shrubs' became 'thảm cây thấp và những bụi nhỏ'. 'shrubs' is better as 'cụm/bụi cây' without 'nhỏ', because 'nhỏ' is added.",
+        "'evolve to mid-height' became 'lên trung cảnh thì cây cao vừa'. This is a little clumsy, so use 'chuyển dần sang cây cỡ trung ở trung cảnh'.",
+        "The last sentence 'Cây cao dần từ trước ra sau nên cả bố cục có chiều sâu' repeats the previous sentence. It is acceptable, but it could be merged to avoid redundancy.",
+        "The shop and navigation text and the product list were dropped, which is correct."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-09T06:19:47Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"set theo cảm hứng phong cách Hà Lan\": untranslated English slang \"set\"; use \"bố trí/thiết kế theo phong cách Hà Lan\".",
+        "\"chăm rất kỹ\": loses \"meticulously maintained\"; better \"được chăm sóc tỉ mỉ\".",
+        "\"rất nhiều kiểu lá\": English says \"shapes\" (hình dạng), not only leaves; use \"nhiều hình dạng và màu sắc tương phản\".",
+        "\"Từng loài cây hiện lên rực rỡ\": \"vibrance of individual species\" is fine, but \"species\" is plant-specific only by inference; acceptable.",
+        "\"cây cắt cắm cao\": \"tall stem plants\" is the hobby term \"cây thân dài/cây thân đứng\"; \"cây cắt cắm\" is wrong/awkward.",
+        "\"Short carpets and shrubs\": \"shrubs\" rendered as \"các bụi nhỏ\" – ok, but \"mid-height\" became \"cây cao vừa\", fine.",
+        "\"Cây cao dần từ trước ra sau như vậy nên cả bố cục có chiều sâu\": sentence is somewhat redundant but meaning (perspective) is kept; \"chiều sâu\" okay.",
+        "Omitted \"Grow anything, defeat algae, create amazing aquascapes\" tagline: acceptable as shop talk, no fix needed.",
+        "Page title \"Mark Crow | Dutch Style\" is dropped; add a heading like \"Bể thủy sinh phong cách Hà Lan\" if titles are expected."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.68
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-rf#2hraquarist": [
+    {
+      "at": "2026-11-09T06:20:10Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"10 cm chiều dài bể\": the English says only \"of tank\", so \"chiều dài\" (length) is an added detail. Use \"mỗi 10 cm bể\" or \"mỗi 10 cm bề ngang bể\" only if the source supports it.",
+        "\"các loài cây trong bể mọc đan sát vào nhau\": the English says \"the varied species\", which is not limited to plants. Use the neutral \"các loài trong bể\" or \"các loài cây và cá\".",
+        "\"Luật NBAT cũng ngầm quy định\": \"ngầm\" is slightly strong for \"imply\". \"cũng hàm ý\" or \"cũng ngụ ý\" is closer.",
+        "The description says \"theo kiểu Hà Lan\" loosely. Keep the term consistent as \"bể thủy sinh kiểu Hà Lan (Dutch style)\" on first mention so it is clearly a hobby term."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.85,
+        0.85
+      ]
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-sp#2hraquarist": [
+    {
+      "at": "2026-11-09T06:20:36Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bể này set theo phong cách Hà Lan\": \"set\" is English slang; use \"bố trí/thiết lập theo phong cách Hà Lan\".",
+        "\"Dutch Society for Aquarists NBAT\" rendered as \"Hiệp hội người chơi cá cảnh Hà Lan NBAT\"; \"Aquarists\" is better as \"người chơi thủy sinh/hồ cá\", and \"cá cảnh\" slightly shifts the meaning.",
+        "\"đặt cạnh nhau trông tương phản rất rõ\": the English says the green leaves \"provide a dramatic contrast\" at the foot; the \"đặt cạnh nhau\" wording is slightly added; use \"tạo sự tương phản mạnh\".",
+        "\"mắt sẽ dừng ngay ở khối ... rất dễ nhận ra\": \"distinctive\" means \"đặc trưng/nổi bật\"; \"dễ nhận ra\" is acceptable, but \"our eyes are drawn to\" is better as \"ánh nhìn bị thu hút bởi\".",
+        "\"giữ chân cho cả góc này\": \"anchors\" is a little unnatural; use \"làm điểm nhấn/neo giữ bố cục ở tiền cảnh bên phải\".",
+        "\"tiền cảnh chính giữa\" is fine, but \"Myriophyllum ... cao vút phía trên\" drops \"tower above\" nuance only slightly; acceptable.",
+        "The boilerplate (navigation, shop, product lists) was properly dropped; the title and date were omitted, which is fine."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.8
+      ]
+    }
+  ],
   "vi/guides/aquariumbreeder-acrylic-vs-glass-tanks-pros-and-cons#aquariumbreeder": [
     {
       "at": "2026-11-08T23:21:31Z",

@@ -16,6 +16,8 @@ final class PageNavigator {
     var thumbs: [String] = []
     /// After the page's care: its breeds, guides, videos, readers' photos and sources, under their own line in the list.
     var tail = false
+    /// A second place on the page that's this part too, which the title names it in.
+    var also: String?
   }
 
   /// A part chosen from the title's list, for the page to go to.
@@ -108,7 +110,10 @@ final class PageNavigator {
     var c = held
     if c == nil {
       let line = s.contentOffset.y + max(s.adjustedContentInset.top, barFoot) + 24
-      for p in live where (places[p.id] ?? .infinity) <= line { c = p }
+      var nearest = -CGFloat.infinity
+      for p in live {
+        for y in [places[p.id], p.also.flatMap { places[$0] }].compactMap({ $0 }) where y <= line && y >= nearest { (nearest, c) = (y, p) }
+      }
       if s.contentOffset.y > minY, maxY - s.contentOffset.y < 2, let last = live.last { c = last }
     }
     if c != current { current = c }
@@ -194,7 +199,7 @@ struct PageNavigatorTitle: View {
             .font(.system(size: big ? 22 : 15, weight: .semibold))
             .foregroundStyle(.primary)
             .lineLimit(1)
-          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(.tint)
+          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(Color.accentColor)
         }
       }
       .shadow(color: .black.opacity(onColour ? 0.45 : 0), radius: 3)

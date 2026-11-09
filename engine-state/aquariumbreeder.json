@@ -786,6 +786,37 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/how-acclimate-corals/": {
+    "lastmod": "2026-06-06T17:37:43+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-how-acclimate-corals"
+    ],
+    "updatedAt": "2026-11-09T06:16:35.198Z",
+    "hash": "0dd9eef5a70fb2c1c454a95d039695701bf9e5a6899bfac643cd3d98933c2f71",
+    "processedHash": "0dd9eef5a70fb2c1c454a95d039695701bf9e5a6899bfac643cd3d98933c2f71",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods"
+    ],
+    "updatedAt": "2026-11-09T06:06:43.051Z",
+    "hash": "c0f21b965c4d135d6840ff96dfc81f65d177d0aa87685a70dd10deee32efc921",
+    "processedHash": "c0f21b965c4d135d6840ff96dfc81f65d177d0aa87685a70dd10deee32efc921",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-care-for-kenya-tree-coral/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T06:01:33.583Z",
+    "hash": "62182fbe63ae2f9e686f69b40aee344b7c9625beb66d4574cf5ea104a0f48ad7",
+    "processedHash": "62182fbe63ae2f9e686f69b40aee344b7c9625beb66d4574cf5ea104a0f48ad7",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/how-to-care-for-palm-tree-polyp/": {
     "lastmod": "2026-06-06T17:37:42+00:00",
     "entityIds": [
@@ -796,6 +827,14 @@
     "processedHash": "dc6114c6cc1006e1abdaf750d1023006d527152d9383db8da1e6462f2255cf5f",
     "status": "processed",
     "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-choose-aquarium-plants-for-beginners/": {
+    "lastmod": "2026-06-06T17:37:43+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T06:19:34.474Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://aquariumbreeder.com/how-to-cycle-a-tank-the-dark-start-method/": {
     "lastmod": "2026-06-06T17:36:51+00:00",
@@ -846,6 +885,17 @@
     "hash": "bb5c2c60befe6871395592bae5c9387809eb3fe01d97e0a64fde52b1cb46931a",
     "processedHash": "bb5c2c60befe6871395592bae5c9387809eb3fe01d97e0a64fde52b1cb46931a",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-handle-your-pet-crustaceans/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-how-to-handle-your-pet-crustaceans"
+    ],
+    "updatedAt": "2026-11-09T05:58:23.215Z",
+    "hash": "c685c6807a184a8f50e42f9cab6938d44bd50198b798423c860b7011da7e04bd",
+    "processedHash": "c685c6807a184a8f50e42f9cab6938d44bd50198b798423c860b7011da7e04bd",
+    "status": "processed",
     "attempts": 0
   },
   "https://aquariumbreeder.com/how-to-improve-breeding-efficiency-of-caridina-shrimp/": {
@@ -923,6 +973,15 @@
     "hash": "511351c2e8a7c736498340644cc6f4c40719fbf88438bef687861f7708eb7df7",
     "processedHash": "511351c2e8a7c736498340644cc6f4c40719fbf88438bef687861f7708eb7df7",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/humidity-for-land-crabs/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T06:16:23.922Z",
+    "hash": "31c8cfded7d99b3801f7b400a82edd22a21fbff39539f0bc2a4f44b85fe28fea",
+    "processedHash": "31c8cfded7d99b3801f7b400a82edd22a21fbff39539f0bc2a4f44b85fe28fea",
+    "status": "skipped",
     "attempts": 0
   },
   "https://aquariumbreeder.com/hygrophila-polysperma-care-guide-planting-growing-and-propagation/": {
@@ -1781,6 +1840,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/tank-decoration-simple-ideas/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-tank-decoration-simple-ideas"
+    ],
+    "updatedAt": "2026-11-09T06:14:35.141Z",
+    "hash": "d423abceae4870af45d9d19485d5ef9d95ecc7a8dcac9cf7af1bc67e12c75bfc",
+    "processedHash": "d423abceae4870af45d9d19485d5ef9d95ecc7a8dcac9cf7af1bc67e12c75bfc",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/tank-lids-necessary-or-optional-pros-and-cons/": {
     "lastmod": "2026-06-06T17:34:34+00:00",
     "entityIds": [
@@ -1852,6 +1922,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/top-coldwater-aquarium-plants/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-top-coldwater-aquarium-plants"
+    ],
+    "updatedAt": "2026-11-09T06:10:40.599Z",
+    "hash": "3712ada5a40b8e8430e0ddf3a88aae7fc2894794a742f1509e4d2c0e46ac2266",
+    "processedHash": "3712ada5a40b8e8430e0ddf3a88aae7fc2894794a742f1509e4d2c0e46ac2266",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/tubifex-worms-profile-and-culture-guide/": {
     "lastmod": "2026-06-06T17:36:12+00:00",
     "entityIds": [
@@ -1860,6 +1941,17 @@
     "updatedAt": "2026-11-02T21:55:44.833Z",
     "hash": "866e58a42e60bc342454856ce7e2d7cadf9b24333b2d89684c405052310f3fb4",
     "processedHash": "866e58a42e60bc342454856ce7e2d7cadf9b24333b2d89684c405052310f3fb4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/tuxedo-urchin-care/": {
+    "lastmod": "2026-06-06T17:37:42+00:00",
+    "entityIds": [
+      "species/mespilia-globulus"
+    ],
+    "updatedAt": "2026-11-09T06:04:18.653Z",
+    "hash": "a9764a0ef717b71ec6fca5e755d7943e963c67d2add707629f2ef53bc6829164",
+    "processedHash": "a9764a0ef717b71ec6fca5e755d7943e963c67d2add707629f2ef53bc6829164",
     "status": "processed",
     "attempts": 0
   },

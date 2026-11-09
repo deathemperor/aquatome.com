@@ -217,41 +217,51 @@ struct StatusText: View {
 
 struct ItemRow: View {
   let item: HandbookIndex.Item
+  @Environment(\.dynamicTypeSize) private var size
+
   var body: some View {
+    // At the accessibility text sizes, no picture: beside one, the name and the scientific name broke mid-word.
+    let pictured = !size.isAccessibilitySize
+    let lengthInLine = !pictured && item.sub == nil && item.video != nil
     HStack(spacing: 12) {
-      AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
-        image.resizable().scaledToFill()
-      } placeholder: {
-        // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
-        ZStack {
-          Color(.tertiarySystemFill)
-          Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
-        }
-      }
-      .frame(width: 56, height: 56)
-      .clipShape(RoundedRectangle(cornerRadius: 8))
-      // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
-      .overlay(alignment: .bottomTrailing) {
-        if let s = item.video {
-          Text(verbatim: clock(s))
-            .font(.caption2.weight(.semibold)).monospacedDigit()
-            .foregroundStyle(.white).padding(.horizontal, 3).background(.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 3))
-            .padding(2)
-            .accessibilityHidden(true)
-        }
-      }
+      if pictured { picture }
       VStack(alignment: .leading, spacing: 2) {
         Text(item.name).foregroundStyle(.primary)
-        // A scientific name in italics; a video series' channel; else what it is (a video guide: a video).
+        // A scientific name in italics; a video series' channel; else what it is (a video guide: a video, and its length
+        // when there's no picture to show it on).
         if let sub = item.sub { Text(sub).font(.caption).italic(item.kind != .video).foregroundStyle(.secondary) }
+        else if lengthInLine, let s = item.video { Text(verbatim: "\(HandbookIndex.Kind.video.title) · \(clock(s))").font(.caption).foregroundStyle(.secondary) }
         else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary) }
       }
     }
     .accessibilityElement(children: .combine)
-    .accessibilityValue(Text(verbatim: item.video.map(clock) ?? ""))
+    .accessibilityValue(Text(verbatim: lengthInLine ? "" : item.video.map(clock) ?? ""))
     .accessibilityIdentifier("item")
   }
 
+  private var picture: some View {
+    AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
+      image.resizable().scaledToFill()
+    } placeholder: {
+      // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
+      ZStack {
+        Color(.tertiarySystemFill)
+        Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
+      }
+    }
+    .frame(width: 56, height: 56)
+    .clipShape(RoundedRectangle(cornerRadius: 8))
+    // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
+    .overlay(alignment: .bottomTrailing) {
+      if let s = item.video {
+        Text(verbatim: clock(s))
+          .font(.caption2.weight(.semibold)).monospacedDigit()
+          .foregroundStyle(.white).padding(.horizontal, 3).background(.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 3))
+          .padding(2)
+          .accessibilityHidden(true)
+      }
+    }
+  }
 }
 
 extension HandbookIndex.Kind {

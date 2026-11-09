@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "n5s8Cu59-NM",
     "title": "HOW TO: DIY Aquarium chiller TUTORIAL",
@@ -29,16 +29,17 @@
       {
         "category": "suoi",
         "type": "lam-lanh",
-        "t": 0
+        "t": 63
       },
       {
         "category": "loc",
+        "type": "sump",
         "t": 289
       }
     ],
     "figures": [
       {
-        "heading": "Máy làm lạnh tự chế hoạt động thế nào",
+        "heading": "Cần chuẩn bị những gì",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p0-hdF9uaWdodC5qcGc.webp",
@@ -48,63 +49,63 @@
           "licence": "CC BY-SA 4.0",
           "author": "W.carter",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Open_refrigerator_with_food_at_night.jpg",
-          "caption": "Bên trong tủ lạnh gia đình, khoang lạnh nơi có thể đặt cuộn ống làm mát."
+          "caption": "Tủ lạnh mở cửa, bên trong có các ngăn để đồ."
         }
       },
       {
-        "heading": "Cần chuẩn bị những gì",
+        "heading": "Chuẩn bị ống",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p1-RFNDMDkzMzUuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p1-RFNDMDkzMzUuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p2-RFNDMDkzMzUuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p2-RFNDMDkzMzUuSlBH-480.webp",
           "width": 960,
           "height": 692,
           "licence": "CC0",
           "author": "Daderot",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_hose_on_the_dock_-_Vancouver,_Canada_-_DSC09335.JPG",
-          "caption": "Cuộn ống tưới vườn màu xanh dương cuộn gọn, dùng được làm ống dẫn nước."
+          "caption": "Cuộn ống nước màu xanh được cuộn gọn gàng, sẵn sàng để dùng."
         }
       },
       {
-        "heading": "Luồn ống vào tủ",
+        "heading": "Khoan lỗ và luồn ống",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p3-RFNDMDkzMzUuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p3-RFNDMDkzMzUuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p3-ODg1MjEwNCkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p3-ODg1MjEwNCkuanBn-480.webp",
           "width": 960,
-          "height": 692,
-          "licence": "CC0",
-          "author": "Daderot",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_hose_on_the_dock_-_Vancouver,_Canada_-_DSC09335.JPG",
-          "caption": "Cuộn ống nước màu xanh còn nguyên cuộn, gọn gàng, không bị gập."
+          "height": 540,
+          "licence": "CC BY-SA 2.0",
+          "author": "andersen_mrjh",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spade_Drill_Bit_(6808852104).jpg",
+          "caption": "Mũi khoan dẹt dùng để khoan lỗ cho ống đi qua thành tủ."
         }
       },
       {
-        "heading": "Nối máy làm lạnh với bể",
+        "heading": "Làm mát được bao nhiêu",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p4-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p4-TmV3X1N1bXAuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p6-FxdWFyaXVtLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p6-FxdWFyaXVtLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "Tim Sheerman-Chase",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Tank,_Blue_Reef_Aquarium.jpg",
+          "caption": "Bể kính cỡ vừa có cây và đá, gần với kích thước bể gia đình."
+        }
+      },
+      {
+        "heading": "Nối chiller vào bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p7-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p7-TmV3X1N1bXAuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Hệ bể acrylic có ngăn lọc tràn và bơm đặt bên cạnh."
-        }
-      },
-      {
-        "heading": "Chỉnh nhiệt độ nước",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/n5s8Cu59-NM/p5-91c2Vob2xkLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/n5s8Cu59-NM/p5-91c2Vob2xkLmpwZw-480.webp",
-          "width": 960,
-          "height": 1280,
-          "licence": "CC BY-SA 4.0",
-          "author": "NVgt156",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ball_valve_in_household.jpg",
-          "caption": "Van bi tay gạt đỏ lắp trên đường ống, dùng chỉnh lưu lượng nước."
+          "caption": "Hệ thống sump bằng acrylic có bơm đặt bên ngoài bể chính."
         }
       }
     ]

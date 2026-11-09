@@ -110,14 +110,9 @@
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at90-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ống hút cặn thả vào bể thủy sinh có nhiều cây đỏ."
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm ống hút cặn nối lọc thùng bên cạnh bể thủy sinh."
+            "caption": "Ống hút cặn thả vào bể thủy sinh có nhiều cây đỏ.",
+            "sharpness": 988.5,
+            "person": false
           }
         ],
         "photo": {
@@ -146,18 +141,6 @@
         }
       },
       {
-        "heading": "Vì sao rêu trong bể bị bụi và vàng gốc",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một mảng rêu được nhấc lên trong bể, nhìn rõ độ dày và bụi bám."
-          }
-        ]
-      },
-      {
         "heading": "Vì sao rêu hại và tảo nâu mọc, chỉnh đèn thế nào",
         "moments": [
           {
@@ -165,14 +148,18 @@
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dàn đèn treo phía trên bể thủy sinh, nơi chỉnh thời gian chiếu sáng."
+            "caption": "Dàn đèn treo phía trên bể thủy sinh, nơi chỉnh thời gian chiếu sáng.",
+            "sharpness": 210.6,
+            "person": false
           },
           {
             "t": 430,
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at430-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thủy sinh xanh trong bể, bên cạnh ống dẫn nước và lũa."
+            "caption": "Cây thủy sinh xanh trong bể, bên cạnh ống dẫn nước và lũa.",
+            "sharpness": 412.1,
+            "person": false
           }
         ],
         "photo": {
@@ -190,18 +177,13 @@
         "heading": "Làm sạch rêu hại trên kính, ống và lũa đá",
         "moments": [
           {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cọ nam châm bên kính bể, cạnh bụi cây lá đỏ."
-          },
-          {
             "t": 460,
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at460-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cọ nam châm lau kính trong bể thủy sinh, gần lớp cát đáy."
+            "caption": "Cọ nam châm lau kính trong bể thủy sinh, gần lớp cát đáy.",
+            "sharpness": 185.6,
+            "person": false
           }
         ]
       },
@@ -213,7 +195,9 @@
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at590-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây ráy lá chậm lớn và đá, lũa trong bể thủy sinh."
+            "caption": "Cây ráy lá chậm lớn và đá, lũa trong bể thủy sinh.",
+            "sharpness": 140.5,
+            "person": false
           }
         ],
         "photo": {
@@ -235,7 +219,9 @@
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at690-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Liễu đỏ lên màu hồng đỏ đẹp, mọc dày bên cạnh rêu xanh."
+            "caption": "Liễu đỏ lên màu hồng đỏ đẹp, mọc dày bên cạnh rêu xanh.",
+            "sharpness": 470.6,
+            "person": false
           }
         ],
         "photo": {
@@ -257,7 +243,9 @@
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at920-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây đỏ xanh rậm rạp dưới đèn thanh dài phía trên."
+            "caption": "Bể thủy sinh cây đỏ xanh rậm rạp dưới đèn thanh dài phía trên.",
+            "sharpness": 1067.1,
+            "person": false
           }
         ],
         "photo": {

@@ -1,0 +1,83 @@
+{
+  "id": "hypostomus-isbrueckeri",
+  "native": {
+    "input": "75dca57717a97163",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Conceição, Ijui, Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hypostomus isbrueckeri is endemic to Brazil and is distributed in the upper and middle Uruguay River basins.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Uruguay River",
+        "source": "planetcatfish",
+        "quote": "South America: Middle and upper Uruguay River basin (La Plata basin).",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: Middle and upper Uruguay River basin (La Plata basin).",
+        "ok": true
+      },
+      {
+        "name": "Uruguay River",
+        "source": "scotcat",
+        "quote": "Hypostomus isbrueckeri is endemic to Brazil and is distributed in the upper and middle Uruguay River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus isbrueckeri",
+    "status": "ACCEPTED",
+    "taxonKey": 5202137,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        86
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        18
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        13
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "id": "hyphessobrycon-haraldschultzi",
+  "native": {
+    "input": "a67e1790573734c2",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The crystal red tetra, Megalamphodus haraldschultzi, is a small characid endemic to the rio Araguaia system in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Araguaia system, the major tributary of the rio Tocantins in central and western Brazil, although the full range of H. haraldschultzi within the drainage is unclear.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Araguaia system, the major tributary of the rio Tocantins in central and western Brazil, although the full range of H. haraldschultzi within the drainage is unclear.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Araguaia system, the major tributary of the rio Tocantins in central and western Brazil, although the full range of H. haraldschultzi within the drainage is unclear.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Bananal Island",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Ilha do Bananal, Goiaz, Brazil', referring to Bananal Island, the largest fluvial island in the world which is formed from the bisection of the Araguaia in southwestern Tocantins state.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Javaés",
+        "source": "seriouslyfish",
+        "quote": "Post-bifurcation, the eastern arm of the river is often referred to as the rio Javaés and it is probable that the type series was collected there since the Javaés runs through a portion of Goiás state.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon haraldschultzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354571,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

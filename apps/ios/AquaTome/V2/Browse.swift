@@ -166,7 +166,7 @@ struct BrowseHome: View {
                 .overlay { if g.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: g.label).font(.body.weight(.semibold))
-                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.v2Faint)
+                Text("\(g.count) loài").font(.subheadline).foregroundStyle(.v2Faint)
               }
               Spacer(minLength: 0)
             }

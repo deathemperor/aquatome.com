@@ -10,6 +10,126 @@
     "peru",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Marañón",
+        "Napo",
+        "Ucayali",
+        "Itaya",
+        "Tigre"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Peruvian tetra, Hyphessobrycon peruvianus, is a characid known only from the upper Amazon basin in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper Amazon basin in Peru including the ríos Amazonas-Solimões, Marañón, Napo, Itaya, Tigre, Corrientes, and Ucayali.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Marañón",
+            "Napo",
+            "Ucayali",
+            "Itaya",
+            "Tigre"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354625,
+      "total": 67,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          55
+        ],
+        [
+          "BR",
+          6
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          37,
+          37
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          0,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          6,
+          0
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

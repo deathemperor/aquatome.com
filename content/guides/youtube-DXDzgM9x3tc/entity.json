@@ -48,39 +48,19 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai nhựa, sứ lọc, miếng mút, dây oxy và máy sủi khí."
-          },
-          {
             "t": 70,
             "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đồ nghề lọc chai bày trên bàn: chai, sứ lọc, mút, máy sủi."
+            "caption": "Đồ nghề lọc chai bày trên bàn: chai, sứ lọc, mút, máy sủi.",
+            "sharpness": 266.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Khoan lỗ trên chai thế nào",
-        "moments": [
-          {
-            "t": 65,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at65-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai nhựa, mút lọc, vật liệu lọc và máy sục oxy đã chuẩn bị sẵn."
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắp chai đã khoan vài lỗ để nước đi vào chai."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p1-b3NhZ2FpYWsuanBn.webp",
           "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p1-b3NhZ2FpYWsuanBn-480.webp",
@@ -94,22 +74,7 @@
       },
       {
         "heading": "Lắp ráp từng bước",
-        "moments": [
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai nhựa đã khoét lỗ, bên cạnh là sứ lọc và miếng mút."
-          },
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai lọc hoàn chỉnh với sứ lọc bên trong, miếng mút và dây oxy."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p2-JfZm9hbV8yLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p2-JfZm9hbV8yLmpwZw-480.webp",
@@ -122,44 +87,6 @@
         }
       },
       {
-        "heading": "Vì sao nắp chai phải để lại",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai đầy sứ lọc, mút lắp ở miệng chai phía đối diện nắp."
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai đã vặn nắp có lỗ, mút tháo ra mà sứ vẫn nằm trong chai."
-          }
-        ]
-      },
-      {
-        "heading": "Lọc chai hoạt động ra sao",
-        "moments": [
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai chứa sứ lọc với nắp có lỗ, miếng mút và máy sủi bên cạnh."
-          },
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Miếng mút được gắn vào đầu chai có nắp đục lỗ, che các lỗ hút nước."
-          }
-        ]
-      },
-      {
         "heading": "Đặt lọc vào bể",
         "moments": [
           {
@@ -167,14 +94,18 @@
             "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at510-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Chai lọc sứ đứng trong bể, miếng mút chạm hẳn xuống đáy."
+            "caption": "Chai lọc sứ đứng trong bể, miếng mút chạm hẳn xuống đáy.",
+            "sharpness": 130.2,
+            "person": false
           },
           {
             "t": 560,
             "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at560-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bật máy sủi, bọt khí sủi đều trong chai lọc."
+            "caption": "Bật máy sủi, bọt khí sủi đều trong chai lọc.",
+            "sharpness": 105.7,
+            "person": false
           }
         ]
       },
@@ -182,18 +113,13 @@
         "heading": "Dùng lọc chai vào những lúc nào",
         "moments": [
           {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai lọc đổ đầy sứ lọc, đặt cạnh miếng mút và dây khí."
-          },
-          {
             "t": 580,
             "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at580-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lọc chai chạy trong bể, sứ lọc ở trên và mút vàng ở đáy."
+            "caption": "Lọc chai chạy trong bể, sứ lọc ở trên và mút vàng ở đáy.",
+            "sharpness": 112.8,
+            "person": false
           }
         ],
         "photo": {

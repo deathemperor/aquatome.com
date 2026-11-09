@@ -317,7 +317,7 @@ struct SpeciesPage: View {
           }
         if let n = galleryCount {
           // With a gallery, it carries how many photos the page has, and the whole of it opens them all.
-          Button { allPhotos() } label: { banner.overlay(alignment: .bottomTrailing) { badge(n) } }
+          Button { allPhotos() } label: { banner.overlay(alignment: .bottomTrailing) { PhotosBadge(count: n).padding(12) } }
             .buttonStyle(.plain)
             .accessibilityLabel(Text(verbatim: (doc?.lead?.alt ?? item.name) + ", ") + Text("Xem tất cả \(n) ảnh"))
             .accessibilityIdentifier("v2-lead-photo-grid")
@@ -759,7 +759,7 @@ struct SpeciesPage: View {
       }
       if let doc, let whole {
         if !whole.jumps.isEmpty { jumps(whole, proxy) }
-        ForEach(whole.parts.indices.filter { drawn($0, whole, doc) }, id: \.self) { i in
+        ForEach(shown(whole, doc), id: \.self) { i in
           // Its readers before the literature it cites and its sources, one with the part after them: none, no gap.
           if i == whole.readersAt {
             VStack(alignment: .leading, spacing: 0) {
@@ -797,6 +797,8 @@ struct SpeciesPage: View {
 
   /// The photos' row in the navigator's list (their grid), and the readers' part's place.
   private static let photosID = "v2-photos", readersID = "v2-readers"
+  /// The section "Nuôi chung với con gì?", by its heading's key (the site's sections.ts).
+  private static let keptWithID = "muc-behaviour"
 
   /// The navigator, the owner's alone for now, once the page has come: the title only, no choice of it and no rail.
   private var trying: PageNavigator? { account.owner.isOwner == true && whole != nil ? navigator : nil }
@@ -809,12 +811,32 @@ struct SpeciesPage: View {
       out.append(.init(id: Self.photosID, name: "Ảnh", count: n, photos: true, thumbs: galleryPhotos.prefix(3).map { $0.thumb ?? $0.src }))
     }
     let readers = PageNavigator.Part(id: Self.readersID, name: "Ảnh bạn đọc", count: readerPhotos?.count, tail: true)
-    for i in whole.parts.indices {
+    // The section on what to keep it with and the tank-mates' rows after its text are one row, to the section, named over both.
+    let kept = keptWith(whole, doc)
+    for i in whole.parts.indices where i != kept?.rows {
       if i == whole.readersAt, doc.talk != nil { out.append(readers) }
       guard drawn(i, whole, doc), let name = partName(i, whole, doc) else { continue }
-      out.append(.init(id: whole.ids[i], name: name, count: partCount(i, whole, doc), tail: tail(whole.parts[i])))
+      out.append(.init(id: whole.ids[i], name: name, count: partCount(i, whole, doc), tail: tail(whole.parts[i]),
+                       also: i == kept?.section ? kept.map { whole.ids[$0.rows] } : nil))
     }
     if whole.readersAt == whole.parts.count, doc.talk != nil { out.append(readers) }
+    return out
+  }
+
+  /// The tank-mates' rows and the section on them, on a page with both.
+  private func keptWith(_ whole: WholeParts, _ doc: PageDoc) -> (rows: Int, section: Int)? {
+    guard let rows = whole.parts.indices.first(where: { if case .mates = whole.parts[$0] { drawn($0, whole, doc) } else { false } }),
+          let section = whole.ids.firstIndex(of: Self.keptWithID), drawn(section, whole, doc) else { return nil }
+    return (rows, section)
+  }
+
+  /// The parts the page draws, in its order: the tank-mates' rows after the text of the section on them, as the mock has them.
+  private func shown(_ whole: WholeParts, _ doc: PageDoc) -> [Int] {
+    var out = whole.parts.indices.filter { drawn($0, whole, doc) }
+    if let kept = keptWith(whole, doc) {
+      out.removeAll { $0 == kept.rows }
+      if let at = out.firstIndex(of: kept.section) { out.insert(kept.rows, at: at + 1) }
+    }
     return out
   }
 
@@ -851,9 +873,6 @@ struct SpeciesPage: View {
   private func allPhotos() {
     gridAt = .photos
   }
-
-  /// "110 ảnh" on the banner's corner, over whatever the photo is.
-  private func badge(_ n: Int) -> some View { BannerCount(n: n).padding(12) }
 
   /// A part's name: its heading, or the title of the block that draws it.
   private func partName(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> String? {
@@ -1046,32 +1065,5 @@ private struct MatesCredits: View {
       }
       .foregroundStyle(.v2Faint).tint(Color.v2Faint)
     }
-  }
-}
-
-/// How many photos a page has, on its banner's corner: the mock's (nav.css `.herob`), as v1's page has it. 14 on 32 with 12
-/// at the sides, growing with the text, and 28 on 52 with 18 at the accessibility sizes. Until v1's badge, the same numbers,
-/// is on main: then the banner calls that one.
-@available(iOS 18, *)
-private struct BannerCount: View {
-  let n: Int
-  @Environment(\.dynamicTypeSize) private var size
-  @ScaledMetric(relativeTo: .subheadline) private var text: CGFloat = 14
-  @ScaledMetric(relativeTo: .subheadline) private var height: CGFloat = 32
-  @ScaledMetric(relativeTo: .subheadline) private var side: CGFloat = 12
-
-  var body: some View {
-    let big = size.isAccessibilitySize
-    HStack(spacing: 6) {
-      Image(systemName: "photo.on.rectangle")
-      Text("\(n) ảnh")
-    }
-    .font(.system(size: big ? 28 : text, weight: .semibold))
-    .foregroundStyle(.white)
-    .padding(.horizontal, big ? 18 : side)
-    .frame(height: big ? 52 : height)
-    .background(.black.opacity(0.46), in: Capsule())
-    .background(.ultraThinMaterial, in: Capsule())
-    .environment(\.colorScheme, .dark)
   }
 }

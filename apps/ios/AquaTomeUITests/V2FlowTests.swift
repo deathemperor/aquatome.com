@@ -224,11 +224,11 @@ final class V2FlowTests: XCTestCase {
   func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
     let app = launch("-newer-part")
     app.launchForFlow()
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 10), "no handbook")
-    let all = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
-    all.tap()
-    XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.handbookShown(timeout: 10), "no handbook")
+    // A topic's guides: the fixed index's one written guide is the shelf's pick, so the shelf has no whole list.
+    let topic = app.buttons.matching(NSPredicate(format: "identifier == 'shelf' AND label BEGINSWITH %@", "Chăm sóc")).firstMatch
+    app.scrolledDown(to: topic).tap()
+    XCTAssertTrue(app.navigationBars["Chăm sóc"].waitForExistence(timeout: 5), "not the topic's guides")
     app.buttons["keep-offline"].tap()
     XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
     app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -410,6 +410,24 @@ final class V2FlowTests: XCTestCase {
     XCTAssertGreaterThan(heading.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
     XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Đoạn cuối về cho ăn'")).firstMatch.exists,
                   "the part chosen is still folded")
+    // The tank-mates are one row, named for the section on them: it comes to rest at the section, their rows follow its
+    // text, and the title names it over both.
+    title.tap()
+    let mates = parts.matching(NSPredicate(format: "label BEGINSWITH 'Nuôi chung'"))
+    XCTAssertTrue(mates.firstMatch.waitForExistence(timeout: 5), "no row for the tank-mates")
+    XCTAssertEqual(mates.count, 1, "the tank-mates on more than one row")
+    XCTAssertEqual(mates.firstMatch.label, "Nuôi chung với con gì?")
+    mates.firstMatch.tap()
+    let named = NSPredicate(format: "label == 'Mục lục, đang ở Nuôi chung với con gì?'")
+    wait(for: [expectation(for: named, evaluatedWith: title)], timeout: 5)
+    let section = app.scrollViews.staticTexts["Nuôi chung với con gì?"].firstMatch
+    wait(for: [expectation(for: NSPredicate(format: "isHittable == true"), evaluatedWith: section)], timeout: 5)
+    XCTAssertGreaterThan(section.frame.minY, app.buttons["v2-back"].frame.maxY, "the section's heading behind the bar")
+    let rows = app.scrollViews.staticTexts["Nuôi chung"].firstMatch
+    XCTAssertTrue(rows.waitForExistence(timeout: 5), "no tank-mates under the section")
+    XCTAssertGreaterThan(rows.frame.minY, section.frame.maxY, "the tank-mates aren't after the section's text")
+    bring(app, rows, to: 100)
+    wait(for: [expectation(for: named, evaluatedWith: title)], timeout: 5)
     // A long part's name in the title: cut short, the bar's buttons still its own.
     title.tap()
     parts.matching(NSPredicate(format: "label BEGINSWITH 'Các dòng và cá lai'")).firstMatch.tap()
@@ -806,14 +824,18 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
   }
 
-  /// A group's tile says what its number counts ("474 loài"), not a bare number.
+  /// A group's tile says what its number counts ("474 loài"), not a bare number; so does its row at the largest text.
   func testAGroupsTileSaysWhatItCounts() {
-    let app = launch("-v2", "YES")
-    app.launchForFlow()
-    app.openTab("Khám phá")
-    let tile = app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch
-    repeatUntil(tile.exists, times: 6) { app.swipeUp() }
-    XCTAssertTrue(tile.exists, "no group's tile with what it counts")
+    for size in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
+      let app = XCUIApplication()
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + size
+      app.launchForFlow()
+      app.openTab("Khám phá")
+      let tile = app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch
+      repeatUntil(tile.exists, times: 6) { app.swipeUp() }
+      XCTAssertTrue(tile.exists, "no group's tile with what it counts \(size)")
+      app.terminate()
+    }
   }
 
   func testAPageReadIsOnOneShelfOfKhamPha() {

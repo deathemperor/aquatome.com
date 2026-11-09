@@ -33,12 +33,13 @@ import { parseArgs } from 'node:util'
 import type { PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type Start } from '../../../apps/site/worker/chat/agent'
 import { textReader, type ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { chatTools, handedTanks } from '../../../apps/site/worker/chat/tools'
+import { chatTools } from '../../../apps/site/worker/chat/tools'
+import { handoverFor, type Found } from '../../../apps/site/worker/chat/handover'
 import { handbookOf, type Handbook, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
 import type { Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, isApiError, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
-import { CONDITIONS, savedTank, TOPICS, type HardQuestion } from './chat-vs-plain-lib'
+import { CONDITIONS, savedTank, TOPICS, type HardQuestion, type PostTank } from './chat-vs-plain-lib'
 import { pool } from './eval-lib'
 
 const ROOT = join(import.meta.dirname, '../../..')
@@ -58,15 +59,9 @@ const { values: args } = parseArgs({
     label: { type: 'string', default: 'run' },
     // A run's folder: its report written again from its turns, nothing asked.
     report: { type: 'string' },
-    // A run's folder: each question comes with the pages that run read for it (read_page, as the tool gives them), as a
-    // search in code finding the same sections would: the bound on what handing them over can gain. `--given-as reads`:
-    // as the model's own reads before its first call, with the reader's tanks read too; `pages`: the same, without the
-    // tanks (Claude reads them when it will); `message`: after the question.
+    // A folder of a search's reads (chat-search-recall.ts `--give`): each question gets what the chat would hand over
+    // (handover.ts `handoverFor`), the search being what that folder found for it.
     given: { type: 'string' },
-    'given-as': { type: 'string', default: 'reads' },
-    // `--tank handed`: the tank handed over as it goes with every question (tools.ts `handedTanks`): all but its name,
-    // the notes without a way to reach anyone. Otherwise read_tanks' whole.
-    tank: { type: 'string', default: 'all' },
     // Claude writes a first line for the wait (agent.ts OPENING_SYSTEM): when it came, and what it said.
     opening: { type: 'boolean', default: false },
   },
@@ -166,35 +161,7 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
   }
 }
 
-type Message = Parameters<Send>[0]['messages'][number]
-/** The pages handed over (`--given`): the reads to put before the model's first call, or the text after the question. */
-type Given = { reads: Message[] } | { text: string }
-/** The pages handed over, as the tools give them: built before the clock starts. */
-async function givenOf(reads: Record<string, unknown>[], hb: Handbook, a: Asked): Promise<Given | undefined> {
-  const tools = chatTools({ handbook: hb, tanks: async () => a.tanks, checks: [] })
-  const run = async (name: string, input: Record<string, unknown>) => { try { const r = await tools.find(t => t.name === name)!.run(input, { photosLeft: 0 }); return typeof r === 'string' ? r : undefined } catch { return undefined } }
-  const got: { name: string; input: Record<string, unknown>; out: string }[] = []
-  for (const input of reads) { const out = await run('read_page', input); if (out) got.push({ name: 'read_page', input, out }) }
-  if (args['given-as'] === 'message') return got.length ? { text: `The handbook's pages for this question, read for you (as read_page gives them): read more only for what they leave out.\n\n${got.map(g => `read_page ${JSON.stringify(g.input)}:\n${g.out}`).join('\n\n')}` } : undefined
-  const tanks = !a.tanks.length || args['given-as'] !== 'reads' ? undefined : args.tank === 'handed' ? handedTanks(a.tanks, hb) : await run('read_tanks', {})
-  if (tanks) got.unshift({ name: 'read_tanks', input: {}, out: tanks })
-  if (!got.length) return undefined
-  const id = (i: number) => `given_${i + 1}`
-  return { reads: [
-    { role: 'assistant', content: got.map((g, i) => ({ type: 'tool_use' as const, id: id(i), name: g.name, input: g.input })) },
-    { role: 'user', content: got.map((g, i) => ({ type: 'tool_result' as const, tool_use_id: id(i), content: g.out })) },
-  ] }
-}
-/** Every call's messages with the pages handed over after the question, the same each time, so the cached prefix holds. */
-function withGiven(b: Parameters<Send>[0], g: Given): Parameters<Send>[0] {
-  const [first, ...rest] = b.messages
-  if ('reads' in g) return { ...b, messages: [first!, ...g.reads, ...rest] }
-  const content = typeof first!.content === 'string' ? [{ type: 'text' as const, text: first!.content }] : first!.content
-  return { ...b, messages: [{ ...first!, content: [...content, { type: 'text' as const, text: g.text }] } as Message, ...rest] }
-}
-
-async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: HealthStore, given?: Record<string, unknown>[]): Promise<Turn> {
-  const handed = given?.length ? await givenOf(given, hb, a) : undefined
+async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: HealthStore, given?: Found[]): Promise<Turn> {
   // The Worker picks its healthy keys before the run, so the clock starts after.
   const healthy = await healthyKeys(keys, store, Date.now())
   const began = Date.now()
@@ -208,8 +175,9 @@ async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: 
   const base = { id: a.id, set: a.set, kind: a.kind, lang: a.lang, mode }
   try {
     const run = await answerQuestion({
-      send: ((s: Send): Send => (handed ? (b, o) => s(o.call === 0 ? b : withGiven(b, handed), o) : s))(sender(healthy, store, began, calls, () => words !== undefined, side)),
+      send: sender(healthy, store, began, calls, () => words !== undefined, side),
       model: MODEL, lang: a.lang, question: a.q, earlier: [], start: a.start, handbook: hb, tanks: async () => a.tanks,
+      ...(given ? { handover: () => handoverFor({ question: a.q, start: a.start, tanks: a.tanks, hb, lang: a.lang, search: async () => given }) } : {}),
       onStep: () => steps.push(Date.now() - began),
       ...(args.opening ? { opening: true, onOpening: (text: string) => { opening ??= { at: Date.now() - began, text } } } : {}),
       ...(mode === 'streamed' ? { onText: () => { words ??= Date.now() - began }, onBlock: () => { cards.push(Date.now() - began) } } : {}),
@@ -228,10 +196,10 @@ async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: 
 }
 
 /** What a run was: when it started, the chat's code then, the model, how many at a time. */
-type Meta = { started: string; commit: string; model: string; concurrency: string; site: string; modes: Mode[]; given?: string; givenAs?: string; tank?: string; opening?: boolean; build?: string }
+type Meta = { started: string; commit: string; model: string; concurrency: string; site: string; modes: Mode[]; given?: string; opening?: boolean; build?: string }
 const git = (...a: string[]) => { try { return execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim() } catch { return '' } }
 /** The code this script runs: the agent and its loop, not the Worker's side (api.ts). */
-const BRAIN = ['apps/site/worker/chat/agent.ts', 'apps/site/worker/chat/answer.ts', 'apps/site/worker/chat/tools.ts', 'apps/site/worker/chat/handbook.ts', 'apps/site/worker/chat/topics.ts', 'apps/site/worker/agent']
+const BRAIN = ['apps/site/worker/chat/agent.ts', 'apps/site/worker/chat/handover.ts', 'apps/site/worker/chat/answer.ts', 'apps/site/worker/chat/tools.ts', 'apps/site/worker/chat/handbook.ts', 'apps/site/worker/chat/topics.ts', 'apps/site/worker/agent']
 
 async function main() {
   if (args.report) {
@@ -247,8 +215,8 @@ async function main() {
     for (const q of hard) for (const c of CONDITIONS) asked.push({ id: `${q.id}-${c}`, set: 'hard', kind: c, lang: 'vi', q: c === 'post' ? q.post : q.short, start: {}, tanks: c === 'tank' && q.tank ? [savedTank(q.tank)] : [] })
   }
   if (sets.includes('everyday')) {
-    const everyday = JSON.parse(await readFile(args.everyday!, 'utf8')) as { id: string; lang: Lang; kind: string; q: string; start?: Start }[]
-    for (const q of everyday) asked.push({ id: q.id, set: 'everyday', kind: q.kind, lang: q.lang, q: q.q, start: q.start ?? {}, tanks: [] })
+    const everyday = JSON.parse(await readFile(args.everyday!, 'utf8')) as { id: string; lang: Lang; kind: string; q: string; start?: Start; tank?: PostTank }[]
+    for (const q of everyday) asked.push({ id: q.id, set: 'everyday', kind: q.kind, lang: q.lang, q: q.q, start: q.start ?? {}, tanks: q.tank ? [savedTank(q.tank)] : [] })
   }
   const only = args.only?.split(',')
   const questions = asked.filter(a => !only || only.some(o => a.id === o || a.id.startsWith(`${o}-`)))
@@ -268,13 +236,13 @@ async function main() {
   const { keys } = await loadKeys(await readFile(args.keys!, 'utf8').catch(() => ''))
   if (!keys.length) throw new Error(`No key in ${args.keys}`)
   const store = memoryHealth()
-  const readsOf = (t: Turn) => [...new Set(t.calls.flatMap(c => c.asked ?? []).filter(s => s.startsWith('read_page ')))].map(s => JSON.parse(s.slice('read_page '.length)) as Record<string, unknown>)
+  const readsOf = (t: Turn) => [...new Set(t.calls.flatMap(c => c.asked ?? []).filter(s => s.startsWith('read_page ')))].map(s => JSON.parse(s.slice('read_page '.length)) as Found)
   const given = args.given ? new Map((JSON.parse(await readFile(join(args.given, 'turns.json'), 'utf8')) as Turn[]).map(t => [t.id, readsOf(t)])) : undefined
 
   // Each question in every mode, the modes' order turn about, so a slower hour falls on both.
   const jobs = questions.flatMap((a, i) => (i % 2 ? [...modes].reverse() : modes).map(m => () => ask(a, m, handbooks.get(a.lang)!, keys, store, given?.get(a.id))))
   const started = new Date()
-  const meta: Meta = { started: started.toISOString(), commit: `${git('log', '-1', '--format=%h', '--', ...BRAIN) || 'unknown'}${git('status', '--porcelain', '--', ...BRAIN) ? ', with changes not committed' : ''}`, model: MODEL, concurrency: args.concurrency!, site: args.site!, modes, ...(args.given ? { given: args.given, givenAs: args['given-as'], tank: args.tank } : {}), ...(args.opening ? { opening: true } : {}), build: basename(siteDir) }
+  const meta: Meta = { started: started.toISOString(), commit: `${git('log', '-1', '--format=%h', '--', ...BRAIN) || 'unknown'}${git('status', '--porcelain', '--', ...BRAIN) ? ', with changes not committed' : ''}`, model: MODEL, concurrency: args.concurrency!, site: args.site!, modes, ...(args.given ? { given: args.given } : {}), ...(args.opening ? { opening: true } : {}), build: basename(siteDir) }
   console.log(`${questions.length} questions × ${modes.join(', ')}; ${MODEL}; concurrency ${args.concurrency}; ${started.toISOString()}`)
   const turns = await pool(jobs.map(j => async () => {
     const t = await j()

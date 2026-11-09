@@ -55,14 +55,18 @@
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at135-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá đĩa nhìn từ trên xuống trong sump trắng, khó phân biệt từng con."
+            "caption": "Đàn cá đĩa nhìn từ trên xuống trong sump trắng, khó phân biệt từng con.",
+            "sharpness": 86.8,
+            "person": false
           },
           {
             "t": 200,
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá đĩa nhìn cận cảnh từ bên hông, thấy rõ vân và thể trạng."
+            "caption": "Cá đĩa nhìn cận cảnh từ bên hông, thấy rõ vân và thể trạng.",
+            "sharpness": 222.5,
+            "person": false
           }
         ],
         "photo": {
@@ -84,14 +88,18 @@
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at225-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai con cá đĩa trong bể mới trống, đèn sáng xanh."
+            "caption": "Hai con cá đĩa trong bể mới trống, đèn sáng xanh.",
+            "sharpness": 164.2,
+            "person": false
           },
           {
             "t": 240,
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cặp cá đĩa bơi sát nhau trong bể mới vừa thả."
+            "caption": "Cặp cá đĩa bơi sát nhau trong bể mới vừa thả.",
+            "sharpness": 166.9,
+            "person": false
           }
         ]
       },
@@ -103,14 +111,18 @@
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at300-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá con mới nở bám thành bể, trông rõ từng con."
+            "caption": "Đàn cá con mới nở bám thành bể, trông rõ từng con.",
+            "sharpness": 25.8,
+            "person": false
           },
           {
             "t": 305,
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at305-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá đĩa bố mẹ bơi cạnh đàn cá con bám trên thành bể."
+            "caption": "Cá đĩa bố mẹ bơi cạnh đàn cá con bám trên thành bể.",
+            "sharpness": 31.8,
+            "person": false
           }
         ]
       },
@@ -122,14 +134,18 @@
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at360-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cặp cá đĩa đứng sát nhau trong bể, đang trong mùa đẻ."
+            "caption": "Cặp cá đĩa đứng sát nhau trong bể, đang trong mùa đẻ.",
+            "sharpness": 170.5,
+            "person": false
           },
           {
             "t": 395,
             "url": "https://media.aquatome.com/video/bYlprFFLsEE/at395-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cặp cá đĩa bơi cạnh nhau trong bể nền xanh."
+            "caption": "Cặp cá đĩa bơi cạnh nhau trong bể nền xanh.",
+            "sharpness": 161.7,
+            "person": false
           }
         ],
         "photo": {
@@ -142,25 +158,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_03.jpg",
           "caption": "Cá đĩa xanh trắng bơi trong bể trồng cây, nền xanh tối."
         }
-      },
-      {
-        "heading": "Thay nước bằng xô cho bể khoảng 125 lít",
-        "moments": [
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/bYlprFFLsEE/at505-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống siphon xả nước từ bể vào xô trắng."
-          },
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/bYlprFFLsEE/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước từ bể chảy qua ống vào xô khi thay nước."
-          }
-        ]
       }
     ]
   }

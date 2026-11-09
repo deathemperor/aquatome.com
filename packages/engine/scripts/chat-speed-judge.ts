@@ -21,7 +21,7 @@ import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
 import { claudeCli } from '../src/claude'
-import { JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, judgePromptIn, judgeSystemIn, outcome, RUBRIC_VERSION, seenOurs, tankFacts, unbrand, type HardQuestion, type ReaderLang, type Verdict } from './chat-vs-plain-lib'
+import { JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, judgePromptIn, judgeSystemIn, outcome, RUBRIC_VERSION, seenOurs, tankFacts, unbrand, type HardQuestion, type PostTank, type ReaderLang, type Verdict } from './chat-vs-plain-lib'
 import { pool, retry } from './eval-lib'
 
 const { values: args } = parseArgs({
@@ -50,7 +50,7 @@ async function main() {
   const questions = JSON.parse(await readFile(args.questions!, 'utf8')) as HardQuestion[]
   const kept = questions.filter(q => args.split === 'all' || (args.split === 'holdout') === Boolean(q.holdout))
   await mkdir(args.cache!, { recursive: true })
-  const seen = (t: Turn) => seenOurs(t.text ?? '', t.blocks ?? [], t.suggestions ?? [])
+  const seen = (t: Turn, lang?: ReaderLang) => seenOurs(t.text ?? '', t.blocks ?? [], t.suggestions ?? [], lang)
   const judgeOnce = async (prompt: string, system = JUDGE_SYSTEM) => {
     const file = join(args.cache!, `${args.judge}-v${RUBRIC_VERSION}-${system === JUDGE_SYSTEM ? hash(prompt) : hash(system, prompt)}.json`)
     try { return JSON.parse(await readFile(file, 'utf8')) as Verdict } catch { /* not yet */ }
@@ -58,25 +58,25 @@ async function main() {
     await writeFile(file, JSON.stringify(v, null, 2))
     return v
   }
-  type Pair = { id: string; group: 'post' | 'tank' | 'everyday'; prompt: (x: string, y: string) => string; system?: string }
+  type Pair = { id: string; group: 'post' | 'tank' | 'everyday' | 'everyday-tank'; prompt: (x: string, y: string) => string; system?: string; lang?: ReaderLang }
   const pairs: Pair[] = sets.includes('hard') ? kept.flatMap(q => (['post', 'tank'] as const).map(c => ({
     id: `${q.id}-${c}`, group: c, prompt: (x: string, y: string) => judgePrompt(c === 'post' ? q.post : q.short, c === 'tank' && q.tank ? tankFacts(q.tank) : null, x, y),
   }))) : []
   if (sets.includes('everyday')) {
-    type Everyday = { id: string; lang: ReaderLang; q: string; start?: { from?: string; about?: string; identified?: { results: { scientificName: string; confidence: number }[] } } }
+    type Everyday = { id: string; lang: ReaderLang; q: string; tank?: PostTank; start?: { from?: string; about?: string; identified?: { results: { scientificName: string; confidence: number }[] } } }
     const named = (id: string) => id.replace(/-/g, ' ').replace(/^./, c => c.toUpperCase())
     for (const q of JSON.parse(await readFile(args.everyday!, 'utf8')) as Everyday[]) {
       const s = q.start
-      const context = s?.from === 'fish-id' && s.identified
+      const context = q.tank ? `What is true about their tank (their app holds it; they didn't type it, and the assistant could read it):\n${tankFacts(q.tank)}` : s?.from === 'fish-id' && s.identified
         ? `They asked right after the app's fish ID named their photo: ${s.identified.results.map(r => `${r.scientificName} (${Math.round(r.confidence * 100)}%)`).join(', ')}. The assistant knew this.`
         : s?.from === 'species' && s.about ? `They asked from the handbook's page on ${named(s.about)}: "this fish" is that one, and the assistant knew it.` : null
-      pairs.push({ id: q.id, group: 'everyday', prompt: (x, y) => judgePromptIn(q.lang, q.q, context, x, y), system: judgeSystemIn(q.lang) })
+      pairs.push({ id: q.id, group: q.tank ? 'everyday-tank' : 'everyday', prompt: (x, y) => judgePromptIn(q.lang, q.q, context, x, y), system: judgeSystemIn(q.lang), lang: q.lang })
     }
   }
   const failed = pairs.filter(p => !a.get(p.id)?.text || !b.get(p.id)?.text)
   const results = await pool(pairs.filter(p => a.get(p.id)?.text && b.get(p.id)?.text).map(p => async () => {
-    const x = unbrand(seen(b.get(p.id)!))
-    const y = unbrand(seen(a.get(p.id)!))
+    const x = unbrand(seen(b.get(p.id)!, p.lang))
+    const y = unbrand(seen(a.get(p.id)!, p.lang))
     // `outcome` reads the first order's X and the second's Y as "ours": here, the change.
     const [first, second] = await Promise.all([judgeOnce(p.prompt(x, y), p.system), judgeOnce(p.prompt(y, x), p.system)])
     const r = outcome({ first, second })
@@ -90,7 +90,7 @@ async function main() {
   console.log(`\n${results.length} questions (${args.split}), judged by ${args.judge} in both orders${failed.length ? `; ${failed.length} left out, failed on a side: ${failed.map(p => p.id).join(', ')}` : ''}.`)
   console.log(`The change better: ${n('ours')}. Before better: ${n('plain')}. Tie or split: ${n('tie')}. Score: the change ${avg(results.map(r => r.ours))}, before ${avg(results.map(r => r.plain))}. Errors quoted: the change ${errs('errorsOurs')}, before ${errs('errorsPlain')}.`)
   console.log(n('ours') >= n('plain') ? 'Held: the change loses no more than it wins.' : 'Dropped: the change loses more than it wins.')
-  const groups = [['post', 'Whole posts'], ['tank', 'Short questions with a saved tank'], ['everyday', 'Short questions without one (everyday, four languages)']] as const
+  const groups = [['post', 'Whole posts'], ['tank', 'Short questions with a saved tank'], ['everyday', 'Short questions without one (everyday, four languages)'], ['everyday-tank', 'Everyday questions with a saved tank']] as const
   for (const [g, name] of groups) {
     const rs = results.filter(r => r.group === g)
     if (!rs.length) continue

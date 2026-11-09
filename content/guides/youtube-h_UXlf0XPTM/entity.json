@@ -71,42 +71,8 @@
     ],
     "figures": [
       {
-        "heading": "Sáu loại đá đem thử",
-        "moments": [
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm một cục đá trên tay để xem kỹ bề mặt và độ nặng."
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả các loại đá vào bể thử để xem đá trong nước."
-          }
-        ]
-      },
-      {
         "heading": "Cách làm thí nghiệm",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "So màu mẫu nước đã nhỏ dung dịch với bảng màu test pH."
-          },
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả đá vào từng bể cubic, mỗi bể một loại đá."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p2-kcy1tZXRlci5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p2-kcy1tZXRlci5qcGc-480.webp",
@@ -126,35 +92,15 @@
             "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at330-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh một khối đá ngâm trong bể kính để thử nước."
-          },
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bốn bể ngâm đá xếp cạnh nhau, mỗi bể một loại đá."
+            "caption": "Cận cảnh một khối đá ngâm trong bể kính để thử nước.",
+            "sharpness": 21.8,
+            "person": false
           }
         ]
       },
       {
         "heading": "Thử cát thế nào",
-        "moments": [
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang thao tác với dụng cụ thử nước trước dãy đá."
-          },
-          {
-            "t": 425,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at425-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay nhúng ống thử để đo nước đã ngâm mẫu thử."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p4-bV93aW5kb3cuanBn.webp",
           "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p4-bV93aW5kb3cuanBn-480.webp",
@@ -168,22 +114,7 @@
       },
       {
         "heading": "Hạ pH bằng vật liệu trong bể",
-        "moments": [
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at495-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đống lũa khô được lựa chọn để bày trong bể thủy sinh."
-          },
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh những cành lũa to nhỏ dùng để hạ pH."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p5-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p5-NfUGxhbnRzLmpwZw-480.webp",
@@ -194,10 +125,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Decoration_Poseidon_Sculture_and_Mermaid_Statue_and_Driftwood_with_Anubias_Aquatic_Plants.jpg",
           "caption": "Bể thủy sinh dùng nhiều lũa, cây xanh và nền cát trắng."
         }
-      },
-      {
-        "heading": "Vì sao bể chạy lâu thì pH và TDS ổn định",
-        "moments": []
       },
       {
         "heading": "Hạ pH bằng CO2",

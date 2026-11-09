@@ -75,18 +75,6 @@
     ],
     "figures": [
       {
-        "heading": "Đo nước để biết rêu đang ăn gì",
-        "moments": [
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/jLaoKifwo1Y/at25-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ test nước đặt trên nắp bể, đang nhỏ thuốc thử để đo chỉ số."
-          }
-        ]
-      },
-      {
         "heading": "Thả cá, tép, ốc dọn bể",
         "moments": [],
         "photo": {
@@ -108,14 +96,18 @@
             "url": "https://media.aquatome.com/video/jLaoKifwo1Y/at165-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tép đỏ bò trên thân gỗ phủ rêu hại xanh."
+            "caption": "Tép đỏ bò trên thân gỗ phủ rêu hại xanh.",
+            "sharpness": 763.7,
+            "person": false
           },
           {
             "t": 170,
             "url": "https://media.aquatome.com/video/jLaoKifwo1Y/at170-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rêu hại phủ trên đá và nền cát, có dòng bọt khí sủi phía sau."
+            "caption": "Rêu hại phủ trên đá và nền cát, có dòng bọt khí sủi phía sau.",
+            "sharpness": 599.3,
+            "person": false
           }
         ],
         "photo": {
@@ -133,18 +125,13 @@
         "heading": "Chỉnh đèn: bật bao lâu, loại đèn nào",
         "moments": [
           {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/jLaoKifwo1Y/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay chỉnh đèn LED gắn trên bể thủy sinh đầy cây."
-          },
-          {
             "t": 275,
             "url": "https://media.aquatome.com/video/jLaoKifwo1Y/at275-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nước xanh đục do tảo nở hoa vì đèn chiếu quá nhiều."
+            "caption": "Bể nước xanh đục do tảo nở hoa vì đèn chiếu quá nhiều.",
+            "sharpness": 143.2,
+            "person": false
           }
         ],
         "photo": {
@@ -166,7 +153,9 @@
             "url": "https://media.aquatome.com/video/jLaoKifwo1Y/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây um tùm nhiều màu xanh, đỏ, thảm cỏ phủ đáy."
+            "caption": "Bể thủy sinh cây um tùm nhiều màu xanh, đỏ, thảm cỏ phủ đáy.",
+            "sharpness": 2528.3,
+            "person": false
           }
         ]
       }

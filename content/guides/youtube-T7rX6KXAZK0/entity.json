@@ -59,25 +59,6 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao chọn Dwarf Centipede Knifefish cho bể nhỏ",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ảnh cá dao màu cam vàng ghim trên bảng, minh họa nhóm knifefish."
-          },
-          {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at35-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá dao thân dài, có vằn, được cầm lên xem cận cảnh."
-          }
-        ]
-      },
-      {
         "heading": "Ngoài tự nhiên chúng sống ở đâu",
         "moments": [
           {
@@ -85,14 +66,18 @@
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at95-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ảnh chụp dòng nước nhiều tannin, ánh sáng xuyên qua mờ ảo."
+            "caption": "Ảnh chụp dòng nước nhiều tannin, ánh sáng xuyên qua mờ ảo.",
+            "sharpness": 1218,
+            "person": false
           },
           {
             "t": 110,
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at110-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cành cây chìm dưới nước tối màu, nơi cá thích trú ngụ."
+            "caption": "Cành cây chìm dưới nước tối màu, nơi cá thích trú ngụ.",
+            "sharpness": 30,
+            "person": false
           }
         ],
         "photo": {
@@ -114,14 +99,9 @@
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at180-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những cành gỗ khô nằm trên nền rừng, trông dãi dầu mưa nắng."
-          },
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cành gỗ khô nhỏ, đã mất vỏ, cầm trên tay để kiểm tra."
+            "caption": "Những cành gỗ khô nằm trên nền rừng, trông dãi dầu mưa nắng.",
+            "sharpness": 2972.6,
+            "person": false
           }
         ]
       },
@@ -129,56 +109,13 @@
         "heading": "Bể và đèn tối",
         "moments": [
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dán phim tối lên mặt sau của bể kính."
-          },
-          {
             "t": 260,
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể kính trống với hai đèn kẹp phía trên, nền phía sau tối."
-          }
-        ]
-      },
-      {
-        "heading": "Dựng cụm cành chìm",
-        "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dựng các cành chữ Y thẳng đứng làm khung trong bể."
-          },
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhỏ keo 502 vào chỗ tiếp xúc để gắn cành vào đá."
-          }
-        ]
-      },
-      {
-        "heading": "Nền, lá khô và trái khô",
-        "moments": [
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát mịn trải đáy hồ, bên trên là các cành gỗ."
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lá khô rụng trên mặt đất, có thể nhặt ngoài trời."
+            "caption": "Bể kính trống với hai đèn kẹp phía trên, nền phía sau tối.",
+            "sharpness": 535.1,
+            "person": false
           }
         ]
       },
@@ -186,18 +123,13 @@
         "heading": "Thảm cây nổi và nước màu trà",
         "moments": [
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt cây trồng cạn lên cụm cành cho rễ thả xuống nước."
-          },
-          {
             "t": 460,
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at460-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hồ có cây nổi trên mặt, nước ngả màu trà quanh lũa."
+            "caption": "Hồ có cây nổi trên mặt, nước ngả màu trà quanh lũa.",
+            "sharpness": 1715,
+            "person": false
           }
         ],
         "photo": {
@@ -219,14 +151,18 @@
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at490-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá thân dài bơi sát kính bể, thấy rõ vây và thân."
+            "caption": "Cá thân dài bơi sát kính bể, thấy rõ vây và thân.",
+            "sharpness": 441.7,
+            "person": false
           },
           {
             "t": 545,
             "url": "https://media.aquatome.com/video/T7rX6KXAZK0/at545-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể lúc tắt đèn, cành cây và trái kèn là chỗ cá chui ra."
+            "caption": "Bể lúc tắt đèn, cành cây và trái kèn là chỗ cá chui ra.",
+            "sharpness": 1330,
+            "person": false
           }
         ],
         "photo": {

@@ -105,14 +105,9 @@
             "url": "https://media.aquatome.com/video/viyR7oU9kBs/at90-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể 60 cm với nắp mở, đèn LED gắn trên nắp và hộc lọc phía sau."
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh hộc lọc trong đặt ở góc sau bể, dưới nắp đèn."
+            "caption": "Bể 60 cm với nắp mở, đèn LED gắn trên nắp và hộc lọc phía sau.",
+            "sharpness": 1188.6,
+            "person": false
           }
         ]
       },
@@ -124,54 +119,15 @@
             "url": "https://media.aquatome.com/video/viyR7oU9kBs/at250-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hộc lọc đen ở góc bể với dây máy bơm thả vào trong."
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt sưởi vào hộc lọc ở góc bể."
-          }
-        ]
-      },
-      {
-        "heading": "Dán phông nền đen",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xịt nước và chuẩn bị dán phông đen lên bể."
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Áp tấm phông đen lên mặt kính sau của bể."
+            "caption": "Hộc lọc đen ở góc bể với dây máy bơm thả vào trong.",
+            "sharpness": 476.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Làm nền giàu dinh dưỡng, phủ sỏi bên trên",
-        "moments": [
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phân nền dạng hạt được đổ lên lớp phân nền gốc trong bể."
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp sỏi phủ đều trên nền đã trộn phân trong bể trống."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/viyR7oU9kBs/p3-FzY2FwaW5nLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/viyR7oU9kBs/p3-FzY2FwaW5nLmpwZw-480.webp",
@@ -184,40 +140,16 @@
         }
       },
       {
-        "heading": "Bố cục lũa đá đơn giản",
-        "moments": [
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa và vài viên đá cuội được xếp gọn trong bể trống."
-          },
-          {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at700-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh khúc lũa và hai viên đá cuội tròn xếp trong bể."
-          }
-        ]
-      },
-      {
         "heading": "Chọn cây và trồng theo từng khu",
         "moments": [
-          {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/viyR7oU9kBs/at760-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp trồng cây tiền cảnh xanh mướt sát khe đá và lũa."
-          },
           {
             "t": 850,
             "url": "https://media.aquatome.com/video/viyR7oU9kBs/at850-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây đã trồng ở hậu cảnh và bên cạnh lũa trong bể."
+            "caption": "Cây đã trồng ở hậu cảnh và bên cạnh lũa trong bể.",
+            "sharpness": 666.3,
+            "person": false
           }
         ],
         "photo": {
@@ -239,7 +171,9 @@
             "url": "https://media.aquatome.com/video/viyR7oU9kBs/at1010-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới setup với cây xanh tốt và lũa lớn."
+            "caption": "Bể thủy sinh mới setup với cây xanh tốt và lũa lớn.",
+            "sharpness": 1563.3,
+            "person": false
           }
         ]
       },

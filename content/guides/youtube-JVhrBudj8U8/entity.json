@@ -56,14 +56,18 @@
             "url": "https://media.aquatome.com/video/JVhrBudj8U8/at95-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bãi đá lòng sông với nhiều viên tròn, nhẵn mặt, đủ cỡ và màu."
+            "caption": "Bãi đá lòng sông với nhiều viên tròn, nhẵn mặt, đủ cỡ và màu.",
+            "sharpness": 516.8,
+            "person": false
           },
           {
             "t": 100,
             "url": "https://media.aquatome.com/video/JVhrBudj8U8/at100-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những viên đá nhặt về, đủ kích cỡ và hình dáng, cùng bề mặt trơn."
+            "caption": "Những viên đá nhặt về, đủ kích cỡ và hình dáng, cùng bề mặt trơn.",
+            "sharpness": 2425.6,
+            "person": false
           }
         ]
       },
@@ -85,37 +89,13 @@
         "heading": "Làm sạch đá trước khi cho vào bể",
         "moments": [
           {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/JVhrBudj8U8/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xịt thuốc tẩy pha loãng lên đá để diệt phần còn sót."
-          },
-          {
             "t": 145,
             "url": "https://media.aquatome.com/video/JVhrBudj8U8/at145-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những hòn đá xếp ngoài nắng đang được xịt dung dịch khử trùng."
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao chọn cát lọc hồ bơi và đãi cát thế nào",
-        "moments": [
-          {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/JVhrBudj8U8/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nước vào xô cát và khuấy để đãi bụi."
-          },
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/JVhrBudj8U8/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát lọc hồ bơi màu trắng xám được múc lên tay."
+            "caption": "Những hòn đá xếp ngoài nắng đang được xịt dung dịch khử trùng.",
+            "sharpness": 3133.6,
+            "person": false
           }
         ]
       },
@@ -123,18 +103,13 @@
         "heading": "Rải cát và chừa chỗ cho đá",
         "moments": [
           {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/JVhrBudj8U8/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xúc cát thả xuống đáy bể đã xả bớt nước."
-          },
-          {
             "t": 240,
             "url": "https://media.aquatome.com/video/JVhrBudj8U8/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cát đã được rải và san khá phẳng trên nền bể."
+            "caption": "Cát đã được rải và san khá phẳng trên nền bể.",
+            "sharpness": 843.8,
+            "person": false
           }
         ]
       },
@@ -160,14 +135,18 @@
             "url": "https://media.aquatome.com/video/JVhrBudj8U8/at460-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nền đen với cát mỏng, vài cây nhựa, cá nổi bật."
+            "caption": "Bể nền đen với cát mỏng, vài cây nhựa, cá nổi bật.",
+            "sharpness": 628.4,
+            "person": false
           },
           {
             "t": 470,
             "url": "https://media.aquatome.com/video/JVhrBudj8U8/at470-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Phần lớn bể để trống, cá cam nổi rõ trên nền đen."
+            "caption": "Phần lớn bể để trống, cá cam nổi rõ trên nền đen.",
+            "sharpness": 1119.4,
+            "person": false
           }
         ]
       }

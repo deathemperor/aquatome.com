@@ -50,14 +50,18 @@
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at60-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hồ cảnh quan với đá và cành sồi quanh bờ, nước trong."
+            "caption": "Hồ cảnh quan với đá và cành sồi quanh bờ, nước trong.",
+            "sharpness": 3918.2,
+            "person": false
           },
           {
             "t": 70,
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thác nước nhỏ chảy qua các tảng đá phẳng xuống hồ."
+            "caption": "Thác nước nhỏ chảy qua các tảng đá phẳng xuống hồ.",
+            "sharpness": 3378.9,
+            "person": false
           }
         ],
         "photo": {
@@ -79,14 +83,18 @@
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at135-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các cây thủy sinh như chút chít đỏ và cỏ tháp bút mọc sát mép hồ."
+            "caption": "Các cây thủy sinh như chút chít đỏ và cỏ tháp bút mọc sát mép hồ.",
+            "sharpness": 1278.2,
+            "person": false
           },
           {
             "t": 155,
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at155-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rễ cây tỏa thành mạng dày dưới nước, bám quanh đá phủ rêu."
+            "caption": "Rễ cây tỏa thành mạng dày dưới nước, bám quanh đá phủ rêu.",
+            "sharpness": 147.8,
+            "person": false
           }
         ]
       },
@@ -98,14 +106,18 @@
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at165-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Con diệc đầu trắng mỏ dài, kẻ hay rình bắt cá trong hồ."
+            "caption": "Con diệc đầu trắng mỏ dài, kẻ hay rình bắt cá trong hồ.",
+            "sharpness": 311.7,
+            "person": false
           },
           {
             "t": 180,
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at180-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá vàng bơi trong hồ có cây mọc quanh mép nước."
+            "caption": "Đàn cá vàng bơi trong hồ có cây mọc quanh mép nước.",
+            "sharpness": 897.1,
+            "person": false
           }
         ],
         "photo": {
@@ -127,14 +139,18 @@
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at210-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đám cây mép nước um tùm, chỗ ếch nấp nghỉ và quan sát."
+            "caption": "Đám cây mép nước um tùm, chỗ ếch nấp nghỉ và quan sát.",
+            "sharpness": 233.5,
+            "person": false
           },
           {
             "t": 220,
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at220-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai con gọng vó đứng trên lá súng sát mặt nước."
+            "caption": "Hai con gọng vó đứng trên lá súng sát mặt nước.",
+            "sharpness": 62,
+            "person": false
           }
         ],
         "photo": {
@@ -149,40 +165,16 @@
         }
       },
       {
-        "heading": "Bảo dưỡng hồ sau một năm",
-        "moments": [
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chà rêu hại bám ở thác nước bằng miếng chà."
-          },
-          {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at365-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt cây mép nước còn trong chậu xuống hồ."
-          }
-        ]
-      },
-      {
         "heading": "Lọc thùng rác: chỗ cần rút kinh nghiệm",
         "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng rác làm lọc với ống PVC trắng kéo lệch thành nhựa."
-          },
           {
             "t": 405,
             "url": "https://media.aquatome.com/video/2EvDsbrS9Dg/at405-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ống PVC mềm trong thùng rác lọc, cạnh lỗ thủng ở thành thùng."
+            "caption": "Ống PVC mềm trong thùng rác lọc, cạnh lỗ thủng ở thành thùng.",
+            "sharpness": 437.6,
+            "person": false
           }
         ],
         "photo": {

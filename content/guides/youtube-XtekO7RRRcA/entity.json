@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "XtekO7RRRcA",
     "title": "HOW TO: Automatic water changes - Bulk Reef Supply challenge (BRStv) TUTORIAL",
@@ -25,13 +25,16 @@
       "height": 480
     },
     "transcribed": true,
-    "taxa": [],
+    "taxa": [
+      "Amphiprion ocellaris"
+    ],
     "gear": [
       {
-        "category": "khac",
+        "category": "loc",
+        "type": "tao-dong",
         "brand": "Eheim",
         "model": "Compact Pump 1000",
-        "t": 105
+        "t": 100
       },
       {
         "category": "khac",
@@ -45,28 +48,56 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/XtekO7RRRcA/p1-c19HLU1JTkUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/XtekO7RRRcA/p1-c19HLU1JTkUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/XtekO7RRRcA/p0-c19HLU1JTkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/XtekO7RRRcA/p0-c19HLU1JTkUuanBn-480.webp",
           "width": 960,
           "height": 789,
           "licence": "CC BY-SA 3.0",
           "author": "Krystal Friel",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:GRINNELL%27s_G-MINE.jpg",
-          "caption": "Đoạn ống PVC và khớp nối dùng để tự làm ống tràn."
+          "caption": "Ống PVC kèm cút nối, loại dùng để làm ống tràn cho bể."
         }
       },
       {
-        "heading": "Có cần sưởi nước trong xô không",
+        "heading": "Lắp ráp hệ thống",
+        "moments": [
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/XtekO7RRRcA/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống tràn đặt ở đầu bể, gắn bơm Aqua Lifter.",
+            "sharpness": 559.4,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Hệ thống chạy thế nào",
+        "moments": [
+          {
+            "t": 195,
+            "url": "https://media.aquatome.com/video/XtekO7RRRcA/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống dẫn nước mới đưa vào một đầu bể.",
+            "sharpness": 506.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Có cần sưởi cho xô nước mới không",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/XtekO7RRRcA/p4-ha3dhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/XtekO7RRRcA/p4-ha3dhcml1bS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/XtekO7RRRcA/p3-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/XtekO7RRRcA/p3-ha3dhcml1bS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Thanh sưởi bể cá có giác hút, loại dùng để sưởi nước trong bể."
+          "caption": "Thanh sưởi bể cá có giác hút, loại thiết bị không cần cho xô nước mới."
         }
       }
     ]

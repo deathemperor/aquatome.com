@@ -39,25 +39,6 @@
     ],
     "figures": [
       {
-        "heading": "Bộ CO2 gồm những gì",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay chỉnh van trên bộ regulator của bình CO2 nén."
-          },
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/at75-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh van giảm áp với hai đồng hồ gắn trên bình CO2."
-          }
-        ]
-      },
-      {
         "heading": "Đưa CO2 vào nước bằng cách nào",
         "moments": [
           {
@@ -65,7 +46,9 @@
             "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/at210-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Sủi CO2 hai đầu đặt trong bể thủy sinh cây xanh um."
+            "caption": "Sủi CO2 hai đầu đặt trong bể thủy sinh cây xanh um.",
+            "sharpness": 1721,
+            "person": false
           }
         ]
       },
@@ -77,7 +60,9 @@
             "url": "https://media.aquatome.com/video/D8ZPJeMEXiY/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh bể thủy sinh với thiết bị CO2 bằng kính gắn trong bể."
+            "caption": "Cận cảnh bể thủy sinh với thiết bị CO2 bằng kính gắn trong bể.",
+            "sharpness": 1085.7,
+            "person": false
           }
         ]
       }

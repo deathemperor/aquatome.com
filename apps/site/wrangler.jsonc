@@ -34,6 +34,9 @@
   // account is deleted, the APPLE_SIGNIN_KEY secret (Key ID and team below).
   "d1_databases": [{ "binding": "DB", "database_name": "aquatome", "database_id": "ffebf861-d781-47a9-a77d-e7a3506af189", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
+  // The chat's section search (worker/chat/section-search.ts): the index holds a vector a handbook section, one namespace a language.
+  "ai": { "binding": "AI" },
+  "vectorize": [{ "binding": "CHAT_SEARCH", "index_name": "aquatome-chat-sections" }],
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "aquatome-media" }],
   // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong
   // location. Its readers' and the site's counts and spend sit in one ledger (worker/fishid/ledger.ts): without it, fish ID is off.

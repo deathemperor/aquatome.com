@@ -49,8 +49,8 @@
   "https://media.aquatome.com/inaturalist/68022620.webp": "070f0d0909090c05",
   "https://images.unsplash.com/photo-1588942238143-c06a33b0a943?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTh8fER3YXJmJTIwcHVmZmVyZmlzaHxlbnwxfHx8fDE3OTM2ODI2MjF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "9931b3cbdb8f36b6",
   "https://images.unsplash.com/photo-1763345181043-2469bd1f6463?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjh8fER3YXJmJTIwcHVmZmVyZmlzaHxlbnwxfHx8fDE3OTM2ODI2MjF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": "6e2a02314c47c936",
-  "https://live.staticflickr.com/8749/16163465973_cee3446515_b.jpg": "1693190e0e1e8eeb",
-  "https://live.staticflickr.com/7607/16782280862_d9f81e08c5_b.jpg": "020312190b990d03"
+  "https://media.aquatome.com/flickr/16163465973.webp": "1615191e0e1e8e8f",
+  "https://media.aquatome.com/flickr/16782280862.webp": "02031211039d0d03"
  },
  "inat": {
   "taxon": 96797,
@@ -66,6 +66,7 @@
   "next": null
  },
  "openverse": {
-  "next": 2
- }
+  "next": null
+ },
+ "exhausted": "2026-11-09"
 }

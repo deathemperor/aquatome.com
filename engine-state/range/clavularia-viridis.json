@@ -1,0 +1,127 @@
+{
+  "id": "clavularia-viridis",
+  "native": {
+    "input": "751ceed96bd97954",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "PW",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "words": "Palau",
+        "ok": true
+      },
+      {
+        "code": "GU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "words": "Guam",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red Sea",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "ok": true
+      },
+      {
+        "name": "Great Barrier Reef",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "ok": true
+      },
+      {
+        "name": "Andaman and Nicobar Islands",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in the Red Sea, South Africa, Korea, Palau, Guam, New Guinea, the Great Barrier Reef, the Indo-Pacific region and India (Andaman and Nicobar Islands).",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG",
+        "AU"
+      ],
+      "sourcesOnly": [
+        "KR"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Clavularia viridis",
+    "status": "ACCEPTED",
+    "taxonKey": 9803118,
+    "datasets": [
+      [
+        "adb92d68-aaff-47ba-b197-d3d26f72f728",
+        5
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        2
+      ],
+      [
+        "58fc397b-eee4-4138-8a5f-50f9dfb00216",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "ZA",
+      "KR",
+      "PW",
+      "GU",
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

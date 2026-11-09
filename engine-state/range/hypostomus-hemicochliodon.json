@@ -1,0 +1,183 @@
+{
+  "id": "hypostomus-hemicochliodon",
+  "native": {
+    "input": "5fbc8fcffe2e4abe",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Marañon, Itaya, Nanay, Orosa and Napo Rivers, upper Amazon River basin, Negro, Tapajós and Xingu Rivers of Brazil, and the Orinoco River basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Peru, Amazonas: Río Nanay, Río Amazonas drainage at Pampa Chica, 4.54 km from Iquitos center, 269º bearing, 03º45'07\"S, 73º16'59\"W.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Amazonas",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Amazon River",
+        "source": "scotcat",
+        "quote": "South America: Marañon, Itaya, Nanay, Orosa and Napo Rivers, upper Amazon River basin, Negro, Tapajós and Xingu Rivers of Brazil, and the Orinoco River basin.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Marañon, Itaya, Nanay, Orosa and Napo Rivers, upper Amazon River basin, Negro, Tapajós and Xingu Rivers of Brazil, and the Orinoco River basin.",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "scotcat",
+        "quote": "South America: Marañon, Itaya, Nanay, Orosa and Napo Rivers, upper Amazon River basin, Negro, Tapajós and Xingu Rivers of Brazil, and the Orinoco River basin.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus hemicochliodon",
+    "status": "ACCEPTED",
+    "taxonKey": 5202222,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        28
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        17
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        15
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        11
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        6
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        6
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "EC",
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

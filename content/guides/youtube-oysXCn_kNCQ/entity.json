@@ -42,18 +42,6 @@
     ],
     "figures": [
       {
-        "heading": "Hệ thống nhỏ giọt là gì",
-        "moments": [
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước sạch chảy thành tia nhỏ từ ống vào bể."
-          }
-        ]
-      },
-      {
         "heading": "Dẫn nước tới bể thế nào",
         "moments": [
           {
@@ -61,14 +49,9 @@
             "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at220-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Van giảm áp (pressure regulator) dùng gắn vào vòi nước."
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lắp van giảm áp 30 PSI vào đầu nối dây dẫn nước."
+            "caption": "Van giảm áp (pressure regulator) dùng gắn vào vòi nước.",
+            "sharpness": 236.2,
+            "person": false
           }
         ]
       },
@@ -80,28 +63,15 @@
             "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at300-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ống dẫn nước nhỏ giọt thả xuống bể có lớp nền."
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dòng nước nhỏ giọt chảy từ ống vào bể."
+            "caption": "Ống dẫn nước nhỏ giọt thả xuống bể có lớp nền.",
+            "sharpness": 12.3,
+            "person": false
           }
         ]
       },
       {
         "heading": "Khoan lỗ tràn trên bể đang có nước",
-        "moments": [
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mũi khoét lỗ dùng để khoan lỗ tràn trên bể."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/oysXCn_kNCQ/p6-SG9sZV9TYXcuanBn.webp",
           "thumb": "https://media.aquatome.com/video/oysXCn_kNCQ/p6-SG9sZV9TYXcuanBn-480.webp",
@@ -112,18 +82,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mata_Bor_Hidroponik_Hole_Saw.jpg",
           "caption": "Bộ mũi khoét lỗ các cỡ dùng để khoan lỗ tràn cho bể."
         }
-      },
-      {
-        "heading": "Đặt lỗ tràn ở đâu, mất điện thì sao",
-        "moments": [
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/oysXCn_kNCQ/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Người chơi chỉ vào dòng nước vào và mặt nước phía trên bể chính."
-          }
-        ]
       }
     ]
   }

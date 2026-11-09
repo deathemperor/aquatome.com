@@ -4,18 +4,28 @@
   "altNames": [
     "L56x",
     "L056X",
-    "Parancistrus sp. 2-color"
+    "Parancistrus sp. 2-color",
+    "Cá tỳ bà Parancistrus aurantiacus",
+    "Chubby pleco",
+    "Rubber pleco"
   ],
   "sections": {
     "distribution:glaser": "<p>Đây là một loài loricariid rất lạ. Cá được nhập từ Brazil về, số lượng ít.</p>",
-    "notes:glaser": "<p>Xét về phân loại, những con cá này thuộc loài P. aurantiacus. Loài này nổi tiếng vì có thể mang màu vàng óng rực, màu vân cẩm thạch hoặc màu đen. Tài liệu cũng ghi nhận chúng có thể đổi màu trong thời gian khá ngắn. Những cá thể nói đến ở đây cũng đổi màu như vậy.</p><p>Lúc đó cá dài 8-12 cm. Các con trong ảnh đều là cá đực đã trưởng thành hoàn toàn.</p>"
+    "notes:glaser": "<p>Xét về phân loại, những con cá này thuộc loài P. aurantiacus. Loài này nổi tiếng vì có thể mang màu vàng óng rực, màu vân cẩm thạch hoặc màu đen. Tài liệu cũng ghi nhận chúng có thể đổi màu trong thời gian khá ngắn. Những cá thể nói đến ở đây cũng đổi màu như vậy.</p><p>Lúc đó cá dài 8-12 cm. Các con trong ảnh đều là cá đực đã trưởng thành hoàn toàn.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Tên thường gọi: Chubby pleco, Rubber pleco. Kích thước: 25 cm. Nhiệt độ: 26-30°C. pH 6,0-7,2.</p><p>Lúc đầu người ta tưởng những con màu vàng kim trong các lô cá nhập là cá đực, nên chúng được bán giá cao hơn. Nhưng màu vàng này thường phai đi chỉ sau một thời gian ngắn nuôi trong bể.</p>",
+    "distribution:scotcat": "<p>Brazil: Pará, sông Tocantins (Cametá-Marabá).</p><p>Loài này sống ở hạ lưu sông Xingu và trong lưu vực sông Tocantins-Araguaia. Ở Xingu, các đập thủy điện sẽ đe dọa loài này. Còn ở lưu vực Tocantins-Araguaia, nhiều đập đã được xây và vẫn còn dự án xây thêm. Người ta ngờ rằng các đập này sẽ làm số lượng và vùng phân bố của loài giảm gần 30% trong ba thế hệ tới. Vì thế, IUCN xếp loài này vào nhóm Sắp bị đe dọa (IUCN 2024).</p>",
+    "behaviour:scotcat": "<p>Loài này chỉ hơi hay giành chỗ. Lúc còn nhỏ, chúng thích nằm dưới các khúc lũa và trên đá. Khi lớn, chúng chuyển xuống nằm trên nền, trong các chỗ trốn.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có đầu rộng hơn, gai vây ngực cũng mọc nhiều lông cứng hơn. Khi con đực đủ lớn để đẻ, lông cứng ở mép sau các tấm giáp trên thân nó dài ra.</p>",
+    "diet:scotcat": "<p>Ăn tạp. Nên cho ăn đa dạng, vừa có rau vừa có các loại khác như thức ăn viên, đồ tươi sống và đồ đông lạnh.</p>",
+    "notes:scotcat": "<p>Loài này khác P. nudiventris ở mấy điểm sau. Bụng nó có giáp xương, còn bụng P. nudiventris trần. Thân nó màu nâu sẫm đều, nâu nhạt hoặc lốm đốm, còn P. nudiventris có đốm xanh lam. Khoảng cách giữa các nhánh mang ngắn hơn (39-56% HL so với 24,9-39,5% ở P. aurantiacus). Khoảng cách giữa hai mắt rộng hơn (38,5-43,1% so với 26,8-38% HL ở P. nudiventris). Răng trong miệng của Parancistrus nudiventris cũng lộ rõ hơn so với P. aurantiacus. Về xương, hai loài khác nhau chủ yếu ở ba điểm. P. nudiventris có một lồi cầu chắc trên xương sàng bên để khớp với xương metapterygoid, còn P. aurantiacus không có. Mấu anguloarticular của P. nudiventris ngắn, của P. aurantiacus thì dài. Nắp mang có gai nhỏ (odontode), ở P. nudiventris lộ ra một phần, còn ở P. aurantiacus thì chìm hẳn trong da. Các loài trong chi này có thân rộng, dẹt, phủ các tấm giáp lớn. Vây lưng và vây mỡ nối với nhau bằng một lớp màng, và khe mang của chúng rất lớn.</p><p>Nguồn gốc tên: tên loài aurantiacus trong tiếng Latin nghĩa là màu cam, ý chỉ màu thân vàng cam của cá.</p>",
+    "references:scotcat": "<p>All L-Numbers; Datz Special Habitat &amp; Care. Salvador, G.N. 2024. Parancistrus aurantiacus. The IUCN Red List of Threatened Species 2024. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

@@ -87,7 +87,7 @@ SMOKE = [
     'TankCheckFlowTests/testWarnsWhenTheFishDontGoTogetherAndTheTankIsTooSmall',  # the tank-mates check (19 s)
     'LightFlowTests/testWritesAPresetThenAnotherThenUndoesBackToTheFirst',  # the fake light: connected, a preset (85 s)
     'AccountFlowTests/testAPasskeyAddedOnTheWebsiteOpensItsAccount',  # signed in on the stand-in server (40 s)
-    'OfflineFlowTests/testKeepsAShelfAtOnceOnWiFiListsItInOnePlaceAndLetsItGo',  # a shelf kept for offline (33 s)
+    'OfflineFlowTests/testTheAccountSheetCountsTheKeptPagesAndOpensTheirShelfOnTim',  # a shelf kept for offline, listed in the sheet (about 50 s)
 ]
 
 

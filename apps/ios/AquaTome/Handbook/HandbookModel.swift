@@ -364,7 +364,15 @@ final class HandbookModel {
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
+      if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
+        let own = items.filter { $0.kind == .video }
+        items.removeAll { $0.kind == .video }
+        items += Array(own.prefix(n)) + (own.count..<max(n, own.count)).map {
+          .init(kind: .video, name: "Bộ video \($0 + 1)", sub: "Kênh \($0 + 1)", path: "/vi/video/bo-video-\($0 + 1)/", parts: $0 + 2)
+        }
+      }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
       if args.contains("-plan") { home?.days = HandbookIndex.fixtureDays }
@@ -567,6 +575,8 @@ extension HandbookIndex {
   /// UI tests (`-long-part`): the fixture's pages, the neon's feeding six paragraphs long and its breeding one long
   /// paragraph with a link: parts that fold.
   static let fixturePagesWithLongParts = Data(String(decoding: fixturePages, as: UTF8.self)
+    .replacingOccurrences(of: #"{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"}"#,
+                          with: #"{"t":"h","text":"Nuôi chung với con gì?","id":"muc-behaviour"},{"t":"p","c":["Hợp với các loài cá nhỏ hiền."]},{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"}"#)
     .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
                           with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"# + #",{"t":"p","c":["Cá con mới mua về thường nhát ăn vài ngày đầu: cho ít, quan sát xem cá có lên ăn không rồi mới tăng dần lượng thức ăn."]},{"t":"p","c":["Thức ăn đông lạnh như trùn chỉ hay artemia nên rã đông trong một ít nước bể trước khi thả, để cá không ăn phải miếng còn cứng lạnh."]},{"t":"p","c":["Mỗi tuần nên có một ngày không cho ăn: hệ tiêu hóa của cá được nghỉ, nước bể cũng sạch hơn vì ít thức ăn thừa."]},{"t":"p","c":["Thức ăn thừa chìm xuống đáy sau vài phút cần hút bỏ, vì nó làm nước đục và tăng amoniac rất nhanh trong bể nhỏ."]},{"t":"p","c":["Đoạn cuối về cho ăn: khi đi vắng vài ngày, cá khỏe chịu nhịn được, không cần thả viên thức ăn tan chậm."]}"#)
     .replacingOccurrences(of: #"{"t":"p","c":["Khó cho đẻ trong bể nuôi chung: cần bể đẻ riêng, nước rất mềm."]}"#,

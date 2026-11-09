@@ -193,15 +193,7 @@ struct NativePage: View {
         } else if hero, let gallery {
           // The page's own photo, carrying how many it has: the whole of it opens them all.
           Button { gridAt = .photos } label: {
-            image.overlay(alignment: .bottomTrailing) {
-              Text("\(gallery.photos.count) ảnh")
-                .font(.footnote.weight(.semibold))
-                .foregroundStyle(.white)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .background(.black.opacity(0.55), in: .capsule)
-                .padding(10)
-            }
+            image.overlay(alignment: .bottomTrailing) { PhotosBadge(count: gallery.photos.count).padding(12) }
           }
           .buttonStyle(.plain)
           .accessibilityLabel(Text(verbatim: (alt ?? gallery.title) + ", ") + Text("Xem tất cả \(gallery.photos.count) ảnh"))
@@ -686,12 +678,12 @@ struct CardsPart: View {
           }
           Text(title)
         }
-        .font(.headline)
+        .font(v2 && good != nil ? .subheadline.weight(.semibold) : .headline)
         .accessibilityAddTraits(.isHeader)
       }
       VStack(spacing: 0) {
         ForEach(cards.indices, id: \.self) { j in
-          if j > 0 { Divider().padding(.leading, v2 ? (thumbs && !size.isAccessibilitySize ? 68 : 12) : thumbs ? thumb + 24 : 12) }
+          if j > 0 { Divider().padding(.leading, v2 ? 0 : thumbs ? thumb + 24 : 12) }
           if v2 { v2Row(cards[j]) } else { row(cards[j], thumbs: thumbs) }
         }
       }
@@ -751,9 +743,9 @@ struct CardsPart: View {
   private func v2Row(_ c: NativePage.Card) -> some View {
     Button { if let u = URL(string: c.path) { open(u) } } label: {
       HStack(spacing: 12) {
-        let words = VStack(alignment: .leading, spacing: 2) {
-          Text(c.name).font(.body.weight(.semibold))
-          if let sub = c.sub { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
+        let words = VStack(alignment: .leading, spacing: 0) {
+          Text(c.name).font(.callout)
+          if let sub = c.sub { Text(sub).font(.footnote).foregroundStyle(.secondary) }
         }
         let photo = c.img.map { PageImage(src: $0.thumb ?? $0.src, ratio: 4.0 / 3, corner: 5).frame(width: 44, height: 33) }
         if size.isAccessibilitySize {
@@ -768,8 +760,9 @@ struct CardsPart: View {
         Spacer(minLength: 0)
         Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
       }
-      .padding(.horizontal, 12)
-      .padding(.vertical, 10)
+      .padding(.horizontal, 14)
+      .padding(.vertical, 9)
+      .frame(minHeight: 48)
       .contentShape(.rect)
     }
     .buttonStyle(.plain)
@@ -843,6 +836,32 @@ struct PagesBlock: View {
       }
       .padding(.top, titled ? 40 : 0)
     }
+  }
+}
+
+/// How many photos a page has, over its own photo, as the mock draws it: a photo's icon then "N ảnh", white on a dark
+/// rounded blur, the same over a light photo or a dark one. v2's banner shows this one too.
+struct PhotosBadge: View {
+  let count: Int
+  @Environment(\.dynamicTypeSize) private var type
+  @ScaledMetric(relativeTo: .subheadline) private var scale: CGFloat = 1
+
+  var body: some View {
+    // The mock's two sizes: 14 on 32 with 12 at the sides, and 28 on 52 with 18 at the accessibility sizes, past which
+    // it would cover the photo. The sizes between grow with the text.
+    let ax = type.isAccessibilitySize
+    HStack(spacing: 6) {
+      Image(systemName: "photo.on.rectangle").font(.system(size: ax ? 23 : 12.25 * scale, weight: .medium))
+      Text("\(count) ảnh")
+    }
+    .font(.system(size: ax ? 28 : 14 * scale, weight: .semibold))
+    .lineLimit(1)
+    .foregroundStyle(.white)
+    .padding(.horizontal, ax ? 18 : 12 * scale)
+    .frame(height: ax ? 52 : 32 * scale)
+    .background(.black.opacity(0.46), in: .capsule)
+    .background(.ultraThinMaterial, in: .capsule)
+    .environment(\.colorScheme, .dark)
   }
 }
 

@@ -117,14 +117,9 @@
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at110-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đang chạy với bộ lọc và ống nước nối bên ngoài."
-          },
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống chỉ còn ít nền cũ được giữ lại, bên cạnh túi đựng."
+            "caption": "Bể đang chạy với bộ lọc và ống nước nối bên ngoài.",
+            "sharpness": 787.7,
+            "person": false
           }
         ]
       },
@@ -136,14 +131,18 @@
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at115-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ống rút nước gắn vào bể, mực nước đang hạ xuống."
+            "caption": "Ống rút nước gắn vào bể, mực nước đang hạ xuống.",
+            "sharpness": 569.1,
+            "person": false
           },
           {
             "t": 120,
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at120-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cũ đang được rút nước bằng ống siphon."
+            "caption": "Bể thủy sinh cũ đang được rút nước bằng ống siphon.",
+            "sharpness": 1353.8,
+            "person": false
           }
         ],
         "photo": {
@@ -158,47 +157,22 @@
         }
       },
       {
-        "heading": "Set lại nền",
-        "moments": [
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng tay san phẳng lớp nền đen trong hồ."
-          }
-        ]
-      },
-      {
         "heading": "Dựng đá lũa theo kiểu đảo",
         "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang dựng các khúc lũa và đá vào giữa bể, chừa trống hai bên."
-          },
           {
             "t": 305,
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at305-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh lũa spiderwood xếp cùng đá Yamaya thành cụm đảo giữa bể."
+            "caption": "Cận cảnh lũa spiderwood xếp cùng đá Yamaya thành cụm đảo giữa bể.",
+            "sharpness": 488.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Dán đá lũa và dán cây bằng keo",
-        "moments": [
-          {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at335-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bông tẩy trang thấm keo dán các khúc đá lũa lại với nhau."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/BTGMS7pm6zo/p4-kzMDMyOTYpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/BTGMS7pm6zo/p4-kzMDMyOTYpLmpwZw-480.webp",
@@ -214,18 +188,13 @@
         "heading": "Trồng cây theo từng tầng",
         "moments": [
           {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bucep và Anubias mini coin đã được gắn vào khe giữa lũa và đá."
-          },
-          {
             "t": 440,
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at440-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể sau khi gắn rêu, cây xanh điểm khắp lũa và đá."
+            "caption": "Bể sau khi gắn rêu, cây xanh điểm khắp lũa và đá.",
+            "sharpness": 1045,
+            "person": false
           }
         ],
         "photo": {
@@ -247,14 +216,18 @@
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at610-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đầy nước với lũa, cây thủy sinh và cây nổi phía trên."
+            "caption": "Bể đầy nước với lũa, cây thủy sinh và cây nổi phía trên.",
+            "sharpness": 405.1,
+            "person": false
           },
           {
             "t": 620,
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at620-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh đã đặt lên kệ, có lọc, đèn và cây mọc xanh."
+            "caption": "Bể thủy sinh đã đặt lên kệ, có lọc, đèn và cây mọc xanh.",
+            "sharpness": 1354.4,
+            "person": false
           }
         ],
         "photo": {
@@ -276,14 +249,18 @@
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at745-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá betta bơi giữa đám Rotala xanh đỏ mọc rậm ở hậu cảnh."
+            "caption": "Cá betta bơi giữa đám Rotala xanh đỏ mọc rậm ở hậu cảnh.",
+            "sharpness": 151.5,
+            "person": false
           },
           {
             "t": 750,
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at750-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể sau khi trồng lại hậu cảnh Rotala, lũa và cây tiền cảnh."
+            "caption": "Toàn cảnh bể sau khi trồng lại hậu cảnh Rotala, lũa và cây tiền cảnh.",
+            "sharpness": 1010.1,
+            "person": false
           }
         ],
         "photo": {
@@ -305,14 +282,18 @@
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at840-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hệ thống CO2 với bình, đồng hồ áp và các bộ đếm bọt."
+            "caption": "Hệ thống CO2 với bình, đồng hồ áp và các bộ đếm bọt.",
+            "sharpness": 1410.9,
+            "person": false
           },
           {
             "t": 855,
             "url": "https://media.aquatome.com/video/BTGMS7pm6zo/at855-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây xanh um, lũa và cá nhỏ sau khi làm lại."
+            "caption": "Bể thủy sinh cây xanh um, lũa và cá nhỏ sau khi làm lại.",
+            "sharpness": 1629.3,
+            "person": false
           }
         ],
         "photo": {
