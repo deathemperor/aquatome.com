@@ -86,6 +86,7 @@ final class ChatFlowTests: XCTestCase {
     let starter = app.buttons.matching(identifier: "chat-chip").firstMatch
     XCTAssertTrue(starter.waitForExistence(timeout: 5), "no starters")
     XCTAssertFalse(element(app, "chat-about").exists, "the card on the empty screen")
+    XCTAssertEqual(element(app, "chat-box").placeholderValue, "Hỏi về cá…", "a placeholder too long for one line at this size")
     let top = element(app, "chat-box").frame.minY
     let who = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Claude")).firstMatch
     XCTAssertLessThan(who.frame.maxY, top, "the line about who answers runs under the box")

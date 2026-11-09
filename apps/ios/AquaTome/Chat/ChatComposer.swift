@@ -85,9 +85,8 @@ struct ChatComposer: View {
   /// At the largest text sizes, one that fits a line.
   private var placeholder: String {
     let s = model.route.subject
-    if size.isAccessibilitySize || s.fromPhoto {
-      return s.plant ? String(localized: "Hỏi về cây này…") : String(localized: "Hỏi về cá này…")
-    }
+    if size.isAccessibilitySize { return s.plant ? String(localized: "Hỏi về cây…") : String(localized: "Hỏi về cá…") }
+    if s.fromPhoto { return s.plant ? String(localized: "Hỏi về cây này…") : String(localized: "Hỏi về cá này…") }
     return String(localized: "Hỏi về \(ChatNames.inSentence(s.name))…")
   }
 

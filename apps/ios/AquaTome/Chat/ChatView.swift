@@ -383,7 +383,8 @@ private struct ChatHeader: View {
         if let img = subject.img {
           PageImage(src: img.absoluteString, ratio: 1, corner: 0)
         } else {
-          Image(systemName: "photo").font(.title3).foregroundStyle(.secondary).frame(maxWidth: .infinity, maxHeight: .infinity)
+          // The species has no photo: what it is, not a picture that failed to load.
+          Image(systemName: subject.plant ? "leaf.fill" : "fish.fill").font(.title3).foregroundStyle(.secondary).frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.fill.tertiary)
         }
       }
