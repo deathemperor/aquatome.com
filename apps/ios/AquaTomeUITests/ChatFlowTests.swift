@@ -414,6 +414,59 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["chat-send"].isEnabled)
   }
 
+  // MARK: The wait's first line
+
+  /// The first line leads the wait's box, above its step, "Đang soạn câu trả lời…" last; as the text comes it folds with the
+  /// steps, and their row opened lists it first.
+  func testTheFirstLineLeadsTheWaitAndFoldsWithTheSteps() {
+    let app = launch("-chat-opening", "-chat-slow")
+    openChat(app)
+    signIn(app)
+    ask(app, "Nuôi cá neon theo đàn thế nào?")
+    let line = element(app, "chat-opening")
+    XCTAssertTrue(line.waitForExistence(timeout: 10), "no first line while it waits")
+    XCTAssertEqual(line.label, "Mình đang tra cẩm nang về cách nuôi cá neon xanh theo đàn cho bạn.")
+    let step = element(app, "chat-step"), wait = element(app, "chat-wait")
+    XCTAssertTrue(step.waitForExistence(timeout: 10), "no step")
+    XCTAssertLessThan(line.frame.minY, step.frame.minY, "the line not above the step")
+    XCTAssertLessThan(step.frame.minY, wait.frame.minY, "the wait not last")
+    let fold = app.buttons["chat-fold"]
+    XCTAssertTrue(fold.waitForExistence(timeout: 20), "the steps didn't fold")
+    XCTAssertTrue(line.waitForNonExistence(timeout: 5), "the line stayed with the text in")
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "no whole answer")
+    fold.tap()
+    XCTAssertTrue(line.waitForExistence(timeout: 5), "the opened row doesn't list the line")
+    let read = app.buttons.matching(NSPredicate(format: "label == 'Đã đọc Cá neon xanh'")).firstMatch
+    XCTAssertTrue(read.exists, "the opened row doesn't list the step")
+    XCTAssertLessThan(line.frame.minY, read.frame.minY, "the line not first in the opened row")
+  }
+
+  /// An answer that turned out off topic: `done` without the line takes it away; the opened row doesn't list it.
+  func testDoneWithoutTheFirstLineTakesItAway() {
+    let app = launch("-chat-opening-dropped")
+    openChat(app)
+    signIn(app)
+    ask(app, "Nuôi cá neon theo đàn thế nào?")
+    XCTAssertTrue(element(app, "chat-opening").waitForExistence(timeout: 10), "no first line while it waits")
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "no whole answer")
+    app.buttons["chat-fold"].tap()
+    XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label == 'Đã đọc Cá neon xanh'")).firstMatch.waitForExistence(timeout: 5), "not opened")
+    XCTAssertFalse(element(app, "chat-opening").exists, "the line kept though done took it back")
+  }
+
+  /// A break after the first line, before any text: the cut-off card, not counted.
+  func testABreakAfterTheFirstLineIsCutOffAndIsntCounted() {
+    let app = launch("-chat-opening-cut")
+    openChat(app)
+    signIn(app)
+    ask(app, "Nuôi cá neon theo đàn thế nào?")
+    let card = element(app, "chat-cut-off")
+    XCTAssertTrue(card.waitForExistence(timeout: 20), "no cut-off card")
+    XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists, "counted")
+    XCTAssertFalse(element(app, "chat-answer").exists, "an answer with no text")
+    XCTAssertTrue(app.buttons["chat-fold"].exists, "the box didn't fold into its row")
+  }
+
   // MARK: The blocks
 
   /// A species' card: "Xem trang" opens its page, "Thêm vào bể" puts it on a tank. The chat's own fish has a thumbnail where

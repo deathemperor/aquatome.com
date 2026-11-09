@@ -1,10 +1,13 @@
 import Foundation
 
 extension Chat {
-  /// One question's answer as the chat screen draws it, from its stream's events (Chat.event) in order: the steps until
+  /// One question's answer as the chat screen draws it, from its stream's events (Chat.event) in order: the wait's first
+  /// line, the steps until
   /// the text starts (every step comes before it), the text as its pieces come, the blocks, then the whole turn, which
   /// replaces what streamed; or the error that ended it. Past either end, an event changes nothing.
   public struct Reply: Sendable {
+    /// The wait's first line, until `done` says otherwise (it has the last word: none, and the line goes).
+    public private(set) var opening: String?
     public private(set) var steps: [Step] = []
     public private(set) var text = ""
     public private(set) var blocks: [Block] = []
@@ -24,6 +27,9 @@ extension Chat {
     public mutating func take(_ e: Event) {
       guard !ended else { return }
       switch e {
+      case .opening(let line):
+        // Once, and only while the answer is still to come.
+        if text.isEmpty, opening == nil { opening = line }
       case .step(let s):
         if text.isEmpty { add(s) }
       case .text(let piece):
@@ -37,6 +43,7 @@ extension Chat {
         blocks = t.blocks
         steps = []
         t.steps.forEach { add($0) }
+        opening = t.opening
       case .error(let code):
         error = code
       }
