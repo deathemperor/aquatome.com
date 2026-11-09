@@ -4,6 +4,7 @@ import { expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import { chatPast } from '../chat/past'
 import { OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { chatAccount, conversationKey } from '../chat/store'
@@ -1147,4 +1148,144 @@ test('the daily cron sweeps retries\' answers a day old, and nothing else of the
   const worker = (await import('../index')).default
   await worker.scheduled({} as ScheduledController, { AB: kv(), ASSETS, UPLOADS: r2.bucket } as never)
   expect([...r2.m.keys()].sort()).toEqual(['chat-conv/a/c.json', 'chat-turn/a/new.json'])
+})
+
+/** Stop (POST /api/chat/cancel, chat/past.ts), held to the contract. */
+async function stopIt(e: ChatEnv, token: string, key: string, now = new Date()) {
+  const req = new Request('https://x.test/api/chat/cancel', { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify({ key }) })
+  return await answer('/api/chat/cancel', 'post', await chatPast(req, new URL(req.url), e, now))
+}
+const recorded = (f: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8')) as { body: unknown }
+/** A fake Claude whose first call waits for `release`; `asked` resolves when that call has come. */
+function heldClaude() {
+  let release!: () => void
+  let came!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const asked = new Promise<void>(r => { came = r })
+  return { release, asked, c: claude([async () => { came(); await held; return reads('/vi/ca/ca-neon-xanh/') }, () => answers({})]) }
+}
+
+test('a stop before the text cancels the question: it ends cancelled as recorded, keeps nothing, its count goes back, and a replay or a second stop gets the same', async () => {
+  const { e, db, ledger, store } = env()
+  const me = await signIn(db)
+  const key = crypto.randomUUID()
+  const { release, asked, c } = heldClaude()
+  const running = run(ask(bearer(me.token), {}, { 'idempotency-key': key, accept: 'text/event-stream' }), e, deps(c.fetch, { stopMs: 2 }))
+  await asked
+  expect(await stopIt(e, me.token, key)).toEqual(recorded('chat-cancel-cancelled.json').body)
+  const { res } = await running
+  release()
+  const text = await res.text()
+  expect(text).not.toContain('event: text')
+  expect(text.endsWith('event: error\ndata: {"error":"cancelled","counted":false,"freeLeft":9}\n\n')).toBe(true)
+  await tick()
+  // Nothing of it kept: no turn, no transcript, no row; its count is back; the conversation takes another question.
+  expect((store.read<Conversation>(await convKey(me)))!).toMatchObject({ turns: [] })
+  expect((store.read<Conversation>(await convKey(me)))!.running).toBeUndefined()
+  expect([...store.m.keys()].some(k => k.startsWith('chat-run/'))).toBe(false)
+  expect((await db.prepare('SELECT COUNT(*) AS n FROM chat_conversations').first<{ n: number }>())?.n).toBe(0)
+  expect(Object.values(ledger.day()!.readers)).toEqual([0])
+  // A second stop is the first's reply and uses no second stop; a replay ends as it did.
+  expect(await stopIt(e, me.token, key)).toEqual({ result: 'cancelled', counted: false, freeLeft: 9 })
+  expect(Object.values(ledger.day()!.stops!)).toEqual([1])
+  const replay = await run(ask(bearer(me.token), {}, { 'idempotency-key': key }), e, deps(c.fetch))
+  expect([replay.res.status, replay.body]).toEqual([410, { error: 'cancelled', counted: false, freeLeft: 9 }])
+})
+
+test('a stop stops a question not on a stream too; and one that comes before its question ends it unasked, with no count', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const key = crypto.randomUUID()
+  const { release, asked, c } = heldClaude()
+  const running = run(ask(bearer(me.token), {}, { 'idempotency-key': key }), e, deps(c.fetch, { stopMs: 2 }))
+  await asked
+  await stopIt(e, me.token, key)
+  release()
+  const r = await running
+  expect([r.res.status, r.body]).toEqual([410, { error: 'cancelled', counted: false, freeLeft: 9 }])
+  // Before its question: nothing counted, no figure to warn with, and the question never runs.
+  const early = crypto.randomUUID()
+  expect(await stopIt(e, me.token, early)).toEqual({ result: 'cancelled', counted: false })
+  const c2 = claude(NEON)
+  const late = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { 'idempotency-key': early }), e, deps(c2.fetch))
+  expect([late.res.status, late.body, c2.bodies.length]).toEqual([410, { error: 'cancelled', counted: false }, 0])
+  expect(Object.values(ledger.day()!.readers)).toEqual([0])
+})
+
+test('once the text has begun, or the question ended, a stop is too late: its answer stands and counts', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const key = crypto.randomUUID()
+  const c = claude(NEON)
+  const r = await run(ask(bearer(me.token), {}, { 'idempotency-key': key, accept: 'text/event-stream' }), e, deps(c.fetch))
+  expect(await r.res.text()).toContain('event: done')
+  await tick()
+  expect(await stopIt(e, me.token, key)).toEqual(recorded('chat-cancel-late.json').body)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  expect(Object.values(ledger.day()!.stops ?? {})).toEqual([])
+})
+
+test('a stop names its own account\'s question only', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const other = await signIn(db)
+  const key = crypto.randomUUID()
+  const { release, asked, c } = heldClaude()
+  const running = run(ask(bearer(me.token), {}, { 'idempotency-key': key }), e, deps(c.fetch, { stopMs: 2 }))
+  await asked
+  expect(await stopIt(e, other.token, key)).toEqual({ result: 'cancelled', counted: false })
+  release()
+  const r = await running
+  expect([r.res.status, r.body.n]).toEqual([200, 1])
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('ten stops a day are free, the tenth saying so; past them a stop still stops the question, and it counts', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const results: unknown[] = []
+  for (let i = 0; i < 11; i++) {
+    const key = crypto.randomUUID()
+    const { release, asked, c } = heldClaude()
+    const running = run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { 'idempotency-key': key }), e, deps(c.fetch, { stopMs: 2 }))
+    await asked
+    results.push(await stopIt(e, me.token, key))
+    release()
+    await running
+  }
+  expect(results[0]).toEqual({ result: 'cancelled', counted: false, freeLeft: 9 })
+  expect(results[9]).toEqual({ result: 'cancelled', counted: false, freeLeft: 0 })
+  expect(results[10]).toEqual({ result: 'cancelled', counted: true, freeLeft: 0 })
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('each answer writes the conversation\'s row: its first question, where it started, then its last time and count; a carried-on one joins its row unless hidden', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const account = await chatAccount('k', me.id)
+  const go = (c2: Record<string, unknown>) => run(ask(bearer(me.token), c2), e, deps(claude(NEON).fetch))
+  await go({})
+  await go({ question: 'Câu thứ hai' })
+  const row = await db.prepare('SELECT * FROM chat_conversations WHERE account = ? AND id = ?').bind(account, CONV).first<Record<string, unknown>>()
+  expect(row).toMatchObject({ title: 'Nuôi cá này thế nào?', questions: 2, continues: null, hidden: 0 })
+  expect(JSON.parse(row!.start as string)).toEqual({ from: 'fish-id', about: 'paracheirodon-innesi', lang: 'vi' })
+  expect(String(row!.last_at)).toMatch(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/)
+  const next = crypto.randomUUID()
+  await go({ conversation: next, continues: CONV })
+  const joined = await db.prepare('SELECT continues FROM chat_conversations WHERE account = ? AND id = ?').bind(account, next).first<{ continues: string }>()
+  expect(joined?.continues).toBe(CONV)
+  // One it doesn't hold is left out.
+  const stray = crypto.randomUUID()
+  await go({ conversation: stray, continues: crypto.randomUUID() })
+  expect((await db.prepare('SELECT continues FROM chat_conversations WHERE account = ? AND id = ?').bind(account, stray).first<{ continues: string | null }>())?.continues).toBeNull()
+  expect((await run(ask(bearer(me.token), { continues: 'x' }), e, deps(claude(NEON).fetch))).body).toEqual({ error: 'bad request' })
+})
+
+test('a question in a conversation hidden on another device is ended, so the app asks in a new one', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))
+  await db.prepare('UPDATE chat_conversations SET hidden = 1').run()
+  const r = await run(ask(bearer(me.token), { question: 'Nữa' }), e, deps(claude(NEON).fetch))
+  expect([r.res.status, r.body]).toEqual([410, { error: 'ended' }])
 })

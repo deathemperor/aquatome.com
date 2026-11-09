@@ -271,13 +271,16 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * was dropped. A pick's block depends only on the picks before it, so the blocks given one by one are the start of
  * `done`'s.
  */
+/** A fish's, breed's or plant's page, as fish ID links one (the contract's `Linked`). */
+export const linkedOf = (id: string, i: Item) => ({ id, kind: i.kind === 'plant' ? 'plant' as const : isBreed(i) ? 'breed' as const : 'species' as const, name: i.name, ...(i.sub ? { sci: i.sub } : {}), url: i.path, ...(i.img ? { img: i.img } : {}) })
+
 export function filler(hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string) {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
     if (!i || (i.kind !== 'fish' && i.kind !== 'plant')) return undefined
     return {
-      page: { id, kind: i.kind === 'plant' ? 'plant' : isBreed(i) ? 'breed' : 'species', name: i.name, ...(i.sub ? { sci: i.sub } : {}), url: i.path, ...(i.img ? { img: i.img } : {}) },
+      page: linkedOf(id, i),
       ...figuresOf(i, hb.byId),
     }
   }
