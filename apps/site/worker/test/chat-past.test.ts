@@ -60,14 +60,12 @@ const one = (e: ChatEnv, token: string, id: string) => call(e, token, 'get', `/a
 const hide = (e: ChatEnv, token: string, id: string) => call(e, token, 'post', `/api/chat/conversations/${id}/hide`, PATHS.hide)
 const report = (e: ChatEnv, token: string, id: string, body: unknown) => call(e, token, 'post', `/api/chat/conversations/${id}/report`, PATHS.report, body)
 
-type Seed = { id: string; question: string; from?: string; about?: unknown; identified?: unknown; started: string; last: string; n: number; continues?: string }
+type Seed = { id: string; question: string; title?: string; from?: string; about?: unknown; identified?: unknown; started: string; last: string; n: number; continues?: string }
 async function row(db: D1Database, account: string, c: Seed, hidden = 0) {
-  const start = { ...(c.from ? { from: c.from } : {}), ...(c.from === 'species' ? { about: (c.about as { id: string }).id } : {}), ...(c.identified ? { identified: c.identified } : {}), lang: 'vi' }
+  const start = { ...(c.from ? { from: c.from } : {}), ...(c.from === 'species' ? { about: (c.about as { id: string }).id } : {}), ...(c.identified ? { identified: c.identified } : {}), ...(c.title ? { title: c.title } : {}), lang: 'vi' }
   await db.prepare('INSERT INTO chat_conversations (account, id, title, start, first_at, last_at, questions, continues, hidden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
     .bind(account, c.id, c.question, JSON.stringify(start), c.started, c.last, c.n, c.continues ?? null, hidden).run()
 }
-// A conversation's short title comes with the titles work; a page's title is the page's.
-const noTitles = <T>(v: T): T => JSON.parse(JSON.stringify(v, function (this: Record<string, unknown>, k, x) { return k === 'title' && !this.url ? undefined : x }))
 const seedRecorded = async (db: D1Database, account: string) => {
   const rec = recorded('chat-conversations.json')
   for (const r of rec.body.rows) for (const c of r.conversations) await row(db, account, c)
@@ -82,7 +80,7 @@ test('the list answers as the app\'s recording does: rows by their last question
   await row(db, me.account, OLDER)
   const first = await list(e, me.token, '?limit=3')
   expect(first.status).toBe(200)
-  expect(first.body.rows).toEqual(noTitles(rec.body.rows))
+  expect(first.body.rows).toEqual(rec.body.rows)
   expect(typeof first.body.next).toBe('string')
   const second = await list(e, me.token, `?limit=3&before=${encodeURIComponent(first.body.next)}`)
   expect(second.body.rows.map((r: any) => r.conversations[0].id)).toEqual([OLDER.id])
@@ -103,12 +101,12 @@ test('one conversation answers as the app\'s recording does; a turn from before 
   const { e, db, store } = env()
   const me = await signIn(db)
   const rec = recorded('chat-conversation.json').body
-  await row(db, me.account, { id: rec.id, question: rec.turns[0].question, from: rec.from, about: rec.about, identified: rec.identified, started: rec.started, last: rec.last, n: rec.turns.length })
+  await row(db, me.account, { id: rec.id, question: rec.turns[0].question, title: rec.title, from: rec.from, about: rec.about, identified: rec.identified, started: rec.started, last: rec.last, n: rec.turns.length })
   const turns = rec.turns.map((t: any) => ({ question: t.question, at: Date.parse(t.asked), ...t.turn }))
   store.m.set(conversationKey(me.account, rec.id), JSON.stringify({ created: Date.parse(rec.started), turns }))
   const r = await one(e, me.token, rec.id)
   expect(r.status).toBe(200)
-  expect(r.body).toEqual(noTitles(rec))
+  expect(r.body).toEqual(rec)
   // Saved before the past conversations: five fields.
   const old = crypto.randomUUID()
   await row(db, me.account, { id: old, question: 'Cũ', started: '2026-11-07T10:00:00Z', last: '2026-11-07T10:00:00Z', n: 1 })

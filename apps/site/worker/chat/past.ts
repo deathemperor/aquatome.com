@@ -2,8 +2,8 @@ import { sameSiteOk, sessionOf, tokenOf } from '../accounts/session'
 import { DEFAULT_MODEL } from '../fishid/claude'
 import { ledgerClient } from '../fishid/ledger'
 import type { Start } from './agent'
-import { linkedOf } from './answer'
-import { askable, assetSource, charsOf, CONVERSATION_MS, json, limit, live, MAX_TURNS, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
+import { charsOf, linkedOf } from './answer'
+import { askable, assetSource, CONVERSATION_MS, json, limit, live, MAX_TURNS, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
 import { handbookOf, type Handbook, type Lang } from './handbook'
 import { chatAccount, conversationKey, importedKey, listAll, reportKey, retryKey, secs, stopKey } from './store'
 
@@ -24,7 +24,7 @@ const MAX_PAGE = 50
 const IMPORT = 200
 
 type Row = { id: string; title: string; start: string; first_at: string; last_at: string; questions: number; continues: string | null; hidden: number }
-type StartKept = Start & { lang?: Lang }
+type StartKept = Start & { lang?: Lang; title?: string }
 const startOf = (r: Row) => JSON.parse(r.start) as StartKept
 
 export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, deps: ChatDeps = {}): Promise<Response> {
@@ -54,7 +54,7 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
   const summaryOf = async (r: Row) => {
     const s = startOf(r)
     const about = await aboutOf(s)
-    return { id: r.id, question: r.title, ...(s.from ? { from: s.from } : {}), ...(about ? { about } : {}), ...(s.identified ? { identified: s.identified } : {}), started: r.first_at, last: r.last_at, n: r.questions, open: open(r), ...(r.continues ? { continues: r.continues } : {}) }
+    return { id: r.id, question: r.title, ...(s.title ? { title: s.title } : {}), ...(s.from ? { from: s.from } : {}), ...(about ? { about } : {}), ...(s.identified ? { identified: s.identified } : {}), started: r.first_at, last: r.last_at, n: r.questions, open: open(r), ...(r.continues ? { continues: r.continues } : {}) }
   }
   /** One of the account's conversations it hasn't hidden, with what it keeps. */
   const held = async (id: string): Promise<{ row: Row; conv: Conversation } | undefined> => {
@@ -162,7 +162,7 @@ function chainsOf(rows: Row[]): Row[][] {
 }
 
 const turnOf = (t: KeptTurn, conversation: string, model: string): Turn => ({
-  conversation, n: t.n, text: t.text, blocks: t.blocks, suggestions: t.suggestions ?? [], covered: t.covered ?? true, model: t.model ?? model,
+  conversation, n: t.n, text: t.text, blocks: t.blocks, suggestions: t.suggestions ?? [], covered: t.covered ?? true, ...(t.title ? { title: t.title } : {}), model: t.model ?? model,
   ...(t.steps ? { steps: t.steps } : {}), ...(t.opening ? { opening: t.opening } : {}),
 })
 

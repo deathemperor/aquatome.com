@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
+import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, TITLED_SCHEMA, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
@@ -62,6 +62,62 @@ export function shown(b: ChatBlock): string {
 }
 
 /**
+ * The title's form in each language (the editors' round 1, docs in ~/.cache/aquatome/evals/titles/editors-r1/): how a
+ * yes-or-no question asks, the case, and two titles, a problem and a question, of fish and tanks the sample doesn't
+ * hold, so the sample isn't scored on its own answers. Only the reader's language goes in the prompt.
+ */
+export const TITLE_FORM: Record<Lang, { asks: string; open: string; case: string; words: string; examples: [string, string]; worked: string }> = {
+  vi: {
+    asks: 'with its question word and "?" ("… được không?", "… chưa?")', open: '"vì sao?", "do đâu?", "chữa sao?", "làm sao?", "mấy con?"',
+    case: 'Sentence case: a capital only at the start and for a proper name.',
+    words: 'Keepers say "tảo nâu" (not "rêu nâu"), "bể mới set" (not "bể trồng mới"), "dương xỉ Java" (never "Java" alone) and "sau khi thay nước" or "thay nước xong" (never "sau thay"), and "nuôi chung" whole (never "chung" alone). A comma, never a colon.',
+    examples: ['Cá molly bỏ ăn 2 ngày, vì sao?', 'Bể 40 lít nuôi 3 con ali được không?'],
+    worked: 'An either-or keeps both: "Bể 60, lọc thùng hay lọc treo?". Two questions in a row, "Ốc này có đẻ không, nuôi chung tép được không?": "Ốc này có đẻ không?".',
+  },
+  id: {
+    asks: 'ending with "?"', open: '"kenapa?", "berapa ekor?", "kapan?", "gimana?"',
+    case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Dutch); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.',
+    words: 'Keepers say "sama" (not "dengan"), count fish in "ekor" ("7-8 ekor", never "7-8 ikan") say how often with "tiap" ("ganti air tiap 2-3 hari") and keep "dicampur" whole.',
+    examples: ['Molly diam di pojok 2 hari, kenapa?', 'Akuarium 40 liter cukup buat satu louhan?'],
+    worked: 'An either-or keeps both: "Akuarium 60, filter canister atau gantung?". Two questions in a row, "Keong ini bertelur nggak, bisa bareng udang?": "Keong ini bertelur nggak?".',
+  },
+  th: {
+    asks: 'with ไหม, and never a "?"', open: '"กี่ตัว", "ยังไงดี", "อะไรดี", "ทำไม", and an either-or with "หรือ … ดี"',
+    case: '',
+    words: 'Only words the reader wrote: no "ปลา", "ไม้น้ำ" or "น้ำตู้" they didn\'t ("น้ำเขียวทั้งตู้", and "หางนกยูง" stays "หางนกยูง"). The 36 characters are the ones you see: a vowel or tone mark above or below a letter is part of it. "เลี้ยงรวม" stays whole.',
+    examples: ['ปลาสอดไม่กินอาหาร 2 วัน เป็นอะไร', 'ตู้ 40 ลิตรเลี้ยงปลาหมอสี 3 ตัวได้ไหม'],
+    worked: 'An either-or keeps both: "ตู้ 60 ใช้กรองนอกหรือกรองแขวนดี". Two questions in a row, "หอยตัวนี้วางไข่ไหม เลี้ยงรวมกับกุ้งได้ไหม": "หอยตัวนี้วางไข่ไหม".',
+  },
+  ms: {
+    asks: 'with "tak?" or "ke?" after the verb ("boleh campur tak?", "cukup ke?")', open: '"kenapa?", "macam mana nak …?", "berapa ekor?"',
+    case: 'Sentence case: a capital only at the start and for a genus or a proper name (Corydoras, Java); common names lowercase (ikan angel, neon tetra, udang cherry), even where the handbook capitalises them.',
+    words: 'Keepers say "tak nak" (not "tidak mahu"), "lepas" (not "selepas"), "kat" and "je", and "tukar air" whole.',
+    examples: ['Molly tak nak makan 2 hari, kenapa?', 'Tangki 3 kaki boleh bela louhan tak?'],
+    worked: 'An either-or keeps both: "Tangki 60, penapis canister ke gantung?". Two questions in a row, "Siput ni bertelur ke, boleh campur udang tak?": "Siput ni bertelur ke?".',
+  },
+}
+/** What the first message asks for the conversation's title (`ChatOptions.title`). */
+export const TITLE_RULE = (lang: Lang) => {
+  const f = TITLE_FORM[lang]
+  return [
+    `This question starts the conversation: give it a title too (title), for the reader's list of past chats, in ${LANGS[lang]}: one line on a phone, at most about 36 characters.`,
+    '- Their own words for the fish and the problem, and the detail the answer turns on: the tank\'s size, how many fish, no filter or no CO₂, how long since setup or since it began, the change they\'re weighing; it stays whenever it fits. The fish the problem is about now, not one they had before (goldfish lost last month and guppies dying now: the guppies).',
+    '- Nothing they didn\'t say, and what they said as they said it ("a little", "even though", "must"). Fish and plants as keepers name them, never a piece of a name and without the handbook\'s variety tags. Never clip a word or a set phrase to fit: drop a whole idea instead.',
+    '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics. A post that asks several things: its main question, not a list of its topics. When they ask, the title asks: never their problem named with the question gone. One question at most: two in a row are two, and the title asks the first, unless a later one is what the post is about. One question about two things (can A live with B) keeps both.',
+    '- Join only what they joined: two things from different sentences never go in one title as if one went with the other. Read it cold, as someone who never saw the message: it says who does what to what.',
+    `- A yes-or-no question asks it, ${f.asks}. A why, how, what or how-many question keeps its question word: ${f.open}. An either-or keeps both options. ${f.worked}`,
+    ...(f.case ? [`- ${f.case}`] : []),
+    `- ${f.words} Where they wrote another word, theirs stays.`,
+    '- If it won\'t all fit in 36 characters, keep in this order: the question, then the fish or plant, then the detail the answer turns on.',
+    '- Never a person\'s name, a place, a shop or anything else personal from their message.',
+    `For example: "${f.examples[0]}"; "${f.examples[1]}".`,
+  ].join('\n')
+}
+
+/** Fish ID's "almost certain", as the app shows it (AquaTomeKit FishId.swift): only then is its first guess the chat's subject on the row. */
+export const FISH_ID_SURE = 0.8
+
+/**
  * Vietnamese typed without its accents ("ca neon bi nam trang tren lung, chua sao a"): words, and not one accented
  * letter. Read as written, "nam trang" became "nằm ngửa" (lying on its back) in 2 answers of 3, where the reader meant
  * "nấm trắng" (white fungus).
@@ -69,7 +125,7 @@ export function shown(b: ChatBlock): string {
 export const unaccented = (q: string) => /[a-z]{2,}\s+[a-z]{2,}/i.test(q) && !/[\u00c0-\u024f\u0300-\u036f\u1e00-\u1eff]/.test(q.normalize('NFC'))
 
 /** The first message: the start, the earlier turns, then the question, in the reader's language. */
-export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook): Anthropic.MessageParam {
+export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook, title = false): Anthropic.MessageParam {
   const parts: string[] = [`The reader writes in ${LANGS[lang]}; answer in ${LANGS[lang]}, with the ${lang} pages the tools give. The site calls the handbook "${HANDBOOK[lang]}".`]
   const about = start.about ? hb.byId(start.about) : undefined
   if (start.from === 'fish-id' && start.identified) {
@@ -77,10 +133,18 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
     parts.push(`They come from AquaTome's fish ID, which named their photo (${start.identified.verdict}): ${guesses || 'nothing it could name'}.`)
   }
   if (about) parts.push(`The chat is about ${about.name}${about.sub ? ` (${about.sub})` : ''}, id ${about.id}, page ${about.path}.${start.from === 'species' ? ' They opened it from that page, so they have seen its card: it counts as shown.' : ''}`)
+  // The list names the conversation's subject on the row's second line ("Cá neon xanh · 3 câu"), so a title naming it
+  // says it twice. Without it, fish ID's unsure guesses can't put the wrong fish in the title either.
+  // The row's second line names the subject: a species page's fish, or fish ID's first guess when it was almost certain
+  // ("Ảnh của bạn" otherwise, so no guess shows as fact).
+  const sure = (start.identified?.results[0]?.confidence ?? 0) >= FISH_ID_SURE
+  if (title && about && (start.from !== 'fish-id' || sure)) parts.push(`The reader's list of chats shows this one under ${about.name} already: the title names the problem and leaves it out, by any of its names (${[about.name, ...(about.aka ?? [])].slice(0, 7).join(', ')}) and by its kind word alone, naming a fish or plant only when it is another one.`)
+  if (title && start.from === 'fish-id' && !sure) parts.push('Fish ID isn\'t sure of it: the title still comes, naming no fish it guessed, with the reader\'s own words for it or just "this one" in their language; a fish they named themselves stays, and when they ask what fish it is, that is the title.')
   if (earlier.length) {
     parts.push('Earlier in this conversation:')
     earlier.forEach((t, i) => parts.push(`${i + 1}. Reader: ${t.question}\nYou: ${t.text}${t.blocks.length ? `\nShown: ${t.blocks.map(shown).join('; ')}` : ''}`))
   }
+  if (title) parts.push(TITLE_RULE(lang))
   if (lang === 'vi' && unaccented(question)) parts.push('They type without Vietnamese accents: read their words as a keeper would mean them, the hobby\'s sense first ("nam trang" is "nấm trắng", white fungus, not "nằm trắng").')
   parts.push(`The reader asks:\n${question}`)
   return { role: 'user', content: [{ type: 'text', text: parts.join('\n\n') }] }
@@ -198,6 +262,8 @@ export type ChatOptions = {
   /** The forced answer's effort when time is short (loop.ts `lastEffort`): low unless the eval asks otherwise. */
   lastEffort?: 'low' | 'medium' | 'high'
   limits?: Partial<Limits>
+  /** Ask for the conversation's title too, in the same call as the answer: its first answered turn while it has none. */
+  title?: boolean
   onStep?: (step: Step) => void
   /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
   onText?: (piece: string) => void
@@ -239,6 +305,24 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
   }
 }
 
+/**
+ * A title that names a fish fish ID only guessed (under "almost certain"), by any name the handbook has for a guess: it
+ * would put the guess on the row as fact. The prompt asks for none, and Haiku still wrote "Cá chuột đồng" for a 55%
+ * guess in 2 of 4 samples, so the title goes, and the list shows the reader's own first words. A name the reader wrote
+ * is theirs ("Ni platy ke molly?"), and stays.
+ */
+export function namesAGuess(title: string, question: string, start: Start, hb: Handbook): boolean {
+  const results = start.from === 'fish-id' ? start.identified?.results ?? [] : []
+  if (!results.length || (results[0]!.confidence ?? 0) >= FISH_ID_SURE) return false
+  const t = title.normalize('NFC').toLowerCase()
+  const asked = question.normalize('NFC').toLowerCase()
+  return results.some(r => {
+    const item = r.id ? hb.byId(r.id) : undefined
+    const names = item ? [item.name, ...item.name.split(/[()]/), ...(item.aka ?? [])] : []
+    return [r.scientificName, ...names].map(n => n.normalize('NFC').trim().toLowerCase()).some(n => n.length > 3 && t.includes(n) && !asked.includes(n))
+  })
+}
+
 /** How long a handover may take, the tanks, the search and the sections together: past it, the run goes on without one. */
 export const HANDOVER_MS = 3000
 function inTime(handover: NonNullable<ChatOptions['handover']>) {
@@ -269,7 +353,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   const onStep = (step: Step) => { begun = true; o.onStep?.(step) }
   const onText = o.onText && ((piece: string) => { begun = true; o.onText!(piece) })
   const send = onText ? streaming(o.send, onText, onPick) : o.send
-  const first = firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook)
+  const first = firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook, o.title)
   const line = o.opening
     ? o.send({ model: o.model, max_tokens: OPENING_TOKENS, thinking: { type: 'disabled' }, system: OPENING_SYSTEM, messages: [firstMessage(o.lang, openingAsk(o.question, o.lang), o.earlier, o.start, o.handbook)] }, { timeoutMs: OPENING_MS, call: 0 }).then(m => {
         const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('').trim()
@@ -290,7 +374,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
     first: handed ? { role: 'user', content: [...content, { type: 'text', text: handed.text }] } : first,
-    schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
+    schema: (o.title ? TITLED_SCHEMA : ANSWER_SCHEMA) as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
     lastEffort: o.lastEffort ?? 'low',
     pace: CHAT_PACE,
@@ -312,8 +396,10 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     run.spent.output += used.output_tokens
   }
   // An off-topic question gets the Worker's own line in the reader's language, and nothing else Claude wrote.
-  const read = run.message ? readAnswer(run.message) : undefined
-  const answer = read?.offTopic ? { ...read, text: OFF_TOPIC[o.lang] } : read
+  const read = run.message ? readAnswer(run.message, o.lang) : undefined
+  const said = read?.offTopic ? { ...read, text: OFF_TOPIC[o.lang] } : read
+  // A title naming fish ID's unsure guess goes; the answer stays.
+  const answer = said?.title && namesAGuess(said.title, o.question, o.start, o.handbook) ? { ...said, title: undefined } : said
   await filling
   // The picks the stream didn't fill (all of them, when the text didn't stream): the same picks, as both read the same JSON.
   if (answer) for (const p of answer.blocks.slice(picked)) await blocks.add(p)

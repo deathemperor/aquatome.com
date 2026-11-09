@@ -12,7 +12,7 @@ import { turnsOf } from '../fishid/transcript'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
-import type { ChatBlock } from './answer'
+import { charsOf, type ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
 import type { Step, Tank, TankLight } from './tools'
@@ -76,10 +76,6 @@ const PER_DAY = 1000
 export const MAX_TURNS = 20
 /** The longest question: a reader's whole forum post, as they paste it (14 of 30 real ones were over 500; the longest, 1,414). The chief of staff's call. */
 const MAX_CHARS = 1500
-/** Characters as the reader sees them, as the app counts (Swift's `count`): a Thai vowel or tone mark, or a Vietnamese
- * tone mark kept apart as older forums keep it, is part of its letter, so a post the app shows as 1,500 is 1,500 here. */
-const graphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
-export const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))].length
 export const CONVERSATION_MS = 24 * 3600_000
 /** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
  * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
@@ -144,11 +140,11 @@ export function chatWorstCost(model: string): number {
 }
 
 /** The contract's `Turn`. */
-export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[]; opening?: string }
-/** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
-export type Conversation = { created: number; turns: KeptTurn[]; running?: { key: string; at: number } }
+export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; title?: string; model: string; steps?: Step[]; opening?: string }
+/** A conversation as kept (under its account's prefix): when it began, its title once a turn gave it one, its turns, and the question being answered. */
+export type Conversation = { created: number; title?: string; turns: KeptTurn[]; running?: { key: string; at: number } }
 /** A turn as a conversation keeps it, to read it to Claude and draw it again. A turn from before the past conversations has the first five alone. */
-export type KeptTurn = Earlier & { n: number; at: number; suggestions?: string[]; covered?: boolean; model?: string; steps?: Step[]; opening?: string }
+export type KeptTurn = Earlier & { n: number; at: number; suggestions?: string[]; covered?: boolean; title?: string; model?: string; steps?: Step[]; opening?: string }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on (a stopped one's, with the stop's figures). */
 export type Kept = { at: number } & ({ turn: Turn } | { status: number; error: string; counted?: boolean; freeLeft?: number })
 const stopBody = (s: { counted: boolean; freeLeft?: number }) => ({ error: 'cancelled', counted: s.counted, ...(s.freeLeft !== undefined ? { freeLeft: s.freeLeft } : {}) })
@@ -316,7 +312,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // `etagDoesNotMatch: '*'` is If-None-Match: * (workerd's r2-bucket.c++, buildSingleEtagArray), which R2 applies as a
   // create-once write only one of several at once wins (developers.cloudflare.com/r2/api/s3/extensions/, "Conditional
   // operations in PutObject"); a failed condition is null, not an error (developers.cloudflare.com/r2/api/workers/workers-api-reference/).
-  const mark: Conversation = { created: conv?.created ?? clock(), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
+  const mark: Conversation = { created: conv?.created ?? clock(), ...(conv?.title ? { title: conv.title } : {}), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
   const marked = await env.UPLOADS.put(convKey, JSON.stringify(mark), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: '*' } })
     .then(o => (o ? 'ok' : 'taken'), e => { console.error('chat mark:', e); return 'failed' })
   if (marked !== 'ok') {
@@ -417,7 +413,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           if (call !== 0) { key = used; wrote = used.hash }
           return r.value
         },
-        model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
+        // The title comes with the first answer while the conversation has none (after an off-topic one, the next).
+        model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb, title: !mark.title,
         tanks,
         ...(search ? { handover: async () => handoverFor({ question: q.question, start: q.start, tanks: (await tanks()) ?? [], hb, lang: q.lang, search }) } : {}),
         onStep, clock,
@@ -437,7 +434,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       if (!out.answer) return { status: 502, body: { error: 'failed' } }
       const turn: Turn = {
         conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, text: out.answer.text, blocks: out.blocks,
-        suggestions: out.answer.suggestions.filter(s => s.trim()).slice(0, 3), covered: out.answer.covered, model,
+        suggestions: out.answer.suggestions.filter(s => s.trim()).slice(0, 3), covered: out.answer.covered,
+        ...(!mark.title && out.answer.title ? { title: out.answer.title } : {}), model,
         ...(out.steps.length ? { steps: out.steps } : {}),
         // An off-topic answer keeps no line: `done` has the last word, and the app takes away the one it showed (the
         // Design Lead's rule). The transcript keeps it all the same: the reader saw it.
@@ -451,12 +449,14 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   }
 
   /** Its row in the reader's list (past.ts): its first question and where it started with its first answer, then its last time and count. */
-  const listed = async (at: number, turns: number) => {
+  // A short title is kept in `start`: the table's `title` holds the first question, and a new column needs the owner's OK.
+  const listed = async (at: number, turns: number, title?: string) => {
     // The conversation this carries on: left out if the account doesn't hold it, or hid it.
     const carried = q.continues && !mark.turns.length ? await env.DB.prepare('SELECT hidden FROM chat_conversations WHERE account = ? AND id = ?').bind(account, q.continues).first<{ hidden: number }>() : null
     await env.DB.prepare(`INSERT INTO chat_conversations (account, id, title, start, first_at, last_at, questions, continues) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-      ON CONFLICT (account, id) DO UPDATE SET last_at = excluded.last_at, questions = excluded.questions`)
-      .bind(account, q.conversation, mark.turns[0]?.question ?? q.question, JSON.stringify({ ...(mark.turns.length ? {} : q.start), lang: q.lang }), secs(mark.created), secs(at), turns, carried && !carried.hidden ? q.continues : null)
+      ON CONFLICT (account, id) DO UPDATE SET last_at = excluded.last_at, questions = excluded.questions,
+        start = CASE WHEN json_extract(excluded.start, '$.title') IS NULL THEN start ELSE json_set(start, '$.title', json_extract(excluded.start, '$.title')) END`)
+      .bind(account, q.conversation, mark.turns[0]?.question ?? q.question, JSON.stringify({ ...(mark.turns.length ? {} : q.start), lang: q.lang, ...(title ? { title } : {}) }), secs(mark.created), secs(at), turns, carried && !carried.hidden ? q.continues : null)
       .run()
   }
 
@@ -468,12 +468,13 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
    */
   const save = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
+    const title = mark.title ?? turn?.title
     const asked = clock()
-    const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, suggestions: turn.suggestions, covered: turn.covered, model: turn.model, ...(turn.steps ? { steps: turn.steps } : {}), ...(turn.opening ? { opening: turn.opening } : {}), at: asked }] : mark.turns }
+    const next: Conversation = { created: mark.created, ...(title ? { title } : {}), turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, suggestions: turn.suggestions, covered: turn.covered, ...(turn.title ? { title: turn.title } : {}), model: turn.model, ...(turn.steps ? { steps: turn.steps } : {}), ...(turn.opening ? { opening: turn.opening } : {}), at: asked }] : mark.turns }
     const k: Kept = turn ? { at: asked, turn } : { at: asked, status: done.status, ...(done.body as { error: string; counted?: boolean; freeLeft?: number }) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
-    if (turn) await listed(asked, next.turns.length).catch(e => console.error('chat list:', e))
+    if (turn) await listed(asked, next.turns.length, title).catch(e => console.error('chat list:', e))
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
     // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own

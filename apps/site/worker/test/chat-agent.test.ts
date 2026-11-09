@@ -4,8 +4,8 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_WORD, MAX_TOKENS, namesAGuess, OPENING_SYSTEM, SYSTEM, TITLE_FORM, TITLE_RULE, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MAX_TITLE, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, TITLED_SCHEMA, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
@@ -675,6 +675,7 @@ test('the answer\'s schema and every tool\'s input are what structured outputs t
     }
   }
   walk(ANSWER_SCHEMA as unknown as Record<string, unknown>, 'answer')
+  walk(TITLED_SCHEMA as unknown as Record<string, unknown>, 'titled')
   for (const t of chatTools({ handbook: {} as Handbook, tanks: async () => [] })) walk(t.input_schema as Record<string, unknown>, t.name)
   expect(problems).toEqual([])
 })
@@ -756,8 +757,10 @@ test('a call\'s JSON that doesn\'t open with the text gives nothing; space aroun
   expect(pieces(['{"te', 'xts":"Nuôi theo đàn."'])).toEqual(['', ''])
   expect(pieces(['Để tôi đọc trang cá neon.', '{"text":"x"'])).toEqual(['', ''])
   expect(pieces([' \n{ ', '"offTopic" ', ':\t', ' false ,', ' "text" ', ': ', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', '', '', '', 'Nuôi', ' theo đàn.', ''])
-  // The schema keeps offTopic, then the text, first: structured outputs write the keys in its order.
+  // The schema keeps offTopic, then the text, first: structured outputs write the keys in its order. The title comes
+  // last, so the text still streams first.
   expect(Object.keys(ANSWER_SCHEMA.properties).slice(0, 2)).toEqual(['offTopic', 'text'])
+  expect(Object.keys(TITLED_SCHEMA.properties)).toEqual([...Object.keys(ANSWER_SCHEMA.properties), 'title'])
 })
 
 test('an answer on fishkeeping streams after offTopic false; an off-topic one gives nothing, whatever its text', () => {
@@ -911,6 +914,65 @@ test('without onText a run is as before: no call is asked to stream, and a tool 
   expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
 })
 
+test('a conversation\'s first answer brings its title, in the same call: the titled schema and the rule in the reader\'s language; other turns ask none', async () => {
+  const h = await hb()
+  const asked = async (o: { title?: boolean; lang?: 'vi' | 'th' }) => {
+    const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+    const out = await answerQuestion({
+      send: async body => { bodies.push(body); return message([{ type: 'text', text: JSON.stringify({ ...answer([], { text: 'Cá betta bỏ ăn thường do nước lạnh.' }), title: 'Cá betta bỏ ăn' }) }]) },
+      model: 'claude-opus-5-5', lang: o.lang ?? 'vi', question: 'Bé betta nhà em bỏ ăn 2 hôm nay', earlier: [], start: {}, handbook: h, tanks: async () => [], ...(o.title ? { title: true } : {}),
+    })
+    return { out, body: bodies[0]!, said: JSON.stringify(bodies[0]!.messages) }
+  }
+  const titled = await asked({ title: true })
+  expect(titled.body.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: TITLED_SCHEMA } })
+  expect(titled.said).toContain(JSON.stringify(TITLE_RULE('vi')).slice(1, -1))
+  // Each language's rule gives its own form and examples, never another's: with every language's in it, a title could slip.
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    const rule = TITLE_RULE(lang)
+    for (const [other, f] of Object.entries(TITLE_FORM)) for (const ex of [...f.examples, ...(f.words ? [f.words] : [])]) expect(rule.includes(ex), `${lang}: ${ex}`).toBe(other === lang)
+  }
+  expect(TITLE_RULE('th')).toContain('in Thai')
+  expect(titled.out.answer?.title).toBe('Cá betta bỏ ăn')
+  // A chat with a subject (a species page, or fish ID's first guess when it was almost certain) is listed under it: the
+  // title leaves it out, by every name. Fish ID unsure, the row says "Your photo": the title names no guess.
+  const told = (start: Start, title = true) => JSON.stringify(firstMessage('vi', 'Nuôi mấy con?', [], start, h, title).content)
+  const photo = (confidence: number): Start => ({ from: 'fish-id', about: 'paracheirodon-innesi', identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'paracheirodon-innesi', confidence }] } })
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('shows this one under Cá neon xanh already: the title names the problem and leaves it out, by any of its names (Cá neon xanh')
+  expect(told(photo(0.8))).toContain('shows this one under Cá neon xanh already')
+  expect(told(photo(0.8))).not.toContain('Fish ID isn')
+  expect(told(photo(0.79))).not.toContain('shows this one under')
+  expect(told(photo(0.79))).toContain('Fish ID isn\'t sure of it: the title still comes, naming no fish it guessed')
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' }, false)).not.toContain('shows this one under')
+  expect(told(photo(0.5), false)).not.toContain('Fish ID isn')
+  expect(told({})).not.toContain('shows this one under')
+  const not = await asked({})
+  expect(not.body.output_config!.format).toEqual({ type: 'json_schema', schema: ANSWER_SCHEMA })
+  expect(not.said).not.toContain('title')
+})
+
+test('a title as the list shows it: one line, no quotes or stop; one that isn\'t a title is left out, never the answer with it', () => {
+  const said = (title: unknown, offTopic = false, lang?: 'vi' | 'th') => readAnswer(message([{ type: 'text', text: JSON.stringify({ offTopic, text: 'Cá betta bỏ ăn thường do nước lạnh.', covered: true, blocks: [], suggestions: [], title }) }]), lang)
+  expect(said(' "Cá betta bỏ ăn,\n nằm đáy." ')?.title).toBe('Cá betta bỏ ăn, nằm đáy')
+  expect(said('«Rêu tóc trong bể mới»')?.title).toBe('Rêu tóc trong bể mới')
+  // A question keeps its mark: without it, Indonesian and Malay read as a statement.
+  expect(said('Akuarium 4 liter, 7-8 ikan aman?')?.title).toBe('Akuarium 4 liter, 7-8 ikan aman?')
+  // But not in Thai, where ไหม asks and a "?" looks foreign.
+  expect(said('ปลากัดเลี้ยงในโหลได้ไหม?', false, 'th')?.title).toBe('ปลากัดเลี้ยงในโหลได้ไหม')
+  expect(said('Cá vàng mùa đông cần sưởi không?', false, 'vi')?.title).toBe('Cá vàng mùa đông cần sưởi không?')
+  // Counted as the reader sees it: "กิ่" is three code points and one character, so 60 of them are a title, 61 none.
+  expect([...'กิ่'].length).toBe(3)
+  expect(said('กิ่'.repeat(MAX_TITLE))?.title).toBe('กิ่'.repeat(MAX_TITLE))
+  expect(said('กิ่'.repeat(MAX_TITLE + 1))?.title).toBeUndefined()
+  for (const none of ['', '  ', '...', 'x'.repeat(MAX_TITLE + 1), 42, null]) {
+    const a = said(none)
+    expect(a?.text, String(none)).toBe('Cá betta bỏ ăn thường do nước lạnh.')
+    expect(a && 'title' in a, String(none)).toBe(false)
+  }
+  // An off-topic answer has none: its row keeps the first words, and the next question may give one.
+  expect(said('Bóng đá', true)).toEqual({ offTopic: true, text: '', covered: true, blocks: [], suggestions: [] })
+})
+
 test('Vietnamese typed without accents is read as a keeper means it: the first message says so, and only then', async () => {
   const h = await hb()
   const said = (lang: 'vi' | 'id', q: string) => JSON.stringify(firstMessage(lang, q, [], {}, h).content)
@@ -919,6 +981,25 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   // Accented, one accent is enough; a word or two of English or a figure is no unaccented question; nor another language.
   for (const q of ['cá neon bị nấm trắng trên lưng', 'ca neon bi nấm trang', 'pH 7?', 'Neon']) expect(said('vi', q), q).not.toContain('without Vietnamese accents')
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
+})
+
+test('a title that names a fish fish ID only guessed is left out: the row would show the guess as fact', async () => {
+  const h = await hb()
+  const photo = (confidence: number): Start => ({ from: 'fish-id', about: 'paracheirodon-innesi', identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'paracheirodon-innesi', confidence }] } })
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', 'Nuôi mấy con?', photo(0.55), h)).toBe(true)
+  expect(namesAGuess('paracheirodon innesi nuôi mấy con?', 'Nuôi mấy con?', photo(0.55), h)).toBe(true)
+  // The group, or none, stays; so does the name when fish ID was almost certain, or the chat began on a species page.
+  expect(namesAGuess('Nuôi 2 con được không?', 'Nuôi 2 con được không?', photo(0.55), h)).toBe(false)
+  // A name the reader wrote is theirs: when they ask which fish it is, that is the title.
+  expect(namesAGuess('Cá neon xanh hay neon đỏ?', 'Đây là cá neon xanh hay neon đỏ?', photo(0.55), h)).toBe(false)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', 'Nuôi mấy con?', photo(0.8), h)).toBe(false)
+  expect(namesAGuess('Cá neon xanh nuôi mấy con?', 'Nuôi mấy con?', { from: 'species', about: 'paracheirodon-innesi' }, h)).toBe(false)
+  const out = await answerQuestion({
+    send: async () => ({ id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [{ type: 'text', text: JSON.stringify({ ...answer([], { text: 'Nuôi theo đàn từ 6 con.' }), title: 'Cá neon xanh nuôi mấy con?' }) }], stop_reason: 'end_turn', stop_sequence: null, usage: { input_tokens: 1, output_tokens: 1 } }) as unknown as Anthropic.Message,
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi mấy con?', earlier: [], start: photo(0.55), handbook: h, tanks: async () => [], title: true,
+  })
+  expect(out.answer?.text).toBe('Nuôi theo đàn từ 6 con.')
+  expect(out.answer?.title).toBeUndefined()
 })
 
 test('a long post\'s first line is written from its end; the run still reads the whole post', async () => {
