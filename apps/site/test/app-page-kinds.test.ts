@@ -202,8 +202,10 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     if (vn) expect(vn.note, d.path).toBe(txt(dom.querySelector('.vn .assume')))
     gallery(d, dom)
     if (wild(d, dom)) withRange.push(s.id)
-    // A block that follows a source the card didn't says so above it, as on the page.
-    expect(d.blocks.filter(b => b.t === 'p' && text(b.c).includes(' ghi khác bảng dữ liệu:')).map(b => text((b as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
+    // A block whose figure is far from the card's says so after it, as on the page: never the first thing under a heading.
+    const notes = d.blocks.flatMap((b, i) => (b.t === 'p' && text(b.c).includes(' ghi khác đoạn này:') ? [i] : []))
+    expect(notes.map(i => text((d.blocks[i] as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
+    for (const i of notes) expect(d.blocks[i - 1]?.t, d.path).not.toBe('h')
     // Breeds as cards, each with its picture's credit; videos; the guides that name it.
     const cards = one(d, 'cards')
     expect(cards?.items.map(i => [i.path, i.name, i.sub, i.img?.src]) ?? [], d.path).toEqual(dom.querySelectorAll('.breeds li').map(l => [appHref(l.querySelector('a')!.getAttribute('href')!), txt(l.querySelector('h3')), txt(l.querySelector('.kind')), l.querySelector('img')?.getAttribute('src')]))
