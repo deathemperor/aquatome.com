@@ -1,7 +1,10 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/fc85e2524e237609.webp": "1b0b838705c3b21a",
+  "https://media.aquatome.com/seriouslyfish/bdb5c2287bcc35c7.webp": "0000580e47030020"
+ },
  "commons": "2026-11-06",
  "inat": {
   "taxon": null,
@@ -10,5 +13,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 8626121,
+  "next": null
  }
 }

@@ -1,11 +1,21 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:237506382"
+ ],
  "hashes": {
   "https://media.aquatome.com/commons/d35f28278bd1c54f.webp": "3262d09c92c37219",
   "https://media.aquatome.com/commons/eb8da237bfe1ae2a.webp": "001a1c0f2f3d1c04",
   "https://media.aquatome.com/commons/f67ee4271397580e.webp": "ffed797366dffff7",
   "https://media.aquatome.com/commons/c924fcea1594ef99.webp": "001d1f5f3d190400"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 610615,
+  "pass": "done",
+  "after": {
+   "research": 138921236,
+   "agree": 407770023
+  }
+ }
 }

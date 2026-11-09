@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 454 | 22 | 9 | 14 | 471 |
-| rest | 20 | 1441 | 79 | 0 | 25 | 1495 |
+| covered | 30 | 471 | 22 | 9 | 14 | 488 |
+| rest | 20 | 1488 | 80 | 0 | 27 | 1541 |
 
-## Short of target: every source read (193)
+## Short of target: every source read (199)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -208,4 +208,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/marosatherina-ladigesi | shop | 2 | 60 |
 | species/pseudomugil-gertrudae | shop | 10 | 60 |
 | species/atyopsis-moluccensis | shop | 6 | 60 |
+| species/clarias-batrachus | shop | 24 | 60 |
+| species/cyrtocara-moorii | shop | 5 | 60 |
+| species/amatitlania-nigrofasciata | shop | 51 | 60 |
+| species/andinoacara-rivulatus | shop | 19 | 60 |
+| species/herichthys-carpintis | shop | 18 | 60 |
+| species/monopterus-albus | shop | 30 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

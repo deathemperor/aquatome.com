@@ -1,12 +1,25 @@
 {
  "queue": [],
  "judged": [
-  "File:Candiru catfishes in Brazil.jpg"
+  "File:Candiru catfishes in Brazil.jpg",
+  "inat:204795342"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/b35aa71dea599ceb.webp": "1e5e5e3e0f630907",
   "https://media.aquatome.com/commons/a865a3f271fcc081.webp": "181053064fe29f87",
   "https://media.aquatome.com/commons/75b48b8d31d73faf.webp": "61f0f0f0f0c8d007"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 621716,
+  "pass": "done",
+  "after": {
+   "research": 121046029,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2343306,
+  "next": null
+ }
 }

@@ -1,12 +1,23 @@
 {
  "queue": [],
  "judged": [
-  "File:Homaloptera ogilviei (10.3897-BDJ.11.e100337) Figure 7.jpg"
+  "File:Homaloptera ogilviei (10.3897-BDJ.11.e100337) Figure 7.jpg",
+  "inat:251817254",
+  "inat:251922451"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/b5582810e176b409.webp": "c24c9010420340c4",
   "https://media.aquatome.com/seriouslyfish/20648334bea79928.webp": "181337d3d69c303c",
-  "https://media.aquatome.com/commons/271aef58e3179bdb.webp": "8f0f2725e3539542"
+  "https://media.aquatome.com/commons/271aef58e3179bdb.webp": "8f0f2725e3539542",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/251922451/large.jpg": "72707cf470705a29"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 187540,
+  "pass": "done",
+  "after": {
+   "research": 146520211,
+   "agree": 0
+  }
+ }
 }

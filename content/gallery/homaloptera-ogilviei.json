@@ -2,6 +2,18 @@
   "id": "homaloptera-ogilviei",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/251922451.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/251922451-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/251922451",
+      "caption": "Cá bám đá ogilviei màu vàng olive, sọc sẫm, trong bể chụp",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/271aef58e3179bdb.webp",
       "thumb": "https://media.aquatome.com/commons/271aef58e3179bdb-480.webp",
       "width": 1200,
@@ -14,7 +26,7 @@
       "kind": "other"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 3,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

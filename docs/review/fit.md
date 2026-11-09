@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3544 | 3246 | 1490 | 71 | 47 | 192 | 33 | 966 | 430 | 2800 | 472 | 8 | 12 | 0 | 3 | 0 | 3 | 0 |
+| Vietnamese | 3544 | 3248 | 1490 | 71 | 47 | 192 | 33 | 966 | 428 | 2804 | 471 | 8 | 12 | 0 | 3 | 0 | 3 | 0 |
 | Indonesian | 1104 | 1037 | 321 | 19 | 4 | 3 | 5 | 161 | 64 | 45 | 143 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
 | Thai | 1097 | 1030 | 311 | 17 | 4 | 4 | 3 | 141 | 81 | 79 | 133 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
 | Malay | 180 | 150 | 54 | 4 | 1 | 0 | 0 | 24 | 18 | 8 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -107,5 +107,4 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - fluval plant and shrimp stratum: 5
 - hikari: 5
 - instant ocean: 5
-- loc-line: 5
-- matrix: 5
+- pond armor: 5
