@@ -18,9 +18,14 @@ struct ChatView: View {
     Group {
       if let model { ChatThread(model: model) } else { Color.clear }
     }
+    // The cards and chips stand on it, and the box fades into it.
+    .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
     .navigationTitle("Hỏi AquaTome")
     .navigationBarTitleDisplayMode(.inline)
+    // The box and its line sit at the foot of the screen.
+    .toolbar(.hidden, for: .tabBar)
     .toolbar {
+      ToolbarItem(placement: .principal) { Text("Hỏi AquaTome").font(.system(.headline, design: .serif).weight(.bold)) }
       ToolbarItem(placement: .topBarTrailing) {
         Button { confirming = true } label: { Label("Cuộc trò chuyện mới", systemImage: "square.and.pencil") }
           .disabled(model?.thread.isEmpty != false)
@@ -160,7 +165,7 @@ private struct ChatThread: View {
       if signedOut {
         ChatSignIn().padding(.top, 12)
       } else if model.draft.isEmpty {
-        Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12).transition(.opacity)
+        Chips(items: starters, stacked: true, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12).transition(.opacity)
       }
     }
     .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: model.draft.isEmpty)
@@ -210,7 +215,7 @@ private struct ChatThread: View {
     if !r.writing {
       // Waiting: each step done as it comes, above the one row that waits.
       VStack(alignment: .leading, spacing: 8) {
-        ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s).transition(.opacity.combined(with: .offset(y: 4))) }
+        ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s, opens: false).transition(.opacity.combined(with: .offset(y: 4))) }
         if a.outcome == .asking { Waiting() }
       }
       .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: r.steps.count)
@@ -219,7 +224,7 @@ private struct ChatThread: View {
     } else {
       if let fold = Chat.fold(r.steps) { foldRow(fold, a) }
       if unfolded.contains(a.id) {
-        VStack(alignment: .leading, spacing: 8) { ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s) } }
+        VStack(alignment: .leading, spacing: 8) { ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s, opens: true) } }
           .padding(.leading, 4)
       }
       AnswerText(text: r.text, whole: r.turn != nil, animate: !a.resumed && !r.whole && !reduceMotion)
@@ -243,7 +248,7 @@ private struct ChatThread: View {
       if open { unfolded.remove(a.id) } else { unfolded.insert(a.id) }
     } label: {
       HStack(alignment: .firstTextBaseline, spacing: 6) {
-        Image(systemName: "checkmark.circle").foregroundStyle(.secondary).accessibilityHidden(true)
+        Image(systemName: "book.closed.fill").font(.caption).foregroundStyle(.secondary).accessibilityHidden(true)
         Text(Self.label(fold)).multilineTextAlignment(.leading)
         Image(systemName: "chevron.down").font(.caption.weight(.semibold)).rotationEffect(.degrees(open ? 180 : 0)).foregroundStyle(.tertiary)
           .accessibilityHidden(true)
@@ -267,7 +272,8 @@ private struct ChatThread: View {
   }
 
   /// A step, done: a page read opens it; a search is Claude's own words.
-  @ViewBuilder private func step(_ s: Chat.Step) -> some View {
+  /// One step, grey; `opens`, in the fold's opened list, a page read is a tinted link to it.
+  @ViewBuilder private func step(_ s: Chat.Step, opens: Bool) -> some View {
     let line = HStack(alignment: .firstTextBaseline, spacing: 6) {
       Image(systemName: "checkmark").font(.caption.weight(.semibold)).foregroundStyle(.secondary).accessibilityHidden(true)
       switch s {
@@ -281,7 +287,7 @@ private struct ChatThread: View {
     .foregroundStyle(.secondary)
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("chat-step")
-    if case .read(let p) = s, let u = URL(string: p.path, relativeTo: handbook.site)?.absoluteURL {
+    if opens, case .read(let p) = s, let u = URL(string: p.path, relativeTo: handbook.site)?.absoluteURL {
       Button { open(u) } label: { line.foregroundStyle(.tint) }.buttonStyle(.plain)
     } else {
       line
@@ -297,7 +303,9 @@ private struct ChatThread: View {
 /// as fish ID words them.
 private struct ChatHeader: View {
   let subject: ChatSubject
-  @ScaledMetric private var side: CGFloat = 44
+  @ScaledMetric private var width: CGFloat = 52
+  @ScaledMetric private var height: CGFloat = 40
+  @ScaledMetric(relativeTo: .subheadline) private var small: CGFloat = 14
 
   var body: some View {
     HStack(alignment: subject.fromPhoto ? .top : .center, spacing: 12) {
@@ -309,18 +317,23 @@ private struct ChatHeader: View {
             .background(.fill.tertiary)
         }
       }
-      .frame(width: side, height: side)
-      .clipShape(.rect(cornerRadius: 8))
+      .frame(width: width, height: subject.fromPhoto ? width : height)
+      .clipShape(.rect(cornerRadius: 10))
       .accessibilityHidden(true)
-      VStack(alignment: .leading, spacing: 2) {
+      VStack(alignment: .leading, spacing: 0) {
         if let guesses = subject.guesses {
-          Text("Về: ảnh của bạn").font(.subheadline.weight(.semibold))
-          Text(guesses).font(.subheadline).foregroundStyle(.secondary)
+          Text("Về: ảnh của bạn").font(.callout.weight(.semibold))
+          Text(guesses).font(.system(size: small)).foregroundStyle(.secondary)
         } else {
-          Text("Về: \(subject.name)").font(.subheadline.weight(.semibold))
+          Text("Về: \(subject.name)").font(.callout.weight(.semibold))
+          if let sci = subject.sci { Text(verbatim: sci).font(.system(size: small)).italic().foregroundStyle(.secondary) }
         }
       }
     }
+    .padding(.horizontal, 12)
+    .padding(.vertical, 10)
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 18))
     .padding(.top, 12)
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("chat-about")
@@ -387,16 +400,19 @@ private struct Bubble: View {
       }
       .padding(.horizontal, 14)
       .padding(.vertical, 9)
-      // Dark: a deep green with white text, not the bright tint: the answer is what the eye should go to.
-      .foregroundStyle(scheme == .dark ? Color.white : Color.primary)
-      .background(scheme == .dark ? Color(red: 0.11, green: 0.33, blue: 0.24) : Color.accentColor.opacity(0.16), in: .rect(cornerRadius: 18))
+      // Dark: a deep green, not the bright tint: the answer is what the eye should go to.
+      .foregroundStyle(.white)
+      .background(scheme == .dark ? Color(red: 0x24 / 255, green: 0x58 / 255, blue: 0x4A / 255) : Color.accentColor, in: Self.shape)
       // Long-pressed, the bubble lifts with a short menu by it, as Messages does; VoiceOver offers the same as its actions.
-      .contentShape(.contextMenuPreview, .rect(cornerRadius: 18))
+      .contentShape(.contextMenuPreview, Self.shape)
       .contextMenu { menu }
       .accessibilityLabel(Text("Bạn hỏi: \(text)"))
       .accessibilityActions { menu }
       .accessibilityIdentifier("chat-question")
   }
+
+  /// Its corner by the reader's edge small, as a speech bubble's.
+  private static let shape = UnevenRoundedRectangle(cornerRadii: .init(topLeading: 20, bottomLeading: 20, bottomTrailing: 6, topTrailing: 20))
 
   @ViewBuilder private var menu: some View {
     Button("Sao chép", systemImage: "doc.on.doc") { UIPasteboard.general.string = text }
@@ -409,7 +425,7 @@ private struct Waiting: View {
   var body: some View {
     HStack(spacing: 8) {
       ProgressView()
-      Text("Đang soạn câu trả lời…").foregroundStyle(.secondary)
+      Text("Đang soạn câu trả lời…")
     }
     .font(.subheadline)
     .accessibilityElement(children: .combine)
@@ -644,26 +660,42 @@ struct ChatSignIn: View {
   }
 }
 
-/// Questions to tap, each a chip, wrapping onto the next line.
+/// Questions to tap, each a chip: one to a row (`stacked`, the starters), or wrapping onto the next line.
 private struct Chips: View {
   let items: [String]
+  var stacked = false
   /// Nothing can be sent now (the day used, offline): a tap puts it in the box.
   let dim: Bool
   let tap: (String) -> Void
 
   var body: some View {
-    Wrap(spacing: 8) {
-      ForEach(items, id: \.self) { q in
-        Button { tap(q) } label: {
-          Text(q).multilineTextAlignment(.leading).padding(.horizontal, 12).padding(.vertical, 8)
-            .background(.fill.tertiary, in: .rect(cornerRadius: 16))
-        }
-        .buttonStyle(.plain)
-        .accessibilityIdentifier("chat-chip")
+    Group {
+      if stacked {
+        VStack(alignment: .leading, spacing: 8) { chips }
+      } else {
+        Wrap(spacing: 8) { chips }
       }
     }
     .opacity(dim ? 0.45 : 1)
   }
+
+  private var chips: some View {
+    ForEach(items, id: \.self) { q in
+      Button { tap(q) } label: {
+        Text(q).multilineTextAlignment(.leading).font(.callout.weight(.medium)).foregroundStyle(.tint)
+          .padding(.horizontal, 14).padding(.vertical, 10)
+          .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 20))
+          .overlay { RoundedRectangle(cornerRadius: 20).strokeBorder(Color.chatHairline, lineWidth: 0.5) }
+      }
+      .buttonStyle(.plain)
+      .accessibilityIdentifier("chat-chip")
+    }
+  }
+}
+
+extension Color {
+  /// The hairline round a chip and the box.
+  static let chatHairline = Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(white: 1, alpha: 0.08) : UIColor(white: 0, alpha: 0.06) })
 }
 
 /// Views in rows, each row as many as fit.

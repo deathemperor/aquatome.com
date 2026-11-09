@@ -133,7 +133,7 @@ struct PageView: View {
   private var ask: ChatRoute? {
     guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
     return ChatRoute(start: Chat.Start(from: .species, about: id),
-                     subject: ChatSubject(plant: item.kind == .plant, name: item.name, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+                     subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.sub, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
   }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).

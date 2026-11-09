@@ -16,12 +16,19 @@ final class ChatFlowTests: XCTestCase {
     let app = launch("-chat-slow")
     openChat(app)
     XCTAssertTrue(element(app, "chat-about").label.contains("Về: Cá neon"), element(app, "chat-about").label)
+    XCTAssertTrue(element(app, "chat-about").label.contains("Paracheirodon innesi"), "no Latin name: \(element(app, "chat-about").label)")
+    XCTAssertFalse(app.tabBars.firstMatch.isHittable, "the tab bar on the chat")
     XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].exists, "no empty screen's question")
     // No answer on this phone yet: who answers, in full.
     XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "not the whole line about who answers")
     signIn(app)
     let starter = app.buttons.matching(identifier: "chat-chip").firstMatch
     XCTAssertTrue(starter.waitForExistence(timeout: 5), "no starters after signing in")
+    // One to a row, down the left.
+    let starters = app.buttons.matching(identifier: "chat-chip")
+    XCTAssertEqual(starters.count, 3)
+    XCTAssertEqual(starters.element(boundBy: 0).frame.minX, starters.element(boundBy: 1).frame.minX, accuracy: 1, "the starters not down the left")
+    XCTAssertGreaterThan(starters.element(boundBy: 1).frame.minY, starters.element(boundBy: 0).frame.maxY, "two starters on a row")
     let asked = starter.label
     starter.tap()
     XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 5), "no question's bubble")

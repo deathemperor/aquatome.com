@@ -11,6 +11,8 @@ struct ChatSubject: Hashable, Codable {
   let plant: Bool
   /// The page's name ("Cá neon xanh"); from fish ID, the first guess's.
   let name: String
+  /// Its scientific name; from fish ID, none (the guesses say what it may be).
+  let sci: String?
   /// Its photo; from fish ID, none (the reader's own isn't kept).
   let img: URL?
   /// From fish ID: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể Cá betta imbellis").

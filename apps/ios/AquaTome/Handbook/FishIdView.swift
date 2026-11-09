@@ -252,7 +252,7 @@ struct FishIdView: View {
       return "\(i == 0 ? s : ChatNames.inSentence(s)) \(g.page?.name ?? name(g))"
     }
     return ChatRoute(start: Chat.Start(from: .fishId, identified: identified),
-                     subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), img: nil,
+                     subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), sci: nil, img: nil,
                                           guesses: guesses.joined(separator: ", "),
                                           second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) }))
   }
