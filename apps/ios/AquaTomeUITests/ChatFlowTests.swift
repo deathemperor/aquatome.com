@@ -323,6 +323,47 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1)
   }
 
+  /// The connection goes mid-answer: what was read and the wait stay, the pill says so, and nothing asks the reader to
+  /// act; back online, the answer comes under the same bubble, asked with its key.
+  func testAnAnswerTheConnectionTookComesByItselfOnceItsBack() {
+    let app = launch("-chat-drops")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    let pill = element(app, "chat-offline")
+    XCTAssertTrue(pill.waitForExistence(timeout: 20), "no pill when the connection went")
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went with the connection")
+    XCTAssertFalse(element(app, "chat-cut-off").exists, "the reader was asked to act")
+    let next = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(next.waitForExistence(timeout: 10), "the answer didn't come once back online")
+    XCTAssertFalse(pill.exists, "still said offline")
+    XCTAssertFalse(element(app, "chat-cut-off").exists, "the reader was asked to act")
+    XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1, "the question posted twice")
+  }
+
+  /// The connection goes while the phone says it's up: asked again by itself, with no pill.
+  func testABlipThePhoneDidntNoticeIsAskedAgainByItself() {
+    let app = launch("-chat-blips", "1")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "the answer didn't come")
+    XCTAssertFalse(element(app, "chat-offline").exists, "said offline with the phone online")
+    XCTAssertFalse(element(app, "chat-cut-off").exists, "the reader was asked to act")
+  }
+
+  /// Twice over with the phone saying it's up: not forever, the reader gets the card to ask again.
+  func testASecondBlipGivesTheCardNotAnotherTry() {
+    let app = launch("-chat-blips", "2")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-cut-off").waitForExistence(timeout: 20), "no card after the second blip")
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+    app.buttons["chat-again"].tap()
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "the answer didn't come when asked again")
+  }
+
   /// Back past the conversation's 24 hours: the answer can't be had; "Hỏi lại" asks it in a new conversation.
   func testAnAnswerLostPast24HoursIsAskedAgain() {
     let app = launch("-chat-slow", "-chat-lost")

@@ -40,7 +40,7 @@ struct ChatHistoryView: View {
     .presentationDetents(size.isAccessibilitySize ? [.large] : [.medium, .large])
     .presentationDragIndicator(.visible)
     .task { await load() }
-    .alert(problem ?? "", isPresented: Binding(get: { problem != nil }, set: { if !$0 { problem = nil } })) {
+    .alert(problem.map { Text($0) } ?? Text(verbatim: ""), isPresented: Binding(get: { problem != nil }, set: { if !$0 { problem = nil } })) {
       Button("Đóng", role: .cancel) {}
     }
     .confirmationDialog("Ẩn cuộc trò chuyện này?", isPresented: Binding(get: { hiding != nil }, set: { if !$0 { hiding = nil } }), titleVisibility: .visible, presenting: hiding) { row in
