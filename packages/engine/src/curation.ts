@@ -225,7 +225,12 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
   return undefined
 }
 
-const score = (c: Candidate, w: CurationWeek | undefined, today: string) => {
+/** A fish with a loop scores as much again as a large photo does: it moves up on its own, never past a week's own list. */
+const LOOP_BONUS = 1
+/** A week with no video guide yet takes one, after its own list's guides and before the rest. */
+const VIDEO_BONUS = 50
+
+const score = (c: Candidate, w: CurationWeek | undefined, today: string, bonus = 0) => {
   // A week's own list comes first, in its order.
   const list = c.kind === 'guides' ? w?.guides : w?.fish
   const inList = list?.includes(c.ref) ? 100 - list.indexOf(c.ref) : 0
@@ -233,7 +238,7 @@ const score = (c: Candidate, w: CurationWeek | undefined, today: string) => {
   const known = c.known === undefined ? 0 : 2 - c.known / 50
   const fresh = c.updatedAt && c.updatedAt >= addDays(today, -14) ? 0.5 : 0
   const photo = (c.photo[c.kind === 'guides' ? 'guide' : 'square']?.px ?? 0) >= LARGE_PX ? 1 : 0
-  return inList + tags * 2 + known + photo + Math.log1p(c.demand) + fresh + (c.indexable ? 0.5 : 0)
+  return inList + tags * 2 + known + photo + Math.log1p(c.demand) + fresh + (c.indexable ? 0.5 : 0) + bonus
 }
 
 /** A week with tags takes only fish that match one, or that are on its own list (editors, 2026-11-08: a 30 cm catfish and
@@ -275,12 +280,18 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const kind = slot === 'fish' ? ['species', 'breeds'] : ['guides']
       const pool = (slot === 'fish' ? w?.fish : w?.guides) ?? []
       const yesterday = out.get(addDays(date, -1))
+      // The fish with a loop (curation.json `loops`, real footage), and one video guide a week, on YouTube's own player.
+      const looped = (x: Candidate) => x.kind !== 'guides' && !!cur.loops[x.id]
+      const video = (x?: Candidate) => x?.source === 'youtube'
+      const wantsVideo = slot === 'guide' && !!w && w.from <= date && date <= w.to &&
+        ![...out.values()].some(o => o.date !== date && w.from <= o.date && o.date <= w.to && video(byRef.get(o.guide ?? '')))
+      const bonus = (x: Candidate) => (looped(x) ? LOOP_BONUS : 0) + (wantsVideo && video(x) ? VIDEO_BONUS : 0)
       const best = cands
         .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? problem(x, 'square') : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
         .filter(x => slot !== 'fish' || fitsWeek(x, w))
         // Not the same group of fish, or kind or source of guide, two days running.
         .filter(x => { const y = byRef.get(yesterday?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) })
-        .map(x => ({ x, s: score(x, w, from) }))
+        .map(x => ({ x, s: score(x, w, from, bonus(x)) }))
         .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
       if (!best) { delete d[slot]; report.empty.push(`${date} ${slot}`); continue }
       d[slot] = best.ref
@@ -293,6 +304,8 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         ...(pool.includes(best.ref) ? ["on this week's list"] : []),
         ...(w?.tags ?? []).filter(t => TAGS[t]?.(best.facts)).map(t => TAG_WORDS[t] ?? t),
         ...(best.known !== undefined ? ['well known'] : []),
+        ...(looped(best) ? ['has a loop'] : []),
+        ...(wantsVideo && video(best) ? ["the week's video guide"] : []),
         ...(best.demand ? [`${best.demand} search impression${best.demand === 1 ? '' : 's'}`] : []),
       ]
       why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)

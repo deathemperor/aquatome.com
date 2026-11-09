@@ -132,7 +132,7 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant, a guide, a kind of kit and the fish-ID screen top to bottom, light
   and dark, and Tìm's tools (light, dark and the largest text), and CI's job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
-  request whose change can reach the pages, or labelled `ios-full`. Locally:
+  request's shots of the screens its change reaches (all of them labelled `ios-full`). Locally:
 
   ```sh
   scripts/sim-run.py xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \
@@ -293,8 +293,9 @@ Debug builds, so they don't see it.
   search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
   light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
   after the build), when its change can reach any flow. With it: the whole class of each flow file it edits, so a
-  check added or changed is seen to pass; and the page shots, when its change can reach the pages
-  (governance rule 6). The other flows its change can reach run on main after the merge: `scripts/flow_lists.py`
+  check added or changed is seen to pass; and the page shots of the screens its change reaches (governance rule 6;
+  `SHOTS` in `flow_lists.py` names each shot's screen), all of them when it can reach every flow or edits
+  `PageShotsFlowTests`. The whole class took 30 minutes of a pull request's run on GitHub's Macs (2026-11-08). The other flows its change can reach run on main after the merge: `scripts/flow_lists.py`
   maps the app's folders and files to them, and the job "which flows this change needs" names their classes in a
   notice. Label the pull request `ios-full` to run them on it, as on a change to a model many flows share
   (LightsModel, HandbookModel's fixture, AccountModel). `ios.yml`, `flows-to-run.py`, the scripts the flow jobs run
@@ -327,7 +328,8 @@ Jobs `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac
 have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner takes them,
 `aquatome-ci`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
 them overloaded it on 2026-11-05. Its service has `Nice` 10, which reaches its builds but not the simulator's processes:
-launchd starts those, at normal priority. Its flow jobs take their turn with everyone else's simulator runs through
+launchd starts those, at normal priority. Its flow jobs test on one simulator, with no copies: with two, a 0.4 s job on
+the Mac took 5 to 12 s (2026-11-08). They take their turn with everyone else's simulator runs through
 `scripts/sim-run.py` (one at a time, at most two copies of a simulator), so a job can wait for a lead's run and a lead's
 run for a job, and the job's time limit there is longer to allow for it. A full run on main takes hours on one runner;
 of the runs waiting, only the newest is kept.

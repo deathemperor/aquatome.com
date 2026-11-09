@@ -140,6 +140,15 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
  * Every published page in the languages the site serves: what the reader's eye reads and the audit lists. A language the
  * site doesn't serve yet has no pages to check against, and joins with its `served: true`.
  */
+/**
+ * The parts of a page a person fixed (schemas.ts Section.fixed), by field ("sections.reproduction:seriouslyfish"), from the
+ * page's folder: no writer rewrites them, as none rewrites a body marked bodyFixed.
+ */
+export async function fixedParts(dir: string): Promise<Set<string>> {
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: { key: string; source: string; fixed?: boolean }[] }
+  return new Set((e.sections ?? []).filter(s => s.fixed).map(s => `sections.${s.key}:${s.source}`))
+}
+
 export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
   const out: Page[] = []
   for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))

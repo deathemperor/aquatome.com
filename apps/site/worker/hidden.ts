@@ -50,7 +50,7 @@ export function isHidden(kv: KVNamespace, path: string, baked: string | undefine
   return m ? path in m.value : (baked ?? '').split(' ').map(withoutVi).includes(path)
 }
 
-export const NOT_ONE_PAGE = 'Chỉ ẩn được một trang của trang web (không phải trang chủ).'
+export const NOT_ONE_PAGE = 'Only one of the site’s pages can be hidden (not the home page).'
 /** Hides the page at `url` (any address of it), with an optional note, or brings it back. The page's path; null when `url` isn't one page. */
 export async function setHidden(kv: KVNamespace, url: string, hide: boolean, note: string, now: Date): Promise<string | null> {
   const path = pagePath(url)

@@ -1,36 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://api.gbif.org/v1/image/cache/fit-in/2400x/occurrence/1265265246/media/677512f5e2c4aa0f73ec1d49098e8d6a",
-   "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/1265265246/media/677512f5e2c4aa0f73ec1d49098e8d6a",
-   "width": 3072,
-   "height": 2304,
-   "licence": "CC BY 4.0",
-   "author": "Ian Roderick",
-   "sourceUrl": "https://www.gbif.org/occurrence/1265265246",
-   "key": "gbif:1265265246:73ec1d49098e8d6a"
-  },
-  {
-   "url": "https://api.gbif.org/v1/image/cache/fit-in/2400x/occurrence/1265259229/media/5f3f4a246d56879c7c4bd2cd47041a09",
-   "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/1265259229/media/5f3f4a246d56879c7c4bd2cd47041a09",
-   "width": 1710,
-   "height": 1057,
-   "licence": "CC BY 4.0",
-   "author": "P.H. Skelton",
-   "sourceUrl": "https://www.gbif.org/occurrence/1265259229",
-   "key": "gbif:1265259229:7c4bd2cd47041a09"
-  },
-  {
-   "url": "https://api.gbif.org/v1/image/cache/fit-in/2400x/occurrence/1265259258/media/0ac0faccdf4ca3c82e9f8461de81eff4",
-   "thumb": "https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/1265259258/media/0ac0faccdf4ca3c82e9f8461de81eff4",
-   "width": 1699,
-   "height": 749,
-   "licence": "CC BY 4.0",
-   "author": "P.H. Skelton",
-   "sourceUrl": "https://www.gbif.org/occurrence/1265259258",
-   "key": "gbif:1265259258:2e9f8461de81eff4"
-  }
+ "queue": [],
+ "judged": [
+  "gbif:1265265246:73ec1d49098e8d6a",
+  "gbif:1265259229:7c4bd2cd47041a09",
+  "gbif:1265259258:2e9f8461de81eff4"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/cca291587c2d3574.webp": "9999d53f0f078b41"
+ },
+ "commons": "2026-11-08"
 }

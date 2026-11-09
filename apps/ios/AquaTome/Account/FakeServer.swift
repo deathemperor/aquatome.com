@@ -8,8 +8,8 @@ import Tanks
 /// otherwise); `-reset-fake-server` starts with no accounts; `-seed-passkey` adds `FakePasskeySignIn`'s passkey to the
 /// Apple user `ui-apple`'s account, as "Thêm passkey" on aquatome.com would. It stands in for the fish-ID tool too
 /// (`/api/fish-id`): `-fish-id-used N` gives each account N identifications made today already, `-fish-id-busy` uses up
-/// the site's day, `-fish-id-slow` keeps an identification waiting 40 s, then fails it as a request's time running out
-/// does, and `-fish-id-session-refused` refuses it the account's session (401 `session`) while the session itself holds.
+/// the site's day, `-fish-id-slow` keeps an identification waiting 40 s (with `-test-gates`, until the test opens
+/// `fish-id-answer`), then fails it as a request's time running out does, and `-fish-id-session-refused` refuses it the account's session (401 `session`) while the session itself holds.
 /// `-server-offline`: it can't be reached, as with no network. `-slow-session`: who is signed in is answered after 15 s,
 /// as on a slow network, so a test can close the Tài khoản sheet while it's asked. `-session-fails`: who is signed in is
 /// answered 500, as a server fault. `-sync-busy N`: the next N syncs answer 409 busy (the app
@@ -19,7 +19,8 @@ import Tanks
 /// that account (`ui-apple`, or another, so `ui-apple` isn't the owner): the replies of
 /// protocols/owner-dashboard-vectors.json, read from this checkout (the simulator runs on the Mac that built it).
 /// `-owner-session-ends` ends the owner's session at the first section read, as one expiring while the dashboard is open;
-/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer.
+/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer; `-owner-overview
+/// <vector name>` answers the overview with another of its vectors ("dashboard: nothing needs you").
 @MainActor
 final class FakeServer {
   private let fake: FakeAccounts
@@ -44,8 +45,15 @@ final class FakeServer {
       let vectors = repo.appending(path: "protocols/owner-dashboard-vectors.json")
       guard let v = try? JSON.parse(Data(contentsOf: vectors)) else { fatalError("-fake-owner: can't read \(vectors.path)") }
       fake.owner = FakeOwner(vectors: v, owners: [args[i + 1]])
+      // The sample's two waiting photos, as the site's checks serve them (apps/site/e2e/dashboard-charts.spec.ts).
+      for (id, file) in [("a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d", "koi"), ("b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e", "halfmoon")] {
+        let photo = repo.appending(path: "apps/site/e2e/photos/reader-photo-\(file).webp")
+        guard let d = try? Data(contentsOf: photo) else { fatalError("-fake-owner: can't read \(photo.path)") }
+        fake.owner?.webp["/_ab/anh/" + id] = d
+      }
       fake.owner?.sessionEndsAtNextSection = args.contains("-owner-session-ends")
       fake.owner?.storageDownAtNextSection = args.contains("-owner-storage-down")
+      if let j = args.firstIndex(of: "-owner-overview"), j + 1 < args.count { fake.owner?.overview = args[j + 1] }
     }
     if let i = args.firstIndex(of: "-fish-id-used"), i + 1 < args.count, let n = Int(args[i + 1]) { fake.fishIdUsedBefore = n }
     if args.contains("-fish-id-busy") { fake.fishIdSiteLeft = 0 }
@@ -66,7 +74,7 @@ final class FakeServer {
     if Task.isCancelled { throw URLError(.cancelled) }
     if r.httpMethod == "POST", r.url?.path == "/api/fish-id" {
       if slowFishId {
-        try await Task.sleep(for: .seconds(40))
+        try await TestGate.wait("fish-id-answer", or: .seconds(40))
         throw URLError(.timedOut)
       }
       if fishIdRefusesSession {

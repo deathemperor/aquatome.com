@@ -1,127 +1,27 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/605686357/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/605686357/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/605686357",
-   "key": "inat:605686357"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344178686/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/344178686/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/344178686",
-   "key": "inat:344178686"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/331824745/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/331824745/medium.jpg",
-   "width": 1511,
-   "height": 1511,
-   "licence": "CC BY",
-   "author": "facundo cortondo",
-   "sourceUrl": "https://www.inaturalist.org/photos/331824745",
-   "key": "inat:331824745"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60517860/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/60517860/medium.jpeg",
-   "width": 2048,
-   "height": 1452,
-   "licence": "CC BY",
-   "author": "Pablo H Capovilla",
-   "sourceUrl": "https://www.inaturalist.org/photos/60517860",
-   "key": "inat:60517860"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339904169/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/339904169/medium.jpeg",
-   "width": 1428,
-   "height": 1851,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/339904169",
-   "key": "inat:339904169"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339945186/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/339945186/medium.jpeg",
-   "width": 1397,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/339945186",
-   "key": "inat:339945186"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/605686340/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/605686340/medium.jpg",
-   "width": 1856,
-   "height": 1392,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/605686340",
-   "key": "inat:605686340"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344322946/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/344322946/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Romi Galeota Lencina",
-   "sourceUrl": "https://www.inaturalist.org/photos/344322946",
-   "key": "inat:344322946"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344323025/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/344323025/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Romi Galeota Lencina",
-   "sourceUrl": "https://www.inaturalist.org/photos/344323025",
-   "key": "inat:344323025"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344323065/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/344323065/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Romi Galeota Lencina",
-   "sourceUrl": "https://www.inaturalist.org/photos/344323065",
-   "key": "inat:344323065"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/609971628/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/609971628/medium.jpg",
-   "width": 1165,
-   "height": 1553,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/609971628",
-   "key": "inat:609971628"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130817261/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/130817261/medium.jpg",
-   "width": 960,
-   "height": 720,
-   "licence": "CC0",
-   "author": "Federico Muñoz",
-   "sourceUrl": "https://www.inaturalist.org/photos/130817261",
-   "key": "inat:130817261"
-  }
+ "queue": [],
+ "judged": [
+  "inat:605686357",
+  "inat:344178686",
+  "inat:331824745",
+  "inat:60517860",
+  "inat:339904169",
+  "inat:339945186",
+  "inat:605686340",
+  "inat:344322946",
+  "inat:344323025",
+  "inat:344323065",
+  "inat:609971628",
+  "inat:130817261"
  ],
- "judged": [],
  "hashes": {},
- "commons": "2026-11-07"
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 1560839,
+  "pass": "done",
+  "after": {
+   "research": 335735091,
+   "agree": 0
+  }
+ }
 }

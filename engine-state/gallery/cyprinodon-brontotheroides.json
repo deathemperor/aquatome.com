@@ -1,18 +1,8 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172053634/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/172053634/medium.jpg",
-   "width": 2048,
-   "height": 1152,
-   "licence": "CC BY",
-   "author": "Tom Kennedy",
-   "sourceUrl": "https://www.inaturalist.org/photos/172053634",
-   "key": "inat:172053634"
-  }
- ],
+ "queue": [],
  "judged": [
-  "File:Cyprinodon brontotheroides.jpg"
+  "File:Cyprinodon brontotheroides.jpg",
+  "inat:172053634"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/eb961e1df7b54d6a.webp": "7d3e3eb73f1eaec0",
@@ -20,5 +10,13 @@
   "https://media.aquatome.com/seriouslyfish/c7e6195996665e92.webp": "6e6e4b27a9c6c3e4",
   "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp": "866300b6b6c7563e"
  },
- "commons": "2026-11-07"
+ "commons": "2026-11-07",
+ "inat": {
+  "taxon": 613769,
+  "pass": "done",
+  "after": {
+   "research": 102872068,
+   "agree": 0
+  }
+ }
 }

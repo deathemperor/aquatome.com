@@ -1,0 +1,20 @@
+{
+  "slug": "ca-exastilithoxus-fimbriatus",
+  "name": "Cá Exastilithoxus fimbriatus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Exastilithoxus fimbriatus (Steindachner, 1915)</li><li>Tên đồng nghĩa: Pseudacanthicus fimbriatus</li><li>Nơi thu mẫu chuẩn: Río Coquenan, Venezuela</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Caroni và sông Matacuni, thuộc hệ thống sông Orinoco.</p>",
+    "waterConditions:planetcatfish": "<p>Nhiệt độ: 25–28 °C.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi lại chuyện loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 52 (no. 17), pp 201.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

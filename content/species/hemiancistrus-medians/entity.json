@@ -12,6 +12,100 @@
     "guyana",
     "french-guiana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Maroni"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Grand Inini River, Saut S, 3°36'19\"N, 53°48'25\"W, Suriname.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Rivière Marouini, Maroni system, French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Maroni River basin.",
+          "countries": [],
+          "regions": [
+            "Maroni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340162,
+      "total": 63,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GF",
+          48
+        ],
+        [
+          "SR",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -54.84375,
+          2.8125,
+          31,
+          31
+        ],
+        [
+          -54.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          4.21875,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -92,8 +92,16 @@ function cleanWhere(raw: unknown, host: string): Record<string, string> {
 /** The owner's words as they said them, without control characters but their line ends; cut at the limit. */
 const cleanWords = (raw: unknown) => (typeof raw === 'string' ? raw : '').replace(/\r\n?/g, '\n').replace(/[\u0000-\u0009\u000b-\u001f\u007f]/g, '').trim().slice(0, MAX_WORDS)
 
-/** A time that sorts as it reads, then a uuid: R2 lists keys in order, so the queue comes oldest first. */
-const newId = (now: Date) => `${now.toISOString().replace(/[^0-9]/g, '')}-${crypto.randomUUID()}`
+/**
+ * A time that sorts as it reads, then a uuid: R2 lists keys in order, so the queue comes oldest first. A report sent in
+ * the millisecond of the one before takes the next millisecond: on the uuid alone, the two would sort at random (the
+ * report's `at` keeps its own time).
+ */
+let lastMs = 0
+const newId = (now: Date) => {
+  lastMs = Math.max(now.getTime(), lastMs + 1)
+  return `${new Date(lastMs).toISOString().replace(/[^0-9]/g, '')}-${crypto.randomUUID()}`
+}
 
 const MEDIA_KEY = /^\/api\/feedback\/media\/((?:[a-z0-9_-]+\/)*[a-zA-Z0-9_-]+\.(?:webp|jpe?g|png|gif|avif))$/
 

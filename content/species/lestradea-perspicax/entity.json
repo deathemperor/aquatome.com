@@ -1,0 +1,162 @@
+{
+  "id": "lestradea-perspicax",
+  "scientificName": "Lestradea perspicax",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Lestradea",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.8,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Lestradea perspicax is a cichlid endemic to the northern end of Lake Tanganyika, where it inhabits shallow water over sandy substrates. There is some confusion over the taxonomy of this species and its congener L. stappersi, which was originally regarded as a subspecies of perspicax and is now considered distinct. Very peaceful, and a maternal mouthbrooder in nature, it is not often seen in the hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>It inhabits areas of shallow water with sandy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Standard length: 135 mm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Set up the aquarium with large piles of rocks arranged to form caves, large areas of open water for swimming and a sandy substrate, as this species tends to sift through the substrate looking for food.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.8–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>L. perspicax will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Very peaceful. Do not keep with boisterous species such as Mbuna. Good tankmates include Julidochromis, Neolamprologus and Xenotilapia species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Tricky to sex. Males grow slightly larger than females and have two distinct lines on the dorsal fin. Females usually have only one line.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>Not achieved in aquaria but is known to be a maternal mouthbrooder in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lestradea-perspicax",
+      "html": "<p>There is some confusion regarding the taxonomy of this species and its congener L. stappersi. L. stappersi was originally regarded as a subspecies of perspicax but is now considered a distinct species. It is not often seen in the hobby.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ Tanganyika",
+        "cát mịn cho bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi điều chỉnh nhiệt độ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy lọc bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -9,6 +9,40 @@
     "asia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kalimantan"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8026320,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

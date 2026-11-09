@@ -1,0 +1,85 @@
+{
+  "id": "corydoras-albolineatus",
+  "native": {
+    "input": "8f67dcc76ea94a33",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is on the north bank of the lower Río Paraguá, Río Iténez system, Santa Cruz Department, southeastern Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Iténez",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraguá",
+        "source": "seriouslyfish",
+        "quote": "Type locality is on the north bank of the lower Río Paraguá, Río Iténez system, Santa Cruz Department, southeastern Bolivia.",
+        "country": "BO",
+        "ok": true
+      },
+      {
+        "name": "Río Madeira",
+        "source": "seriouslyfish",
+        "quote": "The Iténez is known as the Guaporé in Brazil and drains into the Río Mamoré, thus forming part of the upper Río Madeira system, itself a major tributary of the Amazon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras albolineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342770,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

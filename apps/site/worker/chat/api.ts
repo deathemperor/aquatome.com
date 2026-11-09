@@ -63,7 +63,12 @@ export type ChatDeps = { fetch?: typeof fetch; random?: () => number; clock?: ()
 const PER_ACCOUNT = 30
 const PER_DAY = 1000
 const MAX_TURNS = 20
-const MAX_CHARS = 500
+/** The longest question: a reader's whole forum post, as they paste it (14 of 30 real ones were over 500; the longest, 1,414). The chief of staff's call. */
+const MAX_CHARS = 1500
+/** Characters as the reader sees them, as the app counts (Swift's `count`): a Thai vowel or tone mark, or a Vietnamese
+ * tone mark kept apart as older forums keep it, is part of its letter, so a post the app shows as 1,500 is 1,500 here. */
+const graphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+const charsOf = (s: string) => [...graphemes.segment(s.normalize('NFC'))].length
 const CONVERSATION_MS = 24 * 3600_000
 /** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
  * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
@@ -85,6 +90,28 @@ const LANGS = ['vi', 'id', 'th', 'ms'] as const
 const json = (data: unknown, status = 200) => Response.json(data, { status, headers: { 'cache-control': 'no-store' } })
 const sse = (event: string, data: unknown) => `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
 const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-store' }
+/**
+ * One call to Claude. With `onDelta`, it streams, and each delta of its text (never its thinking) goes to `onDelta` as it
+ * comes; the whole message comes back either way. The SDK's timeout ends once a stream begins, so a timer bounds the
+ * whole streamed call, as the timeout bounds one that isn't: the stream is stopped, nothing more of it goes to `onDelta`,
+ * and the call fails as a timeout does, with no status (keys.ts `classify`: the network, not the key). A timer, not an
+ * abort signal: a stream stalled mid-body doesn't end on its signal in every runtime. A stream cut once it has begun
+ * (the connection lost, the body ended early) fails in the SDK's own error with no status at all, where a call that
+ * doesn't stream would have failed in its connection error: it is given one, so it too is the network's.
+ */
+export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStreaming, timeoutMs: number, onDelta?: (delta: string) => void): Promise<Anthropic.Message> {
+  if (!onDelta) return c.messages.create(b, { timeout: timeoutMs })
+  const s = c.messages.stream(b, { timeout: timeoutMs })
+  let over = false
+  s.on('text', delta => { if (!over) onDelta(delta) })
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const bound = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => { over = true; s.abort(); reject(Object.assign(new Error('Request timed out.'), { status: undefined })) }, timeoutMs)
+  })
+  const sdkError = (c.constructor as typeof Anthropic).AnthropicError
+  const done = s.finalMessage().catch((e: unknown) => { throw e instanceof sdkError && !isApiError(e) ? Object.assign(e, { status: undefined }) : e })
+  return Promise.race([done, bound]).finally(() => clearTimeout(timer))
+}
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'ACCOUNT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
   env.CHAT === '1' && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.ACCOUNT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
@@ -124,7 +151,7 @@ function questionOf(v: unknown, maxChars: number): Question | 'too long' | undef
         || Object.keys(r).some(k => !['scientificName', 'id', 'confidence'].includes(k)))) return undefined
     identified = { verdict: i.verdict as string, results: results.map(r => ({ scientificName: r.scientificName as string, confidence: r.confidence as number, ...(r.id ? { id: r.id as string } : {}) })) }
   }
-  if ([...o.question].length > maxChars) return 'too long'
+  if (charsOf(o.question.trim()) > maxChars) return 'too long'
   return {
     conversation: o.conversation.toLowerCase(), question: o.question.trim(), lang: (o.lang as Lang) ?? 'vi',
     start: { ...(o.from ? { from: o.from as Start['from'] } : {}), ...(o.about ? { about: o.about as string } : {}), ...(identified ? { identified } : {}) },
@@ -204,11 +231,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const idem = req.headers.get('idempotency-key')?.trim().toLowerCase() ?? ''
   if (idem && !UUID.test(idem)) return json({ error: 'bad idempotency-key' }, 400)
   const raw = await req.text().catch(() => '')
-  if (raw.length > MAX_BODY) return json({ error: 'too long' }, 413)
+  if (raw.length > MAX_BODY) return json({ error: 'too long', limit: maxChars }, 413)
   let body: unknown
   try { body = JSON.parse(raw) } catch { return json({ error: 'bad request' }, 400) }
   const q = questionOf(body, maxChars)
-  if (q === 'too long') return json({ error: 'too long' }, 413)
+  if (q === 'too long') return json({ error: 'too long', limit: maxChars }, 413)
   if (!q) return json({ error: 'bad request' }, 400)
   const stream = /(^|[\s,])text\/event-stream\b/i.test(req.headers.get('accept') ?? '')
 
@@ -279,7 +306,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   let trail: ChatRun | undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
-  const work = async (onStep?: (s: Step) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
+  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
     // Read inside the run, which outlives a dropped connection: read before it, a drop would leave the mark and the ledger open.
     const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
@@ -290,12 +317,22 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       spends.push(ledger.spend(day, run, usd).catch(e => console.error('chat spend:', e)))
     }
     class FirstCall extends Error { constructor(readonly reason: 'resting' | 'unavailable' | 'request') { super(reason) } }
+    /** The reader has some of the text: it streamed. */
+    let shown = false
     try {
       const out = await answerQuestion({
         // The first call rotates over the healthy keys; the run keeps the key that answered (its thinking is that key's).
-        send: async (b, { timeoutMs, call }) => {
+        send: async (b, { timeoutMs, call, onText: onDelta }) => {
           if (call === 1) {
-            const r = await rotate(healthy, store, async (k, left) => (await clientFor(k, fetchImpl)).messages.create(b, { timeout: Math.min(left, timeoutMs) }), { random: deps.random, clock, budgetMs: timeoutMs })
+            // Once the reader has some of its text, a call that fails isn't asked again of the next key: what they read
+            // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
+            // Before that, the next key is asked, without streaming once any of the first's text was read (its reader
+            // can't start again), so that answer's text comes whole.
+            let fed = false
+            const r = await rotate(healthy, store, async (k, left) => {
+              const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
+              try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed) } catch (e) { throw shown ? new FirstCall('unavailable') : e }
+            }, { random: deps.random, clock, budgetMs: timeoutMs })
             attempts.push(...r.attempts)
             if (!r.ok) throw new FirstCall(r.reason)
             key = healthy.find(k => k.hash === r.hash)!
@@ -306,7 +343,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           }
           const t = clock()
           try {
-            const m = await client!.messages.create(b, { timeout: timeoutMs })
+            const m = await callClaude(client!, b, timeoutMs, onDelta)
             tally[key!.hash] = (tally[key!.hash] ?? 0) + 1
             onUsage(m.usage)
             return m
@@ -318,6 +355,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
+        ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) } } : {}),
       })
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
@@ -393,8 +431,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const done = await p
     return json(done.body, done.status)
   }
-  // The stream: steps as they happen, then the text, the blocks, and done (the whole turn); or error. Pings while it works.
-  // Done comes once the turn is saved: a question asked right after it finds the conversation free.
+  // The stream: steps as they happen, then the text as Claude writes it, the blocks, and done (the whole turn); or error.
+  // Pings while it works. Every step comes before the text: the run ends on the call that writes it (agent.ts
+  // `streaming`). Done comes once the turn is saved: a question asked right after it finds the conversation free.
   const enc = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const w = writable.getWriter()
@@ -402,15 +441,18 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const send = (s: string) => { if (open) w.write(enc.encode(s)).catch(() => { open = false }) }
   const ping = setInterval(() => send(': ping\n\n'), PING_MS)
   wait((async () => {
-    const done = await work(step => send(sse('step', step)))
+    let shown = false
+    const done = await work(step => send(sse('step', step)), piece => { shown = true; send(sse('text', { text: piece })) })
+    const t = done.status === 200 ? done.body as unknown as Turn : undefined
+    if (t) {
+      // An off-topic answer's line, the Worker's own, comes whole, as does a text that didn't stream.
+      if (!shown) send(sse('text', { text: t.text }))
+      for (const b of t.blocks) send(sse('block', b))
+    }
     await finish(done)
     clearInterval(ping)
-    if (done.status === 200) {
-      const t = done.body as unknown as Turn
-      send(sse('text', { text: t.text }))
-      for (const b of t.blocks) send(sse('block', b))
-      send(sse('done', t))
-    } else send(sse('error', { error: done.status === 502 ? 'failed' : done.body.error === 'resting' ? 'resting' : 'unavailable' }))
+    if (t) send(sse('done', t))
+    else send(sse('error', { error: done.status === 502 ? 'failed' : done.body.error === 'resting' ? 'resting' : 'unavailable' }))
     await w.close().catch(() => {})
   })())
   return new Response(readable, { headers: streamHeaders })

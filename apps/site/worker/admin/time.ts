@@ -67,18 +67,18 @@ export function zoneName(tz: string, t: Date | number = Date.now()): string {
   return `GMT${m < 0 ? '−' : '+'}${h}${min ? `:${String(min).padStart(2, '0')}` : ''}`
 }
 
-export const WEEKDAY: Record<string, string> = { Sun: 'Chủ nhật', Mon: 'Thứ Hai', Tue: 'Thứ Ba', Wed: 'Thứ Tư', Thu: 'Thứ Năm', Fri: 'Thứ Sáu', Sat: 'Thứ Bảy' }
-/** 15:34 */
+const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+/** 9:05, 15:34: the hour without a leading zero. */
 export const hourMinute = (t: Date | number | string, tz: string) => {
   const p = parts(msOf(t), tz)
-  return `${p.hour}:${p.minute}`
+  return `${+p.hour}:${p.minute}`
 }
-/** "04/11 15:34", with the year when it isn't `now`'s ("28/12/2025 09:10"). */
+/** "Thu 5 Nov, 9:00", with the year when it isn't `now`'s ("Sun 28 Dec 2025, 9:10"). */
 export function clock(t: Date | number | string, tz: string, now: Date | number = Date.now()): string {
   const p = parts(msOf(t), tz)
-  return `${p.day}/${p.month}${p.year !== parts(msOf(now), tz).year ? `/${p.year}` : ''} ${p.hour}:${p.minute}`
+  return `${p.weekday} ${+p.day} ${MONTH[+p.month - 1]}${p.year !== parts(msOf(now), tz).year ? ` ${p.year}` : ''}, ${+p.hour}:${p.minute}`
 }
-/** A moment as text, in the viewer's zone ("04/11 15:34"); '—' for one that can't be read. */
+/** A moment as text, in the viewer's zone ("Wed 4 Nov, 15:34"); '—' for one that can't be read. */
 export const timeText = (t: Date | number | string, tz: string, now: Date | number = Date.now()) => (Number.isFinite(msOf(t)) ? clock(msOf(t), tz, now) : '—')
 /** A moment for the page: `<time>` with the instant, written in the viewer's zone (the script rewrites it if the device's differs). */
 export function timeTag(t: Date | number | string, tz: string, now: Date | number = Date.now()): string {
@@ -86,8 +86,8 @@ export function timeTag(t: Date | number | string, tz: string, now: Date | numbe
   if (!Number.isFinite(ms)) return '—'
   return `<time datetime="${new Date(ms).toISOString()}">${clock(ms, tz, now)}</time>`
 }
-/** The bar's stamp: "Thứ Tư, 04/11 · 15:34", the weekday dropped on a narrow phone. */
+/** The bar's stamp: "Wed 4 Nov · 15:34", the weekday dropped on a narrow phone. */
 export function stamp(now: Date, tz: string): string {
   const p = parts(now.getTime(), tz)
-  return `<time datetime="${now.toISOString()}" data-f="stamp"><span>${WEEKDAY[p.weekday] ?? ''}, </span>${p.day}/${p.month} · ${p.hour}:${p.minute}</time>`
+  return `<time datetime="${now.toISOString()}" data-f="stamp"><span>${p.weekday} </span>${+p.day} ${MONTH[+p.month - 1]} · ${+p.hour}:${p.minute}</time>`
 }

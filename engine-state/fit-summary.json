@@ -1,5 +1,5 @@
 {
- "day": "2026-11-08",
+ "day": "2026-11-09",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 2985,
-   "read": 2645,
-   "wrong": 1272,
-   "pct": 46,
-   "held": 22
+   "pages": 3202,
+   "read": 2887,
+   "wrong": 1330,
+   "pct": 47,
+   "held": 17
   },
   "id": {
-   "pages": 978,
-   "read": 848,
-   "wrong": 260,
-   "pct": 31,
-   "held": 3
+   "pages": 1036,
+   "read": 973,
+   "wrong": 310,
+   "pct": 32,
+   "held": 0
   },
   "th": {
-   "pages": 971,
-   "read": 850,
-   "wrong": 250,
-   "pct": 30,
-   "held": 5
+   "pages": 1029,
+   "read": 966,
+   "wrong": 297,
+   "pct": 31,
+   "held": 0
   },
   "ms": {
-   "pages": 127,
-   "read": 99,
-   "wrong": 39,
-   "pct": 42,
-   "held": 1
+   "pages": 150,
+   "read": 120,
+   "wrong": 45,
+   "pct": 37,
+   "held": 0
   }
  },
  "labels": {
@@ -58,9 +58,49 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-ty-ba-buom-myersi/",
-   "url": "https://aquatome.com/ca/ca-ty-ba-buom-myersi/",
-   "title": "Cá tỳ bà bướm myersi",
+   "path": "/vi/ca/ca-rang-chep-zagros/",
+   "url": "https://aquatome.com/ca/ca-rang-chep-zagros/",
+   "title": "Cá răng chép Zagros",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "chúng tôi"
+    },
+    {
+     "check": "source",
+     "quote": "chúng tôi đặc biệt khuyên nên nuôi riêng"
+    },
+    {
+     "check": "source",
+     "quote": "(xem “thiết lập bể”)"
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-chach-suoi-schistura-aurantiaca/",
+   "url": "https://aquatome.com/ca/ca-chach-suoi-schistura-aurantiaca/",
+   "title": "Cá chạch suối Schistura aurantiaca",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "Con suối trong ảnh chảy qua một khu rừng có tán cây cao chừng 50 m."
+    },
+    {
+     "check": "units",
+     "quote": "bề rộng suối thay đổi theo mùa nhưng chưa bao giờ quá 9,1 mét"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-betta-foerschi/",
+   "url": "https://aquatome.com/ca/ca-betta-foerschi/",
+   "title": "Cá betta foerschi",
    "wrong": [
     {
      "check": "words",
@@ -68,38 +108,11 @@
     },
     {
      "check": "words",
-     "quote": "giới chơi"
-    },
-    {
-     "check": "words",
-     "quote": "thị trường cá cảnh"
-    }
-   ]
-  },
-  {
-   "lang": "ms",
-   "path": "/ms/ikan/ikan-toman/",
-   "url": "https://aquatome.com/ms/ikan/ikan-toman/",
-   "title": "Ikan toman",
-   "wrong": []
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "url": "https://aquatome.com/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "title": "Uốn cong tấm mica acrylic bằng lò nướng để tự làm bể mặt cong",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "nhiều khả năng"
+     "quote": "gần như không"
     },
     {
      "check": "words",
      "quote": "Dù vậy"
-    },
-    {
-     "check": "words",
-     "quote": "bắt buộc phải"
     }
    ]
   }

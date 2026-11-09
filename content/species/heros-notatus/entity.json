@@ -1,0 +1,333 @@
+{
+  "id": "heros-notatus",
+  "scientificName": "Heros notatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Heros",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The spotted severum, Heros notatus, is a cichlid endemic to the Rio Negro basin in Brazil, where it inhabits blackwater rivers and tributaries.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Rio Negro basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208371,
+      "total": 23,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          20
+        ],
+        [
+          "GY",
+          2
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -52.03125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>The spotted severum, Heros notatus, is a cichlid endemic to the Rio Negro basin in Brazil, where it inhabits blackwater rivers and tributaries. Rarely seen, it is occasionally offered by specialist cichlid or South American dealers. Not a particularly aggressive species, though males may squabble with conspecifics, it suits a larger cichlid community, and much smaller fish will almost certainly be eaten.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Endemic to the Rio Negro basin, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Blackwater rivers and tributaries. The water in these biotopes is typically stained brown with tannins from decaying organic material and is very acidic as a result. This species is often found in marginal areas around submerged tree roots and branches.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Standard length: 30 cm SL. Aquarium base: 120 × 38 cm. Volume: approximately 173 litres (120 × 38 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Provide a well planted tank with areas of open swimming space. A sand substrate is recommended as this fish likes to dig. Other decor in the form of bogwood, branches and smooth stones can also be used. Lighting levels are not critical and can be matched to the requirements of the plants used.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<ul><li>Temperature: 22–29°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Omnivorous. Accepts most foods in the aquarium. Feed a good quality cichlid pellet as a staple. Supplement this with foods such as bloodworm and brineshrimp or small pieces of prawn and white fish for larger severums. Will also appreciate some vegetable matter in the diet in the form of algae wafers or blanched greens.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Not a particularly aggressive species, although males may squabble with conspecifics. May be kept as part of a larger cichlid community or with other robust species such as larger characins and barbs. Much smaller fish will almost certainly be eaten.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Male is bigger, has more defined reddish markings on the gill covers and tends to develop longer extensions to the dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>Limited reports of breeding in the hobby, as the fish is not often seen for sale. Breeding is likely to follow similar patterns to Heros severus where the pair will select a flat stone, or sometimes excavate a pit. Once the breeding area is prepared, eggs will be deposited by the female and then fertilised by the male. Both fish guard the eggs and when the fry hatch two to three days later, they are transferred to a pit where the parents keep them until they become free-swimming. This is usually 3–4 days after hatching. Both fish assume parental duties but can be easily spooked often leading to them eating the fry. It is advisable that the breeding tank be placed in a quiet location and disturbed as little as possible. Fry can be fed on newly-hatched brineshrimp and powdered fry foods until large enough to take bigger foods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-notatus",
+      "html": "<p>A rarely seen, although attractive member of the severum family. This species is occasionally offered for sale through specialist cichlid or South American dealers.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/088d3927003c8b22.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ferrari2503 at English Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heros_notatus01.jpg",
+      "caption": "Heros notatus, also known as \"spotted severum\"",
+      "thumb": "https://media.aquatome.com/commons/088d3927003c8b22-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/136061f57f5aab16.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Ferrari2503",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Severum_2.JPG",
+      "caption": "Heros notatus. Photo by Grant Kendrick",
+      "thumb": "https://media.aquatome.com/commons/136061f57f5aab16-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1a347bdfa6d74068.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Purple_fish_with_red_eyes_in_aquarium.jpg",
+      "caption": "Purple fish with red eyes in aquarium.jpg",
+      "thumb": "https://media.aquatome.com/commons/1a347bdfa6d74068-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "s28Z254djCg",
+      "title": "Handfeeding spotted severum (Heros notatus) adults and juveniles",
+      "durationSec": 502,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_RE-QPTUahM",
+      "title": "Spotted severum (Heros notatus) courtship behaviour",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kEfH7fTa1YU",
+      "title": "Update on planted spotted severum (Heros notatus) tank",
+      "durationSec": 654,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6jV3R9zsj5w",
+      "title": "Cool agression / \"fighting\" between spotted severum  (Heros notatus) males",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy lọc nước cho cá cichlid"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid viên",
+        "thức ăn cho cá severum"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

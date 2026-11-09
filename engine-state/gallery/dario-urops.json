@@ -2,9 +2,15 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/3ac434f61ff0a623.webp": "a27a70f0988cd953",
-  "https://media.aquatome.com/seriouslyfish/bc2443d28ecedf91.webp": "4d46c94a0e46c6d5",
-  "https://media.aquatome.com/seriouslyfish/b9a7014b2adf6713.webp": "8e4e368fc767b387"
+  "https://media.aquatome.com/seriouslyfish/3ac434f61ff0a623.webp": "a27a70f0988cd953"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 608923,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

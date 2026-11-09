@@ -26,12 +26,12 @@
     {
       "url": "https://fishdoc.co.uk/?p=257",
       "title": "Fishdoc – Argulus, The Fish Louse",
-      "kind": "article"
+      "kind": "vet"
     },
     {
       "url": "https://www.vin.com/doc/?id=5377957",
       "title": "Hadfield, Jones & Clayton – Argulus outbreak treated with diflubenzuron (National Aquarium), VIN",
-      "kind": "paper"
+      "kind": "vet"
     },
     {
       "url": "https://www.nt-labs.com/browse-products/outdoor/koi-care/koi-care-argusol/",
@@ -41,27 +41,32 @@
     {
       "url": "https://snnmt.thanhhoa.gov.vn/chan-nuoi-thu-y-150696/benh-trung-mo-neo-va-bien-phap-phong-dieu-tri-benh-tren-ca-nuoi-ca-canh-698721",
       "title": "Sở NN&MT Thanh Hóa – Bệnh trùng mỏ neo và biện pháp phòng, điều trị trên cá nuôi, cá cảnh",
-      "kind": "other"
+      "kind": "farm"
     },
     {
       "url": "https://dylanvina.com/trung-mo-neo-tren-ca-nuoc-ngot-lernaeosis-nguyen-nhan-trieu-chung-va-cach-phong-tri-hieu-qua",
       "title": "Dylan Vina – Trùng mỏ neo trên cá nước ngọt (Lernaeosis)",
-      "kind": "article"
+      "kind": "shop"
     },
     {
       "url": "https://gensou.sg/?p=20063",
       "title": "Gensou – Anchor Worm in Fish: Identification and Removal",
-      "kind": "article"
+      "kind": "shop"
     },
     {
       "url": "https://koisale.com/pages/koi-goldfish-health/fish-parasites-p3.html",
       "title": "Koisale – Fish Parasites P3 (koi & goldfish health)",
-      "kind": "article"
+      "kind": "shop"
     },
     {
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4675570",
       "title": "Prevalence of Argulus on ornamental fish (goldfish, koi) in Iran – PMC",
       "kind": "paper"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/dips-to-remove-ectoparasites",
+      "title": "Table: Dips to Remove Ectoparasites-Merck Veterinary Manual",
+      "kind": "vet"
     }
   ],
   "facts": [
@@ -251,11 +256,6 @@
       "source": 4
     },
     {
-      "section": "causes",
-      "fact": "Số lượng rận cá thường tăng mạnh vào mùa hè và mùa thu.",
-      "source": 1
-    },
-    {
       "section": "firstAid",
       "fact": "Với cá lớn, gắp trùng mỏ neo bằng nhíp rồi theo dõi kỹ vết thương.",
       "source": 9
@@ -427,12 +427,12 @@
     },
     {
       "section": "treatment",
-      "fact": "NT Labs Argusol (diflubenzuron 291,2 mg/100 ml) trị rận cá và trùng mỏ neo: 10 ml cho 364 lít, để 7 ngày, thay nước một phần rồi lặp lại; tối đa 4 liều.",
+      "fact": "Thuốc chứa diflubenzuron (một chất ức chế kitin) trị được rận cá và trùng mỏ neo: liều, số ngày để thuốc và số lần lặp lại theo nhãn.",
       "source": 5
     },
     {
       "section": "treatment",
-      "fact": "Argusol: không dùng dưới 10°C hoặc trên 30°C; tắt đèn UV 10 ngày, sục khí mạnh; không dùng khi trời nóng ẩm hoặc giông, không trộn thuốc khác.",
+      "fact": "Nhãn một thuốc diflubenzuron dặn: không dùng dưới 10°C hoặc trên 30°C; tắt đèn UV trong lúc trị, sục khí mạnh; không dùng khi trời nóng ẩm hoặc giông, không trộn với thuốc khác.",
       "source": 5
     },
     {
@@ -449,11 +449,6 @@
       "section": "prevention",
       "fact": "Thay nước định kỳ, giảm hữu cơ và bùn đáy, tăng sục khí, giảm mật độ, khử trùng dụng cụ và ao trước vụ mới.",
       "source": 7
-    },
-    {
-      "section": "prevention",
-      "fact": "Tắm muối định kỳ 2–3% trong 15–20 phút để diệt trứng trùng; mua cá ở nơi uy tín và cách ly cá mới.",
-      "source": 6
     },
     {
       "section": "prevention",
@@ -507,7 +502,7 @@
     },
     {
       "section": "vietnam",
-      "fact": "Argusol khuyến cáo không dùng trên 30°C, điều cần lưu ý cho bể/hồ ngoài trời vào mùa nóng.",
+      "fact": "Thuốc diflubenzuron đó không dùng trên 30°C, điều cần lưu ý cho bể, hồ ngoài trời vào mùa nóng.",
       "source": 5
     },
     {
@@ -519,6 +514,16 @@
       "section": "other",
       "fact": "Thuốc ức chế kitin như diflubenzuron về nguyên lý gây hại cho giáp xác; báo cáo ổ dịch ở thủy cung không có dữ liệu theo dõi riêng cho động vật không xương sống.",
       "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Mua cá ở nơi uy tín và cách ly cá mới.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "A salt dip for freshwater fish, as the Merck Veterinary Manual gives it to remove external parasites: usually 30 g/L for 0.5–10 minutes, depending on species. A fish in distress, commonly rolling onto its side, is taken out of the bath at once.",
+      "source": 11
     }
   ]
 }

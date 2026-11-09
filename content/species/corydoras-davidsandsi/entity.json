@@ -1,0 +1,273 @@
+{
+  "id": "corydoras-davidsandsi",
+  "scientificName": "Corydoras davidsandsi",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-unini"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Unini",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Sand's cory, Hoplisoma davidsandsi, long known as Corydoras davidsandsi, is an armoured catfish apparently endemic to the rio Unini system in the lower rio Negro basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Unini"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Unini, whitewater area of the Rio Negro, Brazil', and this species appears endemic to that tributary system located within the lower rio Negro.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342691,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Sand's cory, Hoplisoma davidsandsi, long known as Corydoras davidsandsi, is an armoured catfish apparently endemic to the rio Unini system in the lower rio Negro basin, Brazil. One of a group of rio Negro species with an oblique dark bar along the back, it shares with H. melini a bar that splits in two above the caudal peduncle. It has a pale orange area between the facial stripe and dorsal bar and no further dark markings on the flanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Type locality is 'Rio Unini, whitewater area of the Rio Negro, Brazil', and this species appears endemic to that tributary system located within the lower rio Negro.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>The type series was said to have been collected from a \"whitewater area\", but images of the rio Unini depict a blackwater system typical of the rio Negro basin, and this is supported by empirical evidence. There are sections of rapidly-flowing water so perhaps this is what the author was referring to.</p><p>Habitats should therefore comprise tributaries and areas of flooded forest where the water is characteristically stained dark with organic chemicals, very little detectable hardness, low conductivity, and an acidic pH.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Minimum base dimensions of 90 × 30 cm are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs are normally deposited on the aquarium glass, but it's recommended to provide alternatives in the form of fine-leaved vegetation or fine spawning mops.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger.</p><p>The new container should contain the same water and be similarly well-oxygenated. Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<p>This is one of a group of species from the rio Negro basin characterised by possession of an oblique dark bar along the dorsal region alongside Hoplisoma adolfoi, H. duplicareum, Brochis imitator, H. melini, and Corydoras serratus.</p><p>In H. davidsandsi this bar splits into two above the caudal peduncle, a feature shared only with H. melini within this unofficial assemblage. It can be told apart from H. melini by possessing a pale orange area between the dark facial stripe and dorsal bars, and lacking additional dark markings on the flanks.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "html": "<ul><li>Black, B. (1987). A new species of Corydoras, Corydoras davidsandsi (Siluriformes, Callichthyidae) from the Rio Unini, Amazonas, Brazil. Practical Fishkeeping 1987, 74-75</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sobreiro, T., C. Edwar de Carvalho Freitas, K. L. Prado, F. Aquino do Nascimento, R. Vicentini, and A. M. Moraes (2010). An evaluation of fishery co-management experience in an Amazonian black-water river (Unini River, Amazon, Brazil). Environmental Development and Sustainability 12, 1013-1024</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1edebbea2b261bf4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1edebbea2b261bf4-480.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/32731298945e22da.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/32731298945e22da-480.webp",
+      "width": 650,
+      "height": 488,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-davidsandsi",
+      "caption": "The Unini is a blackwater river as seen in this image taken at Tapira do Rio Unini.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "UxX1Y2I0_SQ",
+      "title": "Corydoras davidsandsi breeding project",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IIoYRek7qAI",
+      "title": "David Sands Cory Wild Caught Wednesday",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7IzFuQ8Jq6k",
+      "title": "Cory Catfish Corydoras Davidsandsi",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BK3XpQaMDkc",
+      "title": "Cory breeding C.davidsandsi ( T POSITION )",
+      "durationSec": 123,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "máy sục khí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

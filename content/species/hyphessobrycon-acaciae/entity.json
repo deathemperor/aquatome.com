@@ -1,0 +1,84 @@
+{
+  "id": "hyphessobrycon-acaciae",
+  "scientificName": "Hyphessobrycon acaciae",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia",
+    "rio-guamal"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-acaciae",
+      "html": "<p>Max size: 30 mm SL (3 cm SL). Difficulty: Easy. Needs a small tank and should be kept in a group; fine with other fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-acaciae",
+      "html": "<p>Known only from streams and minor affluents within the middle-and-upper Río Guamal in Meta Department, Colombia.</p><p>The Guamal is a tributary drainage within the upper Río Meta system which itself flows into the enormous Río Orinoco.</p><p>Type locality is 'Morichal del estero, Puerto López, Meta, ca. 4°04'N, 72°57'W, Colombia'.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-acaciae",
+      "html": "<p>Hyphessobrycon acaciae is a small tetra known only from streams in the middle and upper Río Guamal, part of the Río Meta system in Colombia. The dark lateral band separates it from most Hyphessobrycon in the Orinoco basin, and it is told from the remaining few by counts of fin rays, teeth and scales.</p><p>H. acaciae can be told apart from all other Hyphessobrycon species inhabiting the Río Orinoco basin except H. diancistrus, H. metae, H. paucilepis, H. taguae and H. mavro, by the presence of a dark lateral band.</p><p>It can be distinguished from these species by presence of four simple anal-fin rays (vs. three), 14 teeth in the dentary (vs. 9-12 in H. niger, H. taguae, H. paucilepis, H. diancistrus, H. metae, and 17 in H. mavro), a low number of scales between the lateral line and pelvic fins (3 vs. 4 except in H. paucilepis and H. niger which also have 3), and the absence of bony hooks on the fins of sexually mature males (vs. presence except in H. paucilepis and H. mavro).</p><p>H. acaciae further differs from H. metae by possessing 9-10 pored lateral line scales (vs. 6-7), 5 teeth in the inner premaxillary row (vs. 6), and absence of dark coloration between the lateral line and anal-fin base (vs. presence).</p><p>It differs from H. paucilepis by possessing 30-31 scales in the lateral row (vs. 28-29), 3 scales between the lateral line and anal-fin (vs. 4), 10 predorsal scales (vs. 9), ii, 9 dorsal-fin rays (vs. iii, 8), 4 maxillary teeth (vs. 1), and the distance between the dorsal-fin and pectoral fins 24.0-29.4 % SL (vs. 34.9-48.3%).</p><p>It is separated from H. taguae by possessing 9-10 pored lateral line scales (vs. 5-7), and the upper jaw measuring 23.1-34.5 % HL (vs. 16.2-22.8 %) and from H. diancistrus by presence of 5 scales between the lateral line and dorsal-fin (vs. 6), 10 predorsal scales (vs. 12), presence of teeth in the maxilla (vs. absence) and 5 teeth in the inner premaxillary row (vs. 6).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-acaciae",
+      "html": "<ul><li>García-Alzate, C. A., C. Román-Valencia and S. Prada-Pedreros (2010). Tres nuevas especies de Hyphessobrycon grupo heterorhabdus (Teleostei: Characiformes: Characidae) y clave para especies de la cuenca del Río Orinoco. Caldasia 32(2), 443-461</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e70755342831aaff.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e70755342831aaff-480.webp",
+      "width": 793,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-acaciae",
+      "caption": "Holotype; MPUJ 5683, 27.4 mm SL. Scale 1 cm.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra nhỏ",
+        "thức ăn vi cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

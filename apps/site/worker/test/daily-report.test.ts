@@ -223,7 +223,7 @@ test('the numbers come from the dashboard\'s loaders, in Vietnam\'s days; a part
   expect((await post(w.e)).status).toBe(200)
   expect(fetch).toHaveBeenCalled()
   const r = stored(w)
-  expect(r.text).toContain('Could not load readers')
+  expect(r.text).toContain('Readers didn’t load')
   expect(r.text).toContain('Could not load the app\'s telemetry')
   expect(r.text).toContain('SUCCESS, THIS WEEK\nCould not load the scoreboard\'s numbers.')
   expect(r.text).toContain('Could not load the week\'s success numbers')
@@ -386,9 +386,9 @@ test('the log: nothing yet', async () => {
   expect(r.status).toBe(200)
   expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
   const html = await r.text()
-  expect(html).toContain('<h1>Báo cáo hằng ngày</h1>')
-  expect(html).toContain('aria-current="page">Báo cáo hằng ngày<')
-  expect(html).toContain('Chưa có báo cáo nào.')
+  expect(html).toContain('<h1>Daily reports</h1>')
+  expect(html).toContain('aria-current="page">Daily reports<')
+  expect(html).toContain('No reports yet.')
 })
 
 test('the log: newest first, date and time, sent or why not, subject and how many need care; each opens the report as it was sent', async () => {
@@ -400,14 +400,14 @@ test('the log: newest first, date and time, sent or why not, subject and how man
   const list = await (await open(w.e, '/_ab/bao-cao', c)).text()
   const rows = list.split('<ul class="areas">')[1]!.split('</li>').slice(0, 3)
   expect(rows[0]).toContain('2 need care')
-  expect(rows[0]).toContain('Chưa gửi')
-  expect(rows[0]).toContain('chưa có người nhận')
+  expect(rows[0]).toContain('Email not sent')
+  expect(rows[0]).toContain('no recipient')
   expect(rows[0]).toContain('href="/_ab/bao-cao/1003/"')
-  expect(rows[0]).toContain('2 cần xử lý')
+  expect(rows[0]).toContain('2 to handle')
   expect(rows[0]).toContain('<time datetime="2026-11-06T00:00:00.000Z">')
   expect(rows[1]).toContain('<code>E_RECIPIENT_NOT_ALLOWED</code>')
   expect(rows[1]).toContain('5 Nov &lt;b&gt;')
-  expect(rows[2]).toContain('Đã gửi')
+  expect(rows[2]).toContain('Email sent')
   const one = await open(w.e, '/_ab/bao-cao/1003/', c)
   expect(one.status).toBe(200)
   const page = await one.text()
@@ -423,7 +423,7 @@ test('the log after a real report: the page shows what was sent', async () => {
   const { owner: c } = await owner(w)
   await post(w.e)
   const list = await (await open(w.e, '/_ab/bao-cao/', c)).text()
-  expect(list).toContain('Đã gửi')
+  expect(list).toContain('Email sent')
   expect(list).toContain('href="/_ab/bao-cao/1001/"')
   expect(await (await open(w.e, '/_ab/bao-cao/1001/', c)).text()).toContain(stored(w).html)
 })
@@ -437,20 +437,20 @@ test('the log says what went out: the mail, the phones notified, or neither and 
   keep(w, '2004', { when: '2026-11-03T00:00:00.000Z', sent: true, push: { sent: 1, why: 'TooManyRequests' } })
   keep(w, '2005', { when: '2026-11-02T00:00:00.000Z', sent: true, push: { sent: 1, dropped: 2 } })
   const rows = (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<ul class="areas">')[1]!.split('</li>')
-  expect(rows[0]).toContain('<span class="chip good">Đã gửi email</span> · <span class="chip good">Đã gửi 2 thông báo</span>')
-  expect(rows[1]).toContain('<span class="chip bad">Chưa gửi thông báo</span>: chưa có khóa APNs')
-  expect(rows[1]).not.toContain('email')
-  expect(rows[2]).toContain('<span class="chip">Không gửi</span>: email và thông báo đều đang tắt')
-  expect(rows[3]).toContain('Đã gửi 1 thông báo</span>: <code>TooManyRequests</code>')
-  expect(rows[4]).toContain('Đã gửi 1 thông báo</span> · <span class="chip">Bỏ 2 điện thoại</span>: đã đăng xuất hoặc không còn nhận thông báo')
-  expect(await (await open(w.e, '/_ab/bao-cao/2002/', c)).text()).toContain('Chưa gửi thông báo</span>: chưa có khóa APNs')
+  expect(rows[0]).toContain('<span class="chip good">Email sent</span> · <span class="chip good">2 notifications sent</span>')
+  expect(rows[1]).toContain('<span class="chip bad">Notification not sent</span>: no APNs key')
+  expect(rows[1]).not.toContain('Email')
+  expect(rows[2]).toContain('<span class="chip">Not sent</span>: email and notifications are both off')
+  expect(rows[3]).toContain('1 notification sent</span>: <code>TooManyRequests</code>')
+  expect(rows[4]).toContain('1 notification sent</span> · <span class="chip">2 phones dropped</span>: signed out or no longer taking notifications')
+  expect(await (await open(w.e, '/_ab/bao-cao/2002/', c)).text()).toContain('Notification not sent</span>: no APNs key')
 })
 
 test('the delivery from the page: its state and a button for each switch, a form only the owner signed in on the web can post', async () => {
   const w = world()
   const { owner: c, reader } = await owner(w)
-  const page = async () => (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<h2>Nhận báo cáo</h2>')[1]!.split('<h2>')[0]!
-  expect(await page()).toBe('<p>Email: đang bật. Thông báo trên điện thoại: đang tắt.</p><form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Tắt email</button><button name="push" value="1">Bật thông báo</button></form>')
+  const page = async () => (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<h2>How it reaches you</h2>')[1]!.split('<h2>')[0]!
+  expect(await page()).toBe('<p>Email: on. Phone notifications: off.</p><form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Turn off email</button><button name="push" value="1">Turn on notifications</button></form>')
   const press = (fields: Record<string, string>, cookie?: string) => handle(new Request('https://x.test/_ab/bao-cao/cai-dat', { method: 'POST', headers: { ...browser, ...(cookie ? { cookie } : {}) }, body: new URLSearchParams(fields) }), w.e)
   // Nobody, another account: not found, nothing changes.
   for (const who of [undefined, reader]) expect((await press({ push: '1' }, who)).status).toBe(404)
@@ -458,8 +458,8 @@ test('the delivery from the page: its state and a button for each switch, a form
   const r = await press({ push: '1' }, c)
   expect([r.status, r.headers.get('location')]).toEqual([303, '/_ab/bao-cao/'])
   expect(JSON.parse(w.ab.m.get(SETTINGS_KEY)!.value)).toEqual({ email: true, push: true })
-  expect(await page()).toContain('<p class="failed" role="status">Email: đang bật. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được.')
-  expect(await page()).toContain('<button name="push" value="0">Tắt thông báo</button>')
+  expect(await page()).toContain('<p class="failed" role="status">Email: on. Phone notifications: on, but no phone has signed up and there is no APNs key, so none can go.')
+  expect(await page()).toContain('<button name="push" value="0">Turn off notifications</button>')
   for (const bad of [{}, { push: 'on' }, { email: '2' }] as Record<string, string>[]) expect((await press(bad, c)).status, JSON.stringify(bad)).toBe(400)
   expect((await open(w.e, '/_ab/bao-cao/cai-dat', c)).status).toBe(404)
   expect(JSON.parse(w.ab.m.get(SETTINGS_KEY)!.value)).toEqual({ email: true, push: true })
@@ -475,7 +475,7 @@ test('the log opens only to the owner\'s account signed in on the web', async ()
       const html = await r.text()
       expect(r.status, path).toBe(status)
       expect(html, path).not.toContain('secret')
-      expect(html, path).not.toContain('Các mục quản trị')
+      expect(html, path).not.toContain('Dashboard pages')
     }
     // A token opens no page.
     expect(await (await handle(new Request(`https://x.test${path}`, { headers: { ...browser, authorization: `Bearer ${TOKEN}` } }), w.e)).text(), path).not.toContain('secret')
@@ -490,7 +490,7 @@ test('the log is a section of the app too, reached on the web from its rail (onc
   const { owner: c } = await owner(w)
   for (const page of ['/_ab/', '/_ab/an-trang/']) {
     const html = await (await open(w.e, page, c)).text()
-    expect(html, page).toContain('<li><a href="/_ab/bao-cao/">Báo cáo hằng ngày</a></li>')
+    expect(html, page).toContain('<li><a href="/_ab/bao-cao/">Daily reports</a></li>')
     expect(html.split('<nav')[1]!.split('</nav>')[0]!.match(/href="\/_ab\/bao-cao\/"/g), page).toHaveLength(1)
   }
   // A phone's overview hides the rail: the page itself links it.
@@ -562,9 +562,9 @@ test('the change log page: nothing yet', async () => {
   expect(r.status).toBe(200)
   expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
   const html = await r.text()
-  expect(html).toContain('<h1>Thay đổi sản phẩm</h1>')
-  expect(html).toContain('aria-current="page">Thay đổi sản phẩm<')
-  expect(html).toContain('Chưa có thay đổi nào.')
+  expect(html).toContain('<h1>Changelog</h1>')
+  expect(html).toContain('aria-current="page">Changelog<')
+  expect(html).toContain('No changes yet.')
 })
 
 const heads = (html: string) => html.split('<section><h3>').slice(1).map(d => d.split('</h3>')[0])
@@ -574,21 +574,21 @@ test('the change log page: by the day each merged in the viewer\'s zone, newest 
   const { owner: c } = await owner(w)
   w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([
     change('App', 'The app opens links.', '2026-11-05T10:00:00Z'),
-    change('Engine', 'Guides keep their photos.', '2026-11-05T20:00:00Z'), // 06/11 03:00 in Vietnam
-    change('Site', 'Shop links fit <small> phones.', '2026-11-05T16:00:00Z'), // 05/11 23:00
+    change('Engine', 'Guides keep their photos.', '2026-11-05T20:00:00Z'), // 6 Nov, 3:00 in Vietnam
+    change('Site', 'Shop links fit <small> phones.', '2026-11-05T16:00:00Z'), // 5 Nov, 23:00
     change('Site', 'Readers can search.', '2026-11-05T09:00:00Z'),
     change('Site', 'Readers can search.', '2026-11-05T08:00:00Z'),
   ]) })
   const html = await (await open(w.e, '/_ab/thay-doi/', c)).text()
-  expect(heads(html)).toEqual(['Thứ Sáu · 06/11/2026', 'Thứ Năm · 05/11/2026'])
+  expect(heads(html)).toEqual(['Fri 6 Nov 2026', 'Thu 5 Nov 2026'])
   const days = html.split('<section><h3>').slice(1)
-  expect(days[0]).toContain('<li><p>Guides keep their photos.</p><small>Engine nội dung</small></li>')
+  expect(days[0]).toContain('<li><p>Guides keep their photos.</p><small>Content engine</small></li>')
   expect([...days[1]!.matchAll(/<li><p>(.*?)<\/p><small>(.*?)<\/small>/g)].map(m => [m[1], m[2]])).toEqual([
-    ['Shop links fit &lt;small&gt; phones.', 'Trang web'], ['Readers can search.', 'Trang web'], ['The app opens links.', 'Ứng dụng'],
+    ['Shop links fit &lt;small&gt; phones.', 'Site'], ['Readers can search.', 'Site'], ['The app opens links.', 'App'],
   ])
   // A viewer in New York: every one of them on the 5th.
   const ny = await (await open(w.e, '/_ab/thay-doi/', `${c}; aq_tz=America%2FNew_York`)).text()
-  expect(heads(ny)).toEqual(['Thứ Năm · 05/11/2026'])
+  expect(heads(ny)).toEqual(['Thu 5 Nov 2026'])
 })
 
 test('the change log page: a key that can\'t be read says so in its place', async () => {
@@ -597,7 +597,7 @@ test('the change log page: a key that can\'t be read says so in its place', asyn
   const { owner: c } = await owner(w)
   const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { get: async () => { throw new Error('KV down') } }) } as unknown as Env
   const html = await (await open(down, '/_ab/thay-doi/', c)).text()
-  expect(html).toContain('Không tải được nhật ký thay đổi.<code>KV down</code>')
+  expect(html).toContain('Couldn’t load the changelog.<code>KV down</code>')
   log.mockRestore()
 })
 
@@ -610,7 +610,7 @@ test('the change log page: the owner\'s alone; on the web dashboard\'s rail, and
     const html = await r.text()
     expect(r.status).toBe(status)
     expect(html).not.toContain('secret')
-    expect(html).not.toContain('Các mục quản trị')
+    expect(html).not.toContain('Dashboard pages')
   }
   // The dashboard token opens no page.
   expect(await (await handle(new Request('https://x.test/_ab/thay-doi/', { headers: { ...browser, authorization: `Bearer ${TOKEN}` } }), w.e)).text()).not.toContain('secret')
@@ -619,5 +619,5 @@ test('the change log page: the owner\'s alone; on the web dashboard\'s rail, and
   expect(NAV.map(([p]) => p)).toContain('/_ab/thay-doi/')
   expect(SECTIONS.map(s => s.key)).toContain('thay-doi')
   expect(WEB_PAGES).toContain('/_ab/thay-doi/')
-  expect(await (await open(w.e, '/_ab/', c)).text()).toContain('<li><a href="/_ab/thay-doi/">Thay đổi sản phẩm</a></li>')
+  expect(await (await open(w.e, '/_ab/', c)).text()).toContain('<li><a href="/_ab/thay-doi/">Changelog</a></li>')
 })

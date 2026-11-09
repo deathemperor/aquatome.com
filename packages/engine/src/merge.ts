@@ -36,7 +36,9 @@ export function pickSlug(name: string, suffix: string, taken: Set<string>): stri
 
 /** Replace this source's sections (entity: English, vi: translation); keep other sources'. */
 function mergeSections(prev: Section[], prevVi: Record<string, string>, page: ProcessedPage, ctx: Ctx) {
-  const kept = prev.filter(s => s.source !== ctx.source)
+  // A part a person fixed keeps its English and Vietnamese, whatever the source now says (schemas.ts Section.fixed).
+  const fixed = new Set<string>(prev.filter(s => s.source === ctx.source && s.fixed).map(s => s.key))
+  const kept = prev.filter(s => s.source !== ctx.source || s.fixed)
   // A page may give one part twice (two "quick facts" blocks): translations are keyed by part and source, so the two
   // become one section with both texts, or the second's translation would replace the first's.
   const parts = new Map<string, ProcessedPage['sections'][number]>()
@@ -61,9 +63,10 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
     if (en) parts.set('quickFacts', { ...q, en, vi: dropCardRepeats(q.en, q.vi, ctx.source, card) })
     else parts.delete('quickFacts')
   }
+  for (const k of fixed) parts.delete(k)
   const added: Section[] = [...parts.values()].map(s => ({ key: s.key, source: ctx.source, sourceUrl: ctx.url, html: s.en }))
   const sections = [...kept, ...added].map((s, i) => [s, i] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
-  const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`)))
+  const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`) || fixed.has(k.slice(0, -ctx.source.length - 1))))
   for (const s of parts.values()) vi[`${s.key}:${ctx.source}`] = s.vi
   return { sections, vi }
 }

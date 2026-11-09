@@ -1,0 +1,171 @@
+{
+  "id": "hemibagrus-wyckii",
+  "native": {
+    "input": "9b5c0ff49dd41fa1",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has an enormous distribution and occurs throughout much of central Indochina and western Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Pahang River",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Musi River",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Citarum",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibagrus wyckii",
+    "status": "ACCEPTED",
+    "taxonKey": 2338255,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN",
+      "KH",
+      "TH",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

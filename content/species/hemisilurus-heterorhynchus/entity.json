@@ -8,14 +8,91 @@
   "places": [
     "asia",
     "indonesia",
-    "sumatra"
+    "sumatra",
+    "borneo",
+    "laos",
+    "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Mekong"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Muara Kompeh, eastern Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Sumatra and Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Reported from the middle Mekong drainage.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337586,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
         "value": {
           "min": 22,
+          "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
           "max": 27
         }
       }
@@ -27,12 +104,23 @@
           "min": 6,
           "max": 7
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 80
+      },
+      {
+        "source": "scotcat",
+        "value": 70
       }
     ]
   },
@@ -44,16 +132,40 @@
       "html": "<p>Hemisilurus heterorhynchus (Bleeker, 1854). Family Siluridae. Maximum size 80 cm SL.</p><p>Type locality: Muara Kompeh, eastern Sumatra, Indonesia.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm",
+      "html": "<p>Family: Siluridae. Size: 70 cm. Temperature: 21–27°C. pH: 6.0–7.0. Description: anal soft rays: 85. Dorsal fin missing.</p><p>IUCN Red List: Although there is no detailed information on the population size and trend of this species, it is still abundant throughout its known distribution and the population trend is thus suspected to be stable or declining at a rate that precludes it from a threatened category. While there may be localised or regional threats, they are unlikely to affect this species on a range-wide scale, and it is found in at least one protected area. Therefore, it is assessed as Least Concern (IUCN 2019).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
       "html": "<p>Asia: Sumatra and Borneo. Reported from the middle Mekong drainage.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm",
+      "html": "<p>Asia: Sumatra and Borneo. Reported from the middle Mekong drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm",
+      "html": "<p>This species inhabits rivers and major streams, and can also be found in lacustrine habitats.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
       "html": "<ul><li>pH: 6.0–7.0</li><li>Temperature: 22–27°C</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm",
+      "html": "<p>Stomach contents consist of small fish and prawns.</p>"
     },
     {
       "key": "dimorphism",
@@ -74,10 +186,22 @@
       "html": "<p>Identification: easily distinguished by its distinctive protruding snout and simple barbel morphology.</p><p>Etymology: from the Greek hemi- meaning half and Silurus, the word for catfish. The specific name comes from the Greek heteros- meaning different and rhynchos, meaning snout, in reference to the distinctive snout shape.</p><p>Synonyms: Diastatomycter chaperi, Hemisilurus chaperi, Wallago heterorhynchus.</p><p>IUCN Red List: Least Concern (last assessed 2019).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm",
+      "html": "<p>Processed as smoked fish.</p><p>Etymology: The specific name heterorhynchus: héteros, different; rhynchus, from rhýnchos, snout, presumably referring to its truncate snout, different from presumed congeners in Wallago (original genus).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1244",
       "html": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 5 (no. 3), pp 514.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (03/2009).</p><p>Ng, H.H. 2019. Hemisilurus heterorhynchus. The IUCN Red List of Threatened Species 2019.</p><p>Roberts, T.R. 1989. The freshwater fishes of Western Borneo (Kalimantan Barat, Indonesia). Mem. Calif. Acad. Sci. 14:210 p.</p>"
     }
   ],
   "photos": [],

@@ -15,6 +15,64 @@
     "tonle-sap",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the middle to lower Mekong River basin in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11141644,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
