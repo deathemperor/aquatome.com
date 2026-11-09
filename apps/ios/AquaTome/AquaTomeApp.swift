@@ -326,7 +326,9 @@ private extension View {
   @ViewBuilder func tabBarNeverMinimizes() -> some View {
     if #available(iOS 26.0, *) { tabBarMinimizeBehavior(.never) } else { self }
   }
+}
 
+extension View {
   /// What scrolls under a screen's title is cut off there. iOS's soft edge leaves it readable behind the clock and title,
   /// the larger the text the more so (8 Nov). The bottom stays soft, under the tab bar.
   @ViewBuilder func titleOverWhatScrolls() -> some View {

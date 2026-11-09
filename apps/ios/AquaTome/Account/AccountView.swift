@@ -46,6 +46,8 @@ struct AccountView: View {
     }
     // On the stack, not its first screen: the pages pushed onto it read their environment from here.
     .environment(\.closeAccountSheet, { dismiss() })
+    // A sheet draws its own bar: the rows are cut off under it, as on the tabs and in the mock.
+    .titleOverWhatScrolls()
   }
 
   /// "AquaTome 1.0 (231)".
@@ -111,13 +113,6 @@ private struct AppSection: View {
           }
         }
         .accessibilityIdentifier("kept-row")
-      }
-      if #available(iOS 18, *), V2Switch.offered {
-        Toggle(isOn: $v2) {
-          Label { Text("Giao diện mới (thử nghiệm)") } icon: { Tile(symbol: "sparkles", color: Tile.green) }
-            .modifier(RowLabel())
-        }
-        .accessibilityIdentifier("v2-switch")
       }
     } header: {
       Text("Ứng dụng").font(.subheadline.weight(.semibold))
