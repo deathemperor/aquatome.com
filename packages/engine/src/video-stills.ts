@@ -38,7 +38,8 @@ const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.from
  * Older video guides' stills were storyboard tiles (320 or 160 px), and their `t` was the tile k ÷ fps, up to 16 s
  * early on a long video. First each still's `t` becomes the second its tile shows, worked out from the number in its
  * address, so doing it twice changes nothing; a guide with nothing else to do goes first. Then each tile becomes the
- * video's own frame at that second, uploaded as `at<t>-hd.webp`; its `t`, caption and place stay. A frame is checked
+ * video's own frame at that second, uploaded as `at<t>-hd.webp`; its caption and place stay, and its `t` too, unless a
+ * tile named `at<t>` shows another second (its interval was misread when it was made), when `t` moves there. A frame is checked
  * against its tile before anything else, then screened as the stills of a new guide are, before it is uploaded:
  * - a face in it (macOS Vision): the still leaves the page, since the tile only hid the person;
  * - text on it: the old still's watermark verdict holds when the model gave one, else the model judges the frame now; a
