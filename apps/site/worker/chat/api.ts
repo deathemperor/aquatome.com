@@ -9,7 +9,7 @@ import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry 
 import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
-import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
+import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey } from './store'
@@ -124,14 +124,18 @@ const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(
 const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'ACCOUNT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
   (env.CHAT === '1' || env.CHAT === 'owner') && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.ACCOUNT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
 
-/** The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to cache, and every output in full. */
+/**
+ * The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to
+ * cache, and every output in full; and the first line's call, whose input (the first message) is under the trigger.
+ */
 export function chatWorstCost(model: string): number {
   const p = priceOf(model)
-  return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + CHAT_LIMITS.calls * MAX_TOKENS * p.output) / 1e6
+  const line = CHAT_LIMITS.inputTokens * p.input + OPENING_TOKENS * p.output
+  return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + CHAT_LIMITS.calls * MAX_TOKENS * p.output + line) / 1e6
 }
 
 /** The contract's `Turn`. */
-export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[] }
+export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[]; opening?: string }
 /** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
 export type Conversation = { created: number; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on. */
@@ -324,7 +328,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   let trail: ChatRun | undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
-  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
+  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
     // Read inside the run, which outlives a dropped connection: read before it, a drop would leave the mark and the ledger open.
     const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
@@ -347,7 +351,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
         // Before that, the next key is asked, without streaming once any of the first's text was read (its reader can't
         // start again), so that answer's text comes whole.
-        send: async (b, { timeoutMs, onText: onDelta }) => {
+        send: async (b, { timeoutMs, call, onText: onDelta }) => {
           const ready = healthy.filter(k => !aside.has(k.hash))
           const mine = key && !aside.has(key.hash) ? key : undefined
           let fed = false
@@ -358,16 +362,18 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           attempts.push(...r.attempts)
           for (const a of r.attempts) if (a.marked) aside.add(a.hash)
           if (!r.ok) throw new NoAnswer(r.reason)
-          key = healthy.find(k => k.hash === r.hash)!
-          tally[key.hash] = (tally[key.hash] ?? 0) + 1
-          wrote = key.hash
+          const used = healthy.find(k => k.hash === r.hash)!
+          tally[used.hash] = (tally[used.hash] ?? 0) + 1
           onUsage(r.value.usage)
+          // The first line's call (0) is beside the run's: its key isn't the run's, nor the one that wrote the answer.
+          if (call !== 0) { key = used; wrote = used.hash }
           return r.value
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
         ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) }, ...(onBlock ? { onBlock } : {}) } : {}),
+        ...(onOpening ? { opening: true, onOpening } : {}),
       })
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
@@ -384,6 +390,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, text: out.answer.text, blocks: out.blocks,
         suggestions: out.answer.suggestions.filter(s => s.trim()).slice(0, 3), covered: out.answer.covered, model,
         ...(out.steps.length ? { steps: out.steps } : {}),
+        // An off-topic answer keeps no line: `done` has the last word, and the app takes away the one it showed (the
+        // Design Lead's rule). The transcript keeps it all the same: the reader saw it.
+        ...(out.opening && !out.answer.offTopic ? { opening: out.opening } : {}),
       }
       return { status: 200, body: turn as unknown as Record<string, unknown> }
     } catch (e) {
@@ -439,6 +448,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
       agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
+      ...(t.opening ? { opening: t.opening } : {}),
       turns: turnsOf(t.history, t.message),
     }
   }
@@ -467,6 +477,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       step => send(sse('step', step)),
       piece => { if (!shown) wordsAt = clock(); shown = true; lastAt = clock(); send(sse('text', { text: piece })) },
       block => { sent++; send(sse('block', block)) },
+      line => send(sse('opening', { text: line })),
     )
     answeredAt = clock()
     const t = done.status === 200 ? done.body as unknown as Turn : undefined

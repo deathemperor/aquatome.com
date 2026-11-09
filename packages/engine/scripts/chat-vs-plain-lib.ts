@@ -185,6 +185,34 @@ ${x}
 === Y ===
 ${y}`
 }
+/** A hobbyist of each language the chat answers in, and where they keep fish: for the judge of the everyday questions. */
+const READERS = { vi: ['Vietnamese', 'Vietnamese', 'Vietnam'], id: ['Indonesian', 'Indonesian', 'Indonesia'], th: ['Thai', 'Thai', 'Thailand'], ms: ['Malaysian', 'Malay', 'Malaysia'] } as const
+export type ReaderLang = keyof typeof READERS
+export const judgeSystemIn = (lang: ReaderLang) => (lang === 'vi' ? JUDGE_SYSTEM : JUDGE_SYSTEM.replace('Vietnamese', READERS[lang][0]))
+/**
+ * judgePrompt for a question in any of the chat's languages, with what the assistant knew of where it was asked (a
+ * species page, fish ID). In Vietnamese, the same rubric word for word; in the others, its "local" in that language.
+ */
+export function judgePromptIn(lang: ReaderLang, question: string, context: string | null, x: string, y: string): string {
+  const [people, language, country] = READERS[lang]
+  const rubric = lang === 'vi' ? RUBRIC : RUBRIC
+    .replace(/- local: [^\n]*/, `- local: ${language} a hobbyist would write, the hobby words used in ${country}, and advice that fits ${country} (its climate, its tap water, what is sold there).`)
+    .replace('"[chạm để đọc tiếp]" means', 'a "tap to read on" mark means')
+  return `A ${people} hobbyist asked an AI assistant for help. Two assistants answered (X and Y). Judge which answer would help this hobbyist more, as an experienced keeper who knows what works in tanks in ${country}.
+
+The question, as the hobbyist typed it:
+"""
+${question}
+"""
+${context ? `\n${context}\n` : ''}
+${rubric}
+
+=== X ===
+${x}
+
+=== Y ===
+${y}`
+}
 const side = { type: 'string', enum: ['X', 'Y', 'tie'] }
 const strs = { type: 'array', items: { type: 'string' } }
 export const JUDGE_SCHEMA = {
