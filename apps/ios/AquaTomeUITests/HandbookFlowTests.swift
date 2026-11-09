@@ -130,6 +130,7 @@ final class HandbookFlowTests: XCTestCase {
     repeatUntil(series.exists && series.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(series.exists, "no video series on the home")
     XCTAssertTrue(series.label.hasPrefix("Rêu hại từ A đến Z") && series.label.contains("1 video"), series.label)
+    readsClearly(app, series, "the series' count", inset: 12, lastLine: 16)
     XCTAssertFalse(app.descendants(matching: .any)["all-videos"].exists, "a whole list of the one series shown")
     XCTAssertTrue(app.staticTexts["Bắt đầu từ đây"].exists, "no guides to start from")
     XCTAssertFalse(app.descendants(matching: .any)["all-guides"].exists, "the video guide counted among the written guides")
@@ -400,10 +401,11 @@ final class HandbookFlowTests: XCTestCase {
 
   /// `text` reads at least 4.5:1 on what's behind it, once the screen is still: the ratio is in the test's log.
   /// `inset`: points left out at each edge of `text`'s box (a list cell's rounded corners, which show the list behind).
-  private func readsClearly(_ app: XCUIApplication, _ text: XCUIElement, _ what: String, inset: CGFloat = 0) {
+  /// `lastLine`: only this many points at the box's foot (a card's last line, the card being one element).
+  private func readsClearly(_ app: XCUIApplication, _ text: XCUIElement, _ what: String, inset: CGFloat = 0, lastLine: CGFloat? = nil) {
     let until = Date().addingTimeInterval(1)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
-    let ratio = contrast(app, text, inset: inset)
+    let ratio = contrast(app, text, inset: inset, lastLine: lastLine)
     XCTContext.runActivity(named: String(format: "%@: %.2f:1", what, ratio)) { _ in }
     XCTAssertGreaterThanOrEqual(ratio, 4.5, "\(what) reads \(ratio):1")
   }
@@ -702,10 +704,11 @@ final class HandbookFlowTests: XCTestCase {
 
   /// How `text` reads on what's behind it, as WCAG measures contrast: its most contrasting pixel against the colour most
   /// of its box is (a chip's fill, for its count).
-  private func contrast(_ app: XCUIApplication, _ text: XCUIElement, inset: CGFloat = 0) -> Double {
+  private func contrast(_ app: XCUIApplication, _ text: XCUIElement, inset: CGFloat = 0, lastLine: CGFloat? = nil) -> Double {
     guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return 0 }
     let scale = CGFloat(shot.width) / app.frame.width
-    let f = text.frame.insetBy(dx: inset, dy: inset)
+    var f = text.frame.insetBy(dx: inset, dy: inset)
+    if let lastLine { f = CGRect(x: f.minX, y: f.maxY - lastLine, width: f.width, height: lastLine) }
     guard let box = shot.cropping(to: CGRect(x: f.minX * scale, y: f.minY * scale, width: f.width * scale, height: f.height * scale).integral)
     else { return 0 }
     let w = box.width, h = box.height
