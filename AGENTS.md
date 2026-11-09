@@ -27,9 +27,9 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
   one in the Device panel only while you need to. Close the preview tabs and browser windows you open, run browsers
   headless for automated work, and stop a log stream (`log stream`, `simctl spawn … log stream`) when you've read it.
-- Engine and video runs, and the runner's simulator runs, wait for cooler hours: while macOS has taken cores away from
-  work (it does under heat), a run waits before it starts, up to 2 h (`cool`, `scripts/cycle-checks.sh`) or 30 min
-  (`apps/ios/scripts/sim-run.py`).
+- Engine and video runs, the runner's simulator runs and TestFlight's uploads wait for cooler hours: while macOS has
+  taken cores away from work (it does under heat), a run waits before it starts, up to 2 h (`cool`,
+  `scripts/cycle-checks.sh`) or 30 min (`apps/ios/scripts/sim-run.py`, and an upload's build).
 - Remove your worktree when its PR merges (`git worktree remove <path>`).
 - Keep what's worth keeping (working folders, prototypes, eval caches, briefs, run progress) in `~/.cache/aquatome/<area>/`,
   never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
@@ -128,6 +128,9 @@ a ready iOS PR runs those jobs again, about 80 Mac-minutes of GitHub's five shar
 cancels its run while that run is queued or running: a quarter of PRs' Mac time those days went to runs a later push
 cancelled. So batch a ready PR's fixes into one push. `.claude/hooks/ready-push.py` stops a push while its run is queued
 or running; `AQ_PUSH_ANYWAY=1 git push` goes through when you know that run will fail.
+A change the owner is to try on the phone says where to tap, every tap from the app's first screen in the look it opens
+in (v2), under `## What to Test` in the PR's body: TestFlight's note carries that section under the PR's title
+(`apps/ios/scripts/testflight-notes.py`; the chief of staff, 2026-11-09).
 Merge main into a ready PR's branch only to resolve a conflict: its checks already run on it merged with main (merges
 of main started 28% of PRs' Mac time on 2026-11-08). `.claude/hooks/main-merge.py` refuses a clean one, and
 `ios.yml` runs nothing for a push that only merged main in after a passing run, unless it resolved a conflict in the

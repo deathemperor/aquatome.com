@@ -123,6 +123,15 @@ test('a reading of the Mac: the small job, the queues, and load only as backgrou
   expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number) })
 }, 60_000)
 
+// 2026-11-08: signing on the own Mac took the owner's keychains off their list for minutes (gh's and git's sign-in among
+// them). Uploads there now run as AquaTome CI, on a runner of their own, and never touch the owner's keychains.
+test("TestFlight's uploads on this Mac run as AquaTome CI on their own runner, and leave the owner's keychains alone", () => {
+  const flow = readFileSync(join(ROOT, '.github/workflows/testflight.yml'), 'utf8')
+  expect(flow).toContain('runner=["self-hosted","macOS","aquatome-upload"]')
+  expect(flow).not.toContain('"self-hosted","macOS","aquatome"]') // main's flows' runner: an upload would wait behind them
+  expect(flow).not.toMatch(/login\.keychain|keychain-list|keychain-default/)
+})
+
 // 2026-11-08: main's run back on this Mac, two copies of its simulator: a 0.4 s job on the Mac took 5 to 12 s.
 test("main's flow jobs on this Mac test on its one simulator, with no copies", () => {
   const ios = readFileSync(join(ROOT, '.github/workflows/ios.yml'), 'utf8')
