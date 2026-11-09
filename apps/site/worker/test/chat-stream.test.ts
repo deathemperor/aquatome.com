@@ -5,7 +5,7 @@ import { contract, type Op } from './contract'
 
 const { api, fixtures, misfits, streamMisfits } = contract('chat.openapi.json')
 const sse = (api.paths['/api/chat'].post as Op).responses['200']!.content['text/event-stream']!
-const recorded = ['chat-cancel-cancelled.json', 'chat-cancel-late.json', 'chat-cancelled.json', 'chat-conversation.json', 'chat-conversations.json', 'chat-hidden.json', 'chat-rate.json', 'chat-report-already.json', 'chat-report-saved.json', 'chat-stream-cancelled.sse', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
+const recorded = ['chat-cancel-cancelled.json', 'chat-cancel-late.json', 'chat-cancelled.json', 'chat-conversation.json', 'chat-conversations.json', 'chat-hidden.json', 'chat-rate.json', 'chat-report-already.json', 'chat-report-saved.json', 'chat-stream-cancelled.sse', 'chat-stream-failed.sse', 'chat-stream-opening.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
 
 test('the recorded answers in protocols/ a fake server replays follow the chat contract, and the contract names each of them', () => {
   const checked = fixtures()
@@ -36,7 +36,7 @@ test('the account\'s export holds a conversation as the read-back has it, a hidd
 })
 
 test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then the text, then the blocks; done holds the same text, blocks and steps', () => {
-  for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse', 'chat-stream-cancelled.sse']) {
+  for (const f of ['chat-stream-species.sse', 'chat-stream-opening.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse', 'chat-stream-cancelled.sse']) {
     expect(streamMisfits(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8'), sse), f).toEqual([])
   }
   const ev = (name: string, v: object) => `event: ${name}\ndata: ${JSON.stringify(v)}\n\n`
@@ -51,6 +51,15 @@ test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then 
   expect(streamMisfits(done({ blocks: [tool], steps: [step] }), sse)).toEqual([])
   expect(streamMisfits(`${ev('text', { text: 'ab' })}${done({ blocks: [tool] })}`, sse)).toEqual(["done: its blocks aren't the blocks streamed"])
   expect(streamMisfits(`${ev('step', step)}${ev('text', { text: 'ab' })}${done({})}`, sse)).toEqual(["done: its steps aren't the steps streamed"])
+  // The first line: before the first step, once, and done holds it.
+  const line = { text: 'Mình đang tra cẩm nang về cá neon.' }
+  expect(streamMisfits(`${ev('opening', line)}${ev('step', step)}${ev('text', { text: 'ab' })}${done({ steps: [step], opening: line.text })}`, sse)).toEqual([])
+  expect(streamMisfits(`${ev('step', step)}${ev('opening', line)}${ev('text', { text: 'ab' })}${done({ steps: [step], opening: line.text })}`, sse).join()).toMatch(/\[1\] opening: after a later kind of event/)
+  expect(streamMisfits(`${ev('opening', line)}${ev('opening', line)}${ev('text', { text: 'ab' })}${done({ opening: line.text })}`, sse)).toEqual(['more than one opening'])
+  expect(streamMisfits(`${ev('text', { text: 'ab' })}${done({ opening: line.text })}`, sse)).toEqual(["done: its opening isn't the line streamed"])
+  // An answer not about fishkeeping takes the line back: done without it.
+  expect(streamMisfits(`${ev('opening', line)}${ev('text', { text: 'ab' })}${done({})}`, sse)).toEqual([])
+  expect(streamMisfits(`${ev('opening', { text: 'x'.repeat(201) })}${ev('text', { text: 'ab' })}${done({ opening: 'x'.repeat(201) })}`, sse).join()).toMatch(/opening/)
 })
 
 test('a card has its figures as the app index has them: a plant\'s on the plants\' scale, apart from a fish\'s', () => {
