@@ -69,40 +69,41 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
   }
 
-  /// The chat opens from v2: its entry on a fish's full page goes to a screen v2's own stack knows. (Without the destination
-  /// there, the tap does nothing.)
-  func testTheChatOpensFromAFishsFullPageInV2() {
-    let app = launch("-v2", "YES", "-fake-accounts", "on", "-reset-fake-server")
+  /// The chat opens from v2's fish page: "Hỏi về cá …", directly under "Thêm vào bể", goes to a screen v2's own stack knows.
+  /// (Without the destination there, the tap does nothing.)
+  func testTheChatOpensFromAFishsPageInV2() {
+    let app = launch("-fake-accounts", "on", "-reset-fake-server")
     app.launchForFlow()
     app.openTab("Khám phá")
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
     fish.tap()
-    let full = app.buttons["v2-full-page"]
-    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
-    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
-    full.tap()
-    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
-    repeatUntil(entry.exists && entry.isHittable, times: 14) {
+    let add = app.buttons["v2-add"], entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the page")
+    XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Hỏi về on the fish's page")
+    XCTAssertTrue(entry.label.contains("Hỏi về cá neon"), entry.label)
+    XCTAssertGreaterThan(entry.frame.minY, add.frame.maxY, "Hỏi về isn't under Thêm vào bể")
+    XCTAssertLessThan(entry.frame.minY - add.frame.maxY, 24, "Hỏi về isn't directly under Thêm vào bể")
+    repeatUntil(entry.isHittable, times: 6) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
-        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast, thenHoldForDuration: 0.1)
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
     }
-    XCTAssertTrue(entry.exists && entry.isHittable, "no chat entry on the full page")
+    XCTAssertTrue(entry.isHittable, "Hỏi về can't be tapped")
     entry.tap()
     XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
   }
 
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
-    let app = launch()
+    let app = launch("-newer-part")
     app.launchForFlow(nil)
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
     app.openTab("Khám phá")
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
     fish.tap()
-    let full = app.buttons["v2-full-page"]
-    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
-    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
+    let full = app.buttons["v2-part-elsewhere"]
+    repeatUntil(full.exists && full.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(full.isHittable, "no Xem phần này ở trang đầy đủ on the fish's page")
     full.tap()
     app.openTab("Hôm nay")
     flip(app)
@@ -261,7 +262,7 @@ final class V2FlowTests: XCTestCase {
   /// The row replaces Khám phá's path with one of the same length, from another tab that shares v1's: still it shows.
   /// The guide is kept on the old look's Tìm, then v2 is switched back on.
   func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
-    let app = launch()
+    let app = launch("-newer-part")
     app.launchForFlow(nil)
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
     flip(app)
@@ -281,10 +282,10 @@ final class V2FlowTests: XCTestCase {
     neon.tap()
     XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
     // Two screens deep there: the row's one is a shorter path, not a longer one.
-    let whole = app.buttons["v2-full-page"]
+    let whole = app.buttons["v2-part-elsewhere"]
     repeatUntil(whole.exists && whole.isHittable, times: 8) { app.swipeUp() }
     whole.tap()
-    XCTAssertFalse(app.buttons["v2-full-page"].waitForExistence(timeout: 2), "the whole page didn't open")
+    XCTAssertFalse(app.buttons["v2-part-elsewhere"].waitForExistence(timeout: 2), "the whole page didn't open")
     app.openTab("Hôm nay")
     app.openAccount()
     let row = app.buttons["kept-row"]
@@ -315,9 +316,325 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.links["Jane Doe"].waitForExistence(timeout: 3), "a tank-mate's photo without its credit")
     let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
     XCTAssertTrue(mate.exists, "no tank-mate")
+    // Back up to its row, above the credits.
+    repeatUntil(mate.isHittable, times: 8) { app.swipeDown() }
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
+  }
+
+  /// No page v2 opens sends the reader to v1's whole page, however it's reached: Hôm nay's fish, guide and story, Khám
+  /// phá, a tank-mate's row on another page and a search. A fish from each is v2's page. (Only a part v2 can't draw offers
+  /// v1's page, at that part: "Xem phần này ở trang đầy đủ".)
+  func testNoPageOffersTheWholePageWhereverItsOpenedFrom() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    let species = app.descendants(matching: .any)["v2-species"]
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    readWhole(app, "Hôm nay's fish", opened: species)
+    goBack(app)
+    for (card, title) in [("Cách hạn chế rêu hại", "Cách hạn chế rêu hại"), ("Đàn neon đầu tiên", "Nuôi cá neon trong bể nhỏ")] {
+      let c = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", card)).firstMatch
+      repeatUntil(c.exists && c.isHittable, times: 6) { app.swipeUp() }
+      c.tap()
+      readWhole(app, "Hôm nay's \(card)", opened: app.staticTexts[title])
+      goBack(app)
+    }
+    app.openTab("Khám phá")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.tap()
+    readWhole(app, "Khám phá's Cá neon", opened: species)
+    let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
+    repeatUntil(mate.exists && mate.isHittable, times: 12) { app.swipeDown() }
+    mate.tap()
+    readWhole(app, "a tank-mate's page", opened: app.staticTexts["Cá ngựa vằn"])
+    XCTAssertTrue(species.exists, "a tank-mate's page isn't v2's")
+    app.tabBars.buttons.element(boundBy: app.tabBars.buttons.count - 1).tap()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let found = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(found.waitForExistence(timeout: 5), "no Cá neon found")
+    found.tap()
+    readWhole(app, "a search's Cá neon", opened: species)
+  }
+
+  /// v2's fish page carries the whole page, in its order, with no row sending the reader to v1's page for the rest: its
+  /// sections, its breeds, the guides that mention it, its videos, its readers' comments and its sources.
+  func testAFishsPageCarriesTheWholePage() {
+    let app = openNeon()
+    for part in ["Tóm tắt nhanh", "Nuôi ở Việt Nam", "Nuôi chung", "Thông tin nhanh", "Nước cần thế nào?", "Cho ăn gì?", "Sinh sản ra sao?",
+                 "Các dòng và cá lai từ Cá neon", "Bài viết nhắc đến loài này", "Video"] {
+      reveal(app, app.staticTexts[part])
+    }
+    reveal(app, app.descendants(matching: .any).matching(identifier: "comment").firstMatch)
+    reveal(app, app.staticTexts["Nguồn và độ tin cậy"])
+    reveal(app, app.staticTexts["Nguồn"])
+    XCTAssertFalse(app.buttons["v2-full-page"].exists, "a row to the whole page")
+    XCTAssertFalse(app.buttons["v2-part-elsewhere"].exists, "a part left to v1's page")
+  }
+
+  /// A long part folds between its pieces, never through a line: its first paragraphs whole, the next one's opening to a
+  /// word's end with "… thêm" ending its last line, not laid over its words, and the rest not there to read or touch until
+  /// "thêm" opens it in place. A part of one long paragraph shows its opening the same way, and a link in it works.
+  func testALongPartFoldsBetweenItsPiecesAndWhatShowsWorks() {
+    let app = openNeon("-long-part")
+    func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
+    reveal(app, app.staticTexts["Cho ăn gì?"])
+    XCTAssertTrue(text("Thức ăn viên nhỏ").exists, "the part's opening isn't there")
+    XCTAssertFalse(text("Đoạn cuối về cho ăn").exists, "a paragraph folded away is still there to read")
+    let cut = app.staticTexts.matching(NSPredicate(format: "label ENDSWITH %@", "… thêm")).firstMatch
+    XCTAssertTrue(cut.exists, "no text ends in '… thêm': it lies over the words, or stands on a row of its own")
+    let more = app.links["thêm"].firstMatch
+    reveal(app, more)
+    more.tap()
+    XCTAssertTrue(text("Đoạn cuối về cho ăn").waitForExistence(timeout: 3), "thêm didn't open the part")
+    // The long paragraph: its first lines, and the link in them.
+    let mate = app.links["cá ngựa vằn"]
+    reveal(app, mate)
+    XCTAssertTrue(text("Muốn cho đẻ").label.hasSuffix("… thêm"), "the long paragraph isn't folded")
+    mate.tap()
+    XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
+  }
+
+  /// The navigator's title on the brightest photo: its word and chevron stand on the shade at 3:1 at least, the chevron in
+  /// white, not the tint. And it has the room a section's name needs: cut with room to spare, it read "Nuôi chung với co…".
+  func testTheNavigatorsTitleReadsOnAWhitePhotoAndHasRoomForASectionsName() {
+    let app = ownersNeon("-long-part", "-fixed-pictures", "-white-pictures")
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
+    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "the title crowds the share button into iOS's own ⋯")
+    Thread.sleep(forTimeInterval: 1)
+    func linear(_ c: Int) -> Double { let v = Double(c) / 255; return v <= 0.03928 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4) }
+    func tinted(_ c: (Int, Int, Int)) -> Bool { max(c.0, c.1, c.2) - min(c.0, c.1, c.2) > 40 }
+    let box = title.frame
+    guard let top = pixels(app) else { return XCTFail("no pixels") }
+    // Past the word and the chevron, the bare ground under them; the lightest of it is the worst case.
+    var lightest = 0.0
+    for y in stride(from: box.minY, to: box.maxY, by: 1) {
+      let c = top(box.maxX - 16, y)
+      lightest = max(lightest, 0.2126 * linear(c.0) + 0.7152 * linear(c.1) + 0.0722 * linear(c.2))
+    }
+    let contrast = 1.05 / (lightest + 0.05)
+    XCTAssertGreaterThanOrEqual(contrast, 3, "the title's white on the brightest photo is \(contrast):1")
+    // The chevron's in white on the photo: nothing tinted in the title.
+    let onPhoto = stride(from: box.minY, to: box.maxY, by: 1).contains { y in
+      stride(from: box.minX, to: box.minX + 90, by: 0.5).contains { tinted(top($0, y)) }
+    }
+    XCTAssertFalse(onPhoto, "the chevron is tinted on the photo")
+    // A section's name, whole: the chevron after all its words, in the room before the bookmark.
+    title.tap()
+    let row = app.buttons.matching(NSPredicate(format: "label == %@", "Nuôi chung với con gì?")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no row for the section")
+    row.tap()
+    let there = expectation(for: NSPredicate(format: "label CONTAINS %@", "Nuôi chung với con gì?"), evaluatedWith: title)
+    XCTAssertEqual(XCTWaiter.wait(for: [there], timeout: 5), .completed, "the title doesn't name the section")
+    Thread.sleep(forTimeInterval: 1)
+    guard let read = pixels(app) else { return XCTFail("no pixels") }
+    let needed = ("Nuôi chung với con gì?" as NSString).size(withAttributes: [.font: UIFont.systemFont(ofSize: 15, weight: .semibold)]).width
+    let end = title.frame
+    let chevron = stride(from: end.minX + 200, to: end.minX, by: -0.5).first { x in
+      stride(from: end.minY, to: end.maxY, by: 1).contains { tinted(read(x, $0)) }
+    }
+    XCTAssertGreaterThanOrEqual((chevron ?? 0) - end.minX, ceil(needed) + 4 + 6, "the section's name is cut with room to spare")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "a section's name crowds the share button into iOS's own ⋯")
+  }
+
+  /// The screen's colour at a point of the app's, each read from one screenshot.
+  private func pixels(_ app: XCUIApplication) -> ((CGFloat, CGFloat) -> (Int, Int, Int))? {
+    guard let cg = XCUIScreen.main.screenshot().image.cgImage,
+          let ctx = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: cg.width * 4,
+                              space: CGColorSpace(name: CGColorSpace.sRGB)!, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue),
+          let bytes = ctx.data?.assumingMemoryBound(to: UInt8.self) else { return nil }
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let scale = CGFloat(cg.width) / app.frame.width
+    return { x, y in
+      withExtendedLifetime(ctx) {
+        let p = (Int(y * scale) * cg.width + Int(x * scale)) * 4
+        return (Int(bytes[p]), Int(bytes[p + 1]), Int(bytes[p + 2]))
+      }
+    }
+  }
+
+  /// A fold never stops on a line leading into what it hides ("…, gồm:"): the text before it ends in "thêm", and the line
+  /// and its list come when it opens.
+  func testAFoldDoesntStopOnALineLeadingIntoWhatItHides() {
+    let app = openNeon("-long-part")
+    func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
+    reveal(app, app.staticTexts["Cần thiết bị gì?"])
+    XCTAssertTrue(text("Bể nhỏ cho cá neon").label.hasSuffix("thêm"), "the text before the lead-in doesn't end in thêm")
+    XCTAssertFalse(text("gồm:").exists, "the fold stopped on a line leading into what it hides")
+    openFold(app, of: text("Bể nhỏ cho cá neon"))
+    XCTAssertTrue(text("gồm:").waitForExistence(timeout: 3), "thêm didn't open the part")
+  }
+
+  /// A list's lines stand apart, a long one wrapping under its own words: as one text, it ran on under its bullet.
+  func testAListsLinesWrapUnderTheirOwnWords() {
+    let app = openNeon("-long-part")
+    func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
+    reveal(app, app.staticTexts["Cần thiết bị gì?"])
+    openFold(app, of: text("Bể nhỏ cho cá neon"))
+    let line = text("Sưởi có điều nhiệt")
+    XCTAssertTrue(line.waitForExistence(timeout: 3), "the list didn't open")
+    reveal(app, line)
+    XCTAssertEqual(line.label, "Sưởi có điều nhiệt nếu phòng xuống dưới 22°C vào mùa lạnh.", "the list's lines are one text")
+    XCTAssertGreaterThan(line.frame.minX, text("gồm:").frame.minX + 8, "a list's line isn't set in from its mark")
+  }
+
+  /// The sources' figures, compared, show whole: folded, the figure they disagree on was the one cut. A chip to a part a
+  /// reader comes back for scrolls there, its heading just under the bar.
+  func testTheSourcesShowWholeAndAChipGoesToItsPart() {
+    let app = openNeon()
+    let chips = app.descendants(matching: .any)["v2-jumps"]
+    reveal(app, chips)
+    chips.buttons["Sinh sản"].tap()
+    let breeding = app.staticTexts["Sinh sản ra sao?"]
+    XCTAssertTrue(breeding.waitForExistence(timeout: 5) && breeding.isHittable, "the chip didn't go to its part")
+    // Under the bar, not behind it: at the screen's top, as a jump put it, the bar hid the heading.
+    XCTAssertGreaterThan(breeding.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
+    reveal(app, app.staticTexts["Nguồn và độ tin cậy"])
+    XCTAssertFalse(app.buttons["v2-more"].exists || app.links["thêm"].exists, "the sources' figures are folded")
+  }
+
+  /// The way round a long page (PageNavigator), the owner's alone for now: a reader's bar is as it was, no title in it.
+  func testAReaderHasNoNavigatorOnV2sPage() {
+    let app = openNeon("-long-part")
+    app.swipeUp()
+    XCTAssertFalse(app.descendants(matching: .any)["page-navigator-title"].exists, "a title for a reader")
+  }
+
+  /// The owner's bar names the page's parts, with no choosing it first: "Mục lục" beside the back button, its list dropped
+  /// from under the bar and closed by a tap outside it, and a folded part chosen from it landed on, under the bar and open.
+  func testTheOwnerGoesToAPartFromTheNavigatorsListOnV2sPage() {
+    let app = ownersNeon("-long-part")
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title for the owner")
+    XCTAssertEqual(title.label, "Mục lục")
+    XCTAssertGreaterThan(title.frame.width, 100, "the title cut to nothing in the bar")
+    XCTAssertLessThan(title.frame.minX - app.buttons["v2-back"].frame.maxX, 24, "the title isn't beside the back button")
+    XCTAssertFalse(app.buttons["page-actions"].exists, "a ⋯ to choose it")
+    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
+    XCTAssertFalse(app.descendants(matching: .any)["v2-jumps"].exists, "the chips for whoever has the navigator")
+    let parts = app.buttons.matching(identifier: "page-navigator-part")
+    title.tap()
+    XCTAssertTrue(parts.firstMatch.waitForExistence(timeout: 5), "no list of parts")
+    XCTAssertGreaterThan(parts.firstMatch.frame.minY, app.buttons["v2-back"].frame.maxY, "the list isn't under the bar")
+    // Outside it: the page dimmed at the screen's right, 40 points wide.
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.98, dy: 0.5)).tap()
+    wait(for: [expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: parts.firstMatch)], timeout: 5)
+    title.tap()
+    let part = parts.matching(NSPredicate(format: "label == 'Cho ăn gì?'")).firstMatch
+    XCTAssertTrue(part.waitForExistence(timeout: 5), "no part for feeding among \(parts.count)")
+    part.tap()
+    wait(for: [expectation(for: NSPredicate(format: "label == 'Mục lục, đang ở Cho ăn gì?'"), evaluatedWith: title)], timeout: 5)
+    // The page's heading, not the bar's title naming it.
+    let heading = app.scrollViews.staticTexts["Cho ăn gì?"].firstMatch
+    wait(for: [expectation(for: NSPredicate(format: "isHittable == true"), evaluatedWith: heading)], timeout: 5)
+    XCTAssertGreaterThan(heading.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Đoạn cuối về cho ăn'")).firstMatch.exists,
+                  "the part chosen is still folded")
+    // The tank-mates are one row, named for the section on them: it comes to rest at the section, their rows follow its
+    // text, and the title names it over both.
+    title.tap()
+    let mates = parts.matching(NSPredicate(format: "label BEGINSWITH 'Nuôi chung'"))
+    XCTAssertTrue(mates.firstMatch.waitForExistence(timeout: 5), "no row for the tank-mates")
+    XCTAssertEqual(mates.count, 1, "the tank-mates on more than one row")
+    XCTAssertEqual(mates.firstMatch.label, "Nuôi chung với con gì?")
+    mates.firstMatch.tap()
+    let named = NSPredicate(format: "label == 'Mục lục, đang ở Nuôi chung với con gì?'")
+    wait(for: [expectation(for: named, evaluatedWith: title)], timeout: 5)
+    let section = app.scrollViews.staticTexts["Nuôi chung với con gì?"].firstMatch
+    wait(for: [expectation(for: NSPredicate(format: "isHittable == true"), evaluatedWith: section)], timeout: 5)
+    XCTAssertGreaterThan(section.frame.minY, app.buttons["v2-back"].frame.maxY, "the section's heading behind the bar")
+    let rows = app.scrollViews.staticTexts["Nuôi chung"].firstMatch
+    XCTAssertTrue(rows.waitForExistence(timeout: 5), "no tank-mates under the section")
+    XCTAssertGreaterThan(rows.frame.minY, section.frame.maxY, "the tank-mates aren't after the section's text")
+    bring(app, rows, to: 100)
+    wait(for: [expectation(for: named, evaluatedWith: title)], timeout: 5)
+    // A long part's name in the title: cut short, the bar's buttons still its own.
+    title.tap()
+    parts.matching(NSPredicate(format: "label BEGINSWITH 'Các dòng và cá lai'")).firstMatch.tap()
+    wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Các dòng và cá lai'"), evaluatedWith: title)], timeout: 5)
+    XCTAssertTrue(app.buttons["save-for-later"].exists, "a long part's name crowds the bookmark into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "a long part's name crowds the share button into iOS's own ⋯")
+  }
+
+  /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
+  /// the carousel's last tile; and the title list's "Ảnh" with its count, which leaves the page where it was.
+  func testAPagesPhotosOpenTheirGridFromTheBannerTheRowAndTheTitle() {
+    let app = ownersNeon("-long-part", "-large-gallery", "-fixed-pictures")
+    let grid = app.staticTexts["28 ảnh"], back = { app.navigationBars.buttons.element(boundBy: 0).tap() }
+    let banner = app.buttons["v2-lead-photo-grid"]
+    XCTAssertTrue(banner.waitForExistence(timeout: 5), "the banner isn't a way in")
+    XCTAssertTrue(banner.label.hasSuffix("Xem tất cả 28 ảnh"), banner.label)
+    // Its far corner, not only where the count is.
+    banner.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.4)).tap()
+    XCTAssertTrue(grid.waitForExistence(timeout: 5), "the banner didn't open the grid")
+    XCTAssertTrue(app.buttons["grid-photo-1"].exists, "no photos in the grid")
+    back()
+    // The carousel's last tile, after the photos the page's row shows and not every photo. Up the screen first: at its
+    // foot a drag lands on the tab bar.
+    let first = app.buttons["Đàn cá neon trong bể"], all = app.buttons["v2-gallery-all"]
+    reveal(app, first)
+    bring(app, first, to: 300)
+    let y = first.frame.midY / app.frame.height
+    // By its place: a tile built off the screen has no point to tap, and asking whether it's hittable fails the test.
+    func inView() -> Bool { all.exists && app.frame.contains(CGPoint(x: all.frame.midX, y: all.frame.midY)) }
+    repeatUntil(inView(), times: 6) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: y)).press(forDuration: 0.05,
+        thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.15, dy: y)), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(inView(), "no last tile to all the photos")
+    XCTAssertFalse(app.buttons["Cá neon bơi"].exists, "a photo the row doesn't show, on the carousel")
+    all.tap()
+    XCTAssertTrue(grid.waitForExistence(timeout: 5), "the last tile didn't open the grid")
+    back()
+    // The title's list: "Ảnh" first, with how many, to the grid.
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    title.tap()
+    let photos = app.buttons.matching(identifier: "page-navigator-part").firstMatch
+    XCTAssertTrue(photos.waitForExistence(timeout: 5), "no list")
+    XCTAssertTrue(photos.label.hasPrefix("Ảnh") && photos.label.contains("28"), "not the photos first, with their count: \(photos.label)")
+    let before = all.frame.minY
+    photos.tap()
+    XCTAssertTrue(grid.waitForExistence(timeout: 5), "the list's Ảnh didn't open the grid")
+    back()
+    XCTAssertEqual(all.frame.minY, before, accuracy: 2, "the page moved for its photos")
+  }
+
+  /// A plant's page has its care in its card as a fish's has its figures: how hard, its light, its CO₂, how fast it grows.
+  func testAPlantsPageHasItsCareInItsCard() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"]
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/cay/rotala-do/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the plant's page isn't v2's")
+    for label in ["Ánh sáng", "Tốc độ mọc"] {
+      XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] %@", label)).firstMatch.exists, "no \(label) in the plant's card")
+    }
+  }
+
+  /// A part this build can't draw (a newer site's) offers v1's page there, never missing; v1's page opens from it.
+  func testAPartV2CantDrawOffersTheWholePageThere() {
+    let app = openNeon("-newer-part")
+    let feeding = app.staticTexts["Cho ăn gì?"], elsewhere = app.buttons["v2-part-elsewhere"]
+    reveal(app, feeding)
+    reveal(app, elsewhere)
+    XCTAssertGreaterThan(elsewhere.frame.minY, feeding.frame.minY, "the offer isn't in its part")
+    XCTAssertLessThan(elsewhere.frame.minY, app.staticTexts["Sinh sản ra sao?"].frame.minY, "the offer isn't in its part")
+    elsewhere.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "v1's page didn't open")
+    // At that part, not at its top, sixteen screens from it on a long page.
+    let web = app.buttons["page-web"]
+    XCTAssertTrue(web.waitForExistence(timeout: 5), "v1's page offers the part nowhere")
+    let at = expectation(for: NSPredicate(format: "hittable == true"), evaluatedWith: web)
+    XCTAssertEqual(XCTWaiter.wait(for: [at], timeout: 3), .completed, "v1's page didn't open at the part")
   }
 
   /// "Thêm vào bể" on v2's page: the fish put on the tank, and "Xem trong Bể của tôi →" opening that tank on its tab.
@@ -350,7 +667,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    for _ in 0..<4 { app.swipeUp() }
+    // To its foot: the whole page is a long one.
+    for _ in 0..<10 { app.swipeUp() }
     // Sent when the app goes to the background.
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
@@ -542,16 +860,20 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: after), 40, "the neon's colour gone from under the tab bar: \(colour) before, \(after) after")
   }
 
-  /// Every figure in view, none off a strip's edge, and the page's colour on under the tab bar with no white between.
+  /// Every figure in view, the card's six (not its lifespan, as the mock's card), none off its edge, and the page's colour
+  /// on under the tab bar with no white between.
   func testAFishsPageShowsEveryFigureOnItsColourUnderTheTabBar() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
-    let figure = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Tuổi thọ")).firstMatch
+    let figure = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Độ khó")).firstMatch
     repeatUntil(figure.exists, times: 2) { app.swipeUp() }
     XCTAssertTrue(figure.exists, "no last figure")
+    XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "fact").count, 6, "not the card's six figures")
+    XCTAssertFalse(app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Tuổi thọ")).firstMatch.exists,
+                   "its lifespan on the card")
     XCTAssertTrue(app.frame.contains(figure.frame), "a figure off the screen: \(figure.frame)")
     Thread.sleep(forTimeInterval: 0.5)
     let shot = Pixels(XCUIScreen.main.screenshot())
@@ -655,6 +977,20 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
   }
 
+  /// A group's tile says what its number counts ("474 loài"), not a bare number; so does its row at the largest text.
+  func testAGroupsTileSaysWhatItCounts() {
+    for size in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
+      let app = XCUIApplication()
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + size
+      app.launchForFlow()
+      app.openTab("Khám phá")
+      let tile = app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch
+      repeatUntil(tile.exists, times: 6) { app.swipeUp() }
+      XCTAssertTrue(tile.exists, "no group's tile with what it counts \(size)")
+      app.terminate()
+    }
+  }
+
   func testAPageReadIsOnOneShelfOfKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -684,6 +1020,74 @@ final class V2FlowTests: XCTestCase {
     app.openTab("Hôm nay")
     app.openTab("Khám phá")
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
+  }
+
+  /// A page just opened (`opened` comes), read down to its end: nowhere a row to v1's whole page.
+  private func readWhole(_ app: XCUIApplication, _ page: String, opened: XCUIElement) {
+    XCTAssertTrue(opened.waitForExistence(timeout: 5), "\(page) didn't open as it should")
+    let row = app.descendants(matching: .any)
+      .matching(NSPredicate(format: "identifier == 'v2-full-page' OR label CONTAINS[c] 'xem trang đầy đủ'")).firstMatch
+    for _ in 0..<8 {
+      XCTAssertFalse(row.exists, "a row to the whole page on \(page)")
+      app.swipeUp(velocity: .fast)
+    }
+    XCTAssertFalse(row.exists, "a row to the whole page at the end of \(page)")
+  }
+
+  /// Back a page: v2's own button on its page, iOS's on another.
+  /// "thêm" at the end of this text: the page has one in each folded part.
+  private func openFold(_ app: XCUIApplication, of paragraph: XCUIElement) {
+    reveal(app, paragraph)
+    let box = paragraph.frame
+    let more = app.links.matching(NSPredicate(format: "label == %@", "thêm")).allElementsBoundByIndex.first {
+      box.contains(CGPoint(x: $0.frame.midX, y: $0.frame.midY))
+    }
+    guard let more else { return XCTFail("no thêm in \(paragraph.label)") }
+    reveal(app, more)
+    more.tap()
+  }
+
+  private func goBack(_ app: XCUIApplication) {
+    let own = app.buttons["v2-back"]
+    if own.exists { own.tap() } else { app.navigationBars.buttons.element(boundBy: 0).tap() }
+  }
+
+  /// The neon's page on v2, opened from a link.
+  private func openNeon(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + args
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    return app
+  }
+
+  /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past; only down, so parts found
+  /// one after another are in that order on the page.
+  private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
+    repeatUntil(e.exists && e.isHittable, times: 30) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+  }
+
+  /// The neon's page, signed in as the owner (the stand-in Apple's, `-fake-owner`).
+  private func ownersNeon(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
+                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"] + args
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    app.openAccount()
+    app.scrollToAndTap("apple-sign-in")
+    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
+    app.closeAccount()
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    return app
   }
 
   /// Dragged, without a fling, until its top is `y` points down the screen.
