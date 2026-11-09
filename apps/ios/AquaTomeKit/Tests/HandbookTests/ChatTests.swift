@@ -273,6 +273,15 @@ private func key(_ b: Chat.Block) -> String {
   #expect(Chat.refusal(Data("<html>".utf8), status: 502) == .refused("failed", limit: nil))
 }
 
+/// Chat may be on for the owner's account alone: GET goes as the account when signed in, with no cookie either way.
+@Test func theChatsStateIsAskedAsTheAccountWhenSignedIn() {
+  let signedIn = Chat.status(site: site, version: "1.4", ownCopy: nil, token: "t0k")
+  #expect(signedIn.value(forHTTPHeaderField: "Authorization") == "Bearer t0k")
+  #expect((signedIn.httpMethod ?? "GET") == "GET" && signedIn.url?.path == "/api/chat" && !signedIn.httpShouldHandleCookies)
+  let signedOut = Chat.status(site: site, version: "1.4", ownCopy: nil)
+  #expect(signedOut.value(forHTTPHeaderField: "Authorization") == nil)
+}
+
 @Test func theChatsStateIsReadAsGetGivesIt() {
   #expect(Chat.status(Data(#"{"on":true,"perAccount":20,"maxTurns":12,"maxChars":500}"#.utf8), status: 200)
           == Chat.Status(on: true, resting: false, perAccount: 20, maxTurns: 12, maxChars: 500))
@@ -415,6 +424,28 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
   #expect(!r.whole && r.error == nil && r.text == t.text && r.blocks.count == t.blocks.count)
   // The text started after the three steps.
   #expect(foldedAt == 3 && r.steps.count == 3)
+}
+
+@Test func textInDozensOfPiecesIsJoinedAsItComesThenDoneReplacesIt() async throws {
+  // The Worker streams the text as Claude writes it: dozens of pieces, some cut mid-word. Before `done`, the screen holds
+  // all of them so far, never only the last.
+  let t = try #require(try await chat("chat-stream-species.sse").lazy.compactMap { if case .done(let t) = $0 { t } else { nil } }.first)
+  let words = Array(t.text)
+  var r = Chat.Reply()
+  // About thirty pieces, whatever the recorded answer's length.
+  let size = max(1, words.count / 30)
+  var at = 0, pieces = 0
+  while at < words.count {
+    let end = min(at + size, words.count)
+    r.take(.text(String(words[at..<end])))
+    pieces += 1
+    #expect(r.text == String(words[..<end]), "piece \(pieces) didn't join what came before it")
+    at = end
+  }
+  #expect(pieces >= 24)
+  #expect(r.turn == nil && r.writing)
+  r.take(.done(t))
+  #expect(r.text == t.text && r.turn != nil)
 }
 
 @Test func eachPageShowsOnceATurnAndNoStepAfterTheText() {
