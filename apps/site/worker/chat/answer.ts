@@ -152,6 +152,58 @@ export function textReader(): (part: string) => string {
   }
 }
 
+/**
+ * The blocks Claude picks, for one call, as it writes them: fed the call's raw text as it comes (all of it, from the
+ * first part), it gives back each pick of the top-level `blocks` array whose object has just closed, parsed, in order.
+ * Nothing once the array closes. It doesn't check the answer is on topic: the caller reads picks only from a call
+ * whose text it streamed (textReader).
+ */
+export function picksReader(): (part: string) => Choice[] {
+  let raw = ''
+  let at = 0
+  let depth = 0
+  let quoted = false
+  let escaped = false
+  /** At the top level: a key comes next; where the key's string began; the last key read. */
+  let wantKey = false
+  let keyAt = -1
+  let key = ''
+  /** Where the pick being written began. */
+  let pickAt = -1
+  let over = false
+  return part => {
+    const picks: Choice[] = []
+    if (over) return picks
+    raw += part
+    for (; at < raw.length && !over; at++) {
+      const c = raw[at]!
+      if (quoted) {
+        if (escaped) escaped = false
+        else if (c === '\\') escaped = true
+        else if (c === '"') {
+          quoted = false
+          if (keyAt >= 0) { key = JSON.parse(raw.slice(keyAt, at + 1)) as string; keyAt = -1; wantKey = false }
+        }
+      } else if (c === '"') {
+        quoted = true
+        if (depth === 1 && wantKey) keyAt = at
+      } else if (c === '{' || c === '[') {
+        depth++
+        if (depth === 1) wantKey = true
+        else if (depth === 3 && c === '{' && key === 'blocks') pickAt = at
+      } else if (c === '}' || c === ']') {
+        if (depth === 3 && pickAt >= 0) {
+          try { picks.push(JSON.parse(raw.slice(pickAt, at + 1)) as Choice) } catch { /* not a pick: the answer's own check drops it */ }
+          pickAt = -1
+        }
+        if (depth === 2 && key === 'blocks') over = true
+        depth--
+      } else if (c === ',' && depth === 1) wantKey = true
+    }
+    return picks
+  }
+}
+
 /** The contract's blocks (protocols/chat.openapi.json `Block`). */
 export type Linked = { id: string; kind: 'species' | 'breed' | 'plant'; name: string; sci?: string; url?: string; img?: string }
 export type Card = { page: Linked } & ({ facts: Facts } | { plant: PlantFacts })
@@ -212,8 +264,13 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * under nearly every answer.
  * `startedOn`: the fish or plant whose page the chat was opened from (`from: 'species'`). The reader has just left its
  * card, so it counts as shown (from fish ID or search they haven't seen the page, and there is none).
+ *
+ * One pick at a time, so each block can go out as soon as Claude has picked it: `add` each pick in order, one after the
+ * other (awaited), and it gives the pick's block, or nothing when the pick is dropped; `done` gives every block and what
+ * was dropped. A pick's block depends only on the picks before it, so the blocks given one by one are the start of
+ * `done`'s.
  */
-export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+export function filler(hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string) {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
@@ -283,16 +340,28 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
   }
   const blocks: ChatBlock[] = []
   const seen = new Set([...shownBefore.flatMap(repeatKey), ...(startedOn ? [`species: ${startedOn}`] : [])])
-  for (const p of answer.blocks.slice(0, MAX_BLOCKS)) {
-    const b = await one(p)
-    const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
-    if (typeof b === 'string') dropped.push(b)
-    else if (again.length) dropped.push(`${again[0]} shown before`)
-    else {
-      blocks.push(b)
-      repeatKey(b).forEach(k => seen.add(k))
-    }
+  let picks = 0
+  return {
+    add: async (p: Choice): Promise<ChatBlock | undefined> => {
+      if (picks++ >= MAX_BLOCKS) return undefined
+      const b = await one(p)
+      const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
+      if (typeof b === 'string') dropped.push(b)
+      else if (again.length) dropped.push(`${again[0]} shown before`)
+      else {
+        blocks.push(b)
+        repeatKey(b).forEach(k => seen.add(k))
+        return b
+      }
+      return undefined
+    },
+    done: (): { blocks: ChatBlock[]; dropped: string[] } => ({ blocks, dropped: picks > MAX_BLOCKS ? [...dropped, `${picks - MAX_BLOCKS} blocks past ${MAX_BLOCKS}`] : dropped }),
   }
-  if (answer.blocks.length > MAX_BLOCKS) dropped.push(`${answer.blocks.length - MAX_BLOCKS} blocks past ${MAX_BLOCKS}`)
-  return { blocks, dropped }
+}
+
+/** The answer's blocks, filled from the handbook (`filler`, every pick at once). */
+export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+  const f = filler(hb, checks, shownBefore, startedOn)
+  for (const p of answer.blocks) await f.add(p)
+  return f.done()
 }

@@ -421,6 +421,63 @@ test('the stream: the text in pieces as Claude writes it, after every step and b
   expect(plain.bodies.map(b => b.stream)).toEqual([undefined, undefined])
 })
 
+/** `p`, or a failure naming `what` once `ms` have passed. */
+const within = <T>(p: Promise<T>, ms: number, what: string) => Promise.race([p, new Promise<never>((_, no) => setTimeout(() => no(new Error(`no ${what} within ${ms} ms`)), ms))])
+
+test('on the stream, a card goes out as soon as Claude has picked it, while its call still writes; done once the turn is saved, before the transcript and the settle', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  const said = 'Cá neon xanh sống theo đàn, từ 8 con trở lên.'
+  const first = pick({ ids: ['paracheirodon-innesi'] })
+  const raw = JSON.stringify({ offTopic: false, text: said, covered: true, blocks: [first, pick({ t: 'tool', tool: 'tank-volume', tank: { l: 60, w: 30, h: 36 } })], suggestions: ['Nuôi chung với cá gì?'] })
+  const cut = raw.indexOf(JSON.stringify(first)) + JSON.stringify(first).length
+  // The answer's call writes its text and first pick, then holds the rest until the test has had that card.
+  let more!: () => void
+  const held = new Promise<void>(r => { more = r })
+  const delta = (t: string) => sseEv('content_block_delta', { index: 0, delta: { type: 'text_delta', text: t } })
+  const answer = () => new Response(new ReadableStream({
+    async start(ctl) {
+      const enc = new TextEncoder()
+      ctl.enqueue(enc.encode(started + sseEv('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + delta(raw.slice(0, cut))))
+      await held
+      ctl.enqueue(enc.encode(delta(raw.slice(cut)) + sseEv('content_block_stop', { index: 0 }) + sseEv('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 9 } }) + sseEv('message_stop', {})))
+      ctl.close()
+    },
+  }), { headers: { 'content-type': 'text/event-stream' } })
+  // The transcript's write is held until the test has had done.
+  let write!: () => void
+  const writing = new Promise<void>(r => { write = r })
+  e.UPLOADS = hooked(store.bucket, { put: async k => { if (k.startsWith('chat-run/')) await writing } })
+  const waits: Promise<unknown>[] = []
+  const res = await chat(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), new URL('https://x.test/api/chat'), e, new Date(), deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), answer]).fetch), p => { waits.push(p) })
+  const reader = res.body!.getReader()
+  const dec = new TextDecoder()
+  let got = ''
+  const until = async (s: string) => { while (!got.includes(s)) { const r = await reader.read(); if (r.done) throw new Error(`the stream ended before ${s}`); got += dec.decode(r.value, { stream: true }) } }
+  await within(until('event: block'), 2000, 'card while the call still writes')
+  expect(got).not.toContain('event: done')
+  more()
+  await within(until('event: done'), 2000, 'done before the transcript is written')
+  // The conversation is free for the next question; the transcript isn't written yet, and the run not yet settled.
+  expect(store.read<Conversation>(await convKey(me))).toMatchObject({ turns: [{ n: 1 }] })
+  expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
+  expect([...store.m.keys()].some(k => k.startsWith('chat-run/'))).toBe(false)
+  expect(Object.keys(ledger.day()!.runs)).toHaveLength(1)
+  write()
+  for (let r = await reader.read(); !r.done; r = await reader.read()) got += dec.decode(r.value, { stream: true })
+  await Promise.all(waits)
+  expect(ledger.day()!.runs).toEqual({})
+  expect(streamMisfits(got, sseMedia)).toEqual([])
+  const events = got.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
+  const done = events.at(-1)!
+  expect(done.event).toBe('done')
+  expect(events.filter(x => x.event === 'block').map(x => x.data)).toEqual(done.data.blocks)
+  expect(done.data.blocks.map((b: { t: string }) => b.t)).toEqual(['species', 'tool'])
+  // The transcript times the text's first piece and its last, the run's end and done, in that order.
+  const t = store.read<ChatRunRecord>([...store.m.keys()].find(k => k.startsWith('chat-run/'))!)!.timing!
+  expect(t.before <= t.words! && t.words! <= t.last! && t.last! <= t.answered! && t.answered! <= t.done!).toBe(true)
+})
+
 test('a first call whose text has begun isn\'t asked again of the next key when it fails: the reader gets the error, never a second answer after the first words', async () => {
   const { e, db } = env()
   const me = await signIn(db)
