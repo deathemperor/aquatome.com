@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, usableFact, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
 
 const facts: TopicFacts = {
   found: true,
@@ -259,4 +259,9 @@ test('a dose from a fish farm\'s page or a forum post is written only when anoth
   prompts.length = 0
   await localizeTopic(root, llm, r.id, 'id')
   expect(written(prompts[0]!)).toEqual(kept)
+})
+
+test('the Vietnamese writer has a name for every kind of source', async () => {
+  const prompt = await readFile(join(import.meta.dirname, '../src/prompts/topic.md'), 'utf8')
+  for (const kind of Object.keys(SOURCE_KINDS)) expect(prompt).toMatch(new RegExp(`^\\s*- ${kind}: "`, 'm'))
 })
