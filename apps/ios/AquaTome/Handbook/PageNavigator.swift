@@ -188,6 +188,7 @@ struct PageNavigatorTitle: View {
   let onColour: Bool
   let navigator: PageNavigator
   @Environment(\.dynamicTypeSize) private var type
+  @Environment(\.colorScheme) private var scheme
 
   var body: some View {
     let part = navigator.current?.name, big = type.isAccessibilitySize
@@ -199,7 +200,10 @@ struct PageNavigatorTitle: View {
             .font(.system(size: big ? 22 : 15, weight: .semibold))
             .foregroundStyle(.primary)
             .lineLimit(1)
-          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(Color.accentColor)
+          // The asset by name: `.accentColor` drew black in the light bar. On the photo's colour the bar is dark whatever the
+          // phone's setting, so the tint's dark form, which reads there.
+          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(Color("AccentColor"))
+            .environment(\.colorScheme, onColour ? .dark : scheme)
         }
       }
       .shadow(color: .black.opacity(onColour ? 0.45 : 0), radius: 3)
