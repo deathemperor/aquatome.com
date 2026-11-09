@@ -15,9 +15,10 @@
     "ludwigia-repens",
     "heteranthera-zosterifolia",
     "phyllanthus-fluitans",
-    "ludwigia-palustris"
+    "ludwigia-palustris",
+    "micranthemum-tweediei"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "eaGHpCVz-zI",
     "title": "Crazy Difference After 1 Week Only! CO2 vs NO CO2 Update - Twin Scape Experiment Ep #3",
@@ -78,84 +79,73 @@
     ],
     "gear": [
       {
-        "category": "be-ca",
-        "t": 0
-      },
-      {
-        "category": "den",
-        "t": 0
-      },
-      {
-        "category": "loc",
-        "t": 0
-      },
-      {
         "category": "co2",
         "type": "binh",
-        "t": 74
+        "t": 0
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 0
+        "t": 180
       },
       {
         "category": "phan-nen",
-        "type": "soi",
-        "t": 0
+        "type": "soi"
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh"
       },
       {
         "category": "test-nuoc",
         "type": "test",
-        "t": 630
+        "t": 600
       }
     ],
     "figures": [
       {
-        "heading": "Hai bể trồng những cây gì",
+        "heading": "Hai bể được set thế nào",
         "moments": [
           {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t119-hd.webp",
+            "t": 145,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at145-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thảm cây tiền cảnh mọc rải trên nền đất, bên cạnh lũa và đá."
+            "caption": "Cận cảnh các bụi cây thân và thảm cỏ xanh trong bể.",
+            "sharpness": 604.1,
+            "person": false
           },
           {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t144-hd.webp",
+            "t": 160,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at160-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các cụm cây trung cảnh và hậu cảnh mọc dày trong bể."
+            "caption": "Toàn cảnh bể thủy sinh với lũa và nhiều loại cây trồng dày.",
+            "sharpness": 944.1,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/eaGHpCVz-zI/p0-saWFfa3owMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/eaGHpCVz-zI/p0-saWFfa3owMy5qcGc-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "Krzysztof Ziarnek, Kenraiz",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heteranthera_zosterifolia_kz03.jpg",
-          "caption": "Cây Heteranthera zosterifolia ra hoa xanh tím, thường trồng ở hậu cảnh bể."
-        }
+        ]
       },
       {
-        "heading": "Ngày 5: bể có CO2 thế nào",
+        "heading": "Ngày 5: bể có CO2 lên ra sao",
         "moments": [
           {
             "t": 105,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t104-hd.webp",
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at105-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh sau 5 ngày, cây đã lên xanh và phủ nền."
+            "caption": "Toàn cảnh bể sau 5 ngày, cây hậu cảnh bên trái lên xanh tốt.",
+            "sharpness": 2017.6,
+            "person": false
           },
           {
             "t": 140,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t139-hd.webp",
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at140-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các cụm cây thân lá đã lên khỏe, ra lá mới."
+            "caption": "Cận cảnh cụm cây tiền cảnh và trung cảnh đã lên lá mới.",
+            "sharpness": 642.6,
+            "person": false
           }
         ],
         "photo": {
@@ -166,7 +156,7 @@
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm, có lá đỏ và cá neon bơi giữa cây."
+          "caption": "Bể thủy sinh cây rậm rạp với nhiều cây thân đỏ, xanh và thảm cỏ phía trước."
         }
       },
       {
@@ -174,103 +164,91 @@
         "moments": [
           {
             "t": 175,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t174-hd.webp",
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at175-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể không CO2 với lớp rêu hại xanh phủ mặt kính và cây thủy sinh."
+            "caption": "Toàn cảnh bể không CO2 với lũa, đá và cây thủy sinh lên khá tốt.",
+            "sharpness": 2208.5,
+            "person": false
           },
           {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t219-hd.webp",
+            "t": 185,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at185-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể có lũa, đá và cây mọc khá tốt dù lên rêu hại."
+            "caption": "Cận hơn thấy cây có lá mới và lớp rêu bụi mờ trên kính hông.",
+            "sharpness": 627.9,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Ngày 9: cây hai bể chênh nhau bao nhiêu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/eaGHpCVz-zI/p3-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/eaGHpCVz-zI/p3-J1LUluZGlhLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm cây Monte Carlo xanh mướt trải kín nền bể, có vài con tép."
-        }
-      },
-      {
-        "heading": "Vì sao bể không CO2 lên rêu bụi xanh",
+        "heading": "Ngày 9: so sánh từng cây giữa hai bể",
         "moments": [
           {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t407-hd.webp",
+            "t": 475,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at475-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể không CO2 nước xanh đục, rêu bụi bám trên lũa và cây."
+            "caption": "Toàn cảnh bể ngày 9, cây trải thảm xanh quanh lũa và đá.",
+            "sharpness": 1528.3,
+            "person": false
           },
           {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t417-hd.webp",
+            "t": 480,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at480-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhìn từ trên xuống bể không CO2, nước và cây phủ màu xanh rêu."
+            "caption": "Cận cảnh thảm Monte Carlo xanh khỏe dưới chân lũa và đá.",
+            "sharpness": 788.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Rêu hại ở bể không CO2: chưa rõ nguyên nhân",
+        "moments": [
+          {
+            "t": 400,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể không CO2 với lũa và cây thủy sinh, nước hơi đục xanh vì rêu hại.",
+            "sharpness": 515,
+            "person": false
+          },
+          {
+            "t": 500,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc bể không CO2 với lũa, cây mọc đều và lớp rêu bụi xanh.",
+            "sharpness": 715.3,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/eaGHpCVz-zI/p4-Y3JvYWxnYWUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/eaGHpCVz-zI/p4-Y3JvYWxnYWUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/eaGHpCVz-zI/p4-lyX0FsZ2FlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/eaGHpCVz-zI/p4-lyX0FsZ2FlLmpwZw-480.webp",
           "width": 960,
-          "height": 660,
-          "licence": "CC BY 4.0",
-          "author": "Shing Hei Zhan, Tsai-Yin Hsieh, Lan-Wei Yeh, Ting-Chun Kuo, Shoichiro Suda, Shao-Lun Liu",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_red_macroalgae.jpg",
-          "caption": "Rêu tóc xanh bám trên lá cây thủy sinh trong bể."
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "aquarist.me",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Crab_munching_on_Hair_Algae.jpg",
+          "caption": "Rêu tóc xanh mọc thành chùm bám trên đá trong bể."
         }
       },
       {
-        "heading": "Vệ sinh bể ngày 9",
+        "heading": "Vệ sinh và theo dõi tiếp",
         "moments": [
           {
-            "t": 555,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t551-hd.webp",
+            "t": 565,
+            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at565-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đang thay nước bể thủy sinh bằng ống siphon, cây và lũa còn sạch."
-          }
-        ]
-      },
-      {
-        "heading": "Test nước nói lên điều gì",
-        "moments": [
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t596-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể thủy sinh cây xanh um, có kẹp gắp cây đang thao tác."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t209-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể mới set nước xanh đục, có lũa, đá và cây nền."
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/t387-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh cây thân thảo mọc trong bể, kính bên có màu xanh rêu."
+            "caption": "Bể thủy sinh sau khi vệ sinh, nước trong và cây xanh tốt.",
+            "sharpness": 392.8,
+            "person": false
           }
         ]
       }

@@ -10,6 +10,135 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Araguaia",
+        "Ilha do Bananal",
+        "rio das Mortes"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The savanna tetra, Hyphessobrycon stegemanni, is a characid from the middle rio Tocantins and rio Araguaia basins in central Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the middle rio Tocantins basin in the states of Maranhão and Tocantins, central Brazil, plus its principal affluent the rio Araguaia in Pará, Tocantins and Mato Grosso states.",
+          "countries": [],
+          "regions": [
+            "Tocantins",
+            "Araguaia"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Specimens from the Araguaia basin appear to be more scarce, but there is at least one account from the Ilha do Bananal area and another from the upper rio das Mortes, near the municipality of Primavera do Leste in Mato Grosso.",
+          "countries": [],
+          "regions": [
+            "Ilha do Bananal",
+            "rio das Mortes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354609,
+      "total": 42,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          42
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -11.25,
+          10,
+          10
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

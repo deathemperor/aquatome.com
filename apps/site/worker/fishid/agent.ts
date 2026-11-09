@@ -11,11 +11,14 @@ import { failed, healthyKeys, isApiError, rotate, type Attempt, type HealthStore
  * their reference photos with the reader's before it answers (agent-tools.ts), on the agent loop (../agent/loop.ts).
  *
  * Keys: the first call rotates over the healthy keys as today's single call does (there is no history yet). From the
- * second, the run keeps that key: its thinking blocks belong to it, and keys can be in different organisations. A
- * later call that fails marks its key as the rotation would, and the run falls back to today's single call
- * (askClaude) on the next healthy key when 10 s or more are left; else it is unavailable. A later call the API refuses
- * as our request (a 400: a reference photo it couldn't fetch, say) is `later400`, its message for the log; the key is
- * fine, so the fallback may use it too, and with no fallback the run failed (502), not unavailable.
+ * second, the run keeps that key. A later call that fails for its key or the moment (out of credit, rate-limited,
+ * overloaded, no answer) marks its key as the rotation would, and the same call goes to the next healthy keys, each at
+ * most once, when 10 s or more are left: the key that answers carries the rest of the run, with what it has read. Its
+ * thinking blocks go too; a key in another organisation may not read them (the API drops what it can't, and answers).
+ * When no key takes the call, the run falls back to today's single call (askClaude) on the keys left, with 10 s or more;
+ * else it is unavailable. A later call the API refuses as our request (a 400: a reference photo it couldn't fetch, say)
+ * is `later400`, its message for the log; the key is fine, so the fallback may use it too, and with no fallback the run
+ * failed (502), not unavailable.
  *
  * `onUsage` hears each call's usage as it lands, so the caller can record the spend before the run ends.
  *
@@ -126,7 +129,22 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
         const f = await failed(key!, e, o.store, clock() - t, clock)
         attempts.push(f.attempt)
         if (isApiError(e) && !f.verdict.next) later400 = String((e as Error).message ?? '').slice(0, 160)
-        throw e
+        const left = deadline - clock()
+        if (!f.verdict.next || left < FALLBACK_MIN_MS) throw e
+        // The same call to the next key, which carries the run from here.
+        const rest = await healthyKeys(o.healthy.filter(k => k.hash !== key!.hash), o.store, clock())
+        if (!rest.length) throw e
+        const out = await rotate(rest, o.store, async (k, l) => (await clientFor(k, o.fetch)).messages.create(body, { timeout: Math.min(l, timeoutMs) }), { random: o.random, clock, budgetMs: left })
+        attempts.push(...out.attempts)
+        if (!out.ok) {
+          // The next key refused the call as a request (the history it was sent): the fallback's single call may go to any key.
+          if (out.reason === 'request') later400 = 'the next key refused the run'
+          throw e
+        }
+        key = rest.find(k => k.hash === out.hash)!
+        client = await clientFor(key, o.fetch)
+        o.onUsage?.(out.value.usage)
+        return out.value
       }
     },
     model: o.model,

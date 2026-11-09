@@ -1,16 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250689816/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/250689816/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/250689816",
-   "key": "inat:250689816"
-  }
+ "queue": [],
+ "judged": [
+  "inat:250689816"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/81a0a906c7b47eaa.webp": "0e0f8bb24c0e381e",
+  "https://media.aquatome.com/scotcat/aaa6173ee51d3675.webp": "9393b2b264090f00",
+  "https://media.aquatome.com/scotcat/7bdf53c860ae20ef.webp": "1a1f18f2f0097831",
+  "https://media.aquatome.com/scotcat/d0dd7264eba56ca4.webp": "001130ecc8898000"
+ },
+ "commons": "2026-11-09"
 }

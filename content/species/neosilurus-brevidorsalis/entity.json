@@ -1,0 +1,186 @@
+{
+  "id": "neosilurus-brevidorsalis",
+  "scientificName": "Neosilurus brevidorsalis",
+  "order": "Siluriformes",
+  "family": "Plotosidae",
+  "genus": "Neosilurus",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "cape-york",
+    "papua-new-guinea",
+    "fly-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<p>The shortfin tandan, Neosilurus brevidorsalis, is a plotosid catfish restricted to the tips of northern Australia and southern Papua New Guinea. In Australia it is recorded only from the Jardine and Jackson river systems on the Cape York Peninsula, and in Papua New Guinea from the Fly River and some other drainages.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<p>This species is exceptionally rare in the aquarium trade.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<p>Type locality is 'Nicol Bay, Cape York, Queensland, Australia', and this species is restricted to the tips of northern Australia and southern Papua New Guinea.</p><p>In Australia records exist only from the Jardine and Jackson river systems on the Cape York Peninsula, while in Papua New Guinea it's known from the Fly River plus some other drainages.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<p>Maximum size: 200 mm SL (20 cm).</p><p>Minimum base dimensions of 120 × 45 cm or equivalent are recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<p>Etymology: Neosilurus: from the Greek νέος (neo), meaning 'new', and the generic name Silurus. brevidorsalis: from the Latin brevis, meaning 'short', and dorsalis, meaning 'dorsal, pertaining to the back', in reference to this species' relatively small dorsal fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Roberts, T. R. (1978). An ichthyological survey of the Fly River in Papua New Guinea with descriptions of new species. Smithsonian Contributions to Zoology No. 281, 1-72</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8a0d67cba73a1d90.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8a0d67cba73a1d90-480.webp",
+      "width": 800,
+      "height": 529,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neosilurus-brevidorsalis",
+      "caption": "This species is exceptionally rare in the aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a69d97c1039c6c85.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a69d97c1039c6c85-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/plotosidae/neosilurus_brevidorsalis.htm",
+      "caption": "Neosilurus brevidorsalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1c6c45c641077c33.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1c6c45c641077c33-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/plotosidae/neosilurus_brevidorsalis.htm",
+      "caption": "Neosilurus brevidorsalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0b622c1bd8214109.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0b622c1bd8214109-480.webp",
+      "width": 500,
+      "height": 346,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/plotosidae/neosilurus_brevidorsalis.htm",
+      "caption": "Neosilurus brevidorsalis: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b0b3eddb760cd270.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b0b3eddb760cd270-480.webp",
+      "width": 500,
+      "height": 261,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/plotosidae/neosilurus_brevidorsalis.htm",
+      "caption": "Neosilurus brevidorsalis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

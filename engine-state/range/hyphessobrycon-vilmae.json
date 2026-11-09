@@ -1,0 +1,86 @@
+{
+  "id": "hyphessobrycon-vilmae",
+  "native": {
+    "input": "b8d258de06428534",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hyphessobrycon vilmae originates from the upper reaches of the Rio Tapajós in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hyphessobrycon vilmae is a small characid that appears to be endemic to the upper rio Tapajós basin in Amazonas and Mato Grosso states, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "Hyphessobrycon vilmae originates from the upper reaches of the Rio Tapajós in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Hyphessobrycon vilmae is a small characid that appears to be endemic to the upper rio Tapajós basin in Amazonas and Mato Grosso states, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Arinos-Juruena",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'upper Arinos-Juruena basin, Brazil'.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon vilmae",
+    "status": "ACCEPTED",
+    "taxonKey": 2354589,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        25
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        22
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        18
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "hypostomus-pusarum",
+  "native": {
+    "input": "a12b9f1e56955abc",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Brazil, Maranhão, Rio Parnaiba drainage, Piauí Rivers, Parnaíba.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: middle Rio Parnaíba basin and northeastern coastal drainages of Brazil. Type locality: Ceará Mirim, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Parnaiba",
+        "source": "planetcatfish",
+        "quote": "Brazil, Maranhão, Rio Parnaiba drainage, Piauí Rivers, Parnaíba.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Parnaíba",
+        "source": "scotcat",
+        "quote": "South America: middle Rio Parnaíba basin and northeastern coastal drainages of Brazil. Type locality: Ceará Mirim, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus pusarum",
+    "status": "ACCEPTED",
+    "taxonKey": 5202177,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        53
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        11
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

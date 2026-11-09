@@ -1,36 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356062090/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/356062090/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Jacek Pietruszewski",
-   "sourceUrl": "https://www.inaturalist.org/photos/356062090",
-   "key": "inat:356062090"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356068186/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/356068186/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Jacek Pietruszewski",
-   "sourceUrl": "https://www.inaturalist.org/photos/356068186",
-   "key": "inat:356068186"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356068987/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/356068987/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Jacek Pietruszewski",
-   "sourceUrl": "https://www.inaturalist.org/photos/356068987",
-   "key": "inat:356068987"
-  }
+ "queue": [],
+ "judged": [
+  "inat:356062090",
+  "inat:356068186",
+  "inat:356068987"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/356062090/original.jpeg": "02070703c1411803",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/356068186/original.jpeg": "cc761e18191f81bd",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/356068987/original.jpeg": "0003050307c70706"
+ },
+ "commons": "2026-11-09"
 }

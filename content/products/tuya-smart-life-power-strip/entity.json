@@ -1,0 +1,179 @@
+{
+  "id": "tuya-smart-life-power-strip",
+  "brand": "Tuya",
+  "model": "Smart Life power strip",
+  "category": "o-cam",
+  "specs": [
+    {
+      "key": "Input voltage",
+      "value": "220V AC, 50Hz",
+      "source": 2
+    },
+    {
+      "key": "Maximum load",
+      "value": "2200W, 10A (total across outlets)",
+      "source": 1
+    },
+    {
+      "key": "AC outlets",
+      "value": "4, each switched separately, 50 mm apart",
+      "source": 1
+    },
+    {
+      "key": "USB ports",
+      "value": "4 × 5V (rated 5V/2A on one listing)",
+      "source": 2
+    },
+    {
+      "key": "Wi-Fi",
+      "value": "2.4GHz only, connects directly to the router with no hub; 5GHz not supported",
+      "source": 2
+    },
+    {
+      "key": "App",
+      "value": "Tuya Smart / Smart Life (iOS, Android), Vietnamese interface",
+      "source": 0
+    },
+    {
+      "key": "Voice control",
+      "value": "Amazon Alexa, Google Assistant",
+      "source": 0
+    },
+    {
+      "key": "Materials",
+      "value": "Flame-retardant PC plastic, tempered glass top, metal trim",
+      "source": 2
+    },
+    {
+      "key": "Weight",
+      "value": "200 g (one listing); 300 g (another listing)",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "3 or 6 months, chosen as an option at purchase",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "4 outlets + 4 USB (4P+4U)",
+      "specs": [
+        {
+          "key": "Maximum load",
+          "value": "2200W, 10A",
+          "source": 1
+        },
+        {
+          "key": "USB",
+          "value": "4 × 5V; USB can also be switched remotely",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "4 outlets + 2 USB (4P+2U)",
+      "specs": [
+        {
+          "key": "Outlets",
+          "value": "4 independently controlled AC outlets + 2 USB",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://smarthomekit.vn/san-pham/o-cam-noi-dai-thong-minh/",
+      "title": "Ổ cắm nối dài thông minh Wifi Tuya 4 Cổng + USB - Smart HomeKit",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://smartliving.vn/cua-hang/o-cam-keo-dai-4-cong-4-cong-usb-dieu-khien-qua-wifi-tuya/",
+      "title": "Ổ Cắm Kéo Dài 4 Cổng + 4 Cổng USB Điều Khiển Qua Wifi Tuya - Smart Living",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://dientuthongminh.vn/san-pham/o-cam-wifi-tuya-keo-dai/",
+      "title": "Ổ cắm Tuya kéo dài - 4 đầu ra độc lập, 4 cổng USB - dientuthongminh.vn",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://gensou.sg/diy-smart-plug-aquarium-routine-automation-guide/",
+      "title": "DIY Smart Plug Aquarium Routine Automation Guide: Tuya and SmartLife",
+      "kind": "review",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.reef2reef.com/threads/anyone-using-tuya-as-controller.941339/",
+      "title": "Anyone using Tuya as controller? - Reef2Reef",
+      "kind": "forum",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.tapo.com/vn/product/smart-plug/tapo-p300/",
+      "title": "Tapo P300 Ổ Cắm Dài Wi-Fi Thông Minh",
+      "kind": "manufacturer",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://sieuthivienthong.com/smart-wi-fi-power-strip-tp-link-tapo-p300-70276.html",
+      "title": "Smart Wi-Fi Power Strip TP-LINK Tapo P300 - Siêu Thị Viễn Thông",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.thegioididong.com/o-cam-thong-minh/o-cam-thong-minh-tp-link-tapo-p300-wifi",
+      "title": "Ổ cắm thông minh TP-Link Tapo P300 Wifi - Thế Giới Di Động",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://chiaki.vn/o-cam-dien-thong-minh-tuya-smart-life-10a-ket-noi-wifi",
+      "title": "Ổ cắm điện thông minh Tuya Smart Life 10A kết nối wifi - Chiaki",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://tuya.vn/o-cam-4-cong-keo-dai-10a-dieu-khien-bang-song-zigbee-tuya-ztc4-p32343064.html",
+      "title": "Ổ Cắm 4 Cổng Kéo Dài 10A Zigbee Tuya ZTC4 - tuya.vn",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+      "title": "Đánh giá Ổ Cắm WiFi Tuya 20A Chịu Tải Khủng – Bật Tắt Mọi Thiết Bị Từ Xa Qua Điện Thoại",
+      "kind": "video",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+      "title": "Ổ cắm thông minh Tuya Wifi vừa ngon vừa rẻ | Lâm Smarthome",
+      "kind": "video",
+      "at": "2026-11-09"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-09",
+    "videos": [
+      {
+        "youtubeId": "XbNaCFHfnW0",
+        "title": "Đánh giá Ổ Cắm WiFi Tuya 20A Chịu Tải Khủng – Bật Tắt Mọi Thiết Bị Từ Xa Qua Điện Thoại",
+        "durationSec": 590,
+        "lang": "vi",
+        "channel": "Cường NKT"
+      },
+      {
+        "youtubeId": "uSf7cM7PRyY",
+        "title": "Ổ cắm thông minh Tuya Wifi vừa ngon vừa rẻ | Lâm Smarthome",
+        "durationSec": 1099,
+        "lang": "vi",
+        "channel": "Nhà thông minh Resmart"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-09"
+}

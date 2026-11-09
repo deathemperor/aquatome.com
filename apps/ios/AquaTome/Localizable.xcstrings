@@ -485,6 +485,28 @@
         }
       }
     },
+    "%lld bộ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld seri"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld siri"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ชุด"
+          }
+        }
+      }
+    },
     "%lld con": {
       "localizations": {
         "id": {
@@ -789,6 +811,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ %lld ดวง"
+          }
+        }
+      }
+    },
+    "%lld ảnh bạn đọc gửi, ngoài %lld ảnh ở trên.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld foto kiriman pembaca, di luar %2$lld foto di atas."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld foto kiriman pembaca, selain %2$lld foto di atas."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพจากผู้อ่าน %1$lld ภาพ นอกเหนือจาก %2$lld ภาพด้านบน"
           }
         }
       }
@@ -3873,6 +3917,28 @@
         }
       }
     },
+    "Chủ đề": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Topik"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Topik"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หัวข้อ"
+          }
+        }
+      }
+    },
     "Chữ AT": {
       "localizations": {
         "id": {
@@ -5259,28 +5325,6 @@
         }
       }
     },
-    "Cây dễ trồng, không cần CO₂": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tanaman mudah, tanpa CO₂"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tumbuhan mudah dijaga, tanpa CO₂"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ไม้น้ำปลูกง่าย ไม่ต้องใช้ CO₂"
-          }
-        }
-      }
-    },
     "Cây thủy sinh": {
       "localizations": {
         "id": {
@@ -6095,6 +6139,28 @@
         }
       }
     },
+    "Dễ trồng, không cần CO₂": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudah ditanam, tanpa CO₂"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudah ditanam, tanpa CO₂"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลูกง่าย ไม่ต้องใช้ CO₂"
+          }
+        }
+      }
+    },
     "Dễ và vừa": {
       "localizations": {
         "id": {
@@ -6905,6 +6971,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปภาพ"
+          }
+        }
+      }
+    },
+    "Gửi ảnh của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim foto Anda"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hantar foto anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรูปภาพของคุณ"
           }
         }
       }
@@ -10209,6 +10297,28 @@
         }
       }
     },
+    "Nhóm cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kelompok ikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kumpulan ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลุ่มปลา"
+          }
+        }
+      }
+    },
     "Nhận diện": {
       "localizations": {
         "id": {
@@ -13245,6 +13355,28 @@
         }
       }
     },
+    "Tất cả cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua tanaman"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua tumbuhan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำทั้งหมด"
+          }
+        }
+      }
+    },
     "Tất cả hướng dẫn": {
       "localizations": {
         "id": {
@@ -13285,6 +13417,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ทุกสายพันธุ์"
+          }
+        }
+      }
+    },
+    "Tất cả video": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua video"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua video"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอทั้งหมด"
           }
         }
       }
@@ -13505,6 +13659,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ถึงระดับน้ำ: **%@ ลิตร**"
+          }
+        }
+      }
+    },
+    "Từ điển thuật ngữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamus istilah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glosari istilah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อภิธานศัพท์"
           }
         }
       }
@@ -13807,6 +13983,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kedudukan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตำแหน่งปลูก"
+          }
+        }
+      }
+    },
+    "Vị trí trồng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posisi tanam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kedudukan penanaman"
           }
         },
         "th": {
@@ -14231,6 +14429,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูทั้งหมด %lld"
+          }
+        }
+      }
+    },
+    "Xem %lld ảnh bạn đọc gửi ↓": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat %lld foto kiriman pembaca ↓"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat %lld foto kiriman pembaca ↓"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูภาพจากผู้อ่าน %lld ภาพ ↓"
           }
         }
       }
@@ -17971,6 +18191,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "อ่านล่าสุด"
+          }
+        }
+      }
+    },
+    "Đọc tiếp": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lanjut membaca"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teruskan membaca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านต่อ"
           }
         }
       }

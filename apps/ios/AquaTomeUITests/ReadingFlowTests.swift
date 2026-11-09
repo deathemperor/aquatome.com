@@ -1,6 +1,7 @@
 import XCTest
 
-/// Pages saved to read later, and read last, listed in the Tìm tab before a search and kept on the phone.
+/// Pages saved to read later, and read last, under "Đọc tiếp" in the Tìm tab before a search and kept on the phone: the
+/// last read as cards, the saved as one row with their count that opens their list.
 final class ReadingFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -10,37 +11,49 @@ final class ReadingFlowTests: XCTestCase {
     app.buttons["save-for-later"].tap()
     XCTAssertEqual(app.buttons["save-for-later"].label, "Bỏ lưu", "not saved")
     back(app)
-    XCTAssertTrue(row(app, in: "Đã lưu để đọc sau").waitForExistence(timeout: 5), "not listed as saved")
+    XCTAssertTrue(savedRow(app).waitForExistence(timeout: 5), "not listed as saved")
 
     app.terminate()
     app = launch(reset: false)
-    let saved = row(app, in: "Đã lưu để đọc sau")
+    let saved = savedRow(app)
     XCTAssertTrue(saved.waitForExistence(timeout: 5), "not kept")
-    // Under Tìm's tools it can start under the tab bar, where a swipe would land on the bar: half a screen up first.
+    XCTAssertTrue(saved.label.hasPrefix("Đã lưu để đọc sau") && saved.label.contains("1"), saved.label)
+    // Under Tìm's tools it can start under the tab bar, where a tap would land on the bar: half a screen up first.
     let bar = app.tabBars.firstMatch
     repeatUntil(saved.isHittable && (!bar.exists || saved.frame.maxY < bar.frame.minY), times: 4) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow,
                thenHoldForDuration: 0.1)
     }
-    saved.swipeLeft()
+    saved.tap()
+    XCTAssertTrue(app.navigationBars["Đã lưu để đọc sau"].waitForExistence(timeout: 5), "their list didn't open")
+    let guide = item(app, "Nuôi cá neon")
+    guide.swipeLeft()
     app.buttons["Bỏ lưu"].tap()
-    XCTAssertTrue(app.staticTexts["Đã lưu để đọc sau"].waitForNonExistence(timeout: 5), "still saved")
+    XCTAssertTrue(guide.waitForNonExistence(timeout: 5), "still saved")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    // Read, so "Đọc tiếp" stays, without the row.
+    XCTAssertTrue(app.staticTexts["Đọc tiếp"].waitForExistence(timeout: 5), "the pages read went too")
+    XCTAssertFalse(savedRow(app).exists, "still a row for saved pages")
   }
 
   func testListsThePagesReadLastNewestFirst() {
     let app = launch()
-    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 5), "no handbook")
-    XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "something read already")
+    XCTAssertTrue(app.handbookShown(), "no handbook")
+    XCTAssertFalse(app.staticTexts["Đọc tiếp"].exists, "something read already")
     openGuide(app)
     back(app)
     search(app, "ca dia")
     item(app, "Cá đĩa").tap()
     XCTAssertTrue(app.navigationBars["Cá đĩa"].waitForExistence(timeout: 5))
     back(app)
-    XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5))
-    let items = app.descendants(matching: .any).matching(identifier: "item").allElementsBoundByIndex.prefix(2).map { $0.label }
+    XCTAssertTrue(app.staticTexts["Đọc tiếp"].waitForExistence(timeout: 5))
+    let read = app.descendants(matching: .any)["recent"].descendants(matching: .any).matching(identifier: "item")
+    let items = read.allElementsBoundByIndex.map { $0.label }
     XCTAssertTrue(items.count == 2 && items[0].hasPrefix("Cá đĩa") && items[1].hasPrefix("Nuôi cá neon"), "\(items)")
+    // Each says what it is.
+    XCTAssertTrue(items[0].contains("Loài cá") && items[1].contains("Hướng dẫn"), "\(items)")
+    XCTAssertFalse(savedRow(app).exists, "a row for saved pages with none saved")
   }
 
   /// UI tests start from a clean phone: a page read in one run isn't listed in the next.
@@ -49,8 +62,8 @@ final class ReadingFlowTests: XCTestCase {
     openGuide(app)
     app.terminate()
     app = launch()
-    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 5), "no handbook")
-    XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "a page read before the reset")
+    XCTAssertTrue(app.handbookShown(), "no handbook")
+    XCTAssertFalse(app.staticTexts["Đọc tiếp"].exists, "a page read before the reset")
   }
 
   // MARK: Helpers
@@ -90,9 +103,6 @@ final class ReadingFlowTests: XCTestCase {
     return e
   }
 
-  /// The first row under a section's header: the guide, saved.
-  private func row(_ app: XCUIApplication, in header: String) -> XCUIElement {
-    XCTAssertTrue(app.staticTexts[header].waitForExistence(timeout: 5), "no \(header)")
-    return app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch
-  }
+  /// "Đọc tiếp"'s row for the pages saved, with their count.
+  private func savedRow(_ app: XCUIApplication) -> XCUIElement { app.descendants(matching: .any)["all-saved"].firstMatch }
 }

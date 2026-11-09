@@ -2,6 +2,18 @@
   "id": "esomus-metallicus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/642230652.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/642230652-480.webp",
+      "width": 991,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/642230652",
+      "caption": "Cá bay sọc bơi trên nền cát trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/359192730.webp",
       "thumb": "https://media.aquatome.com/inaturalist/359192730-480.webp",
       "width": 1200,
@@ -38,7 +50,7 @@
       "kind": "other"
     }
   ],
-  "seen": 14,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 17,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

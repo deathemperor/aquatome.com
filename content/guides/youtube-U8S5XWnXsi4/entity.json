@@ -88,14 +88,18 @@
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at65-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể chia nhiều ngăn, mỗi ngăn một loại nền khác nhau."
+            "caption": "Bể chia nhiều ngăn, mỗi ngăn một loại nền khác nhau.",
+            "sharpness": 2563.5,
+            "person": false
           },
           {
             "t": 70,
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể đã chia ngăn, trồng cây con trên các nền khác nhau."
+            "caption": "Hai bể đã chia ngăn, trồng cây con trên các nền khác nhau.",
+            "sharpness": 1799.1,
+            "person": false
           }
         ]
       },
@@ -107,14 +111,18 @@
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at405-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể thử nền với Ludwigia Super Red và cây lá xanh bên cạnh."
+            "caption": "Hai bể thử nền với Ludwigia Super Red và cây lá xanh bên cạnh.",
+            "sharpness": 1335.1,
+            "person": false
           },
           {
             "t": 475,
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at475-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ba bể thử nền, Ludwigia đỏ và cây xanh mọc dày sau một tháng."
+            "caption": "Ba bể thử nền, Ludwigia đỏ và cây xanh mọc dày sau một tháng.",
+            "sharpness": 1153.2,
+            "person": false
           }
         ]
       },
@@ -126,14 +134,9 @@
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at505-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thân đỏ và xanh mọc khá khỏe trong bể trồng thử nền."
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thử nền sáng màu với cây mọc lên ở mức trung bình."
+            "caption": "Cây thân đỏ và xanh mọc khá khỏe trong bể trồng thử nền.",
+            "sharpness": 1426.3,
+            "person": false
           }
         ]
       },
@@ -145,14 +148,18 @@
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at555-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh ngăn bể nền sáng, nước hơi đục và cây thưa."
+            "caption": "Toàn cảnh ngăn bể nền sáng, nước hơi đục và cây thưa.",
+            "sharpness": 405.2,
+            "person": false
           },
           {
             "t": 585,
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at585-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ngăn nền sỏi trắng với cây lên trung bình, kính bể hơi bám rêu hại."
+            "caption": "Ngăn nền sỏi trắng với cây lên trung bình, kính bể hơi bám rêu hại.",
+            "sharpness": 1704.8,
+            "person": false
           }
         ],
         "photo": {
@@ -174,7 +181,9 @@
             "url": "https://media.aquatome.com/video/U8S5XWnXsi4/at630-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cây trong ngăn hồ phủ Tropica Powder Soil lên xanh tốt."
+            "caption": "Cận cảnh cây trong ngăn hồ phủ Tropica Powder Soil lên xanh tốt.",
+            "sharpness": 1450,
+            "person": false
           }
         ]
       }

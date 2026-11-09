@@ -366,7 +366,15 @@ final class HandbookModel {
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
+      if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
+        let own = items.filter { $0.kind == .video }
+        items.removeAll { $0.kind == .video }
+        items += Array(own.prefix(n)) + (own.count..<max(n, own.count)).map {
+          .init(kind: .video, name: "Bộ video \($0 + 1)", sub: "Kênh \($0 + 1)", path: "/vi/video/bo-video-\($0 + 1)/", parts: $0 + 2)
+        }
+      }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
       if args.contains("-plan") { home?.days = HandbookIndex.fixtureDays }

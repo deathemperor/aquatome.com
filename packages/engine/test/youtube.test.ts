@@ -6,13 +6,28 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, parseTranscript, recheckedGuides, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
+test('a frame grab YouTube refuses (403) is asked twice more; any other failure, or a third 403, stands', async () => {
+  const refuse = () => new Error('ffmpeg: Error opening input files: Server returned 403 Forbidden (access denied)')
+  const wait = async () => {}
+  let n = 0
+  await expect(retry403(async () => { if (n++ === 0) throw refuse(); return 'frame' }, wait)).resolves.toBe('frame')
+  expect(n).toBe(2)
+  n = 0
+  await expect(retry403(async () => { n++; throw refuse() }, wait)).rejects.toThrow('403')
+  expect(n).toBe(3)
+  n = 0
+  await expect(retry403(async () => { n++; throw new Error('ffmpeg: no frame') }, wait)).rejects.toThrow('no frame')
+  expect(n).toBe(1)
+})
+
 test("storyboardInterval: YouTube's seconds between tiles, from yt-dlp's tiles ÷ duration (real videos' storyboard specs)", () => {
   // [duration, tiles, interval]: HLrQzpFLI5U, M0kds6giFrU, AsK_yxCXVrY, P7GTfHdl5E8, U9ovPRxMWk8, Ks0OQdOxYd8, ddIenwrxWgU, qaow2ai3eZM
-  for (const [d, n, i] of [[123, 63, 2], [356, 73, 5], [500, 101, 5], [539, 109, 5], [607, 123, 5], [761, 154, 5], [1033, 105, 10], [9155, 917, 10]] as const) {
+  // DZ0JTLYiawU: 765 s as yt-dlp rounds it, 155 tiles of 5 s (the owner's report of blurry stills, 2026-11-09).
+  for (const [d, n, i] of [[123, 63, 2], [356, 73, 5], [500, 101, 5], [539, 109, 5], [607, 123, 5], [761, 154, 5], [765, 155, 5], [1033, 105, 10], [9155, 917, 10]] as const) {
     expect(storyboardInterval(n / d, d)).toBe(i)
   }
   expect(storyboardInterval(0.25, 100)).toBe(4) // no interval gives the count: yt-dlp's own spacing

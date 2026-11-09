@@ -199,16 +199,13 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['Keep oxygen above 5 mg/L, then copper at 0.2 mg/L.', 0],
     ['Ammonia under 0.02 mg/L. Then add Product X at 5 mg/L.', 0],
   ] as const) expect(usable(fact, source), fact).toBe(false)
-  // The water's levels as farms write them: a second figure of a list, nitrogen forms, toxicity, the word after the figure.
+  // The water's levels as farms write them: a second figure of a list, nitrogen forms, the word after the figure.
   for (const fact of [
     'To limit nitrite toxicity, keep dissolved oxygen above 3 mg/L for warmwater fish or 5 mg/L for coldwater fish.',
     'Keep dissolved oxygen above 2 mg/l, preferably 5 mg/l.',
     'Safe long-term nitrite-nitrogen is about 0.5–2.5 mg/L for warmwater fish, and 0.0125–0.5 mg/L for coldwater fish.',
-    'Rainbow trout (96-h LC50 0.24–11.0 mg/L NO2-N) are far more sensitive than common carp (88.0 mg/L).',
-    'Rainbow trout LC50s (0.24–11.0 mg/L) are lower than those of channel catfish (7.1–44.0 mg/L).',
-    'The sea bass LC50 fell from 274 mg/L at 17°C to 154 mg/L at 27°C.',
-    'Freshwater prawns are highly sensitive to nitrite, with a 96-h LC50 of 8.6 mg/L nitrite-nitrogen.',
     'Fish die at 0.5 mg/L NO2-N in soft water.',
+    'Nitrite-nitrogen (0.5–2 mg/L) stresses warmwater fish.',
     'NH3 above 0.05 mg/L harms gills.',
     'H2S above 0.002 mg/L kills fish.',
     'Giữ oxy hòa tan trên 5 mg/L cho cá nước ấm và trên 6 mg/L cho cá nước lạnh.',
@@ -316,4 +313,16 @@ test("a farm's figures for raising live food need no second page; a fish treated
     ['Salt water: about 30 g NaCl per litre.', 1],
     ['Use 30 g of salt per litre to hatch brine shrimp.', 2],
   ] as const) expect(usable(fact, source), fact).toBe(false)
+})
+
+test("a test's lethal level never reaches a guide's writer, from any source; the plain statement does", () => {
+  const sources: TopicFacts['sources'] = [{ url: 'https://vet.example/a', title: 'Vet', kind: 'vet' }, { url: 'https://keeper.example/b', title: 'Keeper', kind: 'keeper' }]
+  const usable = (fact: string, source = 0) => usableFact({ found: true, species: [], sources, facts: [] }, { section: 'what', fact, source })
+  for (const fact of [
+    'Freshwater prawns are highly sensitive to nitrite, with a 96-h LC50 of 8.6 mg/L nitrite-nitrogen.',
+    'Nitrite becomes more toxic as temperature rises. The sea bass LC50 fell from 274 mg/L at 17°C to 154 mg/L at 27°C.',
+    'The temperature lethal to 50% of the population was 39°C.',
+  ]) expect(usable(fact), fact).toBe(false)
+  expect(usable('Copper sulfate: the 96-hour LC50 for pond snails at 20 °C is 0.39 mg/L.', 1)).toBe(false)
+  for (const fact of ['Nitrite above 0.1 mg/L is listed as toxic, especially in freshwater with little chloride.', 'About 2 mg/L of un-ionized ammonia is lethal to many fish.', 'Because nitrite gets more toxic as temperature rises, the hot season raises the risk.']) expect(usable(fact), fact).toBe(true)
 })

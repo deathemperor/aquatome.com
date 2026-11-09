@@ -1,16 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/617146201/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/617146201/medium.jpg",
-   "width": 2048,
-   "height": 1152,
-   "licence": "CC0",
-   "author": "citi2024",
-   "sourceUrl": "https://www.inaturalist.org/photos/617146201",
-   "key": "inat:617146201"
-  }
+ "queue": [],
+ "judged": [
+  "inat:617146201"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/1153317809d447c3.webp": "151413321a1a1000"
+ },
+ "commons": "2026-11-09"
 }

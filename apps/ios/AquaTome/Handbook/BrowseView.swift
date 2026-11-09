@@ -11,6 +11,11 @@ enum Browse: Hashable {
   case videos
   case glossary
   case kept
+  /// The pages saved to read later (Tìm's "Đọc tiếp").
+  case saved
+  /// A kind's ways in, as a list: the fish groups, where plants go, the guides' subjects (Tìm's chips, at the
+  /// accessibility text sizes).
+  case ways(HandbookIndex.Kind)
   case latest
   case pages(String, [String])
 }
@@ -47,9 +52,30 @@ struct BrowseView: View {
         }
         #endif
     case .videos:
-      List(s.videoGuides) { Row(item: $0) }
-        .navigationTitle("Video")
+      // The series (Tìm's "Tất cả video", counted in series); kept to read offline, every video guide in them.
+      List(s.all(.video)) { Row(item: $0) }
+        .navigationTitle("Video hướng dẫn")
         .toolbar { KeepOffline(items: s.videoGuides) }
+    case .saved:
+      let saved = handbook.saved(nil)
+      List(saved) { item in
+        Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
+      }
+      .navigationTitle("Đã lưu để đọc sau")
+      .accessibilityIdentifier("saved")
+    case .ways(let kind):
+      let ways: [(HandbookShelves.Shelf, Browse)] = switch kind {
+      case .fish: s.groups.map { ($0, .fish($0.key)) }
+      case .plant: s.placements.map { ($0, .plants($0.key)) }
+      default: s.sections.map { ($0, .guides($0.key)) }
+      }
+      List(ways, id: \.0.key) { way in
+        NavigationLink(value: way.1) {
+          LabeledContent { Text(way.0.count, format: .number).monospacedDigit() } label: { Text(verbatim: way.0.label) }
+        }
+        .accessibilityIdentifier("shelf")
+      }
+      .navigationTitle(kind == .fish ? LocalizedStringKey("Nhóm cá") : kind == .plant ? "Vị trí trồng" : "Chủ đề")
     case .kept:
       // In one place: each let go of with a swipe, or all at once.
       let kept = handbook.keptItems

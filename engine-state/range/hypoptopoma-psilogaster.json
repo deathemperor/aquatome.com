@@ -1,0 +1,92 @@
+{
+  "id": "hypoptopoma-psilogaster",
+  "native": {
+    "input": "cb178dedf13cd3ef",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Colombia and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Colombia and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Colombia and Peru.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypoptopoma psilogaster",
+    "status": "ACCEPTED",
+    "taxonKey": 2339376,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

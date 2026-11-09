@@ -1,0 +1,109 @@
+{
+  "id": "hyphessobrycon-flammeus",
+  "native": {
+    "input": "1106a20cecb970b7",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the area around Rio de Janeiro in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Restricted to the neighbouring states of Rio de Janeiro and São Paulo in southwestern Brazil, although its current distribution is somewhat uncertain.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "seriouslyfish",
+        "quote": "In Rio de Janeiro it is known only from coastal systems including rivers draining into Guanabara Bay, the middle rio Paraíba do Sul, and the rio Guandu.",
+        "ok": true
+      },
+      {
+        "name": "Guanabara Bay",
+        "source": "seriouslyfish",
+        "quote": "In Rio de Janeiro it is known only from coastal systems including rivers draining into Guanabara Bay, the middle rio Paraíba do Sul, and the rio Guandu.",
+        "ok": true
+      },
+      {
+        "name": "Guandu",
+        "source": "seriouslyfish",
+        "quote": "In Rio de Janeiro it is known only from coastal systems including rivers draining into Guanabara Bay, the middle rio Paraíba do Sul, and the rio Guandu.",
+        "ok": true
+      },
+      {
+        "name": "Tietê",
+        "source": "seriouslyfish",
+        "quote": "In São Paulo there exist records from the upper rio Tietê, a tributary within the upper rio Paraná system, with populations concentrated in metropolitan areas east and west of São Paulo city, between the municipalities of Suzano and Salesópolis, and around Itapecerica da Serra, respectively.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon flammeus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354538,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

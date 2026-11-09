@@ -11,6 +11,80 @@
     "colombia",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PE"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin, Colombia and Peru.",
+          "countries": [
+            "CO",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339376,
+      "total": 31,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          26
+        ],
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          15,
+          15
+        ],
+        [
+          -73.125,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

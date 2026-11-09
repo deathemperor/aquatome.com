@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan-tengah"
+    "kalimantan-tengah",
+    "kalimantan"
   ],
   "dataCard": {
     "tempC": [
@@ -42,6 +43,10 @@
       {
         "source": "bwaquatics",
         "value": 3
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "difficulty": [
@@ -59,16 +64,34 @@
       "html": "<p>Parosphromenus filamentosus is one of the larger Parosphromenus species and is known for the filament-like extension of its tail. It is relatively hardy, but like all Parosphromenus it requires live food. Males reach up to 3 cm.</p><p>Bronze body tones with dark red banding on the unpaired fins, followed by black banding with a rim of bright white or blue iridescence.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_filamentosus_ampah_en/",
+      "html": "<p>A pretty new species of licorice gourami. It is very close to P. filamentosus and grows to around 3 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
       "html": "<p>Occurs in Kalimantan Tengah (Borneo, Indonesia) in jungle river systems near Banjarmasin.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_filamentosus_ampah_en/",
+      "html": "<p>This species originates from Borneo (southeast Kalimantan), where it can be found between Ampah and Muarateweh.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
       "html": "<p>Primarily inhabits peat swamp forests and associated blackwater streams.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_filamentosus_ampah_en/",
+      "html": "<p>Like all licorice gouramis, the species prefers small, single-species tanks, soft and acidic water and fine live food.</p>"
     },
     {
       "key": "waterConditions",
@@ -89,6 +112,12 @@
       "html": "<p>These fish are generally peaceful and shy, preferring to hide among vegetation or other structures in their environment.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/parosphromenus_cf_filamentosus_ampah_en/",
+      "html": "<p>Females can be recognized easily by the completely transparent caudal fin.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
@@ -96,7 +125,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "yHGCrp76AxM",
+      "title": "Parosphromenus filamentosus",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CMlfXh7EDX4",
+      "title": "Parosphromenus Filamentosus, Bakitbatu subdistrict",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "t0cAEFAUa4U",
+      "title": "Parosphromenus Filamentosus",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G3xo6uj_q50",
+      "title": "Parosphromenus Filamentosus Eating Artemia",
+      "durationSec": 107,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -121,5 +175,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

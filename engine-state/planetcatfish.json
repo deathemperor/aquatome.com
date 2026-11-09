@@ -3278,5 +3278,12 @@
     "processedHash": "c5be8f550250880c52f9e6384c80d6e99a8f17bef1d560caf43c22096016b46f",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1329": {
+    "entityIds": [],
+    "updatedAt": "2026-11-09T09:55:32.607Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "no archived copy (HTTP 429)"
   }
 }

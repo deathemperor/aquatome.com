@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "oXXJ8UgM2kM",
     "title": "What is Old Tank Syndrome?",
@@ -44,49 +44,60 @@
         "type": "test",
         "brand": "API",
         "model": "Master Test Kit",
-        "t": 299
+        "t": 284
       },
       {
         "category": "test-nuoc",
         "type": "test",
-        "t": 299
+        "t": 284
+      },
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 376
       }
     ],
     "figures": [
       {
-        "heading": "Old tank syndrome là gì",
-        "moments": [
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/t74-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp kẹo xanh dùng để minh họa nước sạch trong bể."
-          }
-        ],
+        "heading": "Hội chứng bể cũ hình thành thế nào",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p0-Z29sZGZpc2guanBn.webp",
-          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p0-Z29sZGZpc2guanBn-480.webp",
+          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p0-MDItMjdfMDMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p0-MDItMjdfMDMuanBn-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "AJ Gray",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fish_tank_as_environment_for_freshwater_goldfish.jpg",
-          "caption": "Bể nuôi nhiều cá vàng, loại cá thải nhiều chất thải nên nitrate tăng nhanh."
+          "height": 742,
+          "licence": "CC BY-SA 4.0",
+          "author": "Chris Woodrich",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mars_M%26M%27s,_Canada,_2026-02-27_03.jpg",
+          "caption": "Kẹo nhiều màu xanh, nâu, đỏ trộn lẫn, minh họa nước sạch và chất tích tụ."
         }
       },
       {
-        "heading": "Chất bẩn tích lại theo hai đường",
+        "heading": "Vì sao cá cũ khỏe mà cá mới chết",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p1-bV9GaXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p1-bV9GaXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p1-faW5fMjAyNC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p1-faW5fMjAyNC5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "NaBUru38",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ornamental_fish_street_market_stall_in_Montevideo_in_2024.jpg",
+          "caption": "Tiệm cá cảnh với nhiều bể nhỏ và cá mới chờ bán."
+        }
+      },
+      {
+        "heading": "Thay nước đều đặn vẫn có thể bị",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p2-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p2-bV9maXNoZXMuanBn-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
-          "caption": "Hai con cá chép bơi trong bể có nền sỏi sáng và cây thủy sinh."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Cá vàng trong bể nuôi có nền sỏi nhiều màu, đáy bể dễ tích chất bẩn."
         }
       }
     ]

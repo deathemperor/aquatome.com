@@ -2,7 +2,9 @@
   "slug": "ca-than-tien-filamentosus",
   "name": "Cá thần tiên filamentosus",
   "altNames": [
-    "Filamentosus"
+    "Filamentosus",
+    "Cá Parosphromenus Ampah",
+    "Licorice gourami"
   ],
   "sections": {
     "quickFacts:bwaquatics": "<p>Parosphromenus filamentosus thuộc nhóm lớn con trong chi Parosphromenus. Loài này nổi tiếng nhờ phần đuôi kéo dài ra như sợi chỉ. Cá khá khỏe, nhưng cũng như mọi loài Parosphromenus khác, chúng bắt buộc phải có thức ăn sống. Con đực dài tối đa 3 cm.</p><p>Thân cá màu đồng. Các vây lẻ có một dải đỏ sẫm, tiếp theo là một dải đen, ngoài cùng là viền trắng sáng hoặc xanh óng ánh.</p>",
@@ -11,13 +13,19 @@
     "waterConditions:bwaquatics": "<ul><li>Nhiệt độ: 22–28 °C</li><li>pH: 3,0–6,5</li><li>Độ cứng: 18–72 ppm</li></ul>",
     "diet:bwaquatics": "<p>Đây là loài ăn thịt và chỉ ăn thức ăn sống.</p>",
     "behaviour:bwaquatics": "<p>Cá thường hiền và nhút nhát. Chúng thích trốn giữa đám cây hoặc sau lũa, đá và các vật khác trong bể.</p>",
-    "notes:bwaquatics": "<p>Tình trạng bảo tồn: IUCN xếp loài này vào nhóm Nguy cấp (Endangered). Nguyên nhân là môi trường sống của chúng đang mất dần và xuống cấp do phá rừng, chuyển đổi mục đích sử dụng đất và ô nhiễm.</p>"
+    "notes:bwaquatics": "<p>Tình trạng bảo tồn: IUCN xếp loài này vào nhóm Nguy cấp (Endangered). Nguyên nhân là môi trường sống của chúng đang mất dần và xuống cấp do phá rừng, chuyển đổi mục đích sử dụng đất và ô nhiễm.</p>",
+    "quickFacts:glaser": "<p>Đây là một loài cá sặc cam thảo mới, khá đẹp. Nó rất gần với P. filamentosus và lớn tới khoảng 3 cm.</p>",
+    "distribution:glaser": "<p>Loài này có nguồn gốc ở Borneo (đông nam Kalimantan) và gặp được trong vùng giữa Ampah và Muarateweh.</p>",
+    "maintenance:glaser": "<p>Cũng như mọi loài cá sặc cam thảo, loài này thích bể nhỏ nuôi riêng một loài. Nước cần mềm và có tính axit. Thức ăn nên là đồ tươi sống cỡ nhỏ.</p>",
+    "dimorphism:glaser": "<p>Con cái rất dễ nhận ra vì vây đuôi trong suốt hoàn toàn.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": true,
+    "indexable": false,
     "bySource": {
-      "bwaquatics": 0.8
-    }
+      "bwaquatics": 0.8,
+      "glaser": 0.93
+    },
+    "reason": "thin"
   }
 }

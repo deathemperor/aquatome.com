@@ -296,6 +296,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ]
   },
@@ -313,16 +317,46 @@
       "html": "<p>This species is widely-distributed in Pacific coastal drainages of southeastern China (e.g. the Yangtze, Minjiang, Hangjiang River, and Pearl (Nanjiujiang) rivers), including Hainan island and Hong Kong, and is also native to Vietnam (northern provinces to Quang Binh province).</p><p>No type locality was provided in the original description although the specimens were most likely collected in the vicinity of Guangzhou, Guangdong province, People's Republic of China.</p><p>C. maculata has been introduced to, and become established in, a number of countries and territories including Japan, Taiwan, the Philippines, Madagascar, and Oahu island in Hawaii.</p><p>It is an important food fish across much of its native and non-native ranges.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_maculata_en/",
+      "html": "<p>Channa maculata is a snakehead which originates from the border area of China and Viet Nam. It is very common there and is offered on markets in large numbers, naturally as a food fish.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-maculata",
       "html": "<p>Tends to inhabit still or slow-running rivers and backwaters with silty substrates and dense aquatic vegetation.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_maculata_en/",
+      "html": "<p>In their habitat C. maculata lives in ponds, lakes and ditches, usually over sandy or muddy bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_maculata_en/",
+      "html": "<p>With a final size of maximally 30 cm they belong to the species which can be maintained in the aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-maculata",
       "html": "<p>An obligate predator which feeds on invertebrates, amphibians, and smaller fishes in nature but in most cases adapts well to dead alternatives in captivity.</p><p>Some specimens even accept dried foods though these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Adults do not require food on a daily basis, even during periods of warm temperatures, and should not be offered fatty foods more than once a week.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_maculata_en/",
+      "html": "<p>As expressed predatory fish they feed on large insects, fish and frogs. Their enormous appetite can usually be satisfied in the aquarium with fish meat cut into strips.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_maculata_en/",
+      "html": "<p>For socialization only fish which are larger than the maintained snakeheads are suitable. Also among themselves snakeheads can be quite incompatible; a detailed daily check of the aquarium can help to avoid losses.</p>"
     },
     {
       "key": "reproduction",
@@ -375,5 +409,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

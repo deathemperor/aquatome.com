@@ -102,28 +102,15 @@
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at130-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cube kính trống đặt trên bàn, kèm một thiết bị bên cạnh."
+            "caption": "Bể cube kính trống đặt trên bàn, kèm một thiết bị bên cạnh.",
+            "sharpness": 223.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Làm nền thế nào khi không mua nổi aquasoil",
-        "moments": [
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc bột phân nhét xuống mặt kính đáy hồ."
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phủ nền lên lớp phân và dùng tay san đều trong hồ."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/CjH4JUsT-ao/p1-FzY2FwaW5nLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/CjH4JUsT-ao/p1-FzY2FwaW5nLmpwZw-480.webp",
@@ -143,14 +130,18 @@
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at440-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bố cục lũa và đá cuội trong bể, cành nhặt để bên cạnh."
+            "caption": "Bố cục lũa và đá cuội trong bể, cành nhặt để bên cạnh.",
+            "sharpness": 1458.4,
+            "person": false
           },
           {
             "t": 470,
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at470-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh lũa và hai cục đá cuội sông đặt trên nền sỏi."
+            "caption": "Cận cảnh lũa và hai cục đá cuội sông đặt trên nền sỏi.",
+            "sharpness": 732.8,
+            "person": false
           }
         ]
       },
@@ -162,7 +153,9 @@
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at490-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ lũa các cành được gắn chặt với nhau trên nền sỏi trong bể."
+            "caption": "Bộ lũa các cành được gắn chặt với nhau trên nền sỏi trong bể.",
+            "sharpness": 828.5,
+            "person": false
           }
         ],
         "photo": {
@@ -180,18 +173,13 @@
         "heading": "Mua cây ở đâu và trồng thế nào",
         "moments": [
           {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đặt mua trên mạng còn đóng gói trong túi nilon."
-          },
-          {
             "t": 580,
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at580-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể sau khi trồng xong, thảm cây mọc phủ quanh đá và lũa."
+            "caption": "Bể sau khi trồng xong, thảm cây mọc phủ quanh đá và lũa.",
+            "sharpness": 1561.8,
+            "person": false
           }
         ],
         "photo": {
@@ -213,7 +201,9 @@
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at840-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh thảm cây xanh trong bể, cá betta bơi gần hòn đá."
+            "caption": "Cận cảnh thảm cây xanh trong bể, cá betta bơi gần hòn đá.",
+            "sharpness": 900.7,
+            "person": false
           }
         ]
       },
@@ -225,7 +215,9 @@
             "url": "https://media.aquatome.com/video/CjH4JUsT-ao/at900-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cá betta bơi giữa các bụi cây thủy sinh xanh đỏ."
+            "caption": "Cận cảnh cá betta bơi giữa các bụi cây thủy sinh xanh đỏ.",
+            "sharpness": 141.3,
+            "person": false
           }
         ]
       }

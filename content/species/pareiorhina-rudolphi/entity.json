@@ -18,12 +18,32 @@
           "min": 21,
           "max": 25
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 4.5
+      },
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -35,10 +55,34 @@
       "html": "<ul><li>Scientific name: Pareiorhina rudolphi (Miranda Ribeiro, 1911)</li><li>IUCN Red List: Not Evaluated</li><li>Type locality: Piquete (Lorena), upper reaches of the rio Paraíba do Sul basin, São Paulo State, Brazil.</li><li>Etymology: Greek Pareia = jaw + Greek rhinos = nose.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>Family: Loricariidae. Size: 5 cm. Temperature: 21–25°C. pH: 6.5–7.5. Conservation status (IUCN Red List): Near Threatened (NT). Urbanisation in the region imposes diffuse threats on the different subpopulations of the species, and in two locations the species was no longer recorded. It was listed as Near Threatened, meeting the criteria B1b(iii,v) for Vulnerable (VU), but the population is not considered severely fragmented and it is not possible to identify a number of locations (IUCN 2022).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1242",
       "html": "<p>South America: rivers of Rio de Janeiro State, Paraíba do Sul basin, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>South America: Paraíba do Sul River, São Paulo State, Brazil. Type locality: Piquete (Lorena), Estado de São Paulo, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>Pareiorhina rudolphi is found only in streams tributary to the Paraíba do Sul River in the eastern Mantiqueira mountain range, specifically in streams located on the slope and pediplain. Its habitat is rapid-flowing streams in the Ribeirão Grande microbasin, with a sandy substrate containing pebbles and boulders of various sizes (Braga and Andrade 2005).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>A herbivorous species that feeds mainly on periphyton (benthic autotrophs composed of microalgae that grow on a substrate).</p>"
     },
     {
       "key": "reproduction",
@@ -47,10 +91,28 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>Spawning occurs between October and February, with the cycle being completed in April (Braga and Andrade 2005).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>Etymology: the genus name Pareiorhina comes from pareio-, from pareiá, cheek, and rhina, from rhíne, file or rasp, probably referring to the \"granular\" (or raspy) sides of the head. The specific name rudolphi honours Rodolpho von Ihering (1883–1939), zoologist and fish culturist, who described this catfish as Plecostomus (Rhinelepis) microps in 1907, but used a preoccupied name (Plecostomus microps Steindachner 1876).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1242",
       "html": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 16, pp 84.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version (08/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Pareiorhina rudolphi. The IUCN Red List of Threatened Species 2022.</p><p>Silva, G.S.C., F.F. Roxo and C. Oliveira, 2013. Pareiorhina hyptiorhachis, a new catfish species from Rio Paraíba do Sul basin, southeastern Brazil (Siluriformes, Loricariidae). ZooKeys 315:65-76.</p>"
     }
   ],
   "photos": [
@@ -101,5 +163,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

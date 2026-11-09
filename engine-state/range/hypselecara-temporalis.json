@@ -1,0 +1,192 @@
+{
+  "id": "hypselecara-temporalis",
+  "native": {
+    "input": "ac90d43903315d43",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate cichlid, Hypselecara temporalis, is a large cichlid from Peru, Colombia, Venezuela and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate cichlid, Hypselecara temporalis, is a large cichlid from Peru, Colombia, Venezuela and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate cichlid, Hypselecara temporalis, is a large cichlid from Peru, Colombia, Venezuela and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate cichlid, Hypselecara temporalis, is a large cichlid from Peru, Colombia, Venezuela and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "It's been collected in various rivers including the Ucayali, Amazonas, Solimões, Amapá and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Amazonas",
+        "source": "seriouslyfish",
+        "quote": "It's been collected in various rivers including the Ucayali, Amazonas, Solimões, Amapá and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "seriouslyfish",
+        "quote": "It's been collected in various rivers including the Ucayali, Amazonas, Solimões, Amapá and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "It's been collected in various rivers including the Ucayali, Amazonas, Solimões, Amapá and Oyapock.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypselecara temporalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2369950,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        55
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        52
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        50
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        17
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "CO",
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

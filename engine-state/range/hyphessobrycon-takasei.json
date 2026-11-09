@@ -1,0 +1,110 @@
+{
+  "id": "hyphessobrycon-takasei",
+  "native": {
+    "input": "f802b9ed49e3264e",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The distribution area of the species is in the lower Amazon basin, the border area between Brazil and French Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The distribution area of the species is in the lower Amazon basin, the border area between Brazil and French Guyana.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The distribution area of the species is in the lower Amazon basin, the border area between Brazil and French Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Araguari",
+        "source": "glaser",
+        "quote": "There you can find the Coffee Bean Tetra in the tributaries of the rivers Araguari and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Oyapock",
+        "source": "glaser",
+        "quote": "There you can find the Coffee Bean Tetra in the tributaries of the rivers Araguari and Oyapock.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon takasei",
+    "status": "ACCEPTED",
+    "taxonKey": 2354536,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        30
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        24
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

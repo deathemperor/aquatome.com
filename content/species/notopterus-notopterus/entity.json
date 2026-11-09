@@ -1,0 +1,218 @@
+{
+  "id": "notopterus-notopterus",
+  "scientificName": "Notopterus notopterus",
+  "order": "Osteoglossiformes",
+  "family": "Notopteridae",
+  "genus": "Notopterus",
+  "group": "other",
+  "places": [
+    "asia",
+    "pakistan",
+    "indus",
+    "india",
+    "ganges",
+    "nepal",
+    "bangladesh",
+    "brahmaputra",
+    "myanmar",
+    "ayeyarwady",
+    "laos",
+    "mekong",
+    "cambodia",
+    "tonle-sap",
+    "thailand",
+    "chao-phraya",
+    "vietnam",
+    "malaysia",
+    "endau",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>The bronze featherback, Notopterus notopterus, is an air-breathing notopterid from the Indian subcontinent and Southeast Asia. Also called 'Asian knifefish' or 'ghost knifefish' in the trade, it grows to 600 mm and arguably has no place in the ornamental hobby given its adult size and specialised requirements. The single species in Notopterus is likely to represent a complex of closely-related species.</p><ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Currently accepted to occur throughout the Indian subcontinent and Southeast Asia with extensive records from Pakistan, India, Nepal, Bangladesh, Myanmar, Laos, Cambodia, Thailand, Viet Nam, Malaysia and Indonesia, but see 'Notes'. It is an important food fish across much of this range and a soup containing its flesh is apparently given to people suffering from measles in some regions.</p><p>Type locality is given as 'Poona, Seedataik', presumably in reference to modern-day Pune district, Maharashtra state, western India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Inhabits lower parts of rivers and tributaries, swamps, floodplains, and lakes, including some man-made dams to which it seems well-adaptable. Moves into areas of flooded forest to spawn.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Suitable only for public installations or the very largest, highly-specialised private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Prefers dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping.</p><p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with a degree of movement should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>An obligate, typically nocturnal, predator feeding on smaller fishes, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Relatively peaceful with fishes too large to be considered prey but can be territorial with conspecifics and other similarly-shaped species, especially if space is at a premium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>Unrecorded in aquaria. Wild fish have been observed depositing eggs among submerged vegetation in areas of flooded forest during the wet season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<p>This species is also referred to as 'Asian knifefish' or 'ghost knifefish' in the aquarium trade but arguably has no place in the ornamental hobby given its adult size and specialised requirements. It is sometimes confused with the African species Xenomystus nigri but is easily told apart by its larger adult size and presence (vs. absence) of a dorsal fin.</p><p>The genus Notopterus is currently monotypic but is likely to represent a complex of closely-related species, all of which are currently grouped together under N. notopterus. It is told apart from related genera by its plain brown adult colour pattern, relatively straight dorsal head profile, maxilla extending to pupil or posterior border of eye, and presence of larger scales on head than body. Juveniles possess a number of dark vertical bars on the body.</p><p>Notopterids are distributed in Africa and Southeast Asia and all possess an elongated anal-fin which is continuous with the caudal-fin, a 'humped' appearance, very small scales, plus the ability to breathe atmospheric air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/notopterus-notopterus",
+      "html": "<ul><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Pallas, P. S. (1769). Spicilegia Zoologica quibus novae imprimis et obscurae animalium species iconibus, descriptionibus atque commentariis illustrantur. Berolini, Gottl. August. Lange. v. 1 (fasc. 7), 1-42</li><li>Kottelat, M. (2001). Freshwater fishes of northern Vietnam. A preliminary check-list of the fishes known or expected to occur in northern Vietnam with comments on systematics and nomenclature. Environment and Social Development Unit, East Asia and Pacific Region. The World Bank, i-iii + 1-123 + 1-18</li><li>Shrestha, T. K. (2008). Ichthyology of Nepal. A study of fishes of the Himalayan waters. Himalayan Ecosphere, Kathmandu, Nepal., 389 pp., 72 pls.</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/195f59af5eb61d05.webp",
+      "width": 960,
+      "height": 609,
+      "licence": "CC BY-SA 3.0",
+      "author": "Xufanc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notopterus_notopterus43.JPG",
+      "caption": "Notopterus notopterus (ปลาสลาด) in an aquarium in Thailand",
+      "thumb": "https://media.aquatome.com/commons/195f59af5eb61d05-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4ee290da538353aa.webp",
+      "width": 901,
+      "height": 617,
+      "licence": "CC BY-SA 3.0",
+      "author": "Xufanc",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notopterus_notopterus46.JPG",
+      "caption": "Notopterus notopterus (ปลาสลาด) in an aquarium in Thailand",
+      "thumb": "https://media.aquatome.com/commons/4ee290da538353aa-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7dc0bff6a56fd94c.webp",
+      "width": 960,
+      "height": 1419,
+      "licence": "CC BY 4.0",
+      "author": "Yanwirsal H, Bartsch P, Kirschbaum F (2017) Reproduction and development of the asian bronze featherback Notopterus notopterus (Pallas, 1769) (Osteoglossiformes, Notopteridae) in captivity. Zoosystematics and Evolution 93(2): 299-324. https://doi.org/10.3897/zse.93.13341",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notopterus_notopterus_(10.3897-zse.93.13341)_Figure_11.jpg",
+      "caption": "Figure 11; Embryonic development in Notopterus notopterus. (a) Stage 17, spoon shape, 48:50; nf- neural fold in the tail region; (b) Stage 18: early trunk-tail bud, note the remnant of the evacuation ",
+      "thumb": "https://media.aquatome.com/commons/7dc0bff6a56fd94c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e09eb710e8af71ae.webp",
+      "width": 960,
+      "height": 1847,
+      "licence": "CC BY 4.0",
+      "author": "Yanwirsal H, Bartsch P, Kirschbaum F (2017) Reproduction and development of the asian bronze featherback Notopterus notopterus (Pallas, 1769) (Osteoglossiformes, Notopteridae) in captivity. Zoosystematics and Evolution 93(2): 299-324. https://doi.org/10.3897/zse.93.13341",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notopterus_notopterus_(10.3897-zse.93.13341)_Figure_12.jpg",
+      "caption": "Figure 12; Hatching process and the free embryonic stages in Notopterus notopterus. (a) Stage 24: just hatched-embryo after breaking the weak egg envelope, caudal part is relieved, anterior part still",
+      "thumb": "https://media.aquatome.com/commons/e09eb710e8af71ae-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "tôm tươi đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

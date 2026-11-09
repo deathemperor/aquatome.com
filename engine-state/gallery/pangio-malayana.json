@@ -1,37 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251816967/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251816967/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/251816967",
-   "key": "inat:251816967"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251816956/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251816956/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/251816956",
-   "key": "inat:251816956"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Pangio_malayana.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Pangio_malayana.jpg/500px-Pangio_malayana.jpg",
-   "width": 1652,
-   "height": 929,
-   "licence": "CC BY 4.0",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangio_malayana.jpg",
-   "caption": "Pangio malayana. Species of fish.",
-   "key": "File:Pangio malayana.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "inat:251816967",
+  "inat:251816956",
+  "File:Pangio malayana.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/d030c6d8062f5b30.webp": "c69cdef787a7b5b6",
+  "https://media.aquatome.com/seriouslyfish/4954cd7bde9284c1.webp": "1d15272116f49898",
+  "https://media.aquatome.com/commons/cabe67679456b655.webp": "efcb83a3e4e4e427"
+ },
+ "commons": "2026-11-09"
 }

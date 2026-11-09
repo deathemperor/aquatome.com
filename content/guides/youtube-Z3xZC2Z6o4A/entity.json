@@ -114,18 +114,13 @@
         "heading": "Hai bể được set thế nào",
         "moments": [
           {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at5-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai bể trống đặt cạnh nhau, chuẩn bị set up để so sánh."
-          },
-          {
             "t": 60,
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at60-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh nhỏ trồng cây đỏ và thảm cỏ xanh, đã lên xanh đẹp."
+            "caption": "Bể thủy sinh nhỏ trồng cây đỏ và thảm cỏ xanh, đã lên xanh đẹp.",
+            "sharpness": 2855.1,
+            "person": false
           }
         ]
       },
@@ -137,14 +132,18 @@
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at40-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây mọc dày, xanh tốt sau khi cắt tỉa."
+            "caption": "Bể thủy sinh cây mọc dày, xanh tốt sau khi cắt tỉa.",
+            "sharpness": 2487.2,
+            "person": false
           },
           {
             "t": 45,
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at45-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ với thảm cây xanh mọc lại đều."
+            "caption": "Bể nhỏ với thảm cây xanh mọc lại đều.",
+            "sharpness": 1051.5,
+            "person": false
           }
         ]
       },
@@ -156,14 +155,18 @@
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at135-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể giá rẻ sau một tháng, cây dày, lên màu và khỏe."
+            "caption": "Toàn cảnh bể giá rẻ sau một tháng, cây dày, lên màu và khỏe.",
+            "sharpness": 2269.2,
+            "person": false
           },
           {
             "t": 165,
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at165-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thảm Monte Carlo mỏng xanh mướt, phía sau là cây đỏ Alternanthera."
+            "caption": "Thảm Monte Carlo mỏng xanh mướt, phía sau là cây đỏ Alternanthera.",
+            "sharpness": 1827.9,
+            "person": false
           }
         ],
         "photo": {
@@ -185,14 +188,18 @@
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at265-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đắt tiền với thảm Monte Carlo dày và các cây thân đỏ mọc cao."
+            "caption": "Bể đắt tiền với thảm Monte Carlo dày và các cây thân đỏ mọc cao.",
+            "sharpness": 1541.5,
+            "person": false
           },
           {
             "t": 300,
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at300-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cây thân đỏ và thảm cỏ xanh mướt trong bể."
+            "caption": "Cận cảnh cây thân đỏ và thảm cỏ xanh mướt trong bể.",
+            "sharpness": 1120.7,
+            "person": false
           }
         ]
       },
@@ -225,25 +232,6 @@
         }
       },
       {
-        "heading": "Đo nước cho kết quả gì",
-        "moments": [
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mẫu nước đổi màu tím được so với bảng màu của bộ test."
-          },
-          {
-            "t": 685,
-            "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at685-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mẫu nước đã nhỏ thuốc thử, ngả vàng, đặt cạnh bảng so màu."
-          }
-        ]
-      },
-      {
         "heading": "Bước tiếp theo cho hai bể",
         "moments": [
           {
@@ -251,14 +239,18 @@
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at790-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh thứ hai với cây thân đỏ và rêu phủ nhẹ."
+            "caption": "Bể thủy sinh thứ hai với cây thân đỏ và rêu phủ nhẹ.",
+            "sharpness": 2228.7,
+            "person": false
           },
           {
             "t": 815,
             "url": "https://media.aquatome.com/video/Z3xZC2Z6o4A/at815-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh bể thủy sinh cây xanh um, thảm cỏ và cây thân đỏ."
+            "caption": "Cận cảnh bể thủy sinh cây xanh um, thảm cỏ và cây thân đỏ.",
+            "sharpness": 1185.7,
+            "person": false
           }
         ],
         "photo": {

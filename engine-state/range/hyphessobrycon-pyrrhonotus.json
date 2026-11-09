@@ -1,0 +1,73 @@
+{
+  "id": "hyphessobrycon-pyrrhonotus",
+  "native": {
+    "input": "bec7eb7608ae934b",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Negro system in Amazonas state, Brazil, although the full extent of its range is unclear.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Negro system in Amazonas state, Brazil, although the full extent of its range is unclear.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Ereré",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Ereré, tributary to Rio Negro, Brazil', and local fishermen apparently consider it restricted to the Ereré plus the rios Demeni and Aracá, all minor tributaries close to the town of Barcelos in the middle Negro.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Demeni",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Ereré, tributary to Rio Negro, Brazil', and local fishermen apparently consider it restricted to the Ereré plus the rios Demeni and Aracá, all minor tributaries close to the town of Barcelos in the middle Negro.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Aracá",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Ereré, tributary to Rio Negro, Brazil', and local fishermen apparently consider it restricted to the Ereré plus the rios Demeni and Aracá, all minor tributaries close to the town of Barcelos in the middle Negro.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon pyrrhonotus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354524,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

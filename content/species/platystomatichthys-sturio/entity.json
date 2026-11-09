@@ -8,13 +8,43 @@
   "places": [
     "south-america",
     "peru",
-    "amazon"
+    "amazon",
+    "brazil",
+    "rio-branco"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ]
   },
@@ -26,10 +56,46 @@
       "html": "<p>Platystomatichthys sturio is one of the most bizarre predatory catfish of Amazonia. The upturned snout-tip is species-specific, but its degree differs between individuals and also depends somewhat on age. The maximum length is about 40 cm. Available size: 7-16 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<ul><li>Common name: Sturgeon catfish</li><li>Synonym: Platystoma sturio</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>It is reported that some imported specimens are half starved and need tender loving care to recover. The upturned snout can also be damaged on import.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/platystomatichthys_sturio_en/",
       "html": "<p>The species has a very wide distribution in Amazonia. The animals offered originate from Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>South America: Amazon basin. Type locality: Rio Branco, Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>The tank must be twice the length, in width, of the barbels on this species, so it can turn around with no obstruction. A 4ft (120 cm) tank should be the minimum length and breadth.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>Provide a soft substrate such as sand as they will dig and root, and a powerful external filter.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>Tubifex, small earthworms, tablet and pellet foods.</p>"
     },
     {
       "key": "behaviour",
@@ -38,10 +104,28 @@
       "html": "<p>The species has extremely long barbels and prefers to swim against a strong current. Platystomatichthys sturio is very peaceful towards conspecifics and other fish that are too large to be prey. The species is not shy at all and tends not to panic and crash into anything.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>Can be kept together or singly but will be predatory to smaller fishes especially as they grow larger.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/platystomatichthys_sturio_en/",
       "html": "<p>The sense or reason for the upturned snout-tip is unknown. Perhaps it helps to localize prey, or it may work like the spoiler of a car and save energy when swimming against the current. Some speculate that it is an artefact of aquarium keeping, caused by swimming against the glass, but this is unlikely, since almost all, even very small, specimens show it.</p><p>Platystomatichthys means \"fish that looks like a Platystoma\" (another genus of fish). sturio means \"sturgeon\", referring to the similar body shape.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<p>The slightly upturned snout of this 'pim' makes it possible for it to find the finest food organisms in the substrate.</p><p>Etymology: the specific name sturio is Latin for sturgeon, referring to the sturgeon-like head and body shape.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm",
+      "html": "<ul><li>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p.</li><li>Conservación Internacional; seris de Guías Tropicales De Campo. Pecos del medio Amazonas Región de Leticia. 546 p.</li><li>Salvador, G.N. 2023. Platystomatichthys sturio. The IUCN Red List of Threatened Species 2023.</li></ul>"
     }
   ],
   "photos": [
@@ -120,8 +204,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn nuôi cá da trơn"
+        "bể cá 120cm"
       ]
     },
     {
@@ -132,5 +215,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

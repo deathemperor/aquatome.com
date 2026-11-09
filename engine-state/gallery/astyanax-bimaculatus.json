@@ -62,7 +62,8 @@
   "inat:751487150",
   "inat:756890051",
   "inat:756890091",
-  "File:Lambari do rabo amarelo.png"
+  "File:Lambari do rabo amarelo.png",
+  "gbif:1322092783:9b36a138486d1274"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/71eda0c3d709c534.webp": "e0e0f3e0cee63eff",
@@ -76,5 +77,9 @@
    "research": 411436092,
    "agree": 401353021
   }
+ },
+ "gbif": {
+  "key": 5204296,
+  "next": null
  }
 }

@@ -84,14 +84,18 @@
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at20-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Mấy con cá nóc mini bơi lượn trong bể trồng cây."
+            "caption": "Mấy con cá nóc mini bơi lượn trong bể trồng cây.",
+            "sharpness": 48.7,
+            "person": false
           },
           {
             "t": 75,
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at75-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá nóc mini bơi gần đáy bể có cây."
+            "caption": "Đàn cá nóc mini bơi gần đáy bể có cây.",
+            "sharpness": 14.6,
+            "person": false
           }
         ],
         "photo": {
@@ -113,14 +117,9 @@
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at105-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá nhỏ bơi trên nền những cụm marimo trong bể."
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn rasbora nhỏ bơi phía trên các cụm rêu marimo xanh."
+            "caption": "Đàn cá nhỏ bơi trên nền những cụm marimo trong bể.",
+            "sharpness": 191.3,
+            "person": false
           }
         ]
       },
@@ -132,14 +131,18 @@
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at160-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nano trồng cây, nền cát, nơi cá chuột pygmy sinh sống."
+            "caption": "Bể nano trồng cây, nền cát, nơi cá chuột pygmy sinh sống.",
+            "sharpness": 455.5,
+            "person": false
           },
           {
             "t": 170,
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at170-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh đáy bể có lá cây và gỗ, cá nhỏ bơi quanh."
+            "caption": "Cận cảnh đáy bể có lá cây và gỗ, cá nhỏ bơi quanh.",
+            "sharpness": 259.4,
+            "person": false
           }
         ],
         "photo": {
@@ -157,18 +160,13 @@
         "heading": "Hạng 2: cá kim tơ vàng (golden white cloud)",
         "moments": [
           {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá kim tơ vàng bơi trong bể nhỏ có cây rậm."
-          },
-          {
             "t": 220,
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at220-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá kim tơ vàng bơi thành đàn gần bụi rong xanh."
+            "caption": "Cá kim tơ vàng bơi thành đàn gần bụi rong xanh.",
+            "sharpness": 325.6,
+            "person": false
           }
         ]
       },
@@ -180,14 +178,18 @@
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá ớt nhỏ màu đỏ bơi trong bể tối."
+            "caption": "Đàn cá ớt nhỏ màu đỏ bơi trong bể tối.",
+            "sharpness": 204.2,
+            "person": false
           },
           {
             "t": 290,
             "url": "https://media.aquatome.com/video/PhyjQmfD3cg/at290-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nano trồng cây, loại bể hợp để nuôi cá ớt."
+            "caption": "Bể nano trồng cây, loại bể hợp để nuôi cá ớt.",
+            "sharpness": 1561.1,
+            "person": false
           }
         ]
       }

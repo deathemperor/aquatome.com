@@ -1,0 +1,65 @@
+{
+  "id": "lacustricola-katangae",
+  "scientificName": "Lacustricola katangae",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Lacustricola",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "katanga"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys_katangae_en/",
+      "html": "<p>Maximum size is approximately 6 cm. Origin: Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys_katangae_en/",
+      "html": "<p>Aplocheilichthys katangae was received from the Katanga province of the Congo. These non-seasonal killies have a large distribution area in central southern Africa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys_katangae_en/",
+      "html": "<p>They inhabit shallow, overgrown brooks and ponds.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys_katangae_en/",
+      "html": "<p>In the wild they feed on small water insects and crustaceans. In tanks they can be fed with flakes or frozen food.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "thức ăn vảy cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}
