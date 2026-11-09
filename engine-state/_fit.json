@@ -87979,10 +87979,10 @@
     "products": []
   },
   "vi/species/laubuka-dadiburjori": {
-    "at": "2026-11-08",
-    "hash": "44adee1aa5d55176",
+    "at": "2026-11-09",
+    "hash": "e56ceda5caab21c4",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -89938,9 +89938,10 @@
     "products": []
   },
   "vi/species/microrasbora-rubescens": {
-    "at": "2026-11-07",
-    "hash": "a2abf4dc9a980aeb",
+    "at": "2026-11-09",
+    "hash": "70d40f60d1493915",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -90001,16 +90002,16 @@
     "products": []
   },
   "vi/species/misgurnus-anguillicaudatus": {
-    "at": "2026-11-08",
-    "hash": "9c05c79bd636afb1",
+    "at": "2026-11-09",
+    "hash": "2afc28ef7654239a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P5",
-        "quote": "chạch thời tiết (Weather Loach) sống được trong một khoảng nhiệt độ rộng đến bất ngờ",
-        "why": "\"Chạch thời tiết\" is a word-for-word translation of the English trade name \"weather loach\"; keepers in Vietnam call this fish chạch bùn.",
+        "part": "P21",
+        "quote": "Chạch thời tiết ăn được nhiều loại thức ăn",
+        "why": "Literal calque of the English trade name 'weather loach'; Vietnamese keepers call this fish chạch bùn.",
         "by": "model",
         "fix": "chạch bùn"
       }
@@ -97921,11 +97922,20 @@
     "products": []
   },
   "vi/species/yunnanilus-cruciatus": {
-    "at": "2026-11-08",
-    "hash": "dcb1a660d35f754e",
+    "at": "2026-11-09",
+    "hash": "e50bb3b5525a5a72",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P15",
+        "quote": "cá killi least",
+        "why": "A half-translated calque of the English 'least killifish'; keepers in Vietnam use the scientific name.",
+        "by": "model",
+        "fix": "cá Heterandria formosa"
+      }
+    ],
     "products": []
   },
   "vi/species/zacco-platypus": {
@@ -97957,6 +97967,542 @@
     "hash": "1e82f25d1428c37d",
     "model": "opus",
     "checklist": 2,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lamprologus-callipterus": {
+    "at": "2026-11-09",
+    "hash": "1ec720502727b658",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Vỏ ốc sên escargot dùng tốt, và hầu hết các tiệm thực phẩm đặc sản tử tế đều có bán.",
+        "why": "Assumes Western speciality food shops selling escargot, which a reader in Vietnam would not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lamprologus-lemairii": {
+    "at": "2026-11-09",
+    "hash": "b38cfbdbb190034e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lamprologus-speciosus": {
+    "at": "2026-11-09",
+    "hash": "d238e6a9a990dbe7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Vỏ ốc escargot dùng tốt, và hầu hết các cửa hàng thực phẩm cao cấp tử tế đều có bán.",
+        "why": "Buying escargot shells at gourmet food shops is a Western shopping habit, not a source for a keeper in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lamprologus-stappersi": {
+    "at": "2026-11-09",
+    "hash": "2d64962b2d1dfb61",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Vỏ ốc escargot dùng rất tốt, và hầu hết các cửa hàng thực phẩm đặc sản tử tế đều có bán.",
+        "why": "It assumes Western speciality food shops that sell escargot shells, which a reader in Vietnam doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/metzia-bounthobi": {
+    "at": "2026-11-09",
+    "hash": "7eb195a879396021",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/metzia-formosae": {
+    "at": "2026-11-09",
+    "hash": "323dc5ff7c8e7a68",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/metzia-lineata": {
+    "at": "2026-11-09",
+    "hash": "de65f7f1fb4dbb1c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/microctenopoma-fasciolatum": {
+    "at": "2026-11-09",
+    "hash": "071969036dac6e2d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/microdevario-gatesi": {
+    "at": "2026-11-09",
+    "hash": "4e0613a19662c32b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/microdevario-nana": {
+    "at": "2026-11-09",
+    "hash": "649da2fb6cc2f04e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/microsynodontis-batesii": {
+    "at": "2026-11-09",
+    "hash": "2a438bd8f081aceb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mimagoniates-microlepis": {
+    "at": "2026-11-09",
+    "hash": "4207b80dea5047a1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/moenkhausia-ceros": {
+    "at": "2026-11-09",
+    "hash": "ab3e40b5ed972669",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Ở Anh, người chơi ít gặp nó.",
+        "why": "Describes availability in the UK hobby as if it were the reader's own market.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "Ở Anh, người chơi khá ít gặp loài này.",
+        "why": "Repeats UK availability as the reader's context.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "dùng gỗ dẻ gai (beech) thường cũng an toàn, miễn là đã phơi thật khô và bóc sạch vỏ",
+        "why": "Beech wood is a temperate-European material, not something a keeper in Vietnam can easily collect.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mogurnda-adspersa": {
+    "at": "2026-11-09",
+    "hash": "0879b931c86da098",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mogurnda-mogurnda": {
+    "at": "2026-11-09",
+    "hash": "f5a7eb2cbbbf1e2c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mylochromis-melanonotus": {
+    "at": "2026-11-09",
+    "hash": "ba8abfc67faf58ef",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "Nó cũng hay có mặt quanh vùng bờ trung gian, nơi đá nằm rải rác trên đáy cát.",
+        "why": "\"Vùng bờ trung gian\" is a word-for-word calque of the English \"intermediate habitat/zone\", and Vietnamese keepers don't say it.",
+        "by": "model",
+        "fix": "vùng chuyển tiếp giữa đá và cát"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mystacoleucus-argenteus": {
+    "at": "2026-11-09",
+    "hash": "386580c4ed7c469f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mystacoleucus-atridorsalis": {
+    "at": "2026-11-09",
+    "hash": "8b49100c3e3b347b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mystacoleucus-ectypus": {
+    "at": "2026-11-09",
+    "hash": "800bfd202b9e31b9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mystacoleucus-lepturus": {
+    "at": "2026-11-09",
+    "hash": "b86d60cc74550f96",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/mystus-rhegma": {
+    "at": "2026-11-09",
+    "hash": "d7b54e2e4a12be00",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannacara-anomala": {
+    "at": "2026-11-09",
+    "hash": "4d54f65c0a93f83e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "Muốn nuôi một đực hai cái thì phải có bể dài 76 cm.",
+        "why": "76 cm is a converted 30-inch tank length; nobody in Vietnam sizes a tank this way.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "gỗ bog",
+        "why": "A half-translated calque of English 'bogwood'; keepers in Vietnam just say lũa.",
+        "by": "model",
+        "fix": "lũa"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/nannacara-taenia": {
+    "at": "2026-11-09",
+    "hash": "d844673cff1a51a9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannaethiops-unitaeniatus": {
+    "at": "2026-11-09",
+    "hash": "f719914859e254a3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannostomus-digrammus": {
+    "at": "2026-11-09",
+    "hash": "b2900030c8cf21c6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannostomus-espei": {
+    "at": "2026-11-09",
+    "hash": "d8cb74b403eb5c93",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannostomus-harrisoni": {
+    "at": "2026-11-09",
+    "hash": "f39fc6f105118013",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannostomus-minimus": {
+    "at": "2026-11-09",
+    "hash": "87ce1271fbb5e2b3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannostomus-nitidus": {
+    "at": "2026-11-09",
+    "hash": "7a9bc60b7c2c89c0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Phần này để tưởng nhớ Alan P. Vaissiere, chuyên gia ép đẻ cá quá cố, người đã góp rất nhiều công cho phần này.",
+        "why": "A dedication to a contributor of the source article, someone the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/nannostomus-unifasciatus": {
+    "at": "2026-11-09",
+    "hash": "ed590658f8cf0feb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nanochromis-parilus": {
+    "at": "2026-11-09",
+    "hash": "ac2458e90afd31f6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nanochromis-transvestitus": {
+    "at": "2026-11-09",
+    "hash": "1efda0d6df3fc6c7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nemacheilus-anguilla": {
+    "at": "2026-11-09",
+    "hash": "528645c5b66ea529",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nemacheilus-longistriatus": {
+    "at": "2026-11-09",
+    "hash": "c32f31509a247ec0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nemacheilus-troglocataractus": {
+    "at": "2026-11-09",
+    "hash": "3ffd88be7a5d5445",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nemacheilus-yingjiangensis": {
+    "at": "2026-11-09",
+    "hash": "bae67d304fe538af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nematabramis-alestes": {
+    "at": "2026-11-09",
+    "hash": "0c53e86b1960fa42",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nematabramis-steindachnerii": {
+    "at": "2026-11-09",
+    "hash": "1218135c82ec43bd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neoceratodus-forsteri": {
+    "at": "2026-11-09",
+    "hash": "dd3b871f2d55e2f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neolamprologus-caudopunctatus": {
+    "at": "2026-11-09",
+    "hash": "d945e3ae4a5be3f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "tối thiểu phải có bể tiêu chuẩn 75 lít",
+        "why": "A 'standard 75-litre tank' is the US standard 20-gallon tank converted; tanks in Vietnam aren't sold by that standard size.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/neolamprologus-fasciatus": {
+    "at": "2026-11-09",
+    "hash": "9f0a468b1060e025",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neolamprologus-helianthus": {
+    "at": "2026-11-09",
+    "hash": "d983e5c051e1325e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neolamprologus-marunguensis": {
+    "at": "2026-11-09",
+    "hash": "7673b5146a4a57aa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neolamprologus-olivaceous": {
+    "at": "2026-11-09",
+    "hash": "7062b0b43cc30fe5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "Không nên nuôi cùng mbuna hoặc các loài ồn ào khác.",
+        "why": "\"Ồn ào\" is a literal rendering of \"boisterous\"; keepers would not describe fish as noisy.",
+        "by": "model",
+        "fix": "các loài hiếu động, hay rượt đuổi khác"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "các con đực cấp dưới nhiều khả năng sẽ bị loại bỏ",
+        "why": "\"Cấp dưới\" and \"bị loại bỏ\" are calques of \"subordinate\" and \"eliminated\"; keepers say the weaker males get chased or killed.",
+        "by": "model",
+        "fix": "các con đực yếu thế sẽ bị đánh đuổi hoặc cắn chết"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/neolamprologus-pulcher": {
+    "at": "2026-11-09",
+    "hash": "44240b444508cb6d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neolamprologus-tretocephalus": {
+    "at": "2026-11-09",
+    "hash": "c2a0f03d644be160",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/neosilurus-brevidorsalis": {
+    "at": "2026-11-09",
+    "hash": "4cd49ae3c11d17e5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nimbochromis-venustus": {
+    "at": "2026-11-09",
+    "hash": "b8bab236286c170b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "Không cho ăn bất kỳ loại thịt động vật nào.",
+        "why": "A mistranslation of 'no mammalian meat' that contradicts the shrimp and fish just recommended; keepers say warm-blooded meat such as beef heart.",
+        "by": "model",
+        "fix": "Không cho ăn thịt động vật máu nóng (thịt bò, tim bò...)"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/schistura-maepaiensis": {
+    "at": "2026-11-09",
+    "hash": "92121a0b522d2b08",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-polytaenia": {
+    "at": "2026-11-09",
+    "hash": "2bee7fd0f8a61f6e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cá trong ảnh ở trang này được định danh theo nơi bắt mẫu.",
+        "why": "Refers to a photo from the source article that the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Cá trong ảnh được định danh theo nơi bắt mẫu.",
+        "why": "Refers to a photo from the source article that the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/sciaenochromis-fryeri": {
+    "at": "2026-11-09",
+    "hash": "d2f902c6b9ef3ec6",
+    "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   }

@@ -1,0 +1,205 @@
+{
+  "id": "mystacoleucus-argenteus",
+  "scientificName": "Mystacoleucus argenteus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Mystacoleucus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy",
+    "thailand",
+    "salween",
+    "china",
+    "yunnan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Mystacoleucus argenteus is a cyprinid from the Salween and middle Irrawaddy basins in Myanmar and western Thailand. It is occasionally marketed as 'Burmese rainbow barb' and differs from the similar M. obtusirostris in lacking black-edged scales on the body. Little has been published since Day's original description of 1888. Vigorous when feeding, it can upset slow-moving or timid tankmates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Has been collected from the lower Salween River basin in southern China (Yunnan province), Myanmar and western Thailand (Mae Hong Song and Tak provinces), and the middle Irrawaddy River in Myanmar.</p><p>Type locality is 'Streams of the interior of the Tenasserim District, Myanmar'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>We have been unable to obtain any specific information but given the type of habitat favoured by other members of the genus it almost certainly inhabits clear, well-oxygenated, running water with substrates of sand or gravel, and is likely present in rock and boulder-filled headwater streams as well as larger river channels.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm or equivalent should be the minimum size considered (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided but this species is perhaps best-suited to an environment resembling a flowing stream/river with a substrate of variably-sized, smooth water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and aquatic plants such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in pristine habitats it is intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement. Weekly water changes of 30-50% aquarium volume should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Likely to be a generalised omnivore in nature. Stomach contents analyses of the congener M. obtusirostris revealed it to feed on insects, crustaceans, worms, algae and aquatic plants, though it's unclear if the latter two were taken directly or via prey items.</p><p>In the aquarium it is easily-fed but for it to develop optimal condition offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried flakes and granules; at least some of the latter should contain added plant material such as Spirulina.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Not aggressive but can upset slow-moving or timid tankmates with its vigorous behaviour, especially when feeding, so is best maintained alongside robust, similarly-sized tankmates, especially cyprinids, loaches and other riverine fishes.</p><p>If you wish to maintain a Salween-themed community inhabitants could include Devario aequipinnatus, Rasbora daniconius, Botia histrionica, B. rostrata, Syncrossus berdmorei, Puntius chola, Pethia stoliczkana, and various Schistura spp. As always when selecting a compatible community of fish proper research is essential, however.</p><p>This species exists in schools in the wild and a group of six or more should be the smallest considered.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Sexually mature females are likely to be deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<p>This species is occasionally marketed as 'Burmese Rainbow Barb' in the ornamental trade, and can be told apart from the similar-looking congener M. obtusirostris by lacking (vs. possessing) a number of black-edged scales on the body.</p><p>Little has been published since the original description by Day (1888), which reads as follows: \"D. 9 (1/8), P. 14, V. 8, A. 7, C. 18, L. l. 30. Length of head as delineated 6, of caudal fin 3/4, height of body 3 1/3 in the total length. Eyes - diameter 3 1/4 in the length of the head, 1 diameter from the end of the snout. Snout blunt, rather overhanging the mouth, body compressed : profile with a considerable rise from snout to base of dorsal fin. Fins - dorsal spine strong and posteriorly serrated, caudal deeply forked, its lobes acutely pointed. A small horizontal spine in front of the dorsal fin pointing forwards and scarcely protruding from beneath the skin. Lateral-line - complete. Colours - brilliant silvery with lilac and blue shades and a tinge of olive-yellow on the back. Dorsal fin orange-scarlet superiorly bordered with black except on the last two rays, the other fins lemon-yellow. Dorsal ridge black in its upper portion.\"</p><p>All Mystacoleucus species possess a procumbent predorsal spine orientated towards the head, though it can be difficult to spot with the naked eye. This can become entangled in an aquarium net so care must be taken when handling the fish.</p><p>The trait is shared by members of Tor, Spinibarbus and Paraspinibarbus although there exists no strong evidence to suggest that these genera form a monophyletic lineage and it is likely that they developed the spine independantly of one another. Mystacoleucus spp. can be further identified by the presence of 6-10 branched anal-fin rays and 24-39 lateral line scales.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "html": "<ul><li>Day, F. (1888). The fishes of India; being a natural history of the fishes known to Inhabit the seas and fresh waters of India, Burma, and Ceylon. The Fishes of India Supplement, 779-816</li><li>Doi, A. (1997). A review of taxonomic studies of cypriniform fishes in Southeast Asia. Japanese Journal of Ichthyology 44(1), 1-33</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1e0828e253c61d23.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1e0828e253c61d23-480.webp",
+      "width": 640,
+      "height": 406,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "caption": "Wild-collected subadult.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ea91488849ae217e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ea91488849ae217e-480.webp",
+      "width": 890,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "caption": "Young specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b69494b30ae89d50.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b69494b30ae89d50-480.webp",
+      "width": 724,
+      "height": 326,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-argenteus",
+      "caption": "Well-conditioned adult.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy tạo sóng bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh dạng viên nhỏ",
+        "artemia đông lạnh",
+        "thức ăn spirulina"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

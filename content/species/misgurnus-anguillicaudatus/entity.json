@@ -30,6 +30,13 @@
           "min": 4,
           "max": 25
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
       }
     ],
     "sizeCm": [
@@ -40,6 +47,10 @@
       {
         "source": "sprucepets",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 28
       }
     ],
     "tankCm": [
@@ -50,6 +61,10 @@
       {
         "source": "sprucepets",
         "value": 100
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 120
       }
     ],
     "difficulty": [
@@ -60,11 +75,22 @@
       {
         "source": "sprucepets",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ],
     "ph": [
       {
         "source": "sprucepets",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 6,
           "max": 8
@@ -76,6 +102,13 @@
         "source": "sprucepets",
         "value": {
           "min": 0,
+          "max": 12
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
           "max": 12
         }
       }
@@ -104,6 +137,18 @@
       "html": "<ul><li>Family: Cobitidae</li><li>Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin</li><li>Adult size: 12 inches (30 cm)</li><li>Social: peaceful, suitable for a community tank</li><li>Lifespan: 10 years</li><li>Tank level: bottom dweller</li><li>Minimum tank size: 40 gallons (about 150 litres)</li><li>Diet: omnivore, eats most foods</li><li>Breeding: egglayer, difficult to breed</li><li>Care: easy to intermediate</li><li>pH 6.0-8.0; hardness up to 12 dGH; temperature 4-25 °C (40-77 °F)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p><p>The oriental weather loach, Misgurnus anguillicaudatus, is a loach native to Siberia, Korea, Japan, China and northern Vietnam. Known in the United States as the 'dojo loach', it is one of the most ubiquitously available species in the hobby, and years of mass-production have made health and morphological issues common. Exceptionally hardy and adaptable, it is established as an alien species around the globe, and its adult size of up to 28 cm should be considered prohibitive.</p>"
+    },
+    {
       "key": "distribution",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -114,6 +159,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
       "html": "<p>Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia. However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan. This ever-widening distribution is due to several factors, including aquarium releases and farms where the fish are raised as a food source and for use as angling bait.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia. This continuing range expansion is largely attributed to the aquarium fish industry although its use as a food fish or live angling bait are also thought to be contributing factors.</p>"
     },
     {
       "key": "habitat",
@@ -128,6 +179,12 @@
       "html": "<p>The ability of the weather loach to thrive in less than optimal situations dates back to its natural habitat in China and Japan. There they live in shallow rivers, paddies, and even in ditches. Because they possess the ability to use their intestine to derive oxygen from the air, they can survive when oxygen levels drop very low.</p><p>During dry spells when water sources disappear, the weather loach survives by burrowing in the mud to protect its skin from drying out. If burrowing does not offer sufficient protection during particularly severe conditions, the weather loach is capable of secreting a protective mucus to prevent it from drying out.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Most commonly found in shallow, slow-moving sections of rivers and streams or calm habitats such as swamps, oxbows, backwaters and paddy fields. These are often heavily-vegetated or littered with submerged roots, branches and leaf litter, with substrates composed of soft mud or silt.</p><p>Water clarity and depth vary on a seasonal basis across much of its range, and at certain times of year it probably enters temporarily-flooded zones. Conversely during dry periods some habitats may become stagnant with blooms of macrophytic algae and resultant hypoxia (oxygen depletion). Under such conditions members of this genus are able to use the posterior portion of the intestine and skin as supplementary breathing organs and often dart to the surface to gulp atmospheric air whilst simultaneously expelling intestinal gases from the vent. Some species have even been recorded to survive periods in moist sand or mud in the absence of water.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -138,6 +195,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
       "html": "<p>Minimum tank size: 40 gallons (about 150 litres). Average aquarium specimens reach five to eight inches (about 13-20 cm), though reports exist of fish reaching 20 inches (about 50 cm).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Standard length: 28 cm SL. Aquarium base: 120 × 45 cm. Volume: ~243 litres.</p><p>A tank with a base measuring 120 × 45 cm or more is necessary for long-term care and this species should NEVER be maintained outdoors.</p>"
     },
     {
       "key": "maintenance",
@@ -152,6 +215,12 @@
       "html": "<p>Although this species is adaptable to almost any conditions, colder water is preferable. The weather loach enjoys hiding places such as rocks and other landscaping materials, or even something as simple as a plastic tube left in the tank. Keep filter inlet tubes well covered, as they will swim up an uncovered tube.</p><p>Because the weather loach sifts through the substrate quite vigorously, it will often uproot plants that are not well-rooted. Potted plants are a good option. The substrate should be fairly fine to prevent the loach from damaging itself when it roots for food or buries itself. Sand or fine grain gravel are good choices. Lighting should be subdued, or plenty of cover provided so shady hiding spots can be found.</p><p>It is wise to always keep the tank well covered, as they may jump out.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Not difficult to keep but must be provided with a soft, sandy or fine gravel substrate since some of its time is spent completely buried, or with only eyes protruding. When coarser material is used it may become stressed or damage itself trying to dig, and feeding behaviour can be inhibited. Other décor can include water-worn rocks and driftwood branches/tree roots arranged to form plenty of hiding places and shaded spots - add these prior to the substrate to prevent them being toppled by digging activity. Lighting can be quite dim unless you intend to grow plants and a few handfuls of leaf litter would complement the natural effect.</p><p>As this species hails from sluggish waters high flow rates are best avoided although a degree of oxygenation is recommended. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced. Though able to cope with less-than-ideal conditions it should never be added to a biologically immature set-up.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -162,6 +231,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
       "html": "<ul><li>pH 6.0-8.0</li><li>Hardness up to 12 dGH</li><li>Temperature 4-25 °C (40-77 °F)</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<ul><li>Temperature: 18–23°C. Can apparently tolerate a range of 5–25°C but for general care a value between 18–23°C is recommended. This is not a tropical species and should not be maintained as such for extended periods of time.</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -182,6 +257,12 @@
       "html": "<p>Weather loaches are great vacuum cleaners, sucking up virtually anything that falls to the bottom of the tank and spitting out what they don't care for. They are particularly fond of fish eggs. In the wild, their diet consists of insect larvae, small crustaceans and molluscs, and detritus. They will also readily eat fresh vegetables. Peas are a prized delicacy but should be skinned before being placed in the tank.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Chiefly a predator foraging for insect larvae, small crustaceans and suchlike. In the aquarium it will accept sinking dried foods but should also be offered regular meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc. A varied diet is key to maintaining it in the best of health.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -192,6 +273,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
       "html": "<p>Weather loaches are peaceful and may be kept with virtually any other peaceful fish. They need not be kept in a school but will tolerate others of their own kind. They will quickly gobble up eggs, and should not be kept in a tank with breeding fish.</p><p>When storms approach, the previously calm weather loach begins swimming wildly about. It is believed that changes in barometric pressure, particularly low pressures before storms, account for this behaviour.</p><p>They love burrowing, and a loach may be found buried beneath the substrate. It is not unusual to see one resting on its pectoral fins, following your movements with its eyes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Misgurnus spp. are peaceful both with one another and other species though they may prey on eggs/fry/very small fishes. They can be kept singly but seem more at ease/active when in the presence of conspecifics.</p><p>M. anguillicaudatus does best alongside medium-to-large sized, active fishes that swim higher up in the water column than itself. It's often upsold as a good companion for the ornamental forms of Carassius auratus (goldfish) and while that may be true of comets, shubunkins, etc., it can bother the slower-moving 'fancy' types when active e.g. at feeding times. Research your choices thoroughly before purchase paying particular attention to adult size and temperature requirements.</p>"
     },
     {
       "key": "dimorphism",
@@ -206,6 +293,12 @@
       "html": "<p>Females are generally a bit larger and fuller-bodied than males. Adult males have enlarged pectoral fins and may also have swellings behind the dorsal fin, which can be seen when viewed from above.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Adult females are typically heavier-bodied and a little larger then males. In mature males the pectoral fins are enlarged with a thickened second ray forming a structure known as the lamina circularis which in M. anguillicaudatus is rounded with a smooth posterior edge. Males also exhibit horizontal \"swellings\" on the body behind the dorsal fin which are clearly visible when the fish are viewed from above.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -216,6 +309,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
       "html": "<p>Breeding is fairly difficult, primarily due to a lack of knowledge about their spawning habits. They are a cold-water fish and require several months of cold temperatures to induce spawning. Spawning occurs in the spring to early summer, before water temperatures become too warm.</p><p>Spawning follows a courtship ritual that includes sinuous movements back and forth by the breeding pair, sometimes lasting several hours. The fertilized eggs hatch in approximately three days. For the first week, the fry feed on infusoria, after which they may be fed freshly-hatched brine shrimp.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>Reports of captive breeding are scarce and we've been unable to find one containing any significant detail; presumably the fish are induced to spawn by means of hormones for the trade as they are for scientific research and aquaculture. The natural process is probably similar to that exhibited by M. fossilis which, following Kottelat and Freyhof (2007), first spawns at 2-3 years of age and around 11 cm in SL during the months of March - July. The female leads the male into dense vegetation e.g. filamentous algae and as the eggs are released the male wraps his body around that of his mate, forming a complete ring. Post-hatching the fry have external gill filaments which disappear after 10-12 days.</p><p>On Hokkaido Island, Japan there exists a population that reproduces by asexual gynogenesis, also known as sperm-dependent parthenogenesis. This all-female lineage lays eggs that don't require male fertilisation to develop but with the requirement that the sperm of a closely-related species is necessary to induce egg development. Scientists have shown that even the presence of Carassius auratus sperm is sufficient to produce a good number of viable eggs. This phenomenon is also known in some European Cobitis species which form so-called 'hybrid complexes' containing both asexual and bisexual individuals which are impossible or very difficult to tell apart by external means.</p>"
     },
     {
       "key": "notes",
@@ -230,13 +329,36 @@
       "html": "<p>Weather loaches have six sensitive barbels around the mouth. The body is elongated and olive-coloured, sprinkled with many spots. Because of their adaptable diet, there is concern about their impact on aquatic insect populations where they have been introduced; wild populations have been found in California, Florida, Hawaii, Idaho, Illinois, Michigan, and Tennessee, in some cases from use as bait. They are sold live in markets in Korea, where they are used to make soup.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<p>An exceptionally hardy and adaptable species tolerant of a wide range of physiological variables and flexible of diet, factors which have allowed it to become established as an alien species around the globe. Its high reproductive potential and low vulnerability to predation have made it a cause for concern to conservation scientists although as yet there remains no proof of it exerting a negative effect on native fishes in countries outside its natural range.</p><p>Though usually traded as 'weather loach' in Europe it's commonly known as 'dojo loach' ('dojo' being the Japanese word for 'loach') in the United States and is one of the most ubiquitously available species in the hobby. This has proven unfortunate not only in terms of its status as an invasive species but also because years of mass-production have taken their toll on the quality of stock available with health and morphological issues now common. It has also been hybridised with M. mizolepis for research purposes and hybridises naturally with Paramisgurnus dabryanus in China so the possibility that such hybrids have found their way into the aquarium market cannot be discounted. Its adult size should also be considered prohibitive but is rarely taken into account. Xanthic 'golden' and leucistic 'pink' or 'piebald' forms are also available and have proven popular; aquarium care is the same as described above.</p><p>Provided you can obtain healthy stock and own a suitably-sized tank M. anguillicaudatus makes an excellent aquarium resident. Individuals often develop real 'personality', becoming tame enough to hand feed, for example. The common name is derived from a reported sensitivity to changes in barometric pressure which cause it to become more active. In China it has long been used in folk medicine to treat hepatitis, cancer and other ailments and it's an important food fish in several countries.</p><p>The exact number of species in the genus is unknown with much study required, but as things stand there are at least seven with the majority native to China and/or Russia. They can be told apart from similar-looking relatives such as Cobitis spp. by the fact that the suborbital spine is concealed beneath a layer of muscle and not externally visible. M. anguillicaudatus is the only member common in the aquatic trade although M. fossilis is occasionally available in some European countries (an import licence is necessary in the UK). These two are easy to identify as M. anguillicaudatus exhibits a spotted patterning, males possess a lamina circularis and the caudal peduncle sports a thickened structure usually referred to as an 'adipose crest' whereas M. fossilis has a dark midlateral stripe on each flank and lacks the two structures. Another similar-looking species is Paramisgurnus dabryanus which is most easily differentiated by its noticeably higher adipose crest and the fact it doesn't possess a dark spot on the upper part of the caudal fin base. This species is exported for the hobby but usually sold as M. anguillicaudatus.</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity. As things stand there are around 20 genera, with recent phylogenetic analyses by Tang et al. (2006) and Šlechtová et al. (2007, 2008) revealing that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae). In the most recent study Misgurnus was found to group most closely with Paramisgurnus and Koreocobitis, and these genera may prove to represent a monophyletic clade with further research.</p><p>All cobitids possess sharp, motile, suborbital (below the eye) spines which are normally concealed within a pouch of skin but erected when an individual is stressed e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
       "key": "references",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/weather-loach-1378619",
       "html": "<ul><li>Oriental Weatherfish (Misgurnus Anguillicaudatus) - Species Profile. U.S. Geological Survey.</li><li>Belle, Christina C. et al. Genetic Species Identification In Weatherfish And First Molecular Confirmation Of Oriental Weatherfish Misgurnus Anguillicaudatus (Cantor, 1842) In Central Europe. Knowledge &amp; Management Of Aquatic Ecosystems, no. 418, 2017, p. 31. EDP Sciences, doi:10.1051/kmae/2017025</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "html": "<ul><li>Franch, N., M. Clavero, M. Garrido, N. Gaya, V. López, Q. Pou-Rovira and J. M. Queral (2007). On the establishment and range expansion of oriental weatherfish (Misgurnus anguillicaudatus) in NE Iberian Peninsula Biological Invasions 10(8), 1327-1331.</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Freyhof, J. and E. Korte (2005). The first record of Misgurnus anguillicaudatus in Germany. Journal of Fish Biology 66, 568-571.</li><li>Jang, M.-H., M. C. Lucas and G.-J. Joo (2003). The fish fauna of mountain streams in South Korean national parks and its significance to conservation of regional freshwater fish biodiversity. Biological Conservation 114, 115-126</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. and J. Freyhof (2007). Handbook of European Freshwater Fishes. Kottelat, Cornol, Switzerland and Freyhof, Berlin, Germany. Publications Kottelat, xiii+ 1-646</li><li>Qin, C-G, K-X. Huang and H-B. Xu (2002). Effect of Misgurnus anguillicaudatus polysaccharide on immune responses of splenocytes in mice. Acta Pharmacol. Sin. 23(6), 534-538.</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Šlechtová, V., J. Bohlen and A. Perdices (2008). Molecular phylogeny of the freshwater fish family Cobitidae (Cypriniformes: Teleostei): delimitation of genera, mitochondrial introgression and evolution of sexual dimorphism. Molecular Phylogenetics and Evolution 47(2), 812-831</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>You, C., X. Yu and J. Tong (2007). Detection of hybridization between two loach species (Paramisgurnus dabryanus and Misgurnus anguillicaudatus) in wild populations Environmental Biology of Fishes 86(1), 65-71</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9c0642e09a90fcec.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9c0642e09a90fcec-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
+      "caption": "A typically-patterned subadult specimen.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/9a8faf0d4ecbc8f9.webp",
       "thumb": "https://media.aquatome.com/sprucepets/9a8faf0d4ecbc8f9-480.webp",
@@ -279,7 +401,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm"
+        "bể cá 120cm"
       ]
     },
     {
@@ -304,5 +426,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

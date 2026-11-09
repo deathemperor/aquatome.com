@@ -2149,6 +2149,13 @@
     "genus": "Aplocheilus",
     "matchType": "EXACT"
   },
+  "Aponogeton crispus": {
+    "canonicalName": "Aponogeton crispus",
+    "order": "Alismatales",
+    "family": "Aponogetonaceae",
+    "genus": "Aponogeton",
+    "matchType": "EXACT"
+  },
   "Aposturisoma myriodon": {
     "canonicalName": "Aposturisoma myriodon",
     "order": "Siluriformes",
@@ -2523,6 +2530,7 @@
     "genus": "Atractosteus",
     "matchType": "EXACT"
   },
+  "Atrato drainages": null,
   "Attapeu provinces": null,
   "Atya gabonensis": {
     "canonicalName": "Atya gabonensis",
@@ -2687,6 +2695,7 @@
     "genus": "Awaous",
     "matchType": "EXACT"
   },
+  "Axelrodi xanh": null,
   "Axelrodia fowleri": {
     "canonicalName": "Axelrodia stigmatias",
     "order": "Characiformes",
@@ -3129,6 +3138,7 @@
   "Bangladesh has": null,
   "Bao aquasoil": null,
   "Bao nhi": null,
+  "Bao quanh": null,
   "Barak comprises": null,
   "Barbatula barbatula": {
     "canonicalName": "Barbatula barbatula",
@@ -3395,6 +3405,13 @@
     "genus": "Pethia",
     "matchType": "EXACT"
   },
+  "Barbus odessa": {
+    "canonicalName": "Labeobarbus altianalis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Labeobarbus",
+    "matchType": "FUZZY"
+  },
   "Barbus partipentazona": {
     "canonicalName": "Puntigrus partipentazona",
     "order": "Cypriniformes",
@@ -3452,6 +3469,13 @@
     "family": "Nymphaeaceae",
     "genus": "Barclaya",
     "matchType": "EXACT"
+  },
+  "Barclaya lonifolia": {
+    "canonicalName": "Barclaya longifolia",
+    "order": "Nymphaeales",
+    "family": "Nymphaeaceae",
+    "genus": "Barclaya",
+    "matchType": "FUZZY"
   },
   "Barclaya motleyi": {
     "canonicalName": "Barclaya motleyi",
@@ -4465,6 +4489,7 @@
     "genus": "Brevimyrus",
     "matchType": "EXACT"
   },
+  "Brigitt rasbora": null,
   "Bristlenose pleco": null,
   "Brite xanh": null,
   "Brittan diagnosed": null,
@@ -4874,6 +4899,7 @@
   },
   "Canxi cacbonat": null,
   "Canxi clorua": null,
+  "Canxi trong": null,
   "Cao kho": null,
   "Capoeta tetrazona": {
     "canonicalName": "Puntigrus tetrazona",
@@ -5853,6 +5879,7 @@
     "genus": "Chonerhinos",
     "matchType": "EXACT"
   },
+  "Chonlatee jaturonrusmee": null,
   "Chromidotilapia guntheri": {
     "canonicalName": "Chromidotilapia guntheri",
     "order": "Perciformes",
@@ -6241,6 +6268,13 @@
     "order": "Siluriformes",
     "family": "Claroteidae",
     "genus": "Clarotes",
+    "matchType": "EXACT"
+  },
+  "Clavularia viridis": {
+    "canonicalName": "Clavularia viridis",
+    "order": "Malacalcyonacea",
+    "family": "Clavulariidae",
+    "genus": "Clavularia",
     "matchType": "EXACT"
   },
   "Cleithracara maronii": {
@@ -8160,6 +8194,13 @@
     "matchType": "EXACT"
   },
   "Dalmation varieties": null,
+  "Danio aequipinnatus": {
+    "canonicalName": "Devario aequipinnatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Devario",
+    "matchType": "EXACT"
+  },
   "Danio choprae": {
     "canonicalName": "Danio choprae",
     "order": "Cypriniformes",
@@ -9782,6 +9823,7 @@
     "genus": "Fundulopanchax",
     "matchType": "EXACT"
   },
+  "Furcata nhanh": null,
   "Gabon killi": null,
   "Gabunense marginatum": null,
   "Gagata gagata": {
@@ -10940,6 +10982,13 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Harttia",
+    "matchType": "EXACT"
+  },
+  "Harttia nijsseni": {
+    "canonicalName": "Metaloricaria nijsseni",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Metaloricaria",
     "matchType": "EXACT"
   },
   "Harttia punctata": {
@@ -12249,6 +12298,13 @@
     "matchType": "EXACT"
   },
   "Hyphessobrycon grupo": null,
+  "Hyphessobrycon haraldschultzi": {
+    "canonicalName": "Hyphessobrycon haraldschultzi",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
   "Hyphessobrycon has": null,
   "Hyphessobrycon heliacus": {
     "canonicalName": "Hyphessobrycon heliacus",
@@ -12962,6 +13018,13 @@
     "genus": "Inpaichthys",
     "matchType": "EXACT"
   },
+  "Inpaiichthys kerri": {
+    "canonicalName": "Inpaichthys kerri",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Inpaichthys",
+    "matchType": "FUZZY"
+  },
   "Institut fran": null,
   "Iodotropheus sprengerae": {
     "canonicalName": "Iodotropheus sprengerae",
@@ -13028,6 +13091,7 @@
     "genus": "Janalychas",
     "matchType": "EXACT"
   },
+  "Jaya rainbowfish": null,
   "Jeg har": null,
   "Jenynsia maculata": {
     "canonicalName": "Jenynsia maculata",
@@ -13060,6 +13124,7 @@
     "genus": "Julidochromis",
     "matchType": "EXACT"
   },
+  "Julidochromis kho": null,
   "Julidochromis marlieri": {
     "canonicalName": "Julidochromis marlieri",
     "order": "Perciformes",
@@ -13163,6 +13228,7 @@
   "Khi xem": null,
   "Khi xoay": null,
   "Khi xong": null,
+  "Khi xung": null,
   "Khlong drainages": null,
   "Kho dinh": null,
   "Khoan hai": null,
@@ -14369,6 +14435,13 @@
     "genus": "Hydrocharis",
     "matchType": "EXACT"
   },
+  "Limnodrilus hoffmeisteri": {
+    "canonicalName": "Limnodrilus hoffmeisteri",
+    "order": "Tubificida",
+    "family": "Naididae",
+    "genus": "Limnodrilus",
+    "matchType": "EXACT"
+  },
   "Limnophila aquatica": {
     "canonicalName": "Limnophila aquatica",
     "order": "Lamiales",
@@ -14693,6 +14766,7 @@
     "genus": "Ludwigia",
     "matchType": "EXACT"
   },
+  "Ludwigia pantanal": null,
   "Ludwigia peruensis": {
     "canonicalName": "Ludwigia perennis",
     "order": "Myrtales",
@@ -15118,6 +15192,7 @@
   },
   "Megalamphodus erythrostigma": null,
   "Megalamphodus erythrostigmus": null,
+  "Megalamphodus haraldschultzi": null,
   "Megalamphodus megalopterus": {
     "canonicalName": "Hyphessobrycon megalopterus",
     "order": "Characiformes",
@@ -15216,8 +15291,22 @@
   "Mekong ricefish": null,
   "Mekong thu": null,
   "Mekong tributaries": null,
+  "Mekongina erythrospila": {
+    "canonicalName": "Mekongina erythrospila",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Mekongina",
+    "matchType": "EXACT"
+  },
   "Melanochromis auratus": {
     "canonicalName": "Melanochromis auratus",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Melanochromis",
+    "matchType": "EXACT"
+  },
+  "Melanochromis chipokae": {
+    "canonicalName": "Melanochromis chipokae",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Melanochromis",
@@ -15228,6 +15317,13 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Pseudotropheus",
+    "matchType": "EXACT"
+  },
+  "Melanochromis lepidiadaptes": {
+    "canonicalName": "Melanochromis lepidiadaptes",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Melanochromis",
     "matchType": "EXACT"
   },
   "Melanoides tuberculata": {
@@ -15287,6 +15383,13 @@
   },
   "Melanotaenia herbertaxelrodi": {
     "canonicalName": "Melanotaenia herbertaxelrodi",
+    "order": "Atheriniformes",
+    "family": "Melanotaeniidae",
+    "genus": "Melanotaenia",
+    "matchType": "EXACT"
+  },
+  "Melanotaenia irianjaya": {
+    "canonicalName": "Melanotaenia irianjaya",
     "order": "Atheriniformes",
     "family": "Melanotaeniidae",
     "genus": "Melanotaenia",
@@ -15427,6 +15530,13 @@
     "genus": "Mesonoemacheilus",
     "matchType": "EXACT"
   },
+  "Mesonoemacheilus petrubanarescui": {
+    "canonicalName": "Nemacheilus petrubanarescui",
+    "order": "Cypriniformes",
+    "family": "Nemacheilidae",
+    "genus": "Nemacheilus",
+    "matchType": "EXACT"
+  },
   "Mesonoemacheilus remadevii": {
     "canonicalName": "Mesonoemacheilus remadevii",
     "order": "Cypriniformes",
@@ -15441,6 +15551,7 @@
     "genus": "Nemacheilus",
     "matchType": "EXACT"
   },
+  "Metaloricaria has": null,
   "Metaloricaria nijsseni": {
     "canonicalName": "Metaloricaria nijsseni",
     "order": "Siluriformes",
@@ -16403,6 +16514,7 @@
   "Natur und": null,
   "Naturelle des": null,
   "Naturgeschichte der": null,
+  "Nebenflusse des": null,
   "Neblinichthys pilosus": {
     "canonicalName": "Neblinichthys pilosus",
     "order": "Siluriformes",
@@ -18209,6 +18321,13 @@
   "Pantanal eartheater": null,
   "Pantanal wetland": null,
   "Pantanal wetlands": null,
+  "Pantanodon podoxys": {
+    "canonicalName": "Pantanodon stuhlmanni",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Pantanodon",
+    "matchType": "EXACT"
+  },
   "Pao baileyi": {
     "canonicalName": "Pao baileyi",
     "order": "Tetraodontiformes",
@@ -18474,6 +18593,13 @@
   },
   "Parambassis notatus": {
     "canonicalName": "Parambassis ranga",
+    "order": "Perciformes",
+    "family": "Ambassidae",
+    "genus": "Parambassis",
+    "matchType": "EXACT"
+  },
+  "Parambassis pulcinella": {
+    "canonicalName": "Parambassis pulcinella",
     "order": "Perciformes",
     "family": "Ambassidae",
     "genus": "Parambassis",
@@ -19647,6 +19773,7 @@
   },
   "Poecilien mit": null,
   "Poeciliid livebearers": null,
+  "Poecilobrycon eigenmanni": null,
   "Poecilocharax weitzmani": {
     "canonicalName": "Poecilocharax weitzmani",
     "order": "Characiformes",
@@ -20987,6 +21114,13 @@
     "genus": "Pethia",
     "matchType": "EXACT"
   },
+  "Puntius oligolepis": {
+    "canonicalName": "Oliotius oligolepis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Oliotius",
+    "matchType": "EXACT"
+  },
   "Puntius orphoides": {
     "canonicalName": "Systomus orphoides",
     "order": "Cypriniformes",
@@ -21356,6 +21490,13 @@
     "genus": "Rasbora",
     "matchType": "EXACT"
   },
+  "Rasbora hubbsi": {
+    "canonicalName": "Rasbora hubbsi",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Rasbora",
+    "matchType": "EXACT"
+  },
   "Rasbora jacobsoni": {
     "canonicalName": "Rasbora jacobsoni",
     "order": "Cypriniformes",
@@ -21628,6 +21769,13 @@
   "Ratchasima provinces": null,
   "Rathbari thu": null,
   "Rau xanh": null,
+  "Redigobius balteaus": {
+    "canonicalName": "Redigobius balteatus",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Redigobius",
+    "matchType": "FUZZY"
+  },
   "Regani orinoco": null,
   "Reganochromis calliurus": {
     "canonicalName": "Reganochromis calliurus",
@@ -22419,6 +22567,13 @@
     "genus": "Sciades",
     "matchType": "EXACT"
   },
+  "Sciaenochromis fryeri": {
+    "canonicalName": "Sciaenochromis fryeri",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Sciaenochromis",
+    "matchType": "EXACT"
+  },
   "Sciences researcharchive": null,
   "Scindapsus pictus": {
     "canonicalName": "Scindapsus pictus",
@@ -22545,6 +22700,7 @@
     "genus": "Semaprochilodus",
     "matchType": "EXACT"
   },
+  "Semilabeoina comprises": null,
   "Sentani chung": null,
   "Sepotuba empties": null,
   "Serpenticobitis zonata": {
