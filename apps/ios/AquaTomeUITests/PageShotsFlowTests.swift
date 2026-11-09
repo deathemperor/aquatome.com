@@ -34,6 +34,8 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
   func testTheOwnersDashboardInTheDark() { shootOwner("owner-dark", section: nil, dark: true) }
   func testTheOwnersDashboardInTheLargestText() { shootOwner("owner-largest", section: nil, size: largest) }
+  /// The needs rows at the largest text, from the Needs you tile, which scrolls to them.
+  func testTheOwnersNeedsInTheLargestText() { shootOwner("owner-needs-largest", section: nil, size: largest, tile: "needs", screens: 3) }
   func testTheOwnersDashboardWithNothingToDo() { shootOwner("owner-all-clear", section: nil, more: ["-owner-overview", "dashboard: nothing needs you"]) }
   func testTheDailyReportsDelivery() { shootOwner("owner-bell-light", section: nil, bell: true) }
   func testAnOwnersSection() { shootOwner("owner-section-light", section: "Calls and keys") }
@@ -363,7 +365,7 @@ final class PageShotsFlowTests: XCTestCase {
   /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
   /// `shows`: what the section has once it's loaded.
   private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart", dark: Bool = false, size: String? = nil,
-                          more: [String] = [], bell: Bool = false) {
+                          more: [String] = [], bell: Bool = false, tile: String? = nil, screens: Int? = nil) {
     let app = launch(dark: dark, size: size, XCUIApplication.standInOwner + more)
     app.openAccount()
     app.signInWithStandInApple()
@@ -373,12 +375,13 @@ final class PageShotsFlowTests: XCTestCase {
       app.openOwnersSection(section)
       XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
     }
+    if let tile { app.buttons["owner-tile-" + tile].tap() }
     if bell {
       app.buttons["owner-bell"].tap()
       XCTAssertTrue(app.switches["owner-email"].waitForExistence(timeout: 10), "the bell's sheet didn't open")
     }
     // The sheet: its one screen, no end to find.
-    capture(app, name, dark: dark, large: size != nil || bell, screens: bell ? 1 : size != nil ? 30 : 16)
+    capture(app, name, dark: dark, large: size != nil || bell, screens: screens ?? (bell ? 1 : size != nil ? 30 : 16))
   }
 
   /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.
