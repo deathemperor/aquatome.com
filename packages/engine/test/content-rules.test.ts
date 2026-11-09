@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
   renameStored, renameSwapped, swappedNames, titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -523,4 +523,29 @@ test('two Vietnamese syllables written as one word are found; one syllable, loan
   expect(found(p('vi', '<p>Que thử đa chỉtiêu.</p><ul><li>có</li><li>Mức độ</li></ul>'), 'glued')).toEqual(['"chỉtiêu"'])
   expect(found(p('vi', 'Sống bầy đàn: cóMức độ hoạt động'), 'glued')).toEqual(['"cóMức"']) // text with no tags at all
   expect(found(p('id', '<p>chỉtiêu</p>'), 'glued')).toEqual([])
+})
+
+// 2026-11-10: "Độ khó: 7/8 (khó)" stood beside a card and a summary of 6/8. Seriously Fish's "Difficulty 7 of 8 measures"
+// counts what it could rate, and the card reads the rating from the word under it.
+test('a Seriously Fish count of measures written as a difficulty takes the card\'s figure, in each language and form; the word and the reason stay', () => {
+  expect(sfScoreFixed('<ul><li><strong>Difficulty:</strong> 7 of 8 (difficult), because it needs a long tank.</li></ul>', 'en', 6)).toBe('<ul><li><strong>Difficulty:</strong> 6 of 8 (difficult), because it needs a long tank.</li></ul>')
+  expect(sfScoreFixed('<li>Difficulty: Difficult (5 of 8 measures); rated difficult</li>', 'en', 6)).toBe('<li>Difficulty: Difficult (6 of 8); rated difficult</li>')
+  expect(sfScoreFixed('<li><strong>Độ khó:</strong> trung bình (6/8), vì cá cần bể đã chạy lâu</li>', 'vi', 4)).toBe('<li><strong>Độ khó:</strong> trung bình (4/8), vì cá cần bể đã chạy lâu</li>')
+  expect(sfScoreFixed('<li>Độ khó: Khó (5/8 tiêu chí), vì cần bể dài</li>', 'vi', 6)).toBe('<li>Độ khó: Khó (6/8), vì cần bể dài</li>')
+  expect(sfScoreFixed('<p>Nhiệt độ: 22–30°C. Độ khó: 5/8 (khó). Cá lớn nhanh.</p>', 'vi', 6)).toBe('<p>Nhiệt độ: 22–30°C. Độ khó: 6/8 (khó). Cá lớn nhanh.</p>')
+  expect(sfScoreFixed('<li>Tingkat kesulitan: 5 dari 8 (sulit)</li>', 'id', 6)).toBe('<li>Tingkat kesulitan: 6 dari 8 (sulit)</li>')
+  expect(sfScoreFixed('<li><strong>ความยากในการเลี้ยง:</strong> 7 จาก 8 (ยาก)</li>', 'th', 6)).toBe('<li><strong>ความยากในการเลี้ยง:</strong> 6 จาก 8 (ยาก)</li>')
+  expect(sfScoreFixed('<li>Tahap kesukaran: 5 daripada 8</li>', 'ms', 4)).toBe('<li>Tahap kesukaran: 4 daripada 8</li>')
+  // No count, another figure, or the figure already right.
+  for (const html of ['<li>Difficulty: moderate</li>', '<li>Max size: 1 / 8 in</li>', '<li>Difficulty: 4 of 8 (moderate)</li>', '<li>Difficulty: moderate.</li><li>Tank: 3 of 8 shelves</li>']) expect(sfScoreFixed(html, 'en', 4)).toBe(html)
+})
+
+test('the count of measures is found only on a Seriously Fish line whose card has its figure, and the sweep is held to it', () => {
+  const rule = RULES.find(r => r.id === 'sf-count')!
+  const ctx: Ctx = { genera: new Set(), species: new Set() }
+  const fields = [{ field: 'sections.quickFacts:seriouslyfish', html: '<li>Độ khó: 7/8 (khó)</li>' }]
+  expect(rule.check(page({ kind: 'species', fields, card: [{ field: 'difficulty', source: 'seriouslyfish', value: 6 }] }), ctx)).toHaveLength(1)
+  expect(rule.check(page({ kind: 'species', fields, card: [{ field: 'difficulty', source: 'glaser', value: 6 }] }), ctx)).toEqual([])
+  expect(rule.check(page({ kind: 'species', fields: [{ field: 'sections.quickFacts:glaser', html: '<li>Độ khó: 7/8 (khó)</li>' }], card: [{ field: 'difficulty', source: 'seriouslyfish', value: 6 }] }), ctx)).toEqual([])
+  expect(ratcheted([{ rule: 'sf-count', page: page({ kind: 'species' }), detail: 'x' }])).toHaveLength(1)
 })
