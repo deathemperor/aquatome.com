@@ -21,9 +21,15 @@ gets it. The owner gets it first, alone: chat is on for the owner's account only
 
 ## Round 27, fixed in the build
 
-1. **The pause after the text.** After the last piece, Claude still writes the cards and suggestions, and the Worker
-   saves before `done`: 1–2 s in which the answer looks finished and nothing moves. If no piece comes for 0.3 s before
-   `done`, the wait's spinner (no words) shows under the last line. The first card takes its place.
+1. **The pause after the text.** After the last piece, Claude still writes the cards and suggestions (0.82 s at the
+   median, 1.09 s at the 90th percentile, timed by the AI Lead on 116 questions), and the Worker saves before `done`.
+   For that time the answer looks finished and nothing moves. The rule covers any silence before `done`:
+   - When 0.3 s pass with nothing new, the wait's spinner (no words) shows under the last thing drawn.
+   - Whatever comes next takes its place: a card, or the suggestions.
+   - The spinner goes for good at `done`, and send stays greyed until then.
+
+   The Worker will shorten the silences by sending each card as Claude writes it, and `done` once the turn is saved, in
+   the same order.
 2. **Numbered steps while the text streams.** A piece can end on "\n2." (Claude's own pieces). While the text streams,
    a last line that is only a number, with or without its full stop, waits for the next piece before it's drawn, so it
    never flicks from a paragraph to a step (`Chat.paragraphs`).
@@ -36,7 +42,8 @@ gets it. The owner gets it first, alone: chat is on for the owner's account only
 6. **The steps folding as the text starts.** Their row is clipped while it closes, so the fading steps never paint over
    the first line.
 7. **An answer cut off after its text began** keeps "Câu hỏi này không bị tính.". The Worker gives the question back
-   for any error once text has gone out (the AI Lead), so the line holds: only a finished answer counts.
+   for any error once text has gone out, the failed path included (with #939), so the line holds: only a finished
+   answer counts. An answer that failed before any text came still counts, as the contract says.
 
 ## Pictures
 
