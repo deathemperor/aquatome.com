@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "carassius-auratus",
-    "scleropages-formosus"
+    "scleropages-formosus",
+    "osteoglossum-bicirrhosum"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "tCBEjxXYv6o",
     "title": "HOW TO: Build an AQUARIUM overflow weir - GOLDFISH aquarium",
@@ -30,43 +31,148 @@
     "transcribed": true,
     "taxa": [
       "Carassius auratus",
-      "Scleropages formosus"
+      "Osteoglossum bicirrhosum"
     ],
     "gear": [
       {
         "category": "be-ca",
         "type": "lon",
         "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 120
       }
     ],
     "figures": [
       {
-        "heading": "Cắt răng trên mica",
-        "moments": [],
+        "heading": "Overflow và weir khác nhau thế nào",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng máy khoan và mũi khoét để khoan thành bên của bể.",
+            "sharpness": 201.7
+          },
+          {
+            "t": 35,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai lỗ khoan trên thành bể gắn ống overflow bằng inox.",
+            "sharpness": 511.5
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao cần làm weir khi đổi cá",
+        "moments": [
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nuôi cá rồng với mực nước cao, ống xả gắn bên thành.",
+            "sharpness": 100.1
+          },
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Co ABS cắt một bên, lắp ngửa lên ở đầu ống xả trong bể rồng.",
+            "sharpness": 269.5
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/tCBEjxXYv6o/p4-YWJsZV9TYXcuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/tCBEjxXYv6o/p4-YWJsZV9TYXcuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/tCBEjxXYv6o/p1-hfQ2Fycm90LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/tCBEjxXYv6o/p1-hfQ2Fycm90LmpwZw-480.webp",
           "width": 960,
-          "height": 740,
-          "licence": "CC BY-SA 4.0",
-          "author": "Prototype Engineer",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1-Inch_Micro_Table_Saw.jpg",
-          "caption": "Bàn cưa tự chế có thanh cữ chặn, dùng để cắt rãnh đều nhau."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ry362",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fantail_Goldfish_Carrot.jpg",
+          "caption": "Một chú cá vàng đang bơi trong bể nuôi."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/tCBEjxXYv6o/p7-mYXJld2VsbC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/tCBEjxXYv6o/p7-mYXJld2VsbC5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "AJ Gray",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goodbye_the_long_goldfish_tank_farewell.jpg",
-          "caption": "Bể cá vàng có hộp tràn với các khe răng ở hai bên."
-        }
+        "heading": "Tính kích thước hộp",
+        "moments": [
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp tràn tự làm có chiều rộng đủ để thò tay vào phía sau.",
+            "sharpness": 33.8
+          },
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp tràn màu đen đã xẻ răng đều để nước chảy qua.",
+            "sharpness": 82.1
+          }
+        ]
+      },
+      {
+        "heading": "Tính khe răng theo lưu lượng",
+        "moments": [
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm nhựa đen có hàng khe răng đều nhau, nhìn thẳng từ trên xuống.",
+            "sharpness": 228
+          },
+          {
+            "t": 300,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầm tấm răng lên để thấy rõ độ rộng từng khe.",
+            "sharpness": 156.7
+          }
+        ]
+      },
+      {
+        "heading": "Chiều cao và khoảng cách răng",
+        "moments": [
+          {
+            "t": 335,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm acrylic đen đã cắt các khe răng đều nhau trên bàn cưa.",
+            "sharpness": 526.8
+          }
+        ]
+      },
+      {
+        "heading": "Cắt răng và uốn mica",
+        "moments": [
+          {
+            "t": 260,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đẩy tấm mica vào lưỡi cưa trên bàn cưa, có thanh gỗ chặn.",
+            "sharpness": 885.1
+          },
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/tCBEjxXYv6o/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm mica đã được cắt nhiều khe song song trên bàn cưa.",
+            "sharpness": 413
+          }
+        ]
       }
     ]
   }

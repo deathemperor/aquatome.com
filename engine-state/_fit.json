@@ -53435,7 +53435,7 @@
     ]
   },
   "vi/guides/youtube-7l1Ja0NL_UQ": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "52b416ea3da7d9e5",
     "model": "opus",
     "checklist": 3,
@@ -53444,43 +53444,72 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Nếu ngoài trời có tuyết mà nước trong chậu vẫn ở khoảng 5,5–7°C thì rất đáng.",
-        "why": "Snow and near-freezing outdoor water describe a cold-winter country, not Vietnam.",
+        "why": "Snow and near-freezing outdoor tubs are a cold-country winter, not the reader's climate.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
         "quote": "Nếu cả hệ thống chỉ giữ nước 0°C thay vì khoảng -1°C",
-        "why": "Outdoor tubs freezing near 0°C is not a winter a keeper in Vietnam faces.",
+        "why": "Water freezing outdoors assumes a climate with sub-zero winters.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "elsewhere",
         "part": "P1",
-        "quote": "Chậu cá vàng đang được dùng làm đối chứng nên bỏ nắp ra.",
-        "why": "Refers to the source writer's own tubs as if the reader knew them.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Muốn cá qua mùa lạnh ngoài trời, các chậu đang được thử cùng lúc mấy cách sau:",
-        "why": "Describes the original writer's ongoing experiment on their own tubs.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Kết quả là phải in thêm miếng khác. Mỗi bộ ke cho một chậu mất khoảng 30 giờ in",
-        "why": "First-hand story of the source's own 3D-printed brackets.",
+        "quote": "Phòng cá đã sưởi cả phòng",
+        "why": "A centrally heated fish room is a cold-country habit given as the reader's own.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "Tấm rộng 61 cm mà ê ke chỉ dài khoảng 30 cm",
-        "why": "61 cm and 30 cm are converted from 2 ft and a 12-inch square.",
+        "why": "61 cm and 30 cm are converted 2 ft and 12 inch figures.",
         "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Chậu rộng khoảng 71 cm",
+        "why": "71 cm is a converted 28-inch figure.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ở hai chậu lại hụt khoảng 2,5 cm",
+        "why": "2.5 cm is a converted one-inch figure.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chậu cá vàng đang được dùng làm đối chứng nên bỏ nắp ra.",
+        "why": "Refers to the source author's own tubs as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "hôm đó có người đứng lom khom trên chậu cả buổi để lắp nắp",
+        "why": "The source writer's own story about their tubs.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Mỗi bộ ke cho một chậu mất khoảng 30 giờ in, nên làm sai một lần là chậm cả tuần.",
+        "why": "The source writer's own 3D-printing project, told as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "tấm lợp nhà kính rỗng hai lớp (twin wall polycarbonate)",
+        "why": "Calque of 'twin wall'; Vietnamese buyers call it hollow polycarbonate sheet.",
+        "by": "model",
+        "fix": "tấm poly rỗng ruột / tấm lấy sáng polycarbonate rỗng"
       }
     ],
     "products": []
@@ -63485,7 +63514,7 @@
     ]
   },
   "vi/guides/youtube-LU_y6OK2qK0": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "b4426e43adb399c4",
     "model": "opus",
     "checklist": 3,
@@ -63494,14 +63523,14 @@
         "check": "price",
         "part": "P1",
         "quote": "Kessil A360 có giá khoảng 400 USD",
-        "why": "Price given in US dollars, a foreign currency.",
+        "why": "Price given in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "| khoảng 52 USD",
-        "why": "Table of lamp prices in US dollars from the source's market.",
+        "quote": "khoảng 52 USD",
+        "why": "Floodlight prices listed in US dollars.",
         "by": "model"
       },
       {
@@ -63521,15 +63550,15 @@
       {
         "check": "price",
         "part": "P1",
-        "quote": "mong chiếu sáng hết với 50 USD là không thực tế",
-        "why": "Budget stated in US dollars.",
+        "quote": "Bể dài cỡ 1,8 m mà mong chiếu sáng hết với 50 USD là không thực tế.",
+        "why": "Budget given in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L1",
         "quote": "chi phí chỉ khoảng 50–60 USD",
-        "why": "Cost in US dollars in the summary.",
+        "why": "Cost in US dollars.",
         "by": "model"
       },
       {
@@ -63543,66 +63572,51 @@
         "check": "source",
         "part": "P1",
         "quote": "giá tham khảo lúc làm như sau",
-        "why": "Refers to the time the source author made the build.",
+        "why": "Refers to the time the original author built it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Trong hướng dẫn, hộp làm từ gỗ ép thừa có kích thước bằng chân bể.",
-        "why": "Describes the source's own build and stand.",
+        "why": "Describes the source author's own build and tank stand.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Bể này vốn cũng chỉ chạy Kessil ở mức đó.",
-        "why": "Refers to the source author's tank.",
+        "why": "Refers to the source's own tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "bể trong hướng dẫn đang chạy khoảng 2 watt cho mỗi 3,8 lít",
-        "why": "Refers to the original guide's tank the reader never saw.",
+        "why": "Refers to the source author's tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Thử trên một bể cá vàng đang dùng thanh LED 40W dài 1,2 m",
-        "why": "The source author's own trial told as if the reader knew those tanks.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "L10",
-        "quote": "Bể trồng cây trong hướng dẫn chạy khoảng 0,5 watt mỗi lít nước.",
-        "why": "Refers to the original guide's tank.",
+        "why": "The source author's own trial, told as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "Tính đèn theo số watt trên mỗi 3,8 lít thường không chính xác.",
-        "why": "3,8 litres is a converted US gallon (the watts-per-gallon rule).",
+        "why": "3.8 litres is a converted US gallon.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Không có máy đo quang hợp thì có thể đo tạm bằng máy đo lux",
-        "why": "Literal rendering of a PAR meter; Vietnamese keepers call it a PAR meter.",
-        "by": "model",
-        "fix": "máy đo PAR"
-      },
-      {
-        "check": "words",
-        "part": "P1",
         "quote": "Bọc mối nối bằng băng co nhiệt cho gọn và đẹp.",
-        "why": "Heat-shrink is called ống/gen co nhiệt in Vietnam, not tape.",
+        "why": "Heat-shrink is called a tube, not tape, in Vietnam.",
         "by": "model",
-        "fix": "ống gen co nhiệt"
+        "fix": "ống co nhiệt"
       }
     ],
     "products": [
@@ -65695,58 +65709,80 @@
     "products": []
   },
   "vi/guides/youtube-Omxb5ByqLMs": {
-    "at": "2026-11-08",
-    "hash": "fa5e226062b3cc19",
+    "at": "2026-11-09",
+    "hash": "4b1027213f4cd2cf",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Phần lớn con có giá hàng nghìn USD, và con rẻ nhất cũng đã vài trăm USD.",
-        "why": "Prices for the reader's purchase are given in US dollars, not Vietnamese dong.",
+        "quote": "người ta thấy \"cá rồng châu Á\" ngoài tiệm giá chỉ 100 USD",
+        "why": "A shop price in US dollars, written for a reader shopping in the US.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Một con cá rồng châu Á thật không bao giờ có giá khoảng 100 USD.",
-        "why": "The price test for spotting a fake is set in US dollars and fits US shops.",
+        "quote": "Loài này thường có giá hàng nghìn USD, con rẻ nhất cũng phải vài trăm.",
+        "why": "The price is in a foreign currency, not Vietnamese đồng.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Người muốn mở trại phải bỏ ra hàng nghìn, thậm chí hàng chục nghìn USD chỉ để bắt đầu.",
-        "why": "The cost of starting a farm is given in US dollars.",
+        "quote": "Chỉ riêng tiền bắt đầu đã tốn hàng nghìn USD trở lên.",
+        "why": "The cost is given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "tiền bắt đầu",
+        "why": "A calque of 'start-up cost'; Vietnamese says 'vốn ban đầu'.",
+        "by": "model",
+        "fix": "vốn ban đầu"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Hàng nghìn USD, có con bán 200.000–300.000 USD",
+        "why": "The table gives prices in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "koi thường ngoài tiệm có khi chỉ 5 USD",
-        "why": "A shop price in US dollars that describes US pet shops.",
+        "quote": "Có khi chỉ 1.000–3.000 USD",
+        "why": "The table gives prices in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
-        "part": "L3",
-        "quote": "Một con cá rồng châu Á thật không bao giờ có giá khoảng 100 USD, con rẻ nhất cũng đã vài trăm USD.",
-        "why": "The summary repeats the reader's price guide in US dollars.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "L9",
-        "quote": "Phần lớn con có giá hàng nghìn USD, con rẻ nhất cũng vài trăm USD.",
-        "why": "The FAQ answers the price question in US dollars.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
         "part": "P1",
-        "quote": "Nếu bạn thấy cá rồng châu Á trong một thủy cung ở Mỹ",
-        "why": "It addresses the reader as someone who visits public aquariums in the US.",
+        "quote": "ra tiệm vẫn mua được koi giá 5 USD tùy chất lượng",
+        "why": "A local shop price in US dollars, as if the reader's own shop.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L4",
+        "quote": "con bán 100 USD ngoài tiệm chắc là ngân long, hắc long hoặc Scleropages jardinii",
+        "why": "A shop price in US dollars, written for a US shopper.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L6",
+        "quote": "Thấy tiệm bán cá rồng châu Á giá khoảng 100 USD thì có phải hàng thật không?",
+        "why": "The FAQ assumes the reader's shop prices are in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L7",
+        "quote": "Cá rồng châu Á thật thường giá hàng nghìn USD, con rẻ nhất cũng vài trăm",
+        "why": "The price is in a foreign currency.",
         "by": "model"
       }
     ],
@@ -67924,7 +67960,7 @@
     "products": []
   },
   "vi/guides/youtube-SAO9fY_5ATA": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "5e48eb88a1da7646",
     "model": "opus",
     "checklist": 3,
@@ -67932,37 +67968,36 @@
       {
         "check": "units",
         "part": "P1",
-        "quote": "mũi phay ăn xuống khoảng 3,8 cm tính từ mép tấm",
-        "why": "3.8 cm is a converted 1.5 inch measurement.",
+        "quote": "Khe hở nên rộng chừng 2,5–5 cm và phải chạy đều trên cả bốn vách.",
+        "why": "2.5–5 cm is a conversion of 1–2 inches, not a figure a Vietnamese builder would choose.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "Khe hở nên rộng chừng 2,5–5 cm và phải chạy đều trên cả bốn vách.",
-        "why": "2.5–5 cm is a converted 1–2 inch range.",
+        "quote": "mũi phay ăn xuống khoảng 3,8 cm tính từ mép tấm",
+        "why": "3.8 cm is 1.5 inches converted.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "L8",
         "quote": "Khoét khe hở rộng khoảng 2,5–5 cm chạy quanh cả bốn vách",
-        "why": "Converted 1–2 inch range repeated in the FAQ.",
+        "why": "Converted from 1–2 inches.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Chân đế chỉ cần một khung gỗ 2x4 bọc ván thông",
-        "why": "\"2x4\" is the US lumber size in inches, not used in Vietnam.",
-        "by": "model",
-        "fix": "gỗ thanh 5×10"
       },
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Bể này không gắn sưởi, nên chỉ hợp với loài sống tốt ở nhiệt độ phòng như cá vàng.",
-        "why": "Assumes a cold-climate home; in Vietnam room temperature suits many tropical fish without a heater.",
+        "quote": "Chân đế chỉ cần một khung gỗ 2x4 bọc ván thông",
+        "why": "2x4 is a US lumber size, written as if the reader buys timber that way.",
+        "by": "model"
+      },
+      {
+        "check": "shop",
+        "part": "P1",
+        "quote": "keo dán mica dạng lỏng (Weldon 4) với chai bơm đầu kim",
+        "why": "Weldon is a US acrylic cement brand, given as the glue to buy.",
         "by": "model"
       }
     ],
@@ -69038,44 +69073,23 @@
     "sourceRead": false
   },
   "vi/guides/youtube-tCBEjxXYv6o": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "2ff71e1f38555964",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P1",
-        "quote": "chiều dài là 3 × 2 × 5 cm, tức khoảng 30 cm",
-        "why": "The example names a phi 60 pipe but calculates with 5 cm, a 2-inch pipe carried over from the imperial original.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Khoảng 190 lít/giờ",
-        "why": "190 L/h for a 1.3 cm slot is a converted 50 gph per half-inch slot; nobody here would use these figures.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Nước dâng trên răng chỉ nên từ 6 mm đến 1,3 cm.",
-        "why": "6 mm–1.3 cm is a converted ¼–½ inch range.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
+        "part": "P6",
         "quote": "Khoảng cách giữa các răng khoảng 1,3–2,5 cm",
-        "why": "1.3–2.5 cm is a converted ½–1 inch spacing.",
+        "why": "The 1.3–2.5 cm spacing is ½–1 inch converted; nobody in Vietnam measures that way.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P1",
-        "quote": "Nước nên đổ xuống bên trong hộp một đoạn chừng 2,5 cm.",
-        "why": "2.5 cm is a converted 1-inch drop.",
+        "part": "P5",
+        "quote": "Nước dâng trên răng chỉ nên từ 6 mm đến 1,3 cm.",
+        "why": "The 6 mm–1.3 cm range is ¼–½ inch converted, as are the 1.3 cm slot and 190 L/h (50 gph) figures.",
         "by": "model"
       }
     ],
@@ -72121,30 +72135,37 @@
     "products": []
   },
   "vi/guides/youtube-yfiUqZ8IZU4": {
-    "at": "2026-11-08",
-    "hash": "6f058564c56d524d",
+    "at": "2026-11-09",
+    "hash": "319eb6b749c71b13",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Trong bể có ít nhất ba cặp đã ra cá con.",
-        "why": "This describes the source's own tank as if the reader knew it.",
+        "quote": "Đàn cá ở đây được nuôi cách ly khoảng một tháng, trong lúc bể chính được làm xong.",
+        "why": "Tells the source keeper's own fish story as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở đây dùng ba cỡ khoảng 2,5 cm, 4 cm và 5 cm",
-        "why": "'Ở đây dùng' points to the source's own setup.",
+        "quote": "Bể này dùng chừng 100 vỏ.",
+        "why": "Refers to the source's own tank as if the reader knew it.",
         "by": "model"
       },
       {
-        "check": "units",
+        "check": "source",
         "part": "P1",
-        "quote": "ba cỡ khoảng 2,5 cm, 4 cm và 5 cm",
-        "why": "These shell sizes are 1, 1.5 and 2 inches converted to centimetres.",
+        "quote": "Ở bể này, khoảng vài tuần sau khi thả, đàn cá đã ổn định và bắt đầu đẻ.",
+        "why": "Reports results from the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L5",
+        "quote": "Ở bể này, khoảng vài tuần sau đã có ít nhất ba cặp đẻ ra cá con.",
+        "why": "Summary refers to the source's own tank.",
         "by": "model"
       }
     ],
@@ -73713,74 +73734,46 @@
     ]
   },
   "vi/guides/youtube-zYfpvGHYlxQ": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "cb717e65ed285ad6",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P3",
+        "part": "P1",
         "quote": "người làm hàn một khung bao quanh, chạy hai lượt",
-        "why": "Refers to the original builder's own build as if the reader knew them.",
+        "why": "Refers to the original builder from the source video/article as if the reader knew them.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/guides/youtube-zyRJxo5Xn_4": {
-    "at": "2026-11-08",
-    "hash": "fc945347c9b867a3",
+    "at": "2026-11-09",
+    "hash": "334c460ab3b530bb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "gạch men có giá tầm 1 USD mỗi foot vuông",
-        "why": "The tile price is in US dollars, which only makes sense abroad.",
+        "quote": "mua lúc giảm giá khoảng 1 đô la mỗi foot vuông (chừng 11 đô mỗi m²), cả đáy bể chỉ tốn khoảng 36 đô",
+        "why": "Tile cost is given in US dollars per square foot, a foreign price and imperial unit.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "1 USD mỗi foot vuông (khoảng 0,09 m²)",
-        "why": "The square foot is an imperial unit, used here as the reader's unit.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Một bể cỡ 1.420 lít cần khoảng 3,3 m² gạch",
-        "why": "1,420 litres is a converted 375-gallon tank, a size nobody in Vietnam would give.",
+        "quote": "Ví dụ một bể 1.420 lít dùng hết khoảng 3,3 m² gạch",
+        "why": "1,420 litres is a converted 375-gallon tank, not a size anyone in Vietnam would name.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "tổng tiền chỉ khoảng 36 USD",
-        "why": "The total cost is in US dollars.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "một con dao cắt kính cầm tay loại khoảng 5 USD",
-        "why": "The tool price is in US dollars.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "L13",
-        "quote": "Gạch men mua lúc giảm giá khoảng 1 USD mỗi foot vuông",
-        "why": "The FAQ repeats the US dollar price per square foot.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L13",
-        "quote": "một bể cỡ 1.420 lít cần chừng 3,3 m² gạch, tức khoảng 36 USD",
-        "why": "The FAQ repeats the 1,420-litre tank size converted from gallons.",
+        "quote": "một con dao cắt kính cầm tay loại khoảng 5 đô cũng làm được",
+        "why": "Glass cutter price given in US dollars.",
         "by": "model"
       }
     ],
