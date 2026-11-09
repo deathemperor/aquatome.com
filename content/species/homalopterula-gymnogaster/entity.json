@@ -10,6 +10,109 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Lake Maninjau",
+        "Batang Hari",
+        "Danau Gunung Tujuh",
+        "Antokan",
+        "Bohorok"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Homalopterula gymnogaster is a hillstream loach from Sumatra, Indonesia, described from Lake Maninjau and recorded from Jambi province northwards.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Lake Maninjau"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the headwaters of the Batang Hari river this species has also been recorded at 1950 m AMSL, higher than any other balitorid in Sumatra, in Danau Gunung Tujuh, another caldera lake located at the border between Jambi and West Sumatra provinces in Kerinci Seblat National Park.",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Danau Gunung Tujuh"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Lake Meninju, Sumatra, Indonesia', currently known as Danau (lake) Maninjau, but conceivably the fish may have been obtained from the outflowing Antokan river rather on its western side than the lake itself.",
+          "countries": [],
+          "regions": [
+            "Antokan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional occurrence records are not extensive, but it appears to occur throughout much of the island with a range extending northwards from Jambi province at least as far as the Sungai (river) Bohorok in Karo Regency, North Sumatra province.",
+          "countries": [],
+          "regions": [
+            "Bohorok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9447940,
+      "total": 11,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          10
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          0,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          99.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,84 @@
+{
+  "id": "hyphessobrycon-acaciae",
+  "native": {
+    "input": "b06a5c4c9a5b13a6",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from streams and minor affluents within the middle-and-upper Río Guamal in Meta Department, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Guamal",
+        "source": "seriouslyfish",
+        "quote": "Known only from streams and minor affluents within the middle-and-upper Río Guamal in Meta Department, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "The Guamal is a tributary drainage within the upper Río Meta system which itself flows into the enormous Río Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The Guamal is a tributary drainage within the upper Río Meta system which itself flows into the enormous Río Orinoco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon acaciae",
+    "status": "ACCEPTED",
+    "taxonKey": 5962472,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "horadandia-atukorali",
+  "native": {
+    "input": "330d672bc8731765",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Sri Lanka and southern India where in the latter it's restricted to Kerala and Tamil Nadu states plus the Union State of Puducherry (formerly Pondicherry).",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Sri Lanka and southern India where in the latter it's restricted to Kerala and Tamil Nadu states plus the Union State of Puducherry (formerly Pondicherry).",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Vembanad Lake",
+        "source": "seriouslyfish",
+        "quote": "A subspecies, H. a. brittani, was described by Devi and Menon in 1992 from Pathiramanal Island, Vembanad Lake, Kerala but was brought into synonymy by Menon just a year later.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Horadandia atukorali",
+    "status": "ACCEPTED",
+    "taxonKey": 2366598,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ]
+    ],
+    "native": [
+      "LK",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

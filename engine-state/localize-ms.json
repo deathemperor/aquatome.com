@@ -122,6 +122,91 @@
       "Item 3: 'tebing' for 'marginal vegetation' is slightly off. Use 'tumbuhan tepian'."
     ]
   },
+  "acanthodoras-cataphractus": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Chocolate talking catfish",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 10: the source text ends mid-word ('caesews'), and the Malay ends at 'berhenti' without finishing the sentence. The translation is truncated and the final clause is incomplete. Complete it, for example 'berhenti selepas telur menetas', or flag the broken source.",
+      "Item 4: 'Ukuran dasar tangki ... 108 liter' is fine. Use the Malaysian spelling 'liter' or 'liter (L)' consistently. 'Isipadu' is acceptable.",
+      "Item 1/11: 'Chocolate talking catfish' and 'ikan keli doradid' are fine. For 'sisik keras infranuchal' (scute), consider 'skut' or 'plat tulang (scute)', since 'sisik keras' is awkward.",
+      "Item 11: 'lengkungan pelvis' for 'pelvic girdle' would be better as 'gelang pelvis'.",
+      "Item 11: 'kononnya' for 'ostensibly' implies doubt about the claim. Use 'dikatakan' or 'nampaknya' instead.",
+      "Item 11: 'boleh menembusi kulit manusia' for 'can break human skin' is a little strong. Use 'boleh mencederakan/menyebabkan kulit luka'.",
+      "Item 7: 'cacing tanah, sama ada seekor penuh atau dipotong' is awkward. Use 'cacing tanah utuh atau dipotong'.",
+      "Item 3: 'hutan paya bakau di pesisir' is OK. 'segenus Acanthodoras spinosissimus' is fine."
+    ]
+  },
+  "acanthodoras-spinosissimus": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Acanthodoras spinosissimus",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 10: the English ends mid-word ('caesews', a source truncation). The Malay ends 'berhenti' with no full stop. It is cut off, so the sentence is incomplete and the fact is lost. Flag it and complete or check the source.",
+      "Item 3: 'hutan paya bakau pesisir pantai' is clumsy. Use 'paya bakau pesisir'. 'Hutan' is an addition.",
+      "Item 3: 'spesies segenus Acanthodoras cataphractus' is awkward. Use 'Acanthodoras cataphractus yang segenus'.",
+      "Item 11: 'lengkung pelvis' for 'pelvic girdle' should be 'gelang pelvis'.",
+      "Item 11: 'sisik keras' for 'scute' is non-standard. Use 'skut' or 'sisik bertulang'.",
+      "Item 11: 'Ini merupakan perubahan besar daripada hipotesis terdahulu' is acceptable, but 'pasangan kumpulan saudara' for 'sister group pairing' is awkward. Use 'kumpulan saudara (sister group)'.",
+      "Item 5: 'tangki' appears where the English says 'set-up'. Use 'akuarium' for consistency with the rest of the text.",
+      "Item 1: 'Kekerasan air (GH)' labels dGH as GH. Keep it consistent, e.g. 'Kekerasan (dGH)'.",
+      "Item 7: 'makanan tablet kering' and 'tidak memilih makanan' are fine, but 'cacing tubifex' should be just 'Tubifex' to match the English trade name."
+    ]
+  },
+  "acanthopsoides-molobrion": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Dwarf horse-faced loach",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 11: 'SF member Mark Duffill' became 'seorang ahli komuniti, Mark Duffill' and 'Beliau'; ok, but 'pernah berjaya membiakkan A. sp. A01' overstates, since the English says he recovered a couple of fry, not that he bred the species in a documented way.",
+      "Item 5: 'Volume: ~54 litres' is kept as '~54 L'. 54 L is not rounded to the nearest 5 L (the source figure is already metric, so this is minor).",
+      "Item 12: 'eye ... fits into the head around 6 times' was rendered as 'diameter mata kira-kira 6 kali ganda dalam panjang kepala'. This adds the facts 'diameter' and 'panjang' and the wording is awkward; use 'muat kira-kira 6 kali dalam kepala'.",
+      "Item 12: 'emarginate' was rendered as 'bertakuk sedikit'. The fin is notched or forked, so use 'bertakuk' or 'berlekuk' without 'sedikit', which adds a degree.",
+      "Item 12: the diagnostic-character passage 'dorsal origin slightly postmedian ... inserted slightly before to over pelvic-fin origin' is awkward: 'pangkal sirip dorsal... bermula' is imprecise.",
+      "Items 2, 6, 9: 'tangki' is used for aquarium; 'akuarium' is the more common Malaysian term. Leaving 'loach' and 'cyprinid' without a gloss is acceptable, but 'territorial' rendered as 'terlalu mempertahankan kawasan' is stiff; use 'terlalu cenderung menjaga wilayah'.",
+      "Item 6: 'sluggish waters' became 'perairan yang tenang' and 'high flow rates' became 'aliran air yang terlalu kuat'. The 'terlalu' is added; use 'aliran air yang kuat'.",
+      "Item 4: 'hidup berkumpulan dengan saiz kumpulan yang berbeza-beza' is repetitive and awkward."
+    ]
+  },
+  "acanthopsoides-robertsi": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Dwarf Horseface Loach",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 12: 'Matanya agak besar, dengan panjang kepala lebih kurang 6 kali diameter mata' – English says the eye fits into the head ~6 times; the Malay is acceptable here, but the snout sentence 'panjang kepala biasanya lebih daripada 2.5 kali panjang muncung' is the reverse of the source's ratio logic; check it. It also contradicts the diagnosis's 'snout 2 to 2.5 in head'.",
+      "Item 12: 'pangkal sirip belakang sedikit di belakang titik tengah SL, bermula sedikit di hadapan hingga di atas pangkal sirip perut' is clumsy, and 'bermula' repeats the same idea. Rewrite so it says the dorsal origin is slightly past the midpoint of SL and sits slightly before to over the pelvic-fin origin.",
+      "Item 12: 'Spesies-spesies ini ditemui dalam koleksi muzium' – 'these' refers to the four species described by Siebert, but the Malay is ambiguous. 'dikutip' versus 'ditemui' is also inconsistent.",
+      "Item 1 and 3: 'dikutip' for 'collected' is a non-standard term. Use 'ditangkap' or 'dikumpulkan'.",
+      "Item 12: 'benua kecil India' – use 'benua kecil India' only with care; 'Subbenua India' is the more standard form.",
+      "Item 12: 'ikan stres' and 'stres' in items 6 and 12 are acceptable; 'pangkal batang ekor' is fine, but 'peduncle' is left in brackets in one place and not the other, so be consistent.",
+      "Item 11: 'seorang penghobi, Mark Duffill' replaces 'SF member'. The named person was kept, but the source-specific membership is dropped; this is minor.",
+      "Item 6 and 9: 'dideskripsikan' is Indonesian-leaning. Use 'diperihalkan' (Malaysian)."
+    ]
+  },
+  "acantopsis-dialuzona": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Horseface loach",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 12: 'slightly forked caudal-fin' rendered as 'sirip ekor yang sedikit bercabang dua' – fine, but 'jejari dorsal bercabang' fine; however 'sirip ekor bercabang dua atau bertakuk dalam' OK. Main issue: 'dorsal-fin origin anterior to pelvic-fin origin' rendered 'pangkal sirip' (base) – should be 'permulaan/asal sirip' (origin), meaning slightly changed.",
+      "Item 5: 'Volume: ~243 litres' translated as '~243 liter' – use Malaysian spelling 'liter' is acceptable, but the volume should be consistent; also 'Ukuran dasar... patut dijadikan saiz minimum' fine.",
+      "Item 9: 'ideally six should be the fewest' – the Malay says 'sebaiknya sekurang-kurangnya enam ekor' which is OK, but 'seekor sahaja' ('only a single specimen') is fine; no change needed except the reordering weakens the contrast.",
+      "Item 3: 'telah dihuraikan secara saintifik' for 'described to science' – use 'dihuraikan secara rasmi/dinyatakan sebagai spesies baharu' for clarity; 'Kecil kemungkinan peratusan yang ketara' is awkward – rephrase to 'Tidak mungkin sebahagian besar (jika ada) ikan dalam pasaran...'.",
+      "Item 6: 'daun kering' for 'leaf litter' acceptable; 'powerhead' fine. 'Tidak tahan terhadap pengumpulan' okay.",
+      "Item 12: 'Subbenua India' should be 'benua kecil India/Benua Kecil India'; 'Kemboja' fine.",
+      "Item 1: 'Kekerasan air (GH)' adds 'GH' label not in source (source says Hardness); drop '(GH)' or use 'dGH' only."
+    ]
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-06",
     "from": "2026-11-04",

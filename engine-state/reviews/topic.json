@@ -2992,5 +2992,144 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": [
+    {
+      "at": "2026-11-09T00:54:59Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"tinggi protein, tetapi setiap satu ada risikonya\" is a general claim. The facts give no protein figure for artemia or moina.",
+        "\"Bilas tubifex di bawah air mengalir\" is given as a basic step. The facts say this only partly reduces risk, and the guide's own later text says the same, so the framing is slightly inconsistent.",
+        "\"Cacing tubifex ... Moina (sejenis kutu air)\" is not stated in the facts.",
+        "\"Contohnya bagi ikan laut, artemia yang tidak diperkaya biasanya kurang berkesan untuk anak kuda laut\" turns the fact into a marine-fish example. The facts say only that unenriched Artemia generally does not work well for seahorse fry.",
+        "\"Warna ikan yang pudar ... Cacing tubifex yang berbaki di dasar tangki\" is a monitoring checklist. The facts do not give these as post-feeding signs to watch for.",
+        "\"Membiarkan moina membesar terlalu lama\" is listed as a mistake. The facts say only that Moina can quickly grow too large.",
+        "\"Tubifex ... boleh membiak dan menutupi dasar tangki\" says the worms breed. The facts say only that uneaten tubifex can become a pest that carpets the bottom.",
+        "\"Satu panduan penternak kuda laut\" and the \"Cacing darah ... sarung tangan\" tips are mostly supported. The 2/3 cup amount is attributed correctly, but \"air suam\" for \"lukewarm\" and \"hos pam udara\" are small paraphrases."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T00:54:59Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Mula dengan cuci cacing tubifex di bawah air mengalir\" and \"Pakai sarung tangan atau penyepit\": acceptable but intro says cacing is \"berkhasiat\" generally; minor generality.",
+        "\"Asingkan anak artemia daripada kulit telur dan telur yang tidak menetas sebelum diberi kepada ikan\": presented as a hatching step, but the facts give no such separation step; they only say separation is not always complete.",
+        "\"Ikut label produk yang anda beli untuk sukatannya\": the facts give no HUFA dose, so this is the writer's own rule. It is not a claim.",
+        "\"Anak artemia daripada telur tanpa kulit ... lebih mudah diasingkan\": loosely supported, since the facts only say decapsulated cysts avoid the shell-separation problem.",
+        "\"Ini mungkin alergi, dan ia agak biasa dalam kalangan pemelihara yang kerap mengendalikan cacing darah\" and \"Saya selalu bersin atau gatal\": sneezing is not listed as a symptom in the facts, and the \"quite common\" claim is a generalisation from an informal survey.",
+        "\"Kulit kosong ... boleh menyumbat perut anak ikan\": the facts say 'gut of the larvae', so 'perut' is a minor shift.",
+        "\"Artemia yang tidak diperkaya biasanya kurang berkesan untuk anak kuda laut\": supported, but the guide places it in a general freshwater guide without noting the scope."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/guides/aquatome-cach-chon-va-su-dung-may-loc-nuoc-loc-thung-cho-be-ca": [
+    {
+      "at": "2026-11-09T00:56:38Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"span yang sekurang-kurangnya lima inci pada setiap sisi\" - facts say five inches by five inches; this is consistent, fine.",
+        "\"Isi penapis dengan air baru sehingga penuh (priming)\" - facts only say prime with new water; \"sehingga penuh\" is a small embellishment.",
+        "\"Perhatikan penyakit bintik putih (white spot)\" - facts say ich; this is acceptable but adds a gloss.",
+        "\"berbau sangat busuk\" - facts say \"smelled badly\"; \"sangat\" slightly intensifies.",
+        "\"Penapis dan HOB... boleh juga menjalankan penapisan kimia jika perlu\" - the facts say chemical filtration is optional for aquariums in general, not that these filters can do it; this is a mild generalisation.",
+        "\"Bersihkan pendesak (impeller) dan rumahnya\" is listed under routine maintenance, but the facts give it only as a post-outage step; this is mildly out of context.",
+        "\"Seorang lagi teringat penapis yang mati lebih kurang 24 jam\" - consistent with the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T00:56:38Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Bakteria inilah yang memproses ammonia dan nitrit dalam kitaran nitrogen\" is not in the facts (general knowledge).",
+        "\"kira-kira 13 cm × 13 cm\" is a conversion of five inches; it is approximately fine but the number is added by the writer.",
+        "\"Buang enapan kotoran di dalam badan canister\" is listed as a routine cleaning step. The facts only warn against sludge build-up and give no such step.",
+        "\"Cara paling selamat ialah membilasnya dengan air akuarium\" is a slight overstatement beyond the facts.",
+        "\"Jika mahu air lebih jernih, letakkan pad penggilap\" gives a purpose (clearer water) that the facts do not state.",
+        "\"Jangka hayat canister dan HOB lebih kurang lima tahun\" is fine, but \"Canister baru ... selalunya mudah bocor\" turns \"tend to leak\" into a stronger claim.",
+        "\"Pad penggilap halus pula paling cepat tersumbat\" claims 'fastest', while the facts only say they clog fast.",
+        "\"Bilas dengan air akuarium ... masukkan ke dalam tangki bersama pam udara berbateri\" is acceptable. \"Satu laman sains akuarium\" is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": [
+    {
+      "at": "2026-11-09T00:25:25Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Artemia là tôm ngâm nước mặn\" – the facts never define artemia as brine shrimp living in salt water beyond calling it brine shrimp; mild general addition.",
+        "\"Trứng đã tách vỏ ... cất kín trong tủ lạnh không quá khoảng một tuần\" – the facts say they still work well for about a week, not a strict limit.",
+        "\"Trùn chỉ đã xả sạch bùn\" in the checklist – the facts say only that a strong stream washes off mud, not that worms can be fully cleaned.",
+        "\"Bo bo ... Daphnia\" and \"Moina lớn nhanh, chẳng mấy chốc\" – the facts say Moina can quickly grow too large; this is fine, but \"Làm vậy thì các mẻ nuôi không bị nhiễm tạp\" overstates the facts (they keep cultures free of contaminants).",
+        "\"Artemia, trùn chỉ, trùng huyết và bo bo là bốn loại đồ tươi hay dùng nhất\" – unsupported generality about popularity.",
+        "\"Trùng huyết vừa cỡ miệng cá\" in the checklist and \"đủ sáng\" are the writer's own rules with no basis in the facts.",
+        "\"cá bột ... vì phải lớn hơn chúng mới có men chitinase\" – the facts say fry develop chitinase later; the wording is close and acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T00:25:25Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Vớt bỏ vỏ trứng trước khi cho cá con ăn\" / \"Vớt ấu trùng ra, bỏ lại vỏ và trứng không nở\": the facts say decapsulated cysts avoid shells and that normal cysts cannot always be fully separated. They give no step for removing shells by harvesting.",
+        "\"liều theo nhãn sản phẩm bạn mua\": the facts give no HUFA dose (only Selco as an example). This is the writer's own rule rather than a claim, so it is minor.",
+        "\"Trùn chỉ nên xả dưới nước chảy mạnh trước khi cho ăn\" is presented as a firm recommendation. The facts say this only partly reduces risk, which the guide notes later.",
+        "\"Ở 25–28 °C, trứng nở sau khoảng 24 giờ\" in the FAQ ties the 24-hour hatch time to that temperature. The facts do not link them.",
+        "\"Đã có cá bột chết vì chuyện này\" is a loose generalisation of \"deaths in some post-larvae\". The guide also says the chitinase enzyme \"phải lớn hơn chúng mới có\", which is acceptable.",
+        "\"Moina ... tên tiệm ... Moina hợp với cá con nước ngọt\": the \"bo bo\" section is consistent with the facts. The \"Con lớn mà thả dày thì chúng nhảy liên tục\" detail is only a mild paraphrase of the source."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": [
+    {
+      "at": "2026-11-09T00:18:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Đá không sủi thì vẫn nên ngâm thử trong nước RO\" is advice from the facts, but the intro's \"các nguồn khuyên từ 5 đến 8 cm\" blends sources; the facts give 6–8 cm for heavily planted, and 5 cm minimum separately.",
+        "\"Đất trồng cây, than bùn, vermiculite, đất sét\" row lists peat twice, with different effects (peat softens water in an earlier row). This is only a minor inconsistency.",
+        "\"Cá hay bới đáy và cá đào nền\": the facts say \"scavenging and burrowing fish\". This is a loose rendering.",
+        "\"Dùng nền nham thạch cho cá đáy\" and the table row for lava rock: the facts say lava substrate has sharp edges. The table's \"Dữ kiện không nói\" for the water effect is fine.",
+        "\"Cát, sỏi và Manado không cần thay\": the facts say these need only regular siphoning, which is close. In the FAQ, \"Cát và sỏi thì không cần thay\" drops Manado, which is harmless.",
+        "\"Cá cầu vồng\" and \"cá đẻ con\" for seiryu: supported. \"Chất làm mềm nước của cùng hãng\": the facts name ADA 'be Soft', so this is a vague but supported paraphrase.",
+        "\"Cát mịn... Dữ kiện không nói\" and the stingray advice are supported. Overall there is a small generality in \"Nền có thể làm nước đổi theo\", and in the claim that peat or soil layers \"Cấp sắt và vi lượng\" for all listed items."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T00:18:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Cát mịn | Hạt nhỏ, mềm cho cá đáy\" – 'soft for bottom fish' is not in the facts.",
+        "\"Sỏi... nên không đổi nước\" and \"Sỏi, cát, đá đập vụn: các loại nền trơ\" – the facts say gravel is usually inert, but they don't say sand or crushed rock are inert.",
+        "\"Phân nền hạ pH và làm mềm nước\" is stated for all soils in the intro. The facts only support this for specific products (JBL, Tropica, ADA).",
+        "\"Phân nền làm nước đổi nhiều hơn cát sỏi, nhất là mấy tuần đầu\" – this comparison is not in the facts.",
+        "\"Trải cát mịn lên dây sưởi đáy\" – the facts give the Sansibar compatibility with heating cables, not a general rule about fine sand.",
+        "\"Dùng nền vôi... Nước sẽ cứng lên và pH tăng\" for Caridina shrimp – the facts say only that calcium carbonate rock is unsuitable. They give no such effect for the shrimp tank.",
+        "\"Chọn đúng loại thì cá và tép... sống trong đúng thứ nước chúng cần\" is a general claim not found in the facts.",
+        "\"Than bùn... Hợp với: Bể nước mềm\" and \"Lót dưới lớp cát hoặc sỏi trong bể thủy sinh\" for nutrient soil – the use cases are inferred. The facts don't state them as recommendations.",
+        "\"Chỉ cọ bằng nước\" – the facts say not to use soap, but they don't say to scrub with water only."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

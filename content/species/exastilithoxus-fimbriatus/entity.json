@@ -10,6 +10,63 @@
     "venezuela",
     "caroni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Caroni",
+        "Matacuni",
+        "Río Coquenan"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Coquenan, Venezuela",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Río Coquenan"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Caroni and Matacuni River basins in the Orinoco drainage.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Caroni",
+            "Matacuni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340009,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

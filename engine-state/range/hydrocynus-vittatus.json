@@ -1,0 +1,184 @@
+{
+  "id": "hydrocynus-vittatus",
+  "native": {
+    "input": "372d6a36203e7866",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African tiger fish, Hydrocynus vittatus, is a large predatory alestid found throughout Africa, from Egypt to South Africa.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African tiger fish, Hydrocynus vittatus, is a large predatory alestid found throughout Africa, from Egypt to South Africa.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout Africa, from Egypt to South Africa.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout Africa, from Egypt to South Africa.",
+        "words": "South Africa",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Most often seen in large lakes and rivers, including Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "sourcesOnly": [
+        "EG",
+        "ZA"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Hydrocynus vittatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356183,
+    "datasets": [
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        307
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        223
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        214
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        31
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        22
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        15
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        15
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        14
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        12
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        6
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        2
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "EG",
+      "ZA"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

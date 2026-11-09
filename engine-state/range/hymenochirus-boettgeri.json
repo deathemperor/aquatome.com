@@ -1,0 +1,73 @@
+{
+  "id": "hymenochirus-boettgeri",
+  "native": {
+    "input": "45491b7bb9317e4e",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hymenochirus boettgeri",
+    "status": "ACCEPTED",
+    "taxonKey": 2423973,
+    "datasets": [
+      [
+        "cece4fc2-1fec-4bb5-a335-7252548e3f0b",
+        21
+      ],
+      [
+        "85e8c69c-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "78f98484-a7ef-4e6c-8b51-7464f1209591",
+        2
+      ],
+      [
+        "861d3d64-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "64be02e0-0c64-11dd-84d1-b8a03c50a862",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8e479b8f-ac16-4bed-a11a-bc7e27c31663",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "be37983f-6c78-4a85-a4b6-ef724bbdcf16",
+        1
+      ],
+      [
+        "dedb57d0-ad00-48dd-938a-422223c2bfc3",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

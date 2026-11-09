@@ -1,0 +1,90 @@
+{
+  "id": "hypancistrus-debilittera",
+  "native": {
+    "input": "cef3de84809a22df",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hypancistrus debilittera occurs in the Rio Bita, a tributary of the Rio Meta in Colombia (Orinoco drainage).",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Venezuela: Upper Río Orinoco, between Puerto Ayacucho and San Fernando de Atabapo.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Hypancistrus debilittera occurs in the Rio Bita, a tributary of the Rio Meta in Colombia (Orinoco drainage).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Meta",
+        "source": "glaser",
+        "quote": "Hypancistrus debilittera occurs in the Rio Bita, a tributary of the Rio Meta in Colombia (Orinoco drainage).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Bita",
+        "source": "glaser",
+        "quote": "Hypancistrus debilittera occurs in the Rio Bita, a tributary of the Rio Meta in Colombia (Orinoco drainage).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Orinoco",
+        "source": "scotcat",
+        "quote": "Venezuela: Upper Río Orinoco, between Puerto Ayacucho and San Fernando de Atabapo.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypancistrus debilittera",
+    "status": "ACCEPTED",
+    "taxonKey": 2339302,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

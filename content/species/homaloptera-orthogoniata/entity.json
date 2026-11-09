@@ -12,6 +12,129 @@
     "malaysia",
     "rajang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Rajang",
+        "Baram",
+        "Mahakam",
+        "Kapuas",
+        "Sambas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Rajang",
+            "Baram",
+            "Mahakam",
+            "Kapuas",
+            "Sambas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Historically said to occur throughout much of Indochina but more recent research has shown it to be endemic to the island of Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358578,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          15
+        ],
+        [
+          "KH",
+          3
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          2.8125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
