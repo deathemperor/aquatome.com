@@ -42,9 +42,17 @@ final class ChatStore {
   /// Questions a day for an account, for the day-used card.
   private(set) var perAccount: Int?
   @ObservationIgnored private var current: ChatModel?
+  /// Asked again when the reader signs in or out (follow).
+  @ObservationIgnored private var following = false
 
+  /// Whether chat is on, asked as the account when signed in: it may be on for some accounts alone (the owner's, at
+  /// first), so it's asked again when the reader signs in or out.
   func refresh(account: AccountModel, site: URL) async {
-    guard let (data, status) = await account.fetch(Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy)) else { return }
+    follow(account, site: site)
+    func get(_ token: String?) -> URLRequest { Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy, token: token) }
+    var answer: (Data, Int)?
+    if account.user != nil { answer = (try? await account.send { get($0) }) ?? nil } else { answer = await account.fetch(get(nil)) }
+    guard let (data, status) = answer else { return }
     let s = Chat.status(data, status: status)
     on = s.map { $0.on } ?? false
     maxChars = s?.maxChars ?? 500
@@ -58,6 +66,18 @@ final class ChatStore {
   }
 
   func isCurrent(_ m: ChatModel) -> Bool { current === m }
+
+  /// The account signed in or out (or seen again): asked again, once per change, wherever the reader did it.
+  private func follow(_ account: AccountModel, site: URL) {
+    guard !following else { return }
+    following = true
+    withObservationTracking { _ = account.user?.id } onChange: { [weak self] in
+      Task { @MainActor in
+        self?.following = false
+        await self?.refresh(account: account, site: site)
+      }
+    }
+  }
 
   /// The chat for `route`: the open one when it's the same start, by the same account, within its 24 hours; else the one
   /// kept on the phone, on the same terms (the app was closed meanwhile); else a new one.
@@ -322,6 +342,7 @@ final class ChatModel {
     switch e {
     case .done(let t):
       thread[i].outcome = .answered
+      Self.hadAnswer = true
       thread[i].last = data
       // A turn numbered 1 over earlier turns: the Worker no longer held them.
       if conversation?.answered(n: t.n) == true, i > 0 { thread[i].anew = true }
@@ -398,6 +419,12 @@ final class ChatModel {
   static var ownCopy: String? { OwnCopy.isOurs ? AccountsClient.ourCopy : nil }
 
   // MARK: Kept on the phone
+
+  /// This phone has had an answer: the empty screen then says only that Claude, an AI, answers from the handbook.
+  static var hadAnswer: Bool {
+    get { UserDefaults.standard.bool(forKey: "chat-had-answer") }
+    set { UserDefaults.standard.set(newValue, forKey: "chat-had-answer") }
+  }
 
   /// The latest chat, kept so a question being answered when the app closed is asked again (with its key) when it
   /// opens again, and its conversation goes on: the conversation, and each question with its answer's last event.

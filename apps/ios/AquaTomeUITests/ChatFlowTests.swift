@@ -16,6 +16,8 @@ final class ChatFlowTests: XCTestCase {
     openChat(app)
     XCTAssertTrue(element(app, "chat-about").label.contains("Về: Cá neon"), element(app, "chat-about").label)
     XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].exists, "no empty screen's question")
+    // No answer on this phone yet: who answers, in full.
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "not the whole line about who answers")
     signIn(app)
     let starter = app.buttons.matching(identifier: "chat-chip").firstMatch
     XCTAssertTrue(starter.waitForExistence(timeout: 5), "no starters after signing in")
@@ -51,6 +53,29 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry on a page while it's off")
   }
 
+  /// On for the owner alone: GET says so only to the owner's session. The app asks as the account, and again as the
+  /// reader signs in, so a page's entry shows once they have (signed in from the Tài khoản sheet, no relaunch).
+  func testOnForTheOwnerAloneTheEntryShowsOnceSignedIn() {
+    let app = launch("-chat-owner-only")
+    open(app, "Ca neon")
+    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "no page")
+    reveal(app, app.buttons["put-on-tank"])
+    XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry signed out")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    app.openAccount()
+    let apple = element(app, "apple-sign-in")
+    reveal(app, apple)
+    apple.tap()
+    XCTAssertTrue(apple.waitForNonExistence(timeout: 10), "still signed out")
+    app.closeAccount()
+    let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "not back on Tìm's list")
+    row.tap()
+    let entry = element(app, "chat-entry")
+    reveal(app, entry)
+    XCTAssertTrue(entry.exists, "no entry once signed in")
+  }
+
   /// Fish ID's result hands its guesses over (never the photo), worded as fish ID words them.
   func testFishIdsResultAsksWithItsGuesses() {
     let app = launch("-picked-photo")
@@ -69,7 +94,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(about.waitForExistence(timeout: 5), "no chat")
     XCTAssertTrue(about.label.contains("Về: ảnh của bạn"), about.label)
     XCTAssertTrue(about.label.contains("Gần như chắc chắn Cá neon, có thể Green neon tetra"), about.label)
-    XCTAssertTrue(app.staticTexts["Claude, mô hình AI của Anthropic, trả lời dựa trên cẩm nang AquaTome. Phần nào chưa có trong cẩm nang thì Claude dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."].exists)
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."].exists)
     XCTAssertTrue(app.buttons["Làm sao phân biệt với green neon tetra?"].exists, "no starter telling the guesses apart")
   }
 
@@ -170,6 +195,9 @@ final class ChatFlowTests: XCTestCase {
     start.tap()
     XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].waitForExistence(timeout: 5), "not empty")
     XCTAssertFalse(app.staticTexts["chat-question"].exists)
+    // This phone has had an answer: only that Claude, an AI, answers from the handbook.
+    XCTAssertTrue(app.staticTexts["Claude\u{00A0}(AI) trả lời theo cẩm nang AquaTome."].exists, "not the short line after an answer")
+    XCTAssertFalse(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "still the whole line after an answer")
   }
 
   /// No network: said over the box, send off, a starter tapped goes into the box.

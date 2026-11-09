@@ -7,7 +7,8 @@ import Handbook
 /// time, so a flow sees the wait, the steps and the text arrive. Each `done` is the asking conversation's, numbered in it.
 /// An account's session as FakeAccounts holds it, so signing out or a session ended elsewhere is a 401.
 ///
-/// `-chat-off`: GET says chat is off. `-chat-uncovered`: every question gets the answer the handbook doesn't cover;
+/// `-chat-off`: GET says chat is off; `-chat-owner-only`, on only to a signed-in account's session (as the Worker says it
+/// to the owner's alone, while chat is on for the owner only), off without one. `-chat-uncovered`: every question gets the answer the handbook doesn't cover;
 /// `-chat-failed`, the one that ends in `failed`; `-chat-unavailable`, a step then `unavailable` (Claude unreachable).
 /// `-chat-rate`: every question is refused as the reader's day used (protocols/chat-rate.json); `-chat-busy`, as the
 /// site's. `-chat-turns N`: a conversation ends after N questions (410 `ended`, as past `maxTurns`). `-chat-slow`: an
@@ -43,7 +44,9 @@ final class FakeChat {
   /// GET's answer, or nil for a request that isn't the chat's.
   func status(_ r: URLRequest) -> (Data, HTTPURLResponse)? {
     guard r.url?.path == "/api/chat", (r.httpMethod ?? "GET") == "GET" else { return nil }
-    let body = args.contains("-chat-off") ? #"{"on":false}"# : #"{"on":true,"perAccount":30,"maxTurns":20,"maxChars":\#(number("-chat-max") ?? 500)}"#
+    let bearer = r.value(forHTTPHeaderField: "Authorization").map { String($0.dropFirst("Bearer ".count)) }
+    let off = args.contains("-chat-off") || (args.contains("-chat-owner-only") && bearer.flatMap(account) == nil)
+    let body = off ? #"{"on":false}"# : #"{"on":true,"perAccount":30,"maxTurns":20,"maxChars":\#(number("-chat-max") ?? 500)}"#
     return (Data(body.utf8), Self.response(r, 200, type: "application/json"))
   }
 
