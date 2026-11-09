@@ -34,5 +34,7 @@ export type ChatRunRecord = {
   tokens: { input: number; output: number }
   agent: { calls: number; tools: number; stopped: string }
   answer?: { text: string; covered: boolean; blocks: number; dropped: string[] }
+  /** The first line the reader was shown while the run read (agent.ts `opening`), when one was. */
+  opening?: string
   turns: Turn[]
 }

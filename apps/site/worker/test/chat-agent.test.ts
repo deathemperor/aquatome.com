@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, unaccented, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -612,6 +612,22 @@ test('the chat\'s forced last call is told to answer from what it read and its o
   expect(LAST_WORD).toContain('only in the reader\'s language')
 })
 
+test('the call that writes the answer has room for a whole forum post\'s: its thinking and an answer of every part', async () => {
+  // A many-part post (setup-01-post in the eval): the forced call thought for 13 s, then ran out at 4,096 tokens with
+  // its answer half written, 2 runs in 3. Here an answer that needs 7,000 tokens with its thinking.
+  const final = { text: 'Bể 60 lít của bạn: 1. Chạy lọc 4 tuần trước khi thả cá. 2. Thay 30% nước mỗi tuần.', covered: true, blocks: [], suggestions: [] }
+  const sent: number[] = []
+  const out = await answerQuestion({
+    send: async body => {
+      sent.push(body.max_tokens)
+      return body.max_tokens < 7_000 ? message([{ type: 'text', text: JSON.stringify(final).slice(0, 40) }], 'max_tokens') : message([{ type: 'text', text: JSON.stringify(final) }])
+    },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Mình mới set bể 60 lít, hỏi nhiều thứ...', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], limits: { calls: 1 },
+  })
+  expect(sent).toEqual([MAX_TOKENS])
+  expect(out.answer?.text).toBe(final.text)
+})
+
 test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time from its own pace', async () => {
   // Calls of 4 s: after one, another leaves 27 - 4 - 4 = 19 s, over 4 × 4 = 16 s, so the second reads; after two, 15 s,
   // under 6.5 × 4 = 26 s, so the third answers, at low: 19 s is under 7 × 4 = 28 s. Calls of 3.1 s: after two, another
@@ -903,4 +919,68 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   // Accented, one accent is enough; a word or two of English or a figure is no unaccented question; nor another language.
   for (const q of ['cá neon bị nấm trắng trên lưng', 'ca neon bi nấm trang', 'pH 7?', 'Neon']) expect(said('vi', q), q).not.toContain('without Vietnamese accents')
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
+})
+
+test('the first line comes from a call of its own beside the run\'s first, before the first step; it counts in the turn\'s tokens, and the run\'s calls are as without it', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
+  const events: string[] = []
+  const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
+  let lineSent!: () => void
+  const lineDone = new Promise<void>(r => { lineSent = r })
+  const out = await answerQuestion({
+    send: async (body, opts) => {
+      bodies.push({ call: opts.call, body })
+      if (opts.call === 0) { lineSent(); return message([{ type: 'text', text: '  Mình đang tra cẩm nang về cá neon xanh cho bạn. ' }]) }
+      // The run's first call ends after the line's, as it does on the API (it reads far more).
+      if (opts.call === 1) { await lineDone; await new Promise(r => setTimeout(r, 0)); return message([readPage], 'tool_use') }
+      return streamed([{ type: 'text', text: JSON.stringify(final) }])(body, opts)
+    },
+    model: 'claude-haiku-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: h, tanks: async () => [],
+    opening: true, onOpening: l => events.push(`opening: ${l}`), onStep: s => events.push(s.kind), onText: () => { if (events.at(-1) !== 'text') events.push('text') },
+  })
+  expect(events).toEqual(['opening: Mình đang tra cẩm nang về cá neon xanh cho bạn.', 'read', 'text'])
+  expect(out.opening).toBe('Mình đang tra cẩm nang về cá neon xanh cho bạn.')
+  const line = bodies.find(b => b.call === 0)!.body
+  expect([line.system, line.tools, line.thinking, line.messages]).toEqual([OPENING_SYSTEM, undefined, { type: 'disabled' }, [firstMessage('vi', 'Nuôi cá neon thế nào?', [], {}, h)]])
+  // The run's own calls are what they are without a line: its prompt, its tools, its limits.
+  const runs = bodies.filter(b => b.call > 0).map(b => b.body)
+  expect(runs[0]!.system).toBe(SYSTEM)
+  expect(runs[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'check_tank_mates', 'read_tanks'])
+  expect(out.spent.input).toBe(300)
+})
+
+test('no first line is shown when it says the question is off topic, isn\'t in the reader\'s language, comes after the first step or the run, or its call fails; one shown is kept', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
+  const turn = async (o: { lang?: ChatOptions['lang']; line: () => Promise<Anthropic.Message>; first?: () => Promise<void>; text?: string; direct?: boolean }) => {
+    const shown: string[] = []
+    const out = await answerQuestion({
+      send: async (_, opts) => {
+        if (opts.call === 0) return o.line()
+        if (opts.call === 1 && !o.direct) { await o.first?.(); return message([readPage], 'tool_use') }
+        return message([{ type: 'text', text: o.text ?? JSON.stringify(final) }])
+      },
+      model: 'claude-haiku-5-5', lang: o.lang ?? 'vi', question: 'x', earlier: [], start: {}, handbook: h, tanks: async () => [],
+      opening: true, onOpening: l => shown.push(l), onStep: () => stepped(),
+    })
+    return { shown, opening: out.opening, answered: out.answer?.text, output: out.spent.output }
+  }
+  let stepped = () => {}
+  const text = (t: string) => async () => message([{ type: 'text', text: t }])
+  expect(await turn({ line: text('-') })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
+  expect(await turn({ lang: 'id', line: text('Mình sedang mencari panduan tentang air keruh.') })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
+  expect(await turn({ line: async () => { throw Object.assign(new Error('overloaded'), { status: 529 }) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text, output: 100 })
+  // The line's call answers only once the first step is out.
+  const after = new Promise<void>(r => { stepped = r })
+  expect(await turn({ line: async () => { await after; return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh.' }]) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
+  stepped = () => {}
+  // Nor once the run has ended with no step (an off-topic answer, sent whole): its tokens still count, 50 each call.
+  const late = await turn({ direct: true, line: async () => { await new Promise(r => setTimeout(r, 20)); return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh.' }]) }, text: JSON.stringify({ ...final, offTopic: true }) })
+  expect(late).toMatchObject({ shown: [], opening: undefined, output: 100 })
+  // Shown, then the answer is off topic: the run keeps the line it showed, for the transcript (the turn leaves it out: api.ts).
+  // The run's first call ends a moment after the line's (a task later: the line's call is all done by then).
+  const later = () => new Promise<void>(r => setTimeout(r, 0))
+  const offTopic = await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, text: JSON.stringify({ ...final, offTopic: true }) })
+  expect([offTopic.shown.length, offTopic.opening]).toEqual([1, 'Mình đang tra cẩm nang về cá neon xanh.'])
 })

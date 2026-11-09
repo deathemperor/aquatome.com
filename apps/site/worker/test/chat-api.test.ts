@@ -4,6 +4,7 @@ import { expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import { OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
@@ -127,7 +128,15 @@ const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, h
 const bearer = (token: string) => ({ authorization: `Bearer ${token}` })
 const { answer, streamMisfits, api } = contract('chat.openapi.json')
 const sseMedia = api.paths['/api/chat'].post.responses['200'].content['text/event-stream']
-const deps = (fetch: typeof globalThis.fetch, extra: ChatDeps = {}): ChatDeps => ({ fetch, random: () => 0, ...extra })
+/**
+ * The first line's call (a stream's), answered apart from the run's with `line` ("-": none), so the run's calls are the
+ * test's own fake's, in its order.
+ */
+const lineApart = (fetch: typeof globalThis.fetch, line: string) => (async (input: RequestInfo | URL, init?: RequestInit) => {
+  const body = await new Request(input, init).json().catch(() => ({})) as { system?: unknown }
+  return body.system === OPENING_SYSTEM ? msg([{ type: 'text', text: line }]) : fetch(input, init)
+}) as typeof globalThis.fetch
+const deps = (fetch: typeof globalThis.fetch, extra: ChatDeps = {}, line = '-'): ChatDeps => ({ fetch: lineApart(fetch, line), random: () => 0, ...extra })
 /** The chat's answer, held to the contract; `waits`: the work it left running (a stream's run, its saving). */
 async function run(req: Request, e: ChatEnv, d: ChatDeps, now = new Date()) {
   const waits: Promise<unknown>[] = []
@@ -419,6 +428,73 @@ test('the stream: the text in pieces as Claude writes it, after every step and b
   const plain = claude(NEON)
   await run(ask(bearer(me.token), { conversation: '9f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(plain.fetch))
   expect(plain.bodies.map(b => b.stream)).toEqual([undefined, undefined])
+})
+
+test('the stream opens with the first line, before the first step; done and the transcript hold it, an off-topic answer takes it back; a JSON answer asks for none', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const line = 'Mình đang tra cẩm nang về cách nuôi cá neon xanh cho bạn.'
+  // The run's first call answers after the line's small one, as it does.
+  const late = (r: () => Response) => () => new Promise<Response>(ok => setTimeout(() => ok(r()), 20))
+  const c = claude([late(() => reads('/vi/ca/ca-neon-xanh/')), NEON[1]!])
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(c.fetch, {}, line))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  expect(text.split('\n\n').filter(Boolean).map(b => b.split('\n')[0])).toEqual(['event: opening', 'event: step', 'event: text', 'event: block', 'event: block', 'event: done'])
+  expect(text.split('\n\n')[0]).toBe(`event: opening\ndata: ${JSON.stringify({ text: line })}`)
+  expect(JSON.parse(text.split('event: done\ndata: ')[1]!).opening).toBe(line)
+  expect(store.read<ChatRunRecord>([...store.m.keys()].find(k => k.startsWith('chat-run/'))!)!.opening).toBe(line)
+  expect(c.bodies.length).toBe(2)
+  // Off topic after all: the line went out, and done, the last word, has none.
+  const off = claude([late(() => answers({ offTopic: true, text: 'x' }))])
+  const o = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { accept: 'text/event-stream' }), e, deps(off.fetch, {}, line))
+  const offText = await o.res.text()
+  expect(streamMisfits(offText, sseMedia)).toEqual([])
+  expect(offText.startsWith('event: opening')).toBe(true)
+  expect(JSON.parse(offText.split('event: done\ndata: ')[1]!).opening).toBeUndefined()
+  // The transcript keeps it: the reader saw it.
+  const records = [...store.m.keys()].filter(k => k.startsWith('chat-run/')).map(k => store.read<ChatRunRecord>(k)!)
+  expect(records.find(r => r.answer?.text === OFF_TOPIC.vi)?.opening).toBe(line)
+  // The JSON answer, with no wait to show it in, makes no call for it.
+  const systems: unknown[] = []
+  const plain = claude(NEON)
+  const watched = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    systems.push(((await new Request(input, init).json()) as { system?: unknown }).system)
+    return plain.fetch(input, init)
+  }) as typeof globalThis.fetch
+  const j = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }), e, { fetch: watched, random: () => 0 })
+  expect(j.res.status).toBe(200)
+  expect(j.body.opening).toBeUndefined()
+  expect(systems.length).toBe(2)
+  expect(systems).not.toContain(OPENING_SYSTEM)
+})
+
+test('the first line\'s call is beside the run\'s: on another key it counts there, and never becomes the run\'s key or the one credited with the answer', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const overloaded = () => Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 })
+  const run_: string[] = []
+  const lines: string[] = []
+  const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    const req = new Request(input, init)
+    const key = req.headers.get('x-api-key') ?? req.headers.get('authorization')!.replace(/^Bearer\s+/i, '')
+    const body = await req.json() as { system?: unknown; stream?: boolean }
+    if (body.system === OPENING_SYSTEM) {
+      // A is busy for the line; B writes it, once the run has ended.
+      lines.push(key)
+      return key === A ? overloaded() : new Promise<Response>(ok => setTimeout(() => ok(msg([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh cho bạn.' }])), 30))
+    }
+    run_.push(key)
+    const r = await NEON[Math.min(run_.length, NEON.length) - 1]!()
+    return body.stream ? streamOf(r) : r
+  }) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, { fetch, random: () => 0 })
+  await res.text()
+  expect([lines, run_]).toEqual([[A, B], [A, A]])
+  const day = ledger.day()!
+  expect(Object.values(day.keys).sort()).toEqual([1, 2])
+  const [a] = Object.entries(day.keys).find(([, n]) => n === 2)!
+  expect(day.ok).toEqual({ [a]: 1 })
 })
 
 /** `p`, or a failure naming `what` once `ms` have passed. */
