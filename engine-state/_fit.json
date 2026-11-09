@@ -58360,45 +58360,23 @@
     "products": []
   },
   "vi/guides/youtube-jaO5A6TwX6g": {
-    "at": "2026-11-08",
-    "hash": "203a3a368072a6f4",
+    "at": "2026-11-09",
+    "hash": "851966cd73358242",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Toàn bộ vật liệu hết khoảng 12 đô",
-        "why": "The cost is given in US dollars, not Vietnamese dong.",
+        "quote": "Bốn cây lụa có thể chỉ tốn khoảng 2 đô.",
+        "why": "A price in US dollars, meaningful only abroad.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Bốn cây trong ví dụ chỉ tốn 2 đô",
-        "why": "The price is in US dollars and refers to the source's own example.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "mua cây lụa ở tiệm đồ một giá",
-        "why": "This is a word-for-word translation of the American 'dollar store'. Shops like this in Vietnam are called 'đồng giá' shops.",
-        "by": "model",
-        "fix": "cửa hàng đồng giá"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Cây mẫu trong ví dụ bị tháo khuôn khi xi măng chưa khô hẳn, chỉ để kịp quay hình.",
-        "why": "It talks about the original video's sample plant and filming, which the reader never saw.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Một mẻ xi măng như trong ví dụ đúc được khoảng 7–8 đế",
-        "why": "It points to the source's own batch as if the reader had seen it.",
+        "quote": "cả cây lẫn xi măng có thể chỉ tốn chừng 12 đô",
+        "why": "A total cost in US dollars, not the reader's currency.",
         "by": "model"
       }
     ],
@@ -60063,44 +60041,38 @@
     ]
   },
   "vi/guides/youtube-LiCZUjqLck8": {
-    "at": "2026-11-08",
-    "hash": "a1b06c64fa722419",
+    "at": "2026-11-09",
+    "hash": "a1736034c0ec86bf",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Làm bể thứ hai giống bể thứ nhất khó hơn mình tưởng.",
-        "why": "The original writer's first-person voice, describing their own build.",
+        "quote": "Theo cảm nhận của người làm, phân nền có thể cho bể không CO2 nhiều cơ hội lên cây hơn.",
+        "why": "Refers to the original creator as 'the person doing it', a stranger to the reader.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Chuyện có thả cá tép vào hay không thì vẫn chưa quyết.",
-        "why": "The source's own ongoing project and plans, presented as if the reader were following it.",
+        "quote": "Người làm thấy cây này rất dễ",
+        "why": "Cites the unknown source author's personal experience.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể bên trái có CO2, bể bên phải không có.",
-        "why": "Refers to the source's own pair of tanks as if the reader could see them.",
+        "quote": "Người làm chọn mức này vì cho rằng nó có thể đủ cho cây lên khá",
+        "why": "Gives the source author's personal reasoning as if the reader knows them.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "bùng lên thành bát canh xanh",
-        "why": "A calque of the English 'pea soup'; keepers in Vietnam say the water turns green.",
-        "by": "model",
-        "fix": "nước xanh lè / bể bị nước xanh"
       }
     ],
     "products": [
+      "Chihiros A series",
+      "Neo Soil",
       "ADA Amazonia",
-      "Tropica Soil"
+      "Tropica"
     ]
   },
   "vi/guides/youtube-lIvdfAD26BE": {
@@ -63394,66 +63366,60 @@
     ]
   },
   "vi/guides/youtube-pXgHpSWHzFE": {
-    "at": "2026-11-08",
-    "hash": "24cdca4510390804",
+    "at": "2026-11-09",
+    "hash": "e6467a3e26a2f9aa",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "Nếu có sẵn một bể kính cũ khoảng 265 lít",
-        "why": "265 litres is a converted 70-gallon tank, a size no keeper in Vietnam would name.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L1",
-        "quote": "Một bể kính cũ khoảng 265 lít là đủ",
-        "why": "265 litres is a converted 70-gallon tank size.",
+        "quote": "Có sẵn một bể kính dư khoảng 265 lít thì đem ra làm thân lọc luôn.",
+        "why": "265 litres is a converted 70-gallon tank size that no keeper in Vietnam would use.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "Co này đi với mũi khoét 7,6 cm.",
-        "why": "7.6 cm is a converted 3-inch hole saw; the bulkhead sizes are inch sizes turned into cm.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Một lỗ hồi 2,5 cm (ống khoảng 2,5 cm)",
-        "why": "A 1-inch pipe size converted to cm; keepers in Vietnam give pipe sizes as phi 27/phi 34.",
+        "quote": "Tháp như vậy chứa được khoảng 57 lít vật liệu lọc.",
+        "why": "57 litres is a converted 15-gallon figure.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở bộ lọc mẫu này, lỗ cuối cùng rộng khoảng 6 mm.",
-        "why": "Refers to the original writer's own filter as if the reader knew it.",
+        "quote": "Lần này các lỗ dừng ở cỡ 6 mm.",
+        "why": "Tells the writer's own build as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể mẫu ở đây đã cách tường khoảng 100 cm.",
-        "why": "Refers to the source's own tank as if the reader knew it.",
+        "quote": "Bể đã đặt cách tường khoảng 1 m, khoan mặt sau thì phải đẩy bể ra xa tường hơn nữa.",
+        "why": "Describes the source's own tank placement as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Đây chỉ là đèn tạm trước khi nâng cấp sang loại khác.",
-        "why": "The original writer's own plans for their light, told as if the reader knew them.",
+        "quote": "Mặt hông đã chọn lại khuất khỏi các góc nhìn thường ngày nên không làm xấu bể.",
+        "why": "Refers to the source writer's own tank and room.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "L12",
-        "quote": "Ở bộ lọc mẫu, lỗ cuối cùng rộng khoảng 6 mm.",
-        "why": "Refers to the source's own filter.",
+        "part": "P1",
+        "quote": "Đây là đèn tạm trước khi nâng cấp",
+        "why": "The writer's own plans for their tank, given as if the reader knew them.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "tấm lưới tán quang (lighting diffuser)",
+        "why": "A literal translation of 'lighting diffuser'. Keepers in Vietnam call this grid egg crate.",
+        "by": "model",
+        "fix": "tấm lưới egg crate (lưới nhựa ô vuông)"
       }
     ],
     "products": []
@@ -63610,45 +63576,80 @@
     "products": []
   },
   "vi/guides/youtube-qgic_Fj3WS4": {
-    "at": "2026-11-08",
-    "hash": "59dd1232287b6fb1",
+    "at": "2026-11-09",
+    "hash": "391775005a9e8174",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "vi/guides/youtube-qGLnBvDkaO0": {
-    "at": "2026-11-08",
-    "hash": "f1ca29f98b91204b",
+    "at": "2026-11-09",
+    "hash": "dd3386e210404b36",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Cả bộ, tính luôn đèn và máy sủi, có thể làm với khoảng 20–25 USD.",
-        "why": "The cost is given in US dollars, not Vietnamese dong.",
+        "quote": "tổng chi phí dưới khoảng 25 USD, có khi chỉ quanh 20 USD",
+        "why": "Cost is given in US dollars.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "price",
         "part": "P1",
-        "quote": "Bản mẫu chỉ dày khoảng 4 cm, mỏng hơn nữa cũng được.",
-        "why": "It points to the original author's own build as if the reader had seen it.",
+        "quote": "tấm cỡ 60 x 30 cm giá khoảng 1 USD",
+        "why": "Price in US dollars.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "Tới khoảng 190 lít",
-        "why": "190 litres is a converted 50-gallon tank size, which nobody in Vietnam would say.",
+        "quote": "tấm cỡ 60 x 30 cm",
+        "why": "A 24 × 12 inch sheet converted to cm.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "L6",
-        "quote": "Tấm lưới khoảng 10 x 10 cm đủ cho bể chừng 190 lít nuôi khá dày.",
-        "why": "190 litres is a converted 50-gallon tank size.",
+        "part": "P1",
+        "quote": "Cục sủi nên treo cách đáy rổ khoảng 0,6 cm",
+        "why": "A quarter inch converted to cm.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "đủ sức cho bể tới khoảng 190 lít nuôi nhiều cá",
+        "why": "50 gallons converted; nobody in Vietnam sizes a tank as 190 litres.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "chắc là chịu được bể tới khoảng 380 lít",
+        "why": "100 gallons converted to litres.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L2",
+        "quote": "tổng cộng dưới khoảng 25 USD",
+        "why": "Cost in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L5",
+        "quote": "chịu được bể tới khoảng 190 lít nuôi nhiều cá, tấm 10 x 20 cm chắc chịu được tới khoảng 380 lít",
+        "why": "Gallon tank sizes converted to litres.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L10",
+        "quote": "chịu được bể tới khoảng 190 lít nuôi nhiều cá",
+        "why": "50 gallons converted to litres.",
         "by": "model"
       }
     ],
@@ -63972,8 +63973,8 @@
     ]
   },
   "vi/guides/youtube-qzPVpr89Ugo": {
-    "at": "2026-11-08",
-    "hash": "b137b89e0c04afc6",
+    "at": "2026-11-09",
+    "hash": "38d8ffc1084ce079",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -65322,8 +65323,8 @@
     ]
   },
   "vi/guides/youtube-t-QbuMlXLIg": {
-    "at": "2026-11-08",
-    "hash": "4e12d40d7e338236",
+    "at": "2026-11-09",
+    "hash": "b3aabc6733179dfc",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -66479,27 +66480,11 @@
     ]
   },
   "vi/guides/youtube-ULCBqSQYaOY": {
-    "at": "2026-11-08",
-    "hash": "8ac70623737d5c9f",
+    "at": "2026-11-09",
+    "hash": "eae599ae5789ad28",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "rất hay lên tảo silic (diatoms) hoặc rêu bụi xanh",
-        "why": "\"Tảo silic\" is the textbook term; Vietnamese keepers call diatoms \"rêu nâu\".",
-        "by": "model",
-        "fix": "rêu nâu"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Với người set bể bằng phân nền, mình thấy đổi như vậy là đáng.",
-        "why": "This is the original writer speaking in their own voice, and the reader doesn't know them.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-UOyTpympfAA": {
