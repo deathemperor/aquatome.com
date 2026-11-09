@@ -863,6 +863,24 @@ test('the reader gets the answer\'s text in pieces that join to it; each call is
   expect(said.join('')).toBe(out.answer!.text)
 })
 
+test('words before a tool call that look like broken JSON never fail the call: brackets, and quotes around a line break or a bad escape', async () => {
+  const final: Answer = answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] })], { text: 'Cá neon xanh sống theo đàn, từ 6 con.' })
+  for (const words of ['Để tôi đọc [trang "cá\nneon"] trước.', 'Xem {"a\\\'b"} và ["x\ty"', '{"blocks":[{"t":"species"']) {
+    const cards: string[] = []
+    let calls = 0
+    const out = await answerQuestion({
+      send: (body, opts) => (++calls === 1
+        ? streamed([{ type: 'text', text: words }, readPage], 'tool_use', 2)
+        : streamed([{ type: 'text', text: JSON.stringify(final) }]))(body, opts),
+      model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+      onText: () => {}, onBlock: b => cards.push(b.t),
+    })
+    expect(out, words).toMatchObject({ calls: 2, tools: 1, stopped: 'answer' })
+    expect(out.error, words).toBeUndefined()
+    expect(cards, words).toEqual(['species'])
+  }
+})
+
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
   const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
   const opts: object[] = []

@@ -144,12 +144,15 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
     const read = textReader()
     const picks = picksReader()
     let shown = false
+    let stuck = false
     const m = await send(body, {
       ...opts,
       onText: delta => {
         const piece = read(delta)
         if (piece) { shown = true; onText(piece) }
-        const picked = onPick ? picks(delta) : []
+        // A reader that can't read on stops reading: it never fails the call (its cards then come once the run ends).
+        let picked: Choice[] = []
+        try { picked = onPick && !stuck ? picks(delta) : [] } catch (e) { stuck = true; console.error('chat picks:', e) }
         if (shown) picked.forEach(p => onPick!(p))
       },
     })

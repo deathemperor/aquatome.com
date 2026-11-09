@@ -424,7 +424,7 @@ test('the stream: the text in pieces as Claude writes it, after every step and b
 /** `p`, or a failure naming `what` once `ms` have passed. */
 const within = <T>(p: Promise<T>, ms: number, what: string) => Promise.race([p, new Promise<never>((_, no) => setTimeout(() => no(new Error(`no ${what} within ${ms} ms`)), ms))])
 
-test('on the stream, a card goes out as soon as Claude has picked it, while its call still writes; done once the turn is saved, before the transcript and the settle', async () => {
+test('on the stream, a card goes out as soon as Claude has picked it, while its call still writes; done once the turn is saved and settled, before the transcript', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)
   const said = 'Cá neon xanh sống theo đàn, từ 8 con trở lên.'
@@ -458,15 +458,14 @@ test('on the stream, a card goes out as soon as Claude has picked it, while its 
   expect(got).not.toContain('event: done')
   more()
   await within(until('event: done'), 2000, 'done before the transcript is written')
-  // The conversation is free for the next question; the transcript isn't written yet, and the run not yet settled.
+  // The conversation is free for the next question and the run settled; the transcript isn't written yet.
   expect(store.read<Conversation>(await convKey(me))).toMatchObject({ turns: [{ n: 1 }] })
   expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
+  expect(ledger.day()!.runs).toEqual({})
   expect([...store.m.keys()].some(k => k.startsWith('chat-run/'))).toBe(false)
-  expect(Object.keys(ledger.day()!.runs)).toHaveLength(1)
   write()
   for (let r = await reader.read(); !r.done; r = await reader.read()) got += dec.decode(r.value, { stream: true })
   await Promise.all(waits)
-  expect(ledger.day()!.runs).toEqual({})
   expect(streamMisfits(got, sseMedia)).toEqual([])
   const events = got.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
   const done = events.at(-1)!

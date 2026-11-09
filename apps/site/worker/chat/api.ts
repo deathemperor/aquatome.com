@@ -400,8 +400,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
 
   /**
    * After the run: the outcome is kept for retries, then the conversation gets the turn (or just loses its mark). In that
-   * order: a retry that finds no mark finds the kept answer, and never runs the question again. The reader's answer waits
-   * for these two alone, so a question asked right after it finds the conversation free.
+   * order: a retry that finds no mark finds the kept answer, and never runs the question again. Then the ledger settles.
+   * The reader's answer waits for these alone, so a question asked right after it finds the conversation free and the
+   * count already given back.
    */
   const save = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
@@ -409,18 +410,6 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
-  }
-  /** Then, once the reader has the answer: the transcript, the check for an account deleted meanwhile, and the ledger's settle. */
-  const after = async (done: { status: number; body: Record<string, unknown> }) => {
-    const turn = done.status === 200 ? done.body as unknown as Turn : undefined
-    // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.
-    const record = (() => { try { return trail && JSON.stringify(transcript(done, trail)) } catch (e) { console.error('chat transcript:', e) } })()
-    const runKey = record ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
-    if (record) await env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e))
-    // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
-    // second pass, after the account's rows, comes after these writes and deletes them.
-    const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
-    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
     // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
@@ -430,6 +419,17 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const offTopic = done.status === 200 && trail?.answer?.offTopic === true
     const cutOff = !turn && wordsAt !== undefined
     await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+  }
+  /** Then, once the reader has the answer: the transcript, and the check for an account deleted meanwhile. */
+  const after = async (done: { status: number; body: Record<string, unknown> }) => {
+    // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.
+    const record = (() => { try { return trail && JSON.stringify(transcript(done, trail)) } catch (e) { console.error('chat transcript:', e) } })()
+    const runKey = record ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
+    if (record) await env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e))
+    // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
+    // second pass, after the account's rows, comes after these writes and deletes them.
+    const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
+    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
   }
 
   const since = (t: number | undefined) => (t === undefined ? undefined : t - now.getTime())
@@ -458,8 +458,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   }
   // The stream: steps as they happen, then the text as Claude writes it, the blocks as Claude picks them, and done (the
   // whole turn); or error. Pings while it works. Every step comes before the text: the run ends on the call that writes
-  // it (agent.ts `streaming`), and its picks come after its text. Done comes once the turn is saved (`save`): a question
-  // asked right after it finds the conversation free.
+  // it (agent.ts `streaming`), and its picks come after its text. Done comes once the turn is saved and settled (`save`): a
+  // question asked right after it finds the conversation free.
   const enc = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const w = writable.getWriter()

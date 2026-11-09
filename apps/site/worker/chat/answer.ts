@@ -182,7 +182,8 @@ export function picksReader(): (part: string) => Choice[] {
         else if (c === '\\') escaped = true
         else if (c === '"') {
           quoted = false
-          if (keyAt >= 0) { key = JSON.parse(raw.slice(keyAt, at + 1)) as string; keyAt = -1; wantKey = false }
+          // The key as written: the schema's keys have no escapes, and words before a tool call may not be JSON at all.
+          if (keyAt >= 0) { key = raw.slice(keyAt + 1, at); keyAt = -1; wantKey = false }
         }
       } else if (c === '"') {
         quoted = true
