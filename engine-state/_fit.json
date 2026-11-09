@@ -48673,8 +48673,8 @@
     "products": []
   },
   "vi/guides/youtube-0ozJmYMk914": {
-    "at": "2026-11-08",
-    "hash": "ed4c7ca1b5f530a4",
+    "at": "2026-11-09",
+    "hash": "af1e1695484a763a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -49266,30 +49266,23 @@
     ]
   },
   "vi/guides/youtube-1tmsHa5spqc": {
-    "at": "2026-11-08",
-    "hash": "d48a69ace002639c",
+    "at": "2026-11-09",
+    "hash": "0886a4eb6d3cffdb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Cầu trong bài dùng lại mấy tấm nắp kính cũ dày 6 mm",
-        "why": "Refers to the source writer's own bridge as if the reader knew it.",
-        "by": "model"
-      },
-      {
         "check": "units",
         "part": "P1",
-        "quote": "Cầu mẫu dài khoảng 91 cm, lòng cầu rộng khoảng 15 cm và cao tổng cộng khoảng 36 cm",
-        "why": "Sizes converted from 36, 6 and 14 inches, not sizes a Vietnamese builder would choose.",
+        "quote": "Ví dụ một cây cầu dài khoảng 91 cm, đường kính khoảng 15 cm, cao tổng cộng khoảng 36 cm",
+        "why": "91, 15 and 36 cm are 36, 6 and 14 inches converted, not sizes a Vietnamese keeper would give.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "nam châm cọ rêu (magnet algae scrubber)",
-        "why": "Translation of the English product term; Vietnamese keepers call it a glass-cleaning magnet.",
+        "quote": "Dùng nam châm cọ rêu loại đơn giản để lau lòng cầu",
+        "why": "A translated name for the algae magnet; keepers in Vietnam call it a glass-cleaning magnet.",
         "by": "model",
         "fix": "nam châm lau kính"
       }
@@ -49743,7 +49736,7 @@
     "products": []
   },
   "vi/guides/youtube-3rjwtQRT3pA": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "88292711bbd80c0c",
     "model": "opus",
     "checklist": 3,
@@ -49751,8 +49744,8 @@
       {
         "check": "price",
         "part": "P1",
-        "quote": "Ở Mỹ, giá tham khảo khoảng 8–10 USD cho một chậu",
-        "why": "Prices are given in US dollars from the American market, not useful to a buyer in Vietnam.",
+        "quote": "Ở Mỹ, giá tham khảo khoảng 8–10 USD cho một chậu, 12–20 USD cho một cốc cấy mô",
+        "why": "Prices are given in US dollars at American shops, which mean nothing to a buyer in Vietnam.",
         "by": "model"
       }
     ],
@@ -49872,11 +49865,20 @@
     "products": []
   },
   "vi/guides/youtube-49xcIOK1F1s": {
-    "at": "2026-11-08",
-    "hash": "96b2c76e701d6a02",
+    "at": "2026-11-09",
+    "hash": "12aecfcbe6b3311d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "ổ hẹn giờ kỹ thuật số điều khiển được bằng điện thoại",
+        "why": "A wordy rendering of 'smart plug'; Vietnamese keepers say 'ổ cắm thông minh'.",
+        "by": "model",
+        "fix": "ổ cắm thông minh"
+      }
+    ],
     "products": []
   },
   "vi/guides/youtube-4GFdgPkH4WI": {
@@ -50863,7 +50865,7 @@
     "products": []
   },
   "vi/guides/youtube-6iE1bp5Zi_g": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "ddcc67397827530a",
     "model": "opus",
     "checklist": 3,
@@ -50872,14 +50874,14 @@
         "check": "source",
         "part": "P1",
         "quote": "Đây chỉ là so sánh giữa hai bể cụ thể, không phải thí nghiệm.",
-        "why": "Refers to the original writer's own two tanks as if the reader knew them.",
+        "why": "Refers to the source writer's own two tanks as if the reader knew them.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Trong một bể cách ly có thảm cây mới trồng, có thời điểm cây chết bớt rồi mới ra chồi non trở lại.",
-        "why": "Retells the source writer's own quarantine-tank story as if the reader knew it.",
+        "why": "Tells the source writer's own tank story as if the reader knew that tank.",
         "by": "model"
       }
     ],
@@ -66914,19 +66916,11 @@
     "products": []
   },
   "vi/guides/youtube-VJ_EZRwwFZg": {
-    "at": "2026-11-08",
-    "hash": "5dfcc2e585b6f19a",
+    "at": "2026-11-09",
+    "hash": "2419f0a9885cbcca",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Lưu ý là loại máy hút này là sản phẩm của chính người giới thiệu nó",
-        "why": "Refers to the original creator who sells this vacuum, someone the reader doesn't know.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-VJlpUJS1b3A": {
@@ -69985,7 +69979,7 @@
     ]
   },
   "vi/guides/youtube-ZyaIM3mNO4k": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "11ad84dd736d0fa1",
     "model": "opus",
     "checklist": 3,
@@ -69993,8 +69987,8 @@
       {
         "check": "source",
         "part": "P1",
-        "quote": "Đây là phần hai của một bể Nature kích thước 60 x 40 x 40 cm. Lũa và đá đã ngâm xong.",
-        "why": "It refers to part one of the original series, which the reader of this page doesn't have.",
+        "quote": "Đây là phần hai của một bể Nature kích thước 60 x 40 x 40 cm.",
+        "why": "Refers to a part one of the source series that this page doesn't contain.",
         "by": "model"
       }
     ],

@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "0ozJmYMk914",
     "title": "Cá lấy oxy trong bể như thế nào?",
@@ -31,16 +31,17 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 99
+        "t": 91
       },
       {
         "category": "loc",
         "type": "treo",
-        "t": 99
+        "t": 200
       },
       {
-        "category": "cay-thuy-sinh",
-        "t": 66
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 91
       }
     ],
     "figures": [
@@ -52,9 +53,8 @@
             "url": "https://media.aquatome.com/video/0ozJmYMk914/at20-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cá có nhiều cá nhỏ bơi giữa cây thủy sinh và lũa.",
-            "sharpness": 647.6,
-            "person": false
+            "caption": "Bể thủy sinh có nhiều cá đỏ bơi giữa cây và lũa.",
+            "sharpness": 647.6
           }
         ],
         "photo": {
@@ -65,92 +65,79 @@
           "licence": "CC0",
           "author": "Syced",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_gills_in_Tokyo.jpg",
-          "caption": "Mang cá nhìn cận cảnh, các phiến mang là nơi oxy thấm vào máu."
+          "caption": "Cận cảnh các cung mang của cá, nơi oxy trong nước thấm vào máu."
         }
       },
       {
-        "heading": "Oxy hòa tan khác bọt khí thế nào",
+        "heading": "Oxy hòa tan là gì, có phải bọt sủi không",
         "moments": [
           {
             "t": 26,
             "url": "https://media.aquatome.com/video/0ozJmYMk914/at26-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh có cá đỏ bơi giữa đám cây xanh.",
-            "sharpness": 787.1,
-            "person": false
-          },
-          {
-            "t": 56,
-            "url": "https://media.aquatome.com/video/0ozJmYMk914/at56-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá nhiều màu bơi gần mặt nước, nơi oxy hòa tan vào nước.",
-            "sharpness": 306.9,
-            "person": false
+            "caption": "Bể thủy sinh có cá đỏ bơi giữa cây xanh, oxy tan sẵn trong nước.",
+            "sharpness": 787.1
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0ozJmYMk914/p1-MTAzMDk1OSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/0ozJmYMk914/p1-MTAzMDk1OSkuanBn-480.webp",
+          "width": 900,
+          "height": 600,
+          "licence": "CC BY-SA 2.0",
+          "author": "Harald Hoyer from Schwerin, Germany",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sparkling_(4291030959).jpg",
+          "caption": "Bọt khí li ti sủi lên trong ly nước ngọt có ga."
+        }
       },
       {
         "heading": "Oxy hòa tan trong bể đến từ đâu",
         "moments": [
           {
-            "t": 76,
-            "url": "https://media.aquatome.com/video/0ozJmYMk914/at76-hd.webp",
+            "t": 56,
+            "url": "https://media.aquatome.com/video/0ozJmYMk914/at56-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh có cây và lũa, nước ánh cam, cá bơi bên trong.",
-            "sharpness": 421.8,
-            "person": false
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/0ozJmYMk914/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể có rễ cây, lũa và đàn cá nhỏ.",
-            "sharpness": 424.8,
-            "person": false
+            "caption": "Bể thủy sinh có cây xanh và đàn cá đỏ bơi trong nước.",
+            "sharpness": 306.9
           }
         ]
       },
       {
-        "heading": "Có bắt buộc dùng sủi oxy không",
-        "moments": [
-          {
-            "t": 238,
-            "url": "https://media.aquatome.com/video/0ozJmYMk914/at238-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh cây xanh tốt, đàn cá đỏ bơi thoải mái.",
-            "sharpness": 774.1,
-            "person": false
-          }
-        ],
+        "heading": "Vì sao ban đêm oxy trong bể thấp hơn",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/0ozJmYMk914/p5-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/0ozJmYMk914/p5-uZF9zdG9uZS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/0ozJmYMk914/p4-NlZG9pZGVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/0ozJmYMk914/p4-NlZG9pZGVzLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
+          "height": 453,
           "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi oxy mini kèm dây dẫn khí và cục đá sủi."
+          "author": "FrozenAvatar",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_sedoides.jpg",
+          "caption": "Cây thủy sinh nổi với những chiếc lá xanh tươi trong bể, nơi cây quang hợp ban ngày."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0ozJmYMk914/p6-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/0ozJmYMk914/p6-uZF9zdG9uZS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi khí mini kèm dây hơi và đá sủi, dùng cho bể cá."
-        }
+        "heading": "Bể thủy sinh có cần chạy sủi oxy không",
+        "moments": [
+          {
+            "t": 236,
+            "url": "https://media.aquatome.com/video/0ozJmYMk914/at236-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá bơi giữa cây thủy sinh và lũa trong bể.",
+            "sharpness": 594
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/0ozJmYMk914/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây xanh tốt, cá đỏ bơi nhiều, mặt nước thoáng.",
+            "sharpness": 734.6
+          }
+        ]
       }
     ]
   }

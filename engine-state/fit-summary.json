@@ -11,30 +11,30 @@
  },
  "langs": {
   "vi": {
-   "pages": 3419,
-   "read": 3133,
-   "wrong": 1444,
-   "pct": 47,
-   "held": 137
+   "pages": 3523,
+   "read": 3227,
+   "wrong": 1481,
+   "pct": 46,
+   "held": 161
   },
   "id": {
-   "pages": 1095,
-   "read": 1030,
-   "wrong": 323,
-   "pct": 31,
-   "held": 15
+   "pages": 1075,
+   "read": 1008,
+   "wrong": 319,
+   "pct": 32,
+   "held": 13
   },
   "th": {
-   "pages": 1088,
-   "read": 1023,
-   "wrong": 313,
+   "pages": 1068,
+   "read": 1001,
+   "wrong": 308,
    "pct": 31,
    "held": 15
   },
   "ms": {
-   "pages": 171,
-   "read": 142,
-   "wrong": 55,
+   "pages": 166,
+   "read": 136,
+   "wrong": 53,
    "pct": 39,
    "held": 9
   }
@@ -53,7 +53,8 @@
   "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
   "dose-purpose": "Liều không nói để trị gì",
   "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",
-  "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy"
+  "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy",
+  "lethal": "Mức gây chết trong thí nghiệm (LC50, LD50), người đọc dễ hiểu nhầm là mức con vật chịu được"
  },
  "sample": [
   {
