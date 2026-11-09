@@ -63065,58 +63065,79 @@
     ]
   },
   "vi/guides/youtube-wfG_EzUX04s": {
-    "at": "2026-11-08",
-    "hash": "025b6f938490d059",
+    "at": "2026-11-09",
+    "hash": "89b23f93059e429c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
+        "check": "units",
         "part": "P1",
-        "quote": "Nhưng con cá rồng trong bể này lại chịu chuyển rất kém.",
-        "why": "Refers to the source writer's own tank and fish as if the reader knew them.",
+        "quote": "bể cá rồng châu Á khoảng 1.420 lít, dài 244 cm, cao 61 cm",
+        "why": "An 8-foot, 375-gallon tank converted to metric; nobody in Vietnam describes a tank this way.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "khoảng 1.420 lít, dài 244 cm, cao 61 cm",
-        "why": "Converted from a 375-gallon, 8 x 2 ft tank; not a size given in Vietnam.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "lực đè cỡ vài trăm pound (hơn trăm kg)",
-        "why": "Uses pounds as the reader's unit.",
+        "quote": "phải có lực đè cỡ vài trăm pound (hơn trăm kg)",
+        "why": "Pounds used as the reader's unit.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "làm phông xốp xi măng cho bể này hết khoảng 200 USD hoặc ít hơn",
-        "why": "Price in US dollars.",
+        "quote": "hết khoảng 200 USD hoặc ít hơn",
+        "why": "Cost given in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "chi phí đội lên nhanh, cho bể này là gần 400 USD",
-        "why": "Price in US dollars.",
+        "quote": "cho bể này là gần 400 USD",
+        "why": "Cost given in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "dài 244 cm, cao 61 cm, giá khoảng 368 USD",
-        "why": "Price in US dollars for a product bought abroad.",
+        "quote": "giá khoảng 368 USD",
+        "why": "Price of a product sold abroad, in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L3",
+        "quote": "làm cho bể dài 240 cm thì tốn gần 400 USD",
+        "why": "Cost given in US dollars.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
         "quote": "Nhiều nơi bán phông 3D không giao hàng sang Canada, nơi bể này đặt.",
-        "why": "Shopping situation of a keeper in Canada given as the context.",
+        "why": "Shipping limits for a keeper in Canada, given as if they were the reader's.",
+        "by": "model"
+      },
+      {
+        "check": "shop",
+        "part": "P1",
+        "quote": "Phông được chọn cuối cùng là loại Crystal của Universal Rocks",
+        "why": "Names a foreign maker as the place to buy, with a custom-size ordering service.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nhưng con cá rồng trong bể này lại chịu chuyển rất kém.",
+        "why": "Talks about the source writer's own tank and fish as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Người nuôi con cá này đặt sức khỏe của cá lên đầu",
+        "why": "Refers to the source's own keeper, a person the reader doesn't know.",
         "by": "model"
       }
     ],

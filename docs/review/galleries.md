@@ -1,6 +1,6 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 438 | 18 | 9 | 13 | 452 |
-| rest | 20 | 1331 | 82 | 0 | 17 | 1396 |
+| rest | 20 | 1331 | 82 | 0 | 19 | 1394 |
 
-## Short of target: every source read (164)
+## Short of target: every source read (176)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -143,14 +143,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |
-| species/atractosteus-spatula | shop | 42 | 60 |
+| species/atractosteus-spatula | shop | 41 | 60 |
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
 | plants/vesicularia-montagnei | shop | 1 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
-| plants/micranthemum-callitrichoides | shop | 6 | 60 |
+| plants/micranthemum-callitrichoides | shop | 5 | 60 |
 | species/trigonostigma-hengeli | shop | 2 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
-| plants/eleocharis-parvula | shop | 20 | 60 |
+| plants/eleocharis-parvula | shop | 19 | 60 |
 | species/gymnarchus-niloticus | shop | 7 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
 | species/chitala-ornata | shop | 10 | 60 |
@@ -179,4 +179,16 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tropheus-duboisi | shop | 1 | 60 |
 | species/balantiocheilos-melanopterus | shop | 19 | 60 |
 | plants/hygrophila-pinnatifida | shop | 11 | 60 |
+| plants/juncus-repens | shop | 42 | 60 |
+| species/maylandia-estherae | shop | 21 | 60 |
+| species/hyphessobrycon-amandae | shop | 9 | 60 |
+| plants/lagenandra-meeboldii | shop | 9 | 60 |
+| species/trigonostigma-espei | shop | 3 | 60 |
+| species/microdevario-kubotai | shop | 3 | 60 |
+| plants/limnophila-hippuridoides | shop | 0 | 60 |
+| species/danio-kyathit | shop | 0 | 60 |
+| species/danio-choprae | shop | 3 | 60 |
+| species/tanichthys-albonubes | shop | 5 | 60 |
+| plants/myriophyllum-mattogrossense | shop | 11 | 60 |
+| species/inpaichthys-kerri | shop | 5 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

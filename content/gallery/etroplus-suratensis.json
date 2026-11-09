@@ -2,6 +2,30 @@
   "id": "etroplus-suratensis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/586514465.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/586514465-480.webp",
+      "width": 1024,
+      "height": 582,
+      "licence": "CC BY",
+      "author": "Paul Prior",
+      "sourceUrl": "https://www.inaturalist.org/photos/586514465",
+      "caption": "Hai cá hồng ngọc xanh bơi dưới nước ngoài tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/741614835.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/741614835-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Teja Yantrapalli",
+      "sourceUrl": "https://www.inaturalist.org/photos/741614835",
+      "caption": "Cá hồng ngọc xanh với đốm trắng ngọc trên thân, ở vùng nước nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/976517ca72f726d5.webp",
       "thumb": "https://media.aquatome.com/commons/976517ca72f726d5-480.webp",
       "width": 1200,
@@ -12,6 +36,18 @@
       "caption": "Cá hồng ngọc xanh có sọc đứng bơi trong bể nuôi",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/692180737.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/692180737-480.webp",
+      "width": 1024,
+      "height": 739,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/692180737",
+      "caption": "Cá hồng ngọc xanh trưởng thành bơi trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/44b2935c182b225b.webp",
@@ -26,6 +62,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/195542905.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/195542905-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Carman Chew",
+      "sourceUrl": "https://www.inaturalist.org/photos/195542905",
+      "caption": "Cá hồng ngọc xanh bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/5036544417d1a69e.webp",
       "thumb": "https://media.aquatome.com/commons/5036544417d1a69e-480.webp",
       "width": 1200,
@@ -36,6 +84,18 @@
       "caption": "Cá hồng ngọc xanh ánh xanh lục, sọc đậm, nhìn nghiêng",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/692180904.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/692180904-480.webp",
+      "width": 1024,
+      "height": 546,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/692180904",
+      "caption": "Cá hồng ngọc xanh có sọc ngang, bơi gần đàn cá con",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/71c840eccb6337d2.webp",
@@ -60,9 +120,33 @@
       "caption": "Cá hồng ngọc xanh với đốm vàng óng trong bể kính",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/537019581.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/537019581-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/537019581",
+      "caption": "Cá hồng ngọc xanh vàng nhạt có sọc ngang trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/537019614.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/537019614-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/537019614",
+      "caption": "Cá hồng ngọc xanh nhìn nghiêng trong bể kính, thân vàng ô liu",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 37,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 180,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

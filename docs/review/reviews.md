@@ -8,13 +8,13 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 521 | 440 (vi 440) | 440 |
+| video-guide | 551 | 467 (vi 467) | 467 |
 | translation | 705 | 128 (vi 128) | 128 |
 | vi-rewrite | 159 | 0 | 0 |
 | reader-rewrite | 14 | 0 | 0 |
 | title | 1 | 0 | 0 |
 | breed | 12 | 2 (ms 2) | 2 |
-| topic | 48 | 3 (ms 1, vi 2) | 3 |
+| topic | 48 | 2 (ms 1, th 1) | 2 |
 | product | 6 | 0 | 0 |
 | product-reviews | 6 | 0 | 0 |
 | summary | 655 | 23 (vi 23) | 23 |
@@ -26,22 +26,22 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-440 of 521 pages under the bar.
+467 of 551 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 409 | 1236 |
-| States as certain what the source hedges, or what garbled captions only hint at | 405 | 1244 |
-| Says what the source doesn't (invented, added) | 382 | 1218 |
-| A number, unit, dose or price | 178 | 261 |
-| Wording: unnatural, literal, stiff or chatty | 139 | 174 |
-| Repeats itself (intro, summary, steps and FAQ) | 79 | 93 |
-| Meaning changed or wrong | 75 | 85 |
-| Leaves out what the source says | 30 | 33 |
-| Names or points to the video, channel, creator or source | 26 | 26 |
+| Other | 434 | 1329 |
+| States as certain what the source hedges, or what garbled captions only hint at | 427 | 1295 |
+| Says what the source doesn't (invented, added) | 404 | 1284 |
+| A number, unit, dose or price | 189 | 272 |
+| Wording: unnatural, literal, stiff or chatty | 144 | 182 |
+| Repeats itself (intro, summary, steps and FAQ) | 82 | 96 |
+| Meaning changed or wrong | 78 | 88 |
+| Leaves out what the source says | 36 | 39 |
+| Names or points to the video, channel, creator or source | 25 | 25 |
 | Hobby terms and names | 19 | 19 |
 | Copied from the transcript or source | 10 | 10 |
-| Off the title's topic | 8 | 8 |
+| Off the title's topic | 9 | 9 |
 | Text left in another language | 3 | 3 |
 
 ### Other
@@ -83,8 +83,8 @@ under `<lang>/<path>`.
 ### Meaning changed or wrong
 
 - The planting list is wrong in places. "Hậu cảnh: trồng loại cây dạng tâm lan mini ở phía sau" and "Hai bên: thêm một loại cây hậu cảnh nữa" misstate the video, which says the mini-orchid-type plant is the background plant on both sides. "g… — vi/guides/youtube-MLuT3K5yg44, 0.30
+- "Bể dựng xong hôm trước thì hôm sau đã nhận cá được", "thả cá được ngay" and "gần như đã chạy chu trình". The video says the media made the filter immediately cycled and the fish arrived the next night. Soften to what was said, without the… — vi/guides/youtube-7nEatEnYWH8, 0.40
 - "Nên dùng nhiều cách cùng lúc, vì mỗi cách đơn lẻ đều có lúc sai": the video says polarized glasses depend on conditions, and that one indicator is usually enough. Remove the claim that every method can be wrong, and the advice to use seve… — vi/guides/youtube-C4W86NMP3CU, 0.40
-- "Hộp thấp quá nên nước rơi xa" and "Mực nước trong hộp thấp hơn mức đó thì nước rơi xa, tiếng sẽ ồn" are confused. The video says the water should cascade in about 2.5 cm and that more than that gets noisy. The height is for letting water … — vi/guides/youtube-tCBEjxXYv6o, 0.40
 
 ### Leaves out what the source says
 
@@ -95,8 +95,8 @@ under `<lang>/<path>`.
 ### Names or points to the video, channel, creator or source
 
 - "Hai loài phổ biến nhất là Neolamprologus multifasciatus và Neolamprologus similis": the ranking 'most common' is not in the video; the speaker only says there are many species and that this video features these two. Change to 'trong video… — vi/guides/youtube-jFFbDTBUgIk, 0.30
-- "Phụ đề không ghi rõ đó là loài gì": this refers to the video's captions. Delete the sentence. — vi/guides/youtube-XaHIqAHi4MU, 0.40
 - The section "Những sai lầm hay gặp ở ba bước đầu" and "Đặt lũa theo cảm tính, không có điểm nhấn rõ ràng", plus "ngâm ngay", "tập xếp lũa trong bể khô" – the mistakes list and the 'Bắt đầu từ đâu' steps add advice the video doesn't give; r… — vi/guides/youtube-ysH2T_HOG0E, 0.45
+- "Người làm hướng dẫn đang chạy kiểu lọc này cho bể cá rồng châu Á khoảng 1.400 lít của mình": this refers to the creator. Remove the sentence, or rewrite it without a person, for example "kiểu lọc này chạy được cho cả bể cá rồng lớn cỡ 1.4… — vi/guides/youtube-2WBo3u9arUo, 0.50
 
 ### Hobby terms and names
 
@@ -112,9 +112,9 @@ under `<lang>/<path>`.
 
 ### Off the title's topic
 
+- "Bể rộng... tấm ván ép trên cùng dễ bị võng ở giữa theo thời gian": the video says it would sag, not over time; remove "theo thời gian". Also "Với phần lớn bể cỡ thông thường, phần khung coi như xong": the video says "most of you", so it i… — vi/guides/youtube-_jOnulN5myE, 0.40
 - "Mỗi cây tốn khoảng 25 USD, bể dài cỡ nào cũng vậy" and the same figure in the table and FAQ: the video says the cost will be no more than $25 ("không quá 25 USD"), not about 25. Change to "không quá khoảng 25 USD". — vi/guides/youtube-9QSxJymRBak, 0.50
 - "Đây là cây trung cảnh... Còn cây hậu cảnh thì đặt ở góc hoặc phía sau": the background-plant sentence is generic filler about other plants and not about this plant; remove it. — vi/guides/youtube-nFXsyqdY37s, 0.50
-- "bể kiểu này hầu như không phải bận tâm chuyện rêu hại": the video says 'gần như chiếc bể này của mình' is not a concern; make it about this tank only, as the speaker's own result, not about the whole tank style. Also 'nhìn xem có chỗ nào … — vi/guides/youtube-RJE1PUdhy6I, 0.50
 
 ### Text left in another language
 
@@ -251,46 +251,38 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-3 of 48 pages under the bar.
+2 of 48 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 3 | 15 |
-| A number, unit, dose or price | 3 | 7 |
-| Says what the source doesn't (invented, added) | 3 | 7 |
-| Meaning changed or wrong | 1 | 2 |
+| Other | 2 | 11 |
+| A number, unit, dose or price | 2 | 5 |
+| Says what the source doesn't (invented, added) | 2 | 4 |
+| Meaning changed or wrong | 1 | 1 |
 | Leaves out what the source says | 1 | 1 |
-| Hobby terms and names | 1 | 1 |
 
 ### Other
 
-- "acriflavine atau oxytetracycline": the facts name acriflavine or Terramycin. Terramycin is a brand of oxytetracycline, but the facts never say so, so this is a swapped name. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.72
-- Feed row: "35–125 mg/kg" – the facts say 35–125 mg/kg in food for up to 3 days; fine, but the table is attributed as "Một tài liệu bệnh cá" – OK. No issue. — vi/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
-- "Cá rồng bạc ... nuôi bể lớn tới khoảng 90 cm" is fine, but the opening "lớn tới khoảng 90 cm" applied to all arowanas is a generalisation (Asian reaches 900 mm, wild silver 120 cm) — vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap, 0.72
+- "Celup garam (untuk membuang parasit luaran pada ikan air tawar)" listed as a Saprolegnia treatment – the facts give this as a Merck parasite-removal dip, not a fungus treatment. The guide presents it in the fungus treatment table. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.68
+- "ปลาไน" / "ปลาคาร์ป (koi)" listed among dactylogyrid hosts: facts list danios, barbs, goldfish and koi, so mostly fine; "ปลาซิว" for danios is a loose translation. — th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
 
 ### A number, unit, dose or price
 
-- "Saprolegnia boleh tumbuh pada suhu 0–35 °C, tetapi paling suka 15–30 °C": the facts give 32–95°F (0–35°C) and 59–86°F (15–30°C), so this is a correct conversion and not an error. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.72
-- "Nước càng ấm thì sán càng nhanh lớn" – generalisation; the facts only give the two temperature data points (22–25°C vs 1–2°C). — vi/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
-- "Thuốc dùng liều theo nhãn thuốc bạn mua" - writer's own rule, not a fact (acceptable for no-dose products) — vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap, 0.72
+- "Saprolegnia boleh tumbuh pada suhu 0–35 °C, tetapi paling suka 15–30 °C" – the facts give 32–95°F (0–35°C) and 59–86°F (15–30°C). The conversion is fine, so this is supported. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.68
+- Feed dose table row: "35–125 มก./กก. ในอาหาร" – fact says 35–125 mg/kg, so OK; no issue. — th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
 
 ### Says what the source doesn't (invented, added)
 
-- "Periksa ... suhu" in step 1 and "Bahan kimia ... Oleh itu, bersihkan bahan organik dahulu": the instruction to clean organic matter first is the writer's inference from 'chemicals react with organic matter' and is not stated in the facts. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.72
-- "Formalin là cách cũ hơn" – the facts never say formalin is an older method; unsupported. — vi/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
-- "kim long quá bối (crossback golden) và kim long hồng vĩ (red tail golden)" - facts only list the English names; the Vietnamese names are added — vi/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap, 0.72
+- "oxytetracycline" – the facts say Terramycin (a brand name); the guide swapped in a generic drug name not given in the facts. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.68
+- "ยาถ่ายพยาธิเหงือกบางผลิตภัณฑ์ (Dactycid)" – facts only say Dactycid can harm snails; calling it a gill-fluke dewormer is an unsupported gloss. — th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
 
 ### Meaning changed or wrong
 
-- "garam sesuai untuk ikan yang biasa hidup dalam air keras, beralkali atau payau" and the statement about salt working from about 3 ppt are supported. The guide omits the 3 ppt figure, which is not an error. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.72
+- "ผู้ขายปลาคาร์ป ... ให้พราซิควอนเทลผสมอาหาร" omits claim only; the guide drops the Vietnam university test claim, not an error. — th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
 
 ### Leaves out what the source says
 
-- "garam sesuai untuk ikan yang biasa hidup dalam air keras, beralkali atau payau" and the statement about salt working from about 3 ppt are supported. The guide omits the 3 ppt figure, which is not an error. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.72
-
-### Hobby terms and names
-
-- "Cá hường" for kissing gouramis – the facts say Prazifish specifically; fine. "Cá cầu vồng Melanotaenia pygmaea" – facts give only the species name, not the common name 'cá cầu vồng'. — vi/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
+- "ผู้ขายปลาคาร์ป ... ให้พราซิควอนเทลผสมอาหาร" omits claim only; the guide drops the Vietnam university test claim, not an error. — th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong, 0.72
 
 ## product: product pages, against their research
 

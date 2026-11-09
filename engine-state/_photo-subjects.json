@@ -1034,8 +1034,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "two adult celestial pearl danios among plants, close together",
+      "note": "same two celestial pearl danios among plants",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1132,7 +1133,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "CPD near driftwood, a second fish blurred behind"
+      "note": "male near driftwood, another blurred behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/25dcd532ff9685e7.webp": {
@@ -1269,8 +1272,9 @@
     "boraras-brigittae": {
       "ok": "unsure",
       "typical": false,
-      "note": "pale small rasboras with dark stripe over leaves; can't rule out another Boraras species",
-      "logo": false
+      "note": "several pale small rasboras near plants, colour faded; may be another Boraras species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/34fe892d4255d066.webp": {
@@ -1399,7 +1403,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "Two adult celestial pearl danios with pearl spots and red-and-black barred fins, among plants",
+      "note": "two celestial pearl danios among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1604,7 +1610,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "two celestial pearl danios with pearl spots and red-black barred fins among plants"
+      "note": "two fish among green plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/5456a8d37626181a.webp": {
@@ -1684,8 +1692,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "red male chili rasbora among plants, clear side view",
-      "logo": false
+      "note": "chili rasbora near moss and wood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/57feb2024cb299fe.webp": {
@@ -1909,9 +1918,10 @@
   "https://media.aquatome.com/aquariumcoop/6f807149fb667dd9.webp": {
     "boraras-brigittae": {
       "ok": "yes",
-      "typical": true,
-      "note": "chili rasboras near the surface; another small striped fish behind them",
-      "logo": false
+      "typical": false,
+      "note": "small distant chili rasbora with another striped fish and a blurred fish near the surface",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/71c51b1f32273749.webp": {
@@ -2175,8 +2185,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "same male chili rasbora, near-duplicate of photo 1",
-      "logo": false
+      "note": "chili rasbora near moss, similar shot to 4",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/8621b3727f86de35.webp": {
@@ -2192,7 +2203,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "two adult celestial pearl danios with pearl spots on blue body and red-and-black banded fins, among plants",
+      "note": "two celestial pearl danios: pearl-spotted blue body, red-and-black striped fins, among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2219,8 +2232,10 @@
   "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf.webp": {
     "danio-margaritatus": {
       "ok": "yes",
-      "typical": true,
-      "note": "single CPD side view; the blue colour looks boosted or edited"
+      "typical": false,
+      "note": "celestial pearl danio with unnaturally saturated blue/purple colours, likely edited",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/8be45c5b9cfa63e6.webp": {
@@ -2286,7 +2301,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "pair of CPDs, male with red belly, spotted body and barred fins"
+      "note": "two males, one in sharp focus",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/9359fd04161a6e7e.webp": {
@@ -2695,7 +2712,9 @@
     "vesicularia-montagnei": {
       "ok": "yes",
       "typical": false,
-      "note": "Ramshorn snails feeding on the substrate under overhanging moss, with a red cherry shrimp; matches the caption",
+      "note": "ramshorn snails and red shrimp under hanging moss; snails are the focus",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3041,9 +3060,11 @@
   },
   "https://media.aquatome.com/aquariumcoop/cd6c57ddca2403d0.webp": {
     "apteronotus-albifrons": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "grey knifefish with white tail band but no white snout blaze; colour looks off for black ghost, could be a brown ghost o"
+      "ok": "yes",
+      "typical": true,
+      "note": "black ghost knifefish side view among plants, green-tinted light",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/ceab5ad2922336b0.webp": {
@@ -3345,7 +3366,9 @@
     "apteronotus-albifrons": {
       "ok": "yes",
       "typical": true,
-      "note": "dark knifefish with white rings on the tail, seen swimming vertically"
+      "note": "black ghost knifefish hovering vertically, white tail band",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/eeba5a715fc7378b.webp": {
@@ -3985,7 +4008,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed rosette of heart-shaped leaves growing in shallow water"
+      "note": "emersed rosette of heart-shaped leaves in shallow water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/046d3389aa8fc333.webp": {
@@ -4405,7 +4430,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on dark background, red body, dark stripe, red fin spots"
+      "note": "chili rasbora with red fin marks on a black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/09f63bf004d3de79.webp": {
@@ -4973,7 +5000,9 @@
     "trigonostigma-hengeli": {
       "ok": "yes",
       "typical": true,
-      "note": "Same type of fish: adult with the bright red line above the black wedge, clear side view"
+      "note": "adult with a bright red-orange stripe over a black wedge, aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/13d1ca9bca1b449a.webp": {
@@ -5643,7 +5672,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": true,
-      "note": "top view of round floating rosette leaves"
+      "note": "floating round leaves of Amazon frogbit seen from above",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1bc6d0b81cb855d8.webp": {
@@ -5743,9 +5774,11 @@
   },
   "https://media.aquatome.com/commons/1d2b339b5ea25a06.webp": {
     "apteronotus-albifrons": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "Bluish eel-like fish with a distinct dorsal fin and a wavy tail; doesn't match a black ghost, possibly a catfish or an e"
+      "ok": "yes",
+      "typical": true,
+      "note": "black ghost knifefish swimming, white tail bands visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1d46c71f97c1a1ce.webp": {
@@ -5814,7 +5847,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of roots with fine root hairs from below"
+      "note": "close-up of hairy roots from below",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1dd1adab2066f619.webp": {
@@ -5978,7 +6013,9 @@
     "gymnarchus-niloticus": {
       "ok": "yes",
       "typical": true,
-      "note": "dark aba aba side view with long dorsal fin"
+      "note": "head and front body with dorsal fin, in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/20dafe6f5140cb6b.webp": {
@@ -6353,7 +6390,9 @@
     "micranthemum-callitrichoides": {
       "ok": "yes",
       "typical": true,
-      "note": "dense submerged HC Cuba carpet in tank foreground, small fish on it"
+      "note": "dense submerged carpet of tiny leaves in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2591df3723a615d7.webp": {
@@ -7111,7 +7150,9 @@
     "chitala-ornata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in an aquarium with ocelli; a clown loach is visible"
+      "note": "adult in aquarium, clown loach at edge",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/31e120dbe40a3a15.webp": {
@@ -7149,7 +7190,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": false,
-      "note": "underside of rosettes with long feathery roots"
+      "note": "rosettes with long hairy roots in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3249dcb2b033121c.webp": {
@@ -7249,8 +7292,10 @@
   "https://media.aquatome.com/commons/33787174cf7bf3be.webp": {
     "gymnarchus-niloticus": {
       "ok": "yes",
-      "typical": false,
-      "note": "small aba aba in blue-lit tank, more distant view"
+      "typical": true,
+      "note": "aba aba in blue-lit tank, distant view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/337931153dee4c1e.webp": {
@@ -7273,7 +7318,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "same fish as photo 1, cropped wider; adult with clear markings"
+      "note": "close-up of a red male chili rasbora",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3438b66f0d9fdd07.webp": {
@@ -7600,7 +7647,9 @@
     "chitala-ornata": {
       "ok": "unsure",
       "typical": false,
-      "note": "Two knifefish; the front fish has small, ringless dots that don't match the clown knifefish's large ocelli and may be an"
+      "note": "featherback with small dark spots, not clear ocelli; could be another Chitala",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/389b8952f1d2096d.webp": {
@@ -8285,7 +8334,9 @@
     "hyphessobrycon-megalopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "female black phantom with red pelvic/anal fins, shoulder patch"
+      "note": "black phantom tetra, female with red-tinged fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4389e5a450a50e56.webp": {
@@ -8473,7 +8524,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male CPD near driftwood"
+      "note": "close view of celestial pearl danio by driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/46588947d861dfce.webp": {
@@ -9106,8 +9159,10 @@
   "https://media.aquatome.com/commons/5071c8179640eeb3.webp": {
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
-      "typical": false,
-      "note": "Red-tail catfish under strong green lighting, so colours look wrong"
+      "typical": true,
+      "note": "red-tail catfish swimming, green-tinted lighting",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5086fb9765447203.webp": {
@@ -10521,7 +10576,9 @@
     "limnophila-sessiliflora": {
       "ok": "unsure",
       "typical": false,
-      "note": "dense land shrub with narrow, undivided leaves and white buds; doesn't look like Limnophila"
+      "note": "emersed bushy plant with reddish stems and white buds, unclear ID",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/68fd6ed56b869e47.webp": {
@@ -10585,7 +10642,9 @@
     "trigonostigma-hengeli": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult with a glowing red-orange line above a narrow black wedge, in a planted tank"
+      "note": "adult with a glowing red-orange stripe over a black wedge, aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/69b902fcef197d40.webp": {
@@ -11004,7 +11063,9 @@
     "apteronotus-albifrons": {
       "ok": "unsure",
       "typical": false,
-      "note": "Pale grey knifefish among plants; could be a brown ghost knifefish, can't confirm"
+      "note": "greyish knifefish seen from above among plants; no white back stripe or tail bands clearly visible, could be brown ghost",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/700e42141303ae56.webp": {
@@ -11285,7 +11346,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "single fish in the tank, smaller in the frame but the markings are clear"
+      "note": "chili rasbora against a blue background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/765906b5a7181b9e.webp": {
@@ -11373,7 +11436,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "Red-tail catfish side view on gravel; red tail and white flank band visible"
+      "note": "adult red-tail catfish side view in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/774dddb37bbec0cf.webp": {
@@ -11452,7 +11517,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "Large red-tail catfish side view in a public tank"
+      "note": "red-tail catfish on gravel in tank with other fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/78230742db0b47d7.webp": {
@@ -11800,7 +11867,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male CPD, clear side view showing spots and orange fins"
+      "note": "celestial pearl danio side view, clear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp": {
@@ -12267,7 +12336,9 @@
     "gymnarchus-niloticus": {
       "ok": "yes",
       "typical": true,
-      "note": "aba aba among plants, pectoral fin and dorsal fin visible"
+      "note": "aba aba among plants in aquarium, long dorsal fin visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/840c8a5fcdaf9864.webp": {
@@ -12457,7 +12528,9 @@
     "hyphessobrycon-megalopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male black phantom tetra, tall dark dorsal, shoulder patch"
+      "note": "adult male black phantom tetra, long dorsal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/874244fb6189d029.webp": {
@@ -12640,7 +12713,9 @@
     "eleocharis-parvula": {
       "ok": "yes",
       "typical": true,
-      "note": "hairgrass carpet in aquascape, shrimp visible"
+      "note": "hairgrass carpet in aquarium with shrimp",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8b72348ac5522211.webp": {
@@ -12735,7 +12810,9 @@
     "hyphessobrycon-megalopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "male black phantom, large black fins, flash gives blue sheen"
+      "note": "adult male black phantom tetra, dark fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8cfcc41ecef75124.webp": {
@@ -12948,7 +13025,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of a white flower and spiky seed heads"
+      "note": "close-up of white flower and seed heads",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/918d6b4152c16255.webp": {
@@ -12987,7 +13066,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "side view of an adult: red tail, cream lateral band, dark back"
+      "note": "red-tail catfish swimming, showing its red tail and white flank stripe",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/91bf3bf7be340302.webp": {
@@ -13047,7 +13128,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": false,
-      "note": "underwater view of hairy dangling roots"
+      "note": "underwater view of feathery hanging roots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/92d29fe557075047.webp": {
@@ -13138,9 +13221,11 @@
   },
   "https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp": {
     "channa-asiatica": {
-      "ok": "yes",
-      "typical": true,
-      "note": "in aquarium; orange bars, white spots, tail eyespot"
+      "ok": "unsure",
+      "typical": false,
+      "note": "small reddish-barred white-spotted snakehead, possibly young; look-alikes possible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9432726606f767fa.webp": {
@@ -13195,7 +13280,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "plump CPD, likely female, pearl spots and red-barred fins, slightly soft focus"
+      "note": "celestial pearl danio, slightly soft focus, dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/94fa125aa43fa1db.webp": {
@@ -13218,7 +13305,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male CPD, close side view with pearl spots and red-orange fins"
+      "note": "celestial pearl danio side view on grey background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9522c8351ab860f6.webp": {
@@ -13283,16 +13372,20 @@
   },
   "https://media.aquatome.com/commons/95ac72e841ecbbfd.webp": {
     "gymnarchus-niloticus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "full body of aba aba in a large tank, long dorsal fin and no tail fin"
+      "ok": "unsure",
+      "typical": false,
+      "note": "elongate fish in public aquarium; tail looks finned, can't confirm aba",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/96029aeaf5ba0663.webp": {
     "hydrocotyle-verticillata": {
       "ok": "unsure",
       "typical": false,
-      "note": "small round pennywort leaves creeping on soil; no flowers, so the species can't be confirmed"
+      "note": "small pennywort leaves on dark soil bank, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/96588d6544abb077.webp": {
@@ -13919,7 +14012,9 @@
     "hyphessobrycon-sweglesi": {
       "ok": "yes",
       "typical": true,
-      "note": "two red phantom tetras in planted tank, one in focus"
+      "note": "two red phantom tetras in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a1b6e58a85c32a8e.webp": {
@@ -14233,7 +14328,9 @@
     "hyphessobrycon-megalopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "male black phantom tetra, side view"
+      "note": "black phantom tetra male, greyish tones, shoulder spot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a6bf512005c4b2f3.webp": {
@@ -14448,7 +14545,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": false,
-      "note": "white flower cluster in a whorl above the leaves"
+      "note": "flower cluster on stalk above leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ab013443c9e94b13.webp": {
@@ -15015,7 +15114,9 @@
     "eleocharis-parvula": {
       "ok": "unsure",
       "typical": false,
-      "note": "emersed flowering spikerush clump; could be E. acicularis"
+      "note": "emersed flowering spikerush clump, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b381ee77c3b8af13.webp": {
@@ -15352,7 +15453,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed clump with heart-shaped leaves and many white flowers on long stalks"
+      "note": "flowering emersed clump with cordate leaves and white flowers",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ba0d7bc1fcaf33b3.webp": {
@@ -15512,7 +15615,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "adult chili rasbora, side view, red body with dark stripe and red-tipped fins"
+      "note": "red male chili rasbora with dark lateral stripe, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bbc2af53338844fa.webp": {
@@ -16051,9 +16156,11 @@
   },
   "https://media.aquatome.com/commons/c201f4164e45ecac.webp": {
     "eleocharis-parvula": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "emersed mat with many small flower spikelets"
+      "note": "flowering spikerush mat, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c223819f3c9b569e.webp": {
@@ -16067,7 +16174,9 @@
     "hyphessobrycon-sweglesi": {
       "ok": "yes",
       "typical": true,
-      "note": "single orange-red phantom tetra with black shoulder spot"
+      "note": "orange-red phantom tetra with a black shoulder spot, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c26d6bd3b78a154c.webp": {
@@ -16939,7 +17048,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult CPD male by driftwood and fine-leaved plants, small in frame"
+      "note": "celestial pearl danio by driftwood and plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ceef7dc31d620c3d.webp": {
@@ -16984,8 +17095,10 @@
   "https://media.aquatome.com/commons/d000c22043f53239.webp": {
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
-      "typical": false,
-      "note": "young fish in a planted tank with a white band; tail pale, not red"
+      "typical": true,
+      "note": "red-tail catfish in a planted home tank, filter visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d0078c860969e587.webp": {
@@ -17193,7 +17306,9 @@
     "hydrocotyle-verticillata": {
       "ok": "yes",
       "typical": true,
-      "note": "peltate leaves with whorled flowers on an interrupted spike, the mark of H. verticillata"
+      "note": "peltate leaves with whorled flower spike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d2891acfc05ec577.webp": {
@@ -17533,7 +17648,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "Red-tail catfish resting on sand in a display tank, seen through glass"
+      "note": "red-tail catfish resting on gravel in public aquarium, distant",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d72307e7efa95c25.webp": {
@@ -17759,7 +17876,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": false,
-      "note": "Red-tail catfish seen head-on; another catfish in the background"
+      "note": "head-on view of red-tail catfish, another catfish behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d9d5b88701185c56.webp": {
@@ -17809,7 +17928,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": false,
-      "note": "head-on view of red-tail catfish on sand, pale side band and white lips visible"
+      "note": "front view of red-tail catfish on sand with other fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/dba42229282514f4.webp": {
@@ -18228,7 +18349,9 @@
     "chitala-ornata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on gravel with a row of white-ringed ocelli"
+      "note": "adult resting on gravel in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e2ab5187b30af0c8.webp": {
@@ -18809,7 +18932,9 @@
     "hyphessobrycon-sweglesi": {
       "ok": "yes",
       "typical": true,
-      "note": "red phantom tetra, likely male with tall red dorsal, clear side view"
+      "note": "bright red adult with a black shoulder spot, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ee4d4832defa5400.webp": {
@@ -18852,8 +18977,10 @@
   "https://media.aquatome.com/commons/ef4c1680643909ab.webp": {
     "gymnarchus-niloticus": {
       "ok": "yes",
-      "typical": true,
-      "note": "dark aba aba, head and long dorsal fin"
+      "typical": false,
+      "note": "close-up of head and front body, dark",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ef5039a8a5a72a89.webp": {
@@ -18876,7 +19003,9 @@
     "hyphessobrycon-sweglesi": {
       "ok": "unsure",
       "typical": false,
-      "note": "pale silvery tetras with red fins and dark-tipped dorsal; could be a rosy/bentosi tetra rather than red phantom"
+      "note": "three pale, see-through tetras with red fins and a shoulder spot; the dark, white-tipped dorsal looks like a rosy tetra ",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f02a7041ee4f70c4.webp": {
@@ -19178,8 +19307,10 @@
   "https://media.aquatome.com/commons/f45970607ae6e3c9.webp": {
     "apteronotus-albifrons": {
       "ok": "yes",
-      "typical": false,
-      "note": "Dark knifefish among plants, seen head-down; markings not visible"
+      "typical": true,
+      "note": "black ghost knifefish among plants, slightly hazy",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f45c39dd0bd9fec1.webp": {
@@ -19621,9 +19752,11 @@
   },
   "https://media.aquatome.com/commons/fb645fc661ecb3ba.webp": {
     "micranthemum-callitrichoides": {
-      "ok": "yes",
-      "typical": true,
-      "note": "tank with HC Cuba carpet foreground behind stem plants and rocks; carpet smaller in frame"
+      "ok": "unsure",
+      "typical": false,
+      "note": "aquascape with distant foreground carpet, species hard to confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fb6f0354a2bf4b60.webp": {
@@ -19798,9 +19931,11 @@
   },
   "https://media.aquatome.com/commons/fe45718a404011c1.webp": {
     "gymnarchus-niloticus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "pale aba aba head and front body among plants"
+      "ok": "unsure",
+      "typical": false,
+      "note": "same pale fish as photo 1, cropped differently",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fe60f6eea3eed46a.webp": {
@@ -21171,7 +21306,9 @@
     "limnophila-sessiliflora": {
       "ok": "yes",
       "typical": false,
-      "note": "Emersed form growing on wet mud, with shorter, stiffer feathery leaves"
+      "note": "emersed plants growing on mud",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/111646903.webp": {
@@ -21237,9 +21374,11 @@
   },
   "https://media.aquatome.com/inaturalist/11338982.webp": {
     "hydrocotyle-verticillata": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "overlapping rounded leaves, some seem notched; may be another Hydrocotyle"
+      "ok": "yes",
+      "typical": true,
+      "note": "dense patch of round peltate leaves among grass",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/116088353.webp": {
@@ -21254,14 +21393,18 @@
     "atractosteus-spatula": {
       "ok": "yes",
       "typical": true,
-      "note": "large broad-snouted gar in aquarium, juveniles in background"
+      "note": "large broad-snouted gar in planted aquarium, juveniles above",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/11697784.webp": {
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "side view of a dark adult with the white lateral band; red tail only faintly visible"
+      "note": "red-tail catfish on gravel in a large aquarium, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/11721259.webp": {
@@ -21437,14 +21580,18 @@
     "chitala-ornata": {
       "ok": "yes",
       "typical": false,
-      "note": "young fish in a white bowl with ringed ocelli along the rear"
+      "note": "young clown knifefish in a white basin of water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/130041777.webp": {
     "chitala-ornata": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "small fish in a bowl with a row of small dots along the upper body, unlike typical ocelli; could be another Chitala"
+      "note": "young clown knifefish in a white basin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/130685817.webp": {
@@ -21550,7 +21697,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of a three-petalled white flower and buds"
+      "note": "close-up of white three-petal flower and buds",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/144263586.webp": {
@@ -21566,7 +21715,9 @@
     "hydrocotyle-verticillata": {
       "ok": "yes",
       "typical": true,
-      "note": "ground carpet of peltate pennywort leaves in a planted bed"
+      "note": "carpet of round peltate leaves in a garden bed, plant label in scene",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/145416143.webp": {
@@ -21581,7 +21732,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed clump flowering at the water's edge"
+      "note": "emersed clump flowering in shallow water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/147078781.webp": {
@@ -21824,16 +21977,20 @@
   },
   "https://media.aquatome.com/inaturalist/1682695.webp": {
     "hydrocotyle-verticillata": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "peltate pennywort leaves on a forest floor; no flowers, so the species can't be confirmed"
+      "ok": "yes",
+      "typical": true,
+      "note": "peltate round leaves among leaf litter",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/169945095.webp": {
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": true,
-      "note": "floating rosettes of round leaves with duckweed and Azolla"
+      "note": "floating round leaves with duckweed",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/171040469.webp": {
@@ -22299,7 +22456,9 @@
     "atractosteus-spatula": {
       "ok": "unsure",
       "typical": false,
-      "note": "gar surfacing in green water; snout looks fairly long and slender, so longnose or spotted gar can't be ruled out"
+      "note": "gar surfacing in green water; snout looks fairly long, may be longnose gar",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/207594794.webp": {
@@ -22388,8 +22547,10 @@
   "https://media.aquatome.com/inaturalist/216090026.webp": {
     "echinodorus-cordifolius": {
       "ok": "yes",
-      "typical": true,
-      "note": "dense emersed stand with arching flower stalks and many white flowers"
+      "typical": false,
+      "note": "dense emersed stand with many white flowers and buds",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/216249228.webp": {
@@ -22455,7 +22616,9 @@
     "limnophila-sessiliflora": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of a pale pink-violet flower among divided leaves"
+      "note": "emersed shoot with pale pink flower",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/221208693.webp": {
@@ -22480,7 +22643,9 @@
     "poecilia-sphenops": {
       "ok": "yes",
       "typical": false,
-      "note": "calico balloon molly, angelfish behind"
+      "note": "yellow-and-black ornamental molly variety, red-cap angelfish blurred behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/221943251.webp": {
@@ -22672,7 +22837,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": true,
-      "note": "floating rosette of rounded spongy leaves among pennywort"
+      "note": "floating rosette among small clover-like plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/235937720.webp": {
@@ -22771,8 +22938,10 @@
   "https://media.aquatome.com/inaturalist/246444848.webp": {
     "limnophila-sessiliflora": {
       "ok": "yes",
-      "typical": true,
-      "note": "underwater whorl of finely divided leaves reaching the water surface"
+      "typical": false,
+      "note": "stem tip reaching water surface with bubbles, outdoors",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/246842861.webp": {
@@ -22900,7 +23069,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "unsure",
       "typical": false,
-      "note": "yellowish speckled catfish seen head-on; cannot confirm it is a red-tail and not another pimelodid"
+      "note": "head-on view of a mottled yellow-brown catfish without the red-tail's dark back and white flank; probably a different sp",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/251105703.webp": {
@@ -22923,7 +23094,9 @@
     "atractosteus-spatula": {
       "ok": "yes",
       "typical": true,
-      "note": "large adult with broad snout in public aquarium, side view"
+      "note": "adult alligator gar in public aquarium tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/251261522.webp": {
@@ -23270,7 +23443,9 @@
     "atractosteus-spatula": {
       "ok": "yes",
       "typical": false,
-      "note": "gar seen from above in green water; broad short head"
+      "note": "gar seen from above in green water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/264246084.webp": {
@@ -23309,9 +23484,11 @@
   },
   "https://media.aquatome.com/inaturalist/26529369.webp": {
     "limnophila-sessiliflora": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "dense, bushy clump of the above-water form growing on sand"
+      "note": "dense compact emersed plant on sand, possibly terrestrial form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/266948318.webp": {
@@ -23726,8 +23903,10 @@
   "https://media.aquatome.com/inaturalist/307179719.webp": {
     "chitala-ornata": {
       "ok": "yes",
-      "typical": false,
-      "note": "Clown knifefish with black ocelli near the tail; blurry view through glass"
+      "typical": true,
+      "note": "clown knifefish in a tank, slightly blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/307195233.webp": {
@@ -24557,7 +24736,9 @@
     "limnophila-sessiliflora": {
       "ok": "yes",
       "typical": false,
-      "note": "Emersed plant with a pale pink-lilac flower"
+      "note": "emersed flowering shoots with pink flower",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/350454848.webp": {
@@ -24908,9 +25089,11 @@
   },
   "https://media.aquatome.com/inaturalist/38273617.webp": {
     "hydrocotyle-verticillata": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Emersed patch of round peltate pennywort leaves; flowers stacked in whorls up the spike, fits verticillata rather than u"
+      "ok": "other",
+      "typical": false,
+      "note": "likely Hydrocotyle umbellata: flowers in ball-shaped umbels at stalk tips, not in whorls",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/385740903.webp": {
@@ -24926,7 +25109,9 @@
     "apteronotus-albifrons": {
       "ok": "yes",
       "typical": false,
-      "note": "Dark knifefish hiding under a rock ledge; dim view, markings not visible"
+      "note": "blurry black ghost knifefish hiding under a rock ledge",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/386047058.webp": {
@@ -25334,7 +25519,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": true,
-      "note": "group of floating rosettes in shallow water, small flower visible"
+      "note": "floating rosettes in shallow water in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/428598019.webp": {
@@ -25415,7 +25602,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": false,
-      "note": "crowded emersed leaves with white staminate flower, among Azolla"
+      "note": "emergent leaves with white flower among Azolla",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/4391595.webp": {
@@ -25628,7 +25817,9 @@
     "gymnarchus-niloticus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult aba aba in a public aquarium tank. You can see its long body and the wavy dorsal fin running along the back. The c"
+      "note": "aba aba in public aquarium, purple tint, long dorsal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/455005984.webp": {
@@ -25762,8 +25953,10 @@
   "https://media.aquatome.com/inaturalist/467762980.webp": {
     "limnobium-laevigatum": {
       "ok": "yes",
-      "typical": false,
-      "note": "crowded mat with leaves lifted on petioles"
+      "typical": true,
+      "note": "dense crowded mat of frogbit leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/468216051.webp": {
@@ -26121,7 +26314,9 @@
     "channa-asiatica": {
       "ok": "unsure",
       "typical": false,
-      "note": "snakehead barely visible in murky water"
+      "note": "barred snakehead in murky water, poorly visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/504508793.webp": {
@@ -26387,9 +26582,11 @@
   },
   "https://media.aquatome.com/inaturalist/53070271.webp": {
     "hydrocotyle-verticillata": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "single peltate leaf close-up; cannot rule out H. umbellata"
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of single peltate leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/53146298.webp": {
@@ -26420,8 +26617,10 @@
   "https://media.aquatome.com/inaturalist/534713609.webp": {
     "eleocharis-parvula": {
       "ok": "yes",
-      "typical": false,
-      "note": "close-up of submerged plants flowering and pearling"
+      "typical": true,
+      "note": "close-up of dense thin green culms with small spikelets",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/53544572.webp": {
@@ -26441,8 +26640,10 @@
   "https://media.aquatome.com/inaturalist/537210972.webp": {
     "eleocharis-parvula": {
       "ok": "yes",
-      "typical": false,
-      "note": "emersed tufts on wet mud, wild"
+      "typical": true,
+      "note": "wild tufts on wet mud",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/537430537.webp": {
@@ -26586,7 +26787,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": true,
-      "note": "small floating rosette among Azolla"
+      "note": "small rosette among Azolla",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/551164859.webp": {
@@ -26991,9 +27194,11 @@
   },
   "https://media.aquatome.com/inaturalist/57266711.webp": {
     "hydrocotyle-verticillata": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "a few peltate leaves among grasses; partial view"
+      "note": "close-up of a few wet peltate leaves among grass blades",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/57354331.webp": {
@@ -27101,14 +27306,18 @@
     "atractosteus-spatula": {
       "ok": "unsure",
       "typical": false,
-      "note": "distant top view of a gar at the water surface"
+      "note": "gar seen from above at surface of murky water, distant",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/589928733.webp": {
     "atractosteus-spatula": {
       "ok": "unsure",
       "typical": false,
-      "note": "distant top view of a fish in murky water; species can't be told"
+      "note": "distant top view of a large fish in murky water, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/591552903.webp": {
@@ -27404,7 +27613,9 @@
     "limnobium-laevigatum": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of translucent pistillate flower"
+      "note": "close-up of the flower",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/616354370.webp": {
@@ -27629,9 +27840,11 @@
   },
   "https://media.aquatome.com/inaturalist/628894758.webp": {
     "micranthemum-callitrichoides": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "emersed carpet with small white star flowers and thumb; leaves look rather large, could be another carpeting plant"
+      "note": "emersed carpet with tiny white flowers, thumb at bottom; camera timestamp text bottom right",
+      "logo": true,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/63005894.webp": {
@@ -27660,7 +27873,9 @@
     "channa-asiatica": {
       "ok": "unsure",
       "typical": false,
-      "note": "blurry snakehead seen from above in shallow water"
+      "note": "barred snakehead seen from above in shallow wild water, blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/631330028.webp": {
@@ -27764,14 +27979,18 @@
     "chitala-ornata": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult clown knifefish with a row of white-ringed black spots, in a dim aquarium"
+      "note": "clown knifefish with ocelli in a dark tank, turtle behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/642201352.webp": {
     "chitala-ornata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in an aquarium with typical large ocelli"
+      "note": "adult in dim display tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/642209373.webp": {
@@ -27861,8 +28080,10 @@
   "https://media.aquatome.com/inaturalist/651768348.webp": {
     "limnobium-laevigatum": {
       "ok": "yes",
-      "typical": false,
-      "note": "dense emersed stand outdoors among grasses, leaves on raised stalks"
+      "typical": true,
+      "note": "dense mat of crowded, upright leaves outdoors",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/653789707.webp": {
@@ -27942,7 +28163,9 @@
     "atractosteus-spatula": {
       "ok": "unsure",
       "typical": false,
-      "note": "slender gar seen from above in murky water; can't tell which gar"
+      "note": "gar faintly seen in murky brown water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/669262813.webp": {
@@ -28071,7 +28294,9 @@
     "hydrocotyle-verticillata": {
       "ok": "unsure",
       "typical": false,
-      "note": "dense pennywort mat growing out of water; no flowers, so the species can't be confirmed"
+      "note": "lush pennywort mass, leaves not clearly peltate",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/686252367.webp": {
@@ -28094,7 +28319,9 @@
     "eleocharis-parvula": {
       "ok": "yes",
       "typical": true,
-      "note": "dense submerged carpet of fine hairgrass"
+      "note": "dense hairgrass lawn",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/691265214.webp": {
@@ -28145,15 +28372,19 @@
   "https://media.aquatome.com/inaturalist/697131007.webp": {
     "limnophila-sessiliflora": {
       "ok": "yes",
-      "typical": true,
-      "note": "group of stem tips with whorls of feathery leaves at the surface"
+      "typical": false,
+      "note": "top view of many stem tips at the surface in a pond",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/697131072.webp": {
     "limnophila-sessiliflora": {
       "ok": "yes",
       "typical": true,
-      "note": "Dense stand of whorled, finely divided shoots reaching the water surface in a wild pond, with a spider sitting on it"
+      "note": "dense stand of whorled shoots at water surface, small spider",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/700464239.webp": {
@@ -28562,9 +28793,11 @@
   },
   "https://media.aquatome.com/inaturalist/77750672.webp": {
     "echinodorus-cordifolius": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "close-up of white flowers with yellow centres"
+      "note": "close-up of white flowers only, species hard to confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/80515486.webp": {
@@ -28598,14 +28831,18 @@
     "channa-asiatica": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile snakehead with white spot rows and tail-base eyespot, slightly blurry, in tank"
+      "note": "young fish with white spots and tail eyespot, through the glass",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/81679461.webp": {
     "channa-asiatica": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult dark brown snakehead with scattered white/gold spots among plants, side view"
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark white-spotted snakehead among plants, no clear eyespot visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/818934.webp": {
@@ -28644,7 +28881,9 @@
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
       "typical": false,
-      "note": "dark catfish seen from the front with long barbels and a red-edged dorsal fin"
+      "note": "red-tail catfish seen head-on, long barbels, dorsal fin edged red",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/85056963.webp": {
@@ -28659,7 +28898,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed plants with cordate leaves on mud, small white flowers"
+      "note": "emersed plants with heart-shaped leaves and creeping flower stalk on mud",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/85817583.webp": {
@@ -28682,7 +28923,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": false,
-      "note": "CPD in planted tank, distant and blurry"
+      "note": "single small distant celestial pearl danio in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/86335632.webp": {
@@ -28698,14 +28941,18 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": false,
-      "note": "CPD under leaf, distant view"
+      "note": "celestial pearl danios small and distant among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/86335722.webp": {
     "danio-margaritatus": {
       "ok": "yes",
       "typical": false,
-      "note": "two CPDs behind plants, blurry"
+      "note": "two celestial pearl danios, small blurry view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/86505605.webp": {
@@ -28821,7 +29068,9 @@
     "hydrocotyle-verticillata": {
       "ok": "yes",
       "typical": true,
-      "note": "dense emersed stand of small peltate leaves on mud"
+      "note": "stand of peltate round leaves on mud with whorled flower spikes",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/94685276.webp": {
@@ -28835,7 +29084,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": false,
-      "note": "single heart-shaped emersed leaf close-up, floating over water"
+      "note": "single heart-shaped leaf over water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/95613055.webp": {
@@ -28849,7 +29100,9 @@
     "echinodorus-cordifolius": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of two white flowers"
+      "note": "close-up of two white flowers",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/97762589.webp": {
@@ -28888,7 +29141,9 @@
     "limnophila-sessiliflora": {
       "ok": "yes",
       "typical": true,
-      "note": "underwater stems with feathery leaf whorls in shallow water"
+      "note": "submerged whorled feathery shoots in water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/9956402.webp": {
@@ -30087,7 +30342,9 @@
     "agamyxis-pectinifrons": {
       "ok": "unsure",
       "typical": false,
-      "note": "dark thorny catfish, few faded white spots and pale dorsal line; could be Agamyxis or an Amblydoras look-alike"
+      "note": "dark doradid with faint spots by wood, spotting too faded to confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/67d03131229b090f.webp": {
@@ -31981,7 +32238,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "pair of CPDs, spotted body and striped orange fins"
+      "note": "two celestial pearl danios facing each other",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/18fd763749741980.webp": {
@@ -32029,7 +32288,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "adult chili rasbora among stem plants, clear side view"
+      "note": "chili rasbora among stem plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/1cf4965d61e69d35.webp": {
@@ -32770,7 +33031,9 @@
     "atractosteus-spatula": {
       "ok": "unsure",
       "typical": false,
-      "note": "juvenile gar with very long, thin snout and spots; could be longnose or spotted gar"
+      "note": "juvenile gar with very long slender spotted snout; could be longnose gar",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/3e5b742f31a87938.webp": {
@@ -32833,7 +33096,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "single chili rasbora, side view, dark midline stripe with red above, red/black fin marks"
+      "note": "adult chili rasbora side view in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/4195944ec07f9f6b.webp": {
@@ -32968,7 +33233,9 @@
     "boraras-brigittae": {
       "ok": "yes",
       "typical": true,
-      "note": "adult chili rasbora, three-quarter view among plants"
+      "note": "chili rasbora, three-quarter view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/48210c6db7fe3282.webp": {
@@ -33303,8 +33570,10 @@
   "https://media.aquatome.com/seriouslyfish/595450b04dc77e10.webp": {
     "danio-margaritatus": {
       "ok": "yes",
-      "typical": false,
-      "note": "group of CPDs with unusual blotched orange-black fin and belly pattern"
+      "typical": true,
+      "note": "two male celestial pearl danios, clear view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/595fb79f6f2e8607.webp": {
@@ -33920,7 +34189,9 @@
     "trigonostigma-hengeli": {
       "ok": "yes",
       "typical": true,
-      "note": "Side view of an adult with a thin black wedge topped by an orange line; colours paler than usual, in a photo tank"
+      "note": "side view of a live fish: slim black wedge with an orange line above it, blue background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/8076caeb217eda05.webp": {
@@ -34560,7 +34831,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "two adult males, pearl spots and red-black striped fins, clear view"
+      "note": "two adult males, red fins, among moss",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a4c95e15e17164d2.webp": {
@@ -36015,7 +36288,9 @@
     "channa-asiatica": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in aquarium; dark bars, white spots, eyespot at tail base"
+      "note": "adult with dark bars, white spots and tail eyespot in aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/f4afdcf16d5228e5.webp": {
@@ -36099,7 +36374,9 @@
     "danio-margaritatus": {
       "ok": "yes",
       "typical": true,
-      "note": "female CPD, duller body with pale fins, among moss"
+      "note": "single fish, likely female, among moss",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/f7a82fb6a53b8d6e.webp": {
@@ -36918,7 +37195,9 @@
     "apteronotus-albifrons": {
       "ok": "yes",
       "typical": true,
-      "note": "dark knifefish swimming among fine-leaved plants; matches caption, though the white tail rings and nose blaze are not cl",
+      "note": "black ghost knifefish swimming among fine-leaved plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -36952,7 +37231,9 @@
     "hyphessobrycon-megalopterus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male black phantom tetra, side view: black shoulder patch with a silvery edge, tall dark dorsal fin",
+      "note": "black phantom tetra male, matches caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38011,7 +38292,9 @@
     "micranthemum-callitrichoides": {
       "ok": "yes",
       "typical": true,
-      "note": "dense bright green carpet of tiny round leaves in the foreground, with a loach and stem plants",
+      "note": "same HC carpet image as photo 3",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38019,7 +38302,9 @@
     "micranthemum-callitrichoides": {
       "ok": "yes",
       "typical": true,
-      "note": "thick carpet covering the substrate, with cherry shrimp; leaves look a little large, so Monte Carlo can't be fully ruled",
+      "note": "thick HC carpet with shrimp",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38753,7 +39038,9 @@
     "micranthemum-callitrichoides": {
       "ok": "yes",
       "typical": true,
-      "note": "Dense bright-green carpet of tiny-leaved HC Cuba across the foreground; a small loach swims over it, with rocks and stem",
+      "note": "dense green HC Cuba carpet covering the foreground, with small fish",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -39048,6 +39335,291 @@
       "ok": "yes",
       "typical": true,
       "note": "pygmy cory with black lateral stripe and thin lower line, on white sand",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/9d7ec25446d2d975.webp": {
+    "hydrocotyle-verticillata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense mat of round peltate crenate leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/2373dd4bece9b0c6.webp": {
+    "gymnarchus-niloticus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dark fish swimming, long dorsal fin, pointed tail",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/2e8af575aadb4910.webp": {
+    "gymnarchus-niloticus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "full side view showing long dorsal fin and rat-like tail",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/358cf62059041bc1.webp": {
+    "apteronotus-albifrons": {
+      "ok": "yes",
+      "typical": true,
+      "note": "black ghost knifefish nosing down near driftwood",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/5705996f168a89af.webp": {
+    "limnophila-sessiliflora": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single bright green stem with whorled feathery leaves underwater",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/7e08e5ecb1308a9f.webp": {
+    "limnophila-sessiliflora": {
+      "ok": "yes",
+      "typical": true,
+      "note": "whorled finely divided green leaves, top of stem in tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/8771eea3195c3784.webp": {
+    "gymnarchus-niloticus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale thick-bodied eel-like fish among plants, dorsal fin and tail not visible",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/f02ac861689269f0.webp": {
+    "limnophila-sessiliflora": {
+      "ok": "yes",
+      "typical": false,
+      "note": "ambulia stems behind Amazon sword leaves in a tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/14441185564.webp": {
+    "vesicularia-montagnei": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense clump of Christmas moss with branching fronds, close-up",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/20999143536.webp": {
+    "eleocharis-parvula": {
+      "ok": "yes",
+      "typical": true,
+      "note": "low spikerush mat on tidal mudflat among pneumatophores",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/21025434875.webp": {
+    "eleocharis-parvula": {
+      "ok": "dead",
+      "typical": false,
+      "note": "uprooted specimen laid on paper with grid scale",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/22472342490.webp": {
+    "boraras-brigittae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "chili rasbora on a dark background, slightly soft focus",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/28073865218.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "macro of emersed leaves and white flowers; leaves look large and oval, could be Monte Carlo",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/3584837610.webp": {
+    "atractosteus-spatula": {
+      "ok": "yes",
+      "typical": true,
+      "note": "alligator gar in public aquarium tank, visitor silhouettes in front",
+      "logo": false,
+      "person": true
+    }
+  },
+  "https://media.aquatome.com/flickr/40946246435.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "emersed dome of tiny-leaved carpet plant in pot among garden plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/41045824855.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of emersed leaves in whorls with tiny white flowers",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/41226862534.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "emersed mound of tiny leaves with a star-shaped white flower",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/41944603661.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "emersed HC mat with tiny white flowers, close-up",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/134981099.webp": {
+    "echinodorus-cordifolius": {
+      "ok": "yes",
+      "typical": false,
+      "note": "arching inflorescence with flowers over water",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/32075373.webp": {
+    "bolbitis-heteroclita": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "wild terrestrial pinnate fern on forest floor; toothed pinnae, could be another Bolbitis species",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/6f0f7abe2c873ee3.webp": {
+    "agamyxis-pectinifrons": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted raphael in photo tank, yellowish spots",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/90d4e71a352fdb31.webp": {
+    "agamyxis-pectinifrons": {
+      "ok": "yes",
+      "typical": true,
+      "note": "white-spotted talking catfish on dark gravel",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/d45bf879fc4a8662.webp": {
+    "agamyxis-pectinifrons": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted raphael side view in photo tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/0f543ba19a1be9c0.webp": {
+    "channa-aurantimaculata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult snakehead with orange-yellow flank blotches in planted aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/5456787f31eb4f60.webp": {
+    "chitala-ornata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult clown knifefish with white-ringed ocelli in aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/video/C3jPFBWzK68/p4-X1NoYXJqYWguanBn.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense green HC carpet covering the tank floor, fish above",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/IJxYhZygwKc/p3-LWxlbm5hcnQuanBn.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "aquascape with HC carpet in front of rocks, seen from a distance",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/Pfm2p0p8KFM/p2-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "calico fantail goldfish in planted tank with multicoloured gravel, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/S2FEjtl_PJo/p5-xMTg1NTY0KS5qcGc.webp": {
+    "vesicularia-montagnei": {
+      "ok": "yes",
+      "typical": true,
+      "note": "lush green Christmas moss clump, same image as photo 1",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/aGrKKWNFl2k/p5-emhhcmtpa2guanBn.webp": {
+    "eleocharis-parvula": {
+      "ok": "yes",
+      "typical": false,
+      "note": "fresh uprooted whole plant with roots on white card beside grid scale",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/r9rJ8JljJC0/p6-cnUtSW5kaWEuanBn.webp": {
+    "microsorum-pteropus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Java fern in a small net pot on artificial grass, out of water",
       "logo": false,
       "person": false,
       "guide": true

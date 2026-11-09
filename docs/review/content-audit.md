@@ -745,7 +745,7 @@ borrow one from a species or plant they mention on the site.
 - guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly — Nước bể cá bị xanh: nguyên nhân, cách xử lý và phòng tảo xanh
 - guides/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do — Nuôi cá koi bể kính, hồ nhỏ: thể tích, lọc, thức ăn và mật độ
 - guides/aquatome-nuoi-ca-la-han-flowerhorn-be-nuoc-thuc-an-va-cach-cho-ca-len-dau — Nuôi cá la hán: chọn bể, nước, thức ăn và cách cho cá lên đầu
-- guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap — Nuôi cá rồng trong bể: kích thước bể, nước, thức ăn và bệnh hay gặp
+- guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap — Nuôi cá rồng: bể bao lớn, nước, thức ăn và bệnh hay gặp
 - guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham — Nuôi cá trong bình không lọc, không sủi oxy: loài nào sống được, chăm thế nào
 - guides/aquatome-oc-hai-trong-be-thuy-sinh-nhan-biet-va-cach-loai-bo — Ốc hại trong bể thủy sinh: cách nhận biết, vì sao bùng và cách diệt
 - guides/aquatome-ph-gh-kh-trong-be-ca-la-gi-do-va-chinh-the-nao — pH, GH, KH trong bể cá là gì: cách đo, chỉnh và xử lý pH tụt
@@ -1129,7 +1129,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-TEZjYpuJFsU — Chọn cá cho bể thủy sinh bền vững: loài nào hợp, loài nào cần cân nhắc
 - guides/youtube-TIxrovnAx00 — Set bể nano rừng mùa thu 30 cm với lũa spiderwood cho cá betta
 - guides/youtube-TKP37sn5BC0 — Cách cài timer hẹn giờ bật tắt đèn bể thủy sinh: loại cơ và điện tử
-- guides/youtube-TRpaZNjeRE4 — Set bể thủy sinh có CO2 và lọc thùng từ đầu đến lúc thả cá
+- guides/youtube-TRpaZNjeRE4 — Set bể thủy sinh có CO2: đồ cần chuẩn bị, lắp lọc, hẹn giờ đèn
 - guides/youtube-TeiNFp4uDB4 — Cách set bể nuôi cá neon và cardinal tetra từ đầu
 - guides/youtube-TfHU7I5OGbY — Set bể thủy sinh cạn 120 cm kiểu suối nông, có phần cây mọc lên khỏi nước
 - guides/youtube-ThOjHe6THNg — Tự đóng bể kính 125 lít có lọc tích hợp và giằng Euro
@@ -1157,7 +1157,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-WlM3Dbgf10I — Tự làm lọc váng mặt nước cho bể cá bằng chai nhựa và máy bơm
 - guides/youtube-X-55vLo-F6M — Bố trí in-out lọc để tạo dòng chảy tuần hoàn cho bể thủy sinh
 - guides/youtube-X2BR1dbx4Sw — Cách dùng combo dung dịch Dymax từ lúc set bể đến khi châm phân
-- guides/youtube-XHKIWrQVicU — Tự đóng bể cá 2.000 lít: chi phí, lọc, thiết bị và chạy vi sinh
+- guides/youtube-XHKIWrQVicU — Tự đóng bể cá 2.000 lít: chi phí, lọc, thay nước nhỏ giọt
 - guides/youtube-XR1LMoVU7CI — Đi ống tràn và lọc cho hệ hai bể cá lớn xếp chồng
 - guides/youtube-XX61L_oweGg — Tự làm giá treo đèn bể cá gắn tường bằng ván gỗ và ke
 - guides/youtube-XaHIqAHi4MU — Xử lý rêu tóc ở bể thủy sinh Hà Lan mới set
@@ -1172,7 +1172,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-YFcioRUCa6c — Tự làm lọc sump đặt trên nóc bể cá, không cần khoan bể
 - guides/youtube-YIl9PLI2HAs — Cách làm hồ bán cạn 120 cm có vách keo, thác nước và phun sương
 - guides/youtube-YLGv95LMF6c — Bảo dưỡng bể thủy sinh hằng tuần cho người mới: các bước đơn giản
-- guides/youtube-YNmy5T_dwC8 — Chăm sóc bể thủy sinh khi vắng nhà dịp Tết, đi du lịch
+- guides/youtube-YNmy5T_dwC8 — Chăm sóc bể thủy sinh khi đi vắng dịp Tết, đi du lịch
 - guides/youtube-YTSQD4zZRpQ — Lọc tổng cho phòng cá lớn: túi lọc, khoang lắng và tháp vi sinh
 - guides/youtube-YVHk7_7S7vM — Set bể nông kiểu suối chảy xiết 160 cm, ít chăm, không CO2
 - guides/youtube-YVlI7fGRKOw — Tự chế lọc thùng ống PVC treo thành bể hoặc đặt cạnh bể
@@ -1345,7 +1345,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-qGLnBvDkaO0 — Tự làm algae scrubber đặt trong bể để hạ nitrate và phosphate
 - guides/youtube-qImy1PXdkvU — Cách vệ sinh lọc bio (lọc mút) bằng túi nilon, không làm bẩn bể
 - guides/youtube-qJAUu-YLvjQ — Tự làm lọc vách mút Hamburg chạy sủi khí cho bể nhỏ
-- guides/youtube-qWK5E1c6qak — Cách thay nước bể cá nhanh, gọn và hút sạch cặn
+- guides/youtube-qWK5E1c6qak — Cách thay nước bể cá nhanh gọn: hút cặn, châm nước, thay bông lọc
 - guides/youtube-qaow2ai3eZM — Tự dán bể cá acrylic: cách dùng kim ghim và dung môi Weld-On 4
 - guides/youtube-qcPe_f-GETA — Tự làm sump lọc kết hợp ướt khô cho bể cá: khay nhỏ giọt và chạy thử
 - guides/youtube-qgic_Fj3WS4 — Cách thay nước, hút cặn nền bể thủy sinh bằng bơm tay và dây
@@ -1434,7 +1434,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (518)
+## Only one photo (no pictures inside the text) (519)
 
 - species/acantopsis-dialuzona — Cá chạch mặt ngựa
 - species/acentronichthys-leptos — Cá trê Acentronichthys leptos
@@ -1943,6 +1943,7 @@ borrow one from a species or plant they mention on the site.
 - guides/aquariumcoop-blogs-aquarium-plant-nutrient-deficiencies — Thiếu hụt dinh dưỡng ở cây thủy sinh: Vì sao cây trong bể của bạn chết dần
 - guides/aquariumcoop-blogs-aquarium-pre-filter-sponge — Mút lọc đầu vào (pre-filter sponge) là gì và vì sao bạn cần nó?
 - guides/aquariumcoop-blogs-aquarium-root-tabs — Cách dùng viên phân nền (root tabs) để bón cho cây thủy sinh
+- guides/aquariumcoop-blogs-aquarium-sponge-filters-the-easiest-fish-tank-filter-ever — Lọc bọt biển (sponge filter): loại lọc bể cá dễ dùng nhất
 - guides/aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you — Nên chọn loại phân nước nào cho bể thủy sinh?
 - guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth — Botia rostrata - Sự phát triển hoa văn trong quá trình lớn lên
 - guides/loachesonline-articles-botia-sp-aff-rostrata-a-discussion — Botia sp. aff. rostrata - Một cuộc thảo luận

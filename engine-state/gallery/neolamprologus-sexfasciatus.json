@@ -1,17 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Neolamprologus_sexfasciatus_%28Wroclaw_zoo%29.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Neolamprologus_sexfasciatus_%28Wroclaw_zoo%29.JPG/500px-Neolamprologus_sexfasciatus_%28Wroclaw_zoo%29.JPG",
-   "width": 2592,
-   "height": 1944,
-   "licence": "CC BY-SA 3.0",
-   "author": "Guérin Nicolas (messages)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_sexfasciatus_(Wroclaw_zoo).JPG",
-   "caption": "Picture taken in the zoo of Wrocław (Poland): Neolamprologus sexfasciatus (Trewavas & Poll, 1952)",
-   "key": "File:Neolamprologus sexfasciatus (Wroclaw zoo).JPG"
-  }
+ "queue": [],
+ "judged": [
+  "File:Neolamprologus sexfasciatus (Wroclaw zoo).JPG"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/6/6f/Neolamprologus_sexfasciatus_%28Wroclaw_zoo%29.JPG": "3c394f131f2db797"
+ },
+ "commons": "2026-11-09"
 }
