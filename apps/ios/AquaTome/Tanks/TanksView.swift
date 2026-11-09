@@ -32,26 +32,40 @@ struct TanksView: View {
   @Binding var path: NavigationPath
   @State private var adding = false
 
+  /// Words on the tint: white on its dark green, near-black on the pale green it is in the dark.
+  private static let onTint = Color(UIColor { $0.userInterfaceStyle == .dark
+    ? UIColor(red: 0, green: 0x24 / 255, blue: 0x1B / 255, alpha: 1)
+    : .white })
+
   var body: some View {
     NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
         if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) {
-          // Centred on the screen; it scrolls when it runs past the tab bar (a small phone, large text).
-          GeometryReader { g in
-            ScrollView {
-              ContentUnavailableView {
-                Label("Chưa có bể nào", systemImage: "fish")
-              } description: {
-                Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.")
-              } actions: {
-                Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
-                // A new phone: signing in, in the Tài khoản sheet, brings back tanks saved elsewhere.
-                SignInHint()
+          // Where the mock has it, a third of the way down; it scrolls when it runs past the tab bar (a small phone, large text).
+          ScrollView {
+            VStack(spacing: 0) {
+              Image(systemName: "fish").font(.system(size: 41)).foregroundStyle(.secondary).accessibilityHidden(true)
+              Text("Chưa có bể nào").font(.title2.bold()).accessibilityAddTraits(.isHeader).padding(.top, 18)
+              Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.").foregroundStyle(.secondary).padding(.top, 8)
+              Button { adding = true } label: {
+                Text("Thêm bể đầu tiên").fontWeight(.semibold).foregroundStyle(Self.onTint).padding(.horizontal, 3)
               }
-              .frame(minHeight: g.size.height)
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .controlSize(.large)
+                .padding(.top, 24)
+                .accessibilityIdentifier("add-first")
+              // A new phone: signing in, in the Tài khoản sheet, brings back tanks saved elsewhere.
+              SignInHint().padding(.top, 10)
             }
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 32)
+            .padding(.top, 88)
           }
+          // The grey of the lists, as the tab has with tanks in it.
+          .background(Color(.systemGroupedBackground))
         } else {
           List {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
@@ -79,6 +93,7 @@ struct TanksView: View {
       }
       #endif
       .navigationTitle("Bể của tôi")
+      // Before the toolbar below: the bar shows the last toolbar's buttons first, so this one comes after them.
       .profileButton()
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
@@ -87,16 +102,19 @@ struct TanksView: View {
       .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query) }
       .navigationDestination(for: ChatRoute.self) { ChatView(route: $0) }
       .toolbar {
-        ToolbarItem(placement: .primaryAction) {
+        // Beside each other, then the account's button (the sheet's spec). A secondary action would stay last, past it.
+        ToolbarItemGroup(placement: .topBarTrailing) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
             .disabled(!tanks.canAdd)
             .accessibilityIdentifier("add")
-        }
-        if let data = tanks.exportData(), !tanks.tanks.isEmpty {
-          ToolbarItem(placement: .secondaryAction) {
-            let file = ExportFile(data: data)
-            ShareLink(item: file, preview: SharePreview(file.name)) {
-              Label("Tải bản sao (JSON)", systemImage: "square.and.arrow.up")
+          if let data = tanks.exportData(), !tanks.tanks.isEmpty {
+            Menu {
+              let file = ExportFile(data: data)
+              ShareLink(item: file, preview: SharePreview(file.name)) {
+                Label("Tải bản sao (JSON)", systemImage: "square.and.arrow.up")
+              }
+            } label: {
+              Label("Tải bản sao (JSON)", systemImage: "ellipsis")
             }
           }
         }

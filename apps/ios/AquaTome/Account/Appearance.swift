@@ -48,7 +48,7 @@ struct AppearanceRow: View {
     Picker(selection: $appearance) {
       ForEach(Appearance.allCases) { Text($0.name).tag($0) }
     } label: {
-      Label { Text("Giao diện") } icon: { Tile(symbol: "circle.lefthalf.filled", color: Color(.darkGray)) }
+      Label { Text("Giao diện") } icon: { Tile(symbol: "circle.lefthalf.filled", color: Tile.graphite) }
     }
     .pickerStyle(.menu)
     .accessibilityIdentifier("appearance")
