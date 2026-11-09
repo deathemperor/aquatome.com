@@ -178,7 +178,12 @@ final class ChatModel {
     var last: String?
     /// When it was asked: on the first question of a conversation reopened from the list, shown above it.
     var at: Date?
+    /// "Báo sai" under its answer, once it's done with: true, reported; false, refused for good.
+    var reported: Bool?
   }
+
+  /// What sending a report came to.
+  enum ReportResult { case sent, failed, refused }
 
   /// A question just stopped, said under the box for a few seconds. `returned`: its words went back into the box.
   struct Stopped: Equatable {
@@ -423,6 +428,30 @@ final class ChatModel {
       if stoppingFor == id { stoppingFor = nil }
       if let answer, Chat.stopped(answer.0, status: answer.1) == .cancelled, let i = index(id), thread[i].key == key { halted(id) }
     }
+  }
+
+  /// "Báo sai" shows under finished answers since the conversation's last first question: a Worker that lost a
+  /// conversation starts it again at 1, so older turns share numbers with new ones.
+  func reportable(_ a: Asked) -> Bool {
+    guard a.outcome == .answered, a.reply.turn != nil, let i = index(a.id) else { return false }
+    return i >= (thread.lastIndex { $0.reply.turn?.n == 1 } ?? 0)
+  }
+
+  /// This answer reported as wrong. Refused for good (404: hidden on another device, or the turn is gone): said once, so
+  /// nobody retries forever. `already` (another device) reads as sent.
+  func report(_ id: UUID, reason: String) async -> ReportResult {
+    guard let t = index(id).flatMap({ thread[$0].reply.turn }),
+          let (data, status) = try? await account.send({
+            Chat.report(t.conversation, turn: t.n, reason: reason, site: self.site, token: $0, version: Self.version, ownCopy: Self.ownCopy)
+          })
+    else { return .failed }
+    if status == 404 {
+      if let i = index(id) { thread[i].reported = false }
+      return .refused
+    }
+    guard Chat.reported(data, status: status) != nil else { return .failed }
+    if let i = index(id) { thread[i].reported = true }
+    return .sent
   }
 
   /// Stopped: nothing of it kept, not counted. Its words go back into the box, or with something typed there, they go.

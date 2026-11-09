@@ -82,6 +82,8 @@ final class FakeChat {
   private func number(_ flag: String) -> Int? {
     args.firstIndex(of: flag).flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }
   }
+  /// `-chat-report-fails`: the first report fails, the next goes.
+  private var reportFailed = false
   private var gap: Duration { args.contains("-chat-slower") ? .seconds(6) : args.contains("-chat-slow") ? .seconds(3) : .milliseconds(500) }
 
   init(_ args: [String], account: @escaping (String) -> String?) {
@@ -286,6 +288,14 @@ final class FakeChat {
       return json(200, ["result": "cancelled"])
     }
     if path == "/api/chat/conversations" { return json(200, list(sub, query: URLComponents(url: r.url!, resolvingAgainstBaseURL: false)?.queryItems ?? [])) }
+    if parts.last == "report" {
+      if args.contains("-chat-report-gone") { return json(404, ["error": "unknown"]) }
+      if args.contains("-chat-report-fails"), !reportFailed {
+        reportFailed = true
+        return json(500, ["error": "unavailable"])
+      }
+      return json(200, ["result": "saved"])
+    }
     guard parts.count >= 4, let i = records.firstIndex(where: { $0.id == parts[3] && $0.account == sub }) else {
       return parts.last == "hide" ? json(200, ["hidden": [String]()]) : json(404, ["error": "unknown"])
     }
