@@ -14,6 +14,22 @@ scores, to be read again by all four:
 - the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`docs/design/chat.md`, "Editors");
 - the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
 - the privacy page's Hỏi AquaTome section in all five languages, with its lines in the retention and account-deletion lists (`apps/site/src/pages/chinh-sach-bao-mat/index.astro`).
+- the chat's first lines, in all four languages, once their prompt is fixed (`OPENING_SYSTEM`, `apps/site/worker/chat/agent.ts`).
+
+## The chat's first lines (2026-11-10)
+
+One round on 75 lines, with the Anthropic and xAI seats only; OpenAI and Google were out on the Cursor limit. These aren't
+in the tallies below, which count pages. Scores, lowest of four (Anthropic, xAI): Vietnamese 7, 6; Indonesian 7, 5; Malay
+4, 4; Thai 6, 4.
+- **Vietnamese, held by the references:** "cẩm nang mục" (0 in the site and the references), "kinh phí" for "ngân sách"
+  (forum 24.4 against 4.6), "bỏ không" for "bỏ trống" (videos 14.8 against 0), and "tần suất" for a heater or a filter (forum
+  0.7, site 7 to 11). "Cường độ ánh sáng" is 2.0 in the forum against 26 in the guides. Both seats raised each of these.
+- **Vietnamese, dropped:** "tình trạng" (both seats; forum 117, site 118). Open: "đánh CO2" for "đưa CO2" (Anthropic; both rare).
+- **Indonesian, Thai and Malay** have no hobbyist corpus. A finding held when both seats raised it: 9 Indonesian lines,
+  15 Malay and 10 Thai. Open: whether a Thai line needs "เรา" (Anthropic says yes, xAI says it's normal Thai), and the
+  chat's "ครับ" and "ค่ะ".
+- **The packet's fault:** xAI marked a fish as added on five lines where the reader asked from that fish's page or a
+  photo. The packet didn't show that. A packet for these lines carries where the question was asked from.
 
 ## The app's card copy (2026-11-08)
 
