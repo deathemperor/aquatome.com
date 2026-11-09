@@ -293,8 +293,9 @@ final class ChatModel {
       draft = suggestion
       return
     }
-    // The Worker counts a question's length in UTF-16 units, as JavaScript does.
-    guard !pathOffline, q.utf16.count <= maxChars else { return }
+    // In characters as the reader sees them, as the box counts and the Worker does (Thai's marks and an emoji are one
+    // each): counted in UTF-16 units, a question the box let go did nothing when sent.
+    guard !pathOffline, q.count <= maxChars else { return }
     guard let user = account.user?.id else {
       if let suggestion { draft = suggestion }
       return
@@ -682,10 +683,14 @@ final class ChatModel {
       let anew: Bool
       let last: String?
       let at: Date?
+      /// An answer cut off after its text began: the text read, so it comes back with its card (not counted), not as a
+      /// counted failure with no text.
+      let text: String?
 
       var asked: Asked {
         var a = Asked(id: UUID(), question: question, key: key, anew: anew, last: last, at: at)
         a.outcome = switch outcome { case "asking": .asking; case "answered": .answered; case "lost": .lost; default: .failed(outcome) }
+        if let text { a.reply.take(.text(text)) }
         if let last, let e = Chat.event(ServerEvent(name: outcome == "answered" ? "done" : "error", data: last)) { a.reply.take(e) }
         return a
       }
@@ -708,7 +713,8 @@ final class ChatModel {
     }
     let items = thread.map { a in
       let o = switch a.outcome { case .asking: "asking"; case .answered: "answered"; case .lost: "lost"; case .failed(let c): c }
-      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, at: a.at)
+      let cut: String? = if case .failed = a.outcome, a.reply.writing { a.reply.text } else { nil }
+      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, at: a.at, text: cut)
     }
     try? FileManager.default.createDirectory(at: Self.file.deletingLastPathComponent(), withIntermediateDirectories: true)
     try? JSONEncoder().encode(Kept(start: route.start, conversation: conversation, thread: items)).write(to: Self.file, options: .atomic)

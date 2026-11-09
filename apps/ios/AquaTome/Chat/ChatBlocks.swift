@@ -367,7 +367,7 @@ private struct SectionBlock: View {
       }
       .accessibilityElement(children: .combine)
       .accessibilityAddTraits(.isHeader)
-      .onScrollVisible(true) { headingInView = $0 }
+      .onScrollVisible { headingInView = $0 }
       if !drawn.isEmpty {
         VStack(alignment: .leading, spacing: gap) {
           ForEach(Array(drawn.prefix(shown).enumerated()), id: \.offset) { i, p in
