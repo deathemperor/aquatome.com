@@ -9,13 +9,13 @@ final class ScrollEndFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
   func testTimsHomeEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 10), "not Tìm's home")
     ends(app, "Tìm's home")
   }
 
   func testASearchsResultsEndAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 10), "no search field")
     field.tap()
@@ -31,7 +31,7 @@ final class ScrollEndFlowTests: XCTestCase {
   func testAKindOfKitEndsAboveTheTabBar() { pageEnds("loc", "Lọc", "a kind of kit", ["-equipment"]) }
 
   func testALongListEndsAboveTheTabBar() {
-    let app = launch(["-equipment"])
+    let app = launch(["-v2", "NO", "-equipment"])
     open(app, "loc", "Lọc")
     let all = app.descendants(matching: .any)["pages-all"]
     repeatUntil(all.exists && all.isHittable, times: 12) { app.swipeUp() }
@@ -41,7 +41,7 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   func testWhatsNewEndsAboveTheTabBar() {
-    let app = launch(["-whats-new"])
+    let app = launch(["-v2", "NO", "-whats-new"])
     let row = app.descendants(matching: .any)["all-latest"]
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 10), "not Tìm's home")
     repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
@@ -51,21 +51,21 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   func testTheFishIdToolEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     open(app, "nhan dien", "Đây là cá gì?")
     XCTAssertTrue(app.descendants(matching: .any)["fish-id"].waitForExistence(timeout: 10), "not the fish-ID screen")
     ends(app, "the fish-ID tool")
   }
 
   func testTheTankVolumeToolEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     open(app, "the tich be", "Bể bao nhiêu lít?")
     XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5), "the tool's screen didn't open")
     ends(app, "the tank volume tool")
   }
 
   func testTheTankMatesToolEndsAboveTheTabBar() {
-    let app = launch()
+    let app = launch(["-v2", "NO"])
     open(app, "ca neon", "Cá neon")
     let link = app.links["Kiểm tra nuôi chung với loài khác →"].firstMatch
     repeatUntil(link.exists && link.isHittable, times: 12) { app.swipeUp() }
@@ -112,14 +112,14 @@ final class ScrollEndFlowTests: XCTestCase {
   func testAFishsTitleReadsCleanlyAtTheLargestText() { pageTitleReads("a fish's page, the largest text", Self.largest) }
 
   func testTimsTitleReadsCleanlyAtTheLargestText() {
-    let app = launch(Self.largest)
+    let app = launch(["-v2", "NO"] + Self.largest)
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 10), "not Tìm's home")
     downAWay(app)
     app.titleReadsCleanly("Tìm's home, the largest text")
   }
 
   func testTheLightsTitleReadsCleanlyAtTheLargestText() {
-    let app = launch(Self.largest)
+    let app = launch(["-v2", "NO"] + Self.largest)
     app.openTab("Đèn")
     downAWay(app)
     app.titleReadsCleanly("Đèn, the largest text")
@@ -148,7 +148,7 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   private func pageTitleReads(_ screen: String, _ more: [String] = [], file: StaticString = #filePath, line: UInt = #line) {
-    let app = launch(more)
+    let app = launch(["-v2", "NO"] + more)
     open(app, "ca neon", "Cá neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 10), "\(screen) didn't open", file: file, line: line)
     downAWay(app)
@@ -172,7 +172,7 @@ final class ScrollEndFlowTests: XCTestCase {
   }
 
   private func pageEnds(_ query: String, _ name: String, _ screen: String, _ more: [String] = []) {
-    let app = launch(more)
+    let app = launch(["-v2", "NO"] + more)
     open(app, query, name)
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 10), "\(screen) didn't open")
     ends(app, screen)

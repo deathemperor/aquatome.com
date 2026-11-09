@@ -6,7 +6,7 @@ final class TankLifeFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
   func testPutsAFishFromItsPageOnATankStartingAtItsSchoolSize() {
-    let app = launch("-seed-tanks", "litres") // one tank, "Bể cũ", no fish
+    let app = launch("-seed-tanks", "litres", "-v2", "NO") // one tank, "Bể cũ", no fish
     openPage(app, "Cá neon")
     // On the page the app draws, under the fish's name, not in the bar.
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].buttons["put-on-tank"].exists, "not on the page")
@@ -25,7 +25,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testAFishAlreadyOnTheTankGetsTheNewNumber() {
-    let app = launch("-seed-tanks", "life") // "Bể cá neon": 12 neons, a fish the handbook lacks, a rotala
+    let app = launch("-seed-tanks", "life", "-v2", "NO") // "Bể cá neon": 12 neons, a fish the handbook lacks, a rotala
     openPage(app, "Cá neon")
     app.buttons["put-on-tank"].tap()
     let count = app.textFields["put-count"]
@@ -40,7 +40,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testPutsAPlantOnANewTank() {
-    let app = launch()
+    let app = launch("-v2", "NO")
     openPage(app, "Rotala đỏ")
     app.buttons["put-on-tank"].tap()
     XCTAssertTrue(app.textFields["put-name"].waitForExistence(timeout: 5), "no new tank offered")
@@ -57,7 +57,7 @@ final class TankLifeFlowTests: XCTestCase {
   /// The owner's new tank opened blank, only its name showing (7 Nov): from a fish's page with the phone's animations on,
   /// as a reader has them, the sheet closing as the tab changed and the tank was pushed.
   func testAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
-    let app = launchAnimated()
+    let app = launchAnimated("-v2", "NO")
     openPage(app, "Cá neon")
     app.buttons["put-on-tank"].tap()
     let name = app.textFields["put-name"]
@@ -77,7 +77,7 @@ final class TankLifeFlowTests: XCTestCase {
 
   /// The same tank, reached as a reader also would: the sheet closed, then the tank from the Bể của tôi tab.
   func testAFishPutOnANewTankFromItsPageIsSeenOnItFromTheTanksTab() {
-    let app = launchAnimated()
+    let app = launchAnimated("-v2", "NO")
     openPage(app, "Cá neon")
     app.buttons["put-on-tank"].tap()
     let name = app.textFields["put-name"]
@@ -102,7 +102,7 @@ final class TankLifeFlowTests: XCTestCase {
   func testOnTheOwnersSetupAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fake-accounts", "on",
-                           "-reset-fake-server", "-fake-owner", "ui-apple", "-seed-tanks", "plug", "-seed-tuya-keys"]
+                           "-reset-fake-server", "-fake-owner", "ui-apple", "-seed-tanks", "plug", "-seed-tuya-keys", "-v2", "NO"]
     app.launch()
     app.openAccount()
     app.signInWithStandInApple()
@@ -170,7 +170,7 @@ final class TankLifeFlowTests: XCTestCase {
 
   /// The same new tank, the fish's page from Tìm while Bể của tôi has a tank open: that stack replaced while it isn't shown.
   func testANewTankMadeFromAPageWhileAnotherTankIsOpenIsSeenOnTheTankItOpens() {
-    let app = launchAnimated("-seed-tanks", "life")
+    let app = launchAnimated("-seed-tanks", "life", "-v2", "NO")
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(app.navigationBars["Bể cá neon"].waitForExistence(timeout: 5), "the tank didn't open")
@@ -183,7 +183,7 @@ final class TankLifeFlowTests: XCTestCase {
   /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
   /// at once, with no sheet closing.
   func testALinkToATankOpensItShownFromAnotherTab() {
-    let app = launchAnimated("-seed-tanks", "litres") // one tank, "Bể cũ"
+    let app = launchAnimated("-seed-tanks", "litres", "-v2", "NO") // one tank, "Bể cũ"
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "not on the Tìm tab")
     let page = "https://aquatome.com/vi/cong-cu/be-cua-toi/#be-00000000-0000-4000-8000-000000000001"
     app.open(URL(string: "aquatome://open?url=" + page.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
@@ -196,7 +196,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testAddsAFishFromTheTankChangesItsNumberAndTakesItOffKeptAfterARelaunch() {
-    var app = launch("-seed-tanks", "life")
+    var app = launch("-seed-tanks", "life", "-v2", "NO")
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     app.buttons["add-life"].tap()
@@ -233,7 +233,7 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(life(app, "Rotala đỏ").waitForNonExistence(timeout: 5), "the plant is still on the tank")
 
     app.terminate()
-    app = launch(reset: false)
+    app = launch(reset: false, "-v2", "NO")
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(life(app, "Cá ngựa vằn").waitForExistence(timeout: 5), "the fish wasn't kept")
@@ -389,7 +389,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testNothingIsPutIntoAStoreTheAppMustLeaveAlone() {
-    let app = launch("-seed-tanks", "newer")
+    let app = launch("-seed-tanks", "newer", "-v2", "NO")
     let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5))
     row.tap()
@@ -404,6 +404,7 @@ final class TankLifeFlowTests: XCTestCase {
   private func launchAnimated(_ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"] + args
+      + (args.contains("-v2") ? [] : ["-v2", Look.v2.rawValue])
     app.launch()
     return app
   }

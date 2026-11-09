@@ -440,7 +440,7 @@ final class OwnerFlowTests: XCTestCase {
   /// the Tài khoản sheet.
   private func launch(owner: String = "ui-apple", _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-v2", "YES", "-fake-accounts", "on", "-reset-defaults",
                            "-reset-fake-server", "-fake-owner", owner] + args
     app.launch()
     app.openAccount()
