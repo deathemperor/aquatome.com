@@ -91,7 +91,7 @@ const LEVEL = /\d[\d.,]*(?:\s*[–-]\s*\d[\d.,]*)?\s*(?:(?:ppm|ppt|mg\s*\/\s*l(?
 /** So much in so much water, food or fish: "per 40 litres", "/L", "mỗi m³", "per kg of food". */
 const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ(?:น้ำ)?)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(\d[\d.,–-]*\s*)?(l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?|ลิตร)(?![\p{L}])/giu
 /** The water's own levels, named just before a level's figure: that figure is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
-const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|(?:calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?!\s*(?:\(?\s*(?:II|III)\s*\)?\s*)?(?:sul|sun|hypo|chlor|clor|perman|oxid|carbon|citr|glucon|EDTA|iodid)))(?:\s+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*$/iu
+const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|\bNO[23](?:-N)?|\bNH[34]\+?|\bLC50s?|\bH2S|hydrogen sulfide|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|(?:calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?!\s*(?:\(?\s*(?:II|III)\s*\)?\s*)?(?:sul|sun|hypo|chlor|clor|perman|oxid|carbon|citr|glucon|EDTA|iodid)))(?:[\s-]+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*\(?\s*$|(?:แอมโมเนีย|ไนไตร[ทต]์?|ไนเตร[ทต]|ออกซิเจน)[\p{L}\p{M}\s]{0,20}$/iu
 /** A treatment the rules have no name for: a dose, a bath, a medicine by its kind. */
 const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|emamectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา(?!ว)|รักษา|แช่/iu
 /** A fish's weight: "fish weigh 20 g per litre of tank". */
@@ -104,8 +104,23 @@ const amountPer = (fact: string) => [...fact.matchAll(PER)].some(m => {
   const before = fact.slice(Math.max(0, m.index - 30), m.index)
   return AMOUNT.test(before) && !WEIGHT.test(before) && (!!m[1] || !/^l|^lít|^lit|ลิตร/iu.test(m[2]!) || !/mg\s*$/iu.test(before))
 })
-/** A level whose figure isn't the water's own. */
-const treatmentLevel = (fact: string) => [...fact.matchAll(LEVEL)].some(m => !WATER.test(fact.slice(Math.max(0, m.index - 40), m.index)))
+/** The water's nitrogen named right after a level's figure: "8.6 mg/L nitrite-nitrogen", "0.5 mg/L NO2-N". */
+const WATER_AFTER = /^\s*(?:as\s+)?(?:NO[23]|NH[34]|nitrit\p{L}*|nitrat\p{L}*|ammonia|amoni\p{L}*)/iu
+/**
+ * A level whose figure isn't the water's own. A figure in the same list as a water level is the water's too ("oxygen
+ * above 3 mg/L for warmwater fish or 5 mg/L for coldwater"), unless a treatment or a new sentence comes between.
+ */
+const treatmentLevel = (fact: string) => {
+  let water = false
+  let end = 0
+  return [...fact.matchAll(LEVEL)].some(m => {
+    const between = fact.slice(end, m.index)
+    water = WATER.test(fact.slice(Math.max(0, m.index - 40), m.index)) || WATER_AFTER.test(fact.slice(m.index + m[0].length))
+      || (water && !/[.;!?](?:\s|$)|\n/.test(between) && !NAMES_TREATMENT.test(between) && !TREATING.test(between))
+    end = m.index + m[0].length
+    return !water
+  })
+}
 /**
  * An amount that names a treatment; a level not the water's own; something measured out; a weight per volume, food or
  * fish; a percentage of a bath or a solution. A fish's weight or a water change is not one.
