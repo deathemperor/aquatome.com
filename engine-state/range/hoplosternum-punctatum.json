@@ -1,0 +1,108 @@
+{
+  "id": "hoplosternum-punctatum",
+  "native": {
+    "input": "9e3949e11e3d050d",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Colombia, Caribbean Rivers, Atrato.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Atrato",
+        "source": "planetcatfish",
+        "quote": "South America: Colombia, Caribbean Rivers, Atrato.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Atrato River",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hoplosternum punctatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2342516,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ]
+    ],
+    "native": [
+      "PA",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

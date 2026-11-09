@@ -1,0 +1,62 @@
+{
+  "id": "hypergastromyzon-humilis",
+  "native": {
+    "input": "1f816d74fde344dd",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai Melawi river basin which is part of the much larger Kapuas system in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Melawi",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai Melawi river basin which is part of the much larger Kapuas system in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai Melawi river basin which is part of the much larger Kapuas system in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai Melawi river basin which is part of the much larger Kapuas system in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypergastromyzon humilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358817,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

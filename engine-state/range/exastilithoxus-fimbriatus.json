@@ -1,0 +1,70 @@
+{
+  "id": "exastilithoxus-fimbriatus",
+  "native": {
+    "input": "9723f5fd6d826224",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Coquenan, Venezuela",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Caroni and Matacuni River basins in the Orinoco drainage.",
+        "ok": true
+      },
+      {
+        "name": "Caroni",
+        "source": "planetcatfish",
+        "quote": "South America: Caroni and Matacuni River basins in the Orinoco drainage.",
+        "ok": true
+      },
+      {
+        "name": "Matacuni",
+        "source": "planetcatfish",
+        "quote": "South America: Caroni and Matacuni River basins in the Orinoco drainage.",
+        "ok": true
+      },
+      {
+        "name": "Río Coquenan",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Coquenan, Venezuela",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Exastilithoxus fimbriatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340009,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

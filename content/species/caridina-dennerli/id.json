@@ -1,0 +1,27 @@
+{
+  "slug": "udang-cardinal-sulawesi",
+  "name": "Udang Cardinal Sulawesi",
+  "altNames": [
+    "Cardinal Shrimp",
+    "Udang Cardinal",
+    "Sulawesi Cardinal Shrimp",
+    "Udang Sulawesi"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Ketika udang White Spot Bee Shrimp pertama kali muncul dalam jumlah yang lebih banyak di perdagangan ikan hias sekitar 10 tahun lalu, banyak orang sangat antusias. Sayangnya, ternyata hewan mungil ini sangat sensitif terhadap stres sementara, misalnya suhu rendah selama pengiriman, dan akan cepat sekali mati jika kebutuhannya tidak terpenuhi dengan sempurna. Antusiasme awal itu pun berubah menjadi kekecewaan, dan udang ini akhirnya dianggap hanya cocok untuk pemelihara yang sudah ahli.</p><p>Sekarang sudah tersedia spesimen hasil penangkaran di Jerman. Menurut penangkarnya, udang ini sama sekali tidak sulit dipelihara. Meski begitu, untuk udang hasil penangkaran ini pun suhu air sebaiknya tidak turun di bawah 25 °C dalam waktu lama. Belum diketahui seberapa tangguh udang ini nantinya dalam jangka panjang.</p>",
+    "waterConditions:glaser": "<p>Suhu terbaik untuk memelihara dan menangkarkannya adalah 27–30 °C.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

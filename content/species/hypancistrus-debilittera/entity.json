@@ -13,6 +13,83 @@
     "rio-bita",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Rio Meta",
+        "Rio Bita",
+        "Río Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Hypancistrus debilittera occurs in the Rio Bita, a tributary of the Rio Meta in Colombia (Orinoco drainage).",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Orinoco",
+            "Rio Meta",
+            "Rio Bita"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Venezuela: Upper Río Orinoco, between Puerto Ayacucho and San Fernando de Atabapo.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Río Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339302,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          6
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

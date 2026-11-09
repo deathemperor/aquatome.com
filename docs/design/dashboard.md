@@ -46,9 +46,11 @@ photos · **App**: iPhone app · **Records**: Daily reports, Changelog.
    - **Shipped in 24 hours**: the count, "1 site · 1 app · 1 engine".
    - **Fish ID cost, this week**, with its Claude calls. Once the chat agent logs its calls too, "Claude API cost,
      this week", fish ID and chat.
-2. **Needs you.** One line each: the thing and its page. The web adds the button that acts (Review, See key, See
+2. **Needs you.** One line each: the thing and its page. The web adds the button that acts (Review, See keys, See
    engine). Photo approvals show their thumbnails. With nothing: one line, "Nothing needs you right now", and the
-   owner's last action.
+   owner's last action. A key resting, or several, is never a line here, only every key out: "Fish ID and chat are
+   down" (the owner's rule, 2026-11-07, `docs/governance.md`). The drawing's single resting key is from before that rule;
+   the Fish ID page alone shows keys out.
 3. **Readers who found an answer.** The week's figure and its change, a day chart, then readers, sessions and shop
    clicks with their changes. A week runs Monday to Sunday, as the scoreboard's; days still to come are empty.
 4. **Shipped in 24 hours.** The changelog's lines, tagged Site, App or Engine, then the whole changelog.

@@ -1,0 +1,95 @@
+{
+  "id": "hypancistrus-zebra",
+  "native": {
+    "input": "894aaea2ecfe28f2",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hypancistrus zebra is endemic to Brazil, occurring in the Volta Grande region of the Xingu River, in the state of Pará.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Xingú basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xingu",
+        "source": "scotcat",
+        "quote": "Hypancistrus zebra is endemic to Brazil, occurring in the Volta Grande region of the Xingu River, in the state of Pará.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingú",
+        "source": "seriouslyfish",
+        "quote": "Rio Xingú basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypancistrus zebra",
+    "status": "ACCEPTED",
+    "taxonKey": 2339299,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        7
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

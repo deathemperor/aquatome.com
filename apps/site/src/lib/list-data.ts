@@ -1,13 +1,14 @@
-import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
+import { POPULAR, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
 import { GUIDE_KIND_LABELS } from './format'
-import { leadGuides, listOrder } from './home'
+import { cleanPhoto, leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
 import { guideImages } from './mentions'
 import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
 import { PAGE } from '../scripts/filter-list'
+import type { MateItem } from '../scripts/tankmates'
 import { toIndexItem } from './species-index'
 import { clock, videoChannels } from './video'
 import { taxonKeys } from './taxa-places'
@@ -162,3 +163,17 @@ export const guideLists = (c: Content) => new Map<string, Localized<GuideEntity>
   ['kham-pha', c.guides.filter(g => g.kind === 'discovery')],
   ...videoChannels(c).map(ch => [`video/kenh/${ch.slug}`, ch.guides] as [string, Localized<GuideEntity>[]]),
 ])
+
+/**
+ * The tank-mates checker's species (/data/<lang>/tank-mates.json), by name: its figures and traits, a small photo for the
+ * suggestions, other names to match. A file of its own, fetched by the page's script: inlined, its 720 KB on aquatome.com
+ * held the page's first paint back past the phone's Lighthouse budget (the deploys of 8 November).
+ */
+export function mateList(lang: Lang, c: Content, traits: Map<string, Traits>): MateItem[] {
+  // Among equally good matches the fish readers keep most come first: the staples, then the popular list (as on the home page).
+  const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
+  return c.species.map(s => {
+    const p = cleanPhoto(s.photos), pop = known.indexOf(s.id)
+    return { ...toIndexItem(s, traits.get(s.id)), id: s.id, ...(p ? { img: smallSrc(p) } : {}), ...(s.t.altNames.length ? { aka: s.t.altNames } : {}), ...(pop >= 0 ? { pop } : {}) }
+  }).sort((a, b) => a.name.localeCompare(b.name, lang))
+}

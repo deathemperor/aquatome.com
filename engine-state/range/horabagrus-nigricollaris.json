@@ -1,0 +1,60 @@
+{
+  "id": "horabagrus-nigricollaris",
+  "native": {
+    "input": "d3a8227be91b028c",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black collared catfish, Horabagrus nigricollaris, is a bagrid catfish endemic to the Chalakudy River in Kerala, south-western India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Chalakudy River in the state of Kerala, south-western India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chalakudy River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Chalakudy River in the state of Kerala, south-western India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Horabagrus nigricollaris",
+    "status": "ACCEPTED",
+    "taxonKey": 2338326,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

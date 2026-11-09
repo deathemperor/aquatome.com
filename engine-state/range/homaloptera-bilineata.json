@@ -1,0 +1,93 @@
+{
+  "id": "homaloptera-bilineata",
+  "native": {
+    "input": "6520c97b312f1139",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tenasserim provinces, Myanmar', which would appear to refer to what's now known as the Sittaung (previously Sittang) River, Bago Division, south central Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from various parts of the Salween River basin in Myanmar and northwestern Thailand plus some tributaries of the Mae Klong system in western Thailand, and there exist questionable records from Nepal.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from various parts of the Salween River basin in Myanmar and northwestern Thailand plus some tributaries of the Mae Klong system in western Thailand, and there exist questionable records from Nepal.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's also known from various parts of the Salween River basin in Myanmar and northwestern Thailand plus some tributaries of the Mae Klong system in western Thailand, and there exist questionable records from Nepal.",
+        "words": "Nepal",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "It's also known from various parts of the Salween River basin in Myanmar and northwestern Thailand plus some tributaries of the Mae Klong system in western Thailand, and there exist questionable records from Nepal.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tenasserim provinces, Myanmar', which would appear to refer to what's now known as the Sittaung (previously Sittang) River, Bago Division, south central Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "It's also known from various parts of the Salween River basin in Myanmar and northwestern Thailand plus some tributaries of the Mae Klong system in western Thailand, and there exist questionable records from Nepal.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NP"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homaloptera bilineata",
+    "status": "ACCEPTED",
+    "taxonKey": 2358605,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

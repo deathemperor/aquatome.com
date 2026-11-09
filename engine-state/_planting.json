@@ -14,6 +14,17 @@
     "score": 0.88,
     "kept": true
   },
+  "anubias-barteri-var-coffeifolia": {
+    "at": "2026-11-08",
+    "score": 0.65,
+    "kept": false,
+    "notes": [
+      "Added placement advice not in INPUT: \"nên lúc chọn chỗ gắn cần tính thêm phần thân rễ đó\". The INPUT gives the rhizome length but never says to allow space for it.",
+      "\"Bể lớn hay bể nhỏ đặt nó đều đẹp\" leaves out the INPUT's reason (the leaf colour and shape). It isn't wrong, but on its own it reads like an unsupported claim.",
+      "\"Bể có cá ăn cây cũng trồng được\" goes slightly beyond the source. The INPUT only says plant-eating fish don't touch it. This is minor.",
+      "\"chỗ của nó là trên lũa hoặc đá\" is a little stiff. Something like \"buộc/gắn lên lũa, đá\" would sound more natural to a hobbyist."
+    ]
+  },
   "aponogeton-ulvaceus": {
     "at": "2026-11-08",
     "score": 0.85,
@@ -69,6 +80,10 @@
     "at": "2026-11-07",
     "score": 0.85,
     "kept": true
+  },
+  "cryptocoryne-albida": {
+    "at": "2026-11-08",
+    "kept": false
   },
   "cryptocoryne-beckettii": {
     "at": "2026-11-07",
@@ -136,6 +151,11 @@
     "score": 0.82,
     "kept": true
   },
+  "eleocharis-pusilla": {
+    "at": "2026-11-08",
+    "score": 0.8,
+    "kept": true
+  },
   "eriocaulon-sp-vietnam": {
     "at": "2026-11-07",
     "score": 0.68,
@@ -147,6 +167,10 @@
     ]
   },
   "gratiola-viscidula": {
+    "at": "2026-11-08",
+    "kept": false
+  },
+  "helanthium-bolivianum": {
     "at": "2026-11-08",
     "kept": false
   },

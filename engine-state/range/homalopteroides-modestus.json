@@ -1,0 +1,90 @@
+{
+  "id": "homalopteroides-modestus",
+  "native": {
+    "input": "3559fc03c49560de",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Earlier records from Borneo and India are now accepted to be incorrect and represent different, albeit related, species.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+        "ok": true
+      },
+      {
+        "name": "Tenasserim",
+        "source": "seriouslyfish",
+        "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+        "ok": true
+      },
+      {
+        "name": "Tenasserim Range",
+        "source": "seriouslyfish",
+        "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homalopteroides modestus",
+    "status": "ACCEPTED",
+    "taxonKey": 8031367,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

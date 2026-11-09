@@ -11,6 +11,91 @@
     "atrato",
     "panama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA",
+        "CO"
+      ],
+      "regions": [
+        "Atrato",
+        "Atrato River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Colombia, Caribbean Rivers, Atrato.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Atrato"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia.",
+          "countries": [],
+          "regions": [
+            "Atrato River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342516,
+      "total": 17,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          12
+        ],
+        [
+          "CO",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -78.75,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

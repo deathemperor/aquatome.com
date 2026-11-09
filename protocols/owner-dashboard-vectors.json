@@ -4658,11 +4658,6 @@
             "kind": "note",
             "text": "App installs and weekly users. After launch: read access to App Store Connect. The app’s telemetry uses a new id each launch, so people can’t be counted.",
             "tone": "plain"
-          },
-          {
-            "kind": "note",
-            "text": "Returning readers. Not measured yet: the visitor code waits to be turned on (the Readers page will then have return visits).",
-            "tone": "plain"
           }
         ]
       }
@@ -5004,7 +4999,7 @@
           },
           {
             "kind": "note",
-            "text": "Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link), and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.",
+            "text": "Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link); two runs of ours from before our network was marked are left out by time; and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.",
             "tone": "plain"
           },
           {
@@ -5068,6 +5063,28 @@
                 },
                 {
                   "text": "6"
+                }
+              ],
+              [
+                {
+                  "text": "Ours before our network was marked: VN, Sun 8 Nov, 3:40 to Sun 8 Nov, 4:24"
+                },
+                {
+                  "text": "56"
+                },
+                {
+                  "text": "—"
+                }
+              ],
+              [
+                {
+                  "text": "Ours before our network was marked: VN, Sun 8 Nov, 7:28 to Sun 8 Nov, 7:44"
+                },
+                {
+                  "text": "23"
+                },
+                {
+                  "text": "—"
                 }
               ]
             ],

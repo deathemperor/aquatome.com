@@ -24,9 +24,23 @@ public struct HandbookShelves: Sendable {
   public let featuredFish: [HandbookIndex.Item]
   public let easyPlants: [HandbookIndex.Item]
   public let firstGuides: [HandbookIndex.Item]
+  /// The editors' calendar for Hôm nay, by date ("2026-11-13", `HandbookIndex.Home.Day.key`), its pages found in the
+  /// index. A date not here is the app's own to fill.
+  public let plan: [String: Planned]
   /// The guides made from videos, in the index's order: on a shelf of their own, as the site keeps them off its guide
   /// list. (The series are `all(.video)`.)
   public let videoGuides: [HandbookIndex.Item]
+
+  /// A day of the editors' calendar: its fish and the photo for its card, its guide and the photo for its card, and a
+  /// story with the editors' words for it. A slot is empty when the day has none, or names a page the index doesn't list.
+  public struct Planned: Sendable {
+    public let fish: HandbookIndex.Item?
+    public let img: String?
+    public let guide: HandbookIndex.Item?
+    public let guideImg: String?
+    public let story: HandbookIndex.Item?
+    public let words: HandbookIndex.Home.Day.Story?
+  }
 
   private let byKind: [HandbookIndex.Kind: [HandbookIndex.Item]]
   /// The index's language: the glossary's letters go as it sorts them.
@@ -82,6 +96,11 @@ public struct HandbookShelves: Sendable {
     featuredFish = home.fish.compactMap { byPath[$0] }
     easyPlants = home.plants.compactMap { byPath[$0] }
     firstGuides = home.guides.compactMap { byPath[$0] }
+    plan = Dictionary(home.days.map { d in
+      let fish = d.fish.flatMap { byPath[$0] }, guide = d.guide.flatMap { byPath[$0] }, story = d.story.flatMap { byPath[$0.path] }
+      return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, guide: guide, guideImg: guide == nil ? nil : d.guideImg,
+                              story: story, words: story == nil ? nil : d.story))
+    }, uniquingKeysWith: { a, _ in a })
   }
 
   /// Every page of a kind, in the index's order (fish: the site's list order, the well-known ones first).
