@@ -418,10 +418,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
     // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
-    // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts.
+    // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts, unless its
+    // text had begun on the stream: only a whole answer counts, so one cut off after the reader's first words goes back too.
     const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
     const offTopic = done.status === 200 && trail?.answer?.offTopic === true
-    await ledger.settle({ day, run, refund: done.status === 503, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+    const cutOff = !turn && wordsAt !== undefined
+    await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
 
   /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */

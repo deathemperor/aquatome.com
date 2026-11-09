@@ -784,6 +784,22 @@ test('failures: Claude unreachable on every key is unavailable and gives the cou
   expect((await s.res.text()).endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
 })
 
+test('only a whole answer counts: an answer cut off after its text began on the stream is failed and gives the count back; the same answer unseen still counts', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const cut = () => claude([() => msg([{ type: 'text', text: '{"offTopic":false,"text":"Cá neon xanh sống theo đàn, từ 8 con' }], 'max_tokens')])
+  // Without a stream the reader saw nothing of it: failed, and it counts.
+  const f = await run(ask(bearer(me.token)), e, deps(cut().fetch))
+  expect([f.res.status, f.body]).toEqual([502, { error: 'failed' }])
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  // On a stream the reader had its first words, then the error: failed, and its count goes back.
+  const s = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { accept: 'text/event-stream' }), e, deps(cut().fetch))
+  const text = await s.res.text()
+  expect(text).toContain('event: text')
+  expect(text.endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
 test('read_tanks reads the account\'s synced tanks with their ids, its fish named as the handbook names them', async () => {
   const { e, db } = env()
   const me = await signIn(db)
