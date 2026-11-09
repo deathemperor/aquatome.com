@@ -1,0 +1,162 @@
+{
+  "id": "schistura-polytaenia",
+  "scientificName": "Schistura polytaenia",
+  "order": "Cypriniformes",
+  "family": "Nemacheilidae",
+  "genus": "Schistura",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china",
+    "irrawaddy"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Schistura polytaenia is a nemacheilid loach known only from its type locality, an Irrawaddy tributary in Tengchong County, Yunnan, China. It appears never to have been exported for the aquarium hobby. Normally listed in Nemacheilus, it appears under Schistura in Kottelat (2012), and the specimens shown on the profile were identified on the basis of collection locality.</p><p>Needs strong current, with the filter turning the tank over 8–12 times an hour.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Known only from the type locality, a tributary of the Irrawaddy River in Tengchong County, Yunnan Province, southwestern China.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>An aquarium with a base measuring 60 × 30 cm or more is recommended (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Should not prove difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight. While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p><p>Like many fishes that naturally inhabit running water it's probably intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, meaning weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Nemacheilus species are omnivorous although the bulk of their diet consists of small insects, worms, crustaceans and other zooplankton with only relatively small amounts of plant matter consumed, mostly via the stomach contents of prey items.</p><p>In the aquarium they will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc., will result in the best colouration and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Fishes which inhabit similar biotopes in nature, especially peaceful, open water-dwelling cyprinids, are likely to constitute the best options.</p><p>Other possibilities include balitorids like Gastromyzon, Pseudogastromyzon, Beaufortia, and Sewellia, plus Crossocheilus and Garra species.</p><p>Some similarly-shaped relatives such as other Nemacheilus, Acanthocobitis, and Schistura spp. are excessively territorial or otherwise aggressive, although a combination may work in larger aquaria.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Adult females are likely to be slightly larger and heavier-bodied than males. In many congeners males possess a suborbital flap and thickened or tuberculated pectoral-fin rays but in this case there is no information.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<p>This species appears never to have been exported for the aquarium hobby and there is no information regarding its diagnosis. The specimens shown were identified on the basis of collection locality.</p><p>It's normally listed as a member of Nemacheilus but appears under the genus Schistura in Kottelat (2012), hence is also included as such here. Chen &amp; Neely (2012) and Endruweit (2014) also accept this species as Schistura.</p><p>Schistura is the most species-rich genus among nemacheilid loaches with some 190 members and it continues to grow with over 100 having been described since 1990. It may represent a polyphyletic lineage and is often arranged into a number of loosely-defined species 'groups', some of which are quite dissimilar to one another.</p><p>Among these are an assemblage in which some or all of the body bars are vertically split and another which exhibit reductions in body size (adult size under 50 mm SL), the number of pelvic and pectoral-fin rays and often the number of caudal-fin rays and lateral line length, for example.</p><p>Some species, such as S. geisleri, also appear to be unrelated to any of the others.</p><p>Most inhabit flowing streams or areas close to waterfalls where there naturally exist high concentrations of dissolved oxygen, and a handful are troglobytic, i.e., cave-dwelling. The latter have reduced pigmentation and are completely blind in many cases.</p><p>Schistura spp. are distinguished from other nemacheilids by a combination of morphological characters which include: a moderately arched mouth which is 2-3.5 times wider than it is long; a median 'interruption' in the lower lip which does not form two lateral triangular pads and can vary from smooth to furrowed in texture; diverse colour pattern but usually dark with relatively regular bars; usually a black bar at the caudal-fin base which can be broken into two spots or smaller bars; one or two black markings along the base of the dorsal-fin; lack of acuminate scales on the caudal peduncle; caudal-fin shape variable from truncate to forked but usually emarginate; presence or absence of a median notch in the lower jaw; clear sexual dimorphism in some species.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-polytaenia",
+      "html": "<ul><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Zhu, S.-Q. (1982). Five new species of fishes of the genus Nemachilus from Yunnan Province, China. [in Chinese, English summary]. Acta Zootaxonomica Sinica v. 7 (no. 1), 104-111</li><li>Endruweit, M. (2014). Schistura megalodon species nova, a new river loach from the Irrawaddy basin in Dehong, Yunnan, China (Teleostei: Cypriniformes: Nemacheilidae). Zoological Research v. 35 (no. 5), 353-361</li><li>Chen, X.-Y. and D. A. Neely (2012). Schistura albirostris, a new nemacheiline loach (Teleostei: Balitoridae) from the Irrawaddy River drainage of Yunnan Province, China. Zootaxa No. 3586, 222-227</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng",
+        "lọc thùng bể cá",
+        "sủi khí oxy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông bể cá",
+        "sỏi mịn bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

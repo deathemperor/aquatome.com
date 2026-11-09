@@ -1,0 +1,243 @@
+{
+  "id": "hyphessobrycon-socolofi",
+  "scientificName": "Hyphessobrycon socolofi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Nhamundá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The lesser bleeding heart tetra, Megalamphodus socolofi, is a characid known only from the rio Negro basin and the rio Nhamundá in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Rio Nhamundá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354559,
+      "total": 20,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul><p>The lesser bleeding heart tetra, Megalamphodus socolofi, is a characid known only from the rio Negro basin and the rio Nhamundá in Brazil. One of three similar species in the 'bleeding heart' subgroup, it shares their reddish humeral spot, found in no other characid. Generally peaceful, although adult males are territorial to an extent, it mostly inhabits sluggish tributaries, side arms and forest lakes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Known only from the rio Negro basin in Amazonas state, Brazil, plus the rio Nhamundá, a smaller tributary drainage which enters the Amazon downstream of its confluence with the Negro. In the Negro system it occurs in various affluents including the rios Branco, Padauari, and Marauiá.</p><p>Type locality is 'Barcelos, 0°58'S, 62°57'W, Rio Negro, Amazonas, Brazil, 0°58'S, 62°57'W'</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Mostly inhabits sluggish tributaries, side arms and forest lakes, and often associated with submerged woody structures such as roots, fallen branches, overhanging riparian vegetation or aquatic plants.</p><p>The water normally has a negligible dissolved mineral content, is poorly buffered and stained brown due to the gradual release of tannins and organic acids from decaying plant material.</p><p>The rio Padauari is a blackwater tributary of the rio Negro and H. socolofi has been collected close to the community of Tapera in deep, marginal zones with flowing water where the locals throw food scraps and wash clothes.</p><p>Syntopic fish species in this habitat included Hemigrammus analis, Hemigrammus ex gr. bellottii, Hyphessobrycon sp., Hyphessobrycon ex gr. bentosi, Paracheirodon axelrodi, Poecilocharax weitzmani, Crenuchus spilurus, two Apistogramma spp., and Laetacara thayeri.</p><p>In the igarapé Água Boa it was collected from a ditch next to the main creek in a lowland várzea habitat with flowing water where it formed aggregations of 60-100 individuals.</p><p>Other fishes in this habitat were Hemigrammus ex gr. bellottii, Hyphessobrycon sp., Hyphessobrycon ex gr. bentosi, Moenkhausia copei and Moenkhhausia ex gr. lepidura.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Standard length: 56 mm SL (5.6 cm). Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>An aquarium with base dimensions of 90 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Choice of décor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with live plants and a dark substrate.</p><p>A natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the biotope-style feel and with it the growth of beneficial microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating natural conditions.</p><p>Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under relatively dim lighting and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne or Anubias are recommended since they will grow under such conditions, and a few patches of floating vegetation may also prove effective.</p><p>Like many fishes that naturally inhabit pristine environments it is intolerant to accumulation of organic pollutants and requires spotless water meaning weekly water changes should be considered routine, and it should never be introduced to a biologically immature tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 4.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>This species is an opportunistic omnivore by nature.</p><p>The stomach contents of wild specimens from the rio Padauari were composed of fruit remains and aquatic insects with the former constituting 99% and latter 1% of all items consumed.</p><p>Stomachs of individuals from igarapé Água Boa contained 2.5 % ants (Hymenoptera (Formicidae), 20% terrestrial insects (Ephemeroptera: Baetidae and Diptera: Chironomidae), 53.3% fruit remains, 19.5% fish scales and 4 % elmid beetles.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p><p>Submerged pieces of fresh fruit will also be grazed but should only be left in the aquarium for a few hours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium, although adult males are territorial to an extent and this behaviour may sometimes extend to similarly-shaped species.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you will be rewarded with a more natural-looking spectacle.</p><p>The interaction between rival males is fascinating to watch and they will display their best colours when competing for female attention or hierarchical position.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Males grow noticeably larger and are more intensely-coloured than females.</p><p>In adult males the dorsal, pelvic and anal fins are highly extended, while adult females tend to be rounder in shape, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Egg scatterer exhibiting no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<p>Etymology: Megalamphodus comes from the Ancient Greek μεγαλάμφοδος (megalamphodos), meaning 'with spacious ways'. Eigenmann did not explain the name, but it probably refers to the very large openings in the roof of the skull (fontanelles) that he used to define the genus. socolofi is named for legendary American ornamental fish trader Ross Socolof (1925-1999).</p><p>Name change: moved from Hyphessobrycon socolofi to Megalamphodus socolofi (2024).</p><p>One of three similar-looking species most commonly-referred to as the 'bleeding heart' subgroup, the other two being H. erythrostigma and H. pyrrhonotus.</p><p>All possess a reddish humeral spot which is not present in any other characid with other shared characters including possession of 6 -14 maxillary teeth, 7-9 scales above the lateral line, 5-7 scales below the lateral line and 26-33 anal fin rays.</p><p>H. socolofi differs from both H. erythrostigma and H. pyrrhonotus in the following characters: 31-33 vertebrae, mode 32 (vs. 33-34, mode 33 in the other two species); a white longitudinal band extending distally along the majority of the anal-fin in adults, covering 45-50 % of the rays (vs. white band covering 70-95 % of the branched anal-fin rays only); third branched ray of anal-fin longest in adult males (vs. first branched ray); presence of numerous hook-like structures on all fins except the adipose-fin in mature males (vs. hooks present on the anal, pelvic and dorsal fins in H. erythrostigma, hooks entirely absent in H. pyrrhonotus); hooks present in the anal-fin of mature females (vs. hooks not present in the anal-fin of mature females in both other species); scales cyclo-ctenoid in mature males and some mature females (vs. scales cycloid).</p><p>It can be further told apart from H. erythrostigma by the pelvic-fin of females measuring 15.69-18.88 % and reaching the origin of the 1st branched anal-fin ray (vs. 19.63-23.83 % SL, reaching tip of 3rd-5th branched anal-fin rays), and from H. pyrrhonotus by a red, wedge-shaped patch of red pigmentation in the upper part of the body (vs. possessing).</p><p>Limited genetic analyses have revealed that the bleeding heart group is probably monophyletic, but that there may be more species involved (Paz et al., 2014). The current concept of H. socolofi appears to represent a paraphyletic taxon, for example, while H. pyrrhonotus also contains distinct lineages, although further work is necessary in order to deduce taxonomic implications.</p><p>In addition to forming their own putative assemblage the bleeding heart tetras have regularly been included in the larger 'Hyphessobrycon bentosi' subgroup of the H. callistus group as proposed by Géry (1977). At the time of Géry's work H. erthythrostigma was the only recognised bleeding heart tetra and he considered it to differ from other H. bentosi subgroup members by a combination of morphometric characters plus the red humeral spot.</p><p>Weitzman &amp; Palmer (1997) expanded Géry's concept and proposed the existence of a putatively monophyletic assemblage based on colour pattern and male fin morphology that they termed the 'rosy tetra clade'. It was composed of species with the following shared characters which set them apart from other Hyphessobrycon species: pink to red or reddish-brown body colour; 22-29 branched anal-fin rays; 29-34 longitudinal scales; two sets of teeth on the premaxilla with 1-4 teeth in the outer series and 7-12 in the inner series.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-socolofi",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Teixera, T. F. (2010). Revisão taxonômica das espécies de Hyphessobrycon Durbin do grupo rosacéo pingo-de-sangue (Ostariophysi; characiformes;. Characidae): comentários dobre a biologia reprodutiva do grupo. unpublished PHD Thesis, i-xv + 1-144</li><li>Weitzman, S. H. (1977). Hyphessobrycon socolofi, a new species of characoid fish (Teleostei: Characidae) from the Rio Negro of Brazil. Proceedings of the Biological Society of Washington 90(2), 326-347</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder \"Rosy Tetras\" (Teleostei: Ostariophysi: Characidae). Vertebrate Zoology 64(2), 139-167</li><li>Paz, F. P. C., J. D. S. Batista, and J. I. R. Porto (2014). DNA Barcodes of Rosy Tetras and Allied Species (Characiformes: Characidae: Hyphessobrycon) from the Brazilian Amazon Basin. PLoS One 9(5), e98603</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "lọc nhỏ dòng chảy nhẹ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn vi sinh cho cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền sẫm màu",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

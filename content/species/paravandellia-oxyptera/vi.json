@@ -2,7 +2,7 @@
   "slug": "ca-da-tron-ky-sinh-pantanal",
   "name": "Cá da trơn ký sinh Pantanal",
   "altNames": [
-    "Pantanal Parasitic Catfish"
+    "Pantanal parasitic catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Paravandellia oxyptera Miranda Ribeiro, 1912</li><li><strong>Tên thường gọi:</strong> Pantanal Parasitic Catfish (cá da trơn ký sinh Pantanal)</li><li><strong>Nơi thu mẫu chuẩn:</strong> Cáceres, sông Paraguay, bang Mato Grosso, Brazil.</li><li><strong>Mức độ trong Sách Đỏ IUCN:</strong> Ít quan tâm (đánh giá lần gần nhất năm 2020).</li></ul>",
@@ -10,14 +10,21 @@
     "habitat:planetcatfish": "<p>Cá sống ở sông có đáy cát hoặc đáy bùn.</p>",
     "diet:planetcatfish": "<p>Loài này đã được ghi nhận có tập tính ký sinh. Ban ngày cá đi kiếm ăn. Đến đêm, chúng tìm vào khoang mang của những loài cá lớn hơn, nhất là các loài cá da trơn. Cá chui vào và chui ra theo nhịp vật chủ đóng mở mang để thở. Trong khoang mang, chúng hút máu từ các tơ mang và có thể ở lại trong đó 1-3 phút. Khi đã no máu, cá bơi xuống đáy và vùi mình vào cát.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có tài liệu nào mô tả cách loài này sinh sản. Cá thành thục khi dài khoảng 18 mm. Cũng chưa có ghi nhận nào về việc cho sinh sản loài này.</p>",
-    "references:planetcatfish": "<p>Loricariidae, Callichthyidae, Doradidae e Trichomycteridae Annexo no. 5, pp 29.</p>"
+    "references:planetcatfish": "<p>Loricariidae, Callichthyidae, Doradidae e Trichomycteridae Annexo no. 5, pp 29.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Pantanal parasitic catfish (cá da trơn ký sinh Pantanal)</li><li>Danh sách đỏ IUCN: Ít quan tâm (2023)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ, ở lưu vực các sông Paraná, Paraguay và Uruguay (Argentina, Brazil, Ecuador, Paraguay và Uruguay). Mẫu chuẩn thu ở Caceres, ven sông Paraguay (Brazil).</p>",
+    "habitat:scotcat": "<p>Loài này sống ở sông, nơi đáy có cát hoặc bùn.</p>",
+    "diet:scotcat": "<p>Loài này sống ký sinh. Chúng kiếm ăn cả ngày lẫn đêm bằng cách tìm vào khoang mang của những con cá lớn hơn, nhất là cá da trơn. Chúng ra vào khoang mang theo nhịp thở của vật chủ và hút máu từ các tơ mang. Mỗi lần chúng có thể ở trong khoang mang 1–3 phút. Hút no máu rồi, chúng bơi xuống đáy và vùi mình vào cát. Một con cá da trơn lớn bị buộc ở bờ sông có thể nuôi cả nghìn con cá ký sinh này, kéo dài tới 6 giờ. Khi kéo đến đông, chúng có thể làm chết cá mà ngư dân buộc lại.</p>",
+    "dimorphism:scotcat": "<p>Hai con cái dài 1,8 cm (tính cả đuôi) bắt vào tháng 1, lúc đang mùa mưa, mỗi con mang khoảng 150 trứng đã chín. Một con đực dài 2,0 cm (tính cả đuôi) có tinh hoàn phát triển tốt.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên chi Paravandellia ghép từ para- nghĩa là gần, ý nói chi này nằm giữa Stegophilus và Vandellia, dù khi mô tả lại ghi là dáng tổng thể của nó giống Stegophilus. Tên loài oxyptera ghép từ oxy nghĩa là nhọn và ptera nghĩa là vây. Tên này có lẽ ám chỉ đôi vây ngực to, cong hình lưỡi liềm.</p><p>Danh sách đỏ IUCN: loài này có ít thông tin, nhưng có vẻ khá phổ biến, số lượng đông và phân bố rộng. Vì vậy nó được xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Brejão, G.L. 2023. Paravandellia oxyptera. The IUCN Red List of Threatened Species 2023.</p><p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2023).</p><p>Machado, F.A. and I. Sazima, 1983. Comportamento alimentar do peixe hematófago Branchioica bertonii (Siluriformes, Trichomycteridae). Ciência e cultura 35(3):344-352.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

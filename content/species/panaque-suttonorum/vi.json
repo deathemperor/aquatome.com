@@ -2,17 +2,25 @@
   "slug": "ca-panaque-mat-xanh",
   "name": "Cá panaque mắt xanh",
   "altNames": [
-    "Blue-eyed Panaque"
+    "Blue-eyed Panaque",
+    "Cá lau kiếng mắt xanh",
+    "Blue-eye panaque"
   ],
   "sections": {
-    "notes:glaser": "<p>Vào những năm 1980, cá panaque mắt xanh là một trong những loài loricariid phổ biến nhất trên thị trường. Tên khoa học đúng của nó là Panaque suttonorum. Ngày nay loài này gần như vắng bóng mà không ai rõ lý do. Lời đồn thì có nhiều. Có người nói vùng sống của nó gặp thảm họa sinh thái. Người khác bảo dòng sông bị đầu độc và cá chết sạch. Lại có tin cho rằng mafia ma túy Colombia đang kiểm soát khu vực loài này phân bố. Dù sự thật là gì, loài này chắc chắn chưa tuyệt chủng ngoài tự nhiên, vì thỉnh thoảng vẫn có vài con được bắt về. Từng có người thấy một con rất đẹp, mắt xanh sáng, dài khoảng 20-25 cm.</p>"
+    "notes:glaser": "<p>Vào những năm 1980, cá panaque mắt xanh là một trong những loài loricariid phổ biến nhất trên thị trường. Tên khoa học đúng của nó là Panaque suttonorum. Ngày nay loài này gần như vắng bóng mà không ai rõ lý do. Lời đồn thì có nhiều. Có người nói vùng sống của nó gặp thảm họa sinh thái. Người khác bảo dòng sông bị đầu độc và cá chết sạch. Lại có tin cho rằng mafia ma túy Colombia đang kiểm soát khu vực loài này phân bố. Dù sự thật là gì, loài này chắc chắn chưa tuyệt chủng ngoài tự nhiên, vì thỉnh thoảng vẫn có vài con được bắt về. Từng có người thấy một con rất đẹp, mắt xanh sáng, dài khoảng 20-25 cm.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Cá lau kiếng mắt xanh (Blue-eye panaque)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: các nhánh sông đổ vào hồ Maracaibo từ phía tây và phía đông, thuộc Venezuela và Colombia. Nơi lấy mẫu chuẩn là sông Río Negro, đoạn bên dưới cửa sông Río Yasa, lưu vực Maracaibo, Venezuela.</p>",
+    "maintenance:scotcat": "<p>Trong bể, loài này khá to khỏe, nên cần bố trí nhiều chỗ trốn. Chúng ăn gỗ, vì thế phải thay nước nhiều và chạy lọc mạnh. Bể nuôi phải rộng.</p>",
+    "diet:scotcat": "<p>Mọi loài Panaque, và cả các loài thuộc chi Panaqolus, đều ăn gỗ. Trong bể phải có lũa cho chúng gặm. Ngoài ra, cho ăn thêm rau như dưa chuột, bí ngòi và thức ăn viên chìm.</p>",
+    "notes:scotcat": "<p>Panaque và Panaqolus khác nhau ở miệng và răng. Panaque có miệng hình bầu dục, và trên hàm có những chiếc răng hình thìa rất lớn, mỗi chiếc một mấu, xếp thành hình chữ V. Panaqolus thì có ít răng hình thìa, và cũng là chi cá nhỏ con hơn.</p><p>Nguồn gốc tên gọi: tên loài suttonorum mang hậu tố tưởng nhớ ở dạng số nhiều. Tên này đặt để vinh danh Tiến sĩ Fredrick A. Sutton (1894-1950) và vợ ông, hai người đã \"rất tốt bụng\" với Schultz khi ông ở trong trại của Lago Petroleum Corporation tại Maracaibo, Venezuela. Lúc đầu tên được viết là suttoni, còn cách viết đã sửa lại là cách đang dùng phổ biến.</p><p>Danh lục đỏ IUCN: loài này chỉ sống trong một vùng hẹp. Chúng có thể bị đánh bắt quá mức, và nơi chúng sống có thể đang bị đe dọa. Hiện chưa đánh giá được các mối đe dọa này ảnh hưởng tới đâu, nên loài được xếp vào mức Thiếu dữ liệu (IUCN 2009).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 10/2024 ). Reis, R &amp; Lima, F. 2009. Panaque suttonorum. The IUCN Red List of Threatened Species 2009. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.95
+    }
   }
 }

@@ -1,0 +1,98 @@
+{
+  "id": "sphaerichthys-acrostoma",
+  "scientificName": "Sphaerichthys acrostoma",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Sphaerichthys",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "indonesia",
+    "borneo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_acrostoma_en/",
+      "html": "<p>The Golden Choco-Gourami is the rarest species of chocolate gourami. It is the largest of all species of Sphaerichthys, with a maximum length of around 6 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_acrostoma_en/",
+      "html": "<p>This species originates from Borneo.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_acrostoma_en/",
+      "html": "<p>Keeping and breeding this species is comparable to that of S. vaillanti.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "MIWlZUlCmAI",
+      "title": "Sphaerichthys acrostoma spawning",
+      "durationSec": 362,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TH_QBIo3peA",
+      "title": "Sphaerichthys acrostoma (giant chocolate gourami)",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7DMsxzY2-og",
+      "title": "Wild Sphaerichthys acrostoma",
+      "durationSec": 182,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "InoYBRw48WM",
+      "title": "Breeding Sphaerichthys acrostoma- the giant chocolate gourami 繁殖巨人飛船",
+      "durationSec": 50,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nhẹ cho bể nhỏ",
+        "máy lọc bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh trùng huyết",
+        "artemia cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

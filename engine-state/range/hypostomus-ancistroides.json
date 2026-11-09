@@ -1,0 +1,105 @@
+{
+  "id": "hypostomus-ancistroides",
+  "native": {
+    "input": "48add10bc02b4e9e",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Tietê River basin, Ribeira de Iguape River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tietê",
+        "source": "scotcat",
+        "quote": "South America: Tietê River basin, Ribeira de Iguape River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Ribeira de Iguape",
+        "source": "scotcat",
+        "quote": "South America: Tietê River basin, Ribeira de Iguape River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus ancistroides",
+    "status": "ACCEPTED",
+    "taxonKey": 5202249,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        464
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        396
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        255
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        191
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        51
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        17
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

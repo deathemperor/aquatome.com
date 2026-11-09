@@ -20,7 +20,7 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
  * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
  */
-const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution']
+const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
 export type Rewritten = Record<string, { at: string; hash: string }>
 /** Each page tried, by the hash of the text it read. */

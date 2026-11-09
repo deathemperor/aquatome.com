@@ -1,0 +1,222 @@
+{
+  "id": "megalodoras-uranoscopus",
+  "scientificName": "Megalodoras uranoscopus",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Megalodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "colombia",
+    "peru",
+    "brazil",
+    "tocantins",
+    "bolivia",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 70
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>The giant Raphael catfish, Megalodoras uranoscopus, is a large doradid recorded from the Essequibo, Tocantins and Amazon river systems. It is also known in the US as the 'ripsaw catfish', and older literature often refers to it as M. irwini, now a junior synonym. Growing to 600 to 700 mm, it is very peaceful and can be combined with many other species in suitably sized systems.</p><ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>Recorded from the rios Essequibo, Tocantins and Amazon in the countries of Ecuador, Colombia, Peru, Brazil, Bolivia and Guyana. Type locality is Lake Hyanuary, close to the rainforest city of Manaus, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>Supposedly found in slow-moving and standing waters including tributaries, creeks and swamps where it's usually found sheltering among roots or submerged vegetation, but it is suspected to also occur in main river channels and temporarily-flooded areas depending on the time of year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>Standard length: 700 mm SL. Aquarium base: 240 × 120 cm. Volume: ~3456 litres.</p><p>This species is gregarious meaning an aquarium with base dimensions of 240 × 120 cm should be the bare minimum considered, but in reality this species is suitable only for public aquaria plus an extreme minority of private aquarists.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>The choice of décor is as much down to personal preference as anything else though a carefully-aquascaped, planted set-up is obviously out of the question. A sandy substrate with some large chunks of driftwood, or a completely bare arrangement are perhaps the most-favoured options in privately-owned aquaria, but provided water quality is maintained and lighting not too bright this species is relatively unfussy. An enormous and reliable filter system should be considered mandatory if maintaining adults.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<ul><li>Temperature: 21–25°C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>An omnivore feeding chiefly on aquatic gastropods and the fallen fruits of terrestrial plants in nature with its rumoured fondness for snails having led to it being referred to as the \"mother of snails\" catfish. Aquarium feeding is uncomplicated but offer a varied diet composed of quality, sinking dried foods, fruit and vegetables plus molluscs/shellfish and the occasional live earthworm. It requires an increasing, and substantial, amount of food as it grows and once settled will often rise to the surface at meal times.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>Very peaceful and in suitably sized systems it can be combined with many other species. Potential tankmates include characids such as Metynnis or Myleus spp., cichlids such as Cichla and Geophagus, larger loricariids, other similarly-sized doradids like Pseudodoras niger, Potamotrygon or Osteoglossum spp.. This species is proven to fare best when maintained in a conspecific group and ideally a group of 4 or more should be purchased.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>Adult females appear larger and heavier-bodied than males, and the genital papillae differ in structure.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>Undergoes extensive seasonal migrations which appear to relate directly to the reproductive cycle, and has never been bred in captivity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "html": "<p>This species is also known by the vernacular name \"ripsaw catfish\" (U.S.) and was often referred to by the scientific name M. irwini, now considered a junior synonym of M. uranoscopus, in older literature. Within the family Doradidae the genus Megalodoras is considered most closely-related to Lithodoras, Centrodoras and Platydoras, respectively.</p><p>Members of the family Doradidae can be distinguished from all other Siluriformes by possession of a unique infranuchal scute, a dermal bone consisting of an elongate plate formed by expansion of a ligament located between the posterior nuchal plate and the rib on the sixth vertebra. This feature is associated with the lateral line canal and represents the first in a series of prominent midlateral scutes exhibited by most doradids. There are two major lineages recognised within the family, one with simple barbels and a comparatively flattened head, the other with fimbriate barbels and a relatively deep head.</p><p>Within the order Siluriformes doradids are most closely related to the family Auchenipteridae, most commonly referred to as 'driftwood' catfishes by aquarists, and these two were grouped together in the superfamily Doradoidea by Sullivan et al. (2006). In their molecular phylogenetic analysis Doradoidea appeared to form a sister group pairing with the family Aspredinidae (banjo catfishes) with this constituting a significant departure from earlier hypotheses in which the African family Mochokidae and Asian Sisoridae were assumed to be most closely-associated with doradids and aspredinids, respectively. The authors stopped short of naming this putative Aspredinidae-Doradoidea clade, for the time being at least, ostensibly because certain prominent theories of fish biogeography would require substantial re-assessment if it were accepted.</p><p>Doradids are often referred to collectively as 'talking catfishes' in reference to the fact that many of them are able to produce audible sounds. In some genera (e.g. Acanthodoras, Agamyxis) these are produced via stridulation of the pectoral spines within their sockets, with the pelvic girdle possibly involved in projection of the resultant noise. The 'elastic-spring apparatus' is also used to produce sound, this comprising a highly-specialised arrangement of the parapophyses of the fourth vertebrae, the swim bladder plus associated muscles and ligaments.</p><p>Take care when netting doradids for any reason since the pectoral fin spines and body scutes easily become entangled in the mesh of standard aquarium nets and can break human skin in many cases.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/317879abce0ed8f4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/317879abce0ed8f4-480.webp",
+      "width": 839,
+      "height": 486,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalodoras-uranoscopus",
+      "caption": "Wild specimen pictured in the field, rio Tocantins system, Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ffb588f5ef4f42ef.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ffb588f5ef4f42ef-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/megalodoras_uranoscopus.htm",
+      "caption": "Megalodoras uranoscopus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a672be181d0bf0b1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a672be181d0bf0b1-480.webp",
+      "width": 500,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/megalodoras_uranoscopus.htm",
+      "caption": "Megalodoras uranoscopus: Dorsolateral view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b0a56ee730a22d54.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b0a56ee730a22d54-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/megalodoras_uranoscopus.htm",
+      "caption": "Megalodoras uranoscopus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/340223b0b9d79482.webp",
+      "thumb": "https://media.aquatome.com/scotcat/340223b0b9d79482-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/megalodoras_uranoscopus.htm",
+      "caption": "Megalodoras uranoscopus: Showing bony scutes",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 240cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cỡ lớn",
+        "máy bơm lọc hồ lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "thức ăn viên chìm cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "lũa lớn trang trí hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

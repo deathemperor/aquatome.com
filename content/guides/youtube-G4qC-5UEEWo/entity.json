@@ -1,0 +1,93 @@
+{
+  "id": "youtube-G4qC-5UEEWo",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=G4qC-5UEEWo",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus"
+  ],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "G4qC-5UEEWo",
+    "title": "Making a Serene Waterfalls Mini Ecosystem Lake (Feeder Goldfish Sanctuary)",
+    "channel": "SerpaDesign",
+    "channelUrl": "https://www.youtube.com/channel/UCGzXtNdhjPxvCNWFme1bG0g",
+    "durationSec": 1356,
+    "publishedAt": "2023-09-02",
+    "chapters": [],
+    "series": {
+      "id": "PLGPT1t4CqpfgR3-g8uqhCFdobxpfonu5U",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/G4qC-5UEEWo/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Carassius auratus"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Aquascape",
+        "t": 1031
+      },
+      {
+        "category": "loc",
+        "t": 1951
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 137
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Làm bãi lọc dòng chảy ngược",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/G4qC-5UEEWo/p4-NjgyMjI3NSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/G4qC-5UEEWo/p4-NjgyMjI3NSkuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "SuSanA Secretariat",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gravel_filter_for_wastewater_treatment_(constructed_wetland)_(6346822275).jpg",
+          "caption": "Bãi lọc đào dưới đất, lót bạt, rải sỏi và đá, mới bắt đầu trồng cây."
+        }
+      },
+      {
+        "heading": "Làm thác nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/G4qC-5UEEWo/p5-lbl9wYXJ0eS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/G4qC-5UEEWo/p5-lbl9wYXJ0eS5qcGc-480.webp",
+          "width": 960,
+          "height": 1344,
+          "licence": "CC0",
+          "author": "Tomwsulcer",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waterfall_and_pond_at_a_garden_party.jpg",
+          "caption": "Thác nước nhỏ xếp bằng đá, chảy xuống hồ có lá súng và cây thủy sinh."
+        }
+      },
+      {
+        "heading": "Sau khi đổ nước và trước khi thả cá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/G4qC-5UEEWo/p6-5MDkwMzc0KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/G4qC-5UEEWo/p6-5MDkwMzc0KS5qcGc-480.webp",
+          "width": 960,
+          "height": 569,
+          "licence": "Public domain",
+          "author": "Internet Archive Book Images",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20049090374).jpg",
+          "caption": "Tranh khắc cũ vẽ một con cá vàng thân tròn, đuôi dài."
+        }
+      }
+    ]
+  }
+}

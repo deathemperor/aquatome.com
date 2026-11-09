@@ -95,7 +95,10 @@
   "File:Nymphoides hydrophylla kz01.jpg",
   "File:Hydrocleys nymphoides and Nymphoides hydrophylla kz02.jpg",
   "File:Hydrocleys nymphoides and Nymphoides hydrophylla kz01.jpg",
-  "File:Shui lian - Meinong district, Taiwan (2017).jpg"
+  "File:Shui lian - Meinong district, Taiwan (2017).jpg",
+  "flickr:7202548830",
+  "flickr:7202551806",
+  "flickr:32079749774"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/dbcb48ed76513ed5.webp": "bd382e4c4d041797",
@@ -139,7 +142,8 @@
   "https://media.aquatome.com/inaturalist/341567652.webp": "c691574c984a1cb3",
   "https://media.aquatome.com/inaturalist/85555665.webp": "8b98e2e2f0b838e8",
   "https://media.aquatome.com/inaturalist/190601320.webp": "278f07173e1e0e22",
-  "https://media.aquatome.com/inaturalist/698412088.webp": "8c393134cdcfd33e"
+  "https://media.aquatome.com/inaturalist/698412088.webp": "8c393134cdcfd33e",
+  "https://media.aquatome.com/flickr/7202551806.webp": "3f274b0f0f5f1f1f"
  },
  "inat": {
   "taxon": 441319,
@@ -153,5 +157,9 @@
  "gbif": {
   "key": 5592249,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-09"
 }

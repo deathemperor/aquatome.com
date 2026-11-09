@@ -1,0 +1,26 @@
+{
+  "slug": "ca-betta-ferox",
+  "name": "Cá betta ferox",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài betta ấp trứng trong miệng và rất hiếm. Con dài nhất từng thấy khoảng 8 cm.</p>",
+    "distribution:glaser": "<p>Cho tới nay, loài này mới chỉ được tìm thấy ở một vùng rất nhỏ tại Thái Lan (Bori Pat).</p>",
+    "habitat:glaser": "<p>Chúng sống ở các con suối nhỏ, nước mềm và hơi chua. Nước ở đó khoảng 25 °C.</p>",
+    "dimorphism:glaser": "<p>Con đực thường lớn hơn con cái. Con cái thì hầu như không có vảy óng ánh trên thân.</p>",
+    "notes:glaser": "<p>Loài betta rất hiếm này từng về được một lô rất nhỏ cá đã lớn hẳn. Đó là cá cho đẻ ở Đức.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

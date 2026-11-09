@@ -1,0 +1,107 @@
+{
+  "id": "hyphessobrycon-stegemanni",
+  "native": {
+    "input": "607c99b80b24e10d",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The savanna tetra, Hyphessobrycon stegemanni, is a characid from the middle rio Tocantins and rio Araguaia basins in central Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle rio Tocantins basin in the states of Maranhão and Tocantins, central Brazil, plus its principal affluent the rio Araguaia in Pará, Tocantins and Mato Grosso states.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' known range is located almost entirely in the cerrado ecoregion of Brazil, a vast area of tropical wooded grassland which is considered the most biodiverse savanna environment in the world with high numbers of endemic fauna and flora.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle rio Tocantins basin in the states of Maranhão and Tocantins, central Brazil, plus its principal affluent the rio Araguaia in Pará, Tocantins and Mato Grosso states.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle rio Tocantins basin in the states of Maranhão and Tocantins, central Brazil, plus its principal affluent the rio Araguaia in Pará, Tocantins and Mato Grosso states.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Ilha do Bananal",
+        "source": "seriouslyfish",
+        "quote": "Specimens from the Araguaia basin appear to be more scarce, but there is at least one account from the Ilha do Bananal area and another from the upper rio das Mortes, near the municipality of Primavera do Leste in Mato Grosso.",
+        "ok": true
+      },
+      {
+        "name": "rio das Mortes",
+        "source": "seriouslyfish",
+        "quote": "Specimens from the Araguaia basin appear to be more scarce, but there is at least one account from the Ilha do Bananal area and another from the upper rio das Mortes, near the municipality of Primavera do Leste in Mato Grosso.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon stegemanni",
+    "status": "ACCEPTED",
+    "taxonKey": 2354609,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

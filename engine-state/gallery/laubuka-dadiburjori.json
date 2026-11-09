@@ -8,7 +8,21 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/51b000740ceba4f4.webp": "10cc0e2341c78308",
-  "https://media.aquatome.com/commons/b625b43950cd9276.webp": "3939333367726464"
+  "https://media.aquatome.com/commons/b625b43950cd9276.webp": "3939333367726464",
+  "https://media.aquatome.com/seriouslyfish/f3bbcca2af5ead70.webp": "0d6d193e9a662f0f",
+  "https://media.aquatome.com/seriouslyfish/76a2694f6918766a.webp": "ad8bc8b1319c89d9"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": null,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 7972048,
+  "next": null
+ }
 }

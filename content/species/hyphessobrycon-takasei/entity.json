@@ -12,6 +12,99 @@
     "french-guiana",
     "oyapock"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Araguari",
+        "Oyapock"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The distribution area of the species is in the lower Amazon basin, the border area between Brazil and French Guyana.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "There you can find the Coffee Bean Tetra in the tributaries of the rivers Araguari and Oyapock.",
+          "countries": [],
+          "regions": [
+            "Araguari",
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354536,
+      "total": 69,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          35
+        ],
+        [
+          "GF",
+          33
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          0,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          1.40625,
+          6,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          45,
+          15
+        ],
+        [
+          -52.03125,
+          0,
+          6,
+          6
+        ],
+        [
+          -52.03125,
+          2.8125,
+          10,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

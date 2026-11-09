@@ -1,10 +1,13 @@
 {
   "slug": "sungai-bernam",
-  "name": "Sungai Bernam",
-  "altNames": [],
+  "name": "sông Bernam",
+  "altNames": [
+    "Sungai Bernam"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

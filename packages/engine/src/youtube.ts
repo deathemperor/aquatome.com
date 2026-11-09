@@ -232,11 +232,13 @@ export function ytApi(key: string, get: (url: string) => Promise<unknown> = asyn
 
 /**
  * Seconds between storyboard tiles. YouTube's storyboard gives it (2, 5 or 10 s so far), but yt-dlp passes on only tiles
- * ÷ duration as `fps`. The tile count is ceil(duration ÷ interval) + 1, so the interval is the one that gives that count.
+ * ÷ duration as `fps`. The tile count is ceil(duration ÷ interval) + 1 of the video's true length, which yt-dlp rounds
+ * down to a whole second: a 765.4 s video reads 765, so where the interval divides it the count is one more (155 tiles of
+ * 5 s, not 154). Missing that, 1 ÷ fps (4.94 s) put every tile 1.3% early, and its frame never matched (2026-11-09).
  */
 export function storyboardInterval(fps: number, duration: number): number {
   const n = Math.round(fps * duration)
-  return [1, 2, 5, 10, 15, 20, 30, 60].find(i => Math.ceil(duration / i) + 1 === n) ?? 1 / fps
+  return [1, 2, 5, 10, 15, 20, 30, 60].find(i => Math.ceil(duration / i) + 1 === n || Math.floor(duration / i) + 2 === n) ?? 1 / fps
 }
 
 /**
@@ -259,8 +261,19 @@ export async function ytFrames(id: string): Promise<VideoFrames> {
   }
 }
 
+/** YouTube refuses a new stream address for its first seconds (403), then takes it (2026-11-09: measured three times, refused at 0 s, taken at 2 s). */
+export async function retry403<T>(f: () => Promise<T>, wait = (ms: number) => new Promise(r => setTimeout(r, ms))): Promise<T> {
+  for (let tries = 2; ; tries--) {
+    try { return await f() } catch (err) {
+      if (!tries || !/\b403\b/.test((err as Error).message)) throw err
+      await wait(3000)
+    }
+  }
+}
+
 /** The stream's frame at `sec` seconds, as PNG. ffmpeg seeks by range requests, so only the part around it is downloaded. */
-export const ytGrab = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, reject) =>
+export const ytGrab = (s: Stream, sec: number) => retry403(() => grabOnce(s, sec))
+const grabOnce = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, reject) =>
   execFile('ffmpeg', ['-nostdin', '-loglevel', 'error', ...(s.userAgent ? ['-user_agent', s.userAgent] : []), '-ss', sec.toFixed(3), '-i', s.url, '-frames:v', '1', '-c:v', 'png', '-f', 'image2pipe', '-'], { encoding: 'buffer', maxBuffer: 64 * 1024 * 1024, timeout: 60_000 }, (e, out, err) => {
     if (e) reject(new Error(`ffmpeg: ${(err.toString() || e.message).trim().split('\n').pop()}`))
     else if (!out.length) reject(new Error('ffmpeg: no frame'))

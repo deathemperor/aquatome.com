@@ -9,6 +9,46 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A tetra from Peru that has been popular among aquarists since 1958 under the fantasy name \"Hyphessobrycon robertsi\".",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7578004,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

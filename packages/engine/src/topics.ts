@@ -8,7 +8,7 @@ import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
-import { NAMES_TREATMENT } from './fit'
+import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 
@@ -74,7 +74,7 @@ Prefer aquatic vets, universities and extension services (for example UF/IFAS, M
 - sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind, by who wrote it and for whom: ${KINDS.map(k => `${k}: ${SOURCE_KINDS[k]}`).join('; ')}.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
-Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Never fetch Shopee, Lazada or Tiki pages.`
+Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
 
 /**
  * A dose a reader would measure out, in a fact's words: an amount, or a salt's percentage. The owner's chief, 8 Nov 2026,
@@ -91,7 +91,7 @@ const LEVEL = /\d[\d.,]*(?:\s*[–-]\s*\d[\d.,]*)?\s*(?:(?:ppm|ppt|mg\s*\/\s*l(?
 /** So much in so much water, food or fish: "per 40 litres", "/L", "mỗi m³", "per kg of food". */
 const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ(?:น้ำ)?)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(\d[\d.,–-]*\s*)?(l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?|ลิตร)(?![\p{L}])/giu
 /** The water's own levels, named just before a level's figure: that figure is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
-const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|\bNO[23](?:-N)?|\bNH[34]\+?|\bLC50s?|\bH2S|hydrogen sulfide|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|(?:calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?!\s*(?:\(?\s*(?:II|III)\s*\)?\s*)?(?:sul|sun|hypo|chlor|clor|perman|oxid|carbon|citr|glucon|EDTA|iodid)))(?:[\s-]+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*\(?\s*$|(?:แอมโมเนีย|ไนไตร[ทต]์?|ไนเตร[ทต]|ออกซิเจน)[\p{L}\p{M}\s]{0,20}$/iu
+const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|\bNO[23](?:-N)?|\bNH[34]\+?|\bH2S|hydrogen sulfide|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|(?:calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?!\s*(?:\(?\s*(?:II|III)\s*\)?\s*)?(?:sul|sun|hypo|chlor|clor|perman|oxid|carbon|citr|glucon|EDTA|iodid)))(?:[\s-]+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*\(?\s*$|(?:แอมโมเนีย|ไนไตร[ทต]์?|ไนเตร[ทต]|ออกซิเจน)[\p{L}\p{M}\s]{0,20}$/iu
 /** A treatment the rules have no name for: a dose, a bath, a medicine by its kind. */
 const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|emamectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา(?!ว)|รักษา|แช่/iu
 /** A fish's weight: "fish weigh 20 g per litre of tank". */
@@ -158,10 +158,11 @@ const raisingLiveFood = (s: TopicFacts['sources'][number], fact: string) =>
   (LIVE_FOOD.test(fact) || LIVE_FOOD.test(s.title)) && !(FISH.test(fact) && (TREATING.test(fact) || NAMES_TREATMENT.test(fact)))
 /**
  * Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that
- * gives it too. A farm's figures for raising live food are not a fish's dose.
+ * gives it too. A farm's figures for raising live food are not a fish's dose. A test's lethal level is never written.
  */
 export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
   const s = r.sources[f.source]
+  if (lethalFigures(f.fact).length) return false
   if (!s || (s.kind !== 'farm' && s.kind !== 'forum') || !isDose(f.fact)) return true
   if (s.kind === 'farm' && raisingLiveFood(s, f.fact)) return true
   return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && siteOf(o.url) !== siteOf(s.url) && o.kind !== 'farm' })

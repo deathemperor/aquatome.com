@@ -1,0 +1,22 @@
+{
+  "slug": "ca-killi-austrofundulus-guajira",
+  "name": "Cá killi Austrofundulus guajira",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là Austrofundulus guajira do trại ở Đức cho đẻ. Trong họ cá killi, loài này là con khổng lồ thật sự, lớn tới 8–9 cm. Nó đúng là một trong những loài killi lớn nhất châu Mỹ!</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

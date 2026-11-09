@@ -1,11 +1,12 @@
 {
   "id": "thalassophryne-amazonica",
-  "summary": "Cá cóc Amazon (Thalassophryne amazonica) hợp với người thích loài ít di chuyển, nuôi bể tương đối nhỏ cho cá dài tối đa 10 cm. Bể cần nền cát để cá vùi mình, thức ăn là cá mồi nhỏ. Điểm cần lưu ý nhất là cá có gai độc ở lưng và nắp mang, dù hồ sơ chưa ghi nhận tai nạn nào với loài này.",
+  "summary": "Cá cóc Amazon (Thalassophryne amazonica) hợp với người thích cá rình mồi, chịu nuôi bể riêng và thích xem cú phóng lên đớp mồi, vì phần lớn thời gian cá vùi mình dưới cát. Cá lớn tới 15 cm, bể tối thiểu 75 cm, nền cát mịn khá dày, nước 24–28 °C, pH 6–7,5, độ cứng 0–15 dGH, không cần muối. Điểm khó nhất là thức ăn: đây là loài ăn cá bắt buộc, nên phải có nguồn cá nhỏ sống liên tục. Cá có gai độc ở nắp mang và vây lưng, nên cẩn thận khi bắt cá hoặc vệ sinh bể.",
   "mistakes": [
-    "Ghép chung với cá nhỏ vừa miệng thì cá cóc sẽ coi là mồi; chỉ ghép với cá không vừa miệng nó.",
-    "Bể không có nền cát thì cá không vùi mình được; nên lót nền cát."
+    "Thả chung với cá khác: cá nhỏ hơn thành mồi, cá lớn hơn giành hết thức ăn, nên nuôi bể riêng.",
+    "Tính cho ăn tép hoặc thức ăn khác: chưa ai thấy nó ăn gì ngoài cá sống, nên set thêm bể phụ nuôi cichlid dễ đẻ như cá convict (Amatitlania nigrofasciata) làm mồi.",
+    "Trải nền mỏng hoặc trồng cây rễ xuống cát: hãy trải lớp cát mịn khá dày cho cá vùi mình, còn cây thì gắn lên lũa như Microsorium hay Anubias."
   ],
-  "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-04T09:09:53.110Z",
-  "review": "pending"
+  "speciesUpdatedAt": "2026-11-06",
+  "generatedAt": "2026-11-09T11:09:50.269Z",
+  "review": "approved"
 }

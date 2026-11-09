@@ -6,14 +6,21 @@
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Pareiorhina rudolphi (Miranda Ribeiro, 1911)</li><li>Sách đỏ IUCN: Chưa đánh giá</li><li>Nơi thu mẫu chuẩn: Piquete (Lorena), vùng thượng nguồn lưu vực sông Paraíba do Sul, bang São Paulo, Brazil.</li><li>Nguồn gốc tên: ghép từ tiếng Hy Lạp Pareia (hàm) và rhinos (mũi).</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ. Loài này sống ở các con sông thuộc bang Rio de Janeiro, nằm trong lưu vực sông Paraíba do Sul, Brazil.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Đến nay chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 16, pp 84.</p>"
+    "references:planetcatfish": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 16, pp 84.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Kích thước: 5 cm. Nhiệt độ: 21–25°C. pH: 6,5–7,5. Tình trạng bảo tồn (Sách đỏ IUCN): Sắp bị đe dọa (NT). Quá trình đô thị hóa trong vùng đang đe dọa rải rác các quần thể con của loài này, và ở hai địa điểm người ta không còn thấy chúng nữa. Loài này đáp ứng tiêu chí B1b(iii,v) của mức Sắp nguy cấp (VU). Nhưng quần thể của nó không bị chia cắt nghiêm trọng, cũng không xác định được nó sống ở bao nhiêu địa điểm, nên loài chỉ bị xếp vào mức Sắp bị đe dọa (IUCN 2022).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Paraíba do Sul, bang São Paulo, Brazil. Nơi thu mẫu chuẩn: Piquete (Lorena), bang São Paulo, Brazil.</p>",
+    "habitat:scotcat": "<p>Pareiorhina rudolphi chỉ có ở những con suối đổ vào sông Paraíba do Sul, thuộc phía đông dãy núi Mantiqueira. Cụ thể, chúng sống ở các suối chảy trên sườn dốc và vùng đồng bằng bóc mòn. Đó là những con suối nước chảy xiết trong tiểu lưu vực Ribeirão Grande. Đáy suối là cát, lẫn sỏi và đá tảng to nhỏ đủ cỡ (Braga và Andrade 2005).</p>",
+    "diet:scotcat": "<p>Đây là loài ăn thực vật. Thức ăn chính của nó là periphyton, tức lớp vi tảo tự dưỡng mọc bám trên đá và nền đáy.</p>",
+    "reproduction:scotcat": "<p>Cá đẻ từ tháng 10 đến tháng 2, và tới tháng 4 thì xong một mùa sinh sản (Braga và Andrade 2005).</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên giống Pareiorhina ghép từ pareio- (gốc pareiá, nghĩa là má) và rhina (gốc rhíne, nghĩa là cái giũa hay cái nạo). Cái tên này có lẽ nói tới hai bên đầu sần sùi như có hạt, nhám như mặt giũa. Tên loài rudolphi đặt để vinh danh Rodolpho von Ihering (1883–1939), nhà động vật học và nhà nuôi cá. Năm 1907, ông mô tả loài cá da trơn này với tên Plecostomus (Rhinelepis) microps. Tuy nhiên, tên đó đã có loài khác dùng trước (Plecostomus microps Steindachner 1876).</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version (08/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Pareiorhina rudolphi. The IUCN Red List of Threatened Species 2022.</p><p>Silva, G.S.C., F.F. Roxo and C. Oliveira, 2013. Pareiorhina hyptiorhachis, a new catfish species from Rio Paraíba do Sul basin, southeastern Brazil (Siluriformes, Loricariidae). ZooKeys 315:65-76.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

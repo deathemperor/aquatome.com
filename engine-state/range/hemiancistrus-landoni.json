@@ -1,8 +1,8 @@
 {
   "id": "hemiancistrus-landoni",
   "native": {
-    "input": "08a01d010d387333",
-    "at": "2026-11-08T22:57:48.089Z",
+    "input": "4ae3633f76ca3a33",
+    "at": "2026-11-09T05:57:45.266Z",
     "claims": [
       {
         "code": "EC",
@@ -15,17 +15,38 @@
       {
         "code": "EC",
         "status": "native",
-        "source": "planetcatfish",
-        "quote": "South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
         "words": "Ecuador",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Guayas River",
-        "source": "planetcatfish",
-        "quote": "South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).",
+        "name": "Guayas",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Arenillas",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Puyango",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Zaracay",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
         "country": "EC",
         "ok": true
       }

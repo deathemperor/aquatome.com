@@ -1,0 +1,142 @@
+{
+  "id": "hyphessobrycon-loretoensis",
+  "native": {
+    "input": "d25a8ffddb993c18",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Rio Napo",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Rio Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Aguarico",
+        "source": "seriouslyfish",
+        "quote": "There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon loretoensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2354639,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        33
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "PE",
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

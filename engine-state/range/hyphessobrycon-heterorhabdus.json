@@ -1,0 +1,161 @@
+{
+  "id": "hyphessobrycon-heterorhabdus",
+  "native": {
+    "input": "f9d4a99012f028db",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flag tetra, Hyphessobrycon heterorhabdus, is a characid from Pará and Maranhão states in eastern Brazil, also known as 'Belgian flag tetra'.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It is not included in recent checklists of Colombian ichthyofauna (e.g. Maldonado-Ocampo et al., 2008), while records from Suriname refer to other taxa (Mol, 2012).",
+        "words": "Colombian",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It is not included in recent checklists of Colombian ichthyofauna (e.g. Maldonado-Ocampo et al., 2008), while records from Suriname refer to other taxa (Mol, 2012).",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Its name appears to have been misapplied to similar-looking fishes occurring throughout much of the middle and lower Amazon in Brazil and Colombia, the rio Orinoco drainage in Colombia and Venezuela, and coastal systems of the Guianas.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The three-banded flag tetra (Hyphessobrycon heterorhabdus) was scientifically described in 1894; the animals on which the description was based came from the Brazilian state of Pará, and more detailed information or illustrations are not available.",
+        "words": "Brazilian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to localities south and west of Belém, including the rios Guamá, Acará, Tocantins, and Xingu, plus some smaller river systems which drain directly into the Atlantic Ocean, such as the rios Marapanim, Caripi, Maracanã, Caeté, Gurupi, and Pindaré.",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to localities south and west of Belém, including the rios Guamá, Acará, Tocantins, and Xingu, plus some smaller river systems which drain directly into the Atlantic Ocean, such as the rios Marapanim, Caripi, Maracanã, Caeté, Gurupi, and Pindaré.",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "It has also been collected from various localities within the rio Tapajós, between its confluence with the Amazon and Jacareacanga in the middle part of the basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Has been considered to range throughout the lower and middle Amazon basins as far as southern Colombia, but may be restricted to tributaries and coastal drainages in the eastern states of Pará and Maranhão, with the rio Tapajós representing its upstream limit (see 'Notes').",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon heterorhabdus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354628,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        111
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        23
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        8
+      ],
+      [
+        "2d74ce7a-a3c9-4045-b98d-7bb6cd043894",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "79a5a2c0-dfde-4ae6-bc44-d809e8d166b7",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

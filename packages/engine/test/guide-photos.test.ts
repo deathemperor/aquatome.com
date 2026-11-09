@@ -127,7 +127,7 @@ test('a usage limit stops the run with nothing lost; a download that is not an i
 })
 
 /** A video guide as the engine stores it (video-stills.ts parses it), its stills by `t`: the video's own frames (`-hd`) or storyboard tiles. */
-const still = (t: number, hd: boolean) => ({ t, url: url(`video/b1/${hd ? `at${t}-hd` : `t${t}`}`), width: hd ? 1200 : 320, height: hd ? 675 : 180, caption: `still ${t}` })
+const still = (t: number, hd: boolean) => ({ t, url: url(`video/b1/${hd ? `at${t}-hd` : `t${t}`}`), width: hd ? 1200 : 320, height: hd ? 675 : 180, caption: `still ${t}`, ...(hd ? { sharpness: 400 } : {}) })
 const videoGuide = (photos: object[], figures: object[]) => ({
   kind: 'aquascaping', source: 'youtube', sourceUrl: 'https://www.youtube.com/watch?v=b1', html: '', photos, mentions: [], updatedAt: '2026-11-06',
   video: { youtubeId: 'b1', title: 'Scape', channel: 'S', channelUrl: 'https://x', durationSec: 100, chapters: [], figures },
@@ -150,22 +150,21 @@ test('a video still with hands, a person or a mark leaves its guide for good, an
   const { d, seen } = model({
     'at20-hd': { person: true, note: 'hands planting a stem plant' },
     'at30-hd': { brand: true, note: 'a carpet, an Aquarium Co-op bottle at the edge' },
-    t50: { person: true, note: 'an arm siphoning the gravel' },
     'at60-hd': { mark: true, note: 'channel logo, bottom right' },
   })
   const r = await screenGuidePhotos(root, d, { limit: 10 })
-  // The guide's photos first, then its stills; not the tile waiting for its frame.
-  expect(seen.map(s => s.photos)).toEqual([['lead', 'scape', 'at20-hd', 'at30-hd', 't50', 'at60-hd']])
+  // The lead, then the stills, then the other photo; not the tile waiting for its frame, nor the tile kept for good, which never shows.
+  expect(seen.map(s => s.photos)).toEqual([['lead', 'at20-hd', 'at30-hd', 'at60-hd', 'scape']])
   expect(seen[0]!.prompt).toContain('Numbered photos and video frames')
-  expect(r).toMatchObject({ sheets: 1, judged: 6, left: 0, waiting: 1, failed: [], stopped: '' })
+  expect(r).toMatchObject({ sheets: 1, judged: 5, left: 0, waiting: 1, failed: [], stopped: '' })
   expect(await stillsOf(root)).toEqual([
     { heading: 'Trồng', moments: ['at30-hd'] },
     { heading: 'Nền', moments: ['t45'] },
+    { heading: 'Hút', moments: ['t50'] },
     { heading: 'Bố cục', moments: [], photo: 'scape' },
   ])
   expect(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u, w]) => [name(u), w]))).toEqual({
     'at20-hd': 'people: hands planting a stem plant',
-    t50: 'people: an arm siphoning the gravel',
     'at60-hd': 'watermark: channel logo, bottom right',
   })
 
@@ -178,6 +177,7 @@ test('a video still with hands, a person or a mark leaves its guide for good, an
     faces: async files => files.map(() => 0),
     read: async files => files.map(() => []),
     look: async () => { throw new Error('no text to judge') },
+    judge: async () => ({ photos: [{ n: 1, person: false, mark: false, brand: false, note: 'a tank' }] }),
     media: { urlFor: k => url(k.replace('.webp', '')), put: async k => ({ url: url(k.replace('.webp', '')), width: 1200, height: 675 }) },
     now: () => new Date('2026-11-07T12:00:00Z'),
   }
@@ -185,27 +185,48 @@ test('a video still with hands, a person or a mark leaves its guide for good, an
   expect(await stillsOf(root)).toEqual([
     { heading: 'Trồng', moments: ['at30-hd'] },
     { heading: 'Nền', moments: ['at45-hd'] },
+    { heading: 'Hút', moments: ['t50'] },
     { heading: 'Bố cục', moments: [], photo: 'scape' },
   ])
 
-  // The next screen judges only the new frame; what it took off stays off.
+  // video-stills judged the new frame before uploading it, so the next screen has nothing to ask; what it took off stays off.
   const next = model({})
   const again = await screenGuidePhotos(root, next.d, { limit: 10 })
-  expect(next.seen.map(s => s.photos)).toEqual([['at45-hd']])
-  expect(again).toMatchObject({ judged: 1, removed: [], waiting: 0 })
-  expect((await stillsOf(root)).flatMap(f => f.moments)).toEqual(['at30-hd', 'at45-hd'])
+  expect(next.seen).toEqual([])
+  expect(again).toMatchObject({ judged: 0, removed: [], waiting: 0 })
+  expect((await stillsOf(root)).flatMap(f => f.moments)).toEqual(['at30-hd', 'at45-hd', 't50'])
 })
 
-test('the limit caps model calls with video stills too: leads, then the other photos, then the stills, guides in order', async () => {
+test('a still with no one in it gets `person: false`, which it needs to show, once; a still the other bars hide is not judged', async () => {
+  const root = await store({ 'youtube-b1': videoGuide([], [{ heading: 'x', moments: [still(20, true), { ...still(30, true), sharpness: 3 }, { ...still(40, true), width: 640, height: 360 }] }]) })
+  const { d, seen } = model({})
+  expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 1, cleared: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['at20-hd']])
+  const moments = async () => (await json(root, 'content/guides/youtube-b1/entity.json')).video.figures[0].moments as { person?: boolean }[]
+  expect((await moments()).map(m => m.person)).toEqual([false, undefined, undefined])
+  expect(await screenGuidePhotos(root, d, { limit: 5 })).toMatchObject({ judged: 0, cleared: 0 })
+})
+
+test('--only: the model looks at the named guide alone, and the others wait their turn', async () => {
+  const root = await store({
+    'youtube-a': videoGuide([], [{ heading: 'x', moments: [{ ...still(1, true), url: url('s1-hd') }] }]),
+    'youtube-b': videoGuide([], [{ heading: 'y', moments: [{ ...still(2, true), url: url('s2-hd') }] }]),
+  }, { 'test-nuoc': { hero: photo('kit') } })
+  const { d, seen } = model({})
+  expect(await screenGuidePhotos(root, d, { limit: 5, only: ['youtube-b'] })).toMatchObject({ judged: 1, left: 0 })
+  expect(seen.map(s => s.photos)).toEqual([['s2-hd']])
+})
+
+test('the limit caps model calls with video stills too: leads, then the stills, guides in order, then the other photos', async () => {
   const root = await store({
     'youtube-a': videoGuide([photo('a1')], [{ heading: 'x', moments: [1, 2, 3, 4, 5, 6].map(t => ({ ...still(t, true), url: url(`s${t}-hd`) })) }]),
     'youtube-b': videoGuide([], [{ heading: 'y', moments: [{ ...still(7, true), url: url('s7-hd') }] }]),
   }, { 'test-nuoc': { hero: photo('kit'), types: [{ photo: photo('t1') }] } })
   const { d, seen } = model({})
   const one = await screenGuidePhotos(root, d, { limit: 1 })
-  expect(seen.map(s => s.photos)).toEqual([['a1', 'kit', 't1', 's1-hd', 's2-hd', 's3-hd']])
+  expect(seen.map(s => s.photos)).toEqual([['a1', 'kit', 's1-hd', 's2-hd', 's3-hd', 's4-hd']])
   expect(one).toMatchObject({ sheets: 1, left: 4 })
   const two = await screenGuidePhotos(root, d, { limit: 1 })
-  expect(seen.map(s => s.photos)[1]).toEqual(['s4-hd', 's5-hd', 's6-hd', 's7-hd'])
+  expect(seen.map(s => s.photos)[1]).toEqual(['s5-hd', 's6-hd', 's7-hd', 't1'])
   expect(two.left).toBe(0)
 })

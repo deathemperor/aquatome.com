@@ -10,100 +10,20 @@
     "ecuador",
     "guayas"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "planetcatfish",
-        "value": {
-          "min": 24,
-          "max": 28
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "planetcatfish",
-        "value": 21
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
-      "html": "<p>Hemiancistrus landoni Eigenmann, 1916. Type locality: Naranjito, Ecuador. Maximum size 210 mm SL. Temperature 24–28°C.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
-      "html": "<p>South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
-      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
-      "html": "<p>Etymology: Greek, hemi = the half. While the Greek agkistron = hook is thought to be the root of the term ancistrus, hemiancistrus can be taken to mean that these species have a part (not exactly half) of the features of the genus Ancistrus, but not all of them.</p>"
-    },
-    {
-      "key": "references",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
-      "html": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 84.</p>"
-    }
-  ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp",
-      "thumb": "https://media.aquatome.com/scotcat/d11bf0016bc1df90-480.webp",
-      "width": 500,
-      "height": 262,
-      "licence": "dùng với sự cho phép",
-      "author": "Windsor Aquirre / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
-      "caption": "Hemiancistrus landoni",
-      "source": "scotcat"
-    }
-  ],
-  "videos": [],
-  "productSlots": [
-    {
-      "category": "be-ca",
-      "keywords": [
-        "bể cá 120cm"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng cho bể cá lớn"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-08",
   "range": {
     "native": {
       "countries": [
         "EC"
       ],
       "regions": [
-        "Guayas River"
+        "Guayas",
+        "Arenillas",
+        "Puyango",
+        "Zaracay"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -115,11 +35,14 @@
           "regions": []
         },
         {
-          "source": "planetcatfish",
-          "quote": "South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).",
+          "source": "scotcat",
+          "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
           "countries": [],
           "regions": [
-            "Guayas River"
+            "Guayas",
+            "Arenillas",
+            "Puyango",
+            "Zaracay"
           ]
         }
       ]
@@ -161,5 +84,151 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21
+      },
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Hemiancistrus landoni Eigenmann, 1916. Type locality: Naranjito, Ecuador. Maximum size 210 mm SL. Temperature 24–28°C.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>South America: Guayas River basin, Ecuador. Type locality: Naranjito, Ecuador.</p><p>Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador. Extent of Occurrence (EOO) is estimated to be 19,532–32,211 km2. Total population size and population trend are unknown. A number of threats in Western Ecuador are producing inferred continuous declines in habitat quality. However, their direct impact on H. landoni is largely unknown. Uncertainty regarding the scope of existing threats and limited ichthyological survey in western Ecuador prevent an accurate estimation of the number of threat-based locations where this species occurs. Given a relatively broad range and no indication of major range-wide population decline, H. landoni is assessed as Least Concern (IUCN 2021).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>This species is common in the Guayas River drainage.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>Good aquarium inhabitants for a medium to large tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>More than one species can be housed together. They like water movement in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>Mainly a vegetarian diet, but can also be fed tablet foods and frozen and live foods such as mosquito larvae, brine shrimp and shrimps.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Etymology: Greek, hemi = the half. While the Greek agkistron = hook is thought to be the root of the term ancistrus, hemiancistrus can be taken to mean that these species have a part (not exactly half) of the features of the genus Ancistrus, but not all of them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>Hemiancistrus landoni differs from other loricariids by the following characters: interopercle with eight large stiff spines and twenty to thirty smaller spines; six bony plates between dorsal and adipose fins, fifteen lateral body plates along the side; mouth inferior, with a single row of numerous fine depressible moveable teeth in each jaw (Glodek, 1978).</p><p>Etymology: the specific name landoni is in honour of American businessman and philanthropist Hugh McKennan Landon (1867–1947), who helped finance the expedition during which the holotype was collected.</p><p>Remarks: Hemiancistrus is also known in some literature as Ancistomus, and is also similar to the genus Peckoltia but has a longer body and a naked ventral region.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 84.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "html": "<p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2021).</p><p>Lyons, T.J. 2021. Hemiancistrus landoni. The IUCN Red List of Threatened Species 2021.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Windsor, Aquirre. Freshwater Fishes of Western Ecuador. 05/2021.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d11bf0016bc1df90-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Windsor Aquirre / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "caption": "Hemiancistrus landoni",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
 }

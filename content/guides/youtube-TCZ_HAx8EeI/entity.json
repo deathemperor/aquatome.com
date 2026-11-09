@@ -71,7 +71,9 @@
             "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/at30-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh khúc lũa phủ rêu, ánh sáng tối trong hồ."
+            "caption": "Cận cảnh khúc lũa phủ rêu, ánh sáng tối trong hồ.",
+            "sharpness": 1170,
+            "person": false
           }
         ]
       },
@@ -91,22 +93,7 @@
       },
       {
         "heading": "Hoàn thiện bố cục trước khi đổ nước",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa lên rêu cạnh bể có lớp cát trắng."
-          },
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa đặt vào bể cùng nền cát và vài viên đá."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/p3-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/TCZ_HAx8EeI/p3-YXJkc2NhcGUuanBn-480.webp",
@@ -126,14 +113,18 @@
             "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh đã lên rêu và cây phủ xanh, có cây đỏ nổi bật."
+            "caption": "Bể thủy sinh đã lên rêu và cây phủ xanh, có cây đỏ nổi bật.",
+            "sharpness": 3724.1,
+            "person": false
           },
           {
             "t": 335,
             "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/at335-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ có lũa, đá và vài cây nhỏ trồng trong khe đá."
+            "caption": "Bể nhỏ có lũa, đá và vài cây nhỏ trồng trong khe đá.",
+            "sharpness": 2590.3,
+            "person": false
           }
         ],
         "photo": {
@@ -155,7 +146,9 @@
             "url": "https://media.aquatome.com/video/TCZ_HAx8EeI/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đã đổ nước, còn trống, khúc lũa chờ rêu phủ xanh."
+            "caption": "Bể đã đổ nước, còn trống, khúc lũa chờ rêu phủ xanh.",
+            "sharpness": 2125.1,
+            "person": false
           }
         ],
         "photo": {

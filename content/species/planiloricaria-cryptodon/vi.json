@@ -3,7 +3,8 @@
   "name": "Cá lau kính dẹt Planiloricaria",
   "altNames": [
     "Cá da trơn đuôi roi dẹt",
-    "Flounder whiptail catfish"
+    "Flounder whiptail catfish",
+    "Spoon Face Whiptail"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Hiện có cá lau kính dẹt nhập từ Peru, dài 10-13 cm. Con số này chỉ tính phần thân. Ở chi Planiloricaria, thùy trên của vây đuôi còn có một sợi tia dài bằng cả thân cá. Theo tài liệu, cá dài tối đa 35 cm.</p>",
@@ -11,14 +12,23 @@
     "behaviour:glaser": "<p>Bình thường loài cá lau kính đuôi roi này không bơi mà \"đi\" bằng vây bụng. Chúng di chuyển hơi cứng nhắc và cần bể lớn, chừa nhiều khoảng trống dưới đáy. Với đồng loại cùng cỡ, Planiloricaria thường hiền lành. Những con nhỏ hơn thì hay bị cả đám xúm lại bắt nạt. Còn cá khác loài thì chúng mặc kệ. Tuyệt đối không nuôi chung loài này với các loài hay rỉa vây, vì những sợi vây dài của Planiloricaria chắc chắn sẽ bị rỉa hỏng.</p>",
     "equipment:glaser": "<p>Bạn nên lót nền cát mịn để cá có thể vùi kín cả thân xuống cát.</p>",
     "diet:glaser": "<p>Về cơ bản, đây là loài ăn thịt. Chúng rất mê bọ gậy, trùng huyết, rận nước và các loại tương tự. Thức ăn khô (dạng mảnh, dạng hạt) chúng cũng chịu ăn.</p>",
-    "notes:glaser": "<p>Planiloricaria: tiếng Latin, nghĩa là \"Loricaria dẹt\". Loricaria là một chi cá da trơn khác. cryptodon: từ tiếng Hy Lạp cổ, nghĩa là \"có chiếc răng ẩn\".</p>"
+    "notes:glaser": "<p>Planiloricaria: tiếng Latin, nghĩa là \"Loricaria dẹt\". Loricaria là một chi cá da trơn khác. cryptodon: từ tiếng Hy Lạp cổ, nghĩa là \"có chiếc răng ẩn\".</p>",
+    "quickFacts:scotcat": "<p>Tên thường gọi: Spoon Face Whiptail (cá tỳ bà đuôi roi mặt thìa). Họ: Loricariidae. Tên đồng nghĩa: Pseudohemiodon cryptodon. Chi này chỉ có một loài. Kích thước: 35 cm. Nhiệt độ: 22–28 °C. pH: 6,0–7,2.</p>",
+    "beforeYouBuy:scotcat": "<p>Loài này không hợp với người mới chơi. Chúng nổi tiếng là quen với bể nuôi rất chậm.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực các sông Ucayali, Purus và Mamoré, thuộc vùng thượng nguồn Amazon. Nơi thu mẫu chuẩn: sông Ucayali gần Pucallpa, Peru.</p>",
+    "aquariumSize:scotcat": "<p>Nên nuôi trong bể lớn, rộng và có lọc tốt.</p>",
+    "equipment:scotcat": "<p>Nên trải nền cát, vì chúng thích vùi mình xuống nền.</p>",
+    "diet:scotcat": "<p>Lăng quăng, thức ăn viên và thức ăn đông lạnh.</p>",
+    "behaviour:scotcat": "<p>Khi đã quen bể, chúng sẽ ra chỗ trống vào lúc chạng vạng.</p>",
+    "notes:scotcat": "<p>Mô tả: Đầu cá dẹt hình đĩa, mắt nhỏ nằm trên đỉnh đầu. Tia đầu tiên của vây lưng và vây đuôi kéo dài thành một sợi tơ.</p><p>Nguồn gốc tên: Tên loài cryptodon ghép từ crypto, Latin hóa từ kryptós, nghĩa là bí mật hay giấu kín, và odon, từ odoús, nghĩa là răng. Tên này chỉ bộ răng \"giấu kỹ\", nằm khuất trong \"lợi\".</p><p>Danh sách Đỏ IUCN: Thông tin về loài này còn ít, nhưng chúng phân bố rộng và không thấy mối đe dọa rõ ràng nào. Vì thế loài được xếp vào mức Ít quan tâm (LC) (IUCN 2023).</p>",
+    "references:scotcat": "<ul><li>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Salvador, G.N. 2023. Planiloricaria cryptodon. The IUCN Red List of Threatened Species 2023.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.92
+    }
   }
 }

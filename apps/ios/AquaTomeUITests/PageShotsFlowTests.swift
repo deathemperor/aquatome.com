@@ -10,7 +10,7 @@ import XCTest
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
-/// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
+/// section on the home then a long list's whole list, light and dark; a gallery's photo grid, light, dark and at the largest text; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
 /// overview (light, dark, at the largest text, and with nothing to do), its bell's sheet, a section with charts and tables
 /// and Comments (each light, dark and at the largest text), and the daily report's settings; the tab bar over what scrolls
 /// under it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the
@@ -60,6 +60,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheToolsOnTim() { shootTools("tools-light") }
   func testTheToolsOnTimInTheDark() { shootTools("tools-dark", dark: true) }
   func testTheToolsOnTimInTheLargestText() { shootTools("tools-largest-light", size: largest, screens: 2) }
+  func testTheHome() { shootHome("tim-light") }
+  func testTheHomeOnANewPhone() { shootHome("tim-new-light", read: false) }
+  func testTheHomeInTheDark() { shootHome("tim-dark", dark: true) }
+  func testTheHomeInTheLargestText() { shootHome("tim-largest-light", size: largest) }
   func testKitOnTheHomeAndALongList() { shootKit("kit-home-light") }
   func testKitOnTheHomeAndALongListInTheDark() { shootKit("kit-home-dark", dark: true) }
   func testWhatsNew() { shootWhatsNew("whats-new-light") }
@@ -245,10 +249,39 @@ final class PageShotsFlowTests: XCTestCase {
     }
   }
 
+  /// Tìm before a search, top to bottom, with every shelf (nine video series, a kind of kit, what's new): after a page is
+  /// read and saved ("Đọc tiếp"), or on a new phone (`read` false).
+  private func shootHome(_ name: String, dark: Bool = false, size: String? = nil, read: Bool = true) {
+    let app = launch(dark: dark, size: size, ["-equipment", "-whats-new", "-series", "9"])
+    XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 5), "no home")
+    if read {
+      let field = app.searchFields.firstMatch
+      field.tap()
+      field.typeText("nuoi ca neon")
+      let guide = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch
+      XCTAssertTrue(guide.waitForExistence(timeout: 5), "the guide not found")
+      guide.tap()
+      let save = app.buttons["save-for-later"]
+      XCTAssertTrue(save.waitForExistence(timeout: 5), "the guide didn't open")
+      save.tap()
+      app.navigationBars.buttons.element(boundBy: 0).tap()
+      let close = app.buttons.matching(NSPredicate(format: "label IN {'Đóng', 'Hủy'}")).firstMatch
+      XCTAssertTrue(close.waitForExistence(timeout: 5), "no way out of the search")
+      close.tap()
+      // Under the tools (at the largest text, screens down), then back to the top for the shots.
+      let saved = app.descendants(matching: .any)["all-saved"].firstMatch
+      XCTAssertTrue(saved.waitForExistence(timeout: 2) || app.scrolledDown(to: saved).exists, "nothing read and saved")
+      let top = app.buttons["tool-fish-id"]
+      repeatUntil(top.exists && top.isHittable, times: 8) { app.swipeDown() }
+      app.swipeDown()
+    }
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 16)
+  }
+
   /// The home's section for kit, then a long list's whole list: screens a kind of kit's own shots don't reach.
   private func shootKit(_ name: String, dark: Bool = false) {
     let app = launch(dark: dark, size: nil, ["-equipment"])
-    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
+    let row = app.buttons.matching(identifier: "kit").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
     repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(row.exists, "no kit on the home")
@@ -498,6 +531,47 @@ final class PageShotsFlowTests: XCTestCase {
   private func settle() {
     let until = Date().addingTimeInterval(0.8)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+  }
+
+  // The photo grid, top, further down and the readers' part (`-hundreds-gallery`: 300 of a gallery's shapes).
+  func testThePhotoGrid() { shootGrid("grid-light") }
+  func testThePhotoGridInTheDark() { shootGrid("grid-dark", dark: true) }
+  func testThePhotoGridInTheLargestText() { shootGrid("grid-largest-light", size: largest) }
+
+  private func shootGrid(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-hundreds-gallery"])
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no Cá neon")
+    item.tap()
+    let lead = app.buttons["lead-photo-grid"]
+    XCTAssertTrue(lead.waitForExistence(timeout: 5), "no way into the grid")
+    settle()
+    snap("\(name)-lead")
+    lead.tap()
+    XCTAssertTrue(app.buttons["grid-photo-1"].waitForExistence(timeout: 5), "no grid")
+    settle()
+    snap("\(name)-01")
+    app.swipeUp()
+    settle()
+    snap("\(name)-02")
+    app.swipeDown(velocity: .fast)
+    app.swipeDown(velocity: .fast)
+    let link = app.links["Xem 2 ảnh bạn đọc gửi ↓"].firstMatch
+    XCTAssertTrue(link.waitForExistence(timeout: 5), "no link to the readers' photos")
+    link.tap()
+    settle()
+    snap("\(name)-03")
+  }
+
+  private func snap(_ name: String) {
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-" + name
+    a.lifetime = .keepAlways
+    add(a)
   }
 
   // The photo viewer over the fish's gallery, black whatever the phone's appearance: so its light, dark and large-text

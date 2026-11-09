@@ -221,7 +221,8 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(toEnd.frame.height, 40, accuracy: 1, "the ↓ isn't the mock's size")
     toEnd.tap()
     XCTAssertTrue(toEnd.waitForNonExistence(timeout: 5), "the ↓ stayed at the end")
-    XCTAssertTrue(soon(second.isHittable), "not back at the end")
+    // The next questions end the thread: the answer's own words can be a screen above them, under its cards.
+    XCTAssertTrue(soon(app.buttons.matching(identifier: "chat-chip").firstMatch.isHittable), "not back at the end")
   }
 
   /// Off on the server: no way into the chat from a fish's page.
@@ -1014,7 +1015,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(open.waitForExistence(timeout: 5), "no second section")
     reveal(app, open)
     XCTAssertTrue(app.staticTexts["Tóm tắt nhanh"].exists, "a summary lost")
-    XCTAssertTrue(app.staticTexts["còn tiếp: 1 phần"].exists, "what it can't draw isn't counted")
+    XCTAssertTrue(app.staticTexts["còn tiếp: 1 phần"].waitForExistence(timeout: 5), "what it can't draw isn't counted")
     let linked = app.links["Cá neon sống theo đàn"]
     XCTAssertTrue(linked.exists, "no link in its text")
     app.descendants(matching: .any).matching(identifier: "chat-section").element(boundBy: 1).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()

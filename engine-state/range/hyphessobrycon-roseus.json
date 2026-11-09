@@ -1,0 +1,175 @@
+{
+  "id": "hyphessobrycon-roseus",
+  "native": {
+    "input": "aa0920074cc958bc",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The yellow phantom tetra, Hyphessobrycon roseus, is a small characid from Suriname, French Guiana and the Brazilian bank of the Oyapock/Oiapoque.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The yellow phantom tetra, Hyphessobrycon roseus, is a small characid from Suriname, French Guiana and the Brazilian bank of the Oyapock/Oiapoque.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The yellow phantom tetra, Hyphessobrycon roseus, is a small characid from Suriname, French Guiana and the Brazilian bank of the Oyapock/Oiapoque.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from French Guyana, where it occurs in the rivers Maroni and Oyapock.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "This species' range extends eastward from the Courantyne River in Suriname to the Oyapock/Oiapoque drainage which forms a large portion of the border between French Guiana and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Courantyne",
+        "source": "seriouslyfish",
+        "quote": "This species' range extends eastward from the Courantyne River in Suriname to the Oyapock/Oiapoque drainage which forms a large portion of the border between French Guiana and Brazil.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Maroni",
+        "source": "glaser",
+        "quote": "The species originates from French Guyana, where it occurs in the rivers Maroni and Oyapock.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Sinnamary",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded from some watersheds between these two systems, including the Suriname, Maroni and Sinnamary rivers.",
+        "ok": true
+      },
+      {
+        "name": "Suriname",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded from some watersheds between these two systems, including the Suriname, Maroni and Sinnamary rivers.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon roseus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354520,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        22
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        18
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        14
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GF",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

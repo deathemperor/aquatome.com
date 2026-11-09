@@ -92,14 +92,18 @@
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bình thủy tinh trụ lớn đặt trên bàn gỗ, chưa có nước."
+            "caption": "Bình thủy tinh trụ lớn đặt trên bàn gỗ, chưa có nước.",
+            "sharpness": 1000.5,
+            "person": false
           },
           {
             "t": 100,
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at100-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh đáy và thành bình thủy tinh để xem độ dày kính."
+            "caption": "Cận cảnh đáy và thành bình thủy tinh để xem độ dày kính.",
+            "sharpness": 720.5,
+            "person": false
           }
         ]
       },
@@ -111,14 +115,18 @@
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at170-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hộp bộ đèn dành cho bể 30–60 lít."
+            "caption": "Hộp bộ đèn dành cho bể 30–60 lít.",
+            "sharpness": 279.3,
+            "person": false
           },
           {
             "t": 200,
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đèn đã được kẹp lên thành bình tròn thủy tinh."
+            "caption": "Đèn đã được kẹp lên thành bình tròn thủy tinh.",
+            "sharpness": 1039.5,
+            "person": false
           }
         ]
       },
@@ -126,18 +134,13 @@
         "heading": "Dựng bố cục lũa và đá",
         "moments": [
           {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/O3u6GuClWi0/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt khúc lũa lớn vào trong bể thủy tinh hình trụ."
-          },
-          {
             "t": 340,
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh lũa và đá lava được ghép sát nhau trong bể."
+            "caption": "Cận cảnh lũa và đá lava được ghép sát nhau trong bể.",
+            "sharpness": 2274.4,
+            "person": false
           }
         ],
         "photo": {
@@ -159,35 +162,24 @@
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at490-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lớp nền sáng được rải quanh gốc lũa và đá trong bình."
+            "caption": "Lớp nền sáng được rải quanh gốc lũa và đá trong bình.",
+            "sharpness": 2313.2,
+            "person": false
           },
           {
             "t": 520,
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at520-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bát sỏi nhỏ màu đen đặt cạnh bình có đá và lũa."
+            "caption": "Bát sỏi nhỏ màu đen đặt cạnh bình có đá và lũa.",
+            "sharpness": 752.9,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chọn và trồng cây",
-        "moments": [
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/O3u6GuClWi0/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang cắm cây vào khe giữa đá và lũa trong bình."
-          },
-          {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/O3u6GuClWi0/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bình thủy tinh đã trồng cây nhỏ xen giữa lũa và đá."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/O3u6GuClWi0/p4-xMjc0ODY0OS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/O3u6GuClWi0/p4-xMjc0ODY0OS5qcGc-480.webp",
@@ -203,18 +195,13 @@
         "heading": "Thả tép và cá",
         "moments": [
           {
-            "t": 1000,
-            "url": "https://media.aquatome.com/video/O3u6GuClWi0/at1000-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả tép đỏ vào bình tròn nhiều cây xanh và lũa."
-          },
-          {
             "t": 1060,
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at1060-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh bình đã lên cây, có lũa, đá và nền cát."
+            "caption": "Cận cảnh bình đã lên cây, có lũa, đá và nền cát.",
+            "sharpness": 1370.6,
+            "person": false
           }
         ],
         "photo": {
@@ -236,14 +223,9 @@
             "url": "https://media.aquatome.com/video/O3u6GuClWi0/at940-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bình thủy tinh cao đặt trên kệ, phía trên miệng bình còn ít chỗ."
-          },
-          {
-            "t": 1010,
-            "url": "https://media.aquatome.com/video/O3u6GuClWi0/at1010-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bình cao với cây thủy sinh và lũa, nền cát sỏi."
+            "caption": "Bình thủy tinh cao đặt trên kệ, phía trên miệng bình còn ít chỗ.",
+            "sharpness": 1468.2,
+            "person": false
           }
         ]
       }

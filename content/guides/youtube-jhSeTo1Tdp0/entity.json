@@ -1,6 +1,6 @@
 {
   "id": "youtube-jhSeTo1Tdp0",
-  "kind": "plantCare",
+  "kind": "setup",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=jhSeTo1Tdp0",
   "html": "",
@@ -9,7 +9,7 @@
     "eleocharis-parvula",
     "rotala-rotundifolia"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "jhSeTo1Tdp0",
     "title": "Planting my nano aquarium!!",
@@ -36,7 +36,17 @@
         "category": "phan-nen",
         "type": "phan",
         "brand": "Amazonia",
-        "t": 30
+        "model": "Aqua Soil",
+        "t": 0
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 65
+      },
+      {
+        "category": "co2",
+        "t": 130
       },
       {
         "category": "be-ca",
@@ -44,152 +54,126 @@
         "t": 0
       },
       {
-        "category": "co2",
-        "t": 130
-      },
-      {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 220
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "trong-nen",
-        "t": 65
+        "t": 225
       }
     ],
     "figures": [
       {
-        "heading": "Rải nền và làm ẩm nền trước khi trồng",
+        "heading": "Trải và làm ướt phân nền",
         "moments": [
           {
             "t": 36,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t36.webp",
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at36.webp",
             "width": 320,
             "height": 180,
-            "caption": "Đổ phân nền Amazonia từ bao vào đáy bể."
-          },
-          {
-            "t": 43,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t43.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dùng bình xịt làm ướt đều mặt phân nền trong bể."
+            "caption": "Đổ phân nền aqua soil từ bao xuống đáy bể."
           }
         ]
       },
       {
-        "heading": "Cắm ngưu mao chiên thế nào cho thảm lên nhanh",
+        "heading": "Cắm ngưu mao chiên để lên thảm nhanh",
         "moments": [
           {
             "t": 95,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t95.webp",
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at95.webp",
             "width": 320,
             "height": 180,
-            "caption": "Cỏ đã được cắt thành nhiều phần nhỏ, xếp sẵn để cắm."
+            "caption": "Những nhúm ngưu mao chiên nhỏ đã cắt, xếp sẵn để cắm bằng nhíp."
           },
           {
             "t": 105,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t105.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Một cụm cỏ được cắm xuống nền, khoảng nửa cây nằm trong đất."
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp cắm nhúm ngưu mao chiên xuống nền, khoảng nửa cây ngập trong nền.",
+            "sharpness": 405.8,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Dán phim mờ phía sau kính",
+        "heading": "Dán mờ kính sau, đổ nước và chạy thiết bị",
         "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t130.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Xịt nước và dán phim mờ lên mặt sau kính bể."
-          },
-          {
-            "t": 144,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t144.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể đã dán phim mờ phía sau, nền trông sâu và gọn hơn."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/p2-FsbGF0aW9uLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/jhSeTo1Tdp0/p2-FsbGF0aW9uLmpwZw-480.webp",
-          "width": 960,
-          "height": 697,
-          "licence": "CC BY-SA 4.0",
-          "author": "Window Tinting Brooklyn",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Commercial_Window_film_Installation.jpg",
-          "caption": "Tấm kính được dán phim mờ, che phía sau nhưng vẫn để sáng đi qua."
-        }
-      },
-      {
-        "heading": "Đổ nước, cài đèn và CO2 chung một hẹn giờ",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t150.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vừa đổ nước xong, thảm cỏ non mới cắm trên nền đất."
-          },
           {
             "t": 156,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t156.webp",
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at156.webp",
             "width": 320,
             "height": 180,
-            "caption": "Bể nano đã đổ đầy nước, cỏ mới trồng và thiết bị đã được lắp."
+            "caption": "Bể đã đổ nước, ngưu mao chiên xanh mướt và thiết bị đang chạy."
           }
         ]
       },
       {
-        "heading": "Thêm vảy ốc sau tuần đầu",
+        "heading": "Thêm rotala khi thảm đã ra rễ",
         "moments": [
           {
             "t": 176,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t176.webp",
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at176.webp",
             "width": 320,
             "height": 180,
-            "caption": "Những ngọn Rotala rotundifolia cắt từ bể cube chuẩn bị cắm sang bể mới."
+            "caption": "Những ngọn rotala rotundifolia cắt từ bể cube, sẵn sàng đem cắm."
           },
           {
-            "t": 199,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t199.webp",
+            "t": 189,
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at189.webp",
             "width": 320,
             "height": 180,
-            "caption": "Cụm Rotala rotundifolia đã cắm xong, mọc um tùm che góc lọc phía sau."
+            "caption": "Bụi rotala đã lên dày, che phần lọc bên cạnh thảm ngưu mao chiên."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/p4-bmRpZm9saWEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/jhSeTo1Tdp0/p4-bmRpZm9saWEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/p3-FfbGVhdmVzLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/jhSeTo1Tdp0/p3-FfbGVhdmVzLkpQRw-480.webp",
           "width": 960,
-          "height": 1142,
-          "licence": "CC BY-SA 3.0",
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
           "author": "Vinayaraj",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia.jpg",
-          "caption": "Rotala rotundifolia mọc thành thảm, ra hoa tím khi trồng thượng ngoài bể."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_leaves.JPG",
+          "caption": "Ngọn rotala rotundifolia với lá tròn xanh, thân đỏ, sẵn sàng cắt cắm."
         }
       },
       {
-        "heading": "Cây lên ra sao trong khoảng 5–6 tuần",
+        "heading": "Cây lên ra sao theo thời gian",
         "moments": [
           {
-            "t": 189,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t189.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cỏ bò lan ra nền, bụi vảy ốc bên trái đã lên dày."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mới trồng: ngưu mao chiên trải thảm thấp, bụi rotala nhỏ bên trái.",
+            "sharpness": 2440.3,
+            "person": false
           },
           {
             "t": 205,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/t205.webp",
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at205.webp",
             "width": 320,
             "height": 180,
-            "caption": "Vảy ốc mọc cao chạm mặt nước, cỏ phủ kín nền bể."
+            "caption": "Rotala lên cao thành bụi dày, thảm ngưu mao chiên lan kín nền."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/p4-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/jhSeTo1Tdp0/p4-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-3-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm ngưu mao chiên đã lên dày, rotala xanh tươi bên đá."
+        }
+      },
+      {
+        "heading": "Những gì góp phần vào kết quả của bể này",
+        "moments": [
+          {
+            "t": 264,
+            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at264.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể thủy sinh lên tốt với cây thân đỏ xanh tươi dưới đèn."
           }
         ]
       }

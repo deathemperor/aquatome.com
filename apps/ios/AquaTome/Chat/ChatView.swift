@@ -123,6 +123,8 @@ private struct ChatThread: View {
                 .transition(.asymmetric(insertion: .identity, removal: reduceMotion ? .opacity : .opacity.combined(with: .move(edge: .bottom))))
                 .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).minY } action: { if last { lastTop = $0 } }
             }
+            // The thread's very end, for the round ↓: an answer can be taller than the screen.
+            Color.clear.frame(height: 0).id(Self.end)
           }
           .padding(.horizontal)
           .padding(.bottom, 16)
@@ -153,7 +155,7 @@ private struct ChatThread: View {
             newBelow = false
             if let id = model.thread.last?.id { withAnimation { proxy.scrollTo(id, anchor: .top) } }
           } toEnd: {
-            if let id = model.thread.last?.id { withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .bottom) } }
+            withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(Self.end, anchor: .bottom) }
           }
           .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { boxHeight = $0 }
         }
@@ -179,6 +181,8 @@ private struct ChatThread: View {
     model.editAgain(question)
     if model.stop == nil { typing = true }
   }
+
+  private static let end = "chat-end"
 
   private var warned: Bool {
     if model.stop != nil { return true }
