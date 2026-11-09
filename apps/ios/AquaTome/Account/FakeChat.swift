@@ -26,8 +26,14 @@ import Handbook
 /// there, as the design's list has them (today, open; yesterday; this week from fish ID; a chain, weeks ago);
 /// `-chat-history-open`, yesterday's about the neon is open. `-chat-list-page N`: pages of N rows. `-chat-hidden-elsewhere`:
 /// a conversation is hidden once answered, as from another device.
+///
+/// `-chat-drops`: the connection goes after the first piece of text, the phone's path saying so, and is back 3 s later.
+/// `-chat-blips N`: it goes N times with the path saying nothing, the first after that piece of text, the others on the
+/// resend. With either, a question asked under a new key is `failed`: a resend has to carry its first key.
 @MainActor
 final class FakeChat {
+  /// What the phone's path says during `-chat-drops`: true, down. The chat takes it for its NWPathMonitor's.
+  static let pathChanged = Notification.Name("FakeChat.pathChanged")
   private let account: (String) -> String?
   private let args: [String]
   private let protocols: URL
@@ -43,6 +49,8 @@ final class FakeChat {
   private var runs: [String: Run] = [:]
   private var records: [Record] = []
   private var seeded: Set<String> = []
+  /// Connection breaks still to come.
+  private lazy var breaks = args.contains("-chat-drops") ? 1 : number("-chat-blips") ?? 0
 
   private struct Run {
     let account: String
@@ -106,8 +114,13 @@ final class FakeChat {
           let conversation = body["conversation"] as? String, let question = body["question"] as? String, let key = r.value(forHTTPHeaderField: "Idempotency-Key")
     else { return refuse(400, #"{"error":"bad request"}"#) }
     if cancelled.contains(key) { return refuse(410, #"{"error":"cancelled"}"#) }
+    if args.contains("-chat-drops") || number("-chat-blips") != nil, !kept.isEmpty, kept[key] == nil { return refuse(502, #"{"error":"failed"}"#) }
     if let k = kept[key], k.account == sub {
       if args.contains("-chat-lost") { return refuse(410, #"{"error":"ended"}"#) }
+      if breaks > 0 {
+        breaks -= 1
+        throw URLError(.networkConnectionLost)
+      }
       finished(key)
       return (Self.response(r, 200, type: "text/event-stream"), stream([k.last], gap: .zero, key: key))
     }
@@ -138,7 +151,9 @@ final class FakeChat {
       try? await Task.sleep(for: length)
       self?.finished(key)
     }
-    return (Self.response(r, 200, type: "text/event-stream"), stream(events, gap: gap, key: key))
+    let breaking = breaks > 0
+    if breaking { breaks -= 1 }
+    return (Self.response(r, 200, type: "text/event-stream"), stream(events, gap: gap, key: key, breaking: breaking))
   }
 
   /// The recorded answer this question gets, an event each, its `done` the asking conversation's turn `n`.
@@ -210,7 +225,7 @@ final class FakeChat {
   }()
 
   /// The events' bytes, `gap` apart, the first at once.
-  private func stream(_ events: [String], gap: Duration, key: String) -> AsyncThrowingStream<UInt8, any Error> {
+  private func stream(_ events: [String], gap: Duration, key: String, breaking: Bool = false) -> AsyncThrowingStream<UInt8, any Error> {
     AsyncThrowingStream { c in
       let task = Task { [weak self] in
         for (i, e) in events.enumerated() {
@@ -222,11 +237,27 @@ final class FakeChat {
           }
           if e.hasPrefix("event: text") { self?.begun.insert(key) }
           Data(e.utf8).forEach { c.yield($0) }
+          if breaking && e.hasPrefix("event: text") {
+            await self?.connectionGoes()
+            c.finish(throwing: URLError(.networkConnectionLost))
+            return
+          }
         }
         c.finish()
       }
       c.onTermination = { _ in task.cancel() }
     }
+  }
+
+  /// `-chat-drops`: the phone's path says it before the stream breaks, and that it's back 3 s later. A blip says nothing.
+  private func connectionGoes() async {
+    guard args.contains("-chat-drops") else { return }
+    NotificationCenter.default.post(name: Self.pathChanged, object: true)
+    Task {
+      try? await Task.sleep(for: .seconds(3))
+      NotificationCenter.default.post(name: Self.pathChanged, object: false)
+    }
+    try? await Task.sleep(for: .milliseconds(100))
   }
 
   // MARK: Stopping, and past conversations

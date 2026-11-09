@@ -172,6 +172,8 @@ final class ChatModel {
     var anew = false
     /// Its answer came back after the app had left it (resent with its key): drawn whole.
     var resumed = false
+    /// The connection went while the phone said it was up: asked again by itself, once.
+    var redialed = false
     /// The stream's last event's data (`done` or `error`), kept with the conversation.
     var last: String?
     /// When it was asked: on the first question of a conversation reopened from the list, shown above it.
@@ -251,20 +253,32 @@ final class ChatModel {
       pathOffline = true
       return
     }
+    // `-chat-drops`: FakeChat says when the connection goes and comes back.
+    if ProcessInfo.processInfo.arguments.contains("-chat-drops") {
+      _ = NotificationCenter.default.addObserver(forName: FakeChat.pathChanged, object: nil, queue: .main) { [weak self] n in
+        let down = n.object as? Bool == true
+        Task { @MainActor in self?.pathChanged(down: down) }
+      }
+      return
+    }
     #endif
     path.pathUpdateHandler = { [weak self] p in
       let down = p.status != .satisfied
-      Task { @MainActor in
-        guard let self else { return }
-        // Back online: a question that couldn't go can now.
-        if self.pathOffline && !down { self.couldntSend = false }
-        self.pathOffline = down
-      }
+      Task { @MainActor in self?.pathChanged(down: down) }
     }
     path.start(queue: .global(qos: .utility))
   }
 
   deinit { path.cancel() }
+
+  private func pathChanged(down: Bool) {
+    let back = pathOffline && !down
+    pathOffline = down
+    guard back else { return }
+    // Back online: a question that couldn't go can now, and an answer the connection took is asked for with its key.
+    couldntSend = false
+    resume()
+  }
 
   private func noteOnScreen(_ c: Chat.Conversation) {
     onScreen.insert(c.id)
@@ -354,11 +368,11 @@ final class ChatModel {
     ask(i)
   }
 
-  /// Back in front (or the chat opened again after the app was closed) with a question still being answered: asked
-  /// again with its key, which gets the answer that landed meanwhile, counted once.
+  /// Back in front (or the chat opened again after the app was closed, or the connection back) with a question still
+  /// being answered: asked again with its key, which gets the answer that landed meanwhile, counted once. What was read
+  /// stays: the Worker answers a key it has seen with the `done` alone.
   func resume() {
     guard running == nil, let i = thread.indices.last, thread[i].outcome == .asking else { return }
-    thread[i].reply = Chat.Reply()
     thread[i].resumed = true
     ask(i)
   }
@@ -501,6 +515,17 @@ final class ChatModel {
     try? FileManager.default.removeItem(at: file)
   }
 
+  /// Asked again in a moment; leaving the screen meanwhile stops it, as it does a stream.
+  private func again(_ id: UUID, after wait: Duration) {
+    let run = UUID()
+    runId = run
+    running = Task { [weak self] in
+      try? await Task.sleep(for: wait)
+      guard !Task.isCancelled, let self, let i = self.index(id), self.thread[i].outcome == .asking else { return }
+      self.ask(i)
+    }
+  }
+
   private func ask(_ i: Int) {
     let id = thread[i].id, run = UUID()
     runId = run
@@ -548,10 +573,19 @@ final class ChatModel {
       // Left for the background (the stream stopped): the question waits, to be asked again on return.
       if Task.isCancelled || (error as? URLError)?.code == .cancelled { return }
       guard let i = index(id) else { return }
+      let gone = Self.noNetwork(error)
       // Never taken (no answer at all): it didn't go. Taken, it's asked again with its key.
-      if !admitted && Self.noNetwork(error) && !thread[i].resumed {
+      if gone && !admitted && !thread[i].resumed {
         couldntSend = true
         unsend(id, nil)
+      } else if gone && pathOffline {
+        // The wait stays as it is, with the pill over the box: back online, `pathChanged` asks again.
+        return
+      } else if gone && !thread[i].redialed {
+        // The phone still says it's up: only a blip, or the path hasn't said yet.
+        thread[i].redialed = true
+        thread[i].resumed = true
+        again(id, after: .seconds(1))
       } else {
         thread[i].outcome = .failed("cut")
         keep()
@@ -607,13 +641,7 @@ final class ChatModel {
       // The conversation's last question is still being answered (left and reopened while it ran, up to half a minute):
       // this one waits for it, then goes. It hasn't been taken, so it isn't another question.
       waitedForLast += 1
-      let run = UUID()
-      runId = run
-      running = Task { [weak self] in
-        try? await Task.sleep(for: .seconds(3))
-        guard !Task.isCancelled, let self, let i = self.index(id), self.thread[i].outcome == .asking else { return }
-        self.ask(i)
-      }
+      again(id, after: .seconds(3))
     case .refused("too long", let limit):
       // Longer than the Worker takes, though the box let it go: back in the box, which says the Worker's limit.
       if let limit { store?.tooLong(over: limit) }
