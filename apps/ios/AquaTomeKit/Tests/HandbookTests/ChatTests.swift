@@ -273,6 +273,15 @@ private func key(_ b: Chat.Block) -> String {
   #expect(Chat.refusal(Data("<html>".utf8), status: 502) == .refused("failed", limit: nil))
 }
 
+/// Chat may be on for the owner's account alone: GET goes as the account when signed in, with no cookie either way.
+@Test func theChatsStateIsAskedAsTheAccountWhenSignedIn() {
+  let signedIn = Chat.status(site: site, version: "1.4", ownCopy: nil, token: "t0k")
+  #expect(signedIn.value(forHTTPHeaderField: "Authorization") == "Bearer t0k")
+  #expect((signedIn.httpMethod ?? "GET") == "GET" && signedIn.url?.path == "/api/chat" && !signedIn.httpShouldHandleCookies)
+  let signedOut = Chat.status(site: site, version: "1.4", ownCopy: nil)
+  #expect(signedOut.value(forHTTPHeaderField: "Authorization") == nil)
+}
+
 @Test func theChatsStateIsReadAsGetGivesIt() {
   #expect(Chat.status(Data(#"{"on":true,"perAccount":20,"maxTurns":12,"maxChars":500}"#.utf8), status: 200)
           == Chat.Status(on: true, resting: false, perAccount: 20, maxTurns: 12, maxChars: 500))

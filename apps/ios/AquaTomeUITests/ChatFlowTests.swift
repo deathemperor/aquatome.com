@@ -53,6 +53,29 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry on a page while it's off")
   }
 
+  /// On for the owner alone: GET says so only to the owner's session. The app asks as the account, and again as the
+  /// reader signs in, so a page's entry shows once they have (signed in from the Tài khoản sheet, no relaunch).
+  func testOnForTheOwnerAloneTheEntryShowsOnceSignedIn() {
+    let app = launch("-chat-owner-only")
+    open(app, "Ca neon")
+    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "no page")
+    reveal(app, app.buttons["put-on-tank"])
+    XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry signed out")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    app.openAccount()
+    let apple = element(app, "apple-sign-in")
+    reveal(app, apple)
+    apple.tap()
+    XCTAssertTrue(apple.waitForNonExistence(timeout: 10), "still signed out")
+    app.closeAccount()
+    let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "not back on Tìm's list")
+    row.tap()
+    let entry = element(app, "chat-entry")
+    reveal(app, entry)
+    XCTAssertTrue(entry.exists, "no entry once signed in")
+  }
+
   /// Fish ID's result hands its guesses over (never the photo), worded as fish ID words them.
   func testFishIdsResultAsksWithItsGuesses() {
     let app = launch("-picked-photo")
