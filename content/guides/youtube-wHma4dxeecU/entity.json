@@ -90,14 +90,18 @@
             "url": "https://media.aquatome.com/video/wHma4dxeecU/at75-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể low tech sau một tuần vẫn nhìn ổn, cây còn gọn."
+            "caption": "Bể low tech sau một tuần vẫn nhìn ổn, cây còn gọn.",
+            "sharpness": 2082.3,
+            "person": false
           },
           {
             "t": 95,
             "url": "https://media.aquatome.com/video/wHma4dxeecU/at95-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể high tech với cây cắt thân mọc dày, rậm và chắn dòng chảy."
+            "caption": "Bể high tech với cây cắt thân mọc dày, rậm và chắn dòng chảy.",
+            "sharpness": 2114.2,
+            "person": false
           }
         ],
         "photo": {
@@ -119,14 +123,9 @@
             "url": "https://media.aquatome.com/video/wHma4dxeecU/at160-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thau ngâm, kéo, nhíp và ống lily được bày sẵn."
-          },
-          {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ dụng cụ bảo dưỡng bể bày trên bàn cạnh thau nước tẩy."
+            "caption": "Thau ngâm, kéo, nhíp và ống lily được bày sẵn.",
+            "sharpness": 652.5,
+            "person": false
           }
         ]
       },
@@ -138,45 +137,9 @@
             "url": "https://media.aquatome.com/video/wHma4dxeecU/at225-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh nhiều cây, có dụng cụ đưa vào từ phía trên."
-          },
-          {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm miếng lau áp vào kính để lau rêu hại."
-          }
-        ]
-      },
-      {
-        "heading": "Cắt tỉa cây cắt thân mạnh tay thế nào",
-        "moments": [
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kéo cắt tỉa cây hậu cảnh trong bể thủy sinh."
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bụi cây hậu cảnh sau khi cắt mạnh tay, nhìn khá trụi."
-          }
-        ]
-      },
-      {
-        "heading": "Rửa ống lily và gắn lại rêu",
-        "moments": [
-          {
-            "t": 635,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at635-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mảng rêu nổi lớn được cầm trên tay, sẵn sàng xé bớt."
+            "caption": "Bể thủy sinh nhiều cây, có dụng cụ đưa vào từ phía trên.",
+            "sharpness": 1876.9,
+            "person": false
           }
         ]
       },
@@ -188,14 +151,9 @@
             "url": "https://media.aquatome.com/video/wHma4dxeecU/at530-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Máy lọc nước RO nhiều cấp lắp trong góc nhà."
-          },
-          {
-            "t": 665,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at665-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bút đo TDS kiểm tra nước trong bể thủy sinh."
+            "caption": "Máy lọc nước RO nhiều cấp lắp trong góc nhà.",
+            "sharpness": 295.1,
+            "person": false
           }
         ],
         "photo": {
@@ -213,18 +171,13 @@
         "heading": "Bảo dưỡng mất bao lâu và bao lâu làm một lần",
         "moments": [
           {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/at690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh high tech đang được châm nước lại, hơi nước mờ bên trong."
-          },
-          {
             "t": 705,
             "url": "https://media.aquatome.com/video/wHma4dxeecU/at705-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Xô nước thải với ống siphon sau khi hút cặn và tỉa cây."
+            "caption": "Xô nước thải với ống siphon sau khi hút cặn và tỉa cây.",
+            "sharpness": 862.2,
+            "person": false
           }
         ]
       }

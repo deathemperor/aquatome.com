@@ -3,8 +3,8 @@ import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
-import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { expect, test, vi } from 'vitest'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -948,6 +948,54 @@ test('the first line comes from a call of its own beside the run\'s first, befor
   expect(runs[0]!.system).toBe(SYSTEM)
   expect(runs[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'check_tank_mates', 'read_tanks'])
   expect(out.spent.input).toBe(300)
+})
+
+test('what\'s handed over goes after the question in every call of the run, never in the first line\'s, which doesn\'t wait for it; one that fails is no handover', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
+  const run = async (handover: ChatOptions['handover'], sawLine?: () => void) => {
+    const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
+    const out = await answerQuestion({
+      send: async (body, opts) => {
+        bodies.push({ call: opts.call, body: structuredClone(body) })
+        if (opts.call === 0) { sawLine?.(); return message([{ type: 'text', text: '-' }]) }
+        return opts.call === 1 ? message([readPage], 'tool_use') : message([{ type: 'text', text: JSON.stringify(final) }])
+      },
+      model: 'claude-haiku-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true, handover,
+    })
+    return { out, bodies }
+  }
+  let lineSent = false
+  const { out, bodies } = await run(async () => { await Promise.resolve(); expect(lineSent).toBe(true); return { text: 'Handed text', sections: [{ path: '/vi/ca/ca-neon-xanh/', heading: null }] } }, () => { lineSent = true })
+  expect(out.answer?.text).toBe(final.text)
+  expect(out.handed).toEqual([{ path: '/vi/ca/ca-neon-xanh/', heading: null }])
+  const first = firstMessage('vi', 'Nuôi cá neon thế nào?', [], {}, h)
+  expect(bodies.find(b => b.call === 0)!.body.messages).toEqual([first])
+  const runs = bodies.filter(b => b.call !== 0)
+  expect(runs.length).toBeGreaterThan(1)
+  for (const b of runs) expect(b.body.messages[0]!.content).toEqual([...(first.content as unknown[]), { type: 'text', text: 'Handed text' }])
+  const failed = await run(async () => { throw new Error('no') })
+  expect(failed.out.answer?.text).toBe(final.text)
+  expect(failed.out.handed).toBeUndefined()
+  expect(failed.bodies.find(b => b.call === 1)!.body.messages[0]).toEqual(first)
+})
+
+test('a handover that takes too long is none, and what it took comes out of the run\'s time', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
+  const ask = { model: 'claude-haiku-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: h, tanks: async () => [] } as const
+  const send = async () => message([{ type: 'text', text: JSON.stringify(final) }])
+  vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+  try {
+    const run = answerQuestion({ ...ask, earlier: [], send, handover: () => new Promise(() => undefined) })
+    await vi.advanceTimersByTimeAsync(HANDOVER_MS)
+    const out = await run
+    expect(out.answer?.text).toBe(final.text)
+    expect(out.handed).toBeUndefined()
+  } finally { vi.useRealTimers() }
+  let now = 0
+  const spent = await answerQuestion({ ...ask, earlier: [], send, clock: () => now, limits: { ms: 1500 }, handover: async () => { now += 1000; return undefined } })
+  expect(spent.stopped).toBe('error')
 })
 
 test('no first line is shown when it says the question is off topic, isn\'t in the reader\'s language, comes after the first step or the run, or its call fails; one shown is kept', async () => {

@@ -1,17 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Pethia_gelius_hi_res.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Pethia_gelius_hi_res.jpg/500px-Pethia_gelius_hi_res.jpg",
-   "width": 6000,
-   "height": 4000,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pethia_gelius_hi_res.jpg",
-   "caption": "Pethia gelius",
-   "key": "File:Pethia gelius hi res.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Pethia gelius hi res.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/037af963000846ad.webp": "3fb7e1f8f8f7bfaf",
+  "https://media.aquatome.com/seriouslyfish/63a54738e17d34fd.webp": "113b22070f0f0b9b",
+  "https://media.aquatome.com/seriouslyfish/e5bdbca8dd44ba8a.webp": "dbb3e2e498f1ff5d",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c4/Pethia_gelius_hi_res.jpg": "c10795c56638b5d0"
+ },
+ "commons": "2026-11-09"
 }

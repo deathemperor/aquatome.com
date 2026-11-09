@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "EIjUVVFcNmo",
     "title": "Hướng Dẫn Setup Bể Thủy Sinh Để Bàn Cubic 30  • Thủy Sinh Cơ Bản • Phần 7",
@@ -47,22 +47,22 @@
       {
         "category": "co2",
         "type": "binh",
-        "t": 0
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 0
+        "t": 30
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 208
+        "t": 205
       },
       {
         "category": "phan-nen",
         "type": "cat",
         "t": 330
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 62
       }
     ],
     "figures": [
@@ -70,104 +70,124 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
-            "t": 55,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t55.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh phụ kiện của bộ lọc thác treo thành gắn vào bể."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ sủi CO2 gắn trên thành bể kính.",
+            "sharpness": 404.2
           },
           {
             "t": 65,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t65.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể kính vuông 30x30x30 cm trống, đã có lớp nền dưới đáy."
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at65-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính 30 × 30 × 30 cm đã có lớp nền, để trống.",
+            "sharpness": 98
+          }
+        ]
+      },
+      {
+        "heading": "Dựng bố cục bằng đá và lũa",
+        "moments": [
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hàng đá cuội xếp ghép với gốc lũa trong bể trống.",
+            "sharpness": 926.4
+          },
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bố cục hoàn chỉnh gồm lũa lớn đặt cùng các viên đá.",
+            "sharpness": 1189.2
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/EIjUVVFcNmo/p0-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/EIjUVVFcNmo/p0-BcXVhcml1bS5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/EIjUVVFcNmo/p1-YXJkc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/EIjUVVFcNmo/p1-YXJkc2NhcGUuanBn-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể thủy sinh nhỏ có gốc lũa, nền đen và cây lá xanh."
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
+          "caption": "Bố cục lũa lớn dựng trong bể thủy sinh trên nền cát trắng."
         }
       },
       {
-        "heading": "Dựng bố cục đá và lũa thế nào",
+        "heading": "Trải cốt nền và phân nền",
         "moments": [
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t94.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhìn từ trên xuống: lũa và đá cuội xếp thành hàng ngang bể."
+            "t": 245,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at245-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp phân nền hạt bóng được rải phủ kín trong bể.",
+            "sharpness": 657.1
           },
           {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Gốc lũa đặt lên hàng đá cuội xếp liền mạch trong bể."
+            "t": 310,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng thẻ gạt dàn đều phân nền, tạo độ dốc trong bể.",
+            "sharpness": 1555.1
           }
         ]
       },
       {
-        "heading": "Làm nền ra sao cho đúng",
+        "heading": "Rải cát vùng tiền cảnh",
         "moments": [
           {
-            "t": 214,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t214.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rải lớp cốt nền mỏng ở phía sau bể, không sát kính."
+            "t": 360,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cát vàng được rải và dàn đều phía trước hàng đá.",
+            "sharpness": 1292.9
           },
           {
-            "t": 313,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t313.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Phủ phân nền kín cốt nền và rải dốc dần về phía sau."
+            "t": 375,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể chia hai vùng: hậu cảnh phân nền, tiền cảnh chỉ có cát.",
+            "sharpness": 2807.3
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EIjUVVFcNmo/p3-bV93aW5kb3cuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/EIjUVVFcNmo/p3-bV93aW5kb3cuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Rhinopias",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xyrichtys_splendens_in_the_sand_against_aquarium_window.jpg",
+          "caption": "Lớp cát trắng mịn rải ở tiền cảnh bể, phía sau là cây thủy sinh."
+        }
       },
       {
-        "heading": "Chọn cát cho vùng tiền cảnh",
+        "heading": "Cho nước vào và trồng cây",
         "moments": [
           {
-            "t": 368,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t368.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lớp cát vàng được rải phẳng ở vùng phía trước hàng đá."
+            "t": 395,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đổ nước lên túi nilon trải trên nền để nền không bị xới tung.",
+            "sharpness": 1370.8
           },
           {
-            "t": 383,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t383.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cát vàng trải đều ra sát kính trước, trước lũa và đá."
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây thế nào cho nhanh",
-        "moments": [
-          {
-            "t": 472,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t472.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng nhíp cắm cây xuống lớp nền đen trong hồ."
-          },
-          {
-            "t": 517,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t517.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các cụm cây lá xanh đã được trồng kín quanh khúc lũa."
+            "t": 475,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at475-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp trồng cây vào nền khi nước còn xâm xấp mặt nền.",
+            "sharpness": 545.4
           }
         ],
         "photo": {
@@ -178,25 +198,58 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
-          "caption": "Dùng nhíp cắm một cây thủy sinh nhỏ vào bố cục hồ."
+          "caption": "Dùng nhíp cắm cây thủy sinh nhỏ vào hồ, bên cạnh lũa và cây lá to."
+        }
+      },
+      {
+        "heading": "Đổ đầy nước",
+        "moments": [
+          {
+            "t": 565,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at565-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thủy sinh sau khi đổ nước, lá hơi ngả nghiêng.",
+            "sharpness": 431.4
+          },
+          {
+            "t": 585,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at585-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng vợt vớt lá rụng nổi trên mặt nước trong bể.",
+            "sharpness": 440.5
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EIjUVVFcNmo/p5-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/EIjUVVFcNmo/p5-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh đã đổ đầy nước, cây trồng trên cát cùng lũa."
         }
       },
       {
         "heading": "Lắp lọc, châm vi sinh và CO2",
         "moments": [
           {
-            "t": 596,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t596.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lắp lọc thác treo thành lên bể, tay đang chỉnh vị trí lọc."
+            "t": 600,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at600-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lắp bộ lọc vào thành bể cá.",
+            "sharpness": 712.7
           },
           {
-            "t": 666,
-            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/t666.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2 với van và bộ đếm bọt đang được lắp."
+            "t": 665,
+            "url": "https://media.aquatome.com/video/EIjUVVFcNmo/at665-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 với van điều áp và bộ đếm bọt.",
+            "sharpness": 1793.4
           }
         ]
       }

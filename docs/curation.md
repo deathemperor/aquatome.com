@@ -185,6 +185,29 @@ footage shows the still photo.
   The koi (8/10, a bubble shows twice in the dissolve) is replaced when a better open-licensed or CC BY koi clip turns
   up, and goes back to the photo if the owner dislikes the dissolve.
 
+### Video stills
+
+A guide's "Trong video" stills, on the site and in the app, show only when they pass three bars, in one function
+(`stillShown`, `packages/schema`). A still that fails leaves its section its words, and the page keeps its video.
+- **At least 480p**: its shorter side is 480 px or more. A storyboard tile (90 or 180 px) or a frame from a lower-resolution
+  video is a smudge on a phone. Stills are never stored larger than their source frame, so this is the source's resolution.
+- **Sharp**: `sharpness`, the variance of the Laplacian over the sharpest 5% of the frame, is 12 or more
+  (`still-sharpness.ts`). It's the sharpest part, not the whole frame, so a sharp fish on a plain background passes. A still
+  not yet measured isn't shown. The bar was tuned by eye on 58 stills seen whole at phone width
+  (`packages/engine/test/still-sharpness-labels.json`): it stops 3 of the 7 blurry and 1 of the 45 fine. It stops frames with
+  nothing in focus. It's a pixel measure, and video compression's blocks read as detail: 4 of the 7 blurry scored 25 to 82,
+  among 28 fine stills, so a higher bar costs most of the fine ones. The first labels, judged on full-size crops, put the bar
+  at 110, which hid frames that read well on a phone.
+
+- **No one in it**: `person` is false, the model's verdict that nobody is in the frame, hands included. A still not yet judged
+  isn't shown. Video frames need this: of 30 sampled on 2026-11-09, 14 showed hands or a person, which the tiles had hidden.
+  `video-stills` judges each frame before upload, and `guide-photos` judges the rest, stills ahead of the guides' other photos.
+  A person or a mark added on the frame takes it off for good. A question to the model about soft frames was tried on the
+  same 58 stills and stopped 1 of the 4 blurry ones the pixel bar misses, so it isn't asked: some soft frames still show.
+
+The engine measures each frame it makes, and each run measures any full-size still that has no score. Older guides' tiles
+stay in the content, hidden, until `video-stills` swaps them for the video's own frames: it needs them to find the frame.
+
 ### Generated video
 
 Not used for a species until an eval says it can be.

@@ -108,7 +108,8 @@
       "species/baryancistrus-demantoides",
       "species/biotodoma-wavrini"
     ],
-    "mentions": 13
+    "mentions": 13,
+    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
   },
   "gastromyzon-embalohensis": {
     "name": "Gastromyzon embalohensis",
@@ -350,7 +351,8 @@
       "guides/youtube-f7ePYAbDke4",
       "guides/youtube-ne5Z4ZvwxuU"
     ],
-    "mentions": 6
+    "mentions": 6,
+    "onSource": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus"
   },
   "paracrossochilus-vittatus": {
     "name": "Paracrossochilus vittatus",
@@ -6323,5 +6325,12 @@
     "name": "Sturisomatichthys panamense",
     "mentionedIn": [],
     "mentions": 0
+  },
+  "sciaenochromis-fryeri": {
+    "name": "Sciaenochromis fryeri",
+    "mentionedIn": [
+      "guides/youtube-nuSEvQyWyXA"
+    ],
+    "mentions": 1
   }
 }

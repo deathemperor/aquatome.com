@@ -35,80 +35,8 @@
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at25-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ điều khiển nhiệt độ STC-1000 đang hiển thị nhiệt độ 23,8 độ."
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mặt sau STC-1000 với sơ đồ đấu dây và các cổng nối."
-          }
-        ]
-      },
-      {
-        "heading": "Làm hộp đựng",
-        "moments": [
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm mica đã khoan một loạt lỗ quanh đường vạch, kê trên gỗ."
-          },
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cưa cắt nối các lỗ để tạo ô cho bộ điều khiển."
-          }
-        ]
-      },
-      {
-        "heading": "Đấu dây bộ điều khiển và ổ cắm",
-        "moments": [
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rạch dây nối dài để lấy các sợi bên trong ra dùng."
-          },
-          {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ điều khiển STC-1000 với sơ đồ đấu dây và dây đầu dò."
-          }
-        ]
-      },
-      {
         "heading": "Kiểm tra và lắp thêm ổ cắm thứ hai",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bút thử cắm vào ổ cắm, đèn báo sáng cho biết kết quả đấu dây."
-          },
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai ổ cắm đấu nối tiếp (daisy chain) bằng dây trắng, đen và dây đất."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/OCqPnXpxHTU/p3-c3RyYXRpb24uanBn.webp",
           "thumb": "https://media.aquatome.com/video/OCqPnXpxHTU/p3-c3RyYXRpb24uanBn-480.webp",
@@ -122,22 +50,7 @@
       },
       {
         "heading": "Lắp các thứ vào hộp",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Luồn bộ điều khiển vào lỗ hộp rồi đấu dây từ phía sau."
-          },
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm sil viền quanh ổ cắm cho hộp trông gọn gàng."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/OCqPnXpxHTU/p4-92aXNpYmxlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/OCqPnXpxHTU/p4-92aXNpYmxlLmpwZw-480.webp",
@@ -153,18 +66,13 @@
         "heading": "Cắm sưởi và đặt đầu dò",
         "moments": [
           {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang đưa đầu dò nhiệt độ ra xa cây sưởi để cố định."
-          },
-          {
             "t": 435,
             "url": "https://media.aquatome.com/video/OCqPnXpxHTU/at435-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bộ điều khiển nhiệt hiển thị 28,1°C sau khi lắp xong."
+            "caption": "Bộ điều khiển nhiệt hiển thị 28,1°C sau khi lắp xong.",
+            "sharpness": 131.4,
+            "person": false
           }
         ],
         "photo": {

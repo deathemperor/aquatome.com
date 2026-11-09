@@ -145,7 +145,9 @@
             "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at280-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bố cục đá và lũa đen dán liền thành một khối trong bể."
+            "caption": "Bố cục đá và lũa đen dán liền thành một khối trong bể.",
+            "sharpness": 612.8,
+            "person": false
           }
         ],
         "photo": {
@@ -167,14 +169,9 @@
             "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at460-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh lớp nền đen được tạo dốc trong bể, bên cạnh lũa."
-          },
-          {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã dựng lũa, đang đổ nền xuống, bên cạnh có bao soil."
+            "caption": "Cận cảnh lớp nền đen được tạo dốc trong bể, bên cạnh lũa.",
+            "sharpness": 442.1,
+            "person": false
           }
         ]
       },
@@ -182,18 +179,13 @@
         "heading": "Trải thảm phía trước",
         "moments": [
           {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp trồng từng cụm cây thảm nhỏ xuống nền."
-          },
-          {
             "t": 750,
             "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at750-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thảm đã được trồng rải rác phía trước nền bể."
+            "caption": "Cây thảm đã được trồng rải rác phía trước nền bể.",
+            "sharpness": 2623.8,
+            "person": false
           }
         ],
         "photo": {
@@ -215,14 +207,9 @@
             "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at940-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng nhíp đặt cây vào khe giữa lũa và đá nham thạch."
-          },
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at970-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai cụm rêu xanh trên tay, chuẩn bị gắn vào lũa."
+            "caption": "Dùng nhíp đặt cây vào khe giữa lũa và đá nham thạch.",
+            "sharpness": 1708.5,
+            "person": false
           }
         ],
         "photo": {
@@ -238,22 +225,7 @@
       },
       {
         "heading": "Cây hậu cảnh: cách trồng từng loại",
-        "moments": [
-          {
-            "t": 1050,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at1050-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay cây hậu cảnh còn nguyên chùm, sẵn sàng đem đi trồng."
-          },
-          {
-            "t": 1170,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at1170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm một nhúm cây hậu cảnh trước hồ để chuẩn bị trồng."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn-480.webp",
@@ -264,18 +236,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myriophyllum_aquaticum_habit6_(15105942889).jpg",
           "caption": "Myriophyllum mọc cạn (emersed) thành thảm xanh dày, thân đứng đều nhau."
         }
-      },
-      {
-        "heading": "Lọc, đèn và CO2",
-        "moments": [
-          {
-            "t": 1400,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at1400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phụ kiện và thiết bị mới mở hộp, đặt trên bàn."
-          }
-        ]
       }
     ]
   }

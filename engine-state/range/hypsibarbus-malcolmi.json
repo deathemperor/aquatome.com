@@ -1,0 +1,100 @@
+{
+  "id": "hypsibarbus-malcolmi",
+  "native": {
+    "input": "b566ebe7612ce802",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The goldfin tinfoil barb, Hypsibarbus malcolmi, is a large cyprinid from Thailand, Laos, Cambodia and Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The goldfin tinfoil barb, Hypsibarbus malcolmi, is a large cyprinid from Thailand, Laos, Cambodia and Peninsular Malaysia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The goldfin tinfoil barb, Hypsibarbus malcolmi, is a large cyprinid from Thailand, Laos, Cambodia and Peninsular Malaysia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The goldfin tinfoil barb, Hypsibarbus malcolmi, is a large cyprinid from Thailand, Laos, Cambodia and Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Mekong river system in Laos, Thailand, and Cambodia, the Chao Phraya and Maeklong drainages in central and western Thailand, and some smaller watersheds in Peninsular Malaysia, but has not yet been recorded from peninsular Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Mekong river system in Laos, Thailand, and Cambodia, the Chao Phraya and Maeklong drainages in central and western Thailand, and some smaller watersheds in Peninsular Malaysia, but has not yet been recorded from peninsular Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Maeklong",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Mekong river system in Laos, Thailand, and Cambodia, the Chao Phraya and Maeklong drainages in central and western Thailand, and some smaller watersheds in Peninsular Malaysia, but has not yet been recorded from peninsular Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypsibarbus malcolmi",
+    "status": "ACCEPTED",
+    "taxonKey": 2366133,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        55
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

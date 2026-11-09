@@ -8,16 +8,13 @@
  * The Cloudflare token (Workers AI: Read) is read from --token, a file (~/.config/aquatome/cf-ai-token); the account from --account. Vectors are kept in
  * ~/.cache/aquatome/evals/search/, under the text embedded.
  */
-import { createHash } from 'node:crypto'
-import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { basename, join } from 'node:path'
 import { parseArgs } from 'node:util'
-import type { Block } from '@aq/schema/app-page'
-import { handbookOf, sectionsOf, type Handbook, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
-import { textOf } from '../../../apps/site/worker/chat/tools'
+import type { Lang } from '../../../apps/site/worker/chat/handbook'
+import { docsOf, latestBuild, siteSource, vectors, type Embedder } from './chat-search-lib'
 import { CONDITIONS, type HardQuestion } from './chat-vs-plain-lib'
-import { pool } from './eval-lib'
 
 const { values: args } = parseArgs({
   options: {
@@ -36,85 +33,14 @@ const { values: args } = parseArgs({
   },
 })
 
-type Doc = { path: string; heading: string | null; title: string; text: string }
 type Turn = { id: string; set: string; lang: Lang; calls: { asked?: string[] }[] }
-const hash = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
-
-let dir = ''
-const file = (p: string) => join(dir, p.replace(/^\//, '').replace(/\//g, '_'))
-const json = async <T>(p: string): Promise<T | null> => { try { return JSON.parse(await readFile(file(p), 'utf8')) as T } catch { return null } }
-const source: Source = { index: l => json(`/app/${l}.json`), shard: (l, k, n) => json(`/app/pages/${l}/${k}-${n}.json`), topics: l => json(`/app/chat/${l}.json`) }
-
-/** Every section a read_page call can open: a page's opening (heading null) and each heading with an id. */
-async function docsOf(lang: Lang): Promise<{ docs: Doc[]; hb: Handbook }> {
-  const hb = (await handbookOf(source, lang))!
-  const out: Doc[] = []
-  for (const i of hb.items) {
-    const doc = await hb.page(i.path)
-    if (!doc) continue
-    for (const s of sectionsOf(doc)) {
-      if (s.heading && !s.heading.id) continue
-      const body = textOf(s.blocks as Block[])
-      out.push({ path: i.path, heading: s.heading?.id ?? null, title: doc.title, text: `${doc.title}\n${s.heading?.text ?? ''}\n${body}`.slice(0, Number(args.chars)) })
-    }
-  }
-  return { docs: out, hb }
-}
-
-let token = ''
-let account = ''
-async function embed(texts: string[]): Promise<number[][]> {
-  for (let tries = 0; ; tries++) {
-    const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/ai/run/${args.model}`, {
-      method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify({ text: texts }),
-    })
-    const j = await r.json().catch(() => null) as { success?: boolean; result?: { data?: number[][] }; errors?: unknown } | null
-    if (j?.success && j.result?.data?.length === texts.length) return j.result.data
-    if (tries >= 4) throw new Error(`embed: ${r.status} ${JSON.stringify(j?.errors ?? null)}`)
-    await new Promise(res => setTimeout(res, 2000 * (tries + 1)))
-  }
-}
-
-/** Unit vectors for texts, kept by each text's hash: the hashes in a .json, the vectors one after another in a .f32. */
-async function vectors(name: string, texts: string[]): Promise<Float32Array[]> {
-  const base = join(args.cache!, `${name}-${hash(args.model!)}`)
-  const hashes = JSON.parse(await readFile(`${base}.json`, 'utf8').catch(() => '[]')) as string[]
-  const raw = await readFile(`${base}.f32`).catch(() => Buffer.alloc(0))
-  const all = new Float32Array(raw.buffer, raw.byteOffset, raw.byteLength / 4)
-  const dim = hashes.length ? all.length / hashes.length : 0
-  const kept = new Map<string, Float32Array>(hashes.map((h, i) => [h, all.slice(i * dim, (i + 1) * dim)]))
-  const byHash = new Map(texts.map(t => [hash(t), t]))
-  const missing = [...byHash.keys()].filter(h => !kept.has(h))
-  const batches: string[][] = []
-  for (let i = 0; i < missing.length; i += 50) batches.push(missing.slice(i, i + 50))
-  let done = 0
-  await pool(batches.map(b => async () => {
-    const v = await embed(b.map(h => byHash.get(h)!))
-    b.forEach((h, i) => {
-      const x = Float32Array.from(v[i]!)
-      const n = Math.hypot(...x)
-      kept.set(h, x.map(y => y / n))
-    })
-    if (++done % 50 === 0) console.error(`${name}: ${done} of ${batches.length} batches`)
-  }), 4)
-  if (missing.length) {
-    const keys = [...kept.keys()]
-    await writeFile(`${base}.f32`, Buffer.concat(keys.map(h => Buffer.from(kept.get(h)!.buffer))))
-    await writeFile(`${base}.json`, JSON.stringify(keys))
-  }
-  return texts.map(t => kept.get(hash(t))!)
-}
-
 const dot = (a: Float32Array, b: Float32Array) => { let s = 0; for (let i = 0; i < a.length; i++) s += a[i]! * b[i]!; return s }
 
 async function main() {
   if (!args.run || !args.token) throw new Error('--run: a chat-speed.ts run; --token: a file holding a Cloudflare token for Workers AI')
-  token = (await readFile(args.token, 'utf8')).trim()
-  account = (await readFile(args.account!, 'utf8')).trim()
-  const speed = join(homedir(), '.cache/aquatome/chat-speed')
-  // The handbook build read last (chat-speed.ts keeps one folder a build).
-  const builds = await Promise.all((await readdir(speed)).filter(d => d.startsWith('site-')).map(async d => ({ d, at: (await stat(join(speed, d))).birthtimeMs })))
-  dir = args.site ?? join(speed, builds.sort((a, b) => a.at - b.at).at(-1)!.d)
+  const e: Embedder = { token: (await readFile(args.token, 'utf8')).trim(), account: (await readFile(args.account!, 'utf8')).trim(), model: args.model!, cache: args.cache! }
+  const dir = args.site ?? await latestBuild()
+  const source = siteSource(dir)
   console.log(`Handbook: ${basename(dir)}`)
   await mkdir(args.cache!, { recursive: true })
 
@@ -134,13 +60,13 @@ async function main() {
   const scores: { lang: string; score: number; read: boolean }[] = []
 
   for (const lang of [...new Set(turns.map(t => t.lang))]) {
-    const { docs, hb } = await docsOf(lang)
+    const { docs, hb } = await docsOf(source, lang, Number(args.chars))
     // The search's words: the question, after the name of the fish the chat is about when it was opened from one.
     const startOf = (id: string) => (about.has(id) ? hb.byId(about.get(id)!) : undefined)
     const query = (id: string) => { const i = startOf(id); return i ? `${i.name}${i.sub ? ` (${i.sub})` : ''}: ${asked.get(id)!}` : asked.get(id)! }
-    const dv = await vectors(`docs-${lang}`, docs.map(d => d.text))
+    const dv = await vectors(e, `docs-${lang}`, docs.map(d => d.text))
     const mine = turns.filter(t => t.lang === lang && asked.has(t.id))
-    const qv = await vectors(`questions-${lang}`, mine.map(t => query(t.id)))
+    const qv = await vectors(e, `questions-${lang}`, mine.map(t => query(t.id)))
     const rows: { id: string; set: string; sections: number[]; pages: number[]; gold: number; goldPages: number }[] = []
     mine.forEach((t, n) => {
       const reads = t.calls.flatMap(c => c.asked ?? []).filter(a => a.startsWith('read_page ')).map(a => JSON.parse(a.slice('read_page '.length)) as { path: string; heading: string | null })

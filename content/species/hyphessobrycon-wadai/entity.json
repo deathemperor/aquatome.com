@@ -10,6 +10,50 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural distribution is the upper basin of the Rio Tapajós.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9655807,
+      "total": 4,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -14.0625,
+          3
+        ],
+        [
+          -57.65625,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

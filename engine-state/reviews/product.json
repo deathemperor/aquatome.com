@@ -235,5 +235,38 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/products/tuya-smart-life-power-strip": [
+    {
+      "at": "2026-11-09T06:23:13Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Có hướng dẫn nói ổ này vẫn giữ lịch khi mất Wi-Fi\" / \"vẫn giữ lịch đã lưu trong vài ngày\": the facts say this, but the guide is generic, and the page presents it as certain for this strip while also saying some cheap plugs switch off. Mildly overstated.",
+        "\"Sưởi thì tùy, muốn cắm cũng được\": the facts only say the heater is optional and a backup. This is a mild extrapolation.",
+        "\"Nên chỉnh phần cài đặt khi có điện lại như ở mục trên\": the facts do not say that 'Last State' fixes the reef hobbyist's all-off problem. This is an implied link.",
+        "\"Ổ cũng phụ thuộc cloud và app\": the source says this about Tuya devices in general, not specifically this strip. It is a small generalization.",
+        "\"Ổ này dành cho người đã có sẵn hub Zigbee\" and \"giống ổ này\": fine, but the Zigbee price/page status is omitted. This is not an error.",
+        "\"Đổi lại thì giá cao hơn\": supported, but the page gives no price. This is fine.",
+        "\"4P+2U ... 2 cổng USB\": supported. \"Nếu bể chỉ dùng ổ điện ... số cổng USB không ảnh hưởng gì\" is an unsupported but harmless inference."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T06:23:13Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bản 2 USB thì không thấy shop nào nói chuyện này\" is an inference; the facts only say the 4P+4U variant states remote USB switching, not that no shop mentions it for 4P+2U (minor).",
+        "\"Tổng tải của cả 4 ổ\" is fine, but \"Ổ cắm sưởi chỉ để dự phòng... bộ điều nhiệt có sẵn\" is supported only by a guide that says 'optionally'; the page's \"sưởi thì tùy, có cắm cũng được\" is slightly paraphrased and acceptable.",
+        "\"Router ở nhà hay phát 5GHz\" generalises 'many home routers use 5GHz' (minor).",
+        "\"Tapo P300... hãng này hỗ trợ tốt hơn\" matches the facts; \"Đổi lại giá cao hơn\" omits the figures but is supported.",
+        "\"Phải tự cúp điện thử một lần\" and \"hãy ngắt Wi-Fi thử\" are advice not in the facts, though they are reasonable extensions of 'check how yours behaves'.",
+        "\"Ổ cắm Wi-Fi Tuya đơn 10A ... mua vài ổ đơn này rẻ hơn\" is supported (cheaper option)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

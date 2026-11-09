@@ -1,0 +1,186 @@
+{
+  "id": "hyphessobrycon-compressus",
+  "native": {
+    "input": "854253b54807dcb1",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mayan tetra, Hyphessobrycon compressus, is a characid from southern Mexico, Guatemala and Belize.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mayan tetra, Hyphessobrycon compressus, is a characid from southern Mexico, Guatemala and Belize.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mayan tetra, Hyphessobrycon compressus, is a characid from southern Mexico, Guatemala and Belize.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from southern Mexico, Guatemala, and Belize.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from southern Mexico, Guatemala, and Belize.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from southern Mexico, Guatemala, and Belize.",
+        "words": "Belize",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Papaloapam",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Río Papaloapam basin at El Hule, Oaxaca, Mexico'.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon compressus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354655,
+    "datasets": [
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        106
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        91
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        64
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        61
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        45
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        32
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        31
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        31
+      ],
+      [
+        "8049bed0-f762-11e1-a439-00145eb45e9a",
+        21
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        16
+      ],
+      [
+        "9a0983a1-55dc-4492-bd6c-4085a36dcddc",
+        13
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        10
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        7
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        6
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "7817af75-45c3-4050-a4f8-9a10c3da91c5",
+        1
+      ],
+      [
+        "7f6b3fe8-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "MX",
+      "GT",
+      "BZ"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

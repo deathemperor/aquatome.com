@@ -10,6 +10,144 @@
     "french-guiana",
     "maroni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF"
+      ],
+      "regions": [
+        "Maroni",
+        "Mana",
+        "Sinnamary",
+        "Kourou",
+        "Approuague",
+        "Oyapock"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The false x-ray tetra, Hyphessobrycon simulatus, is a characid endemic to French Guiana, from the Maroni to the Oyapock/Oiapoque river basins.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to French Guiana, where it is known from the Maroni, Mana, Sinnamary, Kourou, Comté, Mahury, Kaw, Approuague and Oyapock/Oiapoque River basins.",
+          "countries": [],
+          "regions": [
+            "Maroni",
+            "Mana",
+            "Sinnamary",
+            "Kourou",
+            "Approuague",
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354621,
+      "total": 319,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GF",
+          273
+        ],
+        [
+          "SR",
+          26
+        ],
+        [
+          "BR",
+          19
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          20,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          15,
+          11
+        ],
+        [
+          -53.4375,
+          2.8125,
+          56,
+          51
+        ],
+        [
+          -53.4375,
+          4.21875,
+          203,
+          203
+        ],
+        [
+          -52.03125,
+          2.8125,
+          12,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

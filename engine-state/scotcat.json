@@ -1365,6 +1365,46 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm": {
+    "entityIds": [
+      "species/panaque-suttonorum"
+    ],
+    "updatedAt": "2026-11-09T05:44:48.193Z",
+    "hash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
+    "processedHash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/paraloricaria_vetula.htm": {
+    "entityIds": [
+      "species/paraloricaria-vetula"
+    ],
+    "updatedAt": "2026-11-09T05:50:29.816Z",
+    "hash": "3fa8d8e306d6c753357e28d9460da4c352307ba095517885aa98cd0f4d35992e",
+    "processedHash": "3fa8d8e306d6c753357e28d9460da4c352307ba095517885aa98cd0f4d35992e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm": {
+    "entityIds": [
+      "species/parancistrus-aurantiacus"
+    ],
+    "updatedAt": "2026-11-09T05:51:51.851Z",
+    "hash": "3bb0c849990f2816cd530ef74c4695e161f250f03e939d341fabe70f699e3caa",
+    "processedHash": "3bb0c849990f2816cd530ef74c4695e161f250f03e939d341fabe70f699e3caa",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm": {
+    "entityIds": [
+      "species/parancistrus-nudiventris"
+    ],
+    "updatedAt": "2026-11-09T05:53:45.026Z",
+    "hash": "648a210893de326e9b1aad5e6f7d7dd768b34053b4fb740341efa914428680a0",
+    "processedHash": "648a210893de326e9b1aad5e6f7d7dd768b34053b4fb740341efa914428680a0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/peckoltia_compta.htm": {
     "entityIds": [
       "species/peckoltia-compta"
@@ -1535,6 +1575,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm": {
+    "entityIds": [
+      "species/parailia-occidentalis"
+    ],
+    "updatedAt": "2026-11-09T05:46:05.356Z",
+    "hash": "87a9a713dc25f100c2570b85788d50b10b9cde9d25d17bf7949cacc4df57962b",
+    "processedHash": "87a9a713dc25f100c2570b85788d50b10b9cde9d25d17bf7949cacc4df57962b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/schilbidae/parailia_pellucida.htm": {
+    "entityIds": [
+      "species/parailia-pellucida"
+    ],
+    "updatedAt": "2026-11-09T05:48:05.201Z",
+    "hash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
+    "processedHash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/siluridae/hemisilurus_heterorhynchus.htm": {
     "entityIds": [
       "species/hemisilurus-heterorhynchus"
@@ -1592,6 +1652,16 @@
     "updatedAt": "2026-11-04T13:35:14.474Z",
     "hash": "feb7660a83a1b18f46c7fe3dd268596474f2a5e686fcc076697b3a3322808b4a",
     "processedHash": "feb7660a83a1b18f46c7fe3dd268596474f2a5e686fcc076697b3a3322808b4a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm": {
+    "entityIds": [
+      "species/paravandellia-oxyptera"
+    ],
+    "updatedAt": "2026-11-09T05:55:55.658Z",
+    "hash": "bfad2b48ed3622d1b78b4cece0f04ca5e08015b4abe878510b7b7832e66f5c20",
+    "processedHash": "bfad2b48ed3622d1b78b4cece0f04ca5e08015b4abe878510b7b7832e66f5c20",
     "status": "processed",
     "attempts": 0
   }

@@ -64,14 +64,18 @@
             "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/at35-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể phủ rêu và cây trên lũa, bố cục ổn định lâu dài."
+            "caption": "Bể phủ rêu và cây trên lũa, bố cục ổn định lâu dài.",
+            "sharpness": 2468.2,
+            "person": false
           },
           {
             "t": 85,
             "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/at85-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh dương xỉ và rêu mọc trên lũa, cây lớn chậm."
+            "caption": "Cận cảnh dương xỉ và rêu mọc trên lũa, cây lớn chậm.",
+            "sharpness": 1799.2,
+            "person": false
           }
         ]
       },
@@ -83,7 +87,9 @@
             "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/at125-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh bể thủy sinh kính trong với rêu và cây xanh tươi."
+            "caption": "Cận cảnh bể thủy sinh kính trong với rêu và cây xanh tươi.",
+            "sharpness": 727.4,
+            "person": false
           }
         ],
         "photo": {
@@ -112,35 +118,16 @@
         }
       },
       {
-        "heading": "Khoản nào bớt được, khoản nào nên đầu tư từ đầu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/p5-hX3NocmltcC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/OJ0X5fuRvAA/p5-hX3NocmltcC5qcGc-480.webp",
-          "width": 960,
-          "height": 718,
-          "licence": "CC BY 4.0",
-          "author": "Snehayan",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt, có lũa và đá, nhìn rất đã mắt."
-        }
-      },
-      {
         "heading": "Chọn và lắp lọc cho bể nhỏ",
         "moments": [
-          {
-            "t": 435,
-            "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/at435-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm của lọc được đặt lên phía trên nắp thùng lọc."
-          },
           {
             "t": 465,
             "url": "https://media.aquatome.com/video/OJ0X5fuRvAA/at465-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ với ống in-out thủy tinh và ống dẫn nước từ lọc."
+            "caption": "Bể nhỏ với ống in-out thủy tinh và ống dẫn nước từ lọc.",
+            "sharpness": 1420.5,
+            "person": false
           }
         ],
         "photo": {

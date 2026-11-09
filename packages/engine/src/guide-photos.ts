@@ -2,9 +2,10 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import sharp from 'sharp'
+import { stillShown } from '@aq/schema'
 import { LlmError } from './claude'
-import { contactSheet } from './video-images'
-import { stillDone, type StillsState } from './video-stills'
+import { contactSheet, stillDone } from './video-images'
+import type { StillsState } from './video-stills'
 import { stripPhotos } from './watermarks'
 
 /**
@@ -24,11 +25,12 @@ import { stripPhotos } from './watermarks'
  * on an equipment guide, whose subject is the product. Each photo is judged once (`engine-state/_photo-guides.json`, URL
  * → verdict); one that can't be fetched is tried again next run. Leads first, since they are the guide's card too.
  *
- * A video guide's stills (its "Trong video" frames) too, after every photo, guides in order: teaching videos show hands
- * planting and siphoning, and video-stills.ts screens a frame only for faces and for text. A person or a mark takes a still
- * off its guide and onto the blocklist; a brand in a still's scene is recorded, not acted on. A still is judged once
- * video-stills.ts won't change it again (`stillDone`: the video's own frame, or a tile it keeps for good), so a tile it is
- * about to replace at a new address isn't judged twice, and a still taken off is one it never brings back.
+ * A video guide's stills (its "Trong video" frames) too, ahead of the guides' other photos, since a still shows only with
+ * a verdict on it (`stillShown`): teaching videos show hands planting and siphoning. A person or a mark takes a still off
+ * its guide and onto the blocklist; a brand in a still's scene is recorded, not acted on; any other still gets `person:
+ * false` in its guide. A still is judged once video-stills.ts won't change it again (`stillDone`) and it could show (it
+ * passes the other bars), so a tile about to be replaced at a new address isn't judged twice, and a still taken off is one
+ * it never brings back. video-stills.ts asks the same of the frames it makes, before they are uploaded.
  */
 export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string }
 export type GuidePhotoDeps = {
@@ -45,10 +47,10 @@ export const GUIDE_PHOTO_PROMPT = `Numbered photos and video frames from an aqua
 - brand: true if a shop's or dealer's logo or name can be read or recognised in the photo: on a product it sells under its own name (such as an Aquarium Co-op bottle), a bag, a box, a sign or a price tag; false for a maker's own brand on its own product (Seachem, API, Fluval, Tetra, Oase and the like), for a product with no brand in view, and for text that isn't a brand.
 - note: a few words on what it shows and, for each true, what and where (e.g. "hands planting a sword plant in gravel"; "Aquarium Co-op logo on a test-strip bottle").
 Answer every photo, by its number.`
-const PER_SHEET = 6
+export const PER_SHEET = 6
 
-type Item = { url: string; lead: boolean; equipment: boolean; still: boolean }
-type Guide = { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string }; moments?: { t: number; url: string }[] }[] } }
+type Item = { url: string; lead: boolean; equipment: boolean; still: boolean; wanted: boolean }
+type Guide = { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string }; moments?: { t: number; url: string; width: number; height: number; sharpness?: number; person?: boolean }[] }[] } }
 type Equipment = { hero?: { url: string }; types?: { photo?: { url: string } }[] }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 
@@ -63,31 +65,50 @@ export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boole
   return v.person ? `people: ${v.note}` : v.mark ? `watermark: ${v.note}` : v.brand && !brandKept ? `logo: ${v.note}` : undefined
 }
 
-export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { limit: number; parallel?: number }) {
+/** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. */
+export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: GuidePhotoDeps['look']): Promise<(GuidePhotoVerdict | undefined)[]> {
+  await writeFile(sheet, await contactSheet(images, 640, 480, 2, 'contain'))
+  const out: (GuidePhotoVerdict | undefined)[] = images.map(() => undefined)
+  for (const p of (await look(sheet, GUIDE_PHOTO_PROMPT)).photos ?? []) {
+    if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean') continue
+    out[p.n - 1] = { person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120) }
+  }
+  return out
+}
+
+/** `only`: the model looks at these guides' pictures alone; what's already judged is still applied everywhere. */
+export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { limit: number; parallel?: number; only?: string[] }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
   const cache = (await readJson<Record<string, GuidePhotoVerdict>>(state('_photo-guides.json'))) ?? {}
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
-  const report = { sheets: 0, judged: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '' }
+  const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '' }
 
   // Every photo a guide or an equipment guide shows, and every video still, with the files they are in.
   const files: string[] = []
   const items = new Map<string, Item>()
+  let wanted = true
   const add = (url: string, lead: boolean, equipment: boolean, still = false) => {
-    const it = items.get(url) ?? { url, lead, equipment, still }
-    items.set(url, { url, lead: it.lead || lead, equipment: it.equipment || equipment, still: it.still || still })
+    const it = items.get(url) ?? { url, lead, equipment, still, wanted }
+    items.set(url, { url, lead: it.lead || lead, equipment: it.equipment || equipment, still: it.still || still, wanted: it.wanted || wanted })
   }
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const g = await readJson<Guide>(file)
     if (!g) continue
     files.push(file)
+    wanted = !o.only || o.only.includes(id)
     for (const [i, p] of (g.photos ?? []).entries()) add(p.url, i === 0, false)
     for (const f of g.video?.figures ?? []) if (f.photo) add(f.photo.url, false, false)
-    // A tile video-stills.ts will replace with the video's frame waits for that frame.
-    for (const m of (g.video?.figures ?? []).flatMap(f => f.moments ?? [])) if (stillDone(m, done[id]?.kept)) add(m.url, false, false, true); else report.waiting++
+    // A tile video-stills.ts will replace with the video's frame waits for that frame; a still the other bars keep off
+    // the page needs no verdict.
+    for (const m of (g.video?.figures ?? []).flatMap(f => f.moments ?? [])) {
+      if (!stillDone(m, done[id]?.kept)) report.waiting++
+      else if (stillShown({ ...m, person: false })) add(m.url, false, false, true)
+    }
   }
+  wanted = !o.only
   // An equipment guide's photos are in each language's file too (equipment/id/…).
   for (const f of (await readdir(join(content, 'equipment'), { recursive: true }).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
     const file = join(content, 'equipment', f)
@@ -98,8 +119,8 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     for (const t of e.types ?? []) if (t.photo) add(t.photo.url, false, true)
   }
 
-  // 1. The model judges photos not judged yet, leads first, video stills last; `limit` sheets this run.
-  const todo = [...items.values()].filter(x => !(x.url in cache) && !(x.url in rejected)).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(a.x.still) - Number(b.x.still) || a.i - b.i).map(({ x }) => x)
+  // 1. The model judges photos not judged yet, leads first, then video stills, then the rest; `limit` sheets this run.
+  const todo = [...items.values()].filter(x => x.wanted && !(x.url in cache) && !(x.url in rejected)).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(b.x.still) - Number(a.x.still) || a.i - b.i).map(({ x }) => x)
   const batch = todo.slice(0, Math.max(0, o.limit) * PER_SHEET)
   report.left = todo.length - batch.length
   const sheets = Array.from({ length: Math.ceil(batch.length / PER_SHEET) }, (_, i) => batch.slice(i * PER_SHEET, (i + 1) * PER_SHEET))
@@ -117,16 +138,9 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
       }
       if (!ok.length) return
       try {
-        const sheet = join(dir, `sheet-${i}.jpg`)
-        await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
-        const v = await d.look(sheet, GUIDE_PHOTO_PROMPT)
+        const verdicts = await judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look)
         report.sheets++
-        for (const p of v.photos ?? []) {
-          const x = ok[p.n - 1]
-          if (!x || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean') continue
-          cache[x.url] = { person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120) }
-          report.judged++
-        }
+        verdicts.forEach((v, j) => { if (!v) return; cache[ok[j]!.url] = v; report.judged++ })
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= err.message
         else report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
@@ -147,11 +161,20 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   }
   for (const file of files) {
     const raw = await readFile(file, 'utf8')
-    const data = JSON.parse(raw) as unknown
+    const data = JSON.parse(raw) as Guide
     const removed: string[] = []
     const equipment = file.startsWith(join(content, 'equipment'))
     stripPhotos(data, url => !!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still), removed, report.kept)
-    if (!removed.length) continue
+    // What's left of a guide's stills carries its verdict, which they need to show.
+    let cleared = 0
+    for (const m of (data.video?.figures ?? []).flatMap(f => f.moments ?? [])) {
+      const v = cache[m.url]
+      if (!v || m.person !== undefined) continue
+      m.person = v.person
+      cleared++
+    }
+    report.cleared += cleared
+    if (!removed.length && !cleared) continue
     report.removed.push(...removed.map(u => `${relative(root, file)}: ${u}`))
     await writeFile(file, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }

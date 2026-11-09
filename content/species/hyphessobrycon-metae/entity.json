@@ -12,6 +12,262 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Río Orinoco",
+        "Río Meta",
+        "Río Cinaruco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The purple tetra, Hyphessobrycon metae, is a characid endemic to the middle Río Orinoco watershed in Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Río Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Barrigona, Río Meta, Orinoco system, Colombia'.",
+          "countries": [],
+          "regions": [
+            "Río Meta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "One example of a natural habitat is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+          "countries": [],
+          "regions": [
+            "Río Cinaruco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354684,
+      "total": 198,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          154
+        ],
+        [
+          "CO",
+          42
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "PH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          -73.125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -70.3125,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -68.90625,
+          5.625,
+          12,
+          12
+        ],
+        [
+          -68.90625,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          5.625,
+          34,
+          34
+        ],
+        [
+          -67.5,
+          7.03125,
+          33,
+          33
+        ],
+        [
+          -67.5,
+          8.4375,
+          21,
+          21
+        ],
+        [
+          -66.09375,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -66.09375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

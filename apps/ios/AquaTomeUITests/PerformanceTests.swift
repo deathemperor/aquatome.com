@@ -21,8 +21,8 @@ final class PerformanceTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = args + ["-v2", Look.old.rawValue]
     app.launch()
-    // Every fish: the home's "Tất cả loài", as photo cards.
-    app.descendants(matching: .any)["all-fish"].tap()
+    // Every fish: the home's "Tất cả loài", as photo cards, under the fish shelf's picks.
+    app.homeRow("all-fish").tap()
     let list = app.scrollViews["shelf-pages"]
     XCTAssertTrue(list.waitForExistence(timeout: 5))
     let options = XCTMeasureOptions()

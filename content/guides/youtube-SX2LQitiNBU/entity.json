@@ -95,18 +95,13 @@
         "heading": "Chuẩn bị bể và vật liệu",
         "moments": [
           {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at90-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoang tủ trống phía dưới bể, có lỗ để luồn ống dây."
-          },
-          {
             "t": 100,
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at100-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bên trong tủ dưới bể có ngăn trống để đặt lọc thùng và bình CO2."
+            "caption": "Bên trong tủ dưới bể có ngăn trống để đặt lọc thùng và bình CO2.",
+            "sharpness": 131.6,
+            "person": false
           }
         ]
       },
@@ -118,54 +113,15 @@
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những tảng đá lớn nhiều hình dạng để chọn làm đá chính."
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi lưới đá nham thạch được đặt xuống đáy bể làm chân kê."
-          }
-        ]
-      },
-      {
-        "heading": "Rắc vi sinh rồi đổ phân nền",
-        "moments": [
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc gói vi sinh kích nền xuống đáy bể trước khi đổ phân."
-          },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp vi sinh dạng khô được rắc rải đều quanh các hòn đá."
+            "caption": "Những tảng đá lớn nhiều hình dạng để chọn làm đá chính.",
+            "sharpness": 887.6,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chỉnh bố cục cho tự nhiên",
-        "moments": [
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã đổ nền, hai cụm đá hardscape đặt trong bể trống."
-          },
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chỉnh lại vị trí các viên đá nhỏ quanh cụm đá lớn."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/SX2LQitiNBU/p3-bWlfU2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/SX2LQitiNBU/p3-bWlfU2NhcGUuanBn-480.webp",
@@ -185,14 +141,18 @@
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at570-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ống lọc đã lắp trong bể, đang châm nước qua đĩa chắn."
+            "caption": "Ống lọc đã lắp trong bể, đang châm nước qua đĩa chắn.",
+            "sharpness": 1854.6,
+            "person": false
           },
           {
             "t": 580,
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at580-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể đã có nước dâng lên, ống in out gắn vào lọc thùng."
+            "caption": "Bể đã có nước dâng lên, ống in out gắn vào lọc thùng.",
+            "sharpness": 1234.9,
+            "person": false
           }
         ],
         "photo": {
@@ -207,25 +167,6 @@
         }
       },
       {
-        "heading": "Cắm thảm ngưu mao chiên",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cốc cỏ ngưu mao chiên xếp trong hộp, đang lấy cây ra khỏi cốc."
-          },
-          {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/SX2LQitiNBU/at700-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể Iwagumi đã rút nước, đang cắm thảm cỏ lên mặt nền."
-          }
-        ]
-      },
-      {
         "heading": "Bể vận hành ra sao",
         "moments": [
           {
@@ -233,14 +174,18 @@
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at780-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh với đá và thảm cỏ xanh."
+            "caption": "Toàn cảnh bể thủy sinh với đá và thảm cỏ xanh.",
+            "sharpness": 1275.5,
+            "person": false
           },
           {
             "t": 800,
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at800-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lọc thùng và hệ thống ống dẫn nước đặt cạnh bể."
+            "caption": "Lọc thùng và hệ thống ống dẫn nước đặt cạnh bể.",
+            "sharpness": 383.9,
+            "person": false
           }
         ]
       },
@@ -252,14 +197,18 @@
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at900-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá nhỏ bơi trong bể thủy sinh đá và thảm cỏ xanh."
+            "caption": "Đàn cá nhỏ bơi trong bể thủy sinh đá và thảm cỏ xanh.",
+            "sharpness": 855.2,
+            "person": false
           },
           {
             "t": 930,
             "url": "https://media.aquatome.com/video/SX2LQitiNBU/at930-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Vài con cá mới thả bơi gần các tảng đá trong bể."
+            "caption": "Vài con cá mới thả bơi gần các tảng đá trong bể.",
+            "sharpness": 1095.5,
+            "person": false
           }
         ],
         "photo": {

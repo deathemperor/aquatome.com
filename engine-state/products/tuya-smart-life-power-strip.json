@@ -1,0 +1,243 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Input voltage",
+      "value": "220V AC, 50Hz",
+      "source": 2
+    },
+    {
+      "key": "Maximum load",
+      "value": "2200W, 10A (total across outlets)",
+      "source": 1
+    },
+    {
+      "key": "AC outlets",
+      "value": "4, each switched separately, 50 mm apart",
+      "source": 1
+    },
+    {
+      "key": "USB ports",
+      "value": "4 × 5V (rated 5V/2A on one listing)",
+      "source": 2
+    },
+    {
+      "key": "Wi-Fi",
+      "value": "2.4GHz only, connects directly to the router with no hub; 5GHz not supported",
+      "source": 2
+    },
+    {
+      "key": "App",
+      "value": "Tuya Smart / Smart Life (iOS, Android), Vietnamese interface",
+      "source": 0
+    },
+    {
+      "key": "Voice control",
+      "value": "Amazon Alexa, Google Assistant",
+      "source": 0
+    },
+    {
+      "key": "Materials",
+      "value": "Flame-retardant PC plastic, tempered glass top, metal trim",
+      "source": 2
+    },
+    {
+      "key": "Weight",
+      "value": "200 g (one listing); 300 g (another listing)",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "3 or 6 months, chosen as an option at purchase",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "4 outlets + 4 USB (4P+4U)",
+      "specs": [
+        {
+          "key": "Maximum load",
+          "value": "2200W, 10A",
+          "source": 1
+        },
+        {
+          "key": "USB",
+          "value": "4 × 5V; USB can also be switched remotely",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "4 outlets + 2 USB (4P+2U)",
+      "specs": [
+        {
+          "key": "Outlets",
+          "value": "4 independently controlled AC outlets + 2 USB",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Smart Living (smartliving.vn)",
+      "url": "https://smartliving.vn/cua-hang/o-cam-keo-dai-4-cong-4-cong-usb-dieu-khien-qua-wifi-tuya/",
+      "variant": "4 outlets + 4 USB",
+      "vnd": 450000,
+      "source": 1
+    },
+    {
+      "shop": "Smart HomeKit (smarthomekit.vn), listed as out of stock",
+      "url": "https://smarthomekit.vn/san-pham/o-cam-noi-dai-thong-minh/",
+      "variant": "4 outlets + USB (4P+2U / 4P+4U)",
+      "vnd": 470000,
+      "source": 0
+    },
+    {
+      "shop": "dientuthongminh.vn (related listing)",
+      "url": "https://dientuthongminh.vn/san-pham/o-cam-wifi-tuya-keo-dai/",
+      "variant": "4 outlets + 2 USB with voice control, low end of 429,000–449,000 ₫ range",
+      "vnd": 429000,
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "One Vietnamese seller names aquarium lights and air pumps as typical things to run on this strip.",
+      "source": 2
+    },
+    {
+      "fact": "For planted tanks, a smart-plug guide suggests putting the light, CO2 solenoid, air pump and optionally the heater on scheduled outlets. It treats the heater outlet only as a backup to the heater's own thermostat.",
+      "source": 3
+    },
+    {
+      "fact": "Total load has to stay within 2200W/10A, so check the strip's rating against large heaters or chillers before connecting them.",
+      "source": 1
+    },
+    {
+      "fact": "No source gives a water-resistance rating, so mount the strip away from splashes. None of these prices came from aquarium shops; they are from Vietnamese smart-home stores.",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Pair it on a 2.4GHz network. Many home routers use 5GHz, and a separate 2.4GHz network for smart devices is suggested for reliability.",
+      "source": 3
+    },
+    {
+      "fact": "Name each outlet by its job (light, CO2, heater, air pump) in the Tuya/Smart Life app.",
+      "source": 3
+    },
+    {
+      "fact": "In the power-on setting, choose 'Last State' rather than 'Always On'. Otherwise a short power cut can leave CO2 running overnight.",
+      "source": 3
+    },
+    {
+      "fact": "Example schedule: lights 13:00–21:00, CO2 one hour before lights on until one hour before lights off, and the air pump at night only.",
+      "source": 3
+    },
+    {
+      "fact": "Put the outlets into one scene so the devices switch together instead of drifting on separate timers.",
+      "source": 3
+    },
+    {
+      "fact": "If the strip drops off Wi-Fi it keeps its stored schedule for several days, and unplugging it and plugging it back in usually reconnects it.",
+      "source": 3
+    },
+    {
+      "fact": "Control can be shared with family members through the app, for example while you travel.",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "A reef hobbyist reported that Tuya strips came back after a power outage with every outlet off, which leaves equipment unpowered if nobody is home.",
+      "source": 4
+    },
+    {
+      "fact": "The same hobbyist said about 5 of roughly 30 Tuya devices failed within two years, and that Tuya devices rely on the cloud and app.",
+      "source": 4
+    },
+    {
+      "fact": "Some cheap smart plugs switch off when Wi-Fi drops, which could stop a filter or CO2 mid-cycle. Check how yours behaves before trusting it with a filter.",
+      "source": 3
+    },
+    {
+      "fact": "Listings differ between versions: USB count (2 vs 4), stated weight (200 g vs 300 g) and warranty length (3 or 6 months).",
+      "source": 2
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "TP-Link",
+      "model": "Tapo P300",
+      "why": "A better-supported brand: 3 smart outlets, 2300W/10A, 1.5 m cord, works with Apple Home, and 24-month warranty at one Vietnamese seller. It costs more (about 845,000–900,000 ₫), and its USB ports are always on and can't be controlled from the app.",
+      "source": 5
+    },
+    {
+      "brand": "Tuya (generic)",
+      "model": "Single Wi-Fi smart plug 10A",
+      "why": "The cheaper option (about 144,000 ₫ each) if you only need to time one or two devices, such as the light and CO2.",
+      "source": 8
+    },
+    {
+      "brand": "Tuya (generic)",
+      "model": "Zigbee 4-outlet strip ZTC4",
+      "why": "A Zigbee version of the same 4-outlet strip, if you already have a Zigbee hub. Price reported at about 590,000 ₫ on tuya.vn, but that page could not be opened to confirm.",
+      "source": 9
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://smarthomekit.vn/san-pham/o-cam-noi-dai-thong-minh/",
+      "title": "Ổ cắm nối dài thông minh Wifi Tuya 4 Cổng + USB - Smart HomeKit",
+      "kind": "shop"
+    },
+    {
+      "url": "https://smartliving.vn/cua-hang/o-cam-keo-dai-4-cong-4-cong-usb-dieu-khien-qua-wifi-tuya/",
+      "title": "Ổ Cắm Kéo Dài 4 Cổng + 4 Cổng USB Điều Khiển Qua Wifi Tuya - Smart Living",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dientuthongminh.vn/san-pham/o-cam-wifi-tuya-keo-dai/",
+      "title": "Ổ cắm Tuya kéo dài - 4 đầu ra độc lập, 4 cổng USB - dientuthongminh.vn",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/diy-smart-plug-aquarium-routine-automation-guide/",
+      "title": "DIY Smart Plug Aquarium Routine Automation Guide: Tuya and SmartLife",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.reef2reef.com/threads/anyone-using-tuya-as-controller.941339/",
+      "title": "Anyone using Tuya as controller? - Reef2Reef",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.tapo.com/vn/product/smart-plug/tapo-p300/",
+      "title": "Tapo P300 Ổ Cắm Dài Wi-Fi Thông Minh",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://sieuthivienthong.com/smart-wi-fi-power-strip-tp-link-tapo-p300-70276.html",
+      "title": "Smart Wi-Fi Power Strip TP-LINK Tapo P300 - Siêu Thị Viễn Thông",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.thegioididong.com/o-cam-thong-minh/o-cam-thong-minh-tp-link-tapo-p300-wifi",
+      "title": "Ổ cắm thông minh TP-Link Tapo P300 Wifi - Thế Giới Di Động",
+      "kind": "shop"
+    },
+    {
+      "url": "https://chiaki.vn/o-cam-dien-thong-minh-tuya-smart-life-10a-ket-noi-wifi",
+      "title": "Ổ cắm điện thông minh Tuya Smart Life 10A kết nối wifi - Chiaki",
+      "kind": "shop"
+    },
+    {
+      "url": "https://tuya.vn/o-cam-4-cong-keo-dai-10a-dieu-khien-bang-song-zigbee-tuya-ztc4-p32343064.html",
+      "title": "Ổ Cắm 4 Cổng Kéo Dài 10A Zigbee Tuya ZTC4 - tuya.vn",
+      "kind": "shop"
+    }
+  ]
+}

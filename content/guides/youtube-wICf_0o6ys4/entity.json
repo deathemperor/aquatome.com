@@ -103,7 +103,9 @@
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at25-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá vàng bơi trong bể, vây và đuôi dài dễ bị thối."
+            "caption": "Đàn cá vàng bơi trong bể, vây và đuôi dài dễ bị thối.",
+            "sharpness": 360.1,
+            "person": false
           }
         ],
         "photo": {
@@ -125,14 +127,18 @@
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at120-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá neon xanh bơi trong bể trồng cây có lũa."
+            "caption": "Đàn cá neon xanh bơi trong bể trồng cây có lũa.",
+            "sharpness": 128.9,
+            "person": false
           },
           {
             "t": 135,
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at135-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh sạch, cây phát triển xanh tốt."
+            "caption": "Bể thủy sinh sạch, cây phát triển xanh tốt.",
+            "sharpness": 3068.1,
+            "person": false
           }
         ]
       },
@@ -144,7 +150,9 @@
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at140-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh trồng nhiều cây, bố cục gọn gàng, không có đồ sắc cạnh."
+            "caption": "Bể thủy sinh trồng nhiều cây, bố cục gọn gàng, không có đồ sắc cạnh.",
+            "sharpness": 3953.7,
+            "person": false
           }
         ],
         "photo": {
@@ -166,14 +174,18 @@
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Con betta xanh căng vây giữa bể có nhiều cây và đá."
+            "caption": "Con betta xanh căng vây giữa bể có nhiều cây và đá.",
+            "sharpness": 501.8,
+            "person": false
           },
           {
             "t": 215,
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at215-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Betta đối mặt với bóng phản chiếu của chính nó trên kính."
+            "caption": "Betta đối mặt với bóng phản chiếu của chính nó trên kính.",
+            "sharpness": 532.7,
+            "person": false
           }
         ],
         "photo": {
@@ -205,18 +217,13 @@
         "heading": "Chuẩn bị bể trước khi chữa",
         "moments": [
           {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống xi phông hút chất thải dưới nền cát trong bể cây."
-          },
-          {
             "t": 315,
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at315-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ đựng cá được chuyển riêng ra để chữa bệnh."
+            "caption": "Bể nhỏ đựng cá được chuyển riêng ra để chữa bệnh.",
+            "sharpness": 868.2,
+            "person": false
           }
         ]
       },
@@ -228,7 +235,9 @@
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at420-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Sủi khí và lọc trong bể có cây thủy sinh để giữ đủ oxy."
+            "caption": "Sủi khí và lọc trong bể có cây thủy sinh để giữ đủ oxy.",
+            "sharpness": 635.4,
+            "person": false
           }
         ],
         "photo": {
@@ -250,14 +259,18 @@
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at500-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá betta xanh dương bơi giữa cây thủy sinh, đang hồi phục."
+            "caption": "Cá betta xanh dương bơi giữa cây thủy sinh, đang hồi phục.",
+            "sharpness": 518.8,
+            "person": false
           },
           {
             "t": 505,
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at505-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá betta xanh dương bơi khỏe, vây xòe đầy đặn trong bể."
+            "caption": "Cá betta xanh dương bơi khỏe, vây xòe đầy đặn trong bể.",
+            "sharpness": 1034.5,
+            "person": false
           }
         ],
         "photo": {

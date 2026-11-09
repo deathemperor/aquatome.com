@@ -336,6 +336,65 @@ test('each question\'s transcript is kept under its account and conversation: wh
   expect(seconds.every(k => k.includes('/002-'))).toBe(true)
 })
 
+test('sections are searched for on the first question alone, on the owner\'s account alone, and the transcript says which went', async () => {
+  const POST = 'Bể em mới set được ba tuần, nước cứ đục trắng dù đã thay nước. '.repeat(4)
+  const searches: unknown[] = []
+  const bindings = {
+    AI: { run: async () => ({ data: [[0.1]] }) } as unknown as Ai,
+    CHAT_SEARCH: { query: async (_: number[], o: unknown) => { searches.push(o); return { matches: [{ metadata: { path: '/vi/huong-dan/thay-nuoc-dung-cach/' } }] } } } as unknown as Vectorize,
+  }
+  const handed = (b: Record<string, unknown>) => JSON.stringify((b.messages as { content: unknown }[])[0]!.content).includes('These sections came from a search')
+  const setup = async (CHAT: string) => {
+    const { e, db, store } = env({ CHAT, ...bindings })
+    const me = await signIn(db)
+    e.OWNER_ACCOUNTS = me.id
+    return { e, me, store, account: await chatAccount('k', me.id) }
+  }
+  const owner = await setup('owner')
+  const c = claude(NEON)
+  expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(c.fetch))).body).toMatchObject({ n: 1 })
+  expect(searches).toEqual([{ topK: 5, namespace: 'vi', returnMetadata: 'all' }])
+  expect(c.bodies.filter(b => b.tools).every(handed)).toBe(true)
+  const key = [...owner.store.m.keys()].find(k => k.startsWith(`chat-run/${owner.account}/`))!
+  // The fish page the chat was opened from, then what the search found.
+  expect(owner.store.read<ChatRunRecord>(key)!.handed).toEqual([{ path: '/vi/ca/ca-neon-xanh/', heading: null }, { path: '/vi/huong-dan/thay-nuoc-dung-cach/', heading: null }])
+  // The next question of the conversation: as today.
+  const next = claude(NEON)
+  expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(next.fetch))).body).toMatchObject({ n: 2 })
+  expect(searches).toHaveLength(1)
+  expect(next.bodies.some(handed)).toBe(false)
+  // A short question with no tank, on the owner's account: as today.
+  const short = await setup('owner')
+  const s = claude(NEON)
+  await run(ask(bearer(short.me.token)), short.e, deps(s.fetch))
+  expect(searches).toHaveLength(1)
+  expect(s.bodies.some(handed)).toBe(false)
+  // Chat open to everyone: as today, until the judged bar holds.
+  const open = await setup('1')
+  const o = claude(NEON)
+  await run(ask(bearer(open.me.token), { question: POST }), open.e, deps(o.fetch))
+  expect(searches).toHaveLength(1)
+  expect(o.bodies.some(handed)).toBe(false)
+})
+
+test('a tank read that fails at the handover is tried again when Claude reads the tanks', async () => {
+  const { e, db } = env({ CHAT: 'owner', AI: { run: async () => ({ data: [[0.1]] }) } as unknown as Ai, CHAT_SEARCH: { query: async () => ({ matches: [] }) } as unknown as Vectorize })
+  const me = await signIn(db)
+  e.OWNER_ACCOUNTS = me.id
+  const now = new Date()
+  await syncStore(db, me.id, { v: 1, tanks: [{ id: 'a1b2c3d4-0000-4000-8000-000000000001', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 12 }], plants: [], createdAt: now.toISOString(), updatedAt: now.toISOString() }], devices: [] }, now)
+  const real = db.prepare.bind(db)
+  let failed = false
+  ;(db as { prepare: unknown }).prepare = (sql: string) => {
+    if (!failed && sql.includes('tank_records')) { failed = true; throw new Error('D1 busy') }
+    return real(sql)
+  }
+  const c = claude([() => msg([{ type: 'tool_use', id: 't1', name: 'read_tanks', input: {} }], 'tool_use'), () => answers({})])
+  await run(ask(bearer(me.token), { question: 'Bể của tôi thả thêm gì được?' }), e, deps(c.fetch))
+  expect(failed).toBe(true)
+  expect(JSON.stringify(c.bodies[1]!.messages)).toContain('Bể phòng khách')
+})
+
 test('a transcript R2 won\'t take is only logged: the reader gets the answer, the conversation the turn, the run settles', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)

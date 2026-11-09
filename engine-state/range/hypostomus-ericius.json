@@ -1,0 +1,79 @@
+{
+  "id": "hypostomus-ericius",
+  "native": {
+    "input": "4d7a53b24323097b",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: 1 kilometre upstream from Caterpiza, River Marañon, Amazonas, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Rio Amazonas drainage in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Amazonas",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Rio Amazonas drainage in Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Marañon",
+        "source": "planetcatfish",
+        "quote": "Type locality: 1 kilometre upstream from Caterpiza, River Marañon, Amazonas, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus ericius",
+    "status": "ACCEPTED",
+    "taxonKey": 5202154,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

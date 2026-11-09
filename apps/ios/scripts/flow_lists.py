@@ -50,7 +50,8 @@ SHOTS = {
                'testAKindASearchFindsNoneOfInTheLargestText'],
     # Tìm's home: its tools, its kit section and a long list, what's new and its list.
     'tools': ['testTheToolsOnTim', 'testTheToolsOnTimInTheDark', 'testTheToolsOnTimInTheLargestText'],
-    'home': ['testKitOnTheHomeAndALongList', 'testKitOnTheHomeAndALongListInTheDark', 'testWhatsNew', 'testWhatsNewInTheDark'],
+    'home': ['testKitOnTheHomeAndALongList', 'testKitOnTheHomeAndALongListInTheDark', 'testWhatsNew', 'testWhatsNewInTheDark',
+             'testTheHome', 'testTheHomeOnANewPhone', 'testTheHomeInTheDark', 'testTheHomeInTheLargestText'],
     # The tab bar over a fish's text and over Tìm's photos.
     'tab-bar': ['testTheTabBarOverText', 'testTheTabBarOverTextInTheDark', 'testTheTabBarOverPhotos',
                 'testTheTabBarOverPhotosInTheDark'],

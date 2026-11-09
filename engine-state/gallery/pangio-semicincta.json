@@ -1,58 +1,16 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Pangio_semicincta_337039897.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Pangio_semicincta_337039897.jpg/500px-Pangio_semicincta_337039897.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY 4.0",
-   "author": "khai95",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangio_semicincta_337039897.jpg",
-   "caption": "Coolie Loach (Pangio semicincta)",
-   "key": "File:Pangio semicincta 337039897.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548866/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548866/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/250548866",
-   "key": "inat:250548866"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337039888/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/337039888/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "rukai95",
-   "sourceUrl": "https://www.inaturalist.org/photos/337039888",
-   "key": "inat:337039888"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337039897/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/337039897/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "rukai95",
-   "sourceUrl": "https://www.inaturalist.org/photos/337039897",
-   "key": "inat:337039897"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Pangio_semicincta.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pangio_semicincta.jpg/500px-Pangio_semicincta.jpg",
-   "width": 826,
-   "height": 866,
-   "licence": "CC BY-SA 4.0",
-   "author": "AverageWalrus",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangio_semicincta.jpg",
-   "caption": "P. semicincta in a home aquarium",
-   "key": "File:Pangio semicincta.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Pangio semicincta 337039897.jpg",
+  "inat:250548866",
+  "inat:337039888",
+  "inat:337039897",
+  "File:Pangio semicincta.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/ec52af34dbc94039.webp": "4e4e74518461b6ef",
+  "https://media.aquatome.com/seriouslyfish/2b09fd75f1c3e8dc.webp": "d351d48200061b23",
+  "https://upload.wikimedia.org/wikipedia/commons/8/88/Pangio_semicincta.jpg": "93eced831b3d33c2"
+ },
+ "commons": "2026-11-09"
 }

@@ -13,6 +13,7 @@ scores, to be read again by all four:
 - the first two Hôm nay cards, medaka and climbing perch (`content/cards`);
 - the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`docs/design/chat.md`, "Editors");
 - the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
+- the privacy page's Hỏi AquaTome section in all five languages, with its lines in the retention and account-deletion lists (`apps/site/src/pages/chinh-sach-bao-mat/index.astro`).
 
 ## The app's card copy (2026-11-08)
 

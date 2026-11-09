@@ -2273,6 +2273,22 @@
     ],
     "ruled": "7ecef69c6d52d1b5"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-40-gallon-oddball-fish": {
+    "at": "2026-11-09",
+    "hash": "146ec1b3c0607970",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 5 Oddball Fish for a 40-Gallon Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, so the image is probably a title card or collage rather than a photo of one of the species.",
+        "rule": "A caption that is the same as the source article's title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "146ec1b3c0607970"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium": {
     "at": "2026-11-01",
     "hash": "33a0d062a8653ea1",
@@ -4975,6 +4991,22 @@
       }
     ],
     "ruled": "7ec24ea648c59bbd"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-rasboras": {
+    "at": "2026-11-09",
+    "hash": "cb8af23a794bd3cb",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Rasboras for Your Next Community Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, not a description of the photo, so the reader can't tell what fish the photo shows.",
+        "rule": "a caption that matches the source article's title or contains the site name",
+        "field": "caption"
+      }
+    ],
+    "ruled": "cb8af23a794bd3cb"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-tetras": {
     "at": "2026-11-03",
@@ -10625,6 +10657,23 @@
     ],
     "ruled": "6304557c18c51a57"
   },
+  "vi/guides/youtube-0FT3LNIYFh0": {
+    "at": "2026-11-09",
+    "hash": "9494c68b973bc3f6",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có mặt trong giới chơi cá từ rất lâu",
+        "problem": "'Giới chơi' is on the site's list of words to avoid. It reads stiff to a Vietnamese hobbyist.",
+        "fix": "và người chơi đã nuôi loài này từ rất lâu",
+        "rule": "Flag the phrase 'giới chơi' anywhere in the body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9494c68b973bc3f6"
+  },
   "vi/guides/youtube-0KkgA9W52kQ": {
     "at": "2026-11-06",
     "hash": "5498c7d66589ce45",
@@ -10678,6 +10727,12 @@
       }
     ],
     "ruled": "5498c7d66589ce45"
+  },
+  "vi/guides/youtube-0MzfLrSqfXY": {
+    "at": "2026-11-09",
+    "hash": "69c2d4c8ef7ea47f",
+    "findings": [],
+    "ruled": "69c2d4c8ef7ea47f"
   },
   "vi/guides/youtube-0ozJmYMk914": {
     "at": "2026-11-01",
@@ -10945,6 +11000,12 @@
     "hash": "c1038f60edf6400e",
     "findings": [],
     "ruled": "c1038f60edf6400e"
+  },
+  "vi/guides/youtube-4tfp4V1usjA": {
+    "at": "2026-11-09",
+    "hash": "9710cc99b368d825",
+    "findings": [],
+    "ruled": "9710cc99b368d825"
   },
   "vi/guides/youtube-4UAMT8frW4s": {
     "at": "2026-11-02",
@@ -11706,6 +11767,23 @@
     ],
     "ruled": "b80957fae8e7432c"
   },
+  "vi/guides/youtube-AAjZ3Ldk4go": {
+    "at": "2026-11-09",
+    "hash": "05bf2d4c8c824057",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-09",
+        "field": "body",
+        "score": 0.88,
+        "kept": true,
+        "problems": [
+          "The phrase 'giúp đỡ phải thay nước nhiều' is garbled and reads as 'help having to change water a lot' instead of 'spare the tank frequent water changes'."
+        ]
+      }
+    ],
+    "ruled": "05bf2d4c8c824057"
+  },
   "vi/guides/youtube-Abh6k2oVYjU": {
     "at": "2026-11-05",
     "hash": "3ba9065a22ac08c3",
@@ -11814,6 +11892,32 @@
     "hash": "ce75c0e7434f5fbf",
     "findings": [],
     "ruled": "ce75c0e7434f5fbf"
+  },
+  "vi/guides/youtube-aN80dX_RktA": {
+    "at": "2026-11-09",
+    "hash": "e86c22b789c7a0d5",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Cá neon xanh thường là cá bắt tự nhiên",
+        "problem": "The summary says green neons are usually wild-caught, but the body says this is only often the case ('nhiều khi').",
+        "fix": "Cá neon xanh nhiều khi là cá bắt tự nhiên, nên cách ly một thời gian trước khi thả sang bể chính.",
+        "field": "summary.5"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "không nói",
+        "problem": "Putting 'không nói' (\"not said\") in a table cell reads oddly, as if the table itself were speaking; a native reader would expect 'không ghi' or a dash.",
+        "fix": "không ghi",
+        "rule": "a table cell whose whole text is 'không nói'",
+        "field": "body"
+      }
+    ],
+    "ruled": "e86c22b789c7a0d5"
   },
   "vi/guides/youtube-AnakIetIR0U": {
     "at": "2026-11-02",
@@ -11982,6 +12086,12 @@
       }
     ],
     "ruled": "a77acae1834ac5fd"
+  },
+  "vi/guides/youtube-BhXty76I-ss": {
+    "at": "2026-11-09",
+    "hash": "b50dee23474069a8",
+    "findings": [],
+    "ruled": "b50dee23474069a8"
   },
   "vi/guides/youtube-BiNf-SlKfLI": {
     "at": "2026-11-07",
@@ -12960,6 +13070,12 @@
     "findings": [],
     "ruled": "d5518bd7e257116e"
   },
+  "vi/guides/youtube-G7GKeDki7a0": {
+    "at": "2026-11-09",
+    "hash": "f90f76c5d6f27d09",
+    "findings": [],
+    "ruled": "f90f76c5d6f27d09"
+  },
   "vi/guides/youtube-GDaWgKk-hDo": {
     "at": "2026-11-04",
     "hash": "0a8c46bba8e7a41f",
@@ -13068,6 +13184,31 @@
       }
     ],
     "ruled": "9e614891979dec1d"
+  },
+  "vi/guides/youtube-h94Jp82Dk_U": {
+    "at": "2026-11-09",
+    "hash": "116cddcfdfb53db4",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chẳng hạn bể 400 lít mà chỗ nào khuyên 1 con thì có thể tính 3 con.",
+        "problem": "The page bases its counts on a 200-litre tank, so scaling 'by ratio' to 400 litres gives 2, not 3. The example doesn't match its own rule.",
+        "fix": "Chẳng hạn bể 400 lít mà chỗ nào khuyên 1 con (cho bể 200 lít) thì có thể tính 2 con.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bộ năm loài này cũng là đội dọn rêu cho cây thủy sinh trong kho trước khi đem bán.",
+        "problem": "The sentence points to the source's own shop stock ('the warehouse'), which the page never introduces, so readers can't tell whose warehouse it means.",
+        "fix": "Bộ năm loài này cũng hay được dùng để dọn rêu cho cây thủy sinh trước khi đem bán.",
+        "field": "body"
+      }
+    ],
+    "ruled": "116cddcfdfb53db4"
   },
   "vi/guides/youtube-heAjxXHmrF8": {
     "at": "2026-11-05",
@@ -13349,6 +13490,12 @@
     ],
     "ruled": "abdd0752c0c57d18"
   },
+  "vi/guides/youtube-Iinv7wWjhzA": {
+    "at": "2026-11-09",
+    "hash": "d8670a94c2eb3887",
+    "findings": [],
+    "ruled": "d8670a94c2eb3887"
+  },
   "vi/guides/youtube-IJxYhZygwKc": {
     "at": "2026-11-08",
     "hash": "e0055f72507bfffd",
@@ -13441,6 +13588,62 @@
       }
     ],
     "ruled": "7e60409f8dc23d48"
+  },
+  "vi/guides/youtube-iVpF5Ya3lIw": {
+    "at": "2026-11-09",
+    "hash": "8a264ca7ac5b1c7c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "high",
+        "part": "P1",
+        "quote": "nên ăn được cá nhỏ, trùn chỉ (bloodworm) và artemia",
+        "problem": "Bloodworm is trùn huyết (red midge larvae); trùn chỉ is tubifex, a different food.",
+        "fix": "nên ăn được cá nhỏ, trùn huyết và artemia",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cho ăn đồ mồi: trùn chỉ đông lạnh, đồ sấy khô, cám viên.",
+        "problem": "Frozen bloodworm is mistranslated as trùn chỉ (tubifex).",
+        "fix": "Cho ăn đồ mồi: trùn huyết đông lạnh, đồ sấy khô, cám viên.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tên khoa học là annulatus nhưng nó không phải killi sống một năm.",
+        "problem": "The English joke that 'annulatus' sounds like 'annual' is lost in Vietnamese, so the 'but' makes no sense to a reader.",
+        "fix": "Tên khoa học annulatus nghe giống chữ \"annual\" (killi sống một năm), nhưng loài này không phải killi sống một năm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "pH từ 6.8 trở lên, có thể từ 7.",
+        "problem": "Two different minimum pH values are given together, which is muddled.",
+        "fix": "Giữ pH từ 6.8 trở lên, tốt hơn là từ 7.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-09",
+        "field": "body",
+        "score": 0.72,
+        "kept": false,
+        "problems": [
+          "Bloodworm is trùn huyết (red midge larvae); trùn chỉ is tubifex, a different food.",
+          "Frozen bloodworm is mistranslated as trùn chỉ (tubifex).",
+          "The English joke that 'annulatus' sounds like 'annual' is lost in Vietnamese, so the 'but' makes no sense to a reader."
+        ]
+      }
+    ],
+    "ruled": "8a264ca7ac5b1c7c"
   },
   "vi/guides/youtube-iY8NEK9GGzo": {
     "at": "2026-11-07",
@@ -14182,6 +14385,50 @@
     ],
     "ruled": "e9863929eb49a2e0"
   },
+  "vi/guides/youtube-LRTzeSTeN-8": {
+    "at": "2026-11-09",
+    "hash": "dadcb51cbf1878e4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nuôi 6–7 con thì vui, nhưng 1–3 con cũng ổn.",
+        "problem": "Saying 1–3 dojo loaches is fine contradicts the very next sentence and the FAQ, which say never to keep exactly 2.",
+        "fix": "Nuôi 6–7 con thì vui, nhưng 1 con hoặc 3 con cũng ổn.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Không nói rõ",
+        "problem": "The table cells say 'not specified', which reads like the writer's note on a source rather than information for the reader.",
+        "rule": "A table cell containing 'Không nói rõ'.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "trông như ai viết chữ \\\"yo-yo\\\"",
+        "problem": "Escaped quotation marks with backslashes are left in the visible text.",
+        "fix": "trông như ai viết chữ \"yo-yo\"",
+        "rule": "A backslash directly before a quotation mark in the page text.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá chỉ lớn cỡ nhỏ và ăn rêu hại rất giỏi.",
+        "problem": "'lớn cỡ nhỏ' is awkward, self-contradictory phrasing.",
+        "fix": "Cá nhỏ con và ăn rêu hại rất giỏi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "dadcb51cbf1878e4"
+  },
   "vi/guides/youtube-LsQQ1yVFsBQ": {
     "at": "2026-11-04",
     "hash": "af6fc87e3dd5f0c8",
@@ -14282,6 +14529,58 @@
     "hash": "57a998d70fc8400a",
     "findings": [],
     "ruled": "57a998d70fc8400a"
+  },
+  "vi/guides/youtube-mGmIvhtIM9k": {
+    "at": "2026-11-09",
+    "hash": "bd5d15dd19edd53f",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mỗi con cần ít nhất khoảng 115 lít nước, nên bể khoảng 200 lít chỉ nuôi được vài con.",
+        "problem": "At 115 litres per fish, a 200-litre tank holds one goldfish, not several, so the two figures don't fit together.",
+        "fix": "Mỗi con cần ít nhất khoảng 115 lít nước, nên bể khoảng 200 lít chỉ nuôi được một con.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "Bể khoảng 200 lít chỉ nuôi được vài con",
+        "problem": "This repeats the clash between 115 litres per fish and several fish in 200 litres.",
+        "fix": "Bể khoảng 200 lít chỉ nuôi được một con",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "dài khoảng 9–10 cm và có đủ mọi màu",
+        "problem": "Platies grow to about 5–7 cm, so 9–10 cm is far too big (the CARD table gives the same wrong figure).",
+        "fix": "dài khoảng 5–7 cm và có đủ mọi màu",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "hợp với pH trung tính khoảng 7–7,8",
+        "problem": "A pH of 7–7.8 is slightly alkaline, not neutral, so the label doesn't match the figure.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một cách dễ nhất là chỉ nuôi một con",
+        "problem": "\"Một cách dễ nhất\" is ungrammatical. It needs \"Cách dễ nhất\".",
+        "fix": "Cách dễ nhất là chỉ nuôi một con",
+        "rule": "the phrase \"một cách\" directly followed by a superlative with \"nhất\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "bd5d15dd19edd53f"
   },
   "vi/guides/youtube-MJ3fqxhMmxE": {
     "at": "2026-11-08",
@@ -14568,6 +14867,48 @@
     ],
     "ruled": "5c054c27d211383d"
   },
+  "vi/guides/youtube-nuSEvQyWyXA": {
+    "at": "2026-11-09",
+    "hash": "cd45b1a44e17bce0",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cánh buồm (penguin)",
+        "problem": "In Vietnam \"cá cánh buồm\" is the black skirt tetra (already listed as \"tetra váy đen\"), not the penguin tetra (Thayeria), so the name points to the wrong fish.",
+        "fix": "tetra penguin (Thayeria)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "gửi tiệm cá đổi lấy chút tín dụng",
+        "problem": "\"Tín dụng\" is a literal rendering of \"store credit\" that reads like a bank loan to a Vietnamese reader.",
+        "fix": "đem số cá còn lại ra tiệm đổi lấy ít tiền hoặc cá khác",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì sự hung dữ không được chia ra",
+        "problem": "A word-for-word translation of \"aggression isn't spread out\" that sounds unnatural.",
+        "fix": "ít hơn thì con mạnh nhất cứ nhắm vào vài con mà đánh",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhỏ hơn một chút, cá tốt.",
+        "problem": "\"Cá tốt\" is a vague, translated-sounding fragment that tells the reader nothing.",
+        "fix": "nhỏ hơn một chút nhưng rất đẹp.",
+        "field": "body"
+      }
+    ]
+  },
   "vi/guides/youtube-O3u6GuClWi0": {
     "at": "2026-11-08",
     "hash": "553af900509ef410",
@@ -14786,6 +15127,56 @@
       }
     ],
     "ruled": "bf330ad1aed42327"
+  },
+  "vi/guides/youtube-PhyjQmfD3cg": {
+    "at": "2026-11-09",
+    "hash": "5ce212bcee7427e5",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trùn chỉ đông lạnh (bloodworm) làm món chính.",
+        "problem": "Bloodworm is trùn huyết (larva of the midge), not trùn chỉ, which is tubifex, so the hobby term is wrong.",
+        "fix": "Trùn huyết đông lạnh (bloodworm) làm món chính.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Chúng chỉ dài khoảng 4 cm, hiền hoàn toàn và không làm hại con nào.",
+        "problem": "Pygmy corydoras grow to only about 2–2.5 cm, so 4 cm is too big for this species.",
+        "fix": "Chúng chỉ dài khoảng 2–2,5 cm, hiền hoàn toàn và không làm hại con nào.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là một loài rasbora micro dài khoảng 2,5–4 cm.",
+        "problem": "The exclamation point rasbora (Boraras urophthalmoides) is under about 2 cm, so 2.5–4 cm is too big for a micro rasbora.",
+        "fix": "Đây là một loài rasbora micro chỉ dài khoảng 1,5–2 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ốc, vì nó ăn ốc.",
+        "problem": "This list item explains itself with itself and reads as a broken translation.",
+        "fix": "Ốc sống, món nó rất thích.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Không hẳn là nano\n| Bể từ 20 lít",
+        "problem": "In the golden white cloud row, the 'Cỡ' column gives no size and the 'Số lượng' column gives a tank size, so the entries don't fit their columns.",
+        "field": "body"
+      }
+    ]
   },
   "vi/guides/youtube-pmAONHBduCw": {
     "at": "2026-11-04",
@@ -15492,6 +15883,32 @@
       }
     ],
     "ruled": "3f449680676e09ae"
+  },
+  "vi/guides/youtube-SVoq0sXlZjk": {
+    "at": "2026-11-09",
+    "hash": "15fccc83d931ccae",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đây là cá nhỏ, lớn khoảng 6–7,5 cm, hợp bể nano.",
+        "problem": "Honey gourami (Trichogaster chuna) usually reach only about 5 cm, so 6–7.5 cm overstates the size.",
+        "fix": "Đây là cá nhỏ, lớn khoảng 5 cm, hợp bể nano.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dễ cho đẻ, giá lại rẻ, chỉ khoảng 5–6 đô một con.",
+        "problem": "The price is given in US dollars on a page for Vietnamese readers, with no conversion and no note that it is a US price.",
+        "fix": "Dễ cho đẻ, giá lại rẻ, ở Mỹ chỉ khoảng 5–6 đô một con.",
+        "rule": "A price written in 'đô' or '$' on a Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "15fccc83d931ccae"
   },
   "vi/guides/youtube-swFoi1J7YTk": {
     "at": "2026-11-04",
@@ -16203,6 +16620,23 @@
     ],
     "ruled": "264dff3bdc9a6f85"
   },
+  "vi/guides/youtube-WKr4WfuEQWU": {
+    "at": "2026-11-09",
+    "hash": "f3c7ac3bcab5e2c4",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-09",
+        "field": "body",
+        "score": 0.93,
+        "kept": true,
+        "problems": [
+          "The phrase \"bể cộng cá hiền\" is garbled: it mixes the leftover \"bể cộng đồng\" with \"cá hiền\" and is not real Vietnamese."
+        ]
+      }
+    ],
+    "ruled": "f3c7ac3bcab5e2c4"
+  },
   "vi/guides/youtube-WMddjcmPwS4": {
     "at": "2026-11-07",
     "hash": "0eccd89951635e94",
@@ -16670,6 +17104,12 @@
     ],
     "ruled": "dbd313a7eeca5c83"
   },
+  "vi/guides/youtube-z_AdgDUSZkw": {
+    "at": "2026-11-09",
+    "hash": "7d557609a053adc0",
+    "findings": [],
+    "ruled": "7d557609a053adc0"
+  },
   "vi/guides/youtube-z_pKaOlsKyg": {
     "at": "2026-11-07",
     "hash": "54adcd99e24166d6",
@@ -16733,6 +17173,12 @@
       }
     ],
     "ruled": "f06ef7245b5a6dc5"
+  },
+  "vi/guides/youtube-Z3jAT8oNNAo": {
+    "at": "2026-11-09",
+    "hash": "5fe4012f7e838a12",
+    "findings": [],
+    "ruled": "5fe4012f7e838a12"
   },
   "vi/guides/youtube-z3PJqCTO8uQ": {
     "at": "2026-11-04",

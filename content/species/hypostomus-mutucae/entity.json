@@ -11,6 +11,68 @@
     "brazil",
     "mato-grosso"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Mutuca"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mato Grosso, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimen was collected in the Rio Mutuca, hence the species name.",
+          "countries": [],
+          "regions": [
+            "Rio Mutuca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202201,
+      "total": 9,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

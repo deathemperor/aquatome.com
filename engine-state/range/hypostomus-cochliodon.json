@@ -1,0 +1,151 @@
+{
+  "id": "hypostomus-cochliodon",
+  "native": {
+    "input": "2d7c3136c0474057",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Cuiabá, Brazil",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Cuiabá",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Cuiabá, Brazil",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "planetcatfish",
+        "quote": "South America: Paraguay and middle Paraná River basins (La Plata, Paraná, Middle Paraná; La Plata, Paraná, Paraguay; Bermejo; Upper Paraguay, Cuiabá).",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: Paraguay and middle Paraná River basins (La Plata, Paraná, Middle Paraná; La Plata, Paraná, Paraguay; Bermejo; Upper Paraguay, Cuiabá).",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: Paraguay and middle Paraná River basins (La Plata, Paraná, Middle Paraná; La Plata, Paraná, Paraguay; Bermejo; Upper Paraguay, Cuiabá).",
+        "ok": true
+      },
+      {
+        "name": "Bermejo",
+        "source": "planetcatfish",
+        "quote": "South America: Paraguay and middle Paraná River basins (La Plata, Paraná, Middle Paraná; La Plata, Paraná, Paraguay; Bermejo; Upper Paraguay, Cuiabá).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus cochliodon",
+    "status": "ACCEPTED",
+    "taxonKey": 5202259,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        111
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        80
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        61
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        24
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        24
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        11
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}
