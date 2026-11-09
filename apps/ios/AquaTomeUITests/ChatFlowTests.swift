@@ -99,7 +99,9 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(paste.waitForExistence(timeout: 5), "no Dán in the box's menu")
     paste.tap()
     XCTAssertTrue(soon(box.value as? String == q), "not copied as asked: \(box.value ?? "")")
-    if app.keyboards.firstMatch.exists { element(app, "chat").swipeDown() }
+    // A drag down on the conversation, into the keyboard, lowers it (a flick doesn't reach it).
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.97)), withVelocity: .slow, thenHoldForDuration: 0.1)
     XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 5), "the keyboard stayed")
     bubble.press(forDuration: 1)
     let edit = app.buttons["Sửa và hỏi lại"]
@@ -132,8 +134,12 @@ final class ChatFlowTests: XCTestCase {
     let app = launch()
     openChat(app)
     signIn(app)
-    ask(app, "Neon sống bao lâu?")
+    // A long first question, opened whole: the turns above the newest are taller than the screen.
+    ask(app, String(repeating: "Bể neon của mình bị rêu tóc mọc kín, ", count: 10))
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 15), "no first answer")
+    let more = app.buttons["chat-more"]
+    reveal(app, more)
+    more.tap()
     ask(app, "Neon ăn gì?")
     let second = app.descendants(matching: .any).matching(identifier: "chat-answer").element(boundBy: 1)
     XCTAssertTrue(second.waitForExistence(timeout: 15), "no second answer")
@@ -165,15 +171,15 @@ final class ChatFlowTests: XCTestCase {
     reveal(app, app.buttons["put-on-tank"])
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry signed out")
     app.navigationBars.buttons.element(boundBy: 0).tap()
+    // Out of the search, where the bar shows the profile button again.
+    for word in ["Đóng", "Hủy"] where app.buttons[word].firstMatch.waitForExistence(timeout: 2) { app.buttons[word].firstMatch.tap() }
     app.openAccount()
     let apple = element(app, "apple-sign-in")
     reveal(app, apple)
     apple.tap()
     XCTAssertTrue(apple.waitForNonExistence(timeout: 10), "still signed out")
     app.closeAccount()
-    let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
-    XCTAssertTrue(row.waitForExistence(timeout: 5), "not back on Tìm's list")
-    row.tap()
+    open(app, "Ca neon")
     let entry = element(app, "chat-entry")
     reveal(app, entry)
     XCTAssertTrue(entry.exists, "no entry once signed in")
@@ -197,7 +203,9 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(about.waitForExistence(timeout: 5), "no chat")
     XCTAssertTrue(about.label.contains("Về: ảnh của bạn"), about.label)
     XCTAssertTrue(about.label.contains("Gần như chắc chắn Cá neon, có thể Green neon tetra"), about.label)
-    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."].exists)
+    // By its label: XCUITest refuses an identifier query this long.
+    let line = "Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label == %@", line)).firstMatch.exists, "not the line about who answers, with the photo")
     XCTAssertTrue(app.buttons["Làm sao phân biệt với green neon tetra?"].exists, "no starter telling the guesses apart")
   }
 

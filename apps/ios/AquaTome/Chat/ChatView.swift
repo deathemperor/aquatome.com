@@ -499,15 +499,18 @@ private struct Pause: View {
   @State private var still = false
 
   var body: some View {
-    Group {
-      if still { ProgressView().controlSize(.small).transition(.opacity).accessibilityIdentifier("chat-pause") }
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .task(id: text) {
-      still = false
-      try? await Task.sleep(for: .seconds(0.3))
-      if !Task.isCancelled { withAnimation(.easeOut(duration: 0.15)) { still = true } }
-    }
+    // A view even before the spinner shows: SwiftUI runs no task on an empty one, so the spinner never came. The spinner
+    // lies over the room under the last line, so it takes no space and nothing moves as it comes or goes.
+    Color.clear.frame(height: 0)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .overlay(alignment: .topLeading) {
+        if still { ProgressView().controlSize(.small).transition(.opacity).accessibilityIdentifier("chat-pause") }
+      }
+      .task(id: text) {
+        still = false
+        try? await Task.sleep(for: .seconds(0.3))
+        if !Task.isCancelled { withAnimation(.easeOut(duration: 0.15)) { still = true } }
+      }
   }
 }
 
