@@ -193,7 +193,29 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     // A fish's weight elsewhere in the fact leaves the dose a dose.
     ['Cho 2 g/kg thức ăn, cá nặng 1 kg ăn 30 g mỗi ngày.', 0],
     ['Add a pinch of salt to the bath.', 1],
+    // A level raised with salt is a dose; a treatment or a new sentence ends a list of the water's levels.
+    ['Channel catfish farmers keep chloride at 50–100 mg/L with sodium chloride.', 0],
+    ['Keep oxygen above 5 mg/L and treat with formalin at 25 mg/L.', 0],
+    ['Keep oxygen above 5 mg/L, then copper at 0.2 mg/L.', 0],
+    ['Ammonia under 0.02 mg/L. Then add Product X at 5 mg/L.', 0],
   ] as const) expect(usable(fact, source), fact).toBe(false)
+  // The water's levels as farms write them: a second figure of a list, nitrogen forms, toxicity, the word after the figure.
+  for (const fact of [
+    'To limit nitrite toxicity, keep dissolved oxygen above 3 mg/L for warmwater fish or 5 mg/L for coldwater fish.',
+    'Keep dissolved oxygen above 2 mg/l, preferably 5 mg/l.',
+    'Safe long-term nitrite-nitrogen is about 0.5–2.5 mg/L for warmwater fish, and 0.0125–0.5 mg/L for coldwater fish.',
+    'Rainbow trout (96-h LC50 0.24–11.0 mg/L NO2-N) are far more sensitive than common carp (88.0 mg/L).',
+    'Rainbow trout LC50s (0.24–11.0 mg/L) are lower than those of channel catfish (7.1–44.0 mg/L).',
+    'The sea bass LC50 fell from 274 mg/L at 17°C to 154 mg/L at 27°C.',
+    'Freshwater prawns are highly sensitive to nitrite, with a 96-h LC50 of 8.6 mg/L nitrite-nitrogen.',
+    'Fish die at 0.5 mg/L NO2-N in soft water.',
+    'NH3 above 0.05 mg/L harms gills.',
+    'H2S above 0.002 mg/L kills fish.',
+    'Giữ oxy hòa tan trên 5 mg/L cho cá nước ấm và trên 6 mg/L cho cá nước lạnh.',
+    'Oksigen terlarut di atas 5 mg/L untuk ikan air hangat dan 6 mg/L untuk ikan air dingin.',
+    'ออกซิเจนละลายน้ำควรสูงกว่า 5 mg/L',
+    'แอมโมเนียไม่ควรเกิน 0.02 ppm',
+  ]) expect(usable(fact), fact).toBe(true)
   for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.', 'Feed a pinch of flakes twice a day.']) expect(usable(fact), fact).toBe(true)
   expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
   // Another page of the same forum is no second source: its addresses can't tell a thread's pages from its posts.
