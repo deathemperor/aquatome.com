@@ -271,7 +271,7 @@ test('the agent on: an answer under 0.6 sure is sent back once with its genus\'s
   expect(fields(p2[0]!)).toMatchObject({ turns: 1, rechecked: 0 })
 })
 
-test('the agent on: a call after the first fails → its key set aside as the rotation would, and today\'s single call answers on the next key', async () => {
+test('the agent on: a call after the first fails → its key set aside as the rotation would, and the next key takes the same call, with what the run has read', async () => {
   const { e, kv, points } = agentEnv()
   const c = claude([
     () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
@@ -284,24 +284,47 @@ test('the agent on: a call after the first fails → its key set aside as the ro
   expect(body.steps).toEqual([{ kind: 'search', query: 'Paracheirodon innesi' }])
   expect(body.results[0]!.page?.id).toBe('paracheirodon-innesi')
   expect(c.calls.map(x => x.key)).toEqual([A, A, B])
-  expect(c.calls[2]!.body.tools).toBeUndefined() // today's call, as the flag off would send it
+  // The agent's call as A was sent it: its tools, and the search it made with its result. Not today's single call.
+  expect(c.calls[2]!.body.tools).toEqual(c.calls[1]!.body.tools)
+  expect(c.calls[2]!.body.messages).toEqual(c.calls[1]!.body.messages)
   expect(JSON.parse(kv.get(`fishid:key:${await keyHash(A)}`)!.v)).toMatchObject({ why: 'rate' })
   expect(kv.has(`fishid:key:${await keyHash(B)}`)).toBe(false)
-  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'fallback', turns: 3, tools: 1, attempts: 3 })
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 2, tools: 1, attempts: 3 })
 })
 
-test('the agent on: a key that runs out of credit between calls is set aside, the next key answers, and the reader is not charged for it', async () => {
-  const { e, kv, points } = agentEnv()
+test('the agent on: a key that runs out of credit between calls is set aside, and the next key carries the run on to its answer', async () => {
+  const { e, kv, points, ledger } = agentEnv()
   const c = claude([
     () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
     // What an organisation with no credit answers (a real key, 2026-11-07): a 400, not a 402.
     () => apiError(400, 'invalid_request_error', 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'),
+    () => asks([['get_entry', { id: 'paracheirodon-innesi' }]]),
     () => message(NEON),
   ])
   const res = await run(post(), e, deps(c.fetch))
   expect(res.status).toBe(200)
-  expect(c.calls.map(x => x.key)).toEqual([A, A, B])
+  // The rest of the run is the next key's: the call that failed, and the ones after it.
+  expect(c.calls.map(x => x.key)).toEqual([A, A, B, B])
+  expect(c.calls.every(x => x.body.tools)).toBe(true)
+  expect((c.calls[3]!.body.messages as unknown[]).length).toBe(5)
   expect(JSON.parse(kv.get(`fishid:key:${await keyHash(A)}`)!.v)).toMatchObject({ why: 'credit' })
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 3, tools: 2 })
+  expect(readerCount(ledger)).toEqual([1])
+})
+
+test('the agent on: when the next key refuses the run\'s history as a request, today\'s single call answers on the keys left', async () => {
+  const { e, kv, points } = agentEnv()
+  const c = claude([
+    () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
+    () => apiError(529, 'overloaded_error', 'Overloaded'),
+    () => apiError(400, 'invalid_request_error', 'messages.1.content.0: something about the history'),
+    () => message(NEON),
+  ])
+  const res = await run(post(), e, deps(c.fetch))
+  expect(res.status).toBe(200)
+  expect(c.calls.map(x => x.key)).toEqual([A, A, B, A])
+  expect(c.calls[3]!.body.tools).toBeUndefined() // today's call, as the flag off would send it
+  expect(kv.has(`fishid:key:${await keyHash(B)}`)).toBe(false)
   expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'fallback' })
 })
 
