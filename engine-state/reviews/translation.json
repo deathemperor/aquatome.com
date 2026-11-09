@@ -15551,6 +15551,21 @@
       "kept": true
     }
   ],
+  "vi/species/nothobranchius-eggersi#seriouslyfish": [
+    {
+      "at": "2026-11-09T06:17:00Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 3: \"Cuối cùng chúng khô hẳn, và cứ thế suốt vài tháng mỗi năm\" is awkward. Use something like \"cuối cùng khô cạn hoàn toàn và kéo dài như vậy vài tháng mỗi năm\".",
+        "Item 2: \"Mẫu chuẩn được thu ở\" is a loose rendering of \"Type locality\". Use \"Nơi thu mẫu chuẩn (type locality) là…\".",
+        "Item 2: \"Khu bảo tồn Selous\" drops \"Game Reserve\". Use \"Khu bảo tồn động vật hoang dã Selous\".",
+        "Item 1: \"để tránh lai lẫn nhau\" is slightly clumsy. Use \"để tránh lai tạp\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/nothobranchius-guentheri#glaser": [
     {
       "at": "2026-11-08T19:35:05Z",
@@ -15576,6 +15591,24 @@
         "Item 2: \"Gunther's nothobranch\" is left in English in brackets. Either give a Vietnamese common name or keep it clearly as an English common name.",
         "Item 11: \"giun vi sinh (microworm)\" is understandable, but \"giun siêu nhỏ\" or \"giun microworm\" is more commonly used in the hobby.",
         "Item 13: the reference list is left entirely in English. Acceptable for citations, but the \"The IUCN Red List of Threatened Species\" label could be rendered as \"Danh lục Đỏ IUCN\" for consistency."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/notopterus-notopterus#seriouslyfish": [
+    {
+      "at": "2026-11-09T06:18:42Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 4: \"set riêng hẳn cho loại cá này\" uses the English slang \"set\"; use \"được thiết kế chuyên biệt cho loài này\".",
+        "Item 1: \"Cá dài tới 600 mm\" is inconsistent with \"60 cm SL\" in the list; use \"60 cm\" for both.",
+        "Item 1/11: \"Ngoài tiệm cá\" is colloquial; use \"Trong giới kinh doanh cá cảnh\" or \"Trên thị trường cá cảnh\".",
+        "Item 7: \"hư nội tạng\" is awkward; use \"suy thoái nội tạng\" or \"tổn thương nội tạng\".",
+        "Item 8: \"hay giành chỗ\" is colloquial; \"có thể mang tính lãnh thổ\" is closer to \"territorial\".",
+        "Item 3: \"nơi nó có vẻ sống rất quen\" is awkward; use \"nơi cá có vẻ thích nghi tốt\".",
+        "Item 1: \"cách nuôi lại đòi hỏi riêng\" is vague for \"specialised requirements\"; use \"yêu cầu nuôi rất chuyên biệt\"."
       ],
       "attempt": "first",
       "kept": true
@@ -16209,6 +16242,23 @@
         "Item 1: \"ambassid\" is left untranslated. Use \"họ cá thủy tinh (Ambassidae)\" or similar."
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "vi/species/paramisgurnus-dabryanus#seriouslyfish": [
+    {
+      "at": "2026-11-09T06:14:31Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 12: \"Đây là loài khỏe hiếm thấy\" is awkward; use \"cực kỳ khỏe và dễ nuôi\".",
+        "Item 12: \"Loài này đẻ khỏe\" is loose for \"high reproductive potential\"; use \"khả năng sinh sản cao\".",
+        "Item 8: \"bo bo\" for Daphnia is imprecise; use \"rận nước (Daphnia)\".",
+        "Item 11: \"cá có lẽ đẻ giống Misgurnus fossilis\" is clumsy; use \"quá trình đẻ tự nhiên có lẽ tương tự M. fossilis\".",
+        "Items 2 and 12: \"Tiệm cá vẫn bán\" is slightly colloquial; \"được bán thường xuyên trong giới chơi cá cảnh\" is better.",
+        "Item 8: \"Ngoài tự nhiên\" was added to the opening sentence; it is implied but not stated in the source."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -17344,6 +17394,23 @@
         "Item 11: \"ovophilous maternal mouthbrooder\" is left in English in brackets. Consider a short Vietnamese gloss only, or keep the term only in the first mention.",
         "Item 3: \"phụ lưu chính thứ hai của rio Madeira\" adds \"thứ hai\". Say \"phụ lưu chính còn lại\" to match \"the other main affluent\".",
         "Item 8: \"Có vẻ ngay cả cá lớn cũng không nuốt nổi mồi to cho đàng hoàng\" is colloquial. Use a more neutral encyclopedic register."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/schistura-deansmarti#seriouslyfish": [
+    {
+      "at": "2026-11-09T06:15:35Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "#4: \"các con vật nhỏ sống ở đáy\" is vague; use \"động vật không xương sống sống ở đáy\" for benthic invertebrates.",
+        "#6: \"thay đổi hình dạng, cơ thể hoặc tập tính\" blurs the terms; use \"hình thái, sinh lý hoặc tập tính\".",
+        "#6: \"Loài này đang cần được bảo tồn\" is looser than the source; better \"tình trạng bảo tồn của loài này rõ ràng khiến nó không phù hợp để nuôi bể\".",
+        "#5: \"vạt da nhỏ\" adds \"nhỏ\"; \"vạt da dưới ổ mắt kém phát triển\" is more faithful.",
+        "#6: \"nhóm đa ngành\" for polyphyletic is acceptable, but \"nhóm đa ngành (polyphyletic)\" or \"không đơn ngành\" would be clearer.",
+        "#3: \"Có một khoảng thời gian trong năm cá phải sống…\" is clumsy; use \"một phần thời gian trong năm, cá sống trong các vũng nước tù\"."
       ],
       "attempt": "first",
       "kept": true

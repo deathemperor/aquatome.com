@@ -99948,5 +99948,45 @@
       }
     ],
     "products": []
+  },
+  "vi/species/nothobranchius-eggersi": {
+    "at": "2026-11-09",
+    "hash": "f82e76c0cef1edcb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/notopterus-notopterus": {
+    "at": "2026-11-09",
+    "hash": "efef30fdd1038d50",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Ngoài tiệm cá, nó còn có tên 'cá dao châu Á' hoặc 'cá dao ma'.",
+        "why": "These are translated English trade names (Asian/ghost knifefish); shops in Vietnam sell this native fish as cá thát lát.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/paramisgurnus-dabryanus": {
+    "at": "2026-11-09",
+    "hash": "22806007a107b6b4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-deansmarti": {
+    "at": "2026-11-09",
+    "hash": "d93e302dbc08530c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

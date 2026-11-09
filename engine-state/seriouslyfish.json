@@ -12748,6 +12748,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/nothobranchius-eggersi": {
+    "entityIds": [
+      "species/nothobranchius-eggersi"
+    ],
+    "updatedAt": "2026-11-09T06:15:35.112Z",
+    "hash": "bbc8b04520678bf2a45f9f3aa1fda0b1776b153848a27c974ca9fec46f4e9524",
+    "processedHash": "bbc8b04520678bf2a45f9f3aa1fda0b1776b153848a27c974ca9fec46f4e9524",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/nothobranchius-foerschi": {
     "entityIds": [
       "species/nothobranchius-foerschi"
@@ -12778,6 +12788,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.seriouslyfish.com/species/notopterus-notopterus": {
+    "entityIds": [
+      "species/notopterus-notopterus"
+    ],
+    "updatedAt": "2026-11-09T06:17:00.091Z",
+    "hash": "04e05ef034e9a294b3d9e9c9396bdc70446132396aafa1eccb91463765aff1c1",
+    "processedHash": "04e05ef034e9a294b3d9e9c9396bdc70446132396aafa1eccb91463765aff1c1",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.seriouslyfish.com/species/oliotius-oligolepis": {
     "entityIds": [
       "species/oliotius-oligolepis"
@@ -12797,6 +12817,13 @@
     "processedHash": "a69328281c94b246afec96ba519d21ee3cef6313e93b9df087fb8044ede8a991",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/ompok-eugeneiatus": {
+    "entityIds": [],
+    "updatedAt": "2026-11-09T06:18:42.137Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Target page, context or browser has been closed"
   },
   "https://www.seriouslyfish.com/species/opsarius-bakeri": {
     "entityIds": [
@@ -13365,6 +13392,16 @@
     "updatedAt": "2026-11-04T22:14:45.375Z",
     "hash": "df9201c03accb1f040b5c69efabedf2ebdc754ff2d92b8b389d219d304e5c5cd",
     "processedHash": "df9201c03accb1f040b5c69efabedf2ebdc754ff2d92b8b389d219d304e5c5cd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/paramisgurnus-dabryanus": {
+    "entityIds": [
+      "species/paramisgurnus-dabryanus"
+    ],
+    "updatedAt": "2026-11-09T06:11:11.937Z",
+    "hash": "e06711e1c70c947e4eed8ff6dd0bd4bfbdf3be4d79157a5c52404ab1c0894b89",
+    "processedHash": "e06711e1c70c947e4eed8ff6dd0bd4bfbdf3be4d79157a5c52404ab1c0894b89",
     "status": "processed",
     "attempts": 0
   },
@@ -14605,6 +14642,16 @@
     "updatedAt": "2026-11-04T23:04:45.085Z",
     "hash": "3bfb1ed3aacc4ca25122862dea0245bdfe3f80792cab33acda6c3c244d8e2895",
     "processedHash": "3bfb1ed3aacc4ca25122862dea0245bdfe3f80792cab33acda6c3c244d8e2895",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.seriouslyfish.com/species/schistura-deansmarti": {
+    "entityIds": [
+      "species/schistura-deansmarti"
+    ],
+    "updatedAt": "2026-11-09T06:14:31.424Z",
+    "hash": "027ad8887146263efe145f73c60129e6c6c63fdd5999b6215b0df8e9e755b6fe",
+    "processedHash": "027ad8887146263efe145f73c60129e6c6c63fdd5999b6215b0df8e9e755b6fe",
     "status": "processed",
     "attempts": 0
   },
