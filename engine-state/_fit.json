@@ -1823,21 +1823,22 @@
   },
   "id/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
     "at": "2026-11-09",
-    "hash": "ccbcbb44ee4ab4ad",
+    "hash": "657e7ce3635eaf80",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": [
-      "JBL",
       "Tropica Aquarium Soil Powder",
       "ADA Aqua Soil Amazonia",
       "be Soft",
       "JBL Manado Dark",
       "Tropica Aquarium Soil",
       "Sansibar SNOW",
+      "Sansibar WHITE",
+      "Sansibar RED",
+      "Sansibar DARK",
+      "Sansibar GREY",
       "Sansibar RIVER",
-      "Manado",
-      "ADA Aqua Soil",
       "Multi Bottom"
     ]
   },
@@ -3225,10 +3226,10 @@
     "products": []
   },
   "id/plants/ceratopteris-thalictroides": {
-    "at": "2026-11-08",
-    "hash": "85f5c2af53381660",
+    "at": "2026-11-09",
+    "hash": "1bc134d8fad0e6b5",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -3857,10 +3858,10 @@
     "products": []
   },
   "id/plants/littorella-uniflora": {
-    "at": "2026-11-07",
-    "hash": "2de2286b2888072a",
+    "at": "2026-11-09",
+    "hash": "5b7b45cdce80da4f",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -4275,10 +4276,10 @@
     ]
   },
   "id/plants/pogostemon-stellatus": {
-    "at": "2026-11-07",
-    "hash": "67c9b911ba4533bf",
+    "at": "2026-11-09",
+    "hash": "161aeb44c0f6f3a4",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -18497,7 +18498,7 @@
   },
   "th/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
     "at": "2026-11-09",
-    "hash": "c6a504fa6d5c7871",
+    "hash": "592193818b3bb235",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -18508,11 +18509,10 @@
       "ADA Aqua Soil Amazonia",
       "ADA \"be Soft\"",
       "JBL Manado Dark",
-      "Aquarium Soil",
       "Sansibar",
       "Manado",
+      "Aquarium Soil",
       "JBL Sansibar",
-      "Sansibar RIVER",
       "Multi Bottom"
     ]
   },
@@ -20023,10 +20023,10 @@
     "products": []
   },
   "th/plants/ceratopteris-thalictroides": {
-    "at": "2026-11-08",
-    "hash": "1d7a93163c247ce4",
+    "at": "2026-11-09",
+    "hash": "27bc36817bbc6fb2",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -20694,10 +20694,10 @@
     "products": []
   },
   "th/plants/littorella-uniflora": {
-    "at": "2026-11-08",
-    "hash": "b3121d346aec06e7",
+    "at": "2026-11-09",
+    "hash": "996712986b1c1e3b",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -21120,10 +21120,10 @@
     "products": []
   },
   "th/plants/pogostemon-stellatus": {
-    "at": "2026-11-08",
-    "hash": "01d9b4dbda385f73",
+    "at": "2026-11-09",
+    "hash": "9d221dba4a448629",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -32389,15 +32389,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
     "at": "2026-11-09",
-    "hash": "b739022a1fa1f4bf",
+    "hash": "3113e905cfede5c5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở bể này, những bụi cây đó còn tạo cảm giác chuyển động ở đường chân trời.",
-        "why": "Refers to the source's showcase tank as if the reader could see it; the page has no picture of it.",
+        "quote": "Ở bể này, mấy khóm cây đó còn làm đường chân trời trông như đang chuyển động.",
+        "why": "It describes one aquascaper's tank as if the reader can see it, but the page has no picture of it.",
         "by": "model"
       }
     ],
@@ -32405,15 +32405,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-2": {
     "at": "2026-11-09",
-    "hash": "93c28fd6cc9216b8",
+    "hash": "08f5e10259c646f9",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể này dùng những loại đá có vân bề mặt lạ để tạo ấn tượng mạnh.",
-        "why": "The page describes a specific aquascaper's tank as if the reader could see it, but the page has no picture of it.",
+        "quote": "Bể này dùng những loại đá có vân lạ để tạo ấn tượng mạnh.",
+        "why": "It describes a particular tank, apparently from a photo, as if the reader could see it, but the page has no pictures.",
         "by": "model"
       }
     ],
@@ -32421,15 +32421,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-3": {
     "at": "2026-11-09",
-    "hash": "06b5eb637a7583bb",
+    "hash": "9ce6119acc1decdd",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể này có cụm cây cắt cắm màu rực mọc phía trên một vách đá.",
-        "why": "It describes a particular tank, the work of the aquascaper named in the title, as though the reader could see it, but the page has no picture of it.",
+        "quote": "Bể này trồng một mảng cây cắt cắm màu rực phía trên vách đá.",
+        "why": "The page talks about a particular tank (by the aquascaper in the title) as if the reader could see it, but the page doesn't show it.",
         "by": "model"
       }
     ],
@@ -32437,15 +32437,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer": {
     "at": "2026-11-09",
-    "hash": "0908a3d5b9ac6059",
+    "hash": "b3ef7c8fa479dec5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể này của George Farmer trông thanh thoát",
-        "why": "The page points to a particular aquascaper's tank as though the reader already knew it, so it reads as a showcase copied from the original source.",
+        "quote": "Bể Iwagumi thanh thoát này của George Farmer",
+        "why": "Points at a specific tank, likely pictured in the original source, that the page does not show the reader.",
         "by": "model"
       }
     ],
@@ -32796,19 +32796,10 @@
   },
   "vi/guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods": {
     "at": "2026-11-09",
-    "hash": "a072bfc27be5b659",
+    "hash": "60c680606bf9da7d",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "## 6. Dùng dải neo cây",
-        "why": "Calque of English 'plant weights'; Vietnamese keepers call these lead strips chì quấn cây.",
-        "by": "model",
-        "fix": "chì quấn cây / chì neo cây"
-      }
-    ],
+    "findings": [],
     "products": [
       "Keo 502"
     ]
@@ -32909,10 +32900,19 @@
   },
   "vi/guides/aquariumbreeder-how-to-handle-your-pet-crustaceans": {
     "at": "2026-11-09",
-    "hash": "7efe6290fa9798d1",
+    "hash": "a6aebdb22db20d0b",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Động vật ngoại lai không giống chó mèo.",
+        "why": "Calque of 'exotic pets'; 'ngoại lai' in Vietnamese means alien/invasive species.",
+        "by": "model",
+        "fix": "thú cưng độc lạ"
+      }
+    ],
     "products": []
   },
   "vi/guides/aquariumbreeder-how-to-improve-breeding-efficiency-of-caridina-shrimp": {
@@ -33669,7 +33669,7 @@
   },
   "vi/guides/aquariumbreeder-tank-decoration-simple-ideas": {
     "at": "2026-11-09",
-    "hash": "3bff8fb86968c4e8",
+    "hash": "978cb3ed6d669488",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -33677,12 +33677,12 @@
         "check": "shop",
         "part": "P1",
         "quote": "Có người lên Etsy (chỗ rất hay để tìm cảm hứng) mua cả một loạt đồ Spongebob Squarepants",
-        "why": "Names a foreign online shop as the place to buy decorations.",
+        "why": "Names a foreign online marketplace as the place to buy decorations.",
         "by": "model"
       }
     ],
     "products": [
-      "Beeramid",
+      "beeramid",
       "Lego"
     ]
   },
@@ -64055,7 +64055,7 @@
   },
   "vi/guides/youtube-rh8iBySuUpE": {
     "at": "2026-11-09",
-    "hash": "c4f8b675d9d0a70f",
+    "hash": "c33162deb4e81cbf",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -70712,10 +70712,10 @@
     "products": []
   },
   "vi/plants/ceratopteris-thalictroides": {
-    "at": "2026-11-07",
-    "hash": "2242c182ed07bfc3",
+    "at": "2026-11-09",
+    "hash": "bf5ba213abb07f63",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -71400,10 +71400,10 @@
     "products": []
   },
   "vi/plants/littorella-uniflora": {
-    "at": "2026-11-07",
-    "hash": "4f971230d528850f",
+    "at": "2026-11-09",
+    "hash": "dd2494f1b943f1e4",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -102413,6 +102413,461 @@
         "by": "model"
       }
     ],
+    "products": []
+  },
+  "id/species/channa-diplogramma": {
+    "at": "2026-11-09",
+    "hash": "b105ae27fbf51dd4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/channa-harcourtbutleri": {
+    "at": "2026-11-09",
+    "hash": "33840b166f31e19e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Spesimen di foto memiliki panjang standar sekitar 11 cm (jantan) dan 9 cm (betina)",
+        "why": "Refers to a photo of the source's own specimens that the page doesn't have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Channa yang sangat jarang ditawarkan ini didatangkan dari Myanmar (Burma).",
+        "why": "Speaks of the source shop's own offer and imports as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/channa-maculata": {
+    "at": "2026-11-09",
+    "hash": "a1ecd9cbbb345b24",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/channa-marulius": {
+    "at": "2026-11-09",
+    "hash": "9e82b5ebe22f84f4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/channa-orientalis": {
+    "at": "2026-11-09",
+    "hash": "2ca8a629b36c9143",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "akuarium komunitas yang teman tangkinya dipilih dengan cermat",
+        "why": "\"Teman tangki\" is a calque of the English \"tankmates\".",
+        "by": "model",
+        "fix": "teman satu akuarium"
+      }
+    ],
+    "products": []
+  },
+  "id/species/channa-ornatipinnis": {
+    "at": "2026-11-09",
+    "hash": "9249a4c23a78f455",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/characidium-fasciatum": {
+    "at": "2026-11-09",
+    "hash": "9283f2d19dee745d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/characodon-lateralis": {
+    "at": "2026-11-09",
+    "hash": "7ea0126ef21e49e1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/charax-condei": {
+    "at": "2026-11-09",
+    "hash": "c66b23d08c305b30",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan kulitnya dikupas",
+        "why": "Collecting ordinary beech wood assumes a European reader; beech does not grow in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Daun beech bisa dipakai, daun oak juga cocok.",
+        "why": "Beech and oak leaves are things a European keeper gathers; an Indonesian keeper would use ketapang leaves.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/charax-stenopterus": {
+    "at": "2026-11-09",
+    "hash": "416234407acc799d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chela-cachius": {
+    "at": "2026-11-09",
+    "hash": "ab2c0d9a85985f49",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/cherax-quadricarinatus": {
+    "at": "2026-11-09",
+    "hash": "424d8c7c58d961b1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/cherax-snowden": {
+    "at": "2026-11-09",
+    "hash": "4b860001e4a60b19",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/cherax-tenuimanus": {
+    "at": "2026-11-09",
+    "hash": "13e765567de33934",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chilodus-punctatus": {
+    "at": "2026-11-09",
+    "hash": "def05499a63bb92e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chiloglanis-polypogon": {
+    "at": "2026-11-09",
+    "hash": "5b413b04352d789a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chitala-chitala": {
+    "at": "2026-11-09",
+    "hash": "60fa14b8c8c8957a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/mespilia-globulus": {
+    "at": "2026-11-09",
+    "hash": "913905f80ada16f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/nematabramis-steindachnerii": {
+    "at": "2026-11-09",
+    "hash": "4c65eaaf35b9625c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/notopterus-notopterus": {
+    "at": "2026-11-09",
+    "hash": "183455f935231780",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acestrorhynchus-falcatus": {
+    "at": "2026-11-09",
+    "hash": "efcff0da828ed941",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "dari Peru pada masa ini berukuran kira-kira 6–8 cm",
+        "why": "This describes a shop's current stock as if the reader knew about it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acestrorhynchus-falcirostris": {
+    "at": "2026-11-09",
+    "hash": "3c0cb622f876aafb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acestrorhynchus-isalineae": {
+    "at": "2026-11-09",
+    "hash": "738b1d11faa48098",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acestrorhynchus-microlepis": {
+    "at": "2026-11-09",
+    "hash": "1fdd7437667a761a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acestrorhynchus-minimus": {
+    "at": "2026-11-09",
+    "hash": "1163c77ead2d7deb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-diplogramma": {
+    "at": "2026-11-09",
+    "hash": "71b09f2f86130d34",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-harcourtbutleri": {
+    "at": "2026-11-09",
+    "hash": "5ecde8053c80e3ef",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ปลาในภาพมีความยาวมาตรฐานประมาณ 11 ซม. (ตัวผู้) และ 9 ซม. (ตัวเมีย)",
+        "why": "Refers to a photo that the page does not have; it is the source's own picture.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "ปลาชุดนี้ได้มาจากพม่า",
+        "why": "Talks about the source's own batch of fish as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/channa-maculata": {
+    "at": "2026-11-09",
+    "hash": "00de59fe7dd5d279",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-marulius": {
+    "at": "2026-11-09",
+    "hash": "e4c2403288676271",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-orientalis": {
+    "at": "2026-11-09",
+    "hash": "40536bff556b9ed9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-ornatipinnis": {
+    "at": "2026-11-09",
+    "hash": "033a38a0c1c3ce8a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "จึงได้ปลาที่มีริมฝีปากสีเหลืองแบบต้นฉบับมาจากแหล่งใหม่ โดยผู้จับปลาไม่เปิดเผยว่าปลามาจากที่ใดแน่",
+        "why": "This is the importer's own story about the stock it got, told as if the reader knew that importer.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/characidium-fasciatum": {
+    "at": "2026-11-09",
+    "hash": "0b2fae6e8b875c4a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/characodon-lateralis": {
+    "at": "2026-11-09",
+    "hash": "0b84eb93ac6a78c1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/charax-condei": {
+    "at": "2026-11-09",
+    "hash": "484a350244f0ee2f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "ใช้ใบบีชได้เช่นกัน หรือใบโอ๊กก็เหมาะสม",
+        "why": "Beech and oak branches and leaves are gathered by European keepers; Thai keepers use local leaves such as Indian almond leaves.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/charax-stenopterus": {
+    "at": "2026-11-09",
+    "hash": "486dd8ad3d098be8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chela-cachius": {
+    "at": "2026-11-09",
+    "hash": "b230b6c7dc343981",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "ปลาแมว",
+        "why": "Literal calque of English 'catfish'; in Thai ปลาแมว is a different fish, and keepers say ปลาแคทฟิช or ปลาหนัง.",
+        "by": "model",
+        "fix": "ปลาแคทฟิช"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cherax-quadricarinatus": {
+    "at": "2026-11-09",
+    "hash": "fdb87ff1dcb04171",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cherax-snowden": {
+    "at": "2026-11-09",
+    "hash": "ba1d69e45ebde793",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cherax-tenuimanus": {
+    "at": "2026-11-09",
+    "hash": "659d80a19d5017b9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chilodus-punctatus": {
+    "at": "2026-11-09",
+    "hash": "5fc65709971f3602",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chiloglanis-polypogon": {
+    "at": "2026-11-09",
+    "hash": "e2ff7221e1a570bc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chitala-chitala": {
+    "at": "2026-11-09",
+    "hash": "147ed947dbe530aa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/mespilia-globulus": {
+    "at": "2026-11-09",
+    "hash": "c97279b129708a7d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/nematabramis-steindachnerii": {
+    "at": "2026-11-09",
+    "hash": "089b751ddd71e047",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/notopterus-notopterus": {
+    "at": "2026-11-09",
+    "hash": "af4c7759c433c820",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-filter-and-or-protein-skimmer-do-i-need-both": {
+    "at": "2026-11-09",
+    "hash": "78727c360a269e90",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
     "products": []
   }
 }

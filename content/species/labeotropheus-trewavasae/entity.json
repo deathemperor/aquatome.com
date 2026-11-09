@@ -10,6 +10,83 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372166,
+      "total": 49,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MW",
+          36
+        ],
+        [
+          "MZ",
+          7
+        ],
+        [
+          "TZ",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -16.875,
+          2
+        ],
+        [
+          33.75,
+          -15.46875,
+          2
+        ],
+        [
+          33.75,
+          -14.0625,
+          20
+        ],
+        [
+          33.75,
+          -12.65625,
+          14
+        ],
+        [
+          33.75,
+          -11.25,
+          9
+        ],
+        [
+          33.75,
+          -9.84375,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

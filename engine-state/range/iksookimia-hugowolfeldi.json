@@ -1,0 +1,95 @@
+{
+  "id": "iksookimia-hugowolfeldi",
+  "native": {
+    "input": "7a0012fd29a0f091",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cobitis hugowolfeldi (formerly Iksookimia hugowolfeldi) is a cobitid loach endemic to Korea, known from the Yeongsan and Tamjin river systems in the province of Jeollanam-do.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, with I. hugowolfeldi restricted to the south-western province of Jeollanam-do (South Jeolla) where it's known from the Yeongsan and Tamjin river systems plus some minor drainages.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Yung San River, South Korea'.",
+        "words": "South Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yeongsan",
+        "source": "seriouslyfish",
+        "quote": "Cobitis hugowolfeldi (formerly Iksookimia hugowolfeldi) is a cobitid loach endemic to Korea, known from the Yeongsan and Tamjin river systems in the province of Jeollanam-do.",
+        "country": "KR",
+        "ok": true
+      },
+      {
+        "name": "Tamjin",
+        "source": "seriouslyfish",
+        "quote": "Cobitis hugowolfeldi (formerly Iksookimia hugowolfeldi) is a cobitid loach endemic to Korea, known from the Yeongsan and Tamjin river systems in the province of Jeollanam-do.",
+        "country": "KR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iksookimia hugowolfeldi",
+    "status": "ACCEPTED",
+    "taxonKey": 2368308,
+    "datasets": [
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        284
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        42
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        34
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        16
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        13
+      ],
+      [
+        "d673256e-38ea-4aee-bfc5-866e653655a4",
+        10
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        1
+      ]
+    ],
+    "native": [
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

@@ -11,6 +11,172 @@
     "st-johns",
     "florida"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Lake Monroe",
+        "St. Johns"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to peninsular Florida in the United States, south of the Ochlockonee and St. Johns river basins and does not occur in Mexico.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lake Monroe, Florida, U.S.A.', one of numerous lakes within the St. Johns drainage.",
+          "countries": [],
+          "regions": [
+            "Lake Monroe",
+            "St. Johns"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348164,
+      "total": 444,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "US",
+          444
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          26.71875,
+          11,
+          11
+        ],
+        [
+          -97.03125,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -91.40625,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          -90,
+          29.53125,
+          5,
+          5
+        ],
+        [
+          -88.59375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          28.125,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          29.53125,
+          16,
+          16
+        ],
+        [
+          -82.96875,
+          25.3125,
+          28,
+          28
+        ],
+        [
+          -82.96875,
+          26.71875,
+          31,
+          31
+        ],
+        [
+          -82.96875,
+          28.125,
+          54,
+          54
+        ],
+        [
+          -82.96875,
+          29.53125,
+          18,
+          18
+        ],
+        [
+          -81.5625,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          -81.5625,
+          25.3125,
+          74,
+          74
+        ],
+        [
+          -81.5625,
+          26.71875,
+          123,
+          123
+        ],
+        [
+          -81.5625,
+          28.125,
+          66,
+          66
+        ],
+        [
+          -81.5625,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          -80.15625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          26.71875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

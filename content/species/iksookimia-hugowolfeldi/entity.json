@@ -10,6 +10,70 @@
     "south-korea",
     "yeongsan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KR"
+      ],
+      "regions": [
+        "Yeongsan",
+        "Tamjin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cobitis hugowolfeldi (formerly Iksookimia hugowolfeldi) is a cobitid loach endemic to Korea, known from the Yeongsan and Tamjin river systems in the province of Jeollanam-do.",
+          "countries": [
+            "KR"
+          ],
+          "regions": [
+            "Yeongsan",
+            "Tamjin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368308,
+      "total": 400,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KR",
+          400
+        ]
+      ],
+      "cells": [
+        [
+          125.15625,
+          33.75,
+          13,
+          13
+        ],
+        [
+          125.15625,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          126.5625,
+          33.75,
+          363,
+          363
+        ],
+        [
+          126.5625,
+          35.15625,
+          22,
+          22
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

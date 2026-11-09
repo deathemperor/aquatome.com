@@ -1,0 +1,70 @@
+{
+  "id": "julidochromis-transcriptus",
+  "native": {
+    "input": "f435a0a64eba3287",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is known from between Luhanga and Makabola in the Democratic Republic of the Congo and grows to around 65 mm SL.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northwestern Lake Tanganyika, between Luhanga and Makabola in the Democratic Republic of the Congo, with type locality given simply as the 'extreme north' of the lake.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northwestern Lake Tanganyika, between Luhanga and Makabola in the Democratic Republic of the Congo, with type locality given simply as the 'extreme north' of the lake.",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BI"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Julidochromis transcriptus",
+    "status": "ACCEPTED",
+    "taxonKey": 2372482,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        11
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

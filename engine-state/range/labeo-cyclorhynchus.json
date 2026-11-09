@@ -1,0 +1,104 @@
+{
+  "id": "labeo-cyclorhynchus",
+  "native": {
+    "input": "505594d9870a2be9",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The harlequin shark, Labeo cyclorhynchus, is a cyprinid from the middle and lower Congo basin and the Ogooué drainage in Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle and lower Congo river basin in the Democratic Republic of the Congo and Republic of the Congo as well as the Ogooué (sometimes spelled 'Ogowe') drainage in Gabon.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle and lower Congo river basin in the Democratic Republic of the Congo and Republic of the Congo as well as the Ogooué (sometimes spelled 'Ogowe') drainage in Gabon.",
+        "words": "Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle and lower Congo river basin in the Democratic Republic of the Congo and Republic of the Congo as well as the Ogooué (sometimes spelled 'Ogowe') drainage in Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "Native to the middle and lower Congo river basin in the Democratic Republic of the Congo and Republic of the Congo as well as the Ogooué (sometimes spelled 'Ogowe') drainage in Gabon.",
+        "ok": true
+      },
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "The harlequin shark, Labeo cyclorhynchus, is a cyprinid from the middle and lower Congo basin and the Ogooué drainage in Gabon.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Labeo cyclorhynchus",
+    "status": "ACCEPTED",
+    "taxonKey": 5206157,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        46
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "GA",
+      "CD",
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

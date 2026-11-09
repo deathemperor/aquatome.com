@@ -1,0 +1,97 @@
+{
+  "id": "labiobarbus-ocellatus",
+  "native": {
+    "input": "82fd4627cef4f5f5",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Sumatra and Borneo where it has been recorded from several major river basins including the Pahang, Batang Hari and Kapuas.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Sumatra and Borneo where it has been recorded from several major river basins including the Pahang, Batang Hari and Kapuas.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Sumatra and Borneo where it has been recorded from several major river basins including the Pahang, Batang Hari and Kapuas.",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Sumatra and Borneo where it has been recorded from several major river basins including the Pahang, Batang Hari and Kapuas.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Sumatra and Borneo where it has been recorded from several major river basins including the Pahang, Batang Hari and Kapuas.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Native to Peninsular Malaysia and the Greater Sunda Islands of Sumatra and Borneo where it has been recorded from several major river basins including the Pahang, Batang Hari and Kapuas.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Labiobarbus ocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2366248,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 14,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

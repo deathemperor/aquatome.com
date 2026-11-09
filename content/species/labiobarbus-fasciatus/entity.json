@@ -12,6 +12,110 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Pahang",
+        "Sumatra",
+        "Borneo",
+        "Kapuas",
+        "Barito",
+        "Mahakam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Pahang River system in southern Peninsular Malaysia, and the Greater Sunda Islands of Sumatra and Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Pahang",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Pangabuang, Lampong Province, Sumatra, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On the latter records exist from the Kapuas, Barito, and Mahakam watersheds in Kalimantan, the Indonesian portion of the island.",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Barito",
+            "Mahakam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366243,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          9
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,69 @@
+{
+  "id": "kottelatlimia-hipporhynchos",
+  "native": {
+    "input": "ee17b46893e2ce65",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo where it's been collected from the Kahayan, Sampit, and Kapuas river drainages.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo where it's been collected from the Kahayan, Sampit, and Kapuas river drainages.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kahayan",
+        "source": "seriouslyfish",
+        "quote": "Known only from Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo where it's been collected from the Kahayan, Sampit, and Kapuas river drainages.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sampit",
+        "source": "seriouslyfish",
+        "quote": "Known only from Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo where it's been collected from the Kahayan, Sampit, and Kapuas river drainages.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Known only from Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo where it's been collected from the Kahayan, Sampit, and Kapuas river drainages.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kottelatlimia hipporhynchos",
+    "status": "ACCEPTED",
+    "taxonKey": 2367838,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

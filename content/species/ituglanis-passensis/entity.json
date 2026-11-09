@@ -10,6 +10,50 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: known only from Passa Três cave, Brazil (Tocantins drainage).",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342925,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -14.0625,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
