@@ -34,6 +34,9 @@ struct PageImage: View {
   private var image: UIImage? { picture?.src == src ? picture?.image : PageImages.cached(src) }
 
   var body: some View {
+    // The size, fixed with the task's id. The first layout's task (size zero) runs after the size has come; reading the
+    // state live, it fetched, then the size's own task fetched again and the first was stopped: each grid cell twice.
+    let px = pixels
     Rectangle().fill(.fill.tertiary)
       .aspectRatio(ratio, contentMode: .fit)
       .overlay {
@@ -52,9 +55,9 @@ struct PageImage: View {
       .accessibilityLabel(Text(verbatim: alt ?? ""))
       // No words for it: VoiceOver reads the caption under it instead (a linked one, its button, as the caption).
       .accessibilityHidden(alt == nil)
-      .task(id: [src, "\(pixels)"]) {
-        guard pixels.width > 0 else { return }
-        let size = PageImages.Size.filling(pixels), src = src
+      .task(id: [src, "\(px)"]) {
+        guard px.width > 0 else { return }
+        let size = PageImages.Size.filling(px), src = src
         if let hit = PageImages.cached(src, size) { picture = (src, hit); return }
         let had = image != nil
         // On its way already, ahead of the reader (the photo grid): not fetched a second time.
