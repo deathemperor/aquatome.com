@@ -19,9 +19,14 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 - Start a simulator test run as `apps/ios/scripts/sim-run.py xcodebuild test …`: one at a time, leads' and the runner's in
   one queue, at most two copies of a simulator. A session's plain `xcodebuild test` is refused (`.claude/hooks/`).
 - Other heavy work takes the checks queue: Astro builds, test suites, e2e and xcodebuild builds, as
-  `lockf -k ~/.cache/aquatome/checks.lock nice -n 10 <command>` (`scripts/cycle-checks.sh`). A session's outside it is
-  refused, since side by side they took the Mac to heavy thermal pressure (2026-11-08). One test file needs no turn:
-  `pnpm exec vitest run <file>`.
+  `scripts/checks.sh nice -n 10 <command>` from the repository's root, or `lockf -k ~/.cache/aquatome/checks.lock nice -n 10
+  <command>` (`scripts/cycle-checks.sh`). A session's outside it is refused, since side by side they took the Mac to heavy
+  thermal pressure (2026-11-08). One test file needs no turn: `pnpm exec vitest run <file>`.
+- Both queues are first come, first served. Only the chief of staff, from their own thread, keeps the next turn in both for
+  one run: `scripts/next-turn.py [--sim | --checks] <the run's pid, or a word only it has, such as its folder's> [minutes]`
+  (30, at most 120; a pid keeps it in its own queue). Until that run has had it, a run that reaches the front steps back
+  behind it, if it came through `sim-run.py` or `checks.sh`. A plain `lockf` job, one from an older `sim-run.py` and the
+  TestFlight upload (another user) don't step back: name a plain `lockf` job by its pid.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
