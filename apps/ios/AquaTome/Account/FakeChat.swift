@@ -152,7 +152,18 @@ final class FakeChat {
       guard let first = events.firstIndex(where: { $0.hasPrefix("event: text") }) else { return [] }
       return events[...first].map { $0 + "\n\n" } + ["event: error\ndata: {\"error\":\"failed\"}\n\n"]
     }
-    let name = args.contains("-chat-failed") ? "chat-stream-failed.sse" : args.contains("-chat-uncovered") ? "chat-stream-uncovered.sse" : "chat-stream-species.sse"
+    // `-chat-opening-cut`: the recording with the wait's first line, broken after its step, before any text.
+    if args.contains("-chat-opening-cut") {
+      let events = try String(contentsOf: protocols.appending(path: "chat-stream-opening.sse"), encoding: .utf8)
+        .components(separatedBy: "\n\n").filter { !$0.isEmpty }
+      guard let first = events.firstIndex(where: { $0.hasPrefix("event: text") }) else { return [] }
+      return events[..<first].map { $0 + "\n\n" } + ["event: error\ndata: {\"error\":\"failed\"}\n\n"]
+    }
+    // `-chat-opening`: the recording with the wait's first line; `-chat-opening-dropped`: its `done` without it (the answer
+    // off topic, the Worker's own line in its place).
+    let opening = args.contains("-chat-opening") || args.contains("-chat-opening-dropped")
+    let name = opening ? "chat-stream-opening.sse" : args.contains("-chat-failed") ? "chat-stream-failed.sse"
+      : args.contains("-chat-uncovered") ? "chat-stream-uncovered.sse" : "chat-stream-species.sse"
     let whole = try String(contentsOf: protocols.appending(path: name), encoding: .utf8)
     var events = whole.components(separatedBy: "\n\n").filter { !$0.isEmpty }
     let every = args.contains("-chat-blocks") ? try JSONSerialization.jsonObject(with: Data(Self.everyBlock.utf8)) as? [[String: Any]] : nil
@@ -167,6 +178,7 @@ final class FakeChat {
       turn["conversation"] = conversation
       turn["n"] = n
       if let every { turn["blocks"] = every }
+      if args.contains("-chat-opening-dropped") { turn["opening"] = nil }
       let data = (try? JSONSerialization.data(withJSONObject: turn)).map { String(decoding: $0, as: UTF8.self) } ?? ""
       return "event: done\ndata: \(data)\n\n"
     }

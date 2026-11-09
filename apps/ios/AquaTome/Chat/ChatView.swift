@@ -246,10 +246,12 @@ private struct ChatThread: View {
       Bubble(text: a.question, editAgain: !last || !model.answering ? { editAgain(a.question) } : model.stoppable ? { model.stopAsking() } : nil).id(a.id)
       switch a.outcome {
       // Asked again only under the latest question.
-      case .failed(let code) where code != "cut" && !a.reply.text.isEmpty:
-        // Cut off after its text began: what was read stays, the card under it.
+      case .failed(let code) where code != "cut" && (!a.reply.text.isEmpty || a.reply.opening != nil):
+        // Cut off after its text began, or after the wait's first line: the box folded as at the first words, what was
+        // read stays, the card under it (the Worker gives the question back).
         if let fold = Chat.fold(a.reply.steps) { foldRow(fold, a) }
-        AnswerText(text: a.reply.text, whole: true, animate: false)
+        unfoldedList(a)
+        if !a.reply.text.isEmpty { AnswerText(text: a.reply.text, whole: true, animate: false) }
         CutOffCard(again: last ? { model.retry(a.id) } : nil).transition(.opacity)
       case .failed(let code):
         FailedCard(code: code, perAccount: model.perAccount, again: last ? { model.retry(a.id) } : nil).transition(.opacity)
@@ -267,20 +269,22 @@ private struct ChatThread: View {
   @ViewBuilder private func answer(_ a: ChatModel.Asked, last: Bool) -> some View {
     let r = a.reply
     if !r.writing {
-      // Waiting: each step done as it comes, above the one row that waits.
+      // Waiting: the first line, then each step done as it comes, above the one row that waits.
       VStack(alignment: .leading, spacing: 8) {
+        // Always first, even after a step that came before it; it fades in and the rows under it move down on one curve.
+        if let line = r.opening { openingLine(line).transition(.opacity) }
         ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s).transition(.opacity.combined(with: .offset(y: 4))) }
         if a.outcome == .asking { Waiting(stopping: last && model.stopping) }
       }
       .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: r.steps.count)
+      .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: r.opening)
+      // Read once as it comes, without cutting in: no haptic (the soft one stays with the first words).
+      .onChange(of: r.opening) { old, new in if old == nil, let new { Self.politely(new) } }
       // As the text starts, the row closes clipped, so its fading steps never paint over the first line.
       .transition(.closing)
     } else {
       if let fold = Chat.fold(r.steps) { foldRow(fold, a) }
-      if unfolded.contains(a.id) {
-        VStack(alignment: .leading, spacing: 8) { ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s) } }
-          .padding(.leading, 4)
-      }
+      unfoldedList(a)
       AnswerText(text: r.text, whole: r.turn != nil, animate: !a.resumed && !r.whole && !reduceMotion)
       if r.turn == nil, a.outcome == .asking { Pause(text: r.text) }
       if let t = r.turn {
@@ -301,6 +305,32 @@ private struct ChatThread: View {
         }
       }
     }
+  }
+
+  /// The fold row opened: the wait's first line first, then the steps.
+  @ViewBuilder private func unfoldedList(_ a: ChatModel.Asked) -> some View {
+    if unfolded.contains(a.id) {
+      VStack(alignment: .leading, spacing: 8) {
+        if let line = a.reply.opening { openingLine(line) }
+        ForEach(Array(a.reply.steps.enumerated()), id: \.offset) { _, s in step(s) }
+      }
+      .padding(.leading, 4)
+    }
+  }
+
+  /// The wait's first line (docs/design/chat.md, "The first line"): the steps' type, the box's full width, no glyph, plain
+  /// text. The answer's text, body size and primary under no box, never looks like it.
+  private func openingLine(_ line: String) -> some View {
+    Text(verbatim: line).font(.subheadline).foregroundStyle(.secondary)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .accessibilityIdentifier("chat-opening")
+  }
+
+  /// A polite announcement: spoken once what's being said ends, not over it.
+  static func politely(_ line: String) {
+    var words = AttributedString(line)
+    words.accessibilitySpeechAnnouncementPriority = .low
+    AccessibilityNotification.Announcement(words).post()
   }
 
   private func foldRow(_ fold: Chat.Fold, _ a: ChatModel.Asked) -> some View {
