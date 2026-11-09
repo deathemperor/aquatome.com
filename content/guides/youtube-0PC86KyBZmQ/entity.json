@@ -8,9 +8,10 @@
   "mentions": [
     "pterophyllum-altum",
     "astronotus-ocellatus",
-    "heros-severus"
+    "heros-severus",
+    "pterophyllum-scalare"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "0PC86KyBZmQ",
     "title": "16 FOOT AQUARIUM BUILD - Exposed Frame - The king of DIY",
@@ -30,11 +31,9 @@
     },
     "transcribed": true,
     "taxa": [
-      "Pterophyllum altum",
+      "Pterophyllum scalare",
       "Corydoras sp.",
-      "Synodontis sp.",
-      "Astronotus ocellatus",
-      "Heros severus"
+      "Panaque nigrolineatus"
     ],
     "gear": [
       {
@@ -46,17 +45,7 @@
         "category": "khac",
         "brand": "Pond Armor",
         "model": "Competition Blue",
-        "t": 397
-      },
-      {
-        "category": "phan-nen",
-        "type": "cat",
-        "t": 532
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 532
+        "t": 406
       },
       {
         "category": "loc",
@@ -71,39 +60,50 @@
         "brand": "Fluval",
         "model": "FX6",
         "t": 899
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 532
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao nên dựng từ đáy lên",
+        "heading": "Vì sao dựng từ đáy lên",
         "moments": [
           {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at90-hd.webp",
+            "t": 180,
+            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at180-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những viên gạch block dùng làm chân đỡ cho bể.",
-            "sharpness": 129.4,
-            "person": false
+            "caption": "Cận cảnh các lớp gỗ ép và thanh 2x4 ở viền đáy.",
+            "sharpness": 92.9
           }
         ]
       },
       {
-        "heading": "Các bước dựng khung chính",
+        "heading": "Ghép góc và đầu bể cho chắc",
         "moments": [
           {
             "t": 200,
             "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh khung gỗ với thanh kim loại bắt chắc vào sườn bể.",
-            "sharpness": 78.7,
-            "person": false
+            "caption": "Cận cảnh ke góc kim loại siết bu lông xuyên qua các thanh gỗ.",
+            "sharpness": 78.7
+          },
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung gỗ 2x4 của bể ghép chắc chắn, các thanh xếp chồng ở đầu bể.",
+            "sharpness": 295
           }
         ]
       },
       {
-        "heading": "Gỗ, vít và vật tư",
+        "heading": "Chọn vít và gỗ",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/0PC86KyBZmQ/p3-yYmluZHVuZy5qcGc.webp",
@@ -113,22 +113,21 @@
           "licence": "CC BY-SA 4.0",
           "author": "S.Wetzel (Maschinenelemente, Maschinen und Geräte)",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distanzschrauben-Verbindung.jpg",
-          "caption": "Vít bắt xuyên qua tấm gỗ xuống thanh gỗ bên dưới."
+          "caption": "Vít gỗ đang bắt hai miếng gỗ lại với nhau."
         }
       },
       {
-        "heading": "Mấy điều nên biết trước khi bắt tay",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0PC86KyBZmQ/p7-dmVzdGl0dXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/0PC86KyBZmQ/p7-dmVzdGl0dXMuanBn-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fremen",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
-          "caption": "Cá Otocinclus nhìn nghiêng, loài cá nhỏ hiền hợp với bể cộng đồng."
-        }
+        "heading": "Những bước còn lại sau khi xong khung",
+        "moments": [
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung bể gỗ dài đã xong, bên trong còn trống, chưa ốp gỗ ép.",
+            "sharpness": 431.3
+          }
+        ]
       }
     ]
   }
