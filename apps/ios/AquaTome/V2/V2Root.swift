@@ -250,6 +250,7 @@ private struct Destinations: ViewModifier {
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade() }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade() }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade() }
+      .navigationDestination(for: ChatRoute.self) { ChatView(route: $0).v2ClearOfTheFade() }
       .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url).v2ClearOfTheFade() }
       .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query).v2ClearOfTheFade() }
   }
