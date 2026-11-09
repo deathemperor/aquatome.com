@@ -85,7 +85,9 @@ extension Chat {
 
   /// `text` in its parts: a blank line ends one; a line opening with a number and a full stop ("1. Thay 30% nước") is a
   /// step, and steps in a row are one list. Lines in a row that aren't steps stay one text, their line breaks kept.
-  public static func paragraphs(_ text: String) -> [Para] {
+  /// While the text is `streaming`, a last line that is only a number (with or without its full stop: a piece ended on
+  /// "\n2.") waits for the next piece, so it never shows as a paragraph and then turns into a step.
+  public static func paragraphs(_ text: String, streaming: Bool = false) -> [Para] {
     var out: [Para] = []
     var lines: [String] = []
     var items: [Para.Item] = []
@@ -94,7 +96,9 @@ extension Chat {
       if !items.isEmpty { out.append(.list(items)) }
       (lines, items) = ([], [])
     }
-    for raw in text.split(separator: "\n", omittingEmptySubsequences: false) {
+    var raws = text.split(separator: "\n", omittingEmptySubsequences: false)
+    if streaming, let last = raws.last, last.trimmingCharacters(in: .whitespaces).wholeMatch(of: /\d{1,2}\.?/) != nil { raws.removeLast() }
+    for raw in raws {
       let line = raw.trimmingCharacters(in: .whitespaces)
       if line.isEmpty {
         end()

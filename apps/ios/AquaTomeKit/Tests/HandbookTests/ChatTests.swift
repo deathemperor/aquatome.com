@@ -502,7 +502,13 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
     .text("Sau 1 tuần rêu không lan nữa là đúng hướng.\nNăm 2024. Không phải bước."),
   ])
   #expect(Chat.paragraphs("Dễ.\n\n\nVừa đủ.") == [.text("Dễ."), .text("Vừa đủ.")])
-  // Still streaming: a number with no words yet is text until they come.
+  // Still streaming: a last line that is only a number, with or without its full stop, waits for its words, so it never
+  // shows as text and then turns into a step. Whole, the text is drawn as it is.
+  #expect(Chat.paragraphs("Vậy:\n1.", streaming: true) == [.text("Vậy:")])
+  #expect(Chat.paragraphs("1. Lau kính.\n2", streaming: true) == [.list([.init(n: 1, text: "Lau kính.")])])
+  #expect(Chat.paragraphs("1. Lau kính.\n 2. ", streaming: true) == [.list([.init(n: 1, text: "Lau kính.")])])
+  #expect(Chat.paragraphs("1. Lau kính.\n2. Thả", streaming: true) == [.list([.init(n: 1, text: "Lau kính."), .init(n: 2, text: "Thả")])])
+  #expect(Chat.paragraphs("Bể 60", streaming: true) == [.text("Bể 60")])
   #expect(Chat.paragraphs("Vậy:\n1.") == [.text("Vậy:\n1.")])
 }
 

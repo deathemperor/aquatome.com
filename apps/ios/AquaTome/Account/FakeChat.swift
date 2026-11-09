@@ -9,7 +9,8 @@ import Handbook
 ///
 /// `-chat-off`: GET says chat is off; `-chat-owner-only`, on only to a signed-in account's session (as the Worker says it
 /// to the owner's alone, while chat is on for the owner only), off without one. `-chat-uncovered`: every question gets the answer the handbook doesn't cover;
-/// `-chat-failed`, the one that ends in `failed`; `-chat-unavailable`, a step then `unavailable` (Claude unreachable).
+/// `-chat-failed`, the one that ends in `failed`; `-chat-unavailable`, a step then `unavailable` (Claude unreachable); `-chat-cut-off`, the species answer cut off by `failed` after its first
+/// piece of text.
 /// `-chat-rate`: every question is refused as the reader's day used (protocols/chat-rate.json); `-chat-busy`, as the
 /// site's. `-chat-turns N`: a conversation ends after N questions (410 `ended`, as past `maxTurns`). `-chat-slow`: an
 /// event every 3 s, not 0.5 s, so a flow can leave mid-answer. `-chat-blocks`: the answer has one of each kind of block,
@@ -83,6 +84,12 @@ final class FakeChat {
   private func recorded(conversation: String, n: Int) throws -> [String] {
     if args.contains("-chat-unavailable") {
       return ["event: step\ndata: {\"kind\":\"search\",\"query\":\"cá neon\"}\n\n", "event: error\ndata: {\"error\":\"unavailable\"}\n\n"]
+    }
+    if args.contains("-chat-cut-off") {
+      let events = try String(contentsOf: protocols.appending(path: "chat-stream-species.sse"), encoding: .utf8)
+        .components(separatedBy: "\n\n").filter { !$0.isEmpty }
+      guard let first = events.firstIndex(where: { $0.hasPrefix("event: text") }) else { return [] }
+      return events[...first].map { $0 + "\n\n" } + ["event: error\ndata: {\"error\":\"failed\"}\n\n"]
     }
     let name = args.contains("-chat-failed") ? "chat-stream-failed.sse" : args.contains("-chat-uncovered") ? "chat-stream-uncovered.sse" : "chat-stream-species.sse"
     let whole = try String(contentsOf: protocols.appending(path: name), encoding: .utf8)

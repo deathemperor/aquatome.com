@@ -3,8 +3,8 @@ import SwiftUI
 
 /// The chat's box, at the foot of the screen: the question being written, up to five lines then scrolling inside; over
 /// it, what stops a question from going (the day used, chat off, signed out) or "Chưa có mạng"; under it, while a first
-/// question is written, where questions go, then "Thường dưới nửa phút." while one waits, and from 450 characters its
-/// length against the limit.
+/// question is written, where questions go, then "Thường mất chưa tới nửa phút." while one waits. From 150 short of the
+/// limit, the question's length over the send button, as Messages does.
 struct ChatComposer: View {
   @Bindable var model: ChatModel
   var typing: FocusState<Bool>.Binding
@@ -15,7 +15,9 @@ struct ChatComposer: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
 
-  private var length: Int { model.draft.utf16.count }
+  /// As the reader sees characters, after trimming: as the Worker counts them.
+  private var length: Int { model.draft.trimmingCharacters(in: .whitespacesAndNewlines).count }
+  @ScaledMetric(relativeTo: .caption2) private var countSize = 11.0
   private var over: Bool { length > model.maxChars }
   private var canSend: Bool {
     !model.draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !model.answering && !over && !model.pathOffline && !signedOut
@@ -30,12 +32,26 @@ struct ChatComposer: View {
           .focused(typing)
           .padding(.vertical, 8)
           .accessibilityIdentifier("chat-box")
-        Button(action: send) {
-          Image(systemName: "arrow.up.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+        VStack(spacing: 2) {
+          // Stacked: four digits don't fit over the button on one line ("1.432" over "/1.500").
+          if length >= model.maxChars - 150 {
+            VStack(spacing: 0) {
+              Text(verbatim: length.formatted(.number.locale(.app)))
+              Text(verbatim: "/" + model.maxChars.formatted(.number.locale(.app)))
+            }
+            .font(.system(size: max(11, countSize)).monospacedDigit())
+            .foregroundStyle(over ? Color.red : Color.secondary)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(verbatim: "\(length.formatted(.number.locale(.app)))/\(model.maxChars.formatted(.number.locale(.app)))"))
+            .accessibilityIdentifier("chat-length")
+          }
+          Button(action: send) {
+            Image(systemName: "arrow.up.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+          }
+          .disabled(!canSend)
+          .accessibilityLabel(Text("Gửi"))
+          .accessibilityIdentifier("chat-send")
         }
-        .disabled(!canSend)
-        .accessibilityLabel(Text("Gửi"))
-        .accessibilityIdentifier("chat-send")
       }
       .padding(.leading, 14)
       .padding(.trailing, 4)
@@ -82,14 +98,11 @@ struct ChatComposer: View {
         Text("Câu hỏi đã quá \(model.maxChars.formatted(.number.locale(.app))) ký tự. Rút gọn rồi gửi nhé.")
           .foregroundStyle(.red)
       } else if model.answering, model.thread.last?.reply.writing == false {
-        Text("Thường dưới nửa phút.")
+        Text("Thường mất chưa tới nửa phút.")
       } else if model.thread.isEmpty {
         Text("AquaTome gửi câu hỏi tới Claude và lưu đến khi bạn xóa tài khoản.")
       }
       Spacer(minLength: 0)
-      if length >= model.maxChars - 50 {
-        Text(verbatim: "\(length)/\(model.maxChars)").monospacedDigit().foregroundStyle(over ? Color.red : Color.secondary).accessibilityIdentifier("chat-length")
-      }
     }
     .font(.footnote)
     .foregroundStyle(.secondary)
@@ -133,7 +146,7 @@ private struct StopCard: View {
     ChatCard(icon: "hourglass", title: title) {
       switch stop {
       case .rate: Text("Hỏi tiếp được từ \(reset).")
-      case .busy: Text("Câu này chưa được tính. Hỏi lại được từ \(reset).")
+      case .busy: Text("Câu này không bị tính. Hỏi lại được từ \(reset).")
       default: Text("Câu này chưa được tính.")
       }
     } action: {
@@ -146,7 +159,7 @@ private struct StopCard: View {
     switch stop {
     case .rate(let limit?): Text("Hết \(limit) câu hỏi hôm nay")
     case .rate(nil): Text("Hết lượt hỏi hôm nay")
-    case .busy: Text("AquaTome đã hết lượt hỏi hôm nay")
+    case .busy: Text("AquaTome đã hết lượt hỏi Claude hôm nay")
     default: Text("Lúc này chưa hỏi được")
     }
   }
