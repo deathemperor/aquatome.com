@@ -97588,5 +97588,153 @@
       "ADA Aqua Soil Amazonia",
       "Sansibar"
     ]
+  },
+  "vi/species/hyphessobrycon-haraldschultzi": {
+    "at": "2026-11-09",
+    "hash": "1c6676f1f208a3e0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hyphessobrycon-socolofi": {
+    "at": "2026-11-09",
+    "hash": "5215b9da70b98019",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lamprologus-kungweensis": {
+    "at": "2026-11-09",
+    "hash": "66e44b298b34ea4a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Vỏ ốc escargot dùng tốt, các cửa hàng thực phẩm cao cấp tử tế thường có bán.",
+        "why": "Assumes Western gourmet food shops selling escargot shells, not something a Vietnamese hobbyist would find.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/megalodoras-uranoscopus": {
+    "at": "2026-11-09",
+    "hash": "6c9ae7755645d486",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "có thể nuôi chung với nhiều loài khác trong hệ thống đủ lớn",
+        "why": "'Hệ thống' is a calque of English 'system'; Vietnamese keepers just say the tank.",
+        "by": "model",
+        "fix": "trong bể đủ lớn"
+      },
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "cá da trơn đàn banjo",
+        "why": "Literal translation of 'banjo catfish'; local keepers say cá banjo.",
+        "by": "model",
+        "fix": "cá banjo"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mekongina-erythrospila": {
+    "at": "2026-11-09",
+    "hash": "2996fb84a2138be2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/melanochromis-chipokae": {
+    "at": "2026-11-09",
+    "hash": "f703d80b5fec87c0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/melanochromis-lepidiadaptes": {
+    "at": "2026-11-09",
+    "hash": "4cfbfc2f4866deac",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/melanotaenia-affinis": {
+    "at": "2026-11-09",
+    "hash": "0112575cf74c5e00",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/melanotaenia-gracilis": {
+    "at": "2026-11-09",
+    "hash": "e75c96633d5724cd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "có thể thêm một hai cành dẻ gai",
+        "why": "\"Cành dẻ gai\" is a literal translation of beech branches, which keepers in Vietnam don't use and don't say; they decorate with driftwood.",
+        "by": "model",
+        "fix": "một hai cành lũa"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/melanotaenia-irianjaya": {
+    "at": "2026-11-09",
+    "hash": "e11b3219a2b2edf8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nemacheilus-petrubanarescui": {
+    "at": "2026-11-09",
+    "hash": "86189e83e30d17b3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-flumineus": {
+    "at": "2026-11-09",
+    "hash": "75c6d34e71a7ac04",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "Mọi ảnh kèm trang này đều là dạng 'vây lưng nhạt'.",
+        "why": "Refers to the source page's photos, which this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/sinibotia-pulchra": {
+    "at": "2026-11-09",
+    "hash": "10b2d24780367b94",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
   }
 }
