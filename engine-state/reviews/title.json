@@ -1,4 +1,42 @@
 {
+  "vi/guides/youtube-0MzfLrSqfXY": [
+    {
+      "at": "2026-11-09T00:09:28Z",
+      "model": "opus",
+      "score": 0,
+      "notes": [
+        "still promises a count the text lacks: title promises 10; 6 headings, none numbered, lists of 3, 4"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-4tfp4V1usjA": [
+    {
+      "at": "2026-11-09T00:09:46Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "Starting with bare 'Loài cá' sounds stiff in Vietnamese; 'Những loài cá' or 'Các loài cá' would read more naturally.",
+        "Dropping the number means the title no longer gives a count, so it can't mislead, but readers lose a hint of what the list covers.",
+        "If you count each species, the text lists 10 (betta, corydoras, 4 schooling tetras/rasbora, rainbowfish, blood parrot, pleco, platy), so the original '10' may have been right. By section headings there are only 7."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-LRTzeSTeN-8": [
+    {
+      "at": "2026-11-09T00:09:54Z",
+      "model": "opus",
+      "score": 0,
+      "notes": [
+        "still promises a count the text lacks: title promises 10; 8 headings, none numbered, lists of 5"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-vl1Lx9iWDYU": [
     {
       "at": "2026-11-08T08:46:16Z",

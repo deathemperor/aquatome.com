@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules: docs/governance.md, "Photos".
-4824 verdicts. Shows it: 3284; its habitat (asked again): 4; something else: 218; not a photo of it: 178; dead or as food: 239; a person in it: 77; a logo on it: 27; can't tell: 782.
+Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules: docs/governance.md, "Photos".
+4807 verdicts. Shows it: 3279; its habitat (asked again): 4; something else: 213; not a photo of it: 177; dead or as food: 236; a person in it: 73; a logo on it: 22; can't tell: 787.
 
-## Left with no photo (54)
+## Left with no photo (52)
 
 - plants/vesicularia-ferriei
 - plants/cyperus-helferi
@@ -53,14 +53,12 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 - species/garra-arupi
 - species/garra-kalpangi
 - species/garra-mullya
-- species/hypselecara-coryphaenoides
-- species/labeo-pierrei
 - species/laides-hexanema
 - species/laides-longibarbis
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (782)
+## Can't tell: still shown (787)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -266,17 +264,18 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/543890514.webp) | faded olive gourami-like fish in a glass tank outdoors; stripes faint, can't confirm species |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742325.webp) | group of pale pinkish gouramis with no stripes |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742327.webp) | pale pinkish gouramis with no stripes, may be washed-out Trichopsis |
-| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/312876772.webp) | tall septate rush-like leaves in water with pennywort; may be a larger Lilaeopsis species |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/257979017.webp) | a few strap-like leaves over a carpet of a different tiny-leaved plant; the carpet is the main subject |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/312876772.webp) | tall septate tubular leaves in water with pennywort; may be another Lilaeopsis species |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571092.webp) | emersed lawn of Lilaeopsis-like plant outdoors; species uncertain |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571227.webp) | emersed grassy carpet on a stream bank under a tree; could be wild Lilaeopsis but too distant and mixed with grasses to  |
-| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571435.webp) | dense fine-leaved grassy turf in the wild; can't confirm the species |
-| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/251523954.webp) | orange fish with dark stripe in photo tank; markings not clear enough to confirm |
-| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24486132179.webp) | wild moss carpet with grass stems; looks like a different moss with swollen shoot tips |
-| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24760273561.webp) | wild terrestrial moss mat with leaf litter; species can't be confirmed |
-| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/472757565.webp) | yellow-green wild moss on the ground; can't confirm the species |
-| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/172831572.webp) | very blurry red fish in murky water, can't identify |
-| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/221208693.webp) | pond fish in orange, pale and dark colours, could be koi |
-| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/2b2afd251f08b1a2.webp) | emersed moss mat on rock, could be another moss |
-| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/81db0ee988f0156a.webp) | submerged trailing moss in stream, fine branched look, ID unclear |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571359.webp) | emersed grass-like mat by rock and moss; can't confirm species |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571435.webp) | dense fine grassy turf outdoors; could also be Eleocharis or another grass-like plant |
+| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/472757565.webp) | Yellow-green terrestrial moss mat on soil with twigs; can't confirm it is Taxiphyllum alternans rather than another moss |
+| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/172831572.webp) | very blurry pinkish fish in cloudy water |
+| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/221208693.webp) | pale orange and dark fish in murky pond from above; koi not ruled out |
+| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/73215815.webp) | red fish in pond seen through rippled surface; goldfish or koi unclear |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/2b2afd251f08b1a2.webp) | emersed moss mat on a wet rock; can't be told apart from other mosses |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/81db0ee988f0156a.webp) | long submerged moss strands in a stream with leaves; might be F. fontanus but too blurry to confirm |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/654013920.webp) | green moss mat in shallow stream with leaves; moss species can't be confirmed |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/611221064.webp) | blurry slender fish over gravel, possibly a topminnow or mosquitofish |
 | species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/commons/00b64e596a77e9a4.webp) | wild-type bronze carp, may be common carp rather than koi |
@@ -847,7 +846,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/2a6c6ba0df2ab10a.webp) | wild stream bottom, two small striped fish seen from above, too distant to confirm |
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/5cb4fe636c844fc7.webp) | wild stream bed, small distant slender fish among rocks, species unclear |
 
-## Removed (728)
+## Removed (711)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -1544,10 +1543,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/hoplias-aimara | [photo](https://media.aquatome.com/commons/ce6bec729b4aef27.webp) | its Commons file names Hydrolycus armatus |
 | species/hoplias-malabaricus | [photo](https://media.aquatome.com/commons/22f2ef688d132c11.webp) | dead: landed trahira head held in fingers over a tiled floor, mouth open showing teeth |
 | species/horadandia-atukorali | [photo](https://media.aquatome.com/seriouslyfish/b9e0665c06839e96.webp) | wetland habitat landscape with palms, no fish visible |
-| species/hydrolycus-tatauaia | [photo](https://media.aquatome.com/seriouslyfish/19ce309bb50c7acc.webp) | dead: dead payara-type fish lying on a white surface |
-| species/hyphessobrycon-stegemanni | [photo](https://media.aquatome.com/seriouslyfish/7b0da118d55416d0.webp) | savanna landscape with palms and mesa, no fish |
-| species/hypoptopoma-incognitum | [photo](https://media.aquatome.com/seriouslyfish/15a667b04899675e.webp) | dead: small Hypoptopoma-like otothrichin catfish caught and held up between fingers |
-| species/hypselecara-coryphaenoides | [photo](https://media.aquatome.com/commons/152050227c838485.webp) | its Commons file names Astronotus ocellatus |
 | species/julidochromis-ornatus | [photo](https://media.aquatome.com/commons/e21d878bee64002f.webp) | its Commons file names Julidochromis regani |
 | species/kryptopterus-bicirrhis | [photo](https://media.aquatome.com/commons/1d6d874985b49ace.webp) | its Commons file names Kryptopterus vitreolus |
 | species/kryptopterus-bicirrhis | [photo](https://media.aquatome.com/scotcat/82761dfd5ea0d7b0.webp) | dead: opaque white preserved specimen photographed on black background, long barbels; not transparent like live fish |
