@@ -182,10 +182,15 @@ public enum Chat {
     /// true: part of the answer is Claude's general fishkeeping knowledge, not a page or tool the run read; false: none of
     /// it is; nil: the Worker didn't say, and the screen shows nothing.
     public let general: Bool?
+    /// The wait's first line, as it streamed (`opening`); nil when the answer turned out off topic and the Worker took it
+    /// back, or there was none: the app takes it away.
+    public let opening: String?
   }
 
   /// A stream's event, by its name.
   public enum Event: Sendable {
+    /// The wait's first line: one plain sentence saying what the chat is looking up, at most once, before the first step.
+    case opening(String)
     case step(Step)
     /// The next piece of the text.
     case text(String)
@@ -274,6 +279,7 @@ public enum Chat {
   public static func event(_ e: ServerEvent) -> Event? {
     let o = object(Data(e.data.utf8))
     switch e.name {
+    case "opening": return (o?["text"] as? String).map(Event.opening)
     case "step": return o.flatMap(step).map(Event.step)
     case "text": return (o?["text"] as? String).map(Event.text)
     case "block": return o.flatMap(block).map(Event.block)
@@ -290,7 +296,7 @@ public enum Chat {
           let covered = o["covered"] as? Bool else { return nil }
     return Turn(conversation: c, n: n, text: text, blocks: (o["blocks"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(block) },
                 suggestions: (o["suggestions"] as? [Any] ?? []).compactMap { $0 as? String }.prefix(3).map { $0 }, covered: covered,
-                steps: (o["steps"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(step) }, general: o["general"] as? Bool)
+                steps: (o["steps"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(step) }, general: o["general"] as? Bool, opening: o["opening"] as? String)
   }
 
   private static func step(_ o: [String: Any]) -> Step? {
