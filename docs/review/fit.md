@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3701 | 3409 | 1551 | 72 | 47 | 197 | 33 | 1003 | 448 | 2828 | 485 | 8 | 14 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1131 | 1064 | 327 | 19 | 4 | 3 | 5 | 164 | 64 | 47 | 145 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
-| Thai | 1124 | 1057 | 317 | 17 | 4 | 4 | 3 | 145 | 80 | 80 | 134 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
+| Vietnamese | 3710 | 3414 | 1527 | 71 | 47 | 194 | 33 | 982 | 437 | 2816 | 479 | 8 | 13 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1111 | 1044 | 323 | 19 | 4 | 3 | 5 | 161 | 64 | 45 | 144 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
+| Thai | 1104 | 1037 | 310 | 17 | 4 | 4 | 3 | 141 | 80 | 79 | 131 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
 | Malay | 180 | 150 | 54 | 4 | 1 | 0 | 0 | 24 | 18 | 8 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 129, Indonesian 2 of 57, Thai 2 of 57, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 129, Indonesian 2 of 56, Thai 2 of 56, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -69,8 +69,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 ## Products the market table has no row for, Vietnamese pages
 
-- repashy: 47
-- panacur: 31
+- repashy: 45
+- panacur: 32
 - ada: 16
 - ada amazonia aqua soil: 14
 - fluval stratum: 14
@@ -81,10 +81,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - hikari vibra bites: 12
 - aquario neo soil: 11
 - eheim: 10
-- keo 502: 10
 - seachem fluorite: 10
 - aquaclear: 9
 - jbl: 9
+- keo 502: 9
 - weld-on 4: 9
 - apt fix: 8
 - carib sea eco-complete: 8

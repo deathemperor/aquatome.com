@@ -10,7 +10,8 @@
     "democratic-republic-of-the-congo",
     "pool-malebo",
     "lower-congo-river",
-    "republic-of-the-congo"
+    "republic-of-the-congo",
+    "lower-congo"
   ],
   "dataCard": {
     "tempC": [
@@ -21,6 +22,13 @@
           "max": 28
         },
         "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -31,6 +39,13 @@
           "max": 7.5
         },
         "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
@@ -41,6 +56,13 @@
           "max": 15
         },
         "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
       }
     ],
     "sizeCm": [
@@ -48,6 +70,10 @@
         "source": "aquatome",
         "value": 12,
         "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -55,6 +81,10 @@
         "source": "aquatome",
         "value": 75,
         "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 75
       }
     ],
     "difficulty": [
@@ -62,6 +92,10 @@
         "source": "aquatome",
         "value": 2,
         "ref": 9
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ],
     "lifeYears": [
@@ -207,6 +241,72 @@
         5,
         6
       ]
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>The blockhead cichlid, Steatocranus casuarius, is a rheophilic cichlid from the Lower Congo River and its tributaries, Democratic Republic of Congo. Its swimbladder is modified to reduce buoyancy, and in the aquarium it spends most of its time resting on the substrate or in caves, moving with short 'hopping' motions. A monogamous cave spawner, it should be kept in pairs, and both parents guard the fry for up to three months.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>Democratic Republic of Congo, Republic of the Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>It inhabits fast-moving, turbulent parts of the Lower Congo River and its tributaries, usually being found in pockets of still water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>Standard length 12 cm SL. Aquarium base 75 × 30 cm; volume ~68 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>A substrate of sand is best as the fish like to dig, often creating a network of caves and tunnels under the tank decor. Furnish the aquarium with piles of rocks arranged to form caves, but ensure these are secure (placing them on the aquarium base or using silicone to glue them together is advised), so they are not likely to fall on burrowing fish. Pieces of driftwood are also suitable. Plants can be used but these must be robust species such as Anubias as these can be rooted to rocks or wood and will not be disturbed by the digging activity of the fish.</p><p>The water should be well-oxygenated with strong flow in places to reflect the natural habitat of this species, and a small powerhead is suggested to achieve this. However the fish should also be provided with a quiet area where the current is low. Upturned flowerpots or lengths of pvc piping make good alternative shelters and spawning sites for the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<ul><li>Temperature: 24–28 °C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>It will accept dried pellets or flakes, but these should be supplemented with regular feedings of live and frozen foods such as bloodworm and brineshrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>A territorial species that can be combined with other species requiring similar conditions. Good tankmates include some Alestiid tetras, Chaetostoma sp., Chiloglanis sp., some of the larger characins and barbs and rheophilic Synodontis species such as S. brichardi. It should not be kept with any other cichlids unless the tank is very large. S. casuarius should be kept in pairs. A suitably large tank is required if you wish to house more than one pair together.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>The male is larger and develops a bigger nuchal hump (the protrusion formed from fatty deposits on the forehead of the fish) than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>Not too difficult. Monogamous cave spawner. The pair bond formed by this species is so strong that if one partner in a pair dies, the other may not seek another partner. The fish may breed in a community tank, but is best spawned in a species tank, with only a shoal of Congo tetras or similar to act as dither fish, as if kept alone the fish are somewhat skittish.</p><p>The aquarium should be set up as described above, with a temperature of 24–26.5 °C and slightly soft water of pH 6.0–7.0. The most reliable way to obtain a pair is to purchase a group of young fish and allow things to develop naturally. There is no guarantee that selecting an adult pair will result in spawning as the fish prefer to choose their own partners. In any case, condition the fish on a varied diet containing plenty of live and frozen foods. Once a pair has formed it is advisable to remove the other fish as they will most likely not be tolerated any longer.</p><p>Spawning itself occurs secretively in a cave. The pair will either choose an existing cave in the tank or excavate their own under a rock. The 20–150 eggs are laid on the wall or roof of the cave and hatch in around 5–7 days, with the fry becoming free swimming in 11–14 days. At this point they leave the breeding cave to forage for food, shepherded by the adults. The fry are guarded diligently by both parents, and any other fish present are attacked should they venture too close. Fry straying from the main group are immediately herded back. Brood care continues for up to 3 months, at which point the young are left to fend for themselves and the parents may spawn again. If the young are left in the tank they are usually tolerated by the adults even when they are protecting another brood.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>An easily kept cichlid whose character more than compensates for its somewhat drab colouration, S. casuarius is sometimes seen for sale as \"Humphead\", \"Lionhead\" or \"Buffalohead\" cichlid. It is a rheophilic fish meaning it inhabits fast waters. Its swimbladder is modified to reduce buoyancy and thus prevent it from being swept away by the strong currents in its natural habitat. In the aquarium it spends most of its time resting on the substrate or hiding in caves and tunnels. It is comical to observe as it swims with short \"hopping\" motions, appearing to bounce around the tank floor. Interestingly the characteristic \"hump\" on the head of the fish can change size quite rapidly.</p>"
     }
   ],
   "photos": [
@@ -249,6 +349,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius,_male_frontal_view.jpg",
       "caption": "A pair of the lionhead cichlid (Steatocranus casuarius), the male in frontal view.",
       "thumb": "https://media.aquatome.com/commons/6e0768d9b8e6a4d5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d5315a9b35333c54.webp",
+      "width": 960,
+      "height": 631,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius_-_family.jpg",
+      "caption": "Buckelkopfbuntbarsch (Steatocranus casuarius), links männlich, rechts weiblich und ein paar Jungfische.",
+      "thumb": "https://media.aquatome.com/commons/d5315a9b35333c54-480.webp"
     }
   ],
   "videos": [
@@ -259,7 +369,37 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng nhỏ",
+        "bơm tạo sóng bể cá",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá rô phi cảnh",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-09",
   "refs": [
     {

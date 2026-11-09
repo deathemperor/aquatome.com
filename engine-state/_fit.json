@@ -103377,19 +103377,11 @@
     "products": []
   },
   "vi/species/schistura-balteata": {
-    "at": "2026-11-07",
-    "hash": "18bec41dbf67f8c0",
+    "at": "2026-11-09",
+    "hash": "143393747be5ae5f",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Sinh cảnh trong ảnh là một con suối chảy qua rừng",
-        "why": "Refers to a photo from the original article that this page does not have.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/schistura-beavani": {
@@ -106001,6 +105993,387 @@
     "hash": "1e82f25d1428c37d",
     "model": "opus",
     "checklist": 2,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-caudofurca": {
+    "at": "2026-11-09",
+    "hash": "2ca1d7c810d37d0c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-disparizona": {
+    "at": "2026-11-09",
+    "hash": "e919a61722aa586e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-hypsiura": {
+    "at": "2026-11-09",
+    "hash": "30b4c3b51126e13d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-kengtungensis": {
+    "at": "2026-11-09",
+    "hash": "4706c1da85d70732",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-kloetzliae": {
+    "at": "2026-11-09",
+    "hash": "309cc485f90949ba",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-kodaguensis": {
+    "at": "2026-11-09",
+    "hash": "dcd8f6d3a1b66bd8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-oedipus": {
+    "at": "2026-11-09",
+    "hash": "7fefd431cbed16fa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-pridii": {
+    "at": "2026-11-09",
+    "hash": "0f7475ebaafadf81",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-robertsi": {
+    "at": "2026-11-09",
+    "hash": "e16a689009ec7755",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "Tùy bể mà dùng thêm lọc máy, thổi luồng hoặc cục sủi.",
+        "why": "\"thổi luồng\" is a literal rendering of 'powerhead', not what Vietnamese keepers call it.",
+        "by": "model",
+        "fix": "máy tạo sóng"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/schistura-schultzi": {
+    "at": "2026-11-09",
+    "hash": "384f0976754a68eb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "(đây là nhóm 'B' nói ở trên)",
+        "why": "Refers to a 'group B' described earlier in the source article, which this page never mentions.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "Tùy bể mà gắn thêm lọc máy, thổi luồng hoặc cục sủi.",
+        "why": "'Thổi luồng' is not the hobby term for a powerhead in Vietnam.",
+        "by": "model",
+        "fix": "máy tạo sóng / bơm tạo dòng"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/schistura-spilota": {
+    "at": "2026-11-09",
+    "hash": "dadb0d68d770c1c4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/scleromystax-macropterus": {
+    "at": "2026-11-09",
+    "hash": "969ebad89ec3877e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/scleromystax-prionotos": {
+    "at": "2026-11-09",
+    "hash": "982c2f686383a4b0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/scleromystax-salmacis": {
+    "at": "2026-11-09",
+    "hash": "4afbb5d5f44a2d73",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/semaprochilodus-insignis": {
+    "at": "2026-11-09",
+    "hash": "a945091fcec01822",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "Ở các nước bản địa, chúng là cá ăn thịt.",
+        "why": "Mistranslation of 'food fish'; 'cá ăn thịt' means carnivorous fish, contradicting the herbivorous diet.",
+        "by": "model",
+        "fix": "cá thực phẩm"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "dùng gỗ dẻ gai thường cũng an toàn, miễn là gỗ đã phơi thật khô và bóc hết vỏ",
+        "why": "Common beech wood is an easy substitute only for a European (UK) reader, not one in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/serpenticobitis-octozona": {
+    "at": "2026-11-09",
+    "hash": "a9a8e1e6dd9048f7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serpenticobitis-zonata": {
+    "at": "2026-11-09",
+    "hash": "cc7c3a08c70483cb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-altuvei": {
+    "at": "2026-11-09",
+    "hash": "ba639893705ec1b6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-brandtii": {
+    "at": "2026-11-09",
+    "hash": "0edbb0dcbd8645bb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-elongatus": {
+    "at": "2026-11-09",
+    "hash": "e8bf932232029e26",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "mực cắt nhỏ, cá whitebait và giun đất",
+        "why": "Whitebait is an English food-shop term not used by Vietnamese keepers.",
+        "by": "model",
+        "fix": "cá cơm"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/serrasalmus-gouldingi": {
+    "at": "2026-11-09",
+    "hash": "bbd471156255b247",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-maculatus": {
+    "at": "2026-11-09",
+    "hash": "8e95957ba4da67df",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-manueli": {
+    "at": "2026-11-09",
+    "hash": "a58f6a070ca42636",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "nên tính tới chuyện lắp thêm một hai cái thổi luồng cho nhiều oxy và dòng chảy mạnh hơn",
+        "why": "'Thổi luồng' is a literal rendering of powerhead; keepers in Vietnam call it a wave pump.",
+        "by": "model",
+        "fix": "máy tạo sóng"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/serrasalmus-marginatus": {
+    "at": "2026-11-09",
+    "hash": "6062d05760f16d13",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/serrasalmus-sanchezi": {
+    "at": "2026-11-09",
+    "hash": "abc3cd58d5114016",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sewellia-elongata": {
+    "at": "2026-11-09",
+    "hash": "e249301259f4ea38",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sicyopus-cebuensis": {
+    "at": "2026-11-09",
+    "hash": "a919a56913b4ada2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sicyopus-discordipinnis": {
+    "at": "2026-11-09",
+    "hash": "4b55793d5a56e758",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sicyopus-exallisquamulus": {
+    "at": "2026-11-09",
+    "hash": "4fc67bd5b5e56abb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Chẳng hạn, những con bắt được trên đảo Java trông rất giống (xem hình).",
+        "why": "Points the reader to a picture this page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "đã xác định những con trong hình là S. exallisquamulus",
+        "why": "Refers to the source article's photos as if the reader could see them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/sicyopus-zosterophorus": {
+    "at": "2026-11-09",
+    "hash": "9f82a3c72603e04c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/silurus-glanis": {
+    "at": "2026-11-09",
+    "hash": "bb40dca666c469d8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sinibotia-superciliaris": {
+    "at": "2026-11-09",
+    "hash": "fddb80e39627b488",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/sinogastromyzon-tonkinensis": {
+    "at": "2026-11-09",
+    "hash": "f942b835adafa204",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Con cái thì ngược lại (xem ảnh).",
+        "why": "Points to a photo from the source article that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/sorubim-lima": {
+    "at": "2026-11-09",
+    "hash": "e74777f06ecd766a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sperata-aor": {
+    "at": "2026-11-09",
+    "hash": "b760c0f70032e144",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "những loài cá khổng lồ phá bể khác",
+        "why": "\"Phá bể\" is a literal calque of the English \"tankbuster\"; keepers in Vietnam call these fish \"cá khủng\".",
+        "by": "model",
+        "fix": "những loài cá khủng khác"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/steatocranus-tinanti": {
+    "at": "2026-11-09",
+    "hash": "11cf5daca8390d9c",
+    "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   }
