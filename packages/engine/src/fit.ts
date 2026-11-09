@@ -20,7 +20,7 @@ import { snapshotName } from './snapshot'
  * (prompts/fit.md). A model's finding counts only with a quote that is on the page. Whether a product is sold in a market
  * is never the model's call: it names the products, and the market table (market.ts) says.
  */
-export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'harm', 'card', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
+export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'harm', 'card', 'dose-purpose', 'dose-conflict', 'dose-caution', 'lethal'] as const
 export type FitCheck = (typeof FIT_CHECKS)[number]
 /** What each check came from, so a new complaint about one page has a place to go: a check run over all of them. */
 export const FIT_TITLE: Record<FitCheck, string> = {
@@ -38,6 +38,7 @@ export const FIT_TITLE: Record<FitCheck, string> = {
   'dose-purpose': 'A dose that doesn\'t say what it\'s for',
   'dose-conflict': 'The same treatment, for the same thing, dosed differently on another page',
   'dose-caution': 'A dose without the caution its source gives for shrimp or other sensitive animals',
+  lethal: 'A test\'s lethal level (LC50, LD50), which a reader can\'t act on and may take for what an animal stands',
 }
 /** The same, as the owner's daily report shows them. */
 export const FIT_LABEL_VI: Record<FitCheck, string> = {
@@ -55,6 +56,7 @@ export const FIT_LABEL_VI: Record<FitCheck, string> = {
   'dose-purpose': 'Liều không nói để trị gì',
   'dose-conflict': 'Cùng một cách trị mà trang này liều khác trang kia',
   'dose-caution': 'Liều thiếu lời dặn cho tép và con vật nhạy',
+  lethal: 'Mức gây chết trong thí nghiệm (LC50, LD50), người đọc dễ hiểu nhầm là mức con vật chịu được',
 }
 export type FitFinding = { check: FitCheck; part: string; quote: string; why: string; product?: string; fix?: string; by: 'rule' | 'model' }
 /** A dose as a page states it. A figure in here is on the page: keepDoses drops one whose figures aren't in its quote. */
@@ -345,6 +347,15 @@ export function harmfulDoses(text: string): { quote: string; why: string }[] {
   return out
 }
 
+/**
+ * A test's lethal level: LC50, LD50, LT50, the level that killed half the animals tested. A reader can't act on one and
+ * may take it for what an animal stands ("carp 88 mg/L" beside "nitrite is toxic above 0.1"), so no page gives one with
+ * its figure and no guide's facts carry one (the chief, 9 Nov). A plain threshold ("2 mg/L of ammonia is lethal") is not.
+ */
+const LETHAL = /(?<![\p{L}\p{N}])L[CDT]\s?-?50s?(?![\p{L}\p{N}])|median lethal|lethal (?:concentration|dose|temperature|level)s?[^.]{0,20}?50\s?%|lethal to 50\s?%|(?:nồng độ|liều|mức|nhiệt độ)[^.,]{0,20}?(?:gây|làm) chết (?:50\s?%|một nửa số)|(?:konsentrasi|kepekatan|dosis|dos|suhu|kadar)[^.]{0,15}?(?:mematikan|membunuh|maut)[^.]{0,20}?50\s?%|(?:ค่า|อุณหภูมิ|ความเข้มข้น|ปริมาณ|ระดับ)\S{0,6}ทำให้\S{0,12}ตาย\s*(?:50\s?%|ครึ่งหนึ่ง)/giu
+/** The sentences that give a lethal level with a figure. */
+export const lethalFigures = (text: string) => text.split(/(?<=[.!?])\s+|\n/).filter(s => { LETHAL.lastIndex = 0; return LETHAL.test(s) && /\d/.test(s.replace(LETHAL, '')) })
+
 /** A medicine, copper or salt named: what makes a figure in a researched fact a dose (topics.ts usableFact). */
 export const NAMES_TREATMENT = new RegExp(`${WORD(MED)}|${MED_TH}|${CU_WORD}|${WORD('muối|salt|saline|NaCl|garam')}|เกลือ`, 'iu')
 
@@ -374,6 +385,7 @@ export function fitRules(p: Page): FitFinding[] {
     }
     for (const q of phraseQuotes(text, p.lang)) say('words', id, q.quote, `listed: ${q.instead}`, { fix: q.instead })
     for (const h of harmfulDoses(html.has(id) ? rowsOf(html.get(id)!) : text)) say('harm', id, h.quote, h.why)
+    for (const s of lethalFigures(text)) say('lethal', id, s, 'a test\'s lethal level: the reader can\'t act on it and may take it for what the animal stands')
   }
   return dedupe(out)
 }
@@ -381,7 +393,7 @@ export function fitRules(p: Page): FitFinding[] {
 const dedupe = (xs: FitFinding[]) => [...new Map(xs.map(f => [`${f.check}|${norm(f.quote)}`, f])).values()]
 
 /** What the program works out itself, from the table and from `doses`, never the model's word. */
-const WORKED_OUT: readonly FitCheck[] = ['product', 'dose-purpose', 'dose-conflict', 'dose-caution']
+const WORKED_OUT: readonly FitCheck[] = ['product', 'dose-purpose', 'dose-conflict', 'dose-caution', 'lethal']
 const MODEL_CHECKS = FIT_CHECKS.filter(c => !WORKED_OUT.includes(c))
 const SCHEMA = {
   type: 'object', additionalProperties: false, required: ['findings', 'products', 'doses'],
