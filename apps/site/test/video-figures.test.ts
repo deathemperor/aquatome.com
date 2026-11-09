@@ -42,9 +42,9 @@ test('no still under 480p is shown: a storyboard tile or a low-resolution frame 
 
 test('no blurry still is shown: under the sharpness bar, or not yet measured, it leaves the section its words', () => {
   const still = (t: number, sharpness?: number) => ({ t, url: `https://media.aquatome.com/video/x/at${t}-hd.webp`, width: 1200, height: 675, caption: `Cảnh ${t}.`, ...(sharpness === undefined ? {} : { sharpness }) })
-  const root = parse(illustrate('vi', '<h3>Keo</h3><p>Dán lũa.</p>', video([still(10, 109.9), still(20), still(30, 110)])))
+  const root = parse(illustrate('vi', '<h3>Keo</h3><p>Dán lũa.</p>', video([still(10, 11.9), still(20), still(30, 12)])))
   expect(root.querySelectorAll('button.moment').map(b => b.getAttribute('data-t'))).toEqual(['30'])
-  const none = parse(illustrate('vi', '<h3>Keo</h3><p>Dán lũa.</p>', video([still(10, 40), still(20)])))
+  const none = parse(illustrate('vi', '<h3>Keo</h3><p>Dán lũa.</p>', video([still(10, 4), still(20)])))
   expect(none.querySelector('.vfigs')).toBeNull()
   expect(none.querySelector('p')!.textContent).toBe('Dán lũa.')
 })

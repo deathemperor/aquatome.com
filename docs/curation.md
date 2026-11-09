@@ -191,11 +191,13 @@ A guide's "Trong video" stills, on the site and in the app, show only when they 
 (`stillShown`, `packages/schema`). A still that fails leaves its section its words, and the page keeps its video.
 - **At least 480p**: its shorter side is 480 px or more. A storyboard tile (90 or 180 px) or a frame from a lower-resolution
   video is a smudge on a phone. Stills are never stored larger than their source frame, so this is the source's resolution.
-- **Sharp**: `sharpness`, the variance of the Laplacian over the sharpest 5% of the frame, is 110 or more
+- **Sharp**: `sharpness`, the variance of the Laplacian over the sharpest 5% of the frame, is 12 or more
   (`still-sharpness.ts`). It's the sharpest part, not the whole frame, so a sharp fish on a plain background passes. A still
-  not yet measured isn't shown. The bar was tuned by eye on 30 sharp and 30 blurry stills at full size
-  (`packages/engine/test/still-sharpness-labels.json`): it keeps 24 of the sharp and stops 26 of the blurry, the same up to
-  150. It's a pixel measure: high-contrast motion blur can pass it, and a small sharp subject can fail it.
+  not yet measured isn't shown. The bar was tuned by eye on 58 stills seen whole at phone width
+  (`packages/engine/test/still-sharpness-labels.json`): it stops 3 of the 7 blurry and 1 of the 45 fine. It stops frames with
+  nothing in focus. It's a pixel measure, and video compression's blocks read as detail: 4 of the 7 blurry scored 25 to 82,
+  among 28 fine stills, so a higher bar costs most of the fine ones. The first labels, judged on full-size crops, put the bar
+  at 110, which hid frames that read well on a phone.
 
 The engine measures each frame it makes, and each run measures any full-size still that has no score. Older guides' tiles
 stay in the content, hidden, until `video-stills` swaps them for the video's own frames: it needs them to find the frame.

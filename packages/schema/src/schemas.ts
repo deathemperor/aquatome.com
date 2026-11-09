@@ -178,11 +178,12 @@ const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...section
  * - Its shorter side is 480 px or more: a storyboard tile (90 or 180 px), or a frame from a video under 480p, doesn't.
  *   Stills are never stored larger than the frame they came from, so this is the source's resolution too.
  * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Tuned by eye
- *   on 30 sharp and 30 blurry stills at full size: at 110 it keeps 24 of the sharp and stops 26 of the blurry, the same
- *   up to 150 (packages/engine/test/still-sharpness-labels.json).
+ *   on 58 stills seen whole at phone width: at 12 it stops 3 of the 7 blurry and 1 of the 45 fine. It stops the frames
+ *   with nothing in focus. A soft frame with texture passes: stopping those would cost most of the fine ones
+ *   (packages/engine/test/still-sharpness-labels.json).
  */
 export const STILL_MIN_SIDE = 480
-export const STILL_MIN_SHARPNESS = 110
+export const STILL_MIN_SHARPNESS = 12
 export const stillShown = (m: { width: number; height: number; sharpness?: number }) =>
   Math.min(m.width, m.height) >= STILL_MIN_SIDE && (m.sharpness ?? 0) >= STILL_MIN_SHARPNESS
 

@@ -24,12 +24,13 @@ test('sharpness reads the sharpest part of a frame: a sharp subject on a plain b
   expect(await sharpnessOf(await asStored(plain).toBuffer())).toBe(0)
 })
 
-test('the bar does what it was tuned to on the 30 sharp and 30 blurry stills judged by eye: 24 sharp kept, 26 blurry stopped', () => {
-  expect(labels.good).toHaveLength(30)
-  expect(labels.bad).toHaveLength(30)
+test('the bar does what it was tuned to on 58 stills judged by eye at phone width: 3 of 7 blurry stopped, 44 of 45 fine kept', () => {
+  expect(labels.fine).toHaveLength(45)
+  expect(labels.borderline).toHaveLength(6)
+  expect(labels.blurry).toHaveLength(7)
   const shown = (s: { sharpness: number }) => stillShown({ width: 1200, height: 675, sharpness: s.sharpness })
-  expect(labels.good.filter(shown)).toHaveLength(24)
-  expect(labels.bad.filter(s => !shown(s))).toHaveLength(26)
+  expect(labels.blurry.filter(s => !shown(s))).toHaveLength(3)
+  expect(labels.fine.filter(shown)).toHaveLength(44)
 })
 
 test('every full-size still without a sharpness gets one; a tile, a still measured before and one that cannot be fetched are left', async () => {
