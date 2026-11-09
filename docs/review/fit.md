@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3355 | 3065 | 1418 | 70 | 45 | 181 | 32 | 924 | 402 | 2784 | 448 | 5 | 12 | 0 | 3 | 0 | 2 |
+| Vietnamese | 3439 | 3147 | 1452 | 70 | 45 | 189 | 32 | 945 | 422 | 2802 | 468 | 8 | 11 | 0 | 3 | 0 | 2 |
 | Indonesian | 1064 | 999 | 315 | 18 | 4 | 3 | 5 | 157 | 64 | 42 | 139 | 0 | 0 | 0 | 4 | 0 | 0 |
 | Thai | 1057 | 992 | 302 | 16 | 4 | 4 | 3 | 136 | 80 | 78 | 129 | 0 | 0 | 0 | 2 | 0 | 0 |
 | Malay | 171 | 142 | 52 | 4 | 1 | 0 | 0 | 22 | 18 | 9 | 19 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -67,30 +67,33 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 ## Products the market table has no row for, Vietnamese pages
 
-- repashy: 38
+- repashy: 39
 - panacur: 29
 - ada: 17
+- ada amazonia aqua soil: 14
 - hikari first bites: 14
 - ada amazonia: 12
 - easy fry and small fish food: 12
 - hikari shrimp cuisine: 12
 - aquario neo soil: 11
-- keo 502: 11
 - eheim: 10
+- hikari vibra bites: 10
 - seachem fluorite: 10
 - aquaclear: 9
-- hikari vibra bites: 9
+- keo 502: 9
 - weld-on 4: 9
 - apt fix: 8
 - carib sea eco-complete: 8
 - jbl: 8
-- keo 502: 8
 - fluval: 7
+- fluval stratum: 7
+- krylon fusion: 7
 - tetramin: 7
 - twinstar: 7
 - chihiros a2: 6
 - chihiros wrgb ii slim: 6
 - easy shrimp and snail shells: 6
+- eco-complete: 6
 - fluval bug bites: 6
 - liquifry: 6
 - matrix: 6
@@ -100,9 +103,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquario neo flow: 5
 - caribsea eco-complete: 5
 - easy planter: 5
-- eco-complete: 5
 - fluval plant and shrimp stratum: 5
 - hikari: 5
+- instant ocean: 5
 - pond armor: 5
-- repashy soilent green: 5
-- uniseal: 5

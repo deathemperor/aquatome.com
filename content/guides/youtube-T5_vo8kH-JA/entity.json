@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "T5_vo8kH-JA",
     "title": "DIY saltwater aquarium sump filter | The King of DIY",
@@ -32,45 +32,48 @@
         "t": 0
       },
       {
-        "category": "khac",
-        "brand": "Ecotech Marine",
-        "model": "Vortech MP / Vectra M1",
-        "t": 343
-      },
-      {
         "category": "test-nuoc",
         "type": "man",
-        "t": 270
+        "t": 165
       },
       {
         "category": "khac",
         "brand": "Marine Pure",
-        "model": "bio balls block",
         "t": 318
       },
       {
         "category": "khac",
-        "brand": "Chemi-pure",
-        "t": 345
+        "brand": "ChemiPure",
+        "t": 353
+      },
+      {
+        "category": "loc",
+        "t": 150
+      },
+      {
+        "category": "loc",
+        "brand": "EcoTech Marine",
+        "model": "Vectra M1",
+        "t": 365
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao bọt khí từ skimmer chạy lên bể chính",
+        "heading": "Vì sao phải làm sump mới",
         "moments": [
           {
-            "t": 444,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t444.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Skimmer đặt trong ngăn sump, nhìn từ phía trên."
+            "t": 160,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai ngăn sump mới màu trắng đặt cạnh nhau, có sẵn mút lọc."
           },
           {
-            "t": 474,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t474.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh thân skimmer với bọt khí li ti bên trong."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Sump cũ trong bể với các vách ngăn và ngăn chứa vật liệu lọc."
           }
         ],
         "photo": {
@@ -81,44 +84,44 @@
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Sump acrylic nhiều ngăn có skimmer đặt trong ngăn riêng, chia bằng vách."
+          "caption": "Sump acrylic nhiều ngăn có skimmer đặt riêng, đang lắp trong phòng kỹ thuật."
         }
       },
       {
-        "heading": "Chuẩn bị vật liệu",
+        "heading": "Vật liệu và cấu tạo",
         "moments": [
           {
-            "t": 118,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t118.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tấm lợp nhựa trong dạng sóng làm vách ngăn đặt trong bể kính."
+            "t": 120,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các vách ngăn bằng tấm nhựa trong gắn sát nhau trong bể sump."
           },
           {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t128.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Giỏ vật liệu lọc của sump cũ để thử vào bể."
+            "t": 125,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dãy vách ngăn nhựa trong dựng ở một đầu bể sump trống."
           }
         ]
       },
       {
-        "heading": "Sắp xếp các ngăn trong sump",
+        "heading": "Nước chảy trong sump theo thứ tự nào",
         "moments": [
           {
-            "t": 321,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t321.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chồng giỏ đen xếp trong sump để đặt vật liệu lọc."
+            "t": 320,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể sump với khối lọc, skimmer và ống nước."
           },
           {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t365.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các ngăn trong sump với khối vi sinh và vật liệu lọc."
+            "t": 350,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khối vật liệu lọc sinh học cạnh skimmer trong ngăn sump."
           }
         ]
       },
@@ -126,82 +129,87 @@
         "heading": "Tường chặn bọt hoạt động thế nào",
         "moments": [
           {
-            "t": 183,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t183.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhìn vào bên trong sump trống với các vách ngăn và ngăn bơm."
+            "t": 450,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn vào ngăn sump qua khe, thấy thiết bị và dây bên trong."
           },
           {
-            "t": 192,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t192.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các vách kính trong ngăn sump, nơi nước tràn qua rồi đi xuống đáy."
+            "t": 475,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at475-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh thiết bị trong sump với ống vàng và đường nước."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/T5_vo8kH-JA/p3-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/T5_vo8kH-JA/p3-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Hồ sump acrylic có các vách ngăn và ngăn đặt bơm hồi."
+        }
       },
       {
         "heading": "Đổi từ sump cũ sang sump mới",
         "moments": [
           {
-            "t": 252,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t252.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Sump mới bằng kính còn trống, có các ngăn, sẵn sàng để lắp đặt."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể sump mới trống, có sẵn các ngăn lọc, sẵn sàng để lắp."
           },
           {
-            "t": 281,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t281.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng cốc đo múc muối từ bao để pha nước mặn."
+            "t": 260,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay thao tác với máy bơm và sump bên dưới tủ bể."
           }
         ]
       },
       {
-        "heading": "Được và mất khi dùng sump nhỏ",
+        "heading": "Thay nước cho bể biển",
         "moments": [
           {
-            "t": 459,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t459.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Sump nhỏ nằm trong ngăn kệ tối, có ống và cây xanh bên trong."
+            "t": 285,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng hộp nhỏ đong muối biển từ bao để pha nước mới."
           },
           {
-            "t": 493,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/t493.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh bên trong sump nhỏ với bơm và các vách ngăn."
+            "t": 290,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng nhựa lớn đựng nước để hòa muối pha nước thay."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/T5_vo8kH-JA/p5-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/T5_vo8kH-JA/p5-TmV3X1N1bXAuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "Public domain",
-          "author": "Gtstricky",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Bộ sump acrylic nhỏ có skimmer và các ngăn, đặt gọn trong kệ bể."
-        }
+        ]
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/T5_vo8kH-JA/p6-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/T5_vo8kH-JA/p6-TmV3X1N1bXAuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "Public domain",
-          "author": "Gtstricky",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Sump tự làm bằng kính trong có các vách ngăn, đặt dưới kệ bể."
-        }
+        "heading": "Tốn bao nhiêu và đánh đổi gì",
+        "moments": [
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá sư tử vằn trắng đen bơi gần đá san hô trong bể."
+          },
+          {
+            "t": 530,
+            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể trưng bày đá sống xếp thành vòm, cá sư tử bơi phía trên."
+          }
+        ]
       }
     ]
   }

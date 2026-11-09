@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "QoLZvjObqYM",
     "title": "Thủy Sinh Là Gì? Thủy Sinh Cơ Bản • Phần 1",
@@ -30,25 +30,57 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 322
+        "t": 342
+      },
+      {
+        "category": "loc",
+        "t": 342
       },
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 344
+        "t": 342
       },
       {
         "category": "co2",
-        "t": 386
+        "t": 374
       },
       {
-        "category": "loc",
-        "t": 322
+        "category": "be-ca",
+        "t": 405
       }
     ],
     "figures": [
       {
-        "heading": "Cây thủy sinh cần những gì để phát triển",
+        "heading": "Chơi thủy sinh khác nuôi cá ở chỗ nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/QoLZvjObqYM/p0-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/QoLZvjObqYM/p0-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh với nhiều loại cây xanh um tùm, lũa và đá."
+        }
+      },
+      {
+        "heading": "Cây thủy sinh cần những gì để lên tốt",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/QoLZvjObqYM/p1-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/QoLZvjObqYM/p1-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây xanh um tùm, mọc dày trên lớp nền, có đàn cá nhỏ bơi."
+        }
+      },
+      {
+        "heading": "Cần sắm những gì để bắt đầu",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/QoLZvjObqYM/p2-FzY2FwaW5nLmpwZw.webp",
@@ -58,21 +90,7 @@
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh rậm rạp với nhiều loại cây xanh đỏ và đàn cá nhỏ."
-        }
-      },
-      {
-        "heading": "Cần mua những món gì",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/QoLZvjObqYM/p3-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/QoLZvjObqYM/p3-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh nhiều cây xanh đỏ, có cá neon, nền phủ cỏ."
+          "caption": "Bể thủy sinh cây rậm rạp với cá neon và lớp phân nền."
         }
       }
     ]
