@@ -9,7 +9,7 @@
     "microsorum-pteropus",
     "eleocharis-parvula"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "MLuT3K5yg44",
     "title": "Hãy cải tạo lại chiếc hồ của bạn theo cách của Yêu Thủy Sinh nhé!",
@@ -29,9 +29,7 @@
     },
     "lang": "vi",
     "taxa": [
-      "Microsorum pteropus",
-      "Eleocharis parvula",
-      "Hemianthus callitrichoides"
+      "Taxiphyllum sp."
     ],
     "gear": [
       {
@@ -42,76 +40,55 @@
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 240
+        "t": 242
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 122
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 185
+        "t": 242
       }
     ],
     "figures": [
       {
-        "heading": "Gỡ bonsai và buộc lại rêu cho tán",
+        "heading": "Làm lại tán bonsai",
+        "moments": [
+          {
+            "t": 5,
+            "url": "https://media.aquatome.com/video/MLuT3K5yg44/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với cây bonsai phủ rêu xanh um tùm.",
+            "sharpness": 774.1
+          }
+        ]
+      },
+      {
+        "heading": "Vệ sinh bể và xếp đá",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/MLuT3K5yg44/p1-d0aF9UV18yLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/MLuT3K5yg44/p1-d0aF9UV18yLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/MLuT3K5yg44/p1-yXyhtYWxlKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/MLuT3K5yg44/p1-yXyhtYWxlKS5qcGc-480.webp",
           "width": 960,
-          "height": 1707,
-          "licence": "CC BY-SA 4.0",
-          "author": "Jidanni",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Differential_moss_growth_TW_2.jpg",
-          "caption": "Rêu xanh mịn phủ kín trên mặt đá, giống tán rêu của bể bonsai."
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "Michael Gil from Toronto, ON, Canada",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protomelas_sp._%22Steveni_Taiwan%22_(male).jpg",
+          "caption": "Cá cichlid bơi trong bể có nền sỏi và đá, bố trí gọn gàng."
         }
       },
       {
-        "heading": "Đổ nền và xếp đá đen",
-        "moments": [
-          {
-            "t": 146,
-            "url": "https://media.aquatome.com/video/MLuT3K5yg44/t146.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đá đen xếp chắc trên lớp nền, bonsai đặt phía trên."
-          }
-        ]
-      },
-      {
-        "heading": "Đặt bonsai ở đâu trong bể",
-        "moments": [
-          {
-            "t": 175,
-            "url": "https://media.aquatome.com/video/MLuT3K5yg44/t175.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với cây bonsai đặt ở giữa, lùi về phía sau."
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/MLuT3K5yg44/t180.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể bonsai rêu, tán cây nằm chính giữa và không chạm kính."
-          }
-        ]
-      },
-      {
-        "heading": "Rải cát và trồng cây",
-        "moments": [
-          {
-            "t": 248,
-            "url": "https://media.aquatome.com/video/MLuT3K5yg44/t248.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể với cây trồng trên đá đen và thảm cây phía trước."
-          }
-        ]
+        "heading": "Trải cát và trồng cây",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/MLuT3K5yg44/p3-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/MLuT3K5yg44/p3-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cây thảm mini trải kín nền, cây nhỏ trồng sát những tảng đá."
+        }
       }
     ]
   }

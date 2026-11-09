@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "pygocentrus-nattereri",
-    "pangasianodon-hypophthalmus"
+    "pangasianodon-hypophthalmus",
+    "hemigrammus-erythrozonus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "0i9qSwTrXIc",
     "title": "HOW TO: DIY aquarium fish aquaponics",
@@ -30,16 +31,21 @@
     "transcribed": true,
     "taxa": [
       "Pygocentrus nattereri",
-      "Hyphessobrycon sp.",
+      "Hemigrammus erythrozonus",
       "Epipremnum aureum",
       "Symphysodon sp.",
-      "Pangasianodon hypophthalmus"
+      "Phractocephalus hemioliferus"
     ],
     "gear": [
       {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 34
+      },
+      {
         "category": "loc",
         "type": "thung",
-        "t": 290
+        "t": 170
       },
       {
         "category": "phan-nen",
@@ -49,10 +55,6 @@
       {
         "category": "den",
         "t": 445
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "t": 225
       }
     ],
     "figures": [
@@ -64,44 +66,39 @@
             "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at290-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai khay rọ trồng cây đặt trên nắp bể acrylic lớn.",
-            "sharpness": 705.7,
-            "person": false
+            "caption": "Hai thùng aquaponics trắng gắn trên mặt bể, chứa hạt đất sét nung.",
+            "sharpness": 705.7
           },
           {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at340-hd.webp",
+            "t": 310,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể acrylic dài với các rọ cây phía trên.",
-            "sharpness": 481.3,
-            "person": false
+            "caption": "Tay với xuống thùng trồng cây có lớp đất sét nung trên mặt bể.",
+            "sharpness": 96.2
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p0-dWFwb25pY3MuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p0-dWFwb25pY3MuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Gogerr",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:NC_Greenhouse_Nursery_Aubergines_in_Aquaponics.jpg",
-          "caption": "Cây trồng trong rọ trên máng nước, rễ chạm dòng nước giàu dinh dưỡng."
-        }
+        ]
       },
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p1-h5ZHJvdG9uLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p1-h5ZHJvdG9uLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lucis",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydroton.jpg",
-          "caption": "Hạt đất sét nung màu nâu cam dùng làm giá thể trồng cây."
-        }
+        "moments": [
+          {
+            "t": 470,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các thùng nhựa có rọ trồng cây đặt dưới đèn LED trồng cây.",
+            "sharpness": 340.9
+          },
+          {
+            "t": 480,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at480-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng nhựa trong với các rọ trồng cây chứa hạt đất sét nung.",
+            "sharpness": 334.3
+          }
+        ]
       },
       {
         "heading": "Làm thùng trồng cây",
@@ -111,9 +108,16 @@
             "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at350-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai nắp thùng nhựa đã khoan lỗ, rọ đặt sẵn trong các lỗ.",
-            "sharpness": 19.9,
-            "person": false
+            "caption": "Các rọ đựng hạt đất sét nung đặt trên nắp thùng nổi trên bể.",
+            "sharpness": 19.9
+          },
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khoan lỗ tròn trên nắp thùng nhựa bằng mũi khoan bậc.",
+            "sharpness": 24.4
           }
         ],
         "photo": {
@@ -124,35 +128,50 @@
           "licence": "CC BY-SA 3.0",
           "author": "Dmitry G",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makita_D-40163.JPG",
-          "caption": "Mũi khoan bậc dùng để khoan lỗ sạch trên nắp thùng nhựa."
+          "caption": "Mũi khoan bậc dùng để khoan lỗ trên thùng nhựa mà không làm nứt vỡ."
         }
       },
       {
-        "heading": "Đặt thùng vào bể và cắt nắp bể",
+        "heading": "Gắn thùng vào nắp bể",
         "moments": [
           {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at630-hd.webp",
+            "t": 420,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at420-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các thùng đặt vào lỗ cắt trên nắp bể, rọ nằm ngang mặt nắp.",
-            "sharpness": 299.7,
-            "person": false
+            "caption": "Dùng máy cắt khoét lỗ trên nắp bể cho vừa cỡ thùng.",
+            "sharpness": 114.6
           },
           {
-            "t": 650,
-            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at650-hd.webp",
+            "t": 430,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at430-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thùng có rọ nằm gọn trong nắp bể, nhìn từ góc thấp.",
-            "sharpness": 219.7,
-            "person": false
+            "caption": "Thùng nhựa đã thả lọt vào lỗ khoét trên nắp bể.",
+            "sharpness": 53.7
           }
         ]
       },
       {
         "heading": "Đèn cho cây",
-        "moments": [],
+        "moments": [
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp bóng đèn LED trồng cây loại nhỏ mua ở tiệm vật liệu.",
+            "sharpness": 624.2
+          },
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bóng đèn treo trên chân đèn, tay nâng lên hạ xuống dễ dàng.",
+            "sharpness": 68.2
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p4-IlQjAwMDgxLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p4-IlQjAwMDgxLmpwZw-480.webp",
@@ -161,59 +180,51 @@
           "licence": "CC BY-SA 3.0 at",
           "author": "D-Kuru",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_digital_visuals-3_grow_lights-close_up_PNr%C2%B00081.jpg",
-          "caption": "Ba bóng đèn LED trồng cây đỏ, tím, xanh treo trên trần."
+          "caption": "Ba bóng đèn LED trồng cây đỏ, hồng và xanh treo trên trần."
         }
       },
       {
-        "heading": "Mỗi thùng trồng bao nhiêu cây",
+        "heading": "Trồng bao nhiêu cây, trồng cây gì",
         "moments": [
           {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at610-hd.webp",
+            "t": 620,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at620-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Ba thùng trồng thủy canh xếp thành hàng, mỗi thùng có các rọ cây.",
-            "sharpness": 515.2,
-            "person": false
+            "caption": "Cận cảnh sáu rọ trồng đầy giá thể trên mặt bể, trồng khá dày.",
+            "sharpness": 23.6
+          },
+          {
+            "t": 630,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm xốp trắng trên mặt bể với sáu rọ trồng cây xếp sát nhau.",
+            "sharpness": 299.7
+          }
+        ]
+      },
+      {
+        "heading": "Các kiểu aquaponics khác",
+        "moments": [
+          {
+            "t": 640,
+            "url": "https://media.aquatome.com/video/0i9qSwTrXIc/at640-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bè xốp có các lỗ trồng cây nổi trên mặt nước trong hệ aquaponics.",
+            "sharpness": 40.5
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p5-VkaWFfQmVkLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p5-VkaWFfQmVkLmpwZw-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Penguinponics",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquaponics_Media_Bed.jpg",
-          "caption": "Bể trồng cây nhỏ lót sỏi nở, cây con mới mọc dưới đèn."
-        }
-      },
-      {
-        "heading": "Chi phí và các kiểu aquaponics khác",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p6-vbl93YXRlci5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p6-vbl93YXRlci5qcGc-480.webp",
-          "width": 960,
-          "height": 1572,
-          "licence": "CC BY-SA 4.0",
-          "author": "Joli Rumi",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pothos_plant_on_water.jpg",
-          "caption": "Trầu bà cắm rễ trong các ống thủy tinh đựng nước, cách trồng cây thủy canh đơn giản."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p7-9ELTQwMTYzLkpQRw.webp",
-          "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p7-9ELTQwMTYzLkpQRw-480.webp",
+          "url": "https://media.aquatome.com/video/0i9qSwTrXIc/p6-hcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/0i9qSwTrXIc/p6-hcXVhcml1bS5qcGc-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makita_D-40163.JPG",
-          "caption": "Mũi khoan bậc bằng thép, loại nên mua trước khi khoan thùng."
+          "licence": "CC BY-SA 4.0",
+          "author": "AnonyManx",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pothos_in_aquarium.jpg",
+          "caption": "Cây trầu bà cắm ở mép bể cá, lá vươn ra ngoài nắp bể."
         }
       }
     ]

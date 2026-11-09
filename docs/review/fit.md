@@ -5,10 +5,10 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3737 | 3435 | 1566 | 72 | 47 | 197 | 33 | 1020 | 449 | 2821 | 483 | 11 | 15 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1131 | 1064 | 327 | 19 | 4 | 3 | 5 | 164 | 64 | 47 | 145 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
-| Thai | 1124 | 1057 | 317 | 17 | 4 | 4 | 3 | 145 | 80 | 80 | 134 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
-| Malay | 180 | 150 | 54 | 4 | 1 | 0 | 0 | 24 | 18 | 8 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 3737 | 3311 | 1496 | 72 | 48 | 195 | 33 | 956 | 442 | 2694 | 468 | 8 | 15 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1131 | 964 | 294 | 19 | 4 | 3 | 5 | 143 | 57 | 45 | 134 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
+| Thai | 1124 | 958 | 283 | 17 | 4 | 4 | 3 | 129 | 68 | 72 | 121 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 180 | 138 | 50 | 4 | 1 | 0 | 0 | 22 | 16 | 6 | 16 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 130, Indonesian 2 of 57, Thai 2 of 57, Malay 1 of 17.
 
@@ -82,10 +82,11 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquario neo soil: 11
 - seachem fluorite: 11
 - eheim: 10
+- keo 502: 10
+- seachem fluorite: 10
 - aquaclear: 9
 - carib sea eco-complete: 9
 - jbl: 9
-- keo 502: 9
 - weld-on 4: 9
 - apt fix: 8
 - fluval: 8

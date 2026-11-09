@@ -6,9 +6,13 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "nymphaea-lotus"
+    "nymphaea-lotus",
+    "microsorum-pteropus",
+    "hygrophila-polysperma",
+    "nymphaea-zenkeri",
+    "glossostigma-elatinoides"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "fc2vp6Hvo2I",
     "title": "Chế Lọc Thùng cho Bể Thủy Sinh với Hộp Đựng Thực Phẩm - Bể v5 KST",
@@ -29,7 +33,10 @@
     "transcribed": true,
     "lang": "vi",
     "taxa": [
-      "Nymphaea lotus"
+      "Microsorum pteropus",
+      "Hygrophila polysperma",
+      "Nymphaea zenkeri",
+      "Glossostigma elatinoides"
     ],
     "gear": [
       {
@@ -38,14 +45,15 @@
         "t": 0
       },
       {
-        "category": "khac",
+        "category": "loc",
+        "type": "thung",
         "brand": "Atman",
-        "t": 37
+        "t": 0
       },
       {
         "category": "be-ca",
-        "type": "nano",
-        "t": 397
+        "type": "chuan",
+        "t": 400
       }
     ],
     "figures": [
@@ -53,107 +61,138 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t89.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khớp nối nhanh cho ống 12 mm đựng trong các hộp nhỏ."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p0-ZWZ0b3ZlcnMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p0-ZWZ0b3ZlcnMuanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY 2.0",
-          "author": "Kathleen Franklin",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:TupperwareLeftovers.jpg",
-          "caption": "Các hộp nhựa đựng thực phẩm có nắp kín, dùng làm thân lọc."
-        }
-      },
-      {
-        "heading": "Chọn hộp to hay nhỏ",
-        "moments": [
-          {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t54.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp tròn nắp kín đặt cạnh các hộp khác để so kích thước."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p1-5vdi0yMDEzLkpQRw.webp",
-          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p1-5vdi0yMDEzLkpQRw-480.webp",
-          "width": 960,
-          "height": 717,
-          "licence": "CC BY-SA 3.0",
-          "author": "Leechieglawou",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:HK_CWB_Tung_Lo_Wan_Road_%E5%A4%A7%E5%BF%AB%E6%B4%BB%E5%BF%AB%E9%A4%90%E5%BA%97_Fairwood_Restaurant_lunch_box_cover_plastic_Nov-2013.JPG",
-          "caption": "Hộp nhựa trong có nắp đậy, kiểu hộp dùng để chứa vật liệu lọc."
-        }
-      },
-      {
-        "heading": "Xếp vật liệu bên trong lọc",
-        "moments": [
-          {
-            "t": 336,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t336.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cho lớp bông lọc vào trong hộp lọc."
+            "t": 40,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bơm chìm Atman cầm trên tay, nhìn rõ thân bơm.",
+            "sharpness": 1604.3
           },
           {
-            "t": 376,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t376.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp lọc đã xếp vật liệu lọc và bông bên trong."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các hộp nhựa có nắp kín và bơm chìm chuẩn bị làm lọc.",
+            "sharpness": 461.1
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p3-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p3-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p0-zX3ZpZXdfMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p0-zX3ZpZXdfMS5qcGc-480.webp",
+          "width": 960,
+          "height": 940,
+          "licence": "CC BY 4.0",
+          "author": "R. Henrik Nilsson",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1960s_Norwegian_Panco_Plast_Fredrikstad_plastic_kitchen_storage_container_number_192_for_dry_goods_view_1.jpg",
+          "caption": "Một chiếc hộp nhựa đựng đồ màu trắng ngà, có thể dùng làm thùng lọc."
+        }
+      },
+      {
+        "heading": "Chọn hộp và bơm theo cỡ bể",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp nhựa tròn có nắp đậy để làm hộp lọc, bên cạnh là hộp bơm.",
+            "sharpness": 1027.5
+          }
+        ]
+      },
+      {
+        "heading": "Làm khay đỡ vật liệu",
+        "moments": [
+          {
+            "t": 115,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at115-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp nhỏ được đặt vào trong hộp lớn để làm khay đỡ.",
+            "sharpness": 883.3
+          },
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng kéo cắt hộp đựng thức ăn nhỏ để làm khay đỡ.",
+            "sharpness": 1440.9
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p2-zX3ZpZXdfMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p2-zX3ZpZXdfMS5qcGc-480.webp",
+          "width": 960,
+          "height": 940,
+          "licence": "CC BY 4.0",
+          "author": "R. Henrik Nilsson",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1960s_Norwegian_Panco_Plast_Fredrikstad_plastic_kitchen_storage_container_number_192_for_dry_goods_view_1.jpg",
+          "caption": "Một chiếc hộp nhựa đựng thức ăn nhỏ, có thể dùng làm khay đỡ."
+        }
+      },
+      {
+        "heading": "Xếp vật liệu lọc thế nào",
+        "moments": [
+          {
+            "t": 345,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at345-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chậu sứ lọc để cho vào hộp, bên cạnh là hộp đã có bông.",
+            "sharpness": 1444.6
+          },
+          {
+            "t": 380,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc đã xếp các lớp bông lọc và vật liệu lọc dạng sứ.",
+            "sharpness": 466.4
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p3-sXzA2MDIyNy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p3-sXzA2MDIyNy5qcGc-480.webp",
+          "width": 960,
+          "height": 614,
+          "licence": "CC BY-SA 3.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
+          "caption": "Bông lọc, sứ lọc, bio ball và vật liệu lọc khác bày cạnh nhau."
+        }
+      },
+      {
+        "heading": "Lắp vào bể và giữ ống cho chắc",
+        "moments": [
+          {
+            "t": 750,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at750-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc đặt cạnh bể, có ống đen đi ra phía sau.",
+            "sharpness": 506.7
+          },
+          {
+            "t": 785,
+            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/at785-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc gắn trên thành bể, ống nối đặt phía sau.",
+            "sharpness": 2130.1
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p4-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p4-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh xô nước khi vệ sinh."
+          "caption": "Lọc thùng đặt trong tủ bể, ống nối vào hộp lọc bằng khớp nối nhanh."
         }
-      },
-      {
-        "heading": "Giữ ống nối không bị bật",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/p4-YmxlX3RpZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/fc2vp6Hvo2I/p4-YmxlX3RpZXMuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Silverxxx Original uploader was Silverxxx at en.wikipedia",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cable_ties.jpg",
-          "caption": "Nhiều dây rút nhựa nhiều màu, loại dùng siết chặt chỗ nối ống."
-        }
-      },
-      {
-        "heading": "Đưa bộ lọc vào một bể thủy sinh 35 cm",
-        "moments": [
-          {
-            "t": 762,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t762.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh mini đã trồng cây xong, có bộ lọc gắn ở góc bể."
-          },
-          {
-            "t": 767,
-            "url": "https://media.aquatome.com/video/fc2vp6Hvo2I/t767.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh 35 cm đã lên cây, nước trong, đèn chiếu sáng."
-          }
-        ]
       }
     ]
   }
