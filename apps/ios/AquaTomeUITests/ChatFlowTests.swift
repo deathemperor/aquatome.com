@@ -1273,11 +1273,15 @@ final class ChatFlowTests: XCTestCase {
     app.buttons["chat-send"].tap()
   }
 
+  /// Scrolls until `e` can be tapped, its middle above the box. XCUITest calls an element hittable with a sliver of it on
+  /// the screen, or its middle behind the box's glass, where a tap reaches neither.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement, times: Int = 12) {
-    repeatUntil(e.exists && e.isHittable, times: times) {
+    let box = element(app, "chat-box")
+    func clear() -> Bool { e.exists && e.isHittable && (!box.exists || e.frame.midY < box.frame.minY - 16) }
+    repeatUntil(clear(), times: times) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast, thenHoldForDuration: 0.1)
     }
-    XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+    XCTAssertTrue(clear(), "\(e) not found, or behind the box")
   }
 }
