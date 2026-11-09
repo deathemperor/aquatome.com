@@ -33,7 +33,7 @@ const VIET = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêề�
 const THAI_SCRIPT = /[\u0E00-\u0E7F]/u
 /** Where a line went wrong by opening on anything else: "Bạn muốn tra…" makes the reader the one looking; "Mari semak…" invites them to (the editors, 2026-11-10). */
 /** The line saying what it won't write, in one sentence: what the post asked of it, and the sentence check doesn't see it. */
-const REFUSES = /(?:nggak|ngga|gak|tidak|tak|không|ไม่)\s*(?:akan\s*|mau\s*|จะ\s*)?(?:menulis|nulis|tulis|ghi|viết|เขียน)|(?:sẽ không|จะไม่)\s*(?:ghi|viết|เขียน)|(?:nggak|ngga|gak|tidak|tak)\s+akan\s+(?:saya|aku)\s+\p{L}|(?:bukan|không phải|ไม่ใช่)\s*(?:soalan|pertanyaan|câu hỏi|คำถาม)/iu
+const REFUSES = /(?:nggak|ngga|gak|tidak|tak|không|ไม่)\s*(?:akan\s*|mau\s*|จะ\s*)?(?:menulis|nulis|tulis|ghi|viết|เขียน)|(?:sẽ không|จะไม่)\s*(?:ghi|viết|เขียน)|(?:nggak|ngga|gak|tidak|tak)\s+akan\s+(?:saya\s+|aku\s+|ku)\p{L}|(?:kamu|anda|bạn|คุณ)\s*(?:minta|suruh|menyuruh|yêu cầu|ขอให้|สั่ง)|(?:bukan|không phải|ไม่ใช่)\s*(?:soalan|pertanyaan|câu hỏi|คำถาม)/iu
 const OPENS: Record<Lang, string> = { vi: 'Mình đang tra cẩm nang', id: 'Aku lagi cek panduan', ms: 'Saya sedang semak buku panduan', th: 'เรากำลังเปิดคู่มือดูว่า' }
 /** Malay that reads as a translation's, or broken: a form no reader writes, or a word typed twice (Malay joins a doubled word with a hyphen). */
 const MALAY_ODD = /(?<![\p{L}\p{N}])(?:awak|bahawa yang|soalan bahawa|halaman ms|untuk jawapan|untuk soalan)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}-])(\p{L}{2,})\s+\1(?![\p{L}\p{N}-])/iu

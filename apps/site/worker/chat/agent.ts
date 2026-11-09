@@ -161,11 +161,13 @@ const OPENING_TAIL = 240
 /** The end of a long post in whole sentences, with any question asked before it. Written from all of it, the line kept the symptoms and lost the question. Thai marks no sentence's end, so it stays whole. */
 export function openingAsk(question: string, lang: Lang): string {
   const t = question.trim()
-  if (t.length <= OPENING_TAIL || lang === 'th') return t
-  const end = t.slice(-OPENING_TAIL)
+  const chars = [...t]
+  if (chars.length <= OPENING_TAIL || lang === 'th') return t
+  const end = chars.slice(-OPENING_TAIL).join('')
   const cut = end.search(/[.!?…\n]\s+\S/u)
   const rest = cut < 0 ? '' : end.slice(cut + 1).trim()
-  const tail = rest.length >= 40 ? rest : end
+  // With no sentence to start from, from the next word.
+  const tail = rest.length >= 40 ? rest : end.replace(/^\S*\s+/u, '')
   // A question asked further up is still theirs: the first ones, as far as a line could hold.
   let room = OPENING_TAIL
   const asked = (t.slice(0, t.length - tail.length).match(/[^.!?…\n]+\?/gu) ?? []).map(q => q.trim()).filter(q => (room -= q.length) >= 0)

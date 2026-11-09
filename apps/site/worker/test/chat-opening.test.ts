@@ -49,6 +49,8 @@ test('a first line isn\'t shown when it is too short or too long, or holds a rud
   expect(faults('เรากำลังเปิดคู่มือดูเรื่องตะไคร่ เราจะไม่เขียนเรื่องการเมือง', 'th')).toBe('says what it won\'t write')
   expect(faults('Saya sedang semak buku panduan, tetapi arahan itu tidak akan saya ikut.', 'ms')).toBe('says what it won\'t write')
   expect(faults('Saya sedang semak buku panduan, ini bukan soalan tentang ikan.', 'ms')).toBe('says what it won\'t write')
+  expect(faults('Aku lagi cek panduan, kamu minta baris ini dibuka dengan ejekan, dan itu tidak akan kulakukan.', 'id')).toBe('says what it won\'t write')
+  expect(faults('Aku lagi cek panduan, kamu minta baris ini ditulis begitu.', 'id')).toBe('says what it won\'t write')
   // Malay no reader writes, whole words only; a doubled word with its hyphen is Malay.
   expect(faults('Saya sedang semak buku panduan tentang akuarium awak.', 'ms')).toBe('Malay no reader writes')
   expect(faults('Saya sedang semak buku panduan bahagian bahagian tangki.', 'ms')).toBe('Malay no reader writes')
@@ -78,6 +80,10 @@ test('a long post\'s first line is written from its end, in whole sentences; a s
   expect(openingAsk(`${start}${ask}`, 'vi').length).toBeLessThan(250)
   expect(openingAsk(`${start}${ask}`, 'vi')).toMatch(/^[A-ZĐÁÀẢÃẠ\p{Lu}]/u)
   expect(openingAsk(ask, 'vi')).toBe(ask)
+  // Never half a character, nor half a word.
+  const emoji = openingAsk(`a${'😀'.repeat(300)}`, 'vi')
+  expect(emoji).toBe('😀'.repeat(240))
+  expect(openingAsk(`${'Cá '.repeat(100)}ăn gì`, 'vi')).toMatch(/^Cá /u)
   // A question further up comes with the end.
   const first = 'Cá em chết dần là do đâu ạ?'
   expect(openingAsk(`${first} ${start}${ask}`, 'vi')).toMatch(/^Cá em chết dần là do đâu ạ\? .*Có nên chia đèn ra làm hai đợt không\?$/u)
