@@ -43,24 +43,7 @@
     "figures": [
       {
         "heading": "Bể này to cỡ nào, làm bằng gì",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/G2iSTDzETi0/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể acrylic dài đặt trên tủ gỗ, nuôi cá hồng kim.",
-            "sharpness": 585.8
-          },
-          {
-            "t": 55,
-            "url": "https://media.aquatome.com/video/G2iSTDzETi0/at55-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Góc bể acrylic dày nhìn rõ thành và mép dán keo.",
-            "sharpness": 292.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/G2iSTDzETi0/p0-QXF1YXJpdW0uanBn.webp",
           "thumb": "https://media.aquatome.com/video/G2iSTDzETi0/p0-QXF1YXJpdW0uanBn-480.webp",
@@ -76,20 +59,13 @@
         "heading": "Vì sao acrylic dày phải dán bằng phương pháp ghim",
         "moments": [
           {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/G2iSTDzETi0/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống tiêm châm keo vào mối nối tấm acrylic dày.",
-            "sharpness": 178.8
-          },
-          {
             "t": 125,
             "url": "https://media.aquatome.com/video/G2iSTDzETi0/at125-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Keo được châm vào khe mối nối, có ghim kê giữa hai tấm.",
-            "sharpness": 148.4
+            "sharpness": 148.4,
+            "person": false
           }
         ]
       },
@@ -97,20 +73,13 @@
         "heading": "Đánh bóng cạnh acrylic dày thế nào",
         "moments": [
           {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/G2iSTDzETi0/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bánh đánh bóng len và chai Novus để đánh bóng cạnh acrylic.",
-            "sharpness": 172.9
-          },
-          {
             "t": 170,
             "url": "https://media.aquatome.com/video/G2iSTDzETi0/at170-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cạnh acrylic dày đã được đánh bóng, một phần đã trong lại.",
-            "sharpness": 47.2
+            "sharpness": 47.2,
+            "person": false
           }
         ]
       },
@@ -118,20 +87,13 @@
         "heading": "Thanh giằng trên và lỗ thăm thiết kế theo nắp",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/G2iSTDzETi0/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cưa lọng khoét lỗ thăm trên thanh giằng mặt bể.",
-            "sharpness": 917.5
-          },
-          {
             "t": 195,
             "url": "https://media.aquatome.com/video/G2iSTDzETi0/at195-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Mép vát quanh lỗ thăm trên mặt bể để nắp nằm phẳng.",
-            "sharpness": 125.6
+            "sharpness": 125.6,
+            "person": false
           }
         ]
       },
@@ -144,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm polycarbonate hai lớp với các rãnh song song, góc bo tròn.",
-            "sharpness": 531.2
+            "sharpness": 531.2,
+            "person": false
           },
           {
             "t": 265,
@@ -165,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh tấm polycarbonate hai lớp với các vách rỗng song song.",
-            "sharpness": 28.2
+            "sharpness": 28.2,
+            "person": false
           },
           {
             "t": 275,
@@ -173,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mép tấm polycarbonate hai lớp đặt trên bể, thấy đầu tấm hở.",
-            "sharpness": 98.6
+            "sharpness": 98.6,
+            "person": false
           }
         ],
         "photo": {
@@ -191,20 +156,13 @@
         "heading": "Hoàn thiện nắp",
         "moments": [
           {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/G2iSTDzETi0/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan lỗ trên tấm nhựa để làm chỗ xỏ ngón tay nhấc nắp.",
-            "sharpness": 1156.5
-          },
-          {
             "t": 330,
             "url": "https://media.aquatome.com/video/G2iSTDzETi0/at330-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nắp tấm liền đã hoàn thiện đặt trên mặt bể.",
-            "sharpness": 282.3
+            "sharpness": 282.3,
+            "person": false
           }
         ]
       },
@@ -217,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dải đèn LED tự làm gắn dọc nắp bể, sáng rực.",
-            "sharpness": 548.2
+            "sharpness": 548.2,
+            "person": false
           },
           {
             "t": 375,
@@ -225,7 +184,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED chỉnh sang màu tím, cá trong bể vẫn hiện rõ.",
-            "sharpness": 270.2
+            "sharpness": 270.2,
+            "person": false
           }
         ],
         "photo": {

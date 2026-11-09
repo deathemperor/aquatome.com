@@ -71,16 +71,7 @@
       },
       {
         "heading": "Trồng lúc bể khô hay đã đổ nước",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay đầy các cụm cây đã tách sẵn, chuẩn bị đem đi trồng.",
-            "sharpness": 1298
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/p1-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/Ks0OQdOxYd8/p1-ydS1JbmRpYS5qcGc-480.webp",
@@ -91,27 +82,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
           "caption": "Bể trồng lúc khô: thảm cỏ và cây con mọc dày quanh đá."
         }
-      },
-      {
-        "heading": "Cỏ cấy mô",
-        "moments": [
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay cỏ cấy mô xanh mướt, xếp đầy các cup.",
-            "sharpness": 3279
-          },
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cỏ cấy mô trong khay, đang được tỉa và chuẩn bị trồng.",
-            "sharpness": 3030.8
-          }
-        ]
       },
       {
         "heading": "Chia cốc cỏ thành bao nhiêu phần",
@@ -143,27 +113,6 @@
         }
       },
       {
-        "heading": "Có cần mua thật nhiều cây không",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhìn từ trên, cây trồng còn thưa, đáy chưa phủ kín.",
-            "sharpness": 2264.6
-          },
-          {
-            "t": 475,
-            "url": "https://media.aquatome.com/video/Ks0OQdOxYd8/at475-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cây với nền còn trống, cỏ chưa lan ra hết.",
-            "sharpness": 2498.4
-          }
-        ]
-      },
-      {
         "heading": "Cỏ trông thế nào sau tuần đầu",
         "moments": [
           {
@@ -172,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cỏ xanh mọc lên từ lớp nền nhìn sát kính.",
-            "sharpness": 597.4
+            "sharpness": 597.4,
+            "person": false
           },
           {
             "t": 600,
@@ -180,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các cụm dwarf hair grass bám rễ chắc vào nền sát kính.",
-            "sharpness": 399.8
+            "sharpness": 399.8,
+            "person": false
           }
         ]
       }

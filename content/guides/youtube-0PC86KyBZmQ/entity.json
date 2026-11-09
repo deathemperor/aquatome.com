@@ -77,7 +77,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các lớp gỗ ép và thanh 2x4 ở viền đáy.",
-            "sharpness": 92.9
+            "sharpness": 92.9,
+            "person": false
           }
         ]
       },
@@ -90,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh ke góc kim loại siết bu lông xuyên qua các thanh gỗ.",
-            "sharpness": 78.7
+            "sharpness": 78.7,
+            "person": false
           },
           {
             "t": 220,
@@ -98,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung gỗ 2x4 của bể ghép chắc chắn, các thanh xếp chồng ở đầu bể.",
-            "sharpness": 295
+            "sharpness": 295,
+            "person": false
           }
         ]
       },
@@ -115,19 +118,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distanzschrauben-Verbindung.jpg",
           "caption": "Vít gỗ đang bắt hai miếng gỗ lại với nhau."
         }
-      },
-      {
-        "heading": "Những bước còn lại sau khi xong khung",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung bể gỗ dài đã xong, bên trong còn trống, chưa ốp gỗ ép.",
-            "sharpness": 431.3
-          }
-        ]
       }
     ]
   }

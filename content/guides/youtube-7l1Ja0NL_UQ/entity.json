@@ -67,7 +67,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các chậu nuôi cá ngoài trời có nắp đậy, đặt dọc bờ tường.",
-            "sharpness": 745.5
+            "sharpness": 745.5,
+            "person": false
           },
           {
             "t": 30,
@@ -75,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn vào trong chậu: nước xanh sẫm, cá nằm sát dưới đáy khó thấy.",
-            "sharpness": 198.3
+            "sharpness": 198.3,
+            "person": false
           }
         ],
         "photo": {
@@ -98,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá vàng bơi gần đám rong rậm trong chậu kính.",
-            "sharpness": 285.3
+            "sharpness": 285.3,
+            "person": false
           }
         ],
         "photo": {
@@ -113,27 +116,6 @@
         }
       },
       {
-        "heading": "Cắt tấm polycarbonate hai lớp thế nào",
-        "moments": [
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thước vuông góc lên tấm polycarbonate để kẻ đường cắt.",
-            "sharpness": 1108.4
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bút lông dầu kẻ vạch theo thước vuông góc trên tấm.",
-            "sharpness": 1107.5
-          }
-        ]
-      },
-      {
         "heading": "Lắp nắp sao cho khít và vẫn cho ăn được",
         "moments": [
           {
@@ -142,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một tấm nắp đã trượt vào rãnh, bên cạnh còn chừa khe hở chưa đậy.",
-            "sharpness": 377.9
+            "sharpness": 377.9,
+            "person": false
           },
           {
             "t": 730,
@@ -150,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm nắp trong suốt phủ kín miệng chậu, nhìn rõ các gân của tấm.",
-            "sharpness": 187
+            "sharpness": 187,
+            "person": false
           }
         ]
       }

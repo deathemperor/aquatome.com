@@ -62,15 +62,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ phủ thảm cây xanh dưới đèn pha.",
-            "sharpness": 675
-          },
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn pha LED có sẵn giá gắn, đặt trên bàn.",
-            "sharpness": 527.7
+            "sharpness": 675,
+            "person": false
           }
         ],
         "photo": {
@@ -93,15 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn pha LED với dây điện chưa có phích cắm.",
-            "sharpness": 467.9
-          },
-          {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at335-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các lõi dây đã tuốt vỏ, lộ đầu dây để đấu nối.",
-            "sharpness": 319.3
+            "sharpness": 467.9,
+            "person": false
           }
         ]
       },
@@ -114,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn pha kẹp trên cần cổ ngỗng, chiếu xuống bể.",
-            "sharpness": 192.7
+            "sharpness": 192.7,
+            "person": false
           },
           {
             "t": 495,
@@ -122,30 +109,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Nắp gỗ hộp treo phía trên bể, đèn gắn bên trong.",
-            "sharpness": 238.8
+            "sharpness": 238.8,
+            "person": false
           }
         ]
       },
       {
         "heading": "Đèn sáng đến mức nào",
-        "moments": [
-          {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy đo lux đặt dưới đèn trên bể để đo độ sáng.",
-            "sharpness": 157.9
-          },
-          {
-            "t": 545,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at545-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy đo lux hiện kết quả khi đo đèn pha.",
-            "sharpness": 299.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p3-ZGxvdnNrLTQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p3-ZGxvdnNrLTQuanBn-480.webp",
@@ -166,15 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá được chiếu sáng bằng đèn pha, ánh sáng tỏa đều cả bể.",
-            "sharpness": 438
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đo cường độ ánh sáng của đèn bằng máy đo lux.",
-            "sharpness": 217.1
+            "sharpness": 438,
+            "person": false
           }
         ]
       },
@@ -187,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể không trồng cây dài, chỉ chiếu sáng nhẹ bằng một cây đèn.",
-            "sharpness": 448.4
+            "sharpness": 448.4,
+            "person": false
           },
           {
             "t": 695,
@@ -195,7 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá rồng châu Á với ba đèn thả tự chế phía trên.",
-            "sharpness": 1033
+            "sharpness": 1033,
+            "person": false
           }
         ],
         "photo": {

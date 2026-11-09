@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 6372 (Vietnamese 3760, Indonesian 1190, Thai 1183, Malay 239). Imperial units
+Pages checked: 6408 (Vietnamese 3796, Indonesian 1190, Thai 1183, Malay 239). Imperial units
 beside a metric figure: feet 2, gallon 14.
 
 ## Numbered headings broken or miscounted (2)
@@ -111,56 +111,56 @@ A sentence that gives a fish's old name beside its genus or its English name ("c
 
 - none
 
-## Words hobbyists rarely write (2863)
+## Words hobbyists rarely write (2857)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
-- vi · "dù vậy" → "nhưng", "tuy nhiên": 1721 pages, 4102 times
-- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1680 pages, 3857 times
-- vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1677 pages, 4205 times
-- vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1161 pages, 2257 times
-- vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 1061 pages, 1688 times
-- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 995 pages, 1514 times
-- vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 897 pages, 1382 times
+- vi · "dù vậy" → "nhưng", "tuy nhiên": 1720 pages, 4098 times
+- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1674 pages, 3839 times
+- vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1672 pages, 4193 times
+- vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1160 pages, 2254 times
+- vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 1055 pages, 1676 times
+- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 994 pages, 1513 times
+- vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 895 pages, 1380 times
 - vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 602 pages, 800 times
 - vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 596 pages, 813 times
-- vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 572 pages, 793 times
-- vi · "giới chơi" → "người chơi", hoặc bỏ: 560 pages, 821 times
+- vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 569 pages, 786 times
+- vi · "giới chơi" → "người chơi", hoặc bỏ: 558 pages, 818 times
 - vi · "không xương sống" → gọi tên con: "tép, ốc": 553 pages, 641 times
-- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 507 pages, 623 times
+- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 504 pages, 620 times
 - vi · "lý do là" → "vì", "là do": 502 pages, 553 times
 - vi · "nhìn chung" → "thường", hoặc bỏ: 444 pages, 593 times
 - vi · "hung hăng" → "dữ", "hung dữ": 414 pages, 659 times
 - vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 392 pages, 515 times
 - vi · "bơi tự do" → "tự bơi được", "bơi được": 367 pages, 431 times
-- vi · "giữ lãnh thổ" → "hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ": 347 pages, 467 times
 - vi · "khẩu phần" → "thức ăn", "cho ăn…": 347 pages, 426 times
+- vi · "giữ lãnh thổ" → "hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ": 345 pages, 465 times
 - vi · "thị trường cá cảnh" → "tiệm cá", "trên thị trường": 342 pages, 468 times
-- vi · "bắt buộc phải" → "phải": 327 pages, 370 times
+- vi · "bắt buộc phải" → "phải": 326 pages, 369 times
 - vi · "được xem là" → nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là": 324 pages, 411 times
-- vi · "chỗ trú" → "chỗ trốn": 312 pages, 367 times
+- vi · "chỗ trú" → "chỗ trốn": 311 pages, 366 times
 - vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 273 pages, 333 times
-- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 201 pages, 284 times
-- vi · "thủ phạm" → "nguyên nhân", "là do": 180 pages, 212 times
+- vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 201 pages, 283 times
+- vi · "thủ phạm" → "nguyên nhân", "là do": 177 pages, 209 times
 - vi · "cá mê cung" → gọi tên con: "cá sặc, cá betta": 148 pages, 197 times
 - vi · "loricariid" → "cá lau kiếng", "cá tỳ bà", "pleco": 142 pages, 167 times
-- vi · "máy tạo dòng" → "thổi luồng": 140 pages, 150 times
-- vi · "rất nên" → "nên", "tốt nhất là": 137 pages, 153 times
+- vi · "máy tạo dòng" → "thổi luồng": 138 pages, 148 times
+- vi · "rất nên" → "nên", "tốt nhất là": 136 pages, 152 times
 - vi · "tốt nhất bạn nên" → "nên", "tốt nhất là": 128 pages, 143 times
 - vi · "lọc bọt biển" → "lọc mút", "lọc bio" (lọc mút chạy sủi): 117 pages, 193 times
 - vi · "khuyến nghị" → "nên", "khuyên": 107 pages, 132 times
-- vi · "trưởng thành sinh dục" → "đủ lớn để đẻ", "bắt cặp được": 98 pages, 115 times
+- vi · "trưởng thành sinh dục" → "đủ lớn để đẻ", "bắt cặp được": 97 pages, 114 times
 - vi · "thành phần thực vật" → "có rau", "có tảo": 82 pages, 82 times
 - vi · "được chuộng" → "nhiều người nuôi", "dễ kiếm", hoặc nói thẳng vì sao: 76 pages, 83 times
 - vi · "cá nhân giống" → "cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân"): 71 pages, 101 times
-- vi · "dưới đèn" → "đèn mạnh thì…", "đèn yếu thì…": 64 pages, 92 times
+- vi · "dưới đèn" → "đèn mạnh thì…", "đèn yếu thì…": 62 pages, 88 times
 - vi · "một cách + tính từ" → bỏ "một cách": "làm cẩn thận", "cho đơn giản": 44 pages, 46 times
 - vi · "cây thân đứng" → "cây cắt cắm": 40 pages, 55 times
 - vi · "gầy rộc" → "gầy", "gầy đi": 39 pages, 40 times
 - vi · "cột nước" → "trong nước": 36 pages, 49 times
 - vi · "lọc sponge" → "lọc mút", "lọc bio": 35 pages, 39 times
-- vi · "dựng bể" → "set bể": 34 pages, 46 times
 - vi · "quả sủi" → "cục sủi": 34 pages, 77 times
+- vi · "dựng bể" → "set bể": 33 pages, 42 times
 - vi · "việc đầu tiên là" → "đầu tiên là", "trước tiên", hoặc làm việc đó luôn: 33 pages, 37 times
 - vi · "nhắm tới" → "để…", "dành cho…": 30 pages, 36 times
 - vi · "keo siêu dính" → "keo 502": 21 pages, 38 times
@@ -206,11 +206,11 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 
 - [vi · Cá anh đào](https://aquatome.com/ca/ca-anh-dao/) — Rasboroides vaterifloris: "Putative wild-collected adult male imported to Singapore among a shipment of Ra…"
 - [vi · Cá bắn cung](https://aquatome.com/ca/ca-ban-cung/) — Toxotes chatareus: "Toxotes chatareus adult"
+- [vi · Cá bống Sicyopus cebuensis](https://aquatome.com/ca/ca-bong-sicyopus-cebuensis/) — Stiphodon surrufus: "Adult male specimen (right) alongside a male Stiphodon surrufus."
 - [vi · Cá chì sọc xanh](https://aquatome.com/ca/ca-chi-soc-xanh/) — Paracheirodon axelrodi: "...but is sometimes exported as bycatch among shipments of the cardinal tetra,…"
 - [vi · Cá chuột sọc nói](https://aquatome.com/ca/ca-chuot-soc-noi/) — Platydoras costatus: "Young specimen of Platydoras costatus"; Platydoras costatus: "Platydoras costatus"
 - [vi · Cá da trơn Turkestan](https://aquatome.com/ca/ca-da-tron-turkestan/) — Exostoma stoliczkae: "The species names / identity need verification - original names from plate are…"
 - [vi · Cá đầu chúc sọc](https://aquatome.com/ca/ca-dau-chuc-soc/) — Anostomus brevior: "Anostomus brevior in French Guiana"
-- [vi · Cá prochilodus bạc](https://aquatome.com/ca/ca-duoi-co-prochilodus/) — Semaprochilodus insignis: "Semaprochilodus insignis"
 - [vi · Cá Garra rakhinica](https://aquatome.com/ca/ca-garra-rakhinica/) — Garra flavatra: "Specimen from the Thai aquarium trade, imported as a contaminant in a batch of…"
 - [vi · Cá hàm răng Salda](https://aquatome.com/ca/ca-ham-rang-salda/) — Aphanius splendens: "Male of Aphanius splendens."
 - [vi · Cá he vàng](https://aquatome.com/ca/ca-he-vang/) — Barbonymus schwanenfeldii: "Barbonymus schwanenfeldii by OpenCage.jpg"
@@ -226,5 +226,11 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 ## Data card values outside sane bounds (0)
 
 A figure outside the bounds the engine keeps when it reads a page (temperature 4–40 °C, pH 2–10.5, GH 0–50, size 0.3–300 cm, tank 10–1000 cm, difficulty 1–8, lifespan 0.2–150 years), a range upside down, or a minimum tank shorter than twice the adult fish. The sweep hides the figure from the card (kept in the page's file, marked `hidden` with why). Checked on the Vietnamese page; the card is the same in every language.
+
+- none
+
+## A count of measures written as a difficulty (0)
+
+A Seriously Fish quick-facts line giving a difficulty other than the card's ("Độ khó: 7/8" over a card of 6/8): the 7 counts the measures Seriously Fish could rate. The sweep writes the card's figure there, in English and every language.
 
 - none

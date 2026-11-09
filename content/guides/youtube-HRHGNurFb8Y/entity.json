@@ -53,7 +53,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn treo kiểu chụp rọi ánh sáng xuống, không hắt ra xung quanh.",
-            "sharpness": 165.5
+            "sharpness": 165.5,
+            "person": false
           },
           {
             "t": 10,
@@ -61,7 +62,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá có lũa và cây thủy sinh, ánh sáng đều, không lóa kính.",
-            "sharpness": 367.9
+            "sharpness": 367.9,
+            "person": false
           }
         ]
       },
@@ -74,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dàn đèn treo chụp nhựa chiếu sáng xuống bể cá dài trong phòng tối.",
-            "sharpness": 491.7
+            "sharpness": 491.7,
+            "person": false
           }
         ],
         "photo": {

@@ -52,7 +52,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể âm tường với cá rồng bạc bơi trong khung viền trắng.",
-            "sharpness": 419.6
+            "sharpness": 419.6,
+            "person": false
           },
           {
             "t": 70,
@@ -60,7 +61,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đặt trong khung tường, cửa ra vào nằm bên phải bể.",
-            "sharpness": 432.7
+            "sharpness": 432.7,
+            "person": false
           }
         ],
         "photo": {
@@ -83,15 +85,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm gương trên tường trước khi gỡ ra.",
-            "sharpness": 61.7
-          },
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/CdWYC0DITbI/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung tường 2x4 lộ ra sau khi đã gỡ hết thạch cao.",
-            "sharpness": 247.6
+            "sharpness": 61.7,
+            "person": false
           }
         ]
       },
@@ -104,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chân bể gỗ ép đã tháo vách, để lộ khung và hệ lọc bên trong.",
-            "sharpness": 290.9
+            "sharpness": 290.9,
+            "person": false
           },
           {
             "t": 290,
@@ -112,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể được đẩy dần sát vào tường, chân bể trống nhẹ hơn nhiều.",
-            "sharpness": 254.7
+            "sharpness": 254.7,
+            "person": false
           }
         ]
       },
@@ -125,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung gỗ mới dựng quanh bể, canh thẳng hàng với mặt kính.",
-            "sharpness": 345.4
+            "sharpness": 345.4,
+            "person": false
           },
           {
             "t": 415,
@@ -133,20 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung 2x4 ôm sát phần mặt kính nhìn của bể.",
-            "sharpness": 537.3
-          }
-        ]
-      },
-      {
-        "heading": "Bọc thạch cao và trét khe",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/CdWYC0DITbI/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm thạch cao đã bọc quanh bể, chừa khung kính nhìn cá.",
-            "sharpness": 495.6
+            "sharpness": 537.3,
+            "person": false
           }
         ]
       },
@@ -159,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn trang trí lắp phía trên hốc bể có nẹp viền trắng.",
-            "sharpness": 254.5
+            "sharpness": 254.5,
+            "person": false
           },
           {
             "t": 545,
@@ -167,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể hoàn thiện với nẹp viền trắng và đèn trang trí phía trên.",
-            "sharpness": 416.4
+            "sharpness": 416.4,
+            "person": false
           }
         ]
       }

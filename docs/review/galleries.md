@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 495 | 23 | 9 | 14 | 513 |
-| rest | 20 | 1579 | 79 | 0 | 28 | 1630 |
+| covered | 30 | 496 | 23 | 9 | 14 | 514 |
+| rest | 20 | 1614 | 79 | 0 | 29 | 1664 |
 
-## Short of target: every source read (211)
+## Short of target: every source read (217)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -223,7 +223,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
 | species/parambassis-ranga | shop | 2 | 60 |
 | species/scatophagus-argus | shop | 42 | 60 |
+| species/piaractus-brachypomus | shop | 44 | 60 |
 | species/aphyocharax-anisitsi | shop | 1 | 60 |
 | species/nematobrycon-lacortei | shop | 0 | 60 |
 | species/moenkhausia-sanctaefilomenae | shop | 8 | 60 |
+| species/symphysodon-discus | popular | 0 | 40 |
+| species/pterygoplichthys-pardalis | popular | 1 | 40 |
+| species/ancistrus-dolichopterus | popular | 5 | 40 |
+| species/hemigrammus-erythrozonus | popular | 6 | 40 |
+| species/poecilia-wingei | popular | 31 | 40 |
 | species/betta-macrostoma | covered | 0 | 30 |

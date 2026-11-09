@@ -89,65 +89,16 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị kính và khoan lỗ thế nào",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thước thẳng lên tấm kính để chuẩn bị rạch đường cắt.",
-            "sharpness": 5301.5
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng mũi khoan lỗ khoan xuyên tấm kính, có dán băng keo xanh.",
-            "sharpness": 609.4
-          }
-        ]
-      },
-      {
         "heading": "Dán hai bể ra sao",
         "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm silicone vào các mép ghép của bể đã dán băng keo giấy.",
-            "sharpness": 238.1
-          },
           {
             "t": 135,
             "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at135-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ đã khô silicone, đặt vừa vào trong bể lớn.",
-            "sharpness": 381.3
-          }
-        ]
-      },
-      {
-        "heading": "Nối bơm và van một chiều",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lắp ráp van một chiều và ống nối cho khớp với bơm.",
-            "sharpness": 16.2
-          },
-          {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt bơm chìm vào bể và đo chiều cao đến đỉnh cụm bơm.",
-            "sharpness": 453.1
+            "sharpness": 381.3,
+            "person": false
           }
         ]
       },
@@ -160,38 +111,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Mép kính bể trên đặt trên đế, dùng để kiểm tra độ phẳng khi nước tràn.",
-            "sharpness": 464.2
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể hai tầng đã dựng xong, đang chạy thử trên bàn làm việc.",
-            "sharpness": 1065.8
+            "sharpness": 464.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trải nền và làm bố cục",
-        "moments": [
-          {
-            "t": 425,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at425-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải lớp nền đen mỏng xuống đáy bể nhỏ.",
-            "sharpness": 2145.1
-          },
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/N3uNPHmKkjc/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt khúc lũa lên lớp nền đen làm điểm nhấn bố cục.",
-            "sharpness": 2434.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/N3uNPHmKkjc/p4-YXJpdW1fMDIuanBn.webp",
           "thumb": "https://media.aquatome.com/video/N3uNPHmKkjc/p4-YXJpdW1fMDIuanBn-480.webp",
@@ -212,7 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đã trồng xong cây Cryptocoryne và Hydrocotyle quanh lũa và đá.",
-            "sharpness": 1666.5
+            "sharpness": 1666.5,
+            "person": false
           }
         ],
         "photo": {

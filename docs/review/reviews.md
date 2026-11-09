@@ -8,8 +8,8 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 713 | 544 (vi 544) | 544 |
-| translation | 1147 | 207 (vi 207) | 207 |
+| video-guide | 713 | 539 (vi 539) | 539 |
+| translation | 1185 | 209 (vi 209) | 209 |
 | vi-rewrite | 202 | 0 | 0 |
 | reader-rewrite | 18 | 0 | 0 |
 | title | 4 | 0 | 0 |
@@ -26,23 +26,23 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-544 of 713 pages under the bar.
+539 of 713 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 495 | 1435 |
-| States as certain what the source hedges, or what garbled captions only hint at | 482 | 1450 |
-| Says what the source doesn't (invented, added) | 436 | 1244 |
-| A number, unit, dose or price | 205 | 302 |
-| Wording: unnatural, literal, stiff or chatty | 196 | 254 |
-| Meaning changed or wrong | 95 | 106 |
-| Repeats itself (intro, summary, steps and FAQ) | 90 | 109 |
+| Other | 489 | 1400 |
+| States as certain what the source hedges, or what garbled captions only hint at | 477 | 1433 |
+| Says what the source doesn't (invented, added) | 427 | 1214 |
+| A number, unit, dose or price | 202 | 298 |
+| Wording: unnatural, literal, stiff or chatty | 198 | 257 |
+| Repeats itself (intro, summary, steps and FAQ) | 92 | 111 |
+| Meaning changed or wrong | 92 | 102 |
 | Leaves out what the source says | 40 | 42 |
 | Hobby terms and names | 27 | 27 |
-| Names or points to the video, channel, creator or source | 23 | 23 |
-| Copied from the transcript or source | 14 | 16 |
+| Names or points to the video, channel, creator or source | 22 | 22 |
+| Copied from the transcript or source | 15 | 17 |
 | Off the title's topic | 14 | 14 |
-| Text left in another language | 5 | 5 |
+| Text left in another language | 4 | 4 |
 
 ### Other
 
@@ -74,17 +74,17 @@ under `<lang>/<path>`.
 - "Tấm lót đáy: có thể đặt một tấm phông giả đá dưới lớp cát" and "Bể giữ theo cách này hơn một năm không đụng tay vẫn ổn": the mat under the sand is described only for his tank, and 'nuôi đến 3, 4 năm thì có thể phải dọn nền' is his guess. … — vi/guides/youtube-jFFbDTBUgIk, 0.30
 - "Một kinh nghiệm chung là ... phun ẩm hoặc ngâm tạm cây vào chậu nước để rêu không bị khô" and the matching phrase "giữ ẩm cho cây trong lúc làm các bước khác" in the summary list: the video never gives this tip. Remove both. — vi/guides/youtube-MLuT3K5yg44, 0.30
 
-### Meaning changed or wrong
-
-- The planting list is wrong in places. "Hậu cảnh: trồng loại cây dạng tâm lan mini ở phía sau" and "Hai bên: thêm một loại cây hậu cảnh nữa" misstate the video, which says the mini-orchid-type plant is the background plant on both sides. "g… — vi/guides/youtube-MLuT3K5yg44, 0.30
-- "Bể dựng xong hôm trước thì hôm sau đã nhận cá được", "thả cá được ngay" and "gần như đã chạy chu trình". The video says the media made the filter immediately cycled and the fish arrived the next night. Soften to what was said, without the… — vi/guides/youtube-7nEatEnYWH8, 0.40
-- "Nhiều loại kẹp có thể lắp ngược để đẩy ra thay vì kẹp vào": the video does not say many clamp types can do this; he reversed a clamp himself. Rewrite as "có thể lắp ngược một cái kẹp". — vi/guides/youtube-aLvkYA8AqBY, 0.40
-
 ### Repeats itself (intro, summary, steps and FAQ)
 
 - "Bonsai đặt ở một phần ba phía sau" and "Làm lại... mất khoảng 2 giờ nếu làm đúng thứ tự": "nếu làm đúng thứ tự" is invented, because the video says the work took about 2 hours and was sped up. Remove the condition. The sections on removin… — vi/guides/youtube-MLuT3K5yg44, 0.30
 - "Lưu ý chung cho mọi hồ tự chế: nên dùng loại silicon dành cho bể cá, và bơm nước thử xem có rỉ chỗ nào không trước khi thả cá" (also repeated in the FAQ): invented tip; remove both places. — vi/guides/youtube-zYfpvGHYlxQ, 0.30
 - "Phân nền đổ dày mà không có lớp lót bên dưới thì lâu ngày dễ bị bí và hỏng" (also repeated in the FAQ): the video only says the thick soil layer would go bad (kiết lỵ/bí) if no filler is used at the back; correct it to say that thick soil… — vi/guides/youtube-CUdG6dWVOEM, 0.35
+
+### Meaning changed or wrong
+
+- The planting list is wrong in places. "Hậu cảnh: trồng loại cây dạng tâm lan mini ở phía sau" and "Hai bên: thêm một loại cây hậu cảnh nữa" misstate the video, which says the mini-orchid-type plant is the background plant on both sides. "g… — vi/guides/youtube-MLuT3K5yg44, 0.30
+- "Bể dựng xong hôm trước thì hôm sau đã nhận cá được", "thả cá được ngay" and "gần như đã chạy chu trình". The video says the media made the filter immediately cycled and the fish arrived the next night. Soften to what was said, without the… — vi/guides/youtube-7nEatEnYWH8, 0.40
+- "Nhiều loại kẹp có thể lắp ngược để đẩy ra thay vì kẹp vào": the video does not say many clamp types can do this; he reversed a clamp himself. Rewrite as "có thể lắp ngược một cái kẹp". — vi/guides/youtube-aLvkYA8AqBY, 0.40
 
 ### Leaves out what the source says
 
@@ -119,26 +119,26 @@ under `<lang>/<path>`.
 ### Text left in another language
 
 - "Sump này ghép hai kiểu lọc... tầng sôi (fluidized bed)" and "(wet/dry)": English terms are left in place and the video only says he wants to fluidize the K1. Use plain Vietnamese terms, or hedge that the K1 may be made to move in the wate… — vi/guides/youtube-qcPe_f-GETA, 0.50
-- "(cloth)" and "vải mat" left in English or loosely explained: write in Vietnamese, e.g. "vải sợi thủy tinh dệt" versus "mat sợi thủy tinh". Also "Xem thêm video hướng dẫn quét của nhà sản xuất cũng đáng công" is an added recommendation; he… — vi/guides/youtube-dS6AJL3CAt0, 0.55
 - "Phần đầu chai có cổ đóng vai cái phễu" and "thời gian chạy rốt (break-in)": "đóng vai" is a calque, and the English term is left in place with the odd "chạy rốt". Use natural wording such as "làm phễu" and "thời gian chạy ổn định". — vi/guides/youtube-223-24zhjoc, 0.60
+- "Rêu hại</strong> (algae)": the English word is left in the text. Remove the parenthetical. — vi/guides/youtube-QoLZvjObqYM, 0.70
 
 ## translation: source pages translated into Vietnamese, against the English
 
-207 of 1147 pages under the bar.
+209 of 1185 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 201 | 622 |
-| Says what the source doesn't (invented, added) | 166 | 346 |
-| Wording: unnatural, literal, stiff or chatty | 163 | 314 |
-| Meaning changed or wrong | 136 | 212 |
-| Hobby terms and names | 99 | 133 |
-| Text left in another language | 70 | 88 |
+| Other | 203 | 627 |
+| Says what the source doesn't (invented, added) | 168 | 350 |
+| Wording: unnatural, literal, stiff or chatty | 164 | 316 |
+| Meaning changed or wrong | 137 | 214 |
+| Hobby terms and names | 100 | 134 |
+| Text left in another language | 72 | 90 |
 | Leaves out what the source says | 68 | 91 |
 | A number, unit, dose or price | 64 | 84 |
 | States as certain what the source hedges, or what garbled captions only hint at | 62 | 73 |
 | Repeats itself (intro, summary, steps and FAQ) | 49 | 59 |
-| Names or points to the video, channel, creator or source | 9 | 10 |
+| Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 2 | 2 |
 
 ### Other

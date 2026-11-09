@@ -52,7 +52,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng nhựa trong có nắp, đủ dùng làm sump.",
-            "sharpness": 250.7
+            "sharpness": 250.7,
+            "person": false
           }
         ]
       },
@@ -65,36 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tủ ngăn kéo nhựa trắng ba ngăn dùng để làm tháp nhỏ giọt.",
-            "sharpness": 388.5
-          },
-          {
-            "t": 96,
-            "url": "https://media.aquatome.com/video/2WBo3u9arUo/at96-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tủ ngăn kéo được đặt thử vào thùng sump để kiểm tra độ vừa.",
-            "sharpness": 360.8
-          }
-        ]
-      },
-      {
-        "heading": "Khoan lỗ cho nước chảy đều",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/2WBo3u9arUo/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt tấm lưới tản sáng ô vuông lên đáy ngăn kéo làm khuôn.",
-            "sharpness": 108
-          },
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/2WBo3u9arUo/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng máy khoan khoan lỗ nhỏ trên đáy ngăn kéo.",
-            "sharpness": 44.1
+            "sharpness": 388.5,
+            "person": false
           }
         ]
       },
@@ -102,20 +75,13 @@
         "heading": "Vật liệu lọc: cước rửa nồi và bông lọc",
         "moments": [
           {
-            "t": 176,
-            "url": "https://media.aquatome.com/video/2WBo3u9arUo/at176-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang xử lý bông lọc polyester trắng để cho vào ngăn lọc.",
-            "sharpness": 14.2
-          },
-          {
             "t": 196,
             "url": "https://media.aquatome.com/video/2WBo3u9arUo/at196-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cước rửa nồi nhiều màu xếp trong ngăn lọc nhựa trong suốt.",
-            "sharpness": 175
+            "sharpness": 175,
+            "person": false
           }
         ]
       },
@@ -128,7 +94,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn bộ tháp lọc nhiều ngăn đặt trên thùng sump.",
-            "sharpness": 388
+            "sharpness": 388,
+            "person": false
           },
           {
             "t": 226,
@@ -136,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước rơi qua ngăn chứa cước vi sinh, rất giàu oxy.",
-            "sharpness": 79.1
+            "sharpness": 79.1,
+            "person": false
           }
         ]
       },
