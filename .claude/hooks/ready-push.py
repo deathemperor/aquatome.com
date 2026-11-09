@@ -51,14 +51,12 @@ def pushed(words, cwd):
     i = 0
     while i < len(words) and (re.fullmatch(r"\w+=.*", words[i]) or words[i] in WRAPPERS or words[i].startswith("-")
                               or re.fullmatch(r"\d+[smhd]?", words[i])):
-        if words[i] == "AQ_PUSH_ANYWAY=1":
-            return None
         i += 1
     if i >= len(words):
         return None
     name, args = os.path.basename(words[i]), words[i + 1:]
     if name in ("bash", "sh", "zsh") and "-c" in args[:-1]:
-        return next(filter(None, (pushed(w, cwd) for w in segments(args[args.index("-c") + 1]))), None)
+        return scan(args[args.index("-c") + 1], cwd)
     if name != "git":
         return None
     j = 0
@@ -84,16 +82,40 @@ def pushed(words, cwd):
     return (cwd, branch) if branch and branch != "HEAD" else None
 
 
-def refused(command, cwd):
+def moved(words, cwd):
+    """The folder a `cd` or `pushd` in these words goes to, from cwd; cwd for other words; None when it can't tell (no
+    folder named, `-`, a variable or a command in it, or no such folder), which ends the check."""
+    if not words or words[0] not in ("cd", "pushd", "popd"):
+        return cwd
+    if words[0] == "popd" or len(words) < 2 or words[1] == "-" or re.search(r"[$`]", words[1]):
+        return None
+    to = os.path.join(cwd, os.path.expanduser(words[1]))
+    return to if os.path.isdir(to) else None
+
+
+def scan(command, cwd):
+    """The folder and the branch the command's first push of one is from, following its `cd`s; else None."""
     for words in segments(command):
+        cwd = moved(words, cwd)
+        if cwd is None:
+            return None
         found = pushed(words, cwd)
-        if not found:
-            continue
+        if found:
+            return found
+    return None
+
+
+def refused(command, cwd):
+    # The override, wherever the command sets it (before the push, or exported first).
+    if re.search(r"\bAQ_PUSH_ANYWAY=1\b", command):
+        return None
+    found = scan(command, cwd)
+    if found:
         where, branch = found
         pr = run(where, "gh", "pr", "view", branch, "--json", "isDraft,state,files", "--jq",
                  'select(.state == "OPEN" and (.isDraft | not)) | .files[].path')
         if pr.returncode != 0 or not any(f.startswith(IOS) for f in pr.stdout.split()):
-            continue  # no open pull request, a draft, no app change, or gh couldn't say
+            return None  # no open pull request, a draft, no app change, or gh couldn't say
         last = run(where, "gh", "run", "list", "--workflow", "ios.yml", "--branch", branch, "--event", "pull_request",
                    "--limit", "1", "--json", "status,url", "--jq", '.[] | select(.status != "completed") | "\\(.status) \\(.url)"')
         if last.returncode == 0 and last.stdout.strip():
